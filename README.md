@@ -21,12 +21,16 @@ inside, on a phone, with intermittent connectivity, over years.
 ## Story so far
 
 The repository was stood up on 2026-05-07 with the Persistence Kit
-v6 scaffold (working layer + public storytelling layer) and the
-four Mission Prompts saved into /prompts/. The close-prompt
-protocol was exercised end-to-end on the first day to verify the
-pull → boot → work → close → push reliability cycle. Phase 1 —
-Python Foundations — begins next session, working in parallel from
-PY4E Chapter 1 and Deitel Chapter 1.
+v6 scaffold and the four Mission Prompts saved into /prompts/. The
+close-prompt protocol was exercised end-to-end on the first day to
+verify the pull → boot → work → close → push reliability cycle.
+Phase 1 — Python Foundations — began the same day with a shell and
+git workflow warm-up (redirection drills, the add → commit → push
+tetrad live in the working terminal) and first contact with PY4E
+Chapter 1: the interactive interpreter, the print() function, and
+the same-operator-different-meaning behavior of `+` between
+integers and strings. First Python code executed end-to-end:
+`print('Hello, world!')`.
 
 ## Source materials
 
@@ -68,6 +72,8 @@ The directories: /curriculum/ (code by phase), /projects/
 
 ## Recent milestones
 
+- **2026-05-07** — Phase 1 (Python Foundations) begun; first Python
+code executed end-to-end (`print('Hello, world!')`).
 - **2026-05-07** — Initial scaffold of the repository created.
 Persistence Kit v6 in place; project is operational.
 

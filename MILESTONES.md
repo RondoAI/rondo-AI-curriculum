@@ -6,6 +6,9 @@ or two lines with a date.
 
 ---
 
+- **2026-05-07** — Phase 1 (Python Foundations) begun; first Python
+code executed end-to-end (`print('Hello, world!')`).
+
 - **2026-05-07** — Initial scaffold of the repository created.
 Persistence Kit v6 in place; project is operational.
 

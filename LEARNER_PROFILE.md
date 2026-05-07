@@ -6,10 +6,19 @@ something new genuinely worth recording. Brevity is fidelity.
 ## How Laron learns best
 [Pedagogical approaches that have demonstrably worked. Format
 each entry as: "What works — example or evidence."]
+- Workflow muscle memory before content — 2026-05-07: when given
+the first-session choice of (A) PY4E directly, (B) Deitel directly,
+or (C) shell+git warm-up first, picked C then segue into A.
+Suggests: front-load practitioner-habit drills (bash, git) on
+sessions where new tooling is about to be introduced.
 
 ## Strengths
 [Concepts that came easily, or that he showed unusual aptitude
 for. Note the topic and the date.]
+- 2026-05-07: shell fluency baseline strong. First-ask correct
+predictions on `>` vs `>>` semantics, `wc -l` output, and
+overwrite behavior of `>` after `>>`. Pacing on shell topics can
+be brisk; depth, not handholding, is what serves him here.
 
 ## Friction points and what unlocked them
 [Concepts that took multiple passes, paired with what eventually
