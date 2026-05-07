@@ -1,0 +1,67 @@
+Close this session. Do the following in order. Do not skip any step.
+Confirm each step out loud as you complete it.
+
+1. Append a new entry to the top of SESSION_LOG.md using today's date
+and a short title for what we did. The entry must include: what
+we covered, what we built (with file paths), the source references
+(PY4E module and Deitel chapter, if applicable), the practice
+terminal sync status, key insights, what I'm stuck on, and the
+single most important thing for next session.
+
+2. REFLECT on the session and ask yourself: did anything new about
+how Laron specifically learns surface today? A metaphor that
+landed, a friction point that yielded to a particular approach,
+a motivation hook that visibly engaged him, an emerging
+strength, or an open hypothesis that today either confirmed or
+disconfirmed? If yes, append a brief, specific note to the
+appropriate section of LEARNER_PROFILE.md. If no, leave the file
+alone — do not pad. Brevity is fidelity for that file.
+
+3. CONSIDER whether today contained anything milestone-worthy:
+a first-of-its-kind moment, a phase completed, a project
+shipped, a contribution merged, a meaningful breakthrough.
+If yes, propose a one-line addition to MILESTONES.md and ask
+me to confirm before adding it. If no, do not add anything —
+manufactured significance is noise.
+
+4. If today is the first session of a new calendar month and
+CHRONICLE.md does not yet have an entry for the month just
+ended, prompt me with three or four open questions about the
+prior month, then synthesize my answers into a single
+public-facing paragraph and save it as a new entry in
+CHRONICLE.md under "Month of [Month YYYY]." The voice is
+reflective and outward-looking, not a private journal.
+
+5. If today is journal day and I have not yet written this week's
+journal entry, prompt me with the four journal questions, save
+my answers verbatim into JOURNAL.md under a new "Week of
+YYYY-MM-DD" heading, and do not edit my words.
+
+6. If a milestone was added in step 3, or if a chronicle entry was
+added in step 4, also propose a refresh of README.md so that
+the "Story so far" section and the "Recent milestones" section
+reflect the current state. Make the edit only after I confirm.
+
+7. Update PROGRESS.md so that "Last updated" is today's date,
+"Current phase," "Current topic," and the "Current Python
+sources" lines (PY4E and Deitel) reflect reality, the "Mastered"
+and "In progress" lists are accurate, the "Practice terminal sync
+status" line is current, and "Next session plan" matches the
+bottom of the new SESSION_LOG entry.
+
+8. Stage every modified or new file: git add -A
+
+9. Commit with a message in the form:
+YYYY-MM-DD: <session title> — <one-line summary>
+
+10. Push to origin/main: git push origin main
+If the push fails, do not stop — diagnose the failure (auth,
+conflict, network), fix it or surface it to me explicitly, and
+retry until the push succeeds.
+
+11. Run git status and git log -1 and show me the output, so I can
+see with my own eyes that the work is committed and pushed.
+
+12. Tell me clearly: "It is safe to disconnect."
+
+Do not let me end this session without seeing step 12.

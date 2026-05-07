@@ -1,0 +1,40 @@
+Boot this project. Do the following in order, then stop and wait for me.
+
+1. Read CLAUDE.md in full and confirm you understand the mission, the
+two-terminal workflow, and the operating rules.
+
+2. Read PROGRESS.md to understand current state.
+
+3. Read the most recent three entries in SESSION_LOG.md to
+understand recent history, including any open threads, anything
+I said I was stuck on, and the practice terminal sync status.
+
+4. Read LEARNER_PROFILE.md to load accumulated insight about how
+I learn — the metaphors that have landed, the friction points
+and what unlocked them, the motivation hooks, and any recent
+creative openers that worked.
+
+5. SYNTHESIZE. In four to six sentences, state: where we are in the
+curriculum (PY4E module, Deitel chapter, current topic); what
+recent sessions reveal about momentum and friction; what the
+learner profile suggests about how I am currently learning best;
+and what creative or intuitive angle might serve today's session.
+
+6. If today is journal day and the latest JOURNAL.md entry is more
+than six days old, remind me that a journal entry is due before
+close.
+
+7. If today is the first session of a new calendar month and
+CHRONICLE.md does not yet have an entry for the month just
+ended, remind me that a chronicle entry is due before close.
+
+8. Confirm the working environment: print the current directory,
+list the top-level files, and confirm we are on a clean main
+branch with origin reachable.
+
+9. Based on the synthesis above, propose two or three possible
+openings for today's session — each grounded in something
+concrete from the synthesis, not generic. Then ask: "Which of
+these resonates, or would you like to take it somewhere else?"
+
+Do not begin teaching, coding, or briefing until I answer.
