@@ -20,11 +20,13 @@ inside, on a phone, with intermittent connectivity, over years.
 
 ## Story so far
 
-[Updated periodically. Examples of what goes here: "Currently in
-Phase 1, working through PY4E Chapter 3 and Deitel Chapter 2.
-First Python program written on YYYY-MM-DD." This section is
-overwritten with each update; it represents the current state, not
-a history. The history lives in CHRONICLE.md.]
+The repository was stood up on 2026-05-07 with the Persistence Kit
+v6 scaffold (working layer + public storytelling layer) and the
+four Mission Prompts saved into /prompts/. The close-prompt
+protocol was exercised end-to-end on the first day to verify the
+pull → boot → work → close → push reliability cycle. Phase 1 —
+Python Foundations — begins next session, working in parallel from
+PY4E Chapter 1 and Deitel Chapter 1.
 
 ## Source materials
 
@@ -66,8 +68,8 @@ The directories: /curriculum/ (code by phase), /projects/
 
 ## Recent milestones
 
-[The five most recent entries from MILESTONES.md, refreshed when
-the README is refreshed.]
+- **2026-05-07** — Initial scaffold of the repository created.
+Persistence Kit v6 in place; project is operational.
 
 ## How to read this
 

@@ -6,7 +6,7 @@ or two lines with a date.
 
 ---
 
-- **YYYY-MM-DD** — Initial scaffold of the repository created.
+- **2026-05-07** — Initial scaffold of the repository created.
 Persistence Kit v6 in place; project is operational.
 
 [Future entries follow this format. Examples of what qualifies:
