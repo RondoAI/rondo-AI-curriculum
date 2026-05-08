@@ -86,13 +86,3 @@ on what the work means, read /writings/. If you want technical
 depth, read SESSION_LOG.md and the code under /curriculum/ and
 /projects/. If you want the human voice, read JOURNAL.md.
 
-## Acknowledgements
-
-This work has been supported by the people and organizations who
-have stood with Laron through the years of preparation: the
-Decolonized Library Project, the Malcolm X and Dr. Betty Shabazz
-Memorial and Educational Center, Amity Foundation, the Tayba
-Foundation, and the family and chosen family who have kept the
-correspondence and the support unbroken. The honesty of the
-2025 resentencing record made by Judge Daniel T. Nishigaya is the
-opening through which this project was made possible.
