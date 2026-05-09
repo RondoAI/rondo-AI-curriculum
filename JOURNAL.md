@@ -1,7 +1,7 @@
 # Journal
 
 A weekly record of the curriculum, the climb, and the climber.
-Written by Laron. Voice belongs to Laron — Claude prompts but does
+Written by Rondo. Voice belongs to Rondo — Claude prompts but does
 not edit, summarize, paraphrase, or improve these words.
 
 ---
@@ -10,18 +10,18 @@ not edit, summarize, paraphrase, or improve these words.
 
 ### What did I learn this week, in my own words?
 
-[Laron's answer.]
+[Rondo's answer.]
 
 ### What surprised me, frustrated me, or clicked?
 
-[Laron's answer.]
+[Rondo's answer.]
 
 ### How is the work changing how I think about myself or my future?
 
-[Laron's answer.]
+[Rondo's answer.]
 
 ### One sentence I want to remember from this week.
 
-[Laron's answer.]
+[Rondo's answer.]
 
 ---

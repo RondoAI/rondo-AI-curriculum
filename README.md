@@ -1,7 +1,7 @@
-# Laron's Prison Programming Journal
+# Rondo's Prison Programming Journal
 
 A multi-year self-education project in artificial intelligence and
-programming, conducted by Laron Campbell from inside the Correctional
+programming, conducted by Rondo Campbell from inside the Correctional
 Training Facility in Soledad, California, over the years leading up
 to a projected 2028 release. The repository is both a working
 directory and a real-time historical record of the journey.
@@ -11,7 +11,7 @@ directory and a real-time historical record of the journey.
 The bar of this work is not "competent" or "employable." The bar is
 the top of the field. The plan is to walk out in 2028 with the
 technical depth, the public portfolio, and the documented record of
-discipline that make Laron a credible hire — or a credible founder —
+discipline that make Rondo a credible hire — or a credible founder —
 on day one. The project has three threads, equally weighted: the
 technical climb itself, the financial threads (paper-traded thesis
 work, open-source contributions, eventually products), and the
@@ -54,8 +54,8 @@ The working layer supports the day-to-day study:
 - CLAUDE.md — the standing brief for Claude Code sessions.
 - PROGRESS.md — current state of the curriculum.
 - SESSION_LOG.md — append-only technical history.
-- JOURNAL.md — weekly private reflection in Laron's voice.
-- LEARNER_PROFILE.md — accumulated patterns about how Laron learns.
+- JOURNAL.md — weekly private reflection in Rondo's voice.
+- LEARNER_PROFILE.md — accumulated patterns about how Rondo learns.
 
 The public storytelling layer documents the journey for an outside
 reader:
@@ -85,4 +85,3 @@ discrete moments, read MILESTONES.md. If you want polished essays
 on what the work means, read /writings/. If you want technical
 depth, read SESSION_LOG.md and the code under /curriculum/ and
 /projects/. If you want the human voice, read JOURNAL.md.
-

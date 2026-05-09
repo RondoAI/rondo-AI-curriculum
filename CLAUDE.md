@@ -1,10 +1,10 @@
-# Project: Laron Campbell — AI & Programming Self-Education
+# Project: Rondo Campbell — AI & Programming Self-Education
 
 ## Identity & Mission
 
-This repository belongs to Laron Campbell (CDCR #BB9503), currently
-incarcerated at the Correctional Training Facility in Soledad,
-California, with a projected 2028 release. His mission is to become
+This repository belongs to Rondo Campbell, currently incarcerated
+at the Correctional Training Facility in Soledad, California, with
+a projected 2028 release. His mission is to become
 genuinely world-class in artificial intelligence and programming —
 the bar is the top of the field, not "competent" or "employable."
 Practical objectives: build the technical depth and public portfolio
@@ -27,7 +27,7 @@ contrary to the resentencing court's documented findings.
 
 ## Two-Terminal Workflow
 
-Laron operates two terminals in parallel — a practice terminal where
+Rondo operates two terminals in parallel — a practice terminal where
 he types and runs code himself, and the Claude Code working terminal.
 The practice terminal sets the pace. After any non-trivial piece of
 work, Claude asks: "Run this in your practice terminal and paste the
@@ -54,15 +54,21 @@ frontier labs.
 
 ## Books and Source Materials
 
-Two parallel primary Python sources. First, Charles Severance's
-"Python for Everybody" (University of Michigan; free at py4e.com).
-Uses standard Python 3 from the shell — no adaptation needed.
-Structured on-ramp; anchors Phases 1-2. Second, Paul Deitel and
-Harvey Deitel's "Intro to Python for Computer Science and Data
-Science." Denser, carries Phases 3-8. Where Deitel uses IPython
-features (%timeit, %run, ?, !) or Jupyter notebooks, translate to
-standard Python 3 equivalents (timeit module, help() function,
-subprocess or os.system, plain .py scripts).
+Two physical Python books in Rondo's hand. Sessions work from the
+books, not from the Coursera/py4e app. Track the current chapter
+in each book in PROGRESS.md and pick up exactly where we left off.
+
+Primary book: "Intro to Python for Computer Science and Data
+Science" by Paul Deitel and Harvey Deitel. This is the spine of
+the curriculum — work through it chapter by chapter, in order.
+Where Deitel uses IPython features (%timeit, %run, ?, !) or Jupyter
+notebooks, translate to standard Python 3 equivalents (timeit
+module, help() function, subprocess or os.system, plain .py
+scripts).
+
+Second book: "Python for Everyone" by Charles Severance. Recently
+acquired; not yet started. Will run alongside Deitel for a second
+angle on shared topics once we begin it.
 
 Supporting library: Sutton and Barto, "Reinforcement Learning: An
 Introduction" (2nd ed.) for RL; Russell and Norvig, "Artificial
@@ -100,11 +106,11 @@ At session start, Claude reads CLAUDE.md, PROGRESS.md, the most
 recent three entries of SESSION_LOG.md, and LEARNER_PROFILE.md.
 Then synthesizes in four to six sentences: where we are; what
 recent sessions reveal about momentum and friction; what the
-learner profile suggests about how Laron is currently learning
+learner profile suggests about how Rondo is currently learning
 best; what creative angle might serve today. Based on the
 synthesis, Claude proposes two or three possible openings and asks
 which resonates. Claude does not begin substantive work until
-Laron confirms or redirects.
+Rondo confirms or redirects.
 
 When teaching: concept, worked example, mental-execution challenge
 (predict the output before running), hands-on exercise, reflection
@@ -115,11 +121,11 @@ Daily briefing: search for live data, write to
 /briefings/YYYY-MM-DD.md, end with one targeted learning task tied
 to the day's news.
 
-Weekly journal: prompt with four open questions, save Laron's
+Weekly journal: prompt with four open questions, save Rondo's
 answers verbatim, do not edit.
 
 At session end: append to SESSION_LOG.md; reflect on whether
-anything new about how Laron learns surfaced (update
+anything new about how Rondo learns surfaced (update
 LEARNER_PROFILE.md only if so); update PROGRESS.md; git add, commit,
 push; verify; sign off. Not optional.
 

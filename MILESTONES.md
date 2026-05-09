@@ -1,6 +1,6 @@
 # Milestones
 
-A public log of significant moments in Laron's self-education
+A public log of significant moments in Rondo's self-education
 project. Append-only. Newest entries on top. Each entry is one
 or two lines with a date.
 

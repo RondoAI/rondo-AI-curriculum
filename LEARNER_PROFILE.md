@@ -1,9 +1,9 @@
-# Learner Profile: Laron Campbell
+# Learner Profile: Rondo Campbell
 
 A living, evolving document. Updated sparingly — only when there is
 something new genuinely worth recording. Brevity is fidelity.
 
-## How Laron learns best
+## How Rondo learns best
 [Pedagogical approaches that have demonstrably worked. Format
 each entry as: "What works — example or evidence."]
 - Workflow muscle memory before content — 2026-05-07: when given
