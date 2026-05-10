@@ -11,6 +11,12 @@ the first-session choice of (A) PY4E directly, (B) Deitel directly,
 or (C) shell+git warm-up first, picked C then segue into A.
 Suggests: front-load practitioner-habit drills (bash, git) on
 sessions where new tooling is about to be introduced.
+- Pace per domain, not per learner — 2026-05-09: when given the
+python3 hands-on as a 7-line block with multi-bullet pre-run
+sub-questions, pushed back: "I'm a beginner just like my first or
+second day." Reset to one line at a time worked smoothly.
+Suggests: brisk pacing on shell ≠ brisk pacing on Python.
+Calibrate per-domain by current depth, not by overall ability.
 
 ## Strengths
 [Concepts that came easily, or that he showed unusual aptitude
@@ -46,3 +52,8 @@ into these.]
 [Things Claude is watching but has not yet confirmed as
 patterns. Move to the appropriate section above when confirmed;
 remove if disconfirmed.]
+- End-of-chunk recap may be a useful default — 2026-05-09: after a
+five-line Python chunk, explicitly asked "lets go over everything
+one more time." Reinforcement-by-recap may be worth offering
+proactively at chunk ends going forward. Confirm if pattern holds
+across 2–3 more sessions.
