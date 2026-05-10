@@ -1,10 +1,12 @@
 # Progress
 
-Last updated: 2026-05-09
+Last updated: 2026-05-10
 Current phase: Phase 1 — Python Foundations
-Current topic: Deitel Ch.1 / PY4E Ch.1 — print() basics, REPL
-auto-echo, and the quote-vs-no-quote distinction now absorbed.
-Ready to move toward variables and types.
+Current topic: Phase 1, Deitel Ch.1 — Python is primary. The
+print/expression material is *Taught* (see CONCEPTS.md); next-up
+is variables and types. Shell habit-drill alongside (one per
+session per CLAUDE.md) continues progressing on
+`ls → cat → > → >> → < → |` over time.
 
 Current Python sources:
 - Deitel (primary): Chapter 1 in progress.
@@ -15,31 +17,30 @@ Current Python sources:
 - [None yet — too early to claim mastery on anything.]
 
 ## In progress
-- Shell redirection (`>`, `>>`) — first-ask predictions all
-correct; ready to advance to pipes (`|`) and stdin (`<`) next
-shell drill.
-- Git tetrad (add, commit, push, pull) — walked through live in
-working terminal; practice-terminal mirror of full add/commit/push
-cycle still pending.
-- Deitel Chapter 1 / PY4E Chapter 1 — print() with strings, the
-comma-as-separator behavior, quote-vs-no-quote (text vs math),
-REPL auto-echo of bare expressions, and string `+` concatenation
-with the REPL's representation-with-quotes display all run in the
-practice terminal on 2026-05-09. Variables and types are next.
+- See CONCEPTS.md for the explicit ledger of what's been
+*Introduced* vs *Taught* vs *Owned* across Python, Shell, and Git.
+- Python: `print()` basics, comma-separator, quote-vs-no-quote,
+REPL auto-echo, string `+` concatenation, REPL representation —
+all *Taught* (2026-05-09). Variables and types are next.
+- Shell: `wc -l` and the REPL-vs-shell prompt distinction *Taught*
+(2026-05-10). One drill per session continues on `ls`, `cat`,
+`>`, `>>`, `<`, `|` — currently *Introduced* in CONCEPTS.md.
+- Git: tetrad still at *Introduced* only. Practice-terminal mirror
+of full add/commit/push cycle still pending.
 
 ## Practice terminal sync status
-- 2026-05-09: CAUGHT UP. The python3 interactive hands-on that was
-pending from 2026-05-07 is now mirrored end-to-end. Five
-substantive lines run with predictions and verified outputs.
-Phone-terminal display duplicates characters on paste-back
-occasionally — cosmetic only, Python output is clean.
+- 2026-05-10: In sync. Ran `wc -l README.md`, `ls`, `ls | wc -l`,
+`ls | cat` with predictions and verified outputs.
 
 ## Next session plan
-- Continue Deitel Ch.1 toward variables and types (and/or the
-parallel material in PY4E Ch.1–2).
-- Maintain one-line-at-a-time pacing established 2026-05-09.
-- Consider closing each chunk with an explicit recap pass — Rondo
-asked for one today and it served him.
+- Lead with Python: Deitel Ch.1 variables and types, one line at
+a time, recap at chunk end.
+- One shell drill alongside (per CLAUDE.md "every session
+includes at least one shell-only task"). Next concept on deck
+from CONCEPTS.md is `ls`, taught from scratch.
+- After each drill, update CONCEPTS.md.
+- Maintain the rule: check CONCEPTS.md before invoking any prior
+concept.
 
 ## Open questions
 - [None.]
@@ -50,8 +51,9 @@ experience of learning AI from inside, week by week.
 - Status: Phase 1 in progress. Public layer (README, MILESTONES,
 Field Manual site) reflects current state. Twitter account
 launching to extend the public record.
-- Next step: Continue Phase 1 Python material; first portfolio
-project to be defined when Ch.1–2 fundamentals are in.
+- Next step: Continue Phase 1 Python with shell habit-drills
+alongside; first portfolio project to be defined when Ch.1–2
+fundamentals are in.
 
 ## Watchlist notes
 - [None yet — first daily briefing pending.]

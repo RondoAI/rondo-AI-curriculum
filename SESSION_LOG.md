@@ -5,6 +5,58 @@ entries.
 
 ---
 
+## 2026-05-10 — Structure Reset: Concepts Ledger Created
+
+Covered: Two movements. (1) Opened with shell drill 2 — pipes (`|`)
+and stdin (`<`) — per yesterday's plan. Taught `wc -l` from scratch
+(Rondo flagged he hadn't actually learned it from the day-1 brief
+mention). Drilled `wc -l README.md` (87 lines, Rondo predicted 5000
+— gap was the lesson on calibration), then `ls | wc -l` (16
+items), then `ls | cat` to surface the "ls switches to one-per-line
+in pipes" behavior. One bug surfaced and resolved: Rondo was still
+inside python3 from yesterday and tried to run `wc` as Python —
+taught the `>>>` vs shell prompt distinction. (2) Structural reset
+— introducing stdin (`<`), I framed it as "you already know `>`
+and `>>`". Rondo pushed back: "never learned any of this. Please
+be aware of whats been learned and not. You need to be much more
+structured and organized." Stopped, saved feedback memory, and
+built CONCEPTS.md — a real ledger of what's been *Introduced* vs
+*Taught* vs *Owned*, organized by topic (Python / Shell / Git).
+Honest snapshot: Python has 7 *Taught*, Shell has 2 *Taught*, Git
+has 0 *Taught*.
+
+Built: `/CONCEPTS.md` (new file at repo root — concept ledger with
+explicit levels, populated for Python / Shell / Git). Memory:
+`feedback_track_what_is_actually_taught.md` (don't assume prior
+knowledge from SESSION_LOG; teach from the ledger). Updates
+pending in this close: SESSION_LOG, PROGRESS, LEARNER_PROFILE.
+
+Source references: None today — material was all shell; no book
+chapters touched.
+
+Practice terminal: In sync. Ran `wc -l README.md`, `ls`,
+`ls | wc -l`, `ls | cat` in the practice terminal with predictions
+and verified outputs. Stdin (`<`) was introduced but the drill was
+deliberately paused before running — moved to next session.
+
+Key insights: I had been treating "covered in a prior session" as
+equivalent to "Rondo can use it" — they're nowhere near the same.
+The session log records what got introduced, not what got
+internalized. Going forward: check CONCEPTS.md before invoking any
+prior concept; teach from scratch when in doubt; update CONCEPTS.md
+at every session close. Today's session established the structural
+fix; next session executes the structured shell teaching unit.
+
+Stuck on: Nothing — this was a structural reset that surfaced and
+got fixed in-session. The shell teaching unit (`ls`, `cat`, `>`,
+`>>`, `<`, `|`) is queued.
+
+Next session: Coherent shell teaching unit from the ground up:
+`ls` → `cat` → `>` → `>>` → `<` → `|`. Each predict-run-verify.
+Goal: move four or five into *Taught*. Update CONCEPTS.md as we go.
+
+---
+
 ## 2026-05-09 — Twitter Identity, Pacing Reset, Python REPL Mirror Caught Up
 
 Covered: Three movements. (1) Twitter identity — drafted and

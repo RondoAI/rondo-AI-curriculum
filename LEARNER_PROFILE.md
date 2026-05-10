@@ -17,6 +17,15 @@ sub-questions, pushed back: "I'm a beginner just like my first or
 second day." Reset to one line at a time worked smoothly.
 Suggests: brisk pacing on shell ≠ brisk pacing on Python.
 Calibrate per-domain by current depth, not by overall ability.
+- Explicit tracking of what's been taught vs assumed — 2026-05-10:
+when I framed new material as "you already know `>` and `>>`"
+based on a brief day-1 mention, pushed back: "never learned any
+of this. Please be aware of whats been learned and not. You need
+to be much more structured and organized." Built CONCEPTS.md as
+the fix. Suggests: he learns best when prior knowledge is
+tracked explicitly in a ledger and new lessons build coherently
+on a verified foundation — not on extrapolation from session
+notes.
 
 ## Strengths
 [Concepts that came easily, or that he showed unusual aptitude
