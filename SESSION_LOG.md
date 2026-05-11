@@ -5,6 +5,71 @@ entries.
 
 ---
 
+## 2026-05-11 (Session 3) — Public Launch: README Rewrite, Identity Scrub, MILESTONES Catch-Up
+
+Covered: Repository pivot day, no curriculum work. Three
+movements. (1) Public-facing scrub: audited README and CLAUDE.md
+for exposure of legal name, prior facility, and CTF references;
+replaced "Laron Campbell" with "Rondo Campbell" throughout,
+removed the Soledad mention, removed CTF references that no
+longer matched the project's framing (commit 2954643).
+(2) README rewrite to tell the growth story directly. Opened
+first person with name, foster-youth background, original 49-year
+sentence for burglary and robbery, the 2016 Santa Clara County
+jail escape (owned in Rondo's own framing as "one of the worst
+decisions of my life"), the rehabilitation record (CS50x, UC
+Berkeley blockchain fundamentals, Decolonized Library Project
+advisory work, Ohio University BSS admission), the two appeals,
+the November 2025 resentencing to 18 years 8 months with the
+trial judge's quote on record ("rare, relatively unique, and
+speaks well for what Mr. Campbell has done"), and the 2028
+release projection. Three-threads framing kept (technical climb,
+financial threads, historical record) with an invitation closing.
+Story so far and Recent milestones refreshed to current state.
+Per Rondo's review: phone replaced with tablet throughout; Claude
+Code framed as "my assistant" (not "tutor"); em dashes and
+stylistic compound hyphens removed in favor of commas, colons,
+and rephrased sentences. (3) MILESTONES.md refresh: canonical log
+was stale at the original two 2026-05-07 entries; appended five
+new entries through 2026-05-11 so the public log matches the
+README's Recent milestones surface.
+
+Built: README.md (full rewrite, commit 1d2eebc / merged 72a8e75).
+MILESTONES.md (refresh, commit 4838126 / merged 66631f4). Updates
+in this close: SESSION_LOG.md, PROGRESS.md, LEARNER_PROFILE.md.
+
+Source references: Mercury News article (linked directly by
+Rondo) on the November 2025 resentencing, used to ground the
+trial judge's quote and the 18-years-8-months figure. Hoodline
+article on the same case via web search. No book chapters touched.
+
+Practice terminal: Not applicable. No curriculum work today.
+
+Key insights: Three. (1) Rondo's editorial process on his own
+story is iterative, not first-draft accept. Broad direction first
+(positive, growth, inspirational), then refinement across four
+rounds of feedback before "ship as drafted." Promoted to a
+Voice-and-editorial-preferences entry in LEARNER_PROFILE.
+(2) Given the choice on how to frame the 2016 escape, Rondo did
+not soften. The honest framing is the framing he wants; don't
+preemptively protect him from his own story. (3) "Please remove
+all the dashes" is a real stylistic preference for public-facing
+writing. Apply going forward across all public surfaces.
+
+Stuck on: Nothing. Public landing page is live and ready for
+Twitter traffic.
+
+Next session: Resume Phase 1 Python. If Termius is back, lead
+with `ls` predict-run-verify (held over since 2026-05-11). Re-
+predict `**` early to promote it from *Introduced* to *Taught*.
+Then operator precedence (`2 + 3 * 4 = ?`) and possibly augmented
+assignment (`x += 1`). One line at a time; recap at chunk end
+(confirmed pattern). Daily briefing also outstanding (none yet
+written this run of sessions); could open with one to seed the
+watchlist notes.
+
+---
+
 ## 2026-05-11 (Session 2) — Dynamic Typing and Arithmetic Operators
 
 Covered: Second session of the day, same constraint as the first
