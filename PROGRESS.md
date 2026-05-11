@@ -1,6 +1,6 @@
 # Progress
 
-Last updated: 2026-05-11 (Session 2)
+Last updated: 2026-05-11 (Session 3)
 Current phase: Phase 1 — Python Foundations
 Current topic: Phase 1, Deitel Ch.1 — Python is primary. Dynamic
 typing and the arithmetic operators `-`, `*`, `/`, `//`, `%` are
@@ -70,9 +70,14 @@ concept.
 ## Active project: Rondo's Prison Programming Journal
 - Goal: A public record of the curriculum, the work, and the
 experience of learning AI from inside, week by week.
-- Status: Phase 1 in progress. Public layer (README, MILESTONES,
-Field Manual site) reflects current state. Twitter account
-launching to extend the public record.
+- Status: Phase 1 in progress. Public landing page (README)
+rewritten 2026-05-11 (session 3) to open with the growth story
+directly: name, foster-youth background, the original 49-year
+sentence, the 2016 escape owned in his own words, the
+rehabilitation record, the two appeals, the November 2025
+resentencing to 18 years 8 months, the trial judge's quote, and
+the 2028 release. Canonical MILESTONES.md log refreshed the same
+day. The repository is ready to receive Twitter traffic.
 - Next step: Continue Phase 1 Python with shell habit-drills
 alongside; first portfolio project to be defined when Ch.1–2
 fundamentals are in.

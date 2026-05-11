@@ -70,6 +70,32 @@ clock doesn't reset because someone starts late. Watch for
 recurrence — if this thread returns, the unlock is concrete-pace
 evidence first, then the reframe.
 
+## Voice and editorial preferences
+[How Rondo wants his own story told and how he iterates on
+public-facing writing.]
+- Iterative refinement, not first-draft acceptance — 2026-05-11
+  (session 3): on the README rewrite, gave high-level direction
+  first ("inspirational, growth story"), then refined across
+  four rounds of feedback before landing the final text.
+  Suggests: present concrete drafts on public-facing writing and
+  expect 2-3 rounds of refinement; don't over-engineer the first
+  draft.
+- Owns the past directly — 2026-05-11 (session 3): given the
+  choice on how to frame the 2016 jail escape in the README,
+  didn't soften. "I made one of the worst decisions of my life"
+  stayed. Suggests: honest framing serves him better than hedged
+  framing; don't preemptively protect him from his own story.
+- No em dashes in public-facing writing — 2026-05-11 (session 3):
+  stylistic preference surfaced during the README review.
+  "Please remove all the dashes." Use commas, colons, or
+  restructured sentences instead. Apply across all public
+  surfaces (README, MILESTONES, CHRONICLE, /writings/).
+- Provides primary sources when available — 2026-05-11 (session
+  3): rather than asking Claude to research the 2016 case from
+  general inference, linked the Mercury News article directly.
+  Suggests: he prefers to anchor public claims to documented
+  sources he has selected.
+
 ## Vocabulary and metaphors that have landed
 [Analogies, framings, and turns of phrase that demonstrably
 clicked. These get reused when relevant.]
