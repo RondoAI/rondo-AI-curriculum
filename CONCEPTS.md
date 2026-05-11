@@ -38,6 +38,21 @@ cleanly.
 - REPL representation vs `print()`'s friendly display — REPL shows
   strings with quotes (`'AI & programming'`); `print()` strips
   them. (2026-05-09)
+- Variable assignment with `=` — name on the left, value on the
+  right; binds the name to the value. (2026-05-11)
+- Statement vs expression at the REPL — assignment is a statement
+  and produces no output; bare names/values are expressions and
+  auto-echo. (2026-05-11)
+- `type()` built-in — returns the type of a value as
+  `<class '…'>`. Returns the type only; the original value is not
+  repeated in the output. (2026-05-11)
+- `int` type — whole numbers, no decimal point: `7`, `-3`, `0`.
+  (2026-05-11)
+- `float` type — numbers with a decimal point, even when the value
+  equals an integer (`7.0`, `0.0`). The decimal point is the
+  dividing line between `int` and `float`. (2026-05-11)
+- `str` type — Python's three-letter name for the quoted-text
+  category. (2026-05-11)
 
 ### Introduced (not yet Taught)
 - Single vs double quotes are interchangeable — mentioned in
@@ -46,6 +61,9 @@ cleanly.
   as a bug and debugged once 2026-05-09.
 - `exit()` to leave the Python REPL — used 2026-05-09 and
   2026-05-10; not separately taught.
+- Python is case-sensitive — `x` and `X` are different names.
+  Flagged 2026-05-11 after Rondo typed `X=7` in a prediction; not
+  separately drilled.
 
 ---
 
