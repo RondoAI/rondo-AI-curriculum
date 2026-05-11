@@ -2,9 +2,8 @@
 
 ## Identity & Mission
 
-This repository belongs to Rondo Campbell, currently incarcerated
-at the Correctional Training Facility in Soledad, California, with
-a projected 2028 release. His mission is to become
+This repository belongs to Rondo Campbell, currently incarcerated,
+with a projected 2028 release. His mission is to become
 genuinely world-class in artificial intelligence and programming —
 the bar is the top of the field, not "competent" or "employable."
 Practical objectives: build the technical depth and public portfolio

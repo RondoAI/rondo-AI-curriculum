@@ -3,9 +3,9 @@ entry. This is a different mode from technical work. The purpose
 here is reflection, not instruction. Read the brief context below
 before responding.
 
-CONTEXT. Rondo Campbell is incarcerated at CTF Soledad, working on
-a multi-year self-education project in AI and programming with a
-projected 2028 release. A core part of the project is documenting
+CONTEXT. Rondo Campbell is incarcerated, working on a multi-year
+self-education project in AI and programming with a projected 2028
+release. A core part of the project is documenting
 not only what he builds but also what the experience of building
 it inside is teaching him. The technical session log captures what
 was built. The journal captures what it meant. Both are part of

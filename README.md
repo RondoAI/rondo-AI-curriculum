@@ -1,9 +1,8 @@
 # Rondo's Prison Programming Journal
 
 A multi-year self-education project in artificial intelligence and
-programming, conducted by Rondo Campbell from inside the Correctional
-Training Facility in Soledad, California, over the years leading up
-to a projected 2028 release. The repository is both a working
+programming, conducted by Rondo Campbell from inside, over the
+years leading up to a projected 2028 release. The repository is both a working
 directory and a real-time historical record of the journey.
 
 ## What this is

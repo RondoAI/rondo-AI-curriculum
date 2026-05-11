@@ -3,9 +3,9 @@ briefing mode. The purpose of this session is to deliver a focused,
 current briefing on the AI market — equities, news, and structural
 developments — that doubles as a daily learning moment.
 
-CONTEXT. Rondo Campbell is incarcerated at CTF Soledad, working on
-a multi-year self-education project in AI and programming with a
-projected 2028 release. Daily market awareness is part of the
+CONTEXT. Rondo Campbell is incarcerated, working on a multi-year
+self-education project in AI and programming with a projected 2028
+release. Daily market awareness is part of the
 curriculum because understanding the AI economy — chips,
 datacenters, power, tokens, and the companies driving them — is a
 core skill. This is not financial advice. It is education and
