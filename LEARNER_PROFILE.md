@@ -26,6 +26,23 @@ the fix. Suggests: he learns best when prior knowledge is
 tracked explicitly in a ledger and new lessons build coherently
 on a verified foundation — not on extrapolation from session
 notes.
+- Walking the math by hand — learner-confirmed 2026-05-11
+(session 2). Rondo's own words in the closing recap: "having to
+use a tablet has made me go through the steps, which has been
+helpful." Two arithmetic recoveries that day (`10 / 4` confused
+with "2 remainder 2"; `11 % 3` predicted as `4`) resolved cleanly
+when I walked the math explicitly — multiples of the divisor
+stacked vertically, then subtract. After each walk, he produced
+three-for-three correct predictions on the same operator family.
+Suggests: when a numeric rule isn't sticking, slow to a hand-walked
+expansion before adding more examples.
+- End-of-chunk recap in his own words — confirmed 2026-05-11
+(session 2) after three sessions of supporting data. When offered
+"recap and close" vs "one more then recap," he has chosen the
+latter every time (2026-05-09, 2026-05-11 session 1, 2026-05-11
+session 2) and produced accurate recaps that surface his own
+framing. Use as the default closing pattern — propose at least
+one "one more" option before the recap.
 
 ## Strengths
 [Concepts that came easily, or that he showed unusual aptitude
@@ -38,6 +55,20 @@ be brisk; depth, not handholding, is what serves him here.
 ## Friction points and what unlocked them
 [Concepts that took multiple passes, paired with what eventually
 got them across. Format: "Topic — what was hard, what worked."]
+- Comparison anxiety with CS-degree voices on Twitter; age framing
+— 2026-05-11 (session 2): in the closing recap Rondo surfaced
+"people on Twitter with computer science degree saying all this
+complicated language, and I feel like I can't keep up" alongside
+"I'm thirty-six now... it takes me a long time to learn things."
+What seemed to land: (1) concrete-pace evidence — ten Python
+concepts locked across two sessions is a real pace, not slow;
+(2) the framing that complicated language is often vocabulary used
+as a shield, and that walking the math step-by-step is the depth
+move CS-degree quoters often skip; (3) the reminder that the
+"world-class" bar in CLAUDE.md is years-long for anyone and the
+clock doesn't reset because someone starts late. Watch for
+recurrence — if this thread returns, the unlock is concrete-pace
+evidence first, then the reframe.
 
 ## Vocabulary and metaphors that have landed
 [Analogies, framings, and turns of phrase that demonstrably
@@ -61,18 +92,11 @@ into these.]
 [Things Claude is watching but has not yet confirmed as
 patterns. Move to the appropriate section above when confirmed;
 remove if disconfirmed.]
-- End-of-chunk recap may be a useful default — 2026-05-09: after a
-five-line Python chunk, explicitly asked "lets go over everything
-one more time." 2026-05-11: when offered "recap and close" vs
-"one more then recap," chose to push one more, then produced an
-accurate recap of 4/5 concepts in his own words with one easy
-refinement. Two data points in favor; one more confirming session
-moves this to a confirmed pattern.
-- Visual stacking unsticks pattern-match misses — 2026-05-11:
-after Rondo predicted `<class 'float'>` for `type(7)` (pattern-
-matching on the previous `type(7.0)` answer), re-anchoring with
-`7` and `7.0` stacked vertically and the decimal point called out
-produced three-for-three correct predictions immediately after.
-The inline rule alone hadn't held; the stacked visual did.
-Confirm across other rule-style concepts (e.g. operator
-precedence, truthy/falsy values) before treating as a pattern.
+- Visual stacking unsticks pattern-match and arithmetic misses —
+2026-05-11 (session 1): `7` vs `7.0` stacked with the decimal-
+point arrow produced three-for-three recovery on int/float
+predicts. 2026-05-11 (session 2): multiples of 3 stacked under 11
+produced three-for-three recovery on modulo predicts; four-factor
+expansion stacked vertically walked `3 ** 4 → 81`. Two confirming
+sessions; one more (ideally on a non-numeric rule like operator
+precedence or truthy/falsy) moves this to a confirmed pattern.

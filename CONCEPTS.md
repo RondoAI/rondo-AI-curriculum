@@ -53,6 +53,21 @@ cleanly.
   dividing line between `int` and `float`. (2026-05-11)
 - `str` type — Python's three-letter name for the quoted-text
   category. (2026-05-11)
+- Dynamic typing — the same name can be rebound to a value of a
+  different type; the latest assignment wins. Types belong to
+  values, not names. (2026-05-11)
+- Arithmetic operators `-` and `*` — standard subtraction and
+  multiplication of int operands. (2026-05-11)
+- `/` (true division) — always returns a `float` in Python 3, even
+  when the operands divide evenly (`6 / 2 → 3.0`). One consistent
+  behavior, no surprises. (2026-05-11)
+- `//` (integer division / floor division) — returns the whole-
+  number count of how many times the divisor fits into the
+  dividend (`10 // 4 → 2`). (2026-05-11)
+- `%` (modulo) — returns the remainder after `//`. The `//` and
+  `%` pair are the two halves of "divide and keep track of what's
+  left over." Walked the math via "biggest multiple of the divisor
+  that fits, then subtract." (2026-05-11)
 
 ### Introduced (not yet Taught)
 - Single vs double quotes are interchangeable — mentioned in
@@ -64,6 +79,11 @@ cleanly.
 - Python is case-sensitive — `x` and `X` are different names.
   Flagged 2026-05-11 after Rondo typed `X=7` in a prediction; not
   separately drilled.
+- `**` (exponentiation) — two asterisks; `base ** exponent`.
+  Introduced 2026-05-11 with two missed predicts: `3 ** 4`
+  (treated the exponent as a single multiplier rather than a count
+  of factors) and `10 ** 0` (the anything-to-the-0 = 1 rule was
+  new). Re-predict next session to promote.
 
 ---
 
