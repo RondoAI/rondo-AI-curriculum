@@ -5,6 +5,75 @@ entries.
 
 ---
 
+## 2026-05-11 — Mental-Execution Python: Variables, `type()`, Three Basic Types
+
+Covered: Pivot session. Rondo didn't have his practice Termius today,
+so the planned `ls` predict-run-verify couldn't run. After offering
+three terminal-free shapes (daily briefing, mental-execution Python,
+consolidation notes), Rondo picked mental-execution Python and we
+stayed on the Deitel Ch.1 thread: I showed lines, he predicted the
+output, I revealed. Five Python concepts landed cleanly: (1) variable
+assignment with `=`, name on the left and value on the right;
+(2) the statement-vs-expression distinction at the REPL — `x = 7` is
+silent, bare `x` auto-echoes the value; (3) `type()` as the "what
+kind of thing is this?" function, which returns the type only and
+doesn't repeat the value; (4) `int` vs `float` with the decimal
+point as the dividing line (`7` is int, `7.0` is float even though
+they're equal in value); (5) `str` as Python's three-letter name for
+the quoted-text category. Brief aside: Python is case-sensitive
+(after Rondo typed `X=7` in a prediction) — flagged but not drilled.
+Closed with a recap pass in Rondo's own words covering all five.
+
+Built: No new repo files. Plan file at
+`/root/.claude/plans/11-streamed-cosmos.md` (created in the plan-mode
+workflow earlier in-session, not in the repo). Updates in this close:
+CONCEPTS.md, SESSION_LOG.md, PROGRESS.md, LEARNER_PROFILE.md.
+
+Source references:
+- Deitel Ch.1 — variables, types, dynamic typing material (the
+  natural continuation from 2026-05-09's print/expression block).
+- Severance: not opened today.
+
+Practice terminal: NOT AVAILABLE. Rondo didn't have Termius today.
+Two-terminal discipline preserved by working in mental-execution
+mode — every line was predicted before its output was revealed, but
+no typing happened in a second terminal. The `ls` predict-run-verify
+that was queued in yesterday's plan is held over to next session.
+
+Key insights: Three. (1) Mental-execution mode produced real
+learning when typing wasn't available — five concepts landed and
+stuck through a closing recap. Worth keeping in the toolkit for
+terminal-unavailable days, though it is *not* a substitute for
+practice-terminal verification when the terminal is available.
+(2) Pattern-match risk: after seeing `<class 'float'>` for
+`type(7.0)`, Rondo predicted `<class 'float'>` for `type(7)`.
+Re-anchoring with `7` and `7.0` stacked vertically with the decimal
+point called out produced clean recovery — three-for-three on
+`type(42)`, `type(42.0)`, `type(0)` immediately after. The visual
+stack worked where the inline rule alone hadn't. (3) Two earlier
+prediction misses (predicting `x = 7` would echo `X=7`, then `x`
+alone would echo `=7`) followed the same shape: confusing the
+assignment syntax with the echo display. Explicitly separating "the
+`=` was used once to build the binding; after that, `x` is just a
+way to refer to the value" produced the lock. Recap-at-close
+hypothesis got another data point — Rondo chose "one more then
+recap" over "recap now and close," and the recap he produced was
+accurate on 4 of 5 concepts with one easy refinement (integer = a
+*whole* number specifically).
+
+Stuck on: Nothing. The `ls` predict-run-verify is a
+deferred-but-scheduled item, not a stuck point.
+
+Next session: Resume the queued shell teaching unit when Termius is
+back — `ls` cleanly from scratch, then continue with `cat`, `>`,
+`>>`, `<`, `|`. On the Python side, the next Deitel Ch.1 beats after
+basic types are dynamic typing (reassigning a name to a different
+type), basic arithmetic operators, and operator precedence. Open
+with one-line-at-a-time pacing and at least one shell drill per
+CLAUDE.md.
+
+---
+
 ## 2026-05-10 — Structure Reset: Concepts Ledger Created
 
 Covered: Two movements. (1) Opened with shell drill 2 — pipes (`|`)

@@ -63,6 +63,16 @@ patterns. Move to the appropriate section above when confirmed;
 remove if disconfirmed.]
 - End-of-chunk recap may be a useful default — 2026-05-09: after a
 five-line Python chunk, explicitly asked "lets go over everything
-one more time." Reinforcement-by-recap may be worth offering
-proactively at chunk ends going forward. Confirm if pattern holds
-across 2–3 more sessions.
+one more time." 2026-05-11: when offered "recap and close" vs
+"one more then recap," chose to push one more, then produced an
+accurate recap of 4/5 concepts in his own words with one easy
+refinement. Two data points in favor; one more confirming session
+moves this to a confirmed pattern.
+- Visual stacking unsticks pattern-match misses — 2026-05-11:
+after Rondo predicted `<class 'float'>` for `type(7)` (pattern-
+matching on the previous `type(7.0)` answer), re-anchoring with
+`7` and `7.0` stacked vertically and the decimal point called out
+produced three-for-three correct predictions immediately after.
+The inline rule alone hadn't held; the stacked visual did.
+Confirm across other rule-style concepts (e.g. operator
+precedence, truthy/falsy values) before treating as a pattern.
