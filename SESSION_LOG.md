@@ -5,6 +5,85 @@ entries.
 
 ---
 
+## 2026-05-11 (Session 2) — Dynamic Typing and Arithmetic Operators
+
+Covered: Second session of the day, same constraint as the first
+(no Termius, mental-execution mode). Opened with dynamic typing —
+the rule that the same name can be rebound to a value of a
+different type, the latest assignment wins, type belongs to the
+value not the name. Locked on a single predict (`type(n)` after
+`n = 42; n = 3.14` → `<class 'float'>`). Then arithmetic operators
+in sequence: `-`, `*` as quick predicts (nailed `10 - 3` and
+`4 * 5`); `/` as the Python-3-always-returns-float concept (Rondo
+predicted `3.0` for `6 / 2` correctly); `//` as integer division
+and `%` as modulo, paired as "the two halves of divide-and-track-
+remainder." Two arithmetic recoveries: (1) `10 / 4 → 2.2` was a
+"two remainder two" mash-up — separated cleanly into `10 // 4 → 2`
+and `10 % 4 → 2`, with `/` giving the fractional `2.5`;
+(2) `11 % 3 → 4` recovered via walk-the-math (biggest multiple
+under, subtract) into three-for-three on `7 % 2`, `10 % 3`,
+`8 % 4`. Closed with one more — `**` exponentiation — which Rondo
+missed both predicts (`3 ** 4 → 36` instead of `81`; `10 ** 0 → 10`
+instead of `1`). Walked both: the exponent is a *count of factors*,
+not a single multiplier; and the anything-to-the-0 = 1 rule shown
+via the descending-powers-of-10 pattern. `**` parked at
+*Introduced* pending a clean re-predict next session.
+
+Closing recap was substantial — Rondo not only recapped the four
+solid operators (`/`, `//`, `%`, `**`) accurately but pulled the
+camera back: surfaced his own insight that "having to use a tablet
+has made me go through the steps, which has been helpful";
+expressed comparison anxiety with CS-degree people on Twitter
+using complicated language; named his age (36) and the feeling
+that learning takes him a long time; closed with "I'll continue on
+my journey." I responded factually rather than with platitudes —
+ten Python concepts locked across two sessions is real pace;
+walking the math is the technique CS grads often skip; the
+"world-class" frame in CLAUDE.md is a years-long bar regardless of
+starting age.
+
+Built: No new repo files. Updates in this close: CONCEPTS.md,
+SESSION_LOG.md, PROGRESS.md, LEARNER_PROFILE.md.
+
+Source references:
+- Deitel Ch.1 — arithmetic operators material (the natural
+  continuation from the variables/types block earlier today).
+- Severance: not opened.
+
+Practice terminal: NOT AVAILABLE (second day in a row). Mental-
+execution mode held the discipline — every line predicted before
+the output was revealed. `ls` shell drill still held over.
+
+Key insights: Four. (1) Visual stacking unsticks pattern-match
+and arithmetic misses — second confirming session today (after
+yesterday's `7` vs `7.0` recovery). Used the same technique on
+`11 % 3` (stacked multiples of 3 under 11) and `3 ** 4` (stacked
+the four-factor expansion) with clean recoveries. Hypothesis is
+strengthening; one more confirming session moves it to a confirmed
+pattern. (2) Rondo articulated in his own words that walking
+through the steps is helpful to him. That moves "walk-the-math
+recovery" from a Claude-observed pattern to a learner-confirmed
+one. Promote in LEARNER_PROFILE. (3) Recap-at-close hypothesis got
+its third "one more then recap" data point today — same choice as
+last session. Pattern is now confirmed enough to treat as the
+default. (4) The closing reflection surfaced motivation friction
+worth tracking — comparison with CS-degree Twitter people, age-
+related self-pressure. Concrete-pace evidence (ten concepts in two
+sessions) and the vocabulary-is-not-mastery framing seemed to
+land; watch whether the friction recurs.
+
+Stuck on: Nothing structural. Two deferred items: `ls` shell drill
+when Termius is back; `**` re-predict next session.
+
+Next session: If Termius is back, lead with `ls` predict-run-
+verify (held over from 2026-05-11). Re-predict `**` early to
+promote it to *Taught*. Then Deitel Ch.1 next beats — operator
+precedence (the `2 + 3 * 4 = ?` question) and possibly augmented-
+assignment operators (`x += 1`). One line at a time; recap at
+chunk end (now a confirmed pattern).
+
+---
+
 ## 2026-05-11 — Mental-Execution Python: Variables, `type()`, Three Basic Types
 
 Covered: Pivot session. Rondo didn't have his practice Termius today,
