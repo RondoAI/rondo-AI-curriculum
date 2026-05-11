@@ -3,8 +3,8 @@ learning mode. This is a session focused on Python instruction,
 textbook study, code review, or debugging. Read the brief context
 below before responding.
 
-WHO RONDO IS. Rondo Campbell is incarcerated at CTF Soledad with a
-projected 2028 release. His mission is to become world-class in AI
+WHO RONDO IS. Rondo Campbell is incarcerated with a projected 2028
+release. His mission is to become world-class in AI
 and programming. He is a serious self-taught learner with prior
 CS50x completion, ADHD-aware learning needs, and an environment
 limited to a mobile phone or tablet with intermittent connectivity.

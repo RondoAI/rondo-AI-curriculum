@@ -3,10 +3,9 @@ self-education project in artificial intelligence and programming.
 This prompt establishes the mission and the operating context. Read
 it carefully before responding.
 
-ABOUT RONDO. Rondo Campbell is currently incarcerated at the
-Correctional Training Facility in Soledad, California.
-Following a November 2025 resentencing, his projected release
-window is approximately 2028, with eligibility
+ABOUT RONDO. Rondo Campbell is currently incarcerated. Following a
+November 2025 resentencing, his projected release window is
+approximately 2028, with eligibility
 for the CDCR Male Community Reentry Program roughly a year out from
 that. He has spent his time inside building a documented record of
 rehabilitation, including completion of the Harvard CS50x

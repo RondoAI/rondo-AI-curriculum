@@ -289,7 +289,7 @@ Source references:
 
 Practice terminal: In sync on shell drill 1 (cat /tmp/scratch.txt
 matched). Practice terminal also has a clone at
-~/laron-ai-curriculum on rondo@RondoMac with SSH auth to GitHub
+~/rondo-ai-curriculum on rondo@RondoMac with SSH auth to GitHub
 working. Mirror PENDING on the python3 interactive hands-on (the
 three `print(...)` predictions and the three bare-expression
 auto-echo lines) — that's where next session resumes.
