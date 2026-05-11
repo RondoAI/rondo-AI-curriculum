@@ -63,11 +63,24 @@ cleanly.
   behavior, no surprises. (2026-05-11)
 - `//` (integer division / floor division) — returns the whole-
   number count of how many times the divisor fits into the
-  dividend (`10 // 4 → 2`). (2026-05-11)
+  dividend (`10 // 4 → 2`). When both operands are `int`, the
+  result is `int` (no decimal point on the output). If either
+  operand is `float`, the result is `float`. Confirmed via
+  `type(10 // 4) → <class 'int'>` and
+  `type(10.0 // 4) → <class 'float'>`. (2026-05-11; type rule
+  made explicit session 4.)
 - `%` (modulo) — returns the remainder after `//`. The `//` and
   `%` pair are the two halves of "divide and keep track of what's
   left over." Walked the math via "biggest multiple of the divisor
-  that fits, then subtract." (2026-05-11)
+  that fits, then subtract." Same shape recovered session 4 on
+  `128 % 52 → 24` (stacked multiples of 52 under 128). (2026-05-11)
+- `**` (exponentiation) — `base ** exponent`. The exponent is a
+  *count of factors*, not a multiplier
+  (`3 ** 4 = 3 × 3 × 3 × 3 = 81`). Anything to the 0 equals 1.
+  The divide-by-base walk (`2 ** 3 = 8`, `2 ** 2 = 4 = 8 ÷ 2`, ...,
+  `2 ** 0 = 1 = 2 ÷ 2`) is what made the zero rule stick after the
+  descending-powers walk hadn't. (2026-05-11; re-predicted clean
+  in session 4 after session 2 misses.)
 
 ### Introduced (not yet Taught)
 - Single vs double quotes are interchangeable — mentioned in
@@ -79,11 +92,6 @@ cleanly.
 - Python is case-sensitive — `x` and `X` are different names.
   Flagged 2026-05-11 after Rondo typed `X=7` in a prediction; not
   separately drilled.
-- `**` (exponentiation) — two asterisks; `base ** exponent`.
-  Introduced 2026-05-11 with two missed predicts: `3 ** 4`
-  (treated the exponent as a single multiplier rather than a count
-  of factors) and `10 ** 0` (the anything-to-the-0 = 1 rule was
-  new). Re-predict next session to promote.
 
 ---
 

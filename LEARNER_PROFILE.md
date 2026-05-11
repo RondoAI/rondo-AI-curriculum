@@ -39,10 +39,33 @@ expansion before adding more examples.
 - End-of-chunk recap in his own words — confirmed 2026-05-11
 (session 2) after three sessions of supporting data. When offered
 "recap and close" vs "one more then recap," he has chosen the
-latter every time (2026-05-09, 2026-05-11 session 1, 2026-05-11
-session 2) and produced accurate recaps that surface his own
-framing. Use as the default closing pattern — propose at least
-one "one more" option before the recap.
+latter every time (2026-05-09, 2026-05-11 sessions 1, 2, 4).
+Use as the default closing pattern — propose at least one "one
+more" option before the recap.
+- Visual stacking unsticks pattern-match and arithmetic misses —
+confirmed across three sessions. 2026-05-11 (session 1): `7` vs
+`7.0` stacked with the decimal-point arrow produced three-for-
+three recovery on int/float predicts. 2026-05-11 (session 2):
+multiples of 3 stacked under 11 produced three-for-three recovery
+on modulo predicts; four-factor expansion stacked walked
+`3 ** 4 → 81`. 2026-05-11 (session 4): stacked multiples of 52
+under 128 produced a clean recovery on `128 % 52 → 24`, same
+shape as session 2. All three confirmations have been numeric;
+default to using this whenever the friction is numeric. Whether
+it extends to non-numeric rules (operator precedence, truthy/
+falsy) is still open.
+- Walk selection matters when a rule isn't sticking — 2026-05-11
+(session 4). The descending-powers walk for the `**` zero rule
+(`10 ** 4 → 10000`, divide by 10 each step down to
+`10 ** 0 = 1`) did not stick across two sessions of trying.
+Switching to the divide-by-base walk (`2 ** 3 = 8`, `2 ** 2 = 4 =
+8 ÷ 2`, ..., `2 ** 0 = 1 = 2 ÷ 2`) landed immediately and
+produced three-for-three on the zero rule. The unlock seems to be
+that divide-by-self is arithmetic he's done since elementary
+school, so the new rule lands on top of a fact already owned.
+Suggests: when one walk doesn't take, try a different walk
+anchored in older-than-the-rule arithmetic, not just a different
+visual presentation of the same idea.
 
 ## Strengths
 [Concepts that came easily, or that he showed unusual aptitude
@@ -69,6 +92,15 @@ move CS-degree quoters often skip; (3) the reminder that the
 clock doesn't reset because someone starts late. Watch for
 recurrence — if this thread returns, the unlock is concrete-pace
 evidence first, then the reframe.
+- `**` zero rule (`anything ** 0 = 1`) — took two sessions and two
+different walks. Session 2 used the descending-powers-of-10 walk
+(`10 ** 4 = 10000`, ÷10 each step down). Did not stick — session
+4 cold-predicts on `7 ** 0` and `2 ** 0` came back as the base.
+Switched to divide-by-base (`2 ** 3 = 8`, `2 ** 2 = 4 = 8 ÷ 2`,
+..., `2 ** 0 = 2 ÷ 2 = 1`) and got three-for-three immediately.
+The fact anchoring it — anything divided by itself equals 1 — was
+already cold-owned arithmetic, so the new rule landed on top of
+it.
 
 ## Voice and editorial preferences
 [How Rondo wants his own story told and how he iterates on
@@ -89,12 +121,20 @@ public-facing writing.]
   stylistic preference surfaced during the README review.
   "Please remove all the dashes." Use commas, colons, or
   restructured sentences instead. Apply across all public
-  surfaces (README, MILESTONES, CHRONICLE, /writings/).
+  surfaces (README, MILESTONES, JOURNAL, briefings, /writings/).
 - Provides primary sources when available — 2026-05-11 (session
   3): rather than asking Claude to research the 2016 case from
   general inference, linked the Mercury News article directly.
   Suggests: he prefers to anchor public claims to documented
   sources he has selected.
+- Light edits on his own journal voice are welcome when asked,
+  not by default — 2026-05-11 (session 4): on the first JOURNAL
+  entry, Rondo asked for paragraph breaks and typo fixes, plus
+  one substantive correction ("biggest limitation, of course, is
+  your freedom" → "biggest accomplishment, of course, is gaining
+  your freedom"). Approved every other word verbatim. Suggests:
+  default to verbatim per the JOURNAL header rule; offer light
+  editing as an explicit option when he posts a draft.
 
 ## Vocabulary and metaphors that have landed
 [Analogies, framings, and turns of phrase that demonstrably
@@ -118,11 +158,7 @@ into these.]
 [Things Claude is watching but has not yet confirmed as
 patterns. Move to the appropriate section above when confirmed;
 remove if disconfirmed.]
-- Visual stacking unsticks pattern-match and arithmetic misses —
-2026-05-11 (session 1): `7` vs `7.0` stacked with the decimal-
-point arrow produced three-for-three recovery on int/float
-predicts. 2026-05-11 (session 2): multiples of 3 stacked under 11
-produced three-for-three recovery on modulo predicts; four-factor
-expansion stacked vertically walked `3 ** 4 → 81`. Two confirming
-sessions; one more (ideally on a non-numeric rule like operator
-precedence or truthy/falsy) moves this to a confirmed pattern.
+- [Open: whether visual stacking extends to non-numeric rules.
+  Three confirming sessions on numeric content — the pattern is
+  confirmed for numeric work — but no non-numeric test yet.
+  Watch operator precedence and truthy/falsy when they come up.]

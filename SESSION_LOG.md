@@ -5,6 +5,95 @@ entries.
 
 ---
 
+## 2026-05-11 (Session 4) — Journal, Briefing, and `**` Graduation
+
+Covered: Fourth session of the day. Three movements. (1) First
+real JOURNAL.md entry shipped — "Create Your Own Lane," week of
+2026-05-11. Session-3 voice/editorial rules applied (no em
+dashes, paragraph breaks, one substantive correction at Rondo's
+request: "biggest limitation, of course, is your freedom" →
+"biggest accomplishment, of course, is gaining your freedom").
+Title pulled from his own closing one-sentence. Merged via PR #5
+(commit ad71a4e). (2) Daily briefing for 2026-05-11 — standard
+sweep, four days after the May 7 briefing. Headline structural
+shift: Microsoft disclosed an $80B Azure backlog they cannot
+fulfill because of power, not silicon. Covered NVIDIA
+pre-earnings setup (May 20 print, $78.8B / $1.77 consensus,
+Jensen at $1T opportunity through 2027), AMD post-print
+follow-through ($430 hold, MS PT $360), TSMC's five-fab 2nm ramp
+fully booked through 2026, frontier-lab cadence ~one model every
+11 days, plus $725B combined 2026 hyperscaler capex consuming
+near-100% of operating cash flow. Learning task tied to today's
+Python: four `//` and `%` predicts on the actual backlog and
+lead-time numbers. Merged via PR #6 (commit 89e918e). (3) The
+learning task ran live. Three of four predicts were value-correct
+but type-wrong (`2.0` where Python returns `2`); one missed on
+order of magnitude (`80_000_000_000 // 1_000_000_000 → 8.0`
+instead of `80`). Surfaced an implicit rule we hadn't separated
+cleanly: `int // int → int`, not `float`. Locked with
+`type(10 // 4)` vs `type(10.0 // 4)` — both predicted clean.
+Modulo recovery on `128 % 52 → 24` used the same stacked-multiples
+walk that worked in session 2 on `11 % 3`. Closed with `**`
+re-predict. Count-of-factors clean two-for-two (`3 ** 4 → 81`,
+`2 ** 5 → 32`). Zero rule missed twice again (`7 ** 0`, `2 ** 0`
+both came back as the base, same shape as session 2's
+`10 ** 0 → 10`). Switched walks: descending-powers (used in
+session 2, hadn't stuck) was replaced with divide-by-base (`2 ** 3
+= 8`, `2 ** 2 = 4 = 8 ÷ 2`, ..., `2 ** 0 = 1 = 2 ÷ 2`). Three-for-
+three on the zero rule after the new walk: `5 ** 0 → 1`,
+`100 ** 0 → 1`, plus the recovery itself. `**` promoted from
+*Introduced* to *Taught*.
+
+Built: JOURNAL.md entry (merged ad71a4e). briefings/2026-05-11.md
+(merged 89e918e). Updates in this close: CONCEPTS.md,
+SESSION_LOG.md, PROGRESS.md, LEARNER_PROFILE.md.
+
+Source references:
+- Live web search across NVIDIA, AMD, TSMC, hyperscaler capex,
+  and frontier labs for the briefing. Eleven sources cited in
+  briefings/2026-05-11.md.
+- Deitel Ch.1 — exponentiation re-predict drew on the count-of-
+  factors framing from session 2.
+- Severance: not opened.
+
+Practice terminal: NOT AVAILABLE (third curriculum day in a row).
+Mental-execution mode held the discipline; every line predicted
+before the output was given. `ls` shell drill remains held over.
+
+Key insights: Four. (1) The `//` type rule was implicit, not
+explicit, in CONCEPTS.md and in teaching. Three predicts came
+back as `2.0` instead of `2` because the int-vs-float return rule
+hadn't been separated from the broader divide-returns-float
+framing for `/`. Fix: CONCEPTS.md `//` entry refined to call this
+out; one clean type-predict pair locked it. (2) Visual stacking
+confirmed a third time today via `128 % 52` recovery (stacked
+multiples of 52 under 128, same shape as session 2's `11 % 3`).
+The hypothesis from LEARNER_PROFILE *Open hypotheses* graduates
+to a confirmed pattern; all three confirmations have been
+numeric. (3) New finding on walk *selection*. The descending-
+powers walk for the `**` zero rule (`10 ** 4 → 10000`, ÷10 each
+step) did not stick across two sessions. The divide-by-base walk
+landed immediately and produced three-for-three. The unlock seems
+to be that divide-by-self is arithmetic he's done since
+elementary school, so the new rule lands on top of a fact already
+owned. Promote to LEARNER_PROFILE: when one walk doesn't take,
+try a different walk anchored in older-than-the-rule arithmetic,
+not just a different visual presentation of the same idea.
+(4) "One more then recap" pattern: fourth consecutive confirming
+choice today (sessions 1, 2, 4; session 3 was non-curriculum).
+
+Stuck on: Nothing structural. Two persistent items: `ls` shell
+drill (four days held over), Termius availability.
+
+Next session: Resume Phase 1 Python with operator precedence
+(`2 + 3 * 4 = ?`) and possibly augmented assignment (`x += 1`).
+If Termius is back, lead with `ls` predict-run-verify before
+Python. Daily briefing if cycle has moved (NVIDIA prints May 20,
+the event of the week). One line at a time; recap at chunk end
+(confirmed default).
+
+---
+
 ## 2026-05-11 (Session 3) — Public Launch: README Rewrite, Identity Scrub, MILESTONES Catch-Up
 
 Covered: Repository pivot day, no curriculum work. Three
