@@ -36,7 +36,7 @@ jobs:
           sudo apt-get update
           sudo apt-get install -y \
             git zip unzip openjdk-17-jdk \
-            autoconf automake libtool pkg-config \
+            autoconf automake libtool libtool-bin pkg-config \
             zlib1g-dev libffi-dev libssl-dev \
             build-essential ccache
 
@@ -63,13 +63,14 @@ jobs:
           pip install --upgrade buildozer "cython<3" virtualenv
 
       - name: Show environment
+        continue-on-error: true
         run: |
-          python --version
-          pip --version
-          buildozer --version
-          java -version
-          which autoconf libtool pkg-config
-          uname -a
+          python --version || true
+          pip --version || true
+          buildozer --version || true
+          java -version || true
+          command -v autoconf libtool pkg-config || true
+          uname -a || true
 
       - name: Build debug APK
         working-directory: projects/python-tutor-app
