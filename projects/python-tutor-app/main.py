@@ -183,7 +183,7 @@ class HomeScreen(Screen):
         app = App.get_running_app()
         state = app.state
 
-        self.root_box.add_widget(TopBar("python tutor"))
+        self.root_box.add_widget(TopBar("rondo.py"))
 
         self.status = StatusBar()
         self.status.refresh(state)
@@ -586,8 +586,8 @@ class SettingsScreen(Screen):
 
 
 # ── app ───────────────────────────────────────────────────────────────
-class PyTutorApp(App):
-    title = "Python Tutor"
+class RondoPyApp(App):
+    title = "Rondo.py"
 
     def build(self):
         Window.clearcolor = DARK_BG
@@ -622,4 +622,4 @@ class PyTutorApp(App):
 
 
 if __name__ == "__main__":
-    PyTutorApp().run()
+    RondoPyApp().run()

@@ -1,10 +1,10 @@
 [app]
 
 # (str) Title of your application
-title = Python Tutor
+title = Rondo.py
 
 # (str) Package name
-package.name = pythontutor
+package.name = rondopy
 
 # (str) Package domain (reverse-DNS — change to a domain you own before Play Store upload)
 package.domain = ai.rondo
@@ -22,10 +22,8 @@ source.include_patterns = assets/*
 version = 0.1.0
 
 # (list) Application requirements
-# Anthropic SDK depends on httpx, pydantic, anyio, sniffio, certifi.
-# If any recipe is missing for Android, install it as a plain pip dep — most
-# are pure Python and work. Watch the buildozer log for ImportErrors.
-requirements = python3,kivy,certifi,anyio,sniffio,httpx,httpcore,h11,pydantic,pydantic-core,annotated-types,typing-extensions,distro,jiti,anthropic
+# Stdlib-only API calls — no anthropic SDK, no pydantic. Just kivy + certifi.
+requirements = python3,kivy,certifi
 
 # (str) Presplash of the application
 # presplash.filename = %(source.dir)s/assets/presplash.png

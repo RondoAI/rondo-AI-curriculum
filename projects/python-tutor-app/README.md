@@ -1,21 +1,21 @@
-# Python Tutor — Android App
+# Rondo.py — Python Tutor for Android
 
-A Pydroid 3-style Python IDE for Android, built around a game loop:
-type Python, earn XP, build streaks, unlock badges. Claude sits in
-the background watching every line you type but only responds when
-you summon it with a `?command` (`?hint`, `?explain`, `?fix`,
-`?quiz`, or `?ask <anything>`).
+A mobile Python IDE built around a game loop: type Python, earn XP,
+build a daily streak, unlock badges. Claude sits in the background
+watching every line you type but only responds when you summon it
+with a `?command` (`?hint`, `?explain`, `?fix`, `?quiz`, or
+`?ask <anything>`).
 
-Built with **Kivy** (Python GUI) and packaged for the Play Store
-with **Buildozer**. The Anthropic SDK is called directly from the
-device using the user's own API key — no backend, no monthly cost
-on your end.
+Built with **Kivy** (Python GUI), packaged for the Play Store with
+**Buildozer**. The Anthropic Messages API is called directly from the
+device via `urllib` (no SDK dependency, no Rust extensions) using the
+user's own API key — no backend, no monthly cost.
 
 ## Status
 
-v1 skeleton — runs, has REPL + Achievements + Settings screens,
-game state and achievements ported from `tutor-terminal`. Not yet
-packaged to APK.
+**v0.1 skeleton.** REPL + Achievements + Settings screens. Game state
+ported from the terminal version. CI build to APK wired up via GitHub
+Actions.
 
 ## Project layout
 
@@ -23,15 +23,40 @@ packaged to APK.
 python-tutor-app/
 ├── main.py            # Kivy App + ScreenManager + screens
 ├── state.py           # XP, streak, achievements, run_python()
-├── claude.py          # Anthropic streaming wrapper (BYOK)
+├── claude.py          # Anthropic Messages API via stdlib urllib + SSE
 ├── buildozer.spec     # APK / AAB packaging config
-├── requirements.txt   # desktop dev deps
+├── requirements.txt   # desktop dev deps (kivy + certifi)
 └── README.md
 ```
 
-## Run on a desktop (development)
+## Get the APK on your phone (the easy path)
 
-Easiest way to iterate. Mac, Linux, Windows all work.
+The GitHub Actions workflow at `.github/workflows/build-apk.yml`
+builds an APK every time a file under `projects/python-tutor-app/`
+changes. You don't need a Linux box.
+
+1. Push a change (or hit "Run workflow" manually in the **Actions**
+   tab on github.com).
+2. Wait ~20–30 min on the first run (downloading SDK + NDK). Cached
+   builds after that take ~5–10 min.
+3. Open the workflow run → **Artifacts** → download
+   `rondo-py-debug-apk.zip`.
+4. On the phone: unzip, tap the `.apk`, allow "Install unknown apps"
+   for your file manager, install.
+5. Open Rondo.py → Settings → paste your `sk-ant-…` key → Practice.
+
+### If the CI build fails
+
+The Actions tab will show a red ✗. Click into the run, expand the
+"Build debug APK" step, and look at the bottom of the log. The
+`buildozer-logs` artifact attached on failure contains the detailed
+python-for-android log.
+
+The most common first-build failure is a missing system package on
+the Ubuntu runner — fix is usually to add the package name to the
+"Install system dependencies" step in the workflow YAML.
+
+## Run on a desktop (faster iteration)
 
 ```bash
 cd projects/python-tutor-app
@@ -43,79 +68,40 @@ python main.py
 A window opens. Set your API key on the Settings screen, then go to
 Practice.
 
-## Run on Termux (your phone, no APK yet)
-
-Kivy on Termux needs the Termux:X11 app to render. Once installed:
-
-```bash
-pkg install python clang make pkg-config libjpeg-turbo zlib
-pip install kivy anthropic
-termux-x11 :0 &
-export DISPLAY=:0
-python main.py
-```
-
-This is fiddly. The real plan is to ship an APK — see below.
-
-## Build the APK
-
-Buildozer needs a **Linux** host with Java, autotools, and the
-Android SDK/NDK. Two practical paths:
-
-### a) Linux box (or WSL on Windows)
-
-```bash
-pip install buildozer cython
-sudo apt install -y openjdk-17-jdk autoconf automake libtool \
-    pkg-config zlib1g-dev libffi-dev libssl-dev
-buildozer android debug     # first run downloads SDK/NDK (~30 min)
-```
-
-The APK lands in `bin/`. Sideload it to your phone:
-
-```bash
-adb install bin/pythontutor-0.1.0-arm64-v8a-debug.apk
-```
-
-### b) GitHub Actions (build in the cloud, no Linux box needed)
-
-Push the repo to GitHub and add `.github/workflows/build.yml` that
-runs Buildozer on `ubuntu-latest`. The APK shows up as a workflow
-artifact you download to your phone. (Workflow not yet committed —
-v2.)
-
-## Anthropic API — how it works
-
-The app uses **BYOK** (Bring Your Own Key):
+## How the API key works (BYOK)
 
 1. User signs up at console.anthropic.com and gets an `sk-ant-…` key.
 2. User pastes it on the Settings screen.
 3. The key is saved to `App.user_data_dir/tutor_state.json` on the
    device. On Android that's per-app sandboxed storage — only this
    app can read it.
-4. When the user taps `?ask` or `?explain`, the app calls Anthropic
-   directly from the device using that key. User pays Anthropic
-   directly; you have zero backend and zero cost.
+4. When the user taps `?ask` or `?explain`, the app POSTs to
+   `api.anthropic.com/v1/messages` directly using their key. The user
+   pays Anthropic; you have zero backend and zero cost.
 
 **v3 path** if you want users without their own keys to use the app:
-stand up a small backend (Cloudflare Workers / Vercel), hold a single
-Anthropic key there, charge users via Google Play subscription. Adds
-billing/abuse/server work but unlocks a free tier.
+small backend (Cloudflare Workers / Vercel) holds a single Anthropic
+key, charges users via Google Play subscription. Adds billing / abuse
+/ server work but unlocks a free tier.
 
-## Play Store publishing
+## Play Store publishing checklist
 
 1. Google Play Console account: $25 one-time, identity verification.
 2. Change `package.domain` in `buildozer.spec` to a domain you own
-   (e.g. `app.yourname`).
+   (e.g. `app.rondocampbell`).
 3. Add an app icon (`assets/icon.png`, 512×512) and a presplash.
-4. Build a release AAB: `buildozer android release`.
-5. Sign it: see the Buildozer docs on `android.release.keystore`.
-6. Upload to Play Console — first review is usually 3–7 days.
+4. Switch the GitHub Actions workflow from `android debug` to
+   `android release`.
+5. Add signing keystore (see Buildozer `android.release.keystore`
+   docs) — store the keystore + password in GitHub Secrets, not in
+   the repo.
+6. Upload the AAB to Play Console — first review is usually 3–7 days.
 
-## What's next (roadmap)
+## Roadmap
 
-- v1.1 — code editor screen with multi-line input, save/load files
-- v1.2 — multi-line REPL (currently single-statement)
-- v1.3 — `pip install` from inside the app (Pyodide or bundled wheels)
-- v2.0 — missions / curated lessons for absolute beginners
-- v3.0 — backend proxy + Play subscription for non-BYOK users
+- v0.2 — code editor screen with multi-line input, save/load files
+- v0.3 — multi-line REPL (currently single-statement)
+- v0.4 — pip-style package install from inside the app (bundled wheels)
+- v0.5 — missions / curated lessons for absolute beginners
+- v1.0 — Play Store launch
+- v2.0 — backend proxy + Play subscription for users without their own key
