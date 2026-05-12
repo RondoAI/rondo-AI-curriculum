@@ -43,8 +43,15 @@ android.api = 34
 # (int) Minimum API your APK / AAB will support
 android.minapi = 24
 
-# (int) Android SDK version to use
+# (int) Android NDK API to use
 android.ndk_api = 24
+
+# (bool) Auto-accept the Android SDK licenses (required for unattended builds)
+android.accept_sdk_license = True
+
+# (str) Pin the SDK build-tools version (auto-detection picks unreleased
+# versions like 37.0.0, breaking the install)
+android.sdk_build_tools_version = 34.0.0
 
 # (list) The Android archs to build for (Play Store requires 64-bit)
 android.archs = arm64-v8a, armeabi-v7a
