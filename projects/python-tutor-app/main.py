@@ -205,6 +205,8 @@ class HomeScreen(Screen):
 
         actions = BoxLayout(orientation="vertical", padding=[dp(16), dp(16)], spacing=dp(12))
         actions.add_widget(primary_button("practice  ›", lambda *_: self._go("repl")))
+        actions.add_widget(chip("editor", lambda *_: self._go("editor"),
+                                bg=CARD_BG, color=GREEN))
         actions.add_widget(chip("achievements", lambda *_: self._go("achievements"),
                                 bg=CARD_BG, color=GOLD))
         actions.add_widget(chip("settings", lambda *_: self._go("settings"),
@@ -511,6 +513,171 @@ class AchievementsScreen(Screen):
         self.manager.current = "home"
 
 
+# ── editor screen ─────────────────────────────────────────────────────
+def script_path() -> str:
+    return os.path.join(App.get_running_app().user_data_dir, "script.py")
+
+
+DEFAULT_SCRIPT = """# write python here, then tap run.
+# example:
+
+name = "world"
+print(f"hello, {name}")
+"""
+
+
+class EditorScreen(Screen):
+    def __init__(self, **kwargs):
+        super().__init__(**kwargs)
+        self._console_locals: dict = {"__name__": "__main__"}
+        self._build()
+
+    def _build(self):
+        self.root_box = BoxLayout(orientation="vertical")
+        self.add_widget(self.root_box)
+
+        self.root_box.add_widget(
+            TopBar("editor", on_back=lambda *_: self._back())
+        )
+
+        meta_row = BoxLayout(
+            orientation="horizontal", size_hint_y=None, height=dp(28),
+            padding=[dp(12), 0], spacing=dp(8),
+        )
+        self.filename_label = Label(
+            text="script.py", color=DIM, font_size="12sp",
+            halign="left", valign="middle",
+        )
+        self.filename_label.bind(
+            size=lambda *_: setattr(self.filename_label, "text_size",
+                                    self.filename_label.size)
+        )
+        self.saved_label = Label(
+            text="", color=GREEN, font_size="11sp",
+            halign="right", valign="middle",
+            size_hint_x=None, width=dp(100),
+        )
+        self.saved_label.bind(
+            size=lambda *_: setattr(self.saved_label, "text_size",
+                                    self.saved_label.size)
+        )
+        meta_row.add_widget(self.filename_label)
+        meta_row.add_widget(self.saved_label)
+        self.root_box.add_widget(meta_row)
+
+        self.editor = TextInput(
+            multiline=True, font_size="14sp", font_name=MONO,
+            background_normal="", background_active="",
+            background_color=CARD_BG, foreground_color=WHITE,
+            cursor_color=PINK,
+            hint_text="# type python and tap run",
+            size_hint_y=0.55,
+        )
+        self.editor.bind(text=self._on_text_change)
+        self.root_box.add_widget(self.editor)
+
+        # output area
+        output_header = Label(
+            text="output", color=DIM, font_size="11sp", bold=True,
+            halign="left", valign="middle",
+            size_hint_y=None, height=dp(20), padding=[dp(12), 0],
+        )
+        output_header.bind(
+            size=lambda *_: setattr(output_header, "text_size", output_header.size)
+        )
+        self.root_box.add_widget(output_header)
+
+        self.output_label = Label(
+            text="", color=DIM, font_size="13sp", font_name=MONO,
+            halign="left", valign="top", markup=False,
+            size_hint_y=None,
+        )
+        self.output_label.bind(
+            size=lambda *_: setattr(self.output_label, "text_size",
+                                    (self.output_label.width, None))
+        )
+        self.output_label.bind(
+            texture_size=lambda inst, ts: setattr(inst, "height", max(ts[1], dp(20)))
+        )
+        output_scroll = ScrollView(do_scroll_x=False, size_hint_y=0.35)
+        output_scroll.add_widget(self.output_label)
+        self.root_box.add_widget(output_scroll)
+
+        # bottom actions
+        actions = BoxLayout(
+            orientation="horizontal", size_hint_y=None, height=dp(56),
+            padding=[dp(8), dp(4)], spacing=dp(6),
+        )
+        save_btn = Button(
+            text="save", background_normal="", background_color=CARD_BG,
+            color=PINK, bold=True, font_size="15sp", size_hint_x=0.3,
+        )
+        save_btn.bind(on_press=lambda *_: self._save(silent=False))
+        run_btn = Button(
+            text="▷  run", background_normal="", background_color=PINK,
+            color=DARK_BG, bold=True, font_size="16sp", size_hint_x=0.7,
+        )
+        run_btn.bind(on_press=lambda *_: self._run())
+        actions.add_widget(save_btn)
+        actions.add_widget(run_btn)
+        self.root_box.add_widget(actions)
+
+    def on_pre_enter(self, *_):
+        self._load()
+
+    def _load(self):
+        try:
+            with open(script_path()) as f:
+                self.editor.text = f.read()
+        except (OSError, FileNotFoundError):
+            self.editor.text = DEFAULT_SCRIPT
+        self.saved_label.text = ""
+
+    def _on_text_change(self, *_):
+        self.saved_label.text = "·  unsaved"
+        self.saved_label.color = ORANGE
+
+    def _save(self, silent: bool = True) -> bool:
+        try:
+            path = script_path()
+            parent = os.path.dirname(path)
+            if parent:
+                os.makedirs(parent, exist_ok=True)
+            with open(path, "w") as f:
+                f.write(self.editor.text)
+            if not silent:
+                self.saved_label.text = "✓  saved"
+                self.saved_label.color = GREEN
+                Clock.schedule_once(
+                    lambda *_: setattr(self.saved_label, "text", ""), 1.5
+                )
+            return True
+        except OSError as e:
+            self.saved_label.text = f"err: {e}"
+            self.saved_label.color = RED
+            return False
+
+    def _run(self):
+        self._save(silent=True)
+        # fresh locals per run so stale vars don't carry over
+        self._console_locals = {"__name__": "__main__"}
+        out, err = run_python(self.editor.text, self._console_locals)
+        chunks = []
+        if out:
+            chunks.append(out.rstrip())
+        if err:
+            chunks.append(err.rstrip())
+        if not chunks:
+            chunks = ["(no output)"]
+        self.output_label.text = "\n".join(chunks)
+        self.output_label.color = RED if err else WHITE
+
+    def _back(self):
+        self._save(silent=True)
+        self.manager.transition = FadeTransition(duration=0.15)
+        self.manager.current = "home"
+
+
 # ── settings screen ───────────────────────────────────────────────────
 class SettingsScreen(Screen):
     def __init__(self, **kwargs):
@@ -598,6 +765,7 @@ class RondoPyApp(App):
         sm = ScreenManager(transition=FadeTransition(duration=0.15))
         sm.add_widget(HomeScreen(name="home"))
         sm.add_widget(ReplScreen(name="repl"))
+        sm.add_widget(EditorScreen(name="editor"))
         sm.add_widget(AchievementsScreen(name="achievements"))
         sm.add_widget(SettingsScreen(name="settings"))
 
