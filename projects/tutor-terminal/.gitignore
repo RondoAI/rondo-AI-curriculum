@@ -1,0 +1,4 @@
+__pycache__/
+*.pyc
+.tutor_state.json
+.tutor_history
