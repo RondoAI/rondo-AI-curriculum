@@ -5,6 +5,99 @@ entries.
 
 ---
 
+## 2026-05-11 (Session 5) — `ls` Graduates, Operator Precedence and Augmented Assignment Taught
+
+Covered: Fifth session of the day, first with practice terminal
+back online (Termius restored after four-day held-over). Three
+movements. (1) Repo sync — discovered local was 9 commits behind
+origin (today's four prior sessions and this morning's public-
+layer work). Fast-forwarded clean. Re-read PROGRESS.md,
+CONCEPTS.md, SESSION_LOG.md latest entries, and LEARNER_PROFILE.md
+to refresh state — earlier in-session synthesis had been built on
+stale data and was corrected before any teaching began.
+(2) `ls` shell drill — held over four days. Started in home
+directory to find the curriculum directory (Rondo had renamed it
+locally to match the repo name). Predict-run-verify clean: multi-
+column predicted ✓, directory found ✓, alphabetical case-
+insensitive sort with digit-names first observed and explained.
+Discovered two pre-curriculum artifacts in home dir:
+`python-ai/` (a `.venv` + `install_gh.sh` + `notebooks/` from
+late April) and `study_time.py` (a May 4 script that uses
+exactly the operators Rondo just learned today — `*`, `/`, `//`,
+`%`). Rondo doesn't remember either; both left in place. Then
+`cd rondo-AI-curriculum && ls` predicted 16/16 named items
+present, plus one extra (`index.html` — the GitHub Pages source
+he hadn't named). `ls` graduates *Introduced* → *Taught*.
+(3) Python — operator precedence. Concept introduced as PEMDAS
+applied to Python's arithmetic operators in three tiers
+(`**` > `* / // %` > `+ -`, parens override). Four cold predicts:
+`2 + 3 * 4 → 14` ✓, `10 - 6 / 2 → 7.0` ✓, `2 * 3 ** 2 → 18` ✓,
+`(2 + 3) * 4` predicted as `14` ✗ (correct rule named — "parens
+overrule" — but the arithmetic execution slipped: original
+no-parens result re-stated instead of computing the new one).
+Walked stacked: `(2+3)=5, 5*4=20`. Cold-re-predict: `20` ✓.
+Closing concept on the "one more then recap" pattern: augmented
+assignment. `x += 1` = `x = x + 1`; same shape works for every
+arithmetic operator. Cold predict on `n=4; n*=3; print(n) → 12`
+✓. Closing recap was characteristically terse — "Pemdas" /
+"short hand" / "I think I got it."
+
+Built: No new repo files. Updates in this close: CONCEPTS.md
+(`ls` → Taught; operator precedence and augmented assignment added
+to Python Taught), SESSION_LOG.md, PROGRESS.md.
+
+Source references: Deitel Ch.1 — operator precedence and
+augmented-assignment material drew on the standard PEMDAS framing
+plus the long-form expansion of `+=` shorthand. Severance: not
+opened.
+
+Practice terminal: BACK ONLINE (Termius restored after four
+curriculum days held over). All three concepts predict-run-
+verified live. The mental-execution streak ended cleanly;
+predictions were typed in the practice terminal and outputs
+paste-verified. Display artifact noted: previous shell prompt
+bled into `ls` output as `study_time.pyshifasmac@... chapter_02 %`
+— cosmetic only, same category as the 2026-05-09 phone-SSH
+character-duplication.
+
+Key insights: Three. (1) The walk-the-math catch on parens
+override (correct rule named, wrong arithmetic applied) is
+another instance of the already-confirmed "walking the math by
+hand" pattern from LEARNER_PROFILE — when arithmetic execution
+slips even though the rule is right, stacked walk lands
+immediately. (2) Recap discipline confirmed-but-terse pattern.
+Across all five predicts in this session Rondo gave the right
+answer with no written-out why, even when explicitly asked for
+the why. The recap itself collapsed to three short tokens. This
+is consistent across today's earlier sessions and may reflect
+tablet-typing friction more than a knowledge gap — but it does
+mean the actual lock test is the cold-re-predict next session,
+not the recap. Watch session 6 for whether either rule re-
+predicts cleanly cold. (3) Boot-time stale-data risk: the local
+working directory had not been pulled before the synthesis ran,
+so the four-sentence summary delivered on boot was wrong. Going
+forward, `git fetch && git status` should run as part of the
+boot ritual before the four-to-six-sentence synthesis, not after.
+
+Stuck on: Nothing structural. Twitter updates Rondo mentioned
+mid-session were not paste-shared; held over for next session to
+update the Twitter memory. Pre-curriculum artifacts (`python-ai/`,
+`study_time.py`) left in place pending a decision on whether to
+move `study_time.py` into the curriculum repo as a found-artifact
+(it's a perfect demonstration of today's operators).
+
+Next session: Cold-re-predict on operator precedence (one new
+expression, no candidates given) and augmented assignment to
+confirm both lock at *Taught*. Continue Phase 1 Python — likely
+into comparison operators (`==`, `<`, `>`, `<=`, `>=`, `!=`) or
+boolean values, depending on Deitel Ch.1 sequence. Shell drill:
+`cat` next per the queued unit (`ls → cat → > → >> → < → |`).
+Daily briefing if cycle has moved (NVIDIA prints May 20 — the
+event of the week is approaching). Twitter memory update if Rondo
+shares the new content.
+
+---
+
 ## 2026-05-11 (Session 4) — Journal, Briefing, and `**` Graduation
 
 Covered: Fourth session of the day. Three movements. (1) First

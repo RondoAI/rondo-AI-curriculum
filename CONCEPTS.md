@@ -81,6 +81,21 @@ cleanly.
   `2 ** 0 = 1 = 2 ÷ 2`) is what made the zero rule stick after the
   descending-powers walk hadn't. (2026-05-11; re-predicted clean
   in session 4 after session 2 misses.)
+- Operator precedence (PEMDAS for arithmetic) — three tiers,
+  highest binds tightest: (1) `**`; (2) `*` `/` `//` `%`;
+  (3) `+` `-`. Within a tier, left-to-right (except `**`, which
+  is right-to-left when stacked — deferred). Parentheses override
+  the default order — wrap any sub-expression to force it first.
+  Verified across four predicts in session 5:
+  `2 + 3 * 4 → 14`, `10 - 6 / 2 → 7.0`, `2 * 3 ** 2 → 18`,
+  `(2 + 3) * 4 → 20` (the parens predict slipped the first pass —
+  correct rule named, but original no-parens result re-stated;
+  walked stacked and re-predicted clean). (2026-05-11)
+- Augmented assignment — `x += 1` is shorthand for `x = x + 1`.
+  Same shape works for every arithmetic operator (`-=`, `*=`,
+  `/=`, `//=`, `%=`, `**=`). Pure typing convenience; Python
+  compiles it to the same operation. Verified
+  `n = 4; n *= 3; print(n) → 12`. (2026-05-11)
 
 ### Introduced (not yet Taught)
 - Single vs double quotes are interchangeable — mentioned in
@@ -107,6 +122,15 @@ cleanly.
 - `>>>` prompt vs shell prompt distinction — `>>>` means you're in
   Python and only Python code works; `rondo@RondoMac …%` means
   you're in the shell and shell commands work. (2026-05-10)
+- `ls` (no args) — lists names of files and directories in the
+  current directory. Output is multi-column when there are many
+  entries, filling column-major (read top-to-bottom of column 1
+  first, then top-to-bottom of column 2, etc. — not row-by-row).
+  Default sort is alphabetical case-insensitive, with digit-named
+  entries before letter-named entries. Drilled session 5 in two
+  contexts: home dir (found the renamed `rondo-AI-curriculum`
+  directory) and inside the repo (16 root entries plus
+  `index.html`). (2026-05-11)
 
 ### Introduced (not yet Taught)
 - `>` (redirect command output to a file, overwrite) — drilled
@@ -122,10 +146,9 @@ cleanly.
   reset before drill ran).
 - `ls | cat` — demonstrated the "ls switches to one-per-line in
   pipes" behavior 2026-05-10.
-- `ls` — list directory contents. Used incidentally many times;
-  never explicitly taught.
-- `cd <path>` — change directory. Used incidentally; never
-  explicitly taught.
+- `cd <path>` — change directory. Used incidentally and as part
+  of the session-5 drill (`cd rondo-AI-curriculum`); never
+  explicitly taught with predict-run-verify.
 - `cat <filename>` — print file contents to terminal. Used
   incidentally; never explicitly taught.
 - Unknown command → `command not found` — observed 2026-05-10
