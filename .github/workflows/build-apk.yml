@@ -95,6 +95,38 @@ jobs:
           EOF
           ls -la "$SDK_DIR/licenses/"
 
+      - name: Pre-install Android cmdline-tools and accept licenses
+        run: |
+          set -ex
+          SDK_DIR="$HOME/.buildozer/android/platform/android-sdk"
+          mkdir -p "$SDK_DIR/cmdline-tools" "$SDK_DIR/tools/bin"
+
+          # Buildozer 1.6 expects sdkmanager at the deprecated tools/bin path.
+          # Google retired that download — install cmdline-tools instead.
+          if [ ! -x "$SDK_DIR/cmdline-tools/latest/bin/sdkmanager" ]; then
+            cd "$SDK_DIR/cmdline-tools"
+            wget -q https://dl.google.com/android/repository/commandlinetools-linux-11076708_latest.zip \
+              -O cmdline-tools.zip
+            unzip -q cmdline-tools.zip
+            mv cmdline-tools latest
+            rm cmdline-tools.zip
+          fi
+
+          # Symlink the new sdkmanager into the old path Buildozer reads.
+          ln -sf "$SDK_DIR/cmdline-tools/latest/bin/sdkmanager" \
+                 "$SDK_DIR/tools/bin/sdkmanager"
+          ln -sf "$SDK_DIR/cmdline-tools/latest/bin/avdmanager" \
+                 "$SDK_DIR/tools/bin/avdmanager"
+
+          # Auto-accept every license sdkmanager knows about.
+          yes | "$SDK_DIR/cmdline-tools/latest/bin/sdkmanager" --licenses \
+            > /tmp/license-accept.log 2>&1 || true
+          tail -20 /tmp/license-accept.log || true
+
+          # Sanity-check what's there.
+          ls -la "$SDK_DIR/tools/bin/" "$SDK_DIR/cmdline-tools/latest/bin/" \
+                 "$SDK_DIR/licenses/" || true
+
       - name: Build debug APK
         working-directory: projects/python-tutor-app
         run: |
