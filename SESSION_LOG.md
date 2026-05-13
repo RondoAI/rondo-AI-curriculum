@@ -5,6 +5,108 @@ entries.
 
 ---
 
+## 2026-05-13 (Session 6) — Cold-Re-Predict Locks, Comparison Operators, `bool`, and the Daily Briefing
+
+Covered: First session after the five-session day on 2026-05-11.
+Practice terminal online throughout. Four movements. (1) Cold
+re-predict on operator precedence and augmented assignment per the
+session-5 lock-test plan. `4 + 3 * 2 ** 2 → 16` walked cold with
+no prompt — all three precedence tiers handled correctly,
+practice-terminal-verified. Then `x = 20; x //= 6` predicted as
+`6.0`, a double miss: arithmetic (20 // 6 is 3, not 6) and type
+(int//int → int, not float). Recovered by peeling layers: walked
+"how many whole times does 6 go into 20" (Rondo: "3") anchored in
+older long-division arithmetic; then re-anchored `//` as exactly
+that; then layered `//=` back on as the same shape as `+=`. Cold
+re-predict on `x = 14; x -= 5 → 9` clean. Type rule re-locked via
+`type(15 // 4) → <class 'int'>`. (2) Comparison operators
+introduced and predict-verified six-for-six (one with workflow
+note): `5 == 5 → True`, `5 == 4 → False`, `7 > 3 → True`,
+`3 != 3 → False`, `5 >= 5 → True`, `4 < 4 → False`. `<=`
+introduced as the mirror of `>=` but not cold-predicted directly
+(strict `<` was). (3) `bool` introduced as Python's fourth type:
+`type(True)` predicted as `int` (sharp instinct — bool *is* a
+subclass of int — but `type()` returns the most specific class, so
+`<class 'bool'>` is the answer). Subclass wrinkle banked.
+(4) Daily briefing for 2026-05-13 written end-to-end with live
+search across the watchlist. Three structural moves since the
+2026-05-11 briefing: Q1 2026 hyperscaler prints landed
+($112B in a single quarter from top 3, $715B 2026 full-year
+guide); NVIDIA pre-print pullback at 7 days out (consensus
+$78.62B / $1.74 EPS, Goldman $2B and 7% above Street); power
+bottleneck *widened* (transformer lead times moved from 128w to
+160w+, 11 of 12 GW announced US capacity sits unbuilt). Closing
+learning task — six comparison-operator predicts on real briefing
+numbers — surfaced two new patterns documented in Key insights
+below.
+
+Built: `/briefings/2026-05-13.md` (full briefing + closing
+learning task). Updates in this close: CONCEPTS.md, SESSION_LOG.md,
+PROGRESS.md, LEARNER_PROFILE.md.
+
+Source references: Deitel Ch.1 — comparison operators and `bool`
+material drew on the standard "comparisons return booleans"
+framing. Severance not opened. Briefing cites fifteen sources
+spanning NVIDIA, hyperscaler capex, semiconductor results,
+frontier-lab releases, the power/transformer bottleneck, and the
+Huawei 950PR adoption story in China.
+
+Practice terminal: Online throughout. Every line predicted before
+running and paste-verified. Two display artifacts recurred (both
+already documented categories): leading-space-at-`>>>`
+IndentationError on `20 // 6` paste, and duplicated `>>>` prompt
+on `type(True)` paste (Python entered continuation mode `...`,
+broken with Ctrl-C). Cosmetic, same shape as 2026-05-09's
+character-duplication.
+
+Key insights: Three. (1) **Analyst-mode pull on semantic
+numbers.** Abstract operands (`5 == 5`) drilled six-for-six clean
+in the Python block earlier, but operands carrying real-world
+meaning (`45.17 == 30.88` representing Amazon Q1 capex vs
+Microsoft Q1 capex; `80_050_000_000 > 78_620_000_000` representing
+Goldman vs Street on NVIDIA revenue) pulled Rondo into analyzing
+the business fact instead of producing the True/False output.
+Three instances on the same six-predict block. Single re-anchor
+("what does Python *print*?") fixed each. New pattern worth
+banking — when numbers carry semantic load, the operator
+abstraction recedes. Practical fix: explicitly cue operator-mode
+before predicts that use real numbers. (2) **Layer-stacking
+miss.** When concepts stack — `x //= 6` had three layers
+(augmented-assignment shape + `//` math + int-int-int type), and
+`type(45.17 > 30.88)` had two (comparison returns bool, then
+type() asks about the bool) — Rondo gets pulled to the wrong
+layer rather than walking inside-out. The `//=` recovery worked
+by peeling layers one at a time, anchored in long-division
+arithmetic he already owned. The `type(...)` recovery worked by
+naming the inside-out evaluation order explicitly. Refinement of
+the existing "walk anchored in older arithmetic" pattern with a
+new dimension: when *new layers* stack on each other, the recovery
+peels them in order, not all at once. (3) **"i dont understand"
+as an explicit signal.** Mid-session on the `//=` layered teach
+Rondo wrote "i dont understand." Clean break-point. Fix was to
+back all the way up to a single hand-arithmetic question ("how
+many whole times does 6 go into 20?") — which he answered "3"
+instantly. The signal itself was the pedagogically valuable move,
+not the recovery. Worth banking that when this exact phrase
+appears, the right response is to back up to the simplest
+non-layered version of what's being taught.
+
+Stuck on: Nothing structural. Three minor open items: `<=` needs
+a single cold predict next session to graduate to *Taught*; `cat`
+shell drill still queued (briefing took the "one more beat" slot
+today); `study_time.py` and `python-ai/` pre-curriculum artifacts
+in home dir still pending a move-or-leave decision.
+
+Next session: Cold predict on `<=` to lock the last comparison
+operator. Then Deitel Ch.1 next beats — Boolean operators (`and`,
+`or`, `not`) are the natural follow-on now that `bool` is its own
+type, OR continue with the basic `input()` / `if` material if
+Deitel sequences it that way. Shell drill: `cat` per the queued
+unit. Watch for NVIDIA print on May 20 (one week out — the event
+of the week is now imminent).
+
+---
+
 ## 2026-05-11 (Session 5) — `ls` Graduates, Operator Precedence and Augmented Assignment Taught
 
 Covered: Fifth session of the day, first with practice terminal

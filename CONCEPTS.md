@@ -90,23 +90,65 @@ cleanly.
   `2 + 3 * 4 → 14`, `10 - 6 / 2 → 7.0`, `2 * 3 ** 2 → 18`,
   `(2 + 3) * 4 → 20` (the parens predict slipped the first pass —
   correct rule named, but original no-parens result re-stated;
-  walked stacked and re-predicted clean). (2026-05-11)
+  walked stacked and re-predicted clean). Cold-re-predict locked
+  session 6 on `4 + 3 * 2 ** 2 → 16` — all three tiers walked
+  correctly with no prompt. (2026-05-11, locked 2026-05-13.)
 - Augmented assignment — `x += 1` is shorthand for `x = x + 1`.
   Same shape works for every arithmetic operator (`-=`, `*=`,
   `/=`, `//=`, `%=`, `**=`). Pure typing convenience; Python
   compiles it to the same operation. Verified
-  `n = 4; n *= 3; print(n) → 12`. (2026-05-11)
+  `n = 4; n *= 3; print(n) → 12` (session 5). Session 6
+  generalized: `x = 20; x //= 6 → 3` (after a layer-stacking
+  recovery — see SESSION_LOG) and `x = 14; x -= 5 → 9` clean
+  cold. (2026-05-11, generalized 2026-05-13.)
+- Comparison operators `==`, `!=`, `>`, `>=`, `<` — produce a
+  `bool` result (`True` or `False`). `==` asks "are these equal?"
+  (two equals signs because it's a question; one is assignment).
+  `!=` is "are these different?" (the `!` reads as "not" in most
+  programming languages). `>=` and `<=` are "or equal to" — equal
+  values return `True`, not `False`. Order matters for `>=`/`<=`
+  (`=<` and `=>` would error). Strict `<` and `>` return `False`
+  on equal values (`4 < 4 → False`). Six cold predicts session 6:
+  `5 == 5 → True`, `5 == 4 → False`, `7 > 3 → True`,
+  `3 != 3 → False`, `5 >= 5 → True`, `4 < 4 → False`. **Key
+  rule:** comparison operators always return `bool` regardless of
+  operand type — `type(45.17 > 30.88) → <class 'bool'>`, not
+  `float`. (2026-05-13)
+- `bool` type — Python's fourth type after `int`, `float`, `str`.
+  Two values only: `True` and `False`, both capitalized (lowercase
+  `true`/`false` would error as undefined names). Returned by all
+  comparison operators. Subclass wrinkle: under the hood `bool` is
+  a subclass of `int` (so `True == 1`, `False == 0`, and `True + 1
+  → 2` in arithmetic), but `type(True)` still reports the more
+  specific class `<class 'bool'>`. (2026-05-13)
 
 ### Introduced (not yet Taught)
 - Single vs double quotes are interchangeable — mentioned in
   passing 2026-05-09; not separately drilled.
 - `IndentationError` when leading whitespace at `>>>` — encountered
-  as a bug and debugged once 2026-05-09.
+  as a bug and debugged once 2026-05-09; recurred 2026-05-13 with
+  the same shape (leading space before `20 // 6`). Cause was
+  reconfirmed; not yet at *Taught* via a deliberate drill.
 - `exit()` to leave the Python REPL — used 2026-05-09 and
   2026-05-10; not separately taught.
 - Python is case-sensitive — `x` and `X` are different names.
   Flagged 2026-05-11 after Rondo typed `X=7` in a prediction; not
   separately drilled.
+- `<=` (less-than-or-equal-to) — introduced session 6 paired with
+  `>=`. Same shape as `>=`, opposite direction. Not separately
+  cold-predicted (the strict `<` was; promote `<=` to *Taught*
+  with a single cold predict next session). (2026-05-13)
+- Numeric literal underscores — Python allows `_` inside numeric
+  literals as a readability separator: `80_050_000_000` is the
+  same number as `80050000000`. Python ignores the underscores.
+  Used in the 2026-05-13 briefing learning task. (2026-05-13)
+- Comment syntax `#` — anything after `#` on a line is ignored by
+  Python. Used in passing in the 2026-05-13 briefing task; not
+  separately taught. (2026-05-13)
+- KeyboardInterrupt / Ctrl-C to cancel a stuck REPL line —
+  encountered 2026-05-13 when a duplicated `>>>` prompt put Python
+  into continuation mode (`...`). Ctrl-C broke out cleanly. Not
+  separately taught. (2026-05-13)
 
 ---
 

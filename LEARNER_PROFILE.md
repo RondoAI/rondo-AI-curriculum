@@ -66,6 +66,43 @@ school, so the new rule lands on top of a fact already owned.
 Suggests: when one walk doesn't take, try a different walk
 anchored in older-than-the-rule arithmetic, not just a different
 visual presentation of the same idea.
+- Peel layers, don't walk them all at once — 2026-05-13
+(session 6). When concepts stack into a single predict, Rondo
+gets pulled to the wrong layer rather than walking inside-out.
+Two instances same session: (1) `x = 20; x //= 6` predicted as
+`6.0` (three layers in one line: augmented-assignment shape,
+integer-division math, and the int//int → int type rule).
+Recovery was strictly inside-out: walked "how many whole times
+does 6 go into 20" (Rondo: "3") anchored in long-division
+arithmetic he owned, then layered `//` back on as exactly that,
+then layered `//=` on as the same shape as `+=`. (2)
+`type(45.17 > 30.88)` predicted as `float` (two layers: the inner
+comparison returns a bool, then `type()` reports on that bool).
+Recovery was naming the inside-out evaluation order explicitly:
+inner first → comparison produces `True`, outer next → `type()`
+reports `<class 'bool'>`. Refinement of the older "walk anchored
+in older arithmetic" pattern: when *new layers stack on each
+other*, peel them one at a time, don't try to walk through them
+all in one move. Adjacent observation: when Rondo writes
+"i dont understand" explicitly (he did mid-`//=` recovery), the
+right response is to back up to the simplest non-layered version
+and rebuild from there.
+- Cue operator-mode when numbers carry real-world meaning —
+2026-05-13 (session 6). The same comparison-operator predicts
+that went six-for-six clean on abstract operands earlier in the
+session pulled Rondo three different times into analyst-mode when
+the operands were briefing numbers (Goldman vs Street on NVIDIA
+revenue, Amazon vs Microsoft Q1 capex). All three responses were
+substantive analyst answers ("Amazon > Microsoft", "greater than
+or equal to", the gap size in billions) rather than the True /
+False output the operator returns. Single re-anchor each time
+("what does Python *print*?") fixed it. Suggests: when a predict
+uses operands that carry semantic load, explicitly cue
+operator-mode in the framing — "Python's question is just
+True/False" — before the predict, rather than after the slip.
+The slip itself is a strength (he's *engaging* with the numbers,
+not just pattern-matching the operator), but for lock-tests the
+strict operator output is what's being measured.
 
 ## Strengths
 [Concepts that came easily, or that he showed unusual aptitude
