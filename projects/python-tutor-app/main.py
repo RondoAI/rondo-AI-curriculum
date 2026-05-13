@@ -805,6 +805,14 @@ class RondoPyApp(App):
 
     def build(self):
         Window.clearcolor = DARK_BG
+        try:
+            return self._build_screens()
+        except BaseException:
+            tb = traceback.format_exc()
+            _write_crash(tb)
+            return self._build_crash_view(tb)
+
+    def _build_screens(self):
         self.state = load_state(state_path())
         msg = update_streak(self.state)
         save_state(self.state, state_path())
@@ -819,6 +827,43 @@ class RondoPyApp(App):
         if msg:
             Clock.schedule_once(lambda *_: self._show_streak_toast(msg), 0.5)
         return sm
+
+    def _build_crash_view(self, tb: str):
+        """Last-resort UI: render the traceback on screen so the user can
+        screenshot it. Built from raw Kivy primitives to minimise the
+        chance of crashing the crash UI itself."""
+        box = BoxLayout(orientation="vertical", padding=dp(12), spacing=dp(8))
+
+        title = Label(
+            text="Rondo.py crashed at startup",
+            color=RED, font_size="18sp", bold=True,
+            size_hint_y=None, height=dp(36),
+        )
+        sub = Label(
+            text="screenshot this and send it back",
+            color=DIM, font_size="12sp",
+            size_hint_y=None, height=dp(20),
+        )
+
+        body = Label(
+            text=tb,
+            color=WHITE, font_size="11sp",
+            halign="left", valign="top", markup=False,
+            size_hint_y=None,
+        )
+        body.bind(
+            size=lambda *_: setattr(body, "text_size", (body.width, None))
+        )
+        body.bind(
+            texture_size=lambda inst, ts: setattr(inst, "height", ts[1] + dp(40))
+        )
+        scroll = ScrollView(do_scroll_x=False)
+        scroll.add_widget(body)
+
+        box.add_widget(title)
+        box.add_widget(sub)
+        box.add_widget(scroll)
+        return box
 
     def _show_streak_toast(self, msg: str):
         body = BoxLayout(orientation="vertical", padding=dp(16), spacing=dp(6))
