@@ -1,0 +1,697 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#0B0B0F">
+<title>Subnet — A Magazine of Decentralized Intelligence</title>
+<meta name="description" content="Subnet is an editorial magazine covering the Bittensor network: the subnets, the validators, the miners, the markets, and the architecture of an emerging decentralized intelligence economy.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..900;1,9..144,300..900&family=Inter:wght@300..800&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<!-- ============================================================ -->
+<!-- STATUS STRIP — Bloomberg-style live system bar                -->
+<!-- ============================================================ -->
+<div class="utility" role="region" aria-label="Network status">
+  <div class="util-inner">
+    <span class="util-live"><span class="live-dot"></span>LIVE</span>
+    <span class="util-sep">│</span>
+    <span class="util-date" id="util-date">WED 13 MAY 2026</span>
+    <span class="util-sep">│</span>
+    <span class="util-block"><span class="lbl">UTC</span><span class="val" id="util-clock">00:00:00</span></span>
+    <span class="util-sep">│</span>
+    <span class="util-block"><span class="lbl">BLOCK</span><span class="val" id="util-block">4,812,047</span></span>
+    <span class="util-sep">│</span>
+    <span class="util-block"><span class="lbl">ISSUE</span><span class="val">014 · THE SUBNET ECONOMY</span></span>
+    <span class="util-ticker" aria-live="polite">
+      <span class="tic-label">TAO/USD</span>
+      <span class="tic-price" id="tao-price">$487.12</span>
+      <span class="tic-delta up" id="tao-delta">+3.24%</span>
+      <span class="util-sep">│</span>
+      <span class="tic-label">YCX</span>
+      <span class="tic-price">1,004.89</span>
+      <span class="tic-delta up">+0.49%</span>
+    </span>
+  </div>
+</div>
+
+<!-- ============================================================ -->
+<!-- MASTHEAD                                                       -->
+<!-- ============================================================ -->
+<header class="masthead">
+  <div class="mast-grid">
+    <div class="mast-left">
+      <a href="#" class="logo" aria-label="Subnet — home">
+        <span class="logo-mark" aria-hidden="true">
+          <svg viewBox="0 0 40 40" width="40" height="40">
+            <circle cx="20" cy="20" r="3" fill="currentColor"/>
+            <circle cx="6" cy="10" r="2" fill="currentColor" opacity=".7"/>
+            <circle cx="34" cy="10" r="2" fill="currentColor" opacity=".7"/>
+            <circle cx="6" cy="30" r="2" fill="currentColor" opacity=".7"/>
+            <circle cx="34" cy="30" r="2" fill="currentColor" opacity=".7"/>
+            <circle cx="20" cy="4" r="2" fill="currentColor" opacity=".4"/>
+            <circle cx="20" cy="36" r="2" fill="currentColor" opacity=".4"/>
+            <line x1="20" y1="20" x2="6" y2="10" stroke="currentColor" stroke-width=".7" opacity=".5"/>
+            <line x1="20" y1="20" x2="34" y2="10" stroke="currentColor" stroke-width=".7" opacity=".5"/>
+            <line x1="20" y1="20" x2="6" y2="30" stroke="currentColor" stroke-width=".7" opacity=".5"/>
+            <line x1="20" y1="20" x2="34" y2="30" stroke="currentColor" stroke-width=".7" opacity=".5"/>
+            <line x1="20" y1="20" x2="20" y2="4" stroke="currentColor" stroke-width=".7" opacity=".3"/>
+            <line x1="20" y1="20" x2="20" y2="36" stroke="currentColor" stroke-width=".7" opacity=".3"/>
+          </svg>
+        </span>
+        <span class="logo-word">Subnet</span>
+      </a>
+    </div>
+    <div class="mast-center">
+      <p class="mast-tag">A magazine of decentralized intelligence</p>
+    </div>
+    <div class="mast-right">
+      <button class="btn btn-ghost" id="search-open" aria-label="Search">
+        <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg>
+      </button>
+      <a href="#subscribe" class="btn btn-primary">Subscribe</a>
+    </div>
+  </div>
+  <nav class="primary-nav" aria-label="Primary">
+    <div class="nav-inner">
+      <a href="#cover" class="nav-link active">The Issue</a>
+      <a href="#features" class="nav-link">Features</a>
+      <a href="#subnet-of-week" class="nav-link">Subnet of the Week</a>
+      <a href="#directory" class="nav-link">The Directory</a>
+      <a href="#quotes" class="nav-link">The Board</a>
+      <a href="#terminal" class="nav-link">TAO Terminal</a>
+      <a href="#emissions" class="nav-link">Markets</a>
+      <a href="#cdesk" class="nav-link">Centralized Desk</a>
+      <a href="#voices" class="nav-link">Op-Ed</a>
+      <a href="#research" class="nav-link">Research</a>
+      <a href="#long-read" class="nav-link">The Long Read</a>
+      <a href="#archive" class="nav-link">Archive</a>
+    </div>
+  </nav>
+</header>
+
+<main>
+
+<!-- ============================================================ -->
+<!-- COVER STORY                                                    -->
+<!-- ============================================================ -->
+<section class="cover" id="cover">
+  <canvas class="cover-canvas" id="cover-canvas" aria-hidden="true"></canvas>
+  <div class="cover-grid">
+    <div class="cover-meta">
+      <span class="cover-kicker">Cover · The Long Read</span>
+      <span class="cover-readtime">28 min read</span>
+    </div>
+    <h1 class="cover-headline">
+      The markets <em>inside</em> the machine.
+    </h1>
+    <p class="cover-dek">
+      Every subnet on Bittensor is a market for a different shape of intelligence —
+      a small economy where miners compete on cost and capability while validators
+      grade the work. We spent three months inside that economy. What we found is
+      stranger, more alive, and more consequential than the headlines suggest.
+    </p>
+    <div class="cover-byline">
+      <span class="by">By the Editors</span>
+      <span class="dot">·</span>
+      <span class="when">Published May 13, 2026</span>
+    </div>
+    <div class="cover-cta">
+      <a href="#long-read" class="btn btn-primary btn-large">Read the cover story</a>
+      <a href="#features" class="btn btn-link">Skip to features <span aria-hidden="true">→</span></a>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================ -->
+<!-- LIVE TICKER                                                    -->
+<!-- ============================================================ -->
+<section class="ticker-band" aria-label="Live network ticker">
+  <div class="ticker-track" id="ticker-track">
+    <!-- populated + duplicated by JS for seamless loop -->
+  </div>
+</section>
+
+<!-- ============================================================ -->
+<!-- AT A GLANCE — network stats                                    -->
+<!-- ============================================================ -->
+<section class="stats" aria-label="Network at a glance">
+  <div class="stats-head">
+    <span class="section-kicker"><span class="live-dot"></span>At a glance</span>
+    <h2 class="section-title">The network, in numbers.</h2>
+    <p class="section-dek">Snapshots refresh as you read. All figures simulated for this prototype.</p>
+  </div>
+  <div class="stat-grid">
+    <div class="stat-card">
+      <span class="stat-label">Active subnets</span>
+      <span class="stat-value" data-count="92" data-suffix="">0</span>
+      <span class="stat-foot">+4 this quarter</span>
+    </div>
+    <div class="stat-card">
+      <span class="stat-label">TAO staked</span>
+      <span class="stat-value" data-count="6240000" data-format="compact" data-prefix="τ">0</span>
+      <span class="stat-foot">63% of supply</span>
+    </div>
+    <div class="stat-card">
+      <span class="stat-label">Daily emissions</span>
+      <span class="stat-value" data-count="7200" data-prefix="τ">0</span>
+      <span class="stat-foot">~$3.5M / day</span>
+    </div>
+    <div class="stat-card">
+      <span class="stat-label">Registered miners</span>
+      <span class="stat-value" data-count="32850" data-format="comma">0</span>
+      <span class="stat-foot">Across all subnets</span>
+    </div>
+    <div class="stat-card">
+      <span class="stat-label">Validators</span>
+      <span class="stat-value" data-count="6184" data-format="comma">0</span>
+      <span class="stat-foot">Root + subnet</span>
+    </div>
+    <div class="stat-card">
+      <span class="stat-label">Network uptime</span>
+      <span class="stat-value" data-count="99.94" data-decimals="2" data-suffix="%">0</span>
+      <span class="stat-foot">Trailing 90 days</span>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================ -->
+<!-- FEATURES                                                       -->
+<!-- ============================================================ -->
+<section class="features" id="features">
+  <div class="features-head">
+    <span class="section-kicker">In this issue</span>
+    <h2 class="section-title">Five stories from the edge of the network.</h2>
+  </div>
+  <div class="features-grid">
+    <article class="feature feature-lead">
+      <a href="#" class="feature-link">
+        <div class="feature-art art-1" aria-hidden="true"></div>
+        <div class="feature-body">
+          <span class="feature-tag">Reporting</span>
+          <h3 class="feature-title">The quiet coup at SN3: how Templar became Bittensor's most contested subnet.</h3>
+          <p class="feature-dek">For six weeks, a single validator coalition controlled 41% of the weight on the decentralized training subnet. Then someone built a counterweight.</p>
+          <div class="feature-byline"><span>By M. Asante</span> · <span>22 min</span></div>
+        </div>
+      </a>
+    </article>
+
+    <article class="feature">
+      <a href="#" class="feature-link">
+        <div class="feature-art art-2" aria-hidden="true"></div>
+        <div class="feature-body">
+          <span class="feature-tag">Analysis</span>
+          <h3 class="feature-title">dTAO at one year: did per-subnet tokens save Bittensor, or fracture it?</h3>
+          <p class="feature-dek">A close reading of the price discovery, governance fights, and unintended liquidity effects since the dTAO upgrade went live.</p>
+          <div class="feature-byline"><span>By L. Okafor</span> · <span>14 min</span></div>
+        </div>
+      </a>
+    </article>
+
+    <article class="feature">
+      <a href="#" class="feature-link">
+        <div class="feature-art art-3" aria-hidden="true"></div>
+        <div class="feature-body">
+          <span class="feature-tag">Field Notes</span>
+          <h3 class="feature-title">A week inside a Bittensor validator: power bills, GPU smells, and the 4am restart.</h3>
+          <p class="feature-dek">Notes from a rented cabin in eastern Washington, where one operator runs validators across nine subnets on three rigs.</p>
+          <div class="feature-byline"><span>By R. Vela</span> · <span>9 min</span></div>
+        </div>
+      </a>
+    </article>
+
+    <article class="feature">
+      <a href="#" class="feature-link">
+        <div class="feature-art art-4" aria-hidden="true"></div>
+        <div class="feature-body">
+          <span class="feature-tag">Profile</span>
+          <h3 class="feature-title">The subnet owner who refused to ship: a portrait of friendly attrition.</h3>
+          <p class="feature-dek">Three founders, two rewrites, one validator strike. How SN56 nearly didn't make it — and what the owner did when the emissions started flowing.</p>
+          <div class="feature-byline"><span>By S. Park</span> · <span>11 min</span></div>
+        </div>
+      </a>
+    </article>
+
+    <article class="feature">
+      <a href="#" class="feature-link">
+        <div class="feature-art art-5" aria-hidden="true"></div>
+        <div class="feature-body">
+          <span class="feature-tag">Op-Ed</span>
+          <h3 class="feature-title">Against vibes-based weight setting.</h3>
+          <p class="feature-dek">If your validation function would embarrass you in a code review, it is going to embarrass you on chain. A case for adversarial benchmarks as default.</p>
+          <div class="feature-byline"><span>By N. Idrissi</span> · <span>6 min</span></div>
+        </div>
+      </a>
+    </article>
+  </div>
+</section>
+
+<!-- ============================================================ -->
+<!-- SUBNET OF THE WEEK                                             -->
+<!-- ============================================================ -->
+<section class="sotw" id="subnet-of-week">
+  <div class="sotw-head">
+    <span class="section-kicker">Subnet of the Week</span>
+    <h2 class="section-title">SN9 · Pretraining.</h2>
+    <p class="section-dek">A subnet where miners race to pretrain better language models from scratch. The benchmarks are public. The losses are merciless. The emissions follow the loss curve.</p>
+  </div>
+  <div class="sotw-grid">
+    <div class="sotw-chart">
+      <div class="chart-head">
+        <span class="chart-title">Top-miner validation loss — last 30 days</span>
+        <span class="chart-foot">Lower is better · simulated</span>
+      </div>
+      <canvas id="sotw-canvas" width="800" height="320" aria-hidden="true"></canvas>
+      <div class="chart-legend">
+        <span class="leg leg-1"><i></i>Miner 0xA3 (current leader)</span>
+        <span class="leg leg-2"><i></i>Subnet median</span>
+        <span class="leg leg-3"><i></i>30-day best</span>
+      </div>
+    </div>
+    <aside class="sotw-side">
+      <dl class="sotw-stats">
+        <div><dt>Netuid</dt><dd>9</dd></div>
+        <div><dt>Theme</dt><dd>Pretraining</dd></div>
+        <div><dt>Owner</dt><dd>Macrocosmos</dd></div>
+        <div><dt>Registered miners</dt><dd>256</dd></div>
+        <div><dt>Active validators</dt><dd>64</dd></div>
+        <div><dt>Daily emission</dt><dd>τ 198.4</dd></div>
+        <div><dt>Subnet token (α)</dt><dd>$2.31</dd></div>
+        <div><dt>30-day change</dt><dd class="up">+41.7%</dd></div>
+      </dl>
+      <div class="sotw-quote">
+        <p>"You don't win SN9 by tuning a checkpoint. You win it by re-reading the data."</p>
+        <span class="sotw-attrib">— Const, founder, Macrocosmos</span>
+      </div>
+      <a href="#" class="btn btn-outline btn-block">Read the full profile <span aria-hidden="true">→</span></a>
+    </aside>
+  </div>
+</section>
+
+<!-- ============================================================ -->
+<!-- THE DIRECTORY                                                  -->
+<!-- ============================================================ -->
+<section class="directory" id="directory">
+  <div class="dir-head">
+    <span class="section-kicker">The Directory</span>
+    <h2 class="section-title">Every subnet, ranked, weighed, and watched.</h2>
+    <p class="section-dek">A live-feel preview of our subnet index. The full directory tracks 92 subnets across 14 categories.</p>
+  </div>
+  <div class="dir-controls">
+    <div class="dir-filters" role="tablist">
+      <button class="chip active" data-filter="all">All</button>
+      <button class="chip" data-filter="text">Text / LLM</button>
+      <button class="chip" data-filter="vision">Vision</button>
+      <button class="chip" data-filter="training">Training</button>
+      <button class="chip" data-filter="data">Data</button>
+      <button class="chip" data-filter="search">Search</button>
+      <button class="chip" data-filter="finance">Finance</button>
+    </div>
+    <div class="dir-sort">
+      <label for="sort">Sort</label>
+      <select id="sort">
+        <option value="emission">Daily emission</option>
+        <option value="change">30d change</option>
+        <option value="miners">Miners</option>
+        <option value="netuid">Netuid</option>
+      </select>
+    </div>
+  </div>
+  <div class="dir-grid" id="dir-grid">
+    <!-- populated by JS -->
+  </div>
+  <div class="dir-foot">
+    <a href="#" class="btn btn-outline">See all 92 subnets <span aria-hidden="true">→</span></a>
+  </div>
+</section>
+
+<!-- ============================================================ -->
+<!-- QUOTE BOARD — Bloomberg-style subnet table                    -->
+<!-- ============================================================ -->
+<section class="quotes" id="quotes" aria-label="Subnet quote board">
+  <div class="quotes-head">
+    <div class="left">
+      <span class="section-kicker"><span class="live-dot"></span>The Board</span>
+      <h2 class="section-title">Subnet quote board.</h2>
+      <p class="section-dek">Token, emission, miners, validators, 24h, 7d. The view a desk would keep open all day.</p>
+    </div>
+    <div class="right">
+      <span><span class="live-dot"></span>Streaming · simulated</span>
+    </div>
+  </div>
+  <div class="quote-tbl-wrap">
+    <table class="quote-tbl" id="quote-tbl">
+      <thead>
+        <tr>
+          <th>Net</th>
+          <th>Name</th>
+          <th class="cat">Category</th>
+          <th class="num">α-Price (USD)</th>
+          <th class="num">Emission τ/24h</th>
+          <th class="num miners-col">Miners</th>
+          <th class="num">24h</th>
+          <th class="num">7d</th>
+          <th class="num">Spark</th>
+        </tr>
+      </thead>
+      <tbody id="quote-tbody"><!-- populated by JS --></tbody>
+    </table>
+  </div>
+</section>
+
+<!-- ============================================================ -->
+<!-- TAO TERMINAL — multi-panel command center                     -->
+<!-- ============================================================ -->
+<section class="terminal" id="terminal" aria-label="TAO Terminal">
+  <div class="term-head">
+    <div class="left">
+      <span class="section-kicker"><span class="live-dot"></span>TAO Terminal</span>
+      <h2 class="section-title">The desk view.</h2>
+      <p class="section-dek">Four panels you would keep pinned open all day. Tickers, heatmaps, live transfers, and emissions in one frame.</p>
+    </div>
+    <div class="right">
+      <span class="pill">v0.14 · prototype</span>
+      <span class="pill"><span class="live-dot"></span> streaming</span>
+    </div>
+  </div>
+  <div class="term-grid">
+    <article class="panel" id="panel-movers">
+      <div class="panel-head">
+        <span class="title"><span class="fcode">&lt;001&gt;</span> TOP MOVERS · 24h <span class="go">&lt;GO&gt;</span></span>
+        <span class="meta"><span class="pill-sim">SIM</span></span>
+      </div>
+      <div class="panel-body">
+        <table class="mini-tbl" id="movers-tbl">
+          <thead><tr>
+            <th>Net</th><th>Name</th><th class="num">α-Price</th><th class="num">24h</th>
+          </tr></thead>
+          <tbody></tbody>
+        </table>
+      </div>
+      <div class="panel-foot"><span>LIM 8 · sorted by Δ</span><span id="movers-stamp">--:--:--</span></div>
+    </article>
+
+    <article class="panel" id="panel-stream">
+      <div class="panel-head">
+        <span class="title"><span class="fcode">&lt;002&gt;</span> LIVE TRANSFERS <span class="go">&lt;GO&gt;</span></span>
+        <span class="meta"><span class="pill-sim">SIM</span></span>
+      </div>
+      <div class="panel-body">
+        <div class="stream" id="stream-list"></div>
+      </div>
+      <div class="panel-foot"><span>τ · on-chain feed</span><span id="stream-stamp">--:--:--</span></div>
+    </article>
+
+    <article class="panel" id="panel-heatmap">
+      <div class="panel-head">
+        <span class="title"><span class="fcode">&lt;003&gt;</span> SUBNET HEATMAP · 24h Δ <span class="go">&lt;GO&gt;</span></span>
+        <span class="meta"><span class="pill-sim">SIM</span></span>
+      </div>
+      <div class="panel-body">
+        <div class="heatmap" id="heatmap"></div>
+        <div class="hm-legend">
+          <span>-15%</span>
+          <span class="hm-scale" aria-hidden="true">
+            <span style="background:#FF4D6D"></span><span style="background:#A04050"></span><span style="background:#5A3a44"></span><span style="background:#2A2A35"></span><span style="background:#3A604A"></span><span style="background:#4FA078"></span><span style="background:#00E5A8"></span>
+          </span>
+          <span>+25%</span>
+        </div>
+      </div>
+      <div class="panel-foot"><span>92 cells · hover for detail</span><span>cat-weighted</span></div>
+    </article>
+
+    <article class="panel" id="panel-emissions-mini">
+      <div class="panel-head">
+        <span class="title"><span class="fcode">&lt;004&gt;</span> NETWORK EMISSIONS · 30D <span class="go">&lt;GO&gt;</span></span>
+        <span class="meta"><span class="pill-sim">SIM</span></span>
+      </div>
+      <div class="panel-body">
+        <div class="mini-chart"><canvas id="emissions-mini-canvas"></canvas></div>
+      </div>
+      <div class="panel-foot"><span>τ minted / day</span><span id="emissions-mini-stamp">avg τ 7,200/d</span></div>
+    </article>
+  </div>
+</section>
+
+<!-- ============================================================ -->
+<!-- EMISSIONS MAP                                                  -->
+<!-- ============================================================ -->
+<section class="emissions" id="emissions">
+  <div class="em-head">
+    <span class="section-kicker"><span class="live-dot"></span>Markets &amp; Emissions</span>
+    <h2 class="section-title">Where the TAO flows.</h2>
+    <p class="section-dek">Every block, root validators set weights and the network mints new TAO into the subnets that earned it. Here is one snapshot of that flow.</p>
+  </div>
+  <div class="em-index" aria-label="Index watch">
+    <div class="ix-left">
+      <span class="ix-kicker">Index watch · YCX</span>
+      <span class="ix-name">Yuma Composite Index</span>
+      <span class="ix-note">Market-cap-weighted benchmark of the Bittensor subnet universe. Inception 04 Sep 2025.</span>
+    </div>
+    <div class="ix-right">
+      <span class="ix-value">1,004.89</span>
+      <span class="ix-delta up">+0.49% today</span>
+      <a href="https://www.yumaai.com/asset-management#composite-index" class="ix-link" target="_blank" rel="noopener">methodology <span aria-hidden="true">→</span></a>
+    </div>
+  </div>
+  <div class="em-grid">
+    <div class="em-viz">
+      <canvas id="emissions-canvas" width="900" height="500" aria-hidden="true"></canvas>
+    </div>
+    <aside class="em-side">
+      <h3 class="em-side-title">Top emitters, 24h</h3>
+      <ol class="em-list" id="em-list">
+        <!-- populated by JS -->
+      </ol>
+      <p class="em-foot">Emissions are dynamic. Stake-weighted root votes determine subnet allocation; subnet validators then distribute to miners by performance. Reference data layer: <a href="https://taostats.io/" target="_blank" rel="noopener">taostats</a>.</p>
+    </aside>
+  </div>
+</section>
+
+<!-- ============================================================ -->
+<!-- VOICES — pull quotes                                           -->
+<!-- ============================================================ -->
+<section class="voices" id="voices">
+  <div class="voices-head">
+    <span class="section-kicker">Voices</span>
+    <h2 class="section-title">From the field.</h2>
+  </div>
+  <div class="voices-grid">
+    <blockquote class="voice">
+      <p>"A subnet without an adversarial validator is a charity, not a market."</p>
+      <footer><cite>— K. Ramirez</cite>, validator, multiple subnets</footer>
+    </blockquote>
+    <blockquote class="voice">
+      <p>"We treat emissions like a public benchmark. If you can't explain why your subnet earned them this week, your weights are wrong."</p>
+      <footer><cite>— J. Wen</cite>, subnet owner, SN21</footer>
+    </blockquote>
+    <blockquote class="voice">
+      <p>"The miners who survive are the ones who read the validator code on Friday and ship a fix on Sunday."</p>
+      <footer><cite>— A. Boateng</cite>, miner, SN6 &amp; SN9</footer>
+    </blockquote>
+    <blockquote class="voice">
+      <p>"Bittensor is not a chain that runs AI. It is an auction house that pays for AI work, and we are still figuring out how to write the catalogue."</p>
+      <footer><cite>— D. Linde</cite>, researcher</footer>
+    </blockquote>
+  </div>
+</section>
+
+<!-- ============================================================ -->
+<!-- THE CENTRALIZED DESK — centralized AI coverage                -->
+<!-- ============================================================ -->
+<section class="cdesk" id="cdesk" aria-label="Centralized AI desk">
+  <div class="cdesk-head">
+    <span class="section-kicker"><span class="live-dot"></span>The Centralized Desk</span>
+    <h2 class="section-title">Meanwhile, in the labs.</h2>
+    <p class="section-dek">Decentralized intelligence does not happen in a vacuum. The frontier labs set the price of compute, the shape of the benchmarks, and the rumor floor. Here is the desk's view of what is moving today.</p>
+  </div>
+  <div class="cdesk-grid">
+    <div class="lab-grid" id="lab-grid"><!-- populated by JS --></div>
+    <aside class="feed">
+      <div class="feed-head"><span>Newsfeed · Frontier AI</span><span><span class="live-dot"></span>LIVE</span></div>
+      <ul class="feed-list" id="feed-list"><!-- populated by JS --></ul>
+    </aside>
+  </div>
+</section>
+
+<!-- ============================================================ -->
+<!-- RESEARCH                                                       -->
+<!-- ============================================================ -->
+<section class="research" id="research">
+  <div class="research-head">
+    <span class="section-kicker">Research</span>
+    <h2 class="section-title">Papers, primers, and breakdowns.</h2>
+  </div>
+  <ul class="research-list">
+    <li class="research-item">
+      <div class="research-meta">
+        <span class="research-type">Primer</span>
+        <span class="research-len">12 min</span>
+      </div>
+      <h3>Yuma Consensus in one sitting: how validator weights become emissions.</h3>
+      <p>A clean, math-light walkthrough of the consensus mechanism that decides who gets paid, with worked examples and the failure modes most often missed.</p>
+    </li>
+    <li class="research-item">
+      <div class="research-meta">
+        <span class="research-type">Paper review</span>
+        <span class="research-len">9 min</span>
+      </div>
+      <h3>"Decentralized pretraining at scale": what SN9's foundational paper got right, and what the network learned the hard way.</h3>
+      <p>The original loss-as-incentive design held up. The data-poisoning attacks did not. A reading of what shipped versus what was promised.</p>
+    </li>
+    <li class="research-item">
+      <div class="research-meta">
+        <span class="research-type">Explainer</span>
+        <span class="research-len">7 min</span>
+      </div>
+      <h3>dTAO mechanics for people who already understand Bittensor.</h3>
+      <p>You know about netuids, root, and weights. Here is what changed when each subnet got its own α-token, and why the price curves matter for incentives.</p>
+    </li>
+    <li class="research-item">
+      <div class="research-meta">
+        <span class="research-type">Data</span>
+        <span class="research-len">5 min</span>
+      </div>
+      <h3>The Gini index of Bittensor stake, 2023 to today.</h3>
+      <p>A two-year series on stake concentration across the top 100 hotkeys. Bumpy, monotonic, and slowly bending in the right direction.</p>
+    </li>
+  </ul>
+</section>
+
+<!-- ============================================================ -->
+<!-- LONG READ                                                      -->
+<!-- ============================================================ -->
+<section class="longread" id="long-read">
+  <div class="lr-grid">
+    <div class="lr-rail">
+      <span class="section-kicker">The Long Read</span>
+      <span class="lr-read">28 min</span>
+    </div>
+    <article class="lr-body">
+      <h2 class="lr-title">The markets inside the machine.</h2>
+      <p class="lr-dek">An on-the-ground report from inside the Bittensor economy, where intelligence is priced by the block and paid for in a coin that did not exist five years ago.</p>
+      <p class="lr-drop">
+        <span class="dropcap">T</span>he first thing you notice, when you sit with a Bittensor subnet
+        for more than a day, is how loud the silence between blocks is. Twelve
+        seconds. Then another twelve. Twelve seconds in which 256 miners are
+        running inference, 64 validators are scoring it, and somewhere in the
+        runtime of a node operator's rented machine in Helsinki, a small piece
+        of consensus is forming about who, this round, did the work.
+      </p>
+      <p>
+        We came to this story expecting an exposé. What we found, three months in,
+        was something closer to an unfinished marketplace — messy, hostile in the
+        way that all markets are hostile, but with rules that, in their better
+        moments, do exactly what they were written to do: pay for cognition
+        proportional to the value it produces, in a unit of account that does not
+        ask permission of any state.
+      </p>
+      <p>
+        The headlines have not been kind. Every six weeks, some subnet collapses
+        into a coordinated weight attack, or a founder ships a validator update
+        that breaks miner economics overnight, or a single coalition discovers
+        that the cheapest way to win is to bribe the grader. These stories are
+        true. They are also, we think, the wrong story.
+      </p>
+      <p>
+        The right story is that ninety-two distinct markets for distinct kinds of
+        intelligence are running, simultaneously, on a network whose validators
+        are paid in the same coin its critics keep declaring dead. Some of those
+        markets are trivial. Some are profound. A handful — pretraining, dataset
+        construction, retrieval — are doing work that the centralized labs are
+        spending nine figures a year to do behind closed doors. The Bittensor
+        version is cheaper, weirder, and, on the days it works, more honest.
+      </p>
+      <p class="lr-continue"><a href="#" class="btn btn-link">Continue reading <span aria-hidden="true">→</span></a></p>
+    </article>
+  </div>
+</section>
+
+<!-- ============================================================ -->
+<!-- SUBSCRIBE                                                      -->
+<!-- ============================================================ -->
+<section class="subscribe" id="subscribe">
+  <div class="sub-grid">
+    <div class="sub-copy">
+      <span class="section-kicker">Subscribe</span>
+      <h2 class="section-title">A weekly dispatch from the network.</h2>
+      <p class="section-dek">One feature, one chart, one quote, every Friday. Free during the prototype run; paid tier when the directory goes live.</p>
+      <ul class="sub-bullets">
+        <li>Subnet of the Week deep-dive</li>
+        <li>Emissions snapshot and movers</li>
+        <li>One op-ed worth your time</li>
+        <li>No tracking pixels, ever</li>
+      </ul>
+    </div>
+    <form class="sub-form" id="sub-form" novalidate>
+      <label for="sub-email" class="sub-label">Your email</label>
+      <div class="sub-row">
+        <input type="email" id="sub-email" name="email" placeholder="you@somewhere.net" autocomplete="email" required>
+        <button type="submit" class="btn btn-primary">Subscribe</button>
+      </div>
+      <p class="sub-foot" id="sub-msg">Demo form — submissions are not stored.</p>
+    </form>
+  </div>
+</section>
+
+<!-- ============================================================ -->
+<!-- COLOPHON                                                       -->
+<!-- ============================================================ -->
+<section class="colophon" id="archive">
+  <div class="col-grid">
+    <div>
+      <h4 class="col-h">Masthead</h4>
+      <p class="col-p">Editor — <em>R. Campbell</em><br>Senior writers — M. Asante, L. Okafor, R. Vela<br>Research — D. Linde, S. Park<br>Design &amp; engineering — the editors</p>
+    </div>
+    <div>
+      <h4 class="col-h">About</h4>
+      <p class="col-p">Subnet is an independent magazine covering the Bittensor network and the broader decentralized-intelligence economy. We do not take subnet sponsorship or paid placement.</p>
+    </div>
+    <div>
+      <h4 class="col-h">Archive</h4>
+      <ul class="col-list">
+        <li>Issue 014 — The Subnet Economy <span class="cur">current</span></li>
+        <li>Issue 013 — The dTAO Year</li>
+        <li>Issue 012 — Validators &amp; Vibes</li>
+        <li>Issue 011 — Miners on the Margin</li>
+        <li>Issue 010 — A Field Guide</li>
+      </ul>
+    </div>
+    <div>
+      <h4 class="col-h">Find us</h4>
+      <ul class="col-list">
+        <li>RSS · /feed.xml</li>
+        <li>Mirror · ipfs://subnet.mag</li>
+        <li>Letters · letters@subnet.mag</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<!-- ============================================================ -->
+<!-- FOOTER                                                         -->
+<!-- ============================================================ -->
+<footer class="foot">
+  <div class="foot-inner">
+    <span class="foot-mark">Subnet · A magazine of decentralized intelligence</span>
+    <span class="foot-meta">© 2026 · Built in a notebook · No ads, no trackers</span>
+  </div>
+</footer>
+
+<!-- Back to top -->
+<button class="to-top" id="to-top" aria-label="Back to top">
+  <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2"><path d="m6 14 6-6 6 6"/></svg>
+</button>
+
+<!-- Config (optional, gitignored) → DataLayer → App. Order matters. -->
+<script src="config.js" defer onerror="this.remove()"></script>
+<script src="data.js" defer></script>
+<script src="app.js" defer></script>
+</body>
+</html>

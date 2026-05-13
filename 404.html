@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Not found — Rondo Campbell</title>
+<style>
+  :root{
+    --bg:#08090C; --ink:#EAEAF0; --ink-2:#B6B8C2; --ink-3:#6E727E;
+    --flame:#FFA537; --rule:rgba(234,234,240,.10);
+    --serif:'Iowan Old Style','Palatino Linotype',Georgia,serif;
+    --mono:ui-monospace,'SF Mono',Menlo,Consolas,monospace;
+  }
+  *{box-sizing:border-box}
+  html,body{margin:0;padding:0;height:100%}
+  body{
+    background:var(--bg);color:var(--ink);
+    font-family:var(--serif);font-size:17px;line-height:1.5;
+    display:flex;align-items:center;justify-content:center;padding:24px;
+    background-image:
+      linear-gradient(rgba(234,234,240,.025) 1px,transparent 1px),
+      linear-gradient(90deg,rgba(234,234,240,.025) 1px,transparent 1px);
+    background-size:40px 40px;
+  }
+  .card{max-width:60ch;text-align:left}
+  .kicker{font-family:var(--mono);font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:var(--flame);margin-bottom:14px}
+  h1{font-family:var(--serif);font-weight:400;font-size:clamp(36px,7vw,64px);line-height:1.04;letter-spacing:-.02em;margin:0 0 16px}
+  h1 em{font-style:italic;color:var(--ink-2)}
+  p{color:var(--ink-2);margin:0 0 14px}
+  .links{margin-top:24px;display:flex;flex-wrap:wrap;gap:10px}
+  a.btn{
+    display:inline-block;font-family:var(--mono);font-size:12px;letter-spacing:.06em;
+    color:#0B0B0F;background:var(--flame);padding:10px 16px;border-radius:999px;text-decoration:none;
+  }
+  a.btn.ghost{background:transparent;color:var(--ink);border:1px solid var(--rule)}
+  .code{font-family:var(--mono);font-size:12px;color:var(--ink-3);margin-top:24px;border-top:1px solid var(--rule);padding-top:14px}
+</style>
+</head>
+<body>
+  <div class="card">
+    <p class="kicker">404 · Not found</p>
+    <h1>This page <em>does not exist yet.</em></h1>
+    <p>This site is the public record of a self-education project. New work goes up often; old links sometimes shift.</p>
+    <div class="links">
+      <a class="btn" href="/rondo-AI-curriculum/">Field manual home</a>
+      <a class="btn ghost" href="/rondo-AI-curriculum/projects/subnet-magazine/">Subnet Magazine</a>
+    </div>
+    <p class="code">If you got here from a real link, sorry. Try one of the two above.</p>
+  </div>
+</body>
+</html>
