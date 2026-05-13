@@ -29,7 +29,7 @@ python-tutor-app/
 └── README.md
 ```
 
-## Get the APK on your phone (the easy path)
+## Get the APK on your tablet (the easy path)
 
 The GitHub Actions workflow at `.github/workflows/build-apk.yml`
 builds an APK every time a file under `projects/python-tutor-app/`
@@ -41,7 +41,7 @@ changes. You don't need a Linux box.
    builds after that take ~5–10 min.
 3. Open the workflow run → **Artifacts** → download
    `rondo-py-debug-apk.zip`.
-4. On the phone: unzip, tap the `.apk`, allow "Install unknown apps"
+4. On the tablet: unzip, tap the `.apk`, allow "Install unknown apps"
    for your file manager, install.
 5. Open Rondo.py → Settings → paste your `sk-ant-…` key → Practice.
 

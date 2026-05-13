@@ -126,7 +126,7 @@ that file to start fresh. Command history saves to `~/.tutor_history`.
 `?hint` is the strictest — one sentence, never the answer. `?fix` is
 the most direct — gives the code with a one-line why. `?explain` and
 `?quiz` sit between. The model is `claude-haiku-4-5` so responses
-stream in fast — usually under two seconds on a phone.
+stream in fast — usually under two seconds on a tablet.
 
 ## Why this exists
 

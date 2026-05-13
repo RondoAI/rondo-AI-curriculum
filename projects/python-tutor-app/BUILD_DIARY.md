@@ -3,7 +3,7 @@
 A chronological record of trying to ship the first Android APK for
 Rondo.py. We hit ten different failure modes in one evening. Each
 one taught something. The diary stays in the repo so future-us (and
-anyone else trying Buildozer + Kivy + a 2026-era Android phone)
+anyone else trying Buildozer + Kivy + a 2026-era Android tablet)
 knows the trail we cut.
 
 Device: Samsung Galaxy A16 5G (SM-A166U), Android 14, arm64-v8a.
@@ -13,13 +13,13 @@ Python 3.11.
 
 ## Goal
 
-A `.apk` that installs from a phone and opens to the pink Rondo.py
+A `.apk` that installs from a tablet and opens to the pink Rondo.py
 home screen. Stretch goal: same flow ending in a Play Store upload.
 
 ## What's working (May 2026)
 
 - **`tutor-terminal/`** — Python REPL game running in Termux on the
-  phone. Same XP / streak / achievements / Claude integration as the
+  tablet. Same XP / streak / achievements / Claude integration as the
   Kivy version, just terminal UI. Production-ready today.
 - **`python-tutor-app/` source code** — Kivy app builds a real APK
   artifact (39 MB, signed debug). Installs. Just doesn't open on
@@ -48,11 +48,11 @@ Each row is a real failed CI run. Times are runner wall-clock.
 
 ## The actual lessons
 
-### CI debugging is iterative and slow on a phone
+### CI debugging is iterative and slow on a tablet
 
 Every cycle was: push → 10–55 min build → download zip → extract →
 uninstall old → install new → open → screenshot → repeat. On a
-phone, that's a 20-minute round-trip per attempt. Ten attempts = a
+tablet, that's a 20-minute round-trip per attempt. Ten attempts = a
 whole evening burned.
 
 **Lesson:** Build the most diagnostic version first. The log-tail
@@ -92,7 +92,7 @@ We went with the probe (build #11).
 ### When in doubt, ship the working version
 
 Through this entire trail, `tutor-terminal/tutor.py` worked on the
-phone in Termux. Same game, same Claude integration, same XP
+tablet in Termux. Same game, same Claude integration, same XP
 system. We should have stayed on that for daily practice and
 debugged the APK in parallel commits the learner doesn't have to
 test by hand.
@@ -126,7 +126,7 @@ practice (must work today), one for shipping (can take weeks).
   (v0.2) landed during the CI fight and didn't help — it just made
   the diff harder to read.
 - **Keep the working terminal version in front of the learner.**
-  Twenty minutes of phone-based study a day matters more than any
+  Twenty minutes of tablet-based study a day matters more than any
   individual build.
 
 ## Open questions (for next session)
@@ -144,5 +144,5 @@ practice (must work today), one for shipping (can take weeks).
 
 *Written 2026-05-13 after a long evening of build cycles. Filed
 under "the story" — Rondo's lived experience teaching himself this
-material from inside, on a phone, with intermittent connectivity,
+material from inside, on a tablet, with intermittent connectivity,
 is itself part of the record.*
