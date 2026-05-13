@@ -11,6 +11,53 @@ Build APK with Buildozer (Linux):
 from __future__ import annotations
 
 import os
+import sys
+import traceback
+
+
+# ── crash handler ─────────────────────────────────────────────────────
+# Writes uncaught exceptions to a user-readable file so we can diagnose
+# launch crashes on Android without USB/ADB.
+def _crash_paths() -> list[str]:
+    paths: list[str] = []
+    try:
+        from android.storage import primary_external_storage_path  # type: ignore
+        paths.append(os.path.join(primary_external_storage_path(),
+                                  "Download", "rondopy-crash.txt"))
+        paths.append(os.path.join(primary_external_storage_path(),
+                                  "rondopy-crash.txt"))
+    except Exception:
+        pass
+    paths.extend([
+        "/storage/emulated/0/Download/rondopy-crash.txt",
+        "/sdcard/Download/rondopy-crash.txt",
+        "/sdcard/rondopy-crash.txt",
+        os.path.join(os.path.dirname(os.path.abspath(__file__)), "crash.txt"),
+    ])
+    return paths
+
+
+def _write_crash(msg: str) -> None:
+    for p in _crash_paths():
+        try:
+            parent = os.path.dirname(p)
+            if parent:
+                os.makedirs(parent, exist_ok=True)
+            with open(p, "w") as f:
+                f.write(msg)
+            return
+        except (OSError, PermissionError):
+            continue
+
+
+def _excepthook(exc_type, exc_value, exc_tb):
+    msg = "".join(traceback.format_exception(exc_type, exc_value, exc_tb))
+    _write_crash(msg)
+    sys.__excepthook__(exc_type, exc_value, exc_tb)
+
+
+sys.excepthook = _excepthook
+
 
 from kivy.app import App
 from kivy.clock import Clock
@@ -790,4 +837,8 @@ class RondoPyApp(App):
 
 
 if __name__ == "__main__":
-    RondoPyApp().run()
+    try:
+        RondoPyApp().run()
+    except BaseException:
+        _write_crash(traceback.format_exc())
+        raise
