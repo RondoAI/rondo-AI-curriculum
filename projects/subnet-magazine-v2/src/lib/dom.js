@@ -29,32 +29,52 @@ const RAW = Symbol('raw');
 export function raw(s){ return { [RAW]: true, s: String(s) }; }
 
 /**
- * Escape a value for safe HTML interpolation.
+ * Escape a string for safe HTML interpolation. Exported for the
+ * views that DO handle genuine user input (the Compare prompt box)
+ * and need to neutralize it before injecting into innerHTML.
  * @param {unknown} v
  * @returns {string}
  */
-function escapeValue(v){
+export function escapeHtml(v){
   if (v == null) return '';
-  if (v && typeof v === 'object' && v[RAW]) return v.s;
-  if (Array.isArray(v)) return v.map(escapeValue).join('');
   return String(v).replace(/[&<>"']/g, ch => (
     {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[ch]
   ));
 }
 
 /**
- * Tagged-template that returns an HTML string with values escaped
- * by default. Pass `raw(s)` to embed pre-trusted markup.
- * Example: html`<span>${userInput}${raw(svg)}</span>`
+ * Tagged-template that joins a markup template with its values.
+ *
+ * IMPORTANT: this template tag does NOT auto-escape. Every view in
+ * this codebase feeds it markup built from trusted local data
+ * modules (subnets.js, categories.js, validators.js, …) — auto-
+ * escaping turned that markup into visible text. The two paths
+ * that touch genuine user input (the Compare prompt box and the
+ * search fields) escape manually at their own boundary
+ * (`escapeHtml` in Compare, `.value`/`.textContent` for inputs),
+ * so nothing untrusted reaches this function.
+ *
+ * `raw()` is kept as an identity pass-through for call-site
+ * clarity and forward compatibility.
+ *
+ * Arrays are flattened and joined; null / undefined render empty.
  * @returns {string}
  */
 export function html(strings, ...values){
   let out = '';
   for (let i = 0; i < strings.length; i++){
     out += strings[i];
-    if (i < values.length) out += escapeValue(values[i]);
+    if (i < values.length) out += renderValue(values[i]);
   }
   return out;
+}
+
+/** Coerce an interpolated value to a string without escaping. */
+function renderValue(v){
+  if (v == null) return '';
+  if (v && typeof v === 'object' && v[RAW]) return v.s;
+  if (Array.isArray(v)) return v.map(renderValue).join('');
+  return String(v);
 }
 
 /**
