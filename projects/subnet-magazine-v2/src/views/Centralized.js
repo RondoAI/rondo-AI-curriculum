@@ -128,21 +128,20 @@ export function mountCentralized(root){
     feed.innerHTML = items.map(n => `
       <li class="cd-card">
         <article class="cd-card__inner">
-          <header class="cd-card__head">
-            <span class="cd-card__avatar">${mark(n.source, { size: 36 })}</span>
-            <span class="cd-card__src">
+          <div class="cd-card__main">
+            <header class="cd-card__head">
+              <span class="cd-card__avatar">${mark(n.source, { size: 20 })}</span>
               <span class="cd-card__src-name">${n.source}</span>
-              <span class="cd-card__src-meta">${fmtDate(n.date)} · ${NEWS_CATEGORY[n.category]} · ${n.region}</span>
-            </span>
-          </header>
-          <h3 class="cd-card__headline">${n.headline}</h3>
-          ${tickerChips(n.tickers)}
-          <p class="cd-card__body">${n.body}</p>
-          <div class="cd-card__art">${cardArt(n.id, { w: 360, h: 200, variant: n.category })}</div>
-          <footer class="cd-card__foot">
-            <span class="cd-impact cd-impact--${n.impact}">${IMPACT_LABEL[n.impact]}</span>
-            <span class="cd-card__tags">${n.tags.map(t => `<span class="cd-tag">${t}</span>`).join('')}</span>
-          </footer>
+              <span class="cd-card__src-meta">· ${fmtDate(n.date)} · ${n.region}</span>
+            </header>
+            <h3 class="cd-card__headline">${n.headline}</h3>
+            ${tickerChips(n.tickers)}
+            <footer class="cd-card__foot">
+              <span class="cd-card__cat">${NEWS_CATEGORY[n.category]}</span>
+              <span class="cd-impact cd-impact--${n.impact}">${IMPACT_LABEL[n.impact]}</span>
+            </footer>
+          </div>
+          <div class="cd-card__thumb">${cardArt(n.id, { w: 260, h: 320, variant: n.category })}</div>
         </article>
       </li>
     `).join('');
