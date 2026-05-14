@@ -43,6 +43,9 @@ export function mountTerminal(root, dataLayer = null){
     byCat[k].count += 1;
   }
   const categoryRows = Object.values(byCat).sort((a, b) => b.total - a.total);
+  /* netuid → editorial category, for aggregating the live subnet feed */
+  const catByNetuid = {};
+  for (const s of SUBNETS) catByNetuid[s.netuid] = s.cat;
 
   mount(root, html`
     <section class="terminal-page" id="terminal">
@@ -94,8 +97,8 @@ export function mountTerminal(root, dataLayer = null){
         <div class="netpulse__cell"><span class="netpulse__lbl">TPS</span><span class="netpulse__val" data-bind="np-tps">2,147</span><span class="netpulse__sub">tx / s</span></div>
         <div class="netpulse__cell"><span class="netpulse__lbl">VAL · PARTIC.</span><span class="netpulse__val" data-bind="np-vp">96.4%</span><span class="netpulse__sub">trailing 24h</span></div>
         <div class="netpulse__cell"><span class="netpulse__lbl">MEMPOOL</span><span class="netpulse__val" data-bind="np-mem">412</span><span class="netpulse__sub">pending tx</span></div>
-        <div class="netpulse__cell"><span class="netpulse__lbl">SUBNETS</span><span class="netpulse__val">${SUBNETS.length}</span><span class="netpulse__sub">active</span></div>
-        <div class="netpulse__cell"><span class="netpulse__lbl">τ STAKED</span><span class="netpulse__val">τ 6.24M</span><span class="netpulse__sub">63% supply</span></div>
+        <div class="netpulse__cell"><span class="netpulse__lbl">SUBNETS</span><span class="netpulse__val" data-bind="np-subnets">${SUBNETS.length}</span><span class="netpulse__sub">active</span></div>
+        <div class="netpulse__cell"><span class="netpulse__lbl">τ STAKED</span><span class="netpulse__val" data-bind="np-staked">τ 6.24M</span><span class="netpulse__sub">63% supply</span></div>
         <div class="netpulse__cell"><span class="netpulse__lbl">EMISSION</span><span class="netpulse__val">τ 7,200</span><span class="netpulse__sub">/ 24h</span></div>
         <div class="netpulse__cell"><span class="netpulse__lbl">UPTIME</span><span class="netpulse__val">99.94%</span><span class="netpulse__sub">90d</span></div>
         <div class="netpulse__cell"><span class="netpulse__lbl">PROP · LATENCY</span><span class="netpulse__val">186 ms</span><span class="netpulse__sub">P50 global</span></div>
@@ -861,6 +864,70 @@ export function mountTerminal(root, dataLayer = null){
   for (let i = 0; i < 10; i++) pushActivity();
   const liveTimer = setInterval(pushActivity, 1100);
 
+  /* ===== more live rendering: subnet charts + chain extras =====
+     When the real tao:subnets / tao:chain feeds land, rebuild the
+     24h performance bars, the emissions leaderboard, the category
+     breakdown, and the network-pulse subnet count + staked total
+     from live data. The seed render already happened above so the
+     panels are never empty. */
+  const npSubnets = qs('[data-bind="np-subnets"]', root);
+  const npStaked  = qs('[data-bind="np-staked"]',  root);
+  function renderLiveSubnets(list){
+    if (!Array.isArray(list) || !list.length) return;
+    const lbl = n => catLabel(catByNetuid[n] || 'unknown');
+    const col = n => catColor(catByNetuid[n] || 'unknown');
+    const byChg = [...list].sort((a, b) => (b.chg24 || 0) - (a.chg24 || 0));
+    const top = byChg.slice(0, 6), bot = byChg.slice(-6).reverse();
+    perfChart?.setData([...top, ...bot].map(s => ({
+      label: `SN${s.netuid} · ${s.name}`, value: s.chg24 || 0,
+      sub: lbl(s.netuid), netuid: s.netuid,
+    })));
+    emitChart?.setData([...list].sort((a, b) => (b.emission || 0) - (a.emission || 0))
+      .slice(0, 12).map(s => ({
+        label: `SN${s.netuid} · ${s.name}`, value: s.emission || 0,
+        sub: lbl(s.netuid), color: col(s.netuid), netuid: s.netuid,
+      })));
+    if (catList){
+      const agg = {}; let total = 0;
+      for (const s of list){
+        const k = catByNetuid[s.netuid] || 'unknown';
+        (agg[k] || (agg[k] = { cat: k, total: 0, count: 0 }));
+        agg[k].total += s.emission || 0; agg[k].count += 1; total += s.emission || 0;
+      }
+      catList.innerHTML = Object.values(agg).sort((a, b) => b.total - a.total).map(r => {
+        const meta = CATEGORIES[r.cat] || { label: r.cat, color: '#FF1E3C' };
+        const p = total ? (r.total / total) * 100 : 0;
+        return `
+          <li class="cat-row">
+            <span class="cat-row__swatch" style="background:${meta.color}"></span>
+            <span class="cat-row__name">${meta.label}</span>
+            <span class="cat-row__count">${r.count} ${r.count === 1 ? 'subnet' : 'subnets'}</span>
+            <span class="cat-row__tao">τ ${Math.round(r.total).toLocaleString('en-US')}</span>
+            <span class="cat-row__pct">${p.toFixed(1)}%</span>
+            <span class="cat-row__bar"><i style="width:${Math.min(100, p * 2.4)}%; background:${meta.color}"></i></span>
+          </li>`;
+      }).join('');
+    }
+    if (npSubnets) npSubnets.textContent = String(list.length);
+  }
+  function renderChainExtras(d){
+    if (!d) return;
+    if (d.blockNumber){
+      np.block = d.blockNumber;
+      if (npBlock) npBlock.textContent = d.blockNumber.toLocaleString('en-US');
+    }
+    if (npStaked && d.totalStaked != null) npStaked.textContent = 'τ ' + compact(d.totalStaked);
+  }
+  let subnetsUnsub = () => {}, chainExtraUnsub = () => {};
+  if (dataLayer){
+    subnetsUnsub    = dataLayer.subscribe('tao:subnets', renderLiveSubnets);
+    chainExtraUnsub = dataLayer.subscribe('tao:chain',   renderChainExtras);
+    if (dataLayer.get){
+      renderLiveSubnets(dataLayer.get('tao:subnets'));
+      renderChainExtras(dataLayer.get('tao:chain'));
+    }
+  }
+
   /* ===== Expand-to-fullscreen wiring ===== */
   root.querySelectorAll('[data-expand]').forEach(btn => {
     btn.addEventListener('click', e => {
@@ -927,6 +994,8 @@ export function mountTerminal(root, dataLayer = null){
       priceUnsub();
       marketUnsub();
       chainUnsub();
+      subnetsUnsub();
+      chainExtraUnsub();
     },
   };
 }
