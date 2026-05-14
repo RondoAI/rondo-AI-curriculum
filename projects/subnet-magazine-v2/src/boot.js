@@ -12,6 +12,7 @@ import { mountStatusStrip } from './views/StatusStrip.js';
 import { mountMasthead } from './views/Masthead.js';
 import { mountHero } from './views/Hero.js';
 import { mountNetworkMap } from './views/NetworkMap.js';
+import { mountTerminal } from './views/Terminal.js';
 
 const teardowns = [];
 
@@ -32,6 +33,7 @@ function boot(){
   mountIf('[data-mount="masthead"]',  mountMasthead);
   mountIf('[data-mount="hero"]',      root => mountHero(root, DataLayer));
   mountIf('[data-mount="netmap"]',    root => mountNetworkMap(root, DataLayer));
+  mountIf('[data-mount="terminal"]',  root => mountTerminal(root, DataLayer));
 
   // 3) clean teardown on unload (idempotent)
   window.addEventListener('beforeunload', () => {

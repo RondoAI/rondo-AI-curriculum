@@ -1,0 +1,160 @@
+/* =================================================================
+   TAO TERMINAL — page layout
+   -----------------------------------------------------------------
+   Full-page Bloomberg-style command center. Three rows of panels;
+   the candle chart spans the full width up top, then two rows of
+   two equal panels.
+   ================================================================= */
+
+.terminal-page{
+  max-width: var(--max-w);
+  margin: 0 auto;
+  padding: clamp(28px, 4vw, 56px) var(--gutter) clamp(56px, 8vw, 96px);
+  display: flex;
+  flex-direction: column;
+  gap: var(--s-6);
+}
+
+/* ---------- Page header ---------- */
+.term-head{
+  display: flex; flex-wrap: wrap; align-items: flex-end;
+  justify-content: space-between;
+  gap: var(--s-4);
+  padding-bottom: var(--s-4);
+  border-bottom: 1px solid var(--c-rule-2);
+}
+.term-head__left{ display: flex; flex-direction: column; gap: 6px; }
+.term-head__kicker{
+  font-family: var(--f-mono);
+  font-size: var(--t-xs);
+  letter-spacing: var(--ls-label);
+  text-transform: uppercase;
+  color: var(--c-red);
+  font-weight: 700;
+  display: inline-flex; align-items: center; gap: var(--s-2);
+}
+.term-head__kicker::before{ content: '<'; color: var(--c-ink-3); font-weight: 400; }
+.term-head__title{
+  font-family: var(--f-serif);
+  font-weight: 400;
+  font-size: var(--t-2xl);
+  letter-spacing: var(--ls-display);
+  line-height: var(--lh-tight);
+  color: var(--c-ink-1);
+  margin: 0;
+}
+.term-head__title em{ color: var(--c-red); font-style: italic; }
+.term-head__sub{
+  font-family: var(--f-serif);
+  font-style: italic;
+  color: var(--c-ink-2);
+  font-size: var(--t-md);
+  margin: 0;
+  max-width: 64ch;
+}
+
+.term-head__right{
+  display: inline-flex; flex-wrap: wrap;
+  gap: var(--s-3);
+  align-items: center;
+}
+.term-head__back{
+  font-family: var(--f-mono);
+  font-size: var(--t-xs);
+  letter-spacing: var(--ls-label);
+  text-transform: uppercase;
+  color: var(--c-ink-2);
+  border: 1px solid var(--c-rule-2);
+  padding: 6px var(--s-3);
+  border-radius: var(--r-1);
+  transition: color var(--d-fast), border-color var(--d-fast);
+}
+.term-head__back:hover{ color: var(--c-red); border-color: var(--c-red); }
+.term-head__pills{
+  display: inline-flex; gap: var(--s-2); flex-wrap: wrap;
+  font-family: var(--f-mono);
+  font-size: var(--t-xs);
+  letter-spacing: var(--ls-label);
+  color: var(--c-ink-3);
+}
+.term-head__pills .pill{
+  border: 1px solid var(--c-rule-2);
+  padding: 3px var(--s-2);
+  border-radius: var(--r-1);
+}
+
+/* ---------- Grid ---------- */
+.term-grid{
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-auto-rows: auto;
+  gap: var(--s-4);
+}
+.term-cell--full{ grid-column: 1 / -1; }
+
+/* the candles panel wants real vertical real estate */
+.term-cell--candles{ grid-column: 1 / -1; }
+.term-cell--candles .panel__body--pad-0 canvas{
+  width: 100%;
+  height: auto;
+  aspect-ratio: 21 / 8;
+  display: block;
+}
+
+.term-cell--heatmap .panel__body--pad-0 canvas{
+  width: 100%; height: auto;
+  aspect-ratio: 7 / 5;
+  display: block;
+}
+.term-cell--treemap .panel__body--pad-0 canvas{
+  width: 100%; height: auto;
+  aspect-ratio: 7 / 5;
+  display: block;
+}
+
+/* ---------- Top movers panel ---------- */
+.movers{
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--s-4);
+  padding: var(--s-3);
+}
+.movers__col h4{
+  font-family: var(--f-mono);
+  font-size: var(--t-xs);
+  letter-spacing: var(--ls-label);
+  text-transform: uppercase;
+  color: var(--c-red);
+  font-weight: 700;
+  margin: 0 0 var(--s-2);
+  padding-bottom: 4px;
+  border-bottom: 1px solid var(--c-rule);
+}
+.movers__col h4.is-down{ color: var(--c-down); }
+.movers__list{
+  list-style: none; margin: 0; padding: 0;
+  display: flex; flex-direction: column; gap: 0;
+}
+.mover{
+  display: grid;
+  grid-template-columns: 22px 38px 1fr auto;
+  gap: var(--s-2);
+  align-items: baseline;
+  padding: 6px 0;
+  border-bottom: 1px dashed var(--c-rule);
+  font-family: var(--f-mono);
+  font-size: var(--t-sm);
+}
+.mover:last-child{ border-bottom: 0; }
+.mover__rank{ color: var(--c-ink-4); font-size: 10px; text-align: right; }
+.mover__net{ color: var(--c-ink-3); font-size: 10.5px; letter-spacing: var(--ls-data); }
+.mover__name{ color: var(--c-ink-1); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.mover__chg{ font-weight: 700; font-variant-numeric: tabular-nums; }
+.mover__chg.up   { color: var(--c-up); }
+.mover__chg.down { color: var(--c-down); }
+
+/* responsive */
+@media (max-width: 860px){
+  .term-grid{ grid-template-columns: 1fr; }
+  .movers{ grid-template-columns: 1fr; }
+}
