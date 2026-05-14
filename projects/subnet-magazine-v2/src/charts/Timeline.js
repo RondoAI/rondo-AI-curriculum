@@ -27,6 +27,38 @@ const C_AXIS_DIM    = 'rgba(232,200,205,.32)';
 const C_INK         = '#F5E5E8';
 const C_PRICE_TAG_BG = '#FF1E3C';
 
+/* ---------- Nice-number axis helpers ---------- */
+
+/** Round a value up to a "nice" number (50, 100, 200, 500, 1000…). */
+function niceCeil(v){
+  if (v <= 0) return 0;
+  const mag  = Math.pow(10, Math.floor(Math.log10(v)));
+  const norm = v / mag;
+  let step;
+  if (norm <= 1)      step = 1;
+  else if (norm <= 2) step = 2;
+  else if (norm <= 5) step = 5;
+  else                step = 10;
+  return step * mag;
+}
+
+/** Generate round-number tick positions between min and max. */
+function niceTicks(min, max, target = 5){
+  const range = max - min;
+  if (range <= 0) return [min];
+  const rawStep = range / target;
+  const mag     = Math.pow(10, Math.floor(Math.log10(rawStep)));
+  const norm    = rawStep / mag;
+  let step;
+  if (norm < 1.5)      step = 1   * mag;
+  else if (norm < 3)   step = 2   * mag;
+  else if (norm < 7)   step = 5   * mag;
+  else                 step = 10  * mag;
+  const out = [];
+  for (let v = Math.ceil(min / step) * step; v <= max + 1e-9; v += step) out.push(v);
+  return out;
+}
+
 /* ---------- Synthetic τ/USD history (32 months) ---------- */
 
 /** Stable seeded RNG so the chart doesn't shuffle on every load. */
@@ -107,11 +139,11 @@ export class Timeline extends Chart {
     ctx.clearRect(0, 0, w, h);
 
     /* ===== layout ============================================ */
-    const padL = 22;
-    const padR = 76;            // room for the price tag
-    const padT = 28;
-    const ribbonH = 56;
-    const padB = ribbonH + 18;
+    const padL = 64;          // room for left-side Y-axis labels
+    const padR = 96;          // room for the glowing right-side price tag
+    const padT = 36;          // room for category legend
+    const ribbonH = Math.min(72, Math.max(32, h * 0.22));
+    const padB = ribbonH + 22;
 
     const innerW = w - padL - padR;
     const lineH  = h - padT - padB;
@@ -125,29 +157,29 @@ export class Timeline extends Chart {
       if (k.t < tMin) tMin = k.t;
       if (k.t > tMax) tMax = k.t;
     }
-    const yPad = (pMax - pMin) * 0.08 || 1;
-    pMin -= yPad; pMax += yPad;
+    /* nice rounded scale anchored at 0 (never let the axis go negative) */
+    pMin = 0;
+    pMax = niceCeil(pMax * 1.05);
     const yFor = p => padT + (pMax - p) / (pMax - pMin) * lineH;
     const xFor = ts => padL + (ts - tMin) / (tMax - tMin) * innerW;
+    const yTicks = niceTicks(pMin, pMax, 5);
 
-    /* ===== background grid ================================== */
+    /* ===== background grid + LEFT-side price ticks ========== */
     ctx.strokeStyle = C_GRID;
     ctx.lineWidth = 1;
     ctx.beginPath();
-    for (let g = 0; g <= 4; g++){
-      const y = padT + (lineH * g) / 4;
+    for (const v of yTicks){
+      const y = yFor(v);
       ctx.moveTo(padL, y); ctx.lineTo(w - padR, y);
     }
     ctx.stroke();
 
-    /* ===== price-axis labels (right side) =================== */
     ctx.font = '600 10.5px JetBrains Mono, monospace';
     ctx.fillStyle = C_AXIS;
-    ctx.textAlign = 'left'; ctx.textBaseline = 'middle';
-    for (let g = 0; g <= 4; g++){
-      const p = pMax - (pMax - pMin) * (g / 4);
-      const y = padT + (lineH * g) / 4;
-      ctx.fillText(`$${Math.round(p)}`, w - padR + 6, y);
+    ctx.textAlign = 'right'; ctx.textBaseline = 'middle';
+    for (const v of yTicks){
+      const y = yFor(v);
+      ctx.fillText(`$${Math.round(v).toLocaleString('en-US')}`, padL - 6, y);
     }
 
     /* ===== time-axis labels (year + month) ================== */
@@ -205,50 +237,89 @@ export class Timeline extends Chart {
     ctx.moveTo(padL, ribbonY + 18); ctx.lineTo(w - padR, ribbonY + 18);
     ctx.stroke();
 
-    /* event ticks + dots + labels */
-    const labelSlots = [];
-    /* sort events by date so labels are placed in order */
+    /* event ticks + dots + labels  ------------------------------
+       Pass 1: draw all ticks + dots (every event is at least a dot).
+       Pass 2: place labels in PRIORITY order (network > model >
+               subnet > market). Each label runs collision detection
+               against already-placed labels in up to 3 vertical
+               rows; if no slot fits the label gracefully drops.
+       Compact canvases (w < 540) skip labels entirely — dots only,
+       full story in hover tooltip. */
+    const drawnEvents = [];
     for (let i = 0; i < EVENTS.length; i++){
       const ev = EVENTS[i];
       const ts = eventMs(ev);
       if (ts < tMin || ts > tMax) continue;
       const x = xFor(ts);
       const color = EVENT_COLORS[ev.cat];
+      const isHovered = i === this.hoverEv;
 
-      /* full-height tick (very faint above the area, more visible below) */
-      ctx.strokeStyle = `rgba(255,30,60,${i === this.hoverEv ? 0.55 : 0.18})`;
-      ctx.lineWidth = i === this.hoverEv ? 1.2 : 0.6;
+      /* full-height tick */
+      ctx.strokeStyle = `rgba(255,30,60,${isHovered ? 0.55 : 0.18})`;
+      ctx.lineWidth = isHovered ? 1.2 : 0.5;
       ctx.beginPath();
       ctx.moveTo(x, padT); ctx.lineTo(x, ribbonY + 18);
       ctx.stroke();
 
       /* dot on the ribbon baseline */
       ctx.fillStyle = color;
-      ctx.shadowColor = color; ctx.shadowBlur = i === this.hoverEv ? 12 : 6;
+      ctx.shadowColor = color; ctx.shadowBlur = isHovered ? 12 : 6;
       ctx.beginPath();
-      ctx.arc(x, ribbonY + 18, i === this.hoverEv ? 5 : 3.5, 0, Math.PI * 2);
+      ctx.arc(x, ribbonY + 18, isHovered ? 5 : 3.5, 0, Math.PI * 2);
       ctx.fill();
       ctx.shadowBlur = 0;
 
-      /* label above the dot with simple anti-collision */
+      drawnEvents.push({ i, ev, x, color, isHovered });
+    }
+
+    /* Pass 2: label placement with priority + collision */
+    const tightMode = w < 540;
+    if (!tightMode){
       ctx.font = '600 9.5px JetBrains Mono, monospace';
-      const labelTxt = ev.title;
-      const tw = ctx.measureText(labelTxt).width;
-      let labelX = x;
-      /* shift to keep on canvas */
-      if (labelX - tw / 2 < padL) labelX = padL + tw / 2;
-      if (labelX + tw / 2 > w - padR) labelX = w - padR - tw / 2;
-      /* stack vertically if collides */
+      const CAT_PRIORITY = { network: 0, model: 1, subnet: 2, market: 3 };
+      const ranked = drawnEvents.slice().sort((a, b) => {
+        const pa = CAT_PRIORITY[a.ev.cat] ?? 9;
+        const pb = CAT_PRIORITY[b.ev.cat] ?? 9;
+        if (pa !== pb) return pa - pb;
+        return (b.isHovered ? 1 : 0) - (a.isHovered ? 1 : 0);
+      });
+      const slots = [];   // {x1, x2, row}
+      const ROW_H = 12;
+      const MAX_ROWS = 3;
       const baseY = ribbonY + 6;
-      let row = 0;
-      while (labelSlots.some(s => Math.abs(s.x - labelX) < tw / 2 + 8 && s.row === row)){
-        row += 1; if (row > 1) break;
+
+      for (const e of ranked){
+        const labelTxt = e.ev.title;
+        const tw = ctx.measureText(labelTxt).width;
+        let labelX = e.x;
+        if (labelX - tw / 2 < padL) labelX = padL + tw / 2;
+        if (labelX + tw / 2 > w - padR) labelX = w - padR - tw / 2;
+        const x1 = labelX - tw / 2 - 5;
+        const x2 = labelX + tw / 2 + 5;
+
+        let placedRow = -1;
+        for (let row = 0; row < MAX_ROWS; row++){
+          const conflict = slots.some(s => s.row === row && !(x2 < s.x1 || x1 > s.x2));
+          if (!conflict){ placedRow = row; break; }
+        }
+        if (placedRow < 0) continue;  // skip — leave as a dot only
+        slots.push({ x1, x2, row: placedRow });
+
+        const labelY = baseY - placedRow * ROW_H;
+        ctx.fillStyle = e.isHovered ? C_INK : 'rgba(232,200,205,.82)';
+        ctx.textAlign = 'center'; ctx.textBaseline = 'bottom';
+        ctx.fillText(labelTxt, labelX, labelY);
+
+        /* faint leader line from label to dot if the label is far */
+        if (placedRow > 0){
+          ctx.strokeStyle = 'rgba(232,200,205,.18)';
+          ctx.lineWidth = 0.6;
+          ctx.beginPath();
+          ctx.moveTo(e.x, ribbonY + 18 - 6);
+          ctx.lineTo(labelX, labelY + 1);
+          ctx.stroke();
+        }
       }
-      labelSlots.push({ x: labelX, row });
-      const labelY = baseY - row * 12;
-      ctx.fillStyle = i === this.hoverEv ? C_INK : 'rgba(232,200,205,.78)';
-      ctx.textAlign = 'center'; ctx.textBaseline = 'bottom';
-      ctx.fillText(labelTxt, labelX, labelY);
     }
 
     /* ===== category legend in the top-left ================= */
