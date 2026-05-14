@@ -21,41 +21,56 @@
 
 import { Chart } from './Chart.js';
 import { COUNTRY_BORDERS, COUNTRY_LABELS, US_STATES } from '../data/geo.js';
+import { decodeTopology, largestPolygonCentroid } from '../data/topojson.js';
+
+/* Natural Earth 110m country names → short labels for the globe.
+   Most names from the TopoJSON file are already fine; this map only
+   handles the verbose ones. */
+const NAME_SHORT = {
+  'United States of America':'USA',
+  'Russian Federation':'RUSSIA',
+  'United Kingdom':'UK',
+  'United Republic of Tanzania':'TANZANIA',
+  'Republic of Korea':'S. KOREA',
+  'Dem. Rep. Korea':'N. KOREA',
+  'Dem. Rep. Congo':'DR CONGO',
+  'Bosnia and Herz.':'BOSNIA',
+  'Czech Republic':'CZECH',
+  'Central African Rep.':'CAR',
+  'Eq. Guinea':'EQ. GUINEA',
+  'Côte d’Ivoire':'IVORY COAST',
+  'Côte d\'Ivoire':'IVORY COAST',
+  'United Arab Emirates':'UAE',
+  'Trinidad and Tobago':'TRINIDAD',
+  'Papua New Guinea':'PAPUA NEW GUINEA',
+  'New Zealand':'NEW ZEALAND',
+  'Saudi Arabia':'SAUDI',
+  'South Africa':'S. AFRICA',
+  'South Sudan':'S. SUDAN',
+  'Burkina Faso':'BURKINA',
+  'Solomon Is.':'SOLOMON IS.',
+  'Falkland Is.':'FALKLAND',
+  'W. Sahara':'W. SAHARA',
+};
+function shortName(s){ return (NAME_SHORT[s] || s).toUpperCase(); }
+
+/* Country display priority — biggest landmasses first so they
+   "win" anti-collision over smaller neighbors. */
+const PRIORITY = new Set([
+  'USA','RUSSIA','CHINA','BRAZIL','CANADA','INDIA','AUSTRALIA',
+  'ARGENTINA','MEXICO','UK','FRANCE','GERMANY','SPAIN','ITALY',
+  'JAPAN','S. AFRICA','EGYPT','SAUDI','UAE','TURKEY','IRAN',
+  'INDONESIA','S. KOREA','UKRAINE','POLAND','SWEDEN','NORWAY',
+  'FINLAND','GREECE','VIETNAM','THAILAND','PHILIPPINES','NIGERIA',
+  'KENYA','ETHIOPIA','MOROCCO','ALGERIA','PERU','COLOMBIA','CHILE',
+  'VENEZUELA','NEW ZEALAND','PAKISTAN','BANGLADESH',
+]);
 
 /* ---------- Palette ---------- */
 const RED       = '#FF1E3C';
 const RED_2     = '#FF4D60';
 const RED_3     = '#FF8094';
 const WHITE     = '#F5E5E8';
-
-/* ---------- Continent polygons (lng, lat) — same set as v2 map ---------- */
-const CONTINENTS = [
-  [[-167,68],[-141,70],[-126,73],[-95,73],[-78,73],[-65,65],[-55,52],[-66,47],
-   [-70,42],[-82,30],[-97,26],[-105,22],[-115,30],[-124,40],[-130,50],
-   [-135,58],[-150,60],[-158,62],[-165,65]],
-  [[-55,83],[-20,80],[-15,72],[-25,60],[-50,60],[-55,75]],
-  [[-78,11],[-65,8],[-50,0],[-36,-5],[-35,-20],[-40,-25],[-52,-32],
-   [-58,-38],[-65,-50],[-72,-54],[-72,-45],[-78,-30],[-80,-10],[-80,5]],
-  [[-24,66],[-13,66],[-13,63],[-24,63]],
-  [[-10,60],[-2,60],[2,53],[-5,50],[-10,53]],
-  [[5,71],[25,71],[30,60],[38,55],[42,48],[30,42],[10,36],[-5,36],[-10,44],
-   [-2,50],[5,60]],
-  [[-17,35],[10,37],[25,32],[37,30],[42,14],[50,12],[42,-2],[42,-18],
-   [33,-28],[20,-35],[12,-28],[10,-10],[-5,5],[-15,15],[-17,25]],
-  [[43,-12],[50,-16],[50,-25],[44,-25]],
-  [[27,31],[40,34],[50,35],[60,32],[60,24],[54,17],[44,12],[38,12],[33,20]],
-  [[30,72],[60,75],[110,75],[150,70],[170,67],[165,60],[145,55],[142,45],
-   [134,35],[121,22],[108,20],[108,10],[98,8],[92,18],[80,8],[73,20],
-   [62,25],[50,38],[40,45],[35,60]],
-  [[95,4],[120,4],[142,-2],[140,-8],[105,-8],[95,-2]],
-  [[109,5],[118,5],[118,-4],[109,-4]],
-  [[120,18],[125,18],[126,8],[121,6]],
-  [[131,33],[142,41],[146,44],[138,36]],
-  [[113,-12],[130,-10],[142,-10],[148,-22],[154,-28],[150,-36],
-   [142,-38],[130,-32],[115,-32],[113,-22]],
-  [[173,-36],[178,-42],[171,-47],[166,-45]],
-  [[-180,-65],[180,-65],[180,-85],[-180,-85]],
-];
 
 /* ---------- Validator hubs ---------- */
 const HUBS = [
@@ -89,19 +104,6 @@ function sph2cart(lat, lng){
     y: Math.sin(φ),
     z: Math.cos(φ) * Math.sin(λ),
   };
-}
-
-/** Ray-cast point-in-polygon for (lng, lat). */
-function pointInPoly(x, y, poly){
-  let inside = false;
-  for (let i = 0, j = poly.length - 1; i < poly.length; j = i++){
-    const xi = poly[i][0], yi = poly[i][1];
-    const xj = poly[j][0], yj = poly[j][1];
-    const hit = ((yi > y) !== (yj > y))
-      && (x < (xj - xi) * (y - yi) / (yj - yi) + xi);
-    if (hit) inside = !inside;
-  }
-  return inside;
 }
 
 /* ---------- Class ---------- */
@@ -138,8 +140,6 @@ export class WorldGlobe extends Chart {
     /** @private */ this.hover = null;
     /** @private */ this.lastT = 0;
 
-    /** @private */ this.dots = [];
-    /** @private */ this.coast = [];
     /** @private */ this.hubs = HUBS.map(h => ({
       ...h,
       v: sph2cart(h.lat, h.lng),
@@ -159,7 +159,38 @@ export class WorldGlobe extends Chart {
       emissionDay:  7_200,         // τ minted per day
     };
 
+    /* Real geographic data loaded asynchronously. Until it arrives,
+       the chart falls back to the hand-authored borders. */
+    /** @private */ this.realFeatures = null;
+    /** @private */ this.realLabels   = null;
+    this._loadRealGeo();
+
     this._bind();
+  }
+
+  /** Fetch and decode the embedded Natural Earth 110m TopoJSON. */
+  async _loadRealGeo(){
+    try {
+      const url = new URL('../data/countries-110m.json', import.meta.url);
+      const res = await fetch(url, { cache: 'force-cache' });
+      if (!res.ok) throw new Error(`HTTP ${res.status}`);
+      const topo = await res.json();
+      const { features } = decodeTopology(topo);
+      this.realFeatures = features;
+      this.realLabels = features
+        .filter(f => f.polygons.length)
+        .map(f => {
+          const c = largestPolygonCentroid(f);
+          return {
+            name:    shortName(f.name),
+            lng:     c[0],
+            lat:     c[1],
+            ringLen: f.polygons[0]?.[0]?.length ?? 0,
+          };
+        });
+    } catch (e){
+      console.warn('[WorldGlobe] real geo failed to load, using hand data:', e?.message);
+    }
   }
 
   /**
@@ -245,12 +276,6 @@ export class WorldGlobe extends Chart {
     return { x: x1, y: y2, z: z2 };
   }
 
-  _isLand(lng, lat){
-    for (let i = 0; i < CONTINENTS.length; i++)
-      if (pointInPoly(lng, lat, CONTINENTS[i])) return true;
-    return false;
-  }
-
   /** Hub-to-hub mesh: top 8 hubs, fully connected. */
   _buildMesh(){
     const top = [...this.hubs].sort((a,b) => b.stake - a.stake).slice(0, 8);
@@ -267,46 +292,9 @@ export class WorldGlobe extends Chart {
     return out;
   }
 
-  layout(ctx, w, h){
-    /* Sample land + coast dots at fixed (lat,lng) resolution and
-       cache. We rotate them per frame; the data does not change. */
-    const dots = [];
-    const coast = [];
-
-    const stepLng = 360 / 96;  // ~3.75°
-    const stepLat = 180 / 60;  // ~3°
-    const grid = [];
-
-    let r = 0;
-    for (let lat = 87; lat >= -87; lat -= stepLat){
-      const row = [];
-      for (let lng = -180; lng <= 180; lng += stepLng){
-        row.push(this._isLand(lng, lat));
-      }
-      grid.push(row); r++;
-    }
-    const rows = r;
-    const cols = grid[0].length;
-    for (let i = 0; i < rows; i++){
-      for (let k = 0; k < cols; k++){
-        if (!grid[i][k]) continue;
-        const lat = 87 - i * stepLat;
-        const lng = -180 + k * stepLng;
-        const v = sph2cart(lat, lng);
-
-        const n  = i > 0        && grid[i-1][k];
-        const s  = i < rows - 1 && grid[i+1][k];
-        const e  = k < cols - 1 && grid[i][k+1];
-        const wN = k > 0        && grid[i][k-1];
-        const isCoast = !(n && s && e && wN);
-        if (isCoast) coast.push({ v, lat, lng });
-        else dots.push({ v, lat, lng });
-      }
-    }
-    this.dots = dots;
-    this.coast = coast;
-
-    /* recompute hub 3D vectors in case anything changes */
+  /** Cheap layout — nothing to precompute now that we render real
+      polygons each frame. Just refresh hub vectors. */
+  layout(){
     this.hubs.forEach(h => { h.v = sph2cart(h.lat, h.lng); });
   }
 
@@ -355,32 +343,11 @@ export class WorldGlobe extends Chart {
     ctx.fillStyle = body;
     ctx.beginPath(); ctx.arc(cx, cy, R, 0, Math.PI * 2); ctx.fill();
 
+    /* country fills — solid filled landmasses from real polygons */
+    this._drawCountryFills(ctx, cx, cy, R);
+
     /* graticule on the sphere — only front-facing arcs */
     this._drawGraticule(ctx, cx, cy, R);
-
-    /* land dots */
-    for (const d of this.dots){
-      const rot = this._rotate(d.v);
-      if (rot.z <= 0) continue;
-      const sx = cx + rot.x * R;
-      const sy = cy - rot.y * R;
-      const a = 0.20 + rot.z * 0.55;
-      ctx.fillStyle = `rgba(255,30,60,${a})`;
-      ctx.beginPath();
-      ctx.arc(sx, sy, 0.9 + rot.z * 0.5, 0, Math.PI * 2);
-      ctx.fill();
-    }
-    for (const d of this.coast){
-      const rot = this._rotate(d.v);
-      if (rot.z <= 0) continue;
-      const sx = cx + rot.x * R;
-      const sy = cy - rot.y * R;
-      const a = 0.45 + rot.z * 0.45;
-      ctx.fillStyle = `rgba(255,107,122,${a})`;
-      ctx.beginPath();
-      ctx.arc(sx, sy, 1.2 + rot.z * 0.4, 0, Math.PI * 2);
-      ctx.fill();
-    }
 
     /* country borders — thin strokes on the front hemisphere */
     this._drawCountryBorders(ctx, cx, cy, R);
@@ -615,29 +582,90 @@ export class WorldGlobe extends Chart {
     ctx.fillText(this.dragging ? 'ROTATING…' : 'DRAG TO ROTATE  ·  AUTO-SPIN ON IDLE', w - 12, 56);
   }
 
-  /** Country boundary polylines on the visible hemisphere. */
+  /** Render a ring (list of [lng,lat]) on the sphere, breaking the
+      stroke at the horizon so segments don't smear across the back. */
+  _drawRingOnSphere(ctx, ring, cx, cy, R){
+    ctx.beginPath();
+    let started = false, lastVis = false;
+    for (let k = 0; k < ring.length; k++){
+      const [lng, lat] = ring[k];
+      const v = sph2cart(lat, lng);
+      const r = this._rotate(v);
+      const vis = r.z > 0.04;
+      if (!vis){ started = false; lastVis = false; continue; }
+      const sx = cx + r.x * R;
+      const sy = cy - r.y * R;
+      if (!started || !lastVis){ ctx.moveTo(sx, sy); started = true; }
+      else ctx.lineTo(sx, sy);
+      lastVis = true;
+    }
+    ctx.stroke();
+  }
+
+  /** Country fills — solid landmasses from real polygons. Skips any
+      polygon that crosses the silhouette so we don't paint smeared
+      shapes wrapping the limb. */
+  _drawCountryFills(ctx, cx, cy, R){
+    if (!this.realFeatures) return;
+
+    /* Light tint of red sitting on top of the dark sphere body so
+       the land reads but doesn't dominate. */
+    ctx.fillStyle = 'rgba(255,30,60,.13)';
+
+    for (const f of this.realFeatures){
+      for (const poly of f.polygons){
+        const ring = poly[0];
+        if (!ring || ring.length < 3) continue;
+
+        /* First pass: project every vertex; skip the polygon if any
+           vertex is clearly on the back hemisphere. This avoids the
+           "polygon dragged across the sphere" artifact. */
+        const projected = new Array(ring.length);
+        let allFront = true;
+        for (let i = 0; i < ring.length; i++){
+          const [lng, lat] = ring[i];
+          const v = sph2cart(lat, lng);
+          const r = this._rotate(v);
+          if (r.z < -0.05){ allFront = false; break; }
+          projected[i] = { x: cx + r.x * R, y: cy - r.y * R, z: r.z };
+        }
+        if (!allFront) continue;
+
+        ctx.beginPath();
+        for (let i = 0; i < projected.length; i++){
+          const p = projected[i];
+          if (i === 0) ctx.moveTo(p.x, p.y);
+          else ctx.lineTo(p.x, p.y);
+        }
+        ctx.closePath();
+        ctx.fill();
+      }
+    }
+  }
+
+  /** Country borders — Natural Earth real data if loaded, else
+      fall back to the curated hand-drawn set. */
   _drawCountryBorders(ctx, cx, cy, R){
     ctx.lineJoin = 'round';
     ctx.lineCap = 'round';
-    for (const c of COUNTRY_BORDERS){
-      ctx.beginPath();
-      let started = false;
-      let lastVis = false;
-      for (let k = 0; k < c.poly.length; k++){
-        const [lng, lat] = c.poly[k];
-        const v = sph2cart(lat, lng);
-        const r = this._rotate(v);
-        const vis = r.z > 0.04;
-        if (!vis){ started = false; lastVis = false; continue; }
-        const sx = cx + r.x * R;
-        const sy = cy - r.y * R;
-        if (!started || !lastVis){ ctx.moveTo(sx, sy); started = true; }
-        else ctx.lineTo(sx, sy);
-        lastVis = true;
+    ctx.strokeStyle = 'rgba(255,107,122,.40)';
+    ctx.lineWidth = 0.6;
+
+    if (this.realFeatures){
+      for (const f of this.realFeatures){
+        for (const poly of f.polygons){
+          const ring = poly[0];
+          if (ring && ring.length >= 3) this._drawRingOnSphere(ctx, ring, cx, cy, R);
+        }
       }
-      ctx.strokeStyle = 'rgba(255,107,122,.38)';
-      ctx.lineWidth = 0.7;
-      ctx.stroke();
+      return;
+    }
+
+    /* fallback */
+    ctx.strokeStyle = 'rgba(255,107,122,.38)';
+    ctx.lineWidth = 0.7;
+    for (const c of COUNTRY_BORDERS){
+      this._drawRingOnSphere(ctx, c.poly, cx, cy, R);
     }
   }
 
@@ -652,14 +680,28 @@ export class WorldGlobe extends Chart {
       return true;
     };
 
-    /* Countries — sorted by priority so important names label first */
-    const candidates = COUNTRY_LABELS.slice().sort((a, b) => a.pr - b.pr);
+    /* Real labels if loaded, else hand-authored as a fallback. The
+       priority set picks the big land masses first so they always
+       win anti-collision against smaller neighbors. */
     ctx.font = '700 9.5px JetBrains Mono, monospace';
     ctx.textBaseline = 'middle';
+
+    let candidates;
+    if (this.realLabels){
+      candidates = this.realLabels.slice().sort((a, b) => {
+        const aPri = PRIORITY.has(a.name) ? 0 : (a.ringLen >= 50 ? 1 : 2);
+        const bPri = PRIORITY.has(b.name) ? 0 : (b.ringLen >= 50 ? 1 : 2);
+        if (aPri !== bPri) return aPri - bPri;
+        return (b.ringLen ?? 0) - (a.ringLen ?? 0);
+      });
+    } else {
+      candidates = COUNTRY_LABELS.slice().sort((a, b) => a.pr - b.pr);
+    }
+
     for (const c of candidates){
       const v = sph2cart(c.lat, c.lng);
       const r = this._rotate(v);
-      if (r.z < 0.15) continue;            // not on visible hemisphere
+      if (r.z < 0.15) continue;
       const sx = cx + r.x * R;
       const sy = cy - r.y * R;
       const tw = ctx.measureText(c.name).width;
