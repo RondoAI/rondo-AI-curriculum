@@ -40,7 +40,7 @@ export function RadialBars({ data }: { data: RadialDatum[] }) {
             cy={cy}
             r={rInner + (rOuter - rInner) * t}
             fill="none"
-            stroke="rgba(255,176,0,.07)"
+            stroke="rgba(255,30,60,.07)"
           />
         ))}
         {size > 40 &&
@@ -70,7 +70,7 @@ export function RadialBars({ data }: { data: RadialDatum[] }) {
                   <text
                     x={lx}
                     y={ly}
-                    fill="#A8A29E"
+                    fill="#C8A8AD"
                     fontSize={8}
                     textAnchor={anchor}
                     dominantBaseline="middle"

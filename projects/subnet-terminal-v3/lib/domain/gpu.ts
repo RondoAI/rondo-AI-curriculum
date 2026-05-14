@@ -51,10 +51,10 @@ export interface CapexEntry {
 }
 
 export const VENDOR_ACCENT: Record<GpuVendor, string> = {
-  nvidia: "#22D3EE",
-  amd: "#7CE0F0",
-  google: "#5EC8DA",
-  aws: "#A8E6F0",
+  nvidia: "#FF1E3C",
+  amd: "#FF4D60",
+  google: "#FF7A88",
+  aws: "#FFB0BA",
 };
 
 export const VENDOR_LABEL: Record<GpuVendor, string> = {

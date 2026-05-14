@@ -58,13 +58,13 @@ export interface AiStat {
 }
 
 export const TASK_ACCENT: Record<ModelTask, string> = {
-  "text-generation": "#F472B6",
+  "text-generation": "#FF7A88",
   "image-text-to-text": "#FFB0BA",
   "text-to-image": "#C84368",
   "automatic-speech-recognition": "#FF7A88",
   "text-to-speech": "#FF8C42",
-  "feature-extraction": "#A78BFA",
-  other: "#A8A29E",
+  "feature-extraction": "#FF7A88",
+  other: "#C8A8AD",
 };
 
 export const TASK_LABEL: Record<ModelTask, string> = {
@@ -84,9 +84,9 @@ export const SOURCE_LABEL: Record<WireSource, string> = {
 };
 
 export const SOURCE_ACCENT: Record<WireSource, string> = {
-  huggingface: "#F472B6",
+  huggingface: "#FF7A88",
   arxiv: "#FFB0BA",
-  github: "#A78BFA",
+  github: "#FF7A88",
 };
 
 /** Normalise any pipeline_tag string into our task enum. */

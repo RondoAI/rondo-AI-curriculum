@@ -1,20 +1,24 @@
 import Link from "next/link";
 import { TaoMark } from "@/components/TaoMark";
+import { NodeSphere } from "@/components/charts/NodeSphere";
 
-/** Minimal sticky header for entity detail pages — wordmark, a
-    breadcrumb, and a route back to the workstation. */
+/** Minimal sticky header for entity detail pages — brand mark,
+    wordmark, a breadcrumb, and a route back to the workstation. */
 export function DetailHeader({ kind, crumb }: { kind: string; crumb: string }) {
   return (
     <header className="sticky top-0 z-40 h-12 shrink-0 flex items-center gap-3 px-4 bg-elev-1 border-b border-hairline">
       <Link
         href="/"
-        className="flex items-baseline gap-[1px] font-serif text-[15px] text-ink-1"
+        className="flex items-center gap-2 font-serif text-[15px] text-ink-1"
       >
-        Subne
-        <span className="text-amber translate-y-[2px]">
-          <TaoMark size={13} weight={2.4} />
+        <NodeSphere size={28} />
+        <span className="flex items-baseline gap-[1px]">
+          Subne
+          <span className="text-red translate-y-[2px]">
+            <TaoMark size={13} weight={2.4} />
+          </span>
+          <span className="ml-[2px]">Terminal</span>
         </span>
-        <span className="ml-[2px]">Terminal</span>
       </Link>
       <span className="text-ink-3">/</span>
       <span className="text-[11px] text-ink-3 smallcaps">{kind}</span>

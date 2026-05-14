@@ -76,7 +76,7 @@ export function GpuBoardPanel() {
                 onClick={() => clickCol(c.id)}
                 className={`px-2 py-1.5 text-[9px] smallcaps text-ink-3 cursor-pointer hover:text-ink-1 border-b border-hairline whitespace-nowrap ${
                   c.num ? "text-right" : "text-left"
-                } ${sort === c.id ? "text-cyan" : ""}`}
+                } ${sort === c.id ? "text-coral" : ""}`}
               >
                 {c.label}
                 {sort === c.id ? (dir === 1 ? " ▲" : " ▼") : ""}
@@ -110,7 +110,7 @@ export function GpuBoardPanel() {
               <td className="px-2 py-1 text-right tnum text-[11px] text-ink-1">
                 ${r.onDemand.toFixed(2)}
               </td>
-              <td className="px-2 py-1 text-right tnum text-[11px] text-cyan">
+              <td className="px-2 py-1 text-right tnum text-[11px] text-coral">
                 {r.spot > 0 ? "$" + r.spot.toFixed(2) : "—"}
               </td>
               <td className="px-2 py-1 text-right">
@@ -124,7 +124,7 @@ export function GpuBoardPanel() {
                           r.availability > 0.6
                             ? "var(--color-up)"
                             : r.availability > 0.3
-                              ? "var(--color-cyan)"
+                              ? "var(--color-coral)"
                               : "var(--color-down)",
                       }}
                     />

@@ -97,7 +97,7 @@ export default function SubnetDetail() {
                   type="button"
                   onClick={() => setRange(r)}
                   className={`px-1.5 h-5 text-[9px] smallcaps border border-hairline-2 -ml-px first:ml-0 ${
-                    range === r ? "bg-amber text-bg border-amber" : "text-ink-3 hover:text-ink-1"
+                    range === r ? "bg-red text-bg border-red" : "text-ink-3 hover:text-ink-1"
                   }`}
                 >
                   {r}
@@ -117,7 +117,7 @@ export default function SubnetDetail() {
               emissions trend
             </span>
             <div className="relative flex-1 min-h-0">
-              <AreaChart data={emitSeries} color="#22D3EE" fmt={(n) => Math.round(n) + ""} />
+              <AreaChart data={emitSeries} color="#FF4D60" fmt={(n) => Math.round(n) + ""} />
             </div>
           </div>
           <div className="border border-hairline bg-elev-1 h-[180px] flex flex-col">
@@ -125,7 +125,7 @@ export default function SubnetDetail() {
               active miners
             </span>
             <div className="relative flex-1 min-h-0">
-              <AreaChart data={minerSeries} color="#F472B6" fmt={(n) => Math.round(n) + ""} />
+              <AreaChart data={minerSeries} color="#FF7A88" fmt={(n) => Math.round(n) + ""} />
             </div>
           </div>
         </section>
@@ -148,7 +148,7 @@ export default function SubnetDetail() {
               >
                 <Link
                   href={`/v/${encodeURIComponent(v.hotkey)}`}
-                  className="text-[12px] text-ink-1 hover:text-amber w-[180px] truncate"
+                  className="text-[12px] text-ink-1 hover:text-red w-[180px] truncate"
                 >
                   {v.name}
                 </Link>

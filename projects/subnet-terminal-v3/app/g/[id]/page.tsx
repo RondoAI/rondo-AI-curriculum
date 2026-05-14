@@ -77,7 +77,7 @@ export default function GpuDetail() {
             </span>
             <span className="text-[11px] text-ink-3">{chip.releaseYear}</span>
             {cheapest && (
-              <span className="ml-auto tnum text-[15px] text-cyan">
+              <span className="ml-auto tnum text-[15px] text-coral">
                 from ${cheapest.onDemand.toFixed(2)}/hr
               </span>
             )}
@@ -91,7 +91,7 @@ export default function GpuDetail() {
             <StatCell
               label="$/tflop·hr"
               value={cheapest ? "$" + dollarPerTflop(cheapest, chip).toFixed(3) : "—"}
-              accent="var(--color-cyan)"
+              accent="var(--color-coral)"
             />
             <StatCell label="source" value={live.listings ? "live" : "seed"} />
           </div>
@@ -118,14 +118,14 @@ export default function GpuDetail() {
                 </span>
                 <span className="flex-1 min-w-0 h-2.5 bg-elev-2 overflow-hidden">
                   <span
-                    className="block h-full bg-cyan/60"
+                    className="block h-full bg-coral/60"
                     style={{ width: `${(o.onDemand / maxOnDemand) * 100}%` }}
                   />
                 </span>
                 <span className="tnum text-[12px] text-ink-1 w-[64px] text-right">
                   ${o.onDemand.toFixed(2)}
                 </span>
-                <span className="tnum text-[11px] text-cyan w-[58px] text-right">
+                <span className="tnum text-[11px] text-coral w-[58px] text-right">
                   {o.spot > 0 ? "$" + o.spot.toFixed(2) : "—"}
                 </span>
                 <span className="w-[44px] text-right">
@@ -138,7 +138,7 @@ export default function GpuDetail() {
                           o.availability > 0.6
                             ? "var(--color-up)"
                             : o.availability > 0.3
-                              ? "var(--color-cyan)"
+                              ? "var(--color-coral)"
                               : "var(--color-down)",
                       }}
                     />
@@ -169,7 +169,7 @@ export default function GpuDetail() {
                   <Link
                     href={`/g/${c.chip.id}`}
                     className={`w-[130px] shrink-0 text-[12px] truncate ${
-                      isThis ? "text-cyan" : "text-ink-1 hover:text-cyan"
+                      isThis ? "text-coral" : "text-ink-1 hover:text-coral"
                     }`}
                   >
                     {c.chip.name}
@@ -179,7 +179,7 @@ export default function GpuDetail() {
                       className="block h-full"
                       style={{
                         width: `${(c.perTflop / maxPerTflop) * 100}%`,
-                        background: isThis ? "var(--color-cyan)" : VENDOR_ACCENT[c.chip.vendor],
+                        background: isThis ? "var(--color-coral)" : VENDOR_ACCENT[c.chip.vendor],
                         opacity: isThis ? 1 : 0.55,
                       }}
                     />

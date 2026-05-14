@@ -115,7 +115,7 @@ export default function AboutPage() {
           <div className="mt-5 pt-4 border-t border-hairline flex items-center gap-3">
             <Link
               href="/"
-              className="text-[12px] smallcaps text-amber hover:text-ink-1"
+              className="text-[12px] smallcaps text-red hover:text-ink-1"
             >
               ‹ open the terminal
             </Link>

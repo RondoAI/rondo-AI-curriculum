@@ -58,10 +58,10 @@ export interface DatacenterProject {
 }
 
 export const STATUS_ACCENT: Record<ProjectStatus, string> = {
-  operating: "#84CC16",
-  construction: "#B7E04A",
-  permitting: "#5C7A1E",
-  queue: "#3F5214",
+  operating: "#FF1E3C",
+  construction: "#C11128",
+  permitting: "#8B0F20",
+  queue: "#4A2A30",
 };
 
 export const STATUS_LABEL: Record<ProjectStatus, string> = {
@@ -71,12 +71,14 @@ export const STATUS_LABEL: Record<ProjectStatus, string> = {
   queue: "QUEUE",
 };
 
-/** LMP → colour. Cheap power is lime, scarce power is hot. The whole
-    point of the vertical: where is power cheap enough to compute. */
+/** LMP → colour. Cheap power is mint, scarce power is hot red — the
+    same up/down semantics the rest of the terminal scans by. The
+    whole point of the vertical: where is power cheap enough to
+    compute. */
 export function lmpColor(lmp: number): string {
-  if (lmp < 25) return "#84CC16";
-  if (lmp < 45) return "#B7E04A";
-  if (lmp < 70) return "#FFB000";
-  if (lmp < 110) return "#FF8C42";
-  return "#FF7A88";
+  if (lmp < 25) return "#00E5A8";
+  if (lmp < 45) return "#FFB0BA";
+  if (lmp < 70) return "#FF7A88";
+  if (lmp < 110) return "#FF4D60";
+  return "#FF1E3C";
 }

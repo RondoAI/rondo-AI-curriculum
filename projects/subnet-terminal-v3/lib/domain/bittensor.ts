@@ -92,13 +92,13 @@ export interface Candle {
 }
 
 export const CATEGORY_ACCENT: Record<SubnetCategory, string> = {
-  inference: "#FFB000",
-  compute: "#22D3EE",
-  training: "#F472B6",
-  data: "#84CC16",
+  inference: "#FF1E3C",
+  compute: "#FF4D60",
+  training: "#FF7A88",
+  data: "#FF8C42",
   text: "#FF7A88",
   vision: "#FFB0BA",
   science: "#C84368",
   finance: "#FF8C42",
-  other: "#A8A29E",
+  other: "#C8A8AD",
 };

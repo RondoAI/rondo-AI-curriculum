@@ -76,13 +76,13 @@ export default function ModelDetail() {
               href={`https://huggingface.co/${model.id}`}
               target="_blank"
               rel="noreferrer"
-              className="ml-auto text-[10px] text-ink-3 hover:text-magenta smallcaps"
+              className="ml-auto text-[10px] text-ink-3 hover:text-rose smallcaps"
             >
               open on huggingface ›
             </a>
           </div>
           <div className="flex flex-wrap">
-            <StatCell label="30d downloads" value={compact(model.downloads)} accent="var(--color-magenta)" />
+            <StatCell label="30d downloads" value={compact(model.downloads)} accent="var(--color-rose)" />
             <StatCell label="likes" value={compact(model.likes)} />
             <StatCell label="licence" value={model.license} />
             <StatCell label="task" value={TASK_LABEL[model.task]} />
@@ -102,7 +102,7 @@ export default function ModelDetail() {
                   type="button"
                   onClick={() => setRange(r)}
                   className={`px-1.5 h-5 text-[9px] smallcaps border border-hairline-2 -ml-px first:ml-0 ${
-                    range === r ? "bg-magenta text-bg border-magenta" : "text-ink-3 hover:text-ink-1"
+                    range === r ? "bg-rose text-bg border-rose" : "text-ink-3 hover:text-ink-1"
                   }`}
                 >
                   {r}
@@ -121,7 +121,7 @@ export default function ModelDetail() {
               community likes
             </span>
             <div className="relative flex-1 min-h-0">
-              <AreaChart data={likeSeries} color="#A78BFA" fmt={(n) => Math.round(n) + ""} />
+              <AreaChart data={likeSeries} color="#FF7A88" fmt={(n) => Math.round(n) + ""} />
             </div>
           </div>
           <div className="border border-hairline bg-elev-1 h-[180px] flex flex-col">
@@ -143,7 +143,7 @@ export default function ModelDetail() {
                     href={w.url}
                     target="_blank"
                     rel="noreferrer"
-                    className="text-[11px] text-ink-1 hover:text-magenta truncate flex-1"
+                    className="text-[11px] text-ink-1 hover:text-rose truncate flex-1"
                   >
                     {w.title}
                   </a>
@@ -171,7 +171,7 @@ export default function ModelDetail() {
               >
                 <Link
                   href={`/m/${encodeURIComponent(m.id)}`}
-                  className="text-[12px] text-ink-1 hover:text-magenta w-[200px] truncate"
+                  className="text-[12px] text-ink-1 hover:text-rose w-[200px] truncate"
                 >
                   {m.name}
                 </Link>

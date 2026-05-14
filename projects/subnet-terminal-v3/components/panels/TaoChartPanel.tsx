@@ -30,7 +30,7 @@ export function TaoChartPanel() {
               onClick={() => setOverlay(o)}
               className={`px-1.5 h-5 text-[9px] smallcaps border border-hairline-2 -ml-px first:ml-0 transition-colors ${
                 overlay === o
-                  ? "bg-amber text-bg border-amber"
+                  ? "bg-red text-bg border-red"
                   : "text-ink-3 hover:text-ink-1"
               }`}
             >

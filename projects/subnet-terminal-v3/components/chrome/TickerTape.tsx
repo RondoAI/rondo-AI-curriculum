@@ -5,10 +5,10 @@ import { useBittensor } from "@/lib/useBittensor";
 import { usd, mwh, pct, alpha, usdCompact } from "@/lib/format";
 
 const ACCENT: Record<TickerItem["vertical"], string> = {
-  bittensor: "text-amber",
-  ai: "text-magenta",
-  gpu: "text-cyan",
-  power: "text-lime",
+  bittensor: "text-red",
+  ai: "text-rose",
+  gpu: "text-coral",
+  power: "text-ember",
   macro: "text-ink-2",
 };
 
@@ -50,7 +50,7 @@ function Track({
           <span key={i} className="inline-flex">
             <Cell it={it} />
             <span className="inline-flex items-baseline gap-1.5 px-3 border-r border-hairline whitespace-nowrap">
-              <span className="text-amber smallcaps text-[11px]">TAO·MCAP</span>
+              <span className="text-red smallcaps text-[11px]">TAO·MCAP</span>
               <span className="tnum text-ink-1 text-[11px]">{usdCompact(mcap)}</span>
               <span className="tnum text-[10px] text-ink-3">
                 {live ? "live" : "seed"}

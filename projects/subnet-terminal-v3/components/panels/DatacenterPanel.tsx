@@ -43,13 +43,13 @@ export function DatacenterPanel() {
             type="button"
             onClick={() => setStatus(f.id)}
             className={`px-1.5 h-5 text-[9px] smallcaps border border-hairline-2 ${
-              status === f.id ? "bg-lime text-bg border-lime" : "text-ink-3 hover:text-ink-1"
+              status === f.id ? "bg-ember text-bg border-ember" : "text-ink-3 hover:text-ink-1"
             }`}
           >
             {f.label}
           </button>
         ))}
-        <span className="ml-auto tnum text-[10px] text-lime">{totalGw.toFixed(1)} GW</span>
+        <span className="ml-auto tnum text-[10px] text-ember">{totalGw.toFixed(1)} GW</span>
       </div>
       <ul className="flex-1 min-h-0 overflow-auto">
         {rows.map((d) => (

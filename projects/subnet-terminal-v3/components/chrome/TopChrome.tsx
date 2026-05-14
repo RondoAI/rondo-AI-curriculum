@@ -1,6 +1,7 @@
 "use client";
 
 import { TaoMark } from "@/components/TaoMark";
+import { NodeSphere } from "@/components/charts/NodeSphere";
 import { TickerTape } from "@/components/chrome/TickerTape";
 import { Clock } from "@/components/chrome/Clock";
 
@@ -22,11 +23,12 @@ export function TopChrome({
       aria-label="Terminal chrome"
       className="sticky top-0 z-40 h-14 shrink-0 grid grid-cols-[minmax(300px,1fr)_minmax(0,2.4fr)_minmax(280px,1fr)] items-stretch bg-elev-1 border-b border-hairline"
     >
-      {/* left — wordmark + command bar */}
-      <div className="flex items-center gap-3 px-4 border-r border-hairline">
+      {/* left — brand mark + wordmark + command bar */}
+      <div className="flex items-center gap-2.5 px-4 border-r border-hairline">
+        <NodeSphere size={38} />
         <span className="flex items-baseline gap-[1px] font-serif text-[19px] leading-none text-ink-1">
           Subne
-          <span className="text-amber translate-y-[2px]">
+          <span className="text-red translate-y-[2px]">
             <TaoMark size={17} weight={2.4} />
           </span>
           <span className="ml-[2px]">Terminal</span>
@@ -73,7 +75,7 @@ export function TopChrome({
               aria-pressed={preset === p}
               className={`px-2 h-6 text-[10px] smallcaps border border-hairline-2 -ml-px first:ml-0 transition-colors ${
                 preset === p
-                  ? "bg-amber text-bg border-amber"
+                  ? "bg-red text-bg border-red"
                   : "text-ink-3 hover:text-ink-1 hover:bg-elev-2"
               }`}
             >

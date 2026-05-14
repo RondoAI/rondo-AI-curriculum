@@ -141,7 +141,7 @@ export function CommandPalette({ onPreset }: { onPreset: (p: Preset) => void }) 
         onMouseDown={(e) => e.stopPropagation()}
       >
         <div className="flex items-center gap-2 px-3 h-11 border-b border-hairline">
-          <span className="text-amber text-[13px]">›</span>
+          <span className="text-red text-[13px]">›</span>
           <input
             ref={inputRef}
             value={q}
@@ -170,7 +170,7 @@ export function CommandPalette({ onPreset }: { onPreset: (p: Preset) => void }) 
               >
                 <span
                   className={`text-[9px] smallcaps w-[92px] shrink-0 ${
-                    i === active ? "text-amber" : "text-ink-3"
+                    i === active ? "text-red" : "text-ink-3"
                   }`}
                 >
                   {c.group}

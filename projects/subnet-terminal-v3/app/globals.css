@@ -4,32 +4,35 @@
 
 /* =================================================================
    SUBNEτ TERMINAL v3 — DESIGN TOKENS
-   Phosphor terminal: true-black ground, amber primary, per-vertical
-   accents. No off-the-shelf theme.
+   eDEX-UI red-on-black, shared with Subnet Magazine: pure-black
+   ground, red-tinted lifted surfaces, red as the single chrome
+   accent, mint-green reserved for "up" so a board still scans at
+   speed. The four verticals are spaced across a tight red ramp —
+   one family, never a rainbow.
    ================================================================= */
 @theme {
-  /* ground + elevation */
+  /* ground + elevation — red-tinted blacks */
   --color-bg:         #000000;
-  --color-elev-1:     #0a0a0a;
-  --color-elev-2:     #121212;
-  --color-hairline:   #1c1917;
-  --color-hairline-2: #292524;
+  --color-elev-1:     #0A0306;
+  --color-elev-2:     #140509;
+  --color-hairline:   #2A1418;
+  --color-hairline-2: #4A2A30;
 
-  /* vertical accents */
-  --color-amber:      #FFB000;   /* Bittensor      */
-  --color-cyan:       #22D3EE;   /* GPU            */
-  --color-magenta:    #F472B6;   /* AI / research  */
-  --color-lime:       #84CC16;   /* Power          */
+  /* vertical accents — one red family */
+  --color-red:        #FF1E3C;   /* Bittensor · primary chrome */
+  --color-coral:      #FF4D60;   /* GPU                        */
+  --color-rose:       #FF7A88;   /* AI / research              */
+  --color-ember:      #FF8C42;   /* Power · the one warm ember */
 
   /* semantic */
-  --color-up:         #10B981;
-  --color-down:       #EF4444;
-  --color-warn:       #FACC15;
+  --color-up:         #00E5A8;
+  --color-down:       #FF4D6D;
+  --color-warn:       #FF8C42;
 
-  /* ink */
-  --color-ink-1:      #F5F5F4;
-  --color-ink-2:      #A8A29E;
-  --color-ink-3:      #57534E;
+  /* ink — warm white through dim, red-tinted */
+  --color-ink-1:      #F5E5E8;
+  --color-ink-2:      #C8A8AD;
+  --color-ink-3:      #8B6B70;
 
   /* type */
   --font-mono:  var(--font-jbmono), ui-monospace, "SF Mono", Menlo, monospace;
@@ -50,15 +53,15 @@ body {
 /* tabular numerals wherever data lives */
 .tnum { font-variant-numeric: tabular-nums; }
 
-/* keyboard focus — always visible, phosphor-amber, never removed */
+/* keyboard focus — always visible, brand-red, never removed */
 :focus-visible {
-  outline: 2px solid var(--color-amber);
+  outline: 2px solid var(--color-red);
   outline-offset: 1px;
 }
 /* SVG chart nodes take the ring as a stroke instead */
 [role="button"]:focus-visible > circle:first-of-type,
 g[tabindex]:focus-visible > circle:first-of-type {
-  stroke: var(--color-amber);
+  stroke: var(--color-red);
   stroke-width: 2.5;
 }
 
@@ -68,7 +71,7 @@ g[tabindex]:focus-visible > circle:first-of-type {
   top: 0; left: 0;
   z-index: 100;
   padding: 8px 14px;
-  background: var(--color-amber);
+  background: var(--color-red);
   color: var(--color-bg);
   font-size: 12px;
   transform: translateY(-110%);
@@ -101,8 +104,8 @@ g[tabindex]:focus-visible > circle:first-of-type {
 
 /* react-grid-layout — restyle the defaults to the hairline aesthetic */
 .react-grid-item.react-grid-placeholder {
-  background: color-mix(in srgb, var(--color-amber) 14%, transparent);
-  border: 1px dashed var(--color-amber);
+  background: color-mix(in srgb, var(--color-red) 14%, transparent);
+  border: 1px dashed var(--color-red);
   opacity: 1;
 }
 .react-grid-item > .react-resizable-handle::after {

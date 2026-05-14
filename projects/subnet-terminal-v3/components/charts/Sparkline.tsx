@@ -19,7 +19,7 @@ export function Sparkline({
   }
   const span = hi - lo || 1;
   const dir = up ?? data[data.length - 1] >= data[0];
-  const color = dir ? "#10B981" : "#EF4444";
+  const color = dir ? "#00E5A8" : "#FF4D6D";
   const pts = data.map((v, i) => {
     const x = (i / (data.length - 1)) * (width - 2) + 1;
     const y = height - 1 - ((v - lo) / span) * (height - 2);

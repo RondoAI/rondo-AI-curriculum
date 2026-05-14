@@ -6,7 +6,7 @@ import { useSize } from "@/lib/useSize";
     time-ish x baseline. Used as the primary chart on detail pages. */
 export function AreaChart({
   data,
-  color = "#FFB000",
+  color = "#FF1E3C",
   fmt = (n: number) => n.toFixed(2),
 }: {
   data: number[];
@@ -57,12 +57,12 @@ export function AreaChart({
                   x2={padL + plotW}
                   y1={yy}
                   y2={yy}
-                  stroke="rgba(255,176,0,.06)"
+                  stroke="rgba(255,30,60,.06)"
                 />
                 <text
                   x={padL + plotW + 6}
                   y={yy}
-                  fill="#57534E"
+                  fill="#8B6B70"
                   fontSize={10}
                   dominantBaseline="middle"
                   style={{ fontFamily: "var(--font-jbmono), monospace" }}

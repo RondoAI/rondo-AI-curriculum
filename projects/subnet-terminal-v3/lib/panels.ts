@@ -9,10 +9,10 @@
 export type Vertical = "bittensor" | "ai" | "gpu" | "power" | "editorial";
 
 export const VERTICAL_ACCENT: Record<Vertical, string> = {
-  bittensor: "var(--color-amber)",
-  ai: "var(--color-magenta)",
-  gpu: "var(--color-cyan)",
-  power: "var(--color-lime)",
+  bittensor: "var(--color-red)",
+  ai: "var(--color-rose)",
+  gpu: "var(--color-coral)",
+  power: "var(--color-ember)",
   editorial: "var(--color-ink-2)",
 };
 

@@ -70,7 +70,7 @@ export default function WirePage() {
               type="button"
               onClick={() => setSrc(f.id)}
               className={`px-2 h-6 text-[10px] smallcaps border border-hairline-2 ${
-                src === f.id ? "bg-magenta text-bg border-magenta" : "text-ink-3 hover:text-ink-1"
+                src === f.id ? "bg-rose text-bg border-rose" : "text-ink-3 hover:text-ink-1"
               }`}
             >
               {f.label}

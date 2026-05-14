@@ -68,7 +68,7 @@ export default function IsoDetail() {
             <StatCell label="headroom" value={headroom.toFixed(0) + "%"} accent="var(--color-up)" />
             <StatCell label="renewables" value={(iso.renewablePct * 100).toFixed(0) + "%"} />
             <StatCell label="priced nodes" value={int(isoNodes.length)} />
-            <StatCell label="dc pipeline" value={pipelineGw.toFixed(1) + " GW"} accent="var(--color-lime)" />
+            <StatCell label="dc pipeline" value={pipelineGw.toFixed(1) + " GW"} accent="var(--color-ember)" />
             <StatCell label="source" value={live.isos ? "iso feed" : "seed"} />
           </div>
         </section>
@@ -121,7 +121,7 @@ export default function IsoDetail() {
               system load trend
             </span>
             <div className="relative flex-1 min-h-0">
-              <AreaChart data={loadSeries} color="#84CC16" fmt={(n) => Math.round(n) + ""} />
+              <AreaChart data={loadSeries} color="#FF8C42" fmt={(n) => Math.round(n) + ""} />
             </div>
           </div>
         </section>
@@ -150,7 +150,7 @@ export default function IsoDetail() {
                 >
                   {STATUS_LABEL[d.status]}
                 </span>
-                <span className="tnum text-[11px] text-lime w-[64px] text-right">
+                <span className="tnum text-[11px] text-ember w-[64px] text-right">
                   {capacity(d.capacityMw)}
                 </span>
                 <span className="tnum text-[10px] text-ink-3 w-[36px] text-right">{d.online}</span>

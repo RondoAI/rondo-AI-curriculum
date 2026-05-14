@@ -1,2 +1,2 @@
-:HL["https://raw.githack.com/RondoAI/rondo-AI-curriculum/subnet-mag-v2/projects/subnet-terminal-v3/out/_next/static/chunks/0lgbt813ezyt8.css","style"]
-0:{"tree":{"name":"","param":null,"prefetchHints":16,"slots":{"children":{"name":"/_not-found","param":null,"prefetchHints":0,"slots":{"children":{"name":"__PAGE__","param":null,"prefetchHints":0,"slots":null}}}}},"staleTime":300,"buildId":"dMd6ozMxX62U7t9aCnAAj"}
+:HL["https://raw.githack.com/RondoAI/rondo-AI-curriculum/subnet-mag-v2/projects/subnet-terminal-v3/out/_next/static/chunks/0hxt9tso4fpfo.css","style"]
+0:{"tree":{"name":"","param":null,"prefetchHints":16,"slots":{"children":{"name":"/_not-found","param":null,"prefetchHints":0,"slots":{"children":{"name":"__PAGE__","param":null,"prefetchHints":0,"slots":null}}}}},"staleTime":300,"buildId":"RvU-WSsoKwIMJfBojww0X"}

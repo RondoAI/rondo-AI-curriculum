@@ -55,7 +55,7 @@ export function SubnetBoardPanel() {
                 onClick={() => clickCol(c.id)}
                 className={`px-2 py-1.5 text-[9px] smallcaps text-ink-3 cursor-pointer hover:text-ink-1 border-b border-hairline whitespace-nowrap ${
                   c.num ? "text-right" : "text-left"
-                } ${sort === c.id ? "text-amber" : ""}`}
+                } ${sort === c.id ? "text-red" : ""}`}
               >
                 {c.label}
                 {sort === c.id ? (dir === 1 ? " ▲" : " ▼") : ""}
@@ -76,7 +76,7 @@ export function SubnetBoardPanel() {
                 <td className="px-2 py-1 text-right">
                   <Link
                     href={`/s/${s.netuid}`}
-                    className="tnum text-[11px] text-amber"
+                    className="tnum text-[11px] text-red"
                   >
                     {s.netuid}
                   </Link>

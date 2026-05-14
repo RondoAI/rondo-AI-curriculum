@@ -12,7 +12,7 @@ type Overlay = "none" | "emission" | "validators";
 export function Candles({
   data,
   overlay = "none",
-  accent = "#FFB000",
+  accent = "#FF1E3C",
 }: {
   data: Candle[];
   overlay?: Overlay;
@@ -52,12 +52,12 @@ export function Candles({
     for (let i = 0; i <= 4; i++) {
       const p = lo + (i / 4) * (hi - lo);
       const yy = y(p);
-      ctx.strokeStyle = "rgba(255,176,0,.06)";
+      ctx.strokeStyle = "rgba(255,30,60,.06)";
       ctx.beginPath();
       ctx.moveTo(padL, yy);
       ctx.lineTo(padL + plotW, yy);
       ctx.stroke();
-      ctx.fillStyle = "#57534E";
+      ctx.fillStyle = "#8B6B70";
       ctx.fillText("$" + Math.round(p).toLocaleString("en-US"), padL + plotW + 6, yy);
     }
 
@@ -72,7 +72,7 @@ export function Candles({
         const px = x(i), py = oy(vals[i]);
         i ? ctx.lineTo(px, py) : ctx.moveTo(px, py);
       });
-      ctx.strokeStyle = "rgba(34,211,238,.55)";
+      ctx.strokeStyle = "rgba(255,77,96,.55)";
       ctx.lineWidth = 1.25;
       ctx.stroke();
     }
@@ -82,7 +82,7 @@ export function Candles({
     data.forEach((c, i) => {
       const px = x(i);
       const up = c.c >= c.o;
-      const col = up ? "#10B981" : "#EF4444";
+      const col = up ? "#00E5A8" : "#FF4D6D";
       ctx.strokeStyle = col;
       ctx.fillStyle = col;
       ctx.lineWidth = 1;

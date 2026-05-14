@@ -38,7 +38,7 @@ export function AiWirePanel() {
             type="button"
             onClick={() => setSrc(f.id)}
             className={`px-1.5 h-5 text-[9px] smallcaps border border-hairline-2 ${
-              src === f.id ? "bg-magenta text-bg border-magenta" : "text-ink-3 hover:text-ink-1"
+              src === f.id ? "bg-rose text-bg border-rose" : "text-ink-3 hover:text-ink-1"
             }`}
           >
             {f.label}
@@ -47,7 +47,7 @@ export function AiWirePanel() {
         <span className="ml-auto tnum text-[9px] text-ink-3">{rows.length}</span>
         <Link
           href="/wire"
-          className="text-[9px] smallcaps text-ink-3 hover:text-magenta"
+          className="text-[9px] smallcaps text-ink-3 hover:text-rose"
         >
           full wire ›
         </Link>

@@ -19,7 +19,7 @@ export interface HubNode {
 export function HubGraph({
   nodes,
   rings,
-  accent = "#FFB000",
+  accent = "#FF1E3C",
 }: {
   nodes: HubNode[];
   /** the subnet ids that form the outer ring */
@@ -82,11 +82,11 @@ export function HubGraph({
           const p = ringPos.get(id)!;
           return (
             <g key={`r${id}`}>
-              <circle cx={p.x} cy={p.y} r={3} fill="#292524" stroke={accent} strokeOpacity={0.5} />
+              <circle cx={p.x} cy={p.y} r={3} fill="#4A2A30" stroke={accent} strokeOpacity={0.5} />
               <text
                 x={p.x}
                 y={p.y - 7}
-                fill="#57534E"
+                fill="#8B6B70"
                 fontSize={8}
                 textAnchor="middle"
                 style={{ fontFamily: "var(--font-jbmono), monospace" }}

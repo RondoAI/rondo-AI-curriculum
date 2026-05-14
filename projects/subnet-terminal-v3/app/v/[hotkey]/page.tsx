@@ -62,7 +62,7 @@ export default function ValidatorDetail() {
             </span>
           </div>
           <div className="flex flex-wrap">
-            <StatCell label="stake" value={"τ" + int(val.stake)} accent="var(--color-amber)" />
+            <StatCell label="stake" value={"τ" + int(val.stake)} accent="var(--color-red)" />
             <StatCell label="own stake" value={"τ" + int(val.ownStake)} />
             <StatCell label="nominators" value={int(val.nominators)} />
             <StatCell label="dominance" value={val.dominance.toFixed(2) + "%"} />
@@ -83,7 +83,7 @@ export default function ValidatorDetail() {
                   type="button"
                   onClick={() => setRange(r)}
                   className={`px-1.5 h-5 text-[9px] smallcaps border border-hairline-2 -ml-px first:ml-0 ${
-                    range === r ? "bg-amber text-bg border-amber" : "text-ink-3 hover:text-ink-1"
+                    range === r ? "bg-red text-bg border-red" : "text-ink-3 hover:text-ink-1"
                   }`}
                 >
                   {r}
@@ -92,7 +92,7 @@ export default function ValidatorDetail() {
             </div>
           </div>
           <div className="relative flex-1 min-h-0">
-            <AreaChart data={stakeSeries} color="#FFB000" fmt={(n) => Math.round(n) + ""} />
+            <AreaChart data={stakeSeries} color="#FF1E3C" fmt={(n) => Math.round(n) + ""} />
           </div>
         </section>
 
@@ -102,7 +102,7 @@ export default function ValidatorDetail() {
               nominator count
             </span>
             <div className="relative flex-1 min-h-0">
-              <AreaChart data={nomSeries} color="#22D3EE" fmt={(n) => Math.round(n) + ""} />
+              <AreaChart data={nomSeries} color="#FF4D60" fmt={(n) => Math.round(n) + ""} />
             </div>
           </div>
           <div className="border border-hairline bg-elev-1 h-[180px] flex flex-col">
@@ -110,7 +110,7 @@ export default function ValidatorDetail() {
               nominator apr
             </span>
             <div className="relative flex-1 min-h-0">
-              <AreaChart data={aprSeries} color="#84CC16" fmt={(n) => n.toFixed(1) + "%"} />
+              <AreaChart data={aprSeries} color="#FF8C42" fmt={(n) => n.toFixed(1) + "%"} />
             </div>
           </div>
         </section>
@@ -132,7 +132,7 @@ export default function ValidatorDetail() {
               >
                 <Link
                   href={`/s/${s.netuid}`}
-                  className="text-[12px] text-ink-1 hover:text-amber w-[180px] truncate"
+                  className="text-[12px] text-ink-1 hover:text-red w-[180px] truncate"
                 >
                   SN{s.netuid} · {s.name}
                 </Link>

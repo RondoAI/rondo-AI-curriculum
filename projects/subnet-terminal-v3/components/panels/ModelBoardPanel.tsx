@@ -53,7 +53,7 @@ export function ModelBoardPanel() {
                 onClick={() => clickCol(c.id)}
                 className={`px-2 py-1.5 text-[9px] smallcaps text-ink-3 cursor-pointer hover:text-ink-1 border-b border-hairline whitespace-nowrap ${
                   c.num ? "text-right" : "text-left"
-                } ${sort === c.id ? "text-magenta" : ""}`}
+                } ${sort === c.id ? "text-rose" : ""}`}
               >
                 {c.label}
                 {sort === c.id ? (dir === 1 ? " ▲" : " ▼") : ""}

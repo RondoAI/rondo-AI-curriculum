@@ -17,7 +17,7 @@ export function CapexPanel() {
     <div className="absolute inset-0 flex flex-col">
       <div className="shrink-0 flex items-baseline gap-2 px-3 py-1.5 border-b border-hairline">
         <span className="text-[9px] smallcaps text-ink-3">latest quarter, combined</span>
-        <span className="ml-auto tnum text-[13px] text-cyan">${totalLatest.toFixed(1)}B</span>
+        <span className="ml-auto tnum text-[13px] text-coral">${totalLatest.toFixed(1)}B</span>
       </div>
       <ul className="flex-1 min-h-0 overflow-auto">
         {capex.map((c) => (
@@ -34,7 +34,7 @@ export function CapexPanel() {
             <span className="flex-1 min-w-0 flex items-center gap-2">
               <span className="flex-1 h-2.5 bg-elev-2 overflow-hidden">
                 <span
-                  className="block h-full bg-cyan/70"
+                  className="block h-full bg-coral/70"
                   style={{ width: `${(c.latest / max) * 100}%` }}
                 />
               </span>
