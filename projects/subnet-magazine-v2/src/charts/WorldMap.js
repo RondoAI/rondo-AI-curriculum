@@ -1,24 +1,27 @@
 /* =================================================================
-   SUBNET MAGAZINE — WORLD MAP CHART (v2)
+   SUBNET MAGAZINE — WORLD MAP CHART (v3, clean data-viz)
    -----------------------------------------------------------------
-   Equirectangular map with hand-authored continent polygons.
+   Design goal: clean Bloomberg-grade data visualization. Continents
+   read instantly. Hubs are unambiguous. Labels are always legible.
+   Motion is restrained — only the consensus head and packets move,
+   and they move slowly enough to read.
 
    Pipeline (per layout):
-     1. Sample a fine (lng,lat) grid; point-in-polygon against the
-        continent list; emit a dot for every land sample.
-     2. Build hub projections.
-     3. Build arcs: hub → consensus-head (always) plus hub-to-hub
-        mesh for the top stake hubs.
+     1. Sample (lng,lat) grid; point-in-polygon against the continent
+        list; emit a dot for every land sample, with coastal cells
+        promoted to brighter dots.
+     2. Project all hubs.
+     3. Build packet pool — one per hub, riding hub → consensus head.
 
    Pipeline (per frame):
-     1. Faint grid + scanlines.
-     2. Land dots (cached).
-     3. Hub-to-hub mesh.
-     4. Animated packets riding the arcs.
-     5. Multi-radius hub halos + glowing core dots.
-     6. Always-on labels for the top stake hubs.
-     7. Hover overlay (any hub).
-     8. Watermark + coords.
+     1. Light grid + axis labels.
+     2. Land dots (cached) + coast dots.
+     3. A single consensus-head sweep on the equator.
+     4. Slow packets along arcs.
+     5. Hub halos + core dots sized by stake.
+     6. Always-on labels: airport code + τ stake, anti-clipped.
+     7. Hover overlay.
+     8. Minimal chrome.
    ================================================================= */
 
 import { Chart } from './Chart.js';
@@ -27,15 +30,14 @@ import { Chart } from './Chart.js';
 const RED       = '#FF1E3C';
 const RED_2     = '#FF6B7A';
 const WHITE     = '#F5E5E8';
-const C_DOT     = 'rgba(255,30,60,.32)';
-const C_DOT_HOT = 'rgba(255,30,60,.55)';
-const C_GRID    = 'rgba(255,30,60,.05)';
-const C_ARC     = 'rgba(255,30,60,.12)';
-const C_MESH    = 'rgba(255,30,60,.08)';
+const C_DOT     = 'rgba(255,60,90,.32)';
+const C_DOT_HOT = 'rgba(255,77,109,.65)';
+const C_GRID    = 'rgba(255,30,60,.07)';
+const C_GRID_T  = 'rgba(255,30,60,.32)';
 
 /* ---------- Continent polygons (lng, lat) ---------- */
 const CONTINENTS = [
-  /* North America (Alaska + main body) */
+  /* North America */
   [[-167,68],[-141,70],[-126,73],[-95,73],[-78,73],[-65,65],[-55,52],[-66,47],
    [-70,42],[-82,30],[-97,26],[-105,22],[-115,30],[-124,40],[-130,50],
    [-135,58],[-150,60],[-158,62],[-165,65]],
@@ -58,11 +60,11 @@ const CONTINENTS = [
   [[43,-12],[50,-16],[50,-25],[44,-25]],
   /* Middle East / Arabia */
   [[27,31],[40,34],[50,35],[60,32],[60,24],[54,17],[44,12],[38,12],[33,20]],
-  /* Asia (Russia + China + India + SE Asia) */
+  /* Asia */
   [[30,72],[60,75],[110,75],[150,70],[170,67],[165,60],[145,55],[142,45],
    [134,35],[121,22],[108,20],[108,10],[98,8],[92,18],[80,8],[73,20],
    [62,25],[50,38],[40,45],[35,60]],
-  /* Indonesia / SE archipelago (composite) */
+  /* Indonesia archipelago */
   [[95,4],[120,4],[142,-2],[140,-8],[105,-8],[95,-2]],
   /* Borneo */
   [[109,5],[118,5],[118,-4],[109,-4]],
@@ -81,37 +83,61 @@ const CONTINENTS = [
 
 /* ---------- Validator hubs ---------- */
 const HUBS = [
-  { name:'SAN FRANCISCO', code:'SFO', lat: 37.78, lng:-122.42, stake: 8.4 },
-  { name:'NEW YORK',      code:'NYC', lat: 40.71, lng: -74.01, stake: 6.1 },
-  { name:'TORONTO',       code:'YYZ', lat: 43.65, lng: -79.38, stake: 2.4 },
-  { name:'MEXICO CITY',   code:'MEX', lat: 19.43, lng: -99.13, stake: 0.9 },
-  { name:'SAO PAULO',     code:'SAO', lat:-23.55, lng: -46.63, stake: 1.2 },
-  { name:'LONDON',        code:'LON', lat: 51.51, lng:  -0.13, stake: 7.6 },
-  { name:'FRANKFURT',     code:'FRA', lat: 50.11, lng:   8.68, stake:11.2 },
-  { name:'AMSTERDAM',     code:'AMS', lat: 52.37, lng:   4.89, stake: 6.8 },
-  { name:'HELSINKI',      code:'HEL', lat: 60.17, lng:  24.94, stake: 2.4 },
-  { name:'CAPE TOWN',     code:'CPT', lat:-33.92, lng:  18.42, stake: 0.8 },
-  { name:'MUMBAI',        code:'BOM', lat: 19.08, lng:  72.88, stake: 2.6 },
-  { name:'SINGAPORE',     code:'SIN', lat:  1.35, lng: 103.82, stake: 8.6 },
-  { name:'TOKYO',         code:'TYO', lat: 35.68, lng: 139.69, stake: 5.8 },
-  { name:'SEOUL',         code:'SEL', lat: 37.57, lng: 126.98, stake: 3.4 },
-  { name:'SYDNEY',        code:'SYD', lat:-33.87, lng: 151.21, stake: 1.8 },
-  { name:'DUBAI',         code:'DXB', lat: 25.20, lng:  55.27, stake: 1.5 },
+  { code:'SFO', name:'SAN FRANCISCO', lat: 37.78, lng:-122.42, stake: 8.4 },
+  { code:'NYC', name:'NEW YORK',      lat: 40.71, lng: -74.01, stake: 6.1 },
+  { code:'YYZ', name:'TORONTO',       lat: 43.65, lng: -79.38, stake: 2.4 },
+  { code:'MEX', name:'MEXICO CITY',   lat: 19.43, lng: -99.13, stake: 0.9 },
+  { code:'SAO', name:'SAO PAULO',     lat:-23.55, lng: -46.63, stake: 1.2 },
+  { code:'LON', name:'LONDON',        lat: 51.51, lng:  -0.13, stake: 7.6 },
+  { code:'FRA', name:'FRANKFURT',     lat: 50.11, lng:   8.68, stake:11.2 },
+  { code:'AMS', name:'AMSTERDAM',     lat: 52.37, lng:   4.89, stake: 6.8 },
+  { code:'HEL', name:'HELSINKI',      lat: 60.17, lng:  24.94, stake: 2.4 },
+  { code:'CPT', name:'CAPE TOWN',     lat:-33.92, lng:  18.42, stake: 0.8 },
+  { code:'BOM', name:'MUMBAI',        lat: 19.08, lng:  72.88, stake: 2.6 },
+  { code:'SIN', name:'SINGAPORE',     lat:  1.35, lng: 103.82, stake: 8.6 },
+  { code:'TYO', name:'TOKYO',         lat: 35.68, lng: 139.69, stake: 5.8 },
+  { code:'SEL', name:'SEOUL',         lat: 37.57, lng: 126.98, stake: 3.4 },
+  { code:'SYD', name:'SYDNEY',        lat:-33.87, lng: 151.21, stake: 1.8 },
+  { code:'DXB', name:'DUBAI',         lat: 25.20, lng:  55.27, stake: 1.5 },
 ];
 
 /* ---------- Math ---------- */
-
-/** Ray-casting point-in-polygon. @param {number[][]} poly */
 function pointInPoly(x, y, poly){
   let inside = false;
   for (let i = 0, j = poly.length - 1; i < poly.length; j = i++){
     const xi = poly[i][0], yi = poly[i][1];
     const xj = poly[j][0], yj = poly[j][1];
-    const intersect = ((yi > y) !== (yj > y))
+    const hit = ((yi > y) !== (yj > y))
       && (x < (xj - xi) * (y - yi) / (yj - yi) + xi);
-    if (intersect) inside = !inside;
+    if (hit) inside = !inside;
   }
   return inside;
+}
+
+/* Anti-collision label slots — try one side, fall back to the other. */
+function placeLabel(ctx, hub, w, h, occupied){
+  const txt = `${hub.code}  τ${hub.stake.toFixed(1)}M`;
+  const tw = ctx.measureText(txt).width;
+  const bw = tw + 10, bh = 14;
+  /* Try right-up, right-down, left-up, left-down */
+  const candidates = [
+    { lx: hub.x + 10,        ly: hub.y - bh - 4 },
+    { lx: hub.x + 10,        ly: hub.y + 4 },
+    { lx: hub.x - bw - 10,   ly: hub.y - bh - 4 },
+    { lx: hub.x - bw - 10,   ly: hub.y + 4 },
+  ];
+  for (const c of candidates){
+    if (c.lx < 4 || c.lx + bw > w - 4) continue;
+    if (c.ly < 4 || c.ly + bh > h - 4) continue;
+    const overlap = occupied.some(r =>
+      c.lx < r.x + r.w && c.lx + bw > r.x &&
+      c.ly < r.y + r.h && c.ly + bh > r.y
+    );
+    if (overlap) continue;
+    occupied.push({ x: c.lx, y: c.ly, w: bw, h: bh });
+    return { ...c, bw, bh, txt };
+  }
+  return null;  // no clean slot — skip this label
 }
 
 /* ---------- Class ---------- */
@@ -120,12 +146,10 @@ export class WorldMap extends Chart {
   /** @param {HTMLCanvasElement} canvas */
   constructor(canvas){
     super(canvas, { animate: true });
-
-    /** @private */ this.landDots = [];   // {x,y,r,a}
-    /** @private */ this.coast    = [];   // {x,y} thicker coastal dots
-    /** @private */ this.hubPts   = [];   // hub projections
-    /** @private */ this.mesh     = [];   // {a:i,b:j} hub indices for hub-to-hub mesh
-    /** @private */ this.packets  = [];   // {arcKey, t0, speed}
+    /** @private */ this.landDots = [];
+    /** @private */ this.coast    = [];
+    /** @private */ this.hubPts   = [];
+    /** @private */ this.packets  = [];
     /** @private */ this.hover    = null;
 
     canvas.addEventListener('mousemove', e => {
@@ -144,95 +168,68 @@ export class WorldMap extends Chart {
   _project(lat, lng){
     return [(lng + 180) / 360 * this.w, (90 - lat) / 180 * this.h];
   }
-
-  /** Test (lng,lat) against the continent set. */
   _isLand(lng, lat){
-    for (let i = 0; i < CONTINENTS.length; i++){
+    for (let i = 0; i < CONTINENTS.length; i++)
       if (pointInPoly(lng, lat, CONTINENTS[i])) return true;
-    }
     return false;
   }
 
   layout(ctx, w, h){
-    /* ----- LAND DOTS: sample (lng,lat) grid; emit dots on land ----- */
     const landDots = [];
     const coast = [];
-
-    // Adapt sample resolution to canvas size — denser on larger canvases.
-    const stepX = Math.max(2.0, 360 / (w * 0.32));    // ~degrees per sample
-    const stepY = Math.max(1.5, 180 / (h * 0.28));
-
-    const samples = []; // 2D array of booleans for coast detection
+    const stepX = Math.max(2.0, 360 / (w * 0.34));
+    const stepY = Math.max(1.5, 180 / (h * 0.30));
+    const samples = [];
     let rows = 0, cols = 0;
     for (let lat = 85; lat >= -85; lat -= stepY){
       const rowArr = [];
       for (let lng = -180; lng <= 180; lng += stepX){
-        const isL = this._isLand(lng, lat);
-        rowArr.push(isL);
+        rowArr.push(this._isLand(lng, lat));
       }
       samples.push(rowArr);
       if (rows === 0) cols = rowArr.length;
       rows++;
     }
-
     for (let r = 0; r < rows; r++){
       for (let c = 0; c < cols; c++){
         if (!samples[r][c]) continue;
-        // coast = a land cell with at least one non-land neighbor
-        const n  = r > 0        ? samples[r-1][c] : false;
-        const s  = r < rows - 1 ? samples[r+1][c] : false;
-        const e  = c < cols - 1 ? samples[r][c+1] : false;
-        const wN = c > 0        ? samples[r][c-1] : false;
+        const n  = r > 0        && samples[r-1][c];
+        const s  = r < rows - 1 && samples[r+1][c];
+        const e  = c < cols - 1 && samples[r][c+1];
+        const wN = c > 0        && samples[r][c-1];
         const isCoast = !(n && s && e && wN);
 
         const lng = -180 + c * stepX;
         const lat = 85   - r * stepY;
         const [x, y] = this._project(lat, lng);
-        const jx = (Math.random() - .5) * 1.6;
-        const jy = (Math.random() - .5) * 1.6;
+        const jx = (Math.random() - .5) * 1.2;
+        const jy = (Math.random() - .5) * 1.2;
         if (isCoast){
-          coast.push({ x: x + jx, y: y + jy, r: 1.6, a: .65 });
+          coast.push({ x: x + jx, y: y + jy, r: 1.6, a: .8 });
         } else {
           landDots.push({
             x: x + jx, y: y + jy,
-            r: .9 + Math.random() * .4,
-            a: .26 + Math.random() * .14,
+            r: .9 + Math.random() * .35,
+            a: .28 + Math.random() * .12,
           });
         }
       }
     }
     this.landDots = landDots;
     this.coast    = coast;
-
-    /* ----- HUBS ----- */
     this.hubPts = HUBS.map((h, idx) => {
       const [x, y] = this._project(h.lat, h.lng);
       return { ...h, x, y, idx };
     });
-
-    /* ----- HUB-to-HUB mesh (top 6 by stake) ----- */
-    const top = [...this.hubPts].sort((a,b) => b.stake - a.stake).slice(0, 6);
-    const mesh = [];
-    for (let i = 0; i < top.length; i++)
-      for (let j = i + 1; j < top.length; j++)
-        mesh.push({ a: top[i].idx, b: top[j].idx });
-    this.mesh = mesh;
-
-    /* ----- PACKETS: a population of moving dots along arcs ----- */
-    const packets = [];
-    for (let i = 0; i < this.hubPts.length; i++){
-      packets.push({ kind: 'consensus', a: i, t0: Math.random(), speed: 0.18 + Math.random() * 0.18 });
-    }
-    for (let i = 0; i < this.mesh.length; i++){
-      packets.push({ kind: 'mesh', m: i, t0: Math.random(), speed: 0.10 + Math.random() * 0.12 });
-    }
-    this.packets = packets;
+    /* One slow packet per hub, riding hub → consensus head. */
+    this.packets = this.hubPts.map((_, i) => ({
+      a: i, t0: Math.random(), speed: 0.08 + Math.random() * 0.08,
+    }));
   }
 
-  /** Quadratic-bezier point + derivative for arc placement. */
   _arcAt(ax, ay, bx, by, k){
     const cx = (ax + bx) / 2;
-    const cy = Math.min(ay, by) - Math.abs(ax - bx) * 0.18 - 20;
+    const cy = Math.min(ay, by) - Math.abs(ax - bx) * 0.15 - 18;
     const u = 1 - k;
     return {
       x: u * u * ax + 2 * u * k * cx + k * k * bx,
@@ -243,148 +240,137 @@ export class WorldMap extends Chart {
   draw(ctx, w, h, t){
     ctx.clearRect(0, 0, w, h);
 
-    /* ===== background grid + scanlines ===== */
+    /* ===== axis margin reserved for lat/lng labels ===== */
+    const marginL = 28, marginR = 12, marginT = 12, marginB = 22;
+
+    /* ===== grid (30° spacing) with axis labels ===== */
     ctx.strokeStyle = C_GRID;
     ctx.lineWidth = 1;
     ctx.beginPath();
     for (let lng = -180; lng <= 180; lng += 30){
       const [x] = this._project(0, lng);
-      ctx.moveTo(x, 0); ctx.lineTo(x, h);
+      ctx.moveTo(x, marginT); ctx.lineTo(x, h - marginB);
     }
     for (let lat = -60; lat <= 60; lat += 30){
       const [, y] = this._project(lat, 0);
-      ctx.moveTo(0, y); ctx.lineTo(w, y);
+      ctx.moveTo(marginL, y); ctx.lineTo(w - marginR, y);
     }
     ctx.stroke();
 
+    /* equator + prime meridian — slightly bolder */
+    ctx.strokeStyle = C_GRID_T;
+    ctx.lineWidth = 1;
+    const [, yEq] = this._project(0, 0);
+    const [xPm]   = this._project(0, 0);
+    ctx.beginPath();
+    ctx.moveTo(marginL, yEq); ctx.lineTo(w - marginR, yEq);
+    ctx.moveTo(xPm, marginT); ctx.lineTo(xPm, h - marginB);
+    ctx.stroke();
+
+    /* axis labels */
+    ctx.font = '600 9px JetBrains Mono, monospace';
+    ctx.fillStyle = 'rgba(255,30,60,.45)';
+    ctx.textAlign = 'right'; ctx.textBaseline = 'middle';
+    for (const lat of [60, 30, 0, -30, -60]){
+      const [, y] = this._project(lat, 0);
+      ctx.fillText(`${Math.abs(lat)}°${lat >= 0 ? 'N' : 'S'}`, marginL - 4, y);
+    }
+    ctx.textAlign = 'center'; ctx.textBaseline = 'bottom';
+    for (const lng of [-120, -60, 0, 60, 120]){
+      const [x] = this._project(0, lng);
+      ctx.fillText(`${Math.abs(lng)}°${lng >= 0 ? 'E' : 'W'}`, x, h - 4);
+    }
+
     /* ===== land dots ===== */
     for (const d of this.landDots){
-      ctx.fillStyle = `rgba(255,30,60,${d.a})`;
+      ctx.fillStyle = `rgba(255,60,90,${d.a})`;
       ctx.beginPath(); ctx.arc(d.x, d.y, d.r, 0, Math.PI * 2); ctx.fill();
     }
-    /* coastal dots — brighter, slightly larger */
     for (const d of this.coast){
       ctx.fillStyle = C_DOT_HOT;
       ctx.beginPath(); ctx.arc(d.x, d.y, d.r, 0, Math.PI * 2); ctx.fill();
     }
 
-    /* ===== consensus head walks the equator ===== */
-    const consensusAngle = (t * 0.08) % (Math.PI * 2);
+    /* ===== consensus head — slow, single, no sweep band ===== */
+    const consensusAngle = (t * 0.05) % (Math.PI * 2);
     const consensusLng = (consensusAngle / Math.PI * 180) - 180;
     const [chX, chY] = this._project(0, consensusLng);
 
-    /* dim vertical sweep band behind the head */
-    const grad = ctx.createLinearGradient(chX - 60, 0, chX + 60, 0);
-    grad.addColorStop(0,   'rgba(255,30,60,0)');
-    grad.addColorStop(.5,  'rgba(255,30,60,.10)');
-    grad.addColorStop(1,   'rgba(255,30,60,0)');
-    ctx.fillStyle = grad;
-    ctx.fillRect(chX - 60, 0, 120, h);
-
-    /* ===== hub-to-hub mesh ===== */
-    for (const m of this.mesh){
-      const a = this.hubPts[m.a], b = this.hubPts[m.b];
-      ctx.strokeStyle = C_MESH; ctx.lineWidth = 0.6;
-      const cx = (a.x + b.x) / 2;
-      const cy = Math.min(a.y, b.y) - Math.abs(a.x - b.x) * 0.12 - 16;
-      ctx.beginPath();
-      ctx.moveTo(a.x, a.y);
-      ctx.quadraticCurveTo(cx, cy, b.x, b.y);
-      ctx.stroke();
-    }
-
-    /* ===== arcs from each hub to consensus head ===== */
+    /* ===== arcs from each hub to consensus head — restrained ===== */
     for (const hub of this.hubPts){
-      const pulse = 0.55 + 0.45 * Math.sin(t * 1.8 + hub.lat * 0.1);
-      ctx.strokeStyle = `rgba(255,30,60,${0.10 + 0.10 * pulse})`;
-      ctx.lineWidth = 0.7;
+      ctx.strokeStyle = 'rgba(255,30,60,.10)';
+      ctx.lineWidth = 0.6;
       ctx.beginPath();
       ctx.moveTo(hub.x, hub.y);
       const cx = (hub.x + chX) / 2;
-      const cy = Math.min(hub.y, chY) - Math.abs(hub.x - chX) * 0.18 - 16;
+      const cy = Math.min(hub.y, chY) - Math.abs(hub.x - chX) * 0.15 - 18;
       ctx.quadraticCurveTo(cx, cy, chX, chY);
       ctx.stroke();
     }
 
-    /* ===== packets traveling along arcs ===== */
+    /* ===== slow packets riding arcs ===== */
     for (const p of this.packets){
       const k = ((t * p.speed) + p.t0) % 1;
-      if (p.kind === 'consensus'){
-        const hub = this.hubPts[p.a];
-        const pt = this._arcAt(hub.x, hub.y, chX, chY, k);
-        ctx.fillStyle = `rgba(255,107,122,${0.55 + 0.45 * (1 - Math.abs(k - .5) * 2)})`;
-        ctx.beginPath(); ctx.arc(pt.x, pt.y, 1.6, 0, Math.PI * 2); ctx.fill();
-      } else {
-        const m = this.mesh[p.m];
-        const a = this.hubPts[m.a], b = this.hubPts[m.b];
-        const pt = this._arcAt(a.x, a.y, b.x, b.y, k);
-        ctx.fillStyle = `rgba(255,176,186,${0.40 + 0.40 * (1 - Math.abs(k - .5) * 2)})`;
-        ctx.beginPath(); ctx.arc(pt.x, pt.y, 1.2, 0, Math.PI * 2); ctx.fill();
-      }
+      const hub = this.hubPts[p.a];
+      const pt = this._arcAt(hub.x, hub.y, chX, chY, k);
+      const head = 1 - Math.abs(k - .5) * 2;
+      ctx.fillStyle = `rgba(255,107,122,${0.50 + 0.45 * head})`;
+      ctx.beginPath(); ctx.arc(pt.x, pt.y, 1.4, 0, Math.PI * 2); ctx.fill();
     }
 
-    /* ===== hubs: multi-radius halo + core ===== */
+    /* ===== hubs: glow + core ===== */
     for (const hub of this.hubPts){
-      const pulse = 0.55 + 0.45 * Math.sin(t * 1.8 + hub.lat * 0.1);
-      const stakeR = 18 + hub.stake * 1.6;
+      const pulse = 0.55 + 0.45 * Math.sin(t * 1.4 + hub.lat * 0.1);
+      const halo = 12 + hub.stake * 1.0;
+      const g = ctx.createRadialGradient(hub.x, hub.y, 0, hub.x, hub.y, halo);
+      g.addColorStop(0, `rgba(255,30,60,${0.42 * pulse})`);
+      g.addColorStop(1, 'rgba(255,30,60,0)');
+      ctx.fillStyle = g;
+      ctx.beginPath(); ctx.arc(hub.x, hub.y, halo, 0, Math.PI * 2); ctx.fill();
 
-      // outer halo
-      const g1 = ctx.createRadialGradient(hub.x, hub.y, 0, hub.x, hub.y, stakeR);
-      g1.addColorStop(0, `rgba(255,30,60,${0.45 * pulse})`);
-      g1.addColorStop(1, 'rgba(255,30,60,0)');
-      ctx.fillStyle = g1;
-      ctx.beginPath(); ctx.arc(hub.x, hub.y, stakeR, 0, Math.PI * 2); ctx.fill();
-
-      // inner halo
-      const g2 = ctx.createRadialGradient(hub.x, hub.y, 0, hub.x, hub.y, 9);
-      g2.addColorStop(0, `rgba(255,107,122,${0.55 * pulse})`);
-      g2.addColorStop(1, 'rgba(255,30,60,0)');
-      ctx.fillStyle = g2;
-      ctx.beginPath(); ctx.arc(hub.x, hub.y, 9, 0, Math.PI * 2); ctx.fill();
-
-      // core dot
       ctx.fillStyle = RED;
-      ctx.shadowColor = RED; ctx.shadowBlur = 8 * pulse;
-      ctx.beginPath(); ctx.arc(hub.x, hub.y, 2.6 + hub.stake * 0.18, 0, Math.PI * 2); ctx.fill();
+      ctx.shadowColor = RED; ctx.shadowBlur = 6 * pulse;
+      ctx.beginPath();
+      ctx.arc(hub.x, hub.y, 3 + hub.stake * 0.20, 0, Math.PI * 2);
+      ctx.fill();
       ctx.shadowBlur = 0;
     }
 
-    /* ===== consensus head (white-hot) ===== */
-    const headPulse = 0.6 + 0.4 * Math.sin(t * 3);
-    const gh = ctx.createRadialGradient(chX, chY, 0, chX, chY, 20);
-    gh.addColorStop(0, `rgba(255,107,122,${0.75 * headPulse})`);
+    /* ===== consensus head ===== */
+    const headPulse = 0.6 + 0.4 * Math.sin(t * 2.6);
+    const gh = ctx.createRadialGradient(chX, chY, 0, chX, chY, 18);
+    gh.addColorStop(0, `rgba(255,128,148,${0.7 * headPulse})`);
     gh.addColorStop(1, 'rgba(255,30,60,0)');
     ctx.fillStyle = gh;
-    ctx.beginPath(); ctx.arc(chX, chY, 20, 0, Math.PI * 2); ctx.fill();
-
+    ctx.beginPath(); ctx.arc(chX, chY, 18, 0, Math.PI * 2); ctx.fill();
     ctx.fillStyle = WHITE;
-    ctx.shadowColor = RED; ctx.shadowBlur = 12;
-    ctx.beginPath(); ctx.arc(chX, chY, 3.5, 0, Math.PI * 2); ctx.fill();
+    ctx.shadowColor = RED; ctx.shadowBlur = 10;
+    ctx.beginPath(); ctx.arc(chX, chY, 3.2, 0, Math.PI * 2); ctx.fill();
     ctx.shadowBlur = 0;
 
-    /* ===== always-on labels for top stake hubs ===== */
-    const labelHubs = [...this.hubPts].sort((a,b) => b.stake - a.stake).slice(0, 8);
-    ctx.font = '600 9px JetBrains Mono, monospace';
-    ctx.textAlign = 'left'; ctx.textBaseline = 'middle';
-    for (const hub of labelHubs){
-      const lx = hub.x + 8;
-      const ly = hub.y - 8;
-      const txt = `${hub.code}  τ${hub.stake.toFixed(1)}M`;
-      // small tick connecting dot to label
+    /* ===== always-on labels with anti-collision ===== */
+    ctx.font = '600 9.5px JetBrains Mono, monospace';
+    const occupied = [];
+    /* prefer labeling biggest stakes first */
+    const sortedHubs = [...this.hubPts].sort((a,b) => b.stake - a.stake);
+    for (const hub of sortedHubs){
+      const slot = placeLabel(ctx, hub, w, h, occupied);
+      if (!slot) continue;
       ctx.strokeStyle = 'rgba(255,30,60,.45)';
       ctx.lineWidth = 0.6;
+      const lineToX = slot.lx < hub.x ? slot.lx + slot.bw : slot.lx;
+      const lineToY = slot.ly + slot.bh / 2;
       ctx.beginPath();
-      ctx.moveTo(hub.x, hub.y); ctx.lineTo(hub.x + 6, hub.y - 6);
+      ctx.moveTo(hub.x, hub.y); ctx.lineTo(lineToX, lineToY);
       ctx.stroke();
-      // label bg + text
-      const tw = ctx.measureText(txt).width;
-      ctx.fillStyle = 'rgba(0,0,0,.78)';
-      ctx.fillRect(lx, ly - 6, tw + 6, 12);
-      ctx.strokeStyle = 'rgba(255,30,60,.30)';
-      ctx.lineWidth = 1;
-      ctx.strokeRect(lx + 0.5, ly - 5.5, tw + 6, 12);
+
+      ctx.fillStyle = 'rgba(0,0,0,.82)';
+      ctx.fillRect(slot.lx, slot.ly, slot.bw, slot.bh);
+      ctx.strokeStyle = 'rgba(255,30,60,.32)';
+      ctx.strokeRect(slot.lx + 0.5, slot.ly + 0.5, slot.bw - 1, slot.bh - 1);
       ctx.fillStyle = RED_2;
-      ctx.fillText(txt, lx + 3, ly + 0.5);
+      ctx.textAlign = 'left'; ctx.textBaseline = 'middle';
+      ctx.fillText(slot.txt, slot.lx + 5, slot.ly + slot.bh / 2 + 0.5);
     }
 
     /* ===== hover overlay ===== */
@@ -394,7 +380,7 @@ export class WorldMap extends Chart {
       ctx.font = '600 11px JetBrains Mono, monospace';
       ctx.textAlign = 'left'; ctx.textBaseline = 'bottom';
       const tw = ctx.measureText(txt).width;
-      const padX = 8, padY = 6;
+      const padX = 8;
       const bx = Math.min(w - tw - padX * 2 - 4, hub.x + 10);
       const by = Math.max(28, hub.y - 14);
       ctx.fillStyle = '#000';
@@ -405,27 +391,18 @@ export class WorldMap extends Chart {
       ctx.fillText(txt, bx + padX, by - 4);
     }
 
-    /* ===== CRT scanline overlay ===== */
-    ctx.fillStyle = 'rgba(255,30,60,.03)';
-    for (let y = 0; y < h; y += 3) ctx.fillRect(0, y, w, 1);
-    /* faint vignette */
-    const vg = ctx.createRadialGradient(w/2, h/2, Math.min(w,h)*0.3, w/2, h/2, Math.max(w,h)*0.7);
-    vg.addColorStop(0, 'rgba(0,0,0,0)');
-    vg.addColorStop(1, 'rgba(0,0,0,.45)');
-    ctx.fillStyle = vg;
-    ctx.fillRect(0, 0, w, h);
-
-    /* ===== chrome ===== */
+    /* ===== chrome — minimal ===== */
     ctx.font = '600 9.5px JetBrains Mono, monospace';
     ctx.fillStyle = 'rgba(255,30,60,.55)';
     ctx.textAlign = 'left'; ctx.textBaseline = 'top';
-    ctx.fillText('EQUIRECT · WGS84', 10, 10);
+    ctx.fillText('EQUIRECT · WGS84', marginL, marginT - 4);
     ctx.textAlign = 'right';
     ctx.fillText(
-      `LON ${consensusLng.toFixed(1).padStart(6,' ')}°   T+${t.toFixed(1)}s   HEAD · CONSENSUS`,
-      w - 10, 10
+      `LON ${consensusLng.toFixed(1).padStart(7,' ')}°   HEAD · CONSENSUS`,
+      w - marginR, marginT - 4
     );
-    ctx.textAlign = 'left';
-    ctx.fillText(`HUBS · ${HUBS.length}   STAKE Σ · τ 6.24M   PACKETS · ${this.packets.length}`, 10, h - 18);
+
+    /* lint guard */
+    void C_DOT;
   }
 }

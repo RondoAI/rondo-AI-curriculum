@@ -41,8 +41,8 @@ export function mountStatusStrip(root, dataLayer = null){
 
         <span class="statusbar__push"></span>
 
-        <span class="statusbar__quote" title="TAO/USD (CoinGecko)">
-          <span class="pair">TAO/USD</span>
+        <span class="statusbar__quote" title="τ/USD (CoinGecko)">
+          <span class="pair">τ/USD</span>
           <span class="price" data-bind="tao-price">—</span>
           <span class="delta" data-bind="tao-delta">—</span>
         </span>
