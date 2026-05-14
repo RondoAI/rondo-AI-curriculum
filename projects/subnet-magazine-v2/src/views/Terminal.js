@@ -92,9 +92,13 @@ export function mountTerminal(root, dataLayer = null){
         <span class="launchpad__prompt">SBNT &gt;</span>
         <input class="launchpad__input" id="launchpad-input"
                type="text" autocomplete="off" spellcheck="false"
-               placeholder="type a function code · TAO · BENCH · ASIA · MODELS · EMIT · MOVE · CAT  ↵">
+               placeholder="type a function code · OVERVIEW · MONITOR · MAP · VALS · TAO · BENCH · ASIA · MODELS · EMIT  ↵">
         <span class="launchpad__hint">↵ GO</span>
         <div class="launchpad__chips">
+          <button class="lp-chip" data-lp="overview">OVERVIEW</button>
+          <button class="lp-chip" data-lp="monitor">MONITOR</button>
+          <button class="lp-chip" data-lp="map">MAP</button>
+          <button class="lp-chip" data-lp="vals">VALS</button>
           <button class="lp-chip" data-lp="timeline">τ /USD</button>
           <button class="lp-chip" data-lp="bench">BENCH</button>
           <button class="lp-chip" data-lp="asia">ASIA</button>
@@ -1161,10 +1165,12 @@ export function mountTerminal(root, dataLayer = null){
   /* ===== Launchpad command bar ===== */
   const lpInput = qs('#launchpad-input', root);
   const lpMap = {
-    timeline: 'panel-bench',   /* sentinel; we just scroll to whichever panel they want */
+    timeline: '.term-cell--stockp',
     bench: 'panel-bench', asia: 'panel-asia', models: 'panel-models',
     emit: '.term-cell--emit', move: '.term-cell--perf', cat: '.term-cell--cats',
-    tao: '.term-cell--timeline',
+    tao: '.term-cell--stockp',
+    monitor: 'panel-monitor', map: 'panel-map', vals: 'panel-vals',
+    market: 'market', overview: 'market', mon: 'panel-monitor',
   };
   function lpGo(code){
     if (!code) return;
