@@ -139,7 +139,7 @@ export function mountSubnetDetail(root, dataLayer = null){
           <span class="sd-cat" style="--cat:${cat.color}">${cat.label}</span>
           <h1 class="sd-title">
             <span class="sd-id">SN${subnet.netuid}</span>
-            <span class="sd-name">${subnet.name}</span>
+            <span class="sd-name" data-sd="name">${subnet.name}</span>
           </h1>
           <p class="sd-tagline">${subnet.desc}</p>
           <div class="sd-owner">
@@ -162,12 +162,12 @@ export function mountSubnetDetail(root, dataLayer = null){
       <section class="sd-metrics">
         <div class="metric">
           <span class="metric__label">α-Price (USD)</span>
-          <span class="metric__value">$${(subnet.price ?? 0).toFixed(2)}</span>
-          <span class="metric__sub ${(subnet.chg24 ?? 0) >= 0 ? 'up' : 'down'}">${(subnet.chg24 ?? 0) >= 0 ? '+' : ''}${(subnet.chg24 ?? 0).toFixed(2)}% 24h</span>
+          <span class="metric__value" data-sd="price">$${(subnet.price ?? 0).toFixed(2)}</span>
+          <span class="metric__sub ${(subnet.chg24 ?? 0) >= 0 ? 'up' : 'down'}" data-sd="chg24">${(subnet.chg24 ?? 0) >= 0 ? '+' : ''}${(subnet.chg24 ?? 0).toFixed(2)}% 24h</span>
         </div>
         <div class="metric">
           <span class="metric__label">Emission · 24h</span>
-          <span class="metric__value">τ ${(subnet.emission ?? 0).toLocaleString('en-US')}</span>
+          <span class="metric__value" data-sd="emission">τ ${(subnet.emission ?? 0).toLocaleString('en-US')}</span>
           <span class="metric__sub">${sharePct.toFixed(2)}% of network</span>
         </div>
         <div class="metric">
@@ -187,7 +187,7 @@ export function mountSubnetDetail(root, dataLayer = null){
         </div>
         <div class="metric">
           <span class="metric__label">30d Change</span>
-          <span class="metric__value ${(subnet.chg30 ?? 0) >= 0 ? 'up' : 'down'}">${(subnet.chg30 ?? 0) >= 0 ? '+' : ''}${(subnet.chg30 ?? 0).toFixed(2)}%</span>
+          <span class="metric__value ${(subnet.chg30 ?? 0) >= 0 ? 'up' : 'down'}" data-sd="chg30">${(subnet.chg30 ?? 0) >= 0 ? '+' : ''}${(subnet.chg30 ?? 0).toFixed(2)}%</span>
           <span class="metric__sub">α-price</span>
         </div>
       </section>
@@ -706,12 +706,39 @@ export function mountSubnetDetail(root, dataLayer = null){
     }));
   });
 
+  /* ===== live overlay: refresh the header metrics from tao:subnets =====
+     The static seed still drives the structural sections (workflow,
+     specs, peers); this just swaps the market-data values for the
+     real ones the moment the live feed lands. */
+  let liveUnsub = null;
+  if (dataLayer){
+    const set = (key, txt, cls) => {
+      const el = qs(`[data-sd="${key}"]`, root);
+      if (!el) return;
+      el.textContent = txt;
+      if (cls){ el.classList.remove('up', 'down'); el.classList.add(cls); }
+    };
+    const applyLive = list => {
+      if (!Array.isArray(list)) return;
+      const L = list.find(s => s.netuid === subnet.netuid);
+      if (!L) return;
+      if (L.name) set('name', L.name);
+      if (L.price != null) set('price', L.price < 1 ? '$' + L.price.toFixed(4) : '$' + L.price.toFixed(2));
+      if (L.chg24 != null) set('chg24', `${L.chg24 >= 0 ? '+' : ''}${L.chg24.toFixed(2)}% 24h`, L.chg24 >= 0 ? 'up' : 'down');
+      if (L.emission != null) set('emission', 'τ ' + Math.round(L.emission).toLocaleString('en-US'));
+      if (L.chg30 != null) set('chg30', `${L.chg30 >= 0 ? '+' : ''}${L.chg30.toFixed(2)}%`, L.chg30 >= 0 ? 'up' : 'down');
+    };
+    liveUnsub = dataLayer.subscribe('tao:subnets', applyLive);
+    applyLive(dataLayer.get('tao:subnets'));
+  }
+
   return {
     destroy(){
       perfChart?.destroy();
       shareChart?.destroy();
       wfChart?.destroy();
       clearInterval(feedTimer);
+      if (liveUnsub) liveUnsub();
     },
   };
 }
