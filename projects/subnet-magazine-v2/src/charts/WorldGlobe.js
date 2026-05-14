@@ -96,13 +96,17 @@ const HUBS = [
 
 const DEG = Math.PI / 180;
 
-/** Convert (lat, lng) to a unit 3D vector. */
+/** Convert (lat, lng) to a unit 3D vector using the standard
+    cartographic-globe convention: Greenwich (lng = 0) on +Z (facing
+    the camera), 90°E on +X (right), 90°W on -X (left), North on +Y.
+    This is the convention every map renderer expects, and it's what
+    makes east appear on the right of the screen. */
 function sph2cart(lat, lng){
   const φ = lat * DEG, λ = lng * DEG;
   return {
-    x: Math.cos(φ) * Math.cos(λ),
+    x: Math.cos(φ) * Math.sin(λ),
     y: Math.sin(φ),
-    z: Math.cos(φ) * Math.sin(λ),
+    z: Math.cos(φ) * Math.cos(λ),
   };
 }
 
@@ -122,19 +126,19 @@ export class WorldGlobe extends Chart {
     super(canvas, { animate: true });
 
     /** @private */ this.radius = opts.radius ?? 0.44;
-    /* autospin: negative so the globe rotates the way real Earth
-       does — eastward, so a fixed viewer sees continents drift
-       LEFT across the disk and new land enter from the right. */
-    /** @private */ this.autospin = opts.autospin ?? -0.06;
+    /* autospin: positive rotation makes Earth-fixed points drift
+       RIGHT across the screen, matching real Earth (rotates
+       eastward; a fixed viewer sees the surface drift east). */
+    /** @private */ this.autospin = opts.autospin ?? 0.06;
     /** @private */ this.hubAlt = opts.hubAltitude ?? 1.08;
 
-    /* Default view: visible center at lng = 0 (Atlantic). The
-       sphere projection puts lng = (π/2 + rotY) at the disk
-       center, so we set rotY = -π/2 to center on Greenwich. */
+    /* Default view: Greenwich at the visible center. In the new
+       coordinate convention that means rotY = 0. A `lon0` option
+       lets a caller open on a different longitude. */
     /** @private */ this.rotX = opts.tilt ?? 0.30;
     /** @private */ this.rotY = opts.lon0 != null
-      ? (opts.lon0 * Math.PI / 180 - Math.PI / 2)
-      : -Math.PI / 2;
+      ? (-opts.lon0 * Math.PI / 180)
+      : 0;
     /** @private */ this.tgtX = this.rotX;
     /** @private */ this.tgtY = this.rotY;
 
@@ -516,10 +520,10 @@ export class WorldGlobe extends Chart {
     const INK_DIM   = 'rgba(232,200,205,.65)';
 
     const s = this.status;
-    /* Longitude currently at the visible disk center. The projection
-       puts (π/2 + rotY) at the front, so the reverse gives the
-       displayed longitude. Normalized to (-180°, 180°]. */
-    const lonCenter = (((this.rotY * 180 / Math.PI) + 90) % 360 + 540) % 360 - 180;
+    /* Longitude currently at the visible disk center. With the
+       standard projection (Greenwich at +Z, 90°E at +X), the
+       displayed longitude is -rotY. Normalized to (-180°, 180°]. */
+    const lonCenter = ((-this.rotY * 180 / Math.PI) % 360 + 540) % 360 - 180;
     const tps = (s.tps + Math.sin(t * 0.6) * 24 | 0);
     const epochProgress = (s.epochBlock % 360) / 360;
     const blocksLeft = 360 - (s.epochBlock % 360);
