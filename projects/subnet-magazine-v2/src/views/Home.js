@@ -24,6 +24,31 @@ import { mark, seedSeries } from '../lib/mark.js';
 import { Sparkline } from '../charts/Sparkline.js';
 import { CoverArt } from '../charts/CoverArt.js';
 import { articlesByDate } from '../data/articles.js';
+import { CENTRALIZED_PLAYERS, ASIAN_REGIONS } from '../data/centralized.js';
+
+/** Parse "$340B" / "$1.6T (parent)" → number, for ticker ranking. */
+function parseVal(v){
+  const m = String(v || '').match(/\$?\s*([\d.]+)\s*([TBM])/i);
+  if (!m) return 0;
+  return parseFloat(m[1]) * ({ t:1e12, b:1e9, m:1e6 }[m[2].toLowerCase()] || 1);
+}
+
+/** Static central-players ticker chips (duplicated for a seamless loop). */
+function centralTickerHtml(){
+  const players = CENTRALIZED_PLAYERS
+    .map(p => ({ ...p, _v: parseVal(p.valuation) }))
+    .sort((a, b) => b._v - a._v)
+    .slice(0, 28);
+  const chip = p => `
+    <span class="home-tick home-tick--${ASIAN_REGIONS.has(p.region) ? 'asia' : 'west'}">
+      <span class="home-tick__mark">${mark(p.name, { size: 18 })}</span>
+      <span class="home-tick__name">${p.name}</span>
+      <span class="home-tick__region">${p.region}</span>
+      <span class="home-tick__val">${p.valuation}</span>
+    </span>`;
+  const once = players.map(chip).join('');
+  return once + once;
+}
 
 const CAT_LABEL = {
   'reporting':   'REPORTING',
@@ -67,6 +92,24 @@ export function mountHome(root, dataLayer = null){
   const articles = articlesByDate();
 
   mount(root, html`
+    <!-- ===== TICKER TAPES ===== -->
+    <section class="home-tickers" aria-label="Live ecosystem tickers">
+      <div class="home-ticker">
+        <span class="home-ticker__tag"><span class="live-dot"></span>Bittensor ecosystem</span>
+        <div class="home-ticker__viewport">
+          <div class="home-ticker__track" id="ticker-eco">
+            <span class="home-ticker__loading">loading live subnets…</span>
+          </div>
+        </div>
+      </div>
+      <div class="home-ticker">
+        <span class="home-ticker__tag home-ticker__tag--alt">Central players</span>
+        <div class="home-ticker__viewport">
+          <div class="home-ticker__track home-ticker__track--rev">${centralTickerHtml()}</div>
+        </div>
+      </div>
+    </section>
+
     <!-- ===== FEATURED RESEARCH (top of page) ===== -->
     <section class="home-research" aria-label="Featured research">
       <div class="home-research__head">
@@ -280,16 +323,41 @@ export function mountHome(root, dataLayer = null){
     });
   }
 
+  /* ---------- bind: ECOSYSTEM TICKER ---------- */
+  const ecoTrack = qs('#ticker-eco', root);
+  function renderEcoTicker(list){
+    if (!ecoTrack || !Array.isArray(list) || !list.length) return;
+    const top = list.slice(0, 24);
+    const chip = s => {
+      const up = (s.chg24 ?? 0) >= 0;
+      const logo = s.logo
+        ? `<img class="home-tick__logo" src="${s.logo}" alt="" loading="lazy" onerror="this.replaceWith(document.createTextNode(''))">`
+        : `<span class="home-tick__mark">${mark(s.name, { size: 18 })}</span>`;
+      const price = s.price < 1 ? '$' + s.price.toFixed(4) : money(s.price);
+      return `
+        <a class="home-tick" href="subnet.html?id=${s.netuid}">
+          ${logo}
+          <span class="home-tick__name">SN${s.netuid}</span>
+          <span class="home-tick__val">${price}</span>
+          <span class="home-tick__chg ${up ? 'up' : 'down'}">${pct(s.chg24 ?? 0)}</span>
+        </a>`;
+    };
+    const once = top.map(chip).join('');
+    ecoTrack.innerHTML = once + once;   /* duplicated for a seamless loop */
+  }
+
   /* ---------- subscribe ---------- */
   const unsubs = [];
   if (dataLayer){
     unsubs.push(dataLayer.subscribe('tao:market',  renderMarket));
     unsubs.push(dataLayer.subscribe('tao:chain',   renderChain));
     unsubs.push(dataLayer.subscribe('tao:subnets', renderSubnets));
+    unsubs.push(dataLayer.subscribe('tao:subnets', renderEcoTicker));
     /* render anything already cached */
     renderMarket(dataLayer.get('tao:market'));
     renderChain(dataLayer.get('tao:chain'));
     renderSubnets(dataLayer.get('tao:subnets'));
+    renderEcoTicker(dataLayer.get('tao:subnets'));
   }
 
   return {
