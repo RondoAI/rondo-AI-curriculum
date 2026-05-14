@@ -1,18 +1,57 @@
 /* =================================================================
-   TAO TERMINAL — page layout (clarity pass)
+   TAO TERMINAL — cockpit layout
    -----------------------------------------------------------------
-   Each panel stacks vertically on mobile, two-up on wider screens
-   where it helps. Panels carry an always-visible caption that
-   explains what they show in plain English.
+   Not a scroll of panels — a room. On desktop the page is a dense
+   12-column grid that tiles every panel into a Bloomberg-style
+   cockpit: chrome rows span full width, data panels tile two- and
+   three-up. It collapses to 2-up on tablets and a single column on
+   phones.
    ================================================================= */
 
 .terminal-page{
-  max-width: var(--max-w);
+  max-width: 1760px;
   margin: 0 auto;
-  padding: clamp(28px, 4vw, 56px) var(--gutter) clamp(56px, 8vw, 96px);
-  display: flex;
-  flex-direction: column;
-  gap: var(--s-6);
+  padding: clamp(14px, 1.6vw, 24px) clamp(10px, 1.6vw, 22px) clamp(48px, 6vw, 80px);
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  gap: var(--s-3);
+  align-items: start;
+}
+
+/* full-bleed chrome rows */
+.term-head,
+.launchpad,
+.netpulse,
+.term-quote,
+.term-overview{ grid-column: 1 / -1; }
+
+/* data panels — the cockpit tiling */
+.term-cell--monitor  { grid-column: span 7; }
+.term-cell--map      { grid-column: span 5; }
+.term-cell--stockp   { grid-column: span 8; }
+.term-cell--vals     { grid-column: span 4; }
+.term-cell--perf     { grid-column: span 6; }
+.term-cell--emit     { grid-column: span 6; }
+.term-cell--live     { grid-column: span 5; }
+.term-cell--bench    { grid-column: span 7; }
+.term-cell--asia     { grid-column: span 6; }
+.term-cell--releases { grid-column: span 6; }
+.term-cell--cats     { grid-column: 1 / -1; }
+
+@media (max-width: 1280px){
+  .term-cell--monitor,  .term-cell--map,
+  .term-cell--stockp,   .term-cell--vals,
+  .term-cell--perf,     .term-cell--emit,
+  .term-cell--live,     .term-cell--bench,
+  .term-cell--asia,     .term-cell--releases{ grid-column: span 6; }
+}
+@media (max-width: 760px){
+  .terminal-page{ gap: var(--s-4); }
+  .term-cell--monitor,  .term-cell--map,
+  .term-cell--stockp,   .term-cell--vals,
+  .term-cell--perf,     .term-cell--emit,
+  .term-cell--live,     .term-cell--bench,
+  .term-cell--asia,     .term-cell--releases{ grid-column: 1 / -1; }
 }
 
 /* ---------- Page header ---------- */
@@ -642,8 +681,10 @@
 .term-monitor__scroll{
   max-height: 460px;
   overflow-y: auto;
+  overflow-x: auto;
   scrollbar-width: thin;
 }
+.term-monitor{ min-width: 560px; }
 .term-monitor{
   width: 100%;
   border-collapse: collapse;
