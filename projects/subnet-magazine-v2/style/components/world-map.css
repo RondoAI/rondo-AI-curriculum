@@ -80,8 +80,66 @@
 .netmap__side{
   background: var(--c-bg-2);
 }
+.netmap__sidebar{
+  display: flex; flex-direction: column;
+  gap: var(--s-3);
+}
 
-/* region list inside the side panel */
+/* ---------- Top hubs leaderboard ---------- */
+.hub-list{
+  list-style: none; margin: 0; padding: 0;
+  display: flex; flex-direction: column;
+  gap: 0;
+}
+.hub{
+  display: grid;
+  grid-template-columns: 22px 36px 1fr auto auto;
+  align-items: baseline;
+  gap: var(--s-2);
+  padding: var(--s-2) 0;
+  border-bottom: 1px dashed var(--c-rule);
+  font-family: var(--f-mono);
+}
+.hub:last-child{ border-bottom: 0; }
+.hub__rank{
+  color: var(--c-ink-4); font-size: 10px;
+  letter-spacing: var(--ls-data); font-weight: 600;
+  text-align: right;
+}
+.hub__code{
+  color: var(--c-red); font-weight: 700; font-size: var(--t-sm);
+  letter-spacing: var(--ls-data);
+}
+.hub__city{
+  color: var(--c-ink-1); font-size: var(--t-sm);
+  letter-spacing: var(--ls-data);
+  white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
+}
+.hub__country{ color: var(--c-ink-3); }
+.hub__stake{
+  color: var(--c-ink-1); font-weight: 600; font-size: var(--t-sm);
+  font-variant-numeric: tabular-nums;
+}
+.hub__pct{
+  color: var(--c-ink-3); font-size: 10.5px;
+  letter-spacing: var(--ls-data);
+  text-align: right;
+  min-width: 36px;
+}
+.hub__bar{
+  grid-column: 1 / -1;
+  height: 2px;
+  background: rgba(255, 30, 60, .08);
+  border-radius: 1px;
+  overflow: hidden;
+  margin-top: 4px;
+}
+.hub__bar > i{
+  display: block; height: 100%;
+  background: linear-gradient(90deg, var(--c-red), var(--c-red-1));
+}
+
+/* ---------- Region list ---------- */
 .region-list{
   list-style: none;
   margin: 0; padding: 0;
@@ -124,6 +182,44 @@
 .region__bar > i{
   display: block; height: 100%;
   background: linear-gradient(90deg, var(--c-red), var(--c-red-1));
+}
+
+/* ---------- Network totals strip ---------- */
+.netmap__totals{
+  margin-top: var(--s-4);
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+  gap: 0;
+  background: var(--c-rule-2);
+  border: 1px solid var(--c-rule-2);
+  border-radius: var(--r-1);
+  overflow: hidden;
+}
+.total{
+  background: var(--c-bg-2);
+  padding: var(--s-3) var(--s-4);
+  display: flex; flex-direction: column; gap: 4px;
+}
+.total__label{
+  font-family: var(--f-mono);
+  font-size: 10px;
+  letter-spacing: var(--ls-label);
+  text-transform: uppercase;
+  color: var(--c-ink-3);
+}
+.total__value{
+  font-family: var(--f-serif);
+  font-size: clamp(22px, 2.6vw, 30px);
+  color: var(--c-ink-1);
+  letter-spacing: var(--ls-heading);
+  line-height: 1;
+  font-variant-numeric: tabular-nums;
+}
+.total__sub{
+  font-family: var(--f-mono);
+  font-size: 10.5px;
+  color: var(--c-ink-3);
+  letter-spacing: var(--ls-data);
 }
 
 @media (max-width: 960px){
