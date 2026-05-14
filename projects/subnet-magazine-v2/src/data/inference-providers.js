@@ -47,15 +47,23 @@
 
 /** @type {readonly InferenceProvider[]} */
 export const PROVIDERS = Object.freeze([
-  /* ===== Bittensor subnets (decentralized) ===== */
-  { id:'sn1',     name:'SN1 Apex',        org:'Macrocosmos',     kind:'subnet',   region:'DECENTRAL',
-    priceIn:0.18, priceOut:0.18,  ttft:420, itl:12, tps:84,  tpsGpu:70,
-    precision:'mixed', gpu:'Heterogeneous (H100 / 4090)', contextK:128, open:true,
-    desc:'Open-domain text prompting. Rubric-graded miner outputs.',          subnetId:'1'  },
+  /* ===== Bittensor subnets — the decentralized compute / GPU class ===== */
+  { id:'sn64',    name:'SN64 Chutes',     org:'Rayon Labs',      kind:'subnet',   region:'DECENTRAL',
+    priceIn:0.10, priceOut:0.10,  ttft:300, itl:8,  tps:124, tpsGpu:104,
+    precision:'mixed', gpu:'Heterogeneous (H200 / H100 / 4090)', contextK:128, open:true,
+    desc:'Serverless decentralized inference — the largest compute subnet, undercuts the centralized APIs on price.', subnetId:'64' },
   { id:'sn4',     name:'SN4 Targon',      org:'Manifold Labs',   kind:'subnet',   region:'DECENTRAL',
     priceIn:0.14, priceOut:0.14,  ttft:380, itl:10, tps:96,  tpsGpu:84,
     precision:'mixed', gpu:'Heterogeneous (H100 / A100)', contextK:128, open:true,
     desc:'Bandwidth-priced LLM inference with deterministic verifiers.',       subnetId:'4'  },
+  { id:'sn51',    name:'SN51 Celium',     org:'Datura',          kind:'subnet',   region:'DECENTRAL',
+    priceIn:0.12, priceOut:0.12,  ttft:340, itl:9,  tps:110, tpsGpu:92,
+    precision:'mixed', gpu:'Rented GPU marketplace (H200 / H100)', contextK:128, open:true,
+    desc:'Decentralized GPU marketplace — raw rented compute, inference served on top.', subnetId:'51' },
+  { id:'sn1',     name:'SN1 Apex',        org:'Macrocosmos',     kind:'subnet',   region:'DECENTRAL',
+    priceIn:0.18, priceOut:0.18,  ttft:420, itl:12, tps:84,  tpsGpu:70,
+    precision:'mixed', gpu:'Heterogeneous (H100 / 4090)', contextK:128, open:true,
+    desc:'Open-domain text prompting. Rubric-graded miner outputs.',          subnetId:'1'  },
   { id:'sn18',    name:'SN18 Cortex.t',   org:'Corcel',          kind:'subnet',   region:'DECENTRAL',
     priceIn:0.22, priceOut:0.22,  ttft:280, itl:9,  tps:110, tpsGpu:96,
     precision:'mixed', gpu:'Heterogeneous (H100 / H200)', contextK:128, open:true,
