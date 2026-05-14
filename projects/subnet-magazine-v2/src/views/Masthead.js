@@ -56,9 +56,18 @@ export function mountMasthead(root){
     </header>
   `);
 
-  // Mount the rotating node-sphere brand mark
+  // Mount the rotating node-sphere brand mark. Dense network: 160
+  // nodes, 380 edges, 12 traveling packets, atmospheric glow on.
   const markCanvas = qs('[data-canvas="brand-mark"]', root);
-  const sphere = markCanvas ? new NodeSphere(markCanvas, { nodes: 60, edges: 140, speed: 0.45 }) : null;
+  const sphere = markCanvas ? new NodeSphere(markCanvas, {
+    nodes: 160,
+    K: 6,
+    edgeCap: 380,
+    speed: 0.42,
+    packets: 12,
+    atmos: true,
+    glow: true,
+  }) : null;
 
   // Active-nav highlight on scroll
   const tabs = Array.from(root.querySelectorAll('.nav-tab'));

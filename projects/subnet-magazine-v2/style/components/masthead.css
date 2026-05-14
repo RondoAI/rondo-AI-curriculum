@@ -45,7 +45,7 @@
 }
 
 .brand__mark{
-  width: clamp(72px, 9vw, 120px);
+  width: clamp(96px, 11vw, 144px);
   aspect-ratio: 1 / 1;
   position: relative;
 }
