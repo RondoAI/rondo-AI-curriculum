@@ -22,6 +22,7 @@ import { PriceChart } from '../charts/PriceChart.js';
 import { BarChart } from '../charts/BarChart.js';
 import { Treemap } from '../charts/Treemap.js';
 import { SUBNETS } from '../data/subnets.js';
+import { VALIDATORS } from '../data/validators.js';
 import { CATEGORIES, catColor, catLabel } from '../data/categories.js';
 import { BENCHMARKS } from '../data/benchmarks.js';
 import { CENTRALIZED_PLAYERS, ASIAN_REGIONS, REGIONS } from '../data/centralized.js';
@@ -251,6 +252,32 @@ export function mountTerminal(root, dataLayer = null){
         <div class="panel__foot">
           <span>AREA · MARKET CAP — COLOUR · 24H Δ</span>
           <span>SRC · TAO MARKET CAP</span>
+        </div>
+      </article>
+
+      <!-- ===== Top Validators — operator leaderboard ===== -->
+      <article class="panel is-bracketed term-cell--vals" id="panel-vals">
+        <div class="panel__head">
+          <span class="panel__title">
+            <span class="panel__fcode">&lt;051&gt;</span>
+            TOP VALIDATORS · BY STAKE
+            <span class="panel__go">&lt;GO&gt;</span>
+          </span>
+          <span class="panel__meta">
+            <span class="panel__pill panel__pill--live"><span class="live-dot"></span><span data-bind="val-src">SEED</span></span>
+            <a class="panel__pill" href="validators.html">ALL ↗</a>
+          </span>
+        </div>
+        <div class="panel__caption">
+          The hotkeys carrying the most delegated τ — stake, nominator count and APR.
+          Live from taostats when a key is configured, otherwise the curated roster.
+        </div>
+        <div class="panel__body panel__body--pad-0">
+          <ul class="term-vals" id="term-vals-list"></ul>
+        </div>
+        <div class="panel__foot">
+          <span>RANK 1—10</span>
+          <span>SRC · TAOSTATS</span>
         </div>
       </article>
 
@@ -1156,6 +1183,37 @@ export function mountTerminal(root, dataLayer = null){
     chip.addEventListener('click', () => lpGo(chip.dataset.lp));
   });
 
+  /* ===== Top Validators panel — seed roster, swaps to live taostats ===== */
+  const valList = qs('#term-vals-list', root);
+  const valSrc  = qs('[data-bind="val-src"]', root);
+  function renderVals(rows){
+    if (!valList || !rows.length) return;
+    const top = rows.slice(0, 10);
+    const max = Math.max(1, ...top.map(r => r.stake));
+    valList.innerHTML = top.map((v, i) => `
+      <li class="term-val">
+        <span class="term-val__rank">${String(i + 1).padStart(2, '0')}</span>
+        <span class="term-val__name">${v.name}</span>
+        <span class="term-val__bar"><i style="width:${(v.stake / max) * 100}%"></i></span>
+        <span class="term-val__stake">τ ${Math.round(v.stake).toLocaleString('en-US')}</span>
+        <span class="term-val__noms">${v.nominators.toLocaleString('en-US')} noms</span>
+        <span class="term-val__apr">${v.apr != null ? v.apr.toFixed(1) + '%' : '—'}</span>
+      </li>`).join('');
+  }
+  renderVals(VALIDATORS
+    .map(v => ({ name: v.name, stake: v.stake, nominators: v.nominators, apr: v.apy }))
+    .sort((a, b) => b.stake - a.stake));
+  let valsLiveUnsub = () => {};
+  if (dataLayer){
+    valsLiveUnsub = dataLayer.subscribe('tao:validators', list => {
+      if (!Array.isArray(list) || !list.length) return;
+      renderVals(list
+        .map(v => ({ name: v.name, stake: v.stake, nominators: v.nominators, apr: v.apr30d || v.apr }))
+        .sort((a, b) => b.stake - a.stake));
+      if (valSrc) valSrc.textContent = 'LIVE';
+    });
+  }
+
   return {
     destroy(){
       priceChart?.destroy();
@@ -1170,6 +1228,7 @@ export function mountTerminal(root, dataLayer = null){
       chainUnsub();
       subnetsUnsub();
       chainExtraUnsub();
+      valsLiveUnsub();
     },
   };
 }
