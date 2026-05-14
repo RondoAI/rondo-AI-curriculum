@@ -19,6 +19,7 @@ import { mountCompare } from './views/Compare.js';
 import { mountArticles } from './views/Articles.js';
 import { mountSubnets }  from './views/Subnets.js';
 import { mountValidators } from './views/Validators.js';
+import { mountCommunity } from './views/Community.js';
 
 const teardowns = [];
 
@@ -46,6 +47,7 @@ function boot(){
   mountIf('[data-mount="articles"]',       root => mountArticles(root, DataLayer));
   mountIf('[data-mount="subnets"]',        root => mountSubnets(root));
   mountIf('[data-mount="validators"]',     root => mountValidators(root));
+  mountIf('[data-mount="community"]',      root => mountCommunity(root, DataLayer));
 
   // 3) clean teardown on unload (idempotent)
   window.addEventListener('beforeunload', () => {
