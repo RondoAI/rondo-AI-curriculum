@@ -13,6 +13,7 @@ const NAV_ITEMS = [
   { code: '001', label: 'OVERVIEW',  href: '#overview'         },
   { code: '010', label: 'NETWORK',   href: '#netmap'           },
   { code: '020', label: 'TERMINAL',  href: 'terminal.html'     },
+  { code: '025', label: 'COMPARE',   href: 'compare.html'      },
   { code: '030', label: 'MARKETS',   href: '#markets'          },
   { code: '040', label: 'SUBNETS',   href: '#directory'        },
   { code: '050', label: 'LABS',      href: '#labs'             },
