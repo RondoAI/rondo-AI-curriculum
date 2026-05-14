@@ -470,11 +470,25 @@
   flex-wrap: wrap;
   gap: var(--s-3) var(--s-8);
   justify-content: space-between;
+  align-items: center;
   border-top: var(--b-thin);
   font-family: var(--f-mono);
   font-size: var(--t-xs);
   letter-spacing: var(--ls-data);
   color: var(--c-ink-4);
+}
+.home-foot__x{
+  color: var(--c-red-1);
+  text-decoration: none;
+  border: 1px solid var(--c-rule-2);
+  padding: var(--s-1) var(--s-3);
+  border-radius: var(--r-1);
+  transition: border-color var(--d-fast) var(--e-out),
+              background var(--d-fast) var(--e-out);
+}
+.home-foot__x:hover{
+  border-color: var(--c-rule-3);
+  background: var(--c-bg-3);
 }
 
 /* ---------- responsive ---------- */

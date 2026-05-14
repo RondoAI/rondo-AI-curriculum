@@ -182,6 +182,7 @@ export function mountHome(root, dataLayer = null){
 
     <footer class="home-foot">
       <span>Subneτ Magazine · a research terminal for decentralized intelligence</span>
+      <a class="home-foot__x" href="https://x.com/subnetmagazine" target="_blank" rel="noopener">𝕏 @subnetmagazine</a>
       <span>Live data · Tao Market Cap public API · ${new Date().getUTCFullYear()}</span>
     </footer>
   `);

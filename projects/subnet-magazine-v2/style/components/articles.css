@@ -289,3 +289,41 @@
   text-align: center;
 }
 .art-reader__fallback a{ color: var(--c-red); text-decoration: underline; }
+
+/* ---------- Identity marks (subnet logo / house mark) ---------- */
+.art-logo{ display: inline-block; line-height: 0; }
+.art-logo svg{ display: block; }
+.art-logo__img{
+  display: block;
+  border-radius: 50%;
+  object-fit: cover;
+  background: var(--c-bg-4);
+  border: 1px solid var(--c-rule-2);
+}
+.art-logo__fb{ display: none; line-height: 0; }
+.art-logo__fb svg{ display: block; }
+
+.art-card__art-mark{
+  filter: drop-shadow(0 4px 14px color-mix(in srgb, var(--accent) 30%, transparent));
+}
+.art-card.is-lead .art-card__art-mark svg,
+.art-card.is-lead .art-card__art-mark .art-logo__img{
+  width: 104px; height: 104px;
+}
+
+.art-reader__id{
+  display: flex; align-items: center; gap: var(--s-3);
+}
+.art-reader__id-text{
+  display: flex; flex-direction: column; gap: 4px;
+}
+.art-reader__subnet{
+  font-family: var(--f-mono);
+  font-size: 10px; font-weight: 700;
+  letter-spacing: var(--ls-data);
+  color: var(--c-red);
+  border: 1px solid rgba(255, 30, 60, .35);
+  padding: 1px 6px;
+  border-radius: 2px;
+  width: max-content;
+}

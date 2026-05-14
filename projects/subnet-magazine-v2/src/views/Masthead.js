@@ -10,9 +10,9 @@ import { Icosphere } from '../charts/Icosphere.js';
 import { bbgDate } from '../lib/format.js';
 
 const NAV_ITEMS = [
-  { code: '001', label: 'OVERVIEW',  href: '#overview'         },
-  { code: '010', label: 'NETWORK',   href: '#netmap'           },
+  { code: '001', label: 'MAGAZINE',  href: '#overview'         },
   { code: '020', label: 'TERMINAL',  href: 'terminal.html'     },
+  { code: '010', label: 'NETWORK',   href: '#netmap'           },
   { code: '025', label: 'COMPARE',   href: 'compare.html'      },
   { code: '060', label: 'RESEARCH',  href: 'articles.html'     },
   { code: '030', label: 'MARKETS',   href: '#markets'          },
@@ -22,6 +22,8 @@ const NAV_ITEMS = [
   { code: '060', label: 'EDITORIAL', href: '#editorial'        },
   { code: '900', label: 'ARCHIVE',   href: '#archive'          },
 ];
+
+const X_URL = 'https://x.com/subnetmagazine';
 
 /**
  * @param {HTMLElement} root
@@ -51,6 +53,9 @@ export function mountMasthead(root){
           <span><span class="val">${bbgDate()}</span></span>
           <span>BUILD <span class="val">v2.0.0</span></span>
           <span>FEED <span class="val">streaming</span></span>
+          <a class="masthead__x" href="${X_URL}" target="_blank" rel="noopener">
+            <span class="masthead__x-glyph" aria-hidden="true">𝕏</span>@subnetmagazine
+          </a>
         </div>
       </div>
       <nav class="primary-nav" aria-label="Primary">
