@@ -12,6 +12,7 @@ import { GpuBoardPanel } from "./GpuBoardPanel";
 import { CapexPanel } from "./CapexPanel";
 import { IsoMapPanel } from "./IsoMapPanel";
 import { DatacenterPanel } from "./DatacenterPanel";
+import { EditorialPanel } from "./EditorialPanel";
 
 /** panel id → body component. Panels without an entry render their
     in-voice empty state until their phase lands. */
@@ -27,4 +28,5 @@ export const PANEL_CONTENT: Record<string, ComponentType> = {
   capex: CapexPanel,
   "iso-map": IsoMapPanel,
   datacenter: DatacenterPanel,
+  editorial: EditorialPanel,
 };
