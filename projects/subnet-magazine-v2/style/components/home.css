@@ -164,12 +164,24 @@
 .home-net,
 .home-subnets,
 .home-sections,
-.home-research{
+.home-research,
+.home-neural{
   max-width: var(--max-w);
   margin: 0 auto;
   padding: clamp(40px, 6vw, 80px) var(--gutter);
   border-bottom: var(--b-thin);
 }
+
+/* ---------- NEURAL NETWORK band ---------- */
+.home-neural__canvas{
+  margin-top: var(--s-8);
+  height: clamp(280px, 38vw, 420px);
+  border: var(--b-thin);
+  background:
+    radial-gradient(circle at 50% 0%, var(--c-red-trace), transparent 70%),
+    var(--c-bg-1);
+}
+.home-neural__canvas canvas{ display: block; width: 100%; height: 100%; }
 
 /* ---------- FEATURED RESEARCH (top of page) ---------- */
 .home-research__head{
