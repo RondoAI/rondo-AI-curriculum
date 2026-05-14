@@ -1,158 +1,234 @@
 /* =================================================================
-   SUBNET MAGAZINE — DATA LAYER (v2, ES module)
+   SUBNET MAGAZINE — DATA LAYER (v3 · TMC-powered, REAL data)
    -----------------------------------------------------------------
-   Pub/sub data layer with retry, AbortController timeouts, and
-   in-memory caching. Channels:
+   Pulls live Bittensor data from the Tao Market Cap public API
+   (api.taomarketcap.com/public/v1, no auth, 10 req/min per IP).
 
-     - 'tao:price'   { price, change24, lastUpdated, source }
-     - 'tao:block'   { height, lastUpdated, source }
-     - 'news:ai'     [{ ts, source, title, url, points, ... }]
+   The API does not send permissive CORS headers, so each request
+   first tries a direct fetch and, on failure, retries through a
+   public CORS proxy. The proxy is configurable via
+   window.__SUBNET_CONFIG__.corsProxy; default is codetabs.
 
-   Adapters fail silently and the UI falls through to its own
-   synthetic source. Configure keys via window.__SUBNET_CONFIG__.
+   Pub/sub channels:
+     'tao:market'   { price, marketCap, volume24h, change1h/24h/7d/
+                      30d/90d, circulating, maxSupply, stakedPct,
+                      stakingApr, blockNumber, source, ts }
+     'tao:subnets'  Array<{ netuid, name, symbol, price, marketcap,
+                      marketcapRank, volume, chg1h/24h/7d/30d,
+                      emission, logo, owner, deregRisk, active }>
+     'tao:chain'    { totalStaked, totalIssuance, rootPct,
+                      subnetsPct, walletsPct, tradingVol1h,
+                      blockNumber, ts }
+     'tao:block'    { height, source }   (derived from market data)
+
+   Every channel falls back gracefully: a failed refresh keeps the
+   last good value, and views render their seed data until the
+   first real payload lands.
    ================================================================= */
 
-/** @typedef {(value: any, meta?: {fromCache?: boolean}) => void} Subscriber */
+const USER_CFG = (typeof window !== 'undefined' && window.__SUBNET_CONFIG__) || {};
 
 const CONFIG = Object.freeze({
+  base:  'https://api.taomarketcap.com/public/v1',
+  /* codetabs is keyless and CORS-open; allorigins / corsproxy are
+     alternates the user can swap in via config.js if it rate-limits. */
+  proxy: USER_CFG.corsProxy || 'https://api.codetabs.com/v1/proxy/?quest=',
   refresh: {
-    'tao:price': 30_000,
-    'tao:block': 12_000,
-    'news:ai':   180_000,
+    'tao:market':  45_000,
+    'tao:subnets': 90_000,
+    'tao:chain':   120_000,
   },
-  endpoints: {
-    coingecko: 'https://api.coingecko.com/api/v3',
-    hn:        'https://hn.algolia.com/api/v1',
-  },
+  timeout: 12_000,
+  retries: 1,
 });
 
+/* ---------- pub/sub + cache ---------- */
 const cache = new Map();
 const subs  = new Map();
 const timers = [];
 const ctrls  = new Set();
 
-/**
- * Subscribe to a channel. Returns an unsubscribe function.
- * @param {string} channel
- * @param {Subscriber} fn
- * @returns {() => void}
- */
 export function subscribe(channel, fn){
   if (!subs.has(channel)) subs.set(channel, new Set());
   subs.get(channel).add(fn);
   const cached = cache.get(channel);
-  if (cached) try { fn(cached.value, { fromCache: true }); } catch (e) { console.error(e); }
+  if (cached) { try { fn(cached.value, { fromCache: true }); } catch (e) { console.error(e); } }
   return () => subs.get(channel)?.delete(fn);
 }
-
-/** Last cached value for a channel, or null. */
 export function get(channel){ return cache.get(channel)?.value ?? null; }
 
 function emit(channel, value){
   cache.set(channel, { value, ts: Date.now() });
   const set = subs.get(channel);
   if (!set) return;
-  set.forEach(fn => { try { fn(value); } catch (e) { console.error('subscriber', e); } });
+  set.forEach(fn => { try { fn(value); } catch (e) { console.error('[DataLayer] subscriber', e); } });
 }
 
 const sleep = ms => new Promise(r => setTimeout(r, ms));
 
-async function fetchJSON(url, { timeout = 8000, retries = 2, headers = {} } = {}){
-  let err;
-  for (let attempt = 0; attempt <= retries; attempt++){
-    const c = new AbortController(); ctrls.add(c);
-    const to = setTimeout(() => c.abort(), timeout);
+/* ---------- networking: direct then proxy ---------- */
+
+async function rawFetch(url, { timeout = CONFIG.timeout } = {}){
+  const c = new AbortController();
+  ctrls.add(c);
+  const to = setTimeout(() => c.abort(), timeout);
+  try {
+    const res = await fetch(url, { signal: c.signal, cache: 'no-store' });
+    if (!res.ok) throw new Error(`HTTP ${res.status}`);
+    return await res.json();
+  } finally {
+    clearTimeout(to);
+    ctrls.delete(c);
+  }
+}
+
+/**
+ * Fetch a TMC endpoint. Direct first; on any failure (CORS being
+ * the most common), retry through the configured CORS proxy.
+ * @param {string} path  e.g. '/market/market-data/'
+ */
+async function tmc(path){
+  const url = CONFIG.base + path;
+  /* attempt 1: direct */
+  try {
+    return await rawFetch(url);
+  } catch (_) { /* fall through to proxy */ }
+  /* attempt 2..n: via proxy with light backoff */
+  for (let i = 0; i <= CONFIG.retries; i++){
     try {
-      const res = await fetch(url, { signal: c.signal, cache: 'no-store', headers });
-      if (!res.ok) throw new Error(`HTTP ${res.status}`);
-      return await res.json();
+      return await rawFetch(CONFIG.proxy + encodeURIComponent(url), { timeout: CONFIG.timeout + 4000 });
     } catch (e){
-      err = e;
-      if (attempt === retries) break;
-      await sleep(Math.min(2000 * 2 ** attempt, 8000) + Math.random() * 200);
-    } finally {
-      clearTimeout(to); ctrls.delete(c);
+      if (i === CONFIG.retries) throw e;
+      await sleep(800 * (i + 1));
     }
   }
-  throw err;
+  throw new Error('tmc: unreachable');
 }
 
-async function refreshTaoPrice(){
+/* ---------- adapters ---------- */
+
+async function refreshMarket(){
   try {
-    const url = `${CONFIG.endpoints.coingecko}/simple/price?ids=bittensor&vs_currencies=usd&include_24hr_change=true&include_last_updated_at=true`;
-    const data = await fetchJSON(url);
-    const d = data?.bittensor;
-    if (typeof d?.usd !== 'number') throw new Error('coingecko: malformed');
-    emit('tao:price', {
-      price: d.usd,
-      change24: d.usd_24h_change ?? 0,
-      lastUpdated: (d.last_updated_at || Math.floor(Date.now() / 1000)) * 1000,
-      source: 'coingecko',
+    const d = await tmc('/market/market-data/');
+    const q = d.usd_quote || {};
+    emit('tao:market', {
+      price:       q.price ?? d.current_price ?? null,
+      marketCap:   q.market_cap ?? null,
+      fdv:         q.fully_diluted_market_cap ?? null,
+      volume24h:   q.volume_24h ?? null,
+      change1h:    q.percent_change_1h ?? 0,
+      change24h:   q.percent_change_24h ?? 0,
+      change7d:    q.percent_change_7d ?? 0,
+      change30d:   q.percent_change_30d ?? 0,
+      change90d:   q.percent_change_90d ?? 0,
+      circulating: d.circulating_supply ?? null,
+      maxSupply:   d.max_supply ?? 21_000_000,
+      stakedPct:   d.staked_percentage != null ? d.staked_percentage * 100 : null,
+      stakingApr:  d.staking_apr != null ? d.staking_apr * 100 : null,
+      aiDominance: d.ai_market_dominance != null ? d.ai_market_dominance * 100 : null,
+      blockNumber: d.block_number ?? null,
+      ts:          d.timestamp ?? new Date().toISOString(),
+      source:      'taomarketcap',
     });
-  } catch (e){
-    // synthetic drift fallback
-    const last = get('tao:price');
-    const price = (last?.price ?? 487.12) + (Math.random() - .5) * 1.5;
+    if (d.block_number){
+      emit('tao:block', { height: d.block_number, source: 'taomarketcap' });
+    }
+    /* compat: existing views subscribe to 'tao:price' — keep them
+       working with real data and no edits. */
     emit('tao:price', {
-      price: Math.max(420, Math.min(540, price)),
-      change24: last?.change24 ?? 0,
+      price:    q.price ?? d.current_price ?? null,
+      change24: q.percent_change_24h ?? 0,
       lastUpdated: Date.now(),
-      source: 'simulated',
+      source: 'taomarketcap',
     });
-    if (!last) console.warn('[DataLayer] tao:price live failed, using sim:', e?.message);
-  }
-}
-
-async function refreshAiNews(){
-  try {
-    const since = Math.floor((Date.now() - 1000 * 60 * 60 * 48) / 1000);
-    const q = encodeURIComponent('AI OR Anthropic OR OpenAI OR DeepMind OR Gemini OR Claude OR Llama OR NVIDIA OR GPT');
-    const url = `${CONFIG.endpoints.hn}/search_by_date?query=${q}&tags=story&numericFilters=created_at_i>${since},points>=5&hitsPerPage=24`;
-    const data = await fetchJSON(url);
-    const hits = Array.isArray(data?.hits) ? data.hits : [];
-    if (!hits.length) throw new Error('no hits');
-    emit('news:ai', hits.map(h => ({
-      id: h.objectID,
-      ts: (h.created_at_i || 0) * 1000,
-      title: h.title || '',
-      source: inferSource(h.title || ''),
-      url: h.url || `https://news.ycombinator.com/item?id=${h.objectID}`,
-      points: h.points || 0,
-    })));
   } catch (e){
-    // app surface keeps its synthetic feed; no emit
+    console.warn('[DataLayer] tao:market failed:', e?.message || e);
   }
 }
 
-function inferSource(t){
-  const s = t.toLowerCase();
-  if (s.includes('anthropic') || s.includes('claude')) return 'ANTH';
-  if (s.includes('openai') || s.includes('gpt'))      return 'OPENAI';
-  if (s.includes('deepmind') || s.includes('gemini')) return 'DM';
-  if (s.includes('meta') || s.includes('llama'))      return 'META';
-  if (s.includes('xai') || s.includes('grok'))        return 'xAI';
-  if (s.includes('microsoft') || s.includes('copilot')|| s.includes('azure')) return 'MSFT';
-  if (s.includes('nvidia') || s.includes('blackwell'))return 'NVDA';
-  if (s.includes('tsmc'))                              return 'TSM';
-  if (s.includes('broadcom'))                          return 'AVGO';
-  if (s.includes('regulat') || s.includes('eu ai'))   return 'POL';
-  return 'AI';
+async function refreshSubnets(){
+  try {
+    const rows = await tmc('/subnets/table/');
+    if (!Array.isArray(rows) || !rows.length) throw new Error('empty');
+    const mapped = rows
+      .filter(r => r.subnet !== 0)                 /* skip root pseudo-subnet */
+      .map(r => ({
+        netuid:        r.subnet,
+        name:          r.name && r.name !== 'Unknown' ? r.name : `SN${r.subnet}`,
+        symbol:        r.symbol || 'α',
+        price:         r.price ?? 0,
+        marketcap:     r.marketcap ?? 0,
+        marketcapRank: r.marketcap_rank ?? 0,
+        volume:        r.volume ?? 0,
+        chg1h:         r.price_difference_hour ?? 0,
+        chg24:         r.price_difference_day ?? 0,
+        chg7:          r.price_difference_week ?? 0,
+        chg30:         r.price_difference_month ?? 0,
+        emission:      r.emission ?? 0,
+        logo:          r.logo_url || null,
+        owner:         r.subnet_owner || null,
+        deregRisk:     !!r.deregistration_risk,
+        immune:        !!r.immune,
+        active:        r.is_active !== false,
+        minersTaoDay:  r.miners_tao_per_day ?? 0,
+        block:         r.block_number ?? null,
+      }))
+      .sort((a, b) => b.marketcap - a.marketcap);
+    emit('tao:subnets', mapped);
+  } catch (e){
+    console.warn('[DataLayer] tao:subnets failed:', e?.message || e);
+  }
 }
 
-/** Start polling. Safe to call once at boot. */
+async function refreshChain(){
+  try {
+    const arr = await tmc('/analytics/chain/');
+    if (!Array.isArray(arr) || !arr.length) throw new Error('empty');
+    const latest = arr[arr.length - 1];
+    emit('tao:chain', {
+      totalStaked:    latest.total_staked_tao ?? null,
+      totalIssuance:  latest.total_issuance ?? null,
+      rootPct:        latest.tao_on_root_percent ?? null,
+      subnetsPct:     latest.tao_in_subnets_percent ?? null,
+      walletsPct:     latest.tao_on_wallets_percent ?? null,
+      tradingVol1h:   latest.trading_volume_1h ?? null,
+      totalChainBuys: latest.total_chain_buys ?? null,
+      blockNumber:    latest.block_number ?? null,
+      ts:             latest.ts ?? null,
+      source:         'taomarketcap',
+    });
+  } catch (e){
+    console.warn('[DataLayer] tao:chain failed:', e?.message || e);
+  }
+}
+
+/* ---------- lifecycle ---------- */
+
 export function start(){
-  refreshTaoPrice();
-  refreshAiNews();
-  timers.push(setInterval(refreshTaoPrice, CONFIG.refresh['tao:price']));
-  timers.push(setInterval(refreshAiNews,   CONFIG.refresh['news:ai']));
+  refreshMarket();
+  refreshSubnets();
+  refreshChain();
+  timers.push(setInterval(refreshMarket,  CONFIG.refresh['tao:market']));
+  timers.push(setInterval(refreshSubnets, CONFIG.refresh['tao:subnets']));
+  timers.push(setInterval(refreshChain,   CONFIG.refresh['tao:chain']));
 }
 
-/** Shut everything down (tests, page-leave). */
 export function stop(){
   timers.splice(0).forEach(clearInterval);
   ctrls.forEach(c => { try { c.abort(); } catch (_) {} });
   ctrls.clear();
 }
 
-/** Public surface for views. */
-export const DataLayer = Object.freeze({ subscribe, get, start, stop });
+/** One-shot helpers for views that want a specific endpoint on demand. */
+export async function fetchSubnet(netuid){
+  try { return await tmc(`/subnets/${netuid}/`); }
+  catch (e){ console.warn('[DataLayer] fetchSubnet', netuid, e?.message); return null; }
+}
+export async function fetchSubnetLineChart(netuid){
+  try { return await tmc(`/subnets/${netuid}/line-chart/`); }
+  catch (e){ console.warn('[DataLayer] fetchSubnetLineChart', netuid, e?.message); return null; }
+}
+
+export const DataLayer = Object.freeze({
+  subscribe, get, start, stop, fetchSubnet, fetchSubnetLineChart, _config: CONFIG,
+});

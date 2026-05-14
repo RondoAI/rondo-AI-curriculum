@@ -12,6 +12,7 @@ import { mountStatusStrip } from './views/StatusStrip.js';
 import { mountMasthead } from './views/Masthead.js';
 import { mountHero } from './views/Hero.js';
 import { mountNetworkMap } from './views/NetworkMap.js';
+import { mountHome } from './views/Home.js';
 import { mountTerminal } from './views/Terminal.js';
 import { mountSubnetDetail } from './views/SubnetDetail.js';
 import { mountCompare } from './views/Compare.js';
@@ -38,6 +39,7 @@ function boot(){
   mountIf('[data-mount="masthead"]',  mountMasthead);
   mountIf('[data-mount="hero"]',      root => mountHero(root, DataLayer));
   mountIf('[data-mount="netmap"]',    root => mountNetworkMap(root, DataLayer));
+  mountIf('[data-mount="home"]',      root => mountHome(root, DataLayer));
   mountIf('[data-mount="terminal"]',       root => mountTerminal(root, DataLayer));
   mountIf('[data-mount="subnet-detail"]',  root => mountSubnetDetail(root, DataLayer));
   mountIf('[data-mount="compare"]',        root => mountCompare(root));

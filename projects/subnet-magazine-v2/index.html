@@ -19,6 +19,7 @@
   <link rel="stylesheet" href="style/components/panel.css">
   <link rel="stylesheet" href="style/components/hero.css">
   <link rel="stylesheet" href="style/components/world-map.css">
+  <link rel="stylesheet" href="style/components/home.css">
 </head>
 <body>
 
@@ -29,18 +30,7 @@
   <main id="main">
     <div data-mount="hero"></div>
     <div data-mount="netmap"></div>
-
-    <!-- v2 phase marker. Coming: TAO Terminal, Quote Board,
-         Subnet Directory with detail modal, Centralized Desk,
-         editorial layer. -->
-    <section style="max-width:var(--max-w);margin:0 auto;padding:clamp(48px,7vw,88px) var(--gutter);text-align:center;color:var(--c-ink-3);font-family:var(--f-mono);font-size:var(--t-sm);letter-spacing:var(--ls-data);border-bottom:1px solid var(--c-rule);">
-      <div style="margin-bottom:var(--s-4);color:var(--c-red);letter-spacing:var(--ls-label);font-weight:700;">v2 · UNDER CONSTRUCTION</div>
-      <div style="max-width:60ch;margin:0 auto;line-height:var(--lh-loose);">
-        Next: 4-panel TAO Terminal, Bloomberg-style live quote board with sparklines,
-        the full subnet directory with click-to-detail modals, the centralized AI desk,
-        and the editorial layer.
-      </div>
-    </section>
+    <div data-mount="home"></div>
   </main>
 
   <!-- ES module entry. Browsers without ES module support get nothing,
