@@ -73,8 +73,9 @@
 .netmap__viz canvas{
   width: 100%;
   height: 100%;
-  aspect-ratio: 21 / 10;
+  aspect-ratio: 4 / 3;        /* globe wants a squarer frame */
   display: block;
+  touch-action: none;          /* let drag-rotate own the gesture */
 }
 
 .netmap__side{

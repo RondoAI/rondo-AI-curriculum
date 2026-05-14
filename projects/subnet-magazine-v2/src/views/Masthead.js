@@ -6,7 +6,7 @@
    ================================================================= */
 
 import { html, mount, qs, raw } from '../lib/dom.js';
-import { NodeSphere } from '../charts/NodeSphere.js';
+import { Icosphere } from '../charts/Icosphere.js';
 import { bbgDate } from '../lib/format.js';
 
 const NAV_ITEMS = [
@@ -56,17 +56,15 @@ export function mountMasthead(root){
     </header>
   `);
 
-  // Mount the rotating node-sphere brand mark. Dense network: 160
-  // nodes, 380 edges, 12 traveling packets, atmospheric glow on.
+  // Mount the rotating brand mark — Icosphere (regular polyhedron
+  // with complete-graph chord connectivity) matches the hero piece
+  // for a unified visual language.
   const markCanvas = qs('[data-canvas="brand-mark"]', root);
-  const sphere = markCanvas ? new NodeSphere(markCanvas, {
-    nodes: 160,
-    K: 6,
-    edgeCap: 380,
-    speed: 0.42,
-    packets: 12,
-    atmos: true,
-    glow: true,
+  const sphere = markCanvas ? new Icosphere(markCanvas, {
+    radius:    0.45,
+    speed:     0.45,
+    packets:   8,
+    thickEdges:true,
   }) : null;
 
   // Active-nav highlight on scroll
