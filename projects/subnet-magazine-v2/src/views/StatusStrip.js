@@ -8,6 +8,7 @@
 
 import { html, mount, qs, setLive } from '../lib/dom.js';
 import { bbgDate, money, pct, deltaClass } from '../lib/format.js';
+import { taoLogo } from '../lib/tao-logo.js';
 
 /**
  * @param {HTMLElement} root
@@ -37,7 +38,7 @@ export function mountStatusStrip(root, dataLayer = null){
         <span class="statusbar__push"></span>
 
         <span class="statusbar__quote" title="τ/USD (CoinGecko)">
-          <span class="pair">τ/USD</span>
+          <span class="pair"><span class="tao-mark">${taoLogo({ size: 12 })}</span>/USD</span>
           <span class="price" data-bind="tao-price">—</span>
           <span class="delta" data-bind="tao-delta">—</span>
         </span>

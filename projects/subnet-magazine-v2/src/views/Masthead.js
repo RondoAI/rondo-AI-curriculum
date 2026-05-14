@@ -8,6 +8,7 @@
 import { html, mount, qs, raw } from '../lib/dom.js';
 import { Icosphere } from '../charts/Icosphere.js';
 import { bbgDate } from '../lib/format.js';
+import { taoLogo } from '../lib/tao-logo.js';
 
 const NAV_ITEMS = [
   { code: '001', label: 'MAGAZINE',  href: 'index.html'        },
@@ -44,7 +45,7 @@ export function mountMasthead(root){
             <canvas data-canvas="brand-mark"></canvas>
           </span>
           <span>
-            <span class="brand__word">Subne${raw('<span class="tau">τ</span>')} Magazine</span>
+            <span class="brand__word">Subne${raw('<span class="tau">' + taoLogo({ size: 30 }) + '</span>')} Magazine</span>
             <span class="brand__sub">A research terminal for decentralized intelligence</span>
           </span>
         </a>
