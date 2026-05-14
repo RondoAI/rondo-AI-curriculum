@@ -10,7 +10,7 @@ import { Icosphere } from '../charts/Icosphere.js';
 import { bbgDate } from '../lib/format.js';
 
 const NAV_ITEMS = [
-  { code: '001', label: 'MAGAZINE',  href: '#overview'         },
+  { code: '001', label: 'MAGAZINE',  href: 'index.html'        },
   { code: '020', label: 'TERMINAL',  href: 'terminal.html'     },
   { code: '010', label: 'NETWORK',   href: 'network.html'      },
   { code: '025', label: 'COMPARE',   href: 'compare.html'      },
@@ -19,8 +19,6 @@ const NAV_ITEMS = [
   { code: '070', label: 'COMMUNITY', href: 'community.html'    },
   { code: '040', label: 'SUBNETS',   href: 'subnets.html'      },
   { code: '050', label: 'VALIDATORS',href: 'validators.html'   },
-  { code: '030', label: 'MARKETS',   href: '#markets'          },
-  { code: '900', label: 'ARCHIVE',   href: '#archive'          },
 ];
 
 const X_URL = 'https://x.com/subnetmagazine';

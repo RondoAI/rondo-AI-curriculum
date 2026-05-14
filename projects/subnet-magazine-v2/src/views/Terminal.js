@@ -56,13 +56,15 @@ export function mountTerminal(root, dataLayer = null){
         </div>
         <div class="term-head__right">
           <a class="term-head__back" href="index.html">‹ MAGAZINE</a>
+          <a class="term-head__back" href="network.html">NETWORK ↗</a>
           <a class="term-head__back" href="subnets.html">SUBNETS ↗</a>
           <a class="term-head__back" href="validators.html">VALIDATORS ↗</a>
           <a class="term-head__back" href="compare.html">COMPARE ↗</a>
+          <a class="term-head__back" href="centralized.html">CENTRAL ↗</a>
           <a class="term-head__back" href="articles.html">RESEARCH ↗</a>
+          <a class="term-head__back" href="community.html">COMMUNITY ↗</a>
           <span class="term-head__pills">
             <span class="pill"><span class="live-dot"></span>STREAMING</span>
-            <span class="pill">v0.21</span>
           </span>
         </div>
       </header>
