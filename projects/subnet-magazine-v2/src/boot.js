@@ -48,7 +48,7 @@ function boot(){
   mountIf('[data-mount="subnet-detail"]',  root => mountSubnetDetail(root, DataLayer));
   mountIf('[data-mount="compare"]',        root => mountCompare(root));
   mountIf('[data-mount="articles"]',       root => mountArticles(root, DataLayer));
-  mountIf('[data-mount="subnets"]',        root => mountSubnets(root));
+  mountIf('[data-mount="subnets"]',        root => mountSubnets(root, DataLayer));
   mountIf('[data-mount="validators"]',     root => mountValidators(root, DataLayer));
   mountIf('[data-mount="community"]',      root => mountCommunity(root, DataLayer));
   mountIf('[data-mount="centralized"]',    root => mountCentralized(root));
