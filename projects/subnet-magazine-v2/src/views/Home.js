@@ -44,6 +44,8 @@ function artDate(iso){
 const SECTIONS = [
   { code:'020', label:'TAO Terminal',  href:'terminal.html',
     desc:'The cockpit. Live τ price chart, network pulse, top movers, emissions, benchmark leaderboard, Asian-AI spotlight, frontier releases.' },
+  { code:'030', label:'Markets',       href:'markets.html',
+    desc:'The movers desk — subnets by 24h gainers, losers and activity with sparklines, and the centralized AI landscape ranked by valuation.' },
   { code:'040', label:'Subnets',       href:'subnets.html',
     desc:'Every active subnet in one sortable, searchable, filterable table. One click into the full research page for any of them.' },
   { code:'050', label:'Validators',    href:'validators.html',
@@ -180,7 +182,7 @@ export function mountHome(root, dataLayer = null){
     <section class="home-sections" aria-label="Site sections">
       <div class="home-net__head">
         <span class="home-net__kicker">&gt; The whole terminal</span>
-        <h2 class="home-net__title">Eight ways in.</h2>
+        <h2 class="home-net__title">Nine ways in.</h2>
       </div>
       <ul class="home-sections__grid">
         ${SECTIONS.map(s => `
