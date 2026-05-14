@@ -184,6 +184,36 @@ export function mountTerminal(root, dataLayer = null){
         <p class="term-overview__note">Live from the Tao Market Cap public API — falls back to “—” when the feed is unreachable.</p>
       </section>
 
+      <!-- ===== Subnet Monitor — Bloomberg-style live quote table ===== -->
+      <article class="panel is-bracketed term-cell--monitor" id="panel-monitor">
+        <div class="panel__head">
+          <span class="panel__title">
+            <span class="panel__fcode">&lt;024&gt;</span>
+            SUBNET MONITOR
+            <span class="panel__go">&lt;GO&gt;</span>
+          </span>
+          <span class="panel__meta">
+            <span class="panel__pill panel__pill--live"><span class="live-dot"></span><span data-bind="mon-src">SEED</span></span>
+            <span class="panel__pill" data-bind="mon-count">— rows</span>
+          </span>
+        </div>
+        <div class="panel__caption">
+          Every subnet, one screen — α-price, momentum across 24h / 7d / 30d, market cap,
+          24h volume and daily emission. Click a column to sort; click a row for the full
+          research page.
+        </div>
+        <div class="panel__body panel__body--pad-0 term-monitor__scroll">
+          <table class="term-monitor">
+            <thead><tr id="mon-head"></tr></thead>
+            <tbody id="mon-body"></tbody>
+          </table>
+        </div>
+        <div class="panel__foot">
+          <span>SRC · TAO MARKET CAP</span>
+          <span data-bind="mon-foot">SORT ▾ MARKET CAP</span>
+        </div>
+      </article>
+
       <!-- ===== Panel 1: τ Price · Apple-Stocks-style hero ===== -->
       <article class="stockp is-bracketed term-cell--stockp">
         <header class="stockp__head">
@@ -864,6 +894,92 @@ export function mountTerminal(root, dataLayer = null){
   for (let i = 0; i < 10; i++) pushActivity();
   const liveTimer = setInterval(pushActivity, 1100);
 
+  /* ===== Subnet Monitor — dense Bloomberg-style live quote table ===== */
+  const monHead  = qs('#mon-head', root);
+  const monBody  = qs('#mon-body', root);
+  const monCount = qs('[data-bind="mon-count"]', root);
+  const monSrc   = qs('[data-bind="mon-src"]',   root);
+  const monFoot  = qs('[data-bind="mon-foot"]',  root);
+  const MON_COLS = [
+    { id:'netuid',   label:'SN',      num:true  },
+    { id:'name',     label:'SUBNET',  num:false },
+    { id:'price',    label:'α-PRICE', num:true  },
+    { id:'chg24',    label:'24H',     num:true  },
+    { id:'chg7',     label:'7D',      num:true  },
+    { id:'chg30',    label:'30D',     num:true  },
+    { id:'mcap',     label:'MCAP',    num:true  },
+    { id:'volume',   label:'24H VOL', num:true  },
+    { id:'emission', label:'EMIT',    num:true  },
+  ];
+  const monState = { sort: 'mcap', dir: -1 };
+  let monRows = SUBNETS.map(s => ({
+    netuid: s.netuid, name: s.name, price: s.price ?? null,
+    chg24: s.chg24 ?? null, chg7: s.chg7 ?? null, chg30: s.chg30 ?? null,
+    mcap: (s.mcap ?? 0) * 1e6, volume: null, emission: s.emission ?? 0,
+  }));
+  const monMoney = n => {
+    if (n == null) return '—';
+    if (n >= 1e9) return '$' + (n / 1e9).toFixed(2) + 'B';
+    if (n >= 1e6) return '$' + (n / 1e6).toFixed(2) + 'M';
+    if (n >= 1e3) return '$' + (n / 1e3).toFixed(1) + 'K';
+    return '$' + n.toFixed(2);
+  };
+  const monPrice = p => p == null ? '—' : (p < 1 ? '$' + p.toFixed(4) : '$' + p.toFixed(2));
+  const monPct = v => v == null
+    ? '<span class="mon-flat">—</span>'
+    : `<span class="${v >= 0 ? 'mon-up' : 'mon-down'}">${v >= 0 ? '+' : ''}${v.toFixed(2)}%</span>`;
+  function renderMonHead(){
+    if (!monHead) return;
+    monHead.innerHTML = MON_COLS.map(c => `
+      <th class="${c.num ? 'num' : ''} ${monState.sort === c.id ? 'is-sorted' : ''}" data-col="${c.id}">
+        ${c.label}${monState.sort === c.id ? ` <span class="mon-arrow">${monState.dir === 1 ? '▲' : '▼'}</span>` : ''}
+      </th>`).join('');
+    monHead.querySelectorAll('th').forEach(th => th.addEventListener('click', () => {
+      const id = th.dataset.col;
+      if (monState.sort === id) monState.dir *= -1;
+      else { monState.sort = id; monState.dir = id === 'name' ? 1 : -1; }
+      const c = MON_COLS.find(x => x.id === id);
+      if (monFoot && c) monFoot.textContent = `SORT ${monState.dir === 1 ? '▲' : '▾'} ${c.label}`;
+      renderMonHead(); renderMonBody();
+    }));
+  }
+  function renderMonBody(){
+    if (!monBody) return;
+    const rows = monRows.slice().sort((a, b) => {
+      const av = a[monState.sort], bv = b[monState.sort];
+      if (typeof av === 'number' && typeof bv === 'number') return (av - bv) * monState.dir;
+      return String(av ?? '').localeCompare(String(bv ?? '')) * monState.dir;
+    });
+    if (monCount) monCount.textContent = `${rows.length} rows`;
+    monBody.innerHTML = rows.map(s => `
+      <tr data-id="${s.netuid}">
+        <td class="num mon-id">SN${s.netuid}</td>
+        <td class="mon-name">${s.name}</td>
+        <td class="num">${monPrice(s.price)}</td>
+        <td class="num">${monPct(s.chg24)}</td>
+        <td class="num">${monPct(s.chg7)}</td>
+        <td class="num">${monPct(s.chg30)}</td>
+        <td class="num">${monMoney(s.mcap)}</td>
+        <td class="num">${s.volume != null ? monMoney(s.volume) : '—'}</td>
+        <td class="num">τ ${Math.round(s.emission || 0).toLocaleString('en-US')}</td>
+      </tr>`).join('');
+    monBody.querySelectorAll('tr').forEach(tr => tr.addEventListener('click', () => {
+      window.location.href = `subnet.html?id=${tr.dataset.id}`;
+    }));
+  }
+  function renderMonitor(list){
+    if (Array.isArray(list) && list.length){
+      monRows = list.map(s => ({
+        netuid: s.netuid, name: s.name, price: s.price ?? null,
+        chg24: s.chg24 ?? null, chg7: s.chg7 ?? null, chg30: s.chg30 ?? null,
+        mcap: s.marketcap ?? null, volume: s.volume ?? null, emission: s.emission ?? 0,
+      }));
+      if (monSrc) monSrc.textContent = 'LIVE';
+    }
+    renderMonHead(); renderMonBody();
+  }
+  renderMonitor();   /* seed render — swaps to live via renderLiveSubnets */
+
   /* ===== more live rendering: subnet charts + chain extras =====
      When the real tao:subnets / tao:chain feeds land, rebuild the
      24h performance bars, the emissions leaderboard, the category
@@ -909,6 +1025,7 @@ export function mountTerminal(root, dataLayer = null){
       }).join('');
     }
     if (npSubnets) npSubnets.textContent = String(list.length);
+    renderMonitor(list);
   }
   function renderChainExtras(d){
     if (!d) return;
