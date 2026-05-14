@@ -14,6 +14,7 @@ const NAV_ITEMS = [
   { code: '020', label: 'TERMINAL',  href: 'terminal.html'     },
   { code: '010', label: 'NETWORK',   href: '#netmap'           },
   { code: '025', label: 'COMPARE',   href: 'compare.html'      },
+  { code: '026', label: 'CENTRAL',   href: 'centralized.html'  },
   { code: '060', label: 'RESEARCH',  href: 'articles.html'     },
   { code: '070', label: 'COMMUNITY', href: 'community.html'    },
   { code: '040', label: 'SUBNETS',   href: 'subnets.html'      },

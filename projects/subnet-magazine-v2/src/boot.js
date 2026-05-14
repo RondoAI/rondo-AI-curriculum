@@ -20,6 +20,7 @@ import { mountArticles } from './views/Articles.js';
 import { mountSubnets }  from './views/Subnets.js';
 import { mountValidators } from './views/Validators.js';
 import { mountCommunity } from './views/Community.js';
+import { mountCentralized } from './views/Centralized.js';
 
 const teardowns = [];
 
@@ -48,6 +49,7 @@ function boot(){
   mountIf('[data-mount="subnets"]',        root => mountSubnets(root));
   mountIf('[data-mount="validators"]',     root => mountValidators(root));
   mountIf('[data-mount="community"]',      root => mountCommunity(root, DataLayer));
+  mountIf('[data-mount="centralized"]',    root => mountCentralized(root));
 
   // 3) clean teardown on unload (idempotent)
   window.addEventListener('beforeunload', () => {
