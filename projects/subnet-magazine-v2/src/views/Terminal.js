@@ -80,6 +80,23 @@ export function mountTerminal(root, dataLayer = null){
           <button class="lp-chip" data-lp="cat">CAT</button>
         </div>
       </div>
+
+      <!-- ===== Network Pulse — cockpit multi-stat strip ===== -->
+      <div class="netpulse">
+        <div class="netpulse__cell"><span class="netpulse__lbl">BLOCK</span><span class="netpulse__val" data-bind="np-block">4,812,047</span><span class="netpulse__sub">↑ ~12s</span></div>
+        <div class="netpulse__cell"><span class="netpulse__lbl">EPOCH</span><span class="netpulse__val">14,302</span><span class="netpulse__sub" data-bind="np-epoch-prog">74% · 18:24</span></div>
+        <div class="netpulse__cell"><span class="netpulse__lbl">TPS</span><span class="netpulse__val" data-bind="np-tps">2,147</span><span class="netpulse__sub">tx / s</span></div>
+        <div class="netpulse__cell"><span class="netpulse__lbl">VAL · PARTIC.</span><span class="netpulse__val" data-bind="np-vp">96.4%</span><span class="netpulse__sub">trailing 24h</span></div>
+        <div class="netpulse__cell"><span class="netpulse__lbl">MEMPOOL</span><span class="netpulse__val" data-bind="np-mem">412</span><span class="netpulse__sub">pending tx</span></div>
+        <div class="netpulse__cell"><span class="netpulse__lbl">SUBNETS</span><span class="netpulse__val">${SUBNETS.length}</span><span class="netpulse__sub">active</span></div>
+        <div class="netpulse__cell"><span class="netpulse__lbl">τ STAKED</span><span class="netpulse__val">τ 6.24M</span><span class="netpulse__sub">63% supply</span></div>
+        <div class="netpulse__cell"><span class="netpulse__lbl">EMISSION</span><span class="netpulse__val">τ 7,200</span><span class="netpulse__sub">/ 24h</span></div>
+        <div class="netpulse__cell"><span class="netpulse__lbl">UPTIME</span><span class="netpulse__val">99.94%</span><span class="netpulse__sub">90d</span></div>
+        <div class="netpulse__cell"><span class="netpulse__lbl">PROP · LATENCY</span><span class="netpulse__val">186 ms</span><span class="netpulse__sub">P50 global</span></div>
+      </div>
+
+      <!-- ===== Price summary strip (always-visible quote) ===== -->
+      <div class="term-quote panel is-bracketed">
         <div class="term-quote__inner">
           <div class="term-quote__main">
             <span class="term-quote__label">τ / USD · live from CoinGecko</span>
@@ -187,6 +204,34 @@ export function mountTerminal(root, dataLayer = null){
         <div class="panel__foot">
           <span>τ MINTED / 24h</span>
           <span>Σ τ ${totalEmit.toLocaleString('en-US')} ACROSS ALL ${SUBNETS.length} SUBNETS</span>
+        </div>
+      </article>
+
+      <!-- ===== Panel: Network Live Activity ===== -->
+      <article class="panel is-bracketed term-cell--live" id="panel-live">
+        <div class="panel__head">
+          <span class="panel__title">
+            <span class="panel__fcode">&lt;025&gt;</span>
+            LIVE NETWORK ACTIVITY
+            <span class="panel__go">&lt;GO&gt;</span>
+          </span>
+          <span class="panel__meta">
+            <span class="panel__pill panel__pill--live"><span class="live-dot"></span>STREAMING</span>
+          </span>
+        </div>
+        <div class="panel__caption">
+          On-chain events across all subnets in real time. Color-coded by action type:
+          <strong style="color:var(--c-up)">stake +</strong>,
+          <strong style="color:var(--c-down)">unstake −</strong>,
+          <strong style="color:var(--c-red)">emission</strong>,
+          <strong style="color:var(--c-warn)">register</strong>.
+        </div>
+        <div class="panel__body panel__body--pad-0">
+          <ul class="term-activity" id="term-activity"></ul>
+        </div>
+        <div class="panel__foot">
+          <span>STAKE · UNSTAKE · EMIT · REGISTER · WEIGHT · BURN</span>
+          <span>SIM · NEWEST FIRST</span>
         </div>
       </article>
 
@@ -636,6 +681,77 @@ export function mountTerminal(root, dataLayer = null){
     }).join('');
   }
 
+  /* ===== Network Pulse cockpit strip — live ticker ===== */
+  const npBlock = qs('[data-bind="np-block"]', root);
+  const npTps   = qs('[data-bind="np-tps"]',   root);
+  const npVp    = qs('[data-bind="np-vp"]',    root);
+  const npMem   = qs('[data-bind="np-mem"]',   root);
+  const npProg  = qs('[data-bind="np-epoch-prog"]', root);
+  const np = { block: 4_812_047, tps: 2147, vp: 96.4, mempool: 412, epochBlock: 268 };
+  function paintPulse(){
+    if (npBlock) npBlock.textContent = np.block.toLocaleString('en-US');
+    if (npTps)   npTps.textContent   = np.tps.toLocaleString('en-US');
+    if (npVp)    npVp.textContent    = `${np.vp.toFixed(1)}%`;
+    if (npMem)   npMem.textContent   = np.mempool.toLocaleString('en-US');
+    if (npProg){
+      const blocksLeft = 360 - (np.epochBlock % 360);
+      const secs = Math.max(0, blocksLeft * 12);
+      const mm = Math.floor(secs / 60), ss = Math.floor(secs % 60);
+      const z = n => String(n).padStart(2, '0');
+      npProg.textContent = `${Math.floor(((np.epochBlock % 360) / 360) * 100)}% · ${z(mm)}:${z(ss)}`;
+    }
+  }
+  paintPulse();
+  const pulseTimer = setInterval(() => {
+    np.block += 1;
+    np.epochBlock += 1;
+    if (np.epochBlock >= 360) np.epochBlock = 0;
+    np.tps     = Math.max(800, Math.min(4200, np.tps + ((Math.random() - .5) * 120) | 0));
+    np.vp      = Math.max(88, Math.min(99.4, +(np.vp + (Math.random() - .5) * 0.3).toFixed(2)));
+    np.mempool = Math.max(40, Math.min(1800, np.mempool + ((Math.random() - .5) * 60) | 0));
+    paintPulse();
+  }, 1500);
+
+  /* ===== Live network activity feed ===== */
+  const ACT = [
+    { code: 'STAKE',    weight: 18 },
+    { code: 'UNSTAKE',  weight:  8 },
+    { code: 'EMIT',     weight: 14 },
+    { code: 'REGISTER', weight:  6 },
+    { code: 'WEIGHT',   weight: 10 },
+    { code: 'BURN',     weight:  4 },
+    { code: 'INFER',    weight: 12 },
+  ];
+  const ACT_TOTAL = ACT.reduce((a, x) => a + x.weight, 0);
+  const liveFeed = qs('#term-activity', root);
+  function pickActAct(){ let r = Math.random() * ACT_TOTAL; for (const a of ACT){ r -= a.weight; if (r <= 0) return a; } return ACT[0]; }
+  function pushActivity(){
+    if (!liveFeed) return;
+    const a = pickActAct();
+    const sn = SUBNETS[Math.floor(Math.random() * SUBNETS.length)];
+    const amt = ['REGISTER','WEIGHT'].includes(a.code) ? null : (40 + Math.random() * 3400);
+    const d = new Date();
+    const z = n => String(n).padStart(2, '0');
+    const ts = `${z(d.getUTCHours())}:${z(d.getUTCMinutes())}:${z(d.getUTCSeconds())}`;
+    const li = document.createElement('li');
+    li.className = 'term-act is-new';
+    li.innerHTML = `
+      <span class="term-act__ts">${ts}</span>
+      <span class="term-act__code" data-action="${a.code}">${a.code}</span>
+      <span class="term-act__sub">
+        <span class="term-act__net">SN${sn.netuid}</span>
+        <span class="term-act__name">${sn.name}</span>
+        <span class="term-act__cat" style="color:${catColor(sn.cat)}">${catLabel(sn.cat)}</span>
+      </span>
+      ${amt != null ? `<span class="term-act__amt">τ ${amt.toLocaleString('en-US', { maximumFractionDigits: 1 })}</span>` : '<span class="term-act__amt"></span>'}
+    `;
+    liveFeed.prepend(li);
+    while (liveFeed.children.length > 20) liveFeed.lastElementChild.remove();
+    requestAnimationFrame(() => requestAnimationFrame(() => li.classList.remove('is-new')));
+  }
+  for (let i = 0; i < 10; i++) pushActivity();
+  const liveTimer = setInterval(pushActivity, 1100);
+
   /* ===== Expand-to-fullscreen wiring ===== */
   root.querySelectorAll('[data-expand]').forEach(btn => {
     btn.addEventListener('click', e => {
@@ -696,7 +812,9 @@ export function mountTerminal(root, dataLayer = null){
       priceChart?.destroy();
       perfChart?.destroy();
       emitChart?.destroy();
-      if (tickTimer) clearInterval(tickTimer);
+      if (tickTimer)  clearInterval(tickTimer);
+      if (pulseTimer) clearInterval(pulseTimer);
+      if (liveTimer)  clearInterval(liveTimer);
       priceUnsub();
     },
   };

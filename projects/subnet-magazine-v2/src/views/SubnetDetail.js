@@ -34,7 +34,12 @@ import {
   CENTRALIZED_PLAYERS, REGIONS, ASIAN_REGIONS,
   competitorsForCategory, asianCompetitorsForCategory,
 } from '../data/centralized.js';
-import { SUBNET_META, subnetWebsite, subnetTwitter, subnetLongDesc } from '../data/subnet-meta.js';
+import {
+  SUBNET_META, subnetWebsite, subnetTwitter, subnetLongDesc,
+  subnetSpecs, subnetUpdates,
+} from '../data/subnet-meta.js';
+import { WorkflowDiagram } from '../charts/WorkflowDiagram.js';
+import { workflowFor } from '../data/workflows.js';
 import { openChartModal } from '../lib/chart-modal.js';
 
 /* ---------- Synthesize a 90-day α-price walk for the subnet ---------- */
@@ -200,6 +205,73 @@ export function mountSubnetDetail(root, dataLayer = null){
           <p>${longDesc}</p>
           ${subnet.tags ? `<div class="sd-tags">${subnet.tags.map(t => `<span class="sd-tag">${t}</span>`).join('')}</div>` : ''}
         </div>
+      </section>
+
+      <!-- ========== How this subnet works (workflow viz) ========== -->
+      <section class="sd-workflow panel is-bracketed">
+        <div class="panel__head">
+          <span class="panel__title">
+            <span class="panel__fcode">&lt;050&gt;</span>
+            HOW SN${subnet.netuid} ACTUALLY WORKS
+            <span class="panel__go">&lt;GO&gt;</span>
+          </span>
+          <span class="panel__meta">
+            <span class="panel__pill">${cat.label}</span>
+          </span>
+        </div>
+        <div class="panel__caption">
+          Each box is a stage in one epoch on this subnet. Particles flow left-to-right between
+          stages as work moves through the network. The miner / validator counts are live.
+        </div>
+        <div class="panel__body panel__body--pad-0 sd-workflow__viz">
+          <canvas data-canvas="workflow" aria-label="${subnet.name} workflow diagram"></canvas>
+        </div>
+        <div class="panel__foot">
+          <span>EPOCH · 360 BLOCKS · ~72 MIN</span>
+          <span>SCORING · YUMA CONSENSUS</span>
+        </div>
+      </section>
+
+      <!-- ========== Tech specs + recent updates ========== -->
+      <section class="sd-tech">
+        <article class="panel is-bracketed sd-cell--specs">
+          <div class="panel__head">
+            <span class="panel__title">
+              <span class="panel__fcode">&lt;060&gt;</span>
+              TECH SPECS
+              <span class="panel__go">&lt;GO&gt;</span>
+            </span>
+          </div>
+          <div class="panel__caption">Protocol-level fields the operator should know.</div>
+          <div class="panel__body">
+            <dl class="sd-specs" id="sd-specs"></dl>
+          </div>
+          <div class="panel__foot">
+            <span>SOURCED · operator docs + on-chain</span>
+            <span>SN${subnet.netuid}</span>
+          </div>
+        </article>
+
+        <article class="panel is-bracketed sd-cell--updates">
+          <div class="panel__head">
+            <span class="panel__title">
+              <span class="panel__fcode">&lt;070&gt;</span>
+              RECENT UPDATES · SN${subnet.netuid}
+              <span class="panel__go">&lt;GO&gt;</span>
+            </span>
+            <span class="panel__meta">
+              <span class="panel__pill panel__pill--live"><span class="live-dot"></span>TRACKED</span>
+            </span>
+          </div>
+          <div class="panel__caption">Releases, eval changes, governance, announcements — curated changelog.</div>
+          <div class="panel__body panel__body--pad-0">
+            <ul class="sd-updates" id="sd-updates"></ul>
+          </div>
+          <div class="panel__foot">
+            <span>NEWEST FIRST</span>
+            <span>SOURCE · subnet-meta.js</span>
+          </div>
+        </article>
       </section>
 
       <!-- ========== Performance + share ========== -->
@@ -449,6 +521,61 @@ export function mountSubnetDetail(root, dataLayer = null){
     </article>
   `);
 
+  /* ===== Workflow diagram ===== */
+  const wfCanvas = qs('[data-canvas="workflow"]', root);
+  const wfChart  = wfCanvas ? new WorkflowDiagram(wfCanvas, {
+    steps: workflowFor(subnet.cat, subnet),
+  }) : null;
+
+  /* ===== Tech specs ===== */
+  const specs = subnetSpecs(subnet);
+  const specsDl = qs('#sd-specs', root);
+  if (specsDl){
+    const rows = [
+      ['Netuid',         `SN${subnet.netuid}`],
+      ['Owner',          subnet.owner ?? '—'],
+      ['Founded',        specs.founded ?? '—'],
+      ['Version',        specs.version ?? '—'],
+      ['Chain',          specs.chain],
+      ['Epoch length',   `${specs.epochBlocks} blocks · ~72 min`],
+      ['Scoring',        specs.model],
+      ['Miner reqs',     specs.reqMiner ?? '—'],
+      ['Validator reqs', specs.reqVal ?? '—'],
+    ];
+    specsDl.innerHTML = rows.map(([k, v]) => `
+      <div class="sd-spec">
+        <dt>${k}</dt>
+        <dd>${v}</dd>
+      </div>
+    `).join('');
+  }
+
+  /* ===== Recent updates list ===== */
+  const upUl    = qs('#sd-updates', root);
+  const updates = subnetUpdates(subnet);
+  if (upUl){
+    if (!updates.length){
+      upUl.innerHTML = `
+        <li class="sd-update sd-update--empty">
+          No tracked updates yet for this subnet. Curated history coming.
+        </li>`;
+    } else {
+      upUl.innerHTML = updates.map(u => {
+        const d = new Date(u.date + 'T00:00:00Z');
+        const day   = String(d.getUTCDate()).padStart(2, '0');
+        const month = d.toLocaleDateString('en-US', { month: 'short' }).toUpperCase();
+        const year  = d.getUTCFullYear();
+        return `
+          <li class="sd-update">
+            <span class="sd-update__date">${day} ${month} ${year}</span>
+            <span class="sd-update__type" data-type="${u.type}">${u.type.toUpperCase()}</span>
+            <span class="sd-update__title">${u.title}</span>
+          </li>
+        `;
+      }).join('');
+    }
+  }
+
   /* ===== Performance line chart (re-uses Timeline) ===== */
   const perfCanvas = qs('[data-canvas="perf"]', root);
   const perfData   = buildSubnetHistory(subnet, 90);
@@ -583,6 +710,7 @@ export function mountSubnetDetail(root, dataLayer = null){
     destroy(){
       perfChart?.destroy();
       shareChart?.destroy();
+      wfChart?.destroy();
       clearInterval(feedTimer);
     },
   };
