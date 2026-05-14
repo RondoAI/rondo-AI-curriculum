@@ -41,13 +41,40 @@ export class BarChart extends Chart {
     /** @private */ this.formatValue = opts.formatValue ?? (v => v.toLocaleString('en-US'));
     /** @private */ this.bipolar     = !!opts.bipolar;
     /** @private */ this.maxBars     = opts.maxBars ?? Infinity;
+    /** @private */ this.onBarClick  = opts.onBarClick ?? null;
     /** @private */ this.hover       = null;
     canvas.addEventListener('pointermove', e => {
       const r = canvas.getBoundingClientRect();
       this.hover = { x: e.clientX - r.left, y: e.clientY - r.top };
+      canvas.style.cursor = (this.onBarClick && this._barAt(this.hover.x, this.hover.y) >= 0) ? 'pointer' : 'default';
       this.invalidate();
     });
-    canvas.addEventListener('pointerleave', () => { this.hover = null; this.invalidate(); });
+    canvas.addEventListener('pointerleave', () => { this.hover = null; canvas.style.cursor = 'default'; this.invalidate(); });
+    canvas.addEventListener('click', e => {
+      if (!this.onBarClick) return;
+      const r = canvas.getBoundingClientRect();
+      const idx = this._barAt(e.clientX - r.left, e.clientY - r.top);
+      if (idx >= 0 && this.data[idx]) this.onBarClick(this.data[idx], idx);
+    });
+  }
+
+  /** Hit-test which bar (if any) is under (px, py). */
+  _barAt(px, py){
+    if (!this.data.length) return -1;
+    const w = this.w, h = this.h;
+    const rows = this.data.slice(0, this.maxBars);
+    if (this.orientation === 'horizontal'){
+      const padT = 8, padB = 8;
+      const trackH = (h - padT - padB) / rows.length;
+      const idx = Math.floor((py - padT) / trackH);
+      return idx >= 0 && idx < rows.length ? idx : -1;
+    } else {
+      const padL = 30, padR = 12;
+      const trackW = w - padL - padR;
+      const colW = trackW / rows.length;
+      const idx = Math.floor((px - padL) / colW);
+      return idx >= 0 && idx < rows.length ? idx : -1;
+    }
   }
 
   setData(rows){
