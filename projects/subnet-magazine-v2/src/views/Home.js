@@ -49,6 +49,8 @@ const SECTIONS = [
     desc:'The hotkeys that actually run Bittensor — ranked by stake, nominators, APY, and subnet participation.' },
   { code:'025', label:'Compare',       href:'compare.html',
     desc:'Bittensor subnets vs the centralized world. TTFT, tokens/sec, $/1M, precision, GPU class — side by side with Claude, GPT, Gemini, DeepSeek, Qwen.' },
+  { code:'026', label:'Centralized Desk', href:'centralized.html',
+    desc:'The centralized AI race, watched — closed labs, compute build-outs, and capital, with the Asian frontier first-class. Reading cards and the full roster.' },
   { code:'060', label:'Research',      href:'articles.html',
     desc:'Long-form research on decentralized intelligence — subnet profiles, fund letters, primers. Read inline or download the PDF.' },
   { code:'070', label:'Community',     href:'community.html',
@@ -166,7 +168,7 @@ export function mountHome(root, dataLayer = null){
     <section class="home-sections" aria-label="Site sections">
       <div class="home-net__head">
         <span class="home-net__kicker">&gt; The whole terminal</span>
-        <h2 class="home-net__title">Seven ways in.</h2>
+        <h2 class="home-net__title">Eight ways in.</h2>
       </div>
       <ul class="home-sections__grid">
         ${SECTIONS.map(s => `
