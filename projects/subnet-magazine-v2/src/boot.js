@@ -43,7 +43,7 @@ function boot(){
   mountIf('[data-mount="terminal"]',       root => mountTerminal(root, DataLayer));
   mountIf('[data-mount="subnet-detail"]',  root => mountSubnetDetail(root, DataLayer));
   mountIf('[data-mount="compare"]',        root => mountCompare(root));
-  mountIf('[data-mount="articles"]',       root => mountArticles(root));
+  mountIf('[data-mount="articles"]',       root => mountArticles(root, DataLayer));
   mountIf('[data-mount="subnets"]',        root => mountSubnets(root));
   mountIf('[data-mount="validators"]',     root => mountValidators(root));
 

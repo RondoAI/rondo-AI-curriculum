@@ -6,12 +6,19 @@
    embeds the active article's PDF inline so readers can scroll
    it in place without leaving the site.
 
+   Each article header carries an identity mark: the real subnet
+   logo when the piece maps to a specific subnet (pulled live from
+   the 'tao:subnets' feed), otherwise the generated Subneτ Magazine
+   house mark. Logos arrive asynchronously, so the view re-renders
+   when the subnet feed lands.
+
    The URL takes an optional ?id=… to deep-link to a specific
    article; otherwise the newest article is shown.
    ================================================================= */
 
-import { html, mount, qs, raw } from '../lib/dom.js';
+import { html, mount, qs } from '../lib/dom.js';
 import { ARTICLES, articlesByDate, articleById } from '../data/articles.js';
+import { mark } from '../lib/mark.js';
 
 const CATEGORY_LABEL = {
   'reporting':   'REPORTING',
@@ -28,11 +35,36 @@ function formatDate(iso){
   return `${day} ${month} ${d.getUTCFullYear()}`;
 }
 
-export function mountArticles(root){
+/**
+ * @param {HTMLElement} root
+ * @param {{subscribe:Function, get:Function}|null} [dataLayer]
+ */
+export function mountArticles(root, dataLayer = null){
   const sorted = articlesByDate();
   const params = new URLSearchParams(window.location.search);
   const wantedId = params.get('id');
   const active = (wantedId && articleById(wantedId)) || sorted[0];
+
+  /* netuid → real logo URL, filled from the live subnet feed. */
+  let subnetLogos = {};
+
+  /**
+   * Header identity mark for an article. Real subnet logo when the
+   * article maps to a subnet AND the live feed has a logo for it;
+   * otherwise the generated house mark. The <img> falls back to the
+   * house mark if it fails to load.
+   */
+  function headerMark(a, size){
+    const logo = a.subnet ? subnetLogos[a.subnet] : null;
+    const house = mark(a.title, { size, label: (a.kicker || a.category || 'R')[0] });
+    if (logo){
+      return `<img class="art-logo__img" src="${logo}" alt="" width="${size}" height="${size}"
+                   loading="lazy"
+                   onerror="this.style.display='none';this.nextElementSibling.style.display='block'">
+              <span class="art-logo__fb" style="display:none">${house}</span>`;
+    }
+    return house;
+  }
 
   mount(root, html`
     <section class="articles">
@@ -79,7 +111,7 @@ export function mountArticles(root){
             data-id="${a.id}" style="--accent:${accent}">
           <a href="?id=${a.id}" class="art-card__link" data-id="${a.id}">
             <div class="art-card__art" aria-hidden="true">
-              <span class="art-card__art-icon">${a.kicker?.charAt(0) || 'A'}</span>
+              <span class="art-logo art-card__art-mark">${headerMark(a, 72)}</span>
             </div>
             <div class="art-card__body">
               <div class="art-card__meta">
@@ -118,7 +150,13 @@ export function mountArticles(root){
     const a = active;
     readerRoot.innerHTML = `
       <header class="art-reader__head" style="--accent:${a.accent || '#FF1E3C'}">
-        <span class="art-reader__kicker">${CATEGORY_LABEL[a.category] || a.category.toUpperCase()}</span>
+        <div class="art-reader__id">
+          <span class="art-logo art-reader__logo">${headerMark(a, 56)}</span>
+          <div class="art-reader__id-text">
+            <span class="art-reader__kicker">${CATEGORY_LABEL[a.category] || a.category.toUpperCase()}</span>
+            ${a.subnet ? `<span class="art-reader__subnet">SUBNET ${a.subnet}</span>` : ''}
+          </div>
+        </div>
         <h2 class="art-reader__title">${a.title}</h2>
         <p class="art-reader__tagline">${a.tagline}</p>
         <div class="art-reader__meta">
@@ -166,7 +204,21 @@ export function mountArticles(root){
   renderCards();
   renderActive();
 
-  return { destroy(){} };
-}
+  /* Live subnet logos — re-render once the feed lands so subnet-
+     scoped articles swap their house mark for the real logo. */
+  let unsub = null;
+  if (dataLayer){
+    const onSubnets = list => {
+      if (!Array.isArray(list)) return;
+      const next = {};
+      for (const s of list) if (s.logo) next[String(s.netuid)] = s.logo;
+      subnetLogos = next;
+      renderCards();
+      renderActive();
+    };
+    unsub = dataLayer.subscribe('tao:subnets', onSubnets);
+    onSubnets(dataLayer.get('tao:subnets'));
+  }
 
-void raw;
+  return { destroy(){ if (unsub) unsub(); } };
+}

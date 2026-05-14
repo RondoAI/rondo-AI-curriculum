@@ -64,6 +64,26 @@
   display: grid; gap: 4px;
 }
 .masthead__diag .val{ color: var(--c-ink-2); }
+.masthead__x{
+  display: inline-flex; align-items: center; gap: 5px;
+  justify-self: end;
+  margin-top: 2px;
+  color: var(--c-red-1);
+  text-decoration: none;
+  border: 1px solid var(--c-rule-2);
+  padding: 2px 7px;
+  border-radius: var(--r-1);
+  transition: border-color var(--d-fast) var(--e-out),
+              background var(--d-fast) var(--e-out);
+}
+.masthead__x:hover{
+  border-color: var(--c-rule-3);
+  background: var(--c-bg-3);
+}
+.masthead__x-glyph{
+  font-size: 12px;
+  color: var(--c-ink-1);
+}
 
 /* Primary nav: function-code style, sticky */
 .primary-nav{
