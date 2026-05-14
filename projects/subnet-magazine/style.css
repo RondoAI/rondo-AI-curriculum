@@ -9,37 +9,46 @@
 
 /* ---------- Tokens ---------- */
 :root{
-  /* palette — pure night, Bloomberg-terminal dark */
-  --bg:           #08090C;
-  --bg-2:         #0C0D11;
-  --bg-3:         #11131A;
-  --bg-4:         #161922;
-  --ink:          #EAEAF0;
-  --ink-2:        #B6B8C2;
-  --ink-3:        #6E727E;
-  --ink-4:        #3A3E4A;
-  --rule:         rgba(234,234,240,.07);
-  --rule-2:       rgba(234,234,240,.14);
-  --rule-3:       rgba(234,234,240,.22);
+  /* palette — eDEX-UI red on black. Pure black ground with a faint
+     red tint on darker panels. White is reserved for critical
+     readouts; everything chrome is red. Up/down stays green/red so
+     a trader can still parse the board at speed. */
+  --bg:           #000000;
+  --bg-2:         #0A0306;
+  --bg-3:         #14060A;
+  --bg-4:         #1F0A10;
+  --ink:          #F5E5E8;
+  --ink-2:        #C8A8AD;
+  --ink-3:        #8B6B70;
+  --ink-4:        #4A2A30;
+  --rule:         rgba(255,30,60,.10);
+  --rule-2:       rgba(255,30,60,.22);
+  --rule-3:       rgba(255,30,60,.36);
 
-  /* paper section colors retained but unused now — kept for any fallback */
-  --paper:        #08090C;
-  --paper-2:      #0C0D11;
-  --paper-ink:    #EAEAF0;
-  --paper-ink-2:  #B6B8C2;
-  --paper-rule:   rgba(234,234,240,.10);
+  /* legacy paper aliases (unused but kept for any straggling refs) */
+  --paper:        #000000;
+  --paper-2:      #0A0306;
+  --paper-ink:    #F5E5E8;
+  --paper-ink-2:  #C8A8AD;
+  --paper-rule:   rgba(255,30,60,.10);
 
-  /* brand — terminal palette */
-  --flame:        #FFA537;        /* amber, primary */
-  --flame-deep:   #E08020;
-  --amber:        #FFA537;
-  --cyan:         #00C2FF;
-  --violet:       #8B6BFF;
-  --mint:         #00E5A8;
+  /* brand — red is the only chrome accent. `flame` is the historical
+     var name; we keep it but it now points to red. */
+  --flame:        #FF1E3C;
+  --flame-deep:   #C11128;
+  --red:          #FF1E3C;
+  --red-2:        #FF4D60;
+  --red-3:        #FF7A88;
+  --red-deep:     #8B0F20;
+  --amber:        #FF6A2B;       /* warm-red, retained for category */
+  --cyan:         #FFB0BA;       /* desaturated pink, replaces former cyan */
+  --violet:       #B82850;       /* berry red, replaces violet */
+  --mint:         #00E5A8;       /* up only — kept green for trader clarity */
   --rose:         #FF4D6D;
-  --gold:         #FFD166;
+  --gold:         #FF8C42;       /* warm-amber red */
   --up:           #00E5A8;
   --down:         #FF4D6D;
+  --warn:         #FF8C42;
 
   /* type */
   --serif:        'Fraunces', 'Iowan Old Style', 'Palatino Linotype', Georgia, serif;
@@ -66,11 +75,12 @@ body{
   -webkit-font-smoothing:antialiased;
   text-rendering:optimizeLegibility;
   overflow-x:hidden;
-  /* faint grid texture across the whole site */
+  /* eDEX-UI style: faint red grid + horizontal scanlines */
   background-image:
-    linear-gradient(rgba(234,234,240,.022) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(234,234,240,.022) 1px, transparent 1px);
-  background-size: 40px 40px;
+    linear-gradient(rgba(255,30,60,.045) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255,30,60,.045) 1px, transparent 1px),
+    repeating-linear-gradient(0deg, rgba(255,30,60,.020) 0 1px, transparent 1px 3px);
+  background-size: 40px 40px, 40px 40px, 100% 3px;
   background-attachment: fixed;
 }
 img,svg,canvas{display:block;max-width:100%}
@@ -1144,6 +1154,136 @@ a{color:inherit;text-decoration:none}
 @media (max-width: 860px){
   .cdesk-grid{grid-template-columns:1fr}
   .feed{max-height:420px}
+}
+
+/* =================================================================
+   PANEL CORNER BRACKETS (eDEX-UI signature)
+   ================================================================= */
+.panel, .quote-tbl-wrap, .em-viz, .em-side, .sotw-chart, .sotw-side,
+.feed, .lab-card, .map-viz, .map-side, .arch-viz{
+  position:relative;
+}
+.panel::after, .quote-tbl-wrap::after, .em-viz::after, .em-side::after,
+.sotw-chart::after, .sotw-side::after, .feed::after, .lab-card::after,
+.map-viz::after, .map-side::after, .arch-viz::after{
+  content:'';position:absolute;inset:0;pointer-events:none;
+  background:
+    /* TL corner */
+    linear-gradient(90deg, var(--red) 0 12px, transparent 12px) top left/12px 1px no-repeat,
+    linear-gradient(180deg, var(--red) 0 12px, transparent 12px) top left/1px 12px no-repeat,
+    /* TR corner */
+    linear-gradient(270deg, var(--red) 0 12px, transparent 12px) top right/12px 1px no-repeat,
+    linear-gradient(180deg, var(--red) 0 12px, transparent 12px) top right/1px 12px no-repeat,
+    /* BL corner */
+    linear-gradient(90deg, var(--red) 0 12px, transparent 12px) bottom left/12px 1px no-repeat,
+    linear-gradient(0deg, var(--red) 0 12px, transparent 12px) bottom left/1px 12px no-repeat,
+    /* BR corner */
+    linear-gradient(270deg, var(--red) 0 12px, transparent 12px) bottom right/12px 1px no-repeat,
+    linear-gradient(0deg, var(--red) 0 12px, transparent 12px) bottom right/1px 12px no-repeat;
+  opacity:.55;
+}
+
+/* =================================================================
+   VALIDATOR NETWORK MAP (research-terminal centerpiece)
+   ================================================================= */
+.netmap{
+  max-width:var(--max);margin:0 auto;
+  padding:clamp(56px, 8vw, 88px) var(--gutter);
+  border-bottom:1px solid var(--rule);
+}
+.nm-head{display:flex;justify-content:space-between;align-items:flex-end;flex-wrap:wrap;gap:14px;margin-bottom:24px}
+.nm-head .left{max-width:64ch}
+.nm-head .right{
+  display:inline-flex;gap:14px;align-items:center;
+  font-family:var(--mono);font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-3);
+}
+.nm-head .pill{border:1px solid var(--rule-2);padding:3px 8px;border-radius:2px;color:var(--ink-2)}
+.nm-grid{
+  display:grid;grid-template-columns:1.7fr 1fr;gap:14px;
+}
+.map-viz{
+  background:#000;
+  border:1px solid var(--rule);
+  padding:8px;
+  position:relative;overflow:hidden;
+}
+.map-viz canvas{width:100%;height:auto;aspect-ratio:21/10;display:block}
+.map-viz .map-readout{
+  position:absolute;left:14px;top:14px;
+  font-family:var(--mono);font-size:10px;letter-spacing:.14em;text-transform:uppercase;
+  color:var(--red);
+}
+.map-viz .map-readout .v{color:var(--ink)}
+.map-viz .map-readout .row{display:block;margin-bottom:4px}
+.map-viz .map-coord{
+  position:absolute;right:14px;bottom:14px;
+  font-family:var(--mono);font-size:10px;letter-spacing:.14em;
+  color:var(--ink-3);text-transform:uppercase;
+}
+.map-side{
+  background:var(--bg-2);
+  border:1px solid var(--rule);
+  padding:20px;
+}
+.map-side-head{
+  font-family:var(--mono);font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:var(--red);
+  margin:0 0 14px;font-weight:600;display:flex;justify-content:space-between;
+}
+.region-list{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:10px}
+.region-row{
+  display:grid;grid-template-columns:1fr auto;gap:8px;align-items:baseline;
+  font-family:var(--mono);font-size:12px;
+  padding-bottom:8px;border-bottom:1px dashed var(--rule);
+}
+.region-row .reg{color:var(--ink);font-weight:600;letter-spacing:.04em;text-transform:uppercase}
+.region-row .pct{color:var(--red);font-weight:600}
+.region-row .meta{
+  grid-column:1/-1;display:flex;justify-content:space-between;
+  color:var(--ink-3);font-size:10px;letter-spacing:.08em;text-transform:uppercase;
+}
+.region-bar{
+  grid-column:1/-1;height:3px;background:rgba(255,30,60,.1);border-radius:1px;overflow:hidden;
+}
+.region-bar > i{display:block;height:100%;background:linear-gradient(90deg, var(--red), var(--red-2))}
+
+@media (max-width: 860px){
+  .nm-grid{grid-template-columns:1fr}
+}
+
+/* =================================================================
+   NETWORK ARCHITECTURE WIREFRAME (isometric research diagram)
+   ================================================================= */
+.arch{
+  max-width:var(--max);margin:0 auto;
+  padding:clamp(56px, 8vw, 88px) var(--gutter);
+  border-bottom:1px solid var(--rule);
+}
+.arch-head{margin-bottom:24px;max-width:64ch}
+.arch-grid{
+  display:grid;grid-template-columns:1.4fr 1fr;gap:14px;align-items:stretch;
+}
+.arch-viz{
+  background:#000;border:1px solid var(--rule);
+  position:relative;overflow:hidden;
+  min-height:420px;
+}
+.arch-viz canvas{position:absolute;inset:0;width:100%;height:100%;display:block}
+.arch-spec{
+  background:var(--bg-2);border:1px solid var(--rule);padding:20px;
+  font-family:var(--mono);font-size:12px;color:var(--ink-2);
+}
+.arch-spec h4{
+  font-family:var(--mono);font-size:10px;letter-spacing:.14em;text-transform:uppercase;
+  color:var(--red);margin:0 0 12px;font-weight:600;
+}
+.arch-spec dl{margin:0;display:grid;grid-template-columns:auto 1fr;gap:6px 14px;font-size:11.5px}
+.arch-spec dt{color:var(--ink-3);letter-spacing:.06em;text-transform:uppercase;font-size:10px}
+.arch-spec dd{margin:0;color:var(--ink);text-align:right;font-variant-numeric:tabular-nums}
+.arch-spec hr{border:0;border-top:1px dashed var(--rule);margin:14px 0}
+.arch-spec .note{font-size:11px;color:var(--ink-3);line-height:1.5}
+
+@media (max-width: 860px){
+  .arch-grid{grid-template-columns:1fr}
 }
 
 /* =================================================================

@@ -20,27 +20,20 @@
 
   const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
-  /* ---------- 1. DATA ---------- */
-  const SUBNETS = [
-    {netuid:1,  name:'Apex',         cat:'text',    desc:'Open-domain text prompting and inference. The original miner battleground.', emission:412, change:+8.2,  miners:1024, owner:'Macrocosmos'},
-    {netuid:3,  name:'Templar',      cat:'training',desc:'Decentralized training of frontier models across volunteer compute.',         emission:380, change:+22.1, miners:512,  owner:'Const Labs'},
-    {netuid:5,  name:'OpenKaito',    cat:'search',  desc:'Decentralized web search and retrieval, scored against ground-truth queries.', emission:265, change:+4.9,  miners:384,  owner:'Kaito'},
-    {netuid:6,  name:'Nous',         cat:'text',    desc:'Finetuning competitions on rotating benchmark sets.',                          emission:298, change:-1.4,  miners:256,  owner:'Nous Research'},
-    {netuid:9,  name:'Pretraining',  cat:'training',desc:'From-scratch language-model pretraining with public loss leaderboards.',      emission:198, change:+41.7, miners:256,  owner:'Macrocosmos'},
-    {netuid:11, name:'Dippy',        cat:'text',    desc:'Roleplay and dialogue models judged on engagement and steering.',             emission:142, change:-3.6,  miners:192,  owner:'Dippy Labs'},
-    {netuid:13, name:'Dataverse',    cat:'data',    desc:'Open dataset construction and curation incentivized at the row.',             emission:138, change:+12.4, miners:160,  owner:'Manifold'},
-    {netuid:18, name:'Cortex.t',     cat:'text',    desc:'Real-time text inference with strict latency SLAs.',                          emission:120, change:+2.0,  miners:288,  owner:'Corcel'},
-    {netuid:19, name:'Vision',       cat:'vision',  desc:'Image classification, embedding, and synthesis under public scoring.',        emission:108, change:+5.6,  miners:224,  owner:'Vision Labs'},
-    {netuid:21, name:'Omega',        cat:'vision',  desc:'Any-to-any multimodal generation with adversarial validators.',               emission:96,  change:+9.1,  miners:160,  owner:'Omega Labs'},
-    {netuid:23, name:'NicheImage',   cat:'vision',  desc:'Long-tail image generation in specialized domains.',                          emission:82,  change:-7.2,  miners:128,  owner:'NicheImage'},
-    {netuid:29, name:'Coldint',      cat:'training',desc:'Cold-start distributed integer compute for training pipelines.',              emission:74,  change:+3.3,  miners:96,   owner:'Coldint'},
-    {netuid:42, name:'Foresight',    cat:'finance', desc:'On-chain prediction markets validated against real outcomes.',                emission:66,  change:+18.0, miners:112,  owner:'Foresight'},
-    {netuid:51, name:'Compute',      cat:'training',desc:'Spot market for verifiable GPU compute, priced per FLOP.',                    emission:58,  change:+6.7,  miners:144,  owner:'Compute Co'},
-    {netuid:56, name:'Gradients',    cat:'training',desc:'Distributed gradient descent on shared optimizer state.',                     emission:52,  change:+14.8, miners:128,  owner:'Gradients'},
-    {netuid:64, name:'Chutes',       cat:'data',    desc:'A registry of verified data pipelines with miner-built connectors.',          emission:44,  change:-2.5,  miners:88,   owner:'Chutes'},
-    {netuid:71, name:'Sturdy',       cat:'finance', desc:'Yield-strategy generation graded against backtests and live PnL.',            emission:38,  change:+11.2, miners:72,   owner:'Sturdy'},
-    {netuid:78, name:'PromptBoost',  cat:'text',    desc:'Prompt-optimization market for downstream LLM tasks.',                        emission:32,  change:+1.1,  miners:64,   owner:'PromptBoost'},
-  ];
+  /* ---------- 1. DATA ----------
+     SUBNETS data is loaded from subnets.js (window.SUBNETS_DATA) so
+     it can be refreshed without touching app code. CATEGORIES holds
+     the semantic color/label/description for each subnet category.
+     Each row carries a `change` alias matching the legacy field name
+     used throughout the rest of this file. */
+  const SUBNETS = (window.SUBNETS_DATA || []).map(s => ({
+    ...s,
+    change: s.chg24 ?? s.change ?? 0,
+  }));
+  const CATEGORIES = window.CATEGORIES || {};
+  function catLabel(c){ return CATEGORIES[c]?.label || c; }
+  function catColor(c){ return CATEGORIES[c]?.color || '#94A3B8'; }
+  function catGlow(c){  return CATEGORIES[c]?.glow  || 'rgba(148,163,184,.35)'; }
 
   /* ---------- 2. UTILITIES ---------- */
   const fmt = {
@@ -62,7 +55,7 @@
     const ctx = canvas.getContext('2d');
     let w, h, dpr, nodes, t = 0;
 
-    const COLORS = ['#F69537','#7C5CFF','#34E0A1','#FF5A7E'];
+    const COLORS = ['#FF1E3C','#FF6B7A','#C11128','#FF4D60'];
     const NODE_N = 64;
 
     function resize(){
@@ -286,35 +279,36 @@
     const grid = document.getElementById('dir-grid');
     if (!grid) return;
     let state = {filter:'all', sort:'emission'};
-    const catLabel = {
-      text:'Text · LLM', vision:'Vision', training:'Training',
-      data:'Data', search:'Search', finance:'Finance'
-    };
     function render(){
       let rows = SUBNETS.slice();
       if (state.filter !== 'all') rows = rows.filter(r => r.cat === state.filter);
       rows.sort((a,b) => {
         if (state.sort === 'emission') return b.emission - a.emission;
-        if (state.sort === 'change') return b.change - a.change;
+        if (state.sort === 'change') return b.chg24 - a.chg24;
         if (state.sort === 'miners') return b.miners - a.miners;
         return a.netuid - b.netuid;
       });
       grid.innerHTML = rows.map(s => {
-        const chgCls = s.change >= 0 ? 'up' : 'down';
-        return `<article class="dir-card">
+        const chgCls = s.chg24 >= 0 ? 'up' : 'down';
+        const color = catColor(s.cat);
+        return `<article class="dir-card" data-netuid="${s.netuid}" style="--cat-color:${color}">
           <div class="dir-card-head">
             <span class="dir-net">SN${s.netuid}</span>
-            <span class="dir-cat">${catLabel[s.cat]||s.cat}</span>
+            <span class="dir-cat" style="color:${color}">${catLabel(s.cat)}</span>
           </div>
           <h3 class="dir-name">${s.name}</h3>
           <p class="dir-desc">${s.desc}</p>
           <div class="dir-row">
             <span><span class="lbl">Emission</span><br><span class="val">τ ${s.emission}</span></span>
-            <span><span class="lbl">Miners</span><br><span class="val">${s.miners}</span></span>
-            <span><span class="lbl">30d</span><br><span class="val chg ${chgCls}">${fmt.pct(s.change)}</span></span>
+            <span><span class="lbl">Miners</span><br><span class="val">${fmt.comma(s.miners)}</span></span>
+            <span><span class="lbl">24h</span><br><span class="val chg ${chgCls}">${fmt.pct(s.chg24)}</span></span>
           </div>
         </article>`;
       }).join('');
+      // wire click → modal
+      grid.querySelectorAll('.dir-card').forEach(el => {
+        el.addEventListener('click', () => openSubnetModal(+el.dataset.netuid));
+      });
     }
     document.querySelectorAll('.dir-filters .chip').forEach(chip => {
       chip.addEventListener('click', () => {
@@ -369,17 +363,7 @@
       }
     }
 
-    function colorFor(cat){
-      switch(cat){
-        case 'text': return '#F69537';
-        case 'vision': return '#FF5A7E';
-        case 'training': return '#7C5CFF';
-        case 'data': return '#34E0A1';
-        case 'search': return '#3DC2FF';
-        case 'finance': return '#FFD166';
-        default: return '#888';
-      }
-    }
+    function colorFor(cat){ return catColor(cat); }
 
     function draw(){
       ctx.clearRect(0,0,w,h);
@@ -587,11 +571,6 @@
       };
     });
 
-    const catLabel = {
-      text:'Text·LLM', vision:'Vision', training:'Training',
-      data:'Data', search:'Search', finance:'Finance'
-    };
-
     function sparkSVG(series, color){
       const w = 80, h = 22, pad = 1;
       const mn = Math.min(...series), mx = Math.max(...series);
@@ -613,7 +592,7 @@
         return `<tr data-net="${s.netuid}">
           <td class="net">SN${s.netuid}</td>
           <td class="name">${s.name}</td>
-          <td class="cat">${catLabel[s.cat]||s.cat}</td>
+          <td class="cat" style="color:${catColor(s.cat)}">${catLabel(s.cat)}</td>
           <td class="num">$${s.price.toFixed(2)}</td>
           <td class="num">τ ${s.emission}</td>
           <td class="num miners-col">${fmt.comma(s.miners)}</td>
@@ -622,6 +601,11 @@
           <td class="num">${sparkSVG(s.series, sparkColor)}</td>
         </tr>`;
       }).join('');
+      // click row → subnet detail modal
+      tbody.querySelectorAll('tr[data-net]').forEach(tr => {
+        tr.style.cursor = 'pointer';
+        tr.addEventListener('click', () => openSubnetModal(+tr.dataset.net));
+      });
     }
     render();
 
@@ -744,17 +728,17 @@
     if (!grid) return;
     // 92 cells — mirror network size; reuse SUBNETS for first 18, synthesize rest
     const N = 92;
-    const catLabels = {text:'Text',vision:'Vision',training:'Training',data:'Data',search:'Search',finance:'Finance'};
+    const catKeys = Object.keys(CATEGORIES);
     const cells = [];
     for (let i=0;i<N;i++){
       if (i < SUBNETS.length){
         cells.push({...SUBNETS[i]});
       } else {
-        const cats = Object.keys(catLabels);
         cells.push({
           netuid: i+1,
           name: `SN${i+1}`,
-          cat: cats[Math.floor(Math.random()*cats.length)],
+          cat: catKeys[Math.floor(Math.random()*catKeys.length)],
+          chg24: (Math.random()-.5) * 30,
           change: (Math.random()-.5) * 30,
           emission: Math.round(Math.random()*40 + 4),
         });
