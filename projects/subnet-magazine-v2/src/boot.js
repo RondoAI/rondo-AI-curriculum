@@ -10,6 +10,7 @@ import { qs } from './lib/dom.js';
 import { DataLayer } from './data/layer.js';
 import { mountStatusStrip } from './views/StatusStrip.js';
 import { mountMasthead } from './views/Masthead.js';
+import { mountHero } from './views/Hero.js';
 import { mountNetworkMap } from './views/NetworkMap.js';
 
 const teardowns = [];
@@ -29,6 +30,7 @@ function boot(){
   // 2) mount views — order is the page reading order
   mountIf('[data-mount="statusbar"]', root => mountStatusStrip(root, DataLayer));
   mountIf('[data-mount="masthead"]',  mountMasthead);
+  mountIf('[data-mount="hero"]',      root => mountHero(root, DataLayer));
   mountIf('[data-mount="netmap"]',    mountNetworkMap);
 
   // 3) clean teardown on unload (idempotent)

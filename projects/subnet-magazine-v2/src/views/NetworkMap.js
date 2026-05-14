@@ -9,7 +9,7 @@
    ================================================================= */
 
 import { html, mount, qs, raw } from '../lib/dom.js';
-import { WorldMap } from '../charts/WorldMap.js';
+import { WorldGlobe } from '../charts/WorldGlobe.js';
 
 /* The same hub list as WorldMap.js — keep in sync. */
 const HUBS = [
@@ -196,7 +196,7 @@ export function mountNetworkMap(root){
   `);
 
   const canvas = qs('[data-canvas="worldmap"]', root);
-  const chart = canvas ? new WorldMap(canvas) : null;
+  const chart = canvas ? new WorldGlobe(canvas) : null;
 
   return {
     destroy(){ chart?.destroy(); },
