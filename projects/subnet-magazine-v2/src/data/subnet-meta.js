@@ -10,12 +10,36 @@
    ================================================================= */
 
 /**
+ * @typedef {Object} SubnetUpdate
+ * @prop {string} date         ISO 'YYYY-MM-DD'
+ * @prop {'release'|'docs'|'announce'|'governance'|'eval'} type
+ * @prop {string} title
+ *
+ * @typedef {Object} SubnetSpecs
+ * @prop {string}   [founded]    ISO date when the subnet first registered
+ * @prop {string}   [version]    current shipping version
+ * @prop {string}   [chain]      'Subtensor mainnet' typically
+ * @prop {string}   [model]      Yuma scoring model summary
+ * @prop {string}   [epochBlocks]how many blocks per epoch (typically 360)
+ * @prop {string}   [reqMiner]   miner hardware / stake requirement
+ * @prop {string}   [reqVal]     validator hardware / stake requirement
+ *
  * @typedef {Object} SubnetMeta
- * @prop {string} [website]
- * @prop {string} [twitter]      handle without the @
- * @prop {string} [longDesc]     2–3 sentence research summary
+ * @prop {string}   [website]
+ * @prop {string}   [twitter]    handle without the @
+ * @prop {string}   [longDesc]   2–3 sentence research summary
  * @prop {string[]} [reads]      recommended reading / blog posts
+ * @prop {SubnetUpdate[]} [updates]  curated recent update history
+ * @prop {SubnetSpecs}    [specs]    protocol-level fields
  */
+
+/* Common spec defaults — same Substrate chain, same Yuma cycle for
+   most subnets. Per-subnet overrides supplement these. */
+const DEFAULT_SPECS = {
+  chain:       'Subtensor mainnet',
+  epochBlocks: '360',
+  model:       'Yuma Consensus · weight-based',
+};
 
 /** @type {Record<number, SubnetMeta>} */
 export const SUBNET_META = {
@@ -23,6 +47,17 @@ export const SUBNET_META = {
     website: 'https://macrocosmos.ai/sn1',
     twitter: 'macrocosmos_ai',
     longDesc: 'Open-domain text prompting is the original Bittensor miner battleground. Miners ship LLM inference; validators score responses against rubric-graded prompts. SN1 set the template every text subnet has iterated on since.',
+    specs: {
+      founded:  '2023-09-08',
+      version:  'v6.2 (Apex)',
+      reqMiner: 'GPU inference node · ≤ 800ms response time',
+      reqVal:   '32 GB RAM · ≥ 2.5k τ stake',
+    },
+    updates: [
+      { date: '2026-05-12', type: 'announce', title: 'SN1 still #1 emitter — τ 412/day average' },
+      { date: '2026-04-28', type: 'release',  title: 'Apex v6.2 — adversarial validator pool expanded' },
+      { date: '2026-03-30', type: 'eval',     title: 'New rubric set: GPQA-flavored hard reasoning' },
+    ],
   },
   2: {
     website: 'https://omron.ai',
@@ -57,6 +92,18 @@ export const SUBNET_META = {
     website: 'https://macrocosmos.ai/sn9',
     twitter: 'macrocosmos_ai',
     longDesc: 'From-scratch language-model pretraining with public loss leaderboards. Macrocosmos runs the competition; miners train ever-better tiny models. The frontier of decentralized training research.',
+    specs: {
+      founded:  '2024-02-04',
+      version:  'v3.1',
+      reqMiner: '8× A100 / 4× H100 minimum · public model weights',
+      reqVal:   '64 GB RAM · ≥ 4k τ stake',
+    },
+    updates: [
+      { date: '2026-05-11', type: 'eval',     title: 'New eval set: subset of FineWeb-Edu Q4 2025' },
+      { date: '2026-04-30', type: 'announce', title: 'SN9 leader 0xA3 hits 4.18 PPL — new ATL' },
+      { date: '2026-04-12', type: 'release',  title: 'v3.1 — lift parameter cap to 1.7B' },
+      { date: '2026-03-18', type: 'governance',title:'Per-checkpoint weight averaging window doubled' },
+    ],
   },
   10: {
     website: 'https://sturdy.finance',
@@ -181,6 +228,18 @@ export const SUBNET_META = {
     website: 'https://gradients.io',
     twitter: 'rayon_labs',
     longDesc: 'No-code finetuning service. Upload a dataset, miners auto-train models with various configurations, validators score on held-out eval loss. Compete with Together AI and Fireworks for the finetuning surface.',
+    specs: {
+      founded:  '2024-11-08',
+      version:  'v2.4',
+      reqMiner: '1+ GPU node · Python 3.11 · ≥ 200 GB SSD',
+      reqVal:   '32 GB RAM · ≥ 2k τ stake',
+    },
+    updates: [
+      { date: '2026-05-09', type: 'release',  title: 'v2.4 — DoRA + QLoRA recipes added' },
+      { date: '2026-04-19', type: 'announce', title: 'SN56 surpasses τ 150/day, second-largest emitter' },
+      { date: '2026-04-05', type: 'docs',     title: 'New tutorial: finetuning Llama 5 8B on a 4090' },
+      { date: '2026-03-24', type: 'eval',     title: 'Eval set rotated to MMLU-Pro + IFEval mix' },
+    ],
   },
   57: {
     website: 'https://nimbus.gg',
@@ -208,6 +267,19 @@ export const SUBNET_META = {
     twitter: 'rayon_labs',
     longDesc: 'Verifiable serverless function execution for AI workloads. Chutes is the decentralized answer to AWS Lambda + Modal — deploy a Python function, get it run on miner compute, get a signed receipt of execution.',
     reads: ['https://chutes.ai/docs', 'https://rayonlabs.ai'],
+    specs: {
+      founded:  '2025-03-12',
+      version:  'v0.8.2',
+      reqMiner: 'GPU node · ≥ 24 GB VRAM · static IP',
+      reqVal:   '32 GB RAM · 200 GB SSD · ≥ 1k τ stake',
+    },
+    updates: [
+      { date: '2026-05-08', type: 'release',  title: 'v0.8 — multi-region GPU pool, Hopper class added' },
+      { date: '2026-04-22', type: 'docs',     title: 'Provider docs updated for Ampere / Hopper / Blackwell' },
+      { date: '2026-04-03', type: 'announce', title: 'Chutes crosses τ 100/day in emissions, top-5 by validator count' },
+      { date: '2026-03-15', type: 'release',  title: 'v0.7 — verifiable receipts moved on-chain' },
+      { date: '2026-02-26', type: 'governance',title:'Validator weight cap raised to 18% per coldkey' },
+    ],
   },
   67: {
     website: 'https://bitmint.io',
@@ -274,4 +346,24 @@ export function subnetTwitter(s){
 /** Long-form research summary. */
 export function subnetLongDesc(s){
   return SUBNET_META[s.netuid]?.longDesc || s.desc;
+}
+
+/**
+ * Resolve protocol-level spec fields, merging defaults with overrides.
+ * Always returns a usable object so the SubnetDetail page never has
+ * to handle missing data.
+ */
+export function subnetSpecs(s){
+  return {
+    ...DEFAULT_SPECS,
+    ...(SUBNET_META[s.netuid]?.specs ?? {}),
+    netuid: s.netuid,
+    owner: s.owner,
+  };
+}
+
+/** Recent update history, newest first. */
+export function subnetUpdates(s){
+  const arr = SUBNET_META[s.netuid]?.updates ?? [];
+  return arr.slice().sort((a, b) => (b.date < a.date ? -1 : 1));
 }
