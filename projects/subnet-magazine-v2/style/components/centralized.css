@@ -57,7 +57,7 @@
 .cd-tape__track{
   display: inline-flex; gap: var(--s-2);
   white-space: nowrap;
-  animation: cd-marquee 64s linear infinite;
+  animation: cd-marquee 150s linear infinite;
 }
 .cd-tape:hover .cd-tape__track{ animation-play-state: paused; }
 @keyframes cd-marquee{

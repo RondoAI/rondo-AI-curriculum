@@ -8,6 +8,7 @@
 
 import { qs } from './lib/dom.js';
 import { DataLayer } from './data/layer.js';
+import { mountTickers } from './views/Tickers.js';
 import { mountStatusStrip } from './views/StatusStrip.js';
 import { mountMasthead } from './views/Masthead.js';
 import { mountHero } from './views/Hero.js';
@@ -37,6 +38,7 @@ function boot(){
   DataLayer.start();
 
   // 2) mount views — order is the page reading order
+  mountIf('[data-mount="tickers"]',   root => mountTickers(root, DataLayer));
   mountIf('[data-mount="statusbar"]', root => mountStatusStrip(root, DataLayer));
   mountIf('[data-mount="masthead"]',  mountMasthead);
   mountIf('[data-mount="hero"]',      root => mountHero(root, DataLayer));

@@ -1,13 +1,13 @@
 /* =================================================================
    STATUS STRIP VIEW
    -----------------------------------------------------------------
-   Mounts the persistent top status bar. Subscribes to the data
-   layer for TAO price and block height; ticks the UTC clock locally
-   every second. Returns a teardown function.
+   Mounts the persistent top status bar (it sits just under the
+   ticker tapes). Subscribes to the data layer for TAO price and
+   block height. Returns a teardown function.
    ================================================================= */
 
 import { html, mount, qs } from '../lib/dom.js';
-import { clock, bbgDate, money, pct, deltaClass } from '../lib/format.js';
+import { bbgDate, money, pct, deltaClass } from '../lib/format.js';
 
 /**
  * @param {HTMLElement} root
@@ -22,11 +22,6 @@ export function mountStatusStrip(root, dataLayer = null){
         <span class="statusbar__sep">│</span>
         <span class="statusbar__field" data-field="date">
           <span class="statusbar__value" data-bind="date">${bbgDate()}</span>
-        </span>
-        <span class="statusbar__sep">│</span>
-        <span class="statusbar__field" title="UTC time">
-          <span class="statusbar__label">UTC</span>
-          <span class="statusbar__value mono" data-bind="clock">${clock()}</span>
         </span>
         <span class="statusbar__sep">│</span>
         <span class="statusbar__field" title="Chain block height">
@@ -58,15 +53,9 @@ export function mountStatusStrip(root, dataLayer = null){
 
   const bind = sel => qs(`[data-bind="${sel}"]`, root);
 
-  // 1) Local UTC clock
-  const clockEl = bind('clock');
-  const dateEl  = bind('date');
-  const tick = () => {
-    if (clockEl) clockEl.textContent = clock();
-    if (dateEl)  dateEl.textContent  = bbgDate();
-  };
-  tick();
-  const clockTimer = setInterval(tick, 1000);
+  // 1) Date — set once; it only changes at UTC midnight
+  const dateEl = bind('date');
+  if (dateEl) dateEl.textContent = bbgDate();
 
   // 2) Block height — from data layer or synthetic
   const blockEl = bind('block');
@@ -108,7 +97,6 @@ export function mountStatusStrip(root, dataLayer = null){
   }
 
   return function destroy(){
-    clearInterval(clockTimer);
     clearInterval(blockTimer);
     blockUnsub();
     priceUnsub();
