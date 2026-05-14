@@ -15,10 +15,13 @@
 
 # next.js
 /.next/
-/out/
 
 # production
 /build
+
+# the static export (out/) IS committed — it's the raw.githack-hosted
+# build. .static-stash is the build script's scratch dir; ignore it.
+/.static-stash/
 
 # misc
 .DS_Store
