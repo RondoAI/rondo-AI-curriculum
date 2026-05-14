@@ -18,8 +18,11 @@
    reached the band falls back to "—" rather than faking numbers.
    ================================================================= */
 
-import { html, mount, qs } from '../lib/dom.js';
-import { money, compact, pct, deltaClass } from '../lib/format.js';
+import { html, mount, qs, qsa } from '../lib/dom.js';
+import { money, compact, pct, deltaClass, bbgDate } from '../lib/format.js';
+import { mark, seedSeries } from '../lib/mark.js';
+import { Sparkline } from '../charts/Sparkline.js';
+import { CoverArt } from '../charts/CoverArt.js';
 
 const SECTIONS = [
   { code:'020', label:'TAO Terminal',  href:'terminal.html',
@@ -42,6 +45,21 @@ const SECTIONS = [
  */
 export function mountHome(root, dataLayer = null){
   mount(root, html`
+    <!-- ===== COVER ===== -->
+    <section class="home-cover" aria-label="Issue cover">
+      <canvas class="home-cover__art" data-canvas="cover-art" aria-hidden="true"></canvas>
+      <div class="home-cover__inner">
+        <div class="home-cover__meta">
+          <span>Issue No. 02</span>
+          <span>${bbgDate()}</span>
+          <span>Decentralized Intelligence Desk</span>
+        </div>
+        <h1 class="home-cover__title">The market for <em>intelligence</em>, on-chain.</h1>
+        <p class="home-cover__dek">A research terminal for Bittensor — live subnet markets, validator
+        analytics, and editorial coverage of decentralized AI, with Asian frontier labs covered first-class.</p>
+      </div>
+    </section>
+
     <!-- ===== LIVE NETWORK band ===== -->
     <section class="home-net" aria-label="Live network statistics">
       <div class="home-net__head">
@@ -126,6 +144,10 @@ export function mountHome(root, dataLayer = null){
     </footer>
   `);
 
+  /* ---------- cover art ---------- */
+  const coverCanvas = qs('[data-canvas="cover-art"]', root);
+  const cover = coverCanvas ? new CoverArt(coverCanvas) : null;
+
   /* ---------- bind: LIVE NETWORK band ---------- */
   const bind = sel => qs(`[data-bind="${sel}"]`, root);
   const els = {
@@ -171,15 +193,21 @@ export function mountHome(root, dataLayer = null){
 
   /* ---------- bind: TOP SUBNETS ---------- */
   const grid = qs('#home-subnets-grid', root);
+  let sparks = [];
   function renderSubnets(list){
     if (!grid || !Array.isArray(list) || !list.length) return;
+    sparks.splice(0).forEach(sp => { try { sp.destroy(); } catch (_) {} });
     const top = list.slice(0, 12);
     grid.innerHTML = top.map((s, i) => {
       const up = (s.chg24 ?? 0) >= 0;
+      /* Real logo when the API gives one; a generated node-graph
+         monogram (deterministic per name) as the fallback so every
+         card carries a mark, never a bare letter. */
+      const fallback = mark(s.name, { size: 32 });
       const logo = s.logo
-        ? `<img class="home-subnet__logo" src="${s.logo}" alt="" loading="lazy" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
-           <span class="home-subnet__logo-fallback" style="display:none">${s.symbol || 'α'}</span>`
-        : `<span class="home-subnet__logo-fallback">${s.symbol || 'α'}</span>`;
+        ? `<img class="home-subnet__logo" src="${s.logo}" alt="" loading="lazy" onerror="this.style.display='none';this.nextElementSibling.style.display='block'">
+           <span class="home-subnet__logo-fallback" style="display:none">${fallback}</span>`
+        : `<span class="home-subnet__logo-fallback">${fallback}</span>`;
       return `
         <li class="home-subnet">
           <a class="home-subnet__link" href="subnet.html?id=${s.netuid}">
@@ -187,6 +215,7 @@ export function mountHome(root, dataLayer = null){
             <span class="home-subnet__logo-wrap">${logo}</span>
             <span class="home-subnet__id">SN${s.netuid}</span>
             <span class="home-subnet__name">${s.name}</span>
+            <span class="home-subnet__spark"><canvas></canvas></span>
             <span class="home-subnet__price">${s.price < 1 ? '$' + s.price.toFixed(4) : money(s.price)}</span>
             <span class="home-subnet__chg ${up ? 'up' : 'down'}">${pct(s.chg24 ?? 0)}</span>
             <span class="home-subnet__mcap">MC $${compact(s.marketcap)}</span>
@@ -194,6 +223,14 @@ export function mountHome(root, dataLayer = null){
         </li>
       `;
     }).join('');
+    /* mount one sparkline per card — synthesized trend keyed to the
+       subnet name + its real 24h change until a real per-subnet
+       history endpoint is wired in. */
+    const canvases = qsa('.home-subnet__spark canvas', grid);
+    canvases.forEach((cv, i) => {
+      const s = top[i];
+      sparks.push(new Sparkline(cv, { series: seedSeries(s.name, s.chg24 ?? 0, 24) }));
+    });
   }
 
   /* ---------- subscribe ---------- */
@@ -209,6 +246,10 @@ export function mountHome(root, dataLayer = null){
   }
 
   return {
-    destroy(){ unsubs.forEach(u => u()); },
+    destroy(){
+      unsubs.forEach(u => u());
+      sparks.splice(0).forEach(sp => { try { sp.destroy(); } catch (_) {} });
+      cover?.destroy();
+    },
   };
 }
