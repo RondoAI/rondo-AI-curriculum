@@ -33,6 +33,10 @@
     <div data-mount="home"></div>
   </main>
 
+  <!-- Local config (gitignored). Sets window.__SUBNET_CONFIG__ before
+       boot — keys, proxy overrides. Absent on public previews; the
+       data layer then falls back to the keyless TMC public API. -->
+  <script src="config.js"></script>
   <!-- ES module entry. Browsers without ES module support get nothing,
        and that is fine for a research-terminal app. -->
   <script type="module" src="src/boot.js"></script>
