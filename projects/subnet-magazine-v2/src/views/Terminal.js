@@ -339,16 +339,17 @@ export function mountTerminal(root, dataLayer = null){
      drive the summary strip; the chart itself doesn't tick. */
   const tickTimer = 0;
 
-  /* ===== Performance bar chart ===== */
+  /* ===== Performance bar chart (clickable → SubnetDetail) ===== */
   const perfCanvas = qs('[data-canvas="perf"]', root);
   const perfData = (() => {
     const sorted = [...SUBNETS].sort((a, b) => b.chg24 - a.chg24);
     const top = sorted.slice(0, 6);
     const bot = sorted.slice(-6).reverse();
     return [...top, ...bot].map(s => ({
-      label: `SN${s.netuid} · ${s.name}`,
-      value: s.chg24,
-      sub:   catLabel(s.cat),
+      label:  `SN${s.netuid} · ${s.name}`,
+      value:  s.chg24,
+      sub:    catLabel(s.cat),
+      netuid: s.netuid,
     }));
   })();
   const perfChart = perfCanvas ? new BarChart(perfCanvas, {
@@ -356,24 +357,27 @@ export function mountTerminal(root, dataLayer = null){
     bipolar:     true,
     data:        perfData,
     formatValue: v => `${v >= 0 ? '+' : ''}${v.toFixed(2)}%`,
+    onBarClick:  (row) => { window.location.href = `subnet.html?id=${row.netuid}`; },
   }) : null;
 
-  /* ===== Emissions leaderboard ===== */
+  /* ===== Emissions leaderboard (clickable → SubnetDetail) ===== */
   const emitCanvas = qs('[data-canvas="emit"]', root);
-  const emitData = [...SUBNETS]
+  const emitSubnets = [...SUBNETS]
     .sort((a, b) => b.emission - a.emission)
-    .slice(0, 12)
-    .map(s => ({
-      label: `SN${s.netuid} · ${s.name}`,
-      value: s.emission,
-      sub:   catLabel(s.cat),
-      color: catColor(s.cat),
-    }));
+    .slice(0, 12);
+  const emitData = emitSubnets.map(s => ({
+    label:  `SN${s.netuid} · ${s.name}`,
+    value:  s.emission,
+    sub:    catLabel(s.cat),
+    color:  catColor(s.cat),
+    netuid: s.netuid,                     // carried through so onBarClick can route
+  }));
   const emitChart = emitCanvas ? new BarChart(emitCanvas, {
     orientation: 'horizontal',
     bipolar:     false,
     data:        emitData,
     formatValue: v => `τ ${Math.round(v).toLocaleString('en-US')}`,
+    onBarClick:  (row) => { window.location.href = `subnet.html?id=${row.netuid}`; },
   }) : null;
 
   /* ===== Category breakdown table ===== */
