@@ -23,6 +23,22 @@ import { money, compact, pct, deltaClass, bbgDate } from '../lib/format.js';
 import { mark, seedSeries } from '../lib/mark.js';
 import { Sparkline } from '../charts/Sparkline.js';
 import { CoverArt } from '../charts/CoverArt.js';
+import { articlesByDate } from '../data/articles.js';
+
+const CAT_LABEL = {
+  'reporting':   'REPORTING',
+  'profile':     'SUBNET PROFILE',
+  'op-ed':       'OP-ED',
+  'fund-letter': 'FUND LETTER',
+  'primer':      'PRIMER',
+};
+
+function artDate(iso){
+  const d = new Date(iso + 'T00:00:00Z');
+  return `${String(d.getUTCDate()).padStart(2,'0')} `
+       + `${d.toLocaleDateString('en-US',{month:'short'}).toUpperCase()} `
+       + `${d.getUTCFullYear()}`;
+}
 
 const SECTIONS = [
   { code:'020', label:'TAO Terminal',  href:'terminal.html',
@@ -44,7 +60,33 @@ const SECTIONS = [
  * @param {{subscribe:Function, get:Function}|null} [dataLayer]
  */
 export function mountHome(root, dataLayer = null){
+  const articles = articlesByDate();
+
   mount(root, html`
+    <!-- ===== FEATURED RESEARCH (top of page) ===== -->
+    <section class="home-research" aria-label="Featured research">
+      <div class="home-research__head">
+        <span class="home-net__kicker"><span class="live-dot"></span>Featured Research · the desk</span>
+        <a class="home-subnets__all" href="articles.html">All research ↗</a>
+      </div>
+      <ul class="home-research__grid">
+        ${articles.map((a, i) => `
+          <li class="home-article ${i === 0 ? 'is-lead' : ''}">
+            <a class="home-article__link" href="articles.html?id=${a.id}">
+              <span class="home-article__mark">${mark(a.title, { size: 44, label: (a.kicker || a.category || 'R')[0] })}</span>
+              <span class="home-article__kicker">${CAT_LABEL[a.category] || (a.kicker || 'RESEARCH')}</span>
+              <span class="home-article__title">${a.title}</span>
+              <span class="home-article__tagline">${a.tagline}</span>
+              <span class="home-article__meta">
+                <span>${a.authors.join(', ')}</span>
+                <span>${artDate(a.date)} · ${a.readMin} min</span>
+              </span>
+            </a>
+          </li>
+        `).join('')}
+      </ul>
+    </section>
+
     <!-- ===== COVER ===== -->
     <section class="home-cover" aria-label="Issue cover">
       <canvas class="home-cover__art" data-canvas="cover-art" aria-hidden="true"></canvas>

@@ -1,0 +1,5 @@
+# Local config — never committed.
+# Copy config.example.js → config.js and drop in your real keys.
+# config.js is loaded by every page before boot.js; without it the
+# site runs on the keyless Tao Market Cap public API.
+config.js

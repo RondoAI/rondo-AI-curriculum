@@ -1,13 +1,24 @@
 /* =================================================================
-   SUBNET MAGAZINE — DATA LAYER (v3 · TMC-powered, REAL data)
+   SUBNET MAGAZINE — DATA LAYER (v4 · TMC + taostats, REAL data)
    -----------------------------------------------------------------
-   Pulls live Bittensor data from the Tao Market Cap public API
-   (api.taomarketcap.com/public/v1, no auth, 10 req/min per IP).
+   Pulls live Bittensor data from two real sources:
 
-   The API does not send permissive CORS headers, so each request
-   first tries a direct fetch and, on failure, retries through a
-   public CORS proxy. The proxy is configurable via
-   window.__SUBNET_CONFIG__.corsProxy; default is codetabs.
+     1. Tao Market Cap public API (api.taomarketcap.com/public/v1,
+        no auth, 10 req/min per IP) — market, subnet table, chain
+        analytics. TMC sends no CORS headers, so each request tries
+        a direct fetch and, on failure, retries through a public
+        CORS proxy (configurable via window.__SUBNET_CONFIG__
+        .corsProxy; default codetabs).
+
+     2. taostats.io API (api.taostats.io/api) — used ONLY when a key
+        is present in window.__SUBNET_CONFIG__.taostatsKey. taostats
+        sends `access-control-allow-origin: *`, so it's a clean
+        direct fetch, no proxy. Its unique value here is the live
+        validator leaderboard, which TMC does not expose.
+
+   The key lives in config.js (gitignored) — never committed. With
+   no key the site runs fully on the keyless TMC API; the taostats
+   feed simply stays empty.
 
    Pub/sub channels:
      'tao:market'   { price, marketCap, volume24h, change1h/24h/7d/
@@ -19,6 +30,11 @@
      'tao:chain'    { totalStaked, totalIssuance, rootPct,
                       subnetsPct, walletsPct, tradingVol1h,
                       blockNumber, ts }
+     'tao:validators' Array<{ hotkey, coldkey, name, rank,
+                      nominators, nominatorsChg24h, stake,
+                      systemStake, stakeChg24h, dominance, take,
+                      apr, apr7d, apr30d, subnets, permits,
+                      pendingEmission }>   (taostats — key required)
      'tao:block'    { height, source }   (derived from market data)
 
    Every channel falls back gracefully: a failed refresh keeps the
@@ -33,14 +49,23 @@ const CONFIG = Object.freeze({
   /* codetabs is keyless and CORS-open; allorigins / corsproxy are
      alternates the user can swap in via config.js if it rate-limits. */
   proxy: USER_CFG.corsProxy || 'https://api.codetabs.com/v1/proxy/?quest=',
+  /* taostats — optional, key-gated, CORS-clean (no proxy needed). */
+  taostatsBase: 'https://api.taostats.io/api',
+  taostatsKey:  USER_CFG.taostatsKey || null,
   refresh: {
-    'tao:market':  45_000,
-    'tao:subnets': 90_000,
-    'tao:chain':   120_000,
+    'tao:market':     45_000,
+    'tao:subnets':    90_000,
+    'tao:chain':      120_000,
+    'tao:validators': 120_000,
   },
   timeout: 12_000,
   retries: 1,
 });
+
+/** RAO → TAO. taostats returns stake amounts in RAO (1 τ = 1e9 RAO). */
+const RAO = 1e9;
+/** Coerce a possibly-stringified number; null/undefined → fallback. */
+const num = (v, fb = null) => (v == null || v === '' || isNaN(+v) ? fb : +v);
 
 /* ---------- pub/sub + cache ---------- */
 const cache = new Map();
@@ -103,6 +128,30 @@ async function tmc(path){
     }
   }
   throw new Error('tmc: unreachable');
+}
+
+/**
+ * Fetch a taostats endpoint. Key-gated, CORS-clean — a single
+ * direct fetch with the Authorization header, no proxy.
+ * @param {string} path  e.g. '/validator/latest/v1?limit=100'
+ */
+async function taostats(path){
+  if (!CONFIG.taostatsKey) throw new Error('taostats: no key');
+  const c = new AbortController();
+  ctrls.add(c);
+  const to = setTimeout(() => c.abort(), CONFIG.timeout);
+  try {
+    const res = await fetch(CONFIG.taostatsBase + path, {
+      signal: c.signal,
+      cache: 'no-store',
+      headers: { Authorization: CONFIG.taostatsKey },
+    });
+    if (!res.ok) throw new Error(`HTTP ${res.status}`);
+    return await res.json();
+  } finally {
+    clearTimeout(to);
+    ctrls.delete(c);
+  }
 }
 
 /* ---------- adapters ---------- */
@@ -202,6 +251,42 @@ async function refreshChain(){
   }
 }
 
+/**
+ * Live validator leaderboard from taostats. Only runs when a key is
+ * configured — TMC has no equivalent feed. Stake amounts arrive in
+ * RAO and as strings; normalized here to TAO numbers.
+ */
+async function refreshValidators(){
+  if (!CONFIG.taostatsKey) return;
+  try {
+    const res = await taostats('/validator/latest/v1?limit=100&order=rank_asc');
+    const rows = res?.data;
+    if (!Array.isArray(rows) || !rows.length) throw new Error('empty');
+    const mapped = rows.map(v => ({
+      hotkey:          v.hotkey?.ss58 || null,
+      coldkey:         v.coldkey?.ss58 || null,
+      name:            v.name || (v.hotkey?.ss58 ? v.hotkey.ss58.slice(0, 8) + '…' : 'Unknown'),
+      rank:            num(v.rank, 0),
+      nominators:      num(v.nominators, 0),
+      nominatorsChg24h:num(v.nominators_24_hr_change, 0),
+      stake:           num(v.stake, 0) / RAO,
+      systemStake:     num(v.system_stake, 0) / RAO,
+      stakeChg24h:     num(v.stake_24_hr_change, 0) / RAO,
+      dominance:       num(v.dominance, 0),
+      take:            num(v.take, 0) * 100,
+      apr:             num(v.apr, 0) * 100,
+      apr7d:           num(v.apr_7_day_average, 0) * 100,
+      apr30d:          num(v.apr_30_day_average, 0) * 100,
+      subnets:         Array.isArray(v.registrations) ? v.registrations.length : 0,
+      permits:         Array.isArray(v.permits) ? v.permits.length : 0,
+      pendingEmission: num(v.pending_emission, 0) / RAO,
+    })).sort((a, b) => a.rank - b.rank);
+    emit('tao:validators', mapped);
+  } catch (e){
+    console.warn('[DataLayer] tao:validators failed:', e?.message || e);
+  }
+}
+
 /* ---------- lifecycle ---------- */
 
 export function start(){
@@ -211,6 +296,11 @@ export function start(){
   timers.push(setInterval(refreshMarket,  CONFIG.refresh['tao:market']));
   timers.push(setInterval(refreshSubnets, CONFIG.refresh['tao:subnets']));
   timers.push(setInterval(refreshChain,   CONFIG.refresh['tao:chain']));
+  /* taostats validator feed — only when a key is configured. */
+  if (CONFIG.taostatsKey){
+    refreshValidators();
+    timers.push(setInterval(refreshValidators, CONFIG.refresh['tao:validators']));
+  }
 }
 
 export function stop(){
