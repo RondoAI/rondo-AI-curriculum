@@ -145,7 +145,29 @@ export class WorldGlobe extends Chart {
     }));
     /** @private */ this.mesh = this._buildMesh();
 
+    /* Optional live state — pushed in by the view via setStatus().
+       Used to render data overlays inside the canvas. */
+    /** @private */ this.status = {
+      block:        4_812_047,
+      epochBlock:   268,           // block within current 360-block epoch
+      epoch:        14_302,
+      tps:          2_147,
+      vp:           96.4,          // validator participation %
+      mempool:      412,           // pending tx count
+      blockTimeMs:  12_000,
+      emissionDay:  7_200,         // τ minted per day
+    };
+
     this._bind();
+  }
+
+  /**
+   * Push live data into the globe.
+   * @param {Partial<typeof this.status>} patch
+   */
+  setStatus(patch){
+    if (!patch) return;
+    Object.assign(this.status, patch);
   }
 
   _bind(){
@@ -495,17 +517,92 @@ export class WorldGlobe extends Chart {
     ctx.lineWidth = 0.6;
     ctx.beginPath(); ctx.arc(cx, cy, R * 1.06, 0, Math.PI * 2); ctx.stroke();
 
-    /* chrome — minimal */
-    ctx.font = '600 9.5px JetBrains Mono, monospace';
-    ctx.fillStyle = 'rgba(255,30,60,.55)';
-    ctx.textAlign = 'left'; ctx.textBaseline = 'top';
-    ctx.fillText('ORBITAL · WGS84', 12, 12);
-    ctx.textAlign = 'right';
-    const lonOff = ((this.rotY / Math.PI * 180) % 360 + 540) % 360 - 180;
-    ctx.fillText(`LON ${lonOff.toFixed(0).padStart(4, ' ')}°   DRAG TO ROTATE`, w - 12, 12);
+    /* === Data overlays — terminal-grade chrome === */
+    this._drawOverlays(ctx, w, h, t);
 
     /* lint guard */
     void RED_3;
+  }
+
+  /** Render the four-corner data readouts and the epoch progress bar. */
+  _drawOverlays(ctx, w, h, t){
+    const RED_DIM   = 'rgba(255,30,60,.55)';
+    const RED_VDIM  = 'rgba(255,30,60,.32)';
+    const INK_DIM   = 'rgba(232,200,205,.65)';
+
+    const s = this.status;
+    const lonOff = ((this.rotY / Math.PI * 180) % 360 + 540) % 360 - 180;
+    const tps = (s.tps + Math.sin(t * 0.6) * 24 | 0);
+    const epochProgress = (s.epochBlock % 360) / 360;
+    const blocksLeft = 360 - (s.epochBlock % 360);
+    const secsLeft = Math.max(0, blocksLeft * (s.blockTimeMs / 1000));
+    const mm = Math.floor(secsLeft / 60), ss = Math.floor(secsLeft % 60);
+    const countdown = `${String(mm).padStart(2, '0')}:${String(ss).padStart(2, '0')}`;
+
+    /* Top-left: SYS · CHAIN · BLOCK */
+    ctx.font = '600 9.5px JetBrains Mono, monospace';
+    ctx.textAlign = 'left'; ctx.textBaseline = 'top';
+    ctx.fillStyle = RED_DIM;
+    ctx.fillText('SYS  ·  CHAIN', 12, 12);
+    ctx.fillStyle = INK_DIM;
+    ctx.fillText('v3.2.4  ·  MAINNET', 12, 26);
+    ctx.fillStyle = RED_DIM;
+    ctx.fillText(`BLOCK  ·  ${s.block.toLocaleString('en-US')}`, 12, 40);
+
+    /* Top-right: ORBITAL · EPOC · EMIT */
+    ctx.textAlign = 'right';
+    ctx.fillStyle = RED_DIM;
+    ctx.fillText('ORBITAL  ·  WGS84', w - 12, 12);
+    ctx.fillStyle = INK_DIM;
+    ctx.fillText(`LON ${lonOff.toFixed(0).padStart(4, ' ')}°  ·  EPOC ${s.epoch.toLocaleString('en-US')}`, w - 12, 26);
+    ctx.fillStyle = RED_DIM;
+    ctx.fillText(`τ EMIT  ·  ${s.emissionDay.toLocaleString('en-US')} / d`, w - 12, 40);
+
+    /* Bottom-left: epoch progress bar + countdown */
+    const barX = 12;
+    const barY = h - 30;
+    const barW = Math.min(220, w * 0.35);
+    const barH = 4;
+    ctx.fillStyle = 'rgba(255,30,60,.08)';
+    ctx.fillRect(barX, barY, barW, barH);
+    const fillW = Math.max(1, Math.floor(barW * epochProgress));
+    const grad = ctx.createLinearGradient(barX, 0, barX + barW, 0);
+    grad.addColorStop(0, '#FF1E3C');
+    grad.addColorStop(1, '#FF8094');
+    ctx.fillStyle = grad;
+    ctx.fillRect(barX, barY, fillW, barH);
+    ctx.font = '600 9.5px JetBrains Mono, monospace';
+    ctx.textAlign = 'left'; ctx.textBaseline = 'bottom';
+    ctx.fillStyle = RED_DIM;
+    ctx.fillText(`EPOCH PROGRESS  ${(epochProgress * 100).toFixed(0).padStart(2, ' ')}%`, barX, barY - 4);
+    ctx.fillStyle = INK_DIM;
+    ctx.textBaseline = 'top';
+    ctx.fillText(`CLOSE IN  ${countdown}  ·  ${blocksLeft} BLOCKS`, barX, barY + 10);
+
+    /* Bottom-right: TPS · VP · MEMPOOL */
+    ctx.textAlign = 'right';
+    ctx.textBaseline = 'bottom';
+    const items = [
+      { k:'TPS',     v: tps.toString() },
+      { k:'VP',      v: `${s.vp.toFixed(1)}%` },
+      { k:'MEMPOOL', v: s.mempool.toString() },
+    ];
+    let xCursor = w - 12;
+    for (let i = items.length - 1; i >= 0; i--){
+      const it = items[i];
+      const txt = `${it.k} ${it.v}`;
+      const tw = ctx.measureText(txt).width;
+      ctx.fillStyle = INK_DIM;
+      ctx.fillText(txt, xCursor, h - 12);
+      xCursor -= (tw + 18);
+    }
+
+    /* drag hint */
+    ctx.font = '600 9px JetBrains Mono, monospace';
+    ctx.textBaseline = 'top';
+    ctx.textAlign = 'right';
+    ctx.fillStyle = RED_VDIM;
+    ctx.fillText(this.dragging ? 'ROTATING…' : 'DRAG TO ROTATE  ·  AUTO-SPIN ON IDLE', w - 12, 56);
   }
 
   /** Latitude/longitude wireframe arcs on the visible hemisphere. */

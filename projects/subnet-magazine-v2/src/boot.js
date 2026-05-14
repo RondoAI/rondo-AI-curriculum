@@ -31,7 +31,7 @@ function boot(){
   mountIf('[data-mount="statusbar"]', root => mountStatusStrip(root, DataLayer));
   mountIf('[data-mount="masthead"]',  mountMasthead);
   mountIf('[data-mount="hero"]',      root => mountHero(root, DataLayer));
-  mountIf('[data-mount="netmap"]',    mountNetworkMap);
+  mountIf('[data-mount="netmap"]',    root => mountNetworkMap(root, DataLayer));
 
   // 3) clean teardown on unload (idempotent)
   window.addEventListener('beforeunload', () => {

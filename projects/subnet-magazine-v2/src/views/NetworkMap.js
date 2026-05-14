@@ -10,6 +10,8 @@
 
 import { html, mount, qs, raw } from '../lib/dom.js';
 import { WorldGlobe } from '../charts/WorldGlobe.js';
+import { SUBNETS } from '../data/subnets.js';
+import { catColor, catLabel } from '../data/categories.js';
 
 /* The same hub list as WorldMap.js — keep in sync. */
 const HUBS = [
@@ -52,11 +54,37 @@ const NETWORK_TOTAL = {
 
 const TOTAL_STAKE = HUBS.reduce((s, h) => s + h.stake, 0);
 
+/* ----- Activity feed action types ----- */
+const ACTIONS = [
+  { code: 'STAKE',    desc: 'stake added',       w: 18, amount: () => randAmount(80, 4_800)   },
+  { code: 'UNSTAKE',  desc: 'stake removed',     w:  8, amount: () => randAmount(40, 1_400)   },
+  { code: 'EMIT',     desc: 'epoch emission',    w: 12, amount: () => randAmount(20, 800)     },
+  { code: 'REGISTER', desc: 'miner registered',  w:  6, amount: () => null                    },
+  { code: 'WEIGHT',   desc: 'validator weights', w: 10, amount: () => null                    },
+  { code: 'BURN',     desc: 'reg burn',          w:  5, amount: () => randAmount(8, 120)      },
+  { code: 'CHILDKEY', desc: 'childkey set',      w:  3, amount: () => null                    },
+];
+const ACTION_TOTAL = ACTIONS.reduce((a, x) => a + x.w, 0);
+function pickAction(){
+  let r = Math.random() * ACTION_TOTAL;
+  for (const a of ACTIONS){ r -= a.w; if (r <= 0) return a; }
+  return ACTIONS[0];
+}
+function randAmount(min, max){ return min + Math.random() * (max - min); }
+
+const HUB_CODES = ['SFO','NYC','YYZ','MEX','SAO','LON','FRA','AMS','HEL','CPT','BOM','DXB','SIN','SEL','TYO','SYD'];
+
+function zStamp(date = new Date()){
+  const z = x => String(x).padStart(2, '0');
+  return `${z(date.getUTCHours())}:${z(date.getUTCMinutes())}:${z(date.getUTCSeconds())}`;
+}
+
 /**
  * @param {HTMLElement} root
+ * @param {{subscribe: (channel: string, fn: Function) => Function} | null} [dataLayer]
  * @returns {{destroy: () => void}}
  */
-export function mountNetworkMap(root){
+export function mountNetworkMap(root, dataLayer = null){
   const topHubsHtml = HUBS.slice(0, 10).map((h, i) => html`
     <li class="hub">
       <span class="hub__rank">${String(i + 1).padStart(2, '0')}</span>
@@ -159,6 +187,61 @@ export function mountNetworkMap(root){
         </aside>
       </div>
 
+      <!-- Network health row — live operational metrics. -->
+      <div class="netmap__health">
+        <div class="health">
+          <span class="health__label">TPS</span>
+          <span class="health__value" data-bind="tps">2,147</span>
+          <span class="health__spark"><i style="width:74%"></i></span>
+        </div>
+        <div class="health">
+          <span class="health__label">MEMPOOL</span>
+          <span class="health__value" data-bind="mempool">412</span>
+          <span class="health__sub">pending tx</span>
+        </div>
+        <div class="health">
+          <span class="health__label">VAL PARTICIPATION</span>
+          <span class="health__value" data-bind="vp">96.4%</span>
+          <span class="health__spark"><i style="width:96.4%"></i></span>
+        </div>
+        <div class="health">
+          <span class="health__label">BLOCK TIME</span>
+          <span class="health__value">12.0s</span>
+          <span class="health__sub">target</span>
+        </div>
+        <div class="health">
+          <span class="health__label">PROP LATENCY</span>
+          <span class="health__value">186ms</span>
+          <span class="health__sub">P50 global</span>
+        </div>
+        <div class="health">
+          <span class="health__label">CONCENTRATION</span>
+          <span class="health__value">0.41</span>
+          <span class="health__sub">Gini, top hotkeys</span>
+        </div>
+      </div>
+
+      <!-- Live activity stream — Bloomberg-style scrolling feed. -->
+      <div class="panel is-bracketed netmap__feed">
+        <div class="panel__head">
+          <span class="panel__title">
+            <span class="panel__fcode">&lt;014&gt;</span>
+            LIVE ACTIVITY · ON-CHAIN
+            <span class="panel__go">&lt;GO&gt;</span>
+          </span>
+          <span class="panel__meta">
+            <span class="panel__pill panel__pill--live"><span class="live-dot"></span>STREAMING</span>
+          </span>
+        </div>
+        <div class="panel__body panel__body--pad-0">
+          <ul class="activity-list" id="activity-list" aria-live="polite"></ul>
+        </div>
+        <div class="panel__foot">
+          <span>STAKE · UNSTAKE · EMIT · REGISTER · WEIGHT · BURN</span>
+          <span>SIM · BLOCK <span data-bind="block-foot">4,812,047</span></span>
+        </div>
+      </div>
+
       <!-- Network totals strip — the hard numbers the reader leaves with. -->
       <div class="netmap__totals">
         <div class="total">
@@ -198,7 +281,94 @@ export function mountNetworkMap(root){
   const canvas = qs('[data-canvas="worldmap"]', root);
   const chart = canvas ? new WorldGlobe(canvas) : null;
 
+  /* ----- Live state simulation: block, epoch, TPS, VP, mempool ----- */
+  const state = {
+    block:       4_812_047,
+    epoch:       14_302,
+    epochBlock:  268,
+    tps:         2_147,
+    vp:          96.4,
+    mempool:     412,
+    emissionDay: 7_200,
+  };
+  const tpsEl     = qs('[data-bind="tps"]',     root);
+  const vpEl      = qs('[data-bind="vp"]',      root);
+  const memEl     = qs('[data-bind="mempool"]', root);
+  const blockFoot = qs('[data-bind="block-foot"]', root);
+
+  function syncOverlay(){
+    chart?.setStatus(state);
+    if (tpsEl)     tpsEl.textContent     = state.tps.toLocaleString('en-US');
+    if (vpEl)      vpEl.textContent      = `${state.vp.toFixed(1)}%`;
+    if (memEl)     memEl.textContent     = state.mempool.toLocaleString('en-US');
+    if (blockFoot) blockFoot.textContent = state.block.toLocaleString('en-US');
+  }
+  syncOverlay();
+
+  /* simulated block production — overwritten the moment live data
+     arrives via DataLayer's 'tao:block' channel. */
+  const blockTimer = setInterval(() => {
+    state.block += 1;
+    state.epochBlock += 1;
+    if (state.epochBlock >= 360){
+      state.epochBlock = 0;
+      state.epoch += 1;
+    }
+    /* gentle wobble on operational metrics */
+    state.tps = Math.max(800, Math.min(4_200, state.tps + (Math.random() - .5) * 120 | 0));
+    state.vp  = Math.max(88, Math.min(99.4, +(state.vp + (Math.random() - .5) * 0.3).toFixed(2)));
+    state.mempool = Math.max(40, Math.min(1_800, state.mempool + (Math.random() - .5) * 60 | 0));
+    syncOverlay();
+  }, 1500);
+
+  let blockUnsub = () => {};
+  if (dataLayer){
+    blockUnsub = dataLayer.subscribe('tao:block', (d) => {
+      if (d && typeof d.height === 'number'){
+        state.block = d.height;
+        syncOverlay();
+      }
+    });
+  }
+
+  /* ----- Live activity stream ----- */
+  const feed = qs('#activity-list', root);
+  const MAX_ROWS = 14;
+
+  function pushRow(){
+    if (!feed) return;
+    const action = pickAction();
+    const subnet = SUBNETS[Math.floor(Math.random() * SUBNETS.length)];
+    const hub = HUB_CODES[Math.floor(Math.random() * HUB_CODES.length)];
+    const amt = action.amount();
+    const li = document.createElement('li');
+    li.className = 'activity is-new';
+    const amtStr = amt == null ? '' : `<span class="activity__amt">τ ${amt.toLocaleString('en-US', { maximumFractionDigits: 1 })}</span>`;
+    li.innerHTML = `
+      <span class="activity__ts">${zStamp()}</span>
+      <span class="activity__action" data-action="${action.code}">${action.code}</span>
+      <span class="activity__subject">
+        <span class="activity__net">SN${subnet.netuid}</span>
+        <span class="activity__name">${subnet.name}</span>
+        <span class="activity__cat" style="color:${catColor(subnet.cat)}">${catLabel(subnet.cat)}</span>
+      </span>
+      ${amtStr}
+      <span class="activity__hub">${hub}</span>
+    `;
+    feed.prepend(li);
+    while (feed.children.length > MAX_ROWS) feed.lastElementChild.remove();
+    /* clear the flash class after the animation completes */
+    requestAnimationFrame(() => requestAnimationFrame(() => li.classList.remove('is-new')));
+  }
+  for (let i = 0; i < 8; i++) pushRow();
+  const feedTimer = setInterval(pushRow, 1100);
+
   return {
-    destroy(){ chart?.destroy(); },
+    destroy(){
+      chart?.destroy();
+      clearInterval(blockTimer);
+      clearInterval(feedTimer);
+      blockUnsub();
+    },
   };
 }
