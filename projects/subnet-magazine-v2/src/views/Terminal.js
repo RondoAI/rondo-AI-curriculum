@@ -16,7 +16,7 @@
      5. Where TAO flows — category breakdown table
    ================================================================= */
 
-import { html, mount, qs } from '../lib/dom.js';
+import { html, mount, qs, setLive } from '../lib/dom.js';
 import { Timeline } from '../charts/Timeline.js';
 import { PriceChart } from '../charts/PriceChart.js';
 import { BarChart } from '../charts/BarChart.js';
@@ -590,7 +590,7 @@ export function mountTerminal(root, dataLayer = null){
   };
   function renderMarket(d){
     if (!d) return;
-    if (ov.price && d.price != null) ov.price.textContent = money(d.price);
+    if (ov.price && d.price != null) setLive(ov.price, money(d.price));
     if (ov.priceD){
       const c = d.change24h ?? 0;
       ov.priceD.textContent = `${pct(c)} · 24h`;
