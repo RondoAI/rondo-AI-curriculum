@@ -472,3 +472,14 @@
 .cmp-calc__bar > i{ display: block; height: 100%; }
 .cmp-calc__cost{ font-size: 14px; color: var(--c-ink-1); font-weight: 700; text-align: right; font-variant-numeric: tabular-nums; min-width: 110px; }
 .cmp-calc__cost b{ color: var(--c-red); font-size: 16px; }
+
+/* ---------- cost × speed scatter (InferenceX-style) ---------- */
+.cmp-scatter__keys{ display: flex; gap: var(--s-3); flex-wrap: wrap; }
+.cmp-scatter__key{
+  display: inline-flex; align-items: center; gap: 5px;
+  font-family: var(--f-mono); font-size: 10px;
+  letter-spacing: var(--ls-data); color: var(--c-ink-3);
+}
+.cmp-scatter__key i{ width: 8px; height: 8px; border-radius: 50%; display: block; }
+.cmp-scatter__viz{ height: clamp(320px, 40vw, 460px); }
+.cmp-scatter__viz canvas{ display: block; width: 100%; height: 100%; }
