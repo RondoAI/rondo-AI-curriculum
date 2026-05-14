@@ -4,39 +4,27 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
   <meta name="theme-color" content="#000000">
-  <title>Subneτ Magazine — A research terminal for decentralized intelligence</title>
-  <meta name="description" content="Subneτ Magazine is a research terminal for the Bittensor network. Live consensus map, subnet markets, validator analytics, and editorial coverage of decentralized AI.">
+  <title>Network · Subneτ Magazine</title>
+  <meta name="description" content="The Bittensor validator consensus surface as a live rotating 3D globe — ranked hubs, regional concentration, and the network's headline numbers.">
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..900;1,9..144,300..900&family=Inter:wght@300..800&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
 
-  <!-- Stylesheet order matters: tokens → base → components. -->
   <link rel="stylesheet" href="style/tokens.css">
   <link rel="stylesheet" href="style/base.css">
   <link rel="stylesheet" href="style/components/status-strip.css">
   <link rel="stylesheet" href="style/components/masthead.css">
   <link rel="stylesheet" href="style/components/panel.css">
-  <link rel="stylesheet" href="style/components/hero.css">
-  <link rel="stylesheet" href="style/components/home.css">
+  <link rel="stylesheet" href="style/components/world-map.css">
 </head>
 <body>
-
-  <!-- Mount points only. Every view renders into one of these. -->
   <div data-mount="statusbar"></div>
   <div data-mount="masthead"></div>
-
   <main id="main">
-    <div data-mount="hero"></div>
-    <div data-mount="home"></div>
+    <div data-mount="netmap"></div>
   </main>
-
-  <!-- Local config (gitignored). Sets window.__SUBNET_CONFIG__ before
-       boot — keys, proxy overrides. Absent on public previews; the
-       data layer then falls back to the keyless TMC public API. -->
   <script src="config.js"></script>
-  <!-- ES module entry. Browsers without ES module support get nothing,
-       and that is fine for a research-terminal app. -->
   <script type="module" src="src/boot.js"></script>
 </body>
 </html>

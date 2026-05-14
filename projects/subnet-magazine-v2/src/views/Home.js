@@ -81,7 +81,7 @@ const SECTIONS = [
     desc:'Long-form research on decentralized intelligence — subnet profiles, fund letters, primers. Read inline or download the PDF.' },
   { code:'070', label:'Community',     href:'community.html',
     desc:'The ecosystem out loud — a live τ pulse, the Subneτ Magazine X timeline, and a curated directory of the voices worth following.' },
-  { code:'010', label:'Network Map',   href:'#netmap',
+  { code:'010', label:'Network Map',   href:'network.html',
     desc:'The validator consensus surface as a rotating 3D globe. Drag to spin; hover a hub for its stake and location.' },
 ];
 
