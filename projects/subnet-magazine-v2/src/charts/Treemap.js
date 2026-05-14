@@ -64,7 +64,9 @@ function squarify(items, w, h){
     const v = queue[0];
     const isWide = area.w < area.h;
     const side = isWide ? area.w : area.h;
-    const candidate = row.concat([v.scaled]);
+    /* worst() needs an array of NUMBERS — `row` holds objects, so map
+       to .scaled before concatenating the candidate's scaled value. */
+    const candidate = row.map(r => r.scaled).concat([v.scaled]);
     if (row.length === 0 || worst(candidate, side) < worst(row.map(r => r.scaled), side)){
       row.push(v); queue.shift();
     } else {
