@@ -18,6 +18,7 @@
 
 import { html, mount, qs } from '../lib/dom.js';
 import { Timeline } from '../charts/Timeline.js';
+import { PriceChart } from '../charts/PriceChart.js';
 import { BarChart } from '../charts/BarChart.js';
 import { SUBNETS } from '../data/subnets.js';
 import { CATEGORIES, catColor, catLabel } from '../data/categories.js';
@@ -106,33 +107,38 @@ export function mountTerminal(root, dataLayer = null){
         </div>
       </div>
 
-      <!-- ===== Panel 1: τ Price + Event Timeline (the marquee) ===== -->
-      <article class="panel is-bracketed term-cell--timeline">
-        <div class="panel__head">
-          <span class="panel__title">
-            <span class="panel__fcode">&lt;021&gt;</span>
-            τ / USD · SEPT 2023 — TODAY
-            <span class="panel__go">&lt;GO&gt;</span>
-          </span>
-          <span class="panel__meta">
-            <span class="panel__pill panel__pill--live"><span class="live-dot"></span>LIVE</span>
-            <button class="panel__expand" data-expand="timeline" aria-label="Expand chart">⛶ EXPAND</button>
-          </span>
+      <!-- ===== Panel 1: τ Price · Apple-Stocks-style hero ===== -->
+      <article class="stockp is-bracketed term-cell--stockp">
+        <header class="stockp__head">
+          <div class="stockp__ticker">
+            <h2 class="stockp__symbol"><em>τ</em> / USD</h2>
+            <span class="stockp__name">Bittensor · live · CoinGecko</span>
+          </div>
+          <div class="stockp__price" data-bind="sp-price">$—</div>
+          <div class="stockp__delta up" data-bind="sp-delta">— <span class="label" data-bind="sp-range-label">All time</span></div>
+        </header>
+        <div class="stockp__viz" style="position:relative">
+          <canvas data-canvas="pricechart" aria-label="τ/USD price"></canvas>
+          <div class="stockp__hover" data-bind="sp-hover">
+            <span class="hd up" data-bind="sp-hover-delta">—</span>
+            <div class="hp" data-bind="sp-hover-price">—</div>
+            <div class="hd" data-bind="sp-hover-date">—</div>
+          </div>
         </div>
-        <div class="panel__caption">
-          Daily τ / USD price since mainnet, plotted over the major events that shaped it.
-          <strong style="color:#FF1E3C">Red dots</strong> = network events (halvings, dTAO).
-          <strong style="color:#FF8C42">Amber</strong> = subnet milestones.
-          <strong style="color:#00C2FF">Cyan</strong> = frontier model releases (Claude, GPT, Gemini, DeepSeek, Llama).
-          <strong style="color:#FFD166">Gold</strong> = market events. Hover anywhere for date · price; hover a dot for the full story.
-        </div>
-        <div class="panel__body panel__body--pad-0">
-          <canvas data-canvas="timeline" aria-label="TAO/USD price with ecosystem event timeline"></canvas>
-        </div>
-        <div class="panel__foot">
-          <span>32 MONTHS · DAILY · EVENTS OVERLAID</span>
-          <span id="term-price-tag">—</span>
-        </div>
+        <footer class="stockp__foot">
+          <div class="stockp__ranges" role="tablist">
+            <button class="stockp__range" data-range="1D">1D</button>
+            <button class="stockp__range" data-range="1W">1W</button>
+            <button class="stockp__range" data-range="1M">1M</button>
+            <button class="stockp__range" data-range="3M">3M</button>
+            <button class="stockp__range" data-range="1Y">1Y</button>
+            <button class="stockp__range active" data-range="ALL">ALL</button>
+          </div>
+          <button class="stockp__events" data-events>Events</button>
+          <button class="stockp__expand" data-expand="pricechart" aria-label="Expand chart">
+            Expand <span class="arr">↗</span>
+          </button>
+        </footer>
       </article>
 
       <!-- ===== Panel 2: 24h subnet performance ===== -->
@@ -298,10 +304,141 @@ export function mountTerminal(root, dataLayer = null){
     </section>
   `);
 
-  /* ===== Timeline wiring (the marquee chart) ===== */
-  const timelineCanvas = qs('[data-canvas="timeline"]', root);
-  const priceTag       = qs('#term-price-tag', root);
-  const timeline       = timelineCanvas ? new Timeline(timelineCanvas) : null;
+  /* ===== PriceChart hero (Apple Stocks style) ===== */
+  const priceCanvas = qs('[data-canvas="pricechart"]', root);
+  /* Build a 32-month daily history once, then slice per range. */
+  const fullHistory = (() => {
+    const waypoints = [
+      ['2023-09-01',  35], ['2023-12-15', 220],
+      ['2024-04-10', 700], ['2024-07-05', 320],
+      ['2024-11-20', 600], ['2025-02-20', 700],
+      ['2025-06-10', 380], ['2025-09-30', 410],
+      ['2025-12-15', 520], ['2026-02-01', 460],
+      ['2026-04-15', 510], ['2026-05-13', 487],
+    ].map(([d, p]) => ({ t: Date.parse(d + 'T00:00:00Z'), p }));
+    const out = [];
+    const dayMs = 86_400_000;
+    let seed = 20260513;
+    const rng = () => { seed = (seed * 9301 + 49297) >>> 0; return (seed % 233280) / 233280; };
+    for (let i = 0; i < waypoints.length - 1; i++){
+      const a = waypoints[i], b = waypoints[i + 1];
+      const days = Math.round((b.t - a.t) / dayMs);
+      for (let k = 0; k < days; k++){
+        const u = k / days;
+        const ease = u < .5 ? 2*u*u : 1 - Math.pow(-2*u + 2, 2) / 2;
+        const base = a.p + (b.p - a.p) * ease;
+        const noise = (rng() - 0.5) * base * 0.06;
+        out.push({ t: a.t + k * dayMs, p: Math.max(10, base + noise) });
+      }
+    }
+    out.push(waypoints[waypoints.length - 1]);
+    return out;
+  })();
+
+  const RANGE_LABEL = { '1D':'Today', '1W':'Past week', '1M':'Past month', '3M':'Past 3 months', '1Y':'Past year', 'ALL':'All time' };
+  function sliceFor(range){
+    const dayMs = 86_400_000;
+    const last = fullHistory[fullHistory.length - 1];
+    const ranges = { '1D': 1, '1W': 7, '1M': 30, '3M': 90, '1Y': 365, 'ALL': Infinity };
+    const days = ranges[range] ?? Infinity;
+    if (range === '1D'){
+      /* synthesize 24 hourly points around the last close */
+      const out = [];
+      const start = last.p * (1 - 0.04 * Math.random());
+      for (let i = 23; i >= 0; i--){
+        const u = (23 - i) / 23;
+        const ease = u < .5 ? 2*u*u : 1 - Math.pow(-2*u + 2, 2) / 2;
+        const p = start + (last.p - start) * ease + (Math.random() - .5) * last.p * 0.012;
+        out.push({ t: last.t - i * 60 * 60 * 1000, p });
+      }
+      return out;
+    }
+    return fullHistory.filter(k => k.t >= last.t - days * dayMs);
+  }
+
+  const spPrice    = qs('[data-bind="sp-price"]',       root);
+  const spDelta    = qs('[data-bind="sp-delta"]',       root);
+  const spRangeLbl = qs('[data-bind="sp-range-label"]', root);
+  const spHover    = qs('[data-bind="sp-hover"]',       root);
+  const spHovDelta = qs('[data-bind="sp-hover-delta"]', root);
+  const spHovPrice = qs('[data-bind="sp-hover-price"]', root);
+  const spHovDate  = qs('[data-bind="sp-hover-date"]',  root);
+
+  let currentRange = 'ALL';
+  let showEvents   = false;
+  const priceChart = priceCanvas ? new PriceChart(priceCanvas, {
+    data:        sliceFor(currentRange),
+    events:      EVENTS,
+    eventColors: EVENT_COLORS,
+    showEvents,
+    onHover: (h) => {
+      if (!h){ spHover?.classList.remove('show'); return; }
+      spHover?.classList.add('show');
+      if (spHovPrice) spHovPrice.textContent = '$' + h.price.toFixed(2);
+      if (spHovDelta){
+        const sign = h.change >= 0 ? '+' : '';
+        spHovDelta.textContent = `${sign}${h.change.toFixed(2)}  (${sign}${h.pct.toFixed(2)}%)`;
+        spHovDelta.classList.toggle('up',   h.change >= 0);
+        spHovDelta.classList.toggle('down', h.change < 0);
+      }
+      if (spHovDate){
+        const isHourly = currentRange === '1D';
+        spHovDate.textContent = isHourly
+          ? h.date.toLocaleTimeString('en-US', { hour: '2-digit', minute: '2-digit' })
+          : h.date.toLocaleDateString('en-US', { day: '2-digit', month: 'short', year: 'numeric' });
+      }
+    },
+  }) : null;
+
+  function refreshHeader(){
+    if (!priceChart) return;
+    const s = priceChart.stats();
+    if (spPrice) spPrice.textContent = '$' + s.end.toFixed(2);
+    if (spDelta){
+      const sign = s.change >= 0 ? '+' : '';
+      spDelta.innerHTML = `${sign}${s.change.toFixed(2)}  (${sign}${s.pct.toFixed(2)}%) <span class="label">${RANGE_LABEL[currentRange]}</span>`;
+      spDelta.classList.toggle('up',   s.isUp);
+      spDelta.classList.toggle('down', !s.isUp);
+    }
+    if (spRangeLbl) spRangeLbl.textContent = RANGE_LABEL[currentRange];
+    /* color the active range chip with the trend color too */
+    const activeBtn = root.querySelector('.stockp__range.active');
+    activeBtn?.classList.toggle('is-up',   s.isUp);
+    activeBtn?.classList.toggle('is-down', !s.isUp);
+  }
+  refreshHeader();
+
+  /* range tab handlers */
+  root.querySelectorAll('.stockp__range').forEach(btn => {
+    btn.addEventListener('click', () => {
+      root.querySelectorAll('.stockp__range').forEach(b => {
+        b.classList.remove('active', 'is-up', 'is-down');
+      });
+      btn.classList.add('active');
+      currentRange = btn.dataset.range;
+      priceChart?.setData(sliceFor(currentRange));
+      refreshHeader();
+    });
+  });
+
+  /* events toggle */
+  const evBtn = qs('[data-events]', root);
+  evBtn?.addEventListener('click', () => {
+    showEvents = !showEvents;
+    evBtn.classList.toggle('active', showEvents);
+    priceChart?.setShowEvents(showEvents);
+  });
+
+  /* live price subscribes to DataLayer — overrides last point */
+  function applyLive(price){
+    if (!Number.isFinite(price) || !priceChart) return;
+    /* mutate last point's p, refresh header */
+    const data = priceChart.data;
+    if (!data || !data.length) return;
+    data[data.length - 1].p = price;
+    priceChart.invalidate();
+    refreshHeader();
+  }
 
   /* ===== Quote summary wiring ===== */
   const quotePrice = qs('[data-bind="quote-price"]', root);
@@ -318,13 +455,11 @@ export function mountTerminal(root, dataLayer = null){
       quoteDelta.classList.remove('up','down','flat');
       quoteDelta.classList.add(deltaClass(change24));
     }
-    /* derived placeholders so the strip never reads "—" */
     const low  = price * 0.96;
     const high = price * 1.04;
     if (quoteRange) quoteRange.textContent = `${money(low)} – ${money(high)}`;
     if (quoteVol)   quoteVol.textContent   = '$' + Math.round(price * 480_000).toLocaleString('en-US');
     if (quoteMcap)  quoteMcap.textContent  = '$' + (price * 7_420_000).toLocaleString('en-US', { maximumFractionDigits: 0 });
-    if (priceTag)   priceTag.textContent   = `${money(price)}   ${pct(change24)}`;
   }
   renderQuote(487.12, 3.24);
 
@@ -333,10 +468,9 @@ export function mountTerminal(root, dataLayer = null){
     priceUnsub = dataLayer.subscribe('tao:price', d => {
       if (!d || !Number.isFinite(d.price)) return;
       renderQuote(d.price, d.change24 ?? 0);
+      applyLive(d.price);
     });
   }
-  /* The Timeline is a 32-month historical view — live price updates
-     drive the summary strip; the chart itself doesn't tick. */
   const tickTimer = 0;
 
   /* ===== Performance bar chart (clickable → SubnetDetail) ===== */
@@ -507,7 +641,20 @@ export function mountTerminal(root, dataLayer = null){
     btn.addEventListener('click', e => {
       e.stopPropagation();
       const which = btn.dataset.expand;
-      if (which === 'timeline'){
+      if (which === 'pricechart'){
+        openChartModal({
+          ChartClass: PriceChart,
+          opts: {
+            data: sliceFor(currentRange),
+            events: EVENTS,
+            eventColors: EVENT_COLORS,
+            showEvents,
+          },
+          title:    `τ / USD · ${RANGE_LABEL[currentRange]}`,
+          subtitle: 'Smooth price line · drag to scrub',
+          fcode:    '021',
+        });
+      } else if (which === 'timeline'){
         openChartModal({
           ChartClass: Timeline,
           title:    'τ / USD · SEPT 2023 — TODAY',
@@ -546,7 +693,7 @@ export function mountTerminal(root, dataLayer = null){
 
   return {
     destroy(){
-      timeline?.destroy();
+      priceChart?.destroy();
       perfChart?.destroy();
       emitChart?.destroy();
       if (tickTimer) clearInterval(tickTimer);
