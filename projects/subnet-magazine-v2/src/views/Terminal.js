@@ -20,6 +20,7 @@ import { html, mount, qs, setLive } from '../lib/dom.js';
 import { Timeline } from '../charts/Timeline.js';
 import { PriceChart } from '../charts/PriceChart.js';
 import { BarChart } from '../charts/BarChart.js';
+import { Treemap } from '../charts/Treemap.js';
 import { SUBNETS } from '../data/subnets.js';
 import { CATEGORIES, catColor, catLabel } from '../data/categories.js';
 import { BENCHMARKS } from '../data/benchmarks.js';
@@ -27,6 +28,18 @@ import { CENTRALIZED_PLAYERS, ASIAN_REGIONS, REGIONS } from '../data/centralized
 import { EVENTS, EVENT_COLORS, EVENT_LABELS } from '../data/events.js';
 import { openChartModal } from '../lib/chart-modal.js';
 import { money, pct, deltaClass, compact } from '../lib/format.js';
+
+/** Heatmap colour for a 24h % move — green up, red down, dim flat. */
+function heatColor(chg){
+  if (chg == null) return '#5a3035';
+  if (chg >=  4)   return '#00E5A8';
+  if (chg >=  1)   return '#0FA77E';
+  if (chg >    0)  return '#1C5E4C';
+  if (chg ===  0)  return '#5a3035';
+  if (chg >  -1)   return '#6E2230';
+  if (chg >  -4)   return '#C11128';
+  return '#FF1E3C';
+}
 
 /**
  * @param {HTMLElement} root
@@ -211,6 +224,33 @@ export function mountTerminal(root, dataLayer = null){
         <div class="panel__foot">
           <span>SRC · TAO MARKET CAP</span>
           <span data-bind="mon-foot">SORT ▾ MARKET CAP</span>
+        </div>
+      </article>
+
+      <!-- ===== Subnet Market Map — treemap heatmap ===== -->
+      <article class="panel is-bracketed term-cell--map" id="panel-map">
+        <div class="panel__head">
+          <span class="panel__title">
+            <span class="panel__fcode">&lt;025&gt;</span>
+            SUBNET MARKET MAP
+            <span class="panel__go">&lt;GO&gt;</span>
+          </span>
+          <span class="panel__meta">
+            <span class="panel__pill panel__pill--live"><span class="live-dot"></span>HEATMAP</span>
+          </span>
+        </div>
+        <div class="panel__caption">
+          Every subnet as a tile — area scaled to market cap, colour to the 24h move.
+          <strong style="color:var(--c-up)">Green</strong> is up,
+          <strong style="color:var(--c-down)">red</strong> is down. The shape of the
+          α-token market in one frame.
+        </div>
+        <div class="panel__body panel__body--pad-0 term-map__viz">
+          <canvas data-canvas="marketmap" aria-label="Subnet market-cap heatmap"></canvas>
+        </div>
+        <div class="panel__foot">
+          <span>AREA · MARKET CAP — COLOUR · 24H Δ</span>
+          <span>SRC · TAO MARKET CAP</span>
         </div>
       </article>
 
@@ -660,6 +700,18 @@ export function mountTerminal(root, dataLayer = null){
     }
   }
 
+  /* ===== Subnet market-map treemap (area = mcap, colour = 24h Δ) ===== */
+  const mapCanvas = qs('[data-canvas="marketmap"]', root);
+  const mapChart  = mapCanvas ? new Treemap(mapCanvas, {
+    items: SUBNETS.map(s => ({
+      key:   s.netuid,
+      label: `SN${s.netuid}`,
+      sub:   s.name,
+      value: (s.mcap ?? 0) * 1e6,
+      color: heatColor(s.chg24 ?? 0),
+    })),
+  }) : null;
+
   /* ===== Performance bar chart (clickable → SubnetDetail) ===== */
   const perfCanvas = qs('[data-canvas="perf"]', root);
   const perfData = (() => {
@@ -977,6 +1029,10 @@ export function mountTerminal(root, dataLayer = null){
       if (monSrc) monSrc.textContent = 'LIVE';
     }
     renderMonHead(); renderMonBody();
+    mapChart?.setData(monRows.map(s => ({
+      key: s.netuid, label: `SN${s.netuid}`, sub: s.name,
+      value: s.mcap || 0, color: heatColor(s.chg24),
+    })));
   }
   renderMonitor();   /* seed render — swaps to live via renderLiveSubnets */
 
@@ -1105,6 +1161,7 @@ export function mountTerminal(root, dataLayer = null){
       priceChart?.destroy();
       perfChart?.destroy();
       emitChart?.destroy();
+      mapChart?.destroy();
       if (tickTimer)  clearInterval(tickTimer);
       if (pulseTimer) clearInterval(pulseTimer);
       if (liveTimer)  clearInterval(liveTimer);
