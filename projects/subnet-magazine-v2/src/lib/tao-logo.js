@@ -6,24 +6,24 @@
    wherever the network is referenced as a mark rather than a word
    — the status strip quote, the ticker tape, the masthead.
 
-   `currentColor` by default, so `color: var(--c-red)` on a parent
-   tints it; pass an explicit colour to override.
+   Drawn the way the official mark reads: a thin, elegant capital
+   "T" — a horizontal top bar and a centred vertical stem, rounded
+   caps. `currentColor` by default so a parent's `color` tints it.
    ================================================================= */
 
 /**
- * @param {{ size?: number, color?: string, className?: string }} [opts]
+ * @param {{ size?: number, color?: string, weight?: number, className?: string }} [opts]
  * @returns {string} an inline <svg> string
  */
 export function taoLogo(opts = {}){
-  const size  = opts.size ?? 18;
-  const color = opts.color ?? 'currentColor';
-  const cls   = opts.className ? ` class="${opts.className}"` : '';
-  /* a refined tau: full top bar, centred stem, the foot curving
-     right the way the Greek τ does — drawn as one path. */
-  return `<svg${cls} viewBox="0 0 32 32" width="${size}" height="${size}" `
+  const size   = opts.size ?? 18;
+  const color  = opts.color ?? 'currentColor';
+  const weight = opts.weight ?? 2.2;
+  const cls    = opts.className ? ` class="${opts.className}"` : '';
+  return `<svg${cls} viewBox="0 0 24 24" width="${size}" height="${size}" fill="none" `
        + `xmlns="http://www.w3.org/2000/svg" role="img" aria-label="TAO">`
-       + `<path fill="${color}" d="M3.6 6.4h24.8v4.5H18.6v11.4c0 2.2 1.3 3.4 3.6 3.4 `
-       + `1 0 1.9-.2 2.7-.6l-.5 4.1c-1 .4-2.2.6-3.4.6-4.8 0-7.4-2.6-7.4-7.2V10.9H3.6z"/>`
+       + `<path d="M4 6.2H20M12 6.6V18.4" stroke="${color}" `
+       + `stroke-width="${weight}" stroke-linecap="round"/>`
        + `</svg>`;
 }
 

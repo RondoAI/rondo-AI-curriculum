@@ -45,7 +45,7 @@ export function mountMasthead(root){
             <canvas data-canvas="brand-mark"></canvas>
           </span>
           <span>
-            <span class="brand__word">Subne${raw('<span class="tau">' + taoLogo({ size: 30 }) + '</span>')} Magazine</span>
+            <span class="brand__word">Subne${raw('<span class="tau">' + taoLogo({ size: 34, weight: 2.7 }) + '</span>')} Magazine</span>
             <span class="brand__sub">A research terminal for decentralized intelligence</span>
           </span>
         </a>
