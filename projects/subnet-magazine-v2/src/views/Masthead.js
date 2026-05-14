@@ -10,14 +10,14 @@ import { Icosphere } from '../charts/Icosphere.js';
 import { bbgDate } from '../lib/format.js';
 
 const NAV_ITEMS = [
-  { code: '001', label: 'OVERVIEW',  href: '#overview'  },
-  { code: '010', label: 'NETWORK',   href: '#netmap'    },
-  { code: '020', label: 'TERMINAL',  href: '#terminal'  },
-  { code: '030', label: 'MARKETS',   href: '#markets'   },
-  { code: '040', label: 'SUBNETS',   href: '#directory' },
-  { code: '050', label: 'LABS',      href: '#labs'      },
-  { code: '060', label: 'EDITORIAL', href: '#editorial' },
-  { code: '900', label: 'ARCHIVE',   href: '#archive'   },
+  { code: '001', label: 'OVERVIEW',  href: '#overview'         },
+  { code: '010', label: 'NETWORK',   href: '#netmap'           },
+  { code: '020', label: 'TERMINAL',  href: 'terminal.html'     },
+  { code: '030', label: 'MARKETS',   href: '#markets'          },
+  { code: '040', label: 'SUBNETS',   href: '#directory'        },
+  { code: '050', label: 'LABS',      href: '#labs'             },
+  { code: '060', label: 'EDITORIAL', href: '#editorial'        },
+  { code: '900', label: 'ARCHIVE',   href: '#archive'          },
 ];
 
 /**
@@ -67,11 +67,17 @@ export function mountMasthead(root){
     thickEdges:true,
   }) : null;
 
-  // Active-nav highlight on scroll
+  // Active-nav highlight on scroll. Only in-page anchors (#…) get
+  // wired up; external links (terminal.html) are ignored here.
   const tabs = Array.from(root.querySelectorAll('.nav-tab'));
   const sections = tabs
-    .map(t => ({ tab: t, el: document.querySelector(t.getAttribute('href')) }))
-    .filter(x => x.el);
+    .map(t => {
+      const href = t.getAttribute('href') || '';
+      if (!href.startsWith('#')) return null;
+      try { return { tab: t, el: document.querySelector(href) }; }
+      catch (_) { return null; }
+    })
+    .filter(x => x && x.el);
 
   function onScroll(){
     const y = window.scrollY + 140;
