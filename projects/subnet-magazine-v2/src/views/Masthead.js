@@ -15,11 +15,10 @@ const NAV_ITEMS = [
   { code: '010', label: 'NETWORK',   href: '#netmap'           },
   { code: '025', label: 'COMPARE',   href: 'compare.html'      },
   { code: '060', label: 'RESEARCH',  href: 'articles.html'     },
-  { code: '030', label: 'MARKETS',   href: '#markets'          },
+  { code: '070', label: 'COMMUNITY', href: 'community.html'    },
   { code: '040', label: 'SUBNETS',   href: 'subnets.html'      },
   { code: '050', label: 'VALIDATORS',href: 'validators.html'   },
-  { code: '050', label: 'LABS',      href: '#labs'             },
-  { code: '060', label: 'EDITORIAL', href: '#editorial'        },
+  { code: '030', label: 'MARKETS',   href: '#markets'          },
   { code: '900', label: 'ARCHIVE',   href: '#archive'          },
 ];
 
