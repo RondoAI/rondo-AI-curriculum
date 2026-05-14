@@ -1,0 +1,68 @@
+/* =================================================================
+   STATUS STRIP — research-terminal style top bar
+   -----------------------------------------------------------------
+   Persistent zero-chrome data band at the very top of the document.
+   Reads: LIVE pill · date · UTC clock · block · epoch · TAO/USD ·
+   YCX · network status. Wraps to two rows on phones.
+   ================================================================= */
+
+.statusbar{
+  position: sticky; top: 0; z-index: var(--z-nav);
+  background: #000;
+  border-bottom: 1px solid var(--c-rule-2);
+  font-family: var(--f-mono);
+  font-size: var(--t-xs);
+  color: var(--c-ink-3);
+  letter-spacing: var(--ls-data);
+}
+.statusbar__inner{
+  max-width: var(--max-w);
+  margin: 0 auto;
+  padding: var(--s-2) var(--gutter);
+  display: flex; flex-wrap: wrap; align-items: center;
+  column-gap: var(--s-4); row-gap: var(--s-2);
+}
+.statusbar__sep{ color: var(--c-ink-5); opacity: .9 }
+
+/* Live indicator: pulsing green dot + amber "LIVE" label */
+.statusbar__live{
+  display: inline-flex; align-items: center; gap: var(--s-2);
+  color: var(--c-up); font-weight: 700; letter-spacing: var(--ls-label);
+}
+.live-dot{
+  width: 6px; height: 6px; border-radius: 50%;
+  background: var(--c-up);
+  box-shadow: 0 0 8px var(--c-up);
+  animation: livePulse var(--d-pulse) ease-in-out infinite;
+  display: inline-block;
+}
+.statusbar__live--red .live-dot{ background: var(--c-red); box-shadow: 0 0 8px var(--c-red); }
+
+@keyframes livePulse {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50%      { opacity: .45; transform: scale(.78); }
+}
+
+/* Field: a label + value pair like "BLOCK  4,812,047" */
+.statusbar__field{
+  display: inline-flex; align-items: baseline; gap: var(--s-1);
+}
+.statusbar__label{ color: var(--c-ink-3); }
+.statusbar__value{ color: var(--c-ink-1); font-weight: 600; }
+
+/* Push everything after .statusbar__push to the right */
+.statusbar__push{ margin-left: auto; }
+
+/* Quote pair: TAO/USD $487.12 +3.24% */
+.statusbar__quote{
+  display: inline-flex; align-items: baseline; gap: var(--s-2);
+}
+.statusbar__quote .pair{ color: var(--c-ink-3); }
+.statusbar__quote .price{ color: var(--c-ink-1); font-weight: 700; }
+.statusbar__quote .delta.up   { color: var(--c-up); }
+.statusbar__quote .delta.down { color: var(--c-down); }
+
+@media (max-width: 720px){
+  .statusbar__push{ margin-left: 0; }
+  .statusbar{ font-size: 10px; }
+}

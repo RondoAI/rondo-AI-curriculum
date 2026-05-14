@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#000000">
+  <title>Subneτ Magazine — A research terminal for decentralized intelligence</title>
+  <meta name="description" content="Subneτ Magazine is a research terminal for the Bittensor network. Live consensus map, subnet markets, validator analytics, and editorial coverage of decentralized AI.">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..900;1,9..144,300..900&family=Inter:wght@300..800&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+
+  <!-- Stylesheet order matters: tokens → base → components. -->
+  <link rel="stylesheet" href="style/tokens.css">
+  <link rel="stylesheet" href="style/base.css">
+  <link rel="stylesheet" href="style/components/status-strip.css">
+  <link rel="stylesheet" href="style/components/masthead.css">
+  <link rel="stylesheet" href="style/components/panel.css">
+  <link rel="stylesheet" href="style/components/world-map.css">
+</head>
+<body>
+
+  <!-- Mount points only. Every view renders into one of these. -->
+  <div data-mount="statusbar"></div>
+  <div data-mount="masthead"></div>
+
+  <main id="main">
+    <div data-mount="netmap"></div>
+
+    <!-- v2 preview milestone marker. Remaining sections (terminal,
+         markets, directory, editorial) land in subsequent commits. -->
+    <section style="max-width:var(--max-w);margin:0 auto;padding:clamp(48px,7vw,88px) var(--gutter);text-align:center;color:var(--c-ink-3);font-family:var(--f-mono);font-size:var(--t-sm);letter-spacing:var(--ls-data);border-bottom:1px solid var(--c-rule);">
+      <div style="margin-bottom:var(--s-4);color:var(--c-red);letter-spacing:var(--ls-label);font-weight:700;">v2 · PHASE 1 PREVIEW</div>
+      <div style="max-width:60ch;margin:0 auto;line-height:var(--lh-loose);">
+        Foundation laid: design tokens, base reset, Chart base class with DPR + ResizeObserver lifecycle,
+        WorldMap, NodeSphere logo mark, StatusStrip with live CoinGecko TAO/USD price,
+        and the Panel component with corner brackets. Next commits add the 4-panel TAO Terminal,
+        live quote board, subnet directory with detail modals, centralized-AI desk, and the editorial layer.
+      </div>
+    </section>
+  </main>
+
+  <!-- ES module entry. Browsers without ES module support get nothing,
+       and that is fine for a research-terminal app. -->
+  <script type="module" src="src/boot.js"></script>
+</body>
+</html>

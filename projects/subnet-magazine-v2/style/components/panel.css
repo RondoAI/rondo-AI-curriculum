@@ -1,0 +1,103 @@
+/* =================================================================
+   PANEL — the universal container in this system
+   -----------------------------------------------------------------
+   Every chart, table, or chunk of data lives inside a Panel.
+   - Header (left): function code in dim red + amber title + GO chip
+   - Header (right): meta + status pill (LIVE/SIM)
+   - Body: arbitrary content, padded
+   - Footer: dim mono metadata, optional
+   - Corner brackets: eDEX-UI signature, drawn via pseudo-elements
+
+   Panels are nestable; the corner brackets only paint when
+   .panel.is-bracketed is set, so the inside of a panel doesn't get
+   double-bracketed.
+   ================================================================= */
+
+.panel{
+  position: relative;
+  background: var(--c-bg-2);
+  border: 1px solid var(--c-rule-2);
+  border-radius: var(--r-1);
+  display: flex; flex-direction: column;
+  overflow: hidden;
+  min-width: 0;
+}
+
+.panel.is-bracketed::before,
+.panel.is-bracketed::after{
+  content: '';
+  position: absolute; inset: -2px;
+  pointer-events: none;
+  background:
+    /* TL */
+    linear-gradient(90deg,  var(--c-red) 0 14px, transparent 14px) top left/14px 1px no-repeat,
+    linear-gradient(180deg, var(--c-red) 0 14px, transparent 14px) top left/1px 14px no-repeat,
+    /* TR */
+    linear-gradient(270deg, var(--c-red) 0 14px, transparent 14px) top right/14px 1px no-repeat,
+    linear-gradient(180deg, var(--c-red) 0 14px, transparent 14px) top right/1px 14px no-repeat,
+    /* BL */
+    linear-gradient(90deg,  var(--c-red) 0 14px, transparent 14px) bottom left/14px 1px no-repeat,
+    linear-gradient(0deg,   var(--c-red) 0 14px, transparent 14px) bottom left/1px 14px no-repeat,
+    /* BR */
+    linear-gradient(270deg, var(--c-red) 0 14px, transparent 14px) bottom right/14px 1px no-repeat,
+    linear-gradient(0deg,   var(--c-red) 0 14px, transparent 14px) bottom right/1px 14px no-repeat;
+}
+.panel.is-bracketed::after{ opacity: .35; transform: scale(1.01); }
+
+.panel__head{
+  display: flex; align-items: center; gap: var(--s-3);
+  padding: var(--s-2) var(--s-3);
+  background: #000;
+  border-bottom: 1px solid var(--c-rule-2);
+  font-family: var(--f-mono);
+  font-size: var(--t-xs);
+  letter-spacing: var(--ls-label);
+  text-transform: uppercase;
+  color: var(--c-ink-3);
+}
+.panel__title{
+  color: var(--c-red);
+  font-weight: 700;
+  display: inline-flex; align-items: baseline; gap: var(--s-2);
+}
+.panel__fcode{ color: var(--c-ink-3); font-weight: 400; letter-spacing: .06em; }
+.panel__go   { color: var(--c-red-2); font-weight: 600; letter-spacing: .06em; }
+.panel__meta{ margin-left: auto; display: inline-flex; gap: var(--s-2); align-items: center; }
+
+.panel__pill{
+  border: 1px solid var(--c-rule-2);
+  padding: 1px 5px;
+  border-radius: var(--r-1);
+  font-size: 9px;
+  letter-spacing: var(--ls-label);
+  color: var(--c-ink-2);
+}
+.panel__pill--live{
+  color: var(--c-up);
+  border-color: rgba(0, 229, 168, .35);
+  display: inline-flex; align-items: center; gap: 4px;
+}
+.panel__pill--sim{
+  color: var(--c-ink-3);
+}
+
+.panel__body{
+  padding: var(--s-3);
+  flex: 1;
+  display: flex; flex-direction: column;
+  min-height: 0;
+}
+.panel__body--pad-0{ padding: 0; }
+.panel__body--pad-2{ padding: var(--s-2); }
+
+.panel__foot{
+  padding: var(--s-2) var(--s-3);
+  background: #000;
+  border-top: 1px solid var(--c-rule);
+  font-family: var(--f-mono);
+  font-size: 9.5px;
+  letter-spacing: var(--ls-label);
+  text-transform: uppercase;
+  color: var(--c-ink-3);
+  display: flex; justify-content: space-between; gap: var(--s-3);
+}
