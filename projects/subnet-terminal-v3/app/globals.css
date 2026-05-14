@@ -50,6 +50,32 @@ body {
 /* tabular numerals wherever data lives */
 .tnum { font-variant-numeric: tabular-nums; }
 
+/* keyboard focus — always visible, phosphor-amber, never removed */
+:focus-visible {
+  outline: 2px solid var(--color-amber);
+  outline-offset: 1px;
+}
+/* SVG chart nodes take the ring as a stroke instead */
+[role="button"]:focus-visible > circle:first-of-type,
+g[tabindex]:focus-visible > circle:first-of-type {
+  stroke: var(--color-amber);
+  stroke-width: 2.5;
+}
+
+/* skip link — off-screen until focused */
+.skip-link {
+  position: fixed;
+  top: 0; left: 0;
+  z-index: 100;
+  padding: 8px 14px;
+  background: var(--color-amber);
+  color: var(--color-bg);
+  font-size: 12px;
+  transform: translateY(-110%);
+  transition: transform .12s ease-out;
+}
+.skip-link:focus { transform: translateY(0); }
+
 /* real small-caps for section labels */
 .smallcaps { font-variant-caps: all-small-caps; letter-spacing: 0.06em; }
 
@@ -88,4 +114,6 @@ body {
 @media (prefers-reduced-motion: reduce) {
   .tape-track { animation: none; }
   .tick-up, .tick-down { animation: none; }
+  .animate-pulse { animation: none; }
+  * { scroll-behavior: auto; }
 }

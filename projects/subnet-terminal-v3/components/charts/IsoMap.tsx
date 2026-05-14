@@ -22,7 +22,15 @@ export function IsoMap({
   return (
     <div ref={ref} className="absolute inset-0">
       {w > 0 && h > 0 && (
-        <svg width={w} height={h} className="block">
+        <svg
+          width={w}
+          height={h}
+          className="block"
+          role="img"
+          aria-label={`ISO power map. ${isos
+            .map((i) => `${i.iso} average ${i.avgLmp.toFixed(0)} dollars per megawatt-hour`)
+            .join("; ")}.`}
+        >
           {/* faint connective grid between adjacent ISOs */}
           {isos.map((a, i) =>
             isos.slice(i + 1).map((b) => {
@@ -52,7 +60,18 @@ export function IsoMap({
                 key={iso.iso}
                 transform={`translate(${cx},${cy})`}
                 className="cursor-pointer"
+                role="button"
+                tabIndex={0}
+                aria-label={`${iso.iso}, ${iso.name}. Average LMP ${iso.avgLmp.toFixed(
+                  0
+                )} dollars per megawatt-hour. Open detail.`}
                 onClick={() => onPick?.(iso)}
+                onKeyDown={(e) => {
+                  if (e.key === "Enter" || e.key === " ") {
+                    e.preventDefault();
+                    onPick?.(iso);
+                  }
+                }}
               >
                 <circle r={r} fill={col} fillOpacity={0.16} stroke={col} strokeWidth={1.5} />
                 <circle r={3} fill={col} />

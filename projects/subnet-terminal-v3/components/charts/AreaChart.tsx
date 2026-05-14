@@ -32,10 +32,21 @@ export function AreaChart({
   const ready = w > 8 && h > 8 && data.length > 1;
   const linePts = ready ? data.map((v, i) => `${x(i).toFixed(1)},${y(v).toFixed(1)}`) : [];
 
+  const last = data.length ? data[data.length - 1] : 0;
+  const first = data.length ? data[0] : 0;
+
   return (
     <div ref={ref} className="absolute inset-0">
       {ready && (
-        <svg width={w} height={h} className="block">
+        <svg
+          width={w}
+          height={h}
+          className="block"
+          role="img"
+          aria-label={`Area chart, ${data.length} points, from ${fmt(first)} to ${fmt(
+            last
+          )}, range ${fmt(lo)} to ${fmt(hi)}.`}
+        >
           {[0, 1, 2, 3, 4].map((i) => {
             const v = lo + (i / 4) * (hi - lo);
             const yy = y(v);

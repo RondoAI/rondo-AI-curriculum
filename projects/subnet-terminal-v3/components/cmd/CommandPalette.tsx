@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useMemo, useRef, useState } from "react";
+import { useRouter } from "next/navigation";
 import { PANELS, VERTICAL_LABEL } from "@/lib/panels";
 import type { Preset } from "@/components/chrome/TopChrome";
 
@@ -32,9 +33,24 @@ export function CommandPalette({ onPreset }: { onPreset: (p: Preset) => void }) 
   const [q, setQ] = useState("");
   const [active, setActive] = useState(0);
   const inputRef = useRef<HTMLInputElement>(null);
+  const router = useRouter();
 
   const commands: Cmd[] = useMemo(() => {
     const close = () => setOpen(false);
+    const navCmds: Cmd[] = [
+      { id: "nav-terminal", label: "Terminal · the workstation", hint: "/", path: "/" },
+      { id: "nav-wire", label: "Release Wire · full feed", hint: "/wire", path: "/wire" },
+      { id: "nav-about", label: "About · what this is", hint: "/about", path: "/about" },
+    ].map((n) => ({
+      id: n.id,
+      label: n.label,
+      hint: n.hint,
+      group: "GO TO",
+      run: () => {
+        router.push(n.path);
+        close();
+      },
+    }));
     const presetCmds: Cmd[] = PRESETS.map((p) => ({
       id: `layout-${p}`,
       label: `Layout · ${p[0].toUpperCase()}${p.slice(1)}`,
@@ -57,8 +73,8 @@ export function CommandPalette({ onPreset }: { onPreset: (p: Preset) => void }) 
         close();
       },
     }));
-    return [...presetCmds, ...panelCmds];
-  }, [onPreset]);
+    return [...navCmds, ...presetCmds, ...panelCmds];
+  }, [onPreset, router]);
 
   const results = useMemo(
     () =>
@@ -118,6 +134,9 @@ export function CommandPalette({ onPreset }: { onPreset: (p: Preset) => void }) 
       onMouseDown={() => setOpen(false)}
     >
       <div
+        role="dialog"
+        aria-modal="true"
+        aria-label="Command palette"
         className="w-[min(620px,92vw)] bg-elev-2 border border-hairline-2"
         onMouseDown={(e) => e.stopPropagation()}
       >

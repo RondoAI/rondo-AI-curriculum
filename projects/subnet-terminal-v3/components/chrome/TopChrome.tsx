@@ -18,7 +18,10 @@ export function TopChrome({
   onPreset: (p: Preset) => void;
 }) {
   return (
-    <header className="sticky top-0 z-40 h-14 shrink-0 grid grid-cols-[minmax(300px,1fr)_minmax(0,2.4fr)_minmax(280px,1fr)] items-stretch bg-elev-1 border-b border-hairline">
+    <header
+      aria-label="Terminal chrome"
+      className="sticky top-0 z-40 h-14 shrink-0 grid grid-cols-[minmax(300px,1fr)_minmax(0,2.4fr)_minmax(280px,1fr)] items-stretch bg-elev-1 border-b border-hairline"
+    >
       {/* left — wordmark + command bar */}
       <div className="flex items-center gap-3 px-4 border-r border-hairline">
         <span className="flex items-baseline gap-[1px] font-serif text-[19px] leading-none text-ink-1">
@@ -31,6 +34,8 @@ export function TopChrome({
         <button
           type="button"
           onClick={() => window.dispatchEvent(new CustomEvent("sbnt:command"))}
+          aria-label="Open command palette"
+          aria-keyshortcuts="Meta+K Control+K"
           className="ml-auto flex items-center gap-2 px-2.5 h-7 border border-hairline-2 text-ink-3 hover:text-ink-1 hover:bg-elev-2 transition-colors"
         >
           <span className="text-[11px] smallcaps">search</span>
@@ -49,15 +54,23 @@ export function TopChrome({
       <div className="flex items-center justify-end gap-4 px-4 border-l border-hairline">
         <Clock />
         <span className="flex items-center gap-1.5 text-[10px] text-ink-3 smallcaps">
-          <span className="w-1.5 h-1.5 rounded-full bg-up animate-pulse" />
+          <span
+            className="w-1.5 h-1.5 rounded-full bg-up animate-pulse"
+            aria-hidden="true"
+          />
           live
         </span>
-        <div className="flex">
+        <div
+          className="flex"
+          role="group"
+          aria-label="Layout preset"
+        >
           {PRESETS.map((p) => (
             <button
               key={p}
               type="button"
               onClick={() => onPreset(p)}
+              aria-pressed={preset === p}
               className={`px-2 h-6 text-[10px] smallcaps border border-hairline-2 -ml-px first:ml-0 transition-colors ${
                 preset === p
                   ? "bg-amber text-bg border-amber"

@@ -91,14 +91,40 @@ export function Treemap({
 
   return (
     <div ref={ref} className="absolute inset-0">
-      <svg width={w} height={h} className="block">
+      <svg
+        width={w}
+        height={h}
+        className="block"
+        role="img"
+        aria-label={`Treemap of ${cells.length} cells, sized by value. Largest: ${
+          [...cells].sort((a, b) => b.value - a.value)[0]?.label ?? "none"
+        }.`}
+      >
         {boxes.map((b) => {
           const big = b.w > 64 && b.h > 30;
+          const interactive = Boolean(onPick);
           return (
             <g
               key={b.key}
               onClick={() => onPick?.(b.key)}
-              className={onPick ? "cursor-pointer" : ""}
+              onKeyDown={
+                interactive
+                  ? (e) => {
+                      if (e.key === "Enter" || e.key === " ") {
+                        e.preventDefault();
+                        onPick?.(b.key);
+                      }
+                    }
+                  : undefined
+              }
+              role={interactive ? "button" : undefined}
+              tabIndex={interactive ? 0 : undefined}
+              aria-label={
+                interactive
+                  ? `${b.label}${b.sub ? `, ${b.sub}` : ""}. Open detail.`
+                  : undefined
+              }
+              className={interactive ? "cursor-pointer" : ""}
             >
               <rect
                 x={b.x + 0.5}

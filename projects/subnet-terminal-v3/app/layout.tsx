@@ -33,6 +33,9 @@ export default function RootLayout({
       className={`${jbMono.variable} ${fraunces.variable} ${geist.variable} h-full`}
     >
       <body className="min-h-full flex flex-col bg-bg text-ink-1">
+        <a href="#main-content" className="skip-link">
+          Skip to main content
+        </a>
         {children}
       </body>
     </html>

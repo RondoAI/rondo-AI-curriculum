@@ -23,7 +23,15 @@ export function RadialBars({ data }: { data: RadialDatum[] }) {
 
   return (
     <div ref={ref} className="absolute inset-0">
-      <svg width={w} height={h} className="block">
+      <svg
+        width={w}
+        height={h}
+        className="block"
+        role="img"
+        aria-label={`Polar bar chart of ${data.length} items: ${data
+          .map((d) => `${d.label} ${(d.value * 100).toFixed(0)} percent`)
+          .join(", ")}.`}
+      >
         {/* reference rings */}
         {[0.25, 0.5, 0.75, 1].map((t) => (
           <circle

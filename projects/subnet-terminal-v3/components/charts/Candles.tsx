@@ -105,9 +105,23 @@ export function Candles({
     ctx.fill();
   }, [data, overlay, accent, w, h]);
 
+  const first = data[0];
+  const last = data[data.length - 1];
+  const summary =
+    data.length > 1
+      ? `Candlestick chart, ${data.length} periods, open ${first.o.toFixed(
+          2
+        )}, last close ${last.c.toFixed(2)}.`
+      : "Candlestick chart.";
+
   return (
     <div ref={ref} className="absolute inset-0">
-      <canvas ref={cv} style={{ width: "100%", height: "100%", display: "block" }} />
+      <canvas
+        ref={cv}
+        role="img"
+        aria-label={summary}
+        style={{ width: "100%", height: "100%", display: "block" }}
+      />
     </div>
   );
 }

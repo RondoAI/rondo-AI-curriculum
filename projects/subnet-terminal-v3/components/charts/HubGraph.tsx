@@ -51,7 +51,13 @@ export function HubGraph({
 
   return (
     <div ref={ref} className="absolute inset-0">
-      <svg width={w} height={h} className="block">
+      <svg
+        width={w}
+        height={h}
+        className="block"
+        role="img"
+        aria-label={`Delegation graph: ${nodes.length} validators on an inner orbit linked to ${rings.length} subnets on the outer ring.`}
+      >
         {/* edges */}
         {nodePos.map((nd) =>
           nd.links.map((sid) => {

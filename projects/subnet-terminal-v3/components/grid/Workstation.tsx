@@ -70,7 +70,11 @@ export function Workstation({ preset }: { preset: Preset }) {
   const shownLayout = layout.filter((l) => visibleIds.has(l.i));
 
   return (
-    <div className="flex-1 min-h-0 overflow-y-auto overflow-x-hidden bg-bg p-2">
+    <main
+      id="main-content"
+      aria-label="Workstation panels"
+      className="flex-1 min-h-0 overflow-y-auto overflow-x-hidden bg-bg p-2"
+    >
       <Grid
         layout={shownLayout}
         cols={COLS}
@@ -92,6 +96,6 @@ export function Workstation({ preset }: { preset: Preset }) {
           );
         })}
       </Grid>
-    </div>
+    </main>
   );
 }

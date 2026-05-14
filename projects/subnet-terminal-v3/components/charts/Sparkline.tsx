@@ -11,7 +11,7 @@ export function Sparkline({
   height?: number;
   up?: boolean;
 }) {
-  if (data.length < 2) return <svg width={width} height={height} />;
+  if (data.length < 2) return <svg width={width} height={height} aria-hidden="true" />;
   let lo = Infinity, hi = -Infinity;
   for (const v of data) {
     if (v < lo) lo = v;
@@ -26,7 +26,7 @@ export function Sparkline({
     return `${x.toFixed(1)},${y.toFixed(1)}`;
   });
   return (
-    <svg width={width} height={height} className="block">
+    <svg width={width} height={height} className="block" aria-hidden="true">
       <polyline
         points={`1,${height} ${pts.join(" ")} ${width - 1},${height}`}
         fill={color}
