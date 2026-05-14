@@ -21,7 +21,7 @@ import { html, mount, qs, qsa, on } from '../lib/dom.js';
 import { mark } from '../lib/mark.js';
 import { cardArt } from '../lib/art.js';
 import { AI_NEWS, newsByDate, NEWS_CATEGORY } from '../data/ai-news.js';
-import { CENTRALIZED_PLAYERS, REGIONS, ASIAN_REGIONS } from '../data/centralized.js';
+import { CENTRALIZED_PLAYERS, REGIONS, ASIAN_REGIONS, tickerFor } from '../data/centralized.js';
 
 function fmtDate(iso){
   const d = new Date(iso + 'T00:00:00Z');
@@ -29,6 +29,15 @@ function fmtDate(iso){
        + `${d.toLocaleDateString('en-US',{month:'short'}).toUpperCase()}`;
 }
 const IMPACT_LABEL = { up:'▲ TAILWIND', down:'▼ HEADWIND', flat:'● NEUTRAL' };
+/** Up/down/flat class from a signed change string like "+3.4%". */
+const chgClass = c => (String(c)[0] === '-' ? 'down' : String(c)[0] === '+' ? 'up' : 'flat');
+/** Render a row of gain/loss ticker chips. */
+const tickerChips = list => !list || !list.length ? '' : `
+  <div class="cd-tks">${list.map(t => `
+    <span class="cd-tk cd-tk--${chgClass(t.chg)}">
+      <span class="cd-tk__sym">${t.symbol}</span>
+      <span class="cd-tk__chg">${t.chg}</span>
+    </span>`).join('')}</div>`;
 
 /** @param {HTMLElement} root */
 export function mountCentralized(root){
@@ -66,14 +75,16 @@ export function mountCentralized(root){
         <span class="cd-tape__lbl">THE TAPE · BY VALUATION</span>
         <div class="cd-tape__viewport">
           <div class="cd-tape__track">
-            ${[0,1].map(() => tape.map(p => `
+            ${[0,1].map(() => tape.map(p => {
+              const tk = tickerFor(p);
+              return `
               <span class="cd-chip cd-chip--${ASIAN_REGIONS.has(p.region) ? 'asia' : 'west'}">
                 <span class="cd-chip__mark">${mark(p.name, { size: 22 })}</span>
+                <span class="cd-chip__tk ${tk.isPrivate ? 'is-pvt' : ''}">${tk.symbol}</span>
                 <span class="cd-chip__name">${p.name}</span>
-                <span class="cd-chip__region">${p.region}</span>
                 <span class="cd-chip__val">${p.valuation}</span>
-              </span>
-            `).join('')).join('')}
+              </span>`;
+            }).join('')).join('')}
           </div>
         </div>
       </section>
@@ -125,6 +136,7 @@ export function mountCentralized(root){
             </span>
           </header>
           <h3 class="cd-card__headline">${n.headline}</h3>
+          ${tickerChips(n.tickers)}
           <p class="cd-card__body">${n.body}</p>
           <div class="cd-card__art">${cardArt(n.id, { w: 360, h: 200, variant: n.category })}</div>
           <footer class="cd-card__foot">
@@ -150,11 +162,16 @@ export function mountCentralized(root){
     let list = CENTRALIZED_PLAYERS;
     if (region === 'ASIA') list = list.filter(p => ASIAN_REGIONS.has(p.region));
     else if (region !== 'ALL') list = list.filter(p => p.region === region);
-    grid.innerHTML = list.map(p => `
+    grid.innerHTML = list.map(p => {
+      const tk = tickerFor(p);
+      return `
       <li class="cd-co">
         <a class="cd-co__link" href="${p.url}" target="_blank" rel="noopener">
           <span class="cd-co__mark">${mark(p.name, { size: 38 })}</span>
-          <span class="cd-co__name">${p.name}</span>
+          <span class="cd-co__name">
+            <span class="cd-co__tk ${tk.isPrivate ? 'is-pvt' : ''}">${tk.symbol}</span>
+            <span class="cd-co__co">${p.name}</span>
+          </span>
           <span class="cd-co__focus">${p.focus}</span>
           <span class="cd-co__foot">
             <span class="cd-co__region cd-co__region--${ASIAN_REGIONS.has(p.region) ? 'asia' : 'west'}">${p.region}</span>
@@ -162,8 +179,8 @@ export function mountCentralized(root){
             ${p.openSource ? '<span class="cd-co__os">OSS</span>' : ''}
           </span>
         </a>
-      </li>
-    `).join('');
+      </li>`;
+    }).join('');
     if (!list.length) grid.innerHTML = '<li class="cd-empty">No players in this region.</li>';
   }
   renderRoster();

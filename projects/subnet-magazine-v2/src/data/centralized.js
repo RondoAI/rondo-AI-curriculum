@@ -135,6 +135,33 @@ export const REGIONS = Object.freeze({
   CN:'China',  KR:'South Korea', JP:'Japan',  TW:'Taiwan',  IN:'India',
 });
 
+/* Real exchange tickers for the publicly-listed players. Everyone
+   else is private — they get a synthetic ".PVT" symbol (the markets-
+   app convention) derived from their id. */
+const PUBLIC_TICKERS = Object.freeze({
+  nvidia:'NVDA', amd:'AMD', intel:'INTC', tsmc:'TSM', broadcom:'AVGO', marvell:'MRVL',
+  'meta-ai':'META', aws:'AMZN', azure:'MSFT', gcp:'GOOGL', deepmind:'GOOGL',
+  cloudflare:'NET', akamai:'AKAM', coreweave:'CRWV',
+  alicloud:'BABA', 'alibaba-ty':'BABA', tencent:'0700.HK', 'tencent-hy':'0700.HK',
+  baidu:'BIDU', 'baidu-cloud':'BIDU', naver:'035420.KS', 'naver-cloud':'035420.KS',
+  kakao:'035720.KS', 'sk-hynix':'000660.KS', samsung:'005930.KS', softbank:'9984.T',
+  kioxia:'285A.T', cambricon:'688256.SS', 'xpeng-r':'XPEV', kling:'1024.HK',
+});
+
+/**
+ * The display ticker for a player — the real exchange symbol when
+ * listed, otherwise a synthetic ".PVT" symbol. Mirrors how markets
+ * apps surface private companies (e.g. "OPAI.PVT" for OpenAI).
+ * @param {{id:string}} p
+ * @returns {{ symbol: string, isPrivate: boolean }}
+ */
+export function tickerFor(p){
+  if (!p) return { symbol: '—', isPrivate: false };
+  if (PUBLIC_TICKERS[p.id]) return { symbol: PUBLIC_TICKERS[p.id], isPrivate: false };
+  const slug = String(p.id).replace(/[^a-z0-9]/gi, '').slice(0, 4).toUpperCase();
+  return { symbol: `${slug}.PVT`, isPrivate: true };
+}
+
 /** Lookup helper. */
 export function playerById(id){ return CENTRALIZED_PLAYERS.find(p => p.id === id) || null; }
 

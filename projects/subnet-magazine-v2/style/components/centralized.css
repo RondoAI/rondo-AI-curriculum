@@ -89,6 +89,11 @@
   padding: 1px 4px; border-radius: var(--r-1);
 }
 .cd-chip--asia .cd-chip__region{ color: var(--c-red); border-color: var(--c-rule-3); }
+.cd-chip__tk{
+  font-family: var(--f-mono); font-size: var(--t-xs); font-weight: 600;
+  letter-spacing: var(--ls-data); color: var(--c-ink-1);
+}
+.cd-chip__tk.is-pvt{ color: var(--c-red-1); }
 .cd-chip__val{
   font-family: var(--f-mono); font-size: var(--t-xs);
   letter-spacing: var(--ls-data); color: var(--c-ink-3);
@@ -161,6 +166,25 @@
   font-size: var(--t-lg); line-height: var(--lh-snug);
   color: var(--c-ink-1);
 }
+/* gain/loss ticker chips on a news card (under the headline) */
+.cd-tks{
+  display: flex; flex-wrap: wrap; gap: var(--s-2);
+  padding: 0 var(--s-4) var(--s-3);
+}
+.cd-tk{
+  display: inline-flex; align-items: baseline; gap: var(--s-1);
+  padding: 2px 7px; border-radius: var(--r-1);
+  border: 1px solid var(--c-rule-2);
+  background: var(--c-bg-1);
+  font-family: var(--f-mono); letter-spacing: var(--ls-data);
+}
+.cd-tk__sym{ font-size: var(--t-xs); font-weight: 600; color: var(--c-ink-1); }
+.cd-tk__chg{ font-size: 10px; }
+.cd-tk--up{ border-color: var(--c-up-soft); }
+.cd-tk--up .cd-tk__chg{ color: var(--c-up); }
+.cd-tk--down{ border-color: var(--c-down-soft); }
+.cd-tk--down .cd-tk__chg{ color: var(--c-down); }
+.cd-tk--flat .cd-tk__chg{ color: var(--c-ink-3); }
 .cd-card__body{
   margin: 0; padding: 0 var(--s-4) var(--s-4);
   font-family: var(--f-sans); font-size: var(--t-sm);
@@ -221,8 +245,17 @@
 .cd-co__mark svg{ display: block; }
 .cd-co__name{
   grid-area: name; align-self: end;
-  font-family: var(--f-sans); font-size: var(--t-md); font-weight: 600;
-  color: var(--c-ink-1);
+  display: flex; flex-direction: column; gap: 1px; min-width: 0;
+}
+.cd-co__tk{
+  font-family: var(--f-mono); font-size: var(--t-sm); font-weight: 600;
+  letter-spacing: var(--ls-data); color: var(--c-ink-1);
+}
+.cd-co__tk.is-pvt{ color: var(--c-red-1); }
+.cd-co__co{
+  font-family: var(--f-sans); font-size: var(--t-xs);
+  color: var(--c-ink-3);
+  overflow: hidden; text-overflow: ellipsis; white-space: nowrap;
 }
 .cd-co__focus{
   grid-area: focus; align-self: start;
