@@ -33,6 +33,10 @@ export const usdCompact = (n: number) => "$" + compact(n);
 export const deltaClass = (n: number) =>
   n > 0 ? "text-up" : n < 0 ? "text-down" : "text-ink-3";
 
+/** power capacity: 900 MW · 1.20 GW — MW below a gigawatt, GW above */
+export const capacity = (mw: number) =>
+  mw >= 1000 ? (mw / 1000).toFixed(2) + " GW" : int(mw) + " MW";
+
 /** compact relative age: 4m · 3h · 2d · 5w */
 export function ago(t: number, from = Date.now()): string {
   const s = Math.max(0, Math.round((from - t) / 1000));

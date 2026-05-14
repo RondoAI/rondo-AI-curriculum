@@ -10,6 +10,8 @@ import { AiWirePanel } from "./AiWirePanel";
 import { ModelBoardPanel } from "./ModelBoardPanel";
 import { GpuBoardPanel } from "./GpuBoardPanel";
 import { CapexPanel } from "./CapexPanel";
+import { IsoMapPanel } from "./IsoMapPanel";
+import { DatacenterPanel } from "./DatacenterPanel";
 
 /** panel id → body component. Panels without an entry render their
     in-voice empty state until their phase lands. */
@@ -23,4 +25,6 @@ export const PANEL_CONTENT: Record<string, ComponentType> = {
   "model-board": ModelBoardPanel,
   "gpu-board": GpuBoardPanel,
   capex: CapexPanel,
+  "iso-map": IsoMapPanel,
+  datacenter: DatacenterPanel,
 };
