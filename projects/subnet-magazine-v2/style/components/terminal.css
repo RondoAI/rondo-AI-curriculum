@@ -635,3 +635,58 @@
 @media (max-width: 480px){
   .ov-grid{ grid-template-columns: 1fr; }
 }
+
+/* =================================================================
+   SUBNET MONITOR — dense Bloomberg-style live quote table
+   ================================================================= */
+.term-monitor__scroll{
+  max-height: 460px;
+  overflow-y: auto;
+  scrollbar-width: thin;
+}
+.term-monitor{
+  width: 100%;
+  border-collapse: collapse;
+  font-family: var(--f-mono);
+  font-size: var(--t-sm);
+}
+.term-monitor thead th{
+  position: sticky; top: 0; z-index: 1;
+  background: var(--c-bg-3);
+  padding: var(--s-2) var(--s-3);
+  text-align: left;
+  font-size: var(--t-xs);
+  font-weight: 600;
+  letter-spacing: var(--ls-data);
+  color: var(--c-ink-3);
+  text-transform: uppercase;
+  border-bottom: var(--b-med);
+  cursor: pointer;
+  white-space: nowrap;
+  user-select: none;
+}
+.term-monitor thead th:hover{ color: var(--c-ink-1); }
+.term-monitor thead th.num{ text-align: right; }
+.term-monitor thead th.is-sorted{ color: var(--c-red-1); }
+.mon-arrow{ color: var(--c-red); }
+.term-monitor tbody td{
+  padding: 5px var(--s-3);
+  border-bottom: 1px solid var(--c-rule);
+  white-space: nowrap;
+  color: var(--c-ink-2);
+}
+.term-monitor tbody td.num{ text-align: right; }
+.term-monitor tbody tr{
+  cursor: pointer;
+  transition: background var(--d-fast) var(--e-out);
+}
+.term-monitor tbody tr:hover{ background: var(--c-bg-3); }
+.term-monitor tbody tr:hover .mon-name{ color: var(--c-red-1); }
+.mon-id{ color: var(--c-red); font-weight: 600; }
+.mon-name{
+  color: var(--c-ink-1);
+  max-width: 220px; overflow: hidden; text-overflow: ellipsis;
+}
+.mon-up{ color: var(--c-up); }
+.mon-down{ color: var(--c-down); }
+.mon-flat{ color: var(--c-ink-4); }
