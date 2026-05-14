@@ -21,6 +21,7 @@
    ================================================================= */
 
 import { html, mount, qs, raw } from '../lib/dom.js';
+import { ScatterChart } from '../charts/ScatterChart.js';
 import { PROVIDERS, providerById, METRICS, GPUS, PRESETS } from '../data/inference-providers.js';
 import { SAMPLE_PROMPTS, QUALITY_BASELINE, placeholderFor } from '../data/inference-prompts.js';
 import { BENCHMARKS } from '../data/benchmarks.js';
@@ -139,6 +140,8 @@ export function mountCompare(root){
     tco:         qs('[data-bind="tab-tco"]',      root),
     gpu:         qs('[data-bind="tab-gpu"]',      root),
   };
+  /** the cost×speed scatter — recreated each Performance render */
+  let scatterChart = null;
 
   /* =================== filtering =================== */
   function filteredProviders(){
@@ -163,6 +166,32 @@ export function mountCompare(root){
     values.sort((a, b) => metric.lower ? a.v - b.v : b.v - a.v);
 
     paneRefs.performance.innerHTML = `
+      <article class="cmp-scatter panel is-bracketed">
+        <div class="panel__head">
+          <span class="panel__title">
+            <span class="panel__fcode">&lt;701&gt;</span>
+            COST × SPEED — VISUAL COMPARISON
+            <span class="panel__go">&lt;GO&gt;</span>
+          </span>
+          <span class="panel__meta cmp-scatter__keys">
+            <span class="cmp-scatter__key"><i style="background:${KIND_COLOR.subnet}"></i>Decentralized</span>
+            <span class="cmp-scatter__key"><i style="background:${KIND_COLOR.frontier}"></i>Frontier</span>
+            <span class="cmp-scatter__key"><i style="background:${KIND_COLOR.open}"></i>Open-weights</span>
+          </span>
+        </div>
+        <div class="panel__caption">
+          Every provider plotted by blended cost (X, log scale) against output speed (Y).
+          Top-left is the sweet spot — cheap and fast. The Bittensor subnets are the bright dots.
+        </div>
+        <div class="panel__body panel__body--pad-0 cmp-scatter__viz">
+          <canvas data-canvas="cmp-scatter" aria-label="Cost versus speed scatter plot"></canvas>
+        </div>
+        <div class="panel__foot">
+          <span>X · BLENDED $/1M (LOG) — Y · TOKENS / SEC</span>
+          <span>${arr.length} PROVIDERS · HOVER A DOT</span>
+        </div>
+      </article>
+
       <article class="cmp-perf panel is-bracketed">
         <div class="panel__head">
           <span class="panel__title">
@@ -265,6 +294,26 @@ export function mountCompare(root){
         </div>
       </article>
     `;
+
+    /* mount the cost×speed scatter (recreated each render) */
+    if (scatterChart){ scatterChart.destroy(); scatterChart = null; }
+    const scCanvas = qs('[data-canvas="cmp-scatter"]', root);
+    if (scCanvas){
+      scatterChart = new ScatterChart(scCanvas, {
+        points: arr.map(p => ({
+          x: p.priceIn + p.priceOut,
+          y: p.tps,
+          label: p.name,
+          color: KIND_COLOR[p.kind],
+          kind: p.kind,
+        })),
+        xLabel: 'Blended $/1M (log)',
+        yLabel: 'Tokens / sec',
+        xLog: true,
+        fmtX: v => '$' + (v >= 10 ? v.toFixed(0) : v.toFixed(1)),
+        fmtY: v => String(Math.round(v)),
+      });
+    }
   }
 
   /* =================== TAB: Prompt Test =================== */
