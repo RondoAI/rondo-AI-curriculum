@@ -122,12 +122,20 @@ export class WorldGlobe extends Chart {
     super(canvas, { animate: true });
 
     /** @private */ this.radius = opts.radius ?? 0.44;
-    /** @private */ this.autospin = opts.autospin ?? 0.06;
+    /* autospin: negative so the globe rotates the way real Earth
+       does — eastward, so a fixed viewer sees continents drift
+       LEFT across the disk and new land enter from the right. */
+    /** @private */ this.autospin = opts.autospin ?? -0.06;
     /** @private */ this.hubAlt = opts.hubAltitude ?? 1.08;
 
-    /** @private */ this.rotX = opts.tilt ?? 0.30;    // current tilt
-    /** @private */ this.rotY = 0;                    // current longitude offset
-    /** @private */ this.tgtX = this.rotX;            // smoothing target
+    /* Default view: visible center at lng = 0 (Atlantic). The
+       sphere projection puts lng = (π/2 + rotY) at the disk
+       center, so we set rotY = -π/2 to center on Greenwich. */
+    /** @private */ this.rotX = opts.tilt ?? 0.30;
+    /** @private */ this.rotY = opts.lon0 != null
+      ? (opts.lon0 * Math.PI / 180 - Math.PI / 2)
+      : -Math.PI / 2;
+    /** @private */ this.tgtX = this.rotX;
     /** @private */ this.tgtY = this.rotY;
 
     /** @private */ this.dragging = false;
@@ -508,7 +516,10 @@ export class WorldGlobe extends Chart {
     const INK_DIM   = 'rgba(232,200,205,.65)';
 
     const s = this.status;
-    const lonOff = ((this.rotY / Math.PI * 180) % 360 + 540) % 360 - 180;
+    /* Longitude currently at the visible disk center. The projection
+       puts (π/2 + rotY) at the front, so the reverse gives the
+       displayed longitude. Normalized to (-180°, 180°]. */
+    const lonCenter = (((this.rotY * 180 / Math.PI) + 90) % 360 + 540) % 360 - 180;
     const tps = (s.tps + Math.sin(t * 0.6) * 24 | 0);
     const epochProgress = (s.epochBlock % 360) / 360;
     const blocksLeft = 360 - (s.epochBlock % 360);
@@ -531,7 +542,8 @@ export class WorldGlobe extends Chart {
     ctx.fillStyle = RED_DIM;
     ctx.fillText('ORBITAL  ·  WGS84', w - 12, 12);
     ctx.fillStyle = INK_DIM;
-    ctx.fillText(`LON ${lonOff.toFixed(0).padStart(4, ' ')}°  ·  EPOC ${s.epoch.toLocaleString('en-US')}`, w - 12, 26);
+    const lonStr = `${Math.abs(lonCenter).toFixed(0).padStart(3, ' ')}°${lonCenter >= 0 ? 'E' : 'W'}`;
+    ctx.fillText(`LON ${lonStr}  ·  EPOC ${s.epoch.toLocaleString('en-US')}`, w - 12, 26);
     ctx.fillStyle = RED_DIM;
     ctx.fillText(`τ EMIT  ·  ${s.emissionDay.toLocaleString('en-US')} / d`, w - 12, 40);
 
