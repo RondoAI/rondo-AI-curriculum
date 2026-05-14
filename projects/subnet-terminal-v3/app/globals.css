@@ -1,0 +1,91 @@
+@import "tailwindcss";
+@import "react-grid-layout/css/styles.css";
+@import "react-resizable/css/styles.css";
+
+/* =================================================================
+   SUBNEτ TERMINAL v3 — DESIGN TOKENS
+   Phosphor terminal: true-black ground, amber primary, per-vertical
+   accents. No off-the-shelf theme.
+   ================================================================= */
+@theme {
+  /* ground + elevation */
+  --color-bg:         #000000;
+  --color-elev-1:     #0a0a0a;
+  --color-elev-2:     #121212;
+  --color-hairline:   #1c1917;
+  --color-hairline-2: #292524;
+
+  /* vertical accents */
+  --color-amber:      #FFB000;   /* Bittensor      */
+  --color-cyan:       #22D3EE;   /* GPU            */
+  --color-magenta:    #F472B6;   /* AI / research  */
+  --color-lime:       #84CC16;   /* Power          */
+
+  /* semantic */
+  --color-up:         #10B981;
+  --color-down:       #EF4444;
+  --color-warn:       #FACC15;
+
+  /* ink */
+  --color-ink-1:      #F5F5F4;
+  --color-ink-2:      #A8A29E;
+  --color-ink-3:      #57534E;
+
+  /* type */
+  --font-mono:  var(--font-jbmono), ui-monospace, "SF Mono", Menlo, monospace;
+  --font-serif: var(--font-fraunces), "Iowan Old Style", Georgia, serif;
+  --font-sans:  var(--font-geist), system-ui, sans-serif;
+}
+
+html, body { height: 100%; }
+body {
+  background: var(--color-bg);
+  color: var(--color-ink-1);
+  font-family: var(--font-mono);
+  font-feature-settings: "tnum" 1;
+  -webkit-font-smoothing: antialiased;
+  overscroll-behavior: none;
+}
+
+/* tabular numerals wherever data lives */
+.tnum { font-variant-numeric: tabular-nums; }
+
+/* real small-caps for section labels */
+.smallcaps { font-variant-caps: all-small-caps; letter-spacing: 0.06em; }
+
+/* hairline-delineated panels, never shadows */
+.hairline { border: 1px solid var(--color-hairline); }
+
+/* thin scrollbars, phosphor-tinted */
+* { scrollbar-width: thin; scrollbar-color: var(--color-hairline-2) transparent; }
+*::-webkit-scrollbar { width: 8px; height: 8px; }
+*::-webkit-scrollbar-thumb { background: var(--color-hairline-2); }
+*::-webkit-scrollbar-track { background: transparent; }
+
+/* number tick flash — like a trading screen */
+@keyframes tick-up   { from { background: color-mix(in srgb, var(--color-up) 35%, transparent); } to { background: transparent; } }
+@keyframes tick-down { from { background: color-mix(in srgb, var(--color-down) 35%, transparent); } to { background: transparent; } }
+.tick-up   { animation: tick-up   .25s ease-out 1; }
+.tick-down { animation: tick-down .25s ease-out 1; }
+
+/* scrolling ticker tape */
+@keyframes tape { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+.tape-track { animation: tape 90s linear infinite; }
+.tape-track:hover { animation-play-state: paused; }
+
+/* react-grid-layout — restyle the defaults to the hairline aesthetic */
+.react-grid-item.react-grid-placeholder {
+  background: color-mix(in srgb, var(--color-amber) 14%, transparent);
+  border: 1px dashed var(--color-amber);
+  opacity: 1;
+}
+.react-grid-item > .react-resizable-handle::after {
+  border-right-color: var(--color-hairline-2);
+  border-bottom-color: var(--color-hairline-2);
+}
+.react-grid-item.resizing, .react-grid-item.react-draggable-dragging { z-index: 30; }
+
+@media (prefers-reduced-motion: reduce) {
+  .tape-track { animation: none; }
+  .tick-up, .tick-down { animation: none; }
+}
