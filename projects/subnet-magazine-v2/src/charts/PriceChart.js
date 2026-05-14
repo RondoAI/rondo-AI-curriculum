@@ -46,6 +46,9 @@ export class PriceChart extends Chart {
     /** @private */ this.showEvents  = opts.showEvents !== false;
     /** @private */ this.onHover     = opts.onHover ?? null;
     /** @private */ this.hover       = null;
+    /** @private intro draw-in: 0 → 1 */ this._intro = 1;
+    /** @private */ this._introRaf = 0;
+    /** @private */ this._introDone = false;
 
     canvas.addEventListener('pointermove', e => {
       const r = canvas.getBoundingClientRect();
@@ -61,12 +64,39 @@ export class PriceChart extends Chart {
 
   setData(data){
     this.data = data ?? [];
-    this.invalidate();
+    this._playIntro();
   }
 
   setShowEvents(flag){
     this.showEvents = !!flag;
     this.invalidate();
+  }
+
+  /** First layout kicks off the draw-in so the chart animates on mount. */
+  layout(){
+    if (!this._introDone && this.data.length >= 2){
+      this._introDone = true;
+      this._playIntro();
+    }
+  }
+
+  /** Tween the line/area reveal 0 → 1, taostats-style. */
+  _playIntro(){
+    cancelAnimationFrame(this._introRaf);
+    if (this._reduced || this.data.length < 2){ this._intro = 1; this.invalidate(); return; }
+    const t0 = performance.now(), DUR = 780;
+    const step = () => {
+      const e = (performance.now() - t0) / DUR;
+      this._intro = e >= 1 ? 1 : e;
+      this.invalidate();
+      if (e < 1) this._introRaf = requestAnimationFrame(step);
+    };
+    this._introRaf = requestAnimationFrame(step);
+  }
+
+  destroy(){
+    cancelAnimationFrame(this._introRaf);
+    super.destroy();
   }
 
   /** Public: derived stats for the current dataset. */
@@ -118,6 +148,12 @@ export class PriceChart extends Chart {
                     :            '$' + v.toFixed(4);
     const MONO = "'JetBrains Mono', ui-monospace, monospace";
 
+    /* intro draw-in: reveal the line/area left-to-right (easeOutCubic) */
+    const ease = this._intro < 1 ? 1 - Math.pow(1 - this._intro, 3) : 1;
+    const cut = Math.max(2, Math.round(this.data.length * ease));
+    const revealed = this.data.slice(0, cut);
+    const introDone = this._intro >= 1;
+
     /* ===== horizontal gridlines + right-edge price scale ===== */
     ctx.textBaseline = 'middle';
     const LEVELS = 4;
@@ -139,9 +175,9 @@ export class PriceChart extends Chart {
     grad.addColorStop(1, areaBot);
     ctx.fillStyle = grad;
     ctx.beginPath();
-    ctx.moveTo(xFor(this.data[0].t), padT + innerH);
-    for (const k of this.data) ctx.lineTo(xFor(k.t), yFor(k.p));
-    ctx.lineTo(xFor(this.data[this.data.length - 1].t), padT + innerH);
+    ctx.moveTo(xFor(revealed[0].t), padT + innerH);
+    for (const k of revealed) ctx.lineTo(xFor(k.t), yFor(k.p));
+    ctx.lineTo(xFor(revealed[revealed.length - 1].t), padT + innerH);
     ctx.closePath();
     ctx.fill();
 
@@ -173,20 +209,22 @@ export class PriceChart extends Chart {
     ctx.strokeStyle = lineColor;
     ctx.lineWidth = 2;
     ctx.beginPath();
-    for (let i = 0; i < this.data.length; i++){
-      const k = this.data[i];
+    for (let i = 0; i < revealed.length; i++){
+      const k = revealed[i];
       const x = xFor(k.t), y = yFor(k.p);
       if (i === 0) ctx.moveTo(x, y);
       else ctx.lineTo(x, y);
     }
     ctx.stroke();
 
-    /* latest-point dot */
-    const lastK = this.data[this.data.length - 1];
+    /* leading dot — glows while the line is still drawing in */
+    const lastK = revealed[revealed.length - 1];
     ctx.beginPath();
-    ctx.arc(xFor(lastK.t), yFor(lastK.p), 3, 0, Math.PI * 2);
+    ctx.arc(xFor(lastK.t), yFor(lastK.p), introDone ? 3 : 4.5, 0, Math.PI * 2);
     ctx.fillStyle = lineColor;
+    if (!introDone){ ctx.shadowColor = lineColor; ctx.shadowBlur = 12; }
     ctx.fill();
+    ctx.shadowBlur = 0;
 
     /* ===== time axis ======================================== */
     {
@@ -211,7 +249,7 @@ export class PriceChart extends Chart {
     }
 
     /* ===== optional event dots on the line =================== */
-    if (this.showEvents && this.events.length){
+    if (introDone && this.showEvents && this.events.length){
       for (const ev of this.events){
         const ts = Date.parse(ev.date + 'T00:00:00Z');
         if (ts < tMin || ts > tMax) continue;
@@ -227,7 +265,7 @@ export class PriceChart extends Chart {
     }
 
     /* ===== hover: crosshair + dot + emit callback ============ */
-    if (this.hover){
+    if (introDone && this.hover){
       const hx = this.hover.x;
       if (hx >= padL && hx <= padL + innerW){
         const ts = tMin + (hx - padL) / innerW * (tMax - tMin);
