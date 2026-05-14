@@ -141,7 +141,14 @@
   background: rgba(0,0,0,.35);
 }
 
-/* ---------- Candle cell ---------- */
+/* ---------- Timeline cell (the marquee) ---------- */
+.term-cell--timeline .panel__body--pad-0 canvas{
+  width: 100%; height: auto;
+  aspect-ratio: 21 / 10;
+  display: block;
+}
+
+/* ---------- Candle cell (legacy, kept for any reuse) ---------- */
 .term-cell--candles .panel__body--pad-0 canvas{
   width: 100%; height: auto;
   aspect-ratio: 21 / 8;
