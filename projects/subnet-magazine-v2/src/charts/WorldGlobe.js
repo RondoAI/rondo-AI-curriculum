@@ -20,6 +20,7 @@
    ================================================================= */
 
 import { Chart } from './Chart.js';
+import { COUNTRY_BORDERS, COUNTRY_LABELS, US_STATES } from '../data/geo.js';
 
 /* ---------- Palette ---------- */
 const RED       = '#FF1E3C';
@@ -381,6 +382,15 @@ export class WorldGlobe extends Chart {
       ctx.fill();
     }
 
+    /* country borders — thin strokes on the front hemisphere */
+    this._drawCountryBorders(ctx, cx, cy, R);
+
+    /* country + state labels — float on the visible hemisphere */
+    this._drawCountryLabels(ctx, cx, cy, R, w, h);
+
+    /* radial activity ring around the silhouette */
+    this._drawActivityRing(ctx, cx, cy, R, t);
+
     /* orbital mesh — arcs going OVER the sphere between hub pairs */
     for (const m of this.mesh){
       const ra = this._rotate(m.a.v);
@@ -603,6 +613,111 @@ export class WorldGlobe extends Chart {
     ctx.textAlign = 'right';
     ctx.fillStyle = RED_VDIM;
     ctx.fillText(this.dragging ? 'ROTATING…' : 'DRAG TO ROTATE  ·  AUTO-SPIN ON IDLE', w - 12, 56);
+  }
+
+  /** Country boundary polylines on the visible hemisphere. */
+  _drawCountryBorders(ctx, cx, cy, R){
+    ctx.lineJoin = 'round';
+    ctx.lineCap = 'round';
+    for (const c of COUNTRY_BORDERS){
+      ctx.beginPath();
+      let started = false;
+      let lastVis = false;
+      for (let k = 0; k < c.poly.length; k++){
+        const [lng, lat] = c.poly[k];
+        const v = sph2cart(lat, lng);
+        const r = this._rotate(v);
+        const vis = r.z > 0.04;
+        if (!vis){ started = false; lastVis = false; continue; }
+        const sx = cx + r.x * R;
+        const sy = cy - r.y * R;
+        if (!started || !lastVis){ ctx.moveTo(sx, sy); started = true; }
+        else ctx.lineTo(sx, sy);
+        lastVis = true;
+      }
+      ctx.strokeStyle = 'rgba(255,107,122,.38)';
+      ctx.lineWidth = 0.7;
+      ctx.stroke();
+    }
+  }
+
+  /** Country labels + US-state labels on the front hemisphere. */
+  _drawCountryLabels(ctx, cx, cy, R, w, h){
+    const placed = [];
+    const try_place = (x, y, w_, h_) => {
+      for (const r of placed){
+        if (x < r.x + r.w && x + w_ > r.x && y < r.y + r.h && y + h_ > r.y) return false;
+      }
+      placed.push({ x, y, w: w_, h: h_ });
+      return true;
+    };
+
+    /* Countries — sorted by priority so important names label first */
+    const candidates = COUNTRY_LABELS.slice().sort((a, b) => a.pr - b.pr);
+    ctx.font = '700 9.5px JetBrains Mono, monospace';
+    ctx.textBaseline = 'middle';
+    for (const c of candidates){
+      const v = sph2cart(c.lat, c.lng);
+      const r = this._rotate(v);
+      if (r.z < 0.15) continue;            // not on visible hemisphere
+      const sx = cx + r.x * R;
+      const sy = cy - r.y * R;
+      const tw = ctx.measureText(c.name).width;
+      const bx = sx - tw / 2;
+      const by = sy - 6;
+      if (bx < 50 || bx + tw > w - 50) continue;
+      if (by < 50 || by > h - 50) continue;
+      if (!try_place(bx - 2, by - 2, tw + 4, 12)) continue;
+      const alpha = 0.4 + r.z * 0.55;
+      ctx.fillStyle = `rgba(255,176,186,${alpha})`;
+      ctx.textAlign = 'center';
+      ctx.fillText(c.name, sx, sy);
+    }
+
+    /* US states — only when North America is squarely facing us. */
+    const usCenter = this._rotate(sph2cart(39, -98));
+    if (usCenter.z > 0.55){
+      ctx.font = '600 8.5px JetBrains Mono, monospace';
+      for (const s of US_STATES){
+        const v = sph2cart(s.lat, s.lng);
+        const r = this._rotate(v);
+        if (r.z < 0.35) continue;
+        const sx = cx + r.x * R;
+        const sy = cy - r.y * R;
+        const tw = ctx.measureText(s.code).width;
+        if (!try_place(sx - 6, sy - 5, 12, 10)) continue;
+        ctx.fillStyle = `rgba(255,30,60,${0.35 + r.z * 0.45})`;
+        ctx.textAlign = 'center';
+        ctx.fillText(s.code, sx, sy);
+        void tw;
+      }
+    }
+  }
+
+  /** Segmented red ring around the silhouette — 36 segments, intensity
+      cycles to suggest live network activity. */
+  _drawActivityRing(ctx, cx, cy, R, t){
+    const segs = 36;
+    const rIn = R * 1.10;
+    const rOut = R * 1.16;
+    for (let i = 0; i < segs; i++){
+      const a0 = (i / segs) * Math.PI * 2 - Math.PI / 2;
+      const a1 = ((i + 0.85) / segs) * Math.PI * 2 - Math.PI / 2;
+      /* deterministic seed for each segment, modulated by time */
+      const seed = Math.sin(i * 12.9898 + 78.233) * 43758.5453;
+      const phase = (seed - Math.floor(seed)) * Math.PI * 2;
+      const intensity = 0.18 + 0.40 * (0.5 + 0.5 * Math.sin(t * 1.5 + phase));
+      ctx.strokeStyle = `rgba(255,30,60,${intensity})`;
+      ctx.lineWidth = rOut - rIn;
+      ctx.beginPath();
+      ctx.arc(cx, cy, (rIn + rOut) / 2, a0, a1);
+      ctx.stroke();
+    }
+    /* outer thin guide */
+    ctx.strokeStyle = 'rgba(255,30,60,.10)';
+    ctx.lineWidth = 0.5;
+    ctx.beginPath(); ctx.arc(cx, cy, rOut, 0, Math.PI * 2); ctx.stroke();
+    ctx.beginPath(); ctx.arc(cx, cy, rIn, 0, Math.PI * 2); ctx.stroke();
   }
 
   /** Latitude/longitude wireframe arcs on the visible hemisphere. */
