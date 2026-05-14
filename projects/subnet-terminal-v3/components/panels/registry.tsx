@@ -8,6 +8,8 @@ import { ValidatorGraphPanel } from "./ValidatorGraphPanel";
 import { ConsensusPulsePanel } from "./ConsensusPulsePanel";
 import { AiWirePanel } from "./AiWirePanel";
 import { ModelBoardPanel } from "./ModelBoardPanel";
+import { GpuBoardPanel } from "./GpuBoardPanel";
+import { CapexPanel } from "./CapexPanel";
 
 /** panel id → body component. Panels without an entry render their
     in-voice empty state until their phase lands. */
@@ -19,4 +21,6 @@ export const PANEL_CONTENT: Record<string, ComponentType> = {
   "consensus-pulse": ConsensusPulsePanel,
   "ai-wire": AiWirePanel,
   "model-board": ModelBoardPanel,
+  "gpu-board": GpuBoardPanel,
+  capex: CapexPanel,
 };
