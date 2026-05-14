@@ -9,6 +9,7 @@
    ================================================================= */
 
 import { html, mount, qs, raw } from '../lib/dom.js';
+import { compact } from '../lib/format.js';
 import { WorldGlobe } from '../charts/WorldGlobe.js';
 import { SUBNETS } from '../data/subnets.js';
 import { catColor, catLabel } from '../data/categories.js';
@@ -117,8 +118,8 @@ export function mountNetworkMap(root, dataLayer = null){
           <p class="netmap__dek">A global view of the Bittensor consensus surface. Sixteen named hubs hold the bulk of stake. Particles trace each hub back to the rolling consensus head as it walks the equator.</p>
         </div>
         <div class="netmap__pills">
-          <span class="pill">N · 6,184 validators</span>
-          <span class="pill">Σ · τ 6.24M stake</span>
+          <span class="pill" data-bind="pill-vals">N · 6,184 validators</span>
+          <span class="pill" data-bind="pill-stake">Σ · τ 6.24M stake</span>
           <span class="pill" style="color:var(--c-up)"><span class="live-dot"></span>streaming</span>
         </div>
       </div>
@@ -246,18 +247,18 @@ export function mountNetworkMap(root, dataLayer = null){
       <div class="netmap__totals">
         <div class="total">
           <span class="total__label">VALIDATORS</span>
-          <span class="total__value">${NETWORK_TOTAL.validators.toLocaleString('en-US')}</span>
+          <span class="total__value" data-bind="tot-vals">${NETWORK_TOTAL.validators.toLocaleString('en-US')}</span>
           <span class="total__sub">root + subnet</span>
         </div>
         <div class="total">
           <span class="total__label">STAKE</span>
-          <span class="total__value">τ ${NETWORK_TOTAL.stakeTao.toFixed(2)}M</span>
+          <span class="total__value" data-bind="tot-stake">τ ${NETWORK_TOTAL.stakeTao.toFixed(2)}M</span>
           <span class="total__sub">${NETWORK_TOTAL.supplyPct}% of supply</span>
         </div>
         <div class="total">
           <span class="total__label">ACTIVE SUBNETS</span>
-          <span class="total__value">${NETWORK_TOTAL.subnets}</span>
-          <span class="total__sub">May 2026 roster</span>
+          <span class="total__value" data-bind="tot-subnets">${NETWORK_TOTAL.subnets}</span>
+          <span class="total__sub">live roster</span>
         </div>
         <div class="total">
           <span class="total__label">MINERS</span>
@@ -363,12 +364,50 @@ export function mountNetworkMap(root, dataLayer = null){
   for (let i = 0; i < 8; i++) pushRow();
   const feedTimer = setInterval(pushRow, 1100);
 
+  /* ----- live network totals: tao:chain + tao:subnets + tao:validators ----- */
+  const pillVals   = qs('[data-bind="pill-vals"]',   root);
+  const pillStake  = qs('[data-bind="pill-stake"]',  root);
+  const totVals    = qs('[data-bind="tot-vals"]',    root);
+  const totStake   = qs('[data-bind="tot-stake"]',   root);
+  const totSubnets = qs('[data-bind="tot-subnets"]', root);
+  function applyChain(d){
+    if (!d || d.totalStaked == null) return;
+    /* TMC may report staked τ as a raw count or already in millions */
+    const txt = 'τ ' + (d.totalStaked >= 1000 ? compact(d.totalStaked) : d.totalStaked.toFixed(2) + 'M');
+    if (pillStake) pillStake.textContent = `Σ · ${txt} stake`;
+    if (totStake)  totStake.textContent  = txt;
+  }
+  function applySubnets(list){
+    if (!Array.isArray(list) || !list.length) return;
+    if (totSubnets) totSubnets.textContent = String(list.length);
+  }
+  function applyValidators(list){
+    if (!Array.isArray(list) || !list.length) return;
+    const n = list.length.toLocaleString('en-US');
+    if (pillVals) pillVals.textContent = `N · ${n} validators`;
+    if (totVals)  totVals.textContent  = n;
+  }
+  let chainUnsub = () => {}, subnetsUnsub = () => {}, valsUnsub = () => {};
+  if (dataLayer){
+    chainUnsub   = dataLayer.subscribe('tao:chain',      applyChain);
+    subnetsUnsub = dataLayer.subscribe('tao:subnets',    applySubnets);
+    valsUnsub    = dataLayer.subscribe('tao:validators', applyValidators);
+    if (dataLayer.get){
+      applyChain(dataLayer.get('tao:chain'));
+      applySubnets(dataLayer.get('tao:subnets'));
+      applyValidators(dataLayer.get('tao:validators'));
+    }
+  }
+
   return {
     destroy(){
       chart?.destroy();
       clearInterval(blockTimer);
       clearInterval(feedTimer);
       blockUnsub();
+      chainUnsub();
+      subnetsUnsub();
+      valsUnsub();
     },
   };
 }
