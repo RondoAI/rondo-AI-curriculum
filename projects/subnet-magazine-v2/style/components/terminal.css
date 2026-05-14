@@ -690,3 +690,9 @@
 .mon-up{ color: var(--c-up); }
 .mon-down{ color: var(--c-down); }
 .mon-flat{ color: var(--c-ink-4); }
+
+/* Subnet market map (treemap heatmap) */
+.term-map__viz{
+  height: clamp(320px, 42vw, 480px);
+}
+.term-map__viz canvas{ display: block; width: 100%; height: 100%; }
