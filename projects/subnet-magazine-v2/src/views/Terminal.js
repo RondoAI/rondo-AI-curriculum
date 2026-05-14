@@ -56,6 +56,8 @@ export function mountTerminal(root, dataLayer = null){
         </div>
         <div class="term-head__right">
           <a class="term-head__back" href="index.html">‹ MAGAZINE</a>
+          <a class="term-head__back" href="subnets.html">SUBNETS ↗</a>
+          <a class="term-head__back" href="validators.html">VALIDATORS ↗</a>
           <a class="term-head__back" href="compare.html">COMPARE ↗</a>
           <a class="term-head__back" href="articles.html">RESEARCH ↗</a>
           <span class="term-head__pills">

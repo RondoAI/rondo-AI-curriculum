@@ -16,6 +16,8 @@ import { mountTerminal } from './views/Terminal.js';
 import { mountSubnetDetail } from './views/SubnetDetail.js';
 import { mountCompare } from './views/Compare.js';
 import { mountArticles } from './views/Articles.js';
+import { mountSubnets }  from './views/Subnets.js';
+import { mountValidators } from './views/Validators.js';
 
 const teardowns = [];
 
@@ -40,6 +42,8 @@ function boot(){
   mountIf('[data-mount="subnet-detail"]',  root => mountSubnetDetail(root, DataLayer));
   mountIf('[data-mount="compare"]',        root => mountCompare(root));
   mountIf('[data-mount="articles"]',       root => mountArticles(root));
+  mountIf('[data-mount="subnets"]',        root => mountSubnets(root));
+  mountIf('[data-mount="validators"]',     root => mountValidators(root));
 
   // 3) clean teardown on unload (idempotent)
   window.addEventListener('beforeunload', () => {
