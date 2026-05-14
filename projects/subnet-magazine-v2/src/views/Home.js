@@ -23,6 +23,7 @@ import { money, compact, pct, deltaClass, bbgDate } from '../lib/format.js';
 import { mark, seedSeries } from '../lib/mark.js';
 import { Sparkline } from '../charts/Sparkline.js';
 import { CoverArt } from '../charts/CoverArt.js';
+import { NeuralNet } from '../charts/NeuralNet.js';
 import { articlesByDate } from '../data/articles.js';
 import { CENTRALIZED_PLAYERS, ASIAN_REGIONS } from '../data/centralized.js';
 
@@ -149,6 +150,17 @@ export function mountHome(root, dataLayer = null){
       </div>
     </section>
 
+    <!-- ===== NEURAL NETWORK ===== -->
+    <section class="home-neural" aria-label="The Bittensor consensus network">
+      <div class="home-net__head">
+        <span class="home-net__kicker">&gt; The machine</span>
+        <h2 class="home-net__title">Intelligence, <em>incentivized.</em></h2>
+        <p class="home-net__sub">Every block, Bittensor fires the same loop — subnets set the task, miners
+        compete, validators score, consensus pays. This is that loop, rendered live.</p>
+      </div>
+      <div class="home-neural__canvas"><canvas data-canvas="neural"></canvas></div>
+    </section>
+
     <!-- ===== LIVE NETWORK band ===== -->
     <section class="home-net" aria-label="Live network statistics">
       <div class="home-net__head">
@@ -234,9 +246,11 @@ export function mountHome(root, dataLayer = null){
     </footer>
   `);
 
-  /* ---------- cover art ---------- */
+  /* ---------- cover art + neural network ---------- */
   const coverCanvas = qs('[data-canvas="cover-art"]', root);
   const cover = coverCanvas ? new CoverArt(coverCanvas) : null;
+  const neuralCanvas = qs('[data-canvas="neural"]', root);
+  const neural = neuralCanvas ? new NeuralNet(neuralCanvas) : null;
 
   /* ---------- bind: LIVE NETWORK band ---------- */
   const bind = sel => qs(`[data-bind="${sel}"]`, root);
@@ -365,6 +379,7 @@ export function mountHome(root, dataLayer = null){
       unsubs.forEach(u => u());
       sparks.splice(0).forEach(sp => { try { sp.destroy(); } catch (_) {} });
       cover?.destroy();
+      neural?.destroy();
     },
   };
 }
