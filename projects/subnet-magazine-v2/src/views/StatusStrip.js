@@ -6,7 +6,7 @@
    block height. Returns a teardown function.
    ================================================================= */
 
-import { html, mount, qs } from '../lib/dom.js';
+import { html, mount, qs, setLive } from '../lib/dom.js';
 import { bbgDate, money, pct, deltaClass } from '../lib/format.js';
 
 /**
@@ -60,7 +60,7 @@ export function mountStatusStrip(root, dataLayer = null){
   // 2) Block height — from data layer or synthetic
   const blockEl = bind('block');
   let block = 4_812_047;
-  const renderBlock = (h) => { if (blockEl) blockEl.textContent = (h ?? block).toLocaleString('en-US'); };
+  const renderBlock = (h) => setLive(blockEl, (h ?? block).toLocaleString('en-US'));
   renderBlock();
   let blockUnsub = () => {};
   if (dataLayer){
@@ -84,7 +84,7 @@ export function mountStatusStrip(root, dataLayer = null){
   if (dataLayer){
     priceUnsub = dataLayer.subscribe('tao:price', (d) => {
       if (!d || typeof d.price !== 'number') return;
-      if (priceEl) priceEl.textContent = money(d.price);
+      setLive(priceEl, money(d.price));
       if (deltaEl){
         deltaEl.textContent = pct(d.change24 ?? 0);
         deltaEl.classList.remove('up', 'down', 'flat');

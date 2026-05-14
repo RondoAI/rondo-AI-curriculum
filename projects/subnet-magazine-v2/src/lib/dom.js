@@ -152,3 +152,20 @@ export function rafThrottle(fn){
     requestAnimationFrame(() => { scheduled = false; fn.apply(this, lastArgs); });
   });
 }
+
+/**
+ * Set an element's text and, if it actually changed, pulse it with
+ * the terminal-style `.is-flash` highlight. The single channel for
+ * "this live value just updated" feedback across the site.
+ * @param {Element|null} el
+ * @param {string} text
+ */
+export function setLive(el, text){
+  if (!el) return;
+  const next = String(text);
+  if (el.textContent === next) return;
+  el.textContent = next;
+  el.classList.remove('is-flash');
+  void /** @type {HTMLElement} */ (el).offsetWidth;   // restart the animation
+  el.classList.add('is-flash');
+}
