@@ -8,7 +8,7 @@
 
    Layout:
      1. Price summary strip (large τ price + change + volume + mcap)
-     2. τ/USD price chart — hourly candles
+     2. τ/USD price + ecosystem-events timeline (32-month view)
      3. 24-hour subnet performance — horizontal bipolar bar chart
         of top gainers and losers in one view
      4. Daily τ emissions — horizontal bar chart of top 12 subnets
@@ -17,7 +17,7 @@
    ================================================================= */
 
 import { html, mount, qs } from '../lib/dom.js';
-import { CandleChart } from '../charts/CandleChart.js';
+import { Timeline } from '../charts/Timeline.js';
 import { BarChart } from '../charts/BarChart.js';
 import { SUBNETS } from '../data/subnets.js';
 import { CATEGORIES, catColor, catLabel } from '../data/categories.js';
@@ -87,12 +87,12 @@ export function mountTerminal(root, dataLayer = null){
         </div>
       </div>
 
-      <!-- ===== Panel 1: Price candle chart ===== -->
-      <article class="panel is-bracketed term-cell--candles">
+      <!-- ===== Panel 1: τ Price + Event Timeline (the marquee) ===== -->
+      <article class="panel is-bracketed term-cell--timeline">
         <div class="panel__head">
           <span class="panel__title">
             <span class="panel__fcode">&lt;021&gt;</span>
-            τ / USD · LAST 60 HOURS
+            τ / USD · SEPT 2023 — TODAY
             <span class="panel__go">&lt;GO&gt;</span>
           </span>
           <span class="panel__meta">
@@ -100,16 +100,17 @@ export function mountTerminal(root, dataLayer = null){
           </span>
         </div>
         <div class="panel__caption">
-          Hourly candlesticks of the TAO / USD price. Each candle shows the open, high, low,
-          and close for that hour. <strong style="color:var(--c-up)">Green</strong>
-          = closed higher than it opened. <strong style="color:var(--c-down)">Red</strong>
-          = closed lower. Volume bars sit underneath. Hover any candle for the full OHLC readout.
+          Daily τ / USD price since mainnet, plotted over the major events that shaped it.
+          <strong style="color:#FF1E3C">Red dots</strong> = network events (halvings, dTAO).
+          <strong style="color:#FF8C42">Amber</strong> = subnet milestones.
+          <strong style="color:#00C2FF">Cyan</strong> = frontier model releases (Claude, GPT, Gemini, DeepSeek, Llama).
+          <strong style="color:#FFD166">Gold</strong> = market events. Hover anywhere for date · price; hover a dot for the full story.
         </div>
         <div class="panel__body panel__body--pad-0">
-          <canvas data-canvas="candles" aria-label="TAO/USD candlestick chart"></canvas>
+          <canvas data-canvas="timeline" aria-label="TAO/USD price with ecosystem event timeline"></canvas>
         </div>
         <div class="panel__foot">
-          <span>60 BARS · 1H EACH</span>
+          <span>32 MONTHS · DAILY · EVENTS OVERLAID</span>
           <span id="term-price-tag">—</span>
         </div>
       </article>
@@ -190,14 +191,10 @@ export function mountTerminal(root, dataLayer = null){
     </section>
   `);
 
-  /* ===== Candle chart wiring ===== */
-  const candleCanvas = qs('[data-canvas="candles"]', root);
-  const priceTag     = qs('#term-price-tag', root);
-  const candles      = candleCanvas ? new CandleChart(candleCanvas, {
-    bars: 60,
-    baseline: dataLayer?.get?.('tao:price')?.price ?? 487,
-    barMs: 60 * 60 * 1000,
-  }) : null;
+  /* ===== Timeline wiring (the marquee chart) ===== */
+  const timelineCanvas = qs('[data-canvas="timeline"]', root);
+  const priceTag       = qs('#term-price-tag', root);
+  const timeline       = timelineCanvas ? new Timeline(timelineCanvas) : null;
 
   /* ===== Quote summary wiring ===== */
   const quotePrice = qs('[data-bind="quote-price"]', root);
@@ -229,14 +226,11 @@ export function mountTerminal(root, dataLayer = null){
     priceUnsub = dataLayer.subscribe('tao:price', d => {
       if (!d || !Number.isFinite(d.price)) return;
       renderQuote(d.price, d.change24 ?? 0);
-      candles?.appendTick(d.price);
     });
   }
-  const tickTimer = setInterval(() => {
-    if (!candles) return;
-    const last = dataLayer?.get?.('tao:price')?.price;
-    if (Number.isFinite(last)) candles.appendTick(last + (Math.random() - .5) * last * 0.005);
-  }, 4_000);
+  /* The Timeline is a 32-month historical view — live price updates
+     drive the summary strip; the chart itself doesn't tick. */
+  const tickTimer = 0;
 
   /* ===== Performance bar chart ===== */
   const perfCanvas = qs('[data-canvas="perf"]', root);
@@ -296,10 +290,10 @@ export function mountTerminal(root, dataLayer = null){
 
   return {
     destroy(){
-      candles?.destroy();
+      timeline?.destroy();
       perfChart?.destroy();
       emitChart?.destroy();
-      clearInterval(tickTimer);
+      if (tickTimer) clearInterval(tickTimer);
       priceUnsub();
     },
   };
