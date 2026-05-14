@@ -18,7 +18,7 @@
    reached the band falls back to "—" rather than faking numbers.
    ================================================================= */
 
-import { html, mount, qs, qsa } from '../lib/dom.js';
+import { html, mount, qs, qsa, setLive } from '../lib/dom.js';
 import { money, compact, pct, deltaClass, bbgDate } from '../lib/format.js';
 import { mark, seedSeries } from '../lib/mark.js';
 import { Sparkline } from '../charts/Sparkline.js';
@@ -227,26 +227,26 @@ export function mountHome(root, dataLayer = null){
 
   function renderMarket(d){
     if (!d) return;
-    if (els.price && d.price != null) els.price.textContent = money(d.price);
+    if (els.price && d.price != null) setLive(els.price, money(d.price));
     if (els.priceDelta){
       const c = d.change24h ?? 0;
       els.priceDelta.textContent = `${pct(c)} · 24h`;
       els.priceDelta.className = `home-stat__sub ${deltaClass(c)}`;
     }
-    if (els.mcap && d.marketCap != null) els.mcap.textContent = '$' + compact(d.marketCap);
+    if (els.mcap && d.marketCap != null) setLive(els.mcap, '$' + compact(d.marketCap));
     if (els.mcapDelta){
       const c = d.change7d ?? 0;
       els.mcapDelta.textContent = `7d ${pct(c)}`;
       els.mcapDelta.className = `home-stat__sub ${deltaClass(c)}`;
     }
-    if (els.circ && d.circulating != null) els.circ.textContent = compact(d.circulating) + ' τ';
-    if (els.staked && d.stakedPct != null) els.staked.textContent = d.stakedPct.toFixed(1) + '%';
+    if (els.circ && d.circulating != null) setLive(els.circ, compact(d.circulating) + ' τ');
+    if (els.staked && d.stakedPct != null) setLive(els.staked, d.stakedPct.toFixed(1) + '%');
     if (els.apr && d.stakingApr != null) els.apr.textContent = `APR ${d.stakingApr.toFixed(2)}%`;
-    if (els.vol && d.volume24h != null) els.vol.textContent = '$' + compact(d.volume24h);
+    if (els.vol && d.volume24h != null) setLive(els.vol, '$' + compact(d.volume24h));
   }
   function renderChain(d){
     if (!d) return;
-    if (els.block && d.blockNumber != null) els.block.textContent = d.blockNumber.toLocaleString('en-US');
+    if (els.block && d.blockNumber != null) setLive(els.block, d.blockNumber.toLocaleString('en-US'));
     if (els.chainSub && d.rootPct != null && d.subnetsPct != null){
       els.chainSub.textContent = `${d.rootPct.toFixed(0)}% root · ${d.subnetsPct.toFixed(0)}% subnet`;
     }
