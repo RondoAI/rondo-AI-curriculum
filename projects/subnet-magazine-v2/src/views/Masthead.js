@@ -12,6 +12,7 @@ import { bbgDate } from '../lib/format.js';
 const NAV_ITEMS = [
   { code: '001', label: 'MAGAZINE',  href: 'index.html'        },
   { code: '020', label: 'TERMINAL',  href: 'terminal.html'     },
+  { code: '030', label: 'MARKETS',   href: 'markets.html'      },
   { code: '010', label: 'NETWORK',   href: 'network.html'      },
   { code: '025', label: 'COMPARE',   href: 'compare.html'      },
   { code: '026', label: 'CENTRAL',   href: 'centralized.html'  },
