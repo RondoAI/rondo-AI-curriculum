@@ -33,7 +33,14 @@
   color: var(--c-ink-1);
   line-height: 1;
 }
-.brand__word .tau{ color: var(--c-red); }
+.brand__word .tau{
+  color: var(--c-red);
+  display: inline-flex;
+  align-items: center;
+  vertical-align: -0.06em;
+  margin: 0 -0.04em;
+}
+.brand__word .tau svg{ display: block; }
 .brand__sub{
   display: block;
   font-family: var(--f-mono);

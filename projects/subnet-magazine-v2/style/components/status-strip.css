@@ -57,7 +57,9 @@
 .statusbar__quote{
   display: inline-flex; align-items: baseline; gap: var(--s-2);
 }
-.statusbar__quote .pair{ color: var(--c-ink-3); }
+.statusbar__quote .pair{ color: var(--c-ink-3); display: inline-flex; align-items: center; gap: 3px; }
+.statusbar__quote .tao-mark{ display: inline-flex; color: var(--c-red); }
+.statusbar__quote .tao-mark svg{ display: block; }
 .statusbar__quote .price{ color: var(--c-ink-1); font-weight: 700; }
 .statusbar__quote .delta.up   { color: var(--c-up); }
 .statusbar__quote .delta.down { color: var(--c-down); }
