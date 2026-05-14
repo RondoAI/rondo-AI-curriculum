@@ -24,6 +24,7 @@ import { CATEGORIES, catColor, catLabel } from '../data/categories.js';
 import { BENCHMARKS } from '../data/benchmarks.js';
 import { CENTRALIZED_PLAYERS, ASIAN_REGIONS, REGIONS } from '../data/centralized.js';
 import { EVENTS, EVENT_COLORS, EVENT_LABELS } from '../data/events.js';
+import { openChartModal } from '../lib/chart-modal.js';
 import { money, pct, deltaClass } from '../lib/format.js';
 
 /**
@@ -115,6 +116,7 @@ export function mountTerminal(root, dataLayer = null){
           </span>
           <span class="panel__meta">
             <span class="panel__pill panel__pill--live"><span class="live-dot"></span>LIVE</span>
+            <button class="panel__expand" data-expand="timeline" aria-label="Expand chart">⛶ EXPAND</button>
           </span>
         </div>
         <div class="panel__caption">
@@ -495,6 +497,22 @@ export function mountTerminal(root, dataLayer = null){
       `;
     }).join('');
   }
+
+  /* ===== Expand-to-fullscreen wiring ===== */
+  root.querySelectorAll('[data-expand]').forEach(btn => {
+    btn.addEventListener('click', e => {
+      e.stopPropagation();
+      const which = btn.dataset.expand;
+      if (which === 'timeline'){
+        openChartModal({
+          ChartClass: Timeline,
+          title:    'τ / USD · SEPT 2023 — TODAY',
+          subtitle: '32-month price line with ecosystem events overlaid',
+          fcode:    '021',
+        });
+      }
+    });
+  });
 
   /* ===== Launchpad command bar ===== */
   const lpInput = qs('#launchpad-input', root);
