@@ -21,6 +21,9 @@ import { Timeline } from '../charts/Timeline.js';
 import { BarChart } from '../charts/BarChart.js';
 import { SUBNETS } from '../data/subnets.js';
 import { CATEGORIES, catColor, catLabel } from '../data/categories.js';
+import { BENCHMARKS } from '../data/benchmarks.js';
+import { CENTRALIZED_PLAYERS, ASIAN_REGIONS, REGIONS } from '../data/centralized.js';
+import { EVENTS, EVENT_COLORS, EVENT_LABELS } from '../data/events.js';
 import { money, pct, deltaClass } from '../lib/format.js';
 
 /**
@@ -58,8 +61,23 @@ export function mountTerminal(root, dataLayer = null){
         </div>
       </header>
 
-      <!-- ===== Price summary strip (always-visible quote) ===== -->
-      <div class="term-quote panel is-bracketed">
+      <!-- ===== Launchpad command bar (Bloomberg-style) ===== -->
+      <div class="launchpad" role="search">
+        <span class="launchpad__prompt">SBNT &gt;</span>
+        <input class="launchpad__input" id="launchpad-input"
+               type="text" autocomplete="off" spellcheck="false"
+               placeholder="type a function code · TAO · BENCH · ASIA · MODELS · EMIT · MOVE · CAT  ↵">
+        <span class="launchpad__hint">↵ GO</span>
+        <div class="launchpad__chips">
+          <button class="lp-chip" data-lp="timeline">τ /USD</button>
+          <button class="lp-chip" data-lp="bench">BENCH</button>
+          <button class="lp-chip" data-lp="asia">ASIA</button>
+          <button class="lp-chip" data-lp="models">MODELS</button>
+          <button class="lp-chip" data-lp="emit">EMIT</button>
+          <button class="lp-chip" data-lp="move">MOVE</button>
+          <button class="lp-chip" data-lp="cat">CAT</button>
+        </div>
+      </div>
         <div class="term-quote__inner">
           <div class="term-quote__main">
             <span class="term-quote__label">τ / USD · live from CoinGecko</span>
@@ -161,6 +179,93 @@ export function mountTerminal(root, dataLayer = null){
         <div class="panel__foot">
           <span>τ MINTED / 24h</span>
           <span>Σ τ ${totalEmit.toLocaleString('en-US')} ACROSS ALL ${SUBNETS.length} SUBNETS</span>
+        </div>
+      </article>
+
+      <!-- ===== Panel: AI Benchmark Leaderboard ===== -->
+      <article class="panel is-bracketed term-cell--bench" id="panel-bench">
+        <div class="panel__head">
+          <span class="panel__title">
+            <span class="panel__fcode">&lt;030&gt;</span>
+            AI BENCHMARK LEADERBOARD
+            <span class="panel__go">&lt;GO&gt;</span>
+          </span>
+          <span class="panel__meta">
+            <span class="panel__pill panel__pill--live"><span class="live-dot"></span>${BENCHMARKS.length} BENCHMARKS</span>
+          </span>
+        </div>
+        <div class="panel__caption">
+          The benchmarks that actually drive the conversation in frontier AI — May 2026.
+          <strong style="color:var(--c-up)">Open-weight models</strong> are flagged so you can
+          see where the Bittensor training subnets are competing directly. Pick a benchmark to
+          see the top six leaders and their scores.
+        </div>
+        <div class="panel__body bench-body" id="bench-body">
+          <!-- benchmark tabs + leader list, rendered by JS -->
+        </div>
+        <div class="panel__foot">
+          <span>SOURCES · LMSYS / OpenLLM-Leaderboard / HELM / paper releases</span>
+          <span>UPDATED MAY 2026</span>
+        </div>
+      </article>
+
+      <!-- ===== Panel: Asian AI Spotlight ===== -->
+      <article class="panel is-bracketed term-cell--asia" id="panel-asia">
+        <div class="panel__head">
+          <span class="panel__title">
+            <span class="panel__fcode">&lt;040&gt;</span>
+            ASIAN AI SPOTLIGHT
+            <span class="panel__go">&lt;GO&gt;</span>
+          </span>
+          <span class="panel__meta">
+            <span class="panel__pill">CN · KR · JP · TW · IN</span>
+          </span>
+        </div>
+        <div class="panel__caption">
+          The half of the frontier-AI map most US-focused dashboards miss.
+          <strong style="color:var(--c-red))">China leads in open-weight LLMs and domestic silicon</strong>;
+          Korea owns the memory + foundry stack; Japan is rebuilding sovereign compute via Rapidus + SoftBank;
+          Taiwan still makes everyone's chips. We weigh every subnet against these players.
+        </div>
+        <div class="panel__body">
+          <div class="asia-filter" role="tablist">
+            <button class="asia-tab active" data-region="ALL">All Asia</button>
+            <button class="asia-tab" data-region="CN">China</button>
+            <button class="asia-tab" data-region="KR">Korea</button>
+            <button class="asia-tab" data-region="JP">Japan</button>
+            <button class="asia-tab" data-region="TW">Taiwan</button>
+            <button class="asia-tab" data-region="IN">India</button>
+          </div>
+          <ul class="asia-list" id="asia-list"></ul>
+        </div>
+        <div class="panel__foot">
+          <span>FILTERED FROM ${CENTRALIZED_PLAYERS.length} TRACKED PLAYERS</span>
+          <span id="asia-count">—</span>
+        </div>
+      </article>
+
+      <!-- ===== Panel: Frontier Releases timeline ===== -->
+      <article class="panel is-bracketed term-cell--releases" id="panel-models">
+        <div class="panel__head">
+          <span class="panel__title">
+            <span class="panel__fcode">&lt;050&gt;</span>
+            FRONTIER MODEL RELEASES · LAST 12 MO
+            <span class="panel__go">&lt;GO&gt;</span>
+          </span>
+          <span class="panel__meta">
+            <span class="panel__pill" style="color:${EVENT_COLORS.model}">${EVENT_LABELS.model}</span>
+          </span>
+        </div>
+        <div class="panel__caption">
+          Every flagship model release that moved the goalposts, ordered by date.
+          The releases your subnets are benchmarked against.
+        </div>
+        <div class="panel__body">
+          <ol class="release-list" id="release-list"></ol>
+        </div>
+        <div class="panel__foot">
+          <span>FROM events.js</span>
+          <span>${EVENTS.filter(e => e.cat === 'model').length} RELEASES TRACKED</span>
         </div>
       </article>
 
@@ -287,6 +392,135 @@ export function mountTerminal(root, dataLayer = null){
       `;
     }).join('');
   }
+
+  /* ===== Benchmark leaderboard ===== */
+  const benchBody = qs('#bench-body', root);
+  let activeBench = BENCHMARKS[0];
+  function renderBench(){
+    if (!benchBody) return;
+    const tabs = BENCHMARKS.map(b => `
+      <button class="bench-tab ${b.id === activeBench.id ? 'active' : ''}" data-bench="${b.id}">
+        ${b.name}
+      </button>
+    `).join('');
+    const top = activeBench.leaders.slice(0, 8);
+    const maxScore = Math.max(...top.map(l => l.score));
+    const rows = top.map((l, i) => {
+      const w = (l.score / maxScore) * 100;
+      return `
+        <li class="bench-row">
+          <span class="bench-row__rank">${String(i + 1).padStart(2, '0')}</span>
+          <span class="bench-row__model">
+            <span class="bench-row__name">${l.model}</span>
+            <span class="bench-row__org">${l.org}</span>
+          </span>
+          <span class="bench-row__flags">
+            ${l.open ? '<span class="flag flag--open">OPEN</span>' : ''}
+            <span class="flag flag--region flag--${l.region.toLowerCase()}">${l.region}</span>
+          </span>
+          <span class="bench-row__bar"><i style="width:${w}%"></i></span>
+          <span class="bench-row__score">${l.score.toLocaleString('en-US')}${activeBench.unit === '%' ? '%' : ''}</span>
+        </li>
+      `;
+    }).join('');
+    benchBody.innerHTML = `
+      <div class="bench-tabs">${tabs}</div>
+      <div class="bench-desc">
+        <strong>${activeBench.full}</strong> · <span>${activeBench.description}</span>
+      </div>
+      <ol class="bench-list">${rows}</ol>
+    `;
+    benchBody.querySelectorAll('.bench-tab').forEach(tab => {
+      tab.addEventListener('click', () => {
+        const id = tab.dataset.bench;
+        activeBench = BENCHMARKS.find(b => b.id === id) || BENCHMARKS[0];
+        renderBench();
+      });
+    });
+  }
+  renderBench();
+
+  /* ===== Asian AI Spotlight ===== */
+  const asiaList  = qs('#asia-list',  root);
+  const asiaCount = qs('#asia-count', root);
+  let asiaRegion = 'ALL';
+  function renderAsia(){
+    if (!asiaList) return;
+    let players = CENTRALIZED_PLAYERS.filter(p => ASIAN_REGIONS.has(p.region));
+    if (asiaRegion !== 'ALL') players = players.filter(p => p.region === asiaRegion);
+    asiaList.innerHTML = players.map(p => `
+      <li class="asia-row">
+        <span class="asia-row__region flag flag--region flag--${p.region.toLowerCase()}">${p.region}</span>
+        <span class="asia-row__main">
+          <a class="asia-row__name" href="${p.url}" target="_blank" rel="noopener">${p.name}</a>
+          <span class="asia-row__focus">${p.focus}</span>
+        </span>
+        <span class="asia-row__cat">${(CATEGORIES[p.cat]?.label || p.cat)}</span>
+        <span class="asia-row__flags">
+          ${p.openSource ? '<span class="flag flag--open">OPEN</span>' : ''}
+          <span class="flag flag--val">${p.valuation}</span>
+        </span>
+      </li>
+    `).join('');
+    if (asiaCount) asiaCount.textContent = `${players.length} ${asiaRegion === 'ALL' ? 'ASIAN' : REGIONS[asiaRegion]?.toUpperCase() || asiaRegion} PLAYERS`;
+  }
+  renderAsia();
+  root.querySelectorAll('.asia-tab').forEach(tab => {
+    tab.addEventListener('click', () => {
+      root.querySelectorAll('.asia-tab').forEach(t => t.classList.remove('active'));
+      tab.classList.add('active');
+      asiaRegion = tab.dataset.region;
+      renderAsia();
+    });
+  });
+
+  /* ===== Frontier model release list ===== */
+  const releaseList = qs('#release-list', root);
+  if (releaseList){
+    const since = Date.parse('2025-05-13T00:00:00Z');
+    const releases = EVENTS
+      .filter(e => e.cat === 'model' && Date.parse(e.date) >= since)
+      .reverse();    // newest first
+    releaseList.innerHTML = releases.map(e => {
+      const d = new Date(e.date);
+      const month = d.toLocaleDateString('en-US', { month: 'short' }).toUpperCase();
+      return `
+        <li class="release">
+          <span class="release__date">${month} ${d.getUTCFullYear()}</span>
+          <span class="release__body">
+            <span class="release__title">${e.title}</span>
+            ${e.body ? `<span class="release__note">${e.body}</span>` : ''}
+          </span>
+        </li>
+      `;
+    }).join('');
+  }
+
+  /* ===== Launchpad command bar ===== */
+  const lpInput = qs('#launchpad-input', root);
+  const lpMap = {
+    timeline: 'panel-bench',   /* sentinel; we just scroll to whichever panel they want */
+    bench: 'panel-bench', asia: 'panel-asia', models: 'panel-models',
+    emit: '.term-cell--emit', move: '.term-cell--perf', cat: '.term-cell--cats',
+    tao: '.term-cell--timeline',
+  };
+  function lpGo(code){
+    if (!code) return;
+    const key = code.toLowerCase().replace(/[^a-z0-9]/g, '');
+    const target = lpMap[key];
+    if (!target) return;
+    const sel = target.startsWith('panel-') || target.startsWith('.') ? target : `#${target}`;
+    const el = root.querySelector(sel.startsWith('.') || sel.startsWith('#') ? sel : `#${sel}`);
+    if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  }
+  if (lpInput){
+    lpInput.addEventListener('keydown', e => {
+      if (e.key === 'Enter'){ e.preventDefault(); lpGo(lpInput.value); lpInput.value = ''; }
+    });
+  }
+  root.querySelectorAll('.lp-chip').forEach(chip => {
+    chip.addEventListener('click', () => lpGo(chip.dataset.lp));
+  });
 
   return {
     destroy(){
