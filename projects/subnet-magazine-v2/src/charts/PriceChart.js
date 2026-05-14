@@ -85,10 +85,11 @@ export class PriceChart extends Chart {
 
     const { start, isUp } = this.stats();
 
-    /* layout — leave a tiny pad so the line never kisses the edges */
-    const padL = 8, padR = 8, padT = 12, padB = 12;
+    /* layout — room on the right for the price scale, bottom for the time axis */
+    const padL = 10, padR = 58, padT = 14, padB = 24;
     const innerW = w - padL - padR;
     const innerH = h - padT - padB;
+    if (innerW <= 4 || innerH <= 4) return;
 
     /* scale */
     let pMin = +Infinity, pMax = -Infinity;
@@ -99,19 +100,38 @@ export class PriceChart extends Chart {
       if (k.t < tMin) tMin = k.t;
       if (k.t > tMax) tMax = k.t;
     }
-    /* include the start price in the visible range so the dotted
-       reference line is always inside the chart */
+    /* keep the start price (reference line) inside the visible range */
     if (start < pMin) pMin = start;
     if (start > pMax) pMax = start;
-    const yPad = (pMax - pMin) * 0.10 || 1;
+    const yPad = (pMax - pMin) * 0.12 || 1;
     pMin -= yPad; pMax += yPad;
 
-    const xFor = ts => padL + (ts - tMin) / (tMax - tMin) * innerW;
-    const yFor = p  => padT + (pMax - p) / (pMax - pMin) * innerH;
+    const xFor = ts => padL + (ts - tMin) / (tMax - tMin || 1) * innerW;
+    const yFor = p  => padT + (pMax - p) / (pMax - pMin || 1) * innerH;
 
     const lineColor = isUp ? C_UP   : C_DOWN;
     const areaTop   = isUp ? C_UP_AREA : C_DOWN_AREA;
     const areaBot   = isUp ? C_UP_FADE : C_DOWN_FADE;
+
+    const fmtP = v => v >= 1000 ? '$' + Math.round(v).toLocaleString('en-US')
+                    : v >= 1   ? '$' + v.toFixed(2)
+                    :            '$' + v.toFixed(4);
+    const MONO = "'JetBrains Mono', ui-monospace, monospace";
+
+    /* ===== horizontal gridlines + right-edge price scale ===== */
+    ctx.textBaseline = 'middle';
+    const LEVELS = 4;
+    for (let i = 0; i <= LEVELS; i++){
+      const p = pMin + (i / LEVELS) * (pMax - pMin);
+      const y = yFor(p);
+      ctx.strokeStyle = 'rgba(255,30,60,.07)';
+      ctx.lineWidth = 1;
+      ctx.beginPath(); ctx.moveTo(padL, y); ctx.lineTo(padL + innerW, y); ctx.stroke();
+      ctx.fillStyle = 'rgba(200,168,173,.6)';
+      ctx.font = `10px ${MONO}`;
+      ctx.textAlign = 'left';
+      ctx.fillText(fmtP(p), padL + innerW + 7, y);
+    }
 
     /* ===== area fill underneath the line ===================== */
     const grad = ctx.createLinearGradient(0, padT, 0, padT + innerH);
@@ -125,7 +145,7 @@ export class PriceChart extends Chart {
     ctx.closePath();
     ctx.fill();
 
-    /* ===== dotted reference line at start price ============== */
+    /* ===== dotted reference line at start price + pill ======= */
     const yRef = yFor(start);
     ctx.setLineDash([3, 4]);
     ctx.strokeStyle = C_REF;
@@ -134,6 +154,19 @@ export class PriceChart extends Chart {
     ctx.moveTo(padL, yRef); ctx.lineTo(padL + innerW, yRef);
     ctx.stroke();
     ctx.setLineDash([]);
+    {
+      const label = fmtP(start);
+      ctx.font = `10px ${MONO}`;
+      const tw = ctx.measureText(label).width;
+      const px = padL + 2;
+      ctx.fillStyle = 'rgba(20,5,9,.94)';
+      ctx.strokeStyle = C_REF;
+      ctx.lineWidth = 1;
+      ctx.beginPath(); ctx.rect(px, yRef - 8, tw + 10, 16); ctx.fill(); ctx.stroke();
+      ctx.fillStyle = 'rgba(200,168,173,.85)';
+      ctx.textAlign = 'left'; ctx.textBaseline = 'middle';
+      ctx.fillText(label, px + 5, yRef);
+    }
 
     /* ===== smooth solid price line =========================== */
     ctx.lineJoin = 'round'; ctx.lineCap = 'round';
@@ -148,12 +181,40 @@ export class PriceChart extends Chart {
     }
     ctx.stroke();
 
+    /* latest-point dot */
+    const lastK = this.data[this.data.length - 1];
+    ctx.beginPath();
+    ctx.arc(xFor(lastK.t), yFor(lastK.p), 3, 0, Math.PI * 2);
+    ctx.fillStyle = lineColor;
+    ctx.fill();
+
+    /* ===== time axis ======================================== */
+    {
+      const span = tMax - tMin;
+      const day = 86_400_000;
+      const fmtT = ts => {
+        const d = new Date(ts);
+        if (span > 80 * day) return d.toLocaleDateString('en-US', { month: 'short', year: '2-digit' });
+        if (span > 2 * day)  return d.toLocaleDateString('en-US', { month: 'short', day: 'numeric' });
+        const z = n => String(n).padStart(2, '0');
+        return `${z(d.getUTCHours())}:${z(d.getUTCMinutes())}`;
+      };
+      ctx.fillStyle = 'rgba(139,107,112,.75)';
+      ctx.font = `9.5px ${MONO}`;
+      ctx.textBaseline = 'alphabetic';
+      const TICKS = 4;
+      for (let i = 0; i <= TICKS; i++){
+        const ts = tMin + (i / TICKS) * span;
+        ctx.textAlign = i === 0 ? 'left' : i === TICKS ? 'right' : 'center';
+        ctx.fillText(fmtT(ts), xFor(ts), padT + innerH + 15);
+      }
+    }
+
     /* ===== optional event dots on the line =================== */
     if (this.showEvents && this.events.length){
       for (const ev of this.events){
         const ts = Date.parse(ev.date + 'T00:00:00Z');
         if (ts < tMin || ts > tMax) continue;
-        /* find nearest data point's y so the dot rides the line */
         let nearest = this.data[0];
         for (const k of this.data) if (Math.abs(k.t - ts) < Math.abs(nearest.t - ts)) nearest = k;
         const x = xFor(ts), y = yFor(nearest.p);
@@ -174,18 +235,15 @@ export class PriceChart extends Chart {
         for (const k of this.data) if (Math.abs(k.t - ts) < Math.abs(nearest.t - ts)) nearest = k;
         const x = xFor(nearest.t), y = yFor(nearest.p);
 
-        /* faint crosshair line */
         ctx.strokeStyle = 'rgba(245,229,232,.18)';
         ctx.lineWidth = 0.6;
         ctx.beginPath(); ctx.moveTo(x, padT); ctx.lineTo(x, padT + innerH); ctx.stroke();
 
-        /* dot on the line */
         ctx.fillStyle = C_INK;
         ctx.shadowColor = lineColor; ctx.shadowBlur = 8;
         ctx.beginPath(); ctx.arc(x, y, 4, 0, Math.PI * 2); ctx.fill();
         ctx.shadowBlur = 0;
 
-        /* notify host */
         if (this.onHover){
           const change = nearest.p - start;
           const pct = (change / start) * 100;
