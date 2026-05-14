@@ -7,6 +7,7 @@ import { useEffect, useMemo, useState } from "react";
 import GridLayout, { WidthProvider } from "react-grid-layout/legacy";
 import { PANELS, LAYOUT_PRESETS } from "@/lib/panels";
 import { Panel } from "@/components/grid/Panel";
+import { PANEL_CONTENT } from "@/components/panels/registry";
 import type { Preset } from "@/components/chrome/TopChrome";
 
 type GItem = {
@@ -82,11 +83,14 @@ export function Workstation({ preset }: { preset: Preset }) {
         onLayoutChange={onLayoutChange}
         useCSSTransforms={hydrated}
       >
-        {shown.map((p) => (
-          <div key={p.id} id={`panel-${p.id}`}>
-            <Panel def={p} />
-          </div>
-        ))}
+        {shown.map((p) => {
+          const Content = PANEL_CONTENT[p.id];
+          return (
+            <div key={p.id} id={`panel-${p.id}`}>
+              <Panel def={p}>{Content ? <Content /> : undefined}</Panel>
+            </div>
+          );
+        })}
       </Grid>
     </div>
   );

@@ -1,5 +1,8 @@
+"use client";
+
 import { TICKER_SEED, type TickerItem } from "@/data/seed/ticker";
-import { usd, mwh, pct, alpha } from "@/lib/format";
+import { useBittensor } from "@/lib/useBittensor";
+import { usd, mwh, pct, alpha, usdCompact } from "@/lib/format";
 
 const ACCENT: Record<TickerItem["vertical"], string> = {
   bittensor: "text-amber",
@@ -13,7 +16,7 @@ function priceText(it: TickerItem) {
   if (it.unit === "usd") return usd(it.price);
   if (it.unit === "mwh") return mwh(it.price);
   if (it.unit === "tao") return "τ" + it.price.toFixed(2);
-  return alpha(it.price); // raw — alpha tokens, 6dp
+  return alpha(it.price);
 }
 
 function Cell({ it }: { it: TickerItem }) {
@@ -29,21 +32,62 @@ function Cell({ it }: { it: TickerItem }) {
   );
 }
 
-/** Top-chrome scrolling tape. CSS marquee — the track is duplicated
-    so the loop is seamless. Seed data in Phase 1; live in Phase 2+. */
+/** One full pass of the tape: live TAO price + market cap lead,
+    then the seed instruments. */
+function Track({
+  items,
+  mcap,
+  live,
+}: {
+  items: TickerItem[];
+  mcap: number;
+  live: boolean;
+}) {
+  return (
+    <>
+      {items.map((it, i) =>
+        it.sym === "TAO" ? (
+          <span key={i} className="inline-flex">
+            <Cell it={it} />
+            <span className="inline-flex items-baseline gap-1.5 px-3 border-r border-hairline whitespace-nowrap">
+              <span className="text-amber smallcaps text-[11px]">TAO·MCAP</span>
+              <span className="tnum text-ink-1 text-[11px]">{usdCompact(mcap)}</span>
+              <span className="tnum text-[10px] text-ink-3">
+                {live ? "live" : "seed"}
+              </span>
+            </span>
+          </span>
+        ) : (
+          <Cell key={i} it={it} />
+        )
+      )}
+    </>
+  );
+}
+
+/** Top-chrome scrolling tape. The TAO rows are live from
+    /api/bittensor (price, 24h move, market cap); the rest stay on
+    seed until their verticals' feeds land. CSS marquee, duplicated
+    track for a seamless loop. */
 export function TickerTape() {
-  const items = TICKER_SEED;
+  const { network, live } = useBittensor();
+  const items: TickerItem[] = [
+    {
+      sym: "TAO",
+      price: network.taoPrice,
+      chg: network.taoChg24,
+      unit: "usd",
+      vertical: "bittensor",
+    },
+    ...TICKER_SEED.filter((t) => t.sym !== "TAO"),
+  ];
+
   return (
     <div className="relative overflow-hidden h-full flex items-center">
       <div className="tape-track inline-flex items-center" style={{ width: "max-content" }}>
-        {items.map((it, i) => (
-          <Cell key={`a${i}`} it={it} />
-        ))}
-        {items.map((it, i) => (
-          <Cell key={`b${i}`} it={it} />
-        ))}
+        <Track items={items} mcap={network.marketCap} live={live.network} />
+        <Track items={items} mcap={network.marketCap} live={live.network} />
       </div>
-      {/* edge fades */}
       <div className="pointer-events-none absolute inset-y-0 left-0 w-10 bg-gradient-to-r from-elev-1 to-transparent" />
       <div className="pointer-events-none absolute inset-y-0 right-0 w-10 bg-gradient-to-l from-elev-1 to-transparent" />
     </div>
