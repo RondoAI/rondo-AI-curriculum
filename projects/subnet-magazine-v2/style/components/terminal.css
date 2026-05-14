@@ -1,9 +1,9 @@
 /* =================================================================
-   TAO TERMINAL — page layout
+   TAO TERMINAL — page layout (clarity pass)
    -----------------------------------------------------------------
-   Full-page Bloomberg-style command center. Three rows of panels;
-   the candle chart spans the full width up top, then two rows of
-   two equal panels.
+   Each panel stacks vertically on mobile, two-up on wider screens
+   where it helps. Panels carry an always-visible caption that
+   explains what they show in plain English.
    ================================================================= */
 
 .terminal-page{
@@ -23,46 +23,36 @@
   padding-bottom: var(--s-4);
   border-bottom: 1px solid var(--c-rule-2);
 }
-.term-head__left{ display: flex; flex-direction: column; gap: 6px; }
+.term-head__left{ display: flex; flex-direction: column; gap: 6px; max-width: 64ch; }
 .term-head__kicker{
-  font-family: var(--f-mono);
-  font-size: var(--t-xs);
-  letter-spacing: var(--ls-label);
-  text-transform: uppercase;
-  color: var(--c-red);
-  font-weight: 700;
+  font-family: var(--f-mono); font-size: var(--t-xs);
+  letter-spacing: var(--ls-label); text-transform: uppercase;
+  color: var(--c-red); font-weight: 700;
   display: inline-flex; align-items: center; gap: var(--s-2);
 }
 .term-head__kicker::before{ content: '<'; color: var(--c-ink-3); font-weight: 400; }
 .term-head__title{
-  font-family: var(--f-serif);
-  font-weight: 400;
+  font-family: var(--f-serif); font-weight: 400;
   font-size: var(--t-2xl);
   letter-spacing: var(--ls-display);
   line-height: var(--lh-tight);
-  color: var(--c-ink-1);
-  margin: 0;
+  color: var(--c-ink-1); margin: 0;
 }
 .term-head__title em{ color: var(--c-red); font-style: italic; }
 .term-head__sub{
-  font-family: var(--f-serif);
-  font-style: italic;
+  font-family: var(--f-serif); font-style: italic;
   color: var(--c-ink-2);
   font-size: var(--t-md);
   margin: 0;
-  max-width: 64ch;
+  max-width: 60ch;
 }
-
 .term-head__right{
   display: inline-flex; flex-wrap: wrap;
-  gap: var(--s-3);
-  align-items: center;
+  gap: var(--s-3); align-items: center;
 }
 .term-head__back{
-  font-family: var(--f-mono);
-  font-size: var(--t-xs);
-  letter-spacing: var(--ls-label);
-  text-transform: uppercase;
+  font-family: var(--f-mono); font-size: var(--t-xs);
+  letter-spacing: var(--ls-label); text-transform: uppercase;
   color: var(--c-ink-2);
   border: 1px solid var(--c-rule-2);
   padding: 6px var(--s-3);
@@ -72,10 +62,8 @@
 .term-head__back:hover{ color: var(--c-red); border-color: var(--c-red); }
 .term-head__pills{
   display: inline-flex; gap: var(--s-2); flex-wrap: wrap;
-  font-family: var(--f-mono);
-  font-size: var(--t-xs);
-  letter-spacing: var(--ls-label);
-  color: var(--c-ink-3);
+  font-family: var(--f-mono); font-size: var(--t-xs);
+  letter-spacing: var(--ls-label); color: var(--c-ink-3);
 }
 .term-head__pills .pill{
   border: 1px solid var(--c-rule-2);
@@ -83,78 +71,152 @@
   border-radius: var(--r-1);
 }
 
-/* ---------- Grid ---------- */
-.term-grid{
+/* ---------- Quote summary strip ---------- */
+.term-quote{
+  background: linear-gradient(180deg, #0F0408, #050203);
+}
+.term-quote__inner{
   display: grid;
-  grid-template-columns: 1fr 1fr;
-  grid-auto-rows: auto;
+  grid-template-columns: minmax(220px, auto) 1fr;
+  gap: var(--s-6);
+  padding: var(--s-5) var(--s-6);
+  align-items: center;
+}
+.term-quote__main{ display: flex; flex-direction: column; gap: 4px; }
+.term-quote__label{
+  font-family: var(--f-mono); font-size: var(--t-xs);
+  letter-spacing: var(--ls-label); text-transform: uppercase;
+  color: var(--c-ink-3);
+}
+.term-quote__price{
+  font-family: var(--f-mono); font-weight: 700;
+  font-size: clamp(28px, 4vw, 44px);
+  color: var(--c-ink-1);
+  letter-spacing: -.01em;
+  line-height: 1;
+  font-variant-numeric: tabular-nums;
+}
+.term-quote__delta{
+  font-family: var(--f-mono); font-weight: 700;
+  font-size: var(--t-md);
+  letter-spacing: var(--ls-data);
+}
+.term-quote__delta.up   { color: var(--c-up);   }
+.term-quote__delta.down { color: var(--c-down); }
+
+.term-quote__stats{
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
   gap: var(--s-4);
 }
-.term-cell--full{ grid-column: 1 / -1; }
+.term-quote__stat{
+  display: flex; flex-direction: column; gap: 2px;
+  font-family: var(--f-mono);
+  border-left: 1px solid var(--c-rule);
+  padding-left: var(--s-3);
+}
+.term-quote__stat .lbl{
+  font-size: 10px;
+  letter-spacing: var(--ls-label); text-transform: uppercase;
+  color: var(--c-ink-3);
+}
+.term-quote__stat .val{
+  color: var(--c-ink-1); font-weight: 600;
+  font-size: var(--t-md);
+  font-variant-numeric: tabular-nums;
+}
 
-/* the candles panel wants real vertical real estate */
-.term-cell--candles{ grid-column: 1 / -1; }
+@media (max-width: 720px){
+  .term-quote__inner{ grid-template-columns: 1fr; padding: var(--s-4); }
+}
+
+/* ---------- Panel caption (plain-English explainer) ---------- */
+.panel__caption{
+  font-family: var(--f-serif);
+  font-size: 14px;
+  line-height: 1.55;
+  color: var(--c-ink-2);
+  padding: var(--s-3) var(--s-4) var(--s-1);
+  border-bottom: 1px dashed var(--c-rule);
+  background: rgba(0,0,0,.35);
+}
+
+/* ---------- Candle cell ---------- */
 .term-cell--candles .panel__body--pad-0 canvas{
-  width: 100%;
-  height: auto;
+  width: 100%; height: auto;
   aspect-ratio: 21 / 8;
   display: block;
 }
 
-.term-cell--heatmap .panel__body--pad-0 canvas{
+/* ---------- Performance & emissions cells ---------- */
+.term-cell--perf .panel__body--pad-0 canvas,
+.term-cell--emit .panel__body--pad-0 canvas{
   width: 100%; height: auto;
-  aspect-ratio: 7 / 5;
-  display: block;
-}
-.term-cell--treemap .panel__body--pad-0 canvas{
-  width: 100%; height: auto;
-  aspect-ratio: 7 / 5;
+  aspect-ratio: 4 / 3;
   display: block;
 }
 
-/* ---------- Top movers panel ---------- */
-.movers{
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: var(--s-4);
-  padding: var(--s-3);
-}
-.movers__col h4{
-  font-family: var(--f-mono);
-  font-size: var(--t-xs);
-  letter-spacing: var(--ls-label);
-  text-transform: uppercase;
-  color: var(--c-red);
-  font-weight: 700;
-  margin: 0 0 var(--s-2);
-  padding-bottom: 4px;
-  border-bottom: 1px solid var(--c-rule);
-}
-.movers__col h4.is-down{ color: var(--c-down); }
-.movers__list{
+/* ---------- Category breakdown table ---------- */
+.cat-list{
   list-style: none; margin: 0; padding: 0;
-  display: flex; flex-direction: column; gap: 0;
+  display: flex; flex-direction: column;
+  gap: 0;
 }
-.mover{
+.cat-row{
   display: grid;
-  grid-template-columns: 22px 38px 1fr auto;
-  gap: var(--s-2);
+  grid-template-columns: 12px 1fr 96px 90px 56px;
+  gap: var(--s-3);
   align-items: baseline;
-  padding: 6px 0;
+  padding: var(--s-3) 0;
   border-bottom: 1px dashed var(--c-rule);
   font-family: var(--f-mono);
-  font-size: var(--t-sm);
 }
-.mover:last-child{ border-bottom: 0; }
-.mover__rank{ color: var(--c-ink-4); font-size: 10px; text-align: right; }
-.mover__net{ color: var(--c-ink-3); font-size: 10.5px; letter-spacing: var(--ls-data); }
-.mover__name{ color: var(--c-ink-1); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
-.mover__chg{ font-weight: 700; font-variant-numeric: tabular-nums; }
-.mover__chg.up   { color: var(--c-up); }
-.mover__chg.down { color: var(--c-down); }
+.cat-row:last-child{ border-bottom: 0; }
+.cat-row__swatch{
+  width: 12px; height: 12px;
+  border-radius: 2px;
+  align-self: center;
+}
+.cat-row__name{
+  color: var(--c-ink-1);
+  font-size: var(--t-sm);
+  font-weight: 600;
+  white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
+}
+.cat-row__count{
+  color: var(--c-ink-3);
+  font-size: 11px;
+  letter-spacing: var(--ls-data);
+  text-align: right;
+}
+.cat-row__tao{
+  color: var(--c-ink-1);
+  font-size: var(--t-sm);
+  font-weight: 700;
+  text-align: right;
+  font-variant-numeric: tabular-nums;
+}
+.cat-row__pct{
+  color: var(--c-red);
+  font-size: var(--t-sm);
+  font-weight: 700;
+  text-align: right;
+  font-variant-numeric: tabular-nums;
+}
+.cat-row__bar{
+  grid-column: 1 / -1;
+  height: 4px;
+  background: rgba(255,30,60,.10);
+  border-radius: 2px;
+  overflow: hidden;
+  margin-top: 4px;
+}
+.cat-row__bar > i{
+  display: block; height: 100%;
+  border-radius: 2px;
+}
 
-/* responsive */
-@media (max-width: 860px){
-  .term-grid{ grid-template-columns: 1fr; }
-  .movers{ grid-template-columns: 1fr; }
+@media (max-width: 720px){
+  .cat-row{ grid-template-columns: 12px 1fr 70px 50px; }
+  .cat-row__count{ display: none; }
 }
