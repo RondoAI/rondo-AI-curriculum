@@ -26,7 +26,7 @@ import { BENCHMARKS } from '../data/benchmarks.js';
 import { CENTRALIZED_PLAYERS, ASIAN_REGIONS, REGIONS } from '../data/centralized.js';
 import { EVENTS, EVENT_COLORS, EVENT_LABELS } from '../data/events.js';
 import { openChartModal } from '../lib/chart-modal.js';
-import { money, pct, deltaClass } from '../lib/format.js';
+import { money, pct, deltaClass, compact } from '../lib/format.js';
 
 /**
  * @param {HTMLElement} root
@@ -127,6 +127,57 @@ export function mountTerminal(root, dataLayer = null){
           </div>
         </div>
       </div>
+
+      <!-- ===== Market Overview — CMC-style dashboard ===== -->
+      <section class="term-overview" id="market">
+        <div class="term-overview__head">
+          <span class="term-head__kicker">030&gt;  MARKET OVERVIEW</span>
+          <h2 class="term-overview__title">Bittensor, <em>by the numbers.</em></h2>
+        </div>
+        <div class="ov-grid">
+          <div class="ov-card ov-card--lead">
+            <span class="ov-card__lbl">τ / USD</span>
+            <span class="ov-card__val" data-bind="ov-price">$—</span>
+            <span class="ov-card__sub" data-bind="ov-price-d">—</span>
+          </div>
+          <div class="ov-card">
+            <span class="ov-card__lbl">Market Cap</span>
+            <span class="ov-card__val" data-bind="ov-mcap">$—</span>
+            <span class="ov-card__sub" data-bind="ov-mcap-d">7d —</span>
+          </div>
+          <div class="ov-card">
+            <span class="ov-card__lbl">24h Volume</span>
+            <span class="ov-card__val" data-bind="ov-vol">$—</span>
+            <span class="ov-card__sub">spot</span>
+          </div>
+          <div class="ov-card">
+            <span class="ov-card__lbl">Fully Diluted</span>
+            <span class="ov-card__val" data-bind="ov-fdv">$—</span>
+            <span class="ov-card__sub">at 21M τ</span>
+          </div>
+          <div class="ov-card">
+            <span class="ov-card__lbl">Circulating</span>
+            <span class="ov-card__val" data-bind="ov-circ">—</span>
+            <span class="ov-card__sub">of 21M τ max</span>
+          </div>
+          <div class="ov-card">
+            <span class="ov-card__lbl">Staked</span>
+            <span class="ov-card__val" data-bind="ov-staked">—</span>
+            <span class="ov-card__sub" data-bind="ov-apr">APR —</span>
+          </div>
+          <div class="ov-card">
+            <span class="ov-card__lbl">AI Mkt Dominance</span>
+            <span class="ov-card__val" data-bind="ov-aidom">—</span>
+            <span class="ov-card__sub">of crypto-AI</span>
+          </div>
+          <div class="ov-card">
+            <span class="ov-card__lbl">Block Height</span>
+            <span class="ov-card__val" data-bind="ov-block">—</span>
+            <span class="ov-card__sub" data-bind="ov-split">root / subnet</span>
+          </div>
+        </div>
+        <p class="term-overview__note">Live from the Tao Market Cap public API — falls back to “—” when the feed is unreachable.</p>
+      </section>
 
       <!-- ===== Panel 1: τ Price · Apple-Stocks-style hero ===== -->
       <article class="stockp is-bracketed term-cell--stockp">
@@ -522,6 +573,58 @@ export function mountTerminal(root, dataLayer = null){
   }
   const tickTimer = 0;
 
+  /* ===== Market Overview dashboard — live tao:market + tao:chain ===== */
+  const ovEl = sel => qs(`[data-bind="${sel}"]`, root);
+  const ov = {
+    price: ovEl('ov-price'), priceD: ovEl('ov-price-d'),
+    mcap:  ovEl('ov-mcap'),  mcapD:  ovEl('ov-mcap-d'),
+    vol:   ovEl('ov-vol'),   fdv:    ovEl('ov-fdv'),
+    circ:  ovEl('ov-circ'),  staked: ovEl('ov-staked'),
+    apr:   ovEl('ov-apr'),   aidom:  ovEl('ov-aidom'),
+    block: ovEl('ov-block'), split:  ovEl('ov-split'),
+  };
+  function renderMarket(d){
+    if (!d) return;
+    if (ov.price && d.price != null) ov.price.textContent = money(d.price);
+    if (ov.priceD){
+      const c = d.change24h ?? 0;
+      ov.priceD.textContent = `${pct(c)} · 24h`;
+      ov.priceD.className = `ov-card__sub ${deltaClass(c)}`;
+    }
+    if (ov.mcap && d.marketCap != null) ov.mcap.textContent = '$' + compact(d.marketCap);
+    if (ov.mcapD){
+      const c = d.change7d ?? 0;
+      ov.mcapD.textContent = `7d ${pct(c)}`;
+      ov.mcapD.className = `ov-card__sub ${deltaClass(c)}`;
+    }
+    if (ov.vol && d.volume24h != null) ov.vol.textContent = '$' + compact(d.volume24h);
+    if (ov.fdv && d.fdv != null) ov.fdv.textContent = '$' + compact(d.fdv);
+    if (ov.circ && d.circulating != null) ov.circ.textContent = compact(d.circulating) + ' τ';
+    if (ov.staked && d.stakedPct != null) ov.staked.textContent = d.stakedPct.toFixed(1) + '%';
+    if (ov.apr && d.stakingApr != null) ov.apr.textContent = `APR ${d.stakingApr.toFixed(2)}%`;
+    if (ov.aidom && d.aiDominance != null) ov.aidom.textContent = d.aiDominance.toFixed(2) + '%';
+    if (ov.block && d.blockNumber != null) ov.block.textContent = d.blockNumber.toLocaleString('en-US');
+    /* feed the existing quote strip real volume + market cap too */
+    if (quoteVol && d.volume24h != null) quoteVol.textContent = '$' + compact(d.volume24h);
+    if (quoteMcap && d.marketCap != null) quoteMcap.textContent = '$' + compact(d.marketCap);
+  }
+  function renderChain(d){
+    if (!d) return;
+    if (ov.block && d.blockNumber != null) ov.block.textContent = d.blockNumber.toLocaleString('en-US');
+    if (ov.split && d.rootPct != null && d.subnetsPct != null){
+      ov.split.textContent = `${d.rootPct.toFixed(0)}% root · ${d.subnetsPct.toFixed(0)}% subnet`;
+    }
+  }
+  let marketUnsub = () => {}, chainUnsub = () => {};
+  if (dataLayer){
+    marketUnsub = dataLayer.subscribe('tao:market', renderMarket);
+    chainUnsub  = dataLayer.subscribe('tao:chain',  renderChain);
+    if (dataLayer.get){
+      renderMarket(dataLayer.get('tao:market'));
+      renderChain(dataLayer.get('tao:chain'));
+    }
+  }
+
   /* ===== Performance bar chart (clickable → SubnetDetail) ===== */
   const perfCanvas = qs('[data-canvas="perf"]', root);
   const perfData = (() => {
@@ -820,6 +923,8 @@ export function mountTerminal(root, dataLayer = null){
       if (pulseTimer) clearInterval(pulseTimer);
       if (liveTimer)  clearInterval(liveTimer);
       priceUnsub();
+      marketUnsub();
+      chainUnsub();
     },
   };
 }
