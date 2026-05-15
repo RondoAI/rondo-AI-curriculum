@@ -19,12 +19,10 @@
    ================================================================= */
 
 import { html, mount, qs, qsa, setLive } from '../lib/dom.js';
-import { money, compact, pct, deltaClass, bbgDate, int } from '../lib/format.js';
+import { money, compact, pct, deltaClass, int } from '../lib/format.js';
 import { mark, seedSeries } from '../lib/mark.js';
 import { cardArt } from '../lib/art.js';
 import { Sparkline } from '../charts/Sparkline.js';
-import { CoverArt } from '../charts/CoverArt.js';
-import { NeuralNet } from '../charts/NeuralNet.js';
 import { Treemap } from '../charts/Treemap.js';
 import { articlesByDate } from '../data/articles.js';
 import { subnetById, SUBNETS } from '../data/subnets.js';
@@ -281,50 +279,24 @@ export function mountHome(root, dataLayer = null){
       </ul>
     </section>
 
-    <!-- ===== COVER ===== -->
-    <section class="home-cover" aria-label="Issue cover">
-      <canvas class="home-cover__art" data-canvas="cover-art" aria-hidden="true"></canvas>
-      <div class="home-cover__inner">
-        <div class="home-cover__meta">
-          <span>Issue No. 02</span>
-          <span>${bbgDate()}</span>
-          <span>Decentralized Intelligence Desk</span>
-        </div>
-        <h1 class="home-cover__title">The market for <em>intelligence</em>, on-chain.</h1>
-        <p class="home-cover__dek">A research terminal for Bittensor — live subnet markets, validator
-        analytics, and editorial coverage of decentralized AI, with Asian frontier labs covered first-class.</p>
-      </div>
-    </section>
-
-    <!-- ===== NEURAL NETWORK ===== -->
-    <section class="home-neural" aria-label="The Bittensor consensus network">
-      <div class="home-net__head">
-        <span class="home-net__kicker">&gt; The machine</span>
-        <h2 class="home-net__title">Intelligence, <em>incentivized.</em></h2>
-        <p class="home-net__sub">Every block, Bittensor fires the same loop — subnets set the task, miners
-        compete, validators score, consensus pays. This is that loop, rendered live.</p>
-      </div>
-      <div class="home-neural__canvas">
-        <canvas data-canvas="neural"></canvas>
-      </div>
-    </section>
-
-    <!-- ===== EMISSION TREEMAP ===== -->
+    <!-- ===== EMISSION TREEMAP =====
+         The visual companion to step 05 (Emissions) of the Six Steps
+         explainer above — now you've named the parts, here's how the
+         pie actually gets split. -->
     <section class="home-neural" aria-label="Subnet emission share treemap">
       <div class="home-net__head">
         <span class="home-net__kicker">&gt; The slice</span>
         <h2 class="home-net__title">Where the <em>emissions</em> go.</h2>
-        <p class="home-net__sub">Every block, 0.5 τ is split across the 92 subnets that earned it.
-        Bigger tile, bigger share — Chutes, Targon and Apex eat first; the long tail fights for the
-        edges. Sized by daily τ emission, darker red = higher rank.</p>
+        <p class="home-net__sub">Bigger tile, bigger share. Chutes, Targon and Apex eat first;
+        the long tail fights for the edges. Sized by daily τ emission, darker red = higher rank.</p>
       </div>
       <div class="home-neural__canvas">
         <canvas data-canvas="treemap"></canvas>
-        <span class="home-neural__foot">
-          <span>TREEMAP · TOP 18 SUBNETS · BY τ/DAY</span>
-          <span>SOURCE · TAOSTATS PUBLIC + SEED</span>
-        </span>
       </div>
+      <span class="home-neural__foot home-neural__foot--block">
+        <span data-bind="treemap-count">TREEMAP · TOP SUBNETS · BY τ/DAY</span>
+        <span>SOURCE · TAOSTATS PUBLIC + SEED</span>
+      </span>
     </section>
 
     <!-- ===== LIVE NETWORK band ===== -->
@@ -379,7 +351,7 @@ export function mountHome(root, dataLayer = null){
       <div class="home-subnets__head">
         <div>
           <span class="home-net__kicker"><span class="live-dot"></span>Top Subnets · by market cap</span>
-          <h2 class="home-net__title">The market for <em>intelligence.</em></h2>
+          <h2 class="home-net__title">Who's <em>winning</em> the blocks.</h2>
         </div>
         <a class="home-subnets__all" href="subnets.html">All subnets ↗</a>
       </div>
@@ -450,18 +422,15 @@ export function mountHome(root, dataLayer = null){
     </footer>
   `);
 
-  /* ---------- cover art + the two infographic canvases ---------- */
-  const coverCanvas = qs('[data-canvas="cover-art"]', root);
-  const cover = coverCanvas ? new CoverArt(coverCanvas) : null;
-  const neuralCanvas = qs('[data-canvas="neural"]', root);
-  const neural = neuralCanvas ? new NeuralNet(neuralCanvas) : null;
-  /* the second infographic — a treemap of the top subnets by daily
-     emission. Different visual language from the plexus mark at the
-     top of every page. */
+  /* ---------- emission treemap ----------
+     Fewer tiles on phone so labels fit; more on desktop so you see
+     the long-tail. The footer caption is bound to the count so it
+     never lies about how many tiles you're looking at. */
   const treemapCanvas = qs('[data-canvas="treemap"]', root);
+  const topN = (window.matchMedia && window.matchMedia('(max-width: 720px)').matches) ? 10 : 16;
   const treemapItems = [...SUBNETS]
     .sort((a, b) => (b.emission || 0) - (a.emission || 0))
-    .slice(0, 18)
+    .slice(0, topN)
     .map(s => ({
       label: 'SN' + s.netuid + ' · ' + s.name,
       sub:   'τ' + (s.emission || 0) + ' / day',
@@ -470,6 +439,8 @@ export function mountHome(root, dataLayer = null){
   const treemap = treemapCanvas
     ? new Treemap(treemapCanvas, { items: treemapItems })
     : null;
+  const treemapCount = qs('[data-bind="treemap-count"]', root);
+  if (treemapCount) treemapCount.textContent = 'TREEMAP · TOP ' + topN + ' SUBNETS · BY τ/DAY';
 
   /* ---------- LIVE NETWORK band sparklines ---------- */
   /* one micro-trend per stat — deterministic, keyed to the field, a
@@ -609,8 +580,6 @@ export function mountHome(root, dataLayer = null){
       sparks.splice(0).forEach(sp => { try { sp.destroy(); } catch (_) {} });
       statSparks.splice(0).forEach(sp => { try { sp.destroy(); } catch (_) {} });
       valSparks.splice(0).forEach(sp => { try { sp.destroy(); } catch (_) {} });
-      cover?.destroy();
-      neural?.destroy();
       treemap?.destroy();
     },
   };

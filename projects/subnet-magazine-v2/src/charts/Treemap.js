@@ -54,19 +54,26 @@ export class Treemap extends Chart {
                    Math.max(0, b.h - pad * 2));
     });
 
-    /* labels — name on top, value below; only if there's room */
+    /* labels — name on top, value below; clipped to each tile so a
+       long string never bleeds into the neighbour. Sub-line only if
+       there's vertical room for it. */
     ctx.textBaseline = 'top';
     ctx.textAlign = 'left';
     for (const b of this.boxes){
-      if (b.w < 56 || b.h < 28) continue;
+      if (b.w < 48 || b.h < 26) continue;
+      ctx.save();
+      ctx.beginPath();
+      ctx.rect(b.x + 2, b.y + 2, Math.max(0, b.w - 4), Math.max(0, b.h - 4));
+      ctx.clip();
       ctx.fillStyle = 'rgba(245,229,232,.96)';
       ctx.font = '700 11px JetBrains Mono, ui-monospace, monospace';
       ctx.fillText(b.label, b.x + 7, b.y + 7);
-      if (b.h > 44){
-        ctx.fillStyle = 'rgba(245,229,232,.7)';
+      if (b.h > 42){
+        ctx.fillStyle = 'rgba(245,229,232,.72)';
         ctx.font = '500 10px JetBrains Mono, ui-monospace, monospace';
         ctx.fillText(b.sub || '', b.x + 7, b.y + 22);
       }
+      ctx.restore();
     }
 
     /* hairline divisions over the tiles — keeps the terminal grid */

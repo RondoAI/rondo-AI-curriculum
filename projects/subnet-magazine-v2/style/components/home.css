@@ -172,7 +172,7 @@
 .home-neural__canvas{
   position: relative;
   margin-top: var(--s-5);
-  height: clamp(280px, 38vw, 420px);
+  height: clamp(380px, 56vw, 480px);
   border: var(--b-thin);
   overflow: hidden;
   background:
@@ -197,6 +197,16 @@
   pointer-events: none;
 }
 .home-neural__foot span:last-child{ color: var(--c-ink-3); white-space: nowrap; }
+/* `--block` variant: caption sits in its own band below the canvas
+   rather than overlaying it, so it never covers the bottom tiles of
+   a treemap or the lower nodes of a plexus. */
+.home-neural__foot--block{
+  position: static;
+  margin-top: var(--s-3);
+  padding: var(--s-2) 0;
+  background: transparent;
+  border-top: var(--b-thin);
+}
 
 /* ---------- FEATURED RESEARCH (top of page) ---------- */
 .home-research__head{

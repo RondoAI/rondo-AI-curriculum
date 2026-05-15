@@ -218,8 +218,14 @@ export function mountConsole(_dataLayer = null){
     `<button type="button" class="sbnt-tab" data-id="${t.id}">${t.label}</button>`
   ).join('');
 
+  /* Default state: expanded on desktop, collapsed on phone so the
+     console doesn't overlap the page underneath. The user toggles it
+     either way via the bar. */
+  const startCollapsed = !!(window.matchMedia &&
+    window.matchMedia('(max-width: 720px)').matches);
+
   const el = document.createElement('aside');
-  el.className = 'sbnt-console';
+  el.className = 'sbnt-console' + (startCollapsed ? ' is-collapsed' : '');
   el.setAttribute('aria-label', 'Bittensor field manual');
   el.innerHTML = `
     <div class="sbnt-console__bar" data-role="bar">
@@ -228,7 +234,7 @@ export function mountConsole(_dataLayer = null){
       <span>://field-manual</span>
       <span class="sbnt-console__title" data-role="title"></span>
       <span class="sbnt-console__push"></span>
-      <span class="sbnt-console__toggle" data-role="toggle">[ − ]</span>
+      <span class="sbnt-console__toggle" data-role="toggle">${startCollapsed ? '[ + ]' : '[ − ]'}</span>
     </div>
     <div class="sbnt-console__tabs" role="tablist">${tabsHtml}</div>
     <div class="sbnt-console__body" data-role="body"></div>
