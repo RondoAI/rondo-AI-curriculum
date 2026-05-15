@@ -1,0 +1,167 @@
+/* =================================================================
+   SUBNET MAGAZINE — EDITOR PAGE
+   -----------------------------------------------------------------
+   The back-of-the-book editor bio. Was originally a section pinned
+   below the home view; moved to its own page so the home view stays
+   short on mobile (Android Chrome compositor cost on the home was
+   killing touch scroll). Layout: square portrait left, byline +
+   bio + links right. Stacks to single column under 720px.
+   ================================================================= */
+
+.editor-page{
+  position: relative;
+  max-width: var(--max-w);
+  margin: 0 auto;
+  padding: clamp(56px, 9vw, 112px) var(--gutter) clamp(40px, 7vw, 80px);
+  border-bottom: var(--b-thin);
+}
+.editor-page::before{
+  content: "";
+  position: absolute;
+  top: 0; left: var(--gutter);
+  width: 80px;
+  height: 1px;
+  background: linear-gradient(90deg, var(--c-red), transparent);
+}
+.editor-page__inner{
+  display: grid;
+  grid-template-columns: clamp(180px, 26vw, 260px) 1fr;
+  gap: clamp(20px, 4vw, 48px);
+  align-items: start;
+}
+.editor-page__photo{
+  position: relative;
+  aspect-ratio: 1 / 1;
+  background: var(--c-bg-2);
+  border: 1px solid var(--c-rule-2);
+  overflow: hidden;
+  border-radius: 3px;
+}
+.editor-page__photo img{
+  display: block;
+  width: 100%; height: 100%;
+  object-fit: cover;
+  filter: contrast(1.02) saturate(.95);
+}
+.editor-page__photo-frame{
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(135deg, rgba(255,30,60,.12), transparent 28%),
+    linear-gradient(315deg, rgba(255,30,60,.10), transparent 24%);
+  pointer-events: none;
+}
+.editor-page__photo::after{
+  content: "";
+  position: absolute;
+  top: -1px; left: -1px;
+  width: 36px; height: 1px;
+  background: var(--c-red);
+}
+
+.editor-page__body{
+  display: flex;
+  flex-direction: column;
+  gap: var(--s-3);
+  min-width: 0;
+}
+.editor-page__kicker{
+  font-family: var(--f-mono);
+  font-size: var(--t-xs);
+  font-weight: 700;
+  letter-spacing: var(--ls-label);
+  text-transform: uppercase;
+  color: var(--c-red);
+}
+.editor-page__name{
+  margin: 0;
+  font-family: var(--f-serif);
+  font-size: clamp(34px, 5.4vw, 56px);
+  font-weight: 800;
+  letter-spacing: -.015em;
+  line-height: 1;
+  color: var(--c-ink-1);
+}
+.editor-page__role{
+  margin: 0;
+  font-family: var(--f-mono);
+  font-size: var(--t-sm);
+  font-weight: 600;
+  letter-spacing: var(--ls-label);
+  text-transform: uppercase;
+  color: var(--c-red-1);
+}
+.editor-page__bio{
+  margin: var(--s-2) 0 0;
+  max-width: 56ch;
+  font-family: var(--f-sans);
+  font-size: var(--t-md);
+  line-height: 1.55;
+  color: var(--c-ink-2);
+}
+.editor-page__bio em{
+  font-style: italic;
+  color: var(--c-red-1);
+  font-weight: 600;
+}
+.editor-page__bio--quiet{
+  color: var(--c-ink-3);
+  font-size: var(--t-sm);
+  line-height: 1.5;
+  border-left: 1px solid var(--c-rule-2);
+  padding-left: var(--s-4);
+}
+.editor-page__links{
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--s-2);
+  margin-top: var(--s-3);
+}
+.editor-page__link{
+  display: inline-flex; align-items: center; gap: 6px;
+  padding: 8px 14px;
+  border: 1px solid var(--c-rule-3);
+  border-radius: 999px;
+  background: rgba(255,30,60,.10);
+  color: var(--c-ink-1);
+  font-family: var(--f-mono);
+  font-size: var(--t-xs);
+  font-weight: 700;
+  letter-spacing: var(--ls-label);
+  text-transform: uppercase;
+  text-decoration: none;
+  transition: background var(--d-fast) var(--e-out),
+              border-color var(--d-fast) var(--e-out);
+}
+.editor-page__link:hover{
+  background: rgba(255,30,60,.20);
+  border-color: var(--c-red);
+}
+.editor-page__link--ghost{
+  background: transparent;
+  border-color: var(--c-rule-2);
+  color: var(--c-ink-2);
+}
+.editor-page__link--ghost:hover{
+  background: rgba(255,30,60,.06);
+  color: var(--c-ink-1);
+}
+.editor-page__x{
+  font-family: var(--f-serif);
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--c-red);
+  line-height: 1;
+}
+
+@media (max-width: 720px){
+  .editor-page__inner{
+    grid-template-columns: 1fr;
+    text-align: left;
+  }
+  .editor-page__photo{
+    width: 60vw;
+    max-width: 240px;
+    aspect-ratio: 1 / 1;
+  }
+}
