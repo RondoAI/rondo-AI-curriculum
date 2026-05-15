@@ -72,7 +72,7 @@ export function mountTickers(root, dataLayer = null){
       const up = (s.chg24 ?? 0) >= 0;
       const logo = s.logo
         ? `<img class="tick__logo" src="${s.logo}" alt="" loading="lazy" onerror="this.replaceWith(document.createTextNode(''))">`
-        : `<span class="tick__mark">${mark(s.name, { size: 15 })}</span>`;
+        : `<span class="tick__mark">${mark(s.name, { size: 20 })}</span>`;
       const price = s.price < 1 ? '$' + s.price.toFixed(4) : money(s.price);
       return `
         <a class="tick" href="subnet.html?id=${s.netuid}">
