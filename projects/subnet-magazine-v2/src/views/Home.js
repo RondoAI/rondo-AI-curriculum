@@ -29,6 +29,7 @@ import { articlesByDate } from '../data/articles.js';
 import { subnetById, SUBNETS } from '../data/subnets.js';
 import { SUBNET_BIOS } from '../data/subnet-bios.js';
 import { FOUNDERS, founderById } from '../data/founders.js';
+import { tsByNetuid, TAONSQUARE_COUNT, TAONSQUARE_FETCHED_AT } from '../data/taonsquare.js';
 import { VALIDATORS } from '../data/validators.js';
 
 const CAT_LABEL = {
@@ -229,6 +230,22 @@ export function mountHome(root, dataLayer = null){
           const logo = sn.logo
             ? `<img class="home-bio__logo" src="${sn.logo}" alt="" loading="lazy" onerror="this.replaceWith(document.createTextNode(''))">`
             : `<span class="home-bio__logo home-bio__logo--mark">${mark(name, { size: 36 })}</span>`;
+          /* TaonSquare catalog lookup — if the subnet exists in the
+             baked snapshot, surface its verified links +
+             researched-at as a small chip-row at the bottom of the
+             cover banner. */
+          const ts = tsByNetuid(b.netuid);
+          const tsLinkHtml = (label, url) => url
+            ? `<a class="home-bio__ts-link" href="${url}" target="_blank" rel="noopener">${label}</a>`
+            : '';
+          const tsLinks = ts && ts.links
+            ? [
+                tsLinkHtml('site',    ts.links.website && ts.links.website !== 'www.deprecated.com' ? (ts.links.website.startsWith('http') ? ts.links.website : 'https://' + ts.links.website) : null),
+                tsLinkHtml('github',  ts.links.github),
+                tsLinkHtml('docs',    ts.links.docs),
+                tsLinkHtml('discord', ts.links.discord),
+              ].filter(Boolean).join('')
+            : '';
           return `
             <li class="home-bio" data-netuid="${b.netuid}">
 
@@ -253,11 +270,14 @@ export function mountHome(root, dataLayer = null){
                   <span class="home-bio__chg ${up ? 'up' : 'down'}">${chg}</span>
                 </div>
                 <!-- AI-2026 model-card strip: confidence, provenance,
-                     researched-at. The honesty layer no incumbent has. -->
+                     researched-at. The honesty layer no incumbent has.
+                     TaonSquare values used where present; falls back to
+                     the magazine's own 14 May 2026 anchor. -->
                 <div class="home-bio__card-meta">
-                  <span class="home-bio__card-conf"><span class="dot"></span>CONFIDENCE · HIGH</span>
-                  <span class="home-bio__card-when">RESEARCHED 14 MAY 2026</span>
+                  <span class="home-bio__card-conf"><span class="dot"></span>CONFIDENCE · ${(ts && ts.confidence ? ts.confidence : 'high').toUpperCase()}</span>
+                  <span class="home-bio__card-when">RESEARCHED ${ts && ts.researched_at ? ts.researched_at.slice(0, 10).toUpperCase() : '14 MAY 2026'}</span>
                 </div>
+                ${tsLinks ? `<div class="home-bio__ts-row" title="Verified links via TaonSquare">${tsLinks}<span class="home-bio__ts-attr">via TaonSquare</span></div>` : ''}
               </div>
 
               <span class="home-bio__cat">${cat}</span>
@@ -1462,7 +1482,7 @@ export function mountHome(root, dataLayer = null){
       </div>
       <div class="home-pagebreak__body">
         <p class="home-pagebreak__cap">Bittensor, right now.</p>
-        <p class="home-pagebreak__sub">Live data · Tao Market Cap public API · Subne<span class="tau">τ</span> Magazine ${new Date().getUTCFullYear()}</p>
+        <p class="home-pagebreak__sub">Live data · Tao Market Cap public API · Verified links via TaonSquare (${TAONSQUARE_COUNT} subnets · snapshot ${TAONSQUARE_FETCHED_AT}) · Subne<span class="tau">τ</span> Magazine ${new Date().getUTCFullYear()}</p>
       </div>
       <!-- AI-2026 signal: built for humans AND agents. Editorial corpus
            addressable over MCP so the agent doing diligence at a fund

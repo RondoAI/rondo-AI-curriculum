@@ -1935,6 +1935,51 @@
 }
 .home-bio__card-when{ color: var(--c-ink-4); }
 
+/* TaonSquare verified-links row — only renders if the subnet
+   exists in the baked snapshot. 4 small clickable chips + a tiny
+   "via TaonSquare" attribution. Lets the user jump straight to the
+   subnet's official site / github / docs / discord without leaving
+   the bio card. */
+.home-bio__ts-row{
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  flex-wrap: wrap;
+  margin-top: 8px;
+  padding-top: 8px;
+  border-top: 1px dashed var(--c-rule);
+}
+.home-bio__ts-link{
+  display: inline-block;
+  padding: 2px 8px;
+  border: 1px solid var(--c-rule-2);
+  border-radius: 999px;
+  background: rgba(255,30,60,.05);
+  color: var(--c-red-1);
+  font-family: var(--f-mono);
+  font-size: 9.5px;
+  font-weight: 700;
+  letter-spacing: var(--ls-label);
+  text-transform: uppercase;
+  text-decoration: none;
+  transition: background var(--d-fast) var(--e-out), color var(--d-fast) var(--e-out), border-color var(--d-fast) var(--e-out);
+}
+.home-bio__ts-link:hover{
+  background: rgba(255,30,60,.14);
+  border-color: var(--c-red);
+  color: var(--c-red);
+}
+.home-bio__ts-attr{
+  margin-left: auto;
+  font-family: var(--f-mono);
+  font-size: 8.5px;
+  font-weight: 600;
+  letter-spacing: var(--ls-label);
+  text-transform: uppercase;
+  color: var(--c-ink-4);
+  font-style: italic;
+}
+
 /* the category pill — moved out of the head into its own line so it
    sits between cover and the body content */
 .home-bio__cat{
