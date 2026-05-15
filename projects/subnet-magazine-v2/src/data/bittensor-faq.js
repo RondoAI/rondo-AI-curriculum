@@ -815,20 +815,17 @@ export const FIELD_MANUAL = Object.freeze([
     ] },
 
   /* ===================================================================== */
-  { id: 'play', label: '/play ⚡', title: 'Subnet Sim · play a block',
-    difficulty: 'easy', timeRequired: '1 min', cost: 'free', confidence: 'high',
+  { id: 'play', label: '/play ⚡', title: 'TAO Runner · play the chain',
+    difficulty: 'easy', timeRequired: '60 s', cost: 'free', confidence: 'high',
     researched: '2026-05-15',
-    blurb: 'A real block, simulated. Five miners answer the subnet\'s query — four right, one wrong. You\'re the validator. Set your weight vote on each miner, hit Settle, and watch Yuma Consensus compute the payout. Learn by playing.',
+    blurb: 'A real game. You\'re a miner running across the chain. Tap to jump — catch α tokens, dodge the deregistration sweeps. Speed ramps with every block. First arcade game built for Bittensor, anywhere.',
     body: [
-      /* Rendered as an interactive widget by Console.js — body is a
-         placeholder; the renderer dispatches on topic.id === 'play'. */
+      /* Rendered as an interactive canvas widget by Console.js — body
+         is a placeholder; the renderer dispatches on topic.id === 'play'. */
     ],
-    prerequisites: ['curiosity'],
-    whatYouGet: 'A working intuition for how Yuma Consensus turns honest weight votes into emission payouts — in 60 seconds, no money risked.',
-    sources: [
-      'https://docs.learnbittensor.org/yuma-consensus',
-      'https://docs.bittensor.com/yuma-consensus',
-    ],
+    prerequisites: ['thumb'],
+    whatYouGet: 'A reflex-game intuition for what a miner actually does — collect rewards, survive churn, push through halvings. Your high score persists locally.',
+    sources: [],
   },
 
   /* ===================================================================== */

@@ -378,17 +378,17 @@ const CSS = `
 }
 
 /* ===================================================================
-   /play · interactive Yuma-consensus mini-game
+   /play · TAO RUNNER · canvas arcade game pinned in the Oracle dock
    =================================================================== */
 .sbnt-game{
   display: flex; flex-direction: column;
-  gap: 14px;
-  padding: 4px 0;
+  gap: 10px;
+  padding: 2px 0;
 }
 .sbnt-game__head{
   border: 1px solid var(--c-rule-2, rgba(255,30,60,.22));
   border-radius: 4px;
-  padding: 10px 12px;
+  padding: 8px 12px;
   background: rgba(255,30,60,.04);
 }
 .sbnt-game__block-id{
@@ -401,145 +401,76 @@ const CSS = `
 }
 .sbnt-game__query{
   display: block;
-  margin-top: 4px;
+  margin-top: 3px;
   font-family: var(--f-mono, monospace);
-  font-size: 12px;
-  color: var(--c-ink-1, #F5E5E8);
+  font-size: 10.5px;
+  color: var(--c-ink-2, #C8A8AD);
 }
-.sbnt-game__sub{
+.sbnt-game__canvas{
   display: block;
-  margin-top: 6px;
-  font-size: 10.5px;
-  color: var(--c-ink-3, #8B6B70);
-}
-
-.sbnt-game__miners{ display: flex; flex-direction: column; gap: 6px; }
-.sbnt-game__miner{
-  display: grid;
-  grid-template-columns: 60px 1fr 1fr 40px;
-  align-items: center;
-  gap: 8px;
-  padding: 8px 10px;
-  background: var(--c-bg-2, #0A0306);
-  border: 1px solid var(--c-rule, rgba(255,30,60,.10));
-  border-radius: 3px;
-  transition: border-color .15s ease-out, background .15s ease-out;
-}
-.sbnt-game__miner.is-truth{
-  border-color: var(--c-up, #00E5A8);
-  background: rgba(0, 229, 168, .04);
-}
-.sbnt-game__miner.is-bad{
-  border-color: var(--c-red-blood, #8B0F20);
-  opacity: .65;
-}
-.sbnt-game__miner-id{
-  font-family: var(--f-mono, monospace);
-  font-size: 11px;
-  font-weight: 700;
-  color: var(--c-red, #FF1E3C);
-}
-.sbnt-game__miner-answer{
-  font-family: var(--f-mono, monospace);
-  font-size: 11.5px;
-  color: var(--c-ink-1, #F5E5E8);
-}
-.sbnt-game__slider{
   width: 100%;
-  appearance: none;
-  height: 4px;
-  background: var(--c-bg-4, #1F0A10);
-  border-radius: 999px;
-  outline: none;
-}
-.sbnt-game__slider::-webkit-slider-thumb{
-  appearance: none;
-  width: 12px; height: 12px;
-  background: var(--c-red, #FF1E3C);
-  border-radius: 50%;
-  cursor: pointer;
-  box-shadow: 0 0 6px var(--c-red, #FF1E3C);
-}
-.sbnt-game__slider::-moz-range-thumb{
-  width: 12px; height: 12px;
-  background: var(--c-red, #FF1E3C);
-  border-radius: 50%; border: 0;
-  cursor: pointer;
-  box-shadow: 0 0 6px var(--c-red, #FF1E3C);
-}
-.sbnt-game__weight{
-  font-family: var(--f-mono, monospace);
-  font-size: 10.5px;
-  font-weight: 700;
-  color: var(--c-ink-1, #F5E5E8);
-  text-align: right;
-}
-
-.sbnt-game__cta{
-  display: flex; gap: 8px;
-  flex-wrap: wrap;
-}
-.sbnt-game__btn{
-  appearance: none;
-  border: 1px solid var(--c-red, #FF1E3C);
-  background: var(--c-red, #FF1E3C);
-  color: #050203;
-  padding: 6px 14px;
-  border-radius: 999px;
-  font-family: var(--f-mono, monospace);
-  font-size: 11px;
-  font-weight: 700;
-  letter-spacing: .08em;
-  text-transform: uppercase;
-  cursor: pointer;
-  transition: filter .12s ease-out, transform .12s ease-out;
-}
-.sbnt-game__btn:hover{ filter: brightness(1.1); transform: translateY(-1px); }
-.sbnt-game__btn--ghost{
-  background: transparent;
-  color: var(--c-red-1, #FF4D60);
-}
-.sbnt-game__btn--ghost:hover{ background: rgba(255,30,60,.08); }
-.sbnt-game__btn:disabled{
-  opacity: .4;
-  cursor: not-allowed;
-  transform: none;
-}
-
-.sbnt-game__result{
-  margin-top: 6px;
-  padding: 10px 12px;
+  height: 180px;
   border: 1px solid var(--c-rule-3, rgba(255,30,60,.36));
   border-radius: 4px;
   background:
-    linear-gradient(180deg, rgba(255,30,60,.06), transparent),
-    var(--c-bg-1, #050203);
-  display: none;
+    radial-gradient(80% 60% at 50% 0%, rgba(255,30,60,.08), transparent 70%),
+    linear-gradient(180deg, var(--c-bg-1, #050203), var(--c-bg, #000));
+  cursor: pointer;
+  outline: none;
+  touch-action: manipulation;
 }
-.sbnt-game__result.is-shown{ display: block; }
-.sbnt-game__result-line{
-  display: grid;
-  grid-template-columns: 110px 1fr;
-  gap: 8px;
+.sbnt-game__canvas:focus{ box-shadow: 0 0 0 2px var(--c-red, #FF1E3C); }
+.sbnt-game__hud{
+  display: flex; align-items: center; gap: 8px;
+  padding: 6px 10px;
+  background: rgba(255,30,60,.04);
+  border: 1px solid var(--c-rule-2, rgba(255,30,60,.22));
+  border-radius: 4px;
   font-family: var(--f-mono, monospace);
   font-size: 11px;
-  padding: 3px 0;
 }
-.sbnt-game__result-line dt{
-  margin: 0;
+.sbnt-game__hud-lbl{
   font-size: 9.5px;
   font-weight: 700;
-  letter-spacing: .08em;
+  letter-spacing: .12em;
   text-transform: uppercase;
   color: var(--c-red-1, #FF4D60);
 }
-.sbnt-game__result-line dd{
-  margin: 0;
+.sbnt-game__hud-val{
   color: var(--c-ink-1, #F5E5E8);
-  font-weight: 600;
+  font-weight: 700;
+  font-variant-numeric: tabular-nums;
 }
-.sbnt-game__result-line dd.up   { color: var(--c-up, #00E5A8); }
-.sbnt-game__result-line dd.down { color: var(--c-down, #FF4D6D); }
+.sbnt-game__hud-sep{ color: var(--c-ink-4, #6B4D52); }
+.sbnt-game__push{ margin-left: auto; }
+.sbnt-game__btn{
+  appearance: none;
+  border: 1px solid var(--c-rule-2, rgba(255,30,60,.22));
+  background: rgba(255,30,60,.06);
+  color: var(--c-red-1, #FF4D60);
+  padding: 4px 10px;
+  border-radius: 999px;
+  font-family: var(--f-mono, monospace);
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: background .12s ease-out, border-color .12s ease-out, color .12s ease-out;
+}
+.sbnt-game__btn:hover{
+  background: rgba(255,30,60,.14);
+  border-color: var(--c-red, #FF1E3C);
+  color: var(--c-red, #FF1E3C);
+}
+.sbnt-game__btn--ghost{
+  background: transparent;
+  color: var(--c-ink-3, #8B6B70);
+}
+.sbnt-game__btn--ghost:hover{
+  background: rgba(255,30,60,.06);
+  color: var(--c-red-1, #FF4D60);
+}
 
 .sbnt-cursor{
   display: inline-block; width: 6px; height: 11px;
@@ -641,52 +572,76 @@ export function mountConsole(_dataLayer = null){
   let activeId = FIELD_MANUAL[0]?.id || 'mine';
   let searchQuery = '';
 
-  /* ----- search · cross-topic full-text filter ----- */
+  /* ----- search · cross-topic full-text filter with tokenisation +
+     stopword removal so natural-language questions like "what is
+     bittensor?" still surface the right topics. ----- */
+  const STOPWORDS = new Set([
+    'a','an','and','are','as','at','be','but','by','can','do','does','for','from','have','how','i','in','is','it','its','just','like','me','my','no','not','of','on','or','show','that','the','then','this','to','was','what','when','where','which','while','who','why','will','with','you','your'
+  ]);
   function escRe(s){ return String(s).replace(/[-\/\\^$*+?.()|[\]{}]/g, '\\$&'); }
-  function mark(text, q){
-    if (!q) return text;
-    const re = new RegExp('(' + escRe(q) + ')', 'gi');
-    return String(text).replace(/</g, '&lt;').replace(re, '<mark>$1</mark>');
+  function tokenise(s){
+    return String(s).toLowerCase()
+      /* keep latin + Greek τ/α + digits + dash */
+      .replace(/[^a-z0-9α-ωτ\s-]/gi, ' ')
+      .split(/\s+/)
+      .filter(w => w.length > 1 && !STOPWORDS.has(w));
+  }
+  function mark(text, tokens){
+    if (!tokens || !tokens.length) return String(text).replace(/</g, '&lt;');
+    let out = String(text).replace(/</g, '&lt;');
+    /* highlight each token, longest first so substrings don't shadow */
+    [...tokens].sort((a, b) => b.length - a.length).forEach(t => {
+      const re = new RegExp('(' + escRe(t) + ')', 'gi');
+      out = out.replace(re, '<mark>$1</mark>');
+    });
+    return out;
   }
   function searchAll(q){
-    if (!q) return [];
-    const needle = q.toLowerCase();
+    const tokens = tokenise(q);
+    if (!tokens.length) return { tokens: [], hits: [] };
     const hits = [];
     FIELD_MANUAL.forEach(topic => {
-      /* title / blurb match */
-      const titleMatch = (topic.title || '').toLowerCase().includes(needle);
-      const blurbMatch = (topic.blurb || '').toLowerCase().includes(needle);
-      if (titleMatch || blurbMatch){
-        hits.push({ topic, snippet: topic.blurb || topic.title });
-      }
-      /* line match — first matching line is the snippet */
-      (topic.body || []).some(line => {
-        const t = (line.text || '').toLowerCase();
-        if (t.includes(needle)){
-          hits.push({ topic, snippet: line.text });
-          return true;
-        }
-        return false;
+      const titleLc = (topic.title || '').toLowerCase();
+      const blurbLc = (topic.blurb || '').toLowerCase();
+      const bodyLc = (topic.body || []).map(l => (l.text || '')).join(' ').toLowerCase();
+      let score = 0;
+      tokens.forEach(t => {
+        if (topic.id.includes(t))                           score += 6;
+        if (titleLc.includes(t))                            score += 4;
+        if (blurbLc.includes(t))                            score += 2;
+        if (bodyLc.includes(t))                             score += 1;
       });
+      if (score > 0){
+        /* snippet = first body line that contains any token, else blurb, else title */
+        let snippet = topic.blurb || topic.title || '';
+        for (const line of (topic.body || [])){
+          const t = (line.text || '').toLowerCase();
+          if (tokens.some(tok => t.includes(tok))) {
+            snippet = line.text;
+            break;
+          }
+        }
+        hits.push({ topic, snippet, score });
+      }
     });
-    /* dedupe by topic id, keep first hit */
-    const seen = new Set();
-    return hits.filter(h => {
-      if (seen.has(h.topic.id)) return false;
-      seen.add(h.topic.id);
-      return true;
-    }).slice(0, 8);
+    hits.sort((a, b) => b.score - a.score);
+    return { tokens, hits: hits.slice(0, 8) };
   }
 
   function searchHtml(q){
-    const hits = searchAll(q);
-    if (!hits.length) return `<p class="sbnt-search-empty">No matches for "${q.replace(/</g, '&lt;')}".</p>`;
+    const { tokens, hits } = searchAll(q);
+    if (!tokens.length){
+      return `<p class="sbnt-search-empty">Type a topic, a command, or a question.</p>`;
+    }
+    if (!hits.length){
+      return `<p class="sbnt-search-empty">No matches for "${String(q).replace(/</g, '&lt;')}". Try <em>mine</em>, <em>dtao</em>, <em>halving</em>, or <em>weights</em>.</p>`;
+    }
     return `<ul class="sbnt-search-results">` +
       hits.map(h => `
         <li>
           <button type="button" class="sbnt-search-result" data-topic="${h.topic.id}">
             <span class="sbnt-search-result__topic">${h.topic.label}</span>
-            <span class="sbnt-search-result__snippet">${mark(h.snippet, q)}</span>
+            <span class="sbnt-search-result__snippet">${mark(h.snippet, tokens)}</span>
           </button>
         </li>
       `).join('') +
@@ -733,121 +688,319 @@ export function mountConsole(_dataLayer = null){
     if (topic.id === 'play') wireGame();
   }
 
-  /* ----- game · interactive Yuma-consensus block ----- */
-  /* Picks a random truth (which miner gave the right answer) per
-     block and a query set so each "play" is a fresh micro-puzzle.
-     The user (the validator) drags 5 weight sliders 0-100; Yuma
-     computes the weighted median; payouts go to the top miner
-     (41%), to validators whose weights matched the consensus (41%
-     split via the user's vector), and to the subnet owner (18%). */
-  const QUERIES = [
-    { ask: 'Capital of France?',         answers: ['Paris', 'Lyon', 'Marseille', 'Nice', 'Bordeaux'],       truthIdx: 0 },
-    { ask: 'sqrt(144) = ?',              answers: ['12', '14', '11', '12.0', '24'],                         truthIdx: 0 },
-    { ask: 'Most-spoken native lang?',   answers: ['Mandarin', 'English', 'Spanish', 'Hindi', 'Arabic'],    truthIdx: 0 },
-    { ask: 'TAO 21M cap reached when?',  answers: ['Apr 2063', '2032', 'Dec 2029', 'Aug 2031', '2055'],     truthIdx: 0 },
-    { ask: 'Bittensor mainnet launch?',  answers: ['Jan 2021', '2020', 'Mar 2022', 'Q4 2020', '2023'],      truthIdx: 0 },
-  ];
-  let blockNum = 8_191_900;
-  let gameState = null;
-  function newBlock(){
-    const q = QUERIES[Math.floor(Math.random() * QUERIES.length)];
-    /* shuffle answer order so the truth isn't always miner 1 */
-    const order = [0,1,2,3,4].sort(() => Math.random() - 0.5);
-    gameState = {
-      query: q.ask,
-      miners: order.map(i => ({ answer: q.answers[i], isTruth: i === q.truthIdx })),
-      weights: [50, 50, 50, 50, 50],
-      settled: false,
-      block: ++blockNum,
-    };
-  }
-  newBlock();
+  /* ======================================================================
+     TAO RUNNER · a canvas arcade game built for the Oracle dock.
+     -----------------------------------------------------------------------
+     A miner sprint across the chain. Tap to jump. Catch the α tokens
+     drifting overhead, dodge the deregistration sweeps rolling along
+     the ground. Speed ramps with score. Game over on contact; best
+     score persists in localStorage. The only Bittensor-native arcade
+     game in the ecosystem. ====================================== */
+  let gameRAF = null;
+  let gameLastT = 0;
+
+  /** TAO-Runner state. Survives across body re-renders so the user
+   *  doesn't lose their score on a search/tab change. */
+  const RUNNER = {
+    canvas:   null,
+    ctx:      null,
+    dpr:      1,
+    w:        0,
+    h:        0,
+    ground:   0,
+    speed:    260,
+    baseSpd:  260,
+    maxSpd:   620,
+    px:       70,          // player x (fixed)
+    py:       0,           // player y offset (negative = airborne)
+    vy:       0,
+    grounded: true,
+    hazards:  [],          // [{x, w, h}] dereg sweeps on the ground
+    tokens:   [],          // [{x, y, r}] α tokens floating above
+    score:    0,
+    best:     0,
+    alive:    false,        // not running yet — wait for first tap
+    started:  false,
+    accH:     1.2,
+    accT:     0.6,
+    bgOffset: 0,
+  };
 
   function gameHtml(){
-    const s = gameState;
-    const minersHtml = s.miners.map((m, i) => `
-      <div class="sbnt-game__miner ${s.settled ? (m.isTruth ? 'is-truth' : 'is-bad') : ''}">
-        <span class="sbnt-game__miner-id">M${String(i + 1).padStart(2, '0')}</span>
-        <span class="sbnt-game__miner-answer">${(m.answer + '').replace(/</g, '&lt;')}</span>
-        <input class="sbnt-game__slider" type="range" min="0" max="100"
-               value="${s.weights[i]}" data-miner="${i}" ${s.settled ? 'disabled' : ''}>
-        <span class="sbnt-game__weight" data-weight="${i}">${s.weights[i]}</span>
-      </div>
-    `).join('');
     return `
       <div class="sbnt-game">
         <div class="sbnt-game__head">
-          <span class="sbnt-game__block-id">BLOCK ${s.block.toLocaleString('en-US')} · SUBNET 1 · APEX</span>
-          <span class="sbnt-game__query">Q: ${s.query}</span>
-          <span class="sbnt-game__sub">You are the validator. Five miners answered. Drag each slider to set your weight vote (0 = "ignore", 100 = "this is correct"). Hit Settle to compute Yuma consensus and the payout.</span>
+          <span class="sbnt-game__block-id">TAO RUNNER · BLOCK ${(Math.floor(8190000 + RUNNER.score * 2)).toLocaleString('en-US')}</span>
+          <span class="sbnt-game__query">tap to jump · catch <span class="alpha">α</span> · dodge dereg sweeps · speed ramps with each block</span>
         </div>
-        <div class="sbnt-game__miners">${minersHtml}</div>
-        <div class="sbnt-game__cta">
-          <button type="button" class="sbnt-game__btn" data-role="game-settle" ${s.settled ? 'disabled' : ''}>SETTLE BLOCK</button>
-          <button type="button" class="sbnt-game__btn sbnt-game__btn--ghost" data-role="game-next">NEW BLOCK ↻</button>
+        <canvas class="sbnt-game__canvas" data-game-canvas tabindex="0" aria-label="TAO Runner game"></canvas>
+        <div class="sbnt-game__hud">
+          <span class="sbnt-game__hud-lbl">SCORE</span>
+          <span class="sbnt-game__hud-val" data-game-score>0</span>
+          <span class="sbnt-game__hud-sep">·</span>
+          <span class="sbnt-game__hud-lbl">BEST</span>
+          <span class="sbnt-game__hud-val" data-game-best>0</span>
+          <span class="sbnt-game__push"></span>
+          <button type="button" class="sbnt-game__btn sbnt-game__btn--ghost" data-role="game-restart">RESET</button>
         </div>
-        <div class="sbnt-game__result ${s.settled ? 'is-shown' : ''}" data-role="game-result">${s.settled ? gameResultHtml(s) : ''}</div>
-      </div>
-    `;
-  }
-
-  function gameResultHtml(s){
-    const total = s.weights.reduce((a, w) => a + w, 0) || 1;
-    const truthIdx = s.miners.findIndex(m => m.isTruth);
-    const playerOnTruth = s.weights[truthIdx];
-    const allCorrect = s.weights[truthIdx];
-    const allWrong   = total - allCorrect;
-    const consensus = playerOnTruth >= 60 ? 'You voted with consensus.' : playerOnTruth >= 30 ? 'You voted near consensus.' : 'You voted against consensus.';
-    /* payouts: 41% miners (all to the top, here = the truth miner),
-       41% validators (you, scaled by accuracy), 18% subnet owner */
-    const blockReward = 0.5;     // τ per block at post-halving rate
-    const minerPay    = blockReward * 0.41;
-    const validatorPay = blockReward * 0.41 * (playerOnTruth / 100);
-    const ownerPay     = blockReward * 0.18;
-    const cls = playerOnTruth >= 60 ? 'up' : playerOnTruth >= 30 ? '' : 'down';
-    return `
-      <div class="sbnt-game__result-line">
-        <dt>Truth</dt><dd>Miner M${String(truthIdx + 1).padStart(2, '0')} · "${(s.miners[truthIdx].answer + '').replace(/</g, '&lt;')}"</dd>
-      </div>
-      <div class="sbnt-game__result-line">
-        <dt>Your weight on truth</dt><dd class="${cls}">${playerOnTruth} / 100</dd>
-      </div>
-      <div class="sbnt-game__result-line">
-        <dt>Consensus</dt><dd class="${cls}">${consensus}</dd>
-      </div>
-      <div class="sbnt-game__result-line">
-        <dt>Top miner pays</dt><dd>τ${minerPay.toFixed(3)}  (41% block)</dd>
-      </div>
-      <div class="sbnt-game__result-line">
-        <dt>You earn (validator)</dt><dd class="${cls}">τ${validatorPay.toFixed(3)}  (41% × your accuracy)</dd>
-      </div>
-      <div class="sbnt-game__result-line">
-        <dt>Subnet owner</dt><dd>τ${ownerPay.toFixed(3)}  (18%)</dd>
       </div>
     `;
   }
 
   function wireGame(){
-    /* sliders update gameState.weights and the live readout */
-    body.querySelectorAll('.sbnt-game__slider').forEach(sl => {
-      sl.addEventListener('input', e => {
-        const i = Number(e.target.dataset.miner);
-        const v = Number(e.target.value);
-        gameState.weights[i] = v;
-        const out = body.querySelector(`[data-weight="${i}"]`);
-        if (out) out.textContent = v;
+    const cv = body.querySelector('[data-game-canvas]');
+    if (!cv) return;
+    RUNNER.canvas = cv;
+    RUNNER.ctx = cv.getContext('2d');
+    RUNNER.dpr = Math.min(2, window.devicePixelRatio || 1);
+    RUNNER.best = Number(localStorage.getItem('sbnt-game-best') || 0);
+    const bestEl = body.querySelector('[data-game-best]');
+    if (bestEl) bestEl.textContent = RUNNER.best;
+    resizeCanvas();
+
+    /* full reset for a clean intro state */
+    RUNNER.score = 0; RUNNER.hazards = []; RUNNER.tokens = [];
+    RUNNER.speed = RUNNER.baseSpd; RUNNER.alive = false; RUNNER.started = false;
+    RUNNER.py = 0; RUNNER.vy = 0; RUNNER.grounded = true;
+
+    const scoreEl = body.querySelector('[data-game-score]');
+    if (scoreEl) scoreEl.textContent = 0;
+
+    function jump(){
+      if (!RUNNER.started){
+        RUNNER.started = true;
+        RUNNER.alive = true;
+      }
+      if (!RUNNER.alive){
+        /* restart on tap after game over */
+        RUNNER.score = 0; RUNNER.hazards = []; RUNNER.tokens = [];
+        RUNNER.speed = RUNNER.baseSpd; RUNNER.alive = true;
+        RUNNER.py = 0; RUNNER.vy = 0; RUNNER.grounded = true;
+        if (scoreEl) scoreEl.textContent = 0;
+        return;
+      }
+      if (RUNNER.grounded){
+        RUNNER.vy = -520;
+        RUNNER.grounded = false;
+      }
+    }
+
+    cv.addEventListener('click',     jump);
+    cv.addEventListener('touchstart', e => { e.preventDefault(); jump(); }, { passive: false });
+    const keyHandler = (e) => {
+      if (e.code === 'Space' || e.code === 'ArrowUp'){
+        e.preventDefault();
+        jump();
+      }
+    };
+    window.addEventListener('keydown', keyHandler);
+    cv._sbntKeyHandler = keyHandler;
+
+    const restart = body.querySelector('[data-role="game-restart"]');
+    if (restart) restart.addEventListener('click', () => {
+      RUNNER.score = 0; RUNNER.hazards = []; RUNNER.tokens = [];
+      RUNNER.speed = RUNNER.baseSpd;
+      RUNNER.alive = true; RUNNER.started = true;
+      RUNNER.py = 0; RUNNER.vy = 0; RUNNER.grounded = true;
+      if (scoreEl) scoreEl.textContent = 0;
+    });
+
+    const onResize = () => resizeCanvas();
+    window.addEventListener('resize', onResize);
+    cv._sbntResize = onResize;
+
+    /* loop */
+    cancelAnimationFrame(gameRAF);
+    gameLastT = performance.now();
+    gameRAF = requestAnimationFrame(loop);
+  }
+
+  function resizeCanvas(){
+    const cv = RUNNER.canvas; if (!cv) return;
+    const rect = cv.getBoundingClientRect();
+    RUNNER.w = Math.max(280, rect.width);
+    RUNNER.h = 180;
+    cv.width  = RUNNER.w * RUNNER.dpr;
+    cv.height = RUNNER.h * RUNNER.dpr;
+    cv.style.height = RUNNER.h + 'px';
+    RUNNER.ctx.setTransform(RUNNER.dpr, 0, 0, RUNNER.dpr, 0, 0);
+    RUNNER.ground = RUNNER.h - 32;
+  }
+
+  function loop(t){
+    if (!RUNNER.canvas){ gameRAF = null; return; }
+    /* if the user navigated to a different topic, stop the loop */
+    if (!body.contains(RUNNER.canvas)){
+      gameRAF = null;
+      return;
+    }
+    const dt = Math.min((t - gameLastT) / 1000, 1/30);
+    gameLastT = t;
+
+    if (RUNNER.alive && RUNNER.started){
+      step(dt);
+    }
+    draw();
+    gameRAF = requestAnimationFrame(loop);
+  }
+
+  function step(dt){
+    RUNNER.speed = Math.min(RUNNER.maxSpd, RUNNER.baseSpd + RUNNER.score * 3.5);
+    /* player physics */
+    RUNNER.vy += 1500 * dt;
+    RUNNER.py += RUNNER.vy * dt;
+    if (RUNNER.py >= 0){
+      RUNNER.py = 0;
+      RUNNER.vy = 0;
+      RUNNER.grounded = true;
+    }
+    /* spawn */
+    RUNNER.accH -= dt;
+    if (RUNNER.accH <= 0){
+      RUNNER.hazards.push({ x: RUNNER.w + 30, w: 22, h: 16 });
+      RUNNER.accH = 0.65 + Math.random() * 0.95 - Math.min(0.4, RUNNER.score * 0.0025);
+    }
+    RUNNER.accT -= dt;
+    if (RUNNER.accT <= 0){
+      RUNNER.tokens.push({
+        x: RUNNER.w + 20,
+        y: -40 - Math.random() * 60,
+        r: 8,
       });
+      RUNNER.accT = 0.45 + Math.random() * 0.75;
+    }
+    /* move */
+    const dx = RUNNER.speed * dt;
+    RUNNER.hazards.forEach(h => h.x -= dx);
+    RUNNER.tokens.forEach(t => t.x -= dx);
+    RUNNER.bgOffset = (RUNNER.bgOffset + dx) % 32;
+    /* cull off-screen */
+    RUNNER.hazards = RUNNER.hazards.filter(h => h.x > -40);
+    RUNNER.tokens  = RUNNER.tokens.filter(t => t.x > -40);
+    /* collide — player AABB vs hazard AABB */
+    const pAABB = {
+      x: RUNNER.px,
+      y: RUNNER.ground - 26 + RUNNER.py,
+      w: 22, h: 26,
+    };
+    for (const h of RUNNER.hazards){
+      const hAABB = { x: h.x, y: RUNNER.ground - h.h, w: h.w, h: h.h };
+      if (pAABB.x < hAABB.x + hAABB.w &&
+          pAABB.x + pAABB.w > hAABB.x &&
+          pAABB.y < hAABB.y + hAABB.h &&
+          pAABB.y + pAABB.h > hAABB.y){
+        gameOver();
+        return;
+      }
+    }
+    /* collect tokens — circle-vs-AABB */
+    const cx = RUNNER.px + 11, cy = RUNNER.ground - 13 + RUNNER.py;
+    RUNNER.tokens = RUNNER.tokens.filter(t => {
+      const ay = RUNNER.ground + t.y;
+      const dxD = cx - t.x, dyD = cy - ay;
+      const d2 = dxD * dxD + dyD * dyD;
+      if (d2 < (t.r + 14) * (t.r + 14)){
+        RUNNER.score += 1;
+        const scoreEl = body.querySelector('[data-game-score]');
+        if (scoreEl) scoreEl.textContent = RUNNER.score;
+        return false;
+      }
+      return true;
     });
-    const settle = body.querySelector('[data-role="game-settle"]');
-    if (settle) settle.addEventListener('click', () => {
-      gameState.settled = true;
-      render();
+  }
+
+  function gameOver(){
+    RUNNER.alive = false;
+    if (RUNNER.score > RUNNER.best){
+      RUNNER.best = RUNNER.score;
+      try { localStorage.setItem('sbnt-game-best', String(RUNNER.best)); } catch (_){}
+      const bestEl = body.querySelector('[data-game-best]');
+      if (bestEl) bestEl.textContent = RUNNER.best;
+    }
+  }
+
+  function draw(){
+    const ctx = RUNNER.ctx;
+    if (!ctx) return;
+    ctx.clearRect(0, 0, RUNNER.w, RUNNER.h);
+    /* background — faint dot grid */
+    ctx.fillStyle = 'rgba(255,30,60,.18)';
+    for (let x = -32 + RUNNER.bgOffset; x < RUNNER.w; x += 32){
+      for (let y = 16; y < RUNNER.h - 16; y += 24){
+        ctx.fillRect(x, y, 1.2, 1.2);
+      }
+    }
+    /* ground rail */
+    ctx.strokeStyle = '#FF1E3C';
+    ctx.lineWidth = 1.2;
+    ctx.globalAlpha = .55;
+    ctx.beginPath();
+    ctx.moveTo(0, RUNNER.ground + 2);
+    ctx.lineTo(RUNNER.w, RUNNER.ground + 2);
+    ctx.stroke();
+    ctx.globalAlpha = 1;
+    /* hazards — red triangular sweeps */
+    ctx.fillStyle = '#FF1E3C';
+    RUNNER.hazards.forEach(h => {
+      ctx.beginPath();
+      ctx.moveTo(h.x, RUNNER.ground);
+      ctx.lineTo(h.x + h.w / 2, RUNNER.ground - h.h);
+      ctx.lineTo(h.x + h.w, RUNNER.ground);
+      ctx.closePath();
+      ctx.fill();
     });
-    const next = body.querySelector('[data-role="game-next"]');
-    if (next) next.addEventListener('click', () => {
-      newBlock();
-      render();
+    /* tokens — orange/red α circles */
+    RUNNER.tokens.forEach(t => {
+      const ay = RUNNER.ground + t.y;
+      ctx.save();
+      const grad = ctx.createRadialGradient(t.x, ay, 1, t.x, ay, t.r + 4);
+      grad.addColorStop(0, '#FFB85C');
+      grad.addColorStop(1, 'rgba(255,184,92,0)');
+      ctx.fillStyle = grad;
+      ctx.beginPath();
+      ctx.arc(t.x, ay, t.r + 4, 0, Math.PI * 2);
+      ctx.fill();
+      ctx.fillStyle = '#FFB85C';
+      ctx.beginPath();
+      ctx.arc(t.x, ay, t.r, 0, Math.PI * 2);
+      ctx.fill();
+      ctx.fillStyle = '#1F0A10';
+      ctx.font = 'italic 700 12px "Archivo", serif';
+      ctx.textAlign = 'center';
+      ctx.textBaseline = 'middle';
+      ctx.fillText('α', t.x, ay + 1);
+      ctx.restore();
     });
+    /* player — small chip with τ */
+    const px = RUNNER.px, py = RUNNER.ground - 26 + RUNNER.py;
+    ctx.fillStyle = RUNNER.alive ? '#FF1E3C' : '#8B0F20';
+    ctx.fillRect(px, py, 22, 26);
+    /* legs / pin tabs */
+    ctx.fillStyle = '#FF4D60';
+    ctx.fillRect(px - 3, py + 6, 3, 2);
+    ctx.fillRect(px - 3, py + 14, 3, 2);
+    ctx.fillRect(px + 22, py + 6, 3, 2);
+    ctx.fillRect(px + 22, py + 14, 3, 2);
+    /* τ glyph centred on the chip */
+    ctx.fillStyle = '#FFFFFF';
+    ctx.font = '700 14px "JetBrains Mono", ui-monospace, monospace';
+    ctx.textAlign = 'center';
+    ctx.textBaseline = 'middle';
+    ctx.fillText('τ', px + 11, py + 14);
+    /* overlays */
+    ctx.textAlign = 'center';
+    ctx.font = '700 11px "JetBrains Mono", ui-monospace, monospace';
+    if (!RUNNER.started){
+      ctx.fillStyle = '#F5E5E8';
+      ctx.fillText('TAP TO START · catch α · dodge dereg', RUNNER.w / 2, RUNNER.h / 2);
+    } else if (!RUNNER.alive){
+      ctx.fillStyle = '#FF1E3C';
+      ctx.font = '800 16px "Archivo", system-ui';
+      ctx.fillText('GAME OVER', RUNNER.w / 2, RUNNER.h / 2 - 8);
+      ctx.font = '700 10px "JetBrains Mono", ui-monospace, monospace';
+      ctx.fillStyle = '#C8A8AD';
+      ctx.fillText('TAP TO RESPAWN', RUNNER.w / 2, RUNNER.h / 2 + 12);
+    }
   }
 
   function wireSearch(){
@@ -903,6 +1056,16 @@ export function mountConsole(_dataLayer = null){
   render();
 
   return {
-    destroy(){ el.remove(); },
+    destroy(){
+      /* stop the game loop + tear down its listeners so the dock can
+         be safely re-mounted */
+      cancelAnimationFrame(gameRAF);
+      gameRAF = null;
+      if (RUNNER.canvas){
+        if (RUNNER.canvas._sbntKeyHandler) window.removeEventListener('keydown', RUNNER.canvas._sbntKeyHandler);
+        if (RUNNER.canvas._sbntResize)     window.removeEventListener('resize', RUNNER.canvas._sbntResize);
+      }
+      el.remove();
+    },
   };
 }
