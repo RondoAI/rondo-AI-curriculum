@@ -84,8 +84,9 @@ export function mountTickers(root, dataLayer = null){
         <a class="tick" href="subnet.html?id=${s.netuid}">
           ${logo}
           <span class="tick__sym">SN${s.netuid}</span>
+          <span class="tick__name">${s.name}</span>
           <span class="tick__val">${price}</span>
-          <span class="tick__chg ${up ? 'up' : 'down'}">${pct(s.chg24 ?? 0)}</span>
+          <span class="tick__chg ${up ? 'up' : 'down'}">${up ? '▲' : '▼'} ${pct(s.chg24 ?? 0)}</span>
         </a>`;
     };
     const once = top.map(chip).join('');

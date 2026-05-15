@@ -42,7 +42,8 @@ export class NodeSphere extends Chart {
     super(canvas, { animate: true });
     /** @private */ this.N        = opts.nodes   ?? 180;   // dense
     /** @private */ this.K        = opts.K       ?? 6;     // neighbors per node
-    /** @private */ this.edgeCap  = opts.edgeCap ?? 420;   // total edges
+    /** @private */ this.edgeCap  = opts.edgeCap ?? 420;   // total local edges
+    /** @private */ this.chords   = opts.chords  ?? 0;     // random crossing chords
     /** @private */ this.speed    = opts.speed   ?? 0.32;
     /** @private */ this.glow     = opts.glow   !== false;
     /** @private */ this.atmos    = opts.atmos  !== false;
@@ -90,7 +91,24 @@ export class NodeSphere extends Chart {
       }
     }
     out.sort((u, v) => u.d2 - v.d2);
-    return out.slice(0, this.edgeCap);
+    const local = out.slice(0, this.edgeCap);
+
+    /* random long-range chords across the interior — this is what
+       gives the bittensor.com plexus its busy, crossing-line look
+       rather than a clean surface mesh. */
+    const N = this.points.length;
+    for (let c = 0; c < this.chords; c++){
+      const i = (Math.random() * N) | 0;
+      let j = (Math.random() * N) | 0;
+      if (i === j) j = (j + 1) % N;
+      const key = i < j ? `${i}:${j}` : `${j}:${i}`;
+      if (seen.has(key)) continue;
+      seen.add(key);
+      const a = this.points[i], b = this.points[j];
+      const dx = a.x - b.x, dy = a.y - b.y, dz = a.z - b.z;
+      local.push({ a: i, b: j, d2: dx*dx + dy*dy + dz*dz });
+    }
+    return local;
   }
 
   /** Each packet rides a random edge with a phase and speed. */

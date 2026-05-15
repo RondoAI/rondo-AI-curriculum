@@ -34,7 +34,7 @@ const E_FAINT  = 'rgba(255,30,60,.06)';
 const E_LIGHT  = 'rgba(255,30,60,.16)';
 
 /** Default layer sizes (configurable per instance). */
-const DEFAULT_LAYERS = [16, 30, 24, 12, 1];
+const DEFAULT_LAYERS = [22, 40, 32, 18, 1];
 const DEFAULT_LABELS = ['SUBNETS', 'MINERS', 'VALIDATORS', 'WEIGHTS', 'CONSENSUS'];
 
 export class NeuralNet extends Chart {
@@ -46,7 +46,7 @@ export class NeuralNet extends Chart {
     super(canvas, { animate: true });
     /** @private */ this.layerSizes = opts.layers ?? DEFAULT_LAYERS;
     /** @private */ this.labels = opts.labels ?? DEFAULT_LABELS;
-    /** @private */ this.spawnRate = opts.spawnRate ?? 0.36;     // pulses/sec/input-node
+    /** @private */ this.spawnRate = opts.spawnRate ?? 0.55;     // pulses/sec/input-node
     /** @private */ this.nodes = [];       // [layer][i] → {x, y, act, lastFire}
     /** @private */ this.edges = [];       // [layer] → [{from, to, weight}]
     /** @private */ this.pulses = [];      // {layer, edgeIdx, t, speed, intensity}
@@ -90,8 +90,8 @@ export class NeuralNet extends Chart {
           // hash-based deterministic weight in [0..1]
           const seed = ((l + 1) * 1009 + i * 73 + j * 13) >>> 0;
           const r = ((seed * 9301 + 49297) % 233280) / 233280;
-          // pruning: keep ~86% of edges — a dense, fully-wired mesh
-          if (r < 0.14) continue;
+          // pruning: keep ~90% of edges — a dense, fully-wired mesh
+          if (r < 0.10) continue;
           layerEdges.push({ from: i, to: j, weight: r });
         }
       }

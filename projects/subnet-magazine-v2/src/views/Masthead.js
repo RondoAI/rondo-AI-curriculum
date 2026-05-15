@@ -6,7 +6,7 @@
    ================================================================= */
 
 import { html, mount, qs, raw } from '../lib/dom.js';
-import { Icosphere } from '../charts/Icosphere.js';
+import { NodeSphere } from '../charts/NodeSphere.js';
 import { bbgDate } from '../lib/format.js';
 import { taoLogo } from '../lib/tao-logo.js';
 
@@ -64,15 +64,17 @@ export function mountMasthead(root){
     </header>
   `);
 
-  // Mount the rotating brand mark — Icosphere (regular polyhedron
-  // with complete-graph chord connectivity) matches the hero piece
-  // for a unified visual language.
+  // Mount the rotating brand mark — a compact NodeSphere, the same
+  // dense plexus language as the hero piece, scaled to a logo.
   const markCanvas = qs('[data-canvas="brand-mark"]', root);
-  const sphere = markCanvas ? new Icosphere(markCanvas, {
-    radius:    0.45,
-    speed:     0.45,
-    packets:   8,
-    thickEdges:true,
+  const sphere = markCanvas ? new NodeSphere(markCanvas, {
+    nodes:   110,
+    K:       5,
+    edgeCap: 240,
+    chords:  90,
+    speed:   0.5,
+    packets: 16,
+    atmos:   false,
   }) : null;
 
   // Active-nav highlight on scroll. Only in-page anchors (#…) get

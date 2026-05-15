@@ -50,9 +50,11 @@
   --c-rule-3:          rgba(255, 30, 60, .36);
 
   /* ---------- Typography ---------- */
+  /* AI-grade geometric stack: a wide grotesk for display, Inter for
+     running text, JetBrains Mono for every datum. No old-style serif. */
   --f-mono:            'JetBrains Mono', ui-monospace, 'SF Mono', Menlo, Consolas, monospace;
   --f-sans:            'Inter', -apple-system, BlinkMacSystemFont, 'Helvetica Neue', Helvetica, Arial, sans-serif;
-  --f-serif:           'Fraunces', 'Iowan Old Style', 'Palatino Linotype', Georgia, serif;
+  --f-serif:           'Space Grotesk', 'Inter', system-ui, sans-serif;
 
   /* a complete type scale — tied to a 16px root */
   --t-xs:              10.5px;       /* mono column headers */

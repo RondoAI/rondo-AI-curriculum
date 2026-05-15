@@ -8,7 +8,7 @@
    ================================================================= */
 
 import { html, mount, qs } from '../lib/dom.js';
-import { Icosphere } from '../charts/Icosphere.js';
+import { NodeSphere } from '../charts/NodeSphere.js';
 import { money, pct, deltaClass } from '../lib/format.js';
 
 /**
@@ -61,13 +61,17 @@ export function mountHero(root, dataLayer = null){
     </section>
   `);
 
-  /* mount the icosphere centerpiece */
+  /* mount the dense node-sphere centerpiece — the bittensor.com
+     plexus language: hundreds of nodes, a thick neighbour mesh, and
+     heavy packet traffic so the mark reads as a working network. */
   const canvas = qs('[data-canvas="hero"]', root);
-  const sphere = canvas ? new Icosphere(canvas, {
-    radius:    0.32,         // sits as a centerpiece, not edge-to-edge
-    speed:     0.26,         // slow + readable
-    packets:   40,           // dense, busy traffic
-    thickEdges:true,
+  const sphere = canvas ? new NodeSphere(canvas, {
+    nodes:   300,
+    K:       8,
+    edgeCap: 1000,
+    chords:  340,
+    speed:   0.24,
+    packets: 60,
   }) : null;
 
   /* subscribe to live τ/USD price */

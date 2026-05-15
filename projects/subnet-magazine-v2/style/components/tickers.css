@@ -33,15 +33,22 @@
   white-space: nowrap;
 }
 .ticker__tag--alt{ color: var(--c-ink-2); }
-.ticker__viewport{ overflow: hidden; }
+/* fade the chips in and out at both edges of the tape */
+.ticker__viewport{
+  overflow: hidden;
+  -webkit-mask-image: linear-gradient(90deg,
+    transparent, #000 28px, #000 calc(100% - 28px), transparent);
+          mask-image: linear-gradient(90deg,
+    transparent, #000 28px, #000 calc(100% - 28px), transparent);
+}
 .ticker__track{
   display: inline-flex;
-  gap: var(--s-1);
+  gap: 0;
   width: max-content;
-  padding: 3px var(--s-2);
-  animation: ticker-marquee 150s linear infinite;
+  padding: 3px 0;
+  animation: ticker-marquee 120s linear infinite;
 }
-.ticker__track--rev{ animation-duration: 185s; animation-direction: reverse; }
+.ticker__track--rev{ animation-duration: 150s; animation-direction: reverse; }
 .ticker:hover .ticker__track{ animation-play-state: paused; }
 @keyframes ticker-marquee{
   from { transform: translateX(0); }
@@ -62,14 +69,13 @@
   display: inline-flex;
   align-items: center;
   gap: var(--s-2);
-  padding: 2px var(--s-3);
+  padding: 2px var(--s-4);
   text-decoration: none;
-  border: 1px solid transparent;
+  border-right: 1px solid var(--c-rule);
   white-space: nowrap;
-  transition: border-color var(--d-fast) var(--e-out),
-              background var(--d-fast) var(--e-out);
+  transition: background var(--d-fast) var(--e-out);
 }
-.tick:hover{ border-color: var(--c-rule-2); background: var(--c-bg-3); }
+.tick:hover{ background: var(--c-bg-3); }
 .tick__logo{
   width: 16px; height: 16px; border-radius: 50%;
   object-fit: cover; background: var(--c-bg-4);
