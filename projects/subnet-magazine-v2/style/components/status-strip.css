@@ -1,9 +1,10 @@
 /* =================================================================
-   STATUS STRIP — research-terminal style top bar
+   STATUS STRIP — research-terminal infographic band
    -----------------------------------------------------------------
    Persistent zero-chrome data band at the very top of the document.
-   Reads: LIVE pill · date · UTC clock · block · epoch · TAO/USD ·
-   YCX · network status. Wraps to two rows on phones.
+   Dense Bloomberg-style readout: LIVE · date · block · epoch ·
+   emission · subnets · validators · staked%  ‖  τ/USD + spark ·
+   mcap · vol · YCX. Wraps on phones — every pixel is data.
    ================================================================= */
 
 .statusbar{
@@ -18,13 +19,13 @@
 .statusbar__inner{
   max-width: var(--max-w);
   margin: 0 auto;
-  padding: var(--s-2) var(--gutter);
+  padding: 5px var(--gutter);
   display: flex; flex-wrap: wrap; align-items: center;
-  column-gap: var(--s-4); row-gap: var(--s-2);
+  column-gap: var(--s-3); row-gap: 3px;
 }
-.statusbar__sep{ color: var(--c-ink-5); opacity: .9 }
+.statusbar__sep{ color: var(--c-ink-5); opacity: .8; }
 
-/* Live indicator: pulsing green dot + amber "LIVE" label */
+/* Live indicator: pulsing green dot + label */
 .statusbar__live{
   display: inline-flex; align-items: center; gap: var(--s-2);
   color: var(--c-up); font-weight: 700; letter-spacing: var(--ls-label);
@@ -43,19 +44,33 @@
   50%      { opacity: .45; transform: scale(.78); }
 }
 
-/* Field: a label + value pair like "BLOCK  4,812,047" */
+/* Field: a label + value pair like "BLK  8,186,104" */
 .statusbar__field{
-  display: inline-flex; align-items: baseline; gap: var(--s-1);
+  display: inline-flex; align-items: baseline; gap: 5px;
 }
-.statusbar__label{ color: var(--c-ink-3); }
+.statusbar__label{ color: var(--c-red-1); }
 .statusbar__value{ color: var(--c-ink-1); font-weight: 600; }
+.statusbar__unit{ color: var(--c-ink-3); font-weight: 400; margin-left: 1px; }
+
+/* tiny inline progress bar — the "infographic" touch on STAKED% */
+.statusbar__bar{
+  display: inline-block;
+  width: 30px; height: 5px;
+  background: var(--c-bg-4);
+  border: 1px solid var(--c-rule-2);
+  align-self: center;
+}
+.statusbar__bar > span{
+  display: block; height: 100%;
+  background: var(--c-red);
+}
 
 /* Push everything after .statusbar__push to the right */
 .statusbar__push{ margin-left: auto; }
 
-/* Quote pair: TAO/USD $487.12 +3.24% */
+/* Quote pair: τ/USD $305.57 [spark] +3.08% */
 .statusbar__quote{
-  display: inline-flex; align-items: baseline; gap: var(--s-2);
+  display: inline-flex; align-items: center; gap: var(--s-2);
 }
 .statusbar__quote .pair{ color: var(--c-ink-3); display: inline-flex; align-items: center; gap: 3px; }
 .statusbar__quote .tao-mark{ display: inline-flex; color: var(--c-red); }
@@ -64,7 +79,16 @@
 .statusbar__quote .delta.up   { color: var(--c-up); }
 .statusbar__quote .delta.down { color: var(--c-down); }
 
+/* the micro-trend sparkline riding inside the τ quote */
+.statusbar__spark{
+  display: inline-block;
+  width: 46px; height: 14px;
+}
+.statusbar__spark canvas{ display: block; width: 100%; height: 100%; }
+
 @media (max-width: 720px){
   .statusbar__push{ margin-left: 0; }
   .statusbar{ font-size: 10px; }
+  .statusbar__inner{ column-gap: var(--s-2); }
+  .statusbar__spark{ width: 38px; }
 }

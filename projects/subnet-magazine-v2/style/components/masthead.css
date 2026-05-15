@@ -34,7 +34,7 @@
   line-height: 1;
 }
 .brand__word .tau{
-  color: var(--c-red);
+  color: var(--c-ink-1);
   display: inline-flex;
   align-items: center;
   vertical-align: -0.06em;

@@ -1,14 +1,18 @@
 /* =================================================================
    STATUS STRIP VIEW
    -----------------------------------------------------------------
-   Mounts the persistent top status bar (it sits just under the
-   ticker tapes). Subscribes to the data layer for TAO price and
-   block height. Returns a teardown function.
+   The persistent infographic band at the very top of the document,
+   under the ticker tapes. A dense, Bloomberg-grade readout of the
+   network: live state on the left, market on the right, with a
+   micro-trend sparkline on the τ quote. Live where the data layer
+   provides it (τ price, block height); a researched seed otherwise.
    ================================================================= */
 
 import { html, mount, qs, setLive } from '../lib/dom.js';
 import { bbgDate, money, pct, deltaClass } from '../lib/format.js';
 import { taoLogo } from '../lib/tao-logo.js';
+import { seedSeries } from '../lib/mark.js';
+import { Sparkline } from '../charts/Sparkline.js';
 
 /**
  * @param {HTMLElement} root
@@ -26,7 +30,7 @@ export function mountStatusStrip(root, dataLayer = null){
         </span>
         <span class="statusbar__sep">│</span>
         <span class="statusbar__field" title="Chain block height">
-          <span class="statusbar__label">BLOCK</span>
+          <span class="statusbar__label">BLK</span>
           <span class="statusbar__value mono" data-bind="block">—</span>
         </span>
         <span class="statusbar__sep">│</span>
@@ -34,13 +38,45 @@ export function mountStatusStrip(root, dataLayer = null){
           <span class="statusbar__label">EPOC</span>
           <span class="statusbar__value mono" data-bind="epoch">14,302</span>
         </span>
+        <span class="statusbar__sep">│</span>
+        <span class="statusbar__field" title="Network emission per day">
+          <span class="statusbar__label">EMIT</span>
+          <span class="statusbar__value mono">7,200<span class="statusbar__unit">τ/d</span></span>
+        </span>
+        <span class="statusbar__sep">│</span>
+        <span class="statusbar__field" title="Active subnets">
+          <span class="statusbar__label">SN</span>
+          <span class="statusbar__value mono">92</span>
+        </span>
+        <span class="statusbar__sep">│</span>
+        <span class="statusbar__field" title="Active validators">
+          <span class="statusbar__label">VAL</span>
+          <span class="statusbar__value mono">6,184</span>
+        </span>
+        <span class="statusbar__sep">│</span>
+        <span class="statusbar__field" title="Share of supply staked">
+          <span class="statusbar__label">STAKED</span>
+          <span class="statusbar__value mono">63%</span>
+          <span class="statusbar__bar" aria-hidden="true"><span style="width:63%"></span></span>
+        </span>
 
         <span class="statusbar__push"></span>
 
         <span class="statusbar__quote" title="τ/USD (CoinGecko)">
           <span class="pair"><span class="tao-mark">${taoLogo({ size: 12 })}</span>/USD</span>
           <span class="price" data-bind="tao-price">—</span>
+          <span class="statusbar__spark"><canvas data-spark="tao"></canvas></span>
           <span class="delta" data-bind="tao-delta">—</span>
+        </span>
+        <span class="statusbar__sep">│</span>
+        <span class="statusbar__field" title="TAO market cap">
+          <span class="statusbar__label">MCAP</span>
+          <span class="statusbar__value mono">$3.29B</span>
+        </span>
+        <span class="statusbar__sep">│</span>
+        <span class="statusbar__field" title="24h spot volume">
+          <span class="statusbar__label">VOL</span>
+          <span class="statusbar__value mono">$48.2M</span>
         </span>
         <span class="statusbar__sep">│</span>
         <span class="statusbar__quote" title="Yuma Composite Index">
@@ -54,13 +90,19 @@ export function mountStatusStrip(root, dataLayer = null){
 
   const bind = sel => qs(`[data-bind="${sel}"]`, root);
 
-  // 1) Date — set once; it only changes at UTC midnight
+  // Date — set once; it only changes at UTC midnight
   const dateEl = bind('date');
   if (dateEl) dateEl.textContent = bbgDate();
 
-  // 2) Block height — from data layer or synthetic
+  // τ/USD micro-trend sparkline
+  const sparkCv = qs('[data-spark="tao"]', root);
+  const spark = sparkCv
+    ? new Sparkline(sparkCv, { series: seedSeries('statusbar-tao', 14, 28) })
+    : null;
+
+  // Block height — from data layer or synthetic
   const blockEl = bind('block');
-  let block = 4_812_047;
+  let block = 8_186_104;
   const renderBlock = (h) => setLive(blockEl, (h ?? block).toLocaleString('en-US'));
   renderBlock();
   let blockUnsub = () => {};
@@ -78,7 +120,7 @@ export function mountStatusStrip(root, dataLayer = null){
     renderBlock(block);
   }, 12_000);
 
-  // 3) TAO price — live from CoinGecko via data layer
+  // TAO price — live from CoinGecko via data layer
   const priceEl = bind('tao-price');
   const deltaEl = bind('tao-delta');
   let priceUnsub = () => {};
@@ -93,13 +135,14 @@ export function mountStatusStrip(root, dataLayer = null){
       }
     });
   } else {
-    if (priceEl) priceEl.textContent = money(487.12);
-    if (deltaEl){ deltaEl.textContent = '+3.24%'; deltaEl.classList.add('up'); }
+    if (priceEl) priceEl.textContent = money(305.57);
+    if (deltaEl){ deltaEl.textContent = '+3.08%'; deltaEl.classList.add('up'); }
   }
 
   return function destroy(){
     clearInterval(blockTimer);
     blockUnsub();
     priceUnsub();
+    spark?.destroy();
   };
 }
