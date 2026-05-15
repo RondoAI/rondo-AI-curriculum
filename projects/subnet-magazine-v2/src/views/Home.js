@@ -177,7 +177,7 @@ export function mountHome(root, dataLayer = null){
       </div>
       <div class="home-net__grid">
         <div class="home-stat home-stat--lead">
-          <span class="home-stat__lbl">τ / USD</span>
+          <span class="home-stat__lbl"><span class="tau">τ</span> / USD</span>
           <span class="home-stat__val" data-bind="price">—</span>
           <span class="home-stat__sub" data-bind="price-delta">—</span>
           <span class="home-stat__spark"><canvas data-spark="price"></canvas></span>

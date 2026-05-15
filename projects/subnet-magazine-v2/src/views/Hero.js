@@ -41,7 +41,7 @@ export function mountHero(root, dataLayer = null){
           </div>
           <div class="hero__readout">
             <div class="hero__field">
-              <span class="lbl">τ / USD</span>
+              <span class="lbl"><span class="tau">τ</span> / USD</span>
               <span class="val" data-bind="tao-price">—</span>
               <span class="sub" data-bind="tao-delta">—</span>
             </div>

@@ -75,6 +75,15 @@ body { font-variant-numeric: tabular-nums; }
 
 /* Utility helpers used across components — keep this list tiny. */
 .mono { font-family: var(--f-mono); }
+/* The Bittensor tau, set as a typographic character. Always preserve
+   its case — many surrounding labels are uppercased, which would
+   otherwise convert τ to Τ (visually identical to a Latin T). */
+.tau {
+  text-transform: none;
+  font-variant-caps: normal;
+  font-style: normal;
+  color: inherit;
+}
 .kbd {
   font-family: var(--f-mono); font-size: var(--t-xs);
   border: 1px solid var(--c-rule-2);
