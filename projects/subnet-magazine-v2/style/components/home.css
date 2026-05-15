@@ -1684,6 +1684,179 @@
   scrollbar-width: thin;
   scrollbar-color: var(--c-rule-3) transparent;
 }
+
+/* ---------- OPERATORS DESK · card grid ----------
+   Replaces the prior .home-network table (which collapsed to a
+   useless 3-col strip on phone). Each subnet is a self-contained
+   operator card with header, parent + investors, emission bar, and
+   the Q2 2026 ship line. Two-up on desktop, single column on phone,
+   every row carries every column at every viewport. */
+.home-ops__grid{
+  list-style: none;
+  margin: var(--s-5) 0 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(380px, 1fr));
+  gap: var(--s-3);
+}
+.home-ops__card{
+  display: grid;
+  grid-template-rows: auto auto auto 1fr;
+  gap: var(--s-3);
+  padding: var(--s-4);
+  background:
+    linear-gradient(180deg, rgba(255,30,60,.04), transparent 30%),
+    var(--c-bg-2);
+  border: 1px solid var(--c-rule-2);
+  border-radius: 4px;
+  transition: background var(--d-fast) var(--e-out),
+              border-color var(--d-fast) var(--e-out);
+}
+.home-ops__card:hover{
+  border-color: var(--c-rule-3);
+  background:
+    linear-gradient(180deg, rgba(255,30,60,.06), transparent 30%),
+    var(--c-bg-3);
+}
+
+.home-ops__head{
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  align-items: baseline;
+  column-gap: var(--s-3);
+  row-gap: 4px;
+}
+.home-ops__sn{
+  font-family: var(--f-mono);
+  font-size: var(--t-xs);
+  font-weight: 700;
+  letter-spacing: var(--ls-data);
+  color: var(--c-red);
+}
+.home-ops__name{
+  font-family: var(--f-serif);
+  font-size: 22px;
+  font-weight: 700;
+  letter-spacing: -.015em;
+  color: var(--c-ink-1);
+  line-height: 1.05;
+  overflow: hidden; text-overflow: ellipsis; white-space: nowrap;
+}
+.home-ops__cat{
+  grid-column: 2;
+  font-family: var(--f-mono);
+  font-size: 9px;
+  font-weight: 600;
+  letter-spacing: var(--ls-label);
+  text-transform: uppercase;
+  color: var(--c-ink-3);
+}
+.home-ops__chg{
+  grid-row: 1 / span 2;
+  grid-column: 3;
+  align-self: center;
+  text-align: right;
+  font-family: var(--f-mono);
+  font-size: var(--t-md);
+  font-weight: 700;
+  font-variant-numeric: tabular-nums;
+  letter-spacing: var(--ls-data);
+  display: inline-flex; flex-direction: column; align-items: flex-end;
+  line-height: 1.1;
+}
+.home-ops__chg.up   { color: var(--c-up); }
+.home-ops__chg.down { color: var(--c-down); }
+.home-ops__chg-lbl{
+  font-size: 9px;
+  font-weight: 600;
+  color: var(--c-ink-4);
+  letter-spacing: var(--ls-label);
+}
+
+.home-ops__row{
+  display: grid;
+  gap: var(--s-3);
+}
+.home-ops__row--meta{
+  grid-template-columns: 1fr 1fr;
+  border-top: var(--b-thin);
+  padding-top: var(--s-3);
+}
+.home-ops__field{
+  display: flex; flex-direction: column; gap: 2px; min-width: 0;
+}
+.home-ops__field dt{
+  margin: 0;
+  font-family: var(--f-mono);
+  font-size: 9px;
+  font-weight: 600;
+  letter-spacing: var(--ls-label);
+  text-transform: uppercase;
+  color: var(--c-ink-4);
+}
+.home-ops__field dd{
+  margin: 0;
+  font-family: var(--f-mono);
+  font-size: var(--t-sm);
+  font-weight: 600;
+  color: var(--c-ink-1);
+  line-height: 1.35;
+  overflow: hidden; text-overflow: ellipsis;
+}
+
+.home-ops__field--emit dd{
+  display: flex; align-items: center; gap: var(--s-2);
+}
+.home-ops__emit-num{
+  font-family: var(--f-mono);
+  font-size: 18px;
+  font-weight: 700;
+  color: var(--c-red);
+  font-variant-numeric: tabular-nums;
+  min-width: 4ch;
+}
+.home-ops__emit-bar{
+  flex: 1;
+  height: 6px;
+  background: var(--c-bg-3);
+  border: 1px solid var(--c-rule-2);
+  border-radius: 999px;
+  overflow: hidden;
+}
+.home-ops__emit-fill{
+  display: block;
+  height: 100%;
+  background: linear-gradient(90deg, var(--c-red), var(--c-red-1));
+  border-radius: 999px;
+  transition: width .8s ease-out;
+}
+
+.home-ops__ship{
+  border-top: 1px dashed var(--c-rule-2);
+  padding-top: var(--s-3);
+  display: flex; flex-direction: column; gap: 4px;
+}
+.home-ops__ship-lbl{
+  font-family: var(--f-mono);
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: var(--ls-label);
+  text-transform: uppercase;
+  color: var(--c-up);
+}
+.home-ops__ship-text{
+  margin: 0;
+  font-family: var(--f-sans);
+  font-size: var(--t-sm);
+  line-height: 1.45;
+  color: var(--c-ink-2);
+}
+
+@media (max-width: 560px){
+  .home-ops__grid{ grid-template-columns: 1fr; }
+  .home-ops__name{ font-size: 19px; }
+  .home-ops__row--meta{ grid-template-columns: 1fr; gap: var(--s-2); }
+}
 .home-network__table{
   width: 100%;
   border-collapse: collapse;

@@ -47,15 +47,15 @@ const CAT_LABEL = {
    never falls back to "—". May 2026 reasonable values, designed to
    ride on top of whatever the live feed lands later. */
 const BIO_SEED = Object.freeze({
-  3:   { name: 'Templar · Teutonic', price: 0.0297, mcap: 132.6, chg24:  +1.25, cat: 'training', owner: 'community' },
-  51:  { name: 'Lium',               price: 0.084,  mcap:  21.0, chg24:  +5.4,  cat: 'infra',    owner: 'Datura AI' },
-  120: { name: 'Affine',             price: 0.0641, mcap: 199.2, chg24:  -2.24, cat: 'training', owner: 'Affine Foundation' },
-  62:  { name: 'Ridges',             price: 0.0512, mcap: 165.5, chg24: +12.4,  cat: 'agents',   owner: 'Ridges AI' },
-  44:  { name: 'Score',              price: 0.0429, mcap: 189.9, chg24:  +4.18, cat: 'vision',   owner: 'Score Technologies' },
-  39:  { name: 'Basilica',           price: 0.0186, mcap:  67.2, chg24:  -6.2,  cat: 'infra',    owner: 'community' },
-  81:  { name: 'Grail',              price: 0.052,  mcap:  89.0, chg24:  +8.4,  cat: 'training', owner: 'community' },
-  68:  { name: 'NOVA',               price: 0.054,  mcap:  78.0, chg24:  +3.6,  cat: 'science',  owner: 'Metanova Labs' },
-  75:  { name: 'Hippius',            price: 0.0246, mcap: 100.6, chg24:  -0.16, cat: 'infra',    owner: 'Hippius' },
+  3:   { name: 'Templar · Teutonic', price: 0.0297, mcap: 132.6, chg24:  +1.25, chg30: +18.4, emission: 142, cat: 'training', owner: 'community' },
+  51:  { name: 'Lium',               price: 0.084,  mcap:  21.0, chg24:  +5.4,  chg30: +12.6, emission:  95, cat: 'infra',    owner: 'Datura AI' },
+  120: { name: 'Affine',             price: 0.0641, mcap: 199.2, chg24:  -2.24, chg30: +24.7, emission: 165, cat: 'training', owner: 'Affine Foundation' },
+  62:  { name: 'Ridges',             price: 0.0512, mcap: 165.5, chg24: +12.4,  chg30: +31.2, emission:  88, cat: 'agents',   owner: 'Ridges AI' },
+  44:  { name: 'Score',              price: 0.0429, mcap: 189.9, chg24:  +4.18, chg30: +14.6, emission: 112, cat: 'vision',   owner: 'Score Technologies' },
+  39:  { name: 'Basilica',           price: 0.0186, mcap:  67.2, chg24:  -6.2,  chg30:  -3.4, emission:  58, cat: 'infra',    owner: 'community' },
+  81:  { name: 'Grail',              price: 0.052,  mcap:  89.0, chg24:  +8.4,  chg30: +21.8, emission:  72, cat: 'training', owner: 'community' },
+  68:  { name: 'NOVA',               price: 0.054,  mcap:  78.0, chg24:  +3.6,  chg30:  +9.4, emission:  78, cat: 'science',  owner: 'Metanova Labs' },
+  75:  { name: 'Hippius',            price: 0.0246, mcap: 100.6, chg24:  -0.16, chg30:  +6.2, emission:  62, cat: 'infra',    owner: 'Hippius' },
 });
 
 /* Name overrides — slots that existed in SUBNETS under an older
@@ -1073,53 +1073,71 @@ export function mountHome(root, dataLayer = null){
         research and financial cut, no fluff.</p>
       </div>
 
-      <div class="home-network__rail">
-        <table class="home-network__table">
-          <thead>
-            <tr>
-              <th class="num">SN</th>
-              <th>Subnet</th>
-              <th class="hide-sm">Parent</th>
-              <th class="hide-sm">Lead investors</th>
-              <th class="num">τ / day</th>
-              <th class="num hide-sm">30d</th>
-              <th class="hide-sm">Q2 2026 ship</th>
-            </tr>
-          </thead>
-          <tbody>
-            ${[...SUBNET_BIOS].map(b => {
-              const f    = founderById(b.netuid) || {};
-              const sn   = subnetById(b.netuid) || {};
-              const seed = BIO_SEED[b.netuid]   || {};
-              const name = BIO_NAME[b.netuid] || sn.name || seed.name || ('Subnet ' + b.netuid);
-              const parent = f.parent || '—';
-              /* show up to two investors; "no public round" if none */
-              const investors = (f.investors && f.investors.length)
-                ? f.investors.slice(0, 2).join(' · ')
-                : 'No public round';
-              const emission = sn.emission != null ? sn.emission : '—';
-              const c30 = sn.chg30 ?? seed.chg24 ?? null;
-              const c30Str = c30 != null
-                ? ((c30 >= 0 ? '+' : '') + c30.toFixed(1) + '%')
-                : '—';
-              const c30Cls = c30 != null ? (c30 >= 0 ? 'up' : 'down') : '';
-              /* trim recentNews to first sentence for the ship column */
-              const ship = (b.recentNews || '').split(/\.(?=\s|$)/)[0].trim() + (b.recentNews ? '.' : '');
-              return `
-                <tr data-netuid="${b.netuid}">
-                  <td class="num"><span class="home-network__sn">SN${b.netuid}</span></td>
-                  <td><span class="home-network__name">${name}</span></td>
-                  <td class="hide-sm"><span class="home-network__parent">${parent}</span></td>
-                  <td class="hide-sm"><span class="home-network__inv">${investors}</span></td>
-                  <td class="num"><span class="home-network__emit"><span class="tau">τ</span>${emission}</span></td>
-                  <td class="num hide-sm"><span class="home-network__chg ${c30Cls}">${c30Str}</span></td>
-                  <td class="hide-sm"><span class="home-network__ship">${ship}</span></td>
-                </tr>
-              `;
-            }).join('')}
-          </tbody>
-        </table>
-      </div>
+      <ol class="home-ops__grid">
+        ${[...SUBNET_BIOS].map(b => {
+          const f    = founderById(b.netuid) || {};
+          const sn   = subnetById(b.netuid) || {};
+          const seed = BIO_SEED[b.netuid]   || {};
+          const name = BIO_NAME[b.netuid] || sn.name || seed.name || ('Subnet ' + b.netuid);
+          const parent = f.parent || seed.owner || '—';
+          const cat = sn.cat || seed.cat || '';
+          const investors = (f.investors && f.investors.length)
+            ? f.investors.slice(0, 2).join(' · ')
+            : 'No public round';
+          const emission = sn.emission ?? seed.emission ?? null;
+          const emisStr  = emission != null ? emission : '—';
+          const c30 = sn.chg30 ?? seed.chg30 ?? null;
+          const c30Str = c30 != null
+            ? ((c30 >= 0 ? '+' : '') + c30.toFixed(1) + '%')
+            : '—';
+          const c30Cls = c30 != null ? (c30 >= 0 ? 'up' : 'down') : '';
+          /* trim recentNews to first sentence for the ship line */
+          const ship = (b.recentNews || '').split(/\.(?=\s|$)/)[0].trim() + (b.recentNews ? '.' : '');
+          /* visual emission share — bar width relative to a 200-τ
+             baseline so the leaders pop and the long tail still reads */
+          const sharePct = emission != null
+            ? Math.min(100, Math.max(6, Math.round((emission / 200) * 100)))
+            : 0;
+          return `
+            <li class="home-ops__card" data-netuid="${b.netuid}">
+              <header class="home-ops__head">
+                <span class="home-ops__sn">SN${b.netuid}</span>
+                <span class="home-ops__name">${name}</span>
+                ${cat ? `<span class="home-ops__cat">${cat}</span>` : ''}
+                <span class="home-ops__chg ${c30Cls}">${c30Str}<span class="home-ops__chg-lbl">30d</span></span>
+              </header>
+
+              <div class="home-ops__row home-ops__row--meta">
+                <div class="home-ops__field">
+                  <dt>Parent</dt>
+                  <dd>${parent}</dd>
+                </div>
+                <div class="home-ops__field">
+                  <dt>Lead investors</dt>
+                  <dd>${investors}</dd>
+                </div>
+              </div>
+
+              <div class="home-ops__row home-ops__row--emit">
+                <div class="home-ops__field home-ops__field--emit">
+                  <dt><span class="tau">τ</span> / day</dt>
+                  <dd>
+                    <span class="home-ops__emit-num">${emisStr}</span>
+                    <span class="home-ops__emit-bar">
+                      <span class="home-ops__emit-fill" style="width: ${sharePct}%"></span>
+                    </span>
+                  </dd>
+                </div>
+              </div>
+
+              <div class="home-ops__ship">
+                <span class="home-ops__ship-lbl">Q2 2026 ship</span>
+                <p class="home-ops__ship-text">${ship || '—'}</p>
+              </div>
+            </li>
+          `;
+        }).join('')}
+      </ol>
 
       <!-- Investor concentration strip — real financial signal. The
            funds with public positions in 3+ top-25 subnets via the
