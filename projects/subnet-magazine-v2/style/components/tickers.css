@@ -46,9 +46,10 @@
   gap: 0;
   width: max-content;
   padding: 3px 0;
-  animation: ticker-marquee 120s linear infinite;
+  /* a slow, readable crawl — not a blur */
+  animation: ticker-marquee 320s linear infinite;
 }
-.ticker__track--rev{ animation-duration: 150s; animation-direction: reverse; }
+.ticker__track--rev{ animation-duration: 380s; animation-direction: reverse; }
 .ticker:hover .ticker__track{ animation-play-state: paused; }
 @keyframes ticker-marquee{
   from { transform: translateX(0); }
@@ -108,7 +109,30 @@
 }
 .tick__chg.up{ color: var(--c-up); }
 .tick__chg.down{ color: var(--c-down); }
+.tick__chg.flat{ color: var(--c-ink-4); }
+
+/* ---------- Central Desk newswire chips ---------- */
+.tick--news{ gap: var(--s-3); }
+.tick__src{
+  font-family: var(--f-mono);
+  font-size: var(--t-xs);
+  font-weight: 600;
+  letter-spacing: var(--ls-label);
+  text-transform: uppercase;
+  color: var(--c-red-1);
+  white-space: nowrap;
+}
+.tick__head{
+  font-family: var(--f-sans);
+  font-size: var(--t-xs);
+  color: var(--c-ink-1);
+  max-width: 46ch;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
 
 @media (max-width: 560px){
   .ticker__tag{ padding: var(--s-1) var(--s-2); font-size: 9px; }
+  .tick__head{ max-width: 32ch; }
 }

@@ -9,7 +9,7 @@
    ================================================================= */
 
 import { html, mount, qs, setLive } from '../lib/dom.js';
-import { bbgDate, money, pct, deltaClass } from '../lib/format.js';
+import { money, pct, deltaClass } from '../lib/format.js';
 import { seedSeries } from '../lib/mark.js';
 import { Sparkline } from '../charts/Sparkline.js';
 
@@ -24,10 +24,6 @@ export function mountStatusStrip(root, dataLayer = null){
       <div class="statusbar__inner" role="region" aria-label="Network status">
         <span class="statusbar__live"><span class="live-dot"></span>LIVE</span>
         <span class="statusbar__sep">│</span>
-        <span class="statusbar__field" data-field="date">
-          <span class="statusbar__value" data-bind="date">${bbgDate()}</span>
-        </span>
-        <span class="statusbar__sep">│</span>
         <span class="statusbar__field" title="Chain block height">
           <span class="statusbar__label">BLK</span>
           <span class="statusbar__value mono" data-bind="block">—</span>
@@ -41,11 +37,6 @@ export function mountStatusStrip(root, dataLayer = null){
         <span class="statusbar__field" title="Network emission per day">
           <span class="statusbar__label">EMIT</span>
           <span class="statusbar__value mono">7,200<span class="statusbar__unit">τ/d</span></span>
-        </span>
-        <span class="statusbar__sep">│</span>
-        <span class="statusbar__field" title="Active subnets">
-          <span class="statusbar__label">SN</span>
-          <span class="statusbar__value mono">92</span>
         </span>
         <span class="statusbar__sep">│</span>
         <span class="statusbar__field" title="Active validators">
@@ -88,10 +79,6 @@ export function mountStatusStrip(root, dataLayer = null){
   `);
 
   const bind = sel => qs(`[data-bind="${sel}"]`, root);
-
-  // Date — set once; it only changes at UTC midnight
-  const dateEl = bind('date');
-  if (dateEl) dateEl.textContent = bbgDate();
 
   // τ/USD micro-trend sparkline
   const sparkCv = qs('[data-spark="tao"]', root);
