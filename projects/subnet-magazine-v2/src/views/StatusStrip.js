@@ -44,29 +44,29 @@ export function mountStatusStrip(root, dataLayer = null){
           <span class="statusbar__value mono">6,184</span>
         </span>
         <span class="statusbar__sep">│</span>
-        <span class="statusbar__field" title="Share of supply staked">
+        <span class="statusbar__field" title="Share of supply staked · live from TMC">
           <span class="statusbar__label">STAKED</span>
-          <span class="statusbar__value mono">63%</span>
-          <span class="statusbar__bar" aria-hidden="true"><span style="width:63%"></span></span>
+          <span class="statusbar__value mono" data-bind="staked">63.0%</span>
+          <span class="statusbar__bar" aria-hidden="true"><span data-bind="staked-bar" style="width:63%"></span></span>
         </span>
 
         <span class="statusbar__push"></span>
 
-        <span class="statusbar__quote" title="τ/USD (CoinGecko)">
+        <span class="statusbar__quote" title="τ/USD · live from CoinGecko via TMC">
           <span class="pair"><span class="tao-mark">τ</span>/USD</span>
           <span class="price" data-bind="tao-price">—</span>
           <span class="statusbar__spark"><canvas data-spark="tao"></canvas></span>
           <span class="delta" data-bind="tao-delta">—</span>
         </span>
         <span class="statusbar__sep">│</span>
-        <span class="statusbar__field" title="TAO market cap">
+        <span class="statusbar__field" title="TAO market cap · live from TMC">
           <span class="statusbar__label">MCAP</span>
-          <span class="statusbar__value mono">$3.29B</span>
+          <span class="statusbar__value mono" data-bind="mcap">—</span>
         </span>
         <span class="statusbar__sep">│</span>
-        <span class="statusbar__field" title="24h spot volume">
+        <span class="statusbar__field" title="24h spot volume · live from TMC">
           <span class="statusbar__label">VOL</span>
-          <span class="statusbar__value mono">$48.2M</span>
+          <span class="statusbar__value mono" data-bind="vol">—</span>
         </span>
         <span class="statusbar__sep">│</span>
         <span class="statusbar__quote" title="Yuma Composite Index">
@@ -125,10 +125,42 @@ export function mountStatusStrip(root, dataLayer = null){
     if (deltaEl){ deltaEl.textContent = '+3.08%'; deltaEl.classList.add('up'); }
   }
 
+  /* TAO market — mcap, 24h vol, staked%, all live from TMC. The
+     hardcoded fallbacks render until the first feed lands. */
+  const mcapEl     = bind('mcap');
+  const volEl      = bind('vol');
+  const stakedEl   = bind('staked');
+  const stakedBar  = bind('staked-bar');
+  function compact(n){
+    const a = Math.abs(n);
+    if (a >= 1e12) return '$' + (n/1e12).toFixed(2) + 'T';
+    if (a >= 1e9)  return '$' + (n/1e9).toFixed(2) + 'B';
+    if (a >= 1e6)  return '$' + (n/1e6).toFixed(1) + 'M';
+    if (a >= 1e3)  return '$' + (n/1e3).toFixed(1) + 'K';
+    return '$' + n.toFixed(0);
+  }
+  let marketUnsub = () => {};
+  if (dataLayer){
+    marketUnsub = dataLayer.subscribe('tao:market', (d) => {
+      if (!d) return;
+      if (mcapEl   && d.marketCap   != null) setLive(mcapEl,   compact(d.marketCap));
+      if (volEl    && d.volume24h   != null) setLive(volEl,    compact(d.volume24h));
+      if (stakedEl && d.stakedPct   != null){
+        setLive(stakedEl, d.stakedPct.toFixed(1) + '%');
+        if (stakedBar) stakedBar.style.width = d.stakedPct.toFixed(1) + '%';
+      }
+    });
+  } else {
+    if (mcapEl)   mcapEl.textContent   = '$3.29B';
+    if (volEl)    volEl.textContent    = '$48.2M';
+    if (stakedEl) stakedEl.textContent = '63.0%';
+  }
+
   return function destroy(){
     clearInterval(blockTimer);
     blockUnsub();
     priceUnsub();
+    marketUnsub();
     spark?.destroy();
   };
 }
