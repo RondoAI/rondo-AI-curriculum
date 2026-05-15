@@ -247,15 +247,20 @@ export function mountHome(root, dataLayer = null){
             : null;
           const normUrl = u => !u || u === 'www.deprecated.com' ? null :
             (u.startsWith('http') ? u : 'https://' + u);
-          const iconLink = (url, kind, title) => url
-            ? `<a class="home-bio__ts-link" href="${url}" target="_blank" rel="noopener" aria-label="${title}" title="${title}">${socialIcon(kind, 14)}</a>`
+          /* Text-label chips instead of inline-SVG brand marks. The
+             SVG version (125 inline paths across 25 cards) appeared
+             to be the second compositor-cost regression that blocked
+             Android Chrome scroll on the home page. Same data, much
+             lighter render — letters instead of glyphs. */
+          const textLink = (url, label, title) => url
+            ? `<a class="home-bio__ts-link" href="${url}" target="_blank" rel="noopener" aria-label="${title}" title="${title}">${label}</a>`
             : '';
           const tsLinks = [
-            iconLink(ts && ts.links && normUrl(ts.links.website), 'website', 'Website'),
-            iconLink(ts && ts.links && ts.links.github,            'github',  'GitHub'),
-            iconLink(xUrl,                                          'x',       'X (Twitter)'),
-            iconLink(ts && ts.links && ts.links.discord,            'discord', 'Discord'),
-            iconLink(ts && ts.links && ts.links.docs,               'docs',    'Docs'),
+            textLink(ts && ts.links && normUrl(ts.links.website), 'WEB',     'Website'),
+            textLink(ts && ts.links && ts.links.github,            'GH',      'GitHub'),
+            textLink(xUrl,                                          'X',       'X (Twitter)'),
+            textLink(ts && ts.links && ts.links.discord,            'DC',      'Discord'),
+            textLink(ts && ts.links && ts.links.docs,               'DOCS',    'Docs'),
           ].filter(Boolean).join('');
           return `
             <li class="home-bio" data-netuid="${b.netuid}">
