@@ -30,6 +30,7 @@ import { subnetById, SUBNETS } from '../data/subnets.js';
 import { SUBNET_BIOS } from '../data/subnet-bios.js';
 import { FOUNDERS, founderById } from '../data/founders.js';
 import { tsByNetuid, TAONSQUARE_COUNT, TAONSQUARE_FETCHED_AT } from '../data/taonsquare.js';
+import { socialIcon } from '../lib/social-icons.js';
 import { VALIDATORS } from '../data/validators.js';
 
 const CAT_LABEL = {
@@ -230,22 +231,32 @@ export function mountHome(root, dataLayer = null){
           const logo = sn.logo
             ? `<img class="home-bio__logo" src="${sn.logo}" alt="" loading="lazy" onerror="this.replaceWith(document.createTextNode(''))">`
             : `<span class="home-bio__logo home-bio__logo--mark">${mark(name, { size: 36 })}</span>`;
-          /* TaonSquare catalog lookup — if the subnet exists in the
-             baked snapshot, surface its verified links +
-             researched-at as a small chip-row at the bottom of the
-             cover banner. */
+          /* TaonSquare catalog lookup — surfaces verified links per
+             subnet as a chip-row at the bottom of the cover banner.
+             Each link rendered as a proper inline-SVG icon
+             (GitHub mark, globe for site, Discord glyph, etc.). X
+             handle is pulled separately from FOUNDERS where present
+             since TaonSquare's schema doesn't carry it. */
           const ts = tsByNetuid(b.netuid);
-          const tsLinkHtml = (label, url) => url
-            ? `<a class="home-bio__ts-link" href="${url}" target="_blank" rel="noopener">${label}</a>`
+          /* X handle lives on the first founder row's handles.x */
+          const xHandle = f.founders && f.founders[0] && f.founders[0].handles && f.founders[0].handles.x;
+          const xUrl = xHandle
+            ? (xHandle.startsWith('http')
+                ? xHandle
+                : 'https://x.com/' + String(xHandle).replace(/^@/, ''))
+            : null;
+          const normUrl = u => !u || u === 'www.deprecated.com' ? null :
+            (u.startsWith('http') ? u : 'https://' + u);
+          const iconLink = (url, kind, title) => url
+            ? `<a class="home-bio__ts-link" href="${url}" target="_blank" rel="noopener" aria-label="${title}" title="${title}">${socialIcon(kind, 14)}</a>`
             : '';
-          const tsLinks = ts && ts.links
-            ? [
-                tsLinkHtml('site',    ts.links.website && ts.links.website !== 'www.deprecated.com' ? (ts.links.website.startsWith('http') ? ts.links.website : 'https://' + ts.links.website) : null),
-                tsLinkHtml('github',  ts.links.github),
-                tsLinkHtml('docs',    ts.links.docs),
-                tsLinkHtml('discord', ts.links.discord),
-              ].filter(Boolean).join('')
-            : '';
+          const tsLinks = [
+            iconLink(ts && ts.links && normUrl(ts.links.website), 'website', 'Website'),
+            iconLink(ts && ts.links && ts.links.github,            'github',  'GitHub'),
+            iconLink(xUrl,                                          'x',       'X (Twitter)'),
+            iconLink(ts && ts.links && ts.links.discord,            'discord', 'Discord'),
+            iconLink(ts && ts.links && ts.links.docs,               'docs',    'Docs'),
+          ].filter(Boolean).join('');
           return `
             <li class="home-bio" data-netuid="${b.netuid}">
 

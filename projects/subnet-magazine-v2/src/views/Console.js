@@ -65,15 +65,72 @@ const CSS = `
   color: var(--c-ink-2, #C8A8AD);
   user-select: none;
 }
-.sbnt-console__dot{
-  width: 7px; height: 7px; border-radius: 50%;
-  background: var(--c-up, #00E5A8);
-  box-shadow: 0 0 8px var(--c-up, #00E5A8), 0 0 14px rgba(0,229,168,.5);
-  animation: sbntDotPulse 1.8s ease-in-out infinite;
+/* The Oracle's consciousness mark — a tiny pulsing plexus.
+   Three layers: rotating spokes/hex/nodes (the "neural net"),
+   a continuously pulsing red core (the "thought"), and an
+   expanding halo ring (the "broadcast"). Reads as an agent
+   talking to you, not a passive status LED. */
+.sbnt-console__nn{
+  display: inline-block;
+  width: 24px; height: 24px;
+  color: var(--c-red, #FF1E3C);
+  filter: drop-shadow(0 0 6px rgba(255,30,60,.55));
+  flex: 0 0 24px;
 }
-@keyframes sbntDotPulse{
-  0%, 100% { opacity: 1; transform: scale(1); }
-  50%      { opacity: .55; transform: scale(.78); }
+.sbnt-console__nn svg{
+  display: block;
+  width: 100%; height: 100%;
+  overflow: visible;
+}
+.sbnt-console__nn line{
+  stroke: currentColor;
+  stroke-width: .8;
+  stroke-opacity: .55;
+}
+.sbnt-console__nn-hex{
+  fill: none;
+  stroke: currentColor;
+  stroke-width: .7;
+  stroke-opacity: .35;
+}
+.sbnt-console__nn circle{
+  fill: currentColor;
+  fill-opacity: .85;
+}
+.sbnt-console__nn-rot{
+  transform-origin: 12px 12px;
+  animation: sbntNNSpin 11s linear infinite;
+}
+.sbnt-console__nn-core{
+  transform-origin: 12px 12px;
+  animation: sbntNNCore 1.6s ease-in-out infinite;
+  fill: #FFFFFF !important;
+  fill-opacity: 1 !important;
+  filter: drop-shadow(0 0 4px var(--c-red));
+}
+.sbnt-console__nn-halo{
+  transform-origin: 12px 12px;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1;
+  animation: sbntNNHalo 2.4s ease-out infinite;
+}
+@keyframes sbntNNSpin{
+  from { transform: rotate(0deg); }
+  to   { transform: rotate(360deg); }
+}
+@keyframes sbntNNCore{
+  0%, 100% { transform: scale(1);   opacity: 1; }
+  50%      { transform: scale(1.4); opacity: .55; }
+}
+@keyframes sbntNNHalo{
+  0%   { transform: scale(.45); opacity: .85; }
+  100% { transform: scale(2.2); opacity: 0; }
+}
+@media (prefers-reduced-motion: reduce){
+  .sbnt-console__nn-rot,
+  .sbnt-console__nn-core,
+  .sbnt-console__nn-halo{ animation: none; }
 }
 /* "Subnet Oracle" — the bar's brand. Serif italic feels editorial,
    matches the hero wordmark family. Tight letter-spacing, no caps —
@@ -552,7 +609,31 @@ export function mountConsole(_dataLayer = null){
   el.innerHTML = `
     <span class="sbnt-console__edge" aria-hidden="true"></span>
     <div class="sbnt-console__bar" data-role="bar">
-      <span class="sbnt-console__dot"></span>
+      <!-- the Oracle's "consciousness" — a tiny rotating plexus
+           with a pulsing red core + expanding halo. Reads as a
+           neural net you're talking to, not a status LED. -->
+      <span class="sbnt-console__nn" aria-hidden="true">
+        <svg viewBox="0 0 24 24">
+          <g class="sbnt-console__nn-rot">
+            <line x1="12" y1="12" x2="12"    y2="3"/>
+            <line x1="12" y1="12" x2="19.79" y2="7.5"/>
+            <line x1="12" y1="12" x2="19.79" y2="16.5"/>
+            <line x1="12" y1="12" x2="12"    y2="21"/>
+            <line x1="12" y1="12" x2="4.21"  y2="16.5"/>
+            <line x1="12" y1="12" x2="4.21"  y2="7.5"/>
+            <path class="sbnt-console__nn-hex"
+                  d="M12 3 L19.79 7.5 L19.79 16.5 L12 21 L4.21 16.5 L4.21 7.5 Z"/>
+            <circle cx="12"    cy="3"    r="1.3"/>
+            <circle cx="19.79" cy="7.5"  r="1.3"/>
+            <circle cx="19.79" cy="16.5" r="1.3"/>
+            <circle cx="12"    cy="21"   r="1.3"/>
+            <circle cx="4.21"  cy="16.5" r="1.3"/>
+            <circle cx="4.21"  cy="7.5"  r="1.3"/>
+          </g>
+          <circle class="sbnt-console__nn-halo" cx="12" cy="12" r="3"/>
+          <circle class="sbnt-console__nn-core" cx="12" cy="12" r="2.4"/>
+        </svg>
+      </span>
       <span class="sbnt-console__brand">
         <span class="sbnt-console__name">Subnet Oracle</span>
         <span class="sbnt-console__sep">//</span>
