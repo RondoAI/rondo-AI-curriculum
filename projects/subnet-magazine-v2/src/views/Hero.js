@@ -25,8 +25,11 @@ export function mountHero(root, dataLayer = null){
         <span class="hero__kicker"><span class="live-dot"></span>Volume 02 · Issue 01 · 14 May 2026 · the decentralized intelligence desk</span>
 
         <div class="hero__head">
-          <h1 class="hero__title">Subne<span class="tau">τ</span> Magazine</h1>
-          <p class="hero__subtitle">A Bittensor <em>subnet review.</em></p>
+          <!-- Hero title is the magazine's role-statement, not its
+               brand name. The masthead above already carries the
+               wordmark "Subneτ Magazine"; the hero leads with what
+               the publication actually is. -->
+          <h1 class="hero__title">A Bittensor <em>subnet review.</em></h1>
 
           <!-- The philosophy. Set apart from the descriptive dek so it
                reads as the editorial position, not the product blurb. -->

@@ -36,7 +36,7 @@
 }
 /* the tau is a typographic character set in the wordmark's own
    font — same size, same weight, just the letter */
-.brand__word .tau{ color: inherit; }
+.brand__word .tau{ color: var(--c-ink-1) !important; }
 .brand__sub{
   display: block;
   font-family: var(--f-mono);
