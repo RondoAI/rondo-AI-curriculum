@@ -791,103 +791,200 @@
   background: var(--c-bg-3);
 }
 
-/* ---------- BITTENSOR IN SIX STEPS ---------- */
-.home-how__grid{
+/* ---------- THE PROTOCOL PIPELINE (six stages) ----------
+   Research-paper layout: each stage is a full-width row laid as
+   rail | body | viz. The rail carries the stage number and a
+   vertical connector pipe that runs the height of the section,
+   chaining the stages into one visible loop. */
+.home-how__pipe{
   list-style: none;
   margin: var(--s-6) 0 0;
   padding: 0;
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: 1fr;
   gap: 0;
+  position: relative;
+  counter-reset: how;
   border-top: var(--b-thin);
-  border-left: var(--b-thin);
 }
-.home-how__step{
+.home-how__row{
   position: relative;
   display: grid;
-  grid-template-columns: auto 1fr;
-  grid-template-areas:
-    "num  icon"
-    "head head"
-    "body body";
-  align-items: start;
-  gap: var(--s-2) var(--s-3);
-  padding: var(--s-6);
-  background: var(--c-bg-2);
-  border-right: var(--b-thin);
+  grid-template-columns: 56px minmax(0, 1fr) clamp(200px, 32%, 320px);
+  gap: var(--s-5);
+  padding: var(--s-5) 0;
   border-bottom: var(--b-thin);
   transition: background var(--d-fast) var(--e-out);
 }
-.home-how__step:hover{ background: var(--c-bg-3); }
-.home-how__step::before{
+.home-how__row:hover{ background: rgba(255,30,60,.025); }
+.home-how__row::before{
+  /* hairline accent rail along the top — the bloomberg pane signal */
   content: "";
   position: absolute;
-  top: 0; left: 0;
-  width: 28px;
-  height: 1px;
-  background: var(--c-red);
+  top: -1px; left: 56px;
+  width: 80px; height: 1px;
+  background: linear-gradient(90deg, var(--c-red), transparent);
+}
+.home-how__rail{
+  position: relative;
+  display: flex; flex-direction: column; align-items: center;
 }
 .home-how__num{
-  grid-area: num;
   font-family: var(--f-mono);
-  font-size: var(--t-2xl);
+  font-size: var(--t-xl);
   font-weight: 700;
   line-height: 1;
   color: var(--c-red);
   letter-spacing: var(--ls-data);
+  font-variant-numeric: tabular-nums;
+  padding-top: 2px;
 }
-.home-how__icon{
-  grid-area: icon;
-  justify-self: end;
-  width: 56px;
-  height: 56px;
-  display: grid;
-  place-items: center;
-  color: var(--c-red-1);
-  opacity: .92;
+.home-how__rail::after{
+  /* the connector pipe drops from below the number to the next row */
+  content: "";
+  position: absolute;
+  top: 32px;
+  bottom: -16px;
+  left: 50%;
+  width: 1px;
+  background: var(--c-rule-2);
+  transform: translateX(-50%);
 }
-.home-how__icon svg{ display: block; }
+.home-how__row:last-child .home-how__rail::after{ display: none; }
+
+.home-how__body{ display: flex; flex-direction: column; gap: var(--s-3); min-width: 0; }
+.home-how__head{
+  display: flex; align-items: baseline; gap: var(--s-3);
+  flex-wrap: wrap;
+}
 .home-how__h{
-  grid-area: head;
-  margin: var(--s-3) 0 0;
+  margin: 0;
   font-family: var(--f-serif);
-  font-size: var(--t-xl);
+  font-size: 26px;
   font-weight: 700;
-  letter-spacing: -.01em;
+  letter-spacing: -.015em;
   color: var(--c-ink-1);
+  line-height: 1;
 }
-.home-how__p{
-  grid-area: body;
+.home-how__meta{
+  font-family: var(--f-mono);
+  font-size: var(--t-xs);
+  font-weight: 600;
+  letter-spacing: var(--ls-label);
+  text-transform: uppercase;
+  color: var(--c-red-1);
+}
+.home-how__brief{
   margin: 0;
   font-family: var(--f-sans);
   font-size: var(--t-md);
-  line-height: var(--lh-loose);
+  line-height: 1.55;
   color: var(--c-ink-2);
+  max-width: 64ch;
 }
-.home-how__p em{ font-style: italic; color: var(--c-red-1); }
-.home-how__p .val{
-  font-family: var(--f-mono);
-  font-weight: 600;
+.home-how__brief em{ font-style: italic; color: var(--c-red-1); }
+.home-how__brief .val{
+  font-family: var(--f-mono); font-weight: 700;
   color: var(--c-ink-1);
   background: var(--c-red-trace);
   border: 1px solid var(--c-rule-2);
-  padding: 1px 5px;
-  border-radius: 2px;
-  font-size: .92em;
+  padding: 1px 6px;
+  border-radius: 3px;
+  font-size: .9em;
   white-space: nowrap;
 }
+
+/* 3-field data list — the operating numbers for this stage */
+.home-how__data{
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 0;
+  margin: 0;
+  border-top: var(--b-thin);
+  border-left: var(--b-thin);
+  max-width: 520px;
+}
+.home-how__data > div{
+  padding: 6px 10px;
+  border-right: var(--b-thin);
+  border-bottom: var(--b-thin);
+  display: flex; flex-direction: column; gap: 2px;
+}
+.home-how__data dt{
+  font-family: var(--f-mono); font-size: 9.5px; font-weight: 600;
+  letter-spacing: var(--ls-label); text-transform: uppercase;
+  color: var(--c-ink-4);
+  margin: 0;
+}
+.home-how__data dd{
+  font-family: var(--f-mono); font-size: var(--t-sm); font-weight: 700;
+  color: var(--c-ink-1);
+  font-variant-numeric: tabular-nums;
+  margin: 0;
+}
+.home-how__data dd .u{ font-weight: 400; color: var(--c-ink-4); margin-left: 2px; }
+
+.home-how__ex{
+  margin: 0;
+  display: flex; align-items: center; gap: var(--s-2); flex-wrap: wrap;
+}
+.home-how__ex-lbl{
+  font-family: var(--f-mono); font-size: 9.5px; font-weight: 600;
+  letter-spacing: var(--ls-label); text-transform: uppercase;
+  color: var(--c-ink-4);
+}
+.home-how__ex-chip{
+  font-family: var(--f-mono); font-size: 11px; font-weight: 600;
+  padding: 3px 8px;
+  border: 1px solid var(--c-rule-2);
+  border-radius: 999px;
+  background: rgba(255,30,60,.05);
+  color: var(--c-ink-1);
+  letter-spacing: 0;
+}
+
+.home-how__viz{
+  align-self: start;
+  width: 100%;
+  height: clamp(100px, 14vw, 140px);
+  padding: var(--s-3);
+  background: linear-gradient(180deg, rgba(255,30,60,.04), transparent),
+              var(--c-bg-1);
+  border: 1px solid var(--c-rule-2);
+  border-radius: 4px;
+  color: var(--c-red-1);
+}
+.home-how__viz svg{
+  display: block;
+  width: 100%; height: 100%;
+  color: var(--c-red-1);
+}
+.home-how__viz--code{
+  font-family: var(--f-mono); font-size: 11px; line-height: 1.65;
+  color: var(--c-ink-2); display: flex; align-items: center;
+}
+.home-how__viz--code pre{ margin: 0; }
+.home-how__viz--code code{ display: block; white-space: pre; }
+.home-how__viz--code .c{ color: var(--c-ink-4); }
+.home-how__viz--code .fn{ color: var(--c-red-1); }
+
 .home-how__foot{
-  margin-top: var(--s-4);
+  margin-top: var(--s-5);
+  padding-top: var(--s-4);
+  border-top: var(--b-thin);
   display: flex;
   flex-wrap: wrap;
   gap: var(--s-3) var(--s-6);
   justify-content: space-between;
+  align-items: center;
   font-family: var(--f-mono);
   font-size: var(--t-xs);
   letter-spacing: var(--ls-label);
   text-transform: uppercase;
   color: var(--c-ink-4);
 }
+.home-how__more{ color: var(--c-red-1); font-weight: 700; }
+.home-how__more:hover{ color: var(--c-red); }
 
 /* ---------- TOP 25 BIOS · the research-card grid ----------
    Each card is a data-density playground: rank chip + mark + name +
@@ -895,17 +992,31 @@
    the 150-200 word bio, a RECENT chip with the most recent 2026
    milestone, and a deep-link CTA. The whole grid is the section
    that gives the page its "research terminal" feel. */
+/* The 25-card deep-profile rail. Horizontal scroll, scroll-snap
+   on each card start, edge-mask fades on both ends. Each card is a
+   fixed width and the user swipes through them sideways the way a
+   Bloomberg watchlist scrolls horizontally. */
 .home-bios__grid{
   list-style: none;
-  margin: var(--s-6) 0 0;
-  padding: 0;
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 0;
+  margin: var(--s-6) calc(var(--gutter) * -1) 0;
+  padding: 2px var(--gutter) var(--s-4);
+  display: flex;
+  gap: var(--s-3);
+  overflow-x: auto;
+  overscroll-behavior-x: contain;
+  scroll-snap-type: x mandatory;
+  scrollbar-width: thin;
+  scrollbar-color: var(--c-rule-3) transparent;
+  -webkit-mask-image: linear-gradient(90deg,
+    transparent 0, #000 28px,
+    #000 calc(100% - 28px), transparent 100%);
+          mask-image: linear-gradient(90deg,
+    transparent 0, #000 28px,
+    #000 calc(100% - 28px), transparent 100%);
   counter-reset: bio;
-  border-top: var(--b-thin);
-  border-left: var(--b-thin);
 }
+.home-bios__grid::-webkit-scrollbar{ height: 6px; }
+.home-bios__grid::-webkit-scrollbar-thumb{ background: var(--c-rule-3); border-radius: 999px; }
 .home-bio{
   position: relative;
   display: grid;
@@ -914,10 +1025,16 @@
   gap: var(--s-3);
   padding: var(--s-5);
   background: var(--c-bg-2);
-  border-right: var(--b-thin);
-  border-bottom: var(--b-thin);
-  transition: background var(--d-fast) var(--e-out);
+  border: var(--b-thin);
+  border-radius: 4px;
+  transition: background var(--d-fast) var(--e-out),
+              border-color var(--d-fast) var(--e-out);
   overflow: hidden;
+  /* horizontal scroll: each card is a flex item with fixed width */
+  flex: 0 0 clamp(300px, 86vw, 380px);
+  scroll-snap-align: start;
+  scroll-snap-stop: always;
+  min-height: 480px;
 }
 .home-bio::before{
   /* a hairline accent rail on the left edge, the way Bloomberg's
@@ -1201,17 +1318,16 @@
   .home-net__grid{ grid-template-columns: repeat(3, 1fr); }
   .home-subnets__grid{ grid-template-columns: repeat(2, 1fr); }
   .home-sections__grid{ grid-template-columns: repeat(2, 1fr); }
-  .home-how__grid{ grid-template-columns: repeat(2, 1fr); }
-  .home-bios__grid{ grid-template-columns: repeat(2, 1fr); }
+  /* protocol pipeline drops the viz column on narrower screens */
+  .home-how__row{ grid-template-columns: 48px minmax(0, 1fr); }
+  .home-how__viz{ grid-column: 2; }
 }
 @media (max-width: 560px){
   .home-net__grid{ grid-template-columns: repeat(2, 1fr); }
   .home-subnets__grid{ grid-template-columns: 1fr; }
   .home-sections__grid{ grid-template-columns: 1fr; }
   .home-subnets__head{ flex-direction: column; align-items: flex-start; gap: var(--s-3); }
-  .home-how__grid{ grid-template-columns: 1fr; }
-  .home-how__step{ padding: var(--s-5); }
-  .home-bios__grid{ grid-template-columns: 1fr; }
-  .home-bio{ padding: var(--s-4); }
+  .home-bio{ padding: var(--s-4); min-height: 460px; }
   .home-bio__stats{ grid-template-columns: repeat(2, 1fr); }
+  .home-how__h{ font-size: 22px; }
 }
