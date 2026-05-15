@@ -49,7 +49,9 @@
   /* a slow, readable crawl — not a blur */
   animation: ticker-marquee 320s linear infinite;
 }
-.ticker__track--rev{ animation-duration: 380s; animation-direction: reverse; }
+/* second tape: same direction (right-to-left, standard ticker
+   reading order) but a different speed so the two don't sync up */
+.ticker__track--rev{ animation-duration: 420s; }
 .ticker:hover .ticker__track{ animation-play-state: paused; }
 @keyframes ticker-marquee{
   from { transform: translateX(0); }
@@ -78,7 +80,11 @@
   white-space: nowrap;
   transition: background var(--d-fast) var(--e-out);
 }
-.tick:hover{ background: var(--c-bg-3); }
+.tick:hover{
+  background: var(--c-bg-3);
+  box-shadow: inset 0 0 0 1px var(--c-rule-3);
+}
+.tick:hover .tick__chg{ filter: drop-shadow(0 0 6px currentColor); }
 .tick__logo{
   width: 20px; height: 20px; border-radius: 50%;
   object-fit: cover; background: var(--c-bg-4);
@@ -111,10 +117,19 @@
   font-size: var(--t-sm);
   font-weight: 700;
   letter-spacing: var(--ls-data);
+  /* a slow pulse on the change glyph — the tape feels live, not dead */
+  animation: tickGlyphPulse 2.6s ease-in-out infinite;
 }
 .tick__chg.up{ color: var(--c-up); }
 .tick__chg.down{ color: var(--c-down); }
-.tick__chg.flat{ color: var(--c-ink-4); }
+.tick__chg.flat{ color: var(--c-ink-4); animation: none; }
+@keyframes tickGlyphPulse{
+  0%, 100% { opacity: 1; }
+  50%      { opacity: .55; }
+}
+@media (prefers-reduced-motion: reduce){
+  .tick__chg{ animation: none; }
+}
 
 /* ---------- Central Desk newswire chips ---------- */
 .tick--news{ gap: var(--s-3); }

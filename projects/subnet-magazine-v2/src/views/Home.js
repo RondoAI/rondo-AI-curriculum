@@ -19,7 +19,7 @@
    ================================================================= */
 
 import { html, mount, qs, qsa, setLive } from '../lib/dom.js';
-import { money, compact, pct, deltaClass, bbgDate } from '../lib/format.js';
+import { money, compact, pct, deltaClass, bbgDate, int } from '../lib/format.js';
 import { mark, seedSeries } from '../lib/mark.js';
 import { cardArt } from '../lib/art.js';
 import { Sparkline } from '../charts/Sparkline.js';
@@ -28,6 +28,7 @@ import { NeuralNet } from '../charts/NeuralNet.js';
 import { NodeSphere } from '../charts/NodeSphere.js';
 import { articlesByDate } from '../data/articles.js';
 import { subnetById } from '../data/subnets.js';
+import { VALIDATORS } from '../data/validators.js';
 
 const CAT_LABEL = {
   'reporting':   'REPORTING',
@@ -231,6 +232,38 @@ export function mountHome(root, dataLayer = null){
       </ul>
     </section>
 
+    <!-- ===== TOP VALIDATORS ===== -->
+    <section class="home-vals" aria-label="Top validators by stake">
+      <div class="home-subnets__head">
+        <div>
+          <span class="home-net__kicker"><span class="live-dot"></span>Top Validators · by stake</span>
+          <h2 class="home-net__title">The hotkeys that <em>run the network.</em></h2>
+        </div>
+        <a class="home-subnets__all" href="validators.html">All validators ↗</a>
+      </div>
+      <ul class="home-vals__rail">
+        ${VALIDATORS.slice(0, 12).map((v, i) => `
+          <li class="home-val">
+            <a class="home-val__link" href="validators.html#${v.id}">
+              <span class="home-val__head">
+                <span class="home-val__rank">${String(i + 1).padStart(2, '0')}</span>
+                <span class="home-val__country">${v.country || ''}</span>
+              </span>
+              <span class="home-val__name">${v.name}</span>
+              <span class="home-val__hotkey">${v.hotkey}</span>
+              <span class="home-val__spark"><canvas data-val-spark="${v.id}"></canvas></span>
+              <span class="home-val__stats">
+                <span class="home-val__stat"><span class="lbl">Stake</span><span class="val">τ${compact(v.stake)}</span></span>
+                <span class="home-val__stat"><span class="lbl">APY</span><span class="val up">${v.apy.toFixed(1)}%</span></span>
+                <span class="home-val__stat"><span class="lbl">Noms</span><span class="val">${int(v.nominators)}</span></span>
+                <span class="home-val__stat"><span class="lbl">SN</span><span class="val">${v.subnets}</span></span>
+              </span>
+            </a>
+          </li>
+        `).join('')}
+      </ul>
+    </section>
+
     <!-- ===== SECTIONS NAV ===== -->
     <section class="home-sections" aria-label="Site sections">
       <div class="home-net__head">
@@ -278,6 +311,13 @@ export function mountHome(root, dataLayer = null){
   ].forEach(([key, drift]) => {
     const cv = qs(`[data-spark="${key}"]`, root);
     if (cv) statSparks.push(new Sparkline(cv, { series: seedSeries(key, drift, 32) }));
+  });
+
+  /* ---------- TOP VALIDATORS rail — one sparkline per card ---------- */
+  const valSparks = [];
+  VALIDATORS.slice(0, 12).forEach((v) => {
+    const cv = qs(`[data-val-spark="${v.id}"]`, root);
+    if (cv) valSparks.push(new Sparkline(cv, { series: seedSeries(v.id + 'v', v.apy * 1.4 - 14, 28) }));
   });
 
   /* ---------- bind: LIVE NETWORK band ---------- */
@@ -382,6 +422,7 @@ export function mountHome(root, dataLayer = null){
       unsubs.forEach(u => u());
       sparks.splice(0).forEach(sp => { try { sp.destroy(); } catch (_) {} });
       statSparks.splice(0).forEach(sp => { try { sp.destroy(); } catch (_) {} });
+      valSparks.splice(0).forEach(sp => { try { sp.destroy(); } catch (_) {} });
       cover?.destroy();
       neural?.destroy();
       consensus?.destroy();

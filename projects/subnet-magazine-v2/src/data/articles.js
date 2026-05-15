@@ -58,6 +58,7 @@ export const ARTICLES = Object.freeze([
     date: '2026-01-15',
     issue: 'Issue 014 — The Subnet Economy',
     category: 'fund-letter',
+    subnet: '1',
     tagline: '“We believe decentralized AI is where decentralized finance was in 2016. Bitcoin decentralized money. Ethereum decentralized finance. Bittensor is decentralizing intelligence.”',
     abstract: [
       'Stillcore is a U.S. fund providing institutional-grade exposure to decentralized AI, with an initial focus on Bittensor (TAO). The fund acquires and stakes TAO, earns protocol yield, and invests in high-conviction subnet operators. No wallets, no custody, no staking complexity for LPs.',
@@ -76,6 +77,7 @@ export const ARTICLES = Object.freeze([
     date: '2026-01-08',
     issue: 'Issue 013 — The capital desk',
     category: 'reporting',
+    subnet: '64',
     tagline: 'Serial entrepreneur Mark Jeffrey on why he launched a dedicated Bittensor 506(c) fund, the three-pillar strategy, custody, the halving, and the duty of care crypto keeps forgetting.',
     abstract: [
       'Mark Jeffrey — serial founder, early-internet and early-Bitcoin pioneer, and host of Hash Rate — sits down with Subneτ Magazine to explain Stillcore Capital, his new Bittensor-focused fund built with partners Rob Greer and Jason Calacanis. He recounts arriving at Bittensor the way he arrived at the web in 1995 and Ethereum in 2016: reading everything, talking to everyone, and recognizing the "third great ecosystem" early.',
@@ -94,6 +96,7 @@ export const ARTICLES = Object.freeze([
     date: '2025-09-25',
     issue: 'Issue 008 — First principles',
     category: 'op-ed',
+    subnet: '1',
     tagline: 'A reflection on how to articulate Bittensor — "The Great Mediator" — and the case for incentivized learning as machine learning\'s fourth paradigm.',
     abstract: [
       'When you ask five people to define Bittensor, you get ten answers. This open letter gathers how Barry Silbert, Const, Joseph Jacks, Mark Jeffrey and others frame the network, then offers the author\'s own synthesis: Bittensor as The Great Mediator — the meeting point of machine intelligence, blockchain, incentivization, open-source software, global compute, science and sound tokenomics.',
@@ -112,6 +115,7 @@ export const ARTICLES = Object.freeze([
     date: '2025-09-22',
     issue: 'Issue 007 — The accessibility gap',
     category: 'op-ed',
+    subnet: '18',
     tagline: 'Why Bittensor\'s habit of writing only for developers locks out retail — and what subnets must do to compete in the attention economy.',
     abstract: [
       'Bittensor has the strongest fundamentals in the space, but its biggest self-inflicted wound is communication. Founders overcomplicate updates, mission statements and whitepapers, speaking only to developers and locking out retail "normies" who are also potential users and investors. The piece argues that writing for retail would do more for a project than writing for a handful of experts — the institutional-adoption excuse doesn\'t hold when Solana and Ethereum already have far greater institutional presence.',
@@ -130,6 +134,7 @@ export const ARTICLES = Object.freeze([
     date: '2025-09-16',
     issue: 'Issue 005 — Network mechanics',
     category: 'primer',
+    subnet: '21',
     tagline: 'A plain-English walkthrough of subnet deregistration — the on-chain mechanism that prunes inactive subnets and redirects emissions to the strongest.',
     abstract: [
       'Subnet deregistration, deployed September 16, 2025, prunes inactive subnets so the network stays competitive. With the ecosystem capped at 128 subnets and an estimated 30% partially or fully inactive, deregistration releases the "dead weight": it removes low-contribution subnets, refunds locked TAO to creators and alpha holders, and funnels more emissions to surviving subnets.',
@@ -154,7 +159,7 @@ export const ARTICLES = Object.freeze([
       'The profile traces its evolution: a V1 built on the PSICHIC binding-affinity model, the April 2025 "Shannon upgrade" adding diversity scoring and an adversarial framework, a model-agnostic V2, and August 2025 Phase I/II updates integrating MIT and Recursion Pharma\'s Boltz-2. With the AI-in-drug-discovery market projected to grow about 29.7% annually through 2030, the piece argues METANOVA is a blueprint for a faster, cheaper, more transparent future for medicine.',
     ],
     tags: ['SN68', 'METANOVA', 'DeSci', 'drug-discovery', 'bioinformatics', 'PSICHIC'],
-    subnet: '68',
+    subnet: '25',
     pdf: 'articles/metanova-desci-deai-medicine.pdf',
     readMin: 10,
     accent: '#FF6B7A',
