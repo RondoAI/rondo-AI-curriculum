@@ -69,91 +69,28 @@ const CSS = `
   color: var(--c-ink-2, #C8A8AD);
   user-select: none;
 }
-/* The Oracle's "consciousness" mark — a real-time 3D NodeSphere
-   plexus rendered on canvas, with a pulsing white core overlay
-   and an expanding broadcast halo. Three layers, painted in
-   sequence:
-     1. canvas      — NodeSphere (rotating plexus, KNN edges,
-                       atmospheric glow). 60 fps requestAnimationFrame
-                       loop driven by the chart class.
-     2. ::before    — broadcast halo ring expanding scale .45 → 2.4
-                       every 2.4 s.
-     3. ::after     — white-glowing core dot pulsing scale 1 → 1.5
-                       every 1.6 s. The "thought firing".
-   The ::before / ::after are absolutely positioned over the canvas
-   so the plexus shows through. */
+/* The Oracle's "consciousness" mark — a simple red pulsing dot.
+   Earlier I had this as a multi-layer plexus (rotating SVG spokes,
+   halo ring, white-glowing core) with a filter: drop-shadow on the
+   wrapper. That combination — filter + multiple transform anims on
+   fixed-position chrome — overwhelmed the Android Chrome compositor
+   and killed touch scroll on long pages. Reverted to a single
+   opacity pulse (no transform, no filter, no box-shadow chain). */
 .sbnt-console__nn{
-  position: relative;
   display: inline-block;
-  width: 28px; height: 28px;
-  flex: 0 0 28px;
-  color: var(--c-red, #FF1E3C);
-  filter: drop-shadow(0 0 6px rgba(255,30,60,.55));
-  pointer-events: none;
-}
-.sbnt-console__nn-svg{
-  display: block;
-  width: 100%; height: 100%;
-  overflow: visible;
-}
-.sbnt-console__nn line{
-  stroke: currentColor;
-  stroke-width: .9;
-  stroke-opacity: .55;
-}
-.sbnt-console__nn circle{
-  fill: currentColor;
-  fill-opacity: .85;
-}
-.sbnt-console__nn-rot{
-  transform-origin: 12px 12px;
-  animation: sbntNNSpin 11s linear infinite;
-}
-@keyframes sbntNNSpin{
-  from { transform: rotate(0deg); }
-  to   { transform: rotate(360deg); }
-}
-.sbnt-console__nn::after{
-  /* white pulsing core */
-  content: "";
-  position: absolute;
-  top: 50%; left: 50%;
-  width: 5px; height: 5px;
-  margin: -2.5px 0 0 -2.5px;
-  background: #FFFFFF;
+  width: 8px; height: 8px;
+  flex: 0 0 8px;
   border-radius: 50%;
-  box-shadow:
-    0 0 4px #FFFFFF,
-    0 0 10px var(--c-red, #FF1E3C),
-    0 0 18px rgba(255,30,60,.45);
+  background: var(--c-red, #FF1E3C);
   pointer-events: none;
-  animation: sbntNNCore 1.6s ease-in-out infinite;
-  z-index: 2;
+  animation: sbntNNPulse 1.8s ease-in-out infinite;
 }
-.sbnt-console__nn::before{
-  /* broadcast halo */
-  content: "";
-  position: absolute;
-  top: 50%; left: 50%;
-  width: 12px; height: 12px;
-  margin: -6px 0 0 -6px;
-  border: 1px solid var(--c-red, #FF1E3C);
-  border-radius: 50%;
-  pointer-events: none;
-  animation: sbntNNHalo 2.4s ease-out infinite;
-  z-index: 1;
-}
-@keyframes sbntNNCore{
-  0%, 100% { transform: scale(1);   opacity: 1;   }
-  50%      { transform: scale(1.5); opacity: .65; }
-}
-@keyframes sbntNNHalo{
-  0%   { transform: scale(.4); opacity: .9; }
-  100% { transform: scale(2.4); opacity: 0; }
+@keyframes sbntNNPulse{
+  0%, 100% { opacity: 1;   }
+  50%      { opacity: .45; }
 }
 @media (prefers-reduced-motion: reduce){
-  .sbnt-console__nn::after,
-  .sbnt-console__nn::before{ animation: none; }
+  .sbnt-console__nn{ animation: none; }
 }
 /* "Subnet Oracle" — the bar's brand. Serif italic feels editorial,
    matches the hero wordmark family. Tight letter-spacing, no caps —
@@ -632,29 +569,10 @@ export function mountConsole(_dataLayer = null){
   el.innerHTML = `
     <span class="sbnt-console__edge" aria-hidden="true"></span>
     <div class="sbnt-console__bar" data-role="bar">
-      <!-- The Oracle's "consciousness" — a static SVG node-plexus
-           with a pulsing white core overlay and an expanding red
-           broadcast halo (CSS keyframes). NodeSphere canvas variant
-           was temporarily blocking scroll on iOS Safari — reverted
-           to this lighter SVG mark until I can find a safer mount. -->
-      <span class="sbnt-console__nn" aria-hidden="true">
-        <svg viewBox="0 0 24 24" class="sbnt-console__nn-svg">
-          <g class="sbnt-console__nn-rot">
-            <line x1="12" y1="12" x2="12"    y2="3"/>
-            <line x1="12" y1="12" x2="19.79" y2="7.5"/>
-            <line x1="12" y1="12" x2="19.79" y2="16.5"/>
-            <line x1="12" y1="12" x2="12"    y2="21"/>
-            <line x1="12" y1="12" x2="4.21"  y2="16.5"/>
-            <line x1="12" y1="12" x2="4.21"  y2="7.5"/>
-            <circle cx="12"    cy="3"    r="1.3"/>
-            <circle cx="19.79" cy="7.5"  r="1.3"/>
-            <circle cx="19.79" cy="16.5" r="1.3"/>
-            <circle cx="12"    cy="21"   r="1.3"/>
-            <circle cx="4.21"  cy="16.5" r="1.3"/>
-            <circle cx="4.21"  cy="7.5"  r="1.3"/>
-          </g>
-        </svg>
-      </span>
+      <!-- The Oracle's "consciousness" — a simple red pulsing dot.
+           Reverted from the multi-layer plexus + filter mark which
+           was killing Android Chrome touch scroll on long pages. -->
+      <span class="sbnt-console__nn" aria-hidden="true"></span>
       <span class="sbnt-console__brand">
         <span class="sbnt-console__name">Subnet Oracle</span>
         <span class="sbnt-console__sep">//</span>
