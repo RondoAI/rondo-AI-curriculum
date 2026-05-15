@@ -65,15 +65,32 @@ const CSS = `
   color: var(--c-ink-2, #C8A8AD);
   user-select: none;
 }
-.sbnt-console__dot{
-  width: 7px; height: 7px; border-radius: 50%;
-  background: var(--c-up, #00E5A8);
-  box-shadow: 0 0 8px var(--c-up, #00E5A8), 0 0 14px rgba(0,229,168,.5);
-  animation: sbntDotPulse 1.8s ease-in-out infinite;
+/* The Oracle's "consciousness" — a static SVG neural-net hexagon
+   (six outer nodes, six spokes to center, faint hex outline) that
+   pulses opacity 1 → .5 → 1 every 1.8 s. Reads as a tiny working
+   plexus, but uses only a single opacity animation on a position:
+   fixed element — no filter, no transform, no halo — which is the
+   compositor budget that the previous JARVIS variant blew through
+   on Android Chrome long pages. */
+.sbnt-console__nn{
+  display: inline-block;
+  width: 18px; height: 18px;
+  flex: 0 0 18px;
+  color: var(--c-red, #FF1E3C);
+  pointer-events: none;
+  animation: sbntNNPulse 1.8s ease-in-out infinite;
 }
-@keyframes sbntDotPulse{
-  0%, 100% { opacity: 1; transform: scale(1); }
-  50%      { opacity: .55; transform: scale(.78); }
+.sbnt-console__nn svg{ display: block; width: 100%; height: 100%; }
+.sbnt-console__nn line{ stroke: currentColor; stroke-width: .9; stroke-opacity: .55; }
+.sbnt-console__nn path{ stroke: currentColor; stroke-width: .8; stroke-opacity: .35; fill: none; }
+.sbnt-console__nn circle{ fill: currentColor; }
+.sbnt-console__nn .nn-core{ fill: #fff; }
+@keyframes sbntNNPulse{
+  0%, 100% { opacity: 1;  }
+  50%      { opacity: .5; }
+}
+@media (prefers-reduced-motion: reduce){
+  .sbnt-console__nn{ animation: none; }
 }
 /* "Subnet Oracle" — the bar's brand. Serif italic feels editorial,
    matches the hero wordmark family. Tight letter-spacing, no caps —
@@ -552,7 +569,24 @@ export function mountConsole(_dataLayer = null){
   el.innerHTML = `
     <span class="sbnt-console__edge" aria-hidden="true"></span>
     <div class="sbnt-console__bar" data-role="bar">
-      <span class="sbnt-console__dot"></span>
+      <span class="sbnt-console__nn" aria-hidden="true">
+        <svg viewBox="0 0 24 24">
+          <line x1="12" y1="12" x2="12"    y2="3"/>
+          <line x1="12" y1="12" x2="19.79" y2="7.5"/>
+          <line x1="12" y1="12" x2="19.79" y2="16.5"/>
+          <line x1="12" y1="12" x2="12"    y2="21"/>
+          <line x1="12" y1="12" x2="4.21"  y2="16.5"/>
+          <line x1="12" y1="12" x2="4.21"  y2="7.5"/>
+          <path d="M12 3 L19.79 7.5 L19.79 16.5 L12 21 L4.21 16.5 L4.21 7.5 Z"/>
+          <circle cx="12"    cy="3"    r="1.3"/>
+          <circle cx="19.79" cy="7.5"  r="1.3"/>
+          <circle cx="19.79" cy="16.5" r="1.3"/>
+          <circle cx="12"    cy="21"   r="1.3"/>
+          <circle cx="4.21"  cy="16.5" r="1.3"/>
+          <circle cx="4.21"  cy="7.5"  r="1.3"/>
+          <circle class="nn-core" cx="12" cy="12" r="1.7"/>
+        </svg>
+      </span>
       <span class="sbnt-console__brand">
         <span class="sbnt-console__name">Subnet Oracle</span>
         <span class="sbnt-console__sep">//</span>
