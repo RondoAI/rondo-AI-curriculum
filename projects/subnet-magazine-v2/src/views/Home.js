@@ -28,6 +28,7 @@ import { Treemap } from '../charts/Treemap.js';
 import { articlesByDate } from '../data/articles.js';
 import { subnetById, SUBNETS } from '../data/subnets.js';
 import { SUBNET_BIOS } from '../data/subnet-bios.js';
+import { FOUNDERS, degreesFromConst, chainToConst, founderById } from '../data/founders.js';
 import { VALIDATORS } from '../data/validators.js';
 
 const CAT_LABEL = {
@@ -244,6 +245,14 @@ export function mountHome(root, dataLayer = null){
                 <div class="home-bio__card-meta">
                   <span class="home-bio__card-conf"><span class="dot"></span>CONFIDENCE · HIGH</span>
                   <span class="home-bio__card-when">RESEARCHED 14 MAY 2026</span>
+                </div>
+                <!-- "Six Degrees of Const" footer — every card ties
+                     back to the magazine's defining thesis: Bittensor
+                     is one founding circle, a dozen operators, five
+                     investors. The chain comes from founders.js. -->
+                <div class="home-bio__chain">
+                  <span class="home-bio__chain-deg">${degreesFromConst(b.netuid)}° FROM CONST</span>
+                  <span class="home-bio__chain-via">via ${chainToConst(b.netuid)}</span>
                 </div>
               </div>
 
@@ -882,6 +891,75 @@ export function mountHome(root, dataLayer = null){
           <span class="home-stat__spark"><canvas data-spark="block"></canvas></span>
         </div>
       </div>
+    </section>
+
+    <!-- ===== § 07 THE NETWORK · Six Degrees of Const =====
+         Bittensor is not a hundred independent subnets. It is one
+         founding circle, a dozen operators, and five investors.
+         This is the table that proves it — every top-25 subnet
+         mapped back to Const by name, role, degree, and chain.
+         Sortable HTML table; renders on phone; every cell is
+         defensible against a public source in founders.js. -->
+    <section class="home-network" aria-label="Six Degrees of Const · the founding circle map">
+      <div class="home-net__head">
+        <span class="home-net__kicker"><span class="home-net__ord">§ 07</span><span class="live-dot"></span>The Network · six degrees of Const</span>
+        <span class="home-net__source"><span class="dot dot--editorial"></span>EDITORIAL DEEP DIVE · 25 OPERATORS · 14 MAY 2026</span>
+        <h2 class="home-net__title">One <em>founding circle.</em></h2>
+        <p class="home-net__sub">Bittensor is not a hundred independent subnets. It is
+        one founding circle, a dozen operators, five investors. Every top-25 subnet
+        founder traces back to <em>Const</em> within two degrees of separation —
+        named here, with the chain.</p>
+      </div>
+
+      <div class="home-network__rail">
+        <table class="home-network__table">
+          <thead>
+            <tr>
+              <th class="num">SN</th>
+              <th>Subnet</th>
+              <th class="hide-sm">Parent</th>
+              <th>Founders</th>
+              <th class="num">°</th>
+              <th class="hide-sm">Chain</th>
+              <th class="hide-sm">Key investor</th>
+            </tr>
+          </thead>
+          <tbody>
+            ${[...FOUNDERS]
+              .sort((a, b) => (degreesFromConst(a.netuid) ?? 9) - (degreesFromConst(b.netuid) ?? 9) || a.netuid - b.netuid)
+              .map(f => {
+                const deg = degreesFromConst(f.netuid);
+                const chain = chainToConst(f.netuid);
+                const names = f.founders.slice(0, 2).map(p => p.name.replace(/\s*\(pseudonym\)/i, '')).join(' · ');
+                const inv = (f.investors && f.investors.length) ? f.investors[0] : '—';
+                return `
+                  <tr data-netuid="${f.netuid}">
+                    <td class="num"><span class="home-network__sn">SN${f.netuid}</span></td>
+                    <td><span class="home-network__name">${f.subnet}</span></td>
+                    <td class="hide-sm"><span class="home-network__parent">${f.parent}</span></td>
+                    <td><span class="home-network__founders">${names}</span></td>
+                    <td class="num"><span class="home-network__deg deg-${deg ?? 'x'}">${deg ?? '—'}°</span></td>
+                    <td class="hide-sm"><span class="home-network__chain">${chain}</span></td>
+                    <td class="hide-sm"><span class="home-network__inv">${inv}</span></td>
+                  </tr>
+                `;
+              }).join('')}
+          </tbody>
+        </table>
+      </div>
+
+      <!-- The thesis line every magazine has on its masthead. -->
+      <p class="home-network__thesis">
+        <span class="home-network__thesis-q">“</span>
+        <em>Bittensor is not a hundred independent subnets. It is one founding
+        circle, a dozen operators, and five investors.</em>
+        <span class="home-network__thesis-q">”</span>
+      </p>
+
+      <footer class="home-network__foot">
+        <span>READ THE FULL BRIEF · <a class="home-network__more" href="https://github.com/RondoAI/rondo-AI-curriculum/blob/main/projects/subnet-magazine-v2/notes/founders-and-connections-2026-05.md" target="_blank" rel="noopener">FOUNDERS &amp; CONNECTIONS · MAY 2026 →</a></span>
+        <span>SOURCES · LINKEDIN · GITHUB · COMPANY FILINGS · PRESS</span>
+      </footer>
     </section>
 
     <!-- ===== END OF FEATURE =====

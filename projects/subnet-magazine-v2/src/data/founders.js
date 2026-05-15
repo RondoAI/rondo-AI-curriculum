@@ -962,3 +962,50 @@ export function subnetsByInvestor(investor){
     .filter(f => f.investors.some(i => i.toLowerCase().includes(investor.toLowerCase())))
     .map(f => f.netuid);
 }
+
+/**
+ * Short "via X" chain string used in the bio-card footer and the
+ * Six-Degrees-of-Const table. Hand-curated from the Phase 2 patterns
+ * analysis in founders-and-connections-2026-05.md.
+ * @param {number} netuid
+ * @returns {string}
+ */
+export function chainToConst(netuid){
+  switch (netuid){
+    case 120: return 'Const · the subnet is his';
+    case 1:
+    case 9:
+    case 13:
+    case 25:  return 'Macrocosmos · ex-Opentensor senior bench';
+    case 4:   return 'Manifold · ex-Opentensor CEO + COO';
+    case 64:
+    case 56:
+    case 19:  return 'Rayon Labs trio · operator-network adjacent';
+    case 14:  return 'Joseph Jacks · led Manifold\'s Series A';
+    case 3:
+    case 39:
+    case 81:  return 'Covenant trio · publicly opposing Const';
+    case 51:  return 'Datura · Polychain co-portfolio + slot-sale to SN18';
+    case 5:   return 'Kaito · public-figure operator';
+    case 18:  return 'Ørpheus AI · bought SN18 slot from Datura';
+    case 8:   return 'Taoshi · Foundry-allied institutional bench';
+    case 6:   return 'Nous · JJ seed + DCG mentions';
+    case 44:  return 'Score · Macrocosmos B2B customer';
+    case 10:  return 'Sturdy · DeFi crossover via shared LPs';
+    case 34:  return 'BitMind · academic adjacency to Manifold';
+    case 62:  return 'Ridges · validator-set adjacency';
+    case 68:  return 'NOVA · Metanova · Foundry-allied';
+    case 75:  return 'Hippius · subnet-as-storage adjacency';
+    case 2:   return 'DSperse · academic adjacency';
+    default:  return 'Top-25 operator network';
+  }
+}
+
+/**
+ * Lookup helper. Returns the FOUNDERS row for a given netuid, or null.
+ * @param {number} netuid
+ * @returns {FounderRow|null}
+ */
+export function founderById(netuid){
+  return FOUNDERS.find(f => f.netuid === netuid) || null;
+}
