@@ -41,7 +41,9 @@ const CSS = `
   overflow: hidden;
 }
 /* a bright 1-px red rail at the very top edge — the bar declares
-   itself before you read the text */
+   itself before you read the text. The only chrome on the bar; the
+   prior horizontal scan-line was retired because it visually
+   collided with the side borders and read as a UI bug. */
 .sbnt-console__edge{
   position: absolute; top: 0; left: 0; right: 0;
   height: 1px;
@@ -51,24 +53,6 @@ const CSS = `
     var(--c-red, #FF1E3C) 70%, transparent 100%);
   pointer-events: none;
   z-index: 2;
-}
-/* a slow horizontal scan-line sweeping across the bar every 6 s —
-   the "live agent" signal without flashing chrome everywhere */
-.sbnt-console__scan{
-  position: absolute; top: 0; bottom: 0; left: -120px;
-  width: 120px;
-  background: linear-gradient(90deg,
-    transparent, rgba(255,30,60,.16) 50%, transparent 100%);
-  pointer-events: none;
-  z-index: 1;
-  animation: sbntScan 6s linear infinite;
-}
-@keyframes sbntScan{
-  0%   { transform: translateX(0); }
-  100% { transform: translateX(calc(100vw + 120px)); }
-}
-@media (prefers-reduced-motion: reduce){
-  .sbnt-console__scan{ animation: none; }
 }
 
 .sbnt-console__bar{
@@ -91,19 +75,34 @@ const CSS = `
   0%, 100% { opacity: 1; transform: scale(1); }
   50%      { opacity: .55; transform: scale(.78); }
 }
+/* "Subnet Oracle" — the bar's brand. Serif italic feels editorial,
+   matches the hero wordmark family. Tight letter-spacing, no caps —
+   the brand reads like a magazine sub-imprint, not a CLI app. */
+.sbnt-console__brand{
+  display: inline-flex; align-items: baseline; gap: 7px;
+  min-width: 0;
+}
 .sbnt-console__name{
   color: var(--c-ink-1, #F5E5E8);
+  font-family: var(--f-serif, 'Archivo', system-ui, sans-serif);
   font-weight: 800;
-  letter-spacing: .14em;
-  text-transform: uppercase;
-  font-size: 13px;
-  text-shadow: 0 0 10px rgba(255,30,60,.45);
+  letter-spacing: -.005em;
+  text-transform: none;
+  font-size: 15px;
+  line-height: 1;
 }
-.sbnt-console__sep{ color: var(--c-red, #FF1E3C); font-weight: 700; }
+.sbnt-console__sep{
+  color: var(--c-red, #FF1E3C);
+  font-weight: 700;
+  font-size: 13px;
+}
 .sbnt-console__net{
   color: var(--c-red-1, #FF4D60);
+  font-family: var(--f-mono, monospace);
   font-weight: 700;
+  font-size: 11.5px;
   letter-spacing: .04em;
+  text-transform: uppercase;
 }
 .sbnt-console__title{ color: var(--c-ink-2, #C8A8AD); margin-left: 6px; font-weight: 500; }
 .sbnt-console__push{ margin-left: auto; }
@@ -309,15 +308,16 @@ export function mountConsole(_dataLayer = null){
 
   const el = document.createElement('aside');
   el.className = 'sbnt-console' + (startCollapsed ? ' is-collapsed' : '');
-  el.setAttribute('aria-label', 'Bittensor field manual');
+  el.setAttribute('aria-label', 'Subnet Oracle · Bittensor field manual');
   el.innerHTML = `
     <span class="sbnt-console__edge" aria-hidden="true"></span>
-    <span class="sbnt-console__scan" aria-hidden="true"></span>
     <div class="sbnt-console__bar" data-role="bar">
       <span class="sbnt-console__dot"></span>
-      <span class="sbnt-console__name">ORACLE</span>
-      <span class="sbnt-console__sep">//</span>
-      <span class="sbnt-console__net">bittensor</span>
+      <span class="sbnt-console__brand">
+        <span class="sbnt-console__name">Subnet Oracle</span>
+        <span class="sbnt-console__sep">//</span>
+        <span class="sbnt-console__net">Bittensor</span>
+      </span>
       <span class="sbnt-console__title" data-role="title"></span>
       <span class="sbnt-console__push"></span>
       <span class="sbnt-console__hint">Tap to expand</span>
