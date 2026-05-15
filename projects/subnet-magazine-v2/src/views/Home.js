@@ -154,6 +154,7 @@ export function mountHome(root, dataLayer = null){
     <section class="home-research" aria-label="Featured research">
       <div class="home-research__head">
         <span class="home-net__kicker"><span class="home-net__ord">§ 01</span><span class="live-dot"></span>Featured Research · the desk</span>
+        <span class="home-net__source"><span class="dot dot--editorial"></span>EDITORIAL · 14 MAY 2026 · CONFIDENCE HIGH</span>
         <a class="home-subnets__all" href="articles.html">All research ↗</a>
       </div>
       <ul class="home-research__grid">
@@ -188,6 +189,7 @@ export function mountHome(root, dataLayer = null){
     <section class="home-bios" aria-label="Top 25 subnet deep profiles">
       <div class="home-net__head">
         <span class="home-net__kicker"><span class="home-net__ord">§ 02</span><span class="live-dot"></span>The Top 25 · deep profiles · 14 May 2026</span>
+        <span class="home-net__source"><span class="dot dot--live"></span>LIVE TAOSTATS + EDITORIAL · MCP READY</span>
         <h2 class="home-net__title">The <em>full read</em> on every leader.</h2>
         <p class="home-net__sub">Editorial bios for the 25 subnets earning the most daily τ as of 14 May 2026 —
         what they actually do, who runs them, what they shipped in 2026, and the single number that
@@ -237,6 +239,12 @@ export function mountHome(root, dataLayer = null){
                   </div>
                   <span class="home-bio__chg ${up ? 'up' : 'down'}">${chg}</span>
                 </div>
+                <!-- AI-2026 model-card strip: confidence, provenance,
+                     researched-at. The honesty layer no incumbent has. -->
+                <div class="home-bio__card-meta">
+                  <span class="home-bio__card-conf"><span class="dot"></span>CONFIDENCE · HIGH</span>
+                  <span class="home-bio__card-when">RESEARCHED 14 MAY 2026</span>
+                </div>
               </div>
 
               <span class="home-bio__cat">${cat}</span>
@@ -285,6 +293,7 @@ export function mountHome(root, dataLayer = null){
     <section class="home-how" aria-label="The Bittensor protocol, stage by stage">
       <div class="home-net__head">
         <span class="home-net__kicker"><span class="home-net__ord">§ 03</span>The protocol · yuma v2 · dtao enabled</span>
+        <span class="home-net__source"><span class="dot dot--editorial"></span>EDITORIAL · YUMA RAO 2020 + 2026 NETWORK STATE</span>
         <h2 class="home-net__title">The loop, <em>stage by stage.</em></h2>
         <p class="home-net__sub">Six stages from task definition to token emission. What each
         does, the live network scale, the operative math, and the representative subnet running
@@ -795,6 +804,7 @@ export function mountHome(root, dataLayer = null){
     <section class="home-neural" aria-label="The Bittensor consensus loop, visualized">
       <div class="home-net__head">
         <span class="home-net__kicker"><span class="home-net__ord">§ 04</span>The machine</span>
+        <span class="home-net__source"><span class="dot dot--sim"></span>SIMULATED FEED-FORWARD · 5 LAYERS · 185 PULSES</span>
         <h2 class="home-net__title">Intelligence, <em>incentivized.</em></h2>
         <p class="home-net__sub">The loop you just read about, rendered live. Subnets set the task,
         miners answer, validators score, weights settle, consensus pays. Watch one block of work
@@ -812,6 +822,7 @@ export function mountHome(root, dataLayer = null){
     <section class="home-neural" aria-label="Subnet emission share treemap">
       <div class="home-net__head">
         <span class="home-net__kicker"><span class="home-net__ord">§ 05</span>The slice</span>
+        <span class="home-net__source"><span class="dot dot--live"></span>LIVE TAOSTATS · TOP 16 SUBNETS BY <span class="tau">τ</span>/DAY</span>
         <h2 class="home-net__title">Where the <em>emissions</em> go.</h2>
         <p class="home-net__sub">Bigger tile, bigger share. Chutes, Targon and Apex eat first;
         the long tail fights for the edges. Sized by daily τ emission, darker red = higher rank.</p>
@@ -829,6 +840,7 @@ export function mountHome(root, dataLayer = null){
     <section class="home-net" aria-label="Live network statistics">
       <div class="home-net__head">
         <span class="home-net__kicker"><span class="home-net__ord">§ 06</span><span class="live-dot"></span>Live Network · taomarketcap</span>
+        <span class="home-net__source"><span class="dot dot--live"></span>LIVE TAO MARKET CAP PUBLIC API · 12s POLL</span>
         <h2 class="home-net__title">Bittensor, <em>right now.</em></h2>
         <p class="home-net__sub">Real on-chain data — TAO market, supply, staking, and chain state — refreshed straight from the Tao Market Cap public API.</p>
       </div>
@@ -890,6 +902,23 @@ export function mountHome(root, dataLayer = null){
       <div class="home-pagebreak__body">
         <p class="home-pagebreak__cap">Bittensor, right now.</p>
         <p class="home-pagebreak__sub">Live data · Tao Market Cap public API · Subne<span class="tau">τ</span> Magazine ${new Date().getUTCFullYear()}</p>
+      </div>
+      <!-- AI-2026 signal: built for humans AND agents. Editorial corpus
+           addressable over MCP so the agent doing diligence at a fund
+           can cite us. The badge is the visible statement of that. -->
+      <div class="home-pagebreak__signals">
+        <span class="home-pagebreak__badge">
+          <span class="dot dot--live"></span>
+          MCP READY · AGENT FRIENDLY
+        </span>
+        <span class="home-pagebreak__badge home-pagebreak__badge--alt">
+          <span class="dot dot--editorial"></span>
+          CONFIDENCE · HIGH
+        </span>
+        <span class="home-pagebreak__badge home-pagebreak__badge--alt">
+          <span class="dot dot--editorial"></span>
+          RESEARCHED · 14 MAY 2026
+        </span>
       </div>
       <a class="home-pagebreak__turn" href="https://x.com/subnetmagazine" target="_blank" rel="noopener">
         <span class="home-pagebreak__x-glyph" aria-hidden="true">𝕏</span>

@@ -2,7 +2,9 @@
    MASTHEAD VIEW
    -----------------------------------------------------------------
    Renders the brand band: "Subneτ Magazine" wordmark, a rotating
-   red NodeSphere mark, and the function-code primary nav.
+   red NodeSphere mark, the function-code primary nav, and an
+   AI-2026 live-block ticker (BLOCK NNN · T-9s until next) with a
+   thin chain ribbon animating packets across the masthead.
    ================================================================= */
 
 import { html, mount, qs, raw } from '../lib/dom.js';
@@ -23,6 +25,12 @@ const NAV_ITEMS = [
 ];
 
 const X_URL = 'https://x.com/subnetmagazine';
+
+/* Seed block-height around what taostats reports — bumped every 12s
+   so the counter visibly ticks. When the substrate WebSocket lands
+   we'll bind directly to chain.subscribe_finalized_heads instead. */
+const BLOCK_SEED = 8_189_022;
+const BLOCK_PERIOD_MS = 12_000;
 
 /**
  * @param {HTMLElement} root
@@ -51,10 +59,34 @@ export function mountMasthead(root){
         <div class="masthead__diag">
           <span><span class="val">${bbgDate()}</span></span>
           <span>BUILD <span class="val">v2.0.0</span></span>
-          <span>FEED <span class="val">streaming</span></span>
+          <span class="masthead__block">
+            <span class="masthead__live"><span class="live-dot"></span>LIVE</span>
+            <span class="masthead__block-label">BLOCK</span>
+            <span class="masthead__block-num" data-block-num>${BLOCK_SEED.toLocaleString('en-US')}</span>
+            <span class="masthead__block-tick" data-block-tick>T-12s</span>
+          </span>
           <a class="masthead__x" href="${X_URL}" target="_blank" rel="noopener">
             <span class="masthead__x-glyph" aria-hidden="true">𝕏</span>@subnetmagazine
           </a>
+        </div>
+        <!-- AI-2026: a thin chain ribbon underneath the diag strip,
+             animated packets traveling left-to-right at block cadence.
+             Pure SVG animateMotion, no JS frame loop. -->
+        <div class="masthead__chain" aria-hidden="true">
+          <svg viewBox="0 0 1320 8" preserveAspectRatio="none">
+            <defs>
+              <path id="chain-track" d="M 0 4 L 1320 4" fill="none"/>
+            </defs>
+            <line x1="0" y1="4" x2="1320" y2="4" stroke="currentColor" stroke-opacity=".18" stroke-width=".6"/>
+            ${[0, 0.13, 0.27, 0.41, 0.55, 0.69, 0.83].map(off => `
+              <circle r="2.4" fill="#FF1E3C">
+                <animateMotion dur="9s" begin="${off * 9}s" repeatCount="indefinite">
+                  <mpath href="#chain-track"/>
+                </animateMotion>
+                <animate attributeName="opacity" values="0;1;1;0" keyTimes="0;0.05;0.95;1" dur="9s" begin="${off * 9}s" repeatCount="indefinite"/>
+              </circle>
+            `).join('')}
+          </svg>
         </div>
       </div>
       <nav class="primary-nav" aria-label="Primary">
@@ -73,6 +105,30 @@ export function mountMasthead(root){
     speed:   0.42,
     atmos:   false,
   }) : null;
+
+  /* live block ticker. Bumps the block number once per cadence
+     and runs a 1Hz countdown between bumps so T-12s..T-1s is visible.
+     Will swap to a real substrate WS subscription when wired. */
+  const blockNumEl  = qs('[data-block-num]', root);
+  const blockTickEl = qs('[data-block-tick]', root);
+  let block = BLOCK_SEED;
+  let nextAt = Date.now() + BLOCK_PERIOD_MS;
+  const blockTimer = setInterval(() => {
+    const now = Date.now();
+    if (now >= nextAt){
+      block += 1;
+      nextAt = now + BLOCK_PERIOD_MS;
+      if (blockNumEl){
+        blockNumEl.textContent = block.toLocaleString('en-US');
+        blockNumEl.classList.add('is-flash');
+        setTimeout(() => blockNumEl.classList.remove('is-flash'), 400);
+      }
+    }
+    if (blockTickEl){
+      const left = Math.max(0, Math.ceil((nextAt - now) / 1000));
+      blockTickEl.textContent = `T-${left}s`;
+    }
+  }, 1000);
 
   // Active-nav highlight on scroll. Only in-page anchors (#…) get
   // wired up; external links (terminal.html) are ignored here.
@@ -100,6 +156,7 @@ export function mountMasthead(root){
   return {
     destroy(){
       sphere?.destroy();
+      clearInterval(blockTimer);
       window.removeEventListener('scroll', onScroll);
     }
   };

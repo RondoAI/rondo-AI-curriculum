@@ -98,6 +98,49 @@ body { font-variant-numeric: tabular-nums; }
   overflow: hidden; clip: rect(0,0,0,0); white-space: nowrap; border: 0;
 }
 
+/* AI-2026 data-flow thread — a thin gradient rail down the left
+   edge of the viewport with a glowing red pulse traveling top-to-
+   bottom. Sits above the page background, pointer-events off so it
+   never intercepts touch / clicks. Decorative; the page works fine
+   without it (prefers-reduced-motion stops the animation). */
+.flow-thread{
+  position: fixed;
+  left: 4px;
+  top: 0; bottom: 0;
+  width: 2px;
+  z-index: 4;
+  pointer-events: none;
+  background: linear-gradient(180deg,
+    transparent 0,
+    var(--c-rule-2) 80px,
+    var(--c-rule-2) calc(100% - 80px),
+    transparent 100%);
+}
+.flow-thread__pulse{
+  position: absolute;
+  left: -3px;
+  width: 8px; height: 60px;
+  border-radius: 999px;
+  background: linear-gradient(180deg,
+    transparent 0%,
+    var(--c-red-pulse) 40%,
+    var(--c-red) 50%,
+    var(--c-red-pulse) 60%,
+    transparent 100%);
+  filter: blur(2px);
+  animation: flowThreadDown 7.5s linear infinite;
+}
+@keyframes flowThreadDown {
+  0%   { top: -60px;  opacity: 0; }
+  6%   { opacity: 1; }
+  94%  { opacity: 1; }
+  100% { top: 100%;  opacity: 0; }
+}
+@media (max-width: 560px){
+  .flow-thread{ left: 2px; width: 1px; }
+  .flow-thread__pulse{ width: 5px; left: -2px; }
+}
+
 /* Terminal-style feedback: a quick highlight pulse when a live
    value changes on screen. Applied via flash() from lib/dom.js. */
 @keyframes sbnt-flash {

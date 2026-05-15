@@ -87,6 +87,86 @@
   color: var(--c-ink-1);
 }
 
+/* AI-2026: the live-block chip in the diag strip.
+   Pill with a pulsing green live-dot, the block height, and a
+   T-Xs countdown to the next finalised block (12s cadence). */
+.masthead__block{
+  display: inline-flex; align-items: center; gap: 6px;
+  padding: 2px 8px;
+  background: rgba(255, 30, 60, .06);
+  border: 1px solid var(--c-rule-2);
+  border-radius: 999px;
+  justify-self: end;
+  white-space: nowrap;
+}
+.masthead__live{
+  display: inline-flex; align-items: center; gap: 4px;
+  color: var(--c-up); font-weight: 700;
+  letter-spacing: var(--ls-label);
+}
+.masthead__block-label{
+  color: var(--c-ink-4);
+  font-weight: 700;
+  letter-spacing: var(--ls-label);
+}
+.masthead__block-num{
+  color: var(--c-ink-1);
+  font-weight: 700;
+  font-variant-numeric: tabular-nums;
+  transition: color .25s ease-out, text-shadow .25s ease-out;
+}
+.masthead__block-num.is-flash{
+  color: var(--c-red);
+  text-shadow: 0 0 8px var(--c-red-pulse);
+}
+.masthead__block-tick{
+  color: var(--c-red-1);
+  font-weight: 600;
+  font-variant-numeric: tabular-nums;
+  min-width: 28px;
+  text-align: right;
+}
+
+/* the thin chain ribbon strip — packets traveling left-to-right
+   across the masthead at block cadence. */
+.masthead__chain{
+  grid-column: 1 / -1;
+  height: 8px;
+  margin-top: 6px;
+  color: var(--c-red);
+  overflow: hidden;
+  border-top: 1px solid var(--c-rule);
+}
+.masthead__chain svg{
+  display: block;
+  width: 100%; height: 100%;
+}
+
+/* AI-2026: a periodic scan-line sweep over the whole masthead.
+   A single bright 1px line moves top→bottom once every ~9 seconds.
+   Decorative; gives the terminal a heartbeat. */
+.masthead{
+  position: relative;
+  overflow: hidden;
+}
+.masthead::before{
+  content: "";
+  position: absolute;
+  left: 0; right: 0;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--c-red-pulse) 30%, var(--c-red) 50%, var(--c-red-pulse) 70%, transparent);
+  pointer-events: none;
+  z-index: 1;
+  animation: mastheadScan 9s ease-in-out infinite;
+}
+@keyframes mastheadScan {
+  0%, 100% { top: -2px;  opacity: 0; }
+  10%      { opacity: .85; }
+  85%      { opacity: .85; }
+  90%      { top: 100%; opacity: 0; }
+  100%     { top: -2px;  opacity: 0; }
+}
+
 /* Primary nav: function-code style, sticky */
 .primary-nav{
   position: sticky; top: 33px; /* below status bar */

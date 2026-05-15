@@ -23,6 +23,15 @@
 </head>
 <body>
 
+  <!-- AI-2026 data-flow thread. A thin vertical rail down the left
+       edge of the viewport with a red pulse traveling top-to-bottom,
+       signaling "this is one continuous live system" across every
+       section. Pure CSS keyframe; no JS. Decorative — pointer-events
+       are off so it never intercepts touch. -->
+  <aside class="flow-thread" aria-hidden="true">
+    <span class="flow-thread__pulse"></span>
+  </aside>
+
   <!-- Mount points only. Every view renders into one of these. -->
   <div data-mount="tickers"></div>
   <div data-mount="statusbar"></div>
