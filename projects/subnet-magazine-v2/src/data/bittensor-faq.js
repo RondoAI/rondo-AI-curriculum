@@ -814,4 +814,92 @@ export const FIELD_MANUAL = Object.freeze([
       { kind:'link', text:'taonsquare.com', href:'https://taonsquare.com/' },
     ] },
 
+  /* ===================================================================== */
+  { id: 'play', label: '/play ⚡', title: 'Subnet Sim · play a block',
+    difficulty: 'easy', timeRequired: '1 min', cost: 'free', confidence: 'high',
+    researched: '2026-05-15',
+    blurb: 'A real block, simulated. Five miners answer the subnet\'s query — four right, one wrong. You\'re the validator. Set your weight vote on each miner, hit Settle, and watch Yuma Consensus compute the payout. Learn by playing.',
+    body: [
+      /* Rendered as an interactive widget by Console.js — body is a
+         placeholder; the renderer dispatches on topic.id === 'play'. */
+    ],
+    prerequisites: ['curiosity'],
+    whatYouGet: 'A working intuition for how Yuma Consensus turns honest weight votes into emission payouts — in 60 seconds, no money risked.',
+    sources: [
+      'https://docs.learnbittensor.org/yuma-consensus',
+      'https://docs.bittensor.com/yuma-consensus',
+    ],
+  },
+
+  /* ===================================================================== */
+  { id: 'links', label: '/links', title: 'Every link · the full stack',
+    difficulty: 'easy', timeRequired: 'browse',  cost: 'free', confidence: 'high',
+    researched: '2026-05-15',
+    blurb: 'Every URL you need to actually do this. Docs, source, governance, wallets, exchanges, the dashboards, and the people. All current as of May 2026.',
+    body: [
+      { kind:'h',    text:'OFFICIAL · OPENTENSOR' },
+      { kind:'link', text:'bittensor.com  ·  the network', href:'https://bittensor.com' },
+      { kind:'link', text:'docs.bittensor.com  ·  protocol docs', href:'https://docs.bittensor.com' },
+      { kind:'link', text:'docs.learnbittensor.org  ·  hands-on tutorials', href:'https://docs.learnbittensor.org' },
+      { kind:'link', text:'opentensor.ai  ·  the foundation', href:'https://opentensor.ai' },
+      { kind:'link', text:'x.com/opentensor  ·  official feed', href:'https://x.com/opentensor' },
+      { kind:'link', text:'discord.gg/bittensor  ·  community', href:'https://discord.gg/bittensor' },
+
+      { kind:'h',    text:'CODE · THE SOURCE' },
+      { kind:'link', text:'github.com/opentensor/bittensor  ·  SDK', href:'https://github.com/opentensor/bittensor' },
+      { kind:'link', text:'github.com/opentensor/btcli  ·  CLI', href:'https://github.com/opentensor/btcli' },
+      { kind:'link', text:'github.com/opentensor/subtensor  ·  chain', href:'https://github.com/opentensor/subtensor' },
+      { kind:'link', text:'github.com/opentensor/bittensor-subnet-template  ·  start a subnet', href:'https://github.com/opentensor/bittensor-subnet-template' },
+
+      { kind:'h',    text:'DATA · WHERE THE NUMBERS LIVE' },
+      { kind:'link', text:'taostats.io  ·  full chain explorer + analytics', href:'https://taostats.io' },
+      { kind:'link', text:'taomarketcap.com  ·  α-market caps + price', href:'https://taomarketcap.com' },
+      { kind:'link', text:'tao.app  ·  live trade interface', href:'https://tao.app' },
+      { kind:'link', text:'taonsquare.com  ·  MCP-readable subnet catalog', href:'https://taonsquare.com/' },
+      { kind:'link', text:'subnets.io  ·  community directory', href:'https://subnets.io' },
+
+      { kind:'h',    text:'GOVERNANCE · WHAT\'S BEING DECIDED' },
+      { kind:'link', text:'docs.learnbittensor.org/learn/announcements', href:'https://docs.learnbittensor.org/learn/announcements' },
+      { kind:'link', text:'github.com/opentensor/subtensor/releases', href:'https://github.com/opentensor/subtensor/releases' },
+
+      { kind:'h',    text:'EXCHANGES · BUY TAO' },
+      { kind:'link', text:'Coinbase', href:'https://coinbase.com/price/bittensor' },
+      { kind:'link', text:'Kraken', href:'https://kraken.com/learn/what-is-bittensor-tao' },
+      { kind:'link', text:'MEXC', href:'https://mexc.com/exchange/TAO_USDT' },
+      { kind:'link', text:'KuCoin', href:'https://kucoin.com/trade/TAO-USDT' },
+      { kind:'link', text:'Binance', href:'https://binance.com/en/trade/TAO_USDT' },
+
+      { kind:'h',    text:'WALLETS · KEYS + SIGNING' },
+      { kind:'link', text:'docs.learnbittensor.org/keys', href:'https://docs.learnbittensor.org/keys' },
+      { kind:'link', text:'polkadot.js extension  ·  browser wallet for Substrate', href:'https://polkadot.js.org/extension/' },
+      { kind:'link', text:'Ledger  ·  hardware wallet', href:'https://ledger.com' },
+
+      { kind:'h',    text:'TOP OPERATORS · THEIR HOMES' },
+      { kind:'link', text:'rayonlabs.ai  ·  Chutes, Gradients, Nineteen', href:'https://rayonlabs.ai' },
+      { kind:'link', text:'macrocosmos.ai  ·  Apex, IOTA, Data Universe, Mainframe', href:'https://macrocosmos.ai' },
+      { kind:'link', text:'manifold.inc  ·  Targon', href:'https://manifold.inc' },
+      { kind:'link', text:'taoshi.io  ·  Vanta (PTN)', href:'https://taoshi.io' },
+      { kind:'link', text:'nousresearch.com  ·  Numinous', href:'https://nousresearch.com' },
+      { kind:'link', text:'datura.ai  ·  Lium', href:'https://datura.ai' },
+      { kind:'link', text:'corcel.io  ·  Zeus (Cortex.t)', href:'https://corcel.io' },
+      { kind:'link', text:'tplr.ai  ·  Templar', href:'https://tplr.ai' },
+      { kind:'link', text:'hippius.com', href:'https://hippius.com' },
+
+      { kind:'h',    text:'INSTITUTIONAL · CAPITAL' },
+      { kind:'link', text:'foundrydigital.com  ·  Foundry Digital', href:'https://foundrydigital.com' },
+      { kind:'link', text:'yumaai.com  ·  Yuma (DCG-affiliated)', href:'https://yumaai.com' },
+      { kind:'link', text:'polychain.capital', href:'https://polychain.capital' },
+      { kind:'link', text:'dcg.co  ·  Digital Currency Group', href:'https://dcg.co' },
+      { kind:'link', text:'osscapital.com  ·  Joseph Jacks / OSS', href:'https://osscapital.com' },
+
+      { kind:'h',    text:'EDITORIAL · WHO WRITES ABOUT THIS' },
+      { kind:'link', text:'x.com/subnetmagazine  ·  this magazine', href:'https://x.com/subnetmagazine' },
+      { kind:'link', text:'oakresearch.io  ·  long-form research', href:'https://oakresearch.io' },
+      { kind:'link', text:'messari.io/research  ·  institutional reports', href:'https://messari.io/research' },
+    ],
+    prerequisites: [],
+    whatYouGet: 'A single page with every authoritative URL you need to set up, mine, validate, trade, and follow Bittensor — keyed to May 2026, no dead links.',
+    sources: [],
+  },
+
 ]);
