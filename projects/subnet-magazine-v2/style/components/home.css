@@ -992,21 +992,49 @@
 }
 .home-stack__chart-head{
   display: grid;
-  grid-template-columns: clamp(80px, 13%, 116px) 1fr clamp(68px, 11%, 92px);
-  gap: var(--s-3);
+  grid-template-columns: clamp(80px, 13%, 116px) 1fr clamp(54px, 9%, 80px);
+  column-gap: var(--s-3);
   margin-bottom: var(--s-3);
+  padding-bottom: 6px;
+  border-bottom: 1px dashed var(--c-rule-2);
   font-family: var(--f-mono);
   font-size: 9.5px;
   font-weight: 700;
   letter-spacing: var(--ls-label);
   text-transform: uppercase;
+  align-items: end;
 }
 .home-stack__chart-axis-bar{
-  display: flex; justify-content: space-between;
+  display: flex;
+  align-items: end;
+  justify-content: space-between;
+  gap: var(--s-3);
+  min-width: 0;
 }
-.home-stack__chart-axis--c{ color: var(--c-ink-3); }
-.home-stack__chart-axis--b{ color: var(--c-red); }
-.home-stack__chart-axis--gap{ color: var(--c-red-1); text-align: right; }
+.home-stack__chart-axis{
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.home-stack__chart-axis--c{ color: var(--c-ink-2); }
+.home-stack__chart-axis--b{
+  color: var(--c-red);
+  text-align: right;
+}
+.home-stack__chart-axis--gap{
+  color: var(--c-red-1);
+  text-align: right;
+}
+
+@media (max-width: 720px){
+  /* on phone, drop "BITTENSOR " prefix to just the symbol so the
+     two-line head doesn't get crushed */
+  .home-stack__chart-head{
+    grid-template-columns: clamp(70px, 13%, 92px) 1fr clamp(48px, 10%, 70px);
+    column-gap: var(--s-2);
+    font-size: 9px;
+  }
+}
 .home-stack__chart-rows{
   list-style: none;
   margin: 0;
@@ -1016,7 +1044,7 @@
 }
 .home-stack__chart-row{
   display: grid;
-  grid-template-columns: clamp(80px, 13%, 116px) 1fr clamp(68px, 11%, 92px);
+  grid-template-columns: clamp(80px, 13%, 116px) 1fr clamp(54px, 9%, 80px);
   align-items: center;
   gap: var(--s-3);
 }
@@ -1452,9 +1480,15 @@
     min-height: auto;
   }
   /* the lead chart goes a bit denser at narrow widths so it still
-     reads on a phone */
+     reads on a phone. Chart head + chart row share the same 3-col
+     grid template so axis labels stay aligned over their data. */
+  .home-stack__chart-head{
+    grid-template-columns: 70px 1fr 56px;
+    column-gap: var(--s-2);
+    font-size: 9px;
+  }
   .home-stack__chart-row{
-    grid-template-columns: 70px 1fr 64px;
+    grid-template-columns: 70px 1fr 56px;
     gap: var(--s-2);
   }
   .home-stack__chart-bar{ height: 26px; }

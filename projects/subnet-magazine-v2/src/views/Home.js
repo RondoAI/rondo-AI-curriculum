@@ -396,10 +396,10 @@ export function mountHome(root, dataLayer = null){
             <div class="home-stack__chart-head">
               <span class="home-stack__chart-axis-blank"></span>
               <span class="home-stack__chart-axis-bar">
-                <span class="home-stack__chart-axis home-stack__chart-axis--c">CENTRALIZED MARKET</span>
-                <span class="home-stack__chart-axis home-stack__chart-axis--b" title="α-MCAP = α-token market cap = α price × α circulating supply">BITTENSOR <span class="alpha">α</span>-MCAP <span class="home-stack__deftag">(<span class="alpha">α</span> price × supply)</span></span>
+                <span class="home-stack__chart-axis home-stack__chart-axis--c">CENTRALIZED</span>
+                <span class="home-stack__chart-axis home-stack__chart-axis--b" title="α-MCAP = α-token market cap = α price × α circulating supply">BITTENSOR <span class="alpha">α</span>-MCAP</span>
               </span>
-              <span class="home-stack__chart-axis home-stack__chart-axis--gap">GAP × </span>
+              <span class="home-stack__chart-axis home-stack__chart-axis--gap">GAP</span>
             </div>
             <ol class="home-stack__chart-rows">
               ${rows.map(r => {
