@@ -115,11 +115,41 @@ export function mountHome(root, dataLayer = null){
   const articles = articlesByDate();
 
   mount(root, html`
+    <!-- ===== FEATURED RESEARCH (top of page) ===== -->
+    <section class="home-research" aria-label="Featured research">
+      <div class="home-research__head">
+        <span class="home-net__kicker"><span class="live-dot"></span>Featured Research · the desk</span>
+        <a class="home-subnets__all" href="articles.html">All research ↗</a>
+      </div>
+      <ul class="home-research__grid">
+        ${articles.map((a, i) => `
+          <li class="home-article ${i === 0 ? 'is-lead' : ''}">
+            <a class="home-article__link" href="articles.html?id=${a.id}">
+              <span class="home-article__art">
+                ${cardArt(a.id + '|' + a.title, { variant: a.category || a.kicker || '', w: 520, h: i === 0 ? 300 : 220 })}
+                <span class="home-article__art-frame" aria-hidden="true"></span>
+                ${coverLogo(a)}
+                ${priceChip(a)}
+              </span>
+              <span class="home-article__kicker">${CAT_LABEL[a.category] || (a.kicker || 'RESEARCH')}</span>
+              <span class="home-article__title">${a.title}</span>
+              <span class="home-article__tagline">${a.tagline}</span>
+              <span class="home-article__meta">
+                <span>${a.authors.join(', ')}</span>
+                <span>${artDate(a.date)} · ${a.readMin} min</span>
+              </span>
+            </a>
+          </li>
+        `).join('')}
+      </ul>
+    </section>
+
     <!-- ===== BITTENSOR IN SIX STEPS (teaching block) =====
          A plain-language explainer of the protocol — what makes the
-         network work, in the order it works. Every page on the site
-         visualises this loop; this section names the parts so the
-         visualisations actually mean something to a first-time reader. -->
+         network work, in the order it works. Sits AFTER the research
+         rail so the magazine's editorial content opens the page; the
+         explainer is the second beat for readers who want to ground
+         themselves before diving into the data sections below. -->
     <section class="home-how" aria-label="Bittensor, in six steps">
       <div class="home-net__head">
         <span class="home-net__kicker">&gt; The protocol</span>
@@ -248,35 +278,6 @@ export function mountHome(root, dataLayer = null){
         <span>PROTOCOL · YUMA CONSENSUS · DTAO ENABLED</span>
         <span>READ MORE · TERMINAL → /WHITEPAPER</span>
       </span>
-    </section>
-
-    <!-- ===== FEATURED RESEARCH (top of page) ===== -->
-    <section class="home-research" aria-label="Featured research">
-      <div class="home-research__head">
-        <span class="home-net__kicker"><span class="live-dot"></span>Featured Research · the desk</span>
-        <a class="home-subnets__all" href="articles.html">All research ↗</a>
-      </div>
-      <ul class="home-research__grid">
-        ${articles.map((a, i) => `
-          <li class="home-article ${i === 0 ? 'is-lead' : ''}">
-            <a class="home-article__link" href="articles.html?id=${a.id}">
-              <span class="home-article__art">
-                ${cardArt(a.id + '|' + a.title, { variant: a.category || a.kicker || '', w: 520, h: i === 0 ? 300 : 220 })}
-                <span class="home-article__art-frame" aria-hidden="true"></span>
-                ${coverLogo(a)}
-                ${priceChip(a)}
-              </span>
-              <span class="home-article__kicker">${CAT_LABEL[a.category] || (a.kicker || 'RESEARCH')}</span>
-              <span class="home-article__title">${a.title}</span>
-              <span class="home-article__tagline">${a.tagline}</span>
-              <span class="home-article__meta">
-                <span>${a.authors.join(', ')}</span>
-                <span>${artDate(a.date)} · ${a.readMin} min</span>
-              </span>
-            </a>
-          </li>
-        `).join('')}
-      </ul>
     </section>
 
     <!-- ===== EMISSION TREEMAP =====
