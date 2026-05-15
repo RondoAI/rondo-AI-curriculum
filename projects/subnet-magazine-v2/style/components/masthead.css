@@ -15,9 +15,10 @@
   margin: 0 auto;
   padding: var(--s-8) var(--gutter) var(--s-6);
   display: grid;
-  grid-template-columns: 1fr auto;
+  grid-template-columns: minmax(0, 1fr) auto;
   align-items: center;
   gap: var(--s-6);
+  min-width: 0;
 }
 
 .brand{
@@ -165,6 +166,36 @@
   85%      { opacity: .85; }
   90%      { top: 100%; opacity: 0; }
   100%     { top: -2px;  opacity: 0; }
+}
+
+/* Mobile · stack the masthead grid so the live-block chip + X
+   handle wrap below the brand instead of overflowing the viewport. */
+@media (max-width: 720px){
+  .masthead__inner{
+    grid-template-columns: minmax(0, 1fr);
+    padding: var(--s-5) var(--gutter) var(--s-4);
+    gap: var(--s-3);
+  }
+  .masthead__diag{
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 4px 8px;
+    text-align: left;
+  }
+  .masthead__diag > *{
+    justify-self: auto;
+  }
+  .masthead__block{
+    flex-wrap: wrap;
+    max-width: 100%;
+  }
+  .masthead__x{
+    margin-top: 0;
+  }
+  .brand{
+    gap: var(--s-4);
+  }
 }
 
 /* Primary nav: function-code style, sticky */

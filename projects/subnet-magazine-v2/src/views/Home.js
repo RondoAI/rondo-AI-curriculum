@@ -306,9 +306,10 @@ export function mountHome(root, dataLayer = null){
         <span class="home-net__source"><span class="dot dot--editorial"></span>EDITORIAL · 14 MAY 2026 · MAPPED TO TOP-25 SUBNETS</span>
         <h2 class="home-net__title">The decentralized AI <em>stack.</em></h2>
         <p class="home-net__sub">Every layer of the centralized AI economy has a Bittensor
-        challenger. The map — what each layer does, who owns it today, who's competing for
-        it tomorrow, and how much daily <span class="tau">τ</span> is flowing to that layer
-        of the stack right now.</p>
+        challenger. Each card below names the layer, lists the centralized incumbents and
+        the Bittensor subnets competing for it, and shows what share of daily <span class="tau">τ</span>
+        emission across the top-25 subnets flows to that layer. Swipe sideways through the
+        seven layers.</p>
       </div>
 
       <ol class="home-stack__rows">
@@ -403,19 +404,25 @@ export function mountHome(root, dataLayer = null){
             share: 10,
             opp:   'uncontested',
           },
-        ].map(row => `
+        ].map((row, i) => {
+          const verdict = {
+            'breakaway':   'Where Bittensor is winning',
+            'contested':   'Competitive · neither side dominant',
+            'uncontested': 'Bittensor-only · no centralized analog',
+          }[row.opp];
+          return `
           <li class="home-stack__row" data-layer="${row.layer.toLowerCase()}">
             <div class="home-stack__layer">
+              <span class="home-stack__layer-tag">LAYER ${String(i + 1).padStart(2,'0')} / 07</span>
               <span class="home-stack__layer-name">${row.layer}</span>
               <span class="home-stack__layer-sub">${row.sub}</span>
-              <span class="home-stack__opp opp-${row.opp}">${row.opp.toUpperCase()}</span>
             </div>
             <div class="home-stack__cent">
               <span class="home-stack__col-lbl">CENTRALIZED INCUMBENTS</span>
               <ul>${row.cent.map(c => `<li><span class="home-stack__cent-pill">${c}</span></li>`).join('')}</ul>
             </div>
             <div class="home-stack__sn">
-              <span class="home-stack__col-lbl">BITTENSOR CHALLENGERS</span>
+              <span class="home-stack__col-lbl">BITTENSOR SUBNETS COMPETING HERE</span>
               <ul>${row.sn.map(s => `
                 <li>
                   <span class="home-stack__sn-pill cat-${s.cat}">
@@ -426,15 +433,16 @@ export function mountHome(root, dataLayer = null){
               `).join('')}</ul>
             </div>
             <div class="home-stack__share">
-              <span class="home-stack__col-lbl">EMISSION SHARE</span>
+              <span class="home-stack__col-lbl">SHARE OF TOP-25 DAILY <span class="tau">τ</span> EMISSION</span>
               <span class="home-stack__share-num">${row.share}%</span>
               <span class="home-stack__share-bar">
                 <span class="home-stack__share-fill" style="width: ${Math.min(100, row.share * 3)}%"></span>
               </span>
-              <span class="home-stack__share-sub">of daily <span class="tau">τ</span> emission</span>
+              <span class="home-stack__share-sub">${row.share < 12 ? 'Long-tail' : row.share < 20 ? 'Mid-stack' : 'Heavy concentration'} — ${verdict.toLowerCase()}.</span>
             </div>
           </li>
-        `).join('')}
+          `;
+        }).join('')}
       </ol>
 
       <p class="home-stack__thesis">

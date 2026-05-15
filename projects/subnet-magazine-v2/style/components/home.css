@@ -1060,18 +1060,57 @@
   color: var(--c-ink-4);
 }
 
-@media (max-width: 980px){
-  .home-stack__row{
-    grid-template-columns: 1fr 1fr;
-  }
-  .home-stack__layer{ grid-column: 1 / -1; flex-direction: row; align-items: center; flex-wrap: wrap; }
-  .home-stack__layer-name{ flex: 0 0 auto; }
-  .home-stack__layer-sub{ flex: 1 1 auto; }
-  .home-stack__share{ grid-column: 1 / -1; }
+.home-stack__layer-tag{
+  font-family: var(--f-mono);
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: var(--ls-label);
+  text-transform: uppercase;
+  color: var(--c-ink-4);
+  display: none;
 }
-@media (max-width: 560px){
-  .home-stack__row{ grid-template-columns: 1fr; }
-  .home-stack__row > div{ border-right: 0; border-bottom: var(--b-thin); }
+
+@media (max-width: 980px){
+  /* Mobile: convert the 4-col matrix into a horizontal swipe rail.
+     Each layer becomes a self-contained card the user swipes through;
+     vertical scroll length collapses from "endless 7×4 stack" to one
+     viewport-height swipe rail. */
+  .home-stack__rows{
+    margin: var(--s-5) calc(var(--gutter) * -1) 0;
+    padding: 2px var(--gutter) var(--s-4);
+    border: 0;
+    display: flex;
+    gap: var(--s-3);
+    overflow-x: auto;
+    overscroll-behavior-x: contain;
+    scroll-snap-type: x mandatory;
+    scrollbar-width: thin;
+    scrollbar-color: var(--c-rule-3) transparent;
+    -webkit-mask-image: linear-gradient(90deg,
+      transparent 0, #000 24px,
+      #000 calc(100% - 24px), transparent 100%);
+            mask-image: linear-gradient(90deg,
+      transparent 0, #000 24px,
+      #000 calc(100% - 24px), transparent 100%);
+  }
+  .home-stack__rows::-webkit-scrollbar{ height: 6px; }
+  .home-stack__rows::-webkit-scrollbar-thumb{ background: var(--c-rule-3); border-radius: 999px; }
+  .home-stack__row{
+    flex: 0 0 clamp(300px, 86vw, 380px);
+    scroll-snap-align: start;
+    scroll-snap-stop: always;
+    grid-template-columns: 1fr;
+    grid-template-rows: auto auto auto auto;
+    border: 1px solid var(--c-rule-2);
+    border-radius: 4px;
+    min-height: 540px;
+  }
+  .home-stack__row > div{
+    border-right: 0;
+    border-bottom: var(--b-thin);
+  }
+  .home-stack__row > div:last-child{ border-bottom: 0; }
+  .home-stack__layer-tag{ display: block; margin-bottom: 4px; color: var(--c-red); }
 }
 
 /* ---------- THE PROTOCOL PIPELINE (six stages, horizontal) ----------
