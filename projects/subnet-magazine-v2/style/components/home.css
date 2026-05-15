@@ -1351,6 +1351,160 @@
 }
 .home-bio__more:hover{ color: var(--c-red); }
 
+/* ---------- PAGE BREAK · magazine spine ----------
+   A big editorial divider that closes one page of the home view
+   and opens the next. The break itself reads as a real colophon —
+   a hairline rule with corner § marks and a centred "PAGE 01 · END"
+   chip, a small "Continued." caption, and a tap-target that scrolls
+   to the page-02 opener below it. The opener has its own big "PAGE
+   02" numeral, a serif title, dek, and a closing rule. */
+.home-pagebreak{
+  max-width: var(--max-w);
+  margin: 0 auto;
+  padding: clamp(56px, 12vw, 120px) var(--gutter) clamp(48px, 10vw, 96px);
+  display: flex; flex-direction: column;
+  align-items: center; text-align: center;
+  gap: var(--s-6);
+  position: relative;
+  background:
+    radial-gradient(60% 50% at 50% 50%, rgba(255,30,60,.06), transparent 70%);
+}
+.home-pagebreak__rule{
+  display: flex; align-items: center; gap: var(--s-3);
+  width: 100%;
+  max-width: 720px;
+}
+.home-pagebreak__corner{
+  font-family: var(--f-serif);
+  font-size: 20px; font-weight: 700;
+  color: var(--c-red);
+  line-height: 1;
+}
+.home-pagebreak__line{
+  flex: 1; height: 1px;
+  background: linear-gradient(90deg, transparent, var(--c-rule-3), transparent);
+}
+.home-pagebreak__num{
+  font-family: var(--f-mono);
+  font-size: var(--t-xs);
+  font-weight: 700;
+  letter-spacing: .14em;
+  text-transform: uppercase;
+  color: var(--c-red);
+  padding: 6px 14px;
+  border: 1px solid var(--c-rule-3);
+  border-radius: 999px;
+  background: rgba(255,30,60,.05);
+  white-space: nowrap;
+}
+.home-pagebreak__body{ max-width: 56ch; }
+.home-pagebreak__cap{
+  margin: 0;
+  font-family: var(--f-serif);
+  font-size: clamp(28px, 5vw, 44px);
+  font-weight: 300;
+  line-height: 1.05;
+  letter-spacing: var(--ls-display);
+  color: var(--c-ink-1);
+  font-style: italic;
+}
+.home-pagebreak__sub{
+  margin: var(--s-3) 0 0;
+  font-family: var(--f-mono);
+  font-size: var(--t-sm);
+  letter-spacing: var(--ls-label);
+  text-transform: uppercase;
+  color: var(--c-ink-3);
+}
+.home-pagebreak__sub em{
+  color: var(--c-red-1);
+  font-style: italic;
+}
+.home-pagebreak__turn{
+  display: inline-flex; align-items: center; gap: var(--s-3);
+  padding: 12px 24px;
+  border: 1px solid var(--c-rule-3);
+  border-radius: 999px;
+  background: rgba(255,30,60,.08);
+  color: var(--c-ink-1);
+  font-family: var(--f-mono);
+  font-size: var(--t-sm);
+  font-weight: 700;
+  letter-spacing: var(--ls-label);
+  text-transform: uppercase;
+  text-decoration: none;
+  transition: background var(--d-fast) var(--e-out),
+              border-color var(--d-fast) var(--e-out),
+              transform var(--d-fast) var(--e-out);
+}
+.home-pagebreak__turn:hover{
+  background: rgba(255,30,60,.18);
+  border-color: var(--c-red);
+  transform: translateY(2px);
+}
+.home-pagebreak__arrow{
+  display: inline-block;
+  color: var(--c-red);
+  animation: pageTurnArrow 2.2s ease-in-out infinite;
+}
+.home-pagebreak__hint{
+  display: inline-block;
+  padding: 3px 8px;
+  border-left: 1px solid var(--c-rule-2);
+  margin-left: var(--s-2);
+  color: var(--c-red-1);
+  font-size: 10px;
+}
+@keyframes pageTurnArrow {
+  0%, 100% { transform: translateY(0); }
+  50%      { transform: translateY(4px); }
+}
+
+/* page-02 opener */
+.home-pageopener{
+  max-width: var(--max-w);
+  margin: 0 auto;
+  padding: clamp(40px, 8vw, 80px) var(--gutter) clamp(24px, 4vw, 40px);
+  position: relative;
+  scroll-margin-top: 80px;
+}
+.home-pageopener__num{
+  font-family: var(--f-mono);
+  font-size: clamp(56px, 13vw, 132px);
+  font-weight: 800;
+  line-height: 1;
+  letter-spacing: -.02em;
+  color: var(--c-red-trace);
+  /* outlined-numeral look — the page-marker, big and faded */
+  -webkit-text-stroke: 1px var(--c-rule-3);
+  color: transparent;
+  margin-bottom: var(--s-4);
+}
+.home-pageopener__title{
+  margin: 0;
+  font-family: var(--f-serif);
+  font-size: clamp(36px, 7vw, 72px);
+  font-weight: 300;
+  line-height: var(--lh-tight);
+  letter-spacing: var(--ls-display);
+  color: var(--c-ink-1);
+}
+.home-pageopener__title em{ font-style: italic; color: var(--c-red); }
+.home-pageopener__dek{
+  margin: var(--s-5) 0 0;
+  max-width: 56ch;
+  font-family: var(--f-sans);
+  font-size: var(--t-lg);
+  line-height: var(--lh-loose);
+  color: var(--c-ink-2);
+}
+.home-pageopener__rule{
+  display: block;
+  margin-top: var(--s-8);
+  height: 1px;
+  background: linear-gradient(90deg, var(--c-red), transparent 80%);
+}
+
 /* ---------- responsive ---------- */
 @media (max-width: 980px){
   .home-net__grid{ grid-template-columns: repeat(3, 1fr); }

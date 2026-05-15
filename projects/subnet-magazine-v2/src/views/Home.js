@@ -872,6 +872,40 @@ export function mountHome(root, dataLayer = null){
       </div>
     </section>
 
+    <!-- ===== PAGE 01 · END =====
+         A magazine-style page break. Big colophon strip closes the
+         first half of the home view — articles, deep profiles,
+         protocol, machine, slice, live network — then a "TURN TO
+         PAGE 02" link drops the reader into the rankings layer. -->
+    <aside class="home-pagebreak" aria-label="End of page one">
+      <div class="home-pagebreak__rule">
+        <span class="home-pagebreak__corner">§</span>
+        <span class="home-pagebreak__line"></span>
+        <span class="home-pagebreak__num">PAGE 01 · END</span>
+        <span class="home-pagebreak__line"></span>
+        <span class="home-pagebreak__corner">§</span>
+      </div>
+      <div class="home-pagebreak__body">
+        <p class="home-pagebreak__cap">Bittensor, right now.</p>
+        <p class="home-pagebreak__sub">Featured research · top-25 deep profiles · the protocol loop · live network state. <em>Continued.</em></p>
+      </div>
+      <a class="home-pagebreak__turn" href="#page-02">
+        <span>Turn to Page 02</span>
+        <span class="home-pagebreak__arrow" aria-hidden="true">↓</span>
+        <span class="home-pagebreak__hint">THE LEADERBOARDS</span>
+      </a>
+    </aside>
+
+    <!-- ===== PAGE 02 · OPENER ===== -->
+    <header class="home-pageopener" id="page-02">
+      <div class="home-pageopener__num">PAGE 02</div>
+      <h2 class="home-pageopener__title">The <em>leaderboards.</em></h2>
+      <p class="home-pageopener__dek">Who's mining, who's validating, where the τ is actually
+      sitting. Two ranked rails — subnets by market cap and hotkeys by stake — pulled live off the
+      Tao Market Cap public feed.</p>
+      <span class="home-pageopener__rule"></span>
+    </header>
+
     <!-- ===== TOP SUBNETS ===== -->
     <section class="home-subnets" aria-label="Top subnets by market cap">
       <div class="home-subnets__head">
