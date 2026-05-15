@@ -45,6 +45,25 @@ function artDate(iso){
        + `${d.getUTCFullYear()}`;
 }
 
+/* The article cover badge. Subnet-scoped articles wear that subnet's
+   generative monogram (deterministic node-graph mark on its name);
+   every other article carries the official Bittensor τ mark — the
+   actual brand asset, served from /assets, inverted for the dark
+   ground. */
+function coverLogo(a){
+  /* only true subnet-profile articles wear the subnet monogram; the
+     rest carry the Bittensor τ — fund letters, op-eds, primers and
+     interviews are about the network, not a specific subnet */
+  const isProfile = (a.kicker || '').toUpperCase() === 'SUBNET PROFILE';
+  if (isProfile && a.subnet){
+    const sn = subnetById(Number(a.subnet));
+    if (sn){
+      return `<span class="home-article__logo home-article__logo--subnet" aria-hidden="true">${mark(sn.name, { size: 48 })}</span>`;
+    }
+  }
+  return `<span class="home-article__logo home-article__logo--tau" aria-hidden="true"><img src="assets/bittensor-tau.png" alt="" loading="lazy"></span>`;
+}
+
 /* Every article carries a token-price chip on its banner, the way a
    news feed tags each story with a ticker. Subnet-scoped articles
    show that subnet's α-price; the rest show τ/USD. */
@@ -108,6 +127,7 @@ export function mountHome(root, dataLayer = null){
               <span class="home-article__art">
                 ${cardArt(a.id + '|' + a.title, { variant: a.category || a.kicker || '', w: 520, h: i === 0 ? 300 : 220 })}
                 <span class="home-article__art-frame" aria-hidden="true"></span>
+                ${coverLogo(a)}
                 ${priceChip(a)}
               </span>
               <span class="home-article__kicker">${CAT_LABEL[a.category] || (a.kicker || 'RESEARCH')}</span>
