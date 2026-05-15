@@ -61,7 +61,7 @@ export function mountTickers(root, dataLayer = null){
   mount(root, html`
     <section class="tickerbar" aria-label="Live market tickers">
       <div class="ticker">
-        <span class="ticker__tag"><span class="live-dot"></span>Bi<span class="tau">ττ</span>ensor</span>
+        <span class="ticker__tag"><span class="live-dot"></span><span>Bi<span class="tau">ττ</span>ensor</span></span>
         <div class="ticker__viewport">
           <div class="ticker__track" id="ticker-eco">
             <span class="ticker__loading">loading live subnets…</span>
