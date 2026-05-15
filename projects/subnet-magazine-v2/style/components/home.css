@@ -356,6 +356,28 @@
 .home-article__price-chg{ font-weight: 600; }
 .home-article__price.up   .home-article__price-chg{ color: var(--c-up); }
 .home-article__price.down .home-article__price-chg{ color: var(--c-down); }
+
+/* External-link cards (X interviews, podcasts) — small ↗ glyph in
+   the top-left of the cover art, plus an underline shimmer on
+   hover so the card reads as "this opens off-site". */
+.home-article__ext-glyph{
+  position: absolute;
+  top: var(--s-2); left: var(--s-2);
+  width: 24px; height: 24px;
+  display: grid; place-items: center;
+  background: rgba(255,30,60,.18);
+  border: 1px solid var(--c-rule-3);
+  border-radius: 999px;
+  font-family: var(--f-mono);
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--c-red);
+  z-index: 2;
+  backdrop-filter: blur(4px);
+}
+.home-article.is-ext .home-article__kicker{
+  color: var(--c-red);
+}
 .home-article__kicker{
   grid-area: kicker;
   font-family: var(--f-mono);
@@ -830,6 +852,226 @@
 .home-foot__x:hover{
   border-color: var(--c-rule-3);
   background: var(--c-bg-3);
+}
+
+/* ---------- § 03 THE STACK · centralized vs Bittensor ----------
+   Original infographic. 7 layers of the AI value chain, each with
+   four columns: LAYER + role + opportunity badge | CENTRALIZED
+   incumbents | BITTENSOR challengers (subnet pills color-coded by
+   category) | EMISSION SHARE bar. Sets the editorial claim that
+   every layer of the centralized stack has a Bittensor challenger.
+   Mobile collapses each row to a vertical card with sub-blocks. */
+.home-stack{
+  max-width: var(--max-w);
+  margin: 0 auto;
+  padding: clamp(40px, 6vw, 72px) var(--gutter);
+  border-bottom: var(--b-thin);
+}
+.home-stack__rows{
+  list-style: none;
+  margin: var(--s-6) 0 0;
+  padding: 0;
+  border-top: var(--b-thin);
+  border-left: var(--b-thin);
+}
+.home-stack__row{
+  display: grid;
+  grid-template-columns: clamp(180px, 22%, 220px) 1fr 1.4fr clamp(140px, 18%, 180px);
+  gap: 0;
+  border-right: var(--b-thin);
+  border-bottom: var(--b-thin);
+  background: var(--c-bg-2);
+  transition: background var(--d-fast) var(--e-out);
+}
+.home-stack__row:hover{ background: var(--c-bg-3); }
+.home-stack__row > div{
+  padding: var(--s-4);
+  border-right: var(--b-thin);
+  display: flex; flex-direction: column; gap: var(--s-2);
+}
+.home-stack__row > div:last-child{ border-right: 0; }
+
+/* layer column: name · role · opportunity */
+.home-stack__layer{
+  background:
+    linear-gradient(180deg, rgba(255,30,60,.06), transparent 70%),
+    var(--c-bg-1);
+}
+.home-stack__layer-name{
+  font-family: var(--f-mono);
+  font-size: var(--t-md);
+  font-weight: 700;
+  letter-spacing: var(--ls-label);
+  color: var(--c-red);
+}
+.home-stack__layer-sub{
+  font-family: var(--f-sans);
+  font-size: var(--t-xs);
+  line-height: 1.4;
+  color: var(--c-ink-3);
+}
+.home-stack__opp{
+  align-self: start;
+  margin-top: var(--s-2);
+  padding: 2px 8px;
+  border-radius: 999px;
+  font-family: var(--f-mono);
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: var(--ls-label);
+  text-transform: uppercase;
+  border: 1px solid var(--c-rule-2);
+}
+.home-stack__opp.opp-breakaway   { color: var(--c-up);    background: rgba(0,229,168,.08);  border-color: rgba(0,229,168,.32); }
+.home-stack__opp.opp-contested   { color: var(--c-red-1); background: rgba(255,30,60,.08); }
+.home-stack__opp.opp-uncontested { color: var(--c-ink-1); background: rgba(255,255,255,.06); border-color: var(--c-rule-3); }
+
+/* shared column-label ("CENTRALIZED INCUMBENTS" etc.) */
+.home-stack__col-lbl{
+  font-family: var(--f-mono);
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: var(--ls-label);
+  text-transform: uppercase;
+  color: var(--c-ink-4);
+  margin-bottom: 2px;
+}
+
+/* centralized list */
+.home-stack__cent ul,
+.home-stack__sn ul{
+  list-style: none;
+  margin: 0; padding: 0;
+  display: flex; flex-wrap: wrap; gap: 6px;
+}
+.home-stack__cent-pill{
+  display: inline-block;
+  padding: 3px 8px;
+  border: 1px solid var(--c-rule-2);
+  border-radius: 999px;
+  background: rgba(255,255,255,.03);
+  color: var(--c-ink-2);
+  font-family: var(--f-mono);
+  font-size: 11px;
+  font-weight: 600;
+  white-space: nowrap;
+}
+
+/* bittensor pills — color-coded by category, with the SN id leading */
+.home-stack__sn-pill{
+  display: inline-flex; align-items: baseline; gap: 5px;
+  padding: 3px 8px;
+  border: 1px solid var(--c-rule-2);
+  border-radius: 999px;
+  background: rgba(255,30,60,.06);
+  color: var(--c-ink-1);
+  font-family: var(--f-mono);
+  font-size: 11px;
+  font-weight: 600;
+  white-space: nowrap;
+}
+.home-stack__sn-id{
+  color: var(--c-red);
+  font-weight: 700;
+  letter-spacing: var(--ls-data);
+  font-size: 10px;
+}
+/* category accents per pill */
+.home-stack__sn-pill.cat-text     { border-color: rgba(255,30,60,.32); }
+.home-stack__sn-pill.cat-vision   { border-color: rgba(255,180,0,.32); background: rgba(255,180,0,.05); }
+.home-stack__sn-pill.cat-agents   { border-color: rgba(120,180,255,.32); background: rgba(120,180,255,.05); }
+.home-stack__sn-pill.cat-training { border-color: rgba(0,229,168,.32); background: rgba(0,229,168,.05); }
+.home-stack__sn-pill.cat-data     { border-color: rgba(200,140,255,.32); background: rgba(200,140,255,.05); }
+.home-stack__sn-pill.cat-infra    { border-color: rgba(255,180,180,.32); background: rgba(255,180,180,.05); }
+.home-stack__sn-pill.cat-protocol { border-color: var(--c-rule-3); background: rgba(255,255,255,.05); color: var(--c-red); }
+
+/* emission share column: big number + bar + sub */
+.home-stack__share{
+  background: var(--c-bg-1);
+  align-items: stretch;
+}
+.home-stack__share-num{
+  font-family: var(--f-mono);
+  font-size: 26px;
+  font-weight: 700;
+  color: var(--c-red);
+  font-variant-numeric: tabular-nums;
+  line-height: 1;
+}
+.home-stack__share-bar{
+  position: relative;
+  display: block;
+  height: 6px;
+  background: var(--c-bg-3);
+  border-radius: 999px;
+  overflow: hidden;
+  border: 1px solid var(--c-rule-2);
+}
+.home-stack__share-fill{
+  display: block;
+  height: 100%;
+  background: linear-gradient(90deg, var(--c-red), var(--c-red-1));
+  border-radius: 999px;
+  transition: width .8s ease-out;
+}
+.home-stack__share-sub{
+  font-family: var(--f-mono);
+  font-size: 9.5px;
+  letter-spacing: var(--ls-label);
+  text-transform: uppercase;
+  color: var(--c-ink-4);
+}
+
+/* the editorial thesis line under the matrix */
+.home-stack__thesis{
+  margin: var(--s-6) auto 0;
+  max-width: 72ch;
+  text-align: center;
+  font-family: var(--f-serif);
+  font-size: clamp(18px, 3vw, 24px);
+  font-weight: 300;
+  line-height: 1.4;
+  letter-spacing: -.005em;
+  color: var(--c-ink-1);
+}
+.home-stack__thesis em{ font-style: italic; color: var(--c-red); }
+.home-stack__thesis-q{
+  display: inline-block;
+  color: var(--c-red);
+  font-style: normal;
+  font-weight: 700;
+  font-size: 1.4em;
+  line-height: 0;
+  vertical-align: -.18em;
+}
+
+.home-stack__foot{
+  margin-top: var(--s-4);
+  padding-top: var(--s-3);
+  border-top: var(--b-thin);
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--s-3) var(--s-6);
+  justify-content: space-between;
+  font-family: var(--f-mono);
+  font-size: var(--t-xs);
+  letter-spacing: var(--ls-label);
+  text-transform: uppercase;
+  color: var(--c-ink-4);
+}
+
+@media (max-width: 980px){
+  .home-stack__row{
+    grid-template-columns: 1fr 1fr;
+  }
+  .home-stack__layer{ grid-column: 1 / -1; flex-direction: row; align-items: center; flex-wrap: wrap; }
+  .home-stack__layer-name{ flex: 0 0 auto; }
+  .home-stack__layer-sub{ flex: 1 1 auto; }
+  .home-stack__share{ grid-column: 1 / -1; }
+}
+@media (max-width: 560px){
+  .home-stack__row{ grid-template-columns: 1fr; }
+  .home-stack__row > div{ border-right: 0; border-bottom: var(--b-thin); }
 }
 
 /* ---------- THE PROTOCOL PIPELINE (six stages, horizontal) ----------

@@ -37,6 +37,7 @@ const CAT_LABEL = {
   'op-ed':       'OP-ED',
   'fund-letter': 'FUND LETTER',
   'primer':      'PRIMER',
+  'interview':   'INTERVIEW',
 };
 
 /* Seed for top-25 cover banners — subnets whose netuids are NOT in
@@ -159,14 +160,24 @@ export function mountHome(root, dataLayer = null){
         <a class="home-subnets__all" href="articles.html">All research ↗</a>
       </div>
       <ul class="home-research__grid">
-        ${articles.map((a, i) => `
-          <li class="home-article ${i === 0 ? 'is-lead' : ''}">
-            <a class="home-article__link" href="articles.html?id=${a.id}">
+        ${articles.map((a, i) => {
+          /* externally-hosted articles (X video interviews, podcasts)
+             open in a new tab; locally-hosted PDFs route through the
+             /articles.html?id= reader. */
+          const ext = !!a.externalUrl;
+          const href = ext ? a.externalUrl : ('articles.html?id=' + a.id);
+          const linkAttrs = ext
+            ? `href="${href}" target="_blank" rel="noopener"`
+            : `href="${href}"`;
+          return `
+          <li class="home-article ${i === 0 ? 'is-lead' : ''} ${ext ? 'is-ext' : ''}">
+            <a class="home-article__link" ${linkAttrs}>
               <span class="home-article__art">
                 ${cardArt(a.id + '|' + a.title, { variant: a.category || a.kicker || '', w: 520, h: i === 0 ? 300 : 220 })}
                 <span class="home-article__art-frame" aria-hidden="true"></span>
                 ${coverLogo(a)}
                 ${priceChip(a)}
+                ${ext ? '<span class="home-article__ext-glyph" aria-hidden="true">↗</span>' : ''}
               </span>
               <span class="home-article__kicker">${CAT_LABEL[a.category] || (a.kicker || 'RESEARCH')}</span>
               <span class="home-article__title">${a.title}</span>
@@ -177,7 +188,8 @@ export function mountHome(root, dataLayer = null){
               </span>
             </a>
           </li>
-        `).join('')}
+          `;
+        }).join('')}
       </ul>
     </section>
 
@@ -281,6 +293,165 @@ export function mountHome(root, dataLayer = null){
       </span>
     </section>
 
+    <!-- ===== § 03 THE STACK · the decentralized AI map =====
+         Original infographic. Every layer of the centralized AI
+         economy has a Bittensor challenger. We map both columns
+         row-for-row, plus a fourth NETWORK-SHARE column that nobody
+         else publishes — daily τ emission share allocated to that
+         layer of the stack. Inspired by Social Capital's Physical-vs-
+         Digital AI matrix; rebuilt around the open / closed split. -->
+    <section class="home-stack" aria-label="The decentralized AI stack · centralized vs Bittensor">
+      <div class="home-net__head">
+        <span class="home-net__kicker"><span class="home-net__ord">§ 03</span><span class="live-dot"></span>The Stack · centralized vs Bittensor</span>
+        <span class="home-net__source"><span class="dot dot--editorial"></span>EDITORIAL · 14 MAY 2026 · MAPPED TO TOP-25 SUBNETS</span>
+        <h2 class="home-net__title">The decentralized AI <em>stack.</em></h2>
+        <p class="home-net__sub">Every layer of the centralized AI economy has a Bittensor
+        challenger. The map — what each layer does, who owns it today, who's competing for
+        it tomorrow, and how much daily <span class="tau">τ</span> is flowing to that layer
+        of the stack right now.</p>
+      </div>
+
+      <ol class="home-stack__rows">
+        ${[
+          {
+            layer: 'APPLICATION',
+            sub:   'Products users actually open.',
+            cent:  ['ChatGPT', 'Cursor', 'Perplexity', 'Pi'],
+            sn:    [
+              { id: 44,  name: 'Score Vision',  cat: 'vision' },
+              { id: 18,  name: 'Cortex.t',      cat: 'text' },
+              { id: 36,  name: 'Web Genie',     cat: 'agents' },
+              { id: 19,  name: 'Nineteen',      cat: 'text' },
+            ],
+            share: 12,
+            opp:   'contested',
+          },
+          {
+            layer: 'AGENT',
+            sub:   'Tool-using systems that act, not just answer.',
+            cent:  ['OpenAI Operator', 'Anthropic Computer Use', 'Adept', 'Devin'],
+            sn:    [
+              { id: 36, name: 'Web Genie',   cat: 'agents' },
+              { id: 59, name: 'AgentArena',  cat: 'agents' },
+              { id: 62, name: 'Ridges',      cat: 'agents' },
+            ],
+            share: 8,
+            opp:   'contested',
+          },
+          {
+            layer: 'MODEL',
+            sub:   'Foundation + finetune weights.',
+            cent:  ['GPT-5', 'Claude 4.6', 'Gemini 3', 'Llama 4'],
+            sn:    [
+              { id: 1,   name: 'Apex',     cat: 'text' },
+              { id: 9,   name: 'IOTA',     cat: 'training' },
+              { id: 3,   name: 'Templar',  cat: 'training' },
+              { id: 120, name: 'Affine',   cat: 'training' },
+              { id: 6,   name: 'Numinous', cat: 'text' },
+            ],
+            share: 26,
+            opp:   'breakaway',
+          },
+          {
+            layer: 'INFERENCE',
+            sub:   'Serving model output at API latency.',
+            cent:  ['OpenAI API', 'Together', 'Fireworks', 'Replicate'],
+            sn:    [
+              { id: 4,  name: 'Targon',    cat: 'text' },
+              { id: 18, name: 'Cortex.t',  cat: 'text' },
+              { id: 19, name: 'Nineteen',  cat: 'text' },
+            ],
+            share: 14,
+            opp:   'contested',
+          },
+          {
+            layer: 'DATA',
+            sub:   'The training set.',
+            cent:  ['ScaleAI', 'Surge', 'Common Crawl', 'Web scrape'],
+            sn:    [
+              { id: 13, name: 'Data Universe', cat: 'data' },
+              { id: 60, name: 'Snowballer',    cat: 'data' },
+              { id: 52, name: 'Dojo',          cat: 'data' },
+              { id: 24, name: 'BitMind',       cat: 'vision' },
+            ],
+            share: 11,
+            opp:   'breakaway',
+          },
+          {
+            layer: 'COMPUTE',
+            sub:   'GPU + CPU runtime layer.',
+            cent:  ['AWS', 'GCP', 'Azure', 'CoreWeave', 'Lambda'],
+            sn:    [
+              { id: 64, name: 'Chutes',    cat: 'infra' },
+              { id: 51, name: 'Lium',      cat: 'infra' },
+              { id: 39, name: 'Basilica',  cat: 'infra' },
+              { id: 27, name: 'Compute',   cat: 'infra' },
+              { id: 49, name: 'Polaris',   cat: 'infra' },
+            ],
+            share: 19,
+            opp:   'contested',
+          },
+          {
+            layer: 'PROTOCOL',
+            sub:   'Coordination + payment layer. The Bittensor-only row.',
+            cent:  ['—'],
+            sn:    [
+              { id: null, name: 'Yuma Consensus',  cat: 'protocol' },
+              { id: null, name: 'dTAO bonding',    cat: 'protocol' },
+              { id: null, name: 'Subtensor chain', cat: 'protocol' },
+            ],
+            share: 10,
+            opp:   'uncontested',
+          },
+        ].map(row => `
+          <li class="home-stack__row" data-layer="${row.layer.toLowerCase()}">
+            <div class="home-stack__layer">
+              <span class="home-stack__layer-name">${row.layer}</span>
+              <span class="home-stack__layer-sub">${row.sub}</span>
+              <span class="home-stack__opp opp-${row.opp}">${row.opp.toUpperCase()}</span>
+            </div>
+            <div class="home-stack__cent">
+              <span class="home-stack__col-lbl">CENTRALIZED INCUMBENTS</span>
+              <ul>${row.cent.map(c => `<li><span class="home-stack__cent-pill">${c}</span></li>`).join('')}</ul>
+            </div>
+            <div class="home-stack__sn">
+              <span class="home-stack__col-lbl">BITTENSOR CHALLENGERS</span>
+              <ul>${row.sn.map(s => `
+                <li>
+                  <span class="home-stack__sn-pill cat-${s.cat}">
+                    ${s.id != null ? `<span class="home-stack__sn-id">SN${s.id}</span>` : ''}
+                    <span class="home-stack__sn-name">${s.name}</span>
+                  </span>
+                </li>
+              `).join('')}</ul>
+            </div>
+            <div class="home-stack__share">
+              <span class="home-stack__col-lbl">EMISSION SHARE</span>
+              <span class="home-stack__share-num">${row.share}%</span>
+              <span class="home-stack__share-bar">
+                <span class="home-stack__share-fill" style="width: ${Math.min(100, row.share * 3)}%"></span>
+              </span>
+              <span class="home-stack__share-sub">of daily <span class="tau">τ</span> emission</span>
+            </div>
+          </li>
+        `).join('')}
+      </ol>
+
+      <p class="home-stack__thesis">
+        <span class="home-stack__thesis-q">“</span>
+        Every layer of the centralized AI economy has a Bittensor challenger.
+        <em>The protocol layer has no centralized analog</em> — and the breakaway
+        layers are MODEL and DATA, where decentralized incentive design beats
+        proprietary capture.
+        <span class="home-stack__thesis-q">”</span>
+      </p>
+
+      <footer class="home-stack__foot">
+        <span>SOURCES · TAOSTATS · TOP-25 EDITORIAL DESK · 14 MAY 2026</span>
+        <span>EMISSION SHARE · ROLLED UP FROM SUBNET-LAYER MAPPING · ROUNDED</span>
+      </footer>
+    </section>
+
     <!-- ===== PROTOCOL PIPELINE · v2 =====
          Reimagined as a research-paper pipeline. Six stages of the
          Yuma Consensus loop, each rendered as a full-width row with:
@@ -293,7 +464,7 @@ export function mountHome(root, dataLayer = null){
          documentation, not a marketing card grid. -->
     <section class="home-how" aria-label="The Bittensor protocol, stage by stage">
       <div class="home-net__head">
-        <span class="home-net__kicker"><span class="home-net__ord">§ 03</span>The protocol · yuma v2 · dtao enabled</span>
+        <span class="home-net__kicker"><span class="home-net__ord">§ 04</span>The protocol · yuma v2 · dtao enabled</span>
         <span class="home-net__source"><span class="dot dot--editorial"></span>EDITORIAL · YUMA RAO 2020 + 2026 NETWORK STATE</span>
         <h2 class="home-net__title">The loop, <em>stage by stage.</em></h2>
         <p class="home-net__sub">Six stages from task definition to token emission. What each
@@ -804,7 +975,7 @@ export function mountHome(root, dataLayer = null){
          that's the brand; this is the protocol diagram. -->
     <section class="home-neural" aria-label="The Bittensor consensus loop, visualized">
       <div class="home-net__head">
-        <span class="home-net__kicker"><span class="home-net__ord">§ 04</span>The machine</span>
+        <span class="home-net__kicker"><span class="home-net__ord">§ 05</span>The machine</span>
         <span class="home-net__source"><span class="dot dot--sim"></span>SIMULATED FEED-FORWARD · 5 LAYERS · 185 PULSES</span>
         <h2 class="home-net__title">Intelligence, <em>incentivized.</em></h2>
         <p class="home-net__sub">The loop you just read about, rendered live. Subnets set the task,
@@ -822,7 +993,7 @@ export function mountHome(root, dataLayer = null){
          pie actually gets split. -->
     <section class="home-neural" aria-label="Subnet emission share treemap">
       <div class="home-net__head">
-        <span class="home-net__kicker"><span class="home-net__ord">§ 05</span>The slice</span>
+        <span class="home-net__kicker"><span class="home-net__ord">§ 06</span>The slice</span>
         <span class="home-net__source"><span class="dot dot--live"></span>LIVE TAOSTATS · TOP 16 SUBNETS BY <span class="tau">τ</span>/DAY</span>
         <h2 class="home-net__title">Where the <em>emissions</em> go.</h2>
         <p class="home-net__sub">Bigger tile, bigger share. Chutes, Targon and Apex eat first;
@@ -840,7 +1011,7 @@ export function mountHome(root, dataLayer = null){
     <!-- ===== LIVE NETWORK band ===== -->
     <section class="home-net" aria-label="Live network statistics">
       <div class="home-net__head">
-        <span class="home-net__kicker"><span class="home-net__ord">§ 06</span><span class="live-dot"></span>Live Network · taomarketcap</span>
+        <span class="home-net__kicker"><span class="home-net__ord">§ 07</span><span class="live-dot"></span>Live Network · taomarketcap</span>
         <span class="home-net__source"><span class="dot dot--live"></span>LIVE TAO MARKET CAP PUBLIC API · 12s POLL</span>
         <h2 class="home-net__title">Bittensor, <em>right now.</em></h2>
         <p class="home-net__sub">Real on-chain data — TAO market, supply, staking, and chain state — refreshed straight from the Tao Market Cap public API.</p>
@@ -894,7 +1065,7 @@ export function mountHome(root, dataLayer = null){
          defensible against a public source in founders.js. -->
     <section class="home-network" aria-label="The operators desk · research and financial data on every top-25 subnet">
       <div class="home-net__head">
-        <span class="home-net__kicker"><span class="home-net__ord">§ 07</span><span class="live-dot"></span>The Operators · research &amp; financial data</span>
+        <span class="home-net__kicker"><span class="home-net__ord">§ 08</span><span class="live-dot"></span>The Operators · research &amp; financial data</span>
         <span class="home-net__source"><span class="dot dot--editorial"></span>OPERATORS DESK · 25 SUBNETS · 14 MAY 2026</span>
         <h2 class="home-net__title">Who <em>actually runs</em> these subnets.</h2>
         <p class="home-net__sub">For every top-25 subnet: the parent organisation, its lead investors,

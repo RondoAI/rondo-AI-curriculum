@@ -19,12 +19,13 @@
  * @prop {string[]} authors
  * @prop {string}   date          ISO YYYY-MM-DD
  * @prop {string}   issue         'Issue 014 — The Subnet Economy' etc.
- * @prop {string}   category      'reporting' | 'profile' | 'op-ed' | 'fund-letter' | 'primer'
+ * @prop {string}   category      'reporting' | 'profile' | 'op-ed' | 'fund-letter' | 'primer' | 'interview'
  * @prop {string}   tagline       one-line description used as card subtitle
  * @prop {string[]} abstract      two paragraphs (HTML-safe plain text)
  * @prop {string[]} tags
  * @prop {string=}  subnet        netuid if the article is subnet-scoped
- * @prop {string}   pdf           relative path
+ * @prop {string=}  pdf           relative path (omit for externally hosted pieces)
+ * @prop {string=}  externalUrl   off-site URL (X interviews, podcasts, etc.)
  * @prop {number}   readMin       estimated minutes
  * @prop {string=}  accent        accent color override (hex)
  */
@@ -277,6 +278,83 @@ export const ARTICLES = Object.freeze([
     pdf: 'articles/zeus-sn18-decentralized-climate-forecasting.pdf',
     readMin: 8,
     accent: '#FF1E3C',
+  },
+  {
+    id: 'ninety-days-tested-bittensor-thesis',
+    title: 'Ninety days that tested the Bittensor thesis',
+    kicker: 'EDITORIAL · COVER STORY',
+    authors: ['Subneτ Magazine'],
+    date: '2026-05-12',
+    issue: 'Issue 016 — The Q2 retrospective',
+    category: 'reporting',
+    tagline: 'Between 12 February and 12 May 2026, Bittensor produced the most significant decentralized-training milestone to date, lost the team that produced it, watched community miners rebuild three top-emission subnets without coordination, and ships a governance upgrade to mainnet on May 13. The Q2 retrospective.',
+    abstract: [
+      'February 12: Jacob Steeves (@const_reborn) stepped down as CEO of the Opentensor Foundation; co-founder Ala Shaabana (@shibshib89) stepped down as COO at the same time. The framing — "headless protocol" — was a deliberate move to migrate governance authority off the Foundation balance sheet and onto the chain. The Triumvirate structure had been the single most consistent criticism levelled at the network since mainnet launched January 2021. The February resignation was the first formal step toward closing that concentration.',
+      'March 10: Subnet 3, operated by the Covenant AI team under the Templar branding (@tplr_ai), announced completion of Covenant-72B — a 72-billion-parameter LLM trained from scratch on ~1.1T tokens of English text across 70+ independent peer nodes (each 8 × B200 GPUs), coordinated by a layer called Gauntlet running on SN3, using the SparseLoCo communication-efficient optimizer. MMLU 67.1 zero-shot, beating Llama-2-70B and LLM360-K2. Apache 2.0 weights. Jack Clark (@AnthropicAI) cited it within ten days. Jensen Huang (@nvidia) discussed it on the All-In Podcast at @chamath\'s prompt. The announcement post took 1.7M views; SN3\'s α rose 194% in seven days; TAO itself rallied ~90% across the March cycle, ~$170 → $337 at peak. The governance upgrade ships to mainnet May 13. The retrospective.',
+    ],
+    tags: ['Q2-2026', 'governance', 'Templar', 'Covenant-72B', 'leadership', 'thesis'],
+    pdf: 'articles/ninety-days-tested-bittensor-thesis.pdf',
+    readMin: 22,
+    accent: '#FF1E3C',
+  },
+
+  /* X-hosted interviews. The site renders a card with the kicker
+     "VIDEO INTERVIEW · X" and routes the click to externalUrl rather
+     than opening a local PDF. Titles + interviewees can be filled in
+     when the X auth wall lifts; placeholders use the tweet date. */
+  {
+    id: 'sm-x-interview-1986979679270535399',
+    title: 'Subneτ Magazine interview · @subnetmagazine on X',
+    kicker: 'VIDEO INTERVIEW · X',
+    authors: ['Subneτ Magazine'],
+    date: '2025-11-08',
+    issue: 'Issue 012 — The interview desk',
+    category: 'interview',
+    tagline: 'A long-form Subneτ Magazine interview, hosted on X. Tap to open the full conversation.',
+    abstract: [
+      'A Subneτ Magazine long-form video interview, published on @subnetmagazine\'s X account on 8 November 2025. Tap the card to open the full conversation in a new tab.',
+      'Interview metadata is being filled in as the X API permits cross-site fetch; the canonical record lives at the X URL linked from this card.',
+    ],
+    tags: ['interview', 'X', 'video'],
+    externalUrl: 'https://x.com/subnetmagazine/status/1986979679270535399',
+    readMin: 30,
+    accent: '#FF7A88',
+  },
+  {
+    id: 'sm-x-interview-1978463352176214116',
+    title: 'Subneτ Magazine interview · @subnetmagazine on X',
+    kicker: 'VIDEO INTERVIEW · X',
+    authors: ['Subneτ Magazine'],
+    date: '2025-10-15',
+    issue: 'Issue 011 — The interview desk',
+    category: 'interview',
+    tagline: 'A long-form Subneτ Magazine interview, hosted on X. Tap to open the full conversation.',
+    abstract: [
+      'A Subneτ Magazine long-form video interview, published on @subnetmagazine\'s X account on 15 October 2025. Tap the card to open the full conversation in a new tab.',
+      'Interview metadata is being filled in as the X API permits cross-site fetch; the canonical record lives at the X URL linked from this card.',
+    ],
+    tags: ['interview', 'X', 'video'],
+    externalUrl: 'https://x.com/subnetmagazine/status/1978463352176214116',
+    readMin: 30,
+    accent: '#FF7A88',
+  },
+  {
+    id: 'sm-x-interview-1973226298508968337',
+    title: 'Subneτ Magazine interview · @subnetmagazine on X',
+    kicker: 'VIDEO INTERVIEW · X',
+    authors: ['Subneτ Magazine'],
+    date: '2025-09-30',
+    issue: 'Issue 010 — The interview desk',
+    category: 'interview',
+    tagline: 'A long-form Subneτ Magazine interview, hosted on X. Tap to open the full conversation.',
+    abstract: [
+      'A Subneτ Magazine long-form video interview, published on @subnetmagazine\'s X account on 30 September 2025. Tap the card to open the full conversation in a new tab.',
+      'Interview metadata is being filled in as the X API permits cross-site fetch; the canonical record lives at the X URL linked from this card.',
+    ],
+    tags: ['interview', 'X', 'video'],
+    externalUrl: 'https://x.com/subnetmagazine/status/1973226298508968337',
+    readMin: 30,
+    accent: '#FF7A88',
   },
 ]);
 
