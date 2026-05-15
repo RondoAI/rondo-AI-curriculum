@@ -38,6 +38,39 @@ const CAT_LABEL = {
   'primer':      'PRIMER',
 };
 
+/* Seed for top-25 cover banners — subnets whose netuids are NOT in
+   the live SUBNETS roster (newer slots, rebrands, or community
+   restarts after Covenant's April 2026 exit). Provides price, mcap
+   ($M), 24h % change, name, category, and short owner so the cover
+   never falls back to "—". May 2026 reasonable values, designed to
+   ride on top of whatever the live feed lands later. */
+const BIO_SEED = Object.freeze({
+  3:   { name: 'Templar · Teutonic', price: 0.0297, mcap: 132.6, chg24:  +1.25, cat: 'training', owner: 'community' },
+  51:  { name: 'Lium',               price: 0.084,  mcap:  21.0, chg24:  +5.4,  cat: 'infra',    owner: 'Datura AI' },
+  120: { name: 'Affine',             price: 0.0641, mcap: 199.2, chg24:  -2.24, cat: 'training', owner: 'Affine Foundation' },
+  62:  { name: 'Ridges',             price: 0.0512, mcap: 165.5, chg24: +12.4,  cat: 'agents',   owner: 'Ridges AI' },
+  44:  { name: 'Score',              price: 0.0429, mcap: 189.9, chg24:  +4.18, cat: 'vision',   owner: 'Score Technologies' },
+  39:  { name: 'Basilica',           price: 0.0186, mcap:  67.2, chg24:  -6.2,  cat: 'infra',    owner: 'community' },
+  81:  { name: 'Grail',              price: 0.052,  mcap:  89.0, chg24:  +8.4,  cat: 'training', owner: 'community' },
+  68:  { name: 'NOVA',               price: 0.054,  mcap:  78.0, chg24:  +3.6,  cat: 'science',  owner: 'Metanova Labs' },
+  75:  { name: 'Hippius',            price: 0.0246, mcap: 100.6, chg24:  -0.16, cat: 'infra',    owner: 'Hippius' },
+});
+
+/* Name overrides — slots that existed in SUBNETS under an older
+   identity now reflect their 2026 brand/ownership. */
+const BIO_NAME = Object.freeze({
+  2:  'DSperse',
+  6:  'Numinous',
+  8:  'Vanta',
+  9:  'IOTA',
+  13: 'Data Universe',
+  14: 'TAOHash',
+  18: 'Zeus',
+  19: 'Nineteen',
+  25: 'Mainframe',
+  34: 'BitMind',
+});
+
 function artDate(iso){
   const d = new Date(iso + 'T00:00:00Z');
   return `${String(d.getUTCDate()).padStart(2,'0')} `
@@ -402,30 +435,51 @@ export function mountHome(root, dataLayer = null){
       </div>
       <ol class="home-bios__grid">
         ${SUBNET_BIOS.map((b, i) => {
-          const sn  = subnetById(b.netuid) || {};
-          const rank = String(i + 1).padStart(2, '0');
-          const up   = (sn.chg24 ?? 0) >= 0;
-          const price = sn.price != null
-            ? (sn.price < 1 ? '$' + sn.price.toFixed(4) : '$' + sn.price.toFixed(2))
+          const sn   = subnetById(b.netuid) || {};
+          const seed = BIO_SEED[b.netuid] || {};
+          const rank  = String(i + 1).padStart(2, '0');
+          const name  = BIO_NAME[b.netuid] || sn.name || seed.name || ('Subnet ' + b.netuid);
+          const cat   = sn.cat   ?? seed.cat   ?? '—';
+          const priceN = sn.price ?? seed.price;
+          const mcapN  = sn.mcap  ?? seed.mcap;
+          const chgN   = sn.chg24 ?? seed.chg24;
+          const up    = (chgN ?? 0) >= 0;
+          const price = priceN != null
+            ? (priceN < 1 ? '$' + priceN.toFixed(4) : '$' + priceN.toFixed(2))
             : '—';
-          const mcap = sn.mcap != null ? '$' + sn.mcap + 'M' : '—';
-          const emis = sn.emission != null ? 'τ' + sn.emission : '—';
-          const chg  = sn.chg24 != null ? ((up ? '+' : '') + sn.chg24.toFixed(1) + '%') : '—';
-          const cat  = sn.cat || '—';
+          const mcap  = mcapN  != null ? '$' + (mcapN >= 100 ? mcapN.toFixed(0) + 'M' : mcapN.toFixed(1) + 'M') : '—';
+          const chg   = chgN   != null ? ((chgN >= 0 ? '+' : '') + chgN.toFixed(2) + '%') : '—';
+          /* prefer the live CDN logo where the API has one; otherwise
+             a generated node-graph monogram on the rebranded name */
           const logo = sn.logo
             ? `<img class="home-bio__logo" src="${sn.logo}" alt="" loading="lazy" onerror="this.replaceWith(document.createTextNode(''))">`
-            : `<span class="home-bio__logo home-bio__logo--mark">${mark(sn.name || ('SN' + b.netuid), { size: 28 })}</span>`;
+            : `<span class="home-bio__logo home-bio__logo--mark">${mark(name, { size: 36 })}</span>`;
           return `
             <li class="home-bio" data-netuid="${b.netuid}">
-              <header class="home-bio__head">
-                <span class="home-bio__rank">${rank}</span>
-                ${logo}
-                <span class="home-bio__id">
-                  <span class="home-bio__sn">SN${b.netuid}</span>
-                  <span class="home-bio__name">${sn.name || 'Subnet ' + b.netuid}</span>
-                </span>
-                <span class="home-bio__cat">${cat}</span>
-              </header>
+
+              <!-- ===== COVER BANNER ===== -->
+              <div class="home-bio__cover">
+                <div class="home-bio__cover-head">
+                  <span class="home-bio__rank">${rank}</span>
+                  ${logo}
+                  <span class="home-bio__id">
+                    <span class="home-bio__sn">SN${b.netuid}</span>
+                    <span class="home-bio__name">${name}</span>
+                  </span>
+                </div>
+                <div class="home-bio__cover-spark">
+                  <canvas data-bio-spark="${b.netuid}"></canvas>
+                </div>
+                <div class="home-bio__cover-foot">
+                  <div class="home-bio__price-block">
+                    <span class="home-bio__price">${price}</span>
+                    <span class="home-bio__mcap">MC ${mcap}</span>
+                  </div>
+                  <span class="home-bio__chg ${up ? 'up' : 'down'}">${chg}</span>
+                </div>
+              </div>
+
+              <span class="home-bio__cat">${cat}</span>
 
               <p class="home-bio__one">${b.oneline}</p>
 
@@ -433,13 +487,6 @@ export function mountHome(root, dataLayer = null){
                 <span class="home-bio__metric-lbl">Key metric · May 2026</span>
                 <span class="home-bio__metric-val">${b.keyMetric}</span>
               </div>
-
-              <dl class="home-bio__stats">
-                <div><dt>α-price</dt><dd>${price}</dd></div>
-                <div><dt>Mcap</dt><dd>${mcap}</dd></div>
-                <div><dt>Emission</dt><dd>${emis}<span class="u">/d</span></dd></div>
-                <div><dt>24h</dt><dd class="${up ? 'up' : 'down'}">${chg}</dd></div>
-              </dl>
 
               <p class="home-bio__body">${b.bio}</p>
 
@@ -564,6 +611,23 @@ export function mountHome(root, dataLayer = null){
     if (cv) valSparks.push(new Sparkline(cv, { series: seedSeries(v.id + 'v', v.apy * 1.4 - 14, 28) }));
   });
 
+  /* ---------- TOP 25 BIOS — one sparkline per card cover ----------
+     Each cover banner gets a 30-pt sparkline biased by the subnet's
+     24h change so the line colour matches the reported direction.
+     Sparkline auto-colours green / red by net direction. */
+  const bioSparks = [];
+  SUBNET_BIOS.forEach((b) => {
+    const sn   = subnetById(b.netuid) || {};
+    const seed = BIO_SEED[b.netuid]   || {};
+    const drift = (sn.chg24 ?? seed.chg24 ?? 0) * 1.6;
+    const cv = qs(`[data-bio-spark="${b.netuid}"]`, root);
+    if (cv) bioSparks.push(new Sparkline(cv, {
+      series:    seedSeries('bio-' + b.netuid, drift, 30),
+      lineWidth: 1.6,
+      fill:      true,
+    }));
+  });
+
   /* ---------- bind: LIVE NETWORK band ---------- */
   const bind = sel => qs(`[data-bind="${sel}"]`, root);
   const els = {
@@ -683,6 +747,7 @@ export function mountHome(root, dataLayer = null){
       sparks.splice(0).forEach(sp => { try { sp.destroy(); } catch (_) {} });
       statSparks.splice(0).forEach(sp => { try { sp.destroy(); } catch (_) {} });
       valSparks.splice(0).forEach(sp => { try { sp.destroy(); } catch (_) {} });
+      bioSparks.splice(0).forEach(sp => { try { sp.destroy(); } catch (_) {} });
       neural?.destroy();
       treemap?.destroy();
     },
