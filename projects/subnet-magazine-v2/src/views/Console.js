@@ -31,8 +31,12 @@ const CSS = `
   border: 1px solid var(--c-rule-3, rgba(255,30,60,.36));
   border-left: 0; border-bottom: 0;
   border-top-right-radius: 4px;
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
+  /* No backdrop-filter on the dock. On Android Chrome especially,
+     a backdrop-filter on a position: fixed element that the page
+     has to scroll under is one of the heaviest compositor effects
+     in the browser — long pages stutter and on some devices touch
+     scroll silently dies. The gradient background gives enough
+     visual depth without it. */
   box-shadow:
     0 -2px 0 rgba(255,30,60,.18) inset,
     0 -16px 60px rgba(255,30,60,.18),

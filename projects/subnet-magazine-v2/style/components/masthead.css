@@ -207,9 +207,9 @@
 .primary-nav{
   position: sticky; top: 33px; /* below status bar */
   z-index: calc(var(--z-nav) - 1);
-  background: rgba(0,0,0,.78);
-  backdrop-filter: saturate(140%) blur(12px);
-  -webkit-backdrop-filter: saturate(140%) blur(12px);
+  background: rgba(0,0,0,.94);
+  /* No backdrop-filter — sticky + backdrop-filter + long page is
+     an Android Chrome scroll-killer. Solid-ish background instead. */
   border-top: 1px solid var(--c-rule);
   border-bottom: 1px solid var(--c-rule);
 }

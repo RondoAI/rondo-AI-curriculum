@@ -10,10 +10,12 @@
 .statusbar{
   position: sticky; top: 0; z-index: var(--z-nav);
   background:
-    radial-gradient(120% 80% at 50% -10%, rgba(255,30,60,.10), transparent 60%),
-    rgba(5,2,3,.85);
-  backdrop-filter: blur(14px);
-  -webkit-backdrop-filter: blur(14px);
+    radial-gradient(120% 80% at 50% -10%, rgba(255,30,60,.12), transparent 60%),
+    rgba(5,2,3,.97);
+  /* Backdrop-filter on a sticky element with a long page scrolling
+     behind is an Android Chrome scroll-killer — recomposite cost
+     adds up over a long page. Bumped the underlying background
+     opacity to .97 so the chrome still reads as glassy. */
   border-bottom: 1px solid var(--c-rule-2);
   font-family: var(--f-mono);
   font-size: var(--t-xs);

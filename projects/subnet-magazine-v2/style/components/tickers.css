@@ -16,9 +16,10 @@
   border-bottom: 1px solid var(--c-rule-2);
   background:
     radial-gradient(120% 60% at 50% 0%, rgba(255,30,60,.05), transparent 70%),
-    linear-gradient(180deg, rgba(10,3,6,.92), rgba(5,2,3,.92));
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
+    linear-gradient(180deg, rgba(10,3,6,.98), rgba(5,2,3,.98));
+  /* No backdrop-filter — even on a non-sticky bar, layered with
+     other backdrop-filter chrome above/below it the compositor
+     cost on Android Chrome adds up. Solid-ish background instead. */
   position: relative;
   z-index: 6;
 }
