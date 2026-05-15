@@ -23,6 +23,7 @@ import { money, compact, pct, deltaClass, int } from '../lib/format.js';
 import { mark, seedSeries } from '../lib/mark.js';
 import { cardArt } from '../lib/art.js';
 import { Sparkline } from '../charts/Sparkline.js';
+import { NeuralNet } from '../charts/NeuralNet.js';
 import { Treemap } from '../charts/Treemap.js';
 import { articlesByDate } from '../data/articles.js';
 import { subnetById, SUBNETS } from '../data/subnets.js';
@@ -280,13 +281,33 @@ export function mountHome(root, dataLayer = null){
       </span>
     </section>
 
+    <!-- ===== NEURAL NETWORK =====
+         The Six Steps explainer above named the loop in words; this
+         section renders that same loop as a working feed-forward
+         network. Five layers labelled SUBNETS → MINERS → VALIDATORS
+         → WEIGHTS → CONSENSUS, with red signal pulses crossing them
+         every block. Different mode than the masthead plexus —
+         that's the brand; this is the protocol diagram. -->
+    <section class="home-neural" aria-label="The Bittensor consensus loop, visualized">
+      <div class="home-net__head">
+        <span class="home-net__kicker"><span class="home-net__ord">§ 03</span>The machine</span>
+        <h2 class="home-net__title">Intelligence, <em>incentivized.</em></h2>
+        <p class="home-net__sub">The loop you just read about, rendered live. Subnets set the task,
+        miners answer, validators score, weights settle, consensus pays. Watch one block of work
+        cross the network end to end.</p>
+      </div>
+      <div class="home-neural__canvas">
+        <canvas data-canvas="neural"></canvas>
+      </div>
+    </section>
+
     <!-- ===== EMISSION TREEMAP =====
          The visual companion to step 05 (Emissions) of the Six Steps
          explainer above — now you've named the parts, here's how the
          pie actually gets split. -->
     <section class="home-neural" aria-label="Subnet emission share treemap">
       <div class="home-net__head">
-        <span class="home-net__kicker"><span class="home-net__ord">§ 03</span>The slice</span>
+        <span class="home-net__kicker"><span class="home-net__ord">§ 04</span>The slice</span>
         <h2 class="home-net__title">Where the <em>emissions</em> go.</h2>
         <p class="home-net__sub">Bigger tile, bigger share. Chutes, Targon and Apex eat first;
         the long tail fights for the edges. Sized by daily τ emission, darker red = higher rank.</p>
@@ -303,7 +324,7 @@ export function mountHome(root, dataLayer = null){
     <!-- ===== LIVE NETWORK band ===== -->
     <section class="home-net" aria-label="Live network statistics">
       <div class="home-net__head">
-        <span class="home-net__kicker"><span class="home-net__ord">§ 04</span><span class="live-dot"></span>Live Network · taomarketcap</span>
+        <span class="home-net__kicker"><span class="home-net__ord">§ 05</span><span class="live-dot"></span>Live Network · taomarketcap</span>
         <h2 class="home-net__title">Bittensor, <em>right now.</em></h2>
         <p class="home-net__sub">Real on-chain data — TAO market, supply, staking, and chain state — refreshed straight from the Tao Market Cap public API.</p>
       </div>
@@ -351,7 +372,7 @@ export function mountHome(root, dataLayer = null){
     <section class="home-subnets" aria-label="Top subnets by market cap">
       <div class="home-subnets__head">
         <div>
-          <span class="home-net__kicker"><span class="home-net__ord">§ 05</span><span class="live-dot"></span>Top Subnets · by market cap</span>
+          <span class="home-net__kicker"><span class="home-net__ord">§ 06</span><span class="live-dot"></span>Top Subnets · by market cap</span>
           <h2 class="home-net__title">Who's <em>winning</em> the blocks.</h2>
         </div>
         <a class="home-subnets__all" href="subnets.html">All subnets ↗</a>
@@ -368,7 +389,7 @@ export function mountHome(root, dataLayer = null){
     <section class="home-vals" aria-label="Top validators by stake">
       <div class="home-subnets__head">
         <div>
-          <span class="home-net__kicker"><span class="home-net__ord">§ 06</span><span class="live-dot"></span>Top Validators · by stake</span>
+          <span class="home-net__kicker"><span class="home-net__ord">§ 07</span><span class="live-dot"></span>Top Validators · by stake</span>
           <h2 class="home-net__title">The hotkeys that <em>run the network.</em></h2>
         </div>
         <a class="home-subnets__all" href="validators.html">All validators ↗</a>
@@ -399,7 +420,7 @@ export function mountHome(root, dataLayer = null){
     <!-- ===== SECTIONS NAV ===== -->
     <section class="home-sections" aria-label="Site sections">
       <div class="home-net__head">
-        <span class="home-net__kicker"><span class="home-net__ord">§ 07</span>The whole terminal</span>
+        <span class="home-net__kicker"><span class="home-net__ord">§ 08</span>The whole terminal</span>
         <h2 class="home-net__title">Nine ways in.</h2>
       </div>
       <ul class="home-sections__grid">
@@ -422,6 +443,13 @@ export function mountHome(root, dataLayer = null){
       <span>Live data · Tao Market Cap public API · ${new Date().getUTCFullYear()}</span>
     </footer>
   `);
+
+  /* ---------- neural-net protocol diagram ----------
+     Five labelled layers — subnets, miners, validators, weights,
+     consensus — wired together with red signal pulses. Lives in the
+     "machine" section right under the Six Steps explainer. */
+  const neuralCanvas = qs('[data-canvas="neural"]', root);
+  const neural = neuralCanvas ? new NeuralNet(neuralCanvas) : null;
 
   /* ---------- emission treemap ----------
      Fewer tiles on phone so labels fit; more on desktop so you see
@@ -581,6 +609,7 @@ export function mountHome(root, dataLayer = null){
       sparks.splice(0).forEach(sp => { try { sp.destroy(); } catch (_) {} });
       statSparks.splice(0).forEach(sp => { try { sp.destroy(); } catch (_) {} });
       valSparks.splice(0).forEach(sp => { try { sp.destroy(); } catch (_) {} });
+      neural?.destroy();
       treemap?.destroy();
     },
   };
