@@ -791,66 +791,99 @@
   background: var(--c-bg-3);
 }
 
-/* ---------- THE PROTOCOL PIPELINE (six stages) ----------
-   Research-paper layout: each stage is a full-width row laid as
-   rail | body | viz. The rail carries the stage number and a
-   vertical connector pipe that runs the height of the section,
-   chaining the stages into one visible loop. */
+/* ---------- THE PROTOCOL PIPELINE (six stages, horizontal) ----------
+   Reimagined as a horizontal scroll rail of stage cards, matching
+   the Top-25 bios rail. Each card is a self-contained protocol-spec
+   panel: number rail at the top, title + role meta, technical brief
+   with inline stats, a 3-field data list, a representative-subnet
+   chip, then a bespoke animated SVG viz spanning the card's bottom
+   half. The user swipes through the six stages the way you swipe
+   through the dTAO ranking. */
+
+/* the optional loop-summary diagram that introduces the section */
+.home-how__loop{
+  margin: var(--s-5) 0 var(--s-3);
+  padding: var(--s-4) var(--s-3);
+  background: linear-gradient(180deg, rgba(255,30,60,.04), transparent),
+              var(--c-bg-1);
+  border: 1px solid var(--c-rule-2);
+  border-radius: 4px;
+  color: var(--c-red-1);
+}
+.home-how__loop svg{ display: block; width: 100%; height: auto; max-height: 110px; }
+.home-how__loop-cap{
+  margin: var(--s-2) 0 0;
+  display: flex; justify-content: space-between; align-items: center;
+  flex-wrap: wrap; gap: var(--s-3);
+  font-family: var(--f-mono);
+  font-size: var(--t-xs);
+  letter-spacing: var(--ls-label);
+  text-transform: uppercase;
+  color: var(--c-ink-3);
+}
+.home-how__loop-cap span{ color: var(--c-red-1); font-weight: 700; }
+
 .home-how__pipe{
   list-style: none;
-  margin: var(--s-6) 0 0;
-  padding: 0;
-  display: grid;
-  grid-template-columns: 1fr;
-  gap: 0;
-  position: relative;
-  counter-reset: how;
-  border-top: var(--b-thin);
+  margin: var(--s-4) calc(var(--gutter) * -1) 0;
+  padding: 2px var(--gutter) var(--s-4);
+  display: flex;
+  gap: var(--s-3);
+  overflow-x: auto;
+  overscroll-behavior-x: contain;
+  scroll-snap-type: x mandatory;
+  scrollbar-width: thin;
+  scrollbar-color: var(--c-rule-3) transparent;
+  -webkit-mask-image: linear-gradient(90deg,
+    transparent 0, #000 28px,
+    #000 calc(100% - 28px), transparent 100%);
+          mask-image: linear-gradient(90deg,
+    transparent 0, #000 28px,
+    #000 calc(100% - 28px), transparent 100%);
 }
+.home-how__pipe::-webkit-scrollbar{ height: 6px; }
+.home-how__pipe::-webkit-scrollbar-thumb{ background: var(--c-rule-3); border-radius: 999px; }
+
 .home-how__row{
   position: relative;
   display: grid;
-  grid-template-columns: 56px minmax(0, 1fr) clamp(200px, 32%, 320px);
-  gap: var(--s-5);
-  padding: var(--s-5) 0;
-  border-bottom: var(--b-thin);
-  transition: background var(--d-fast) var(--e-out);
+  grid-template-rows: auto auto auto auto auto 1fr;
+  gap: var(--s-3);
+  padding: var(--s-5);
+  background: var(--c-bg-2);
+  border: 1px solid var(--c-rule-2);
+  border-radius: 4px;
+  flex: 0 0 clamp(300px, 86vw, 380px);
+  scroll-snap-align: start;
+  scroll-snap-stop: always;
+  min-height: 600px;
+  transition: background var(--d-fast) var(--e-out),
+              border-color var(--d-fast) var(--e-out);
 }
-.home-how__row:hover{ background: rgba(255,30,60,.025); }
+.home-how__row:hover{ border-color: var(--c-rule-3); }
 .home-how__row::before{
-  /* hairline accent rail along the top — the bloomberg pane signal */
+  /* a hairline accent rail at the top, the bloomberg pane signal */
   content: "";
   position: absolute;
-  top: -1px; left: 56px;
-  width: 80px; height: 1px;
+  top: -1px; left: 0;
+  width: 64px; height: 2px;
   background: linear-gradient(90deg, var(--c-red), transparent);
 }
+
 .home-how__rail{
-  position: relative;
-  display: flex; flex-direction: column; align-items: center;
+  display: inline-flex;
+  align-items: center;
+  gap: var(--s-2);
 }
 .home-how__num{
   font-family: var(--f-mono);
-  font-size: var(--t-xl);
+  font-size: var(--t-2xl);
   font-weight: 700;
   line-height: 1;
   color: var(--c-red);
   letter-spacing: var(--ls-data);
   font-variant-numeric: tabular-nums;
-  padding-top: 2px;
 }
-.home-how__rail::after{
-  /* the connector pipe drops from below the number to the next row */
-  content: "";
-  position: absolute;
-  top: 32px;
-  bottom: -16px;
-  left: 50%;
-  width: 1px;
-  background: var(--c-rule-2);
-  transform: translateX(-50%);
-}
-.home-how__row:last-child .home-how__rail::after{ display: none; }
 
 .home-how__body{ display: flex; flex-direction: column; gap: var(--s-3); min-width: 0; }
 .home-how__head{
@@ -860,7 +893,7 @@
 .home-how__h{
   margin: 0;
   font-family: var(--f-serif);
-  font-size: 26px;
+  font-size: 24px;
   font-weight: 700;
   letter-spacing: -.015em;
   color: var(--c-ink-1);
@@ -877,10 +910,9 @@
 .home-how__brief{
   margin: 0;
   font-family: var(--f-sans);
-  font-size: var(--t-md);
+  font-size: var(--t-sm);
   line-height: 1.55;
   color: var(--c-ink-2);
-  max-width: 64ch;
 }
 .home-how__brief em{ font-style: italic; color: var(--c-red-1); }
 .home-how__brief .val{
@@ -888,7 +920,7 @@
   color: var(--c-ink-1);
   background: var(--c-red-trace);
   border: 1px solid var(--c-rule-2);
-  padding: 1px 6px;
+  padding: 1px 5px;
   border-radius: 3px;
   font-size: .9em;
   white-space: nowrap;
@@ -902,16 +934,15 @@
   margin: 0;
   border-top: var(--b-thin);
   border-left: var(--b-thin);
-  max-width: 520px;
 }
 .home-how__data > div{
-  padding: 6px 10px;
+  padding: 6px 8px;
   border-right: var(--b-thin);
   border-bottom: var(--b-thin);
   display: flex; flex-direction: column; gap: 2px;
 }
 .home-how__data dt{
-  font-family: var(--f-mono); font-size: 9.5px; font-weight: 600;
+  font-family: var(--f-mono); font-size: 9px; font-weight: 600;
   letter-spacing: var(--ls-label); text-transform: uppercase;
   color: var(--c-ink-4);
   margin: 0;
@@ -929,7 +960,7 @@
   display: flex; align-items: center; gap: var(--s-2); flex-wrap: wrap;
 }
 .home-how__ex-lbl{
-  font-family: var(--f-mono); font-size: 9.5px; font-weight: 600;
+  font-family: var(--f-mono); font-size: 9px; font-weight: 600;
   letter-spacing: var(--ls-label); text-transform: uppercase;
   color: var(--c-ink-4);
 }
@@ -944,29 +975,22 @@
 }
 
 .home-how__viz{
-  align-self: start;
+  align-self: stretch;
   width: 100%;
-  height: clamp(100px, 14vw, 140px);
+  height: 220px;
   padding: var(--s-3);
   background: linear-gradient(180deg, rgba(255,30,60,.04), transparent),
               var(--c-bg-1);
   border: 1px solid var(--c-rule-2);
   border-radius: 4px;
   color: var(--c-red-1);
+  overflow: hidden;
 }
 .home-how__viz svg{
   display: block;
   width: 100%; height: 100%;
   color: var(--c-red-1);
 }
-.home-how__viz--code{
-  font-family: var(--f-mono); font-size: 11px; line-height: 1.65;
-  color: var(--c-ink-2); display: flex; align-items: center;
-}
-.home-how__viz--code pre{ margin: 0; }
-.home-how__viz--code code{ display: block; white-space: pre; }
-.home-how__viz--code .c{ color: var(--c-ink-4); }
-.home-how__viz--code .fn{ color: var(--c-red-1); }
 
 .home-how__foot{
   margin-top: var(--s-5);
@@ -985,6 +1009,20 @@
 }
 .home-how__more{ color: var(--c-red-1); font-weight: 700; }
 .home-how__more:hover{ color: var(--c-red); }
+
+/* animations used inside the viz panels */
+@keyframes howPulse {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50%      { opacity: .35; transform: scale(.7); }
+}
+@keyframes howShimmer {
+  0%, 100% { fill-opacity: .9; }
+  50%      { fill-opacity: .35; }
+}
+@keyframes howVote {
+  0%, 100% { transform: translateX(0); }
+  50%      { transform: translateX(-4px); }
+}
 
 /* ---------- TOP 25 BIOS · the research-card grid ----------
    Each card is a data-density playground: rank chip + mark + name +
@@ -1318,9 +1356,6 @@
   .home-net__grid{ grid-template-columns: repeat(3, 1fr); }
   .home-subnets__grid{ grid-template-columns: repeat(2, 1fr); }
   .home-sections__grid{ grid-template-columns: repeat(2, 1fr); }
-  /* protocol pipeline drops the viz column on narrower screens */
-  .home-how__row{ grid-template-columns: 48px minmax(0, 1fr); }
-  .home-how__viz{ grid-column: 2; }
 }
 @media (max-width: 560px){
   .home-net__grid{ grid-template-columns: repeat(2, 1fr); }

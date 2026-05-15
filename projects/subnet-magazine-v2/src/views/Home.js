@@ -291,6 +291,47 @@ export function mountHome(root, dataLayer = null){
         it best as of 14 May 2026. Read top to bottom.</p>
       </div>
 
+      <!-- Loop summary diagram: all six stages on one strip with a
+           perpetual red pulse traveling around the loop, the way a
+           Bloomberg pipeline chart shows a process running. -->
+      <div class="home-how__loop" aria-hidden="true">
+        <svg viewBox="0 0 720 76" preserveAspectRatio="xMidYMid meet">
+          <defs>
+            <marker id="how-arrow" viewBox="0 0 8 8" refX="6" refY="4"
+                    markerWidth="6" markerHeight="6" orient="auto">
+              <path d="M0,0 L8,4 L0,8 Z" fill="currentColor"/>
+            </marker>
+            <path id="how-loop-path"
+                  d="M 60 38 L 660 38" fill="none"/>
+          </defs>
+          ${['SUBNETS','MINERS','VALIDATORS','CONSENSUS','EMISSIONS','DTAO']
+            .map((lbl, i) => {
+              const x = 60 + i * 120;
+              return `
+                <g class="how-loop__node">
+                  <circle cx="${x}" cy="38" r="22" fill="rgba(255,30,60,.06)" stroke="currentColor" stroke-width="1"/>
+                  <text x="${x}" y="34" text-anchor="middle"
+                        font-family="JetBrains Mono, monospace" font-size="8"
+                        font-weight="700" fill="#FF1E3C">${String(i+1).padStart(2,'0')}</text>
+                  <text x="${x}" y="46" text-anchor="middle"
+                        font-family="JetBrains Mono, monospace" font-size="6.5"
+                        font-weight="600" fill="currentColor" opacity=".72">${lbl}</text>
+                </g>
+                ${i < 5 ? `<line x1="${x + 24}" y1="38" x2="${x + 120 - 24}" y2="38"
+                                stroke="currentColor" stroke-width=".8"
+                                stroke-opacity=".4" marker-end="url(#how-arrow)"/>` : ''}
+              `;
+            }).join('')}
+          <!-- a red pulse dot traveling along the chain end-to-end -->
+          <circle r="3" fill="#FF1E3C">
+            <animateMotion dur="9s" repeatCount="indefinite" path="M 60 38 L 660 38"/>
+            <animate attributeName="opacity" values="0;1;1;1;0"
+                     keyTimes="0;0.05;0.5;0.95;1" dur="9s" repeatCount="indefinite"/>
+          </circle>
+        </svg>
+        <p class="home-how__loop-cap">One block of work, six stages. <span>9.2 s · 14 MAY 2026</span></p>
+      </div>
+
       <ol class="home-how__pipe">
 
         <li class="home-how__row" data-stage="01">
@@ -312,25 +353,40 @@ export function mountHome(root, dataLayer = null){
             <p class="home-how__ex"><span class="home-how__ex-lbl">Representative</span><span class="home-how__ex-chip">SN64 Chutes · serverless GPU compute</span></p>
           </div>
           <div class="home-how__viz" aria-hidden="true">
-            <svg viewBox="0 0 120 80" preserveAspectRatio="xMidYMid meet">
-              <g fill="none" stroke="currentColor" stroke-width=".8">
-                ${(() => {
-                  /* 6×4 grid of cells — ~16 of 24 lit to convey "many active markets" */
-                  const lit = new Set([0,1,2,4,5,7,8,9,11,12,14,15,17,19,20,22]);
-                  let cells = '';
-                  for (let r = 0; r < 4; r++){
-                    for (let c = 0; c < 6; c++){
-                      const i = r * 6 + c;
-                      const x = 4 + c * 19, y = 4 + r * 18;
-                      cells += lit.has(i)
-                        ? `<rect x="${x}" y="${y}" width="15" height="14" fill="currentColor" fill-opacity=".55" stroke="currentColor"/>`
-                        : `<rect x="${x}" y="${y}" width="15" height="14" stroke="currentColor" stroke-opacity=".25"/>`;
-                    }
-                  }
-                  return cells;
-                })()}
-              </g>
-              <text x="4" y="78" font-family="JetBrains Mono, monospace" font-size="6" font-weight="600" fill="currentColor" opacity=".55">SUBNET SLOTS · ACTIVE/TOTAL</text>
+            <!-- Subnet population by category — horizontal bar chart with
+                 live pulse dots. Sorted by count. -->
+            <svg viewBox="0 0 220 160" preserveAspectRatio="xMidYMid meet">
+              <text x="6" y="10" font-family="JetBrains Mono, monospace" font-size="7"
+                    font-weight="700" fill="currentColor" opacity=".55">SUBNETS BY CATEGORY · LIVE</text>
+              <line x1="0" y1="14" x2="220" y2="14" stroke="currentColor" stroke-opacity=".22" stroke-width=".5"/>
+              ${[
+                ['TEXT',     22],
+                ['VISION',   18],
+                ['INFRA',    14],
+                ['TRAINING', 12],
+                ['FINANCE',  10],
+                ['AGENTS',    8],
+                ['SCIENCE',   6],
+                ['DATA',      2],
+              ].map(([cat, n], i) => {
+                const y = 24 + i * 15;
+                const w = n * 7;            // 22 → 154
+                const delay = (i * 0.18).toFixed(2);
+                return `
+                  <text x="6"  y="${y + 4}" font-family="JetBrains Mono, monospace" font-size="7"
+                        font-weight="600" fill="currentColor" opacity=".82">${cat}</text>
+                  <rect x="56" y="${y - 4}" width="${w}" height="9"
+                        fill="currentColor" fill-opacity=".55"/>
+                  <rect x="56" y="${y - 4}" width="156" height="9"
+                        fill="none" stroke="currentColor" stroke-opacity=".18" stroke-width=".5"/>
+                  <text x="${56 + w + 4}" y="${y + 4}" font-family="JetBrains Mono, monospace"
+                        font-size="7" font-weight="700" fill="currentColor">${n}</text>
+                  <circle cx="${56 + w - 3}" cy="${y + 0.5}" r="1.6" fill="#F5E5E8" style="animation: howPulse 1.8s ease-in-out ${delay}s infinite;"/>
+                `;
+              }).join('')}
+              <line x1="0" y1="152" x2="220" y2="152" stroke="currentColor" stroke-opacity=".22" stroke-width=".5"/>
+              <text x="6"   y="158" font-family="JetBrains Mono, monospace" font-size="6.5" font-weight="600" fill="currentColor" opacity=".55">Σ ACTIVE</text>
+              <text x="216" y="158" text-anchor="end" font-family="JetBrains Mono, monospace" font-size="6.5" font-weight="700" fill="currentColor">92 / 256</text>
             </svg>
           </div>
         </li>
@@ -354,18 +410,56 @@ export function mountHome(root, dataLayer = null){
             <p class="home-how__ex"><span class="home-how__ex-lbl">Representative</span><span class="home-how__ex-chip">SN56 Gradients · life-sciences finetunes</span></p>
           </div>
           <div class="home-how__viz" aria-hidden="true">
-            <svg viewBox="0 0 120 80" preserveAspectRatio="xMidYMid meet">
-              <g fill="currentColor">
-                ${[
-                  ['SN64', 68], ['SN56', 52], ['SN4', 44], ['SN1', 36], ['SN5', 28],
-                ].map(([lbl, h], i) => `
-                  <rect x="${6 + i * 22}" y="${72 - h}" width="14" height="${h}" fill-opacity=".7"/>
-                  <text x="${6 + i * 22 + 7}" y="${66}" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="7" font-weight="600" fill="currentColor" opacity=".0">_</text>
-                  <text x="${6 + i * 22 + 7}" y="${78}" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="6" font-weight="600" fill="currentColor" opacity=".55">${lbl}</text>
-                `).join('')}
-              </g>
-              <line x1="0" y1="72" x2="120" y2="72" stroke="currentColor" stroke-opacity=".25" stroke-width=".5"/>
-              <text x="118" y="10" text-anchor="end" font-family="JetBrains Mono, monospace" font-size="6" font-weight="600" fill="currentColor" opacity=".45">MINERS · TOP 5 SUBNETS</text>
+            <!-- Miners viz · top panel = registration sparkline (24h),
+                 bottom panel = top-8 subnets by miner count. -->
+            <svg viewBox="0 0 220 160" preserveAspectRatio="xMidYMid meet">
+              <!-- header strip: registration flux sparkline -->
+              <text x="6" y="10" font-family="JetBrains Mono, monospace" font-size="7"
+                    font-weight="700" fill="currentColor" opacity=".55">NEW UIDS · LAST 24H</text>
+              <text x="214" y="10" text-anchor="end" font-family="JetBrains Mono, monospace"
+                    font-size="7" font-weight="700" fill="#00E5A8">+1,284</text>
+              ${(() => {
+                /* generate 36-point ascending-noise series */
+                const pts = [];
+                let v = 38;
+                for (let i = 0; i < 36; i++){
+                  v += (Math.sin(i * 0.55) * 1.6 + (i % 5 === 0 ? 2.4 : 0) + 0.4);
+                  if (v < 14) v = 14;
+                  if (v > 30) v = 30;
+                  pts.push([6 + i * 6, v]);
+                }
+                const d = pts.map(([x, y], i) => (i ? 'L' : 'M') + x + ' ' + y).join(' ');
+                const area = d + ' L 214 32 L 6 32 Z';
+                return `
+                  <path d="${area}" fill="rgba(0,229,168,.18)"/>
+                  <path d="${d}" fill="none" stroke="#00E5A8" stroke-width="1.2"/>
+                `;
+              })()}
+              <line x1="0" y1="40" x2="220" y2="40" stroke="currentColor" stroke-opacity=".22" stroke-width=".5"/>
+
+              <!-- horizontal-bar leaderboard, top-8 subnets by miners -->
+              <text x="6" y="54" font-family="JetBrains Mono, monospace" font-size="7"
+                    font-weight="700" fill="currentColor" opacity=".55">MINERS BY SUBNET</text>
+              ${[
+                ['SN64 Chutes',     4210, 100],
+                ['SN56 Gradients',  3180,  76],
+                ['SN4 Targon',      2720,  65],
+                ['SN1 Apex',        2180,  52],
+                ['SN5 OpenKaito',   1860,  44],
+                ['SN51 Lium',       1520,  36],
+                ['SN19 Nineteen',   1310,  31],
+                ['SN8 Vanta',       1060,  25],
+              ].map(([lbl, n, w], i) => {
+                const y = 64 + i * 12;
+                return `
+                  <text x="6"  y="${y + 4}" font-family="JetBrains Mono, monospace"
+                        font-size="6.5" font-weight="600" fill="currentColor" opacity=".82">${lbl}</text>
+                  <rect x="92" y="${y - 3}" width="${w}" height="8" fill="currentColor" fill-opacity=".55"/>
+                  <rect x="92" y="${y - 3}" width="100" height="8" fill="none" stroke="currentColor" stroke-opacity=".18" stroke-width=".5"/>
+                  <text x="216" y="${y + 4}" text-anchor="end" font-family="JetBrains Mono, monospace"
+                        font-size="6.5" font-weight="700" fill="currentColor">${n.toLocaleString()}</text>
+                `;
+              }).join('')}
             </svg>
           </div>
         </li>
@@ -389,28 +483,55 @@ export function mountHome(root, dataLayer = null){
             <p class="home-how__ex"><span class="home-how__ex-lbl">Representative</span><span class="home-how__ex-chip">RoundTable21 · <span class="tau">τ</span>142K · 7.2% APY</span></p>
           </div>
           <div class="home-how__viz" aria-hidden="true">
-            <svg viewBox="0 0 140 80" preserveAspectRatio="xMidYMid meet">
-              <g font-family="JetBrains Mono, monospace" font-size="7" font-weight="600" fill="currentColor">
-                <text x="4" y="10" opacity=".5">RANK</text>
-                <text x="32" y="10" opacity=".5">VALIDATOR</text>
-                <text x="92" y="10" opacity=".5">STAKE</text>
-                <text x="124" y="10" opacity=".5">APY</text>
-                <line x1="0" y1="14" x2="140" y2="14" stroke="currentColor" stroke-opacity=".22" stroke-width=".5"/>
-                ${[
-                  ['01', 'RoundTable21', '142K', '7.2%'],
-                  ['02', 'Yuma Group',   '124K', '6.9%'],
-                  ['03', 'Polychain',     '98K', '6.5%'],
-                  ['04', 'Datura',        '86K', '6.4%'],
-                ].map(([r, n, s, a], i) => {
-                  const y = 26 + i * 13;
-                  return `
-                    <text x="4"  y="${y}" fill="#FF1E3C">${r}</text>
-                    <text x="32" y="${y}" fill-opacity=".9">${n}</text>
-                    <text x="92" y="${y}" fill-opacity=".9"><tspan opacity=".55">τ</tspan>${s}</text>
-                    <text x="124" y="${y}" fill="#00E5A8">${a}</text>
-                  `;
-                }).join('')}
-              </g>
+            <!-- Weight matrix heatmap. 7 validator rows × 10 miner cols.
+                 Cell colour intensity encodes the weight value each
+                 validator assigns each miner. Some cells subtly shimmer
+                 to convey live weight-setting on every block. -->
+            <svg viewBox="0 0 220 160" preserveAspectRatio="xMidYMid meet">
+              <text x="6" y="10" font-family="JetBrains Mono, monospace" font-size="7"
+                    font-weight="700" fill="currentColor" opacity=".55">WEIGHT MATRIX · 7×10 · LIVE</text>
+              <line x1="0" y1="14" x2="220" y2="14" stroke="currentColor" stroke-opacity=".22" stroke-width=".5"/>
+              <!-- column labels (miners) -->
+              ${Array.from({length: 10}).map((_, c) => `
+                <text x="${36 + c * 18 + 9}" y="26" text-anchor="middle"
+                      font-family="JetBrains Mono, monospace" font-size="6"
+                      font-weight="600" fill="currentColor" opacity=".5">M${String(c + 1).padStart(2,'0')}</text>
+              `).join('')}
+              <!-- row labels (validators) + heatmap cells -->
+              ${(() => {
+                /* deterministic pseudo-random weight per (row, col) so the
+                   pattern is stable but feels organic. */
+                const cells = [];
+                const labels = ['V01','V02','V03','V04','V05','V06','V07'];
+                for (let r = 0; r < 7; r++){
+                  const y = 32 + r * 16;
+                  cells.push(`
+                    <text x="6" y="${y + 11}" font-family="JetBrains Mono, monospace"
+                          font-size="6.5" font-weight="700" fill="#FF1E3C">${labels[r]}</text>
+                  `);
+                  for (let c = 0; c < 10; c++){
+                    const seed = ((r + 1) * 113 + (c + 1) * 31) >>> 0;
+                    const w = ((seed * 9301 + 49297) % 233280) / 233280;
+                    // weights skew so the highest-weighted miner per row
+                    // gets ~0.7 + jitter, others fade off
+                    const top = (c === ((r * 3) % 10));
+                    const v = top ? 0.78 + (w * 0.18) : w * 0.55;
+                    const x = 36 + c * 18;
+                    const shimmer = (r + c) % 4 === 0
+                      ? `style="animation: howShimmer 3.8s ease-in-out ${((r * 0.3) + c * 0.13).toFixed(2)}s infinite;"`
+                      : '';
+                    cells.push(`
+                      <rect x="${x}" y="${y}" width="16" height="12"
+                            fill="#FF1E3C" fill-opacity="${v.toFixed(2)}"
+                            ${shimmer}/>
+                    `);
+                  }
+                }
+                return cells.join('');
+              })()}
+              <line x1="0" y1="152" x2="220" y2="152" stroke="currentColor" stroke-opacity=".22" stroke-width=".5"/>
+              <text x="6"   y="158" font-family="JetBrains Mono, monospace" font-size="6.5" font-weight="600" fill="currentColor" opacity=".55">w[v, m] ∈ [0, 1]</text>
+              <text x="216" y="158" text-anchor="end" font-family="JetBrains Mono, monospace" font-size="6.5" font-weight="700" fill="currentColor">SET EVERY BLOCK</text>
             </svg>
           </div>
         </li>
@@ -433,15 +554,68 @@ export function mountHome(root, dataLayer = null){
             </dl>
             <p class="home-how__ex"><span class="home-how__ex-lbl">Representative</span><span class="home-how__ex-chip">btcli neuron consensus → server</span></p>
           </div>
-          <div class="home-how__viz home-how__viz--code" aria-hidden="true">
-            <pre><code><span class="c">// per-miner consensus weight</span>
-W[i] = <span class="fn">wmedian</span>(weights[*, i])
+          <div class="home-how__viz" aria-hidden="true">
+            <!-- Yuma convergence visualization: seven validator-vote
+                 dots scattered along the score axis 0..100. The
+                 weighted-median falls roughly at 63, drawn as a red
+                 vertical line. The Yuma formula sits on the side. -->
+            <svg viewBox="0 0 220 160" preserveAspectRatio="xMidYMid meet">
+              <text x="6" y="10" font-family="JetBrains Mono, monospace" font-size="7"
+                    font-weight="700" fill="currentColor" opacity=".55">YUMA CONVERGENCE · 7 VOTES</text>
+              <line x1="0" y1="14" x2="220" y2="14" stroke="currentColor" stroke-opacity=".22" stroke-width=".5"/>
 
-<span class="c">// per-validator trust</span>
-T[v] = 1 − Σ|W − w_v| ÷ n
+              <!-- score axis -->
+              <line x1="14" y1="56" x2="206" y2="56" stroke="currentColor" stroke-opacity=".35" stroke-width=".8"/>
+              ${[0, 25, 50, 75, 100].map(v => {
+                const x = 14 + (v / 100) * 192;
+                return `
+                  <line x1="${x}" y1="52" x2="${x}" y2="60" stroke="currentColor" stroke-opacity=".35" stroke-width=".5"/>
+                  <text x="${x}" y="72" text-anchor="middle" font-family="JetBrains Mono, monospace"
+                        font-size="6" font-weight="600" fill="currentColor" opacity=".55">${v}</text>
+                `;
+              }).join('')}
 
-<span class="c">// emission share</span>
-r[i] = T-weighted W[i]</code></pre>
+              <!-- validator votes scattered along the axis -->
+              ${[
+                ['V01', 38], ['V02', 54], ['V03', 61], ['V04', 64],
+                ['V05', 67], ['V06', 71], ['V07', 89],
+              ].map(([lbl, v], i) => {
+                const x = 14 + (v / 100) * 192;
+                const dy = (i % 2 === 0) ? -8 : 8;
+                const delay = (i * 0.3).toFixed(2);
+                return `
+                  <line x1="${x}" y1="46" x2="${x}" y2="66" stroke="currentColor" stroke-opacity=".22" stroke-width=".5" stroke-dasharray="1 2"/>
+                  <circle cx="${x}" cy="56" r="3" fill="#FF4D60" fill-opacity=".82"
+                          style="animation: howVote 5.2s ease-in-out ${delay}s infinite;"/>
+                  <text x="${x}" y="${56 + dy}" text-anchor="middle"
+                        font-family="JetBrains Mono, monospace" font-size="6"
+                        font-weight="700" fill="currentColor" opacity=".75">${lbl}</text>
+                `;
+              }).join('')}
+
+              <!-- the weighted-median line — where consensus lands -->
+              ${(() => {
+                const x = 14 + (63 / 100) * 192;
+                return `
+                  <line x1="${x}" y1="32" x2="${x}" y2="88" stroke="#FF1E3C" stroke-width="1.4"/>
+                  <text x="${x}" y="28" text-anchor="middle"
+                        font-family="JetBrains Mono, monospace" font-size="6.5"
+                        font-weight="700" fill="#FF1E3C">CONSENSUS · 63</text>
+                `;
+              })()}
+
+              <!-- the formula box -->
+              <rect x="6" y="98" width="208" height="52"
+                    fill="rgba(255,30,60,.06)" stroke="currentColor" stroke-opacity=".22" stroke-width=".5"/>
+              <text x="14" y="111" font-family="JetBrains Mono, monospace" font-size="7"
+                    fill="currentColor" opacity=".55">// per-miner consensus</text>
+              <text x="14" y="124" font-family="JetBrains Mono, monospace" font-size="8"
+                    font-weight="700" fill="currentColor">W[i] = <tspan fill="#FF4D60">wmedian</tspan>(w[*, i])</text>
+              <text x="14" y="137" font-family="JetBrains Mono, monospace" font-size="7"
+                    fill="currentColor" opacity=".55">// trust kernel</text>
+              <text x="14" y="146" font-family="JetBrains Mono, monospace" font-size="7"
+                    font-weight="700" fill="currentColor">T[v] = 1 − <tspan opacity=".5">Σ</tspan>|W − w[v]| / n</text>
+            </svg>
           </div>
         </li>
 
@@ -465,20 +639,69 @@ r[i] = T-weighted W[i]</code></pre>
             <p class="home-how__ex"><span class="home-how__ex-lbl">Representative</span><span class="home-how__ex-chip">post-halving · 50% reduction · Dec 2025</span></p>
           </div>
           <div class="home-how__viz" aria-hidden="true">
-            <svg viewBox="0 0 200 80" preserveAspectRatio="xMidYMid meet">
-              <g>
-                <rect x="0"   y="28" width="82"  height="22" fill="#FF1E3C" fill-opacity=".85"/>
-                <rect x="84"  y="28" width="82"  height="22" fill="#FF4D60" fill-opacity=".85"/>
-                <rect x="168" y="28" width="32"  height="22" fill="#FFB0BA" fill-opacity=".8"/>
-                <text x="41"  y="44" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="9" font-weight="700" fill="#080205">41%</text>
-                <text x="125" y="44" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="9" font-weight="700" fill="#080205">41%</text>
-                <text x="184" y="44" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="9" font-weight="700" fill="#080205">18%</text>
-                <text x="41"  y="64" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="6.5" font-weight="600" fill="currentColor" opacity=".7">MINERS</text>
-                <text x="125" y="64" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="6.5" font-weight="600" fill="currentColor" opacity=".7">VALIDATORS</text>
-                <text x="184" y="64" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="6.5" font-weight="600" fill="currentColor" opacity=".7">OWNER</text>
-                <text x="0" y="14" font-family="JetBrains Mono, monospace" font-size="7" font-weight="600" fill="currentColor" opacity=".55">EVERY BLOCK · 12 SECONDS</text>
-                <text x="200" y="14" text-anchor="end" font-family="JetBrains Mono, monospace" font-size="7" font-weight="700" fill="currentColor"><tspan opacity=".55">τ</tspan>0.5 / BLOCK</text>
+            <!-- Animated emission flow. A "BLOCK MINT" node at the
+                 top fires τ packets down three rails to MINERS (41%),
+                 VALIDATORS (41%), OWNER (18%). Packet density on each
+                 rail is proportional to the split. -->
+            <svg viewBox="0 0 220 160" preserveAspectRatio="xMidYMid meet">
+              <defs>
+                <path id="how-rail-A" d="M 110 32 L 36 130" fill="none"/>
+                <path id="how-rail-B" d="M 110 32 L 110 130" fill="none"/>
+                <path id="how-rail-C" d="M 110 32 L 184 130" fill="none"/>
+              </defs>
+
+              <text x="6" y="10" font-family="JetBrains Mono, monospace" font-size="7"
+                    font-weight="700" fill="currentColor" opacity=".55">BLOCK MINT · LIVE</text>
+              <line x1="0" y1="14" x2="220" y2="14" stroke="currentColor" stroke-opacity=".22" stroke-width=".5"/>
+
+              <!-- the mint at the top -->
+              <circle cx="110" cy="28" r="10" fill="rgba(255,30,60,.18)" stroke="#FF1E3C" stroke-width="1"/>
+              <text x="110" y="32" text-anchor="middle"
+                    font-family="JetBrains Mono, monospace" font-size="9"
+                    font-weight="700" fill="#F5E5E8">τ</text>
+
+              <!-- three rails -->
+              <use href="#how-rail-A" stroke="currentColor" stroke-opacity=".4" stroke-width=".7"/>
+              <use href="#how-rail-B" stroke="currentColor" stroke-opacity=".4" stroke-width=".7"/>
+              <use href="#how-rail-C" stroke="currentColor" stroke-opacity=".4" stroke-width=".7"/>
+
+              <!-- packets on rail A (MINERS) — 4 dots, dense -->
+              ${[0, 0.22, 0.44, 0.66].map(off => `
+                <circle r="2" fill="#FF1E3C">
+                  <animateMotion dur="2.2s" begin="${off}s" repeatCount="indefinite">
+                    <mpath href="#how-rail-A"/>
+                  </animateMotion>
+                </circle>
+              `).join('')}
+              <!-- packets on rail B (VALIDATORS) — 4 dots -->
+              ${[0.1, 0.32, 0.54, 0.76].map(off => `
+                <circle r="2" fill="#FF4D60">
+                  <animateMotion dur="2.2s" begin="${off}s" repeatCount="indefinite">
+                    <mpath href="#how-rail-B"/>
+                  </animateMotion>
+                </circle>
+              `).join('')}
+              <!-- packets on rail C (OWNER) — 2 dots, fewer to convey 18% -->
+              ${[0.5, 1.6].map(off => `
+                <circle r="2" fill="#FFB0BA">
+                  <animateMotion dur="2.2s" begin="${off}s" repeatCount="indefinite">
+                    <mpath href="#how-rail-C"/>
+                  </animateMotion>
+                </circle>
+              `).join('')}
+
+              <!-- destination chips -->
+              <g font-family="JetBrains Mono, monospace" font-weight="700">
+                <rect x="4"   y="132" width="64" height="18" rx="3" fill="rgba(255,30,60,.12)" stroke="#FF1E3C" stroke-width=".6"/>
+                <text x="36"  y="144" text-anchor="middle" font-size="8" fill="#FF1E3C">41% MINERS</text>
+                <rect x="78"  y="132" width="64" height="18" rx="3" fill="rgba(255,77,96,.12)" stroke="#FF4D60" stroke-width=".6"/>
+                <text x="110" y="144" text-anchor="middle" font-size="8" fill="#FF4D60">41% VALID.</text>
+                <rect x="152" y="132" width="64" height="18" rx="3" fill="rgba(255,176,186,.10)" stroke="#FFB0BA" stroke-width=".6"/>
+                <text x="184" y="144" text-anchor="middle" font-size="8" fill="#FFB0BA">18% OWNER</text>
               </g>
+
+              <text x="216" y="14" text-anchor="end" font-family="JetBrains Mono, monospace"
+                    font-size="7" font-weight="700" fill="currentColor"><tspan opacity=".55">τ</tspan>0.5 / BLOCK · 12s</text>
             </svg>
           </div>
         </li>
@@ -502,21 +725,54 @@ r[i] = T-weighted W[i]</code></pre>
             <p class="home-how__ex"><span class="home-how__ex-lbl">Representative</span><span class="home-how__ex-chip">SN120 Affine · $199M α-mcap</span></p>
           </div>
           <div class="home-how__viz" aria-hidden="true">
-            <svg viewBox="0 0 160 80" preserveAspectRatio="xMidYMid meet">
+            <!-- Multi-curve dTAO chart: five overlaid bonding curves
+                 for the top subnets by α-mcap, each with a current-
+                 price marker and label. Axes labelled τ bonded → and
+                 α price ↑. -->
+            <svg viewBox="0 0 220 160" preserveAspectRatio="xMidYMid meet">
               <defs>
-                <linearGradient id="bcg" x1="0" y1="0" x2="0" y2="1">
-                  <stop offset="0%"  stop-color="#FF1E3C" stop-opacity=".34"/>
+                <linearGradient id="bcg-fill" x1="0" y1="0" x2="0" y2="1">
+                  <stop offset="0%"  stop-color="#FF1E3C" stop-opacity=".24"/>
                   <stop offset="100%" stop-color="#FF1E3C" stop-opacity="0"/>
                 </linearGradient>
               </defs>
-              <line x1="6" y1="68" x2="156" y2="68" stroke="currentColor" stroke-opacity=".25" stroke-width=".5"/>
-              <line x1="6" y1="68" x2="6"   y2="10" stroke="currentColor" stroke-opacity=".25" stroke-width=".5"/>
-              <path d="M 6 66 C 56 64, 96 50, 156 14" fill="none" stroke="#FF1E3C" stroke-width="1.6"/>
-              <path d="M 6 66 C 56 64, 96 50, 156 14 L 156 68 L 6 68 Z" fill="url(#bcg)"/>
-              <circle cx="106" cy="34" r="2.6" fill="#F5E5E8"/>
-              <text x="110" y="32" font-family="JetBrains Mono, monospace" font-size="7" fill="currentColor" opacity=".85">α=√(τ_b)</text>
-              <text x="6"   y="10" font-family="JetBrains Mono, monospace" font-size="6.5" font-weight="600" fill="currentColor" opacity=".55">α PRICE</text>
-              <text x="156" y="78" text-anchor="end" font-family="JetBrains Mono, monospace" font-size="6.5" font-weight="600" fill="currentColor" opacity=".55"><tspan opacity=".85">τ</tspan> BONDED →</text>
+              <text x="6" y="10" font-family="JetBrains Mono, monospace" font-size="7"
+                    font-weight="700" fill="currentColor" opacity=".55">α BONDING CURVES · TOP 5</text>
+              <line x1="0" y1="14" x2="220" y2="14" stroke="currentColor" stroke-opacity=".22" stroke-width=".5"/>
+
+              <!-- axes -->
+              <line x1="14" y1="130" x2="214" y2="130" stroke="currentColor" stroke-opacity=".30" stroke-width=".6"/>
+              <line x1="14" y1="22"  x2="14"  y2="130" stroke="currentColor" stroke-opacity=".30" stroke-width=".6"/>
+              <!-- gridlines -->
+              ${[40, 60, 80, 100].map(y => `
+                <line x1="14" y1="${y}" x2="214" y2="${y}" stroke="currentColor" stroke-opacity=".10" stroke-width=".4"/>
+              `).join('')}
+
+              <!-- five overlaid bonding curves: c1 highest, c5 lowest -->
+              ${[
+                /* color, curveY at x=14, x=80, x=160, x=214 — the curve shape; label, marker x, marker y, sn label */
+                ['#FF1E3C', 'M 14 124 C 60 122, 120 96, 214  28', 'SN64 Chutes',    160,  62, '$199M'],
+                ['#FF4D60', 'M 14 126 C 60 124, 120 110, 214 48', 'SN44 Score',      170,  82, '$190M'],
+                ['#FF7A88', 'M 14 127 C 60 125, 120 118, 214 66', 'SN120 Affine',    142,  98, '$199K'],
+                ['#FFB0BA', 'M 14 128 C 60 126, 120 122, 214 84', 'SN8 Vanta',       130, 108, '$148K'],
+                ['#FF8094', 'M 14 129 C 60 128, 120 126, 214 102','SN75 Hippius',    118, 116, '$101K'],
+              ].map(([c, d, lbl, mx, my, val], i) => `
+                <path d="${d}" fill="none" stroke="${c}" stroke-width="1.4" stroke-opacity=".88"/>
+                <circle cx="${mx}" cy="${my}" r="2.8" fill="#F5E5E8" stroke="${c}" stroke-width="1.2"/>
+                <text x="${mx + 5}" y="${my + 3}" font-family="JetBrains Mono, monospace"
+                      font-size="6" font-weight="700" fill="currentColor" opacity=".85">${lbl} <tspan opacity=".55">${val}</tspan></text>
+              `).join('')}
+
+              <!-- area shading under the top curve to anchor the plot -->
+              <path d="M 14 124 C 60 122, 120 96, 214 28 L 214 130 L 14 130 Z" fill="url(#bcg-fill)" opacity=".55"/>
+
+              <!-- axis labels -->
+              <text x="14" y="22" font-family="JetBrains Mono, monospace" font-size="6.5"
+                    font-weight="600" fill="currentColor" opacity=".55">α PRICE ↑</text>
+              <text x="214" y="142" text-anchor="end" font-family="JetBrains Mono, monospace"
+                    font-size="6.5" font-weight="600" fill="currentColor" opacity=".55"><tspan opacity=".85">τ</tspan> BONDED →</text>
+              <text x="14" y="156" font-family="JetBrains Mono, monospace" font-size="6.5"
+                    font-weight="700" fill="currentColor">α<tspan opacity=".6">·</tspan>τ = k <tspan opacity=".55">(constant product)</tspan></text>
             </svg>
           </div>
         </li>
