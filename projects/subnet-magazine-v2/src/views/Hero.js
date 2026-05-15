@@ -64,9 +64,9 @@ export function mountHero(root, dataLayer = null){
   /* mount the icosphere centerpiece */
   const canvas = qs('[data-canvas="hero"]', root);
   const sphere = canvas ? new Icosphere(canvas, {
-    radius:    0.30,         // sits as a centerpiece, not edge-to-edge
-    speed:     0.20,         // slow + readable
-    packets:   18,
+    radius:    0.32,         // sits as a centerpiece, not edge-to-edge
+    speed:     0.26,         // slow + readable
+    packets:   40,           // dense, busy traffic
     thickEdges:true,
   }) : null;
 

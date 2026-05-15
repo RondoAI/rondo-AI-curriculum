@@ -21,6 +21,7 @@
 import { html, mount, qs, qsa, setLive } from '../lib/dom.js';
 import { money, compact, pct, deltaClass, bbgDate } from '../lib/format.js';
 import { mark, seedSeries } from '../lib/mark.js';
+import { cardArt } from '../lib/art.js';
 import { Sparkline } from '../charts/Sparkline.js';
 import { CoverArt } from '../charts/CoverArt.js';
 import { NeuralNet } from '../charts/NeuralNet.js';
@@ -80,7 +81,10 @@ export function mountHome(root, dataLayer = null){
         ${articles.map((a, i) => `
           <li class="home-article ${i === 0 ? 'is-lead' : ''}">
             <a class="home-article__link" href="articles.html?id=${a.id}">
-              <span class="home-article__mark">${mark(a.title, { size: 44, label: (a.kicker || a.category || 'R')[0] })}</span>
+              <span class="home-article__art">
+                ${cardArt(a.id + '|' + a.title, { variant: a.category || a.kicker || '', w: 520, h: i === 0 ? 300 : 220 })}
+                <span class="home-article__art-frame" aria-hidden="true"></span>
+              </span>
               <span class="home-article__kicker">${CAT_LABEL[a.category] || (a.kicker || 'RESEARCH')}</span>
               <span class="home-article__title">${a.title}</span>
               <span class="home-article__tagline">${a.tagline}</span>
@@ -132,31 +136,37 @@ export function mountHome(root, dataLayer = null){
           <span class="home-stat__lbl">τ / USD</span>
           <span class="home-stat__val" data-bind="price">—</span>
           <span class="home-stat__sub" data-bind="price-delta">—</span>
+          <span class="home-stat__spark"><canvas data-spark="price"></canvas></span>
         </div>
         <div class="home-stat">
           <span class="home-stat__lbl">Market Cap</span>
           <span class="home-stat__val" data-bind="mcap">—</span>
           <span class="home-stat__sub" data-bind="mcap-delta">7d —</span>
+          <span class="home-stat__spark"><canvas data-spark="mcap"></canvas></span>
         </div>
         <div class="home-stat">
           <span class="home-stat__lbl">Circulating</span>
           <span class="home-stat__val" data-bind="circ">—</span>
           <span class="home-stat__sub">of 21M max</span>
+          <span class="home-stat__spark"><canvas data-spark="circ"></canvas></span>
         </div>
         <div class="home-stat">
           <span class="home-stat__lbl">Staked</span>
           <span class="home-stat__val" data-bind="staked">—</span>
           <span class="home-stat__sub" data-bind="apr">APR —</span>
+          <span class="home-stat__spark"><canvas data-spark="staked"></canvas></span>
         </div>
         <div class="home-stat">
           <span class="home-stat__lbl">24h Volume</span>
           <span class="home-stat__val" data-bind="vol">—</span>
           <span class="home-stat__sub" data-bind="vol-sub">spot</span>
+          <span class="home-stat__spark"><canvas data-spark="vol"></canvas></span>
         </div>
         <div class="home-stat">
           <span class="home-stat__lbl">Block height</span>
           <span class="home-stat__val" data-bind="block">—</span>
           <span class="home-stat__sub" data-bind="chain-sub">root / subnet split</span>
+          <span class="home-stat__spark"><canvas data-spark="block"></canvas></span>
         </div>
       </div>
     </section>
@@ -210,6 +220,18 @@ export function mountHome(root, dataLayer = null){
   const cover = coverCanvas ? new CoverArt(coverCanvas) : null;
   const neuralCanvas = qs('[data-canvas="neural"]', root);
   const neural = neuralCanvas ? new NeuralNet(neuralCanvas) : null;
+
+  /* ---------- LIVE NETWORK band sparklines ---------- */
+  /* one micro-trend per stat — deterministic, keyed to the field, a
+     visual read of momentum until per-field history endpoints land. */
+  const statSparks = [];
+  [
+    ['price',   18], ['mcap',   12], ['circ',   4],
+    ['staked',  6],  ['vol',   -9], ['block',  22],
+  ].forEach(([key, drift]) => {
+    const cv = qs(`[data-spark="${key}"]`, root);
+    if (cv) statSparks.push(new Sparkline(cv, { series: seedSeries(key, drift, 32) }));
+  });
 
   /* ---------- bind: LIVE NETWORK band ---------- */
   const bind = sel => qs(`[data-bind="${sel}"]`, root);
@@ -312,6 +334,7 @@ export function mountHome(root, dataLayer = null){
     destroy(){
       unsubs.forEach(u => u());
       sparks.splice(0).forEach(sp => { try { sp.destroy(); } catch (_) {} });
+      statSparks.splice(0).forEach(sp => { try { sp.destroy(); } catch (_) {} });
       cover?.destroy();
       neural?.destroy();
     },
