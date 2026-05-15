@@ -294,7 +294,7 @@ export function mountHome(root, dataLayer = null){
         <canvas data-canvas="treemap"></canvas>
       </div>
       <span class="home-neural__foot home-neural__foot--block">
-        <span data-bind="treemap-count">TREEMAP · TOP SUBNETS · BY τ/DAY</span>
+        <span data-bind="treemap-count">TREEMAP · TOP SUBNETS · BY <span class="tau">τ</span>/DAY</span>
         <span>SOURCE · TAOSTATS PUBLIC + SEED</span>
       </span>
     </section>
@@ -440,7 +440,7 @@ export function mountHome(root, dataLayer = null){
     ? new Treemap(treemapCanvas, { items: treemapItems })
     : null;
   const treemapCount = qs('[data-bind="treemap-count"]', root);
-  if (treemapCount) treemapCount.textContent = 'TREEMAP · TOP ' + topN + ' SUBNETS · BY τ/DAY';
+  if (treemapCount) treemapCount.innerHTML = 'TREEMAP · TOP ' + topN + ' SUBNETS · BY <span class="tau">τ</span>/DAY';
 
   /* ---------- LIVE NETWORK band sparklines ---------- */
   /* one micro-trend per stat — deterministic, keyed to the field, a
