@@ -35,23 +35,39 @@ body {
   text-rendering: optimizeLegibility;
   overflow-x: hidden;
 
-  /* Terminal texture: a fine red grid, a coarse red grid over it, a
-     top-anchored red bloom, an edge vignette, and faint CRT
-     scanlines — all fixed-attachment so it stays put as you scroll. */
+  /* Terminal texture — fine grid + coarse grid + faint CRT scanlines.
+     Default (scroll) attachment, so the texture moves with content
+     instead of pinning to viewport. The glow + vignette are split
+     off to a fixed pseudo-element below so the terminal mood still
+     reads. Was previously background-attachment: fixed on the whole
+     stack; on Android Chrome that's a notorious scroll-killer with
+     multiple gradient layers. */
   background-image:
-    radial-gradient(110% 70% at 50% -10%, rgba(255,30,60,.10), transparent 60%),
-    radial-gradient(140% 120% at 50% 50%, transparent 55%, rgba(0,0,0,.85)),
     linear-gradient(rgba(255,30,60,.10) 1px, transparent 1px),
     linear-gradient(90deg, rgba(255,30,60,.10) 1px, transparent 1px),
     linear-gradient(var(--c-red-grid) 1px, transparent 1px),
     linear-gradient(90deg, var(--c-red-grid) 1px, transparent 1px),
     repeating-linear-gradient(0deg, rgba(255, 30, 60, .025) 0 1px, transparent 1px 3px);
   background-size:
-    100% 100%, 100% 100%,
     192px 192px, 192px 192px,
     48px 48px, 48px 48px,
     100% 3px;
-  background-attachment: fixed;
+}
+/* Red bloom from the top + edge vignette — fixed in the viewport so
+   they read as ambient lighting rather than texture. Decorative,
+   pointer-events off, z-index -1 keeps them behind every painted
+   element including the body's own background-image grid. */
+body::before{
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  background-image:
+    radial-gradient(110% 70% at 50% -10%, rgba(255,30,60,.10), transparent 60%),
+    radial-gradient(140% 120% at 50% 50%, transparent 55%, rgba(0,0,0,.85));
+  background-repeat: no-repeat;
+  background-size: 100% 100%, 100% 100%;
 }
 
 img, svg, canvas, video { display: block; max-width: 100%; }
