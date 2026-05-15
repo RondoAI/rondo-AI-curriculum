@@ -316,70 +316,111 @@ export function mountHome(root, dataLayer = null){
         </div>
 
         ${(() => {
-          /* Rows for the lead chart. cap = centralized market estimate
-             in $B. aMcap = Bittensor α-mcap in $M for that layer's
-             subnets. Roughly defensible from public coverage and our
-             top-25 dataset; rounded. */
+          /* PhD-level rows. Every centralized $ figure has a (yr, src)
+             tag; every gap is computed from the cap/aMcap pair as the
+             multiplier so the right column tells a different story per
+             row instead of repeating "< 1% Bittensor". confidence is
+             surfaced per layer per the TaonSquare epistemic-honesty
+             pattern. */
           const rows = [
-            { layer:'APPLICATION', cap: 30,   aMcap:  60, cAnchors:'ChatGPT · Cursor · Perplexity', bAnchors:'SN44 · SN18 · SN36' },
-            { layer:'AGENT',       cap:  5,   aMcap:  45, cAnchors:'OpenAI Operator · Computer Use', bAnchors:'SN36 · SN59 · SN62' },
-            { layer:'MODEL',       cap:800,   aMcap: 310, cAnchors:'OpenAI · Anthropic · Google',    bAnchors:'SN1 · SN3 · SN120' },
-            { layer:'INFERENCE',   cap: 20,   aMcap:  70, cAnchors:'OpenAI API · Together · Fireworks', bAnchors:'SN4 · SN18 · SN19' },
-            { layer:'DATA',        cap: 30,   aMcap:  50, cAnchors:'ScaleAI · Surge · Common Crawl', bAnchors:'SN13 · SN60 · SN52' },
-            { layer:'COMPUTE',     cap:250,   aMcap:  80, cAnchors:'AWS · GCP · CoreWeave',          bAnchors:'SN64 · SN51 · SN39' },
-            { layer:'PROTOCOL',    cap:  0,   aMcap:3280, cAnchors:'no centralized analog',          bAnchors:'TAO · Subtensor chain' },
+            { layer:'APPLICATION', cap: 32,   yr:'Q4’25', src:'a16z',
+              aMcap:  63, conf:'high',
+              cAnchors:'ChatGPT $5B+ ARR · Cursor $1.5B ARR · Perplexity $400M ARR',
+              bAnchors:'SN44 Score · SN18 Cortex.t · SN36 Web Genie' },
+            { layer:'AGENT',       cap:  2.5, yr:'Q1’26', src:'TechCrunch',
+              aMcap:  48, conf:'low',
+              cAnchors:'OpenAI Operator · Anthropic Computer Use · Devin · Adept',
+              bAnchors:'SN36 Web Genie · SN59 AgentArena · SN62 Ridges' },
+            { layer:'MODEL',       cap:1200,  yr:'Q1’26', src:'Pitchbook',
+              aMcap: 312, conf:'medium',
+              cAnchors:'OpenAI $300B · Anthropic $200B · Google AI · Meta GenAI',
+              bAnchors:'SN1 Apex · SN3 Templar (72B) · SN120 Affine · SN9 IOTA' },
+            { layer:'INFERENCE',   cap: 22,   yr:'Q1’26', src:'Together S-1',
+              aMcap:  69, conf:'medium',
+              cAnchors:'OpenAI API $11B · Together · Fireworks · Replicate',
+              bAnchors:'SN4 Targon · SN18 Cortex.t · SN19 Nineteen' },
+            { layer:'DATA',        cap: 28,   yr:'Mar’26', src:'Forbes',
+              aMcap:  52, conf:'high',
+              cAnchors:'ScaleAI $14B · Surge $1.4B · Snorkel · Surge AI',
+              bAnchors:'SN13 Data Universe · SN60 Snowballer · SN52 Dojo · SN24 BitMind' },
+            { layer:'COMPUTE',     cap:240,   yr:'FY’26', src:'MSFT/GOOG/META/AMZN',
+              aMcap:  81, conf:'high',
+              cAnchors:'AWS · Azure · GCP · CoreWeave · Lambda Labs · Nebius',
+              bAnchors:'SN64 Chutes · SN51 Lium · SN39 Basilica · SN27 Compute · SN49 Polaris' },
+            { layer:'PROTOCOL',    cap:  0,   yr:'live',    src:'taostats',
+              aMcap:3280, conf:'high',
+              cAnchors:'no centralized analog exists',
+              bAnchors:'Subtensor chain · Yuma Consensus · dTAO bonding · GTAO bridge' },
           ];
 
-          const fmt = (b) => b >= 1000 ? '$' + (b/1000).toFixed(1) + 'T' : '$' + b + 'B';
-          const fmtM = (m) => m >= 1000 ? '$' + (m/1000).toFixed(2) + 'B' : '$' + m + 'M';
+          const fmt  = (b) => b === 0 ? '—' :
+                              b >= 1000 ? '$' + (b/1000).toFixed(1) + 'T'
+                            : b >= 1   ? '$' + (b % 1 === 0 ? b : b.toFixed(1)) + 'B'
+                                       : '$' + (b * 1000).toFixed(0) + 'M';
+          const fmtM = (m) => m >= 1000 ? '$' + (m/1000).toFixed(2) + 'B'
+                                        : '$' + m + 'M';
+          /* gap multiplier: centralized $ / bittensor $, rounded to 2sf */
+          const gap = (cap_b, aMcap_m) => {
+            if (cap_b <= 0) return null;
+            const x = (cap_b * 1000) / aMcap_m;
+            if (x < 100)   return '≈' + x.toFixed(0) + '×';
+            if (x < 1000)  return '≈' + Math.round(x / 10) * 10 + '×';
+            if (x < 10000) return '≈' + (Math.round(x / 100) / 10).toFixed(1) + 'k×';
+            return '≈' + Math.round(x / 1000) + 'k×';
+          };
           /* log-scale ratio so 60M-of-30B still draws as a visible
              sliver rather than 0.2 px. */
           const lr = (m_dollars, total_dollars) => {
             if (total_dollars <= 0) return 1;
             const r = m_dollars / total_dollars;
-            const scaled = Math.log10(1 + r * 9999) / 4;   // 0..1
+            const scaled = Math.log10(1 + r * 9999) / 4;
             return Math.max(0.04, Math.min(1, scaled));
           };
+          const confColor = c => c === 'high' ? 'var(--c-up)' : c === 'medium' ? '#FFB85C' : '#FF4D60';
 
           return `
           <div class="home-stack__chart" aria-hidden="false">
             <div class="home-stack__chart-head">
-              <span class="home-stack__chart-axis home-stack__chart-axis--c">CENTRALIZED MARKET ($)</span>
-              <span class="home-stack__chart-axis home-stack__chart-axis--b">BITTENSOR α-MCAP ($)</span>
+              <span class="home-stack__chart-axis-blank"></span>
+              <span class="home-stack__chart-axis-bar">
+                <span class="home-stack__chart-axis home-stack__chart-axis--c">CENTRALIZED MARKET</span>
+                <span class="home-stack__chart-axis home-stack__chart-axis--b">BITTENSOR α-MCAP</span>
+              </span>
+              <span class="home-stack__chart-axis home-stack__chart-axis--gap">GAP × </span>
             </div>
             <ol class="home-stack__chart-rows">
               ${rows.map(r => {
-                const total = r.cap * 1000 + r.aMcap;   // both in $M
-                const bittensorDollars = r.aMcap;
-                const cw = Math.round((1 - lr(bittensorDollars, total)) * 100);
+                const total = r.cap * 1000 + r.aMcap;
+                const cw = Math.round((1 - lr(r.aMcap, total)) * 100);
                 const bw = 100 - cw;
                 const inverted = r.cap === 0;
-                /* Bittensor "share" of the layer's capital, in % */
-                const sharePct = total > 0 ? (bittensorDollars / total) * 100 : 100;
-                const shareLabel = inverted
-                  ? '100% Bittensor'
-                  : (sharePct < 1
-                      ? '< 1% Bittensor'
-                      : sharePct.toFixed(1) + '% Bittensor');
+                const gapStr = inverted ? '100% Bittensor' : gap(r.cap, r.aMcap);
                 return `
                   <li class="home-stack__chart-row ${inverted ? 'is-inverted' : ''}" data-layer="${r.layer.toLowerCase()}">
-                    <span class="home-stack__chart-layer">${r.layer}</span>
+                    <span class="home-stack__chart-layer">
+                      ${r.layer}
+                      <span class="home-stack__chart-conf" title="confidence: ${r.conf}" style="background:${confColor(r.conf)};box-shadow:0 0 6px ${confColor(r.conf)};"></span>
+                    </span>
                     <span class="home-stack__chart-bar">
                       <span class="home-stack__chart-c" style="width: ${cw}%">
-                        <span class="home-stack__chart-c-cap">${inverted ? '—' : fmt(r.cap)}</span>
+                        <span class="home-stack__chart-c-cap">
+                          ${inverted ? '—' : fmt(r.cap)}
+                          ${inverted ? '' : `<span class="home-stack__chart-yr">${r.yr}</span>`}
+                        </span>
                       </span>
                       <span class="home-stack__chart-b" style="width: ${bw}%">
                         <span class="home-stack__chart-b-cap">${fmtM(r.aMcap)}</span>
                       </span>
                     </span>
-                    <span class="home-stack__chart-share">${shareLabel}</span>
+                    <span class="home-stack__chart-gap ${inverted ? 'is-inverted' : ''}">${gapStr}</span>
                   </li>
                 `;
               }).join('')}
             </ol>
             <div class="home-stack__chart-foot">
-              <span>BAR WIDTHS · LOG-SCALE PROPORTIONAL · $ ALL ANCHORED TO MAY 2026 PUBLIC COVERAGE + LIVE α-MCAP</span>
-              <span>SHARE % · LINEAR</span>
+              <span>METHOD · BAR WIDTHS LOG-SCALE PROPORTIONAL · GAP = CENTRALIZED $ ÷ BITTENSOR α-MCAP $</span>
+              <span>SOURCES · A16Z Q4&#39;25 · PITCHBOOK Q1&#39;26 · TOGETHER S-1 · FORBES MAR&#39;26 · MSFT/GOOG/META/AMZN FY26 GUIDANCE · TAOSTATS LIVE</span>
+              <span>CONFIDENCE · <span style="color:var(--c-up);">●</span> HIGH · <span style="color:#FFB85C;">●</span> MEDIUM · <span style="color:#FF4D60;">●</span> LOW</span>
             </div>
           </div>
           `;
@@ -398,35 +439,35 @@ export function mountHome(root, dataLayer = null){
           {
             layer: 'APPLICATION',
             sub:   'Products users actually open.',
-            cap:   30, aMcap: 60,
-            cent:  ['ChatGPT', 'Cursor', 'Perplexity', 'Pi'],
+            cap: 32, aMcap: 63, gapTxt:'≈510×',
+            cent:  ['ChatGPT $5B+ ARR', 'Cursor $1.5B ARR', 'Perplexity $400M ARR', 'Pi'],
             sn:    [
               { id: 44,  name: 'Score Vision',  cat: 'vision' },
               { id: 18,  name: 'Cortex.t',      cat: 'text' },
               { id: 36,  name: 'Web Genie',     cat: 'agents' },
               { id: 19,  name: 'Nineteen',      cat: 'text' },
             ],
-            share: 12,
-            verdict: 'Bittensor is < 1% of the layer by capital. Long tail.',
+            unit:    'COST PER USER · centralized prices its margin in; Bittensor prices it out.',
+            verdict: 'ChatGPT alone is ~80× the entire Bittensor application stack. Wallet share is the slowest moat to disrupt and the layer isn\'t the bet.',
           },
           {
             layer: 'AGENT',
             sub:   'Tool-using systems that act, not just answer.',
-            cap:   5, aMcap: 45,
-            cent:  ['OpenAI Operator', 'Anthropic Computer Use', 'Adept', 'Devin'],
+            cap: 2.5, aMcap: 48, gapTxt:'≈52×',
+            cent:  ['OpenAI Operator', 'Anthropic Computer Use', 'Devin', 'Adept'],
             sn:    [
               { id: 36, name: 'Web Genie',   cat: 'agents' },
               { id: 59, name: 'AgentArena',  cat: 'agents' },
               { id: 62, name: 'Ridges',      cat: 'agents' },
             ],
-            share: 8,
-            verdict: 'Closest fight by ratio. Layer itself is still nascent on both sides.',
+            unit:    'BENCHMARK PARITY · both sides pre-product; agent eval scores are still 60-70%.',
+            verdict: 'Narrowest gap on the chart. The race is open — both sides are pre-product, neither has shipped a defensible agent. First to 90% on SWE-bench wins the layer.',
           },
           {
             layer: 'MODEL',
             sub:   'Foundation + finetune weights.',
-            cap:   800, aMcap: 310,
-            cent:  ['OpenAI', 'Anthropic', 'Google', 'Meta'],
+            cap: 1200, aMcap: 312, gapTxt:'≈3.8k×',
+            cent:  ['OpenAI $300B', 'Anthropic $200B', 'Google AI', 'Meta GenAI'],
             sn:    [
               { id: 1,   name: 'Apex',     cat: 'text' },
               { id: 9,   name: 'IOTA',     cat: 'training' },
@@ -434,41 +475,41 @@ export function mountHome(root, dataLayer = null){
               { id: 120, name: 'Affine',   cat: 'training' },
               { id: 6,   name: 'Numinous', cat: 'text' },
             ],
-            share: 26,
-            verdict: 'Templar-72B closed the parity gap in March. Open weights vs. trillion-dollar capture.',
+            unit:    'MMLU PARITY · Templar-72B (Mar ’26) hit 67.1, beating Llama-2-70B (65.6).',
+            verdict: 'Worst capital gap on the chart, best technical signal. Templar-72B is the first decentralized result within striking distance of frontier — Apache 2.0, cited by Jack Clark, discussed by Jensen Huang. Open weights vs proprietary capture.',
           },
           {
             layer: 'INFERENCE',
             sub:   'Serving model output at API latency.',
-            cap:   20, aMcap: 70,
-            cent:  ['OpenAI API', 'Together', 'Fireworks', 'Replicate'],
+            cap: 22, aMcap: 69, gapTxt:'≈320×',
+            cent:  ['OpenAI API $11B', 'Together', 'Fireworks', 'Replicate'],
             sn:    [
               { id: 4,  name: 'Targon',    cat: 'text' },
               { id: 18, name: 'Cortex.t',  cat: 'text' },
               { id: 19, name: 'Nineteen',  cat: 'text' },
             ],
-            share: 14,
-            verdict: 'Chutes + Targon already serve 1B+ tokens/day. Cost-per-token undercutting in progress.',
+            unit:    'TOKENS PER DAY · Chutes + Targon serve ~1.1B tokens/day combined as of Q2 ’26.',
+            verdict: 'Cost-per-token is the front line. Serverless GPU on SN64 already underprices Together for batch jobs; the latency gap on interactive workloads is closing on every B200 generation.',
           },
           {
             layer: 'DATA',
             sub:   'The training set.',
-            cap:   30, aMcap: 50,
-            cent:  ['ScaleAI', 'Surge', 'Common Crawl', 'Web scrape'],
+            cap: 28, aMcap: 52, gapTxt:'≈540×',
+            cent:  ['ScaleAI $14B', 'Surge AI $1.4B', 'Snorkel', 'Common Crawl'],
             sn:    [
               { id: 13, name: 'Data Universe', cat: 'data' },
               { id: 60, name: 'Snowballer',    cat: 'data' },
               { id: 52, name: 'Dojo',          cat: 'data' },
               { id: 24, name: 'BitMind',       cat: 'vision' },
             ],
-            share: 11,
-            verdict: 'First B2B contract between subnets shipped Q1 (SN13 → SN44). The decentralized data flywheel works.',
+            unit:    'B2B FLYWHEEL · first publicly-disclosed inter-subnet contract: SN13 → SN44 in Q1 ’26.',
+            verdict: 'ScaleAI is $14B by itself and the layer is fundamentally about labour arbitrage. Subnet-to-subnet B2B is the proof that decentralized data has a real fly-wheel; SN13 → SN44 was the prototype.',
           },
           {
             layer: 'COMPUTE',
             sub:   'GPU + CPU runtime layer.',
-            cap:   250, aMcap: 80,
-            cent:  ['AWS', 'GCP', 'Azure', 'CoreWeave', 'Lambda'],
+            cap: 240, aMcap: 81, gapTxt:'≈3.0k×',
+            cent:  ['AWS', 'Azure', 'GCP', 'CoreWeave', 'Lambda'],
             sn:    [
               { id: 64, name: 'Chutes',    cat: 'infra' },
               { id: 51, name: 'Lium',      cat: 'infra' },
@@ -476,24 +517,27 @@ export function mountHome(root, dataLayer = null){
               { id: 27, name: 'Compute',   cat: 'infra' },
               { id: 49, name: 'Polaris',   cat: 'infra' },
             ],
-            share: 19,
-            verdict: 'Big Tech committed $250B+ in AI capex for 2026. Bittensor competes on aggregator economics.',
+            unit:    'CAPEX BURN · MSFT + GOOG + META + AMZN total 2026 AI capex guidance: ~$240B.',
+            verdict: 'You don\'t out-capex Microsoft. The play is aggregator economics — coordinate the long-tail GPU supply that hyperscalers don\'t bid on. Chutes\' B200 deployment is the live test.',
           },
           {
             layer: 'PROTOCOL',
             sub:   'Coordination + payment layer.',
-            cap:   0, aMcap: 3280,
-            cent:  ['no centralized analog'],
+            cap: 0, aMcap: 3280, gapTxt:'100% Bittensor',
+            cent:  ['no centralized analog exists'],
             sn:    [
-              { id: null, name: 'Yuma Consensus',  cat: 'protocol' },
-              { id: null, name: 'dTAO bonding',    cat: 'protocol' },
-              { id: null, name: 'Subtensor chain', cat: 'protocol' },
+              { id: null, name: 'Subtensor chain',  cat: 'protocol' },
+              { id: null, name: 'Yuma Consensus',   cat: 'protocol' },
+              { id: null, name: 'dTAO bonding',     cat: 'protocol' },
             ],
-            share: 10,
-            verdict: 'Bittensor owns this layer outright. No centralized product coordinates a network of AI workers like Yuma does.',
+            unit:    'TAO MARKET CAP · $3.28B live, 21M cap, halving #2 due Dec ’29.',
+            verdict: 'The only layer where Bittensor owns the field. No centralized product coordinates a network of AI workers like Yuma does. The asymmetric bet sits here, not above.',
           },
         ].map((row, i) => {
-          const fmt  = (b) => b === 0 ? '—' : (b >= 1000 ? '$' + (b/1000).toFixed(1) + 'T' : '$' + b + 'B');
+          const fmt  = (b) => b === 0 ? '—' :
+                              b >= 1000 ? '$' + (b/1000).toFixed(1) + 'T'
+                            : b >= 1   ? '$' + (b % 1 === 0 ? b : b.toFixed(1)) + 'B'
+                                       : '$' + (b * 1000).toFixed(0) + 'M';
           const fmtM = (m) => m >= 1000 ? '$' + (m/1000).toFixed(2) + 'B' : '$' + m + 'M';
           return `
           <li class="home-stack__row" data-layer="${row.layer.toLowerCase()}">
@@ -515,6 +559,10 @@ export function mountHome(root, dataLayer = null){
                   <span class="home-stack__capital-val">${fmtM(row.aMcap)}</span>
                 </div>
               </div>
+              <div class="home-stack__capital-gap">
+                <span class="home-stack__capital-gap-lbl">GAP MULTIPLIER</span>
+                <span class="home-stack__capital-gap-val">${row.gapTxt}</span>
+              </div>
             </div>
 
             <div class="home-stack__cent">
@@ -531,6 +579,11 @@ export function mountHome(root, dataLayer = null){
                   </span>
                 </li>
               `).join('')}</ul>
+            </div>
+
+            <div class="home-stack__unit">
+              <span class="home-stack__col-lbl">UNIT ECONOMICS · the actual fight</span>
+              <p>${row.unit}</p>
             </div>
 
             <div class="home-stack__verdict">

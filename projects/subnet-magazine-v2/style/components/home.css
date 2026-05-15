@@ -923,7 +923,9 @@
     0 24px 60px -32px rgba(255,30,60,.35);
 }
 .home-stack__chart-head{
-  display: flex; justify-content: space-between;
+  display: grid;
+  grid-template-columns: clamp(80px, 13%, 116px) 1fr clamp(68px, 11%, 92px);
+  gap: var(--s-3);
   margin-bottom: var(--s-3);
   font-family: var(--f-mono);
   font-size: 9.5px;
@@ -931,8 +933,12 @@
   letter-spacing: var(--ls-label);
   text-transform: uppercase;
 }
+.home-stack__chart-axis-bar{
+  display: flex; justify-content: space-between;
+}
 .home-stack__chart-axis--c{ color: var(--c-ink-3); }
 .home-stack__chart-axis--b{ color: var(--c-red); }
+.home-stack__chart-axis--gap{ color: var(--c-red-1); text-align: right; }
 .home-stack__chart-rows{
   list-style: none;
   margin: 0;
@@ -942,7 +948,7 @@
 }
 .home-stack__chart-row{
   display: grid;
-  grid-template-columns: clamp(74px, 12%, 110px) 1fr clamp(70px, 12%, 110px);
+  grid-template-columns: clamp(80px, 13%, 116px) 1fr clamp(68px, 11%, 92px);
   align-items: center;
   gap: var(--s-3);
 }
@@ -953,6 +959,39 @@
   letter-spacing: var(--ls-label);
   color: var(--c-ink-1);
   white-space: nowrap;
+  display: inline-flex; align-items: center; gap: 5px;
+}
+.home-stack__chart-conf{
+  display: inline-block;
+  width: 6px; height: 6px;
+  border-radius: 50%;
+}
+.home-stack__chart-axis--gap{
+  color: var(--c-red-1);
+  text-align: right;
+  flex: 0 0 auto;
+}
+.home-stack__chart-yr{
+  display: inline-block;
+  margin-left: 4px;
+  font-size: 8px;
+  font-weight: 600;
+  color: var(--c-ink-3);
+  letter-spacing: var(--ls-label);
+}
+.home-stack__chart-gap{
+  font-family: var(--f-mono);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: var(--ls-data);
+  color: var(--c-red);
+  text-align: right;
+  font-variant-numeric: tabular-nums;
+  white-space: nowrap;
+}
+.home-stack__chart-gap.is-inverted{
+  color: var(--c-up);
+  font-size: 9.5px;
 }
 .home-stack__chart-bar{
   display: flex; align-items: stretch;
@@ -1033,7 +1072,7 @@
 }
 .home-stack__row{
   display: grid;
-  grid-template-columns: clamp(180px, 18%, 200px) clamp(180px, 18%, 220px) 1fr 1.2fr clamp(160px, 18%, 220px);
+  grid-template-columns: clamp(160px, 14%, 180px) clamp(180px, 16%, 220px) 1fr 1.2fr clamp(180px, 18%, 240px) clamp(180px, 18%, 240px);
   gap: 0;
   border-right: var(--b-thin);
   border-bottom: var(--b-thin);
@@ -1183,6 +1222,50 @@
   text-shadow: 0 0 12px rgba(255,30,60,.45);
 }
 
+/* gap multiplier chip below the capital row — gives the
+   centralized-vs-Bittensor disparity its own number, calibrated per
+   row so no two rows tell the same story. */
+.home-stack__capital-gap{
+  display: flex; align-items: baseline; gap: var(--s-2);
+  margin-top: var(--s-2);
+  padding: 6px 10px;
+  background: rgba(255,30,60,.08);
+  border: 1px solid var(--c-rule-3);
+  border-radius: 999px;
+  align-self: start;
+}
+.home-stack__capital-gap-lbl{
+  font-family: var(--f-mono);
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: var(--ls-label);
+  text-transform: uppercase;
+  color: var(--c-ink-3);
+}
+.home-stack__capital-gap-val{
+  font-family: var(--f-mono);
+  font-size: var(--t-md);
+  font-weight: 700;
+  font-variant-numeric: tabular-nums;
+  letter-spacing: var(--ls-data);
+  color: var(--c-red);
+}
+
+/* unit-economics block — names the actual quantitative front the
+   layer is being fought on (cost per token, MMLU parity, capex burn,
+   B2B contract count, etc). The piece of the card that turns "size
+   comparison" into "what's happening at this layer." */
+.home-stack__unit{
+  background: rgba(0,0,0,.18);
+}
+.home-stack__unit p{
+  margin: 0;
+  font-family: var(--f-mono);
+  font-size: var(--t-sm);
+  line-height: 1.5;
+  color: var(--c-ink-1);
+}
+
 /* the per-card "THE READ" verdict block — full sentence telling the
    reader what to take from the row, not a vague badge */
 .home-stack__verdict{
@@ -1275,10 +1358,10 @@
     scroll-snap-align: start;
     scroll-snap-stop: always;
     grid-template-columns: 1fr;
-    grid-template-rows: auto auto auto auto auto;
+    grid-template-rows: auto auto auto auto auto auto;
     border: 1px solid var(--c-rule-2);
     border-radius: 4px;
-    min-height: 620px;
+    min-height: auto;
   }
   /* the lead chart goes a bit denser at narrow widths so it still
      reads on a phone */
