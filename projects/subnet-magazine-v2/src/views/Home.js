@@ -117,6 +117,141 @@ export function mountHome(root, dataLayer = null){
   const articles = articlesByDate();
 
   mount(root, html`
+    <!-- ===== BITTENSOR IN SIX STEPS (teaching block) =====
+         A plain-language explainer of the protocol — what makes the
+         network work, in the order it works. Every page on the site
+         visualises this loop; this section names the parts so the
+         visualisations actually mean something to a first-time reader. -->
+    <section class="home-how" aria-label="Bittensor, in six steps">
+      <div class="home-net__head">
+        <span class="home-net__kicker">&gt; The protocol</span>
+        <h2 class="home-net__title">Bittensor, in <em>six steps.</em></h2>
+        <p class="home-net__sub">The whole network in one read — what subnets are, who mines them,
+        who scores them, how consensus pays, and why every subnet has its own alpha token. Plain words.</p>
+      </div>
+      <ol class="home-how__grid">
+        <li class="home-how__step">
+          <span class="home-how__num">01</span>
+          <span class="home-how__icon" aria-hidden="true">
+            <svg viewBox="0 0 56 56" width="56" height="56" fill="none">
+              <rect x="6"  y="6"  width="13" height="13" rx="1" stroke="currentColor" stroke-width="1.4"/>
+              <rect x="22" y="6"  width="13" height="13" rx="1" stroke="currentColor" stroke-width="1.4"/>
+              <rect x="38" y="6"  width="12" height="13" rx="1" stroke="currentColor" stroke-width="1.4"/>
+              <rect x="6"  y="22" width="13" height="13" rx="1" stroke="currentColor" stroke-width="1.4"/>
+              <rect x="22" y="22" width="13" height="13" rx="1" fill="currentColor"/>
+              <rect x="38" y="22" width="12" height="13" rx="1" stroke="currentColor" stroke-width="1.4"/>
+              <rect x="6"  y="38" width="13" height="12" rx="1" stroke="currentColor" stroke-width="1.4"/>
+              <rect x="22" y="38" width="13" height="12" rx="1" stroke="currentColor" stroke-width="1.4"/>
+              <rect x="38" y="38" width="12" height="12" rx="1" stroke="currentColor" stroke-width="1.4"/>
+            </svg>
+          </span>
+          <h3 class="home-how__h">Subnets</h3>
+          <p class="home-how__p">A subnet is a market for one specific kind of intelligence —
+          text generation, image classification, weather forecasts, protein folding. Today there
+          are <span class="val">92 active subnets</span>, each running its own competition.</p>
+        </li>
+
+        <li class="home-how__step">
+          <span class="home-how__num">02</span>
+          <span class="home-how__icon" aria-hidden="true">
+            <svg viewBox="0 0 56 56" width="56" height="56" fill="none">
+              <rect x="10" y="20" width="36" height="24" rx="2" stroke="currentColor" stroke-width="1.4"/>
+              <circle cx="17" cy="28" r="1.6" fill="currentColor"/>
+              <circle cx="17" cy="34" r="1.6" fill="currentColor"/>
+              <circle cx="17" cy="40" r="1.6" fill="currentColor"/>
+              <path d="M28 18 V8 M22 14 L28 8 L34 14" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+              <rect x="25" y="26" width="14" height="3" fill="currentColor" opacity=".65"/>
+              <rect x="25" y="32" width="11" height="3" fill="currentColor" opacity=".5"/>
+              <rect x="25" y="38" width="16" height="3" fill="currentColor" opacity=".8"/>
+            </svg>
+          </span>
+          <h3 class="home-how__h">Miners</h3>
+          <p class="home-how__p">Anyone can register a miner on any subnet — usually a GPU running
+          a model. Miners answer the subnet's queries; whoever answers <em>best</em> earns the most.
+          No permission, no whitelist. Pay <span class="val">~τ1</span> to register a UID.</p>
+        </li>
+
+        <li class="home-how__step">
+          <span class="home-how__num">03</span>
+          <span class="home-how__icon" aria-hidden="true">
+            <svg viewBox="0 0 56 56" width="56" height="56" fill="none">
+              <circle cx="28" cy="28" r="20" stroke="currentColor" stroke-width="1.4"/>
+              <circle cx="28" cy="28" r="12" stroke="currentColor" stroke-width="1.2" opacity=".55"/>
+              <circle cx="28" cy="28" r="4"  fill="currentColor"/>
+              <path d="M28 2 V12 M28 44 V54 M2 28 H12 M44 28 H54" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/>
+              <path d="M40 18 L46 12 M16 38 L10 44 M40 38 L46 44 M16 18 L10 12" stroke="currentColor" stroke-width="1.1" opacity=".45"/>
+            </svg>
+          </span>
+          <h3 class="home-how__h">Validators</h3>
+          <p class="home-how__p">Validators rank the miners. Each validator runs the subnet's
+          incentive code, scores every miner's output, and publishes a weight vector — its honest
+          opinion of who did the work. <span class="val">6,184 hotkeys</span> validate today.</p>
+        </li>
+
+        <li class="home-how__step">
+          <span class="home-how__num">04</span>
+          <span class="home-how__icon" aria-hidden="true">
+            <svg viewBox="0 0 56 56" width="56" height="56" fill="none">
+              <circle cx="14" cy="14" r="3"  fill="currentColor"/>
+              <circle cx="42" cy="14" r="3"  fill="currentColor"/>
+              <circle cx="14" cy="42" r="3"  fill="currentColor"/>
+              <circle cx="42" cy="42" r="3"  fill="currentColor"/>
+              <circle cx="28" cy="28" r="5"  stroke="currentColor" stroke-width="1.6"/>
+              <path d="M14 14 L28 28 M42 14 L28 28 M14 42 L28 28 M42 42 L28 28" stroke="currentColor" stroke-width="1.3"/>
+              <circle cx="28" cy="28" r="14" stroke="currentColor" stroke-width="1" opacity=".4" stroke-dasharray="2 3"/>
+            </svg>
+          </span>
+          <h3 class="home-how__h">Consensus</h3>
+          <p class="home-how__p">Yuma Consensus aggregates every validator's weights into one
+          fair score per miner. Outliers get pruned; agreement gets paid. The math comes from
+          <span class="val">Yuma Rao 2020</span> — Bittensor's founding whitepaper.</p>
+        </li>
+
+        <li class="home-how__step">
+          <span class="home-how__num">05</span>
+          <span class="home-how__icon" aria-hidden="true">
+            <svg viewBox="0 0 56 56" width="56" height="56" fill="none">
+              <circle cx="28" cy="10" r="6" stroke="currentColor" stroke-width="1.6"/>
+              <text x="28" y="13" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="7" font-weight="700" fill="currentColor">τ</text>
+              <path d="M28 16 L12 38 M28 16 L28 38 M28 16 L44 38" stroke="currentColor" stroke-width="1.4"/>
+              <rect x="6"  y="40" width="12" height="10" rx="1" stroke="currentColor" stroke-width="1.2"/>
+              <rect x="22" y="40" width="12" height="10" rx="1" stroke="currentColor" stroke-width="1.2"/>
+              <rect x="38" y="40" width="12" height="10" rx="1" stroke="currentColor" stroke-width="1.2"/>
+              <text x="12" y="48" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="6" font-weight="700" fill="currentColor">41</text>
+              <text x="28" y="48" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="6" font-weight="700" fill="currentColor">41</text>
+              <text x="44" y="48" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="6" font-weight="700" fill="currentColor">18</text>
+            </svg>
+          </span>
+          <h3 class="home-how__h">Emissions</h3>
+          <p class="home-how__p">Every block the chain mints fresh TAO and splits it three ways:
+          <span class="val">41 %</span> to miners, <span class="val">41 %</span> to validators,
+          <span class="val">18 %</span> to the subnet owner. Daily emission across the whole
+          network: roughly <span class="val">7,200 τ</span>.</p>
+        </li>
+
+        <li class="home-how__step">
+          <span class="home-how__num">06</span>
+          <span class="home-how__icon" aria-hidden="true">
+            <svg viewBox="0 0 56 56" width="56" height="56" fill="none">
+              <path d="M6 46 Q22 46 28 28 T50 10" stroke="currentColor" stroke-width="1.8" fill="none"/>
+              <path d="M6 46 H50 M6 46 V10" stroke="currentColor" stroke-width="1" opacity=".4"/>
+              <circle cx="28" cy="28" r="3" fill="currentColor"/>
+              <text x="44" y="22" font-family="JetBrains Mono, monospace" font-size="8" font-weight="700" fill="currentColor">α</text>
+              <text x="10" y="42" font-family="JetBrains Mono, monospace" font-size="7" fill="currentColor" opacity=".6">τ</text>
+            </svg>
+          </span>
+          <h3 class="home-how__h">dTAO</h3>
+          <p class="home-how__p">Each subnet has its own token — its <span class="val">α token</span>.
+          A bonding curve sets the price: more TAO bonded in, higher the α. Buy α to bet that a
+          subnet will earn more emissions; sell α to exit. This is dynamic TAO — dTAO.</p>
+        </li>
+      </ol>
+      <span class="home-how__foot">
+        <span>PROTOCOL · YUMA CONSENSUS · DTAO ENABLED</span>
+        <span>READ MORE · TERMINAL → /WHITEPAPER</span>
+      </span>
+    </section>
+
     <!-- ===== FEATURED RESEARCH (top of page) ===== -->
     <section class="home-research" aria-label="Featured research">
       <div class="home-research__head">
