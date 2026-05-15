@@ -704,41 +704,87 @@ export function mountHome(root, dataLayer = null){
             <p class="home-how__ex"><span class="home-how__ex-lbl">Representative</span><span class="home-how__ex-chip">SN64 Chutes · serverless GPU compute</span></p>
           </div>
           <div class="home-how__viz" aria-hidden="true">
-            <!-- Subnet population by category — horizontal bar chart with
-                 live pulse dots. Sorted by count. -->
-            <svg viewBox="0 0 220 160" preserveAspectRatio="xMidYMid meet">
-              <text x="6" y="10" font-family="JetBrains Mono, monospace" font-size="7"
-                    font-weight="700" fill="currentColor" opacity=".55">SUBNETS BY CATEGORY · LIVE</text>
-              <line x1="0" y1="14" x2="220" y2="14" stroke="currentColor" stroke-opacity=".22" stroke-width=".5"/>
-              ${[
-                ['TEXT',     22],
-                ['VISION',   18],
-                ['INFRA',    14],
-                ['TRAINING', 12],
-                ['FINANCE',  10],
-                ['AGENTS',    8],
-                ['SCIENCE',   6],
-                ['DATA',      2],
-              ].map(([cat, n], i) => {
-                const y = 24 + i * 15;
-                const w = n * 7;            // 22 → 154
-                const delay = (i * 0.18).toFixed(2);
-                return `
-                  <text x="6"  y="${y + 4}" font-family="JetBrains Mono, monospace" font-size="7"
-                        font-weight="600" fill="currentColor" opacity=".82">${cat}</text>
-                  <rect x="56" y="${y - 4}" width="${w}" height="9"
-                        fill="currentColor" fill-opacity=".55"/>
-                  <rect x="56" y="${y - 4}" width="156" height="9"
-                        fill="none" stroke="currentColor" stroke-opacity=".18" stroke-width=".5"/>
-                  <text x="${56 + w + 4}" y="${y + 4}" font-family="JetBrains Mono, monospace"
-                        font-size="7" font-weight="700" fill="currentColor">${n}</text>
-                  <circle cx="${56 + w - 3}" cy="${y + 0.5}" r="1.6" fill="#F5E5E8" style="animation: howPulse 1.8s ease-in-out ${delay}s infinite;"/>
-                `;
-              }).join('')}
-              <line x1="0" y1="152" x2="220" y2="152" stroke="currentColor" stroke-opacity=".22" stroke-width=".5"/>
-              <text x="6"   y="158" font-family="JetBrains Mono, monospace" font-size="6.5" font-weight="600" fill="currentColor" opacity=".55">Σ ACTIVE</text>
-              <text x="216" y="158" text-anchor="end" font-family="JetBrains Mono, monospace" font-size="6.5" font-weight="700" fill="currentColor">92 / 256</text>
-            </svg>
+            <!-- Subnet distribution · donut chart of the 92 active
+                 subnets by task category. Centred dial shows the
+                 92 / 256 active-of-max-slots ratio; an indexed
+                 legend on the right names each segment in
+                 monochrome opacity ramp. -->
+            ${(() => {
+              const cats = [
+                ['TEXT',     22, 0.95],
+                ['VISION',   18, 0.82],
+                ['INFRA',    14, 0.70],
+                ['TRAINING', 12, 0.58],
+                ['FINANCE',  10, 0.46],
+                ['AGENTS',    8, 0.34],
+                ['SCIENCE',   6, 0.22],
+                ['DATA',      2, 0.12],
+              ];
+              const total = cats.reduce((s, c) => s + c[1], 0);
+              const cx = 56, cy = 88, R = 44, r = 30;
+              let cum = -90;
+              const toRad = a => a * Math.PI / 180;
+              const arcs = cats.map(([cat, n, op]) => {
+                const sweep = (n / total) * 360;
+                const start = cum, end = cum + sweep;
+                cum = end;
+                const sx = cx + R * Math.cos(toRad(start)), sy = cy + R * Math.sin(toRad(start));
+                const ex = cx + R * Math.cos(toRad(end)),   ey = cy + R * Math.sin(toRad(end));
+                const isx = cx + r * Math.cos(toRad(end)),  isy = cy + r * Math.sin(toRad(end));
+                const iex = cx + r * Math.cos(toRad(start)),iey = cy + r * Math.sin(toRad(start));
+                const large = sweep > 180 ? 1 : 0;
+                const d = `M ${sx.toFixed(2)} ${sy.toFixed(2)}
+                           A ${R} ${R} 0 ${large} 1 ${ex.toFixed(2)} ${ey.toFixed(2)}
+                           L ${isx.toFixed(2)} ${isy.toFixed(2)}
+                           A ${r} ${r} 0 ${large} 0 ${iex.toFixed(2)} ${iey.toFixed(2)} Z`;
+                return { d, op, cat, n };
+              });
+              return `
+              <svg viewBox="0 0 220 180" preserveAspectRatio="xMidYMid meet">
+                <text x="6" y="10" font-family="JetBrains Mono, monospace" font-size="7"
+                      font-weight="700" fill="currentColor" opacity=".55">SUBNET DISTRIBUTION · BY CATEGORY</text>
+                <line x1="0" y1="14" x2="220" y2="14" stroke="currentColor" stroke-opacity=".22" stroke-width=".5"/>
+
+                <!-- the donut -->
+                <g>${arcs.map(a => `<path d="${a.d}" fill="currentColor" fill-opacity="${a.op}"/>`).join('')}</g>
+
+                <!-- centred dial — big count + small caps caption -->
+                <text x="${cx}" y="${cy - 4}" text-anchor="middle"
+                      font-family="JetBrains Mono, monospace" font-size="22" font-weight="700"
+                      fill="#F5E5E8" font-variant-numeric="tabular-nums">92</text>
+                <text x="${cx}" y="${cy + 6}" text-anchor="middle"
+                      font-family="JetBrains Mono, monospace" font-size="5.5" font-weight="700"
+                      letter-spacing="2" fill="currentColor" opacity=".65">ACTIVE</text>
+                <text x="${cx}" y="${cy + 14}" text-anchor="middle"
+                      font-family="JetBrains Mono, monospace" font-size="5" font-weight="600"
+                      letter-spacing="1.5" fill="currentColor" opacity=".42">OF 256 SLOTS</text>
+
+                <!-- indexed legend, right column -->
+                <g transform="translate(115, 30)">
+                  ${cats.map(([cat, n, op], i) => `
+                    <g transform="translate(0, ${i * 13})">
+                      <rect x="0" y="-4" width="6" height="6" fill="currentColor" fill-opacity="${op}"/>
+                      <text x="14" y="1" font-family="JetBrains Mono, monospace"
+                            font-size="6.5" font-weight="600" fill="currentColor" opacity=".88"
+                            letter-spacing=".04em">${cat}</text>
+                      <text x="100" y="1" text-anchor="end"
+                            font-family="JetBrains Mono, monospace" font-size="7" font-weight="700"
+                            fill="#F5E5E8" font-variant-numeric="tabular-nums">${n}</text>
+                      <text x="103" y="1" font-family="JetBrains Mono, monospace"
+                            font-size="5.5" font-weight="500"
+                            fill="currentColor" opacity=".42">·${((n/total)*100).toFixed(0)}%</text>
+                    </g>
+                  `).join('')}
+                </g>
+
+                <line x1="0" y1="172" x2="220" y2="172" stroke="currentColor" stroke-opacity=".22" stroke-width=".5"/>
+                <text x="6"   y="178" font-family="JetBrains Mono, monospace" font-size="6"
+                      font-weight="600" fill="currentColor" opacity=".55" letter-spacing=".12em">SHARE · % OF 92 ACTIVE</text>
+                <text x="216" y="178" text-anchor="end" font-family="JetBrains Mono, monospace"
+                      font-size="6" font-weight="700" fill="currentColor" letter-spacing=".08em">LIVE · TAOSTATS</text>
+              </svg>
+              `;
+            })()}
           </div>
         </li>
 

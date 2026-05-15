@@ -551,7 +551,7 @@ export function mountConsole(_dataLayer = null){
       <span class="sbnt-console__brand">
         <span class="sbnt-console__name">Subnet Oracle</span>
         <span class="sbnt-console__sep">//</span>
-        <span class="sbnt-console__net">Bittensor</span>
+        <span class="sbnt-console__net">Bi<span class="tau">ττ</span>ensor</span>
       </span>
       <span class="sbnt-console__title" data-role="title"></span>
       <span class="sbnt-console__push"></span>
