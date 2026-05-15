@@ -33,6 +33,21 @@
   white-space: nowrap;
 }
 .ticker__tag--alt{ color: var(--c-ink-2); }
+
+/* the Bittensor tape's tag chip is set as the brand wordmark itself —
+   lowercase "biττensor" in the wordmark face. The τ characters live
+   at the same x-height as the surrounding b/i/e/n/s/o/r so the chip
+   reads cleanly instead of mixing huge caps with tiny lowercase taus. */
+.ticker__tag--brand{ padding-right: var(--s-3); }
+.ticker__brand{
+  font-family: var(--f-serif, 'Archivo', system-ui, sans-serif);
+  font-size: 13px;
+  font-weight: 800;
+  letter-spacing: -.01em;
+  text-transform: none;
+  color: var(--c-ink-1);
+  line-height: 1;
+}
 /* fade the chips in and out at both edges of the tape */
 .ticker__viewport{
   overflow: hidden;
