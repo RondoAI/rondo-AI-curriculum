@@ -25,12 +25,24 @@ export function mountHero(root, dataLayer = null){
         <span class="hero__kicker"><span class="live-dot"></span>Volume 02 · Issue 01 · 14 May 2026 · the decentralized intelligence desk</span>
 
         <div class="hero__head">
-          <h1 class="hero__title">Bittensor, <em>finally rendered.</em></h1>
+          <h1 class="hero__title">Subne<span class="tau">τ</span> Magazine</h1>
+          <p class="hero__subtitle">A Bittensor <em>subnet review.</em></p>
+
+          <!-- The philosophy. Set apart from the descriptive dek so it
+               reads as the editorial position, not the product blurb. -->
+          <blockquote class="hero__philosophy">
+            <span class="hero__philosophy-q">“</span>
+            Decentralized intelligence is the most important market of this decade.
+            We cover it that way — every subnet a market, every operator a builder,
+            every claim provenanced.
+            <span class="hero__philosophy-q">”</span>
+          </blockquote>
+
           <p class="hero__dek">
-            Ninety-two subnets. Six thousand validators. The Yuma Consensus loop drawn
-            end-to-end, the operators named, every claim provenanced. The reading-room
-            the open AI economy was missing — built for the funds deciding where the
-            next billion of compute goes, and the agents they delegate to.
+            The reading-room the open AI economy was missing. Live network state, the
+            Yuma loop drawn end-to-end, twenty-five operators profiled, the math shown.
+            Built for the funds deciding where the next billion of compute goes, and the
+            agents they delegate to.
           </p>
         </div>
 
