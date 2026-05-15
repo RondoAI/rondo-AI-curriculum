@@ -25,6 +25,10 @@ const CSS = `
 .sbnt-console{
   position: fixed; left: 0; bottom: 0; z-index: 45;
   width: min(640px, 100vw);
+  /* cap the dock so it can never eat the page — even when the user
+     opens /play (the runner canvas is the tallest body content).
+     Body has its own overflow-y so any spill scrolls internally. */
+  max-height: 70vh;
   font-family: var(--f-mono, monospace);
   background:
     radial-gradient(120% 80% at 18% 0%, rgba(255,30,60,.18), transparent 60%),
@@ -40,6 +44,8 @@ const CSS = `
     0 -8px 40px rgba(0,0,0,.65);
   isolation: isolate;
   overflow: hidden;
+  display: flex;
+  flex-direction: column;
 }
 /* a bright 1-px red rail at the very top edge — the bar declares
    itself before you read the text. The only chrome on the bar; the
@@ -86,10 +92,15 @@ const CSS = `
   flex: 0 0 34px;
   color: var(--c-red, #FF1E3C);
   filter: drop-shadow(0 0 8px rgba(255,30,60,.6));
+  /* touches pass through to the bar so tap-to-collapse still works
+     when the user hits the mark directly */
+  pointer-events: none;
 }
 .sbnt-console__nn-canvas{
   display: block;
   width: 100%; height: 100%;
+  max-width: 34px;
+  max-height: 34px;
   border-radius: 50%;
 }
 .sbnt-console__nn::after{

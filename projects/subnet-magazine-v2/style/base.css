@@ -24,6 +24,12 @@ body {
   -webkit-font-smoothing: antialiased;
   text-rendering: optimizeLegibility;
   overflow-x: hidden;
+  /* reserve room at the bottom of every page for the fixed
+     Subnet Oracle dock so the END colophon (and anything else at
+     the very bottom of the page) stays reachable above the dock
+     instead of being hidden behind it */
+  padding-bottom: 64px;
+  scroll-padding-bottom: 64px;
 
   /* Terminal texture: a fine red grid, a coarse red grid over it, a
      top-anchored red bloom, an edge vignette, and faint CRT
