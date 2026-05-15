@@ -176,24 +176,106 @@ export const FIELD_MANUAL = Object.freeze([
 
   /* ===================================================================== */
   { id: 'dtao', label: '/dtao', title: 'dTAO · alpha tokens',
-    blurb: 'Every subnet has its own token · TAO/α pool prices it · stake there.',
+    blurb: 'Every subnet has its own token · TAO/α pool prices it · α-cap = emission share.',
     body: [
       { kind:'h',    text:'THE OLD WAY (pre-Feb 2025)' },
-      { kind:'p',    text:'All τ was the same. The chain decided per-subnet emissions and validators set "root weights" that allocated those emissions across subnets.' },
+      { kind:'p',    text:'All τ was the same. Validators voted "root weights" that decided how the chain split emissions across subnets — a small group of stakers chose the winners every block.' },
 
       { kind:'h',    text:'THE NEW WAY · dTAO' },
-      { kind:'p',    text:'Every subnet has its own alpha token (α₁, α₂, … α₁₂₈). TAO and α trade in a per-subnet bonding-curve pool. α-price = TAO reserve / α reserve, and a subnet\'s emission share = its α market cap / sum of all α market caps.' },
+      { kind:'p',    text:'Every subnet has its own alpha token (α₁, α₂, … α₁₂₈). TAO and α trade in a per-subnet bonding-curve pool. α-price = TAO reserve / α reserve. The market chooses the winners now, not a small group of voters.' },
+
+      { kind:'h',    text:'THE BONDING CURVE' },
+      { kind:'p',    text:'Each subnet pool holds TAO reserves and α reserves and prices α off a constant-product curve (x · y = k). Add TAO → α-price rises and you receive α at the new marginal rate. Remove α → α-price falls. No oracle, no admin keys, no privileged listing.' },
+
+      { kind:'h',    text:'EMISSION SHARE' },
+      { kind:'p',    text:'A subnet\'s emission share = its α market cap / sum of all α market caps. Bigger pool, bigger share. The chain itself does not have to choose what is "useful" — the market does, by where it parks TAO.' },
+
+      { kind:'h',    text:'WORKED EXAMPLE' },
+      { kind:'p',    text:'Subnet 64 pool: 14,200 TAO + 412,000 α. α-price = 14,200 / 412,000 = 0.0345 TAO/α. α market cap = 412,000 × 0.0345 = 14,200 TAO. The subnet\'s emission share is 14,200 / Σ-α-mcap of all 128 subnets — about 4.8% of the network\'s daily emissions at current network state.' },
 
       { kind:'h',    text:'STAKE OPTIONS' },
-      { kind:'p',    text:'Stake TAO → root subnet, ~equal share, paid in TAO. Stake α → that subnet, full alpha exposure, paid in α. α-staking is leveraged on the subnet\'s success; TAO-staking is the network index.' },
+      { kind:'note', text:'stake TAO → root subnet · ~equal share across the network · paid in TAO' },
+      { kind:'note', text:'stake α   → that subnet · leveraged on its success · paid in α' },
+      { kind:'note', text:'α-yield depends on the subnet actually earning emissions through real validator activity — not just on α-price' },
 
-      { kind:'h',    text:'THE PRACTICAL CONSEQUENCE' },
-      { kind:'p',    text:'A subnet that produces real value pulls TAO into its pool · its α rises · its emission share grows · its miners earn more. A subnet that doesn\'t: the pool drains · α falls · deregistration nears.' },
+      { kind:'h',    text:'SLIPPAGE · LIQUIDITY' },
+      { kind:'p',    text:'Thin pools cost more to enter and exit. A high α-yield in a shallow pool can vanish on the way out — always check pool depth before staking large into a subnet. The slippage is the true round-trip fee.' },
 
       { kind:'h',    text:'WHAT TO LOOK FOR' },
       { kind:'note', text:'α-price 30d chart · live demand for the subnet' },
-      { kind:'note', text:'TAO in pool (liquidity) · slippage cost to enter or exit' },
+      { kind:'note', text:'TAO in pool · the liquidity that backs every entry and exit' },
       { kind:'note', text:'α-staked vs floating · who is leaving and who is compounding' },
+      { kind:'note', text:'α market cap vs the subnet\'s real validator activity · sniff out empty pumps' },
+    ] },
+
+  /* ===================================================================== */
+  { id: 'whitepaper', label: '/whitepaper', title: 'The Bittensor whitepaper',
+    blurb: 'Yuma Rao · 2020 · a peer-to-peer market for machine intelligence.',
+    body: [
+      { kind:'h',    text:'THE PAPER' },
+      { kind:'p',    text:'The original Bittensor whitepaper was published in 2020 by Yuma Rao — the same Yuma the consensus algorithm is named for. It described a peer-to-peer market where machine intelligence is the commodity and a consensus mechanism prices it. The architecture has evolved (subnets, dTAO) but the thesis is unchanged.' },
+
+      { kind:'h',    text:'CORE THESIS' },
+      { kind:'p',    text:'AI is centralizing: a few labs with massive compute. The proposal: a token-incentivized market where anyone can run a model, anyone can validate, and the chain rewards whichever model produces the most useful intelligence — measured by peer scoring, not by who owns the inference.' },
+
+      { kind:'h',    text:'KEY CONTRIBUTIONS' },
+      { kind:'note', text:'YUMA CONSENSUS · a Byzantine-fault-tolerant scoring algorithm — clip the dissenters, reward the cluster' },
+      { kind:'note', text:'STAKE-WEIGHTED SCORING · validator vote scales with delegated TAO, so reputation backs voice' },
+      { kind:'note', text:'MINER-VALIDATOR INTERPLAY · miners produce, validators score, the chain settles in TAO' },
+      { kind:'note', text:'SUBNETS · each subnet defines its own task and its own scoring rule, like specialized markets' },
+      { kind:'note', text:'TOKENOMICS · Bitcoin-shaped emission · halving · 21M cap' },
+
+      { kind:'h',    text:'THE INTELLIGENCE COMMODITY' },
+      { kind:'p',    text:'The radical claim: machine intelligence can be priced like any other commodity if you can score it. Bittensor\'s answer to "how do you score?" is recursive — validators score miners, the network scores validators on their scoring quality. Honesty pays because dishonesty is detectable.' },
+
+      { kind:'h',    text:'V2 · DTAO (Feb 2025)' },
+      { kind:'p',    text:'The 2025 update split monolithic TAO into per-subnet alpha tokens and replaced root-weight voting with bonding-curve markets. Now markets, not validator votes, decide which subnets get emissions. See /dtao for the mechanics.' },
+
+      { kind:'h',    text:'WHERE TO READ' },
+      { kind:'cmd',  text:'https://bittensor.com/whitepaper' },
+      { kind:'cmd',  text:'https://github.com/opentensor/subtensor' },
+      { kind:'note', text:'the runtime spec is in pallets/subtensor — the canonical source for what the chain actually does' },
+      { kind:'note', text:'Yuma\'s original arXiv preprint is also worth reading for the proof sketches' },
+    ] },
+
+  /* ===================================================================== */
+  { id: 'roadmap', label: '/roadmap', title: 'Network updates · this month',
+    blurb: 'What the chain and the subnets are shipping right now (May 2026).',
+    body: [
+      { kind:'h',    text:'IN FLIGHT THIS MONTH' },
+      { kind:'p',    text:'Snapshot of what Opentensor Foundation and subnet teams have announced or have on the immediate ship list. Read each entry on the source\'s feed for canonical detail.' },
+
+      { kind:'h',    text:'ROOT WEIGHT ALGORITHM V3 · RFC OPEN' },
+      { kind:'p',    text:'Opentensor Senate opened a public RFC on the algorithm that allocates emissions across the root subnet. V3 reweights toward subnets with active validator participation, not just stake. Comment window closes end of May.' },
+      { kind:'note', text:'source · Opentensor Foundation' },
+
+      { kind:'h',    text:'CHILD HOTKEY V2' },
+      { kind:'p',    text:'Extends child-hotkey delegation to support per-subnet take splits. Validators can pay different rates per subnet they validate. Substrate runtime patch lands mid-month.' },
+      { kind:'note', text:'source · Opentensor Foundation core' },
+
+      { kind:'h',    text:'CROSS-SUBNET ALPHA MIGRATION' },
+      { kind:'p',    text:'Native atomic swap of α₁ → TAO → α₂ in a single signed extrinsic, with bounded slippage. Removes the two-tx liquidity exposure when moving stake between subnets.' },
+      { kind:'note', text:'source · Opentensor Foundation core' },
+
+      { kind:'h',    text:'SN64 CHUTES · B200 CAPACITY · GA' },
+      { kind:'p',    text:'Chutes opens Blackwell B200 inference capacity to all hotkeys on the subnet (was waitlisted). Expect TTFT to drop another 20–30% on the long-context tier.' },
+      { kind:'note', text:'source · Chutes / Rayon Labs' },
+
+      { kind:'h',    text:'SN9 PRETRAINING · COHORT 4 OPEN' },
+      { kind:'p',    text:'Macrocosmos opens registration for the next pretraining cohort — ~16 outside teams admitted, eight-week run, shared compute pool. Applications close May 18.' },
+      { kind:'note', text:'source · Macrocosmos' },
+
+      { kind:'h',    text:'TAOSTATS API V2 · BETA' },
+      { kind:'p',    text:'Public API v2 enters beta — per-subnet alpha-pool snapshots, validator weight history, slippage simulator. Same auth as v1.' },
+      { kind:'note', text:'source · TaoStats' },
+
+      { kind:'h',    text:'WALLET UX · BTCLI 7.0' },
+      { kind:'p',    text:'btcli 7.0 collapses the cold/hot workflow for first-time miners into a single guided command. Reduces the "I lost my coldkey" support burden the foundation has been carrying for two years.' },
+      { kind:'note', text:'source · Opentensor Foundation' },
+
+      { kind:'h',    text:'SENATE PROPOSAL S-014' },
+      { kind:'p',    text:'Vote scheduled for May 22 on tightening the deregistration EMA window from 14 days to 21. Aimed at giving brand-new subnets more runway, costing borderline subnets fewer second chances.' },
+      { kind:'note', text:'source · Bittensor Senate' },
     ] },
 
   /* ===================================================================== */
