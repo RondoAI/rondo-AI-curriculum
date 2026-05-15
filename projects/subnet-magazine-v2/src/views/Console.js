@@ -13,7 +13,6 @@
    ================================================================= */
 
 import { FIELD_MANUAL } from '../data/bittensor-faq.js';
-import { NodeSphere } from '../charts/NodeSphere.js';
 
 const STYLE_ID = 'sbnt-console-style';
 
@@ -82,20 +81,33 @@ const CSS = `
 .sbnt-console__nn{
   position: relative;
   display: inline-block;
-  width: 34px; height: 34px;
-  flex: 0 0 34px;
+  width: 28px; height: 28px;
+  flex: 0 0 28px;
   color: var(--c-red, #FF1E3C);
-  filter: drop-shadow(0 0 8px rgba(255,30,60,.6));
-  /* touches pass through to the bar so tap-to-collapse still works
-     when the user hits the mark directly */
+  filter: drop-shadow(0 0 6px rgba(255,30,60,.55));
   pointer-events: none;
 }
-.sbnt-console__nn-canvas{
+.sbnt-console__nn-svg{
   display: block;
   width: 100%; height: 100%;
-  max-width: 34px;
-  max-height: 34px;
-  border-radius: 50%;
+  overflow: visible;
+}
+.sbnt-console__nn line{
+  stroke: currentColor;
+  stroke-width: .9;
+  stroke-opacity: .55;
+}
+.sbnt-console__nn circle{
+  fill: currentColor;
+  fill-opacity: .85;
+}
+.sbnt-console__nn-rot{
+  transform-origin: 12px 12px;
+  animation: sbntNNSpin 11s linear infinite;
+}
+@keyframes sbntNNSpin{
+  from { transform: rotate(0deg); }
+  to   { transform: rotate(360deg); }
 }
 .sbnt-console__nn::after{
   /* white pulsing core */
@@ -616,16 +628,28 @@ export function mountConsole(_dataLayer = null){
   el.innerHTML = `
     <span class="sbnt-console__edge" aria-hidden="true"></span>
     <div class="sbnt-console__bar" data-role="bar">
-      <!-- The Oracle's "consciousness" — a real-time 3D node-plexus
-           rendered via the NodeSphere canvas engine (same as the
-           masthead brand mark, scaled to 32 px). Continuous slow
-           rotation + atmospheric glow + KNN crossing chords give a
-           PS5-grade animated render instead of a static dot.
-           A white pulsing core overlay (CSS pseudo) sits at centre
-           — the "thought firing" — and a broadcast halo ring
-           expands outward every 2.4 s. Reads as an agent thinking. -->
+      <!-- The Oracle's "consciousness" — a static SVG node-plexus
+           with a pulsing white core overlay and an expanding red
+           broadcast halo (CSS keyframes). NodeSphere canvas variant
+           was temporarily blocking scroll on iOS Safari — reverted
+           to this lighter SVG mark until I can find a safer mount. -->
       <span class="sbnt-console__nn" aria-hidden="true">
-        <canvas class="sbnt-console__nn-canvas" data-role="nn-canvas"></canvas>
+        <svg viewBox="0 0 24 24" class="sbnt-console__nn-svg">
+          <g class="sbnt-console__nn-rot">
+            <line x1="12" y1="12" x2="12"    y2="3"/>
+            <line x1="12" y1="12" x2="19.79" y2="7.5"/>
+            <line x1="12" y1="12" x2="19.79" y2="16.5"/>
+            <line x1="12" y1="12" x2="12"    y2="21"/>
+            <line x1="12" y1="12" x2="4.21"  y2="16.5"/>
+            <line x1="12" y1="12" x2="4.21"  y2="7.5"/>
+            <circle cx="12"    cy="3"    r="1.3"/>
+            <circle cx="19.79" cy="7.5"  r="1.3"/>
+            <circle cx="19.79" cy="16.5" r="1.3"/>
+            <circle cx="12"    cy="21"   r="1.3"/>
+            <circle cx="4.21"  cy="16.5" r="1.3"/>
+            <circle cx="4.21"  cy="7.5"  r="1.3"/>
+          </g>
+        </svg>
       </span>
       <span class="sbnt-console__brand">
         <span class="sbnt-console__name">Subnet Oracle</span>
@@ -641,20 +665,6 @@ export function mountConsole(_dataLayer = null){
     <div class="sbnt-console__body" data-role="body"></div>
   `;
   document.body.appendChild(el);
-
-  /* Mount the Oracle's "consciousness" plexus — a tiny NodeSphere
-     instance on the bar's neural-net canvas. 18 nodes is enough at
-     32 px to read as a 3D plexus without looking sparse; the
-     atmospheric glow + density crossings give the PS5-grade feel
-     without burning a frame budget. */
-  const nnCanvas = el.querySelector('[data-role="nn-canvas"]');
-  const nnSphere = nnCanvas ? new NodeSphere(nnCanvas, {
-    nodes:   18,
-    K:       3,
-    density: 0.45,
-    speed:   0.55,
-    atmos:   true,
-  }) : null;
 
   const body    = el.querySelector('[data-role="body"]');
   const title   = el.querySelector('[data-role="title"]');
@@ -1158,7 +1168,6 @@ export function mountConsole(_dataLayer = null){
         if (RUNNER.canvas._sbntKeyHandler) window.removeEventListener('keydown', RUNNER.canvas._sbntKeyHandler);
         if (RUNNER.canvas._sbntResize)     window.removeEventListener('resize', RUNNER.canvas._sbntResize);
       }
-      nnSphere?.destroy();
       el.remove();
     },
   };
