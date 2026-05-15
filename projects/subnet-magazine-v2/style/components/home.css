@@ -2618,6 +2618,12 @@
   border-color: var(--c-red);
 }
 
+/* TEMPORARY scroll-bisection: hide the editor section + bio chip
+   rows to test whether they're the mobile scroll-locker. Will be
+   removed once the cause is found. */
+.home-editor,
+.home-bio__ts-row { display: none !important; }
+
 /* ---------- EDITOR'S COLOPHON ----------
    The back-of-the-book editor bio. Portrait left, byline + bio +
    links right. Same red-band container as the other major sections
