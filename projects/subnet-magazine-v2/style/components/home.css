@@ -1061,6 +1061,23 @@
   text-transform: uppercase;
   color: var(--c-ink-4);
 }
+.home-stack__snapshot{
+  display: inline-flex; align-items: center; gap: 5px;
+  padding: 2px 7px;
+  background: rgba(0,229,168,.10);
+  border: 1px solid rgba(0,229,168,.32);
+  border-radius: 999px;
+  color: var(--c-up);
+  font-weight: 700;
+  letter-spacing: var(--ls-data);
+}
+.home-stack__snapshot .dot{
+  width: 5px; height: 5px;
+  border-radius: 50%;
+  background: var(--c-up);
+  box-shadow: 0 0 6px var(--c-up);
+  animation: livePulse var(--d-pulse) ease-in-out infinite;
+}
 
 /* ---------- the detail cards (now with capital block) ---------- */
 .home-stack__rows{

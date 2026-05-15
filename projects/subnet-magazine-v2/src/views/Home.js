@@ -307,7 +307,7 @@ export function mountHome(root, dataLayer = null){
       <div class="home-stack__hero">
         <div class="home-net__head">
           <span class="home-net__kicker"><span class="home-net__ord">§ 03</span><span class="live-dot"></span>The Money Map · centralized capital vs Bittensor α-mcap</span>
-          <span class="home-net__source"><span class="dot dot--editorial"></span>INFOGRAPHIC · 14 MAY 2026 · LOG-SCALE PROPORTIONAL</span>
+          <span class="home-net__source"><span class="dot dot--live"></span>SNAPSHOT · 14 MAY 2026 · ALL CAPITAL FIGURES VERIFIED OR FORWARD-PROJECTED FY26</span>
           <h2 class="home-net__title">How small is <em>decentralized AI,</em> really?</h2>
           <p class="home-net__sub">For every layer of the AI stack: the centralized market
           we're competing against in dollars, the Bittensor α-market cap of the subnets
@@ -323,31 +323,31 @@ export function mountHome(root, dataLayer = null){
              surfaced per layer per the TaonSquare epistemic-honesty
              pattern. */
           const rows = [
-            { layer:'APPLICATION', cap: 40,   yr:'Q1’26', src:'OpenAI/Anysphere',
+            { layer:'APPLICATION', cap: 40,   yr:'Apr’26', src:'OpenAI/Anysphere',
               aMcap:  57, conf:'high',
               cAnchors:'ChatGPT $25B+ ARR · Cursor $2B+ ARR · Perplexity ~$500M ARR',
               bAnchors:'SN44 Score · SN18 Cortex.t · SN19 Nineteen' },
-            { layer:'AGENT',       cap:  11,  yr:'Q1’26', src:'Grand View Research',
+            { layer:'AGENT',       cap:  11,  yr:'Apr’26', src:'Grand View Research',
               aMcap:  34, conf:'low',
               cAnchors:'OpenAI Operator · Claude Code $1B ARR · Devin · Salesforce Agentforce',
               bAnchors:'SN36 Web Genie · SN59 AgentArena · SN62 Ridges' },
-            { layer:'MODEL',       cap:1700,  yr:'Q1’26', src:'CNBC + Bloomberg',
+            { layer:'MODEL',       cap:1700,  yr:'Apr’26', src:'OpenAI + Anthropic rounds',
               aMcap: 139, conf:'medium',
-              cAnchors:'OpenAI $852B · Anthropic $380-900B · Google AI · Meta GenAI',
+              cAnchors:'OpenAI $852B (Mar’26) · Anthropic ~$900B (Apr’26) · Google AI · Meta GenAI',
               bAnchors:'SN1 Apex · SN3 Templar (72B) · SN120 Affine · SN9 IOTA' },
-            { layer:'INFERENCE',   cap: 117,  yr:'2026', src:'Fortune BI',
+            { layer:'INFERENCE',   cap: 117,  yr:'May’26', src:'Fortune BI 2026',
               aMcap:  96, conf:'medium',
               cAnchors:'OpenAI API ~$3.2B · Together ~$1B ARR · Fireworks $315M · Replicate',
               bAnchors:'SN4 Targon · SN18 Cortex.t · SN19 Nineteen' },
-            { layer:'DATA',        cap: 32,   yr:'Q3’25', src:'Built In + Bloomberg',
+            { layer:'DATA',        cap: 32,   yr:'Jun’25', src:'Meta-ScaleAI deal + Bloomberg',
               aMcap:  41, conf:'high',
-              cAnchors:'ScaleAI $29B · Surge AI $15-25B · Snorkel · Common Crawl',
+              cAnchors:'ScaleAI $29B (Meta Jun’25) · Surge AI $15-25B · Snorkel · Common Crawl',
               bAnchors:'SN13 Data Universe · SN60 Snowballer · SN52 Dojo · SN24 BitMind' },
-            { layer:'COMPUTE',     cap:450,   yr:'FY’26', src:'CNBC',
+            { layer:'COMPUTE',     cap:450,   yr:'FY’26', src:'MSFT/GOOG/META/AMZN guidance',
               aMcap: 181, conf:'high',
               cAnchors:'AWS · Azure · GCP · CoreWeave · Lambda Labs · Nebius',
               bAnchors:'SN64 Chutes · SN51 Lium · SN39 Basilica · SN27 Compute · SN49 Polaris' },
-            { layer:'PROTOCOL',    cap:  0,   yr:'live',    src:'taostats',
+            { layer:'PROTOCOL',    cap:  0,   yr:'14 May’26', src:'taostats',
               aMcap:3300, conf:'high',
               cAnchors:'no centralized analog exists',
               bAnchors:'Subtensor chain · Yuma Consensus · dTAO bonding · GTAO bridge' },
@@ -418,8 +418,8 @@ export function mountHome(root, dataLayer = null){
               }).join('')}
             </ol>
             <div class="home-stack__chart-foot">
-              <span>METHOD · BAR WIDTHS LOG-SCALE PROPORTIONAL · GAP = CENTRALIZED $ ÷ BITTENSOR α-MCAP $</span>
-              <span>SOURCES · OPENAI/ANTHROPIC Q1&#39;26 DISCLOSURES · CNBC FY&#39;26 HYPERSCALER CAPEX · BLOOMBERG META/SCALE JUN&#39;25 · TECHCRUNCH CURSOR MAR&#39;26 · COINGECKO + TAOSTATS LIVE</span>
+              <span><span class="home-stack__snapshot"><span class="dot dot--live"></span>AS OF 14 MAY 2026</span> · METHOD · LOG-SCALE PROPORTIONAL · GAP = CENTRALIZED $ ÷ BITTENSOR α-MCAP $</span>
+              <span>SOURCES · OPENAI MAR’26 ROUND · ANTHROPIC APR’26 ROUND · CNBC FY26 HYPERSCALER CAPEX · BLOOMBERG META/SCALE JUN’25 · TECHCRUNCH CURSOR APR’26 · SACRA + FORTUNE BI 2026 · COINGECKO + TAOSTATS LIVE</span>
               <span>CONFIDENCE · <span style="color:var(--c-up);">●</span> HIGH · <span style="color:#FFB85C;">●</span> MEDIUM · <span style="color:#FF4D60;">●</span> LOW</span>
             </div>
           </div>
