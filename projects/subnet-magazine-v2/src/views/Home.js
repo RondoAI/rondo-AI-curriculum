@@ -58,7 +58,10 @@ function coverLogo(a){
   if (isProfile && a.subnet){
     const sn = subnetById(Number(a.subnet));
     if (sn){
-      return `<span class="home-article__logo home-article__logo--subnet" aria-hidden="true">${mark(sn.name, { size: 48 })}</span>`;
+      /* seed render is the generative monogram; data-article-subnet
+         lets the live tao:subnets handler swap in the real CDN logo
+         when it lands */
+      return `<span class="home-article__logo home-article__logo--subnet" data-article-subnet="${sn.netuid}" aria-hidden="true">${mark(sn.name, { size: 48 })}</span>`;
     }
   }
   return `<span class="home-article__logo home-article__logo--tau" aria-hidden="true"><img src="assets/bittensor-tau.png" alt="" loading="lazy"></span>`;
@@ -426,15 +429,31 @@ export function mountHome(root, dataLayer = null){
   }
 
   /* ---------- subscribe ---------- */
+  /* swap article cover logos to the real CDN logo when the live
+     tao:subnets feed lands a logo URL for the matching netuid */
+  function renderArticleLogos(list){
+    if (!Array.isArray(list)) return;
+    const byId = new Map(list.map(s => [Number(s.netuid), s]));
+    qsa('[data-article-subnet]', root).forEach(el => {
+      const sn = byId.get(Number(el.dataset.articleSubnet));
+      if (sn && sn.logo){
+        el.innerHTML = `<img class="home-article__logo-img" src="${sn.logo}" alt="${sn.name}" loading="lazy"
+          onerror="this.replaceWith(document.createTextNode(''))">`;
+      }
+    });
+  }
+
   const unsubs = [];
   if (dataLayer){
     unsubs.push(dataLayer.subscribe('tao:market',  renderMarket));
     unsubs.push(dataLayer.subscribe('tao:chain',   renderChain));
     unsubs.push(dataLayer.subscribe('tao:subnets', renderSubnets));
+    unsubs.push(dataLayer.subscribe('tao:subnets', renderArticleLogos));
     /* render anything already cached */
     renderMarket(dataLayer.get('tao:market'));
     renderChain(dataLayer.get('tao:chain'));
     renderSubnets(dataLayer.get('tao:subnets'));
+    renderArticleLogos(dataLayer.get('tao:subnets'));
   }
 
   return {

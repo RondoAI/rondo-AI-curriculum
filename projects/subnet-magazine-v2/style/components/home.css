@@ -301,12 +301,20 @@
   overflow: hidden;
   color: var(--c-ink-1);
 }
-.home-article__logo svg{ width: 100%; height: 100%; display: block; }
-.home-article__logo--tau{ padding: 8px; background: var(--c-ink-1); }
+.home-article__logo > svg{ width: 100%; height: 100%; display: block; }
+/* the bittensor τ chip — a white disc with the black mark, tightly cropped */
+.home-article__logo--tau{ padding: 3px; background: var(--c-ink-1); }
 .home-article__logo--tau img{
   width: 100%; height: 100%;
   display: block;
   object-fit: contain;
+}
+/* when a real subnet logo lands from the live feed it covers the badge */
+.home-article__logo .home-article__logo-img{
+  width: 100%; height: 100%;
+  object-fit: cover;
+  border-radius: 50%;
+  display: block;
 }
 .home-article__price-val{ color: var(--c-ink-1); font-weight: 600; }
 .home-article__price-chg{ font-weight: 600; }
