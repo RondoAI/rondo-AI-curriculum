@@ -872,114 +872,30 @@ export function mountHome(root, dataLayer = null){
       </div>
     </section>
 
-    <!-- ===== PAGE 01 · END =====
-         A magazine-style page break. Big colophon strip closes the
-         first half of the home view — articles, deep profiles,
-         protocol, machine, slice, live network — then a "TURN TO
-         PAGE 02" link drops the reader into the rankings layer. -->
-    <aside class="home-pagebreak" aria-label="End of page one">
+    <!-- ===== END OF FEATURE =====
+         The home view stops here. One editorial closer that doubles
+         as the page colophon — § corner ornaments, an END pill, the
+         restated mast and live-data attribution underneath, and a
+         direct @subnetmagazine handle on the right. No subnetwork
+         leaderboard rail or sections grid below; the rest of the
+         site is reached from the masthead nav. -->
+    <aside class="home-pagebreak" aria-label="End of feature">
       <div class="home-pagebreak__rule">
         <span class="home-pagebreak__corner">§</span>
         <span class="home-pagebreak__line"></span>
-        <span class="home-pagebreak__num">PAGE 01 · END</span>
+        <span class="home-pagebreak__num">END · 14 MAY 2026</span>
         <span class="home-pagebreak__line"></span>
         <span class="home-pagebreak__corner">§</span>
       </div>
       <div class="home-pagebreak__body">
         <p class="home-pagebreak__cap">Bittensor, right now.</p>
-        <p class="home-pagebreak__sub">Featured research · top-25 deep profiles · the protocol loop · live network state. <em>Continued.</em></p>
+        <p class="home-pagebreak__sub">Live data · Tao Market Cap public API · Subne<span class="tau">τ</span> Magazine ${new Date().getUTCFullYear()}</p>
       </div>
-      <a class="home-pagebreak__turn" href="#page-02">
-        <span>Turn to Page 02</span>
-        <span class="home-pagebreak__arrow" aria-hidden="true">↓</span>
-        <span class="home-pagebreak__hint">THE LEADERBOARDS</span>
+      <a class="home-pagebreak__turn" href="https://x.com/subnetmagazine" target="_blank" rel="noopener">
+        <span class="home-pagebreak__x-glyph" aria-hidden="true">𝕏</span>
+        <span>@subnetmagazine</span>
       </a>
     </aside>
-
-    <!-- ===== PAGE 02 · OPENER ===== -->
-    <header class="home-pageopener" id="page-02">
-      <div class="home-pageopener__num">PAGE 02</div>
-      <h2 class="home-pageopener__title">The <em>leaderboards.</em></h2>
-      <p class="home-pageopener__dek">Who's mining, who's validating, where the τ is actually
-      sitting. Two ranked rails — subnets by market cap and hotkeys by stake — pulled live off the
-      Tao Market Cap public feed.</p>
-      <span class="home-pageopener__rule"></span>
-    </header>
-
-    <!-- ===== TOP SUBNETS ===== -->
-    <section class="home-subnets" aria-label="Top subnets by market cap">
-      <div class="home-subnets__head">
-        <div>
-          <span class="home-net__kicker"><span class="home-net__ord">§ 07</span><span class="live-dot"></span>Top Subnets · by market cap</span>
-          <h2 class="home-net__title">Who's <em>winning</em> the blocks.</h2>
-        </div>
-        <a class="home-subnets__all" href="subnets.html">All subnets ↗</a>
-      </div>
-      <ul class="home-subnets__grid" id="home-subnets-grid">
-        <li class="home-subnet is-loading"><span class="home-subnet__skeleton"></span></li>
-        <li class="home-subnet is-loading"><span class="home-subnet__skeleton"></span></li>
-        <li class="home-subnet is-loading"><span class="home-subnet__skeleton"></span></li>
-        <li class="home-subnet is-loading"><span class="home-subnet__skeleton"></span></li>
-      </ul>
-    </section>
-
-    <!-- ===== TOP VALIDATORS ===== -->
-    <section class="home-vals" aria-label="Top validators by stake">
-      <div class="home-subnets__head">
-        <div>
-          <span class="home-net__kicker"><span class="home-net__ord">§ 08</span><span class="live-dot"></span>Top Validators · by stake</span>
-          <h2 class="home-net__title">The hotkeys that <em>run the network.</em></h2>
-        </div>
-        <a class="home-subnets__all" href="validators.html">All validators ↗</a>
-      </div>
-      <ul class="home-vals__rail">
-        ${VALIDATORS.slice(0, 12).map((v, i) => `
-          <li class="home-val">
-            <a class="home-val__link" href="validators.html#${v.id}">
-              <span class="home-val__head">
-                <span class="home-val__rank">${String(i + 1).padStart(2, '0')}</span>
-                <span class="home-val__country">${v.country || ''}</span>
-              </span>
-              <span class="home-val__name">${v.name}</span>
-              <span class="home-val__hotkey">${v.hotkey}</span>
-              <span class="home-val__spark"><canvas data-val-spark="${v.id}"></canvas></span>
-              <span class="home-val__stats">
-                <span class="home-val__stat"><span class="lbl">Stake</span><span class="val">τ${compact(v.stake)}</span></span>
-                <span class="home-val__stat"><span class="lbl">APY</span><span class="val up">${v.apy.toFixed(1)}%</span></span>
-                <span class="home-val__stat"><span class="lbl">Noms</span><span class="val">${int(v.nominators)}</span></span>
-                <span class="home-val__stat"><span class="lbl">SN</span><span class="val">${v.subnets}</span></span>
-              </span>
-            </a>
-          </li>
-        `).join('')}
-      </ul>
-    </section>
-
-    <!-- ===== SECTIONS NAV ===== -->
-    <section class="home-sections" aria-label="Site sections">
-      <div class="home-net__head">
-        <span class="home-net__kicker"><span class="home-net__ord">§ 09</span>The whole terminal</span>
-        <h2 class="home-net__title">Nine ways in.</h2>
-      </div>
-      <ul class="home-sections__grid">
-        ${SECTIONS.map(s => `
-          <li class="home-section">
-            <a class="home-section__link" href="${s.href}">
-              <span class="home-section__code">&lt;${s.code}&gt;</span>
-              <span class="home-section__label">${s.label}</span>
-              <span class="home-section__desc">${s.desc}</span>
-              <span class="home-section__go">Open →</span>
-            </a>
-          </li>
-        `).join('')}
-      </ul>
-    </section>
-
-    <footer class="home-foot">
-      <span>Subneτ Magazine · a research terminal for decentralized intelligence</span>
-      <a class="home-foot__x" href="https://x.com/subnetmagazine" target="_blank" rel="noopener">𝕏 @subnetmagazine</a>
-      <span>Live data · Tao Market Cap public API · ${new Date().getUTCFullYear()}</span>
-    </footer>
   `);
 
   /* ---------- neural-net protocol diagram ----------
