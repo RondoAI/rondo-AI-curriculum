@@ -909,7 +909,8 @@
 .home-bio{
   position: relative;
   display: grid;
-  grid-template-rows: auto auto auto auto 1fr auto auto;
+  /* cover, cat, one, metric, recent, details (collapsed), more */
+  grid-template-rows: auto auto auto auto auto auto 1fr;
   gap: var(--s-3);
   padding: var(--s-5);
   background: var(--c-bg-2);
@@ -1107,17 +1108,58 @@
 .home-bio__stats dd.down { color: var(--c-down); }
 .home-bio__stats dd .u   { color: var(--c-ink-4); font-weight: 400; margin-left: 1px; font-size: .85em; }
 
-/* the prose bio body */
+/* the prose bio body — only visible when <details> is open */
 .home-bio__body{
-  margin: 0;
+  margin: var(--s-3) 0 0;
   font-family: var(--f-sans);
   font-size: var(--t-sm);
   line-height: 1.55;
   color: var(--c-ink-2);
   font-variant-numeric: normal;
-  /* on small viewports we cap and add ellipsis; on tap the card
-     scrolls a hidden expandable below. Desktop shows the full bio. */
 }
+
+/* Collapsible bio. Default-closed so the card stays a short read; the
+   user opens it inline rather than navigating away. Native <details>
+   element — accessible, keyboard-controllable, no JS. */
+.home-bio__details{
+  margin: 0;
+}
+.home-bio__details > summary{
+  list-style: none;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  padding: 5px 10px;
+  border: 1px solid var(--c-rule-2);
+  border-radius: 999px;
+  background: rgba(255, 30, 60, .045);
+  color: var(--c-red-1);
+  font-family: var(--f-mono);
+  font-size: var(--t-xs);
+  font-weight: 700;
+  letter-spacing: var(--ls-label);
+  text-transform: uppercase;
+  user-select: none;
+  transition: background var(--d-fast) var(--e-out),
+              border-color var(--d-fast) var(--e-out),
+              color var(--d-fast) var(--e-out);
+}
+.home-bio__details > summary::-webkit-details-marker{ display: none; }
+.home-bio__details > summary::marker{ display: none; content: ''; }
+.home-bio__details > summary:hover{
+  background: rgba(255, 30, 60, .10);
+  border-color: var(--c-rule-3);
+  color: var(--c-red);
+}
+/* swap the label between collapsed / expanded states */
+.home-bio__details > summary .home-bio__details-close{ display: none; }
+.home-bio__details[open] > summary{
+  background: rgba(255, 30, 60, .10);
+  border-color: var(--c-rule-3);
+  color: var(--c-red);
+}
+.home-bio__details[open] > summary .home-bio__details-open{ display: none; }
+.home-bio__details[open] > summary .home-bio__details-close{ display: inline; }
 
 /* RECENT chip — the most recent material event in 2026 */
 .home-bio__recent{

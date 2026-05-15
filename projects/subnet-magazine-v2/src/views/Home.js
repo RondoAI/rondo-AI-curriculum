@@ -179,6 +179,99 @@ export function mountHome(root, dataLayer = null){
       </ul>
     </section>
 
+    <!-- ===== TOP 25 BIOS · DEEP PROFILES =====
+         The 25 subnets that earn the most daily τ, each profiled in
+         150-200 words with the metric that defines them today, a
+         compact stats grid, and the most recent 2026 milestone.
+         Researched from taostats, taomarketcap, official repos, and
+         2026 press — sourced inline at the section foot. -->
+    <section class="home-bios" aria-label="Top 25 subnet deep profiles">
+      <div class="home-net__head">
+        <span class="home-net__kicker"><span class="home-net__ord">§ 02</span><span class="live-dot"></span>The Top 25 · deep profiles · 14 May 2026</span>
+        <h2 class="home-net__title">The <em>full read</em> on every leader.</h2>
+        <p class="home-net__sub">Editorial bios for the 25 subnets earning the most daily τ as of 14 May 2026 —
+        what they actually do, who runs them, what they shipped in 2026, and the single number that
+        defines each one today. Ordered by emission rank.</p>
+      </div>
+      <ol class="home-bios__grid">
+        ${SUBNET_BIOS.map((b, i) => {
+          const sn   = subnetById(b.netuid) || {};
+          const seed = BIO_SEED[b.netuid] || {};
+          const rank  = String(i + 1).padStart(2, '0');
+          const name  = BIO_NAME[b.netuid] || sn.name || seed.name || ('Subnet ' + b.netuid);
+          const cat   = sn.cat   ?? seed.cat   ?? '—';
+          const priceN = sn.price ?? seed.price;
+          const mcapN  = sn.mcap  ?? seed.mcap;
+          const chgN   = sn.chg24 ?? seed.chg24;
+          const up    = (chgN ?? 0) >= 0;
+          const price = priceN != null
+            ? (priceN < 1 ? '$' + priceN.toFixed(4) : '$' + priceN.toFixed(2))
+            : '—';
+          const mcap  = mcapN  != null ? '$' + (mcapN >= 100 ? mcapN.toFixed(0) + 'M' : mcapN.toFixed(1) + 'M') : '—';
+          const chg   = chgN   != null ? ((chgN >= 0 ? '+' : '') + chgN.toFixed(2) + '%') : '—';
+          /* prefer the live CDN logo where the API has one; otherwise
+             a generated node-graph monogram on the rebranded name */
+          const logo = sn.logo
+            ? `<img class="home-bio__logo" src="${sn.logo}" alt="" loading="lazy" onerror="this.replaceWith(document.createTextNode(''))">`
+            : `<span class="home-bio__logo home-bio__logo--mark">${mark(name, { size: 36 })}</span>`;
+          return `
+            <li class="home-bio" data-netuid="${b.netuid}">
+
+              <!-- ===== COVER BANNER ===== -->
+              <div class="home-bio__cover">
+                <div class="home-bio__cover-head">
+                  <span class="home-bio__rank">${rank}</span>
+                  ${logo}
+                  <span class="home-bio__id">
+                    <span class="home-bio__sn">SN${b.netuid}</span>
+                    <span class="home-bio__name">${name}</span>
+                  </span>
+                </div>
+                <div class="home-bio__cover-spark">
+                  <canvas data-bio-spark="${b.netuid}"></canvas>
+                </div>
+                <div class="home-bio__cover-foot">
+                  <div class="home-bio__price-block">
+                    <span class="home-bio__price">${price}</span>
+                    <span class="home-bio__mcap">MC ${mcap}</span>
+                  </div>
+                  <span class="home-bio__chg ${up ? 'up' : 'down'}">${chg}</span>
+                </div>
+              </div>
+
+              <span class="home-bio__cat">${cat}</span>
+
+              <p class="home-bio__one">${b.oneline}</p>
+
+              <div class="home-bio__metric">
+                <span class="home-bio__metric-lbl">Key metric · May 2026</span>
+                <span class="home-bio__metric-val">${b.keyMetric}</span>
+              </div>
+
+              <div class="home-bio__recent">
+                <span class="home-bio__recent-tag"><span class="live-dot"></span>Recent</span>
+                <span class="home-bio__recent-text">${b.recentNews}</span>
+              </div>
+
+              <details class="home-bio__details">
+                <summary class="home-bio__details-toggle">
+                  <span class="home-bio__details-open">Read full bio →</span>
+                  <span class="home-bio__details-close">Hide bio ↑</span>
+                </summary>
+                <p class="home-bio__body">${b.bio}</p>
+              </details>
+
+              <a class="home-bio__more" href="subnet.html?id=${b.netuid}">Open full profile →</a>
+            </li>
+          `;
+        }).join('')}
+      </ol>
+      <span class="home-neural__foot home-neural__foot--block">
+        <span>DATASET · TAOSTATS · TAOMARKETCAP · OFFICIAL REPOS · 2026 PRESS</span>
+        <span>RANKED · DAILY <span class="tau">τ</span> EMISSION · UPDATED 14 MAY 2026</span>
+      </span>
+    </section>
+
     <!-- ===== BITTENSOR IN SIX STEPS (teaching block) =====
          A plain-language explainer of the protocol — what makes the
          network work, in the order it works. Sits AFTER the research
@@ -187,7 +280,7 @@ export function mountHome(root, dataLayer = null){
          themselves before diving into the data sections below. -->
     <section class="home-how" aria-label="Bittensor, in six steps">
       <div class="home-net__head">
-        <span class="home-net__kicker"><span class="home-net__ord">§ 02</span>The protocol</span>
+        <span class="home-net__kicker"><span class="home-net__ord">§ 03</span>The protocol</span>
         <h2 class="home-net__title">Bittensor, in <em>six steps.</em></h2>
         <p class="home-net__sub">The whole network in one read — what subnets are, who mines them,
         who scores them, how consensus pays, and why every subnet has its own alpha token. Plain words.</p>
@@ -324,7 +417,7 @@ export function mountHome(root, dataLayer = null){
          that's the brand; this is the protocol diagram. -->
     <section class="home-neural" aria-label="The Bittensor consensus loop, visualized">
       <div class="home-net__head">
-        <span class="home-net__kicker"><span class="home-net__ord">§ 03</span>The machine</span>
+        <span class="home-net__kicker"><span class="home-net__ord">§ 04</span>The machine</span>
         <h2 class="home-net__title">Intelligence, <em>incentivized.</em></h2>
         <p class="home-net__sub">The loop you just read about, rendered live. Subnets set the task,
         miners answer, validators score, weights settle, consensus pays. Watch one block of work
@@ -341,7 +434,7 @@ export function mountHome(root, dataLayer = null){
          pie actually gets split. -->
     <section class="home-neural" aria-label="Subnet emission share treemap">
       <div class="home-net__head">
-        <span class="home-net__kicker"><span class="home-net__ord">§ 04</span>The slice</span>
+        <span class="home-net__kicker"><span class="home-net__ord">§ 05</span>The slice</span>
         <h2 class="home-net__title">Where the <em>emissions</em> go.</h2>
         <p class="home-net__sub">Bigger tile, bigger share. Chutes, Targon and Apex eat first;
         the long tail fights for the edges. Sized by daily τ emission, darker red = higher rank.</p>
@@ -358,7 +451,7 @@ export function mountHome(root, dataLayer = null){
     <!-- ===== LIVE NETWORK band ===== -->
     <section class="home-net" aria-label="Live network statistics">
       <div class="home-net__head">
-        <span class="home-net__kicker"><span class="home-net__ord">§ 05</span><span class="live-dot"></span>Live Network · taomarketcap</span>
+        <span class="home-net__kicker"><span class="home-net__ord">§ 06</span><span class="live-dot"></span>Live Network · taomarketcap</span>
         <h2 class="home-net__title">Bittensor, <em>right now.</em></h2>
         <p class="home-net__sub">Real on-chain data — TAO market, supply, staking, and chain state — refreshed straight from the Tao Market Cap public API.</p>
       </div>
@@ -406,7 +499,7 @@ export function mountHome(root, dataLayer = null){
     <section class="home-subnets" aria-label="Top subnets by market cap">
       <div class="home-subnets__head">
         <div>
-          <span class="home-net__kicker"><span class="home-net__ord">§ 06</span><span class="live-dot"></span>Top Subnets · by market cap</span>
+          <span class="home-net__kicker"><span class="home-net__ord">§ 07</span><span class="live-dot"></span>Top Subnets · by market cap</span>
           <h2 class="home-net__title">Who's <em>winning</em> the blocks.</h2>
         </div>
         <a class="home-subnets__all" href="subnets.html">All subnets ↗</a>
@@ -417,93 +510,6 @@ export function mountHome(root, dataLayer = null){
         <li class="home-subnet is-loading"><span class="home-subnet__skeleton"></span></li>
         <li class="home-subnet is-loading"><span class="home-subnet__skeleton"></span></li>
       </ul>
-    </section>
-
-    <!-- ===== TOP 25 BIOS · DEEP PROFILES =====
-         The 25 subnets that earn the most daily τ, each profiled in
-         150-200 words with the metric that defines them today, a
-         compact stats grid, and the most recent 2026 milestone.
-         Researched from taostats, taomarketcap, official repos, and
-         2026 press — sourced inline at the section foot. -->
-    <section class="home-bios" aria-label="Top 25 subnet deep profiles">
-      <div class="home-net__head">
-        <span class="home-net__kicker"><span class="home-net__ord">§ 07</span><span class="live-dot"></span>The Top 25 · deep profiles · 14 May 2026</span>
-        <h2 class="home-net__title">The <em>full read</em> on every leader.</h2>
-        <p class="home-net__sub">Editorial bios for the 25 subnets earning the most daily τ as of 14 May 2026 —
-        what they actually do, who runs them, what they shipped in 2026, and the single number that
-        defines each one today. Ordered by emission rank.</p>
-      </div>
-      <ol class="home-bios__grid">
-        ${SUBNET_BIOS.map((b, i) => {
-          const sn   = subnetById(b.netuid) || {};
-          const seed = BIO_SEED[b.netuid] || {};
-          const rank  = String(i + 1).padStart(2, '0');
-          const name  = BIO_NAME[b.netuid] || sn.name || seed.name || ('Subnet ' + b.netuid);
-          const cat   = sn.cat   ?? seed.cat   ?? '—';
-          const priceN = sn.price ?? seed.price;
-          const mcapN  = sn.mcap  ?? seed.mcap;
-          const chgN   = sn.chg24 ?? seed.chg24;
-          const up    = (chgN ?? 0) >= 0;
-          const price = priceN != null
-            ? (priceN < 1 ? '$' + priceN.toFixed(4) : '$' + priceN.toFixed(2))
-            : '—';
-          const mcap  = mcapN  != null ? '$' + (mcapN >= 100 ? mcapN.toFixed(0) + 'M' : mcapN.toFixed(1) + 'M') : '—';
-          const chg   = chgN   != null ? ((chgN >= 0 ? '+' : '') + chgN.toFixed(2) + '%') : '—';
-          /* prefer the live CDN logo where the API has one; otherwise
-             a generated node-graph monogram on the rebranded name */
-          const logo = sn.logo
-            ? `<img class="home-bio__logo" src="${sn.logo}" alt="" loading="lazy" onerror="this.replaceWith(document.createTextNode(''))">`
-            : `<span class="home-bio__logo home-bio__logo--mark">${mark(name, { size: 36 })}</span>`;
-          return `
-            <li class="home-bio" data-netuid="${b.netuid}">
-
-              <!-- ===== COVER BANNER ===== -->
-              <div class="home-bio__cover">
-                <div class="home-bio__cover-head">
-                  <span class="home-bio__rank">${rank}</span>
-                  ${logo}
-                  <span class="home-bio__id">
-                    <span class="home-bio__sn">SN${b.netuid}</span>
-                    <span class="home-bio__name">${name}</span>
-                  </span>
-                </div>
-                <div class="home-bio__cover-spark">
-                  <canvas data-bio-spark="${b.netuid}"></canvas>
-                </div>
-                <div class="home-bio__cover-foot">
-                  <div class="home-bio__price-block">
-                    <span class="home-bio__price">${price}</span>
-                    <span class="home-bio__mcap">MC ${mcap}</span>
-                  </div>
-                  <span class="home-bio__chg ${up ? 'up' : 'down'}">${chg}</span>
-                </div>
-              </div>
-
-              <span class="home-bio__cat">${cat}</span>
-
-              <p class="home-bio__one">${b.oneline}</p>
-
-              <div class="home-bio__metric">
-                <span class="home-bio__metric-lbl">Key metric · May 2026</span>
-                <span class="home-bio__metric-val">${b.keyMetric}</span>
-              </div>
-
-              <p class="home-bio__body">${b.bio}</p>
-
-              <div class="home-bio__recent">
-                <span class="home-bio__recent-tag"><span class="live-dot"></span>Recent</span>
-                <span class="home-bio__recent-text">${b.recentNews}</span>
-              </div>
-
-              <a class="home-bio__more" href="subnet.html?id=${b.netuid}">Open profile →</a>
-            </li>
-          `;
-        }).join('')}
-      </ol>
-      <span class="home-neural__foot home-neural__foot--block">
-        <span>DATASET · TAOSTATS · TAOMARKETCAP · OFFICIAL REPOS · 2026 PRESS</span>
-        <span>RANKED · DAILY <span class="tau">τ</span> EMISSION · UPDATED 14 MAY 2026</span>
-      </span>
     </section>
 
     <!-- ===== TOP VALIDATORS ===== -->
