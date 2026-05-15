@@ -193,6 +193,25 @@
     linear-gradient(transparent 58%, var(--c-bg-2)),
     repeating-linear-gradient(0deg, rgba(255,30,60,.05) 0 1px, transparent 1px 4px);
 }
+/* token-price chip — every article tagged with its market, the way
+   a news feed tags each story with a ticker */
+.home-article__price{
+  position: absolute;
+  top: var(--s-2); right: var(--s-2);
+  display: inline-flex; align-items: baseline; gap: 5px;
+  padding: 3px var(--s-2);
+  background: rgba(10,3,6,.86);
+  border: 1px solid var(--c-rule-2);
+  font-family: var(--f-mono);
+  font-size: var(--t-xs);
+  letter-spacing: var(--ls-data);
+  line-height: 1;
+}
+.home-article__price-sym{ color: var(--c-red-1); font-weight: 600; }
+.home-article__price-val{ color: var(--c-ink-1); font-weight: 600; }
+.home-article__price-chg{ font-weight: 600; }
+.home-article__price.up   .home-article__price-chg{ color: var(--c-up); }
+.home-article__price.down .home-article__price-chg{ color: var(--c-down); }
 .home-article__kicker{
   grid-area: kicker;
   font-family: var(--f-mono);

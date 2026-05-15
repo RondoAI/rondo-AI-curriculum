@@ -33,14 +33,9 @@
   color: var(--c-ink-1);
   line-height: 1;
 }
-.brand__word .tau{
-  color: var(--c-ink-1);
-  display: inline-flex;
-  align-items: center;
-  vertical-align: -0.06em;
-  margin: 0 -0.04em;
-}
-.brand__word .tau svg{ display: block; }
+/* the tau is a typographic character set in the wordmark's own
+   font — same size, same weight, just the letter */
+.brand__word .tau{ color: inherit; }
 .brand__sub{
   display: block;
   font-family: var(--f-mono);

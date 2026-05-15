@@ -27,6 +27,7 @@ import { CoverArt } from '../charts/CoverArt.js';
 import { NeuralNet } from '../charts/NeuralNet.js';
 import { NodeSphere } from '../charts/NodeSphere.js';
 import { articlesByDate } from '../data/articles.js';
+import { subnetById } from '../data/subnets.js';
 
 const CAT_LABEL = {
   'reporting':   'REPORTING',
@@ -41,6 +42,27 @@ function artDate(iso){
   return `${String(d.getUTCDate()).padStart(2,'0')} `
        + `${d.toLocaleDateString('en-US',{month:'short'}).toUpperCase()} `
        + `${d.getUTCFullYear()}`;
+}
+
+/* Every article carries a token-price chip on its banner, the way a
+   news feed tags each story with a ticker. Subnet-scoped articles
+   show that subnet's α-price; the rest show τ/USD. */
+function priceChip(a){
+  const sn = a.subnet ? subnetById(Number(a.subnet)) : null;
+  if (sn){
+    const up = (sn.chg24 ?? 0) >= 0;
+    const px = sn.price < 1 ? '$' + sn.price.toFixed(4) : '$' + sn.price.toFixed(2);
+    return `<span class="home-article__price ${up ? 'up' : 'down'}">
+      <span class="home-article__price-sym">SN${sn.netuid}</span>
+      <span class="home-article__price-val">${px}</span>
+      <span class="home-article__price-chg">${up ? '▲' : '▼'} ${pct(sn.chg24 ?? 0)}</span>
+    </span>`;
+  }
+  return `<span class="home-article__price up">
+    <span class="home-article__price-sym">τ/USD</span>
+    <span class="home-article__price-val">$305.57</span>
+    <span class="home-article__price-chg">▲ +3.08%</span>
+  </span>`;
 }
 
 const SECTIONS = [
@@ -85,6 +107,7 @@ export function mountHome(root, dataLayer = null){
               <span class="home-article__art">
                 ${cardArt(a.id + '|' + a.title, { variant: a.category || a.kicker || '', w: 520, h: i === 0 ? 300 : 220 })}
                 <span class="home-article__art-frame" aria-hidden="true"></span>
+                ${priceChip(a)}
               </span>
               <span class="home-article__kicker">${CAT_LABEL[a.category] || (a.kicker || 'RESEARCH')}</span>
               <span class="home-article__title">${a.title}</span>
@@ -242,7 +265,7 @@ export function mountHome(root, dataLayer = null){
   const neural = neuralCanvas ? new NeuralNet(neuralCanvas) : null;
   const consensusCanvas = qs('[data-canvas="consensus"]', root);
   const consensus = consensusCanvas ? new NodeSphere(consensusCanvas, {
-    nodes: 84, K: 4, density: 0.42, speed: 0.18, packets: 46,
+    nodes: 84, K: 4, density: 0.42, speed: 0.16,
   }) : null;
 
   /* ---------- LIVE NETWORK band sparklines ---------- */

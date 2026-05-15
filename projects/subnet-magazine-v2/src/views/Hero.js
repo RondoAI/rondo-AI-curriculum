@@ -69,8 +69,7 @@ export function mountHero(root, dataLayer = null){
     nodes:   78,
     K:       4,
     density: 0.46,
-    speed:   0.22,
-    packets: 54,
+    speed:   0.2,
   }) : null;
 
   /* subscribe to live τ/USD price */

@@ -8,7 +8,6 @@
 import { html, mount, qs, raw } from '../lib/dom.js';
 import { NodeSphere } from '../charts/NodeSphere.js';
 import { bbgDate } from '../lib/format.js';
-import { taoLogo } from '../lib/tao-logo.js';
 
 const NAV_ITEMS = [
   { code: '001', label: 'MAGAZINE',  href: 'index.html'        },
@@ -45,7 +44,7 @@ export function mountMasthead(root){
             <canvas data-canvas="brand-mark"></canvas>
           </span>
           <span>
-            <span class="brand__word">Subne${raw('<span class="tau">' + taoLogo({ size: 34, weight: 2.7 }) + '</span>')} Magazine</span>
+            <span class="brand__word">Subne<span class="tau">τ</span> Magazine</span>
             <span class="brand__sub">A research terminal for decentralized intelligence</span>
           </span>
         </a>
@@ -71,8 +70,7 @@ export function mountMasthead(root){
     nodes:   52,
     K:       3,
     density: 0.5,
-    speed:   0.5,
-    packets: 12,
+    speed:   0.42,
     atmos:   false,
   }) : null;
 
