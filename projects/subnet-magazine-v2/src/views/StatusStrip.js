@@ -23,31 +23,18 @@ export function mountStatusStrip(root, dataLayer = null){
     <div class="statusbar">
       <div class="statusbar__inner" role="region" aria-label="Network status">
         <span class="statusbar__live"><span class="live-dot"></span>LIVE</span>
-        <span class="statusbar__sep">│</span>
-        <span class="statusbar__field" title="Chain block height">
+        <span class="statusbar__field" title="Chain block height · finalised">
           <span class="statusbar__label">BLK</span>
           <span class="statusbar__value mono" data-bind="block">—</span>
         </span>
-        <span class="statusbar__sep">│</span>
-        <span class="statusbar__field" title="Subnet epoch (360 blocks)">
-          <span class="statusbar__label">EPOC</span>
-          <span class="statusbar__value mono" data-bind="epoch">14,302</span>
-        </span>
-        <span class="statusbar__sep">│</span>
         <span class="statusbar__field" title="Network emission per day">
           <span class="statusbar__label">EMIT</span>
-          <span class="statusbar__value mono">7,200<span class="statusbar__unit">τ/d</span></span>
+          <span class="statusbar__value mono">3,600<span class="statusbar__unit"><span class="tau">τ</span>/d</span></span>
         </span>
-        <span class="statusbar__sep">│</span>
-        <span class="statusbar__field" title="Active validators">
-          <span class="statusbar__label">VAL</span>
-          <span class="statusbar__value mono">6,184</span>
-        </span>
-        <span class="statusbar__sep">│</span>
         <span class="statusbar__field" title="Share of supply staked · live from TMC">
           <span class="statusbar__label">STAKED</span>
-          <span class="statusbar__value mono" data-bind="staked">63.0%</span>
-          <span class="statusbar__bar" aria-hidden="true"><span data-bind="staked-bar" style="width:63%"></span></span>
+          <span class="statusbar__value mono" data-bind="staked">66.9%</span>
+          <span class="statusbar__bar" aria-hidden="true"><span data-bind="staked-bar" style="width:67%"></span></span>
         </span>
 
         <span class="statusbar__push"></span>
@@ -58,17 +45,10 @@ export function mountStatusStrip(root, dataLayer = null){
           <span class="statusbar__spark"><canvas data-spark="tao"></canvas></span>
           <span class="delta" data-bind="tao-delta">—</span>
         </span>
-        <span class="statusbar__sep">│</span>
         <span class="statusbar__field" title="TAO market cap · live from TMC">
           <span class="statusbar__label">MCAP</span>
           <span class="statusbar__value mono" data-bind="mcap">—</span>
         </span>
-        <span class="statusbar__sep">│</span>
-        <span class="statusbar__field" title="24h spot volume · live from TMC">
-          <span class="statusbar__label">VOL</span>
-          <span class="statusbar__value mono" data-bind="vol">—</span>
-        </span>
-        <span class="statusbar__sep">│</span>
         <span class="statusbar__quote" title="Yuma Composite Index">
           <span class="pair">YCX</span>
           <span class="price">1,004.89</span>

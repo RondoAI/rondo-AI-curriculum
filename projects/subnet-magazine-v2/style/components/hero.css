@@ -65,9 +65,9 @@
   text-wrap: balance;
 }
 .hero__title em{ color: var(--c-red); font-style: italic; }
-.hero__title .tau{
-  color: var(--c-red);
-}
+/* τ in the brand wordmark inherits color — not red on its own.
+   "Subneτ Magazine" reads as one word, not two colors. */
+.hero__title .tau{ color: inherit; }
 .hero__subtitle{
   font-family: var(--f-serif);
   font-weight: 300;

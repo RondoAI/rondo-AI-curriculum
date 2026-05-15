@@ -88,8 +88,8 @@
 .tick{
   display: inline-flex;
   align-items: center;
-  gap: var(--s-2);
-  padding: 2px var(--s-4);
+  gap: 6px;
+  padding: 2px var(--s-3);
   text-decoration: none;
   border-right: 1px solid var(--c-rule-2);
   white-space: nowrap;
@@ -101,15 +101,15 @@
 }
 .tick:hover .tick__chg{ filter: drop-shadow(0 0 6px currentColor); }
 .tick__logo{
-  width: 20px; height: 20px; border-radius: 50%;
+  width: 16px; height: 16px; border-radius: 50%;
   object-fit: cover; background: var(--c-bg-4);
 }
-.tick__mark{ width: 20px; height: 20px; line-height: 0; }
+.tick__mark{ width: 16px; height: 16px; line-height: 0; }
 .tick__mark svg{ display: block; width: 100%; height: 100%; }
-/* the ticker symbol — the visual anchor, big and bold */
+/* the ticker symbol — the visual anchor, bold but tightened */
 .tick__sym{
   font-family: var(--f-mono);
-  font-size: var(--t-base);
+  font-size: var(--t-sm);
   font-weight: 700;
   letter-spacing: var(--ls-data);
   color: var(--c-ink-1);
@@ -122,14 +122,14 @@
 }
 .tick__val{
   font-family: var(--f-mono);
-  font-size: var(--t-sm);
+  font-size: var(--t-xs);
   font-weight: 700;
   letter-spacing: var(--ls-data);
   color: var(--c-ink-1);
 }
 .tick__chg{
   font-family: var(--f-mono);
-  font-size: var(--t-sm);
+  font-size: var(--t-xs);
   font-weight: 700;
   letter-spacing: var(--ls-data);
   /* a slow pulse on the change glyph — the tape feels live, not dead */
