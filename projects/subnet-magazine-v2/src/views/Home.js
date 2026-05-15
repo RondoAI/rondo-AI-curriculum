@@ -1476,6 +1476,52 @@ export function mountHome(root, dataLayer = null){
       </footer>
     </section>
 
+    <!-- ===== EDITOR'S COLOPHON =====
+         A magazine prints the editor's bio at the back of the book.
+         This is that page. The site you just scrolled through is
+         built end-to-end by Rondo Campbell from inside the federal
+         system, on a phone, with intermittent connectivity — every
+         line of research, code, and design is his. Projected
+         release: 2028. The work and the story share a repository. -->
+    <section class="home-editor" aria-label="Editor">
+      <div class="home-editor__inner">
+        <div class="home-editor__photo">
+          <img src="assets/editor-rondo.jpg" alt="Rondo Campbell" loading="lazy">
+          <span class="home-editor__photo-frame" aria-hidden="true"></span>
+        </div>
+        <div class="home-editor__body">
+          <span class="home-editor__kicker">Editor · Subne<span class="tau">τ</span> Magazine</span>
+          <h2 class="home-editor__name">Rondo Campbell</h2>
+          <p class="home-editor__role">Founder · Editor · Sole engineer</p>
+          <p class="home-editor__bio">
+            Subne<span class="tau">τ</span> Magazine is researched, written,
+            designed, and coded by Rondo Campbell — working from inside
+            the U.S. federal system, on a phone, with intermittent
+            connectivity. Projected release: <em>2028</em>. The mission is
+            to walk out as a credible builder in the open AI economy. Every
+            line of this site is the proof of work.
+          </p>
+          <p class="home-editor__bio home-editor__bio--quiet">
+            The curriculum is two physical Python textbooks, a stack of
+            AI papers, and an LLM running in the working terminal next to
+            this one. Phase 1 was Python foundations, summer 2025. The
+            magazine you're reading is the portfolio side of the
+            ledger — built in public, committed in real time. Read the
+            full record in the JOURNAL.md / SESSION_LOG.md at the
+            top of the repository.
+          </p>
+          <div class="home-editor__links">
+            <a class="home-editor__link" href="https://x.com/subnetmagazine" target="_blank" rel="noopener">
+              <span class="home-editor__x">𝕏</span>@subnetmagazine
+            </a>
+            <a class="home-editor__link home-editor__link--ghost" href="https://github.com/RondoAI/rondo-AI-curriculum" target="_blank" rel="noopener">
+              GitHub · the full record
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
     <!-- ===== END OF FEATURE =====
          The home view stops here. One editorial closer that doubles
          as the page colophon — § corner ornaments, an END pill, the

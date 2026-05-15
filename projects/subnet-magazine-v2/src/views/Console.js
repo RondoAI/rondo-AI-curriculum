@@ -13,6 +13,7 @@
    ================================================================= */
 
 import { FIELD_MANUAL } from '../data/bittensor-faq.js';
+import { NodeSphere } from '../charts/NodeSphere.js';
 
 const STYLE_ID = 'sbnt-console-style';
 
@@ -65,72 +66,73 @@ const CSS = `
   color: var(--c-ink-2, #C8A8AD);
   user-select: none;
 }
-/* The Oracle's consciousness mark — a tiny pulsing plexus.
-   Three layers: rotating spokes/hex/nodes (the "neural net"),
-   a continuously pulsing red core (the "thought"), and an
-   expanding halo ring (the "broadcast"). Reads as an agent
-   talking to you, not a passive status LED. */
+/* The Oracle's "consciousness" mark — a real-time 3D NodeSphere
+   plexus rendered on canvas, with a pulsing white core overlay
+   and an expanding broadcast halo. Three layers, painted in
+   sequence:
+     1. canvas      — NodeSphere (rotating plexus, KNN edges,
+                       atmospheric glow). 60 fps requestAnimationFrame
+                       loop driven by the chart class.
+     2. ::before    — broadcast halo ring expanding scale .45 → 2.4
+                       every 2.4 s.
+     3. ::after     — white-glowing core dot pulsing scale 1 → 1.5
+                       every 1.6 s. The "thought firing".
+   The ::before / ::after are absolutely positioned over the canvas
+   so the plexus shows through. */
 .sbnt-console__nn{
+  position: relative;
   display: inline-block;
-  width: 24px; height: 24px;
+  width: 34px; height: 34px;
+  flex: 0 0 34px;
   color: var(--c-red, #FF1E3C);
-  filter: drop-shadow(0 0 6px rgba(255,30,60,.55));
-  flex: 0 0 24px;
+  filter: drop-shadow(0 0 8px rgba(255,30,60,.6));
 }
-.sbnt-console__nn svg{
+.sbnt-console__nn-canvas{
   display: block;
   width: 100%; height: 100%;
-  overflow: visible;
+  border-radius: 50%;
 }
-.sbnt-console__nn line{
-  stroke: currentColor;
-  stroke-width: .8;
-  stroke-opacity: .55;
-}
-.sbnt-console__nn-hex{
-  fill: none;
-  stroke: currentColor;
-  stroke-width: .7;
-  stroke-opacity: .35;
-}
-.sbnt-console__nn circle{
-  fill: currentColor;
-  fill-opacity: .85;
-}
-.sbnt-console__nn-rot{
-  transform-origin: 12px 12px;
-  animation: sbntNNSpin 11s linear infinite;
-}
-.sbnt-console__nn-core{
-  transform-origin: 12px 12px;
+.sbnt-console__nn::after{
+  /* white pulsing core */
+  content: "";
+  position: absolute;
+  top: 50%; left: 50%;
+  width: 5px; height: 5px;
+  margin: -2.5px 0 0 -2.5px;
+  background: #FFFFFF;
+  border-radius: 50%;
+  box-shadow:
+    0 0 4px #FFFFFF,
+    0 0 10px var(--c-red, #FF1E3C),
+    0 0 18px rgba(255,30,60,.45);
+  pointer-events: none;
   animation: sbntNNCore 1.6s ease-in-out infinite;
-  fill: #FFFFFF !important;
-  fill-opacity: 1 !important;
-  filter: drop-shadow(0 0 4px var(--c-red));
+  z-index: 2;
 }
-.sbnt-console__nn-halo{
-  transform-origin: 12px 12px;
-  fill: none;
-  stroke: currentColor;
-  stroke-width: 1;
+.sbnt-console__nn::before{
+  /* broadcast halo */
+  content: "";
+  position: absolute;
+  top: 50%; left: 50%;
+  width: 12px; height: 12px;
+  margin: -6px 0 0 -6px;
+  border: 1px solid var(--c-red, #FF1E3C);
+  border-radius: 50%;
+  pointer-events: none;
   animation: sbntNNHalo 2.4s ease-out infinite;
-}
-@keyframes sbntNNSpin{
-  from { transform: rotate(0deg); }
-  to   { transform: rotate(360deg); }
+  z-index: 1;
 }
 @keyframes sbntNNCore{
-  0%, 100% { transform: scale(1);   opacity: 1; }
-  50%      { transform: scale(1.4); opacity: .55; }
+  0%, 100% { transform: scale(1);   opacity: 1;   }
+  50%      { transform: scale(1.5); opacity: .65; }
 }
 @keyframes sbntNNHalo{
-  0%   { transform: scale(.45); opacity: .85; }
-  100% { transform: scale(2.2); opacity: 0; }
+  0%   { transform: scale(.4); opacity: .9; }
+  100% { transform: scale(2.4); opacity: 0; }
 }
 @media (prefers-reduced-motion: reduce){
-  .sbnt-console__nn-rot,
-  .sbnt-console__nn-core,
-  .sbnt-console__nn-halo{ animation: none; }
+  .sbnt-console__nn::after,
+  .sbnt-console__nn::before{ animation: none; }
 }
 /* "Subnet Oracle" — the bar's brand. Serif italic feels editorial,
    matches the hero wordmark family. Tight letter-spacing, no caps —
@@ -609,30 +611,16 @@ export function mountConsole(_dataLayer = null){
   el.innerHTML = `
     <span class="sbnt-console__edge" aria-hidden="true"></span>
     <div class="sbnt-console__bar" data-role="bar">
-      <!-- the Oracle's "consciousness" — a tiny rotating plexus
-           with a pulsing red core + expanding halo. Reads as a
-           neural net you're talking to, not a status LED. -->
+      <!-- The Oracle's "consciousness" — a real-time 3D node-plexus
+           rendered via the NodeSphere canvas engine (same as the
+           masthead brand mark, scaled to 32 px). Continuous slow
+           rotation + atmospheric glow + KNN crossing chords give a
+           PS5-grade animated render instead of a static dot.
+           A white pulsing core overlay (CSS pseudo) sits at centre
+           — the "thought firing" — and a broadcast halo ring
+           expands outward every 2.4 s. Reads as an agent thinking. -->
       <span class="sbnt-console__nn" aria-hidden="true">
-        <svg viewBox="0 0 24 24">
-          <g class="sbnt-console__nn-rot">
-            <line x1="12" y1="12" x2="12"    y2="3"/>
-            <line x1="12" y1="12" x2="19.79" y2="7.5"/>
-            <line x1="12" y1="12" x2="19.79" y2="16.5"/>
-            <line x1="12" y1="12" x2="12"    y2="21"/>
-            <line x1="12" y1="12" x2="4.21"  y2="16.5"/>
-            <line x1="12" y1="12" x2="4.21"  y2="7.5"/>
-            <path class="sbnt-console__nn-hex"
-                  d="M12 3 L19.79 7.5 L19.79 16.5 L12 21 L4.21 16.5 L4.21 7.5 Z"/>
-            <circle cx="12"    cy="3"    r="1.3"/>
-            <circle cx="19.79" cy="7.5"  r="1.3"/>
-            <circle cx="19.79" cy="16.5" r="1.3"/>
-            <circle cx="12"    cy="21"   r="1.3"/>
-            <circle cx="4.21"  cy="16.5" r="1.3"/>
-            <circle cx="4.21"  cy="7.5"  r="1.3"/>
-          </g>
-          <circle class="sbnt-console__nn-halo" cx="12" cy="12" r="3"/>
-          <circle class="sbnt-console__nn-core" cx="12" cy="12" r="2.4"/>
-        </svg>
+        <canvas class="sbnt-console__nn-canvas" data-role="nn-canvas"></canvas>
       </span>
       <span class="sbnt-console__brand">
         <span class="sbnt-console__name">Subnet Oracle</span>
@@ -648,6 +636,20 @@ export function mountConsole(_dataLayer = null){
     <div class="sbnt-console__body" data-role="body"></div>
   `;
   document.body.appendChild(el);
+
+  /* Mount the Oracle's "consciousness" plexus — a tiny NodeSphere
+     instance on the bar's neural-net canvas. 18 nodes is enough at
+     32 px to read as a 3D plexus without looking sparse; the
+     atmospheric glow + density crossings give the PS5-grade feel
+     without burning a frame budget. */
+  const nnCanvas = el.querySelector('[data-role="nn-canvas"]');
+  const nnSphere = nnCanvas ? new NodeSphere(nnCanvas, {
+    nodes:   18,
+    K:       3,
+    density: 0.45,
+    speed:   0.55,
+    atmos:   true,
+  }) : null;
 
   const body    = el.querySelector('[data-role="body"]');
   const title   = el.querySelector('[data-role="title"]');
@@ -1151,6 +1153,7 @@ export function mountConsole(_dataLayer = null){
         if (RUNNER.canvas._sbntKeyHandler) window.removeEventListener('keydown', RUNNER.canvas._sbntKeyHandler);
         if (RUNNER.canvas._sbntResize)     window.removeEventListener('resize', RUNNER.canvas._sbntResize);
       }
+      nnSphere?.destroy();
       el.remove();
     },
   };
