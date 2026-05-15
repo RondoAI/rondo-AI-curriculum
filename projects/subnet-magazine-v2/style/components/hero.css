@@ -64,10 +64,11 @@
   color: var(--c-ink-1);
   text-wrap: balance;
 }
-.hero__title em{ color: var(--c-red); font-style: italic; }
-/* τ in the brand wordmark renders in the same ink as the rest of
-   the title. Explicit white (not inherit) so no ancestor rule can
-   bleed red into it. */
+/* "subnet review" emphasis matches the brand wordmark — white
+   italic serif, same ink as "Subneτ Magazine" above. Italic
+   carries the visual emphasis without changing the colour, so
+   the title reads as one wordmark, not two halves. */
+.hero__title em{ color: var(--c-ink-1); font-style: italic; }
 .hero__title .tau{ color: var(--c-ink-1) !important; }
 .hero__subtitle{
   font-family: var(--f-serif);
