@@ -18,26 +18,39 @@ import { html, mount, qs } from '../lib/dom.js';
 import { money, pct } from '../lib/format.js';
 import { mark } from '../lib/mark.js';
 import { AI_NEWS } from '../data/ai-news.js';
+import { BITTENSOR_NEWS } from '../data/bittensor-news.js';
 
 const IMPACT_GLYPH = { up: '▲', down: '▼', flat: '■' };
 
-/** The Central Desk newswire — recent AI-world headlines as chips
-    (duplicated for a seamless loop). */
-function newsTickerHtml(){
-  const items = [...AI_NEWS]
-    .sort((a, b) => String(b.date).localeCompare(String(a.date)))
-    .slice(0, 26);
-  const chip = n => {
-    const imp = n.impact || 'flat';
-    return `
-    <a class="tick tick--news" href="centralized.html">
+/** Render a news item as a chip. Used by both the Central Desk
+    AI-world wire and the Bittensor ecosystem wire. */
+function newsChip(n, href){
+  const imp = n.impact || 'flat';
+  return `
+    <a class="tick tick--news" href="${href}">
       <span class="tick__src">${n.source}</span>
       <span class="tick__head">${n.headline}</span>
       <span class="tick__chg ${imp}">${IMPACT_GLYPH[imp] || '■'}</span>
     </a>`;
-  };
-  const once = items.map(chip).join('');
+}
+
+/** The Central Desk newswire — recent AI-world headlines as chips
+    (duplicated for a seamless loop). */
+function centralNewsHtml(){
+  const items = [...AI_NEWS]
+    .sort((a, b) => String(b.date).localeCompare(String(a.date)))
+    .slice(0, 26);
+  const once = items.map(n => newsChip(n, 'centralized.html')).join('');
   return once + once;
+}
+
+/** Pre-rendered Bittensor news chips, newest first — appended to
+    the Bittensor tape after the live subnet price chips. */
+function bittensorNewsChipsHtml(){
+  return [...BITTENSOR_NEWS]
+    .sort((a, b) => String(b.date).localeCompare(String(a.date)))
+    .map(n => newsChip(n, 'articles.html'))
+    .join('');
 }
 
 /**
@@ -58,13 +71,17 @@ export function mountTickers(root, dataLayer = null){
       <div class="ticker">
         <span class="ticker__tag ticker__tag--alt">Central Desk</span>
         <div class="ticker__viewport">
-          <div class="ticker__track ticker__track--rev">${newsTickerHtml()}</div>
+          <div class="ticker__track ticker__track--rev">${centralNewsHtml()}</div>
         </div>
       </div>
     </section>
   `);
 
   const ecoTrack = qs('#ticker-eco', root);
+  /* seed the tape with the Bittensor newswire so it's never empty,
+     even before the live subnet feed answers */
+  if (ecoTrack) ecoTrack.innerHTML = bittensorNewsChipsHtml() + bittensorNewsChipsHtml();
+
   function renderEco(list){
     if (!ecoTrack || !Array.isArray(list) || !list.length) return;
     const top = list.slice(0, 24);
@@ -83,8 +100,11 @@ export function mountTickers(root, dataLayer = null){
           <span class="tick__chg ${up ? 'up' : 'down'}">${up ? '▲' : '▼'} ${pct(s.chg24 ?? 0)}</span>
         </a>`;
     };
-    const once = top.map(chip).join('');
-    ecoTrack.innerHTML = once + once;   /* duplicated for a seamless loop */
+    /* one full pass = the live subnet price chips + the Bittensor
+       newswire chips (Opentensor Foundation, Chutes, Targon, …), so
+       the tape carries both market data and ecosystem headlines */
+    const onePass = top.map(chip).join('') + bittensorNewsChipsHtml();
+    ecoTrack.innerHTML = onePass + onePass;
   }
 
   const unsubs = [];
