@@ -1229,7 +1229,7 @@ export function mountHome(root, dataLayer = null){
         research and financial cut, no fluff.</p>
       </div>
 
-      <ol class="home-ops__grid">
+      <ol class="home-ops__rail">
         ${[...SUBNET_BIOS].map(b => {
           const f    = founderById(b.netuid) || {};
           const sn   = subnetById(b.netuid) || {};
@@ -1240,6 +1240,9 @@ export function mountHome(root, dataLayer = null){
           const investors = (f.investors && f.investors.length)
             ? f.investors.slice(0, 2).join(' · ')
             : 'No public round';
+          const founderName = f.founders && f.founders[0]
+            ? f.founders[0].name.replace(/\s*\(pseudonym\)/i, '')
+            : '—';
           const emission = sn.emission ?? seed.emission ?? null;
           const emisStr  = emission != null ? emission : '—';
           const c30 = sn.chg30 ?? seed.chg30 ?? null;
@@ -1247,10 +1250,23 @@ export function mountHome(root, dataLayer = null){
             ? ((c30 >= 0 ? '+' : '') + c30.toFixed(1) + '%')
             : '—';
           const c30Cls = c30 != null ? (c30 >= 0 ? 'up' : 'down') : '';
+          /* per-card live KPIs from SUBNETS / BIO_SEED */
+          const priceN = sn.price ?? seed.price ?? null;
+          const price  = priceN != null
+            ? (priceN < 1 ? '$' + priceN.toFixed(4) : '$' + priceN.toFixed(2))
+            : '—';
+          const mcapN = sn.mcap ?? seed.mcap ?? null;
+          const mcap  = mcapN != null
+            ? (mcapN >= 1000 ? '$' + (mcapN/1000).toFixed(2) + 'B' : '$' + mcapN.toFixed(1) + 'M')
+            : '—';
+          const miners = sn.miners != null ? sn.miners.toLocaleString('en-US') : '—';
+          const validators = sn.validators != null ? sn.validators.toLocaleString('en-US') : '—';
+          const stake  = sn.stake != null
+            ? (sn.stake >= 1000 ? (sn.stake/1000).toFixed(1) + 'K' : Math.round(sn.stake).toString())
+            : '—';
           /* trim recentNews to first sentence for the ship line */
           const ship = (b.recentNews || '').split(/\.(?=\s|$)/)[0].trim() + (b.recentNews ? '.' : '');
-          /* visual emission share — bar width relative to a 200-τ
-             baseline so the leaders pop and the long tail still reads */
+          /* emission bar baseline = 200 τ so leaders saturate, long tail still reads */
           const sharePct = emission != null
             ? Math.min(100, Math.max(6, Math.round((emission / 200) * 100)))
             : 0;
@@ -1263,7 +1279,56 @@ export function mountHome(root, dataLayer = null){
                 <span class="home-ops__chg ${c30Cls}">${c30Str}<span class="home-ops__chg-lbl">30d</span></span>
               </header>
 
-              <div class="home-ops__row home-ops__row--meta">
+              <!-- price + sparkline cover strip -->
+              <div class="home-ops__spark-row">
+                <div class="home-ops__price-block">
+                  <span class="home-ops__price-lbl">α-PRICE</span>
+                  <span class="home-ops__price-val">${price}</span>
+                </div>
+                <div class="home-ops__spark">
+                  <canvas data-ops-spark="${b.netuid}"></canvas>
+                </div>
+              </div>
+
+              <!-- 4-cell KPI grid -->
+              <dl class="home-ops__kpis">
+                <div class="home-ops__kpi">
+                  <dt>α-MCAP</dt>
+                  <dd>${mcap}</dd>
+                </div>
+                <div class="home-ops__kpi">
+                  <dt>MINERS</dt>
+                  <dd>${miners}</dd>
+                </div>
+                <div class="home-ops__kpi">
+                  <dt>VALIDATORS</dt>
+                  <dd>${validators}</dd>
+                </div>
+                <div class="home-ops__kpi">
+                  <dt>STAKE</dt>
+                  <dd><span class="tau">τ</span>${stake}</dd>
+                </div>
+              </dl>
+
+              <!-- emission with proportional bar -->
+              <div class="home-ops__field home-ops__field--emit">
+                <dt><span class="tau">τ</span> / day</dt>
+                <dd>
+                  <span class="home-ops__emit-num">${emisStr}</span>
+                  <span class="home-ops__emit-bar">
+                    <span class="home-ops__emit-fill" style="width: ${sharePct}%"></span>
+                  </span>
+                </dd>
+              </div>
+
+              <!-- key metric callout from the bio -->
+              <div class="home-ops__metric">
+                <span class="home-ops__metric-lbl">KEY METRIC · May ’26</span>
+                <span class="home-ops__metric-val">${b.keyMetric}</span>
+              </div>
+
+              <!-- parent + investors + founder line -->
+              <div class="home-ops__meta-grid">
                 <div class="home-ops__field">
                   <dt>Parent</dt>
                   <dd>${parent}</dd>
@@ -1272,24 +1337,19 @@ export function mountHome(root, dataLayer = null){
                   <dt>Lead investors</dt>
                   <dd>${investors}</dd>
                 </div>
-              </div>
-
-              <div class="home-ops__row home-ops__row--emit">
-                <div class="home-ops__field home-ops__field--emit">
-                  <dt><span class="tau">τ</span> / day</dt>
-                  <dd>
-                    <span class="home-ops__emit-num">${emisStr}</span>
-                    <span class="home-ops__emit-bar">
-                      <span class="home-ops__emit-fill" style="width: ${sharePct}%"></span>
-                    </span>
-                  </dd>
+                <div class="home-ops__field">
+                  <dt>Founder</dt>
+                  <dd>${founderName}</dd>
                 </div>
               </div>
 
+              <!-- Q2 2026 ship -->
               <div class="home-ops__ship">
                 <span class="home-ops__ship-lbl">Q2 2026 ship</span>
                 <p class="home-ops__ship-text">${ship || '—'}</p>
               </div>
+
+              <a class="home-ops__more" href="subnet.html?id=${b.netuid}">Open full profile →</a>
             </li>
           `;
         }).join('')}
@@ -1431,6 +1491,24 @@ export function mountHome(root, dataLayer = null){
     }));
   });
 
+  /* ---------- § 08 OPERATORS · sparkline per card --------------
+     30-day mock series biased to the 30-day chg so the slope of
+     the line tracks the badge in the card header. Swap to live
+     price-history series when the taostats per-subnet history
+     endpoint is wired. */
+  const opSparks = [];
+  SUBNET_BIOS.forEach((b) => {
+    const sn   = subnetById(b.netuid) || {};
+    const seed = BIO_SEED[b.netuid]   || {};
+    const drift = (sn.chg30 ?? seed.chg30 ?? sn.chg24 ?? seed.chg24 ?? 0) * 1.2;
+    const cv = qs(`[data-ops-spark="${b.netuid}"]`, root);
+    if (cv) opSparks.push(new Sparkline(cv, {
+      series:    seedSeries('ops-' + b.netuid, drift, 36),
+      lineWidth: 1.6,
+      fill:      true,
+    }));
+  });
+
   /* ---------- bind: LIVE NETWORK band ---------- */
   const bind = sel => qs(`[data-bind="${sel}"]`, root);
   const els = {
@@ -1551,6 +1629,7 @@ export function mountHome(root, dataLayer = null){
       statSparks.splice(0).forEach(sp => { try { sp.destroy(); } catch (_) {} });
       valSparks.splice(0).forEach(sp => { try { sp.destroy(); } catch (_) {} });
       bioSparks.splice(0).forEach(sp => { try { sp.destroy(); } catch (_) {} });
+      opSparks.splice(0).forEach(sp => { try { sp.destroy(); } catch (_) {} });
       neural?.destroy();
       treemap?.destroy();
     },

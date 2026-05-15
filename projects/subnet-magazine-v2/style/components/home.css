@@ -2008,23 +2008,37 @@
   scrollbar-color: var(--c-rule-3) transparent;
 }
 
-/* ---------- OPERATORS DESK · card grid ----------
-   Replaces the prior .home-network table (which collapsed to a
-   useless 3-col strip on phone). Each subnet is a self-contained
-   operator card with header, parent + investors, emission bar, and
-   the Q2 2026 ship line. Two-up on desktop, single column on phone,
-   every row carries every column at every viewport. */
-.home-ops__grid{
+/* ---------- OPERATORS DESK · sideways scroll rail ----------
+   Per-subnet operator card with a sparkline cover strip, 4-cell
+   KPI grid (α-mcap · miners · validators · stake), proportional
+   emission bar, key-metric callout, meta block (parent · investors
+   · founder), and the Q2 2026 ship line. Cards scroll horizontally
+   on every viewport with scroll-snap on each card start. */
+.home-ops__rail{
   list-style: none;
-  margin: var(--s-5) 0 0;
-  padding: 0;
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(380px, 1fr));
+  margin: var(--s-5) calc(var(--gutter) * -1) 0;
+  padding: 2px var(--gutter) var(--s-4);
+  display: flex;
   gap: var(--s-3);
+  overflow-x: auto;
+  overscroll-behavior-x: contain;
+  scroll-snap-type: x mandatory;
+  scrollbar-width: thin;
+  scrollbar-color: var(--c-rule-3) transparent;
+  -webkit-mask-image: linear-gradient(90deg,
+    transparent 0, #000 24px,
+    #000 calc(100% - 24px), transparent 100%);
+          mask-image: linear-gradient(90deg,
+    transparent 0, #000 24px,
+    #000 calc(100% - 24px), transparent 100%);
 }
+.home-ops__rail::-webkit-scrollbar{ height: 6px; }
+.home-ops__rail::-webkit-scrollbar-thumb{ background: var(--c-rule-3); border-radius: 999px; }
 .home-ops__card{
-  display: grid;
-  grid-template-rows: auto auto auto 1fr;
+  flex: 0 0 clamp(320px, 88vw, 400px);
+  scroll-snap-align: start;
+  scroll-snap-stop: always;
+  display: flex; flex-direction: column;
   gap: var(--s-3);
   padding: var(--s-4);
   background:
@@ -2041,6 +2055,130 @@
     linear-gradient(180deg, rgba(255,30,60,.06), transparent 30%),
     var(--c-bg-3);
 }
+
+/* sparkline cover strip — α-price big mono on the left, 36-pt
+   green/red sparkline on the right. Sparkline canvas itself is
+   mounted by opSparks[]; the canvas auto-colours by net direction. */
+.home-ops__spark-row{
+  display: grid;
+  grid-template-columns: auto 1fr;
+  align-items: center;
+  gap: var(--s-3);
+  padding: var(--s-3) 0;
+  border-top: var(--b-thin);
+  border-bottom: var(--b-thin);
+}
+.home-ops__price-block{ display: flex; flex-direction: column; gap: 2px; }
+.home-ops__price-lbl{
+  font-family: var(--f-mono);
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: var(--ls-label);
+  color: var(--c-ink-4);
+}
+.home-ops__price-val{
+  font-family: var(--f-mono);
+  font-size: 22px;
+  font-weight: 700;
+  color: var(--c-ink-1);
+  font-variant-numeric: tabular-nums;
+  letter-spacing: -.01em;
+  line-height: 1;
+}
+.home-ops__spark{
+  position: relative;
+  height: 48px;
+}
+.home-ops__spark canvas{ display: block; width: 100%; height: 100%; }
+
+/* 4-cell KPI grid */
+.home-ops__kpis{
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 0;
+  margin: 0;
+  border-top: var(--b-thin);
+  border-left: var(--b-thin);
+}
+.home-ops__kpi{
+  padding: 6px 8px;
+  display: flex; flex-direction: column; gap: 2px;
+  border-right: var(--b-thin);
+  border-bottom: var(--b-thin);
+}
+.home-ops__kpi dt{
+  margin: 0;
+  font-family: var(--f-mono);
+  font-size: 8.5px;
+  font-weight: 700;
+  letter-spacing: var(--ls-label);
+  text-transform: uppercase;
+  color: var(--c-ink-4);
+}
+.home-ops__kpi dd{
+  margin: 0;
+  font-family: var(--f-mono);
+  font-size: var(--t-md);
+  font-weight: 700;
+  color: var(--c-ink-1);
+  font-variant-numeric: tabular-nums;
+  letter-spacing: -.005em;
+  line-height: 1.1;
+}
+
+/* key-metric callout — pulled from b.keyMetric (the bio's defining
+   number). Red ground, big mono numeral, the signature metric for
+   that subnet on a single line. */
+.home-ops__metric{
+  display: flex; flex-direction: column; gap: 4px;
+  padding: var(--s-3);
+  background: rgba(255,30,60,.06);
+  border: 1px solid var(--c-rule-2);
+  border-radius: 4px;
+}
+.home-ops__metric-lbl{
+  font-family: var(--f-mono);
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: var(--ls-label);
+  text-transform: uppercase;
+  color: var(--c-red);
+}
+.home-ops__metric-val{
+  font-family: var(--f-mono);
+  font-size: var(--t-md);
+  font-weight: 600;
+  color: var(--c-ink-1);
+  line-height: 1.3;
+}
+
+/* meta grid — parent · investors · founder. 3 stacked rows, tight. */
+.home-ops__meta-grid{
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-areas: "parent investors" "founder founder";
+  gap: var(--s-2) var(--s-3);
+  padding-top: var(--s-2);
+  border-top: 1px dashed var(--c-rule-2);
+}
+.home-ops__meta-grid .home-ops__field:nth-child(1){ grid-area: parent; }
+.home-ops__meta-grid .home-ops__field:nth-child(2){ grid-area: investors; }
+.home-ops__meta-grid .home-ops__field:nth-child(3){ grid-area: founder; }
+
+.home-ops__more{
+  margin-top: auto;
+  padding-top: var(--s-3);
+  border-top: 1px dashed var(--c-rule-2);
+  font-family: var(--f-mono);
+  font-size: var(--t-xs);
+  font-weight: 700;
+  letter-spacing: var(--ls-label);
+  text-transform: uppercase;
+  color: var(--c-red-1);
+  text-decoration: none;
+  transition: color var(--d-fast) var(--e-out);
+}
+.home-ops__more:hover{ color: var(--c-red); }
 
 .home-ops__head{
   display: grid;
@@ -2096,15 +2234,6 @@
   letter-spacing: var(--ls-label);
 }
 
-.home-ops__row{
-  display: grid;
-  gap: var(--s-3);
-}
-.home-ops__row--meta{
-  grid-template-columns: 1fr 1fr;
-  border-top: var(--b-thin);
-  padding-top: var(--s-3);
-}
 .home-ops__field{
   display: flex; flex-direction: column; gap: 2px; min-width: 0;
 }
@@ -2176,9 +2305,8 @@
 }
 
 @media (max-width: 560px){
-  .home-ops__grid{ grid-template-columns: 1fr; }
   .home-ops__name{ font-size: 19px; }
-  .home-ops__row--meta{ grid-template-columns: 1fr; gap: var(--s-2); }
+  .home-ops__card{ flex: 0 0 88vw; }
 }
 .home-network__table{
   width: 100%;
