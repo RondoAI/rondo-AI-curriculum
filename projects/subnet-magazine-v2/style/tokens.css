@@ -50,12 +50,12 @@
   --c-rule-3:          rgba(255, 30, 60, .36);
 
   /* ---------- Typography ---------- */
-  /* The Bittensor language: Sora — an even, geometric sans — carries
-     display and the wordmark; Inter runs body text; JetBrains Mono
-     every datum. No old-style serif anywhere. */
+  /* The taomarketcap language: Archivo — a bold, wide geometric
+     grotesk — carries display and the wordmark; Inter runs body
+     text; JetBrains Mono every datum. No old-style serif anywhere. */
   --f-mono:            'JetBrains Mono', ui-monospace, 'SF Mono', Menlo, Consolas, monospace;
   --f-sans:            'Inter', -apple-system, BlinkMacSystemFont, 'Helvetica Neue', Helvetica, Arial, sans-serif;
-  --f-serif:           'Sora', 'Inter', system-ui, sans-serif;
+  --f-serif:           'Archivo', 'Inter', system-ui, sans-serif;
 
   /* a complete type scale — tied to a 16px root */
   --t-xs:              10.5px;       /* mono column headers */

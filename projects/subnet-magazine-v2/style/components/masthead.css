@@ -26,10 +26,10 @@
   text-decoration: none;
 }
 .brand__word{
-  font-family: var(--f-mono);
-  font-weight: 400;
+  font-family: var(--f-serif);
+  font-weight: 800;
   font-size: clamp(28px, 5vw, 48px);
-  letter-spacing: -.01em;
+  letter-spacing: -.015em;
   color: var(--c-ink-1);
   line-height: 1;
 }
