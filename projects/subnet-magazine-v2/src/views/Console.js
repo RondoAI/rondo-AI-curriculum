@@ -96,13 +96,18 @@ const CSS = `
   font-weight: 700;
   font-size: 13px;
 }
+/* "Bittensor" — set as the brand wordmark, same Archivo Black face
+   as "Subnet Oracle" above. Lowercase so the τ glyphs sit at the
+   same x-height as the surrounding Latin letters; previously caps
+   pushed B/I/E/N/S/O/R to cap-height while τ stayed small, which
+   read as a broken render. Now every letter sits on one line. */
 .sbnt-console__net{
   color: var(--c-red-1, #FF4D60);
-  font-family: var(--f-mono, monospace);
-  font-weight: 700;
-  font-size: 11.5px;
-  letter-spacing: .04em;
-  text-transform: uppercase;
+  font-family: var(--f-serif, 'Archivo', system-ui, sans-serif);
+  font-weight: 800;
+  font-size: 13px;
+  letter-spacing: -.005em;
+  text-transform: none;
 }
 .sbnt-console__title{ color: var(--c-ink-2, #C8A8AD); margin-left: 6px; font-weight: 500; }
 .sbnt-console__push{ margin-left: auto; }
