@@ -2618,21 +2618,12 @@
   border-color: var(--c-red);
 }
 
-/* TEMPORARY scroll-bisection (aggressive): hide EVERYTHING in the
-   home view except the hero. If scroll works after this push, the
-   lock is in one of these sections and we re-add them one at a
-   time. If scroll still doesn't work, the lock is in the hero or in
-   chrome that's on every page (which the user has ruled out by
-   saying "only the first page"). */
-.home-research,
-.home-bios,
-.home-stack,
-.home-how,
-.home-neural,
-.home-net,
-.home-network,
+/* TEMPORARY scroll-bisection: hide just the editor section + bio
+   chip rows — the two newest home-only additions. Other home
+   sections restored so there's content below the fold to scroll
+   into (the aggressive variant left only the hero, which fit on
+   one screen and gave a false "can't scroll" reading). */
 .home-editor,
-.home-pagebreak,
 .home-bio__ts-row { display: none !important; }
 
 /* ---------- EDITOR'S COLOPHON ----------
