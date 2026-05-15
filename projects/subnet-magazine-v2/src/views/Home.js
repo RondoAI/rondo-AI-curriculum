@@ -306,11 +306,11 @@ export function mountHome(root, dataLayer = null){
     <section class="home-stack" aria-label="The decentralized AI money map — centralized vs Bittensor by capital">
       <div class="home-stack__hero">
         <div class="home-net__head">
-          <span class="home-net__kicker"><span class="home-net__ord">§ 03</span><span class="live-dot"></span>The Money Map · centralized capital vs Bittensor α-mcap</span>
+          <span class="home-net__kicker"><span class="home-net__ord">§ 03</span><span class="live-dot"></span>The Money Map · centralized capital vs Bittensor <span class="alpha">α</span>-mcap</span>
           <span class="home-net__source"><span class="dot dot--live"></span>SNAPSHOT · 14 MAY 2026 · ALL CAPITAL FIGURES VERIFIED OR FORWARD-PROJECTED FY26</span>
           <h2 class="home-net__title">How small is <em>decentralized AI,</em> really?</h2>
           <p class="home-net__sub">For every layer of the AI stack: the centralized market
-          we're competing against in dollars, the Bittensor α-market cap of the subnets
+          we're competing against in dollars, the Bittensor <span class="alpha">α</span>-market cap of the subnets
           competing there, and the slice we hold today. <em>Drawn to scale.</em> The
           PROTOCOL layer is the inversion — no centralized analog exists.</p>
         </div>
@@ -380,11 +380,24 @@ export function mountHome(root, dataLayer = null){
 
           return `
           <div class="home-stack__chart" aria-hidden="false">
+            <!-- Reader glossary · explains the alpha-token vocabulary
+                 before the chart so newcomers aren't blocked by jargon. -->
+            <div class="home-stack__gloss">
+              <span class="home-stack__gloss-tag">PRIMER</span>
+              <p>
+                Every Bittensor subnet has its own token — its <strong><span class="alpha">α</span> (alpha)</strong>.
+                The <strong><span class="alpha">α</span>-MCAP</strong> is the market cap of that <span class="alpha">α</span> token —
+                <em><span class="alpha">α</span> price × <span class="alpha">α</span> circulating supply</em> — the standard way to value a
+                subnet. The bars below put the centralized AI market on the left in dollars
+                and the rolled-up <span class="alpha">α</span>-MCAP of the subnets competing at each layer on the
+                right.
+              </p>
+            </div>
             <div class="home-stack__chart-head">
               <span class="home-stack__chart-axis-blank"></span>
               <span class="home-stack__chart-axis-bar">
                 <span class="home-stack__chart-axis home-stack__chart-axis--c">CENTRALIZED MARKET</span>
-                <span class="home-stack__chart-axis home-stack__chart-axis--b">BITTENSOR α-MCAP</span>
+                <span class="home-stack__chart-axis home-stack__chart-axis--b" title="α-MCAP = α-token market cap = α price × α circulating supply">BITTENSOR <span class="alpha">α</span>-MCAP <span class="home-stack__deftag">(<span class="alpha">α</span> price × supply)</span></span>
               </span>
               <span class="home-stack__chart-axis home-stack__chart-axis--gap">GAP × </span>
             </div>
@@ -418,7 +431,7 @@ export function mountHome(root, dataLayer = null){
               }).join('')}
             </ol>
             <div class="home-stack__chart-foot">
-              <span><span class="home-stack__snapshot"><span class="dot dot--live"></span>AS OF 14 MAY 2026</span> · METHOD · LOG-SCALE PROPORTIONAL · GAP = CENTRALIZED $ ÷ BITTENSOR α-MCAP $</span>
+              <span><span class="home-stack__snapshot"><span class="dot dot--live"></span>AS OF 14 MAY 2026</span> · METHOD · LOG-SCALE PROPORTIONAL · GAP = CENTRALIZED $ ÷ BITTENSOR <span class="alpha">α</span>-MCAP $</span>
               <span>SOURCES · OPENAI MAR’26 ROUND · ANTHROPIC APR’26 ROUND · CNBC FY26 HYPERSCALER CAPEX · BLOOMBERG META/SCALE JUN’25 · TECHCRUNCH CURSOR APR’26 · SACRA + FORTUNE BI 2026 · COINGECKO + TAOSTATS LIVE</span>
               <span>CONFIDENCE · <span style="color:var(--c-up);">●</span> HIGH · <span style="color:#FFB85C;">●</span> MEDIUM · <span style="color:#FF4D60;">●</span> LOW</span>
             </div>
@@ -554,8 +567,9 @@ export function mountHome(root, dataLayer = null){
                   <span class="home-stack__capital-val">${fmt(row.cap)}</span>
                 </div>
                 <div class="home-stack__capital-b">
-                  <span class="home-stack__capital-lbl">BITTENSOR α-MCAP</span>
+                  <span class="home-stack__capital-lbl" title="α-MCAP = α-token market cap = α price × α circulating supply">BITTENSOR <span class="alpha">α</span>-MCAP</span>
                   <span class="home-stack__capital-val">${fmtM(row.aMcap)}</span>
+                  <span class="home-stack__capital-sub"><span class="alpha">α</span> price × supply</span>
                 </div>
               </div>
               <div class="home-stack__capital-gap">
@@ -604,7 +618,7 @@ export function mountHome(root, dataLayer = null){
 
       <footer class="home-stack__foot">
         <span>CENTRALIZED FIGURES · ROUGH 2026 PUBLIC COVERAGE · DEFENSIBLE, NOT EXACT</span>
-        <span>BITTENSOR α-MCAP · LIVE TAOSTATS + TAOMARKETCAP · ROLLED UP TO TOP-25 SUBNETS</span>
+        <span>BITTENSOR <span class="alpha">α</span>-MCAP · LIVE TAOSTATS + TAOMARKETCAP · ROLLED UP TO TOP-25 SUBNETS</span>
       </footer>
     </section>
 
@@ -1050,16 +1064,16 @@ export function mountHome(root, dataLayer = null){
               <h3 class="home-how__h">dTAO</h3>
               <span class="home-how__meta">Market · bonding curve</span>
             </header>
-            <p class="home-how__brief">Every subnet has its own α token sold on a τ-bonded curve.
-            Buy α to bet that a subnet will earn more emissions; the curve sets price as a
+            <p class="home-how__brief">Every subnet has its own <span class="alpha">α</span> token sold on a <span class="tau">τ</span>-bonded curve.
+            Buy <span class="alpha">α</span> to bet that a subnet will earn more emissions; the curve sets price as a
             function of bonded τ. This is the protocol's price-discovery layer — dynamic TAO,
             or dTAO, live since <span class="val">Feb 2025</span>.</p>
             <dl class="home-how__data">
-              <div><dt>Live α pools</dt><dd>92</dd></div>
+              <div><dt>Live <span class="alpha">α</span> pools</dt><dd>92</dd></div>
               <div><dt>Largest mcap</dt><dd>$199M</dd></div>
               <div><dt>Curve</dt><dd>x·y = k</dd></div>
             </dl>
-            <p class="home-how__ex"><span class="home-how__ex-lbl">Representative</span><span class="home-how__ex-chip">SN120 Affine · $199M α-mcap</span></p>
+            <p class="home-how__ex"><span class="home-how__ex-lbl">Representative</span><span class="home-how__ex-chip">SN120 Affine · $199M <span class="alpha">α</span>-mcap</span></p>
           </div>
           <div class="home-how__viz" aria-hidden="true">
             <!-- Multi-curve dTAO chart: five overlaid bonding curves
@@ -1282,7 +1296,7 @@ export function mountHome(root, dataLayer = null){
               <!-- price + sparkline cover strip -->
               <div class="home-ops__spark-row">
                 <div class="home-ops__price-block">
-                  <span class="home-ops__price-lbl">α-PRICE</span>
+                  <span class="home-ops__price-lbl"><span class="alpha">α</span>-PRICE</span>
                   <span class="home-ops__price-val">${price}</span>
                 </div>
                 <div class="home-ops__spark">
@@ -1292,8 +1306,8 @@ export function mountHome(root, dataLayer = null){
 
               <!-- 4-cell KPI grid -->
               <dl class="home-ops__kpis">
-                <div class="home-ops__kpi">
-                  <dt>α-MCAP</dt>
+                <div class="home-ops__kpi" title="α-MCAP = α-token market cap = α price × α circulating supply">
+                  <dt><span class="alpha">α</span>-MCAP</dt>
                   <dd>${mcap}</dd>
                 </div>
                 <div class="home-ops__kpi">

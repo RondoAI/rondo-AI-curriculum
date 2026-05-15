@@ -911,6 +911,74 @@
   color: var(--c-ink-2);
 }
 
+/* Reader primer · one-paragraph glossary explaining the α-token
+   vocabulary before the chart. Subtle gray ground, italic body,
+   small red "PRIMER" tag in the corner. Lives inside the chart
+   panel above the axes. */
+.home-stack__gloss{
+  display: flex; gap: var(--s-3);
+  margin-bottom: var(--s-4);
+  padding: var(--s-3) var(--s-4);
+  background: rgba(255,255,255,.03);
+  border-left: 2px solid var(--c-red);
+  border-radius: 0 4px 4px 0;
+}
+.home-stack__gloss-tag{
+  flex: 0 0 auto;
+  display: inline-flex; align-items: center;
+  padding: 2px 8px;
+  height: 18px;
+  background: var(--c-red);
+  color: var(--c-bg);
+  border-radius: 999px;
+  font-family: var(--f-mono);
+  font-size: 9.5px;
+  font-weight: 700;
+  letter-spacing: var(--ls-label);
+  text-transform: uppercase;
+  align-self: start;
+}
+.home-stack__gloss p{
+  margin: 0;
+  font-family: var(--f-serif);
+  font-size: var(--t-md);
+  font-style: italic;
+  line-height: 1.5;
+  color: var(--c-ink-2);
+}
+.home-stack__gloss strong{
+  font-style: normal;
+  font-weight: 700;
+  color: var(--c-ink-1);
+}
+.home-stack__gloss em{
+  font-style: italic;
+  color: var(--c-red-1);
+}
+
+/* small parenthetical "(α price × supply)" appended to chart axis */
+.home-stack__deftag{
+  font-family: var(--f-mono);
+  font-size: 8.5px;
+  font-weight: 500;
+  letter-spacing: 0;
+  text-transform: none;
+  color: var(--c-ink-4);
+  margin-left: 4px;
+}
+
+/* small sub-label under the BITTENSOR α-MCAP big number in each
+   Money Map detail card — explains what α-MCAP actually is */
+.home-stack__capital-sub{
+  font-family: var(--f-mono);
+  font-size: 9px;
+  font-weight: 500;
+  letter-spacing: 0;
+  text-transform: none;
+  color: var(--c-ink-4);
+  font-style: italic;
+}
+
 /* ---------- the lead chart ---------- */
 .home-stack__chart{
   margin-top: clamp(24px, 4vw, 48px);

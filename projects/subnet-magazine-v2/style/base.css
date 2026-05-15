@@ -87,6 +87,22 @@ body { font-variant-numeric: tabular-nums; }
   font-feature-settings: normal;
   color: inherit;
 }
+
+/* The Bittensor alpha — the per-subnet token glyph. Same rationale
+   as .tau: opt out of any inherited uppercase, set as a deliberate
+   typographic character. Rendered in serif italic so it reads as a
+   brand glyph rather than an inline Greek letter; ever-so-slightly
+   bolder so it stands out next to the surrounding mono. */
+.alpha {
+  font-family: var(--f-serif), 'Times New Roman', serif;
+  font-style: italic;
+  font-weight: 600;
+  text-transform: none !important;
+  font-variant-caps: normal;
+  font-feature-settings: normal;
+  color: inherit;
+  letter-spacing: 0;
+}
 .kbd {
   font-family: var(--f-mono); font-size: var(--t-xs);
   border: 1px solid var(--c-rule-2);
