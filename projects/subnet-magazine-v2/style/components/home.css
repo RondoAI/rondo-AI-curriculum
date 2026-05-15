@@ -2618,14 +2618,6 @@
   border-color: var(--c-red);
 }
 
-/* TEMPORARY scroll-bisection: hide just the editor section + bio
-   chip rows — the two newest home-only additions. Other home
-   sections restored so there's content below the fold to scroll
-   into (the aggressive variant left only the hero, which fit on
-   one screen and gave a false "can't scroll" reading). */
-.home-editor,
-.home-bio__ts-row { display: none !important; }
-
 /* ---------- EDITOR'S COLOPHON ----------
    The back-of-the-book editor bio. Portrait left, byline + bio +
    links right. Same red-band container as the other major sections
