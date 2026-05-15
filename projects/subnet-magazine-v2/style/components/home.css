@@ -959,11 +959,11 @@
 /* small parenthetical "(α price × supply)" appended to chart axis */
 .home-stack__deftag{
   font-family: var(--f-mono);
-  font-size: 8.5px;
+  font-size: 9px;
   font-weight: 500;
   letter-spacing: 0;
   text-transform: none;
-  color: var(--c-ink-4);
+  color: var(--c-ink-2);
   margin-left: 4px;
 }
 
@@ -971,11 +971,11 @@
    Money Map detail card — explains what α-MCAP actually is */
 .home-stack__capital-sub{
   font-family: var(--f-mono);
-  font-size: 9px;
+  font-size: 10px;
   font-weight: 500;
   letter-spacing: 0;
   text-transform: none;
-  color: var(--c-ink-4);
+  color: var(--c-ink-2);
   font-style: italic;
 }
 
@@ -1123,11 +1123,11 @@
   justify-content: space-between;
   gap: var(--s-2) var(--s-4);
   font-family: var(--f-mono);
-  font-size: 9px;
+  font-size: 10px;
   font-weight: 600;
   letter-spacing: var(--ls-label);
   text-transform: uppercase;
-  color: var(--c-ink-4);
+  color: var(--c-ink-2);
 }
 .home-stack__snapshot{
   display: inline-flex; align-items: center; gap: 5px;
@@ -1187,9 +1187,9 @@
 }
 .home-stack__layer-sub{
   font-family: var(--f-sans);
-  font-size: var(--t-xs);
-  line-height: 1.4;
-  color: var(--c-ink-3);
+  font-size: var(--t-sm);
+  line-height: 1.5;
+  color: var(--c-ink-2);
 }
 .home-stack__opp{
   align-self: start;
@@ -1207,15 +1207,17 @@
 .home-stack__opp.opp-contested   { color: var(--c-red-1); background: rgba(255,30,60,.08); }
 .home-stack__opp.opp-uncontested { color: var(--c-ink-1); background: rgba(255,255,255,.06); border-color: var(--c-rule-3); }
 
-/* shared column-label ("CENTRALIZED INCUMBENTS" etc.) */
+/* shared column-label ("CENTRALIZED INCUMBENTS" etc.). Used to live
+   at ink-4 which was unreadable against the red wash; promoted to
+   ink-2 with a red tint so the label is legible at a glance. */
 .home-stack__col-lbl{
   font-family: var(--f-mono);
-  font-size: 9px;
+  font-size: 9.5px;
   font-weight: 700;
   letter-spacing: var(--ls-label);
   text-transform: uppercase;
-  color: var(--c-ink-4);
-  margin-bottom: 2px;
+  color: var(--c-red-1);
+  margin-bottom: 4px;
 }
 
 /* centralized list */
@@ -1227,13 +1229,13 @@
 }
 .home-stack__cent-pill{
   display: inline-block;
-  padding: 3px 8px;
-  border: 1px solid var(--c-rule-2);
+  padding: 4px 9px;
+  border: 1px solid var(--c-rule-3);
   border-radius: 999px;
-  background: rgba(255,255,255,.03);
-  color: var(--c-ink-2);
+  background: rgba(255,255,255,.05);
+  color: var(--c-ink-1);
   font-family: var(--f-mono);
-  font-size: 11px;
+  font-size: 11.5px;
   font-weight: 600;
   white-space: nowrap;
 }
@@ -1283,11 +1285,11 @@
 }
 .home-stack__capital-lbl{
   font-family: var(--f-mono);
-  font-size: 9px;
+  font-size: 9.5px;
   font-weight: 700;
   letter-spacing: var(--ls-label);
   text-transform: uppercase;
-  color: var(--c-ink-4);
+  color: var(--c-ink-2);
 }
 .home-stack__capital-c .home-stack__capital-val{
   font-family: var(--f-mono);
@@ -1397,19 +1399,20 @@
   gap: var(--s-3) var(--s-6);
   justify-content: space-between;
   font-family: var(--f-mono);
-  font-size: var(--t-xs);
+  font-size: 10.5px;
+  font-weight: 600;
   letter-spacing: var(--ls-label);
   text-transform: uppercase;
-  color: var(--c-ink-4);
+  color: var(--c-ink-2);
 }
 
 .home-stack__layer-tag{
   font-family: var(--f-mono);
-  font-size: 9px;
+  font-size: 9.5px;
   font-weight: 700;
   letter-spacing: var(--ls-label);
   text-transform: uppercase;
-  color: var(--c-ink-4);
+  color: var(--c-red-1);
   display: none;
 }
 
