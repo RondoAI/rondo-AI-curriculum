@@ -293,23 +293,104 @@ export function mountHome(root, dataLayer = null){
       </span>
     </section>
 
-    <!-- ===== § 03 THE STACK · the decentralized AI map =====
-         Original infographic. Every layer of the centralized AI
-         economy has a Bittensor challenger. We map both columns
-         row-for-row, plus a fourth NETWORK-SHARE column that nobody
-         else publishes — daily τ emission share allocated to that
-         layer of the stack. Inspired by Social Capital's Physical-vs-
-         Digital AI matrix; rebuilt around the open / closed split. -->
-    <section class="home-stack" aria-label="The decentralized AI stack · centralized vs Bittensor">
-      <div class="home-net__head">
-        <span class="home-net__kicker"><span class="home-net__ord">§ 03</span><span class="live-dot"></span>The Stack · centralized vs Bittensor</span>
-        <span class="home-net__source"><span class="dot dot--editorial"></span>EDITORIAL · 14 MAY 2026 · MAPPED TO TOP-25 SUBNETS</span>
-        <h2 class="home-net__title">The decentralized AI <em>stack.</em></h2>
-        <p class="home-net__sub">Every layer of the centralized AI economy has a Bittensor
-        challenger. Each card below names the layer, lists the centralized incumbents and
-        the Bittensor subnets competing for it, and shows what share of daily <span class="tau">τ</span>
-        emission across the top-25 subnets flows to that layer. Swipe sideways through the
-        seven layers.</p>
+    <!-- ===== § 03 THE MONEY MAP · centralized vs Bittensor by capital =====
+         Real infographic, not a competitor list. Per layer of the AI
+         stack we put the centralized market cap next to the Bittensor
+         α-mcap of the subnets competing there — to scale, on a log
+         axis so the slivers stay legible. The DAVID-vs-GOLIATH chart
+         is the lead visual; detail cards underneath carry the
+         specifics. The PROTOCOL row inverts: Bittensor owns the
+         entire field because there is no centralized analog.
+         Section gets a heavier visual treatment so it doesn't blur
+         into the bios rail above or the protocol pipeline below. -->
+    <section class="home-stack" aria-label="The decentralized AI money map — centralized vs Bittensor by capital">
+      <div class="home-stack__hero">
+        <div class="home-net__head">
+          <span class="home-net__kicker"><span class="home-net__ord">§ 03</span><span class="live-dot"></span>The Money Map · centralized capital vs Bittensor α-mcap</span>
+          <span class="home-net__source"><span class="dot dot--editorial"></span>INFOGRAPHIC · 14 MAY 2026 · LOG-SCALE PROPORTIONAL</span>
+          <h2 class="home-net__title">How small is <em>decentralized AI,</em> really?</h2>
+          <p class="home-net__sub">For every layer of the AI stack: the centralized market
+          we're competing against in dollars, the Bittensor α-market cap of the subnets
+          competing there, and the slice we hold today. <em>Drawn to scale.</em> The
+          PROTOCOL layer is the inversion — no centralized analog exists.</p>
+        </div>
+
+        ${(() => {
+          /* Rows for the lead chart. cap = centralized market estimate
+             in $B. aMcap = Bittensor α-mcap in $M for that layer's
+             subnets. Roughly defensible from public coverage and our
+             top-25 dataset; rounded. */
+          const rows = [
+            { layer:'APPLICATION', cap: 30,   aMcap:  60, cAnchors:'ChatGPT · Cursor · Perplexity', bAnchors:'SN44 · SN18 · SN36' },
+            { layer:'AGENT',       cap:  5,   aMcap:  45, cAnchors:'OpenAI Operator · Computer Use', bAnchors:'SN36 · SN59 · SN62' },
+            { layer:'MODEL',       cap:800,   aMcap: 310, cAnchors:'OpenAI · Anthropic · Google',    bAnchors:'SN1 · SN3 · SN120' },
+            { layer:'INFERENCE',   cap: 20,   aMcap:  70, cAnchors:'OpenAI API · Together · Fireworks', bAnchors:'SN4 · SN18 · SN19' },
+            { layer:'DATA',        cap: 30,   aMcap:  50, cAnchors:'ScaleAI · Surge · Common Crawl', bAnchors:'SN13 · SN60 · SN52' },
+            { layer:'COMPUTE',     cap:250,   aMcap:  80, cAnchors:'AWS · GCP · CoreWeave',          bAnchors:'SN64 · SN51 · SN39' },
+            { layer:'PROTOCOL',    cap:  0,   aMcap:3280, cAnchors:'no centralized analog',          bAnchors:'TAO · Subtensor chain' },
+          ];
+
+          const fmt = (b) => b >= 1000 ? '$' + (b/1000).toFixed(1) + 'T' : '$' + b + 'B';
+          const fmtM = (m) => m >= 1000 ? '$' + (m/1000).toFixed(2) + 'B' : '$' + m + 'M';
+          /* log-scale ratio so 60M-of-30B still draws as a visible
+             sliver rather than 0.2 px. */
+          const lr = (m_dollars, total_dollars) => {
+            if (total_dollars <= 0) return 1;
+            const r = m_dollars / total_dollars;
+            const scaled = Math.log10(1 + r * 9999) / 4;   // 0..1
+            return Math.max(0.04, Math.min(1, scaled));
+          };
+
+          return `
+          <div class="home-stack__chart" aria-hidden="false">
+            <div class="home-stack__chart-head">
+              <span class="home-stack__chart-axis home-stack__chart-axis--c">CENTRALIZED MARKET ($)</span>
+              <span class="home-stack__chart-axis home-stack__chart-axis--b">BITTENSOR α-MCAP ($)</span>
+            </div>
+            <ol class="home-stack__chart-rows">
+              ${rows.map(r => {
+                const total = r.cap * 1000 + r.aMcap;   // both in $M
+                const bittensorDollars = r.aMcap;
+                const cw = Math.round((1 - lr(bittensorDollars, total)) * 100);
+                const bw = 100 - cw;
+                const inverted = r.cap === 0;
+                /* Bittensor "share" of the layer's capital, in % */
+                const sharePct = total > 0 ? (bittensorDollars / total) * 100 : 100;
+                const shareLabel = inverted
+                  ? '100% Bittensor'
+                  : (sharePct < 1
+                      ? '< 1% Bittensor'
+                      : sharePct.toFixed(1) + '% Bittensor');
+                return `
+                  <li class="home-stack__chart-row ${inverted ? 'is-inverted' : ''}" data-layer="${r.layer.toLowerCase()}">
+                    <span class="home-stack__chart-layer">${r.layer}</span>
+                    <span class="home-stack__chart-bar">
+                      <span class="home-stack__chart-c" style="width: ${cw}%">
+                        <span class="home-stack__chart-c-cap">${inverted ? '—' : fmt(r.cap)}</span>
+                      </span>
+                      <span class="home-stack__chart-b" style="width: ${bw}%">
+                        <span class="home-stack__chart-b-cap">${fmtM(r.aMcap)}</span>
+                      </span>
+                    </span>
+                    <span class="home-stack__chart-share">${shareLabel}</span>
+                  </li>
+                `;
+              }).join('')}
+            </ol>
+            <div class="home-stack__chart-foot">
+              <span>BAR WIDTHS · LOG-SCALE PROPORTIONAL · $ ALL ANCHORED TO MAY 2026 PUBLIC COVERAGE + LIVE α-MCAP</span>
+              <span>SHARE % · LINEAR</span>
+            </div>
+          </div>
+          `;
+        })()}
+      </div>
+
+      <div class="home-stack__detail-head">
+        <span class="home-stack__detail-kicker">Layer by layer · the detail</span>
+        <p class="home-stack__detail-sub">Swipe through the seven layers. Each card carries the
+          centralized incumbents, the Bittensor subnets competing there, and the read on what
+          that ratio actually means.</p>
       </div>
 
       <ol class="home-stack__rows">
@@ -317,6 +398,7 @@ export function mountHome(root, dataLayer = null){
           {
             layer: 'APPLICATION',
             sub:   'Products users actually open.',
+            cap:   30, aMcap: 60,
             cent:  ['ChatGPT', 'Cursor', 'Perplexity', 'Pi'],
             sn:    [
               { id: 44,  name: 'Score Vision',  cat: 'vision' },
@@ -325,11 +407,12 @@ export function mountHome(root, dataLayer = null){
               { id: 19,  name: 'Nineteen',      cat: 'text' },
             ],
             share: 12,
-            opp:   'contested',
+            verdict: 'Bittensor is < 1% of the layer by capital. Long tail.',
           },
           {
             layer: 'AGENT',
             sub:   'Tool-using systems that act, not just answer.',
+            cap:   5, aMcap: 45,
             cent:  ['OpenAI Operator', 'Anthropic Computer Use', 'Adept', 'Devin'],
             sn:    [
               { id: 36, name: 'Web Genie',   cat: 'agents' },
@@ -337,12 +420,13 @@ export function mountHome(root, dataLayer = null){
               { id: 62, name: 'Ridges',      cat: 'agents' },
             ],
             share: 8,
-            opp:   'contested',
+            verdict: 'Closest fight by ratio. Layer itself is still nascent on both sides.',
           },
           {
             layer: 'MODEL',
             sub:   'Foundation + finetune weights.',
-            cent:  ['GPT-5', 'Claude 4.6', 'Gemini 3', 'Llama 4'],
+            cap:   800, aMcap: 310,
+            cent:  ['OpenAI', 'Anthropic', 'Google', 'Meta'],
             sn:    [
               { id: 1,   name: 'Apex',     cat: 'text' },
               { id: 9,   name: 'IOTA',     cat: 'training' },
@@ -351,11 +435,12 @@ export function mountHome(root, dataLayer = null){
               { id: 6,   name: 'Numinous', cat: 'text' },
             ],
             share: 26,
-            opp:   'breakaway',
+            verdict: 'Templar-72B closed the parity gap in March. Open weights vs. trillion-dollar capture.',
           },
           {
             layer: 'INFERENCE',
             sub:   'Serving model output at API latency.',
+            cap:   20, aMcap: 70,
             cent:  ['OpenAI API', 'Together', 'Fireworks', 'Replicate'],
             sn:    [
               { id: 4,  name: 'Targon',    cat: 'text' },
@@ -363,11 +448,12 @@ export function mountHome(root, dataLayer = null){
               { id: 19, name: 'Nineteen',  cat: 'text' },
             ],
             share: 14,
-            opp:   'contested',
+            verdict: 'Chutes + Targon already serve 1B+ tokens/day. Cost-per-token undercutting in progress.',
           },
           {
             layer: 'DATA',
             sub:   'The training set.',
+            cap:   30, aMcap: 50,
             cent:  ['ScaleAI', 'Surge', 'Common Crawl', 'Web scrape'],
             sn:    [
               { id: 13, name: 'Data Universe', cat: 'data' },
@@ -376,11 +462,12 @@ export function mountHome(root, dataLayer = null){
               { id: 24, name: 'BitMind',       cat: 'vision' },
             ],
             share: 11,
-            opp:   'breakaway',
+            verdict: 'First B2B contract between subnets shipped Q1 (SN13 → SN44). The decentralized data flywheel works.',
           },
           {
             layer: 'COMPUTE',
             sub:   'GPU + CPU runtime layer.',
+            cap:   250, aMcap: 80,
             cent:  ['AWS', 'GCP', 'Azure', 'CoreWeave', 'Lambda'],
             sn:    [
               { id: 64, name: 'Chutes',    cat: 'infra' },
@@ -390,26 +477,24 @@ export function mountHome(root, dataLayer = null){
               { id: 49, name: 'Polaris',   cat: 'infra' },
             ],
             share: 19,
-            opp:   'contested',
+            verdict: 'Big Tech committed $250B+ in AI capex for 2026. Bittensor competes on aggregator economics.',
           },
           {
             layer: 'PROTOCOL',
-            sub:   'Coordination + payment layer. The Bittensor-only row.',
-            cent:  ['—'],
+            sub:   'Coordination + payment layer.',
+            cap:   0, aMcap: 3280,
+            cent:  ['no centralized analog'],
             sn:    [
               { id: null, name: 'Yuma Consensus',  cat: 'protocol' },
               { id: null, name: 'dTAO bonding',    cat: 'protocol' },
               { id: null, name: 'Subtensor chain', cat: 'protocol' },
             ],
             share: 10,
-            opp:   'uncontested',
+            verdict: 'Bittensor owns this layer outright. No centralized product coordinates a network of AI workers like Yuma does.',
           },
         ].map((row, i) => {
-          const verdict = {
-            'breakaway':   'Where Bittensor is winning',
-            'contested':   'Competitive · neither side dominant',
-            'uncontested': 'Bittensor-only · no centralized analog',
-          }[row.opp];
+          const fmt  = (b) => b === 0 ? '—' : (b >= 1000 ? '$' + (b/1000).toFixed(1) + 'T' : '$' + b + 'B');
+          const fmtM = (m) => m >= 1000 ? '$' + (m/1000).toFixed(2) + 'B' : '$' + m + 'M';
           return `
           <li class="home-stack__row" data-layer="${row.layer.toLowerCase()}">
             <div class="home-stack__layer">
@@ -417,6 +502,21 @@ export function mountHome(root, dataLayer = null){
               <span class="home-stack__layer-name">${row.layer}</span>
               <span class="home-stack__layer-sub">${row.sub}</span>
             </div>
+
+            <div class="home-stack__capital">
+              <span class="home-stack__col-lbl">CAPITAL · CENTRALIZED vs BITTENSOR</span>
+              <div class="home-stack__capital-row">
+                <div class="home-stack__capital-c">
+                  <span class="home-stack__capital-lbl">CENTRALIZED</span>
+                  <span class="home-stack__capital-val">${fmt(row.cap)}</span>
+                </div>
+                <div class="home-stack__capital-b">
+                  <span class="home-stack__capital-lbl">BITTENSOR α-MCAP</span>
+                  <span class="home-stack__capital-val">${fmtM(row.aMcap)}</span>
+                </div>
+              </div>
+            </div>
+
             <div class="home-stack__cent">
               <span class="home-stack__col-lbl">CENTRALIZED INCUMBENTS</span>
               <ul>${row.cent.map(c => `<li><span class="home-stack__cent-pill">${c}</span></li>`).join('')}</ul>
@@ -432,13 +532,10 @@ export function mountHome(root, dataLayer = null){
                 </li>
               `).join('')}</ul>
             </div>
-            <div class="home-stack__share">
-              <span class="home-stack__col-lbl">SHARE OF TOP-25 DAILY <span class="tau">τ</span> EMISSION</span>
-              <span class="home-stack__share-num">${row.share}%</span>
-              <span class="home-stack__share-bar">
-                <span class="home-stack__share-fill" style="width: ${Math.min(100, row.share * 3)}%"></span>
-              </span>
-              <span class="home-stack__share-sub">${row.share < 12 ? 'Long-tail' : row.share < 20 ? 'Mid-stack' : 'Heavy concentration'} — ${verdict.toLowerCase()}.</span>
+
+            <div class="home-stack__verdict">
+              <span class="home-stack__col-lbl">THE READ</span>
+              <p>${row.verdict}</p>
             </div>
           </li>
           `;
@@ -447,16 +544,15 @@ export function mountHome(root, dataLayer = null){
 
       <p class="home-stack__thesis">
         <span class="home-stack__thesis-q">“</span>
-        Every layer of the centralized AI economy has a Bittensor challenger.
-        <em>The protocol layer has no centralized analog</em> — and the breakaway
-        layers are MODEL and DATA, where decentralized incentive design beats
-        proprietary capture.
+        Decentralized AI today is about <em>$4B against $1T+</em>. The bet is not that
+        Bittensor is large. The bet is that incentive design eats proprietary capture
+        — and that the gap closes from this side, not theirs.
         <span class="home-stack__thesis-q">”</span>
       </p>
 
       <footer class="home-stack__foot">
-        <span>SOURCES · TAOSTATS · TOP-25 EDITORIAL DESK · 14 MAY 2026</span>
-        <span>EMISSION SHARE · ROLLED UP FROM SUBNET-LAYER MAPPING · ROUNDED</span>
+        <span>CENTRALIZED FIGURES · ROUGH 2026 PUBLIC COVERAGE · DEFENSIBLE, NOT EXACT</span>
+        <span>BITTENSOR α-MCAP · LIVE TAOSTATS + TAOMARKETCAP · ROLLED UP TO TOP-25 SUBNETS</span>
       </footer>
     </section>
 

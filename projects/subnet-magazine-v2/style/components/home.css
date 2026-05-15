@@ -854,19 +854,176 @@
   background: var(--c-bg-3);
 }
 
-/* ---------- § 03 THE STACK · centralized vs Bittensor ----------
-   Original infographic. 7 layers of the AI value chain, each with
-   four columns: LAYER + role + opportunity badge | CENTRALIZED
-   incumbents | BITTENSOR challengers (subnet pills color-coded by
-   category) | EMISSION SHARE bar. Sets the editorial claim that
-   every layer of the centralized stack has a Bittensor challenger.
-   Mobile collapses each row to a vertical card with sub-blocks. */
+/* ---------- § 03 THE MONEY MAP · david vs goliath ----------
+   The lead visual is a log-scale proportional bar chart showing the
+   centralized market and the Bittensor α-mcap to scale for every
+   layer of the AI stack. The detail cards below give the specifics
+   per layer. Heavy section break so it doesn't blur into the bios
+   rail above or the protocol pipeline below. */
 .home-stack{
-  max-width: var(--max-w);
-  margin: 0 auto;
-  padding: clamp(40px, 6vw, 72px) var(--gutter);
-  border-bottom: var(--b-thin);
+  position: relative;
+  max-width: none;
+  margin: clamp(48px, 8vw, 96px) 0 0;
+  padding: clamp(56px, 8vw, 112px) 0 clamp(48px, 7vw, 88px);
+  background:
+    radial-gradient(80% 30% at 50% 0%, rgba(255,30,60,.10), transparent 70%),
+    linear-gradient(180deg, var(--c-bg-1), var(--c-bg));
+  border-top: 4px solid var(--c-red);
+  border-bottom: 4px solid var(--c-red);
+  isolation: isolate;
 }
+.home-stack::before{
+  /* a subtle inner divider so the band reads as one panel */
+  content: "";
+  position: absolute;
+  top: 1px; left: 0; right: 0;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--c-red-1), transparent);
+  pointer-events: none;
+}
+.home-stack__hero,
+.home-stack__detail-head,
+.home-stack__rows,
+.home-stack__thesis,
+.home-stack__foot{
+  max-width: var(--max-w);
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: var(--gutter);
+  padding-right: var(--gutter);
+}
+.home-stack__hero{ margin-bottom: clamp(28px, 4vw, 56px); }
+.home-stack__detail-head{ margin-top: clamp(28px, 4vw, 56px); margin-bottom: var(--s-4); }
+.home-stack__detail-kicker{
+  font-family: var(--f-mono);
+  font-size: var(--t-xs);
+  font-weight: 700;
+  letter-spacing: var(--ls-label);
+  text-transform: uppercase;
+  color: var(--c-red);
+}
+.home-stack__detail-sub{
+  margin: 4px 0 0;
+  max-width: 64ch;
+  font-family: var(--f-sans);
+  font-size: var(--t-md);
+  line-height: var(--lh-loose);
+  color: var(--c-ink-2);
+}
+
+/* ---------- the lead chart ---------- */
+.home-stack__chart{
+  margin-top: clamp(24px, 4vw, 48px);
+  padding: clamp(16px, 2.5vw, 28px);
+  background: var(--c-bg-2);
+  border: 1px solid var(--c-rule-3);
+  border-radius: 6px;
+  box-shadow:
+    0 0 0 1px rgba(255,30,60,.08) inset,
+    0 24px 60px -32px rgba(255,30,60,.35);
+}
+.home-stack__chart-head{
+  display: flex; justify-content: space-between;
+  margin-bottom: var(--s-3);
+  font-family: var(--f-mono);
+  font-size: 9.5px;
+  font-weight: 700;
+  letter-spacing: var(--ls-label);
+  text-transform: uppercase;
+}
+.home-stack__chart-axis--c{ color: var(--c-ink-3); }
+.home-stack__chart-axis--b{ color: var(--c-red); }
+.home-stack__chart-rows{
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex; flex-direction: column;
+  gap: 8px;
+}
+.home-stack__chart-row{
+  display: grid;
+  grid-template-columns: clamp(74px, 12%, 110px) 1fr clamp(70px, 12%, 110px);
+  align-items: center;
+  gap: var(--s-3);
+}
+.home-stack__chart-layer{
+  font-family: var(--f-mono);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: var(--ls-label);
+  color: var(--c-ink-1);
+  white-space: nowrap;
+}
+.home-stack__chart-bar{
+  display: flex; align-items: stretch;
+  height: 30px;
+  width: 100%;
+  border: 1px solid var(--c-rule-2);
+  border-radius: 4px;
+  overflow: hidden;
+}
+.home-stack__chart-c{
+  position: relative;
+  background: repeating-linear-gradient(
+    90deg,
+    rgba(245,229,232,.06) 0 2px,
+    transparent 2px 6px
+  ), rgba(245,229,232,.04);
+  border-right: 1px solid var(--c-rule-2);
+  min-width: 0;
+}
+.home-stack__chart-b{
+  position: relative;
+  background: linear-gradient(90deg,
+    var(--c-red-blood),
+    var(--c-red) 60%,
+    var(--c-red-1));
+  box-shadow: 0 0 18px rgba(255,30,60,.6) inset;
+  min-width: 0;
+}
+.home-stack__chart-c-cap,
+.home-stack__chart-b-cap{
+  position: absolute;
+  inset: 0;
+  display: grid; place-items: center;
+  font-family: var(--f-mono);
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: var(--ls-data);
+  font-variant-numeric: tabular-nums;
+  white-space: nowrap;
+  padding: 0 4px;
+}
+.home-stack__chart-c-cap{ color: var(--c-ink-2); }
+.home-stack__chart-b-cap{ color: var(--c-bg); text-shadow: 0 0 6px rgba(0,0,0,.4); }
+.home-stack__chart-share{
+  font-family: var(--f-mono);
+  font-size: 10.5px;
+  font-weight: 700;
+  letter-spacing: var(--ls-data);
+  color: var(--c-red);
+  text-align: right;
+  font-variant-numeric: tabular-nums;
+  white-space: nowrap;
+}
+.home-stack__chart-row.is-inverted .home-stack__chart-c{ display: none; }
+.home-stack__chart-row.is-inverted .home-stack__chart-b{ width: 100% !important; }
+.home-stack__chart-foot{
+  margin-top: var(--s-3);
+  padding-top: var(--s-3);
+  border-top: var(--b-thin);
+  display: flex; flex-wrap: wrap;
+  justify-content: space-between;
+  gap: var(--s-2) var(--s-4);
+  font-family: var(--f-mono);
+  font-size: 9px;
+  font-weight: 600;
+  letter-spacing: var(--ls-label);
+  text-transform: uppercase;
+  color: var(--c-ink-4);
+}
+
+/* ---------- the detail cards (now with capital block) ---------- */
 .home-stack__rows{
   list-style: none;
   margin: var(--s-6) 0 0;
@@ -876,7 +1033,7 @@
 }
 .home-stack__row{
   display: grid;
-  grid-template-columns: clamp(180px, 22%, 220px) 1fr 1.4fr clamp(140px, 18%, 180px);
+  grid-template-columns: clamp(180px, 18%, 200px) clamp(180px, 18%, 220px) 1fr 1.2fr clamp(160px, 18%, 220px);
   gap: 0;
   border-right: var(--b-thin);
   border-bottom: var(--b-thin);
@@ -985,41 +1142,59 @@
 .home-stack__sn-pill.cat-infra    { border-color: rgba(255,180,180,.32); background: rgba(255,180,180,.05); }
 .home-stack__sn-pill.cat-protocol { border-color: var(--c-rule-3); background: rgba(255,255,255,.05); color: var(--c-red); }
 
-/* emission share column: big number + bar + sub */
-.home-stack__share{
+/* the per-layer capital row inside each detail card. Two cells:
+   CENTRALIZED $X and BITTENSOR $Y, both big mono numerals so the
+   disparity reads even before the user reaches the bar chart. */
+.home-stack__capital{
   background: var(--c-bg-1);
-  align-items: stretch;
 }
-.home-stack__share-num{
+.home-stack__capital-row{
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--s-3);
+}
+.home-stack__capital-c,
+.home-stack__capital-b{
+  display: flex; flex-direction: column; gap: 2px;
+}
+.home-stack__capital-lbl{
   font-family: var(--f-mono);
-  font-size: 26px;
+  font-size: 9px;
   font-weight: 700;
-  color: var(--c-red);
-  font-variant-numeric: tabular-nums;
-  line-height: 1;
-}
-.home-stack__share-bar{
-  position: relative;
-  display: block;
-  height: 6px;
-  background: var(--c-bg-3);
-  border-radius: 999px;
-  overflow: hidden;
-  border: 1px solid var(--c-rule-2);
-}
-.home-stack__share-fill{
-  display: block;
-  height: 100%;
-  background: linear-gradient(90deg, var(--c-red), var(--c-red-1));
-  border-radius: 999px;
-  transition: width .8s ease-out;
-}
-.home-stack__share-sub{
-  font-family: var(--f-mono);
-  font-size: 9.5px;
   letter-spacing: var(--ls-label);
   text-transform: uppercase;
   color: var(--c-ink-4);
+}
+.home-stack__capital-c .home-stack__capital-val{
+  font-family: var(--f-mono);
+  font-size: 22px;
+  font-weight: 700;
+  color: var(--c-ink-1);
+  font-variant-numeric: tabular-nums;
+  letter-spacing: -.01em;
+}
+.home-stack__capital-b .home-stack__capital-val{
+  font-family: var(--f-mono);
+  font-size: 22px;
+  font-weight: 700;
+  color: var(--c-red);
+  font-variant-numeric: tabular-nums;
+  letter-spacing: -.01em;
+  text-shadow: 0 0 12px rgba(255,30,60,.45);
+}
+
+/* the per-card "THE READ" verdict block — full sentence telling the
+   reader what to take from the row, not a vague badge */
+.home-stack__verdict{
+  background: rgba(255,30,60,.04);
+}
+.home-stack__verdict p{
+  margin: 0;
+  font-family: var(--f-serif);
+  font-style: italic;
+  font-size: var(--t-md);
+  line-height: 1.45;
+  color: var(--c-ink-1);
 }
 
 /* the editorial thesis line under the matrix */
@@ -1100,11 +1275,20 @@
     scroll-snap-align: start;
     scroll-snap-stop: always;
     grid-template-columns: 1fr;
-    grid-template-rows: auto auto auto auto;
+    grid-template-rows: auto auto auto auto auto;
     border: 1px solid var(--c-rule-2);
     border-radius: 4px;
-    min-height: 540px;
+    min-height: 620px;
   }
+  /* the lead chart goes a bit denser at narrow widths so it still
+     reads on a phone */
+  .home-stack__chart-row{
+    grid-template-columns: 70px 1fr 64px;
+    gap: var(--s-2);
+  }
+  .home-stack__chart-bar{ height: 26px; }
+  .home-stack__chart-c-cap,
+  .home-stack__chart-b-cap{ font-size: 9px; }
   .home-stack__row > div{
     border-right: 0;
     border-bottom: var(--b-thin);
