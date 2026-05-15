@@ -65,7 +65,8 @@
 .home-research,
 .home-neural,
 .home-vals,
-.home-how{
+.home-how,
+.home-bios{
   max-width: var(--max-w);
   margin: 0 auto;
   padding: clamp(26px, 4vw, 52px) var(--gutter);
@@ -888,12 +889,218 @@
   color: var(--c-ink-4);
 }
 
+/* ---------- TOP 25 BIOS · the research-card grid ----------
+   Each card is a data-density playground: rank chip + mark + name +
+   category, headline keyMetric in big mono, four-cell stats grid,
+   the 150-200 word bio, a RECENT chip with the most recent 2026
+   milestone, and a deep-link CTA. The whole grid is the section
+   that gives the page its "research terminal" feel. */
+.home-bios__grid{
+  list-style: none;
+  margin: var(--s-6) 0 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 0;
+  counter-reset: bio;
+  border-top: var(--b-thin);
+  border-left: var(--b-thin);
+}
+.home-bio{
+  position: relative;
+  display: grid;
+  grid-template-rows: auto auto auto auto 1fr auto auto;
+  gap: var(--s-3);
+  padding: var(--s-5);
+  background: var(--c-bg-2);
+  border-right: var(--b-thin);
+  border-bottom: var(--b-thin);
+  transition: background var(--d-fast) var(--e-out);
+  overflow: hidden;
+}
+.home-bio::before{
+  /* a hairline accent rail on the left edge, the way Bloomberg's
+     terminal panes carry a stripe on the active side. */
+  content: "";
+  position: absolute;
+  top: 0; bottom: 0; left: 0;
+  width: 2px;
+  background: linear-gradient(180deg, var(--c-red), transparent 60%);
+  opacity: .65;
+  transition: opacity .26s var(--e-out), width .26s var(--e-out);
+}
+.home-bio:hover{ background: var(--c-bg-3); }
+.home-bio:hover::before{ opacity: 1; width: 3px; }
+.home-bio::after{
+  /* faint dot-grid texture behind each card — the "scientific paper
+     plotted on graph paper" feel, sub-1px scaled so it never reads
+     as a real grid. */
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image: radial-gradient(rgba(255,30,60,.06) 1px, transparent 1px);
+  background-size: 18px 18px;
+  pointer-events: none;
+  opacity: .35;
+  mask-image: linear-gradient(180deg, transparent, #000 30%, #000 70%, transparent);
+}
+.home-bio > *{ position: relative; z-index: 1; }
+
+/* card head: rank, mark, name+SN, category */
+.home-bio__head{
+  display: grid;
+  grid-template-columns: auto auto 1fr auto;
+  align-items: center;
+  gap: var(--s-3);
+}
+.home-bio__rank{
+  font-family: var(--f-mono);
+  font-size: var(--t-xl);
+  font-weight: 700;
+  line-height: 1;
+  color: var(--c-red);
+  letter-spacing: var(--ls-data);
+  font-variant-numeric: tabular-nums;
+}
+.home-bio__logo{
+  width: 28px; height: 28px;
+  border-radius: 4px;
+  background: var(--c-bg-1);
+  display: grid; place-items: center;
+  flex: 0 0 28px;
+}
+.home-bio__logo--mark svg{ width: 22px; height: 22px; }
+.home-bio__id{ display: flex; flex-direction: column; gap: 1px; min-width: 0; }
+.home-bio__sn{
+  font-family: var(--f-mono); font-size: 10px; letter-spacing: var(--ls-label);
+  color: var(--c-red-1); text-transform: uppercase;
+}
+.home-bio__name{
+  font-family: var(--f-serif); font-size: var(--t-lg); font-weight: 700;
+  color: var(--c-ink-1); line-height: 1.1; letter-spacing: -.01em;
+  overflow: hidden; text-overflow: ellipsis; white-space: nowrap;
+}
+.home-bio__cat{
+  font-family: var(--f-mono); font-size: 9.5px; font-weight: 600;
+  letter-spacing: var(--ls-label); text-transform: uppercase;
+  padding: 2px 7px;
+  border: 1px solid var(--c-rule-2); border-radius: 999px;
+  color: var(--c-ink-3); background: rgba(255,30,60,.04);
+  white-space: nowrap;
+}
+
+/* the one-line summary right under the head */
+.home-bio__one{
+  margin: 0;
+  font-family: var(--f-sans);
+  font-size: var(--t-md);
+  line-height: 1.4;
+  color: var(--c-ink-2);
+  font-style: italic;
+}
+
+/* headline metric — the single number that defines this subnet today */
+.home-bio__metric{
+  display: flex; flex-direction: column; gap: 4px;
+  padding: var(--s-3);
+  background: linear-gradient(180deg, rgba(255,30,60,.08), rgba(255,30,60,.02));
+  border: 1px solid var(--c-rule-2);
+  border-radius: 4px;
+}
+.home-bio__metric-lbl{
+  font-family: var(--f-mono); font-size: 9.5px; font-weight: 600;
+  letter-spacing: var(--ls-label); text-transform: uppercase;
+  color: var(--c-red-1);
+}
+.home-bio__metric-val{
+  font-family: var(--f-mono); font-size: 14.5px; font-weight: 700;
+  color: var(--c-ink-1); line-height: 1.25;
+  font-variant-numeric: tabular-nums;
+}
+
+/* compact stats grid: α-price · mcap · emission · 24h */
+.home-bio__stats{
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 0;
+  margin: 0;
+  border-top: var(--b-thin);
+  border-left: var(--b-thin);
+}
+.home-bio__stats > div{
+  display: flex; flex-direction: column; gap: 2px;
+  padding: 6px 8px;
+  border-right: var(--b-thin);
+  border-bottom: var(--b-thin);
+}
+.home-bio__stats dt{
+  font-family: var(--f-mono); font-size: 9px; font-weight: 600;
+  letter-spacing: var(--ls-label); text-transform: uppercase;
+  color: var(--c-ink-4); margin: 0;
+}
+.home-bio__stats dd{
+  font-family: var(--f-mono); font-size: var(--t-sm); font-weight: 700;
+  color: var(--c-ink-1); margin: 0;
+  font-variant-numeric: tabular-nums;
+}
+.home-bio__stats dd.up   { color: var(--c-up); }
+.home-bio__stats dd.down { color: var(--c-down); }
+.home-bio__stats dd .u   { color: var(--c-ink-4); font-weight: 400; margin-left: 1px; font-size: .85em; }
+
+/* the prose bio body */
+.home-bio__body{
+  margin: 0;
+  font-family: var(--f-sans);
+  font-size: var(--t-sm);
+  line-height: 1.55;
+  color: var(--c-ink-2);
+  font-variant-numeric: normal;
+  /* on small viewports we cap and add ellipsis; on tap the card
+     scrolls a hidden expandable below. Desktop shows the full bio. */
+}
+
+/* RECENT chip — the most recent material event in 2026 */
+.home-bio__recent{
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: var(--s-2);
+  align-items: start;
+  padding-top: var(--s-3);
+  border-top: 1px dashed var(--c-rule-2);
+}
+.home-bio__recent-tag{
+  display: inline-flex; align-items: center; gap: 5px;
+  padding: 2px 7px;
+  border-radius: 999px;
+  background: rgba(0,229,168,.10);
+  border: 1px solid rgba(0,229,168,.32);
+  color: var(--c-up);
+  font-family: var(--f-mono); font-size: 9.5px; font-weight: 700;
+  letter-spacing: var(--ls-label); text-transform: uppercase;
+  white-space: nowrap;
+}
+.home-bio__recent-text{
+  font-family: var(--f-sans); font-size: 12px; line-height: 1.5;
+  color: var(--c-ink-2);
+}
+
+/* deep-link CTA */
+.home-bio__more{
+  font-family: var(--f-mono); font-size: var(--t-xs); font-weight: 700;
+  letter-spacing: var(--ls-label); text-transform: uppercase;
+  color: var(--c-red-1);
+  align-self: end; justify-self: end;
+  padding: 4px 0;
+}
+.home-bio__more:hover{ color: var(--c-red); }
+
 /* ---------- responsive ---------- */
 @media (max-width: 980px){
   .home-net__grid{ grid-template-columns: repeat(3, 1fr); }
   .home-subnets__grid{ grid-template-columns: repeat(2, 1fr); }
   .home-sections__grid{ grid-template-columns: repeat(2, 1fr); }
   .home-how__grid{ grid-template-columns: repeat(2, 1fr); }
+  .home-bios__grid{ grid-template-columns: repeat(2, 1fr); }
 }
 @media (max-width: 560px){
   .home-net__grid{ grid-template-columns: repeat(2, 1fr); }
@@ -902,4 +1109,7 @@
   .home-subnets__head{ flex-direction: column; align-items: flex-start; gap: var(--s-3); }
   .home-how__grid{ grid-template-columns: 1fr; }
   .home-how__step{ padding: var(--s-5); }
+  .home-bios__grid{ grid-template-columns: 1fr; }
+  .home-bio{ padding: var(--s-4); }
+  .home-bio__stats{ grid-template-columns: repeat(2, 1fr); }
 }

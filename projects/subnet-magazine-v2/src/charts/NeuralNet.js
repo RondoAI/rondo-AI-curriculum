@@ -52,6 +52,68 @@ export class NeuralNet extends Chart {
     /** @private */ this.pulses = [];      // {layer, edgeIdx, t, speed, intensity}
     /** @private */ this.lastTick = 0;
     /** @private */ this.lastSpawn = 0;
+    /** @private */ this.t = 0;
+    /** @private */ this.hoverLayer = -1;
+    /** @private */ this.flashLayer = -1;
+    /** @private */ this.flashUntil = 0;
+
+    /* interactivity: tap anywhere → fire the closest column; move
+       across the canvas → highlight the layer you're hovering. Mouse
+       and touch both pipe through pointerdown / pointermove. */
+    this.canvas.style.cursor = 'pointer';
+    this.canvas.style.touchAction = 'manipulation';
+    this._onPointerDown = (e) => this._onTap(this._toLocal(e));
+    this._onPointerMove = (e) => {
+      const p = this._toLocal(e);
+      this.hoverLayer = this._layerAt(p.x);
+    };
+    this._onPointerLeave = () => { this.hoverLayer = -1; };
+    this.canvas.addEventListener('pointerdown', this._onPointerDown);
+    this.canvas.addEventListener('pointermove', this._onPointerMove);
+    this.canvas.addEventListener('pointerleave', this._onPointerLeave);
+  }
+
+  destroy(){
+    try {
+      this.canvas.removeEventListener('pointerdown', this._onPointerDown);
+      this.canvas.removeEventListener('pointermove', this._onPointerMove);
+      this.canvas.removeEventListener('pointerleave', this._onPointerLeave);
+    } catch (_) {}
+    super.destroy();
+  }
+
+  /** Translate a pointer event to canvas-local coords (CSS pixels). */
+  _toLocal(e){
+    const r = this.canvas.getBoundingClientRect();
+    return { x: e.clientX - r.left, y: e.clientY - r.top };
+  }
+
+  /** Return the index of the column nearest a given x. */
+  _layerAt(x){
+    if (!this.nodes.length) return -1;
+    let bestIdx = 0, bestDx = Infinity;
+    for (let l = 0; l < this.nodes.length; l++){
+      const col = this.nodes[l];
+      if (!col?.length) continue;
+      const dx = Math.abs(col[0].x - x);
+      if (dx < bestDx){ bestDx = dx; bestIdx = l; }
+    }
+    return bestIdx;
+  }
+
+  /** Pointer tapped at (x, y) → fire every node in the nearest column. */
+  _onTap({ x }){
+    const l = this._layerAt(x);
+    if (l < 0 || l >= this.nodes.length) return;
+    const col = this.nodes[l];
+    /* fire every node in the column with a strong intensity so the
+       cascade visibly ripples forward to the consensus head */
+    for (let i = 0; i < col.length; i++){
+      this._fireNode(l, i, 1.2 + Math.random() * 0.3);
+    }
+    /* and flag the column as "flashed" so the label briefly glows */
+    this.flashLayer = l;
+    this.flashUntil = this.t + 0.6;
   }
 
   layout(ctx, w, h){
@@ -145,8 +207,28 @@ export class NeuralNet extends Chart {
   draw(ctx, w, h, t){
     const dt = this.lastTick === 0 ? 0 : Math.min(0.1, t - this.lastTick);
     this.lastTick = t;
+    this.t = t;
 
     ctx.clearRect(0, 0, w, h);
+
+    /* === highlighted column wash (hover/flash) ===
+       a vertical red gradient bar behind the column the user is
+       hovering or just tapped, so the interactivity reads cleanly */
+    const hoverL = this.hoverLayer >= 0 ? this.hoverLayer : -1;
+    const flashL = (this.flashUntil > t) ? this.flashLayer : -1;
+    const litL   = flashL >= 0 ? flashL : hoverL;
+    if (litL >= 0 && this.nodes[litL]?.length){
+      const colX = this.nodes[litL][0].x;
+      const colW = (w * 0.94) / Math.max(1, this.nodes.length);
+      const flashEnergy = flashL >= 0 ? Math.max(0, (this.flashUntil - t) / 0.6) : 0;
+      const baseAlpha = 0.06 + flashEnergy * 0.18;
+      const g = ctx.createLinearGradient(colX, 0, colX, h);
+      g.addColorStop(0,   `rgba(255,30,60,${baseAlpha})`);
+      g.addColorStop(0.5, `rgba(255,30,60,${baseAlpha * 1.4})`);
+      g.addColorStop(1,   `rgba(255,30,60,${baseAlpha * 0.4})`);
+      ctx.fillStyle = g;
+      ctx.fillRect(colX - colW / 2, 0, colW, h);
+    }
 
     /* === all edges (faint base layer) === */
     ctx.lineWidth = 0.5;
@@ -227,27 +309,35 @@ export class NeuralNet extends Chart {
       }
     }
 
-    /* === layer labels === */
+    /* === layer labels (brighter on hover / flash) === */
     ctx.font = '600 9.5px JetBrains Mono, monospace';
-    ctx.fillStyle = 'rgba(255,30,60,.55)';
     ctx.textAlign = 'center';
     ctx.textBaseline = 'top';
     for (let l = 0; l < this.layerSizes.length; l++){
       const col = this.nodes[l];
       if (!col?.length) continue;
       const x = col[0].x;
+      const lit = (l === flashL) ? 1 : (l === hoverL ? 0.8 : 0);
+      ctx.fillStyle = lit > 0
+        ? `rgba(255,${128 + Math.round(127 * (1 - lit))},${148 + Math.round(60 * (1 - lit))},${0.7 + lit * 0.3})`
+        : 'rgba(255,30,60,.55)';
+      ctx.font = lit > 0 ? '700 10px JetBrains Mono, monospace' : '600 9.5px JetBrains Mono, monospace';
       ctx.fillText(this.labels[l] || `L${l}`, x, 8);
-      ctx.fillStyle = 'rgba(255,30,60,.30)';
+      ctx.fillStyle = lit > 0 ? 'rgba(255,205,215,.85)' : 'rgba(255,30,60,.30)';
+      ctx.font = '500 9.5px JetBrains Mono, monospace';
       ctx.fillText(`n · ${this.layerSizes[l]}`, x, 22);
-      ctx.fillStyle = 'rgba(255,30,60,.55)';
     }
 
-    /* === watermark === */
+    /* === watermark, now with a tap-to-fire hint === */
     ctx.font = '600 9.5px JetBrains Mono, monospace';
     ctx.fillStyle = 'rgba(255,30,60,.45)';
     ctx.textAlign = 'left'; ctx.textBaseline = 'bottom';
     ctx.fillText(`FEED-FORWARD · ${this.layerSizes.length} LAYERS · ${this.pulses.length} PULSES`, 10, h - 8);
+    ctx.textAlign = 'center';
+    ctx.fillStyle = 'rgba(245,229,232,.45)';
+    ctx.fillText('TAP A LAYER TO FIRE IT', w / 2, h - 8);
     ctx.textAlign = 'right';
+    ctx.fillStyle = 'rgba(255,30,60,.45)';
     ctx.fillText(`T+${t.toFixed(1)}s`, w - 10, h - 8);
 
     /* lint guard */

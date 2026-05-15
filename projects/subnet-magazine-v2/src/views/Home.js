@@ -27,6 +27,7 @@ import { NeuralNet } from '../charts/NeuralNet.js';
 import { Treemap } from '../charts/Treemap.js';
 import { articlesByDate } from '../data/articles.js';
 import { subnetById, SUBNETS } from '../data/subnets.js';
+import { SUBNET_BIOS } from '../data/subnet-bios.js';
 import { VALIDATORS } from '../data/validators.js';
 
 const CAT_LABEL = {
@@ -385,11 +386,84 @@ export function mountHome(root, dataLayer = null){
       </ul>
     </section>
 
+    <!-- ===== TOP 25 BIOS · DEEP PROFILES =====
+         The 25 subnets that earn the most daily τ, each profiled in
+         150-200 words with the metric that defines them today, a
+         compact stats grid, and the most recent 2026 milestone.
+         Researched from taostats, taomarketcap, official repos, and
+         2026 press — sourced inline at the section foot. -->
+    <section class="home-bios" aria-label="Top 25 subnet deep profiles">
+      <div class="home-net__head">
+        <span class="home-net__kicker"><span class="home-net__ord">§ 07</span><span class="live-dot"></span>The Top 25 · deep profiles · 14 May 2026</span>
+        <h2 class="home-net__title">The <em>full read</em> on every leader.</h2>
+        <p class="home-net__sub">Editorial bios for the 25 subnets earning the most daily τ as of 14 May 2026 —
+        what they actually do, who runs them, what they shipped in 2026, and the single number that
+        defines each one today. Ordered by emission rank.</p>
+      </div>
+      <ol class="home-bios__grid">
+        ${SUBNET_BIOS.map((b, i) => {
+          const sn  = subnetById(b.netuid) || {};
+          const rank = String(i + 1).padStart(2, '0');
+          const up   = (sn.chg24 ?? 0) >= 0;
+          const price = sn.price != null
+            ? (sn.price < 1 ? '$' + sn.price.toFixed(4) : '$' + sn.price.toFixed(2))
+            : '—';
+          const mcap = sn.mcap != null ? '$' + sn.mcap + 'M' : '—';
+          const emis = sn.emission != null ? 'τ' + sn.emission : '—';
+          const chg  = sn.chg24 != null ? ((up ? '+' : '') + sn.chg24.toFixed(1) + '%') : '—';
+          const cat  = sn.cat || '—';
+          const logo = sn.logo
+            ? `<img class="home-bio__logo" src="${sn.logo}" alt="" loading="lazy" onerror="this.replaceWith(document.createTextNode(''))">`
+            : `<span class="home-bio__logo home-bio__logo--mark">${mark(sn.name || ('SN' + b.netuid), { size: 28 })}</span>`;
+          return `
+            <li class="home-bio" data-netuid="${b.netuid}">
+              <header class="home-bio__head">
+                <span class="home-bio__rank">${rank}</span>
+                ${logo}
+                <span class="home-bio__id">
+                  <span class="home-bio__sn">SN${b.netuid}</span>
+                  <span class="home-bio__name">${sn.name || 'Subnet ' + b.netuid}</span>
+                </span>
+                <span class="home-bio__cat">${cat}</span>
+              </header>
+
+              <p class="home-bio__one">${b.oneline}</p>
+
+              <div class="home-bio__metric">
+                <span class="home-bio__metric-lbl">Key metric · May 2026</span>
+                <span class="home-bio__metric-val">${b.keyMetric}</span>
+              </div>
+
+              <dl class="home-bio__stats">
+                <div><dt>α-price</dt><dd>${price}</dd></div>
+                <div><dt>Mcap</dt><dd>${mcap}</dd></div>
+                <div><dt>Emission</dt><dd>${emis}<span class="u">/d</span></dd></div>
+                <div><dt>24h</dt><dd class="${up ? 'up' : 'down'}">${chg}</dd></div>
+              </dl>
+
+              <p class="home-bio__body">${b.bio}</p>
+
+              <div class="home-bio__recent">
+                <span class="home-bio__recent-tag"><span class="live-dot"></span>Recent</span>
+                <span class="home-bio__recent-text">${b.recentNews}</span>
+              </div>
+
+              <a class="home-bio__more" href="subnet.html?id=${b.netuid}">Open profile →</a>
+            </li>
+          `;
+        }).join('')}
+      </ol>
+      <span class="home-neural__foot home-neural__foot--block">
+        <span>DATASET · TAOSTATS · TAOMARKETCAP · OFFICIAL REPOS · 2026 PRESS</span>
+        <span>RANKED · DAILY <span class="tau">τ</span> EMISSION · UPDATED 14 MAY 2026</span>
+      </span>
+    </section>
+
     <!-- ===== TOP VALIDATORS ===== -->
     <section class="home-vals" aria-label="Top validators by stake">
       <div class="home-subnets__head">
         <div>
-          <span class="home-net__kicker"><span class="home-net__ord">§ 07</span><span class="live-dot"></span>Top Validators · by stake</span>
+          <span class="home-net__kicker"><span class="home-net__ord">§ 08</span><span class="live-dot"></span>Top Validators · by stake</span>
           <h2 class="home-net__title">The hotkeys that <em>run the network.</em></h2>
         </div>
         <a class="home-subnets__all" href="validators.html">All validators ↗</a>
@@ -420,7 +494,7 @@ export function mountHome(root, dataLayer = null){
     <!-- ===== SECTIONS NAV ===== -->
     <section class="home-sections" aria-label="Site sections">
       <div class="home-net__head">
-        <span class="home-net__kicker"><span class="home-net__ord">§ 08</span>The whole terminal</span>
+        <span class="home-net__kicker"><span class="home-net__ord">§ 09</span>The whole terminal</span>
         <h2 class="home-net__title">Nine ways in.</h2>
       </div>
       <ul class="home-sections__grid">
