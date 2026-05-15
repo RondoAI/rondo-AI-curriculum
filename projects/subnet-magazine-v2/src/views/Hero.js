@@ -41,12 +41,6 @@ export function mountHero(root, dataLayer = null){
             <span class="hero__philosophy-q">”</span>
           </blockquote>
 
-          <p class="hero__dek">
-            The reading-room the open AI economy was missing. Live network state, the
-            Yuma loop drawn end-to-end, twenty-five operators profiled, the math shown.
-            Built for the funds deciding where the next billion of compute goes, and the
-            agents they delegate to.
-          </p>
         </div>
 
         <div class="hero__foot">
