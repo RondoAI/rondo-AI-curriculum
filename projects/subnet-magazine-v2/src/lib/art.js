@@ -51,68 +51,107 @@ export function cardArt(seed, opts = {}){
   const variant = opts.variant || '';
   const r = rng(hash(String(seed) + '|' + variant));
   const id = 'a' + (hash(seed + variant) % 1e6);
-
+  const f = n => n.toFixed(1);
   const pick = arr => arr[Math.floor(r() * arr.length)];
 
-  /* ---- blooms: 2–3 big soft radial gradients ---- */
   let defs = '';
+
+  /* ---- soft red blooms for depth ---- */
   let blooms = '';
   const nBlooms = 2 + Math.floor(r() * 2);
   for (let i = 0; i < nBlooms; i++){
-    const gx = r() * w, gy = r() * h;
-    const rad = (0.35 + r() * 0.5) * Math.max(w, h);
+    const gx = r() * w, gy = r() * h * 0.7;
+    const rad = (0.4 + r() * 0.5) * Math.max(w, h);
     const col = pick(REDS);
     const gid = `${id}b${i}`;
-    defs += `<radialGradient id="${gid}" cx="${(gx / w * 100).toFixed(1)}%" cy="${(gy / h * 100).toFixed(1)}%" r="65%">`
-          + `<stop offset="0%" stop-color="${col}" stop-opacity="${(0.22 + r() * 0.28).toFixed(2)}"/>`
+    defs += `<radialGradient id="${gid}" cx="${(gx / w * 100).toFixed(1)}%" cy="${(gy / h * 100).toFixed(1)}%" r="68%">`
+          + `<stop offset="0%" stop-color="${col}" stop-opacity="${(0.2 + r() * 0.24).toFixed(2)}"/>`
           + `<stop offset="100%" stop-color="${col}" stop-opacity="0"/></radialGradient>`;
-    blooms += `<circle cx="${gx.toFixed(1)}" cy="${gy.toFixed(1)}" r="${rad.toFixed(1)}" fill="url(#${gid})"/>`;
+    blooms += `<circle cx="${f(gx)}" cy="${f(gy)}" r="${f(rad)}" fill="url(#${gid})"/>`;
   }
 
-  /* ---- ribbons: flowing bezier strokes ---- */
-  let ribbons = '';
-  const nRibbons = 3 + Math.floor(r() * 4);
-  for (let i = 0; i < nRibbons; i++){
-    const y0 = r() * h;
-    const x1 = w * (0.2 + r() * 0.2), y1 = r() * h;
-    const x2 = w * (0.5 + r() * 0.2), y2 = r() * h;
-    const y3 = r() * h;
-    const sw = (0.6 + r() * 1.8).toFixed(2);
-    const op = (0.10 + r() * 0.34).toFixed(2);
-    ribbons += `<path d="M0 ${y0.toFixed(1)} C ${x1.toFixed(1)} ${y1.toFixed(1)}, `
-             + `${x2.toFixed(1)} ${y2.toFixed(1)}, ${w} ${y3.toFixed(1)}" `
-             + `fill="none" stroke="${pick(REDS)}" stroke-width="${sw}" stroke-opacity="${op}"/>`;
+  /* ---- perspective floor grid — the futuristic terminal horizon ---- */
+  const horizon = h * (0.34 + r() * 0.12);
+  const vpx = w * (0.3 + r() * 0.4);          // vanishing point x
+  let grid = `<g stroke="#FF1E3C" fill="none">`;
+  for (let i = -6; i <= 6; i++){              // converging verticals
+    const bx = w / 2 + (i / 6) * w * 1.4;
+    grid += `<line x1="${f(bx)}" y1="${f(h)}" x2="${f(vpx)}" y2="${f(horizon)}" `
+          + `stroke-opacity="0.16" stroke-width="0.6"/>`;
   }
+  for (let i = 1; i <= 7; i++){               // receding horizontals
+    const t = i / 8;
+    const y = horizon + Math.pow(t, 1.8) * (h - horizon);
+    grid += `<line x1="0" y1="${f(y)}" x2="${w}" y2="${f(y)}" `
+          + `stroke-opacity="${(0.05 + t * 0.14).toFixed(2)}" stroke-width="0.6"/>`;
+  }
+  grid += `<line x1="0" y1="${f(horizon)}" x2="${w}" y2="${f(horizon)}" stroke-opacity="0.30" stroke-width="0.8"/></g>`;
 
-  /* ---- particle field ---- */
+  /* ---- node graph — the neural-net signature, in every banner ---- */
+  const nNodes = 9 + Math.floor(r() * 6);
+  const nodes = [];
+  for (let i = 0; i < nNodes; i++){
+    nodes.push({ x: w * (0.08 + r() * 0.84), y: h * (0.12 + r() * 0.62) });
+  }
+  let edges = '<g stroke="#FF4D60" fill="none" stroke-width="0.7">';
+  for (let i = 0; i < nodes.length; i++){
+    const a = nodes[i];
+    const near = nodes
+      .map((b, j) => ({ j, d: (a.x-b.x)**2 + (a.y-b.y)**2 }))
+      .filter(o => o.j !== i).sort((u,v) => u.d - v.d).slice(0, 2 + Math.floor(r()*2));
+    for (const o of near){
+      const b = nodes[o.j];
+      edges += `<line x1="${f(a.x)}" y1="${f(a.y)}" x2="${f(b.x)}" y2="${f(b.y)}" stroke-opacity="${(0.14 + r()*0.3).toFixed(2)}"/>`;
+    }
+  }
+  edges += '</g>';
   let dots = '';
-  const nDots = 14 + Math.floor(r() * 22);
-  for (let i = 0; i < nDots; i++){
-    dots += `<circle cx="${(r() * w).toFixed(1)}" cy="${(r() * h).toFixed(1)}" `
-          + `r="${(0.5 + r() * 1.9).toFixed(2)}" fill="${pick(REDS)}" `
-          + `fill-opacity="${(0.25 + r() * 0.5).toFixed(2)}"/>`;
+  for (const n of nodes){
+    const rad = 1.1 + r() * 2.2;
+    dots += `<circle cx="${f(n.x)}" cy="${f(n.y)}" r="${f(rad + 2.4)}" fill="#FF1E3C" fill-opacity="0.10"/>`
+          + `<circle cx="${f(n.x)}" cy="${f(n.y)}" r="${f(rad)}" fill="${pick(REDS)}" fill-opacity="${(0.5 + r()*0.5).toFixed(2)}"/>`;
   }
 
-  /* ---- one bold arc or ring for a focal element ---- */
-  let focal = '';
-  if (r() > 0.35){
-    const cx = w * (0.55 + r() * 0.4), cy = h * (0.2 + r() * 0.6);
-    const rad = (0.18 + r() * 0.3) * Math.min(w, h);
-    focal = `<circle cx="${cx.toFixed(1)}" cy="${cy.toFixed(1)}" r="${rad.toFixed(1)}" `
-          + `fill="none" stroke="${pick(REDS)}" stroke-width="${(0.8 + r() * 1.6).toFixed(2)}" `
-          + `stroke-opacity="${(0.2 + r() * 0.3).toFixed(2)}"/>`;
-  }
+  /* ---- HUD corner brackets ---- */
+  const bk = Math.min(w, h) * 0.12, pad = 6;
+  const bracket = (x, y, sx, sy) =>
+    `<path d="M ${f(x + sx*bk)} ${f(y)} L ${f(x)} ${f(y)} L ${f(x)} ${f(y + sy*bk)}" `
+    + `fill="none" stroke="#FF7A88" stroke-width="1" stroke-opacity="0.55"/>`;
+  const hud = bracket(pad, pad, 1, 1) + bracket(w-pad, pad, -1, 1)
+            + bracket(pad, h-pad, 1, -1) + bracket(w-pad, h-pad, -1, -1);
 
-  /* faint vignette so overlaid text stays readable */
+  /* ---- readout ticks along the top edge ---- */
+  let ticks = '<g stroke="#FF1E3C" stroke-opacity="0.4" stroke-width="1">';
+  const nTicks = Math.floor(w / 14);
+  for (let i = 0; i < nTicks; i++){
+    const x = 10 + i * 14;
+    const tall = i % 4 === 0;
+    ticks += `<line x1="${f(x)}" y1="3" x2="${f(x)}" y2="${tall ? 9 : 6}"/>`;
+  }
+  ticks += '</g>';
+
+  /* ---- one bright scan line ---- */
+  const scanY = h * (0.5 + r() * 0.35);
+  defs += `<linearGradient id="${id}s" x1="0" y1="0" x2="1" y2="0">`
+        + `<stop offset="0%" stop-color="#FF1E3C" stop-opacity="0"/>`
+        + `<stop offset="50%" stop-color="#FF8094" stop-opacity="0.7"/>`
+        + `<stop offset="100%" stop-color="#FF1E3C" stop-opacity="0"/></linearGradient>`;
+  const scan = `<rect x="0" y="${f(scanY)}" width="${w}" height="1.4" fill="url(#${id}s)"/>`;
+
+  /* ---- vignette + scanlines so overlaid text stays readable ---- */
   defs += `<linearGradient id="${id}v" x1="0" y1="0" x2="0" y2="1">`
-        + `<stop offset="0%" stop-color="#000" stop-opacity="0.05"/>`
-        + `<stop offset="100%" stop-color="#000" stop-opacity="0.62"/></linearGradient>`;
+        + `<stop offset="0%" stop-color="#000" stop-opacity="0.08"/>`
+        + `<stop offset="100%" stop-color="#000" stop-opacity="0.66"/></linearGradient>`
+        + `<pattern id="${id}sl" width="3" height="3" patternUnits="userSpaceOnUse">`
+        + `<rect width="3" height="1" fill="#FF1E3C" fill-opacity="0.05"/></pattern>`;
 
   return `<svg viewBox="0 0 ${w} ${h}" width="100%" height="100%" preserveAspectRatio="xMidYMid slice" `
        + `xmlns="http://www.w3.org/2000/svg" role="img" aria-hidden="true">`
        + `<defs>${defs}</defs>`
        + `<rect width="${w}" height="${h}" fill="#0A0306"/>`
-       + blooms + ribbons + focal + dots
+       + blooms + grid + edges + dots + scan
+       + `<rect width="${w}" height="${h}" fill="url(#${id}sl)"/>`
+       + ticks + hud
        + `<rect width="${w}" height="${h}" fill="url(#${id}v)"/>`
        + `</svg>`;
 }

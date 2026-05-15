@@ -25,6 +25,7 @@ import { cardArt } from '../lib/art.js';
 import { Sparkline } from '../charts/Sparkline.js';
 import { CoverArt } from '../charts/CoverArt.js';
 import { NeuralNet } from '../charts/NeuralNet.js';
+import { NodeSphere } from '../charts/NodeSphere.js';
 import { articlesByDate } from '../data/articles.js';
 
 const CAT_LABEL = {
@@ -121,7 +122,26 @@ export function mountHome(root, dataLayer = null){
         <p class="home-net__sub">Every block, Bittensor fires the same loop — subnets set the task, miners
         compete, validators score, consensus pays. This is that loop, rendered live.</p>
       </div>
-      <div class="home-neural__canvas"><canvas data-canvas="neural"></canvas></div>
+      <div class="home-neural__canvas">
+        <canvas data-canvas="neural"></canvas>
+      </div>
+    </section>
+
+    <!-- ===== CONSENSUS SURFACE ===== -->
+    <section class="home-neural" aria-label="The validator consensus surface">
+      <div class="home-net__head">
+        <span class="home-net__kicker">&gt; The surface</span>
+        <h2 class="home-net__title">Consensus, <em>in the round.</em></h2>
+        <p class="home-net__sub">Every validator a node, every delegation an edge — the whole stake
+        graph folded onto a sphere and spun. The same plexus the brand mark rides on, full-scale.</p>
+      </div>
+      <div class="home-neural__canvas">
+        <canvas data-canvas="consensus"></canvas>
+        <span class="home-neural__foot">
+          <span>NODE-SPHERE · 300 NODES · K-NEAREST + 280 CHORDS</span>
+          <span data-bind="surface-stat">6,184 VALIDATORS</span>
+        </span>
+      </div>
     </section>
 
     <!-- ===== LIVE NETWORK band ===== -->
@@ -215,11 +235,15 @@ export function mountHome(root, dataLayer = null){
     </footer>
   `);
 
-  /* ---------- cover art + neural network ---------- */
+  /* ---------- cover art + the two infographic canvases ---------- */
   const coverCanvas = qs('[data-canvas="cover-art"]', root);
   const cover = coverCanvas ? new CoverArt(coverCanvas) : null;
   const neuralCanvas = qs('[data-canvas="neural"]', root);
   const neural = neuralCanvas ? new NeuralNet(neuralCanvas) : null;
+  const consensusCanvas = qs('[data-canvas="consensus"]', root);
+  const consensus = consensusCanvas ? new NodeSphere(consensusCanvas, {
+    nodes: 300, K: 8, edgeCap: 900, chords: 280, speed: 0.2, packets: 46,
+  }) : null;
 
   /* ---------- LIVE NETWORK band sparklines ---------- */
   /* one micro-trend per stat — deterministic, keyed to the field, a
@@ -337,6 +361,7 @@ export function mountHome(root, dataLayer = null){
       statSparks.splice(0).forEach(sp => { try { sp.destroy(); } catch (_) {} });
       cover?.destroy();
       neural?.destroy();
+      consensus?.destroy();
     },
   };
 }

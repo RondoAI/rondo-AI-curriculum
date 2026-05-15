@@ -29,8 +29,8 @@
   z-index: 1;
   max-width: var(--max-w);
   margin: 0 auto;
-  padding: clamp(72px, 12vw, 160px) var(--gutter) clamp(56px, 8vw, 96px);
-  min-height: clamp(560px, 78vh, 820px);
+  padding: clamp(40px, 7vw, 88px) var(--gutter) clamp(32px, 5vw, 56px);
+  min-height: clamp(380px, 52vh, 560px);
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -132,7 +132,7 @@
 .hero__field .sub.down{ color: var(--c-down); }
 
 @media (max-width: 720px){
-  .hero__inner{ min-height: 100vh; padding-top: clamp(48px, 18vw, 96px); }
+  .hero__inner{ min-height: clamp(440px, 70vh, 620px); padding-top: clamp(40px, 14vw, 72px); }
   .hero__foot{ grid-template-columns: 1fr; }
   .hero__readout{ grid-template-columns: repeat(3, 1fr); gap: var(--s-3); }
   .hero__field{ text-align: left; }
