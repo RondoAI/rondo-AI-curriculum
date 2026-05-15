@@ -238,6 +238,7 @@
 }
 .home-article.is-lead{ flex-basis: clamp(300px, 82vw, 392px); }
 .home-article__link{
+  position: relative;
   display: grid;
   grid-template-columns: 1fr;
   grid-template-areas:
@@ -250,16 +251,39 @@
   gap: var(--s-2);
   height: 100%;
   padding: var(--s-5);
-  background: var(--c-bg-2);
+  background:
+    linear-gradient(180deg, rgba(255,30,60,.04), transparent 36%),
+    var(--c-bg-2);
   border: var(--b-thin);
   text-decoration: none;
+  transform-style: preserve-3d;
   transition: background var(--d-fast) var(--e-out),
-              border-color var(--d-fast) var(--e-out);
+              border-color var(--d-fast) var(--e-out),
+              transform .26s var(--e-out),
+              box-shadow .26s var(--e-out);
+  will-change: transform;
+}
+/* 2026 polish: a thin diagonal sheen across the card on hover, the
+   way 2026 marketing pages render glassmorphic cards. Card lifts
+   slightly and casts a soft red glow. */
+.home-article__link::after{
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(115deg, transparent 30%, rgba(255,30,60,.14) 50%, transparent 70%);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity .24s var(--e-out);
 }
 .home-article__link:hover{
-  background: var(--c-bg-3);
+  background:
+    linear-gradient(180deg, rgba(255,30,60,.06), transparent 36%),
+    var(--c-bg-3);
   border-color: var(--c-rule-3);
+  transform: translateY(-3px);
+  box-shadow: 0 18px 40px -22px rgba(255,30,60,.45);
 }
+.home-article__link:hover::after{ opacity: 1; }
 .home-article__link:hover .home-article__art svg{ transform: scale(1.04); }
 
 /* generative art banner — full-bleed to the card edges */
@@ -380,7 +404,55 @@
   -webkit-line-clamp: 4;
 }
 
-.home-net__head{ margin-bottom: var(--s-6); }
+/* 2026 polish: section heads now sit on a faint top-anchored red wash
+   so each section is visually "lit" instead of floating. A 1px red
+   highlight runs along the top hairline to give the boundary
+   movement, the way a Bloomberg pane has its accent rail. */
+.home-net__head{
+  position: relative;
+  margin-bottom: var(--s-6);
+  padding-top: var(--s-4);
+}
+.home-net__head::before{
+  content: "";
+  position: absolute;
+  inset: 0;
+  top: -1px;
+  height: 88px;
+  background: radial-gradient(80% 100% at 12% 0%, var(--c-red-trace), transparent 70%);
+  pointer-events: none;
+  z-index: -1;
+}
+.home-net__head::after{
+  content: "";
+  position: absolute;
+  top: -1px; left: 0;
+  width: 96px;
+  height: 1px;
+  background: linear-gradient(90deg, var(--c-red), transparent);
+}
+
+/* The "§ NN" ordinal pill that prefixes each section's kicker. Reads
+   as a magazine-spread folio: it numbers the page sections so the
+   whole home view feels editorialised, not a scroll of unconnected
+   widgets. */
+.home-net__ord{
+  display: inline-flex;
+  align-items: center;
+  height: 18px;
+  padding: 0 8px;
+  margin-right: var(--s-2);
+  border: 1px solid var(--c-rule-2);
+  border-radius: 999px;
+  background: rgba(255, 30, 60, .06);
+  color: var(--c-red);
+  font-family: var(--f-mono);
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: .04em;
+  text-transform: none;
+  white-space: nowrap;
+}
 
 .home-net__kicker{
   display: inline-flex;

@@ -118,7 +118,7 @@ export function mountHome(root, dataLayer = null){
     <!-- ===== FEATURED RESEARCH (top of page) ===== -->
     <section class="home-research" aria-label="Featured research">
       <div class="home-research__head">
-        <span class="home-net__kicker"><span class="live-dot"></span>Featured Research · the desk</span>
+        <span class="home-net__kicker"><span class="home-net__ord">§ 01</span><span class="live-dot"></span>Featured Research · the desk</span>
         <a class="home-subnets__all" href="articles.html">All research ↗</a>
       </div>
       <ul class="home-research__grid">
@@ -152,7 +152,7 @@ export function mountHome(root, dataLayer = null){
          themselves before diving into the data sections below. -->
     <section class="home-how" aria-label="Bittensor, in six steps">
       <div class="home-net__head">
-        <span class="home-net__kicker">&gt; The protocol</span>
+        <span class="home-net__kicker"><span class="home-net__ord">§ 02</span>The protocol</span>
         <h2 class="home-net__title">Bittensor, in <em>six steps.</em></h2>
         <p class="home-net__sub">The whole network in one read — what subnets are, who mines them,
         who scores them, how consensus pays, and why every subnet has its own alpha token. Plain words.</p>
@@ -286,7 +286,7 @@ export function mountHome(root, dataLayer = null){
          pie actually gets split. -->
     <section class="home-neural" aria-label="Subnet emission share treemap">
       <div class="home-net__head">
-        <span class="home-net__kicker">&gt; The slice</span>
+        <span class="home-net__kicker"><span class="home-net__ord">§ 03</span>The slice</span>
         <h2 class="home-net__title">Where the <em>emissions</em> go.</h2>
         <p class="home-net__sub">Bigger tile, bigger share. Chutes, Targon and Apex eat first;
         the long tail fights for the edges. Sized by daily τ emission, darker red = higher rank.</p>
@@ -303,7 +303,7 @@ export function mountHome(root, dataLayer = null){
     <!-- ===== LIVE NETWORK band ===== -->
     <section class="home-net" aria-label="Live network statistics">
       <div class="home-net__head">
-        <span class="home-net__kicker"><span class="live-dot"></span>Live Network · taomarketcap</span>
+        <span class="home-net__kicker"><span class="home-net__ord">§ 04</span><span class="live-dot"></span>Live Network · taomarketcap</span>
         <h2 class="home-net__title">Bittensor, <em>right now.</em></h2>
         <p class="home-net__sub">Real on-chain data — TAO market, supply, staking, and chain state — refreshed straight from the Tao Market Cap public API.</p>
       </div>
@@ -351,7 +351,7 @@ export function mountHome(root, dataLayer = null){
     <section class="home-subnets" aria-label="Top subnets by market cap">
       <div class="home-subnets__head">
         <div>
-          <span class="home-net__kicker"><span class="live-dot"></span>Top Subnets · by market cap</span>
+          <span class="home-net__kicker"><span class="home-net__ord">§ 05</span><span class="live-dot"></span>Top Subnets · by market cap</span>
           <h2 class="home-net__title">Who's <em>winning</em> the blocks.</h2>
         </div>
         <a class="home-subnets__all" href="subnets.html">All subnets ↗</a>
@@ -368,7 +368,7 @@ export function mountHome(root, dataLayer = null){
     <section class="home-vals" aria-label="Top validators by stake">
       <div class="home-subnets__head">
         <div>
-          <span class="home-net__kicker"><span class="live-dot"></span>Top Validators · by stake</span>
+          <span class="home-net__kicker"><span class="home-net__ord">§ 06</span><span class="live-dot"></span>Top Validators · by stake</span>
           <h2 class="home-net__title">The hotkeys that <em>run the network.</em></h2>
         </div>
         <a class="home-subnets__all" href="validators.html">All validators ↗</a>
@@ -399,7 +399,7 @@ export function mountHome(root, dataLayer = null){
     <!-- ===== SECTIONS NAV ===== -->
     <section class="home-sections" aria-label="Site sections">
       <div class="home-net__head">
-        <span class="home-net__kicker">&gt; The whole terminal</span>
+        <span class="home-net__kicker"><span class="home-net__ord">§ 07</span>The whole terminal</span>
         <h2 class="home-net__title">Nine ways in.</h2>
       </div>
       <ul class="home-sections__grid">
