@@ -22,14 +22,15 @@ export function mountHero(root, dataLayer = null){
         <canvas data-canvas="hero"></canvas>
       </div>
       <div class="hero__inner">
-        <span class="hero__kicker"><span class="live-dot"></span>Volume 02 · Issue 01 · &lt;000&gt;</span>
+        <span class="hero__kicker"><span class="live-dot"></span>Volume 02 · Issue 01 · 14 May 2026 · the decentralized intelligence desk</span>
 
         <div class="hero__head">
-          <h1 class="hero__title">A research terminal for <em>decentralized intelligence.</em></h1>
+          <h1 class="hero__title">Bittensor, <em>finally rendered.</em></h1>
           <p class="hero__dek">
-            Live coverage of the Bittensor network — 92 subnets, 6,184 validators,
-            32,850 miners — and the broader frontier-AI desk. Every chart on this
-            page reads off the same wire your validators are watching.
+            Ninety-two subnets. Six thousand validators. The Yuma Consensus loop drawn
+            end-to-end, the operators named, every claim provenanced. The reading-room
+            the open AI economy was missing — built for the funds deciding where the
+            next billion of compute goes, and the agents they delegate to.
           </p>
         </div>
 
