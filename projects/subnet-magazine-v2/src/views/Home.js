@@ -323,32 +323,32 @@ export function mountHome(root, dataLayer = null){
              surfaced per layer per the TaonSquare epistemic-honesty
              pattern. */
           const rows = [
-            { layer:'APPLICATION', cap: 32,   yr:'Q4’25', src:'a16z',
-              aMcap:  63, conf:'high',
-              cAnchors:'ChatGPT $5B+ ARR · Cursor $1.5B ARR · Perplexity $400M ARR',
-              bAnchors:'SN44 Score · SN18 Cortex.t · SN36 Web Genie' },
-            { layer:'AGENT',       cap:  2.5, yr:'Q1’26', src:'TechCrunch',
-              aMcap:  48, conf:'low',
-              cAnchors:'OpenAI Operator · Anthropic Computer Use · Devin · Adept',
+            { layer:'APPLICATION', cap: 40,   yr:'Q1’26', src:'OpenAI/Anysphere',
+              aMcap:  57, conf:'high',
+              cAnchors:'ChatGPT $25B+ ARR · Cursor $2B+ ARR · Perplexity ~$500M ARR',
+              bAnchors:'SN44 Score · SN18 Cortex.t · SN19 Nineteen' },
+            { layer:'AGENT',       cap:  11,  yr:'Q1’26', src:'Grand View Research',
+              aMcap:  34, conf:'low',
+              cAnchors:'OpenAI Operator · Claude Code $1B ARR · Devin · Salesforce Agentforce',
               bAnchors:'SN36 Web Genie · SN59 AgentArena · SN62 Ridges' },
-            { layer:'MODEL',       cap:1200,  yr:'Q1’26', src:'Pitchbook',
-              aMcap: 312, conf:'medium',
-              cAnchors:'OpenAI $300B · Anthropic $200B · Google AI · Meta GenAI',
+            { layer:'MODEL',       cap:1700,  yr:'Q1’26', src:'CNBC + Bloomberg',
+              aMcap: 139, conf:'medium',
+              cAnchors:'OpenAI $852B · Anthropic $380-900B · Google AI · Meta GenAI',
               bAnchors:'SN1 Apex · SN3 Templar (72B) · SN120 Affine · SN9 IOTA' },
-            { layer:'INFERENCE',   cap: 22,   yr:'Q1’26', src:'Together S-1',
-              aMcap:  69, conf:'medium',
-              cAnchors:'OpenAI API $11B · Together · Fireworks · Replicate',
+            { layer:'INFERENCE',   cap: 117,  yr:'2026', src:'Fortune BI',
+              aMcap:  96, conf:'medium',
+              cAnchors:'OpenAI API ~$3.2B · Together ~$1B ARR · Fireworks $315M · Replicate',
               bAnchors:'SN4 Targon · SN18 Cortex.t · SN19 Nineteen' },
-            { layer:'DATA',        cap: 28,   yr:'Mar’26', src:'Forbes',
-              aMcap:  52, conf:'high',
-              cAnchors:'ScaleAI $14B · Surge $1.4B · Snorkel · Surge AI',
+            { layer:'DATA',        cap: 32,   yr:'Q3’25', src:'Built In + Bloomberg',
+              aMcap:  41, conf:'high',
+              cAnchors:'ScaleAI $29B · Surge AI $15-25B · Snorkel · Common Crawl',
               bAnchors:'SN13 Data Universe · SN60 Snowballer · SN52 Dojo · SN24 BitMind' },
-            { layer:'COMPUTE',     cap:240,   yr:'FY’26', src:'MSFT/GOOG/META/AMZN',
-              aMcap:  81, conf:'high',
+            { layer:'COMPUTE',     cap:450,   yr:'FY’26', src:'CNBC',
+              aMcap: 181, conf:'high',
               cAnchors:'AWS · Azure · GCP · CoreWeave · Lambda Labs · Nebius',
               bAnchors:'SN64 Chutes · SN51 Lium · SN39 Basilica · SN27 Compute · SN49 Polaris' },
             { layer:'PROTOCOL',    cap:  0,   yr:'live',    src:'taostats',
-              aMcap:3280, conf:'high',
+              aMcap:3300, conf:'high',
               cAnchors:'no centralized analog exists',
               bAnchors:'Subtensor chain · Yuma Consensus · dTAO bonding · GTAO bridge' },
           ];
@@ -419,7 +419,7 @@ export function mountHome(root, dataLayer = null){
             </ol>
             <div class="home-stack__chart-foot">
               <span>METHOD · BAR WIDTHS LOG-SCALE PROPORTIONAL · GAP = CENTRALIZED $ ÷ BITTENSOR α-MCAP $</span>
-              <span>SOURCES · A16Z Q4&#39;25 · PITCHBOOK Q1&#39;26 · TOGETHER S-1 · FORBES MAR&#39;26 · MSFT/GOOG/META/AMZN FY26 GUIDANCE · TAOSTATS LIVE</span>
+              <span>SOURCES · OPENAI/ANTHROPIC Q1&#39;26 DISCLOSURES · CNBC FY&#39;26 HYPERSCALER CAPEX · BLOOMBERG META/SCALE JUN&#39;25 · TECHCRUNCH CURSOR MAR&#39;26 · COINGECKO + TAOSTATS LIVE</span>
               <span>CONFIDENCE · <span style="color:var(--c-up);">●</span> HIGH · <span style="color:#FFB85C;">●</span> MEDIUM · <span style="color:#FF4D60;">●</span> LOW</span>
             </div>
           </div>
@@ -439,35 +439,34 @@ export function mountHome(root, dataLayer = null){
           {
             layer: 'APPLICATION',
             sub:   'Products users actually open.',
-            cap: 32, aMcap: 63, gapTxt:'≈510×',
-            cent:  ['ChatGPT $5B+ ARR', 'Cursor $1.5B ARR', 'Perplexity $400M ARR', 'Pi'],
+            cap: 40, aMcap: 57, gapTxt:'≈700×',
+            cent:  ['ChatGPT $25B+ ARR', 'Cursor $2B+ ARR', 'Perplexity ~$500M ARR'],
             sn:    [
               { id: 44,  name: 'Score Vision',  cat: 'vision' },
               { id: 18,  name: 'Cortex.t',      cat: 'text' },
-              { id: 36,  name: 'Web Genie',     cat: 'agents' },
               { id: 19,  name: 'Nineteen',      cat: 'text' },
             ],
             unit:    'COST PER USER · centralized prices its margin in; Bittensor prices it out.',
-            verdict: 'ChatGPT alone is ~80× the entire Bittensor application stack. Wallet share is the slowest moat to disrupt and the layer isn\'t the bet.',
+            verdict: 'ChatGPT alone is ~440× the entire Bittensor application stack at the application layer. Wallet share is the slowest moat to disrupt and the layer isn\'t the bet.',
           },
           {
             layer: 'AGENT',
             sub:   'Tool-using systems that act, not just answer.',
-            cap: 2.5, aMcap: 48, gapTxt:'≈52×',
-            cent:  ['OpenAI Operator', 'Anthropic Computer Use', 'Devin', 'Adept'],
+            cap: 11, aMcap: 34, gapTxt:'≈320×',
+            cent:  ['OpenAI Operator', 'Claude Code $1B ARR', 'Cognition Devin', 'Salesforce Agentforce'],
             sn:    [
               { id: 36, name: 'Web Genie',   cat: 'agents' },
               { id: 59, name: 'AgentArena',  cat: 'agents' },
               { id: 62, name: 'Ridges',      cat: 'agents' },
             ],
-            unit:    'BENCHMARK PARITY · both sides pre-product; agent eval scores are still 60-70%.',
-            verdict: 'Narrowest gap on the chart. The race is open — both sides are pre-product, neither has shipped a defensible agent. First to 90% on SWE-bench wins the layer.',
+            unit:    'BENCHMARK PARITY · race is early; agent eval scores still 60-70% on SWE-bench.',
+            verdict: 'Narrowest absolute gap on the chart, but the centralized side has shipped: Claude Code is at $1B ARR and Agentforce at $540M. First decentralized agent to clear 90% on SWE-bench takes the layer.',
           },
           {
             layer: 'MODEL',
             sub:   'Foundation + finetune weights.',
-            cap: 1200, aMcap: 312, gapTxt:'≈3.8k×',
-            cent:  ['OpenAI $300B', 'Anthropic $200B', 'Google AI', 'Meta GenAI'],
+            cap: 1700, aMcap: 139, gapTxt:'≈12k×',
+            cent:  ['OpenAI $852B', 'Anthropic $380-900B', 'Google AI', 'Meta GenAI'],
             sn:    [
               { id: 1,   name: 'Apex',     cat: 'text' },
               { id: 9,   name: 'IOTA',     cat: 'training' },
@@ -481,21 +480,21 @@ export function mountHome(root, dataLayer = null){
           {
             layer: 'INFERENCE',
             sub:   'Serving model output at API latency.',
-            cap: 22, aMcap: 69, gapTxt:'≈320×',
-            cent:  ['OpenAI API $11B', 'Together', 'Fireworks', 'Replicate'],
+            cap: 117, aMcap: 96, gapTxt:'≈1.2k×',
+            cent:  ['OpenAI API ~$3.2B', 'Together ~$1B ARR', 'Fireworks $315M ARR', 'Replicate'],
             sn:    [
               { id: 4,  name: 'Targon',    cat: 'text' },
               { id: 18, name: 'Cortex.t',  cat: 'text' },
               { id: 19, name: 'Nineteen',  cat: 'text' },
             ],
-            unit:    'TOKENS PER DAY · Chutes + Targon serve ~1.1B tokens/day combined as of Q2 ’26.',
+            unit:    'TOKENS PER DAY · Chutes alone serves ~100B tokens/day, 5M daily requests (Apr ’26).',
             verdict: 'Cost-per-token is the front line. Serverless GPU on SN64 already underprices Together for batch jobs; the latency gap on interactive workloads is closing on every B200 generation.',
           },
           {
             layer: 'DATA',
             sub:   'The training set.',
-            cap: 28, aMcap: 52, gapTxt:'≈540×',
-            cent:  ['ScaleAI $14B', 'Surge AI $1.4B', 'Snorkel', 'Common Crawl'],
+            cap: 32, aMcap: 41, gapTxt:'≈780×',
+            cent:  ['ScaleAI $29B', 'Surge AI $15-25B', 'Snorkel', 'Common Crawl'],
             sn:    [
               { id: 13, name: 'Data Universe', cat: 'data' },
               { id: 60, name: 'Snowballer',    cat: 'data' },
@@ -503,12 +502,12 @@ export function mountHome(root, dataLayer = null){
               { id: 24, name: 'BitMind',       cat: 'vision' },
             ],
             unit:    'B2B FLYWHEEL · first publicly-disclosed inter-subnet contract: SN13 → SN44 in Q1 ’26.',
-            verdict: 'ScaleAI is $14B by itself and the layer is fundamentally about labour arbitrage. Subnet-to-subnet B2B is the proof that decentralized data has a real fly-wheel; SN13 → SN44 was the prototype.',
+            verdict: 'Scale AI is $29B post-Meta and the layer is fundamentally about labour arbitrage. Subnet-to-subnet B2B is the proof that decentralized data has a real fly-wheel; SN13 → SN44 was the prototype.',
           },
           {
             layer: 'COMPUTE',
             sub:   'GPU + CPU runtime layer.',
-            cap: 240, aMcap: 81, gapTxt:'≈3.0k×',
+            cap: 450, aMcap: 181, gapTxt:'≈2.5k×',
             cent:  ['AWS', 'Azure', 'GCP', 'CoreWeave', 'Lambda'],
             sn:    [
               { id: 64, name: 'Chutes',    cat: 'infra' },
@@ -517,20 +516,20 @@ export function mountHome(root, dataLayer = null){
               { id: 27, name: 'Compute',   cat: 'infra' },
               { id: 49, name: 'Polaris',   cat: 'infra' },
             ],
-            unit:    'CAPEX BURN · MSFT + GOOG + META + AMZN total 2026 AI capex guidance: ~$240B.',
+            unit:    'CAPEX BURN · MSFT+GOOG+META+AMZN FY26 capex ~$725B total, ~$450B AI-specific.',
             verdict: 'You don\'t out-capex Microsoft. The play is aggregator economics — coordinate the long-tail GPU supply that hyperscalers don\'t bid on. Chutes\' B200 deployment is the live test.',
           },
           {
             layer: 'PROTOCOL',
             sub:   'Coordination + payment layer.',
-            cap: 0, aMcap: 3280, gapTxt:'100% Bittensor',
+            cap: 0, aMcap: 3300, gapTxt:'100% Bittensor',
             cent:  ['no centralized analog exists'],
             sn:    [
               { id: null, name: 'Subtensor chain',  cat: 'protocol' },
               { id: null, name: 'Yuma Consensus',   cat: 'protocol' },
               { id: null, name: 'dTAO bonding',     cat: 'protocol' },
             ],
-            unit:    'TAO MARKET CAP · $3.28B live, 21M cap, halving #2 due Dec ’29.',
+            unit:    'TAO MARKET CAP · $3.3B live, 21M cap, halving #2 due Dec ’29.',
             verdict: 'The only layer where Bittensor owns the field. No centralized product coordinates a network of AI workers like Yuma does. The asymmetric bet sits here, not above.',
           },
         ].map((row, i) => {
@@ -597,7 +596,7 @@ export function mountHome(root, dataLayer = null){
 
       <p class="home-stack__thesis">
         <span class="home-stack__thesis-q">“</span>
-        Decentralized AI today is about <em>$4B against $1T+</em>. The bet is not that
+        Decentralized AI today is about <em>$3.8B against $2T+</em>. The bet is not that
         Bittensor is large. The bet is that incentive design eats proprietary capture
         — and that the gap closes from this side, not theirs.
         <span class="home-stack__thesis-q">”</span>
