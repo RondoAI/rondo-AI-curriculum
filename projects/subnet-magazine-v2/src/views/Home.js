@@ -242,7 +242,7 @@ export function mountHome(root, dataLayer = null){
   const neural = neuralCanvas ? new NeuralNet(neuralCanvas) : null;
   const consensusCanvas = qs('[data-canvas="consensus"]', root);
   const consensus = consensusCanvas ? new NodeSphere(consensusCanvas, {
-    nodes: 300, K: 8, edgeCap: 900, chords: 280, speed: 0.2, packets: 46,
+    nodes: 84, K: 4, density: 0.42, speed: 0.18, packets: 46,
   }) : null;
 
   /* ---------- LIVE NETWORK band sparklines ---------- */

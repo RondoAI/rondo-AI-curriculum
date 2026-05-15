@@ -68,12 +68,11 @@ export function mountMasthead(root){
   // dense plexus language as the hero piece, scaled to a logo.
   const markCanvas = qs('[data-canvas="brand-mark"]', root);
   const sphere = markCanvas ? new NodeSphere(markCanvas, {
-    nodes:   110,
-    K:       5,
-    edgeCap: 240,
-    chords:  90,
+    nodes:   52,
+    K:       3,
+    density: 0.5,
     speed:   0.5,
-    packets: 16,
+    packets: 12,
     atmos:   false,
   }) : null;
 

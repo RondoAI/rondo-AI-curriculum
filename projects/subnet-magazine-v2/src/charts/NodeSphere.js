@@ -40,10 +40,11 @@ export class NodeSphere extends Chart {
    */
   constructor(canvas, opts = {}){
     super(canvas, { animate: true });
-    /** @private */ this.N        = opts.nodes   ?? 180;   // dense
-    /** @private */ this.K        = opts.K       ?? 6;     // neighbors per node
-    /** @private */ this.edgeCap  = opts.edgeCap ?? 420;   // total local edges
-    /** @private */ this.chords   = opts.chords  ?? 0;     // random crossing chords
+    /** @private */ this.N        = opts.nodes   ?? 72;    // few enough to read angular
+    /** @private */ this.K        = opts.K       ?? 4;     // KNN structural mesh
+    /** @private */ this.density  = opts.density ?? 0.45;  // 0..1 — chance any pair wires
+    /** @private */ this.edgeCap  = opts.edgeCap ?? 3000;  // safety cap
+    /** @private */ this.chords   = opts.chords  ?? 0;     // extra explicit random chords
     /** @private */ this.speed    = opts.speed   ?? 0.32;
     /** @private */ this.glow     = opts.glow   !== false;
     /** @private */ this.atmos    = opts.atmos  !== false;
@@ -68,47 +69,59 @@ export class NodeSphere extends Chart {
     return pts;
   }
 
-  /** K-nearest neighbors per node, deduped, sorted, capped. */
+  /** Build the edge web. A KNN base mesh for structure, then a
+      near-complete random fill so the interior packs with crossing
+      chords — the dense angular filigree of the bittensor mark, not
+      a clean surface sphere. */
   _buildEdges(){
+    const N = this.points.length;
     const seen = new Set();
     const out = [];
-    for (let i = 0; i < this.points.length; i++){
+    const add = (i, j) => {
+      if (i === j) return;
+      const key = i < j ? `${i}:${j}` : `${j}:${i}`;
+      if (seen.has(key)) return;
+      seen.add(key);
+      const a = this.points[i], b = this.points[j];
+      const dx = a.x - b.x, dy = a.y - b.y, dz = a.z - b.z;
+      out.push({ a: i, b: j, d2: dx*dx + dy*dy + dz*dz });
+    };
+
+    /* KNN structural mesh */
+    for (let i = 0; i < N; i++){
       const a = this.points[i];
       const d = [];
-      for (let j = 0; j < this.points.length; j++){
+      for (let j = 0; j < N; j++){
         if (i === j) continue;
         const b = this.points[j];
         const dx = a.x - b.x, dy = a.y - b.y, dz = a.z - b.z;
         d.push({ j, d2: dx*dx + dy*dy + dz*dz });
       }
       d.sort((u, v) => u.d2 - v.d2);
-      for (let k = 0; k < this.K; k++){
-        const j = d[k].j;
-        const key = i < j ? `${i}:${j}` : `${j}:${i}`;
-        if (seen.has(key)) continue;
-        seen.add(key);
-        out.push({ a: i, b: j, d2: d[k].d2 });
-      }
+      for (let k = 0; k < this.K && k < d.length; k++) add(i, d[k].j);
     }
-    out.sort((u, v) => u.d2 - v.d2);
-    const local = out.slice(0, this.edgeCap);
 
-    /* random long-range chords across the interior — this is what
-       gives the bittensor.com plexus its busy, crossing-line look
-       rather than a clean surface mesh. */
-    const N = this.points.length;
-    for (let c = 0; c < this.chords; c++){
-      const i = (Math.random() * N) | 0;
-      let j = (Math.random() * N) | 0;
-      if (i === j) j = (j + 1) % N;
-      const key = i < j ? `${i}:${j}` : `${j}:${i}`;
-      if (seen.has(key)) continue;
-      seen.add(key);
-      const a = this.points[i], b = this.points[j];
-      const dx = a.x - b.x, dy = a.y - b.y, dz = a.z - b.z;
-      local.push({ a: i, b: j, d2: dx*dx + dy*dy + dz*dz });
+    /* dense crossing filigree — every pair, by probability */
+    if (this.density > 0){
+      for (let i = 0; i < N; i++)
+        for (let j = i + 1; j < N; j++)
+          if (Math.random() < this.density) add(i, j);
     }
-    return local;
+
+    /* extra explicit chords if asked */
+    for (let c = 0; c < this.chords; c++){
+      add((Math.random() * N) | 0, (Math.random() * N) | 0);
+    }
+
+    /* keep all unless we blow the safety cap (then keep a random subset) */
+    if (out.length > this.edgeCap){
+      for (let i = out.length - 1; i > 0; i--){
+        const k = (Math.random() * (i + 1)) | 0;
+        [out[i], out[k]] = [out[k], out[i]];
+      }
+      out.length = this.edgeCap;
+    }
+    return out;
   }
 
   /** Each packet rides a random edge with a phase and speed. */
@@ -166,9 +179,11 @@ export class NodeSphere extends Chart {
     for (const e of eSorted){
       const a = p[e.a], b = p[e.b];
       const md = (a.d + b.d) / 2;
-      const alpha = 0.06 + md * 0.55;
+      /* low per-edge alpha so the hundreds of crossing chords build
+         into a filigree mass instead of a solid red blob */
+      const alpha = 0.045 + md * 0.4;
       ctx.strokeStyle = `rgba(255,30,60,${alpha})`;
-      ctx.lineWidth = 0.4 + md * 0.7;
+      ctx.lineWidth = 0.3 + md * 0.5;
       ctx.beginPath();
       ctx.moveTo(a.sx, a.sy);
       ctx.lineTo(b.sx, b.sy);
@@ -199,20 +214,22 @@ export class NodeSphere extends Chart {
       .sort((u, v) => u.d - v.d);
 
     for (const q of pSorted){
-      const r = 0.6 + q.d * 1.6;
-      const a = 0.30 + q.d * 0.70;
-      if (this.glow && q.d > 0.72){
-        ctx.fillStyle = `rgba(255,30,60,${0.18 * (q.d - 0.72) / 0.28})`;
-        ctx.beginPath(); ctx.arc(q.sx, q.sy, r * 3.6, 0, Math.PI * 2); ctx.fill();
+      const r = 0.7 + q.d * 1.9;
+      const a = 0.4 + q.d * 0.6;
+      if (this.glow && q.d > 0.62){
+        ctx.fillStyle = `rgba(255,30,60,${0.22 * (q.d - 0.62) / 0.38})`;
+        ctx.beginPath(); ctx.arc(q.sx, q.sy, r * 3.8, 0, Math.PI * 2); ctx.fill();
       }
-      ctx.fillStyle = `rgba(255,${30 + q.d * 100},${60 + q.d * 90},${a})`;
+      ctx.fillStyle = `rgba(255,${30 + q.d * 110},${60 + q.d * 100},${a})`;
       ctx.beginPath(); ctx.arc(q.sx, q.sy, r, 0, Math.PI * 2); ctx.fill();
+      /* bright core on the frontmost nodes — the hull sparkle */
+      if (q.d > 0.86){
+        ctx.fillStyle = `rgba(255,224,228,${(q.d - 0.86) / 0.14})`;
+        ctx.beginPath(); ctx.arc(q.sx, q.sy, r * 0.5, 0, Math.PI * 2); ctx.fill();
+      }
     }
 
-    /* ===== silhouette rim ring ===== */
-    ctx.strokeStyle = 'rgba(255,30,60,.18)';
-    ctx.lineWidth = 1;
-    ctx.beginPath(); ctx.arc(cx, cy, R, 0, Math.PI * 2); ctx.stroke();
+    /* no rim ring — the silhouette is the plexus itself, not a circle */
 
     /* unused-color guard (lint) */
     void RED; void RED_BR; void RED_HOT; void RED_SOFT;

@@ -66,12 +66,11 @@ export function mountHero(root, dataLayer = null){
      heavy packet traffic so the mark reads as a working network. */
   const canvas = qs('[data-canvas="hero"]', root);
   const sphere = canvas ? new NodeSphere(canvas, {
-    nodes:   300,
-    K:       8,
-    edgeCap: 1000,
-    chords:  340,
-    speed:   0.24,
-    packets: 60,
+    nodes:   78,
+    K:       4,
+    density: 0.46,
+    speed:   0.22,
+    packets: 54,
   }) : null;
 
   /* subscribe to live τ/USD price */
