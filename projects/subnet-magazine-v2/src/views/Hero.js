@@ -9,7 +9,6 @@
 
 import { html, mount, qs } from '../lib/dom.js';
 import { NodeSphere } from '../charts/NodeSphere.js';
-import { money, pct, deltaClass } from '../lib/format.js';
 
 /**
  * @param {HTMLElement} root
@@ -36,25 +35,8 @@ export function mountHero(root, dataLayer = null){
 
         <div class="hero__foot">
           <div class="hero__cta">
-            <a class="hero__btn hero__btn--primary" href="#netmap">OPEN TERMINAL &lt;GO&gt;</a>
-            <a class="hero__btn hero__btn--ghost" href="#directory">SUBNET DIRECTORY</a>
-          </div>
-          <div class="hero__readout">
-            <div class="hero__field">
-              <span class="lbl"><span class="tau">τ</span> / USD</span>
-              <span class="val" data-bind="tao-price">—</span>
-              <span class="sub" data-bind="tao-delta">—</span>
-            </div>
-            <div class="hero__field">
-              <span class="lbl">VALIDATORS</span>
-              <span class="val">6,184</span>
-              <span class="sub">63% of supply</span>
-            </div>
-            <div class="hero__field">
-              <span class="lbl">SUBNETS</span>
-              <span class="val">92</span>
-              <span class="sub">May 2026 roster</span>
-            </div>
+            <a class="hero__btn hero__btn--primary" href="terminal.html">OPEN TERMINAL &lt;GO&gt;</a>
+            <a class="hero__btn hero__btn--ghost" href="subnets.html">SUBNET DIRECTORY</a>
           </div>
         </div>
       </div>
@@ -72,29 +54,12 @@ export function mountHero(root, dataLayer = null){
     speed:   0.2,
   }) : null;
 
-  /* subscribe to live τ/USD price */
-  const priceEl = qs('[data-bind="tao-price"]', root);
-  const deltaEl = qs('[data-bind="tao-delta"]', root);
-  let unsub = () => {};
-  if (dataLayer){
-    unsub = dataLayer.subscribe('tao:price', d => {
-      if (!d || typeof d.price !== 'number') return;
-      if (priceEl) priceEl.textContent = money(d.price);
-      if (deltaEl){
-        deltaEl.textContent = pct(d.change24 ?? 0);
-        deltaEl.classList.remove('up', 'down', 'flat');
-        deltaEl.classList.add(deltaClass(d.change24 ?? 0));
-      }
-    });
-  } else if (priceEl){
-    priceEl.textContent = money(487.12);
-    if (deltaEl){ deltaEl.textContent = '+3.24%'; deltaEl.classList.add('up'); }
-  }
+  /* price + validator/subnet readout used to live here, but the
+     status bar already shows τ/USD live — no duplicate */
 
   return {
     destroy(){
       sphere?.destroy();
-      unsub();
     }
   };
 }

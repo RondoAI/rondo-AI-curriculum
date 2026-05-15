@@ -45,7 +45,7 @@ export function mountMasthead(root){
           </span>
           <span>
             <span class="brand__word">Subne<span class="tau">τ</span> Magazine</span>
-            <span class="brand__sub">A research terminal for decentralized intelligence</span>
+            <span class="brand__sub">Subnet markets · validator analytics · editorial coverage</span>
           </span>
         </a>
         <div class="masthead__diag">
