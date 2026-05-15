@@ -1,178 +1,137 @@
 /* =================================================================
    SUBNET MAGAZINE — TREEMAP
    -----------------------------------------------------------------
-   Squarified treemap layout. Each input item gets a rectangle whose
-   area is proportional to `value`; the algorithm minimizes aspect
-   ratios so rectangles stay readable. Cells are colored by the
-   item's `color` (we pass category color in). Big cells get a label
-   (netuid + name); small cells stay clean.
-
-   Used as the bottom-right panel in the TAO Terminal to show
-   τ-emission distribution by category.
+   Squarified treemap on canvas. Tiles sized by `value`, coloured
+   off the red ramp by rank. Used for the home-page "where the
+   emissions go" infographic — a different visual language from the
+   rotating plexus, but the same red-on-black terminal grammar.
    ================================================================= */
 
 import { Chart } from './Chart.js';
 
-/* ---------- Squarified algorithm (Bruls / Huijgen / van Wijk) ---------- */
-
-function worst(row, w){
-  let rMax = -Infinity, rMin = Infinity, s = 0;
-  for (const r of row){ if (r > rMax) rMax = r; if (r < rMin) rMin = r; s += r; }
-  const ww = w * w, ss = s * s;
-  return Math.max((ww * rMax) / ss, ss / (ww * rMin));
-}
-
-function layoutRow(row, x, y, w, h, isWide, total){
-  const rows = [];
-  const sum = row.reduce((a, v) => a + v.scaled, 0);
-  if (isWide){
-    const rowH = sum / w;
-    let cx = x;
-    for (const v of row){
-      const rw = v.scaled / rowH;
-      rows.push({ ...v, x: cx, y, w: rw, h: rowH });
-      cx += rw;
-    }
-    return { rows, x, y: y + rowH, w, h: h - rowH, total: total - sum };
-  } else {
-    const rowW = sum / h;
-    let cy = y;
-    for (const v of row){
-      const rh = v.scaled / rowW;
-      rows.push({ ...v, x, y: cy, w: rowW, h: rh });
-      cy += rh;
-    }
-    return { rows, x: x + rowW, y, w: w - rowW, h, total: total - sum };
-  }
-}
+/** A red gradient — darker → higher rank. */
+const RAMP = [
+  '#FF1E3C', '#E61833', '#CC152D', '#B31226',
+  '#990F20', '#80101D', '#680E1A', '#4D0C16',
+];
 
 /**
- * @param {{value:number, [k:string]:any}[]} items   sorted by value desc
- * @param {number} w
- * @param {number} h
- * @returns {{ x:number, y:number, w:number, h:number, value:number }[]}
+ * @typedef {Object} TreeItem
+ * @prop {string} label    headline label (e.g. "SN64 · Chutes")
+ * @prop {string} sub      sub label (e.g. "τ612 / day")
+ * @prop {number} value    the area weight
  */
-function squarify(items, w, h){
-  const total = items.reduce((a, v) => a + v.value, 0) || 1;
-  const scale = (w * h) / total;
-  const queue = items.map(v => ({ ...v, scaled: v.value * scale }));
-  const out = [];
-  let area = { x: 0, y: 0, w, h, total: w * h };
-
-  let row = [];
-  while (queue.length){
-    const v = queue[0];
-    const isWide = area.w < area.h;
-    const side = isWide ? area.w : area.h;
-    /* worst() needs an array of NUMBERS — `row` holds objects, so map
-       to .scaled before concatenating the candidate's scaled value. */
-    const candidate = row.map(r => r.scaled).concat([v.scaled]);
-    if (row.length === 0 || worst(candidate, side) < worst(row.map(r => r.scaled), side)){
-      row.push(v); queue.shift();
-    } else {
-      const placed = layoutRow(row, area.x, area.y, area.w, area.h, isWide, area.total);
-      out.push(...placed.rows);
-      area = placed; row = [];
-    }
-  }
-  if (row.length){
-    const isWide = area.w < area.h;
-    const placed = layoutRow(row, area.x, area.y, area.w, area.h, isWide, area.total);
-    out.push(...placed.rows);
-  }
-  return out;
-}
-
-/* ---------- Chart ---------- */
 
 export class Treemap extends Chart {
   /**
    * @param {HTMLCanvasElement} canvas
-   * @param {{ items?: any[] }} [opts]
-   *   items: [{ key, label, value, color, sub? }]
+   * @param {{ items?: TreeItem[], colors?: string[] }} [opts]
    */
   constructor(canvas, opts = {}){
     super(canvas, { animate: false });
-    /** @private */ this.items = (opts.items ?? []).slice().sort((a, b) => b.value - a.value);
-    /** @private */ this.cells = [];
-    /** @private */ this.hover = null;
-    canvas.addEventListener('pointermove', e => {
-      const r = canvas.getBoundingClientRect();
-      this.hover = { x: e.clientX - r.left, y: e.clientY - r.top };
-      this.invalidate();
-    });
-    canvas.addEventListener('pointerleave', () => { this.hover = null; this.invalidate(); });
-  }
-
-  setData(items){
-    this.items = (items ?? []).slice().sort((a, b) => b.value - a.value);
-    this.cells = [];
-    this.invalidate();
+    /** @private */ this.items = (opts.items || []).slice()
+      .sort((a, b) => b.value - a.value);
+    /** @private */ this.colors = opts.colors || RAMP;
+    /** @private */ this.boxes = [];
   }
 
   layout(ctx, w, h){
-    if (!this.items.length){ this.cells = []; return; }
-    this.cells = squarify(this.items, w, h);
+    this.boxes = squarify(this.items, w, h);
+    this.invalidate();
   }
 
   draw(ctx, w, h){
     ctx.clearRect(0, 0, w, h);
-    const gap = 2;
-    const total = this.items.reduce((a, v) => a + v.value, 0) || 1;
+    if (!this.boxes.length) return;
+    const colors = this.colors;
+    const pad = 1;
 
-    for (const c of this.cells){
-      const cw = Math.max(0, c.w - gap);
-      const ch = Math.max(0, c.h - gap);
-      const grad = ctx.createLinearGradient(c.x, c.y, c.x + cw, c.y + ch);
-      grad.addColorStop(0, c.color + 'EE');
-      grad.addColorStop(1, c.color + '99');
-      ctx.fillStyle = grad;
-      ctx.fillRect(c.x, c.y, cw, ch);
+    /* tiles */
+    this.boxes.forEach((b, i) => {
+      ctx.fillStyle = colors[Math.min(i, colors.length - 1)];
+      ctx.fillRect(b.x + pad, b.y + pad,
+                   Math.max(0, b.w - pad * 2),
+                   Math.max(0, b.h - pad * 2));
+    });
 
-      /* label */
-      if (cw > 70 && ch > 30){
-        ctx.fillStyle = 'rgba(0,0,0,.78)';
-        ctx.font = '700 10.5px JetBrains Mono, monospace';
-        ctx.textAlign = 'left'; ctx.textBaseline = 'top';
-        ctx.fillText(c.label, c.x + 6, c.y + 6);
-        if (ch > 50){
-          ctx.font = '600 9.5px JetBrains Mono, monospace';
-          ctx.fillStyle = 'rgba(0,0,0,.62)';
-          const pct = ((c.value / total) * 100).toFixed(1);
-          ctx.fillText(`${c.sub ?? ''}  ·  ${pct}%`, c.x + 6, c.y + 20);
-        }
-      } else if (cw > 30 && ch > 20){
-        ctx.fillStyle = 'rgba(0,0,0,.78)';
-        ctx.font = '700 9px JetBrains Mono, monospace';
-        ctx.textAlign = 'center'; ctx.textBaseline = 'middle';
-        ctx.fillText(c.label, c.x + cw / 2, c.y + ch / 2);
+    /* labels — name on top, value below; only if there's room */
+    ctx.textBaseline = 'top';
+    ctx.textAlign = 'left';
+    for (const b of this.boxes){
+      if (b.w < 56 || b.h < 28) continue;
+      ctx.fillStyle = 'rgba(245,229,232,.96)';
+      ctx.font = '700 11px JetBrains Mono, ui-monospace, monospace';
+      ctx.fillText(b.label, b.x + 7, b.y + 7);
+      if (b.h > 44){
+        ctx.fillStyle = 'rgba(245,229,232,.7)';
+        ctx.font = '500 10px JetBrains Mono, ui-monospace, monospace';
+        ctx.fillText(b.sub || '', b.x + 7, b.y + 22);
       }
     }
 
-    /* hover */
-    if (this.hover){
-      const cell = this.cells.find(c => this.hover.x >= c.x && this.hover.x < c.x + c.w
-                                       && this.hover.y >= c.y && this.hover.y < c.y + c.h);
-      if (cell){
-        ctx.strokeStyle = '#F5E5E8';
-        ctx.lineWidth = 1.5;
-        ctx.strokeRect(cell.x + 0.75, cell.y + 0.75, Math.max(0, cell.w - gap - 1.5),
-                       Math.max(0, cell.h - gap - 1.5));
-        const txt = `${cell.label}  ·  ${cell.sub ?? ''}  ·  ${((cell.value / total) * 100).toFixed(1)}%`;
-        ctx.font = '600 11px JetBrains Mono, monospace';
-        const tw = ctx.measureText(txt).width;
-        const bw = tw + 14, bh = 18;
-        let bx = this.hover.x + 12, by = this.hover.y - bh - 8;
-        if (bx + bw > w) bx = w - bw - 4;
-        if (by < 0) by = this.hover.y + 12;
-        ctx.fillStyle = 'rgba(0,0,0,.85)';
-        ctx.fillRect(bx, by, bw, bh);
-        ctx.strokeStyle = 'rgba(255,30,60,.45)';
-        ctx.strokeRect(bx + 0.5, by + 0.5, bw - 1, bh - 1);
-        ctx.fillStyle = '#F5E5E8';
-        ctx.textAlign = 'left'; ctx.textBaseline = 'middle';
-        ctx.fillText(txt, bx + 7, by + bh / 2);
-      }
+    /* hairline divisions over the tiles — keeps the terminal grid */
+    ctx.strokeStyle = 'rgba(0,0,0,.55)';
+    ctx.lineWidth = 1;
+    for (const b of this.boxes){
+      ctx.strokeRect(b.x + .5, b.y + .5, b.w, b.h);
     }
   }
+}
+
+/* ---- squarified treemap (Bruls / Huijgen / van Wijk) ---- */
+function worst(row, side){
+  let max = -Infinity, min = Infinity, sum = 0;
+  for (const r of row){
+    if (r > max) max = r;
+    if (r < min) min = r;
+    sum += r;
+  }
+  const s2 = sum * sum, side2 = side * side;
+  return Math.max((side2 * max) / s2, s2 / (side2 * min));
+}
+
+function squarify(items, W, H){
+  const total = items.reduce((a, v) => a + v.value, 0) || 1;
+  const scale = (W * H) / total;
+  const q = items.map(v => ({ ...v, scaled: v.value * scale }));
+  const out = [];
+  let area = { x: 0, y: 0, w: W, h: H };
+  let row = [];
+  const flush = () => {
+    const sum = row.reduce((a, v) => a + v.scaled, 0);
+    const wide = area.w >= area.h;
+    if (wide){
+      const rw = sum / area.h;
+      let cy = area.y;
+      for (const v of row){
+        const rh = v.scaled / rw;
+        out.push({ ...v, x: area.x, y: cy, w: rw, h: rh });
+        cy += rh;
+      }
+      area = { x: area.x + rw, y: area.y, w: area.w - rw, h: area.h };
+    } else {
+      const rh = sum / area.w;
+      let cx = area.x;
+      for (const v of row){
+        const rw = v.scaled / rh;
+        out.push({ ...v, x: cx, y: area.y, w: rw, h: rh });
+        cx += rw;
+      }
+      area = { x: area.x, y: area.y + rh, w: area.w, h: area.h - rh };
+    }
+    row = [];
+  };
+  while (q.length){
+    const v = q[0];
+    const side = Math.min(area.w, area.h);
+    const cur = row.map(r => r.scaled);
+    if (row.length === 0 || worst(cur.concat(v.scaled), side) <= worst(cur, side)){
+      row.push(v);
+      q.shift();
+    } else {
+      flush();
+    }
+  }
+  if (row.length) flush();
+  return out;
 }

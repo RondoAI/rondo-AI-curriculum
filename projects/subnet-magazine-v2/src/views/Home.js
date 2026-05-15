@@ -25,9 +25,9 @@ import { cardArt } from '../lib/art.js';
 import { Sparkline } from '../charts/Sparkline.js';
 import { CoverArt } from '../charts/CoverArt.js';
 import { NeuralNet } from '../charts/NeuralNet.js';
-import { NodeSphere } from '../charts/NodeSphere.js';
+import { Treemap } from '../charts/Treemap.js';
 import { articlesByDate } from '../data/articles.js';
-import { subnetById } from '../data/subnets.js';
+import { subnetById, SUBNETS } from '../data/subnets.js';
 import { VALIDATORS } from '../data/validators.js';
 
 const CAT_LABEL = {
@@ -174,19 +174,20 @@ export function mountHome(root, dataLayer = null){
       </div>
     </section>
 
-    <!-- ===== CONSENSUS SURFACE ===== -->
-    <section class="home-neural" aria-label="The validator consensus surface">
+    <!-- ===== EMISSION TREEMAP ===== -->
+    <section class="home-neural" aria-label="Subnet emission share treemap">
       <div class="home-net__head">
-        <span class="home-net__kicker">&gt; The surface</span>
-        <h2 class="home-net__title">Consensus, <em>in the round.</em></h2>
-        <p class="home-net__sub">Every validator a node, every delegation an edge — the whole stake
-        graph folded onto a sphere and spun. The same plexus the brand mark rides on, full-scale.</p>
+        <span class="home-net__kicker">&gt; The slice</span>
+        <h2 class="home-net__title">Where the <em>emissions</em> go.</h2>
+        <p class="home-net__sub">Every block, 0.5 τ is split across the 92 subnets that earned it.
+        Bigger tile, bigger share — Chutes, Targon and Apex eat first; the long tail fights for the
+        edges. Sized by daily τ emission, darker red = higher rank.</p>
       </div>
       <div class="home-neural__canvas">
-        <canvas data-canvas="consensus"></canvas>
+        <canvas data-canvas="treemap"></canvas>
         <span class="home-neural__foot">
-          <span>NODE-SPHERE · 300 NODES · K-NEAREST + 280 CHORDS</span>
-          <span data-bind="surface-stat">6,184 VALIDATORS</span>
+          <span>TREEMAP · TOP 18 SUBNETS · BY τ/DAY</span>
+          <span>SOURCE · TAOSTATS PUBLIC + SEED</span>
         </span>
       </div>
     </section>
@@ -319,10 +320,21 @@ export function mountHome(root, dataLayer = null){
   const cover = coverCanvas ? new CoverArt(coverCanvas) : null;
   const neuralCanvas = qs('[data-canvas="neural"]', root);
   const neural = neuralCanvas ? new NeuralNet(neuralCanvas) : null;
-  const consensusCanvas = qs('[data-canvas="consensus"]', root);
-  const consensus = consensusCanvas ? new NodeSphere(consensusCanvas, {
-    nodes: 84, K: 4, density: 0.42, speed: 0.16,
-  }) : null;
+  /* the second infographic — a treemap of the top subnets by daily
+     emission. Different visual language from the plexus mark at the
+     top of every page. */
+  const treemapCanvas = qs('[data-canvas="treemap"]', root);
+  const treemapItems = [...SUBNETS]
+    .sort((a, b) => (b.emission || 0) - (a.emission || 0))
+    .slice(0, 18)
+    .map(s => ({
+      label: 'SN' + s.netuid + ' · ' + s.name,
+      sub:   'τ' + (s.emission || 0) + ' / day',
+      value: s.emission || 1,
+    }));
+  const treemap = treemapCanvas
+    ? new Treemap(treemapCanvas, { items: treemapItems })
+    : null;
 
   /* ---------- LIVE NETWORK band sparklines ---------- */
   /* one micro-trend per stat — deterministic, keyed to the field, a
@@ -464,7 +476,7 @@ export function mountHome(root, dataLayer = null){
       valSparks.splice(0).forEach(sp => { try { sp.destroy(); } catch (_) {} });
       cover?.destroy();
       neural?.destroy();
-      consensus?.destroy();
+      treemap?.destroy();
     },
   };
 }
