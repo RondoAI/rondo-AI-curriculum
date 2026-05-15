@@ -52,6 +52,14 @@ export class NodeSphere extends Chart {
     /** @private */ this.points  = this._buildPoints();
     /** @private */ this.edges   = this._buildEdges();
 
+    /* adjacency: edge indices touching each node, so packets can
+       chain node-to-node instead of teleporting to a random edge */
+    /** @private */ this.adj = Array.from({ length: this.N }, () => []);
+    this.edges.forEach((e, i) => { this.adj[e.a].push(i); this.adj[e.b].push(i); });
+
+    /** @private */ this.nodeAct = new Float32Array(this.N);  // activation, decays
+    /** @private */ this._lastT  = 0;
+
     /** @private */ this.packetN = opts.packets ?? 14;
     /** @private */ this.packets = this._buildPackets();
   }
@@ -124,17 +132,27 @@ export class NodeSphere extends Chart {
     return out;
   }
 
-  /** Each packet rides a random edge with a phase and speed. */
+  /** Each packet rides an edge, then chains onto a connected edge at
+      the node it lands on — data routing through the network. */
   _buildPackets(){
     const arr = [];
     for (let i = 0; i < this.packetN; i++){
+      const e = (Math.random() * this.edges.length) | 0;
       arr.push({
-        e:     Math.floor(Math.random() * this.edges.length),
+        e,
+        from:  this.edges[e].a,                  // node it travels away from
         t:     Math.random(),
-        speed: 0.18 + Math.random() * 0.35,
+        speed: 0.5 + Math.random() * 0.8,
       });
     }
     return arr;
+  }
+
+  /** Pick a fresh edge leaving `node`; fall back to any edge. */
+  _nextEdge(node){
+    const opts = this.adj[node];
+    if (opts && opts.length) return opts[(Math.random() * opts.length) | 0];
+    return (Math.random() * this.edges.length) | 0;
   }
 
   draw(ctx, w, h, t){
@@ -142,9 +160,14 @@ export class NodeSphere extends Chart {
     const cx = w / 2, cy = h / 2;
     const R  = Math.min(w, h) * 0.42;
 
-    /* ===== rotation ===== */
-    const ax = t * this.speed * 0.55;
+    /* real frame delta — keeps motion smooth and frame-rate-independent */
+    const dt = this._lastT ? Math.min(0.05, t - this._lastT) : 0.016;
+    this._lastT = t;
+
+    /* ===== rotation — a steady Y spin with a slow, gentle nod on X,
+       instead of a continuous tumble, so it reads smooth ===== */
     const ay = t * this.speed;
+    const ax = Math.sin(t * this.speed * 0.45) * 0.42;
     const cosX = Math.cos(ax), sinX = Math.sin(ax);
     const cosY = Math.cos(ay), sinY = Math.sin(ay);
 
@@ -190,22 +213,49 @@ export class NodeSphere extends Chart {
       ctx.stroke();
     }
 
-    /* ===== packets travel along edges ===== */
+    /* ===== packets fire through the network, node to node ===== */
     for (const pk of this.packets){
-      pk.t += pk.speed * 0.016;
-      if (pk.t >= 1){
-        pk.t = 0;
-        pk.e = Math.floor(Math.random() * this.edges.length);
-        pk.speed = 0.18 + Math.random() * 0.35;
-      }
+      pk.t += pk.speed * dt;
       const e = this.edges[pk.e];
-      const a = p[e.a], b = p[e.b];
+      let from = pk.from, to = (e.a === from) ? e.b : e.a;
+
+      if (pk.t >= 1){
+        /* arrived — light up the node, then route onto a connected edge */
+        this.nodeAct[to] = Math.min(1.6, this.nodeAct[to] + 1);
+        pk.from = to;
+        pk.e = this._nextEdge(to);
+        pk.speed = 0.5 + Math.random() * 0.9;
+        pk.t = 0;
+        from = pk.from;
+        const ne = this.edges[pk.e];
+        to = (ne.a === from) ? ne.b : ne.a;
+      }
+
+      const a = p[from], b = p[to];
+      const md = (a.d + b.d) / 2;
       const x = a.sx + (b.sx - a.sx) * pk.t;
       const y = a.sy + (b.sy - a.sy) * pk.t;
-      const md = (a.d + b.d) / 2;
-      const alpha = 0.5 + md * 0.5;
-      ctx.fillStyle = `rgba(255,128,148,${alpha})`;
-      ctx.beginPath(); ctx.arc(x, y, 1.3, 0, Math.PI * 2); ctx.fill();
+      /* trailing streak along the edge behind the head */
+      const tail = Math.max(0, pk.t - 0.22);
+      ctx.strokeStyle = `rgba(255,128,148,${(0.32 + md * 0.4).toFixed(3)})`;
+      ctx.lineWidth = 1 + md * 1.1;
+      ctx.beginPath();
+      ctx.moveTo(a.sx + (b.sx - a.sx) * tail, a.sy + (b.sy - a.sy) * tail);
+      ctx.lineTo(x, y);
+      ctx.stroke();
+      /* glowing head */
+      ctx.fillStyle = `rgba(255,30,60,${(0.35 + md * 0.4).toFixed(3)})`;
+      ctx.beginPath(); ctx.arc(x, y, 3.4 + md * 2.2, 0, Math.PI * 2); ctx.fill();
+      ctx.fillStyle = `rgba(255,232,236,${(0.7 + md * 0.3).toFixed(3)})`;
+      ctx.beginPath(); ctx.arc(x, y, 1.5 + md * 0.8, 0, Math.PI * 2); ctx.fill();
+    }
+
+    /* activation decay — nodes cool after a packet lands on them */
+    for (let i = 0; i < N; i++){
+      if (this.nodeAct[i] > 0){
+        this.nodeAct[i] -= dt * 2.4;
+        if (this.nodeAct[i] < 0) this.nodeAct[i] = 0;
+      }
     }
 
     /* ===== nodes, back to front ===== */
@@ -216,16 +266,26 @@ export class NodeSphere extends Chart {
     for (const q of pSorted){
       const r = 0.7 + q.d * 1.9;
       const a = 0.4 + q.d * 0.6;
+      const act = this.nodeAct[q.i];
+      /* activation flash — a node a packet just reached pulses bright */
+      if (act > 0){
+        const ar = r + act * 7;
+        const g = ctx.createRadialGradient(q.sx, q.sy, 0, q.sx, q.sy, ar);
+        g.addColorStop(0, `rgba(255,128,148,${Math.min(0.7, act * 0.6)})`);
+        g.addColorStop(1, 'rgba(255,30,60,0)');
+        ctx.fillStyle = g;
+        ctx.beginPath(); ctx.arc(q.sx, q.sy, ar, 0, Math.PI * 2); ctx.fill();
+      }
       if (this.glow && q.d > 0.62){
         ctx.fillStyle = `rgba(255,30,60,${0.22 * (q.d - 0.62) / 0.38})`;
         ctx.beginPath(); ctx.arc(q.sx, q.sy, r * 3.8, 0, Math.PI * 2); ctx.fill();
       }
       ctx.fillStyle = `rgba(255,${30 + q.d * 110},${60 + q.d * 100},${a})`;
-      ctx.beginPath(); ctx.arc(q.sx, q.sy, r, 0, Math.PI * 2); ctx.fill();
-      /* bright core on the frontmost nodes — the hull sparkle */
-      if (q.d > 0.86){
-        ctx.fillStyle = `rgba(255,224,228,${(q.d - 0.86) / 0.14})`;
-        ctx.beginPath(); ctx.arc(q.sx, q.sy, r * 0.5, 0, Math.PI * 2); ctx.fill();
+      ctx.beginPath(); ctx.arc(q.sx, q.sy, r + act * 0.9, 0, Math.PI * 2); ctx.fill();
+      /* bright core on frontmost or freshly-activated nodes */
+      if (q.d > 0.86 || act > 0.4){
+        ctx.fillStyle = `rgba(255,224,228,${Math.max((q.d - 0.86) / 0.14, act * 0.8).toFixed(3)})`;
+        ctx.beginPath(); ctx.arc(q.sx, q.sy, r * 0.55, 0, Math.PI * 2); ctx.fill();
       }
     }
 
