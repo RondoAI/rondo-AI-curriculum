@@ -2614,6 +2614,13 @@
   border-color: var(--c-red);
 }
 
+/* TEMPORARY: hide the editor's-colophon while debugging an Android
+   Chrome scroll-lock that started appearing on the home page. The
+   editor section is the only home-only addition since the last
+   known-good commit (a159a61); hiding it isolates whether it's the
+   actual culprit. Will be restored once scroll is verified. */
+.home-editor { display: none !important; }
+
 /* ---------- EDITOR'S COLOPHON ----------
    The back-of-the-book editor bio. Portrait left, byline + bio +
    links right. Same red-band container as the other major sections
