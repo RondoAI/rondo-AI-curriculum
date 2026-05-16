@@ -25,23 +25,60 @@ const CSS = `
    tag that reads as an addressable agent endpoint. */
 .sbnt-console{
   position: fixed; left: 0; bottom: 0; z-index: 45;
-  width: min(640px, 100vw);
+  width: min(560px, 100vw);
   font-family: var(--f-mono, monospace);
+  /* Transparent glass surface, the dock reads as floating chrome,
+     not as a solid wall blocking content. backdrop-filter blur
+     keeps the text crisp over whatever's behind. */
   background:
-    radial-gradient(120% 80% at 18% 0%, rgba(255,30,60,.18), transparent 60%),
-    linear-gradient(180deg, rgba(20,5,9,.98), rgba(5,2,3,.98));
+    radial-gradient(120% 80% at 18% 0%, rgba(255,30,60,.08), transparent 60%),
+    linear-gradient(180deg, rgba(20,5,9,.45), rgba(5,2,3,.45));
   border: 1px solid var(--c-rule-3, rgba(255,30,60,.36));
   border-left: 0; border-bottom: 0;
-  border-top-right-radius: 4px;
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
+  border-top-right-radius: 6px;
+  backdrop-filter: blur(14px) saturate(140%);
+  -webkit-backdrop-filter: blur(14px) saturate(140%);
   box-shadow:
-    0 -2px 0 rgba(255,30,60,.18) inset,
-    0 -16px 60px rgba(255,30,60,.18),
-    0 -8px 40px rgba(0,0,0,.65);
+    0 -1px 0 rgba(255,30,60,.18) inset,
+    0 -8px 32px rgba(255,30,60,.10),
+    0 -4px 20px rgba(0,0,0,.55);
   isolation: isolate;
   overflow: hidden;
+  /* never block more than ~38% of the viewport height when
+     expanded, the page always wins the scroll surface back */
+  max-height: 38vh;
+  display: flex;
+  flex-direction: column;
 }
+/* fully-dismissed state, the entire dock slides off-screen and
+   only a tiny relaunch chip remains in the corner */
+.sbnt-console.is-dismissed{
+  transform: translateY(calc(100% + 8px));
+  pointer-events: none;
+}
+.sbnt-console__relaunch{
+  position: fixed;
+  left: 8px; bottom: 8px;
+  z-index: 46;
+  display: none;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 10px;
+  border: 1px solid var(--c-red);
+  border-radius: 999px;
+  background: rgba(10,3,6,.85);
+  color: #fff;
+  font-family: var(--f-mono);
+  font-size: 9.5px;
+  font-weight: 800;
+  letter-spacing: var(--ls-label);
+  text-transform: uppercase;
+  cursor: pointer;
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  box-shadow: 0 0 0 1px rgba(255,30,60,.2), 0 6px 18px rgba(0,0,0,.5);
+}
+.sbnt-console.is-dismissed ~ .sbnt-console__relaunch{ display: inline-flex; }
 /* a bright 1-px red rail at the very top edge, the bar declares
    itself before you read the text. The only chrome on the bar; the
    prior horizontal scan-line was retired because it visually
@@ -179,7 +216,8 @@ const CSS = `
 }
 .sbnt-console.is-collapsed .sbnt-console__hint{ display: inline; }
 .sbnt-console:not(.is-collapsed) .sbnt-console__hint{ display: none; }
-.sbnt-console__toggle{
+.sbnt-console__toggle,
+.sbnt-console__close{
   display: inline-grid; place-items: center;
   width: 24px; height: 24px;
   border: 1px solid var(--c-rule-2, rgba(255,30,60,.22));
@@ -188,12 +226,41 @@ const CSS = `
   background: rgba(255,30,60,.06);
   font-size: 14px;
   line-height: 1;
+  cursor: pointer;
+  appearance: none;
+  font-family: inherit;
   transition: background .12s ease-out, color .12s ease-out, border-color .12s ease-out;
 }
-.sbnt-console:hover .sbnt-console__toggle{
+.sbnt-console:hover .sbnt-console__toggle,
+.sbnt-console:hover .sbnt-console__close{
   border-color: var(--c-red, #FF1E3C);
   color: var(--c-red-1, #FF4D60);
   background: rgba(255,30,60,.14);
+}
+.sbnt-console__close{ margin-left: 4px; }
+.sbnt-console__close:hover{
+  background: var(--c-red, #FF1E3C) !important;
+  color: #fff !important;
+  border-color: var(--c-red, #FF1E3C) !important;
+}
+.sbnt-console__relaunch:hover{
+  background: var(--c-red, #FF1E3C);
+  color: #fff;
+}
+.sbnt-console__relaunch-dot{
+  width: 6px; height: 6px;
+  background: var(--c-red, #FF1E3C);
+  border-radius: 50%;
+  box-shadow: 0 0 6px var(--c-red, #FF1E3C);
+  animation: sbntRelaunchPulse 1.6s ease-in-out infinite;
+}
+.sbnt-console__relaunch:hover .sbnt-console__relaunch-dot{
+  background: #fff;
+  box-shadow: 0 0 6px #fff;
+}
+@keyframes sbntRelaunchPulse{
+  0%, 100%{ opacity: 1; }
+  50%     { opacity: .4; }
 }
 .sbnt-console__tabs{
   display: flex; gap: 2px;
@@ -642,12 +709,31 @@ export function mountConsole(_dataLayer = null){
       <span class="sbnt-console__title" data-role="title"></span>
       <span class="sbnt-console__push"></span>
       <span class="sbnt-console__hint">Tap to expand</span>
-      <span class="sbnt-console__toggle" data-role="toggle">${startCollapsed ? '＋' : '−'}</span>
+      <button type="button" class="sbnt-console__toggle" data-role="toggle" aria-label="Collapse Oracle dock">${startCollapsed ? '＋' : '−'}</button>
+      <button type="button" class="sbnt-console__close" data-role="close" aria-label="Dismiss Oracle dock" title="Dismiss">×</button>
     </div>
     <div class="sbnt-console__tabs" role="tablist">${tabsHtml}</div>
     <div class="sbnt-console__body" data-role="body"></div>
   `;
   document.body.appendChild(el);
+
+  /* relaunch chip, sibling of the dock, shown only when the dock is
+     dismissed (via the CSS sibling combinator) */
+  const relaunch = document.createElement('button');
+  relaunch.type = 'button';
+  relaunch.className = 'sbnt-console__relaunch';
+  relaunch.setAttribute('aria-label', 'Reopen Subnet Oracle');
+  relaunch.innerHTML = `<span class="sbnt-console__relaunch-dot" aria-hidden="true"></span>Subnet Oracle`;
+  document.body.appendChild(relaunch);
+
+  /* restore dismissed state from localStorage so the user's choice
+     persists across page loads */
+  const DISMISS_KEY = 'sbnt-console-dismissed';
+  try {
+    if (localStorage.getItem(DISMISS_KEY) === '1'){
+      el.classList.add('is-dismissed');
+    }
+  } catch (_){}
 
   /* Mount the Oracle's PS5-grade plexus mark, a tiny NodeSphere
      on the bar's 34 px canvas. 18 nodes / K=3 / density .45 /
@@ -666,6 +752,7 @@ export function mountConsole(_dataLayer = null){
   const title   = el.querySelector('[data-role="title"]');
   const bar     = el.querySelector('[data-role="bar"]');
   const toggle  = el.querySelector('[data-role="toggle"]');
+  const closeBt = el.querySelector('[data-role="close"]');
   const tabs    = Array.from(el.querySelectorAll('.sbnt-tab'));
   const tabRail = el.querySelector('.sbnt-console__tabs');
   /* slide-hint on the tab rail, there are 15 tabs and the phone
@@ -1143,16 +1230,34 @@ export function mountConsole(_dataLayer = null){
   /* collapse / expand on bar click, but not when a child button was clicked */
   bar.addEventListener('click', (e) => {
     /* ignore clicks on the tabs, the search input, the game widget,
-       the body content, and any anchor links, only bar-chrome
-       clicks toggle the dock */
+       the body content, the close button, and any anchor links,
+       only bar-chrome clicks toggle the dock */
     if (e.target.closest('.sbnt-tab')) return;
     if (e.target.closest('.sbnt-console__tabs')) return;
     if (e.target.closest('.sbnt-console__body')) return;
+    if (e.target.closest('.sbnt-console__close')) return;
     const collapsed = el.classList.toggle('is-collapsed');
     /* keep the toggle glyph the same family as the initial render,        single fullwidth ＋ or minus −, no brackets. Brackets wrap
        onto two lines inside the 24-px circular toggle and read as
        a broken UI. */
     toggle.textContent = collapsed ? '＋' : '−';
+  });
+
+  /* close button → fully dismiss the dock + persist the choice. The
+     relaunch chip becomes visible automatically via CSS sibling
+     selector. */
+  if (closeBt){
+    closeBt.addEventListener('click', (e) => {
+      e.stopPropagation();
+      el.classList.add('is-dismissed');
+      try { localStorage.setItem(DISMISS_KEY, '1'); } catch (_){}
+    });
+  }
+
+  /* relaunch chip → bring the dock back + clear the persisted flag */
+  relaunch.addEventListener('click', () => {
+    el.classList.remove('is-dismissed');
+    try { localStorage.removeItem(DISMISS_KEY); } catch (_){}
   });
 
   render();
@@ -1170,6 +1275,7 @@ export function mountConsole(_dataLayer = null){
       nnSphere?.destroy();
       teardownTabHint();
       el.remove();
+      relaunch.remove();
     },
   };
 }
