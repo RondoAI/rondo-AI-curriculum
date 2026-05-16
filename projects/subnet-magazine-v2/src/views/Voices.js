@@ -17,11 +17,27 @@ const GROUP_ORDER = ['core', 'capital', 'subnet', 'media', 'magazine'];
 
 /** Render one voice card. */
 function voiceCard(v){
-  /* brand logo if the voice has a brand key; otherwise a deterministic
-     node-graph monogram so every card has a mark. */
-  const logo = v.brand
-    ? `<span class="voice__logo">${brandChip(v.brand, { size: 44 })}</span>`
-    : `<span class="voice__logo voice__logo--mark">${mark(v.name, { size: 44 })}</span>`;
+  /* PFP first: the live X profile photo via unavatar.io (free,
+     CORS-friendly, serves the current avatar for any X handle).
+     Falls back via onerror to the brand-chip (real company logo
+     where the slug is known) and then to a generated node-graph
+     monogram if even that's missing. Result: every card carries
+     the person's actual face, with a graceful degradation chain. */
+  const fallbackChip = v.brand
+    ? brandChip(v.brand, { size: 64 })
+    : `<span class="voice__mark">${mark(v.name, { size: 64 })}</span>`;
+  const escapedFallback = fallbackChip.replace(/"/g, '&quot;');
+  const logo = v.handle
+    ? `<span class="voice__logo">
+         <img class="voice__pfp"
+              src="https://unavatar.io/x/${v.handle}?fallback=false"
+              alt=""
+              width="64" height="64"
+              loading="lazy" decoding="async"
+              referrerpolicy="no-referrer"
+              onerror="this.outerHTML = '${escapedFallback}';">
+       </span>`
+    : `<span class="voice__logo">${fallbackChip}</span>`;
 
   const subnetPills = (v.subnets && v.subnets.length)
     ? `<div class="voice__subnets">${v.subnets.map(n =>
