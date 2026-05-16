@@ -175,6 +175,7 @@ export const CODEX = Object.freeze([
       { h: 'Why it works', body:
         'The mechanism is named after the Yuma Indians, but the design intuition is closer to a Schelling-point game. Validators are paid to predict what the median validator believes; the median validator is paid to score miners honestly because that\'s the strategy other validators converge on. The Nash equilibrium is "score honestly", because deviating from consensus costs you emission.' },
     ],
+    infographic: 'yuma-consensus',
     seeAlso: ['validator', 'miner', 'weight', 'emission'],
     sources: [
       { name: 'Bittensor whitepaper', href: 'https://opentensor.ai' },

@@ -77,7 +77,7 @@ function boot(){
   mountIf('[data-mount="editor"]',         root => mountEditor(root));
   mountIf('[data-mount="interviews"]',     root => mountInterviews(root));
   mountIf('[data-mount="voices"]',         root => mountVoices(root));
-  mountIf('[data-mount="codex"]',          root => mountCodex(root));
+  mountIf('[data-mount="codex"]',          root => mountCodex(root, DataLayer));
 
   // 3) clean teardown on unload (idempotent)
   window.addEventListener('beforeunload', () => {

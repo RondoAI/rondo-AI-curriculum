@@ -14,7 +14,335 @@
 .codex-page{
   max-width: var(--max-w);
   margin: 0 auto;
-  padding: clamp(40px, 7vw, 80px) var(--gutter) clamp(56px, 9vw, 112px);
+  padding: clamp(24px, 5vw, 56px) var(--gutter) clamp(56px, 9vw, 112px);
+}
+
+/* ===================================================================
+   HERO,  big serif title + dek + NodeSphere centerpiece + Ask bar
+   =================================================================== */
+.codex-hero{
+  position: relative;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: clamp(20px, 4vw, 48px);
+  align-items: center;
+  padding: clamp(28px, 5vw, 56px) 0 clamp(20px, 4vw, 40px);
+  border-bottom: 1px solid var(--c-rule-2);
+  overflow: hidden;
+  isolation: isolate;
+}
+@media (min-width: 860px){
+  .codex-hero{ grid-template-columns: 1fr 360px; }
+}
+.codex-hero__viz{
+  position: relative;
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  max-width: 360px;
+  justify-self: center;
+  order: -1;
+}
+@media (min-width: 860px){
+  .codex-hero__viz{ order: 1; aspect-ratio: 1 / 1; max-width: 360px; }
+}
+.codex-hero__viz canvas{
+  display: block;
+  width: 100%; height: 100%;
+}
+.codex-hero__body{
+  display: flex;
+  flex-direction: column;
+  gap: var(--s-3);
+}
+.codex-hero__kicker{
+  font-family: var(--f-mono);
+  font-size: var(--t-xs);
+  font-weight: 700;
+  letter-spacing: var(--ls-label);
+  text-transform: uppercase;
+  color: var(--c-red);
+}
+.codex-hero__title{
+  margin: 0;
+  font-family: var(--f-serif);
+  font-size: clamp(40px, 7vw, 84px);
+  font-weight: 800;
+  letter-spacing: -.02em;
+  line-height: .98;
+  color: var(--c-ink-1);
+}
+.codex-hero__dek{
+  margin: 0;
+  max-width: 56ch;
+  font-family: var(--f-sans);
+  font-size: var(--t-md);
+  line-height: 1.55;
+  color: var(--c-ink-2);
+}
+
+/* ===================================================================
+   ASK THE CODEX,  LLM-style input bar
+   =================================================================== */
+.codex-ask{
+  display: grid;
+  grid-template-columns: auto 1fr auto auto;
+  align-items: center;
+  gap: 8px;
+  margin-top: var(--s-2);
+  padding: 8px 8px 8px 14px;
+  background: linear-gradient(180deg, rgba(255,30,60,.08), rgba(10,3,6,.65));
+  border: 1px solid var(--c-red);
+  border-radius: 999px;
+  box-shadow: 0 0 0 1px rgba(255,30,60,.18), 0 0 24px rgba(255,30,60,.18);
+}
+.codex-ask__lbl{
+  font-family: var(--f-mono);
+  font-size: 9.5px;
+  font-weight: 800;
+  letter-spacing: var(--ls-label);
+  text-transform: uppercase;
+  color: var(--c-red);
+  white-space: nowrap;
+  padding-right: 8px;
+  border-right: 1px solid var(--c-rule-3);
+}
+.codex-ask__input{
+  border: 0; outline: 0;
+  background: transparent;
+  color: var(--c-ink-1);
+  font-family: var(--f-sans);
+  font-size: 14px;
+  line-height: 1.2;
+  min-width: 0;
+}
+.codex-ask__input::placeholder{ color: var(--c-ink-4); }
+.codex-ask__send{
+  display: inline-grid; place-items: center;
+  width: 34px; height: 34px;
+  border: 0; border-radius: 50%;
+  background: var(--c-red);
+  color: #fff;
+  cursor: pointer;
+  transition: background var(--d-fast) var(--e-out), transform var(--d-fast) var(--e-out);
+}
+.codex-ask__send:hover{ background: var(--c-red-1); transform: translateX(2px); }
+.codex-ask__count{
+  font-family: var(--f-mono);
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: var(--ls-data);
+  color: var(--c-red);
+  padding: 4px 8px;
+  border: 1px solid var(--c-rule-2);
+  border-radius: 999px;
+}
+
+/* ===================================================================
+   LIVE NETWORK STATE STRIP,  4 cells, refreshes from DataLayer
+   =================================================================== */
+.codex-state{
+  list-style: none;
+  margin: clamp(20px, 4vw, 36px) 0 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 8px;
+}
+@media (max-width: 720px){
+  .codex-state{ grid-template-columns: repeat(2, 1fr); }
+}
+.codex-state__cell{
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  padding: 12px 14px;
+  border: 1px solid var(--c-rule-2);
+  background: linear-gradient(180deg, rgba(255,30,60,.04), rgba(10,3,6,.55));
+  border-left: 2px solid var(--c-rule-3);
+  border-radius: 3px;
+}
+.codex-state__lbl{
+  font-family: var(--f-mono);
+  font-size: 9.5px;
+  font-weight: 700;
+  letter-spacing: var(--ls-label);
+  text-transform: uppercase;
+  color: var(--c-ink-3);
+}
+.codex-state__val{
+  font-family: var(--f-mono);
+  font-size: clamp(20px, 2.8vw, 26px);
+  font-weight: 800;
+  letter-spacing: -.01em;
+  color: var(--c-ink-1);
+  font-variant-numeric: tabular-nums;
+  line-height: 1.05;
+  text-shadow: 0 0 12px rgba(255, 30, 60, .15);
+}
+.codex-state__val.is-live{ color: var(--c-red-1); text-shadow: 0 0 16px rgba(255,30,60,.5); }
+.codex-state__val .tau{ color: var(--c-red); }
+.codex-state__sub{
+  font-family: var(--f-mono);
+  font-size: 9.5px;
+  font-weight: 500;
+  letter-spacing: var(--ls-label);
+  text-transform: uppercase;
+  color: var(--c-ink-4);
+}
+
+/* ===================================================================
+   TOP-10 SUBNETS LEADERBOARD,  live, with sparklines per row
+   =================================================================== */
+.codex-leader{
+  margin: clamp(20px, 4vw, 36px) 0 clamp(28px, 5vw, 56px);
+  padding: clamp(16px, 3vw, 24px);
+  border: 1px solid var(--c-rule-2);
+  border-radius: 4px;
+  background: linear-gradient(180deg, rgba(255,30,60,.04), rgba(10,3,6,.6));
+}
+.codex-leader__head{
+  display: flex;
+  align-items: baseline;
+  gap: var(--s-3);
+  margin-bottom: var(--s-3);
+  padding-bottom: var(--s-2);
+  border-bottom: 1px dashed var(--c-rule);
+}
+.codex-leader__count{
+  font-family: var(--f-mono);
+  font-size: var(--t-xs);
+  font-weight: 800;
+  letter-spacing: var(--ls-label);
+  color: var(--c-red);
+}
+.codex-leader__title{
+  margin: 0;
+  font-family: var(--f-serif);
+  font-size: clamp(20px, 2.6vw, 28px);
+  font-weight: 700;
+  letter-spacing: -.01em;
+  color: var(--c-ink-1);
+  flex: 1;
+}
+.codex-leader__live{
+  display: inline-flex; align-items: center; gap: 4px;
+  font-family: var(--f-mono);
+  font-size: 9.5px;
+  font-weight: 800;
+  letter-spacing: var(--ls-label);
+  color: var(--c-up);
+}
+.codex-leader__list{
+  list-style: none;
+  margin: 0; padding: 0;
+  display: flex; flex-direction: column;
+  gap: 4px;
+}
+.codex-leader__loading{
+  font-family: var(--f-mono);
+  font-size: 11px;
+  color: var(--c-ink-4);
+  padding: 8px 4px;
+  font-style: italic;
+}
+.codex-leader__row{
+  display: grid;
+  grid-template-columns: 22px 28px auto 1fr auto 64px auto;
+  align-items: center;
+  gap: 10px;
+  padding: 6px 4px;
+  border-bottom: 1px solid var(--c-rule);
+  font-family: var(--f-mono);
+  font-size: 11.5px;
+  color: var(--c-ink-2);
+}
+.codex-leader__row:last-child{ border-bottom: 0; }
+.codex-leader__rank{ color: var(--c-red); font-weight: 800; letter-spacing: var(--ls-data); }
+.codex-leader__cell-logo{
+  display: inline-grid; place-items: center;
+  width: 24px; height: 24px;
+  background: var(--c-bg-3);
+  border-radius: 50%;
+  overflow: hidden;
+}
+.codex-leader__logo{ width: 24px; height: 24px; object-fit: cover; }
+.codex-leader__logo-mark svg{ width: 100%; height: 100%; display: block; }
+.codex-leader__id{
+  color: var(--c-red);
+  font-weight: 700;
+  text-decoration: none;
+  letter-spacing: var(--ls-data);
+}
+.codex-leader__name{
+  color: var(--c-ink-1);
+  font-weight: 600;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  font-family: var(--f-sans);
+  font-size: 13px;
+}
+.codex-leader__mcap{
+  color: var(--c-ink-1);
+  font-weight: 700;
+  font-variant-numeric: tabular-nums;
+  letter-spacing: -.01em;
+  text-shadow: 0 0 8px rgba(255,30,60,.25);
+}
+.codex-leader__spark{
+  width: 64px; height: 22px;
+  display: block;
+}
+.codex-leader__spark canvas{ width: 100%; height: 100%; display: block; }
+.codex-leader__chg{
+  font-weight: 700;
+  font-variant-numeric: tabular-nums;
+}
+.codex-leader__chg.up   { color: var(--c-up); }
+.codex-leader__chg.down { color: var(--c-red-1); }
+@media (max-width: 560px){
+  .codex-leader__row{
+    grid-template-columns: 22px 24px auto 1fr auto auto;
+  }
+  .codex-leader__spark{ display: none; }
+}
+
+/* ===================================================================
+   INLINE INFOGRAPHIC,  Yuma Consensus diagram (and the family)
+   =================================================================== */
+.codex-info{
+  margin: var(--s-4) 0;
+  padding: clamp(12px, 2vw, 20px);
+  border: 1px solid var(--c-rule-2);
+  border-radius: 4px;
+  background: radial-gradient(120% 80% at 50% 0%, rgba(255,30,60,.05), transparent 70%), rgba(10,3,6,.6);
+}
+.codex-info__svg{
+  display: block;
+  width: 100%;
+  height: auto;
+}
+.codex-info__cap{
+  margin: 0 0 var(--s-2);
+  font-family: var(--f-mono);
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: var(--ls-label);
+  text-transform: uppercase;
+  color: var(--c-ink-3);
+}
+.codex-info__pulse-line{
+  stroke-dasharray: 6 10;
+  stroke-dashoffset: 0;
+  animation: codexPulse 2.4s linear infinite;
+  animation-delay: var(--d, 0s);
+}
+@keyframes codexPulse{
+  from { stroke-dashoffset: 0; }
+  to   { stroke-dashoffset: -64; }
+}
+@media (prefers-reduced-motion: reduce){
+  .codex-info__pulse-line{ animation: none; }
 }
 
 /* ---------- PAGE HEAD ---------- */
