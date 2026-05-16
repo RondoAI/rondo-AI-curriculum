@@ -9,7 +9,7 @@ paywalled: false
 wordcount: 23
 url: "https://newsletter.semianalysis.com/p/coming-soon"
 post_id: 175660541
-captured_at: "2026-05-16T10:42:40.567593+00:00"
+captured_at: "2026-05-16T10:55:34.971755+00:00"
 ---
 
 # Bridging the gap between business and the worlds most important industry.

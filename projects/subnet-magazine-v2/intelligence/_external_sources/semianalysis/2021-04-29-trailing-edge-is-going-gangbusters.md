@@ -9,7 +9,7 @@ paywalled: false
 wordcount: 544
 url: "https://newsletter.semianalysis.com/p/trailing-edge-is-going-gangbusters"
 post_id: 175660547
-captured_at: "2026-05-16T10:42:38.969725+00:00"
+captured_at: "2026-05-16T10:55:33.288169+00:00"
 ---
 
 # Trailing Edge is Going Gangbusters ($KLIC)

@@ -9,7 +9,7 @@ paywalled: false
 wordcount: 242
 url: "https://newsletter.semianalysis.com/p/2022-semiconductor-outlook-and-webinar"
 post_id: 175660681
-captured_at: "2026-05-16T10:41:26.270778+00:00"
+captured_at: "2026-05-16T10:55:19.853226+00:00"
 ---
 
 # 2022 Semiconductor Outlook (and Webinar) - Transistor Radio Podcast Launch

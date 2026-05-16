@@ -9,7 +9,7 @@ paywalled: false
 wordcount: 384
 url: "https://newsletter.semianalysis.com/p/qualcomm-lost-the-iphone-12-mmwave"
 post_id: 175660546
-captured_at: "2026-05-16T10:42:43.931289+00:00"
+captured_at: "2026-05-16T10:55:36.540060+00:00"
 ---
 
 # Qualcomm Lost the iPhone 12 mmWave Antenna Module Contract to a Chinese Company

@@ -9,7 +9,7 @@ paywalled: false
 wordcount: 383
 url: "https://newsletter.semianalysis.com/p/asmls-euv-tools-have-a-throughput"
 post_id: 175660669
-captured_at: "2026-05-16T10:41:33.015776+00:00"
+captured_at: "2026-05-16T10:55:29.804621+00:00"
 ---
 
 # ASML’s EUV Tools Have A Throughput Problem, But Lyncean Has The Answer By Scaling EUV Light Source Power An Order Of Magnitude

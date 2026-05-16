@@ -9,7 +9,7 @@ paywalled: false
 wordcount: 403
 url: "https://newsletter.semianalysis.com/p/micron-sells-3d-x-point-lehi-utah"
 post_id: 175660566
-captured_at: "2026-05-16T10:42:16.988642+00:00"
+captured_at: "2026-05-16T10:55:31.713085+00:00"
 ---
 
 # Micron Sells 3D X-Point Lehi, Utah Fab to Texas Instruments For $1.5B
