@@ -5,6 +5,148 @@ _Single-file briefing for the daily research agent. Sources listed in trust orde
 
 ## ⊕ HUMAN-CURATED NOTES, last 7 days
 
+## 2026-05-16 19:20 UTC, PRIMARY SOURCE from Rondo, Manifold's Subnet Signal "Conviction Will Be Quiet"
+Source: Rondo passed through the full text of The Subnet Signal
+newsletter post by Viraj Sahu / Manifold Labs, May 15 2026:
+"Conviction Will Be Quiet". Preserved at:
+  intelligence/_primary_sources/2026-05-15-manifold-subnet-signal-conviction-will-be-quiet.md
+
+### Publishing context worth knowing
+The Subnet Signal is published by Manifold Labs. SAME team that
+builds Targon (SN4) and co-authored the Intel TDX paper. So
+Manifold is simultaneously a subnet operator, an academic-paper
+co-author, AND a media publisher. The desk should treat coverage
+of OTHER subnets as professional, but read coverage of competing
+decentralized compute layers with awareness that Manifold is a
+positioned voice in that segment.
+
+### What we learn about Conviction mechanically
+This is the cleanest available walkthrough of the new Conviction
+mechanism that came out of the post-Templar/Sam Dare governance
+response. The mechanics:
+
+  - Applies ONLY to subnets more than one year old
+  - Challenger must accumulate 10% of stake AT CURRENT PRICES,
+    lock it publicly for two months before anything begins
+  - Lock is VISIBLE immediately, giving the owner two months of
+    warning
+  - Challenger score asymptotes from zero toward locked amount,
+    climbs slowly over months
+  - Owner can match the lock at any time using the owner key and
+    instantly register full conviction (no delay, no EMA)
+  - Other holders can pool conviction behind the owner, widening
+    the gap further
+  - The challenger's months of public commitment can be undone in
+    a single owner move
+  - A challenge succeeds ONLY if the owner cannot afford to match
+    the lock
+
+### Const's framing on the record
+Per the article: "Const described conviction as a defensive tool
+during Thursday's call, meant to help teams guard against nefarious
+or spurious attacks. He never framed it as a competitive market.
+The design matches that intent."
+
+### The author's thesis (cleanest one-sentence summary)
+> "Conviction is likely to change the network more by preventing
+> contests than by producing them."
+
+### The companion mechanism: the TAO flow tweak
+A second mechanism shipping alongside Conviction that the desk had
+not previously named:
+> "Once chain subsidy is subtracted from net flow, subnets without
+> real underlying activity lose their emission share."
+Both mechanisms target the same population: subnets where ownership
+outlasted the team's active involvement because the old rules never
+forced a transfer. Conviction clears the seat; the flow tweak
+starves emission to the same struggling subnets. Coordinated
+governance response.
+
+### CRITICAL EARLIER-EVENT FACT I had not logged
+The newsletter references its own Feb 20 2026 post:
+  "Truly Open Intelligence: By the People, For the People"
+  Subtitle: "Bittensor's governance transition begins as Const
+  steps down as CEO of Opentensor Foundation (OTF). Manifold
+  covers what's next."
+
+CONST STEPPED DOWN AS CEO OF OTF in February 2026. This is a major
+ecosystem fact the desk did not have. Const remains protocol
+co-founder and is now also operating as a subnet founder (Affine
+SN120). The voices.js Const entry must be updated to reflect this
+transition; the desk should NOT keep framing him as 'current OTF
+leader'.
+
+Worth chasing the full Feb 20 Subnet Signal post for governance
+transition detail.
+
+### FIVE NEW SUBNETS surfaced in the briefs (none previously in
+voices.js)
+
+  Compelle (SN82)  Structured debates between AI models for higher-
+                   quality outputs. Mainnet May 8, took over slot
+                   same day after Hermes was deregistered. 4,700
+                   debate games in week one.
+  MVTRX (SN79)     DEX infra for dTAO trading optimized for AI
+                   agents. Validator upgrade expanded simulation
+                   capacity to 128 parallel books. Adding live
+                   Observe Mode, 3D order-book visualization, UID
+                   relationship explorer.
+  Harnyx (SN67)    "Deep research as a commodity". Miners compete
+                   to produce traceable research reports faster and
+                   cheaper than expert analysis. Agent economy
+                   infrastructure layer. Waitlist open.
+  Ditto (SN118)    Persistent memory + knowledge graph for AI
+                   agents. Up 128 percent on the week. Already
+                   powering OpenClaw via MCP with 700+ users.
+                   Recent slot takeover + open-source launch.
+  Bitsec.ai (SN60) AI bug-finding for code and smart contracts.
+                   Up 23 percent on the week.
+  NIOME (SN55)     Biology data + AI for drug discovery and
+                   personalized medicine. Up 22 percent on the
+                   week. New Scottish government partnership +
+                   upcoming summit.
+  Babelbit (SN59)  Translation infrastructure. Up 22 percent on
+                   the week.
+
+(Seven total but Bitsec.ai + Babelbit + NIOME share the same brief
+format so I am counting them as one chunk for editorial purposes.)
+
+### CONFIRMS earlier intel
+  - Cacheon (SN14) rebrand from Taohash, mainnet May 19, gained
+    37 percent on the week. Corroborates the @taomedia_ tip from
+    earlier today.
+  - Oro (SN15) "largest open agent competition" framing consistent
+    with WallStreetBets thesis.
+
+### Suggested follow-up automation
+  - Add the seven new subnets to voices.js (Compelle, MVTRX, Harnyx,
+    Ditto, NIOME, Babelbit, Bitsec) so the Nitter scraper picks
+    them up
+  - Update Const's voices.js entry to reflect Feb 2026 OTF CEO
+    departure
+  - Add Viraj Sahu as a voice (Manifold Labs operator, Subnet
+    Signal author)
+  - The Subnet Signal back-catalog has at least three more posts
+    worth retrieving (Feb 13 "Bittensor's Latest Miners aren't
+    Human", Feb 20 Const stepping down, Mar 20 "The Internet Just
+    Became An AI Lab")
+
+### For the Oracle agent
+This article is high-leverage primary source material. The Conviction
+mechanism walkthrough is the cleanest in the ecosystem. The desk
+should treat this as the canonical citation for any Oracle article
+that touches post-Templar governance changes. The "TAO flow tweak"
+mechanism is new naming; the Oracle should reference it carefully
+and ideally cross-check against on-chain emission data before
+asserting how it scores.
+
+The Const-stepped-down-as-OTF-CEO fact is the more important
+ecosystem context. Any future Oracle article that frames Const as
+a current OTF executive will be WRONG by four months. Update the
+voices.js entry tonight.
+
+---
+
 ## 2026-05-16 19:00 UTC, FLAGSHIP PRIMARY SOURCE from Rondo, the Intel x Manifold Labs joint TDX paper
 Source: Rondo passed through the FULL TEXT of the Intel community
 blog post by Sathi Nair (Intel Employee), Mar 17 2026:
@@ -1318,4 +1460,4 @@ _no posts retrieved · all Nitter instances may be down_
 
 
 ---
-_Generated at 2026-05-16T10:13:30.374802+00:00 by scripts/intel/aggregate.py. Treat this digest as input context, not as ground truth. Verify before quoting._
+_Generated at 2026-05-16T10:22:45.644588+00:00 by scripts/intel/aggregate.py. Treat this digest as input context, not as ground truth. Verify before quoting._
