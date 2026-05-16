@@ -801,7 +801,7 @@ export function mountHome(root, dataLayer = null){
                      keyTimes="0;0.05;0.5;0.95;1" dur="9s" repeatCount="indefinite"/>
           </circle>
         </svg>
-        <p class="home-how__loop-cap">One block of work, six stages. <span>9.2 s · 14 MAY 2026</span></p>
+        <p class="home-how__loop-cap">One block of work, six stages. <span data-bind="how-block-cap">9.2 s</span></p>
       </div>
 
       <!-- LIVE METRICS STRIP — six cells, one per loop stage, each
@@ -813,38 +813,38 @@ export function mountHome(root, dataLayer = null){
         <li class="how-metric" data-stage="subnets">
           <span class="how-metric__n"><span class="how-metric__ord">01</span>SUBNETS</span>
           <span class="how-metric__val" data-bind="how-subnets">92</span>
-          <span class="how-metric__u">active · 256 max</span>
-          <span class="how-metric__bar"><span class="how-metric__bar-fill" style="width:36%"></span></span>
+          <span class="how-metric__u">ACTIVE &middot; 256 MAX</span>
+          <span class="how-metric__bar"><span class="how-metric__bar-fill" data-bind="how-subnets-bar" style="width:36%"></span></span>
         </li>
         <li class="how-metric" data-stage="miners">
           <span class="how-metric__n"><span class="how-metric__ord">02</span>MINERS</span>
           <span class="how-metric__val" data-bind="how-miners">~120k</span>
-          <span class="how-metric__u">across the network</span>
+          <span class="how-metric__u">ACROSS THE NETWORK</span>
           <span class="how-metric__bar"><span class="how-metric__bar-fill" style="width:82%"></span></span>
         </li>
         <li class="how-metric" data-stage="validators">
           <span class="how-metric__n"><span class="how-metric__ord">03</span>VALIDATORS</span>
           <span class="how-metric__val" data-bind="how-vals">~1,800</span>
-          <span class="how-metric__u">scoring miners</span>
+          <span class="how-metric__u">SCORING MINERS</span>
           <span class="how-metric__bar"><span class="how-metric__bar-fill" style="width:48%"></span></span>
         </li>
         <li class="how-metric" data-stage="consensus">
           <span class="how-metric__n"><span class="how-metric__ord">04</span>CONSENSUS</span>
           <span class="how-metric__val" data-bind="how-block">12 s</span>
-          <span class="how-metric__u">Yuma · per block</span>
+          <span class="how-metric__u">YUMA &middot; PER BLOCK</span>
           <span class="how-metric__bar"><span class="how-metric__bar-fill" style="width:18%"></span></span>
         </li>
         <li class="how-metric" data-stage="emissions">
           <span class="how-metric__n"><span class="how-metric__ord">05</span>EMISSIONS</span>
           <span class="how-metric__val" data-bind="how-em"><span class="tau">τ</span>7,200</span>
-          <span class="how-metric__u">per day · post-halving</span>
+          <span class="how-metric__u">PER DAY &middot; POST-HALVING</span>
           <span class="how-metric__bar"><span class="how-metric__bar-fill" style="width:60%"></span></span>
         </li>
         <li class="how-metric" data-stage="dtao">
           <span class="how-metric__n"><span class="how-metric__ord">06</span>dTAO</span>
           <span class="how-metric__val" data-bind="how-amc">$3.3B</span>
-          <span class="how-metric__u">α-MCAP · 92 subnets</span>
-          <span class="how-metric__bar"><span class="how-metric__bar-fill" style="width:74%"></span></span>
+          <span class="how-metric__u"><span class="alpha">α</span>-MCAP &middot; <span data-bind="how-amc-n">92</span> SUBNETS</span>
+          <span class="how-metric__bar"><span class="how-metric__bar-fill" data-bind="how-amc-bar" style="width:74%"></span></span>
         </li>
       </ol>
 
@@ -1954,9 +1954,14 @@ export function mountHome(root, dataLayer = null){
   function renderHowMetrics(list){
     if (!Array.isArray(list) || !list.length) return;
     const n = list.length;
-    const el = qs('[data-bind="how-subnets"]', root);
-    if (el){ el.textContent = String(n); el.classList.add('is-live'); }
-    /* roll up α-MCAP in millions → render as $X.XB if >= 1000 */
+    /* 01 SUBNETS · count + bar fill = active / 256 */
+    const subEl = qs('[data-bind="how-subnets"]', root);
+    if (subEl){ subEl.textContent = String(n); subEl.classList.add('is-live'); }
+    const subBar = qs('[data-bind="how-subnets-bar"]', root);
+    if (subBar) subBar.style.width = Math.min(100, Math.round((n / 256) * 100)) + '%';
+    /* 06 dTAO · sum α-MCAP across the list (millions),
+       update subnet-count tag in the unit line, and scale the bar
+       to ~$5B as a reference upper bound for visual proportion */
     const totMcap = list.reduce((s, x) => s + (typeof x.mcap === 'number' ? x.mcap : 0), 0);
     const amcEl = qs('[data-bind="how-amc"]', root);
     if (amcEl && totMcap > 0){
@@ -1964,17 +1969,24 @@ export function mountHome(root, dataLayer = null){
       amcEl.textContent = v;
       amcEl.classList.add('is-live');
     }
+    const amcN = qs('[data-bind="how-amc-n"]', root);
+    if (amcN) amcN.textContent = String(n);
+    const amcBar = qs('[data-bind="how-amc-bar"]', root);
+    if (amcBar && totMcap > 0) amcBar.style.width = Math.min(100, Math.round((totMcap / 5000) * 100)) + '%';
   }
-  function renderHowMarket(m){
-    if (!m) return;
-    /* nothing else to bind from market for now — α-MCAP comes from
-       subnets above which has per-token mcaps already */
+  function renderHowMarket(_m){
+    /* α-MCAP comes from subnets above, market feed currently
+       has nothing else to bind here */
   }
   function renderHowChain(c){
     if (!c) return;
     if (typeof c.blockTime === 'number'){
+      const txt = c.blockTime.toFixed(0) + ' s';
       const el = qs('[data-bind="how-block"]', root);
-      if (el){ el.textContent = c.blockTime.toFixed(0) + ' s'; el.classList.add('is-live'); }
+      if (el){ el.textContent = txt; el.classList.add('is-live'); }
+      /* also update the caption under the loop SVG (no date there now) */
+      const cap = qs('[data-bind="how-block-cap"]', root);
+      if (cap) cap.textContent = txt;
     }
     if (typeof c.emissionPerDay === 'number'){
       const el = qs('[data-bind="how-em"]', root);
