@@ -24,24 +24,34 @@ export class PlexusGlyph extends Chart {
   /**
    * @param {HTMLCanvasElement} canvas
    * @param {{
-   *   imageSrc?: string,   // logo image URL; if present, sampled as glyph
-   *   text?:    string,    // fallback text glyph if no image
-   *   density?: number,    // foreground dot density (0..1)
-   *   ambient?: number,    // ambient background dot count
-   *   seed?:    number,
-   *   weight?:  'normal' | 'bold' | '900',
-   *   stretch?: boolean    // size the text to fill the canvas
+   *   imageSrc?:    string,   // logo image URL; if present, sampled as glyph
+   *   text?:        string,   // fallback text glyph if no image
+   *   density?:     number,   // foreground dot density (0..1)
+   *   ambient?:     number,   // ambient background dot count
+   *   seed?:        number,
+   *   weight?:      'normal' | 'bold' | '900',
+   *   stretch?:     boolean,  // size the text to fill the canvas
+   *   dotSize?:     number,   // dot radius in CSS pixels
+   *   maxEdgeDist?: number,   // KNN max edge as fraction of min(w,h)
+   *   K?:           number,   // KNN nearest-neighbor count
+   *   maxDots?:     number,   // hard cap on foreground sample count
+   *   supersample?: number,   // off-canvas multiplier for finer sampling
    * }} [opts]
    */
   constructor(canvas, opts = {}){
     super(canvas, { animate: true });
-    this.imageSrc = opts.imageSrc || null;
-    this.text     = (opts.text || 'ORACLE').toString();
-    this.density  = opts.density ?? 0.55;
-    this.ambient  = opts.ambient ?? 80;
-    this.seed     = (opts.seed   ?? 1) >>> 0;
-    this.weight   = opts.weight  || '900';
-    this.stretch  = opts.stretch !== false;
+    this.imageSrc    = opts.imageSrc || null;
+    this.text        = (opts.text || 'ORACLE').toString();
+    this.density     = opts.density     ?? 0.55;
+    this.ambient     = opts.ambient     ?? 80;
+    this.seed        = (opts.seed       ?? 1) >>> 0;
+    this.weight      = opts.weight      || '900';
+    this.stretch     = opts.stretch !== false;
+    this.dotSize     = opts.dotSize     ?? 1.6;
+    this.maxEdgeDist = opts.maxEdgeDist ?? 0.045;
+    this.K           = opts.K           ?? 3;
+    this.maxDots     = opts.maxDots     ?? 800;
+    this.supersample = opts.supersample ?? 2;
 
     /** glyph sample points (foreground) */
     this._fg = [];
@@ -72,15 +82,17 @@ export class PlexusGlyph extends Chart {
     const rng = mulberry32(this.seed * 9176 + 1);
 
     /* Render the glyph (image if loaded, text otherwise) into an
-       off-screen canvas, then sample it. Image branch uses an
-       adaptive foreground extraction that samples the corner
-       pixels as background and selects anything whose color differs
-       by more than a threshold; that handles logos with any color
-       scheme without per-logo tuning. */
+       off-screen canvas at supersample x display, then sample it.
+       Higher off-canvas resolution = finer SVG rasterization = more
+       precise silhouette dots. Sampled coords get divided back into
+       CSS-pixel space before storing. */
+    const ss = Math.max(1, this.supersample);
     const off = document.createElement('canvas');
-    off.width  = Math.max(8, Math.floor(w));
-    off.height = Math.max(8, Math.floor(h));
+    off.width  = Math.max(8, Math.floor(w * ss));
+    off.height = Math.max(8, Math.floor(h * ss));
     const oc = off.getContext('2d');
+    oc.imageSmoothingEnabled = true;
+    oc.imageSmoothingQuality = 'high';
     oc.fillStyle = '#000';
     oc.fillRect(0, 0, off.width, off.height);
 
@@ -151,27 +163,28 @@ export class PlexusGlyph extends Chart {
       oc.fillText(this.text, off.width / 2, off.height / 2);
     }
 
-    /* 2. Sample non-empty pixels on a stride grid. The stride
-          controls dot density; a smaller stride means more dots. */
+    /* 2. Sample non-empty pixels on a stride grid. The stride is in
+          off-canvas (supersampled) pixels; smaller stride = more
+          dots = finer silhouette. We divide sampled coords back into
+          CSS-pixel space because the chart draws against the
+          DPR-transformed main context. */
     const data = oc.getImageData(0, 0, off.width, off.height).data;
-    const stride = Math.max(4, Math.round(7 - this.density * 4));
+    const baseStride = Math.max(2, Math.round(6 - this.density * 4));
+    const stride = baseStride * ss;
     const fg = [];
     for (let y = 0; y < off.height; y += stride){
       for (let x = 0; x < off.width; x += stride){
         const idx = (y * off.width + x) * 4;
-        /* sample green channel (white text on black bg, RGB all equal) */
         if (data[idx + 1] > 90){
-          /* small jitter so the grid does not read as a regular grid */
-          const jx = x + (rng() - 0.5) * stride * 0.6;
-          const jy = y + (rng() - 0.5) * stride * 0.6;
-          fg.push([jx, jy]);
+          const jx = x + (rng() - 0.5) * stride * 0.5;
+          const jy = y + (rng() - 0.5) * stride * 0.5;
+          fg.push([jx / ss, jy / ss]);
         }
       }
     }
-    /* Cap to a sensible upper bound for frame budget */
-    const MAX_FG = 900;
+    /* Cap to the configured upper bound for frame budget */
+    const MAX_FG = this.maxDots;
     if (fg.length > MAX_FG){
-      /* sample uniformly */
       const keep = [];
       const step = fg.length / MAX_FG;
       for (let i = 0; i < MAX_FG; i++) keep.push(fg[Math.floor(i * step)]);
@@ -193,12 +206,13 @@ export class PlexusGlyph extends Chart {
     this._phase = this._fg.map(() => rng() * Math.PI * 2);
 
     /* 5. Pre-compute foreground edges: each point connects to its K
-          nearest neighbors below a distance threshold. Computed once
-          at layout because the points themselves do not move. */
+          nearest neighbors below a distance threshold. Tight maxD
+          keeps edges along the silhouette rather than blobbing
+          across the interior. */
     this._edges = [];
-    const K = 3;
-    const maxD = Math.max(off.width, off.height) * 0.045;
-    /* O(N^2) is fine at N<=900 since this runs once on resize */
+    const K = this.K;
+    const maxD = Math.min(w, h) * this.maxEdgeDist;
+    const maxD2 = maxD * maxD;
     for (let i = 0; i < this._fg.length; i++){
       const [xi, yi] = this._fg[i];
       const cand = [];
@@ -207,12 +221,12 @@ export class PlexusGlyph extends Chart {
         const dx = this._fg[j][0] - xi;
         const dy = this._fg[j][1] - yi;
         const d2 = dx * dx + dy * dy;
-        if (d2 < maxD * maxD) cand.push([d2, j]);
+        if (d2 < maxD2) cand.push([d2, j]);
       }
       cand.sort((a, b) => a[0] - b[0]);
       for (let k = 0; k < Math.min(K, cand.length); k++){
         const j = cand[k][1];
-        if (j > i) this._edges.push([i, j]);  /* dedupe */
+        if (j > i) this._edges.push([i, j]);
       }
     }
   }
@@ -275,7 +289,7 @@ export class PlexusGlyph extends Chart {
       const a = 0.78 + 0.20 * Math.sin(t * 1.4 + ph);
       ctx.fillStyle = `rgba(255,90,110,${a.toFixed(3)})`;
       ctx.beginPath();
-      ctx.arc(x, y, 1.9, 0, Math.PI * 2);
+      ctx.arc(x, y, this.dotSize, 0, Math.PI * 2);
       ctx.fill();
     }
     ctx.restore();
@@ -293,7 +307,7 @@ export class PlexusGlyph extends Chart {
       ctx.shadowColor = '#FF1E3C';
       ctx.shadowBlur = 14;
       ctx.beginPath();
-      ctx.arc(x, y, 2.8, 0, Math.PI * 2);
+      ctx.arc(x, y, this.dotSize * 1.7, 0, Math.PI * 2);
       ctx.fill();
     }
     ctx.restore();

@@ -1957,10 +1957,15 @@ export function mountHome(root, dataLayer = null){
     const imgUrl = SUBNET_LOGOS[subnetSlug] || FALLBACK_LOGO;
     try {
       oracleMarks.push(new PlexusGlyph(cv, {
-        imageSrc: imgUrl,
-        density:  0.62,
-        ambient:  0,           /* sphere already provides background */
-        seed:     i + 1,
+        imageSrc:    imgUrl,
+        density:     0.88,    /* tight stride for fine silhouette */
+        ambient:     0,       /* sphere already provides background */
+        maxDots:     1400,    /* afford the detail on the small canvas */
+        maxEdgeDist: 0.028,   /* edges hug the silhouette, no blobbing */
+        K:           3,
+        dotSize:     1.25,    /* small dots so dense plexus reads clean */
+        supersample: 3,       /* rasterize SVG at 3x for sharp edges */
+        seed:        i + 1,
       }));
     } catch (_) {}
   });
