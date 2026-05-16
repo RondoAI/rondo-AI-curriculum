@@ -242,13 +242,23 @@ export class PlexusGlyph extends Chart {
     }
     ctx.restore();
 
-    /* 2. Foreground edges (the glyph's structural mesh). */
+    /* 2. Foreground edges (the glyph's structural mesh). Two passes
+          for depth: a soft red underlayer for the bloom, a brighter
+          crisp line on top so the silhouette reads sharply. */
     ctx.save();
-    ctx.strokeStyle = 'rgba(255,30,60,0.55)';
-    ctx.lineWidth = 0.7;
+    ctx.strokeStyle = 'rgba(255,30,60,0.30)';
+    ctx.lineWidth = 1.8;
     for (const [i, j] of this._edges){
-      const a = this._fg[i];
-      const b = this._fg[j];
+      const a = this._fg[i], b = this._fg[j];
+      ctx.beginPath();
+      ctx.moveTo(a[0], a[1]);
+      ctx.lineTo(b[0], b[1]);
+      ctx.stroke();
+    }
+    ctx.strokeStyle = 'rgba(255,77,96,0.75)';
+    ctx.lineWidth = 0.85;
+    for (const [i, j] of this._edges){
+      const a = this._fg[i], b = this._fg[j];
       ctx.beginPath();
       ctx.moveTo(a[0], a[1]);
       ctx.lineTo(b[0], b[1]);
@@ -262,10 +272,10 @@ export class PlexusGlyph extends Chart {
     for (let i = 0; i < this._fg.length; i++){
       const [x, y] = this._fg[i];
       const ph = this._phase[i];
-      const a = 0.62 + 0.28 * Math.sin(t * 1.4 + ph);
-      ctx.fillStyle = `rgba(255,77,96,${a.toFixed(3)})`;
+      const a = 0.78 + 0.20 * Math.sin(t * 1.4 + ph);
+      ctx.fillStyle = `rgba(255,90,110,${a.toFixed(3)})`;
       ctx.beginPath();
-      ctx.arc(x, y, 1.6, 0, Math.PI * 2);
+      ctx.arc(x, y, 1.9, 0, Math.PI * 2);
       ctx.fill();
     }
     ctx.restore();
@@ -273,17 +283,17 @@ export class PlexusGlyph extends Chart {
     /* 4. A few brighter "hot" pulses on a slow rotating selection of
           points so the eye keeps catching new ones. */
     ctx.save();
-    const hotCount = Math.max(3, Math.floor(this._fg.length / 50));
+    const hotCount = Math.max(4, Math.floor(this._fg.length / 35));
     for (let k = 0; k < hotCount; k++){
       const idx = Math.floor(
         ((Math.sin(t * 0.4 + k * 1.7) + 1) / 2) * this._fg.length,
       ) % this._fg.length;
       const [x, y] = this._fg[idx];
-      ctx.fillStyle = 'rgba(255,128,148,0.95)';
+      ctx.fillStyle = 'rgba(255,150,170,1.0)';
       ctx.shadowColor = '#FF1E3C';
-      ctx.shadowBlur = 10;
+      ctx.shadowBlur = 14;
       ctx.beginPath();
-      ctx.arc(x, y, 2.4, 0, Math.PI * 2);
+      ctx.arc(x, y, 2.8, 0, Math.PI * 2);
       ctx.fill();
     }
     ctx.restore();

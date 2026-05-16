@@ -233,8 +233,35 @@ export function mountHome(root, dataLayer = null){
           rgba(255,30,60,.55) 92%,
           transparent 100%);
       }
+      /* Cover: dark radial backdrop with a hint of red bloom at the
+         center where the sphere sits, plus an inset vignette that
+         pulls the eye toward the focus. PS5-style depth. */
       .home-article--oracle .home-article__art{
-        background: radial-gradient(ellipse at 30% 30%, #15131f 0%, #08070d 70%);
+        background:
+          radial-gradient(circle at 50% 50%,
+            rgba(255,30,60,.10) 0%,
+            rgba(20,10,14,1) 38%,
+            #07060a 78%);
+        box-shadow:
+          inset 0 0 60px 8px rgba(0,0,0,.55),
+          inset 0 0 18px 0  rgba(255,30,60,.22);
+        overflow: hidden;
+        isolation: isolate;
+      }
+      /* Subtle holographic scan line ladder, low opacity, gives the
+         cover that "looking at a HUD" texture without distracting. */
+      .home-article--oracle .home-article__art::after{
+        content: "";
+        position: absolute;
+        inset: 0;
+        pointer-events: none;
+        background: repeating-linear-gradient(
+          to bottom,
+          rgba(255,30,60,0)    0px,
+          rgba(255,30,60,0)    2px,
+          rgba(255,30,60,.035) 3px);
+        mix-blend-mode: screen;
+        z-index: 3;
       }
       /* The sphere canvas fills the cover area; this is the canonical
          NodeSphere brand mark, identical engine and params to the one
@@ -245,38 +272,60 @@ export function mountHome(root, dataLayer = null){
         width: 100%;
         height: 100%;
         display: block;
+        z-index: 1;
+        filter: drop-shadow(0 0 18px rgba(255,30,60,.32));
       }
-      /* The glyph canvas overlays the sphere, centered, sized smaller
-         so the logo plexus reads as living INSIDE the spinning sphere.
-         Mix-blend-mode lighten so the bright red glyph sits cleanly on
-         top of the sphere edges without painting black over them. */
+      /* The glyph canvas overlays the sphere, centered, sized so the
+         logo plexus reads as suspended inside the rotating sphere.
+         Drop shadow gives the dots a soft red bloom; no blend mode
+         so the bright red dominates cleanly without washing out. */
       .home-article--oracle .home-article__glyph{
         position: absolute;
         left: 50%; top: 50%;
         transform: translate(-50%, -50%);
-        width: 55%;
-        height: 55%;
+        width: 62%;
+        height: 62%;
         display: block;
         pointer-events: none;
-        mix-blend-mode: screen;
+        z-index: 2;
+        filter: drop-shadow(0 0 10px rgba(255,30,60,.55));
       }
+      /* Refined badge: smaller, glassy, glowing. Uses backdrop-filter
+         where supported so it sits cleanly on the busy sphere behind. */
       .home-article--oracle .home-article__oracle-badge{
         position: absolute;
-        top: 12px; right: 12px;
-        z-index: 2;
+        top: 10px; right: 10px;
+        z-index: 4;
         font-family: var(--f-mono, monospace);
-        font-size: 9px;
-        font-weight: 800;
-        letter-spacing: .18em;
-        padding: 4px 8px;
-        background: rgba(0,0,0,.72);
-        border: 1px solid var(--c-red, #FF1E3C);
-        border-radius: 3px;
+        font-size: 8.5px;
+        font-weight: 700;
+        letter-spacing: .22em;
+        padding: 4px 9px 3px;
+        background: rgba(8,4,6,.62);
+        backdrop-filter: blur(6px) saturate(140%);
+        -webkit-backdrop-filter: blur(6px) saturate(140%);
+        border: 1px solid rgba(255,30,60,.7);
+        border-radius: 2px;
         color: #fff;
-        box-shadow: 0 0 12px rgba(255,30,60,.35);
+        text-shadow: 0 0 8px rgba(255,30,60,.65);
+        box-shadow:
+          0 0 10px rgba(255,30,60,.32),
+          inset 0 0 8px rgba(255,30,60,.18);
       }
       .home-article--oracle .home-article__kicker{
         color: var(--c-red, #FF1E3C);
+        text-shadow: 0 0 6px rgba(255,30,60,.4);
+      }
+      /* Smooth hover lift: subtle scale on the sphere + brighter
+         glow, no jumpy size changes elsewhere. */
+      .home-article--oracle .home-article__link:hover .home-article__sphere{
+        filter: drop-shadow(0 0 24px rgba(255,30,60,.55));
+        transform: scale(1.02);
+        transition: transform .35s ease, filter .35s ease;
+      }
+      .home-article--oracle .home-article__link:hover .home-article__glyph{
+        filter: drop-shadow(0 0 16px rgba(255,30,60,.85));
+        transition: filter .35s ease;
       }
     </style>
     <section class="home-research home-research--oracle" aria-label="Subnet Oracle research desk">
