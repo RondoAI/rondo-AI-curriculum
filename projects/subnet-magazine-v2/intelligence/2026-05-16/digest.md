@@ -5,6 +5,78 @@ _Single-file briefing for the daily research agent. Sources listed in trust orde
 
 ## ⊕ HUMAN-CURATED NOTES, last 7 days
 
+## 2026-05-16 18:25 UTC, PENDING SCREENSHOT from Rondo, Score Vision console "cricket balltrack starter pack"
+Source: Rondo passed the URL:
+  https://console.scorevision.io/upcoming/manak0-element-cricket-balltrack-starter-pack
+
+The desk could not extract the page content server-side. The console
+is a JavaScript-rendered single-page app (Tailwind shell with a
+"manako" color palette in the inline config, but the actual starter-
+pack data loads via JS after auth). curl + WebFetch both return the
+empty shell. No Open Graph meta, no JSON-LD, no preload data, no
+public API endpoint at the obvious guesses.
+
+### What the URL tells us by inference alone
+- Hosted on console.scorevision.io (Score's operational dashboard,
+  distinct from theredteam.io / scorevision.io brand domains)
+- Path "/upcoming/..." signals this is a NOT-YET-LIVE element on the
+  subnet. Worth tracking the launch date when it lands.
+- "manak0" is likely a typo / slug-friendly spelling of "Manako"
+  (Score's enterprise product layer, per today's 18:10 Score logs)
+- "element" matches the terminology from the TurboVision miner docs:
+  Score's private track is organized into ELEMENTS, where each
+  element has a single ground-truth type. Existing elements:
+  football (soccer_action) and cricket (cricket_delivery). This
+  page is a NEW cricket element specifically focused on
+  ball-tracking.
+- "balltrack" is the operational name for what the TurboVision
+  cricket schema already produces: {kph, bounce_x, stump_y}. So
+  this starter pack likely concretizes a new cricket-balltrack-
+  specialist element on top of (or replacing) the current
+  cricket_delivery scoring.
+- "starter pack" is novel naming. Probable contents (inference from
+  the term and from how the team has shipped other elements):
+    - Template miner repo with the right schema preset
+    - Sample challenge inputs (small video clips)
+    - Sample ground-truth files
+    - Possibly a small pretrained baseline model
+    - Container scaffolding (Dockerfile, deployment script)
+  Goal: lower the time-to-first-submission for miners onboarding
+  to a new element.
+
+### Why this matters even without the page contents
+This is direct evidence that Score is shipping a new private-track
+element AHEAD of the broader rollout PwC's global blockchain
+community pitch will trigger. The cadence matters: Score is
+populating the catalog of enterprise-ready computer-vision elements
+in advance of distribution scaling. Cricket ball-tracking is also
+notable because cricket has a defined commercial buyer set
+(broadcasters, coaching staff, sportsbook data feeds) where the
+output schema {kph, bounce_x, stump_y} maps directly to existing
+product surfaces.
+
+### What I need from Rondo to log this fully
+A screenshot of the rendered page would let me extract:
+  - The starter pack's actual contents (model weights? sample data?
+    code template? Docker image tag?)
+  - Launch date for the new element
+  - Any miner registration / eligibility criteria
+  - Pricing or emission allocation for the new element
+  - Whether this replaces or supplements the current cricket_delivery
+    element
+
+Asking explicitly. If Rondo can drop a screenshot the next time he
+has the page open, the desk can convert this PENDING SCREENSHOT
+entry into a full primary-source log alongside the TurboVision miner
+docs and the PwC alliance recap from earlier today.
+
+For now, leaving this as a watchlist item the next Oracle agent run
+can include as "Score is shipping a new cricket-balltrack private
+element, likely a Manako-branded vertical, currently in /upcoming
+on the console" with appropriate hedging.
+
+---
+
 ## 2026-05-16 18:10 UTC, TWO SCORE TIPS from Rondo, technical mining docs + PwC alliance recap
 Sources: Rondo passed through two related artifacts:
   1. https://github.com/score-technologies/turbovision/blob/main/scorevision/miner/private_track/MINER.md
@@ -1001,4 +1073,4 @@ _no posts retrieved · all Nitter instances may be down_
 
 
 ---
-_Generated at 2026-05-16T10:07:10.413769+00:00 by scripts/intel/aggregate.py. Treat this digest as input context, not as ground truth. Verify before quoting._
+_Generated at 2026-05-16T10:08:39.549659+00:00 by scripts/intel/aggregate.py. Treat this digest as input context, not as ground truth. Verify before quoting._
