@@ -991,18 +991,11 @@
     0 24px 60px -32px rgba(255,30,60,.35);
 }
 .home-stack__chart-head{
-  display: grid;
-  grid-template-columns: clamp(80px, 13%, 116px) 1fr clamp(54px, 9%, 80px);
-  column-gap: var(--s-3);
-  margin-bottom: var(--s-3);
-  padding-bottom: 6px;
-  border-bottom: 1px dashed var(--c-rule-2);
-  font-family: var(--f-mono);
-  font-size: 9.5px;
-  font-weight: 700;
-  letter-spacing: var(--ls-label);
-  text-transform: uppercase;
-  align-items: end;
+  /* Global column-header was a 3-col grid aligned with the old
+     row layout. Now each row carries its own LAYER / $cap /
+     $bittensor / gap labels inline, so the global header is
+     redundant. Hidden. */
+  display: none;
 }
 .home-stack__chart-axis-bar{
   display: flex;
@@ -1043,10 +1036,29 @@
   gap: 8px;
 }
 .home-stack__chart-row{
+  /* per-layer card: a head row with the layer name + price labels
+     + gap, then a full-width bar below it. cleaner than the old
+     three-column grid that floated the layer name beside a
+     bar-with-labels-on-top and read awkwardly on phones. */
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  padding: 4px 0;
+}
+.home-stack__chart-head-row{
   display: grid;
-  grid-template-columns: clamp(80px, 13%, 116px) 1fr clamp(54px, 9%, 80px);
-  align-items: center;
-  gap: var(--s-3);
+  grid-template-columns: 1fr auto auto auto;
+  align-items: baseline;
+  column-gap: var(--s-3);
+  font-family: var(--f-mono);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: var(--ls-data);
+  font-variant-numeric: tabular-nums;
+  line-height: 1.1;
+}
+@media (max-width: 720px){
+  .home-stack__chart-head-row{ column-gap: var(--s-2); font-size: 10.5px; }
 }
 .home-stack__chart-layer{
   font-family: var(--f-mono);
@@ -1128,32 +1140,10 @@
   box-shadow: 0 0 18px rgba(255,30,60,.6) inset;
   min-width: 0;
 }
-/* ---------- middle column: labels stacked over the bar ----------
-   Was: $-values rendered INSIDE the bar segments via
-   position: absolute caps. Pulled out so:
-     - readable regardless of bar proportion (the MODEL row's
-       Bittensor bar is ~1% wide, the old caps clipped to garbled
-       characters like 'L39' inside it)
-     - bars stay purely visual: ratio at a glance
-     - same horizontal grid line, one row per layer */
-.home-stack__chart-mid{
-  display: flex;
-  flex-direction: column;
-  gap: 4px;
-  min-width: 0;
-}
-.home-stack__chart-labels{
-  display: flex;
-  align-items: baseline;
-  justify-content: space-between;
-  gap: var(--s-2);
-  font-family: var(--f-mono);
-  font-size: 11px;
-  font-weight: 700;
-  letter-spacing: var(--ls-data);
-  font-variant-numeric: tabular-nums;
-  line-height: 1;
-}
+/* ---------- price labels (live in the chart head row) ----------
+   centralized in ink, Bittensor in red — both inherit font from
+   .chart-head-row. nowrap so a long $1.7T or $181M doesn't wrap
+   inside its own grid cell. */
 .home-stack__chart-c-lbl{
   color: var(--c-ink-2);
   white-space: nowrap;
@@ -1163,10 +1153,13 @@
   white-space: nowrap;
   text-shadow: 0 0 6px rgba(255,30,60,.35);
 }
-/* PROTOCOL row: Bittensor-only label aligned right, Bittensor red */
+/* PROTOCOL row: no centralized side, Bittensor label takes the
+   middle of the head row. */
 .home-stack__chart-row.is-inverted .home-stack__chart-c-lbl{ display: none; }
-.home-stack__chart-row.is-inverted .home-stack__chart-b-lbl{ margin-left: auto; }
 
+/* legacy caps (rendered when the values lived inside the bar
+   segments) — kept defined here as display:none so any cached
+   call site / older template doesn't paint garbage. */
 .home-stack__chart-c-cap,
 .home-stack__chart-b-cap{ display: none; }
 .home-stack__chart-c-cap{ color: var(--c-ink-2); }
@@ -1527,13 +1520,9 @@
     column-gap: var(--s-2);
     font-size: 9px;
   }
-  .home-stack__chart-row{
-    grid-template-columns: 70px 1fr 56px;
-    gap: var(--s-2);
-  }
-  .home-stack__chart-bar{ height: 26px; }
-  .home-stack__chart-c-cap,
-  .home-stack__chart-b-cap{ font-size: 9px; }
+  /* chart-row is now a flex column on every viewport; nothing
+     extra to override at the row level on phones. */
+  .home-stack__chart-bar{ height: 22px; }
   .home-stack__row > div{
     border-right: 0;
     border-bottom: var(--b-thin);

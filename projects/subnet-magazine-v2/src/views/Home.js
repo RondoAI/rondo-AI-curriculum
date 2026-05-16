@@ -445,23 +445,21 @@ export function mountHome(root, dataLayer = null){
                 const gapStr = inverted ? '100%' : gap(r.cap, r.aMcap);
                 return `
                   <li class="home-stack__chart-row ${inverted ? 'is-inverted' : ''}" data-layer="${r.layer.toLowerCase()}">
-                    <span class="home-stack__chart-layer">
-                      ${r.layer}
-                      <span class="home-stack__chart-conf" title="confidence: ${r.conf}" style="background:${confColor(r.conf)};box-shadow:0 0 6px ${confColor(r.conf)};"></span>
-                    </span>
-                    <div class="home-stack__chart-mid">
-                      <div class="home-stack__chart-labels">
-                        <span class="home-stack__chart-c-lbl">
-                          ${inverted ? '—' : fmt(r.cap)}<span class="home-stack__chart-yr">${inverted ? '' : r.yr}</span>
-                        </span>
-                        <span class="home-stack__chart-b-lbl">${fmtM(r.aMcap)}</span>
-                      </div>
-                      <span class="home-stack__chart-bar">
-                        <span class="home-stack__chart-c" style="width: ${cw}%"></span>
-                        <span class="home-stack__chart-b" style="width: ${bw}%"></span>
+                    <div class="home-stack__chart-head-row">
+                      <span class="home-stack__chart-layer">
+                        ${r.layer}
+                        <span class="home-stack__chart-conf" title="confidence: ${r.conf}" style="background:${confColor(r.conf)};box-shadow:0 0 6px ${confColor(r.conf)};"></span>
                       </span>
+                      <span class="home-stack__chart-c-lbl">
+                        ${inverted ? '—' : fmt(r.cap)}<span class="home-stack__chart-yr">${inverted ? '' : r.yr}</span>
+                      </span>
+                      <span class="home-stack__chart-b-lbl">${fmtM(r.aMcap)}</span>
+                      <span class="home-stack__chart-gap ${inverted ? 'is-inverted' : ''}">${gapStr}</span>
                     </div>
-                    <span class="home-stack__chart-gap ${inverted ? 'is-inverted' : ''}">${gapStr}</span>
+                    <span class="home-stack__chart-bar">
+                      <span class="home-stack__chart-c" style="width: ${cw}%"></span>
+                      <span class="home-stack__chart-b" style="width: ${bw}%"></span>
+                    </span>
                   </li>
                 `;
               }).join('')}
