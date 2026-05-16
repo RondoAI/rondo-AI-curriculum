@@ -9,7 +9,7 @@ paywalled: false
 wordcount: 9673
 url: "https://newsletter.semianalysis.com/p/america-is-missing-the-new-labor-economy-robotics-part-1"
 post_id: 174558494
-captured_at: "2026-05-16T10:40:17.424561+00:00"
+captured_at: "2026-05-16T10:49:47.154211+00:00"
 ---
 
 # America Is Missing The New Labor Economy - Robotics Part 1

@@ -9,7 +9,7 @@ paywalled: false
 wordcount: 3676
 url: "https://newsletter.semianalysis.com/p/the-great-gpu-shortage-rental-capacity"
 post_id: 192707025
-captured_at: "2026-05-16T10:40:15.749677+00:00"
+captured_at: "2026-05-16T10:48:22.605460+00:00"
 ---
 
 # The Great GPU Shortage – Rental Capacity – Launching our H100 1 Year Rental Price Index
