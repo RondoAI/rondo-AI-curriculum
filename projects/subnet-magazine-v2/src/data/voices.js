@@ -75,9 +75,6 @@ export const VOICES = Object.freeze([
   { handle:'mcjkula',      name:'mcjkula',        role:'Mechanism design, dTAO internals',      group:'core',
     subnets:[],
     bio:'Mechanism designer behind dTAO and the chain\'s deeper incentive math. Voice on dTAO bonding curves and weight aggregation.' },
-  { handle:'samueldare',   name:'Sam Dare',       role:'Founder · Templar (Covenant-72B)',      group:'core',
-    brand:'templar', site:'https://tplr.ai', subnets:[3],
-    bio:'Founder of Templar (SN3), the team that shipped Covenant-72B, the most credible decentralized model in the network. Public exit from Bittensor in April 2026 was the defining governance event of the year.' },
 
   /* =========================================================
      FUNDS & CAPITAL — institutional allocators with public
