@@ -500,6 +500,9 @@ export function mountHome(root, dataLayer = null){
             ],
             unit:    'COST PER USER · centralized prices its margin in; Bittensor prices it out.',
             verdict: 'ChatGPT alone is ~440× the entire Bittensor application stack at the application layer. Wallet share is the slowest moat to disrupt and the layer isn\'t the bet.',
+            tam:     '$200B+ AI software TAM by 2030 (Gartner)',
+            recent:  'ChatGPT crossed 1B WAU (Mar ’26); Cursor revenue 8× YoY.',
+            watch:   'Agent-first apps (Operator, Devin) capturing power-user spend.',
           },
           {
             layer: 'AGENT',
@@ -518,6 +521,9 @@ export function mountHome(root, dataLayer = null){
             ],
             unit:    'BENCHMARK PARITY · agent eval scores 60-70% on SWE-bench; first to clear 90% takes the layer.',
             verdict: 'Narrowest absolute gap on the chart, but the centralized side has shipped: Claude Code is at $1.5B ARR and Agentforce at $700M+. First decentralized agent to clear 90% on SWE-bench takes the layer.',
+            tam:     '~$120B agent SaaS by 2028 (Gartner)',
+            recent:  'Claude Sonnet 4.6 with computer-use shipped Apr ’26; Devin GA.',
+            watch:   'SWE-bench leaderboard — first model to clear 90% sets the price.',
           },
           {
             layer: 'MODEL',
@@ -538,6 +544,9 @@ export function mountHome(root, dataLayer = null){
             ],
             unit:    'MMLU PARITY · Templar-72B (Mar ’26) hit 67.1, beating Llama-2-70B (65.6).',
             verdict: 'Worst capital gap on the chart, best technical signal. Templar-72B is the first decentralized result within striking distance of frontier — Apache 2.0, cited by Jack Clark, discussed by Jensen Huang. Open weights vs proprietary capture.',
+            tam:     '~$1.3T foundation-model market by 2032 (Bloomberg)',
+            recent:  'Templar-72B hit 67.1 MMLU; SparseLoCo cut inter-node bandwidth 146×.',
+            watch:   'Teutonic trillion-param run targeted late May ’26.',
           },
           {
             layer: 'INFERENCE',
@@ -556,6 +565,9 @@ export function mountHome(root, dataLayer = null){
             ],
             unit:    'TOKENS PER DAY · Chutes alone serves ~100B tokens/day, 5M daily requests (Apr ’26).',
             verdict: 'Cost-per-token is the front line. Serverless GPU on SN64 already underprices Together for batch jobs; the latency gap on interactive workloads is closing on every B200 generation.',
+            tam:     '~$255B AI inference compute by 2030 (Sacra)',
+            recent:  'Chutes B200 fleet live; Targon shipped per-request bandwidth pricing.',
+            watch:   'Interactive-latency parity on Llama-3-70B serving.',
           },
           {
             layer: 'DATA',
@@ -575,6 +587,9 @@ export function mountHome(root, dataLayer = null){
             ],
             unit:    'B2B FLYWHEEL · first publicly-disclosed inter-subnet contract: SN13 → SN44 in Q1 ’26.',
             verdict: 'Scale AI is $29B post-Meta and the layer is fundamentally about labour arbitrage. Subnet-to-subnet B2B is the proof that decentralized data has a real fly-wheel; SN13 → SN44 was the prototype.',
+            tam:     '~$100B data labelling + services market',
+            recent:  'Meta closed Scale AI acquisition Q4 ’25 ($29B); Surge AI raised at $25B.',
+            watch:   'SN13 → SN44 contract flow scales beyond pilot.',
           },
           {
             layer: 'COMPUTE',
@@ -596,6 +611,9 @@ export function mountHome(root, dataLayer = null){
             ],
             unit:    'CAPEX BURN · MSFT+GOOG+META+AMZN FY26 capex ~$725B total, ~$450B AI-specific.',
             verdict: 'You don\'t out-capex Microsoft. The play is aggregator economics — coordinate the long-tail GPU supply that hyperscalers don\'t bid on. Chutes\' B200 deployment is the live test.',
+            tam:     '~$725B hyperscaler capex FY26 (CNBC)',
+            recent:  'CoreWeave IPO at $23B (Mar ’26); H200/B200 cycle in full swing.',
+            watch:   'Long-tail GPU aggregation — Chutes / Lium B200 onboarding cadence.',
           },
           {
             layer: 'PROTOCOL',
@@ -611,6 +629,9 @@ export function mountHome(root, dataLayer = null){
             ],
             unit:    'TAO MARKET CAP · $3.3B live, 21M cap, halving #2 due Dec ’29.',
             verdict: 'The only layer where Bittensor owns the field. No centralized product coordinates a network of AI workers like Yuma does. The asymmetric bet sits here, not above.',
+            tam:     'Bittensor owns the field — no centralized analog.',
+            recent:  'BIT-0011 Conviction Mechanism rolled out May ’26.',
+            watch:   'Post-Covenant governance test — community continuation of SN3 / 39 / 81.',
           },
         ].map((row, i) => {
           const fmt  = (b) => b === 0 ? '—' :
@@ -625,6 +646,16 @@ export function mountHome(root, dataLayer = null){
               <span class="home-stack__layer-name">${row.layer}</span>
               <span class="home-stack__layer-sub">${row.sub}</span>
             </div>
+
+            ${row.tam || row.recent || row.watch ? `
+            <div class="home-stack__intel">
+              <span class="home-stack__col-lbl">MARKET INTEL</span>
+              <dl class="home-stack__intel-list">
+                ${row.tam    ? `<div class="home-stack__intel-row"><dt>TAM</dt><dd>${row.tam}</dd></div>`       : ''}
+                ${row.recent ? `<div class="home-stack__intel-row"><dt>RECENT</dt><dd>${row.recent}</dd></div>` : ''}
+                ${row.watch  ? `<div class="home-stack__intel-row"><dt>WATCH</dt><dd>${row.watch}</dd></div>`   : ''}
+              </dl>
+            </div>` : ''}
 
             <div class="home-stack__capital">
               <span class="home-stack__col-lbl">CAPITAL · CENTRALIZED vs BITTENSOR</span>

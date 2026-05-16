@@ -1288,6 +1288,49 @@
   margin: 0; padding: 0;
   display: flex; flex-wrap: wrap; gap: 6px;
 }
+/* MARKET INTEL block: TAM / RECENT / WATCH — a compact 3-row
+   definition list above the capital comparison. Three labelled
+   cells separated by hairlines; each cell pairs a 3-letter tag
+   with one short editorial line. Adds depth without bloating
+   the card. */
+.home-stack__intel{
+  margin: var(--s-3) 0;
+}
+.home-stack__intel-list{
+  margin: var(--s-1) 0 0;
+  display: flex;
+  flex-direction: column;
+  border: 1px solid var(--c-rule-2);
+  border-radius: 4px;
+  overflow: hidden;
+}
+.home-stack__intel-row{
+  display: grid;
+  grid-template-columns: 64px 1fr;
+  align-items: baseline;
+  gap: var(--s-3);
+  padding: 8px 12px;
+  border-bottom: 1px dashed var(--c-rule);
+  background: linear-gradient(90deg, rgba(255,30,60,.06), transparent 60%);
+}
+.home-stack__intel-row:last-child{ border-bottom: 0; }
+.home-stack__intel-row dt{
+  font-family: var(--f-mono);
+  font-size: 9.5px;
+  font-weight: 800;
+  letter-spacing: var(--ls-label);
+  text-transform: uppercase;
+  color: var(--c-red-1);
+  margin: 0;
+}
+.home-stack__intel-row dd{
+  margin: 0;
+  font-family: var(--f-sans);
+  font-size: var(--t-sm);
+  line-height: 1.4;
+  color: var(--c-ink-2);
+}
+
 /* centralized incumbent pill — brand badge + name + small detail */
 .home-stack__cent-pill{
   display: inline-flex;
@@ -1315,17 +1358,33 @@
   border-left: 1px solid var(--c-rule-2);
 }
 
-/* in-house brand monogram badge (used by the brand-chip helper) */
+/* in-house brand monogram badge (used by the brand-chip helper).
+   structure: a coloured disc wrapper, then either an <img> with
+   the simple-icons white silhouette OR a monogram <span> fallback. */
 .brand-chip{
+  position: relative;
   display: inline-grid;
   place-items: center;
   flex: 0 0 auto;
   border-radius: 50%;
+  line-height: 1;
+  overflow: hidden;
+  box-shadow: 0 0 0 1px rgba(255,255,255,.04) inset, 0 0 8px rgba(0,0,0,.4);
+}
+.brand-chip__img{
+  display: block;
+  /* white silhouette already; this filter just ensures crisp
+     anti-aliasing against the coloured background */
+  filter: drop-shadow(0 0 1px rgba(0,0,0,.25));
+}
+.brand-chip__mono{
+  position: absolute;
+  inset: 0;
+  display: grid; place-items: center;
   font-family: var(--f-mono, ui-monospace, monospace);
   font-weight: 800;
   letter-spacing: 0;
   line-height: 1;
-  box-shadow: 0 0 0 1px rgba(255,255,255,.04) inset, 0 0 8px rgba(0,0,0,.4);
 }
 
 /* bittensor pills — node-graph monogram + SN id + name, colour-coded by category */

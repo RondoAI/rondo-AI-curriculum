@@ -1,56 +1,56 @@
 /* =================================================================
-   SUBNET MAGAZINE — BRAND MONOGRAMS
+   SUBNET MAGAZINE — BRAND MONOGRAMS + LOGOS
    -----------------------------------------------------------------
-   Tiny in-house brand chips for the centralized incumbents we
-   reference across the Money Map and elsewhere. Each entry returns
-   a 2-character monogram (initials) plus the canonical brand
-   colour, so we can paint a recognisable badge without shipping
-   third-party logo art (which carries trademark questions across
-   editorial reuse).
+   Editorial-use brand chips for centralized incumbents we cite
+   across the magazine. Each entry carries:
+     m    2-character monogram (uppercase)        — fallback
+     c    canonical brand colour (hex)            — chip background
+     ink  optional text colour override           — defaults to #fff
+     s    simple-icons slug                       — real logo, served
+          via cdn.simpleicons.org (CC0 licensed,
+          editorial use is fine; we host nothing)
 
-   To use:
-     import { brandChip, brandFor } from '../lib/brand-monograms.js';
-     const html = brandChip('openai');
-     // -> <span class="brand-chip" style="background:#10A37F"...>OAI</span>
-
-   Unknown keys fall back to a neutral grey chip with the first
-   two characters of the brand name supplied at call time.
+   brandChip() renders both an <img> (real logo from CDN) AND the
+   monogram <span> as fallback. If the image fails to load (offline,
+   blocked, slug missing) the onerror swaps to the monogram. So the
+   chip is always populated.
    ================================================================= */
 
 /**
  * @typedef {Object} BrandMark
- * @prop {string} m  2-character monogram (uppercase)
- * @prop {string} c  hex colour (brand's primary)
- * @prop {string=} ink optional text colour override (defaults to white)
+ * @prop {string} m  2-character monogram fallback
+ * @prop {string} c  hex colour (brand primary)
+ * @prop {string=} ink  optional text colour, defaults to white
+ * @prop {string=} s  simple-icons slug (https://simpleicons.org)
  */
 
 /** @type {Object<string,BrandMark>} */
 const BRANDS = {
   // — model labs
-  openai:      { m: 'OA', c: '#10A37F' },
-  anthropic:   { m: 'AC', c: '#D97757' },
-  google:      { m: 'G',  c: '#4285F4' },
-  googleai:    { m: 'G',  c: '#4285F4' },
-  meta:        { m: 'M',  c: '#0866FF' },
-  deepseek:    { m: 'DS', c: '#4D6BFE' },
-  mistral:     { m: 'M',  c: '#FA520F' },
-  xai:         { m: 'X',  c: '#000000', ink: '#fff' },
+  openai:      { m: 'OA', c: '#10A37F', s: 'openai' },
+  anthropic:   { m: 'AC', c: '#D97757', s: 'anthropic' },
+  google:      { m: 'G',  c: '#4285F4', s: 'google' },
+  googleai:    { m: 'G',  c: '#4285F4', s: 'google' },
+  meta:        { m: 'M',  c: '#0866FF', s: 'meta' },
+  deepseek:    { m: 'DS', c: '#4D6BFE', s: 'deepseek' },
+  mistral:     { m: 'M',  c: '#FA520F', s: 'mistralai' },
+  xai:         { m: 'X',  c: '#000000', ink: '#fff', s: 'x' },
 
   // — agents / dev tools
-  cursor:      { m: 'Cu', c: '#0d0d0d', ink: '#fff' },
+  cursor:      { m: 'Cu', c: '#0d0d0d', ink: '#fff', s: 'cursor' },
   cognition:   { m: 'Co', c: '#6E59A5' },
   devin:       { m: 'Dv', c: '#6E59A5' },
-  perplexity:  { m: 'Pp', c: '#1FB8CD' },
-  claudecode:  { m: 'CC', c: '#D97757' },
-  operator:    { m: 'Op', c: '#10A37F' },
-  salesforce:  { m: 'SF', c: '#00A1E0' },
-  agentforce:  { m: 'AF', c: '#00A1E0' },
+  perplexity:  { m: 'Pp', c: '#1FB8CD', s: 'perplexity' },
+  claudecode:  { m: 'CC', c: '#D97757', s: 'anthropic' },
+  operator:    { m: 'Op', c: '#10A37F', s: 'openai' },
+  salesforce:  { m: 'SF', c: '#00A1E0', s: 'salesforce' },
+  agentforce:  { m: 'AF', c: '#00A1E0', s: 'salesforce' },
 
   // — inference platforms
   together:    { m: 'TG', c: '#1A75FF' },
   fireworks:   { m: 'FW', c: '#FF6B35' },
-  replicate:   { m: 'Rp', c: '#000000', ink: '#fff' },
-  groq:        { m: 'Gq', c: '#F55036' },
+  replicate:   { m: 'Rp', c: '#000000', ink: '#fff', s: 'replicate' },
+  groq:        { m: 'Gq', c: '#F55036', s: 'groq' },
 
   // — data labelling / ETL
   scale:       { m: 'SC', c: '#000000', ink: '#fff' },
@@ -60,13 +60,13 @@ const BRANDS = {
   commoncrawl: { m: 'CC', c: '#222a35', ink: '#fff' },
 
   // — compute / cloud
-  aws:         { m: 'AW', c: '#FF9900', ink: '#000' },
-  azure:       { m: 'Az', c: '#0078D4' },
-  gcp:         { m: 'GC', c: '#4285F4' },
-  microsoft:   { m: 'MS', c: '#00BCF2' },
+  aws:         { m: 'AW', c: '#FF9900', ink: '#000', s: 'amazonwebservices' },
+  azure:       { m: 'Az', c: '#0078D4', s: 'microsoftazure' },
+  gcp:         { m: 'GC', c: '#4285F4', s: 'googlecloud' },
+  microsoft:   { m: 'MS', c: '#00BCF2', s: 'microsoft' },
   coreweave:   { m: 'CW', c: '#10AB55' },
   lambda:      { m: 'Lm', c: '#7B61FF' },
-  nvidia:      { m: 'Nv', c: '#76B900', ink: '#000' },
+  nvidia:      { m: 'Nv', c: '#76B900', ink: '#000', s: 'nvidia' },
 
   // — neutral
   none:        { m: '—',  c: '#3a1419', ink: '#FF4D60' },
@@ -74,15 +74,13 @@ const BRANDS = {
 
 /**
  * Given a free-form display string like "OpenAI Operator", try to
- * detect which brand key it maps to. Falls back to the literal
- * first key match. Returns null if nothing matches.
+ * detect which brand key it maps to.
  * @param {string} label
  * @returns {string|null}
  */
 export function inferBrandKey(label){
   if (!label) return null;
   const t = label.toLowerCase();
-  // ordered most-specific first so "claude code" wins over "claude"
   const order = [
     'claudecode', 'operator', 'agentforce',
     'anthropic', 'openai', 'deepseek', 'mistral', 'xai',
@@ -92,14 +90,14 @@ export function inferBrandKey(label){
     'aws', 'azure', 'gcp', 'microsoft', 'coreweave', 'lambda', 'nvidia',
     'google', 'meta',
   ];
+  const niceMap = {
+    claudecode: 'claude code',
+    operator: 'openai operator',
+    agentforce: 'agentforce',
+    commoncrawl: 'common crawl',
+    googleai: 'google ai',
+  };
   for (const key of order){
-    const niceMap = {
-      claudecode: 'claude code',
-      operator: 'openai operator',
-      agentforce: 'agentforce',
-      commoncrawl: 'common crawl',
-      googleai: 'google ai',
-    };
     const probe = niceMap[key] || key;
     if (t.includes(probe)) return key;
   }
@@ -108,7 +106,7 @@ export function inferBrandKey(label){
 
 /**
  * Resolve a brand record. Accepts either an explicit key or a
- * display string we can sniff. Returns a synthesized record for
+ * display string we can sniff. Synthesises a generic chip for
  * unknown inputs.
  * @param {string} input
  * @returns {BrandMark}
@@ -119,13 +117,17 @@ export function brandFor(input){
   if (direct) return direct;
   const inferred = inferBrandKey(input);
   if (inferred && BRANDS[inferred]) return BRANDS[inferred];
-  /* synthesize: first two non-space chars, neutral chip colour */
   const m = input.replace(/[^A-Za-z]/g, '').slice(0, 2).toUpperCase() || '?';
   return { m, c: '#221216', ink: '#FF4D60' };
 }
 
 /**
- * Render the monogram badge as inline HTML.
+ * Render the brand chip as inline HTML.
+ *   - <img> first with the simple-icons CDN URL (real logo, white)
+ *     against a coloured circular background — the canonical brand
+ *     colour, so the mark reads as the actual company
+ *   - <span> monogram fallback hidden by default; onerror reveals it
+ *     if the image fails to load (offline, slug missing, etc.)
  * @param {string} input  brand key OR display string
  * @param {{size?: number}} [opts]
  * @returns {string}
@@ -133,5 +135,18 @@ export function brandFor(input){
 export function brandChip(input, opts = {}){
   const size = opts.size || 18;
   const b = brandFor(input);
-  return `<span class="brand-chip" aria-hidden="true" style="width:${size}px;height:${size}px;font-size:${Math.round(size * 0.55)}px;background:${b.c};color:${b.ink || '#fff'};">${b.m}</span>`;
+  const monoFs = Math.round(size * 0.5);
+  const imgPad = Math.round(size * 0.18);
+  /* simple-icons CDN serves a white silhouette of the brand mark;
+     we render it inside a coloured disc that matches the brand. */
+  const logoImg = b.s
+    ? `<img class="brand-chip__img"
+            src="https://cdn.simpleicons.org/${b.s}/white"
+            alt=""
+            width="${size - imgPad * 2}" height="${size - imgPad * 2}"
+            loading="lazy" decoding="async"
+            onerror="this.style.display='none';this.nextElementSibling.style.display='grid';">`
+    : '';
+  return `<span class="brand-chip" aria-hidden="true" style="width:${size}px;height:${size}px;background:${b.c};">${logoImg}<span class="brand-chip__mono" style="display:${b.s ? 'none' : 'grid'};font-size:${monoFs}px;color:${b.ink || '#fff'};">${b.m}</span></span>`;
 }
+
