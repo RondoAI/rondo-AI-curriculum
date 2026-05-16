@@ -107,9 +107,64 @@ def _styles():
     }
 
 
+def _draw_node_sphere(canvas, cx, cy, radius, seed=0):
+    """A static snapshot of the Subnet Oracle's neural-network mark,
+    rendered into PDF space. Deterministic from seed so each article
+    has its own distinct mark while the visual language stays
+    consistent. Nodes on a sphere projected to 2D, edges between
+    nearest neighbors below a distance threshold, drawn in the same
+    red accent as the rest of the chrome."""
+    import math, random
+    rng = random.Random(seed)
+    n_nodes = 36
+    # Generate points on a sphere via golden-angle spiral, perturb a
+    # touch so each article's mark is slightly different.
+    pts = []
+    phi = math.pi * (3.0 - math.sqrt(5.0))
+    for i in range(n_nodes):
+        y = 1 - (i / max(1, n_nodes - 1)) * 2
+        r = math.sqrt(max(0.0, 1 - y * y))
+        theta = phi * i + rng.uniform(-0.15, 0.15)
+        x = math.cos(theta) * r
+        z = math.sin(theta) * r
+        pts.append((x, y, z))
+    # Rotate the sphere slightly per seed so two articles don't share
+    # the same silhouette.
+    ry = rng.uniform(0, 2 * math.pi)
+    cos_y, sin_y = math.cos(ry), math.sin(ry)
+    rotated = [(x * cos_y + z * sin_y, y, -x * sin_y + z * cos_y) for (x, y, z) in pts]
+    # Project to 2D, with depth-based alpha for the back hemisphere
+    proj = [(cx + p[0] * radius, cy + p[1] * radius, p[2]) for p in rotated]
+
+    canvas.saveState()
+    # Edges between nodes whose 3D distance is short
+    canvas.setLineWidth(0.35)
+    for i in range(len(rotated)):
+        for j in range(i + 1, len(rotated)):
+            dx = rotated[i][0] - rotated[j][0]
+            dy = rotated[i][1] - rotated[j][1]
+            dz = rotated[i][2] - rotated[j][2]
+            d = math.sqrt(dx * dx + dy * dy + dz * dz)
+            if d < 0.55:
+                depth = (rotated[i][2] + rotated[j][2]) / 2.0
+                alpha = 0.18 + (depth + 1) * 0.30
+                alpha = max(0.10, min(0.85, alpha))
+                canvas.setStrokeColorRGB(1.0, 30 / 255.0, 60 / 255.0, alpha=alpha)
+                canvas.line(proj[i][0], proj[i][1], proj[j][0], proj[j][1])
+    # Nodes
+    for x, y, z in proj:
+        alpha = 0.35 + (z + 1) * 0.30
+        alpha = max(0.30, min(1.0, alpha))
+        r = 0.9 + (z + 1) * 0.6
+        canvas.setFillColorRGB(1.0, 77 / 255.0, 96 / 255.0, alpha=alpha)
+        canvas.circle(x, y, r, fill=1, stroke=0)
+    canvas.restoreState()
+
+
 def _draw_chrome(canvas, doc):
-    """Paint the dark background, red accent rail, and the header /
-    footer chrome on every page. Called by reportlab once per page."""
+    """Paint the dark background, red accent rail, header/footer chrome,
+    and, on the first page only, the Subnet Oracle node-sphere mark.
+    Called by reportlab once per page."""
     w, h = letter
 
     # Fill the entire page black
@@ -127,11 +182,24 @@ def _draw_chrome(canvas, doc):
     canvas.drawString(0.5 * inch, h - 0.4 * inch, "⊕ SUBNET ORACLE RESEARCH")
     canvas.setFillColor(C_INK_3)
     canvas.setFont("Helvetica", 8)
-    canvas.drawRightString(w - 0.5 * inch, h - 0.4 * inch, "Subneτ Magazine · AI-filed")
+    canvas.drawRightString(w - 0.5 * inch, h - 0.4 * inch, "Subneτ Magazine · Filed by Subnet Oracle")
 
-    # Left accent rail, the AI-attribution marker
+    # Left accent rail, the Subnet Oracle attribution marker
     canvas.setFillColor(C_RED)
     canvas.rect(0.4 * inch, 0.6 * inch, 3, h - 1.2 * inch, fill=1, stroke=0)
+
+    # First-page neural-network signature, watermarked behind the
+    # text. Sized large enough to read as the Subnet Oracle's mark,
+    # subtle enough that body text remains legible above it.
+    if doc.page == 1:
+        seed = hash(getattr(doc, '_oracle_article_id', 'subnet-oracle')) & 0xFFFFFFFF
+        _draw_node_sphere(canvas, w - 1.6 * inch, h - 2.2 * inch,
+                          radius=0.7 * inch, seed=seed)
+        # Caption under the mark
+        canvas.setFillColor(C_INK_4)
+        canvas.setFont("Helvetica-Bold", 6.5)
+        canvas.drawCentredString(w - 1.6 * inch, h - 3.05 * inch,
+                                 "SUBNET ORACLE · LIVE")
 
     # Footer
     canvas.setStrokeColor(C_RULE)
@@ -139,7 +207,7 @@ def _draw_chrome(canvas, doc):
     canvas.line(0.5 * inch, 0.55 * inch, w - 0.5 * inch, 0.55 * inch)
     canvas.setFillColor(C_INK_4)
     canvas.setFont("Helvetica", 7.5)
-    canvas.drawString(0.5 * inch, 0.4 * inch, "Filed by the AI Oracle (Claude Opus 4.7). Dry, mechanism-aware, hedged.")
+    canvas.drawString(0.5 * inch, 0.4 * inch, "Filed by the Subnet Oracle (Claude Opus 4.7). Dry, mechanism-aware, hedged.")
     canvas.drawRightString(w - 0.5 * inch, 0.4 * inch, f"Page {doc.page}")
     canvas.restoreState()
 
@@ -177,6 +245,9 @@ def render_article_pdf(article: dict) -> Path:
         doc.height,
         showBoundary=0,
     )
+    # Stash the article id on the doc object so the chrome callback
+    # can seed the per-article node-sphere mark.
+    doc._oracle_article_id = article.get("id", "subnet-oracle")
     doc.addPageTemplates([PageTemplate(id="dark", frames=[frame], onPage=_draw_chrome)])
 
     s = _styles()
@@ -196,7 +267,7 @@ def render_article_pdf(article: dict) -> Path:
     flow.append(Paragraph(_esc(article.get("dek", "")), s["dek"]))
 
     filer = (
-        "the AI Oracle (Claude Opus 4.7)"
+        "the Subnet Oracle (Claude Opus 4.7)"
         if article.get("generatedBy") == "claude-opus-4-7"
         else "the editorial desk (seed)"
     )

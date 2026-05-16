@@ -2,7 +2,7 @@
    SUBNET ORACLE RESEARCH (the /research page)
    -----------------------------------------------------------------
    The autonomous research arm of Subneτ Magazine. Two articles per
-   day filed by the AI Oracle:
+   day filed by the Subnet Oracle:
 
      - SUBNET SPOTLIGHT, a deep dive on one subnet the human
        editorial desk has not covered recently
@@ -12,7 +12,7 @@
    This page deliberately reads as a DIFFERENT category from the
    human-written magazine research (which lives on the home page
    article carousel). Every article here carries the SUBNET ORACLE
-   RESEARCH badge, the date filed, and a "filed by the AI Oracle"
+   RESEARCH badge, the date filed, and a "filed by the Subnet Oracle"
    attribution line.
 
    Data: src/data/oracle-articles.js
@@ -324,7 +324,7 @@ const CSS = `
   .rsh-art{ grid-template-columns: 64px 1fr; gap: 14px; }
 }
 
-/* Neural-network mark, the AI Oracle's signature, attached to
+/* Neural-network mark, the Subnet Oracle's signature, attached to
    every article. Sticky inside the article column so it stays
    visible as the reader scrolls through long bodies. */
 .rsh-art__mark{
@@ -339,7 +339,7 @@ const CSS = `
   border-radius: 50%;
 }
 .rsh-art__mark::after{
-  content: 'AI ORACLE';
+  content: 'SUBNET ORACLE';
   display: block;
   margin-top: 8px;
   text-align: center;
@@ -498,7 +498,7 @@ function cardHtml(a){
         <span class="rsh-card__kind${kindCls}">${kindLbl}</span>
         <span class="rsh-card__mark" aria-hidden="true">
           <canvas data-canvas="rsh-card-mark" data-id="${escapeHtml(a.id)}"></canvas>
-          <span class="rsh-card__mark-cap">AI ORACLE</span>
+          <span class="rsh-card__mark-cap">SUBNET ORACLE</span>
         </span>
       </div>
       <h3 class="rsh-card__title">${escapeHtml(a.title)}</h3>
@@ -543,7 +543,7 @@ function articleHtml(a){
   ` : '';
 
   const filer = a.generatedBy === 'claude-opus-4-7'
-    ? 'the AI Oracle (Claude Opus 4.7)'
+    ? 'the Subnet Oracle (Claude Opus 4.7)'
     : 'the editorial desk (seed)';
 
   return `
@@ -632,7 +632,7 @@ export function mountResearch(root){
         <div class="rsh-note__cell rsh-note__cell--ai">
           <span class="rsh-note__lbl">⊕ This page</span>
           <p class="rsh-note__body">
-            <strong>Subneτ Oracle Research.</strong> The AI agent, Claude Opus
+            <strong>Subneτ Oracle Research.</strong> The Subnet Oracle, Claude Opus
             4.7, files two articles each morning at 08:00 UTC. ${escapeHtml(sinceLine)}.
             Every article carries the Oracle badge so the source is unambiguous.
           </p>
@@ -661,7 +661,7 @@ export function mountResearch(root){
   }) : null;
 
   /* mount a NodeSphere on every Oracle article's side rail. This
-     is the AI agent's signature, the same engine as the masthead
+     is the Subnet Oracle's signature, the same engine as the masthead
      brand mark scaled down to 96px. Each canvas gets its own
      instance so they animate independently. We tune them slightly
      so 8 of them on one page don't burn a meaningful frame budget,

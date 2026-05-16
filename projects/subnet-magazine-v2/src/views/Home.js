@@ -151,10 +151,10 @@ const SECTIONS = [
  */
 export function mountHome(root, dataLayer = null){
   const articles = articlesByDate();
-  // Oracle articles are a separate research class authored by the
-  // AI agent (Claude Opus 4.7), labeled and rendered as a distinct
+  // Subnet Oracle articles are a separate research class authored
+  // by the Subnet Oracle (Claude Opus 4.7), rendered as a distinct
   // row below the human editorial desk so readers can tell which
-  // mind wrote which piece.
+  // mind wrote which piece at a glance.
   const oracleArticles = recentOracleArticles(6);
   const oracleLatestDate = oracleArticles[0]?.date || '';
 
@@ -210,6 +210,26 @@ export function mountHome(root, dataLayer = null){
          ORACLE and the "Subnet Oracle" byline reinforce the same
          signal in text. ===== -->
     <style>
+      /* Smoother visual continuity with the human editorial row above.
+         Drop the top padding so the Oracle row reads as a second voice
+         in the same conversation, not a separately bordered section. */
+      .home-research--oracle{
+        padding-top: clamp(6px, 1vw, 14px);
+        border-top: none;
+      }
+      /* A hair-thin red rule between § 01 and § 02 as the "this is the
+         AI voice now" signal, without the heavy section-divider feel. */
+      .home-research--oracle::before{
+        content: "";
+        display: block;
+        height: 1px;
+        margin: 0 0 clamp(14px, 2vw, 22px);
+        background: linear-gradient(90deg,
+          transparent 0%,
+          rgba(255,30,60,.55) 8%,
+          rgba(255,30,60,.55) 92%,
+          transparent 100%);
+      }
       .home-article--oracle .home-article__art{
         background: radial-gradient(ellipse at 30% 30%, #15131f 0%, #08070d 70%);
       }
@@ -239,18 +259,18 @@ export function mountHome(root, dataLayer = null){
         color: var(--c-red, #FF1E3C);
       }
     </style>
-    <section class="home-research home-research--oracle" aria-label="Subnet Oracle Research, AI-filed">
+    <section class="home-research home-research--oracle" aria-label="Subnet Oracle research desk">
       <div class="home-research__head">
-        <span class="home-net__kicker"><span class="home-net__ord">§ 02</span><span class="live-dot"></span>Subnet Oracle Research · the agent</span>
-        <span class="home-net__source"><span class="dot dot--editorial"></span>AI-FILED${oracleLatestDate ? ' · ' + artDate(oracleLatestDate).toUpperCase() : ''} · CLAUDE OPUS 4.7</span>
-        <a class="home-subnets__all" href="research.html">Oracle research desk ↗</a>
+        <span class="home-net__kicker"><span class="home-net__ord">§ 02</span><span class="live-dot"></span>Subnet Oracle · the research desk</span>
+        <span class="home-net__source"><span class="dot dot--editorial"></span>FILED BY SUBNET ORACLE${oracleLatestDate ? ' · ' + artDate(oracleLatestDate).toUpperCase() : ''} · CLAUDE OPUS 4.7</span>
+        <a class="home-subnets__all" href="research.html">Subnet Oracle desk ↗</a>
       </div>
       <ul class="home-research__grid">
         ${oracleArticles.slice(0, 4).map((a, i) => {
           const isSpot = a.kind === 'subnet-spotlight';
           const kicker = isSpot
-            ? `ORACLE · SN${a.subnetId} ${(a.subnetName || '').toUpperCase()} SPOTLIGHT`
-            : 'ORACLE · ECOSYSTEM STATE';
+            ? `SUBNET ORACLE · SN${a.subnetId} ${(a.subnetName || '').toUpperCase()} SPOTLIGHT`
+            : 'SUBNET ORACLE · ECOSYSTEM STATE';
           /* Word-count based read estimate, 200 wpm. Sections may
              contain markdown; the rough split is fine for a chip. */
           const wc = (a.sections || []).reduce(
@@ -262,7 +282,7 @@ export function mountHome(root, dataLayer = null){
               <span class="home-article__art">
                 <canvas data-canvas="home-oracle-mark" data-id="${a.id}"></canvas>
                 <span class="home-article__art-frame" aria-hidden="true"></span>
-                <span class="home-article__oracle-badge">AI ORACLE</span>
+                <span class="home-article__oracle-badge">SUBNET ORACLE</span>
               </span>
               <span class="home-article__kicker">${kicker}</span>
               <span class="home-article__title">${a.title}</span>
