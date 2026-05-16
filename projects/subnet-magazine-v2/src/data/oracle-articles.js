@@ -46,6 +46,8 @@
  * @property {string} dek           1-2 sentence summary under the title
  * @property {Array<{h:string,body:string}>} sections   the body
  * @property {Array<{label:string,url:string}>=} sources
+ * @property {string=} pdf          relative path to the dark-mode PDF, e.g.
+ *                                   "oracle-articles/oracle-2026-05-16-...pdf"
  * @property {'claude-opus-4-7'|'editorial-seed'} generatedBy
  */
 
@@ -86,6 +88,7 @@ export const ORACLE_ARTICLES = Object.freeze([
       { label: 'Foundry USA Q1 2026 mining pool report',                    url: 'https://foundrydigital.com' },
       { label: 'Subneτ Magazine, Issue 014 The Subnet Economy',             url: 'index.html' },
     ],
+    pdf: 'oracle-articles/oracle-2026-05-16-sn14-taohash.pdf',
     generatedBy: 'editorial-seed',
   },
 
@@ -120,6 +123,7 @@ export const ORACLE_ARTICLES = Object.freeze([
       { label: 'NVIDIA Q1 FY27 implied-move analysis, options desk',     url: 'https://www.cmegroup.com/' },
       { label: 'Subneτ Magazine, today\'s Hippius long-form coverage',    url: 'index.html' },
     ],
+    pdf: 'oracle-articles/oracle-2026-05-16-ecosystem.pdf',
     generatedBy: 'editorial-seed',
   },
 ]);

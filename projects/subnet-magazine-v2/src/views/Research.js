@@ -141,6 +141,149 @@ const CSS = `
   color: var(--c-ink-2, #C8A8AD);
 }
 
+/* ===== The desk · scrollable card grid ===== */
+.rsh-desk{
+  margin-bottom: clamp(36px, 5vw, 60px);
+}
+.rsh-desk__head{
+  display: flex; align-items: baseline; gap: 14px;
+  padding-bottom: 10px;
+  margin-bottom: 18px;
+  border-bottom: 1px solid var(--c-rule-2, rgba(255,30,60,.22));
+  font-family: var(--f-mono, monospace);
+}
+.rsh-desk__lbl{
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: .14em;
+  text-transform: uppercase;
+  color: var(--c-red, #FF1E3C);
+}
+.rsh-desk__sub{
+  font-size: 9.5px;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+  color: var(--c-ink-4, #6B4D52);
+}
+.rsh-desk__grid{
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 14px;
+  margin-bottom: 28px;
+}
+.rsh-card{
+  position: relative;
+  display: flex; flex-direction: column;
+  gap: 10px;
+  padding: 16px;
+  background: rgba(8,2,3,.7);
+  border: 1px solid var(--c-rule-2, rgba(255,30,60,.22));
+  border-radius: 4px;
+  text-decoration: none;
+  transition: border-color .15s ease-out, transform .15s ease-out, background .15s ease-out;
+  overflow: hidden;
+}
+.rsh-card:hover{
+  border-color: var(--c-red, #FF1E3C);
+  background: rgba(20,4,8,.85);
+  transform: translateY(-2px);
+}
+.rsh-card__head{
+  display: flex; align-items: flex-start; justify-content: space-between;
+  gap: 10px;
+}
+.rsh-card__kind{
+  display: inline-flex; align-items: center;
+  padding: 3px 8px;
+  background: rgba(255,30,60,.14);
+  border: 1px solid var(--c-rule-2, rgba(255,30,60,.36));
+  border-radius: 3px;
+  font-family: var(--f-mono, monospace);
+  font-size: 9px;
+  font-weight: 800;
+  letter-spacing: .14em;
+  text-transform: uppercase;
+  color: var(--c-red-1, #FF4D60);
+}
+.rsh-card__kind--ecosystem{
+  border-color: #FFB85C;
+  color: #FFB85C;
+  background: rgba(255,184,92,.10);
+}
+/* the NodeSphere chip in the top-right corner of each card; this is
+   the AI-attribution marker (parallel to the price chip on the human
+   home-page article cards) */
+.rsh-card__mark{
+  flex: 0 0 56px;
+  width: 56px; height: 56px;
+  filter: drop-shadow(0 0 8px rgba(255,30,60,.55));
+  position: relative;
+}
+.rsh-card__mark canvas{
+  width: 100% !important; height: 100% !important;
+  border-radius: 50%;
+}
+.rsh-card__mark-cap{
+  position: absolute;
+  left: 50%; bottom: -14px;
+  transform: translateX(-50%);
+  font-family: var(--f-mono, monospace);
+  font-size: 7px;
+  font-weight: 800;
+  letter-spacing: .14em;
+  color: var(--c-red-1, #FF4D60);
+  white-space: nowrap;
+}
+.rsh-card__title{
+  margin: 8px 0 0;
+  font-family: var(--f-serif, 'Archivo', system-ui);
+  font-size: 16px;
+  font-weight: 800;
+  line-height: 1.25;
+  letter-spacing: -.005em;
+  color: var(--c-ink-1, #F5E5E8);
+}
+.rsh-card__dek{
+  margin: 0;
+  font-family: var(--f-sans, system-ui);
+  font-size: 12.5px;
+  line-height: 1.5;
+  color: var(--c-ink-2, #C8A8AD);
+  flex: 1 1 auto;
+}
+.rsh-card__foot{
+  display: flex; align-items: center; gap: 10px;
+  padding-top: 10px;
+  border-top: 1px solid var(--c-rule, rgba(255,30,60,.10));
+  font-family: var(--f-mono, monospace);
+  font-size: 9.5px;
+  letter-spacing: .04em;
+}
+.rsh-card__date{
+  color: var(--c-ink-3, #8B6B70);
+}
+.rsh-card__push{ margin-left: auto; }
+.rsh-card__read{
+  color: var(--c-red-1, #FF4D60);
+  font-weight: 800;
+  letter-spacing: .04em;
+}
+.rsh-card__pdf{
+  display: inline-flex; align-items: center; gap: 4px;
+  padding: 2px 6px;
+  background: rgba(255,30,60,.12);
+  border: 1px solid var(--c-rule-2, rgba(255,30,60,.36));
+  border-radius: 3px;
+  color: var(--c-red-1, #FF4D60);
+  text-decoration: none;
+  font-weight: 800;
+  font-size: 9px;
+}
+.rsh-card__pdf:hover{
+  background: var(--c-red, #FF1E3C);
+  color: #fff;
+}
+
 /* ===== Day group ===== */
 .rsh-day{
   margin-bottom: clamp(36px, 5vw, 60px);
@@ -341,6 +484,35 @@ function escapeHtml(s){
   return String(s ?? '').replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
 }
 
+function cardHtml(a){
+  const kindLbl = a.kind === 'subnet-spotlight'
+    ? `Spotlight${a.subnetId ? ' · SN' + a.subnetId : ''}`
+    : 'Ecosystem State';
+  const kindCls = a.kind === 'ecosystem-state' ? ' rsh-card__kind--ecosystem' : '';
+  const pdfLink = a.pdf
+    ? `<a class="rsh-card__pdf" href="${escapeHtml(a.pdf)}" target="_blank" rel="noopener" onclick="event.stopPropagation()">⊕ PDF</a>`
+    : '';
+  return `
+    <a class="rsh-card" href="#${escapeHtml(a.id)}">
+      <div class="rsh-card__head">
+        <span class="rsh-card__kind${kindCls}">${kindLbl}</span>
+        <span class="rsh-card__mark" aria-hidden="true">
+          <canvas data-canvas="rsh-card-mark" data-id="${escapeHtml(a.id)}"></canvas>
+          <span class="rsh-card__mark-cap">AI ORACLE</span>
+        </span>
+      </div>
+      <h3 class="rsh-card__title">${escapeHtml(a.title)}</h3>
+      <p class="rsh-card__dek">${escapeHtml(a.dek)}</p>
+      <div class="rsh-card__foot">
+        <span class="rsh-card__date">${escapeHtml(a.date)}</span>
+        <span class="rsh-card__push"></span>
+        ${pdfLink}
+        <span class="rsh-card__read">READ →</span>
+      </div>
+    </a>
+  `;
+}
+
 function articleHtml(a){
   const kind = a.kind === 'subnet-spotlight'
     ? `Subnet Spotlight${a.subnetId ? `<span class="rsh-art__sn">SN${a.subnetId}${a.subnetName ? ' · ' + escapeHtml(a.subnetName) : ''}</span>` : ''}`
@@ -363,6 +535,13 @@ function articleHtml(a){
     </div>
   ` : '';
 
+  const pdfHtml = a.pdf ? `
+    <div class="rsh-art__src">
+      <span class="rsh-art__src-lbl">Download</span>
+      <a href="${escapeHtml(a.pdf)}" target="_blank" rel="noopener">⊕ Dark-mode PDF, ${escapeHtml(a.pdf.split('/').pop())} ↗</a>
+    </div>
+  ` : '';
+
   const filer = a.generatedBy === 'claude-opus-4-7'
     ? 'the AI Oracle (Claude Opus 4.7)'
     : 'the editorial desk (seed)';
@@ -381,6 +560,7 @@ function articleHtml(a){
         </div>
         ${sectionsHtml}
         ${sourcesHtml}
+        ${pdfHtml}
       </div>
     </article>
   `;
@@ -399,6 +579,25 @@ export function mountResearch(root){
   const sinceLine = earliest
     ? `${totalArticles} articles filed since ${fmtDate(earliest)}`
     : `${totalArticles} articles filed`;
+
+  /* desk: scrollable card grid of every article. Each card has a
+     spinning NodeSphere on the right (parallel to how human articles
+     show a subnet price chip), the kind, title, dek, date, PDF
+     download, and an in-page jump to the full article body. */
+  const allArticles = [...ORACLE_ARTICLES].sort(
+    (a, b) => String(b.date).localeCompare(String(a.date)),
+  );
+  const deskHtml = `
+    <section class="rsh-desk" aria-label="Oracle articles desk">
+      <header class="rsh-desk__head">
+        <span class="rsh-desk__lbl">The desk</span>
+        <span class="rsh-desk__sub">${totalArticles} ${totalArticles === 1 ? 'article' : 'articles'} · scroll for more · each card opens its full body below</span>
+      </header>
+      <div class="rsh-desk__grid">
+        ${allArticles.map(cardHtml).join('')}
+      </div>
+    </section>
+  `;
 
   const daysHtml = days.map(d => `
     <section class="rsh-day" aria-label="${escapeHtml(d.date)}">
@@ -449,6 +648,8 @@ export function mountResearch(root){
         </div>
       </div>
 
+      ${deskHtml}
+
       ${daysHtml}
     </section>
   `);
@@ -469,11 +670,18 @@ export function mountResearch(root){
   root.querySelectorAll('[data-canvas="rsh-art-mark"]').forEach(cv => {
     try {
       artMarks.push(new NodeSphere(cv, {
-        nodes:   28,
-        K:       3,
-        density: 0.5,
-        speed:   0.35,
-        atmos:   false,
+        nodes:   28, K: 3, density: 0.5, speed: 0.35, atmos: false,
+      }));
+    } catch (_) {}
+  });
+
+  /* card marks live in the top-of-page desk grid. Smaller (56px) so
+     we can afford one per card without burning frame budget. */
+  const cardMarks = [];
+  root.querySelectorAll('[data-canvas="rsh-card-mark"]').forEach(cv => {
+    try {
+      cardMarks.push(new NodeSphere(cv, {
+        nodes:   18, K: 3, density: 0.45, speed: 0.42, atmos: false,
       }));
     } catch (_) {}
   });
@@ -481,7 +689,8 @@ export function mountResearch(root){
   return {
     destroy(){
       try { mark?.destroy(); } catch (_) {}
-      artMarks.forEach(m => { try { m.destroy(); } catch (_) {} });
+      artMarks .forEach(m => { try { m.destroy(); } catch (_) {} });
+      cardMarks.forEach(m => { try { m.destroy(); } catch (_) {} });
     },
   };
 }

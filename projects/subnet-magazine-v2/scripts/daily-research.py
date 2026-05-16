@@ -43,6 +43,10 @@ from pathlib import Path
 
 import anthropic
 
+# colocated PDF renderer, dark-mode publish format
+sys.path.insert(0, str(Path(__file__).resolve().parent))
+from render_article_pdf import render_article_pdf  # noqa: E402
+
 ROOT = Path(__file__).resolve().parents[1]
 DATA_FILE       = ROOT / "src" / "data" / "oracle-articles.js"
 HUMAN_ARTICLES  = ROOT / "src" / "data" / "articles.js"
@@ -54,15 +58,22 @@ You are the autonomous research desk of Subneτ Magazine, a research \
 terminal for the Bittensor network. You file TWO long-form research \
 articles each day in the SUBNET ORACLE RESEARCH category.
 
-YOU ARE COMPETING WITH THE HUMAN EDITORIAL DESK.
+YOU ARE COMPETING WITH THE HUMAN EDITORIAL DESK, AND THEY ARE \
+LEARNING FROM YOU.
 
 The human magazine team publishes deep, primary-sourced, mechanism-aware \
-research on the Bittensor ecosystem. Your job is to out-research them. \
-Out-depth them. Out-source them. Out-think them. Every article you file \
-should make a sophisticated reader, an institutional allocator, a \
-protocol engineer, a fund analyst, say "the human magazine didn't go \
-this deep". That is the bar. If the article reads like a summary or a \
-news brief, you have failed the bar.
+research on the Bittensor ecosystem. Your job is to out-research them, \
+AND to file work the team can learn from. Out-depth them. Out-source \
+them. Out-think them. Surface things they have not yet noticed, in \
+language they can adopt. Every article you file should make a \
+sophisticated reader, an institutional allocator, a protocol engineer, \
+a fund analyst, say "the human magazine didn't go this deep, and now \
+they have a primary source to cite." That is the bar.
+
+If the article reads like a summary or a news brief, you have failed \
+the bar. If the article does not produce at least one falsifiable claim \
+the human team could not have written without your work, you have \
+failed the bar.
 
 USE THE WEB SEARCH TOOL AGGRESSIVELY.
 
@@ -406,13 +417,33 @@ def slugify(s: str, n: int = 50) -> str:
 
 def render_article(date_str: str, kind: str, art: dict) -> str:
     """Render a single article as a JS object literal matching the
-    shape used in src/data/oracle-articles.js."""
+    shape used in src/data/oracle-articles.js. Also renders the
+    dark-mode PDF and records its relative path on the article."""
     if kind == "subnet-spotlight":
         sn  = art["subnetId"]
         nm  = slugify(art["subnetName"])
         aid = f"oracle-{date_str}-sn{sn}-{nm}"
     else:
         aid = f"oracle-{date_str}-ecosystem"
+
+    # render the dark-mode PDF and capture its repo-relative path
+    pdf_path = None
+    try:
+        full_article = {
+            "id": aid, "date": date_str, "kind": kind,
+            "title": art["title"], "dek": art["dek"],
+            "sections": art.get("sections", []) or [],
+            "sources": art.get("sources", []) or [],
+            "generatedBy": "claude-opus-4-7",
+        }
+        if kind == "subnet-spotlight":
+            full_article["subnetId"]   = int(art["subnetId"])
+            full_article["subnetName"] = art["subnetName"]
+        path_obj = render_article_pdf(full_article)
+        pdf_path = str(path_obj.relative_to(ROOT))
+        print(f"[pdf] wrote {pdf_path}", file=sys.stderr)
+    except Exception as e:
+        print(f"[warn] PDF render failed for {aid}: {e}", file=sys.stderr)
 
     lines = ["  {"]
     lines.append(f"    id: '{aid}',")
@@ -437,6 +468,8 @@ def render_article(date_str: str, kind: str, art: dict) -> str:
                 f"url: '{js_escape(s['url'])}' }},"
             )
         lines.append("    ],")
+    if pdf_path:
+        lines.append(f"    pdf: '{pdf_path}',")
     lines.append("    generatedBy: 'claude-opus-4-7',")
     lines.append("  },")
     return "\n".join(lines)
