@@ -41,7 +41,7 @@ function voiceCard(v){
 
   const subnetPills = (v.subnets && v.subnets.length)
     ? `<div class="voice__subnets">${v.subnets.map(n =>
-        `<a class="voice__sn" href="subnet.html?id=${n}">SN${n}</a>`
+        `<a class="voice__sn" href="markets.html#sn${n}">SN${n}</a>`
       ).join('')}</div>`
     : '';
 

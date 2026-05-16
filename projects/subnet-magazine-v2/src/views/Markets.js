@@ -82,7 +82,7 @@ export function mountMarkets(root, dataLayer = null){
             </div>
           </div>
           <ul class="mk-rows" id="mk-movers"></ul>
-          <a class="mk-panel__more" href="subnets.html">All subnets ↗</a>
+          <a class="mk-panel__more" href="oracle.html">Open the Oracle ↗</a>
         </section>
 
         <!-- ===== HIGHEST VALUATION ===== -->
@@ -106,7 +106,7 @@ export function mountMarkets(root, dataLayer = null){
               </li>
             `).join('')}
           </ul>
-          <a class="mk-panel__more" href="centralized.html">The Centralized Desk ↗</a>
+          <a class="mk-panel__more" href="read.html">Magazine coverage ↗</a>
         </section>
       </div>
     </section>
@@ -130,7 +130,7 @@ export function mountMarkets(root, dataLayer = null){
       const up = s.chg24 >= 0;
       return `
         <li class="mk-row">
-          <a class="mk-row__link" href="subnet.html?id=${s.netuid}">
+          <a class="mk-row__link" href="markets.html#sn${s.netuid}" id="sn${s.netuid}">
             <span class="mk-row__id">
               <span class="mk-row__tk">SN${s.netuid}</span>
               <span class="mk-row__name">${s.name}</span>

@@ -12,21 +12,15 @@ import { NodeSphere } from '../charts/NodeSphere.js';
 import { bbgDate } from '../lib/format.js';
 import { applySlideHint } from '../lib/slide-hint.js';
 
+/* The whole magazine, six surfaces. Anything else became
+   noise; the depth lives inside these pages now. */
 const NAV_ITEMS = [
-  { code: '001', label: 'MAGAZINE',  href: 'index.html'        },
-  { code: '010', label: 'NETWORK',   href: 'network.html'      },
-  { code: '020', label: 'TERMINAL',  href: 'terminal.html'     },
-  { code: '025', label: 'COMPARE',   href: 'compare.html'      },
-  { code: '026', label: 'CENTRAL',   href: 'centralized.html'  },
-  { code: '030', label: 'MARKETS',   href: 'markets.html'      },
-  { code: '040', label: 'SUBNETS',   href: 'subnets.html'      },
-  { code: '050', label: 'VALIDATORS',href: 'validators.html'   },
-  { code: '055', label: 'ORACLE',    href: 'codex.html'        },
-  { code: '060', label: 'RESEARCH',  href: 'articles.html'     },
-  { code: '070', label: 'COMMUNITY', href: 'community.html'    },
-  { code: '075', label: 'VOICES',    href: 'voices.html'       },
-  { code: '080', label: 'EDITOR',    href: 'editor.html'       },
-  { code: '090', label: 'INTERVIEWS',href: 'interviews.html'   },
+  { code: '001', label: 'MAGAZINE', href: 'index.html'   },
+  { code: '010', label: 'ORACLE',   href: 'oracle.html'   },
+  { code: '020', label: 'READ',     href: 'read.html'    },
+  { code: '030', label: 'MARKETS',  href: 'markets.html' },
+  { code: '040', label: 'VOICES',   href: 'voices.html'  },
+  { code: '050', label: 'EDITOR',   href: 'editor.html'  },
 ];
 
 const X_URL = 'https://x.com/subnetmagazine';
@@ -95,7 +89,7 @@ export function mountMasthead(root){
      canonical source of network state at the top of the page) */
 
   // Active-nav highlight on scroll. Only in-page anchors (#…) get
-  // wired up; external links (terminal.html) are ignored here.
+  // wired up; cross-page hrefs (oracle.html, read.html…) are ignored here.
   const tabs = Array.from(root.querySelectorAll('.nav-tab'));
   const sections = tabs
     .map(t => {

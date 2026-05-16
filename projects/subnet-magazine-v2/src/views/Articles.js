@@ -69,7 +69,6 @@ export function mountArticles(root, dataLayer = null){
   mount(root, html`
     <section class="articles">
       <header class="art-head">
-        <a class="sd-back" href="terminal.html">‹ TERMINAL</a>
         <div class="art-head__main">
           <span class="art-head__kicker">&lt;800&gt;  RESEARCH HUB</span>
           <h1 class="art-head__title">Long-form research on <em>decentralized intelligence.</em></h1>

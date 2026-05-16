@@ -45,8 +45,8 @@ export function mountHero(root, dataLayer = null){
 
         <div class="hero__foot">
           <div class="hero__cta">
-            <a class="hero__btn hero__btn--primary" href="terminal.html">OPEN TERMINAL &lt;GO&gt;</a>
-            <a class="hero__btn hero__btn--ghost" href="subnets.html">SUBNET DIRECTORY</a>
+            <a class="hero__btn hero__btn--primary" href="oracle.html">OPEN THE ORACLE &lt;GO&gt;</a>
+            <a class="hero__btn hero__btn--ghost" href="markets.html">MARKETS</a>
           </div>
         </div>
       </div>

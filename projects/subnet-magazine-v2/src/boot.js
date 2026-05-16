@@ -13,16 +13,8 @@ import { mountConsole } from './views/Console.js';
 import { mountStatusStrip } from './views/StatusStrip.js';
 import { mountMasthead } from './views/Masthead.js';
 import { mountHero } from './views/Hero.js';
-import { mountNetworkMap } from './views/NetworkMap.js';
 import { mountHome } from './views/Home.js';
-import { mountTerminal } from './views/Terminal.js';
-import { mountSubnetDetail } from './views/SubnetDetail.js';
-import { mountCompare } from './views/Compare.js';
 import { mountArticles } from './views/Articles.js';
-import { mountSubnets }  from './views/Subnets.js';
-import { mountValidators } from './views/Validators.js';
-import { mountCommunity } from './views/Community.js';
-import { mountCentralized } from './views/Centralized.js';
 import { mountMarkets } from './views/Markets.js';
 import { mountEditor } from './views/Editor.js';
 import { mountInterviews } from './views/Interviews.js';
@@ -61,23 +53,15 @@ function boot(){
   const sysConsole = mountConsole(DataLayer);
   teardowns.push(() => sysConsole.destroy());
 
-  mountIf('[data-mount="masthead"]',  mountMasthead);
-  mountIf('[data-mount="hero"]',      root => mountHero(root, DataLayer));
-  mountIf('[data-mount="netmap"]',    root => mountNetworkMap(root, DataLayer));
-  mountIf('[data-mount="home"]',      root => mountHome(root, DataLayer));
-  mountIf('[data-mount="terminal"]',       root => mountTerminal(root, DataLayer));
-  mountIf('[data-mount="subnet-detail"]',  root => mountSubnetDetail(root, DataLayer));
-  mountIf('[data-mount="compare"]',        root => mountCompare(root));
-  mountIf('[data-mount="articles"]',       root => mountArticles(root, DataLayer));
-  mountIf('[data-mount="subnets"]',        root => mountSubnets(root, DataLayer));
-  mountIf('[data-mount="validators"]',     root => mountValidators(root, DataLayer));
-  mountIf('[data-mount="community"]',      root => mountCommunity(root, DataLayer));
-  mountIf('[data-mount="centralized"]',    root => mountCentralized(root));
-  mountIf('[data-mount="markets"]',        root => mountMarkets(root, DataLayer));
-  mountIf('[data-mount="editor"]',         root => mountEditor(root));
-  mountIf('[data-mount="interviews"]',     root => mountInterviews(root));
-  mountIf('[data-mount="voices"]',         root => mountVoices(root));
-  mountIf('[data-mount="codex"]',          root => mountCodex(root, DataLayer));
+  mountIf('[data-mount="masthead"]',   mountMasthead);
+  mountIf('[data-mount="hero"]',       root => mountHero(root, DataLayer));
+  mountIf('[data-mount="home"]',       root => mountHome(root, DataLayer));
+  mountIf('[data-mount="articles"]',   root => mountArticles(root, DataLayer));
+  mountIf('[data-mount="interviews"]', root => mountInterviews(root));
+  mountIf('[data-mount="markets"]',    root => mountMarkets(root, DataLayer));
+  mountIf('[data-mount="voices"]',     root => mountVoices(root));
+  mountIf('[data-mount="codex"]',      root => mountCodex(root, DataLayer));
+  mountIf('[data-mount="editor"]',     root => mountEditor(root));
 
   // 3) clean teardown on unload (idempotent)
   window.addEventListener('beforeunload', () => {

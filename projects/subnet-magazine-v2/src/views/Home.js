@@ -9,7 +9,7 @@
         from the TMC API via DataLayer ('tao:market' + 'tao:chain').
      2. TOP SUBNETS, the real top-12 subnets by market cap, each
         with its real logo, netuid, α-price, 24h change, market
-        cap. Click any card → subnet.html?id=N. Sourced from
+        cap. Click any card → markets.html#snN. Sourced from
         DataLayer 'tao:subnets'.
      3. SECTIONS, a clean card grid linking to every page on the
         site with a one-line explanation of each.
@@ -127,25 +127,20 @@ function priceChip(a){
   </span>`;
 }
 
+/* The whole magazine reduced to its surviving surfaces: an
+   editorial spine, a market desk, a reference layer, a directory,
+   and the masthead. Everything else is content inside one of them. */
 const SECTIONS = [
-  { code:'020', label:'TAO Terminal',  href:'terminal.html',
-    desc:'The cockpit. Live τ price chart, network pulse, top movers, emissions, benchmark leaderboard, Asian-AI spotlight, frontier releases.' },
-  { code:'030', label:'Markets',       href:'markets.html',
-    desc:'The movers desk, subnets by 24h gainers, losers and activity with sparklines, and the centralized AI landscape ranked by valuation.' },
-  { code:'040', label:'Subnets',       href:'subnets.html',
-    desc:'Every active subnet in one sortable, searchable, filterable table. One click into the full research page for any of them.' },
-  { code:'050', label:'Validators',    href:'validators.html',
-    desc:'The hotkeys that actually run Bittensor, ranked by stake, nominators, APY, and subnet participation.' },
-  { code:'025', label:'Compare',       href:'compare.html',
-    desc:'Bittensor subnets vs the centralized world. TTFT, tokens/sec, $/1M, precision, GPU class, side by side with Claude, GPT, Gemini, DeepSeek, Qwen.' },
-  { code:'026', label:'Centralized Desk', href:'centralized.html',
-    desc:'The centralized AI race, watched, closed labs, compute build-outs, and capital, with the Asian frontier first-class. Reading cards and the full roster.' },
-  { code:'060', label:'Research',      href:'articles.html',
-    desc:'Long-form research on decentralized intelligence, subnet profiles, fund letters, primers. Read inline or download the PDF.' },
-  { code:'070', label:'Community',     href:'community.html',
-    desc:'The ecosystem out loud, a live τ pulse, the Subneτ Magazine X timeline, and a curated directory of the voices worth following.' },
-  { code:'010', label:'Network Map',   href:'network.html',
-    desc:'The validator consensus surface as a rotating 3D globe. Drag to spin; hover a hub for its stake and location.' },
+  { code:'010', label:'Oracle',  href:'oracle.html',
+    desc:'The reference layer. Every Bittensor concept, mechanism, role and event in plain English, indexed and cited. Ask the Oracle directly; it answers and cites its sources.' },
+  { code:'020', label:'Read',    href:'read.html',
+    desc:'Long-form research on decentralized intelligence, plus the primary-source video interviews behind each piece. Read inline or download the PDF.' },
+  { code:'030', label:'Markets', href:'markets.html',
+    desc:'The movers desk. Subnets by 24h gainers, losers and activity with sparklines, and the centralized AI landscape ranked by valuation.' },
+  { code:'040', label:'Voices',  href:'voices.html',
+    desc:'The founders, capital allocators, and operators worth following. A curated directory of the ecosystem on X.' },
+  { code:'050', label:'Editor',  href:'editor.html',
+    desc:'The masthead. Who runs the magazine and the editorial standards behind every claim.' },
 ];
 
 /**
@@ -161,15 +156,15 @@ export function mountHome(root, dataLayer = null){
       <div class="home-research__head">
         <span class="home-net__kicker"><span class="home-net__ord">§ 01</span><span class="live-dot"></span>Featured Research · the desk</span>
         <span class="home-net__source"><span class="dot dot--editorial"></span>EDITORIAL · 14 MAY 2026 · CONFIDENCE HIGH</span>
-        <a class="home-subnets__all" href="articles.html">All research ↗</a>
+        <a class="home-subnets__all" href="read.html">All research ↗</a>
       </div>
       <ul class="home-research__grid">
         ${articles.map((a, i) => {
           /* externally-hosted articles (X video interviews, podcasts)
              open in a new tab; locally-hosted PDFs route through the
-             /articles.html?id= reader. */
+             /read.html?id= reader. */
           const ext = !!a.externalUrl;
-          const href = ext ? a.externalUrl : ('articles.html?id=' + a.id);
+          const href = ext ? a.externalUrl : ('read.html?id=' + a.id);
           const linkAttrs = ext
             ? `href="${href}" target="_blank" rel="noopener"`
             : `href="${href}"`;
@@ -317,7 +312,7 @@ export function mountHome(root, dataLayer = null){
                 <p class="home-bio__body">${b.bio}</p>
               </details>
 
-              <a class="home-bio__more" href="subnet.html?id=${b.netuid}">Open full profile →</a>
+              <a class="home-bio__more" href="markets.html#sn${b.netuid}">See it on the desk →</a>
             </li>
           `;
         }).join('')}
@@ -1338,7 +1333,7 @@ export function mountHome(root, dataLayer = null){
 
       <footer class="home-how__foot">
         <span>PROTOCOL · YUMA CONSENSUS v2 · DTAO ENABLED · 6 STAGES</span>
-        <a class="home-how__more" href="terminal.html#whitepaper">READ THE WHITEPAPER →</a>
+        <a class="home-how__more" href="https://bittensor.com/whitepaper" target="_blank" rel="noopener">READ THE WHITEPAPER →</a>
       </footer>
     </section>
 
@@ -1568,7 +1563,7 @@ export function mountHome(root, dataLayer = null){
                 <p class="home-ops__ship-text">${ship || ', '}</p>
               </div>
 
-              <a class="home-ops__more" href="subnet.html?id=${b.netuid}">Open full profile →</a>
+              <a class="home-ops__more" href="markets.html#sn${b.netuid}">See it on the desk →</a>
             </li>
           `;
         }).join('')}
@@ -1875,7 +1870,7 @@ export function mountHome(root, dataLayer = null){
         : `<span class="home-subnet__logo-fallback">${fallback}</span>`;
       return `
         <li class="home-subnet">
-          <a class="home-subnet__link" href="subnet.html?id=${s.netuid}">
+          <a class="home-subnet__link" href="markets.html#sn${s.netuid}">
             <span class="home-subnet__rank">${String(i + 1).padStart(2, '0')}</span>
             <span class="home-subnet__logo-wrap">${logo}</span>
             <span class="home-subnet__id">SN${s.netuid}</span>

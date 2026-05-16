@@ -1005,7 +1005,7 @@ export function mountConsole(_dataLayer = null){
             <svg viewBox="0 0 24 24"><path d="M4 12h14M14 6l6 6-6 6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
           </button>
         </form>
-        <p class="sbnt-chat__note">Drawing from the Codex entries and field manual on this site. A live Claude link arrives when a server key is plumbed through safely.</p>
+        <p class="sbnt-chat__note">Drawing from the Subnet Oracle entries and field manual on this site. A live Claude link arrives when a server key is plumbed through safely.</p>
       </div>
     `;
   }
@@ -1016,7 +1016,7 @@ export function mountConsole(_dataLayer = null){
     const safe = String(m.text || '').replace(/</g, '&lt;');
     const cite = (m.cites && m.cites.length)
       ? `<span class="sbnt-chat__cite">Cited: ${m.cites.map(c =>
-          `<a href="codex.html#${c.id}">${String(c.title).replace(/</g,'&lt;')}</a>`
+          `<a href="oracle.html#${c.id}">${String(c.title).replace(/</g,'&lt;')}</a>`
         ).join(' · ')}</span>`
       : '';
     return `

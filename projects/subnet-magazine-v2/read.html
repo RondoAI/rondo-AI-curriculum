@@ -4,12 +4,12 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
   <meta name="theme-color" content="#000000">
-  <title>TAO Terminal · Subneτ Magazine</title>
-  <meta name="description" content="The desk view. Live τ/USD candles, subnet heat, top movers, and emissions allocation in one frame.">
+  <title>Read · Subneτ Magazine</title>
+  <meta name="description" content="The magazine's editorial spine. Long-form research, subnet profiles, op-eds, fund letters, and the primary-source video interviews behind the work.">
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..900;1,9..144,300..900&family=Inter:wght@300..800&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@300..800&family=Fraunces:ital,opsz,wght@0,9..144,300..900;1,9..144,300..900&family=Inter:wght@300..800&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
 
   <link rel="stylesheet" href="style/tokens.css">
   <link rel="stylesheet" href="style/base.css">
@@ -18,17 +18,23 @@
   <link rel="stylesheet" href="style/components/status-strip.css">
   <link rel="stylesheet" href="style/components/masthead.css">
   <link rel="stylesheet" href="style/components/panel.css">
-  <link rel="stylesheet" href="style/components/stock-panel.css">
-  <link rel="stylesheet" href="style/components/terminal.css">
+  <link rel="stylesheet" href="style/components/subnet-detail.css">
+  <link rel="stylesheet" href="style/components/articles.css">
+  <link rel="stylesheet" href="style/components/interviews.css">
 </head>
 <body>
 
-  <!-- Mount points only. Boot picks up whichever are in the DOM. -->
+  <aside class="flow-thread" aria-hidden="true">
+    <span class="flow-thread__pulse"></span>
+  </aside>
+
   <div data-mount="tickers"></div>
   <div data-mount="statusbar"></div>
+  <div data-mount="masthead"></div>
 
   <main id="main">
-    <div data-mount="terminal"></div>
+    <div data-mount="articles"></div>
+    <div data-mount="interviews"></div>
   </main>
 
   <script src="config.js"></script>

@@ -12,7 +12,7 @@
      3. Add a new entry to the array below following the shape
         of the existing rows. recordedAt is ISO date (YYYY-MM-DD).
         thumb auto-generates from the YouTube ID if omitted.
-     4. Commit + push. The /interviews.html page picks it up
+     4. Commit + push. The /read.html page picks it up
         automatically on next load, no view code to touch.
 
    YouTube thumbnail URL template (auto-used by the view):

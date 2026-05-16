@@ -458,13 +458,13 @@ function entryCard(e){
         <span class="codex-entry__see-lbl">Cited in</span>
         <div class="codex-entry__cited-list">
           ${cites.articles.map(a => `
-            <a class="codex-cite codex-cite--art" href="articles.html#${escapeHtml(a.id)}">
+            <a class="codex-cite codex-cite--art" href="read.html?id=${escapeHtml(a.id)}">
               <span class="codex-cite__type">Article</span>
               <span class="codex-cite__title">${escapeHtml(a.title)}</span>
             </a>
           `).join('')}
           ${cites.interviews.map(i => `
-            <a class="codex-cite codex-cite--int" href="interviews.html#${escapeHtml(i.id)}">
+            <a class="codex-cite codex-cite--int" href="read.html#${escapeHtml(i.id)}">
               <span class="codex-cite__type">Interview</span>
               <span class="codex-cite__title">${escapeHtml(i.title)}</span>
             </a>
@@ -685,7 +685,7 @@ export function mountCodex(root, dataLayer = null){
         <li class="codex-leader__row">
           <span class="codex-leader__rank">${String(i + 1).padStart(2,'0')}</span>
           <span class="codex-leader__cell-logo">${logo}</span>
-          <a class="codex-leader__id" href="subnet.html?id=${s.netuid}">SN${s.netuid}</a>
+          <a class="codex-leader__id" href="markets.html#sn${s.netuid}">SN${s.netuid}</a>
           <span class="codex-leader__name">${s.name}</span>
           <span class="codex-leader__mcap">${mcap}</span>
           <span class="codex-leader__spark"><canvas data-codex-spark="${s.netuid}"></canvas></span>

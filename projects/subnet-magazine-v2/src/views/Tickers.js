@@ -50,7 +50,7 @@ function newsChip(n, href){
 function bittensorNewsChipsHtml(){
   return [...BITTENSOR_NEWS]
     .sort((a, b) => String(b.date).localeCompare(String(a.date)))
-    .map(n => newsChip(n, 'articles.html'))
+    .map(n => newsChip(n, 'read.html'))
     .join('');
 }
 
@@ -70,7 +70,7 @@ function centralChip(t){
     ? `<span class="tick__tag">${t.tag}</span>`
     : '';
   return `
-    <a class="tick tick--cex" href="${t.href || 'centralized.html'}" target="${t.href ? '_blank' : '_self'}" rel="${t.href ? 'noopener' : ''}">
+    <a class="tick tick--cex" href="${t.href || 'markets.html'}" target="${t.href ? '_blank' : '_self'}" rel="${t.href ? 'noopener' : ''}">
       ${logo}
       <span class="tick__sym">${t.sym}</span>
       <span class="tick__val">${t.valFmt}</span>
@@ -87,7 +87,7 @@ function centralTapeHtml(){
   const news = [...AI_NEWS]
     .sort((a, b) => String(b.date).localeCompare(String(a.date)))
     .slice(0, 8)
-    .map(n => newsChip(n, 'centralized.html'))
+    .map(n => newsChip(n, 'read.html'))
     .join('');
   const once = company + news;
   return once + once;
@@ -170,7 +170,7 @@ export function mountTickers(root, dataLayer = null){
         : `<span class="tick__mark">${mark(s.name, { size: 18 })}</span>`;
       const price = s.price < 1 ? '$' + s.price.toFixed(4) : money(s.price);
       return `
-        <a class="tick" href="subnet.html?id=${s.netuid}">
+        <a class="tick" href="markets.html#sn${s.netuid}">
           ${logo}
           <span class="tick__sym">SN${s.netuid}</span>
           <span class="tick__name">${s.name}</span>

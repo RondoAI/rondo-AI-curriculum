@@ -3,7 +3,7 @@
    -----------------------------------------------------------------
    Editorial / research pieces published by Subneτ Magazine and
    featured partners. Each entry carries metadata that drives the
-   article-card layout on /articles.html. Bodies are PDFs hosted
+   article-card layout on /read.html. Bodies are PDFs hosted
    under projects/subnet-magazine-v2/articles/ so the site is
    self-contained.
 

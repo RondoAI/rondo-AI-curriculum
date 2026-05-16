@@ -23,7 +23,7 @@
      confidence 'high' | 'medium' | 'low', the magazine's
                 epistemic-honesty signal, surfaces a dot per entry
 
-   How to add an entry: append to CODEX. The /codex.html view
+   How to add an entry: append to CODEX. The /oracle.html view
    picks it up automatically on next load, no view code to touch.
    ================================================================= */
 
