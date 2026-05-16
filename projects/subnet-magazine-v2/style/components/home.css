@@ -1288,23 +1288,50 @@
   margin: 0; padding: 0;
   display: flex; flex-wrap: wrap; gap: 6px;
 }
+/* centralized incumbent pill — brand badge + name + small detail */
 .home-stack__cent-pill{
-  display: inline-block;
-  padding: 4px 9px;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 3px 9px 3px 4px;
   border: 1px solid var(--c-rule-3);
   border-radius: 999px;
   background: rgba(255,255,255,.05);
   color: var(--c-ink-1);
   font-family: var(--f-mono);
-  font-size: 11.5px;
+  font-size: 11px;
   font-weight: 600;
   white-space: nowrap;
+  max-width: 100%;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.home-stack__cent-name{ color: var(--c-ink-1); }
+.home-stack__cent-det{
+  color: var(--c-ink-3);
+  font-weight: 500;
+  font-size: 10px;
+  padding-left: 4px;
+  border-left: 1px solid var(--c-rule-2);
 }
 
-/* bittensor pills — color-coded by category, with the SN id leading */
+/* in-house brand monogram badge (used by the brand-chip helper) */
+.brand-chip{
+  display: inline-grid;
+  place-items: center;
+  flex: 0 0 auto;
+  border-radius: 50%;
+  font-family: var(--f-mono, ui-monospace, monospace);
+  font-weight: 800;
+  letter-spacing: 0;
+  line-height: 1;
+  box-shadow: 0 0 0 1px rgba(255,255,255,.04) inset, 0 0 8px rgba(0,0,0,.4);
+}
+
+/* bittensor pills — node-graph monogram + SN id + name, colour-coded by category */
 .home-stack__sn-pill{
-  display: inline-flex; align-items: baseline; gap: 5px;
-  padding: 3px 8px;
+  display: inline-flex; align-items: center; gap: 6px;
+  padding: 3px 9px 3px 4px;
   border: 1px solid var(--c-rule-2);
   border-radius: 999px;
   background: rgba(255,30,60,.06);
@@ -1314,6 +1341,13 @@
   font-weight: 600;
   white-space: nowrap;
 }
+.home-stack__sn-logo{
+  display: inline-grid; place-items: center;
+  width: 18px; height: 18px;
+  flex: 0 0 18px;
+  line-height: 0;
+}
+.home-stack__sn-logo svg{ width: 100%; height: 100%; display: block; border-radius: 50%; }
 .home-stack__sn-id{
   color: var(--c-red);
   font-weight: 700;

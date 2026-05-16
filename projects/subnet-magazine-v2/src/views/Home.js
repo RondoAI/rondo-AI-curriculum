@@ -21,6 +21,7 @@
 import { html, mount, qs, qsa, setLive } from '../lib/dom.js';
 import { money, compact, pct, deltaClass, int } from '../lib/format.js';
 import { mark, seedSeries } from '../lib/mark.js';
+import { brandChip } from '../lib/brand-monograms.js';
 import { cardArt } from '../lib/art.js';
 import { Sparkline } from '../charts/Sparkline.js';
 import { NeuralNet } from '../charts/NeuralNet.js';
@@ -487,11 +488,15 @@ export function mountHome(root, dataLayer = null){
             layer: 'APPLICATION',
             sub:   'Products users actually open.',
             cap: 40, aMcap: 57, gapTxt:'≈700×',
-            cent:  ['ChatGPT $25B+ ARR', 'Cursor $2B+ ARR', 'Perplexity ~$500M ARR'],
+            cent:  [
+              { name:'ChatGPT',    brand:'openai',     detail:'~$30B ARR' },
+              { name:'Cursor',     brand:'cursor',     detail:'$2.5B+ ARR' },
+              { name:'Perplexity', brand:'perplexity', detail:'~$700M ARR' },
+            ],
             sn:    [
-              { id: 44,  name: 'Score Vision',  cat: 'vision' },
-              { id: 18,  name: 'Cortex.t',      cat: 'text' },
-              { id: 19,  name: 'Nineteen',      cat: 'text' },
+              { id: 44, name: 'Score Vision', cat: 'vision' },
+              { id: 18, name: 'Cortex.t',     cat: 'text'   },
+              { id: 19, name: 'Nineteen',     cat: 'text'   },
             ],
             unit:    'COST PER USER · centralized prices its margin in; Bittensor prices it out.',
             verdict: 'ChatGPT alone is ~440× the entire Bittensor application stack at the application layer. Wallet share is the slowest moat to disrupt and the layer isn\'t the bet.',
@@ -500,26 +505,36 @@ export function mountHome(root, dataLayer = null){
             layer: 'AGENT',
             sub:   'Tool-using systems that act, not just answer.',
             cap: 11, aMcap: 34, gapTxt:'≈320×',
-            cent:  ['OpenAI Operator', 'Claude Code $1B ARR', 'Cognition Devin', 'Salesforce Agentforce'],
-            sn:    [
-              { id: 36, name: 'Web Genie',   cat: 'agents' },
-              { id: 59, name: 'AgentArena',  cat: 'agents' },
-              { id: 62, name: 'Ridges',      cat: 'agents' },
+            cent:  [
+              { name:'OpenAI Operator', brand:'openai',     detail:'agent SaaS' },
+              { name:'Claude Code',     brand:'anthropic',  detail:'$1.5B+ ARR' },
+              { name:'Cognition Devin', brand:'cognition',  detail:'$4B val.'  },
+              { name:'Agentforce',      brand:'salesforce', detail:'$700M+ ARR' },
             ],
-            unit:    'BENCHMARK PARITY · race is early; agent eval scores still 60-70% on SWE-bench.',
-            verdict: 'Narrowest absolute gap on the chart, but the centralized side has shipped: Claude Code is at $1B ARR and Agentforce at $540M. First decentralized agent to clear 90% on SWE-bench takes the layer.',
+            sn:    [
+              { id: 36, name: 'Web Genie',  cat: 'agents' },
+              { id: 59, name: 'AgentArena', cat: 'agents' },
+              { id: 62, name: 'Ridges',     cat: 'agents' },
+            ],
+            unit:    'BENCHMARK PARITY · agent eval scores 60-70% on SWE-bench; first to clear 90% takes the layer.',
+            verdict: 'Narrowest absolute gap on the chart, but the centralized side has shipped: Claude Code is at $1.5B ARR and Agentforce at $700M+. First decentralized agent to clear 90% on SWE-bench takes the layer.',
           },
           {
             layer: 'MODEL',
             sub:   'Foundation + finetune weights.',
             cap: 1700, aMcap: 139, gapTxt:'≈12k×',
-            cent:  ['OpenAI $852B', 'Anthropic $380-900B', 'Google AI', 'Meta GenAI'],
+            cent:  [
+              { name:'OpenAI',    brand:'openai',    detail:'~$1T val.'    },
+              { name:'Anthropic', brand:'anthropic', detail:'$380-900B'    },
+              { name:'Google AI', brand:'google',    detail:'Gemini Ultra' },
+              { name:'Meta GenAI',brand:'meta',      detail:'Llama 4'      },
+            ],
             sn:    [
-              { id: 1,   name: 'Apex',     cat: 'text' },
+              { id: 1,   name: 'Apex',     cat: 'text'     },
               { id: 9,   name: 'IOTA',     cat: 'training' },
               { id: 3,   name: 'Templar',  cat: 'training' },
               { id: 120, name: 'Affine',   cat: 'training' },
-              { id: 6,   name: 'Numinous', cat: 'text' },
+              { id: 6,   name: 'Numinous', cat: 'text'     },
             ],
             unit:    'MMLU PARITY · Templar-72B (Mar ’26) hit 67.1, beating Llama-2-70B (65.6).',
             verdict: 'Worst capital gap on the chart, best technical signal. Templar-72B is the first decentralized result within striking distance of frontier — Apache 2.0, cited by Jack Clark, discussed by Jensen Huang. Open weights vs proprietary capture.',
@@ -528,7 +543,12 @@ export function mountHome(root, dataLayer = null){
             layer: 'INFERENCE',
             sub:   'Serving model output at API latency.',
             cap: 117, aMcap: 96, gapTxt:'≈1.2k×',
-            cent:  ['OpenAI API ~$3.2B', 'Together ~$1B ARR', 'Fireworks $315M ARR', 'Replicate'],
+            cent:  [
+              { name:'OpenAI API', brand:'openai',    detail:'~$4B run-rate' },
+              { name:'Together',   brand:'together',  detail:'~$1.5B ARR'    },
+              { name:'Fireworks',  brand:'fireworks', detail:'$450M ARR'     },
+              { name:'Replicate',  brand:'replicate', detail:'serverless'    },
+            ],
             sn:    [
               { id: 4,  name: 'Targon',    cat: 'text' },
               { id: 18, name: 'Cortex.t',  cat: 'text' },
@@ -541,11 +561,16 @@ export function mountHome(root, dataLayer = null){
             layer: 'DATA',
             sub:   'The training set.',
             cap: 32, aMcap: 41, gapTxt:'≈780×',
-            cent:  ['ScaleAI $29B', 'Surge AI $15-25B', 'Snorkel', 'Common Crawl'],
+            cent:  [
+              { name:'Scale AI',     brand:'scaleai',     detail:'$29B (Meta)' },
+              { name:'Surge AI',     brand:'surge',       detail:'$15-25B'     },
+              { name:'Snorkel',      brand:'snorkel',     detail:'data quality'},
+              { name:'Common Crawl', brand:'commoncrawl', detail:'open corpus' },
+            ],
             sn:    [
-              { id: 13, name: 'Data Universe', cat: 'data' },
-              { id: 60, name: 'Snowballer',    cat: 'data' },
-              { id: 52, name: 'Dojo',          cat: 'data' },
+              { id: 13, name: 'Data Universe', cat: 'data'   },
+              { id: 60, name: 'Snowballer',    cat: 'data'   },
+              { id: 52, name: 'Dojo',          cat: 'data'   },
               { id: 24, name: 'BitMind',       cat: 'vision' },
             ],
             unit:    'B2B FLYWHEEL · first publicly-disclosed inter-subnet contract: SN13 → SN44 in Q1 ’26.',
@@ -555,13 +580,19 @@ export function mountHome(root, dataLayer = null){
             layer: 'COMPUTE',
             sub:   'GPU + CPU runtime layer.',
             cap: 450, aMcap: 181, gapTxt:'≈2.5k×',
-            cent:  ['AWS', 'Azure', 'GCP', 'CoreWeave', 'Lambda'],
+            cent:  [
+              { name:'AWS',       brand:'aws',       detail:'hyperscaler' },
+              { name:'Azure',     brand:'azure',     detail:'MS-owned'    },
+              { name:'GCP',       brand:'gcp',       detail:'Google'      },
+              { name:'CoreWeave', brand:'coreweave', detail:'$23B IPO'    },
+              { name:'Lambda',    brand:'lambda',    detail:'GPU rental'  },
+            ],
             sn:    [
-              { id: 64, name: 'Chutes',    cat: 'infra' },
-              { id: 51, name: 'Lium',      cat: 'infra' },
-              { id: 39, name: 'Basilica',  cat: 'infra' },
-              { id: 27, name: 'Compute',   cat: 'infra' },
-              { id: 49, name: 'Polaris',   cat: 'infra' },
+              { id: 64, name: 'Chutes',   cat: 'infra' },
+              { id: 51, name: 'Lium',     cat: 'infra' },
+              { id: 39, name: 'Basilica', cat: 'infra' },
+              { id: 27, name: 'Compute',  cat: 'infra' },
+              { id: 49, name: 'Polaris',  cat: 'infra' },
             ],
             unit:    'CAPEX BURN · MSFT+GOOG+META+AMZN FY26 capex ~$725B total, ~$450B AI-specific.',
             verdict: 'You don\'t out-capex Microsoft. The play is aggregator economics — coordinate the long-tail GPU supply that hyperscalers don\'t bid on. Chutes\' B200 deployment is the live test.',
@@ -570,11 +601,13 @@ export function mountHome(root, dataLayer = null){
             layer: 'PROTOCOL',
             sub:   'Coordination + payment layer.',
             cap: 0, aMcap: 3300, gapTxt:'100% Bittensor',
-            cent:  ['no centralized analog exists'],
+            cent:  [
+              { name:'no centralized analog exists', brand:'none', detail:'' },
+            ],
             sn:    [
-              { id: null, name: 'Subtensor chain',  cat: 'protocol' },
-              { id: null, name: 'Yuma Consensus',   cat: 'protocol' },
-              { id: null, name: 'dTAO bonding',     cat: 'protocol' },
+              { id: null, name: 'Subtensor chain', cat: 'protocol' },
+              { id: null, name: 'Yuma Consensus',  cat: 'protocol' },
+              { id: null, name: 'dTAO bonding',    cat: 'protocol' },
             ],
             unit:    'TAO MARKET CAP · $3.3B live, 21M cap, halving #2 due Dec ’29.',
             verdict: 'The only layer where Bittensor owns the field. No centralized product coordinates a network of AI workers like Yuma does. The asymmetric bet sits here, not above.',
@@ -614,18 +647,38 @@ export function mountHome(root, dataLayer = null){
 
             <div class="home-stack__cent">
               <span class="home-stack__col-lbl">CENTRALIZED INCUMBENTS</span>
-              <ul>${row.cent.map(c => `<li><span class="home-stack__cent-pill">${c}</span></li>`).join('')}</ul>
+              <ul>${row.cent.map(c => {
+                /* tolerate both the old string shape and the new
+                   {name, brand, detail} shape — if anyone reverts
+                   to plain strings later this still renders */
+                const obj = typeof c === 'string'
+                  ? { name: c, brand: c, detail: '' }
+                  : c;
+                return `<li>
+                  <span class="home-stack__cent-pill">
+                    ${brandChip(obj.brand || obj.name, { size: 18 })}
+                    <span class="home-stack__cent-name">${obj.name}</span>
+                    ${obj.detail ? `<span class="home-stack__cent-det">${obj.detail}</span>` : ''}
+                  </span>
+                </li>`;
+              }).join('')}</ul>
             </div>
             <div class="home-stack__sn">
               <span class="home-stack__col-lbl">BITTENSOR SUBNETS COMPETING HERE</span>
-              <ul>${row.sn.map(s => `
-                <li>
+              <ul>${row.sn.map(s => {
+                /* paint a real node-graph monogram for the subnet —
+                   same engine as the bio-card fallbacks, sized to
+                   match the brand chip on the centralized side so
+                   the two columns scan equally */
+                const monogram = mark(s.name, { size: 18 });
+                return `<li>
                   <span class="home-stack__sn-pill cat-${s.cat}">
+                    <span class="home-stack__sn-logo" aria-hidden="true">${monogram}</span>
                     ${s.id != null ? `<span class="home-stack__sn-id">SN${s.id}</span>` : ''}
                     <span class="home-stack__sn-name">${s.name}</span>
                   </span>
-                </li>
-              `).join('')}</ul>
+                </li>`;
+              }).join('')}</ul>
             </div>
 
             <div class="home-stack__unit">
