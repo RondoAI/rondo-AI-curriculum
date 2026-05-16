@@ -236,12 +236,29 @@ export function mountHome(root, dataLayer = null){
       .home-article--oracle .home-article__art{
         background: radial-gradient(ellipse at 30% 30%, #15131f 0%, #08070d 70%);
       }
-      .home-article--oracle .home-article__art > canvas[data-canvas="home-oracle-mark"]{
+      /* The sphere canvas fills the cover area; this is the canonical
+         NodeSphere brand mark, identical engine and params to the one
+         at the top of the page. */
+      .home-article--oracle .home-article__sphere{
         position: absolute;
         inset: 0;
         width: 100%;
         height: 100%;
         display: block;
+      }
+      /* The glyph canvas overlays the sphere, centered, sized smaller
+         so the logo plexus reads as living INSIDE the spinning sphere.
+         Mix-blend-mode lighten so the bright red glyph sits cleanly on
+         top of the sphere edges without painting black over them. */
+      .home-article--oracle .home-article__glyph{
+        position: absolute;
+        left: 50%; top: 50%;
+        transform: translate(-50%, -50%);
+        width: 55%;
+        height: 55%;
+        display: block;
+        pointer-events: none;
+        mix-blend-mode: screen;
       }
       .home-article--oracle .home-article__oracle-badge{
         position: absolute;
@@ -283,9 +300,12 @@ export function mountHome(root, dataLayer = null){
           <li class="home-article home-article--oracle ${i === 0 ? 'is-lead' : ''}">
             <a class="home-article__link" href="${a.pdf}" target="_blank" rel="noopener">
               <span class="home-article__art">
-                <canvas data-canvas="home-oracle-mark"
+                <canvas class="home-article__sphere"
+                        data-canvas="home-oracle-sphere"
+                        data-id="${a.id}"></canvas>
+                <canvas class="home-article__glyph"
+                        data-canvas="home-oracle-glyph"
                         data-id="${a.id}"
-                        data-glyph="${isSpot ? (a.subnetName || ('SN' + a.subnetId)).toUpperCase() : 'ORACLE'}"
                         data-subnet-slug="${isSpot ? (a.subnetName || '').toLowerCase() : ''}"></canvas>
                 <span class="home-article__art-frame" aria-hidden="true"></span>
                 <span class="home-article__oracle-badge">SUBNET ORACLE</span>
@@ -1853,38 +1873,45 @@ export function mountHome(root, dataLayer = null){
   });
 
   /* Subnet logo files that ship in this project's assets/ folder.
-     When a Subnet Spotlight card matches a name here, the cover
-     chart loads the logo file and renders its pixels as the red
-     plexus glyph inside the spinning sphere. Subnets not in this
-     map fall back to rendering the subnet name as text plexus.
-     Add new entries here as logo files are added to assets/. */
+     When a Subnet Spotlight card matches a name here, the glyph
+     canvas loads this image and renders its pixels as the red
+     plexus suspended inside the sphere. Subnets without a logo
+     file (and every Ecosystem State card) fall back to the
+     Bittensor τ mark so no card ever shows text. Add new entries
+     here as logo files are added to assets/. */
   const SUBNET_LOGOS = {
     'hippius':  'assets/hippius-mark.png',
     'targon':   'assets/targon-mark.svg',
   };
+  const FALLBACK_LOGO = 'assets/bittensor-tau.png';
 
-  /* ---------- SUBNET ORACLE card covers, one OracleSphere per card --
-     The multimodal Subnet Oracle signature: a rotating red plexus
-     sphere with the article's subject (subnet logo if we have it,
-     otherwise the subnet name) rendered as a plexus glyph LIVING
-     INSIDE the sphere. Back hemisphere draws behind the glyph, glyph
-     draws in the middle, front hemisphere overlays on top, so the
-     glyph reads as suspended inside a transparent globe of nodes. */
+  /* ---------- SUBNET ORACLE card covers, two canvases per card -----
+     Architecture mirrors the top of the page exactly:
+       - sphere canvas: NodeSphere instance with the same params as
+         the Hero brand mark (78 nodes, K=4, density 0.46, speed 0.2,
+         atmosphere on). This is THE Subnet Oracle visual; same class,
+         same engine, same look as the masthead.
+       - glyph canvas: PlexusGlyph layered on top, centered at 55%
+         size with mix-blend-mode screen so the bright red glyph sits
+         cleanly on top of the sphere edges. The logo silhouette
+         reads as living inside the rotating sphere. */
   const oracleMarks = [];
-  root.querySelectorAll('[data-canvas="home-oracle-mark"]').forEach((cv, i) => {
-    const glyph = cv.dataset.glyph || 'ORACLE';
-    const subnetSlug = (cv.dataset.subnetSlug || '').toLowerCase();
-    const imgUrl = SUBNET_LOGOS[subnetSlug] || null;
+  root.querySelectorAll('[data-canvas="home-oracle-sphere"]').forEach((cv) => {
     try {
-      oracleMarks.push(new OracleSphere(cv, {
-        text:         glyph,
-        imageSrc:     imgUrl,
-        sphereNodes:  64,
-        sphereSpeed:  0.32,
-        glyphDensity: 0.60,
-        sphereRadius: 0.48,
-        seed:         i + 1,
-        weight:       '900',
+      oracleMarks.push(new NodeSphere(cv, {
+        nodes: 78, K: 4, density: 0.46, speed: 0.2,
+      }));
+    } catch (_) {}
+  });
+  root.querySelectorAll('[data-canvas="home-oracle-glyph"]').forEach((cv, i) => {
+    const subnetSlug = (cv.dataset.subnetSlug || '').toLowerCase();
+    const imgUrl = SUBNET_LOGOS[subnetSlug] || FALLBACK_LOGO;
+    try {
+      oracleMarks.push(new PlexusGlyph(cv, {
+        imageSrc: imgUrl,
+        density:  0.62,
+        ambient:  0,           /* sphere already provides background */
+        seed:     i + 1,
       }));
     } catch (_) {}
   });

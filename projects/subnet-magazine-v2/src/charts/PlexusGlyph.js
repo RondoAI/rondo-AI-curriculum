@@ -24,7 +24,8 @@ export class PlexusGlyph extends Chart {
   /**
    * @param {HTMLCanvasElement} canvas
    * @param {{
-   *   text?:    string,
+   *   imageSrc?: string,   // logo image URL; if present, sampled as glyph
+   *   text?:    string,    // fallback text glyph if no image
    *   density?: number,    // foreground dot density (0..1)
    *   ambient?: number,    // ambient background dot count
    *   seed?:    number,
@@ -34,6 +35,7 @@ export class PlexusGlyph extends Chart {
    */
   constructor(canvas, opts = {}){
     super(canvas, { animate: true });
+    this.imageSrc = opts.imageSrc || null;
     this.text     = (opts.text || 'ORACLE').toString();
     this.density  = opts.density ?? 0.55;
     this.ambient  = opts.ambient ?? 80;
@@ -47,15 +49,34 @@ export class PlexusGlyph extends Chart {
     this._bg = [];
     /** breathing phases per fg point so they shimmer independently */
     this._phase = [];
+
+    /* Image load (async): when it lands we relayout so the chart
+       switches from the text fallback to the image-sampled glyph. */
+    this._image = null;
+    if (this.imageSrc){
+      const img = new Image();
+      img.crossOrigin = 'anonymous';
+      img.onload = () => {
+        this._image = img;
+        if (this.w && this.h){
+          try { this.layout(this.ctx, this.w, this.h); } catch (_) {}
+        }
+      };
+      img.onerror = () => { /* text fallback */ };
+      img.src = this.imageSrc;
+    }
   }
 
   /* ---------------------------------------------------------------- */
   layout(ctx, w, h){
     const rng = mulberry32(this.seed * 9176 + 1);
 
-    /* 1. Render the glyph to an offscreen canvas at canvas-pixel size,
-          then sample it. Off-screen canvas is the easiest way to get
-          a pixel grid of any text. */
+    /* Render the glyph (image if loaded, text otherwise) into an
+       off-screen canvas, then sample it. Image branch uses an
+       adaptive foreground extraction that samples the corner
+       pixels as background and selects anything whose color differs
+       by more than a threshold; that handles logos with any color
+       scheme without per-logo tuning. */
     const off = document.createElement('canvas');
     off.width  = Math.max(8, Math.floor(w));
     off.height = Math.max(8, Math.floor(h));
@@ -63,29 +84,72 @@ export class PlexusGlyph extends Chart {
     oc.fillStyle = '#000';
     oc.fillRect(0, 0, off.width, off.height);
 
-    /* Auto-fit font size: bigger if the text is short, smaller if
-       long. The text always fills 80% of the available width and
-       around 70% of the height, whichever is the binding constraint. */
-    const padX = off.width  * 0.08;
-    const padY = off.height * 0.12;
-    let fontSize = Math.min(off.height - padY * 2, off.width * 0.9);
-    oc.fillStyle = '#ffffff';
-    oc.textAlign = 'center';
-    oc.textBaseline = 'middle';
-    if (this.stretch){
-      /* Binary search for the size that fits within padded box */
-      let lo = 8, hi = Math.min(off.width, off.height) * 2;
-      for (let i = 0; i < 12; i++){
-        const m = (lo + hi) / 2;
-        oc.font = `${this.weight} ${m}px Archivo, "Inter", system-ui, sans-serif`;
-        const tw = oc.measureText(this.text).width;
-        if (tw > off.width - padX * 2) hi = m;
-        else                            lo = m;
+    if (this._image){
+      const iw = this._image.naturalWidth  || this._image.width  || 1;
+      const ih = this._image.naturalHeight || this._image.height || 1;
+      const padX = off.width  * 0.05;
+      const padY = off.height * 0.05;
+      const boxW = off.width  - padX * 2;
+      const boxH = off.height - padY * 2;
+      const scale = Math.min(boxW / iw, boxH / ih);
+      const dw = iw * scale, dh = ih * scale;
+      const dx = (off.width  - dw) / 2;
+      const dy = (off.height - dh) / 2;
+      oc.drawImage(this._image, dx, dy, dw, dh);
+
+      const id = oc.getImageData(0, 0, off.width, off.height);
+      const d  = id.data;
+
+      /* Sample corners of the drawn-image rect as background ref */
+      const ix0 = Math.max(0, Math.floor(dx)) + 1;
+      const iy0 = Math.max(0, Math.floor(dy)) + 1;
+      const ix1 = Math.min(off.width  - 1, Math.floor(dx + dw)) - 1;
+      const iy1 = Math.min(off.height - 1, Math.floor(dy + dh)) - 1;
+      let br = 0, bg = 0, bb = 0, ba = 0;
+      const samp = [[ix0,iy0],[ix1,iy0],[ix0,iy1],[ix1,iy1]];
+      for (const [sx, sy] of samp){
+        const p = (sy * off.width + sx) * 4;
+        br += d[p]; bg += d[p+1]; bb += d[p+2]; ba += d[p+3];
       }
-      fontSize = lo;
+      br /= 4; bg /= 4; bb /= 4; ba /= 4;
+      const bgTransparent = ba < 32;
+      const THR = 70;
+
+      for (let p = 0; p < d.length; p += 4){
+        const aa = d[p+3];
+        let on;
+        if (aa <= 32) on = false;
+        else if (bgTransparent) on = true;
+        else {
+          const dr = d[p] - br, dg = d[p+1] - bg, db = d[p+2] - bb;
+          on = Math.sqrt(dr*dr + dg*dg + db*db) > THR;
+        }
+        d[p] = d[p+1] = d[p+2] = on ? 255 : 0;
+        d[p+3] = 255;
+      }
+      oc.putImageData(id, 0, 0);
+    } else {
+      /* Text fallback: auto-fit then render */
+      const padX = off.width  * 0.08;
+      const padY = off.height * 0.12;
+      let fontSize = Math.min(off.height - padY * 2, off.width * 0.9);
+      oc.fillStyle = '#ffffff';
+      oc.textAlign = 'center';
+      oc.textBaseline = 'middle';
+      if (this.stretch){
+        let lo = 8, hi = Math.min(off.width, off.height) * 2;
+        for (let i = 0; i < 12; i++){
+          const m = (lo + hi) / 2;
+          oc.font = `${this.weight} ${m}px Archivo, "Inter", system-ui, sans-serif`;
+          const tw = oc.measureText(this.text).width;
+          if (tw > off.width - padX * 2) hi = m;
+          else                            lo = m;
+        }
+        fontSize = lo;
+      }
+      oc.font = `${this.weight} ${fontSize}px Archivo, "Inter", system-ui, sans-serif`;
+      oc.fillText(this.text, off.width / 2, off.height / 2);
     }
-    oc.font = `${this.weight} ${fontSize}px Archivo, "Inter", system-ui, sans-serif`;
-    oc.fillText(this.text, off.width / 2, off.height / 2);
 
     /* 2. Sample non-empty pixels on a stride grid. The stride
           controls dot density; a smaller stride means more dots. */
