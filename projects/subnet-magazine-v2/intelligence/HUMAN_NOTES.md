@@ -7,6 +7,113 @@ Format: dated heading + a short note. Add new entries to the TOP.
 
 ---
 
+## 2026-05-16 18:40 UTC, PRIMARY SOURCE from Rondo, Manako Q1 product launch (Jan 22 2026)
+Source: Rondo passed through the @webuildscore Jan 22 X post
+"Introducing Manako: Build with Vision". Preserved at:
+  intelligence/_primary_sources/2026-01-22-score-sn44-manako-product-launch-announcement.md
+
+This is the MISSING MIDDLE LAYER in the Score / Manako / PwC stack.
+The desk now has all three layers cleanly preserved as primary
+sources:
+  - MECHANISM: TurboVision miner docs (how miners compute, weight
+    table, schema)
+  - PRODUCT:   this Manako launch (how outputs become a
+    conversational interface)
+  - SALES:     PwC France recap (how the product distributes via
+    Big Four channels)
+
+Plus the active rollout signal: the cricket-balltrack starter pack
+URL (still PENDING SCREENSHOT) that shows the pipeline is currently
+shipping new elements into the catalog.
+
+### What Manako actually is (from the launch announcement)
+Manako is the product layer that wraps Score (SN44) for non-ML
+users. The team's framing: "What once required expert teams and
+major resources will soon be available through simple conversation
+with Manako." Direct analog: Manako is to computer vision what
+Cursor / Copilot are to software, with Score's decentralized miner
+network as the engine producing the building blocks.
+
+### The architecture (this is the explicit explanation we were missing)
+Three layers stated by the team:
+  1. CURATED LIBRARY of vision components, continuously enriched
+     by Score subnet competitions
+  2. AI ORCHESTRATOR that interprets user intent, assembles vision
+     components into an execution graph, optimizes the pipeline
+  3. SIMPLE, STABLE DEVELOPER INTERFACES: users interact only with
+     outcomes and endpoints; internal complexity is abstracted
+
+The load-bearing sentence the desk has been working without:
+> "The Score subnet continuously enriches this ecosystem through
+> ongoing competitions, delivering new computer vision models that
+> expand Manako's capabilities over time."
+
+This explains the manifest-driven challenge architecture Tim
+described in the Apr 16 PwC Spaces. Every Score private-track
+challenge that produces a winning model becomes a new building
+block in Manako's curated library. The subnet is R&D; Manako is
+the consumer-facing composer.
+
+### The timeline this resolves
+- ~Aug 2025: 8-month PwC due diligence begins
+- Jan 22 2026: Manako product launch announced, waitlist opens
+- Q1 2026 (Jan-Mar): first version of Manako launches with limited
+  user access
+- Apr 16 2026: PwC France & Maghreb alliance signed and announced
+- May 16 2026: cricket-balltrack starter pack visible in /upcoming
+  on the console (the rollout continues)
+- Coming weeks: PwC global blockchain community pitch (per Apr 16
+  alpha) takes Score/Manako to all 136 PwC territories
+
+So Manako shipped first as a self-serve product, the PwC deal landed
+3 months later as the enterprise distribution channel. The two-sided
+go-to-market (top-down PwC + bottom-up developers) is now visible
+in the timing.
+
+### How this resolves the cricket-balltrack starter pack mystery
+The PENDING SCREENSHOT entry from 18:25 asked what the
+manak0-element-cricket-balltrack-starter-pack page actually shows.
+With Manako's architecture now explicit, the high-confidence answer:
+
+The "starter pack" is the **miner-side onboarding bundle** for a
+new vision component that Manako will expose to users. The
+cricket-balltrack element will become a building block in Manako's
+curated library; the starter pack lowers time-to-first-submission
+for miners competing for that component's rewards. Two-sided:
+  - Miner side: starter pack = template repo + sample data +
+    Docker scaffolding for cricket-balltrack (what the console
+    URL likely shows)
+  - Manako user side: cricket-balltrack appears as a callable
+    capability in the Manako interface ("track this cricket
+    delivery's speed and bounce position")
+
+A screenshot would still confirm exact contents, but the structural
+purpose is clear.
+
+### The synthesis the Oracle can now write
+With all three Score primary sources in the vault plus the WSB
+thesis context, the Oracle agent has material for a 1,500-2,000
+word Subnet Spotlight that walks all four layers in one piece:
+  1. MECHANISM (TurboVision miner docs, weight table)
+  2. PRODUCT (this Manako launch, three architectural principles)
+  3. SALES CHANNEL (PwC France recap with Jean-Thomas Ledoré
+     verbatim, 136-country scaling)
+  4. ACTIVE ROLLOUT (cricket-balltrack starter pack in /upcoming)
+
+None of these layers have been synthesized in one place by the
+human magazine. The Oracle should treat this as the single highest-
+leverage opportunity today to demonstrate the "out-research the
+human magazine" framing the system prompt demands.
+
+### Voices.js update needed
+The @manakoai entry currently says it's Score's product layer with
+the "billion cameras" pitch. Adding the Q1 launch date, the
+conversational-interface framing, and the three architectural
+principles will give the Oracle better context to generate
+spotlights without re-reading the full thread.
+
+---
+
 ## 2026-05-16 18:25 UTC, PENDING SCREENSHOT from Rondo, Score Vision console "cricket balltrack starter pack"
 Source: Rondo passed the URL:
   https://console.scorevision.io/upcoming/manak0-element-cricket-balltrack-starter-pack
