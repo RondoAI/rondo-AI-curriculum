@@ -22,6 +22,7 @@ const NAV_ITEMS = [
   { code: '070', label: 'COMMUNITY', href: 'community.html'    },
   { code: '040', label: 'SUBNETS',   href: 'subnets.html'      },
   { code: '050', label: 'VALIDATORS',href: 'validators.html'   },
+  { code: '090', label: 'INTERVIEWS',href: 'interviews.html'   },
   { code: '080', label: 'EDITOR',    href: 'editor.html'       },
 ];
 
