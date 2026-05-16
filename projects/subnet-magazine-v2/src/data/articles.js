@@ -33,6 +33,25 @@
 /** @type {readonly Article[]} */
 export const ARTICLES = Object.freeze([
   {
+    id: 'hippius-may-2026-arion-hermes',
+    title: 'After Arion, Hermes, and a Free-Egress Argument: SN75 Hippius in May 2026',
+    kicker: 'SUBNET PROFILE',
+    authors: ['Subneτ Magazine'],
+    date: '2026-05-12',
+    issue: 'Issue 015 — The data plane',
+    category: 'profile',
+    tagline: 'Eight months after Alphanomics: a new storage engine (Arion), a cross-subnet messenger (Hermes), a second region, and a repositioning from object store to AI data plane. What that means, and what is not yet settled.',
+    abstract: [
+      'When this magazine last covered Subnet 75 in late September 2025, the framing was Alphanomics — Hippius\'s incentive design and the way hAlpha routed real product revenue back to miners, validators, and stakers. The framing was correct for September. It is incomplete for May.',
+      'In the eight months since, Hippius has replaced its storage engine, shipped a separate cross-subnet messaging protocol, opened a second geographic region, and quietly repositioned itself from a decentralized object store into something closer to a data plane for Bittensor\'s AI workloads. The repositioning is worth taking seriously and worth interrogating honestly. Both are the same exercise.',
+    ],
+    tags: ['SN75', 'Hippius', 'Arion', 'Hermes', 'storage', 'data-plane', 'free-egress', 'Reed-Solomon', 'S3-compatible'],
+    subnet: '75',
+    pdf: 'articles/hippius-may-2026-arion-hermes.pdf',
+    readMin: 14,
+    accent: '#FF1E3C',
+  },
+  {
     id: 'alphanomics-sn75-hippius',
     title: 'Alphanomics: A new incentive model by SN75 Hippius',
     kicker: 'SUBNET PROFILE',
