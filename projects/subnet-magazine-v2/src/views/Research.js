@@ -1,51 +1,95 @@
 /* =================================================================
-   RESEARCH VIEW
+   SUBNET ORACLE RESEARCH (the /research page)
    -----------------------------------------------------------------
-   The daily ecosystem desk. Lead with today's brief; surface a
-   sidebar of past briefs so readers can walk the timeline. Briefs
-   come from src/data/research.js, which the daily GitHub Action
-   prepends to each morning.
+   The autonomous research arm of Subneτ Magazine. Two articles per
+   day filed by the AI Oracle:
 
-   No external deps; pure render off the imported array. Inline
-   styles are scoped via a single <style> tag that injects once
-   per page load.
+     - SUBNET SPOTLIGHT, a deep dive on one subnet the human
+       editorial desk has not covered recently
+     - ECOSYSTEM STATE, a synthesis of where the network is right
+       now (markets, ships, capital, comparators)
+
+   This page deliberately reads as a DIFFERENT category from the
+   human-written magazine research (which lives on the home page
+   article carousel). Every article here carries the SUBNET ORACLE
+   RESEARCH badge, the date filed, and a "filed by the AI Oracle"
+   attribution line.
+
+   Data: src/data/oracle-articles.js
+   Updated each morning at 08:00 UTC by scripts/daily-research.py.
    ================================================================= */
 
 import { html, mount, qs } from '../lib/dom.js';
-import { BRIEFS, latestBrief, briefByDate } from '../data/research.js';
-import { CandleChart } from '../charts/CandleChart.js';
-import { BarChart } from '../charts/BarChart.js';
+import { ORACLE_ARTICLES, oracleArticlesByDate, oracleArticleById }
+  from '../data/oracle-articles.js';
 import { NodeSphere } from '../charts/NodeSphere.js';
 
 const STYLE_ID = 'rsh-style';
 
 const CSS = `
 .rsh{
-  display: grid;
-  grid-template-columns: 1fr min(280px, 32%);
-  gap: clamp(20px, 4vw, 48px);
-  padding: clamp(20px, 4vw, 56px) clamp(16px, 4vw, 40px);
-  max-width: 1200px;
+  max-width: 1100px;
   margin: 0 auto;
-}
-@media (max-width: 720px){
-  .rsh{ grid-template-columns: 1fr; }
+  padding: clamp(20px, 4vw, 56px) clamp(16px, 4vw, 40px);
 }
 
+/* ===== Page head ===== */
 .rsh-head{
-  grid-column: 1 / -1;
-  position: relative;
   display: grid;
-  grid-template-columns: 1fr 88px;
+  grid-template-columns: 1fr 96px;
   align-items: center;
-  gap: 16px;
+  gap: 20px;
   padding-bottom: clamp(20px, 3vw, 32px);
   border-bottom: 1px solid var(--c-rule-2, rgba(255,30,60,.22));
-  margin-bottom: clamp(20px, 3vw, 32px);
+  margin-bottom: clamp(28px, 4vw, 44px);
 }
-.rsh-head__text{ display: flex; flex-direction: column; gap: 8px; min-width: 0; }
+.rsh-head__text{ display: flex; flex-direction: column; gap: 10px; min-width: 0; }
+.rsh-head__badge{
+  display: inline-flex; align-items: center; gap: 8px;
+  align-self: flex-start;
+  padding: 6px 12px;
+  background: rgba(255,30,60,.18);
+  border: 1px solid var(--c-red, #FF1E3C);
+  border-radius: 999px;
+  font-family: var(--f-mono, monospace);
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: .14em;
+  text-transform: uppercase;
+  color: #fff;
+  box-shadow: 0 0 14px rgba(255,30,60,.3);
+}
+.rsh-head__badge::before{
+  content: '';
+  width: 6px; height: 6px;
+  background: var(--c-red-1, #FF4D60);
+  border-radius: 50%;
+  box-shadow: 0 0 8px var(--c-red-1, #FF4D60);
+  animation: rshPulse 1.6s ease-in-out infinite;
+}
+@keyframes rshPulse{
+  0%, 100%{ opacity: 1;  }
+  50%     { opacity: .35; }
+}
+.rsh-head__title{
+  margin: 0;
+  font-family: var(--f-serif, 'Archivo', system-ui);
+  font-size: clamp(36px, 6vw, 64px);
+  font-weight: 800;
+  letter-spacing: -.025em;
+  line-height: 1;
+  color: var(--c-ink-1, #F5E5E8);
+}
+.rsh-head__dek{
+  margin: 0;
+  max-width: 64ch;
+  font-family: var(--f-sans, system-ui);
+  font-size: 15px;
+  line-height: 1.55;
+  color: var(--c-ink-2, #C8A8AD);
+}
 .rsh-head__mark{
-  width: 88px; height: 88px;
+  width: 96px; height: 96px;
   position: relative;
   filter: drop-shadow(0 0 14px rgba(255,30,60,.45));
 }
@@ -57,115 +101,88 @@ const CSS = `
   .rsh-head{ grid-template-columns: 1fr; }
   .rsh-head__mark{ display: none; }
 }
-.rsh-head__kicker{
+
+/* ===== "How this works" note, sets the AI / human distinction ===== */
+.rsh-note{
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 14px;
+  margin-bottom: clamp(28px, 4vw, 44px);
+}
+@media (max-width: 640px){ .rsh-note{ grid-template-columns: 1fr; } }
+.rsh-note__cell{
+  padding: 16px 18px;
+  border: 1px solid var(--c-rule-2, rgba(255,30,60,.22));
+  border-radius: 4px;
+  background: rgba(0,0,0,.4);
+}
+.rsh-note__cell--ai{
+  border-left: 3px solid var(--c-red, #FF1E3C);
+  background: linear-gradient(90deg, rgba(255,30,60,.06), rgba(0,0,0,.4) 40%);
+}
+.rsh-note__lbl{
+  display: block;
+  margin-bottom: 6px;
   font-family: var(--f-mono, monospace);
-  font-size: 11px;
-  font-weight: 700;
+  font-size: 10px;
+  font-weight: 800;
   letter-spacing: .14em;
   text-transform: uppercase;
-  color: var(--c-red, #FF1E3C);
+  color: var(--c-red-1, #FF4D60);
 }
-.rsh-head__title{
+.rsh-note__cell--human .rsh-note__lbl{
+  color: #FFB85C;
+}
+.rsh-note__body{
   margin: 0;
-  font-family: var(--f-serif, 'Archivo', system-ui);
-  font-size: clamp(40px, 6vw, 72px);
-  font-weight: 800;
-  letter-spacing: -.025em;
-  line-height: 1;
-  color: var(--c-ink-1, #F5E5E8);
-}
-.rsh-head__dek{
-  margin: 8px 0 0;
-  max-width: 64ch;
   font-family: var(--f-sans, system-ui);
-  font-size: 15px;
+  font-size: 13px;
   line-height: 1.55;
   color: var(--c-ink-2, #C8A8AD);
 }
 
-/* ===== Lead brief ===== */
-.rsh-brief{
-  display: flex; flex-direction: column;
-  gap: clamp(20px, 3vw, 32px);
-  min-width: 0;
+/* ===== Day group ===== */
+.rsh-day{
+  margin-bottom: clamp(36px, 5vw, 60px);
 }
-.rsh-brief__date{
-  display: flex; align-items: center; gap: 10px;
+.rsh-day__head{
+  display: flex; align-items: baseline; gap: 14px;
+  padding-bottom: 10px;
+  margin-bottom: 18px;
+  border-bottom: 1px solid var(--c-rule, rgba(255,30,60,.10));
   font-family: var(--f-mono, monospace);
-  font-size: 11px;
-  font-weight: 700;
+}
+.rsh-day__date{
+  font-size: 13px;
+  font-weight: 800;
+  letter-spacing: .04em;
+  color: var(--c-red, #FF1E3C);
+}
+.rsh-day__count{
+  font-size: 10px;
   letter-spacing: .14em;
   text-transform: uppercase;
-  color: var(--c-red-1, #FF4D60);
-}
-.rsh-brief__live{
-  display: inline-flex; align-items: center; gap: 5px;
-  padding: 3px 7px;
-  border: 1px solid rgba(0,229,168,.4);
-  border-radius: 3px;
-  color: var(--c-up, #00E5A8);
-  font-size: 9.5px;
-}
-.rsh-brief__live::before{
-  content: '';
-  width: 5px; height: 5px;
-  background: var(--c-up, #00E5A8);
-  border-radius: 50%;
-  box-shadow: 0 0 6px var(--c-up, #00E5A8);
-  animation: rshPulse 1.6s ease-in-out infinite;
-}
-@keyframes rshPulse{
-  0%, 100%{ opacity: 1; }
-  50%     { opacity: .4; }
-}
-.rsh-brief__by{
-  margin-left: auto;
-  font-weight: 500;
-  letter-spacing: .04em;
   color: var(--c-ink-4, #6B4D52);
-  text-transform: none;
 }
 
-.rsh-brief__headline{
-  margin: 0;
-  font-family: var(--f-serif, 'Archivo', system-ui);
-  font-size: clamp(28px, 4vw, 44px);
-  font-weight: 800;
-  letter-spacing: -.018em;
-  line-height: 1.1;
-  color: var(--c-ink-1, #F5E5E8);
-}
-.rsh-brief__summary{
-  margin: 0;
-  font-family: var(--f-sans, system-ui);
-  font-size: 17px;
-  line-height: 1.6;
-  color: var(--c-ink-2, #C8A8AD);
-  padding-left: 12px;
-  border-left: 2px solid var(--c-red, #FF1E3C);
-}
-
-/* TAO price candle + movers bar chart, side by side on wide screens */
-.rsh-viz{
-  display: grid;
-  grid-template-columns: 1.4fr 1fr;
-  gap: 14px;
-  margin-bottom: 6px;
-}
-@media (max-width: 720px){
-  .rsh-viz{ grid-template-columns: 1fr; }
-}
-.rsh-viz__block{
+/* ===== Article ===== */
+.rsh-art{
   display: flex; flex-direction: column;
-  background: rgba(0,0,0,.35);
+  gap: 14px;
+  padding: clamp(20px, 3vw, 30px);
+  margin-bottom: 20px;
+  background: rgba(8,2,3,.65);
   border: 1px solid var(--c-rule-2, rgba(255,30,60,.22));
+  border-left: 3px solid var(--c-red, #FF1E3C);
   border-radius: 4px;
-  overflow: hidden;
 }
-.rsh-viz__bar{
-  display: flex; align-items: center; gap: 8px;
-  padding: 8px 12px;
-  border-bottom: 1px solid var(--c-rule, rgba(255,30,60,.10));
+.rsh-art__kind{
+  display: inline-flex; align-items: center; gap: 6px;
+  align-self: flex-start;
+  padding: 4px 10px;
+  background: rgba(255,30,60,.12);
+  border: 1px solid var(--c-rule-2, rgba(255,30,60,.36));
+  border-radius: 3px;
   font-family: var(--f-mono, monospace);
   font-size: 10px;
   font-weight: 800;
@@ -173,93 +190,79 @@ const CSS = `
   text-transform: uppercase;
   color: var(--c-red-1, #FF4D60);
 }
-.rsh-viz__bar-sub{
-  margin-left: auto;
-  color: var(--c-ink-3, #8B6B70);
-  font-weight: 600;
-  letter-spacing: .04em;
-  text-transform: none;
+.rsh-art__kind--ecosystem{
+  border-color: #FFB85C;
+  color: #FFB85C;
+  background: rgba(255,184,92,.10);
 }
-.rsh-viz__canvas{
-  display: block;
-  width: 100% !important;
-  height: 240px !important;
-}
-
-/* movers strip */
-.rsh-movers{
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-  gap: 10px;
-  padding: 14px;
-  background: rgba(255,30,60,.04);
-  border: 1px solid var(--c-rule-2, rgba(255,30,60,.22));
-  border-radius: 4px;
-}
-.rsh-mover{
-  display: flex; flex-direction: column; gap: 3px;
-  padding: 8px 10px;
-  background: rgba(0,0,0,.4);
-  border-radius: 3px;
-  border: 1px solid var(--c-rule, rgba(255,30,60,.10));
-}
-.rsh-mover__top{
-  display: flex; align-items: baseline; gap: 8px;
-  font-family: var(--f-mono, monospace);
-  font-size: 11px;
-}
-.rsh-mover__tk{
+.rsh-art__sn{
+  display: inline-block;
+  margin-left: 6px;
+  padding: 1px 6px;
+  background: rgba(0,0,0,.6);
+  border-radius: 2px;
+  color: #fff;
   font-weight: 800;
-  color: var(--c-ink-1, #F5E5E8);
-  letter-spacing: .04em;
 }
-.rsh-mover__name{
-  color: var(--c-ink-3, #8B6B70);
-  font-size: 10.5px;
-}
-.rsh-mover__chg{
-  margin-left: auto;
-  font-weight: 800;
-  font-variant-numeric: tabular-nums;
-}
-.rsh-mover__chg.up  { color: var(--c-up, #00E5A8); }
-.rsh-mover__chg.down{ color: var(--c-red-1, #FF4D60); }
-.rsh-mover__note{
-  font-family: var(--f-sans, system-ui);
-  font-size: 11px;
-  color: var(--c-ink-3, #8B6B70);
-  line-height: 1.4;
-}
-
-/* sections */
-.rsh-sec{
-  display: flex; flex-direction: column; gap: 8px;
-  padding-top: 18px;
-  border-top: 1px solid var(--c-rule, rgba(255,30,60,.10));
-}
-.rsh-sec__h{
+.rsh-art__title{
   margin: 0;
   font-family: var(--f-serif, 'Archivo', system-ui);
-  font-size: 20px;
+  font-size: clamp(22px, 3vw, 32px);
   font-weight: 800;
-  letter-spacing: -.01em;
-  color: var(--c-red-1, #FF4D60);
+  letter-spacing: -.014em;
+  line-height: 1.15;
+  color: var(--c-ink-1, #F5E5E8);
 }
-.rsh-sec__body{
+.rsh-art__dek{
   margin: 0;
   font-family: var(--f-sans, system-ui);
   font-size: 15px;
   line-height: 1.6;
   color: var(--c-ink-2, #C8A8AD);
+  padding-left: 12px;
+  border-left: 2px solid var(--c-red-1, #FF4D60);
+}
+.rsh-art__attr{
+  display: flex; align-items: center; gap: 8px;
+  font-family: var(--f-mono, monospace);
+  font-size: 9.5px;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+  color: var(--c-ink-4, #6B4D52);
+}
+.rsh-art__attr-by{ color: var(--c-red-1, #FF4D60); font-weight: 700; }
+
+.rsh-art__sec{
+  display: flex; flex-direction: column;
+  gap: 8px;
+  padding-top: 14px;
+  border-top: 1px solid var(--c-rule, rgba(255,30,60,.10));
+}
+.rsh-art__sec:first-of-type{ border-top: 0; padding-top: 0; }
+.rsh-art__sec-h{
+  margin: 0;
+  font-family: var(--f-serif, 'Archivo', system-ui);
+  font-size: 18px;
+  font-weight: 800;
+  letter-spacing: -.005em;
+  color: var(--c-red-1, #FF4D60);
+}
+.rsh-art__sec-body{
+  margin: 0;
+  font-family: var(--f-sans, system-ui);
+  font-size: 15px;
+  line-height: 1.65;
+  color: var(--c-ink-2, #C8A8AD);
+  white-space: pre-line;
 }
 
-/* sources */
-.rsh-src{
-  padding-top: 14px;
-  border-top: 1px dashed var(--c-rule-2, rgba(255,30,60,.22));
+/* ===== Sources ===== */
+.rsh-art__src{
   display: flex; flex-direction: column; gap: 6px;
+  padding-top: 12px;
+  border-top: 1px dashed var(--c-rule-2, rgba(255,30,60,.22));
 }
-.rsh-src__lbl{
+.rsh-art__src-lbl{
   font-family: var(--f-mono, monospace);
   font-size: 10px;
   font-weight: 700;
@@ -267,7 +270,7 @@ const CSS = `
   text-transform: uppercase;
   color: var(--c-ink-4, #6B4D52);
 }
-.rsh-src a{
+.rsh-art__src a{
   font-family: var(--f-mono, monospace);
   font-size: 11.5px;
   color: var(--c-red-1, #FF4D60);
@@ -275,72 +278,7 @@ const CSS = `
   border-bottom: 1px dashed transparent;
   transition: border-color .12s ease-out;
 }
-.rsh-src a:hover{ border-bottom-color: var(--c-red-1, #FF4D60); }
-
-/* ===== Sidebar: archive ===== */
-.rsh-aside{
-  position: sticky;
-  top: 16px;
-  align-self: start;
-  display: flex; flex-direction: column; gap: 10px;
-  padding: 16px;
-  background: rgba(0,0,0,.3);
-  border: 1px solid var(--c-rule-2, rgba(255,30,60,.22));
-  border-radius: 4px;
-  font-family: var(--f-mono, monospace);
-}
-.rsh-aside__h{
-  margin: 0;
-  font-size: 11px;
-  font-weight: 800;
-  letter-spacing: .14em;
-  text-transform: uppercase;
-  color: var(--c-red, #FF1E3C);
-  padding-bottom: 8px;
-  border-bottom: 1px solid var(--c-rule, rgba(255,30,60,.10));
-}
-.rsh-arch{
-  list-style: none;
-  margin: 0; padding: 0;
-  display: flex; flex-direction: column;
-  gap: 2px;
-}
-.rsh-arch__a{
-  display: flex; flex-direction: column; gap: 2px;
-  padding: 8px 10px;
-  border-radius: 3px;
-  text-decoration: none;
-  color: var(--c-ink-2, #C8A8AD);
-  transition: background .12s ease-out;
-}
-.rsh-arch__a:hover{ background: rgba(255,30,60,.08); }
-.rsh-arch__a.is-active{
-  background: rgba(255,30,60,.12);
-  border-left: 2px solid var(--c-red, #FF1E3C);
-  padding-left: 8px;
-}
-.rsh-arch__date{
-  font-size: 10.5px;
-  font-weight: 700;
-  letter-spacing: .04em;
-  color: var(--c-red-1, #FF4D60);
-}
-.rsh-arch__title{
-  font-family: var(--f-serif, 'Archivo', system-ui);
-  font-size: 12.5px;
-  line-height: 1.3;
-  color: var(--c-ink-1, #F5E5E8);
-}
-
-.rsh-aside__note{
-  margin: 10px 0 0;
-  padding-top: 10px;
-  border-top: 1px dashed var(--c-rule, rgba(255,30,60,.10));
-  font-size: 10px;
-  letter-spacing: .04em;
-  color: var(--c-ink-4, #6B4D52);
-  line-height: 1.5;
-}
+.rsh-art__src a:hover{ border-bottom-color: var(--c-red-1, #FF4D60); }
 `;
 
 function injectStyle(){
@@ -358,15 +296,48 @@ function fmtDate(iso){
     timeZone: 'UTC', weekday: 'long', month: 'long', day: 'numeric', year: 'numeric',
   });
 }
-function shortDate(iso){
-  const d = new Date(iso + 'T00:00:00Z');
-  if (isNaN(d.getTime())) return iso;
-  return d.toLocaleDateString('en-US', {
-    timeZone: 'UTC', month: 'short', day: 'numeric',
-  }).toUpperCase();
-}
 function escapeHtml(s){
   return String(s ?? '').replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
+}
+
+function articleHtml(a){
+  const kind = a.kind === 'subnet-spotlight'
+    ? `Subnet Spotlight${a.subnetId ? `<span class="rsh-art__sn">SN${a.subnetId}${a.subnetName ? ' · ' + escapeHtml(a.subnetName) : ''}</span>` : ''}`
+    : 'Ecosystem State';
+  const kindCls = a.kind === 'ecosystem-state' ? ' rsh-art__kind--ecosystem' : '';
+
+  const sectionsHtml = (a.sections || []).map(s => `
+    <section class="rsh-art__sec">
+      <h3 class="rsh-art__sec-h">${escapeHtml(s.h)}</h3>
+      <p class="rsh-art__sec-body">${escapeHtml(s.body)}</p>
+    </section>
+  `).join('');
+
+  const sourcesHtml = (a.sources && a.sources.length) ? `
+    <div class="rsh-art__src">
+      <span class="rsh-art__src-lbl">Sources</span>
+      ${a.sources.map(s => `
+        <a href="${escapeHtml(s.url)}" target="_blank" rel="noopener">${escapeHtml(s.label)} ↗</a>
+      `).join('')}
+    </div>
+  ` : '';
+
+  const filer = a.generatedBy === 'claude-opus-4-7'
+    ? 'the AI Oracle (Claude Opus 4.7)'
+    : 'the editorial desk (seed)';
+
+  return `
+    <article class="rsh-art" id="${escapeHtml(a.id)}">
+      <span class="rsh-art__kind${kindCls}">${kind}</span>
+      <h2 class="rsh-art__title">${escapeHtml(a.title)}</h2>
+      <p class="rsh-art__dek">${escapeHtml(a.dek)}</p>
+      <div class="rsh-art__attr">
+        <span class="rsh-art__attr-by">⊕ filed by ${filer}</span>
+      </div>
+      ${sectionsHtml}
+      ${sourcesHtml}
+    </article>
+  `;
 }
 
 /**
@@ -376,62 +347,35 @@ function escapeHtml(s){
 export function mountResearch(root){
   injectStyle();
 
-  /* deep-link via ?date=YYYY-MM-DD, fall back to latest */
-  const params = new URLSearchParams(window.location.search);
-  const wanted = params.get('date');
-  const active = (wanted && briefByDate(wanted)) || latestBrief();
+  const days = oracleArticlesByDate();
+  const totalArticles = ORACLE_ARTICLES.length;
+  const earliest = days.length ? days[days.length - 1].date : null;
+  const sinceLine = earliest
+    ? `${totalArticles} articles filed since ${fmtDate(earliest)}`
+    : `${totalArticles} articles filed`;
 
-  const moversHtml = (active.movers || []).map(m => {
-    const up = String(m.change || '').trim().startsWith('+');
-    return `
-      <li class="rsh-mover">
-        <div class="rsh-mover__top">
-          <span class="rsh-mover__tk">${escapeHtml(m.ticker)}</span>
-          <span class="rsh-mover__name">${escapeHtml(m.name)}</span>
-          <span class="rsh-mover__chg ${up ? 'up' : 'down'}">${escapeHtml(m.change)}</span>
-        </div>
-        ${m.note ? `<span class="rsh-mover__note">${escapeHtml(m.note)}</span>` : ''}
-      </li>
-    `;
-  }).join('');
-
-  const sectionsHtml = (active.sections || []).map(s => `
-    <section class="rsh-sec">
-      <h3 class="rsh-sec__h">${escapeHtml(s.h)}</h3>
-      <p class="rsh-sec__body">${escapeHtml(s.body)}</p>
+  const daysHtml = days.map(d => `
+    <section class="rsh-day" aria-label="${escapeHtml(d.date)}">
+      <header class="rsh-day__head">
+        <span class="rsh-day__date">${escapeHtml(fmtDate(d.date))}</span>
+        <span class="rsh-day__count">${d.items.length} ${d.items.length === 1 ? 'article' : 'articles'}</span>
+      </header>
+      ${d.items.map(articleHtml).join('')}
     </section>
-  `).join('');
-
-  const sourcesHtml = (active.sources && active.sources.length) ? `
-    <div class="rsh-src">
-      <span class="rsh-src__lbl">Sources</span>
-      ${active.sources.map(s => `
-        <a href="${escapeHtml(s.url)}" target="_blank" rel="noopener">${escapeHtml(s.label)} ↗</a>
-      `).join('')}
-    </div>
-  ` : '';
-
-  const archHtml = BRIEFS.map(b => `
-    <li>
-      <a class="rsh-arch__a ${b.date === active.date ? 'is-active' : ''}" href="?date=${b.date}">
-        <span class="rsh-arch__date">${shortDate(b.date)}</span>
-        <span class="rsh-arch__title">${escapeHtml(b.headline)}</span>
-      </a>
-    </li>
   `).join('');
 
   mount(root, html`
     <section class="rsh">
       <header class="rsh-head">
         <div class="rsh-head__text">
-          <span class="rsh-head__kicker">Research &middot; Subne<span class="tau">τ</span> Magazine</span>
-          <h1 class="rsh-head__title">The daily desk.</h1>
+          <span class="rsh-head__badge">Subne<span class="tau">τ</span> Oracle Research</span>
+          <h1 class="rsh-head__title">The Oracle's desk.</h1>
           <p class="rsh-head__dek">
-            What happened in the Bittensor ecosystem today, distilled by the magazine's
-            autonomous research agent. Published every morning at 08:00 UTC. The agent
-            reads the chain, the social signal, and the partner subnets, then files
-            the brief you see here. The record is the record, prior briefs are never
-            deleted.
+            Two articles per day, filed by Subne<span class="tau">τ</span> Magazine's
+            autonomous research agent. A subnet spotlight on something the human
+            editorial desk has not covered, and a synthesis of the day's state of
+            the ecosystem. Distinct from the human-written magazine articles by
+            design, attributed clearly, mechanism-aware, hedged.
           </p>
         </div>
         <div class="rsh-head__mark" aria-hidden="true">
@@ -439,100 +383,39 @@ export function mountResearch(root){
         </div>
       </header>
 
-      <article class="rsh-brief">
-        <div class="rsh-brief__date">
-          ${active.date === latestBrief().date
-            ? `<span class="rsh-brief__live">LIVE</span>` : ''}
-          ${escapeHtml(fmtDate(active.date))}
-          <span class="rsh-brief__by">filed by ${escapeHtml(active.generatedBy === 'claude-opus-4-7' ? 'the research agent' : 'the editorial desk')}</span>
+      <div class="rsh-note">
+        <div class="rsh-note__cell rsh-note__cell--ai">
+          <span class="rsh-note__lbl">⊕ This page</span>
+          <p class="rsh-note__body">
+            <strong>Subneτ Oracle Research.</strong> The AI agent, Claude Opus
+            4.7, files two articles each morning at 08:00 UTC. ${escapeHtml(sinceLine)}.
+            Every article carries the Oracle badge so the source is unambiguous.
+          </p>
         </div>
-        <h2 class="rsh-brief__headline">${escapeHtml(active.headline)}</h2>
-        <p class="rsh-brief__summary">${escapeHtml(active.summary)}</p>
-
-        <!-- TAO price + movers visualization, side by side -->
-        <div class="rsh-viz">
-          <div class="rsh-viz__block">
-            <div class="rsh-viz__bar">
-              τ TAO · 60h synthetic
-              <span class="rsh-viz__bar-sub">deterministic seed: ${active.date}</span>
-            </div>
-            <canvas class="rsh-viz__canvas" data-canvas="rsh-candle"></canvas>
-          </div>
-          <div class="rsh-viz__block">
-            <div class="rsh-viz__bar">
-              Today's movers
-              <span class="rsh-viz__bar-sub">${(active.movers || []).length} rows</span>
-            </div>
-            <canvas class="rsh-viz__canvas" data-canvas="rsh-bars"></canvas>
-          </div>
+        <div class="rsh-note__cell rsh-note__cell--human">
+          <span class="rsh-note__lbl">For comparison</span>
+          <p class="rsh-note__body">
+            <strong>Subneτ Magazine Research.</strong> Long-form pieces written
+            by the human editorial desk live on the magazine cover. They are
+            slower, deeper, and explicitly editorial. The two categories run
+            in parallel and never overlap on subject.
+          </p>
         </div>
+      </div>
 
-        ${moversHtml ? `<ul class="rsh-movers" style="list-style:none;margin:0;padding:14px;">${moversHtml}</ul>` : ''}
-
-        ${sectionsHtml}
-
-        ${sourcesHtml}
-      </article>
-
-      <aside class="rsh-aside" aria-label="Past briefs">
-        <h2 class="rsh-aside__h">Past briefs</h2>
-        <ul class="rsh-arch">${archHtml}</ul>
-        <p class="rsh-aside__note">
-          Generated by the desk's research agent each morning. Source code:
-          scripts/daily-research.py.
-        </p>
-      </aside>
+      ${daysHtml}
     </section>
   `);
 
-  /* ---------- mount the visualizations ---------- */
-  /* NodeSphere mark in the page head, the magazine's signature
-     "this is a working system" cue. */
+  /* mount the NodeSphere mark in the page head */
   const markCv = qs('[data-canvas="rsh-mark"]', root);
   const mark = markCv ? new NodeSphere(markCv, {
-    nodes: 42, K: 3, density: 0.5, speed: 0.4, atmos: true,
+    nodes: 48, K: 3, density: 0.52, speed: 0.4, atmos: true,
   }) : null;
-
-  /* TAO candle chart, deterministic seed off the brief's date so
-     each archived day shows a stable series rather than a roll-of-
-     the-dice synthetic. Real ticker integration lands when there's
-     a price feed plumbed through DataLayer. */
-  const candleCv = qs('[data-canvas="rsh-candle"]', root);
-  const dateSeed = active.date.split('-').reduce((a, p) => a * 31 + Number(p), 0);
-  const candle = candleCv ? new CandleChart(candleCv, {
-    bars:     60,
-    baseline: 487,
-    barMs:    60 * 60 * 1000,
-    seed:     dateSeed,
-  }) : null;
-
-  /* Movers bar chart. Parses the brief's percentage strings into
-     signed numbers, paints positives green, negatives red. */
-  const barsCv = qs('[data-canvas="rsh-bars"]', root);
-  let bars = null;
-  if (barsCv && (active.movers || []).length){
-    const rows = (active.movers || []).map(m => {
-      const n = parseFloat(String(m.change).replace(/[+%]/g, '')) || 0;
-      return {
-        label: `${m.ticker} ${m.name}`,
-        value: n,
-        sub:   m.change,
-        color: n >= 0 ? '#00E5A8' : '#FF4D60',
-      };
-    });
-    bars = new BarChart(barsCv, {
-      data: rows,
-      orientation: 'horizontal',
-      bipolar: true,
-      formatValue: v => `${v >= 0 ? '+' : ''}${v.toFixed(1)}%`,
-    });
-  }
 
   return {
     destroy(){
       try { mark?.destroy(); } catch (_) {}
-      try { candle?.destroy(); } catch (_) {}
-      try { bars?.destroy(); } catch (_) {}
     },
   };
 }
