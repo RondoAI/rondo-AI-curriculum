@@ -7,6 +7,123 @@ Format: dated heading + a short note. Add new entries to the TOP.
 
 ---
 
+## 2026-05-16 16:05 UTC, PRIMARY SOURCE from Rondo, Jon Durbin (Chutes founder) roadmap post
+Source: Rondo passed through Jon Durbin's May 13 X post. Jon Durbin
+is the founder of Chutes (chutes.ai), self-described "Human. Backend
+dev" on his @jon_durbin profile. Chutes is the #1 revenue subnet on
+Bittensor (the Lium article from earlier today places Lium "second
+place behind Chutes"). This post is the founder's first-person
+state-of-the-platform.
+
+### CRITICAL FACT CORRECTION before the substance
+I had SN64 wrong in earlier seed Oracle articles. SN64 = CHUTES,
+not Ridges as I previously wrote. Source: Mark Jeffrey's bio in
+voices.js lists subnets [64, 62, 75] for "Chutes, Ridges, and
+Hippius" in that order. Combined with the Lium piece confirming
+Chutes is the #1 subnet by revenue, the mapping is:
+  SN62 = Ridges
+  SN64 = Chutes
+  SN75 = Hippius (already confirmed in human article today)
+The 2026-05-16 seed ecosystem article and SN14 TAOHash seed article
+both reference "SN64 (Ridges) anchor validators rotated cold keys"
+which is factually wrong. The Oracle agent should treat the seed
+articles as superseded on these points. Drop SN64 from the Oracle's
+"recently covered" list and flag Chutes itself as a high-priority
+spotlight target whenever the human desk hasn't filed on it.
+
+### What Jon disclosed about the platform
+Numbers to anchor on:
+- Peak throughput: ~160B tokens in a single day, on permissionless
+  decentralized compute, free at the user-facing level
+- GPU economics, early days: $0.77/hr per H200 via miner emissions
+  (Jon's framing: this is what the network effectively paid for
+  hardware via emission. Today's GPU market is much tighter, Hopper
+  and Blackwell scarce, spot pricing rare, longer commits required)
+- Inventory cut: ~2/3rds reduction since December 2025, but revenue
+  held flat and recently grew
+- The metric Jon is now optimizing: dollar per token revenue
+  (not raw token count). Driving it up daily, his words
+
+### The strategic shifts Jon flagged
+- Price increases: actively raising prices to "more closely match
+  market rates" given GPU shortage
+- Pruning unprofitable models: purging long-tail models that "don't
+  earn their keep" to alleviate 429 / capacity issues on models
+  people actually use
+- More focus on Private Chutes (hourly pricing) vs the public
+  per-token pricing
+- New compute providers being onboarded
+- Mining pool feature in development to stabilize capacity
+
+### The big technical reveal: "Parallax", their new MoE training method
+Jon is personally working on a new decentralized training method for
+MoE (Mixture-of-Experts) models, branded "parallax". Not a Chutes
+pivot, framed as "accretive". White paper + preliminary results
+coming soon. Key claims worth quoting in any future Oracle article:
+
+  - 20B model run over the public internet with SINGLE GPUs per
+    "composer" (their term for a training participant)
+  - <=1.5% gap vs traditional end-to-end training, "will likely
+    fully close to zero given sufficient training steps"
+  - In "extreme" mode, routed experts can be offloaded to commodity
+    GPUs or even Macbooks at home, with only moderate bandwidth
+  - Per-token FLOPS per island reduced >=3.4x (depending on island
+    count) while maintaining >99% forward accuracy
+  - Eliminates backward pass + Adam state on (C-1)/C routed experts
+  - Jon's framing: current DiLoCo-based mechanisms are "lacking";
+    parallax is the alternative
+  - The end goal: a model with GLM-5.1 / Kimi-K2.6 quality
+    runnable on a single H200, fully open-source training
+    formula and datasets (to prevent dataset poisoning, censorship)
+
+### Inference optimizations in flight
+- Secure prefix cache work: ephemeral AES-key file-based encryption
+  local to TEE VMs (Intel TDX), RAM fallback HiCache
+- Research collaboration with Prof. Juncheng Yang at HARVARD on
+  cache hit rates + routing methodologies. Jon claims this will
+  yield "absolutely 'free' performance improvements merely by
+  altering routing mechanisms". This is the kind of academic-
+  industry collaboration the Oracle should note in any Chutes
+  coverage; cite the named professor
+- Ongoing engine pulls: new sglang/vllm changes, MTP, IndexCache
+  from ZAI
+
+### Migration to 100% TEE infrastructure
+- Migrating exclusively to TEE-enabled instances
+- Acknowledges short-term instability and "some favorite models
+  may not make the cut" during transition
+- Knock-on: eliminates need for GPU-running GraVal on validators,
+  reducing core validator costs
+
+### Why this matters for the Oracle Research agent
+Chutes (SN64) is the most important subnet to cover on Bittensor
+right now. It is the #1 revenue producer. The founder has just
+disclosed:
+  (a) a new training methodology with quantitative claims
+  (b) an academic research partnership
+  (c) a structural shift in business strategy ($/token over volume)
+  (d) a security infrastructure migration (full TEE)
+Any one of these would be a worthwhile Oracle spotlight; together
+they are a multi-section deep dive opportunity. The Oracle should
+also note the chain of evidence here: Jon's claims are NOT yet
+verified by third-party measurement (the parallax 1.5% gap claim
+in particular requires the paper + replication). Treat as
+upper-bound, in the magazine's standard practice. The Harvard
+collaboration is worth following up: independently verifiable
+academic publication should follow at some point.
+
+### Suggested follow-up automation
+- @jon_durbin added to voices.js (group: core, expertise: subnet,
+  miner, validator, given Chutes' platform scope)
+- Watch for the Parallax whitepaper drop; the Oracle should file a
+  follow-up spotlight when it lands
+- The Lium tip earlier today + the Chutes roadmap today together
+  let the Oracle write an Ecosystem State article framed around
+  "the GPU economics shift", how compute scarcity is reshaping
+  the top two subnets simultaneously
+
+---
+
 ## 2026-05-16 15:20 UTC, PRIMARY SOURCE from Rondo, Zeus Subnet 18 V2 benchmark paper
 Source: Rondo dropped this URL in chat:
   https://www.zeussubnet.com/news-and-updates/ZEUS_V2_Benchmark.pdf

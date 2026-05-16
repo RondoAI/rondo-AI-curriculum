@@ -137,7 +137,10 @@ export const VOICES = Object.freeze([
     brand:'brevan', site:'https://brevanhowarddigital.com', subnets:[],
     bio:'The digital-asset arm of Brevan Howard. Institutional-grade exposure to permissionless networks including TAO.' },
 
-  /* — analysts & media — */
+  /* — additional subnet founders + analysts/media — */
+  { handle:'jon_durbin',  name:'Jon Durbin', role:'Founder · Chutes (SN64)', group:'subnet',
+    site:'https://chutes.ai', subnets:[64], expertise:['subnet','miner','validator'],
+    bio:'Founder + backend engineer at Chutes, the #1 revenue subnet on Bittensor. Per his own May 13 platform-state post: ~160B tokens/day at peak, inventory cut 2/3 since December but revenue held, now optimizing dollar-per-token. Personally building "Parallax", a new decentralized MoE training method with a claimed <=1.5% gap vs E2E training on a 20B run over the public internet. Research collaboration with Prof. Juncheng Yang at Harvard on cache + routing.' },
   { handle:'taomedia_',  name:'TAO Media', role:'Bittensor-native research and editorial', group:'media',
     site:'https://www.tao.media', subnets:[],
     bio:'Self-described "The Bittensor media company". Files deep, primary-sourced research on subnets, ecosystem moves, and protocol governance. Added to Nitter rotation so the desk picks them up automatically.' },
