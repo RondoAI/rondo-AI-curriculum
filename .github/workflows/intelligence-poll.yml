@@ -1,0 +1,74 @@
+# =================================================================
+# INTELLIGENCE POLL, free signal-gathering for Subnet Magazine
+# -----------------------------------------------------------------
+# Runs every 4 hours. Hits public Nitter instances, the public
+# GitHub API, and ecosystem RSS feeds. Aggregates everything into
+# intelligence/{today}/digest.md, which the daily research agent
+# reads at 08:00 UTC as part of its prompt.
+#
+# Costs: zero in dollars. Uses public GitHub Actions minutes on a
+# public repo (unlimited). No API keys required.
+#
+# Manual trigger from the Actions tab to refresh the pool on demand.
+# =================================================================
+
+name: Intelligence poll, every 4h
+
+on:
+  schedule:
+    # Every 4 hours, on the hour. UTC.
+    - cron: '0 */4 * * *'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: intelligence-poll
+  cancel-in-progress: false
+
+jobs:
+  poll:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          ref: subnet-mag-v2
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Run the aggregator
+        env:
+          # gives the github-commits scraper the higher 5000 req/h
+          # rate limit instead of the unauthenticated 60 req/h
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        working-directory: projects/subnet-magazine-v2
+        run: python scripts/intel/aggregate.py
+
+      - name: Commit and push if anything changed
+        run: |
+          cd "$GITHUB_WORKSPACE"
+          git config user.name  "subnet-intel-bot"
+          git config user.email "intel@subnetmagazine.com"
+
+          if git diff --quiet -- projects/subnet-magazine-v2/intelligence/; then
+            echo "no new intelligence, exiting clean"
+            exit 0
+          fi
+
+          today=$(date -u +%Y-%m-%d)
+          git add projects/subnet-magazine-v2/intelligence/
+          git commit -m "intel: poll, ${today}
+
+Auto-collected from public Nitter instances, GitHub public API,
+and ecosystem RSS feeds. See intelligence/{today}/digest.md for
+the unified briefing. Built by scripts/intel/aggregate.py via
+.github/workflows/intelligence-poll.yml."
+          git push origin subnet-mag-v2

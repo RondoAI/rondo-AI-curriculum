@@ -232,10 +232,26 @@ def recent_oracle_subnets(days: int = 30) -> list[int]:
     return out
 
 
+def load_intelligence_digest(date_str: str) -> str:
+    """Read intelligence/{date}/digest.md if present. This is the
+    pre-aggregated pool of every signal we have for today: human notes
+    Rondo dropped in chat, recent github commits, blog posts via RSS,
+    X posts via Nitter. Built by scripts/intel/aggregate.py on cron.
+    Gives the agent context Claude's own web_search would not catch."""
+    path = ROOT / "intelligence" / date_str / "digest.md"
+    if not path.exists():
+        return ""
+    try:
+        return path.read_text("utf-8")
+    except Exception:
+        return ""
+
+
 def build_user_prompt(date_str: str) -> str:
     avoid_human  = human_covered_subnets()
     avoid_oracle = recent_oracle_subnets(days=30)
     market       = fetch_market_context()
+    digest       = load_intelligence_digest(date_str)
 
     avoid_lines = []
     if avoid_human:
@@ -254,12 +270,23 @@ def build_user_prompt(date_str: str) -> str:
         prompt += "\n".join(avoid_lines) + "\n\n"
     if market:
         prompt += market + "\n\n"
+    if digest:
+        prompt += (
+            "=== TODAY'S INTELLIGENCE POOL ===\n"
+            "The magazine's scrapers and the human editorial desk have "
+            "already pre-collected signal for today. Treat the human "
+            "notes section as higher trust than scraped sources, but "
+            "verify all of it before quoting in the article.\n\n"
+            + digest
+            + "\n=== END INTELLIGENCE POOL ===\n\n"
+        )
     prompt += (
         "Pick a subnet from outside the AVOID list for the SUBNET SPOTLIGHT. "
-        "Cover something today (a ship, an incident, an institutional move, "
-        "a measurable shift). For ECOSYSTEM STATE, give the synthesis: what "
-        "matters across the network today and what the read is. Remember: "
-        "NEVER use em-dashes. Output only the JSON object."
+        "Cover something concrete (a ship, an incident, an institutional "
+        "move, a measurable shift) that the intelligence pool surfaces. "
+        "For ECOSYSTEM STATE, give the synthesis: what matters across "
+        "the network today and what the read is. Remember: NEVER use "
+        "em-dashes. Output only the JSON object."
     )
     return prompt
 
