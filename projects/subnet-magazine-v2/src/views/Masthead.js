@@ -21,6 +21,7 @@ const NAV_ITEMS = [
   { code: '030', label: 'MARKETS',   href: 'markets.html'      },
   { code: '040', label: 'SUBNETS',   href: 'subnets.html'      },
   { code: '050', label: 'VALIDATORS',href: 'validators.html'   },
+  { code: '055', label: 'CODEX',     href: 'codex.html'        },
   { code: '060', label: 'RESEARCH',  href: 'articles.html'     },
   { code: '070', label: 'COMMUNITY', href: 'community.html'    },
   { code: '075', label: 'VOICES',    href: 'voices.html'       },

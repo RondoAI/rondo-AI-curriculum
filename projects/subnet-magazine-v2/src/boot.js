@@ -27,6 +27,7 @@ import { mountMarkets } from './views/Markets.js';
 import { mountEditor } from './views/Editor.js';
 import { mountInterviews } from './views/Interviews.js';
 import { mountVoices } from './views/Voices.js';
+import { mountCodex } from './views/Codex.js';
 
 const teardowns = [];
 
@@ -76,6 +77,7 @@ function boot(){
   mountIf('[data-mount="editor"]',         root => mountEditor(root));
   mountIf('[data-mount="interviews"]',     root => mountInterviews(root));
   mountIf('[data-mount="voices"]',         root => mountVoices(root));
+  mountIf('[data-mount="codex"]',          root => mountCodex(root));
 
   // 3) clean teardown on unload (idempotent)
   window.addEventListener('beforeunload', () => {
