@@ -578,9 +578,23 @@ def run(mode: str, limit: int | None) -> int:
     for i, post in enumerate(posts, 1):
         fname = post_filename(post)
         path = OUT_DIR / fname
-        if path.exists() and mode != "backfill":
+        if path.exists() and mode == "incremental":
             skipped += 1
             continue
+        if path.exists() and mode == "upgrade-thin":
+            # Only re-fetch posts whose existing body is below the
+            # thin threshold. Used to resume a partial backfill
+            # without redoing the already-rich files.
+            try:
+                existing = path.read_text("utf-8", errors="replace")
+                body_only = re.sub(r"^.*?\n---\n\n",
+                                   "", existing, count=1, flags=re.DOTALL)
+                body_only = re.sub(r"^>.*\n", "", body_only, flags=re.MULTILINE)
+                if len(body_only.strip()) >= THIN_BODY_CHARS:
+                    skipped += 1
+                    continue
+            except Exception:
+                pass
 
         audience = post.get("audience", "")
         paywalled = audience == "only_paid"
@@ -668,6 +682,10 @@ def main() -> int:
                    help="Walk the full archive, overwrite existing files")
     g.add_argument("--incremental", action="store_true",
                    help="Default. Fetch only posts newer than last run")
+    g.add_argument("--upgrade-thin", action="store_true",
+                   help="Re-fetch only posts whose existing body is "
+                        "below the thin threshold. Useful to resume a "
+                        "partial backfill")
     g.add_argument("--rebuild-index", action="store_true",
                    help="Regenerate INDEX.md from existing files, fetch nothing")
     g.add_argument("--stats", action="store_true",
@@ -686,7 +704,12 @@ def main() -> int:
         print(json.dumps(s, indent=2))
         return 0
 
-    mode = "backfill" if args.backfill else "incremental"
+    if args.backfill:
+        mode = "backfill"
+    elif args.upgrade_thin:
+        mode = "upgrade-thin"
+    else:
+        mode = "incremental"
     return run(mode, args.limit)
 
 
