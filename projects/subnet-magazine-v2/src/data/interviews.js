@@ -46,6 +46,8 @@ export const INTERVIEWS = Object.freeze([
     dek:        'A primary-source conversation on building inside the Bittensor network, operating subnets, evaluating validators, and what the decentralized-intelligence economy actually looks like from the inside.',
     youtubeId:  'OZACPOPNwJQ',
     tags:       ['operator', 'subnet'],
+    /* Oracle concepts this conversation touches */
+    oracleRefs: ['bittensor', 'subnet', 'miner', 'validator'],
   },
 
 ]);

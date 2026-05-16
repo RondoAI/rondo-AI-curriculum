@@ -61,19 +61,19 @@ export const VOICES = Object.freeze([
      the small inner ring of long-tenure technical voices.
      ========================================================= */
   { handle:'const_reborn', name:'Jacob Steeves',  role:'Bittensor co-founder (Const)',          group:'core',
-    brand:'opentensor', github:'unconst', site:'https://opentensor.ai', subnets:[],
+    brand:'opentensor', github:'unconst', site:'https://opentensor.ai', subnets:[], expertise:['bittensor','subtensor','yuma-consensus','emission'],
     bio:'Known as Const. Co-founder of the Bittensor protocol and the Opentensor Foundation. Technical north star for Yuma Consensus and the network\'s incentive design.' },
   { handle:'shibshib89',   name:'Ala Shaabana',   role:'Bittensor co-founder',                  group:'core',
-    brand:'opentensor', github:'shibshib', site:'https://opentensor.ai', subnets:[],
+    brand:'opentensor', github:'shibshib', site:'https://opentensor.ai', subnets:[], expertise:['bittensor','tao','emission','dtao'],
     bio:'Co-founder of Bittensor. Authority on the protocol\'s economic design and the network\'s long-term incentive trajectory.' },
   { handle:'yuma_rao',     name:'Yuma Rao',       role:'Bittensor whitepaper co-author',        group:'core',
-    brand:'opentensor', site:'https://opentensor.ai', subnets:[],
+    brand:'opentensor', site:'https://opentensor.ai', subnets:[], expertise:['yuma-consensus','weight','validator'],
     bio:'Co-author of the Bittensor whitepaper. The "Yuma" in Yuma Consensus, the weight-aggregation mechanism that pays miners and validators.' },
   { handle:'opentensor',   name:'Opentensor Foundation', role:'Stewards of the Bittensor protocol', group:'core',
     brand:'opentensor', github:'opentensor', site:'https://opentensor.ai', subnets:[],
     bio:'The foundation that stewards the Bittensor protocol. Source of SDK, btcli, subtensor chain, and the subnet template.' },
   { handle:'mcjkula',      name:'mcjkula',        role:'Mechanism design, dTAO internals',      group:'core',
-    subnets:[],
+    subnets:[], expertise:['dtao','alpha','weight'],
     bio:'Mechanism designer behind dTAO and the chain\'s deeper incentive math. Voice on dTAO bonding curves and weight aggregation.' },
 
   /* =========================================================

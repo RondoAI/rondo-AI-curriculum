@@ -50,6 +50,10 @@ export const ARTICLES = Object.freeze([
     pdf: 'articles/hippius-may-2026-arion-hermes.pdf',
     readMin: 14,
     accent: '#FF1E3C',
+    /* Bittensor concepts this article touches — used to render
+       'Cited in' on the corresponding Oracle entries, and to let
+       articles surface 'See in the Oracle' deep-links inline. */
+    oracleRefs: ['subnet', 'emission', 'tao'],
   },
   {
     id: 'alphanomics-sn75-hippius',
@@ -69,6 +73,7 @@ export const ARTICLES = Object.freeze([
     pdf: 'articles/alphanomics-sn75-hippius.pdf',
     readMin: 12,
     accent: '#FF6B7A',
+    oracleRefs: ['subnet', 'alpha', 'dtao', 'emission'],
   },
   {
     id: 'stillcore-capital-decentralized-ai',
@@ -88,6 +93,7 @@ export const ARTICLES = Object.freeze([
     pdf: 'articles/stillcore-capital-fund-overview.pdf',
     readMin: 18,
     accent: '#FF1E3C',
+    oracleRefs: ['bittensor', 'tao', 'validator'],
   },
   {
     id: 'stillcore-mark-jeffrey-interview',
@@ -107,6 +113,7 @@ export const ARTICLES = Object.freeze([
     pdf: 'articles/stillcore-mark-jeffrey-interview.pdf',
     readMin: 16,
     accent: '#FF1E3C',
+    oracleRefs: ['tao', 'validator', 'halving'],
   },
   {
     id: 'open-letter-what-is-bittensor',
@@ -126,6 +133,7 @@ export const ARTICLES = Object.freeze([
     pdf: 'articles/open-letter-what-is-bittensor.pdf',
     readMin: 6,
     accent: '#FF1E3C',
+    oracleRefs: ['bittensor', 'yuma-consensus'],
   },
   {
     id: 'inaccessibility-problem-bittensor',

@@ -18,10 +18,28 @@
 
 import { html, mount, qs, qsa } from '../lib/dom.js';
 import { CODEX, CATEGORY_LABEL, codexByCategory, codexEntryById } from '../data/codex.js';
+import { ARTICLES } from '../data/articles.js';
+import { INTERVIEWS } from '../data/interviews.js';
+import { VOICES } from '../data/voices.js';
 import { NodeSphere } from '../charts/NodeSphere.js';
 import { Sparkline } from '../charts/Sparkline.js';
 import { mark, seedSeries } from '../lib/mark.js';
 import { money, pct } from '../lib/format.js';
+
+/**
+ * Find everything across the magazine that cites a given Oracle
+ * entry. Returns articles tagged with oracleRefs:[id], interviews
+ * tagged the same way, and voices listing the id in expertise.
+ * The function is small and runs once per entry render — the
+ * datasets are small enough that this is fine without indexing.
+ */
+function citedBy(id){
+  return {
+    articles:   ARTICLES.filter(a => Array.isArray(a.oracleRefs) && a.oracleRefs.includes(id)),
+    interviews: INTERVIEWS.filter(i => Array.isArray(i.oracleRefs) && i.oracleRefs.includes(id)),
+    voices:     VOICES.filter(v => Array.isArray(v.expertise) && v.expertise.includes(id)),
+  };
+}
 
 /** Coloured confidence dot, matches the magazine's epistemic grammar. */
 const CONF_COLOR = { high: 'var(--c-up, #00E5A8)', medium: '#FFB85C', low: '#FF4D60' };
@@ -431,6 +449,36 @@ function entryCard(e){
     .map(s => `<a class="codex-source" href="${escapeHtml(s.href)}" target="_blank" rel="noopener">${escapeHtml(s.name)} <span aria-hidden="true">&rarr;</span></a>`)
     .join('');
 
+  /* "Cited in" — the Wikipedia signature. Every entry knows
+     which articles, interviews, and voices reference it. */
+  const cites = citedBy(e.id);
+  const citedHtml = (cites.articles.length || cites.interviews.length || cites.voices.length)
+    ? `
+      <footer class="codex-entry__cited">
+        <span class="codex-entry__see-lbl">Cited in</span>
+        <div class="codex-entry__cited-list">
+          ${cites.articles.map(a => `
+            <a class="codex-cite codex-cite--art" href="articles.html#${escapeHtml(a.id)}">
+              <span class="codex-cite__type">Article</span>
+              <span class="codex-cite__title">${escapeHtml(a.title)}</span>
+            </a>
+          `).join('')}
+          ${cites.interviews.map(i => `
+            <a class="codex-cite codex-cite--int" href="interviews.html#${escapeHtml(i.id)}">
+              <span class="codex-cite__type">Interview</span>
+              <span class="codex-cite__title">${escapeHtml(i.title)}</span>
+            </a>
+          `).join('')}
+          ${cites.voices.map(v => `
+            <a class="codex-cite codex-cite--voi" href="voices.html#${escapeHtml(v.handle)}">
+              <span class="codex-cite__type">Voice</span>
+              <span class="codex-cite__title">${escapeHtml(v.name)}</span>
+            </a>
+          `).join('')}
+        </div>
+      </footer>`
+    : '';
+
   return `
     <article class="codex-entry" id="${e.id}" data-id="${e.id}"
              data-search="${escapeHtml((e.title + ' ' + e.kicker + ' ' + e.oneLine + ' ' + (e.sections || []).map(s => s.h + ' ' + s.body).join(' ')).toLowerCase())}">
@@ -455,6 +503,8 @@ function entryCard(e){
           <span class="codex-entry__see-lbl">Sources</span>
           <div class="codex-entry__src-list">${sources}</div>
         </footer>` : ''}
+
+      ${citedHtml}
 
       <footer class="codex-entry__meta">
         <span>Updated <time datetime="${e.updated}">${e.updated}</time></span>
