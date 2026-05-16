@@ -26,6 +26,7 @@ import { cardArt } from '../lib/art.js';
 import { Sparkline } from '../charts/Sparkline.js';
 import { NeuralNet } from '../charts/NeuralNet.js';
 import { NodeSphere } from '../charts/NodeSphere.js';
+import { JarvisNet } from '../charts/JarvisNet.js';
 import { Treemap } from '../charts/Treemap.js';
 import { articlesByDate } from '../data/articles.js';
 import { recentOracleArticles } from '../data/oracle-articles.js';
@@ -1846,18 +1847,26 @@ export function mountHome(root, dataLayer = null){
     if (cv) statSparks.push(new Sparkline(cv, { series: seedSeries(key, drift, 32) }));
   });
 
-  /* ---------- ORACLE article cards, one NodeSphere per cover ----------
-     The spinning sphere on each Oracle card is the AI-attribution
-     signature, the same engine as the masthead and the /research page
-     scaled down to card cover size. Tuned for low frame cost so four
-     of them on the homepage don't burn budget: moderate node count,
-     low speed, atmosphere off. Each canvas gets its own instance so
-     they animate independently. */
+  /* ---------- SUBNET ORACLE card covers, one JarvisNet per card ----
+     The Subnet Oracle's signature: a HUD-style assemblage (rotating
+     node sphere, concentric arcs, radar sweep arm, hex grid, data
+     labels) that reads as "the Oracle is processing live data" at a
+     glance. Replaces the static cardArt monogram on Subnet Oracle
+     articles; the AI ORACLE badge in the corner plus this chart
+     together make the AI-authored row unmistakable from the human
+     editorial row above. Each canvas gets its own instance, seeded
+     from index for deterministic per-card silhouette. */
   const oracleMarks = [];
-  root.querySelectorAll('[data-canvas="home-oracle-mark"]').forEach(cv => {
+  root.querySelectorAll('[data-canvas="home-oracle-mark"]').forEach((cv, i) => {
     try {
-      oracleMarks.push(new NodeSphere(cv, {
-        nodes: 32, K: 3, density: 0.5, speed: 0.32, atmos: false,
+      oracleMarks.push(new JarvisNet(cv, {
+        nodes:      22 + (i % 3) * 3,
+        ringSpeed:  0.18,
+        sweepSpeed: 0.55,
+        labels:     true,
+        hexGrid:    true,
+        pulseRate:  4.5,
+        seed:       i + 1,
       }));
     } catch (_) {}
   });
