@@ -598,6 +598,20 @@ def build_user_prompt(date_str: str) -> str:
         "the network today and what the read is. Remember: NEVER use "
         "em-dashes. Output only the JSON object."
     )
+
+    # Optional one-off steering injected from the workflow dispatch
+    # (env: ORACLE_EXTRA_INSTRUCTION). Used when the human desk is
+    # publishing the same day on a topic the Oracle should avoid, or
+    # to constrain a specific angle for a single run. Empty in normal
+    # cron operation.
+    import os
+    extra = (os.environ.get("ORACLE_EXTRA_INSTRUCTION") or "").strip()
+    if extra:
+        prompt += (
+            "\n\n=== EDITORIAL STEER FOR TODAY'S RUN ===\n"
+            f"{extra}\n"
+            "=== END STEER ===\n"
+        )
     return prompt
 
 

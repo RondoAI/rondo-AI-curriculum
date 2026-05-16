@@ -49,7 +49,16 @@ on:
     # 08:00 UTC every day. Cron is UTC-only on GitHub Actions.
     - cron: '0 8 * * *'
   workflow_dispatch:
-    # Manual trigger from the Actions tab.
+    # Manual trigger from the Actions tab or the GitHub API.
+    inputs:
+      extra_instruction:
+        description: >
+          One-off editorial steer passed to the Oracle for this run
+          only. Use to constrain or redirect topic choice when the
+          human desk is publishing same-day, or to dictate a specific
+          angle. Empty in normal cron operation.
+        required: false
+        default: ''
 
 permissions:
   contents: write
@@ -89,6 +98,7 @@ jobs:
       - name: File today's Oracle research
         env:
           ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+          ORACLE_EXTRA_INSTRUCTION: ${{ inputs.extra_instruction }}
         working-directory: projects/subnet-magazine-v2
         run: python scripts/daily-research.py
 
