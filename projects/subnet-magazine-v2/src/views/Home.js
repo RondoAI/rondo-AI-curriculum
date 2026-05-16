@@ -27,6 +27,7 @@ import { Sparkline } from '../charts/Sparkline.js';
 import { NeuralNet } from '../charts/NeuralNet.js';
 import { NodeSphere } from '../charts/NodeSphere.js';
 import { JarvisNet } from '../charts/JarvisNet.js';
+import { PlexusGlyph } from '../charts/PlexusGlyph.js';
 import { Treemap } from '../charts/Treemap.js';
 import { articlesByDate } from '../data/articles.js';
 import { recentOracleArticles } from '../data/oracle-articles.js';
@@ -281,7 +282,9 @@ export function mountHome(root, dataLayer = null){
           <li class="home-article home-article--oracle ${i === 0 ? 'is-lead' : ''}">
             <a class="home-article__link" href="${a.pdf}" target="_blank" rel="noopener">
               <span class="home-article__art">
-                <canvas data-canvas="home-oracle-mark" data-id="${a.id}"></canvas>
+                <canvas data-canvas="home-oracle-mark"
+                        data-id="${a.id}"
+                        data-glyph="${isSpot ? (a.subnetName || ('SN' + a.subnetId)).toUpperCase() : 'ORACLE'}"></canvas>
                 <span class="home-article__art-frame" aria-hidden="true"></span>
                 <span class="home-article__oracle-badge">SUBNET ORACLE</span>
               </span>
@@ -1847,26 +1850,23 @@ export function mountHome(root, dataLayer = null){
     if (cv) statSparks.push(new Sparkline(cv, { series: seedSeries(key, drift, 32) }));
   });
 
-  /* ---------- SUBNET ORACLE card covers, one JarvisNet per card ----
-     The Subnet Oracle's signature: a HUD-style assemblage (rotating
-     node sphere, concentric arcs, radar sweep arm, hex grid, data
-     labels) that reads as "the Oracle is processing live data" at a
-     glance. Replaces the static cardArt monogram on Subnet Oracle
-     articles; the AI ORACLE badge in the corner plus this chart
-     together make the AI-authored row unmistakable from the human
-     editorial row above. Each canvas gets its own instance, seeded
-     from index for deterministic per-card silhouette. */
+  /* ---------- SUBNET ORACLE card covers, one PlexusGlyph per card --
+     Each Subnet Oracle article wears its own identity rendered as a
+     dense red plexus where the dots themselves form the silhouette
+     of the article's subject. Subnet Spotlights show the subnet's
+     name (TARGON, LIUM, RIDGES); Ecosystem State pieces show ORACLE.
+     Sparse ambient background plexus reads as "wider network behind
+     the focus shape". Same red as the magazine's design tokens. */
   const oracleMarks = [];
   root.querySelectorAll('[data-canvas="home-oracle-mark"]').forEach((cv, i) => {
+    const glyph = cv.dataset.glyph || 'ORACLE';
     try {
-      oracleMarks.push(new JarvisNet(cv, {
-        nodes:      22 + (i % 3) * 3,
-        ringSpeed:  0.18,
-        sweepSpeed: 0.55,
-        labels:     true,
-        hexGrid:    true,
-        pulseRate:  4.5,
-        seed:       i + 1,
+      oracleMarks.push(new PlexusGlyph(cv, {
+        text:    glyph,
+        density: 0.62,
+        ambient: 90,
+        seed:    i + 1,
+        weight:  '900',
       }));
     } catch (_) {}
   });

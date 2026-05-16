@@ -1,0 +1,238 @@
+/* =================================================================
+   SUBNET MAGAZINE, PLEXUS GLYPH
+   -----------------------------------------------------------------
+   Renders a glyph (text or, future, an image) as a dense red plexus
+   where the dots themselves form the silhouette. The background is
+   filled with a sparse ambient plexus so the foreground reads as
+   "an emergent shape inside a wider network". Same red-on-dark
+   language as the rest of the magazine.
+
+   Used as the cover art for Subnet Oracle article cards: each
+   Subnet Spotlight wears its subnet's name rendered as the plexus,
+   each Ecosystem State wears a generic Subnet Oracle mark.
+
+   Render pipeline (per frame):
+     1. Sparse ambient background plexus
+     2. Dense foreground plexus sampled from the glyph
+     3. Edges between near-neighbor sample points (KNN-ish)
+     4. Subtle per-node alpha breathing for "live" feel
+   ================================================================= */
+
+import { Chart } from './Chart.js';
+
+export class PlexusGlyph extends Chart {
+  /**
+   * @param {HTMLCanvasElement} canvas
+   * @param {{
+   *   text?:    string,
+   *   density?: number,    // foreground dot density (0..1)
+   *   ambient?: number,    // ambient background dot count
+   *   seed?:    number,
+   *   weight?:  'normal' | 'bold' | '900',
+   *   stretch?: boolean    // size the text to fill the canvas
+   * }} [opts]
+   */
+  constructor(canvas, opts = {}){
+    super(canvas, { animate: true });
+    this.text     = (opts.text || 'ORACLE').toString();
+    this.density  = opts.density ?? 0.55;
+    this.ambient  = opts.ambient ?? 80;
+    this.seed     = (opts.seed   ?? 1) >>> 0;
+    this.weight   = opts.weight  || '900';
+    this.stretch  = opts.stretch !== false;
+
+    /** glyph sample points (foreground) */
+    this._fg = [];
+    /** ambient background points */
+    this._bg = [];
+    /** breathing phases per fg point so they shimmer independently */
+    this._phase = [];
+  }
+
+  /* ---------------------------------------------------------------- */
+  layout(ctx, w, h){
+    const rng = mulberry32(this.seed * 9176 + 1);
+
+    /* 1. Render the glyph to an offscreen canvas at canvas-pixel size,
+          then sample it. Off-screen canvas is the easiest way to get
+          a pixel grid of any text. */
+    const off = document.createElement('canvas');
+    off.width  = Math.max(8, Math.floor(w));
+    off.height = Math.max(8, Math.floor(h));
+    const oc = off.getContext('2d');
+    oc.fillStyle = '#000';
+    oc.fillRect(0, 0, off.width, off.height);
+
+    /* Auto-fit font size: bigger if the text is short, smaller if
+       long. The text always fills 80% of the available width and
+       around 70% of the height, whichever is the binding constraint. */
+    const padX = off.width  * 0.08;
+    const padY = off.height * 0.12;
+    let fontSize = Math.min(off.height - padY * 2, off.width * 0.9);
+    oc.fillStyle = '#ffffff';
+    oc.textAlign = 'center';
+    oc.textBaseline = 'middle';
+    if (this.stretch){
+      /* Binary search for the size that fits within padded box */
+      let lo = 8, hi = Math.min(off.width, off.height) * 2;
+      for (let i = 0; i < 12; i++){
+        const m = (lo + hi) / 2;
+        oc.font = `${this.weight} ${m}px Archivo, "Inter", system-ui, sans-serif`;
+        const tw = oc.measureText(this.text).width;
+        if (tw > off.width - padX * 2) hi = m;
+        else                            lo = m;
+      }
+      fontSize = lo;
+    }
+    oc.font = `${this.weight} ${fontSize}px Archivo, "Inter", system-ui, sans-serif`;
+    oc.fillText(this.text, off.width / 2, off.height / 2);
+
+    /* 2. Sample non-empty pixels on a stride grid. The stride
+          controls dot density; a smaller stride means more dots. */
+    const data = oc.getImageData(0, 0, off.width, off.height).data;
+    const stride = Math.max(4, Math.round(7 - this.density * 4));
+    const fg = [];
+    for (let y = 0; y < off.height; y += stride){
+      for (let x = 0; x < off.width; x += stride){
+        const idx = (y * off.width + x) * 4;
+        /* sample green channel (white text on black bg, RGB all equal) */
+        if (data[idx + 1] > 90){
+          /* small jitter so the grid does not read as a regular grid */
+          const jx = x + (rng() - 0.5) * stride * 0.6;
+          const jy = y + (rng() - 0.5) * stride * 0.6;
+          fg.push([jx, jy]);
+        }
+      }
+    }
+    /* Cap to a sensible upper bound for frame budget */
+    const MAX_FG = 900;
+    if (fg.length > MAX_FG){
+      /* sample uniformly */
+      const keep = [];
+      const step = fg.length / MAX_FG;
+      for (let i = 0; i < MAX_FG; i++) keep.push(fg[Math.floor(i * step)]);
+      this._fg = keep;
+    } else {
+      this._fg = fg;
+    }
+
+    /* 3. Ambient background dots, scattered uniformly across the
+          canvas. Sparse enough to read as atmosphere, not noise. */
+    const bg = [];
+    for (let i = 0; i < this.ambient; i++){
+      bg.push([rng() * w, rng() * h]);
+    }
+    this._bg = bg;
+
+    /* 4. Phase per foreground point so the breathing shimmer is not
+          all in sync. */
+    this._phase = this._fg.map(() => rng() * Math.PI * 2);
+
+    /* 5. Pre-compute foreground edges: each point connects to its K
+          nearest neighbors below a distance threshold. Computed once
+          at layout because the points themselves do not move. */
+    this._edges = [];
+    const K = 3;
+    const maxD = Math.max(off.width, off.height) * 0.045;
+    /* O(N^2) is fine at N<=900 since this runs once on resize */
+    for (let i = 0; i < this._fg.length; i++){
+      const [xi, yi] = this._fg[i];
+      const cand = [];
+      for (let j = 0; j < this._fg.length; j++){
+        if (i === j) continue;
+        const dx = this._fg[j][0] - xi;
+        const dy = this._fg[j][1] - yi;
+        const d2 = dx * dx + dy * dy;
+        if (d2 < maxD * maxD) cand.push([d2, j]);
+      }
+      cand.sort((a, b) => a[0] - b[0]);
+      for (let k = 0; k < Math.min(K, cand.length); k++){
+        const j = cand[k][1];
+        if (j > i) this._edges.push([i, j]);  /* dedupe */
+      }
+    }
+  }
+
+  /* ---------------------------------------------------------------- */
+  draw(ctx, w, h, t){
+    ctx.clearRect(0, 0, w, h);
+
+    /* 1. Background ambient plexus: scatter dots + a few long
+          crossing lines so it reads as "wider network behind". */
+    ctx.save();
+    ctx.fillStyle = 'rgba(255,30,60,0.22)';
+    for (const [x, y] of this._bg){
+      ctx.beginPath();
+      ctx.arc(x, y, 1.0, 0, Math.PI * 2);
+      ctx.fill();
+    }
+    ctx.strokeStyle = 'rgba(255,30,60,0.10)';
+    ctx.lineWidth = 0.5;
+    for (let i = 0; i < this._bg.length; i += 4){
+      const a = this._bg[i];
+      const b = this._bg[(i * 7 + 3) % this._bg.length];
+      ctx.beginPath();
+      ctx.moveTo(a[0], a[1]);
+      ctx.lineTo(b[0], b[1]);
+      ctx.stroke();
+    }
+    ctx.restore();
+
+    /* 2. Foreground edges (the glyph's structural mesh). */
+    ctx.save();
+    ctx.strokeStyle = 'rgba(255,30,60,0.55)';
+    ctx.lineWidth = 0.7;
+    for (const [i, j] of this._edges){
+      const a = this._fg[i];
+      const b = this._fg[j];
+      ctx.beginPath();
+      ctx.moveTo(a[0], a[1]);
+      ctx.lineTo(b[0], b[1]);
+      ctx.stroke();
+    }
+    ctx.restore();
+
+    /* 3. Foreground dots: bright red, with subtle per-node breathing
+          alpha so the shape feels alive. */
+    ctx.save();
+    for (let i = 0; i < this._fg.length; i++){
+      const [x, y] = this._fg[i];
+      const ph = this._phase[i];
+      const a = 0.62 + 0.28 * Math.sin(t * 1.4 + ph);
+      ctx.fillStyle = `rgba(255,77,96,${a.toFixed(3)})`;
+      ctx.beginPath();
+      ctx.arc(x, y, 1.6, 0, Math.PI * 2);
+      ctx.fill();
+    }
+    ctx.restore();
+
+    /* 4. A few brighter "hot" pulses on a slow rotating selection of
+          points so the eye keeps catching new ones. */
+    ctx.save();
+    const hotCount = Math.max(3, Math.floor(this._fg.length / 50));
+    for (let k = 0; k < hotCount; k++){
+      const idx = Math.floor(
+        ((Math.sin(t * 0.4 + k * 1.7) + 1) / 2) * this._fg.length,
+      ) % this._fg.length;
+      const [x, y] = this._fg[idx];
+      ctx.fillStyle = 'rgba(255,128,148,0.95)';
+      ctx.shadowColor = '#FF1E3C';
+      ctx.shadowBlur = 10;
+      ctx.beginPath();
+      ctx.arc(x, y, 2.4, 0, Math.PI * 2);
+      ctx.fill();
+    }
+    ctx.restore();
+  }
+}
+
+/* ---------- tiny seeded PRNG so layouts are deterministic ---------- */
+function mulberry32(seed){
+  let s = seed >>> 0;
+  return function(){
+    s |= 0; s = (s + 0x6D2B79F5) | 0;
+    let t = Math.imul(s ^ (s >>> 15), 1 | s);
+    t = (t + Math.imul(t ^ (t >>> 7), 61 | t)) ^ t;
+    return ((t ^ (t >>> 14)) >>> 0) / 4294967296;
+  };
+}
