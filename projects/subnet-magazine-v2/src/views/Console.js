@@ -1,283 +1,556 @@
 /* =================================================================
-   SUBNET ORACLE — fresh v2 (clean, mobile-first, GPU-light)
+   SUBNET MAGAZINE — BITTENSOR FIELD MANUAL CONSOLE
    -----------------------------------------------------------------
-   A complete rebuild of the bottom dock. The original module
-   (preserved as Console.legacy.js) accumulated nine months of
-   features — search, an arcade game, /play commands, a multi-layer
-   PS5 neural-net mark — and somewhere in the chrome layering the
-   Android Chrome compositor stopped letting the home page scroll.
+   A research-terminal-styled FAQ pinned to the bottom of every
+   page. The site's "how to actually do this" companion: mining,
+   validating, registering a subnet, wallets, dTAO, weights,
+   deregistration, halving. Switch topic via the chip row at the
+   top; the body re-renders.
 
-   This rebuild is the minimum viable Oracle:
-     1. self-injecting fixed dock at the bottom
-     2. tap to expand / collapse
-     3. tab row from FIELD_MANUAL data module
-     4. body that re-renders on tab change
-     5. a small SVG plexus mark — the "agent endpoint"
-
-   Deliberate omissions vs the legacy:
-     - no backdrop-filter, no multi-layer box-shadow, no compound
-       gradient backgrounds (Android compositor pathology)
-     - no canvas, no requestAnimationFrame loops in the dock
-     - no filter on animated elements
-     - no search bar, no TAO Runner, no /play commands (port back
-       in future if needed; orthogonal to the core dock function)
-     - no max-height: 70vh, no display: flex column on the dock
-       (these tripped iOS Safari scroll in earlier debug rounds)
-
-   Same export contract as the legacy: mountConsole(dataLayer) →
-   { destroy }. Boot.js does not need to know which Console is
-   running. Switch back to the legacy by renaming files.
+   Fully self-contained: it injects its own scoped <style> once and
+   appends its own fixed element to <body>, so it needs no mount
+   point and no extra stylesheet link. Click the bar to collapse.
    ================================================================= */
 
 import { FIELD_MANUAL } from '../data/bittensor-faq.js';
 import { NodeSphere } from '../charts/NodeSphere.js';
 
-const STYLE_ID = 'sbnt-oracle-style';
+const STYLE_ID = 'sbnt-console-style';
 
 const CSS = `
-/* ---- dock surface ---- */
-.sbnt-oracle{
-  position: fixed;
-  left: 0; right: 0; bottom: 0;
-  z-index: 45;
-  width: 100%;
-  font-family: var(--f-mono, ui-monospace, monospace);
-  color: var(--c-ink-1, #F5E5E8);
-  background: #0a0306;
-  border-top: 1px solid rgba(255,30,60,.45);
-  /* Single solid colour, single 1-px top rule. No backdrop-filter,
-     no multi-layer gradient, no box-shadow. This is the chrome
-     that was killing Android scroll when stacked over a long page. */
-  contain: layout style paint;
-  will-change: transform;
+/* 2028-AI bottom dock. A pinned oracle agent that surfaces the
+   field-manual content on demand, but signals its presence with a
+   stronger red top-edge glow, a periodic scan-line, and a brand
+   tag that reads as an addressable agent endpoint. */
+.sbnt-console{
+  position: fixed; left: 0; bottom: 0; z-index: 45;
+  width: min(640px, 100vw);
+  font-family: var(--f-mono, monospace);
+  background:
+    radial-gradient(120% 80% at 18% 0%, rgba(255,30,60,.18), transparent 60%),
+    linear-gradient(180deg, rgba(20,5,9,.98), rgba(5,2,3,.98));
+  border: 1px solid var(--c-rule-3, rgba(255,30,60,.36));
+  border-left: 0; border-bottom: 0;
+  border-top-right-radius: 4px;
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  box-shadow:
+    0 -2px 0 rgba(255,30,60,.18) inset,
+    0 -16px 60px rgba(255,30,60,.18),
+    0 -8px 40px rgba(0,0,0,.65);
+  isolation: isolate;
+  overflow: hidden;
 }
-@media (min-width: 720px){
-  .sbnt-oracle{
-    left: auto;
-    right: auto;
-    width: min(640px, 100vw);
-    border-right: 1px solid rgba(255,30,60,.45);
-    border-top-right-radius: 4px;
-  }
+/* a bright 1-px red rail at the very top edge — the bar declares
+   itself before you read the text. The only chrome on the bar; the
+   prior horizontal scan-line was retired because it visually
+   collided with the side borders and read as a UI bug. */
+.sbnt-console__edge{
+  position: absolute; top: 0; left: 0; right: 0;
+  height: 1px;
+  background: linear-gradient(90deg,
+    transparent 0, var(--c-red, #FF1E3C) 8%,
+    var(--c-red-1, #FF4D60) 30%,
+    var(--c-red, #FF1E3C) 70%, transparent 100%);
+  pointer-events: none;
+  z-index: 2;
 }
 
-/* ---- top bar ---- */
-.sbnt-oracle__bar{
-  display: flex; align-items: center; gap: 10px;
-  padding: 10px 14px;
+.sbnt-console__bar{
+  position: relative; z-index: 3;
+  display: flex; align-items: center; gap: 8px;
+  padding: 8px 12px;
   cursor: pointer;
-  user-select: none;
-  font-size: 12px;
-  letter-spacing: .04em;
+  border-bottom: 1px solid var(--c-rule-2, rgba(255,30,60,.22));
+  font-size: 12px; letter-spacing: .04em;
   color: var(--c-ink-2, #C8A8AD);
+  user-select: none;
 }
-.sbnt-oracle__bar:hover{ color: var(--c-ink-1, #F5E5E8); }
-
-/* ---- PS5-grade neural-net mark ----
-   Real-time NodeSphere plexus rendered on canvas + CSS pseudo-
-   element overlays for the breathing core and broadcast halo.
-   Three painted layers, ordered behind → front:
-     1. canvas  — rotating 3D plexus, atmospheric glow, KNN edges
-     2. ::before — expanding broadcast halo ring (CSS)
-     3. ::after  — white-glowing pulsing core (CSS)
-   Compositor cost is contained: contain: layout style paint isolates
-   the mark from the page compositor; the canvas runs at 30 px so
-   the rasterised texture is tiny. */
-.sbnt-oracle__mark{
+/* The Oracle's "consciousness" mark — PS5-grade neural net.
+   Three layers stacked, painted back to front:
+     1. canvas       — real-time NodeSphere plexus (18 nodes, KNN
+                        crossings, atmospheric glow, slow rotation)
+     2. ::before     — expanding broadcast halo (CSS, opacity fade)
+     3. ::after      — white pulsing core with red glow box-shadow
+                        chain (the "thought firing")
+   filter: drop-shadow on the wrapper paints the red glow halo
+   that ties the whole assembly together.
+   contain: layout style paint isolates the mark's render from
+   the page compositor — the dock won't recomposite scrolling
+   chrome under it. */
+.sbnt-console__nn{
   position: relative;
   display: inline-block;
-  width: 30px; height: 30px;
-  flex: 0 0 30px;
+  width: 34px; height: 34px;
+  flex: 0 0 34px;
   color: var(--c-red, #FF1E3C);
-  filter: drop-shadow(0 0 6px rgba(255,30,60,.55));
+  filter: drop-shadow(0 0 8px rgba(255,30,60,.6));
   contain: layout style paint;
 }
-.sbnt-oracle__mark-canvas{
+.sbnt-console__nn-canvas{
   display: block;
   width: 100%; height: 100%;
   border-radius: 50%;
 }
-.sbnt-oracle__mark::after{
-  /* white pulsing core — "the thought firing" */
+.sbnt-console__nn::after{
+  /* white pulsing core */
   content: "";
   position: absolute;
   top: 50%; left: 50%;
-  width: 4px; height: 4px;
-  margin: -2px 0 0 -2px;
+  width: 5px; height: 5px;
+  margin: -2.5px 0 0 -2.5px;
   background: #FFFFFF;
   border-radius: 50%;
   box-shadow:
-    0 0 3px #FFFFFF,
-    0 0 8px var(--c-red, #FF1E3C),
-    0 0 14px rgba(255,30,60,.4);
+    0 0 4px #FFFFFF,
+    0 0 10px var(--c-red, #FF1E3C),
+    0 0 18px rgba(255,30,60,.45);
   pointer-events: none;
-  animation: sbntOracleCore 1.6s ease-in-out infinite;
+  animation: sbntNNCore 1.6s ease-in-out infinite;
   z-index: 2;
 }
-.sbnt-oracle__mark::before{
-  /* expanding broadcast halo — "the agent broadcasting" */
+.sbnt-console__nn::before{
+  /* broadcast halo */
   content: "";
   position: absolute;
   top: 50%; left: 50%;
-  width: 10px; height: 10px;
-  margin: -5px 0 0 -5px;
+  width: 12px; height: 12px;
+  margin: -6px 0 0 -6px;
   border: 1px solid var(--c-red, #FF1E3C);
   border-radius: 50%;
   pointer-events: none;
-  animation: sbntOracleHalo 2.4s ease-out infinite;
+  animation: sbntNNHalo 2.4s ease-out infinite;
   z-index: 1;
 }
-@keyframes sbntOracleCore{
+@keyframes sbntNNCore{
   0%, 100% { transform: scale(1);   opacity: 1;   }
   50%      { transform: scale(1.5); opacity: .65; }
 }
-@keyframes sbntOracleHalo{
+@keyframes sbntNNHalo{
   0%   { transform: scale(.4); opacity: .9; }
   100% { transform: scale(2.4); opacity: 0; }
 }
 @media (prefers-reduced-motion: reduce){
-  .sbnt-oracle__mark::after,
-  .sbnt-oracle__mark::before{ animation: none; }
+  .sbnt-console__nn::after,
+  .sbnt-console__nn::before{ animation: none; }
 }
-
-/* ---- brand block ---- */
-.sbnt-oracle__brand{
-  display: inline-flex;
-  align-items: baseline;
-  gap: 6px;
+/* "Subnet Oracle" — the bar's brand. Serif italic feels editorial,
+   matches the hero wordmark family. Tight letter-spacing, no caps —
+   the brand reads like a magazine sub-imprint, not a CLI app. */
+.sbnt-console__brand{
+  display: inline-flex; align-items: baseline; gap: 7px;
   min-width: 0;
 }
-.sbnt-oracle__name{
+.sbnt-console__name{
   color: var(--c-ink-1, #F5E5E8);
   font-family: var(--f-serif, 'Archivo', system-ui, sans-serif);
   font-weight: 800;
-  font-size: 14px;
   letter-spacing: -.005em;
+  text-transform: none;
+  font-size: 15px;
   line-height: 1;
 }
-.sbnt-oracle__sep{ color: var(--c-red, #FF1E3C); font-weight: 700; }
-.sbnt-oracle__net{
+.sbnt-console__sep{
+  color: var(--c-red, #FF1E3C);
+  font-weight: 700;
+  font-size: 13px;
+}
+/* "Bittensor" — set as the brand wordmark, same Archivo Black face
+   as "Subnet Oracle" above. Lowercase so the τ glyphs sit at the
+   same x-height as the surrounding Latin letters; previously caps
+   pushed B/I/E/N/S/O/R to cap-height while τ stayed small, which
+   read as a broken render. Now every letter sits on one line. */
+.sbnt-console__net{
   color: var(--c-red-1, #FF4D60);
   font-family: var(--f-serif, 'Archivo', system-ui, sans-serif);
   font-weight: 800;
-  font-size: 12px;
+  font-size: 13px;
   letter-spacing: -.005em;
-  line-height: 1;
   text-transform: none;
 }
-.sbnt-oracle__push{ margin-left: auto; }
-.sbnt-oracle__hint{
+.sbnt-console__title{ color: var(--c-ink-2, #C8A8AD); margin-left: 6px; font-weight: 500; }
+.sbnt-console__push{ margin-left: auto; }
+.sbnt-console__hint{
   font-size: 10px;
-  letter-spacing: .1em;
+  letter-spacing: .12em;
   text-transform: uppercase;
   color: var(--c-ink-4, #6B4D52);
   margin-right: 6px;
 }
-.sbnt-oracle.is-open .sbnt-oracle__hint{ display: none; }
-.sbnt-oracle__toggle{
+.sbnt-console.is-collapsed .sbnt-console__hint{ display: inline; }
+.sbnt-console:not(.is-collapsed) .sbnt-console__hint{ display: none; }
+.sbnt-console__toggle{
   display: inline-grid; place-items: center;
   width: 24px; height: 24px;
-  border: 1px solid rgba(255,30,60,.3);
+  border: 1px solid var(--c-rule-2, rgba(255,30,60,.22));
   border-radius: 999px;
   color: var(--c-ink-2, #C8A8AD);
   background: rgba(255,30,60,.06);
-  font-size: 14px; line-height: 1;
+  font-size: 14px;
+  line-height: 1;
+  transition: background .12s ease-out, color .12s ease-out, border-color .12s ease-out;
 }
-
-/* ---- tabs + body, only visible when open ---- */
-.sbnt-oracle__tabs,
-.sbnt-oracle__body{ display: none; }
-.sbnt-oracle.is-open .sbnt-oracle__tabs,
-.sbnt-oracle.is-open .sbnt-oracle__body{ display: block; }
-
-.sbnt-oracle__tabs{
-  display: none;
-  gap: 4px;
-  padding: 6px 10px;
-  border-top: 1px solid rgba(255,30,60,.18);
+.sbnt-console:hover .sbnt-console__toggle{
+  border-color: var(--c-red, #FF1E3C);
+  color: var(--c-red-1, #FF4D60);
+  background: rgba(255,30,60,.14);
+}
+.sbnt-console__tabs{
+  display: flex; gap: 2px;
+  padding: 4px 6px;
+  border-bottom: 1px solid var(--c-rule, rgba(255,30,60,.10));
   overflow-x: auto;
-  scrollbar-width: none;
-  white-space: nowrap;
+  scrollbar-width: thin;
+  scrollbar-color: var(--c-rule-2, rgba(255,30,60,.22)) transparent;
 }
-.sbnt-oracle.is-open .sbnt-oracle__tabs{ display: flex; }
-.sbnt-oracle__tabs::-webkit-scrollbar{ display: none; }
-.sbnt-oracle__tab{
+.sbnt-console__tabs::-webkit-scrollbar{ height: 4px; }
+.sbnt-console__tabs::-webkit-scrollbar-thumb{ background: var(--c-rule-2, rgba(255,30,60,.22)); }
+.sbnt-tab{
   flex: 0 0 auto;
-  appearance: none; border: 1px solid transparent;
-  background: transparent;
-  padding: 5px 10px;
-  font: inherit;
-  font-size: 11px;
+  appearance: none; border: 0; background: transparent;
+  padding: 4px 9px;
+  font: inherit; font-size: 10.5px; letter-spacing: .04em;
   color: var(--c-ink-3, #8B6B70);
-  letter-spacing: .04em;
   cursor: pointer;
+  border: 1px solid transparent;
+  white-space: nowrap;
+  transition: color .12s ease-out, background .12s ease-out, border-color .12s ease-out;
 }
-.sbnt-oracle__tab.is-active{
+.sbnt-tab:hover{ color: var(--c-ink-1, #F5E5E8); }
+.sbnt-tab.is-active{
   color: var(--c-bg, #000);
   background: var(--c-red, #FF1E3C);
   border-color: var(--c-red, #FF1E3C);
 }
-.sbnt-oracle__body{
-  height: 220px;
-  overflow-y: auto;
-  overflow-x: hidden;
-  padding: 12px 14px;
+.sbnt-console__body{
+  height: 248px;
+  overflow-y: auto; overflow-x: hidden;
+  padding: 10px 12px 14px;
   font-size: 11px; line-height: 1.6;
-  border-top: 1px solid rgba(255,30,60,.18);
-  background: #050203;
-  /* keep our scroll inside, never chain to the page */
-  overscroll-behavior: contain;
+  scrollbar-width: thin;
+  scrollbar-color: var(--c-rule-2, rgba(255,30,60,.22)) transparent;
 }
-.sbnt-oracle__body::-webkit-scrollbar{ width: 4px; }
-.sbnt-oracle__body::-webkit-scrollbar-thumb{ background: rgba(255,30,60,.25); }
-
-/* ---- content typography ---- */
-.sbnt-line{ display: block; margin: 4px 0; color: var(--c-ink-2, #C8A8AD); }
-.sbnt-line--h{
-  color: var(--c-red-1, #FF4D60);
-  font-weight: 700;
-  letter-spacing: .08em;
-  text-transform: uppercase;
-  font-size: 10.5px;
-  margin: 12px 0 6px;
-}
-.sbnt-line--h:first-child{ margin-top: 0; }
-.sbnt-line--cmd{
-  color: var(--c-ink-1, #F5E5E8);
-  background: rgba(255,30,60,.06);
-  border-left: 2px solid var(--c-red, #FF1E3C);
-  padding: 4px 8px;
-  white-space: pre-wrap;
-  word-break: break-word;
-}
-.sbnt-line--cmd::before{ content: "$ "; color: var(--c-red-1, #FF4D60); font-weight: 700; }
-.sbnt-line--note{ color: var(--c-ink-3, #8B6B70); padding-left: 12px; }
-.sbnt-line--note::before{ content: "› "; color: var(--c-red, #FF1E3C); }
-.sbnt-line--warn{ color: #FFBE5C; }
-.sbnt-line--warn::before{ content: "! "; }
-.sbnt-line--cost{ color: var(--c-red-1, #FF4D60); }
-.sbnt-line--code{
-  background: rgba(255,30,60,.04);
-  border-left: 1px dashed rgba(255,30,60,.3);
-  padding: 6px 8px;
-  white-space: pre-wrap;
-  overflow-x: auto;
-  font-size: 10.5px;
-}
-.sbnt-line--link{ color: var(--c-red-1, #FF4D60); text-decoration: underline; }
-.sbnt-line--link::before{ content: "↗ "; }
-.sbnt-line--step{
-  display: grid; grid-template-columns: auto 1fr; gap: 8px;
-}
-.sbnt-line--step .step-n{ color: var(--c-red, #FF1E3C); font-weight: 700; }
+.sbnt-console__body::-webkit-scrollbar{ width: 4px; }
+.sbnt-console__body::-webkit-scrollbar-thumb{ background: var(--c-rule-2, rgba(255,30,60,.22)); }
+.sbnt-console.is-collapsed .sbnt-console__tabs,
+.sbnt-console.is-collapsed .sbnt-console__body{ display: none; }
 
 .sbnt-blurb{
   display: block;
   color: var(--c-ink-3, #8B6B70);
-  font-size: 10.5px;
+  font-size: 10.5px; letter-spacing: .02em;
   padding-bottom: 8px;
   margin-bottom: 10px;
-  border-bottom: 1px dashed rgba(255,30,60,.15);
+  border-bottom: 1px dashed var(--c-rule, rgba(255,30,60,.10));
+}
+
+.sbnt-h{
+  display: block;
+  color: var(--c-red-1, #FF4D60);
+  font-size: 10.5px; font-weight: 700;
+  letter-spacing: .08em; text-transform: uppercase;
+  margin: 12px 0 6px;
+}
+.sbnt-h:first-child{ margin-top: 0; }
+.sbnt-p{
+  display: block;
+  color: var(--c-ink-2, #C8A8AD);
+  margin: 4px 0;
+}
+.sbnt-step{
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 8px;
+  color: var(--c-ink-2, #C8A8AD);
+  margin: 3px 0;
+}
+.sbnt-step__n{
+  color: var(--c-red, #FF1E3C);
+  font-weight: 700;
+}
+.sbnt-cmd{
+  display: block;
+  color: var(--c-ink-1, #F5E5E8);
+  background: rgba(255,30,60,.06);
+  border-left: 2px solid var(--c-red, #FF1E3C);
+  padding: 5px 8px;
+  margin: 4px 0;
+  white-space: pre-wrap;
+  word-break: break-word;
+}
+.sbnt-cmd::before{
+  content: "$ ";
+  color: var(--c-red-1, #FF4D60);
+  font-weight: 700;
+}
+.sbnt-note{
+  display: block;
+  color: var(--c-ink-3, #8B6B70);
+  padding-left: 14px;
+  position: relative;
+  margin: 2px 0;
+}
+.sbnt-note::before{
+  content: "›";
+  position: absolute; left: 0;
+  color: var(--c-red-1, #FF4D60);
+}
+.sbnt-warn{
+  display: block;
+  color: var(--c-red-2, #FF7A88);
+  padding-left: 14px;
+  position: relative;
+  margin: 2px 0;
+}
+.sbnt-warn::before{
+  content: "!";
+  position: absolute; left: 0;
+  color: var(--c-red, #FF1E3C);
+  font-weight: 700;
+}
+
+/* link line — outbound URL with ↗ glyph + underline-on-hover */
+.sbnt-link{
+  display: block;
+  color: var(--c-red-1, #FF4D60);
+  text-decoration: none;
+  padding: 3px 0;
+  border-bottom: 1px dashed transparent;
+  transition: color .12s ease-out, border-color .12s ease-out;
+  word-break: break-word;
+}
+.sbnt-link:hover{
+  color: var(--c-red, #FF1E3C);
+  border-bottom-color: var(--c-red, #FF1E3C);
+}
+
+/* cost line — amber chip-style callout used for "costs τ X" notes */
+.sbnt-cost{
+  display: inline-block;
+  margin: 4px 0;
+  padding: 2px 8px;
+  background: rgba(255, 184, 92, .10);
+  border: 1px solid rgba(255, 184, 92, .35);
+  border-radius: 999px;
+  color: #FFB85C;
+  font-size: 10.5px;
+  font-weight: 700;
+  letter-spacing: .02em;
+}
+
+/* code line — multi-line code block */
+.sbnt-code{
+  display: block;
+  margin: 6px 0;
+  padding: 8px 10px;
+  background: rgba(255,30,60,.04);
+  border: 1px solid var(--c-rule-2, rgba(255,30,60,.22));
+  border-radius: 3px;
+  font-size: 10.5px;
+  line-height: 1.55;
+  color: var(--c-ink-1, #F5E5E8);
+  white-space: pre-wrap;
+  overflow-x: auto;
+}
+
+/* search input at the top of the body. Filters all topics +
+   their body lines in real time. */
+.sbnt-console__search{
+  position: relative;
+  margin-bottom: 10px;
+}
+.sbnt-console__search input{
+  width: 100%;
+  appearance: none;
+  background: rgba(255,30,60,.04);
+  border: 1px solid var(--c-rule-2, rgba(255,30,60,.22));
+  border-radius: 999px;
+  padding: 7px 12px 7px 30px;
+  font-family: var(--f-mono, monospace);
+  font-size: 11px;
+  color: var(--c-ink-1, #F5E5E8);
+  outline: none;
+  transition: border-color .12s ease-out, background .12s ease-out;
+}
+.sbnt-console__search input::placeholder{
+  color: var(--c-ink-3, #8B6B70);
+}
+.sbnt-console__search input:focus{
+  border-color: var(--c-red, #FF1E3C);
+  background: rgba(255,30,60,.08);
+}
+.sbnt-console__search::before{
+  content: "⌕";
+  position: absolute;
+  left: 11px; top: 50%;
+  transform: translateY(-50%);
+  color: var(--c-red-1, #FF4D60);
+  font-size: 14px;
+  pointer-events: none;
+}
+
+/* search results list (when input is non-empty) */
+.sbnt-search-results{
+  list-style: none;
+  margin: 0 0 10px;
+  padding: 0;
+  display: flex; flex-direction: column;
+  gap: 2px;
+}
+.sbnt-search-result{
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 8px;
+  padding: 5px 10px;
+  background: rgba(255,30,60,.04);
+  border: 1px solid var(--c-rule, rgba(255,30,60,.10));
+  border-radius: 3px;
+  cursor: pointer;
+  text-align: left;
+  appearance: none;
+  font: inherit;
+  color: var(--c-ink-1, #F5E5E8);
+  transition: background .12s ease-out, border-color .12s ease-out;
+}
+.sbnt-search-result:hover{
+  background: rgba(255,30,60,.10);
+  border-color: var(--c-rule-2, rgba(255,30,60,.22));
+}
+.sbnt-search-result__topic{
+  font-family: var(--f-mono, monospace);
+  font-size: 10px;
+  letter-spacing: .04em;
+  color: var(--c-red-1, #FF4D60);
+}
+.sbnt-search-result__snippet{
+  font-size: 11px;
+  color: var(--c-ink-2, #C8A8AD);
+  line-height: 1.4;
+}
+.sbnt-search-result mark{
+  background: rgba(255,30,60,.28);
+  color: var(--c-ink-1, #F5E5E8);
+  border-radius: 2px;
+  padding: 0 2px;
+}
+.sbnt-search-empty{
+  padding: 10px;
+  text-align: center;
+  color: var(--c-ink-4, #6B4D52);
+  font-size: 10.5px;
+  font-style: italic;
+}
+
+/* ===================================================================
+   /play · TAO RUNNER · canvas arcade game pinned in the Oracle dock
+   =================================================================== */
+.sbnt-game{
+  display: flex; flex-direction: column;
+  gap: 10px;
+  padding: 2px 0;
+}
+.sbnt-game__head{
+  border: 1px solid var(--c-rule-2, rgba(255,30,60,.22));
+  border-radius: 4px;
+  padding: 8px 12px;
+  background: rgba(255,30,60,.04);
+}
+.sbnt-game__block-id{
+  font-family: var(--f-mono, monospace);
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+  color: var(--c-red, #FF1E3C);
+}
+.sbnt-game__query{
+  display: block;
+  margin-top: 3px;
+  font-family: var(--f-mono, monospace);
+  font-size: 10.5px;
+  color: var(--c-ink-2, #C8A8AD);
+}
+.sbnt-game__canvas{
+  display: block;
+  width: 100%;
+  height: 180px;
+  border: 1px solid var(--c-rule-3, rgba(255,30,60,.36));
+  border-radius: 4px;
+  background:
+    radial-gradient(80% 60% at 50% 0%, rgba(255,30,60,.08), transparent 70%),
+    linear-gradient(180deg, var(--c-bg-1, #050203), var(--c-bg, #000));
+  cursor: pointer;
+  outline: none;
+  touch-action: manipulation;
+}
+.sbnt-game__canvas:focus{ box-shadow: 0 0 0 2px var(--c-red, #FF1E3C); }
+.sbnt-game__hud{
+  display: flex; align-items: center; gap: 8px;
+  padding: 6px 10px;
+  background: rgba(255,30,60,.04);
+  border: 1px solid var(--c-rule-2, rgba(255,30,60,.22));
+  border-radius: 4px;
+  font-family: var(--f-mono, monospace);
+  font-size: 11px;
+}
+.sbnt-game__hud-lbl{
+  font-size: 9.5px;
+  font-weight: 700;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+  color: var(--c-red-1, #FF4D60);
+}
+.sbnt-game__hud-val{
+  color: var(--c-ink-1, #F5E5E8);
+  font-weight: 700;
+  font-variant-numeric: tabular-nums;
+}
+.sbnt-game__hud-sep{ color: var(--c-ink-4, #6B4D52); }
+.sbnt-game__push{ margin-left: auto; }
+.sbnt-game__btn{
+  appearance: none;
+  border: 1px solid var(--c-rule-2, rgba(255,30,60,.22));
+  background: rgba(255,30,60,.06);
+  color: var(--c-red-1, #FF4D60);
+  padding: 4px 10px;
+  border-radius: 999px;
+  font-family: var(--f-mono, monospace);
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: background .12s ease-out, border-color .12s ease-out, color .12s ease-out;
+}
+.sbnt-game__btn:hover{
+  background: rgba(255,30,60,.14);
+  border-color: var(--c-red, #FF1E3C);
+  color: var(--c-red, #FF1E3C);
+}
+.sbnt-game__btn--ghost{
+  background: transparent;
+  color: var(--c-ink-3, #8B6B70);
+}
+.sbnt-game__btn--ghost:hover{
+  background: rgba(255,30,60,.06);
+  color: var(--c-red-1, #FF4D60);
+}
+
+.sbnt-cursor{
+  display: inline-block; width: 6px; height: 11px;
+  background: var(--c-red, #FF1E3C);
+  vertical-align: -1px; margin-left: 4px;
+  animation: sbnt-blink 1.1s steps(1) infinite;
+}
+@keyframes sbnt-blink{ 0%,50%{ opacity: 1 } 50.01%,100%{ opacity: 0 } }
+
+@media (max-width: 560px){
+  .sbnt-console{ width: 100vw; border-right: 0; border-top-right-radius: 0; }
+  .sbnt-console__body{ height: 210px; }
+  .sbnt-console__title{ display: none; }
+}
+@media (prefers-reduced-motion: reduce){
+  .sbnt-cursor{ animation: none; }
 }
 `;
 
@@ -289,80 +562,87 @@ function injectStyle(){
   document.head.appendChild(s);
 }
 
-/** Escape strings for safe inclusion in HTML text content. */
-function escapeText(s){
-  return String(s ?? '').replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
-}
-function escapeAttr(s){
-  return String(s ?? '').replace(/&/g, '&amp;').replace(/"/g, '&quot;');
+/** Escape attribute strings for safe inclusion in href. */
+function attrEscape(s){
+  return String(s || '').replace(/"/g, '&quot;').replace(/&/g, '&amp;');
 }
 
-/** Render one FIELD_MANUAL line into terminal-styled HTML. */
+/** Render one body line into terminal-styled HTML. */
 function lineHtml(line){
-  const text = escapeText(line.text);
+  const text = (line.text || '').replace(/</g, '&lt;');
   switch (line.kind){
-    case 'h':    return `<span class="sbnt-line sbnt-line--h">${text}</span>`;
-    case 'step': return `<span class="sbnt-line sbnt-line--step"><span class="step-n">[${String(line.n ?? 0).padStart(2,'0')}]</span><span>${text}</span></span>`;
-    case 'cmd':  return `<span class="sbnt-line sbnt-line--cmd">${text}</span>`;
-    case 'note': return `<span class="sbnt-line sbnt-line--note">${text}</span>`;
-    case 'warn': return `<span class="sbnt-line sbnt-line--warn">${text}</span>`;
-    case 'cost': return `<span class="sbnt-line sbnt-line--cost">⊕ ${text}</span>`;
-    case 'code': return `<pre class="sbnt-line sbnt-line--code">${text}</pre>`;
-    case 'link': return `<a class="sbnt-line sbnt-line--link" href="${escapeAttr(line.href || '#')}" target="_blank" rel="noopener">${text}</a>`;
+    case 'h':    return `<span class="sbnt-h">▸ ${text}</span>`;
+    case 'step': return `<span class="sbnt-step"><span class="sbnt-step__n">[${String(line.n ?? 0).padStart(2,'0')}]</span><span>${text}</span></span>`;
+    case 'cmd':  return `<span class="sbnt-cmd">${text}</span>`;
+    case 'note': return `<span class="sbnt-note">${text}</span>`;
+    case 'warn': return `<span class="sbnt-warn">${text}</span>`;
+    case 'cost': return `<span class="sbnt-cost">⊕ ${text}</span>`;
+    case 'code': return `<pre class="sbnt-code">${text}</pre>`;
+    case 'link': return `<a class="sbnt-link" href="${attrEscape(line.href || '#')}" target="_blank" rel="noopener">↗ ${text}</a>`;
     case 'p':
-    default:     return `<span class="sbnt-line">${text}</span>`;
+    default:     return `<span class="sbnt-p">${text}</span>`;
   }
 }
 
 /**
- * Mount the Subnet Oracle dock. Self-injecting — appends its own
- * fixed element to <body>. Returns a destroy() that fully tears
- * down its DOM and listeners. dataLayer is unused — the Oracle is
- * static content, not a live feed.
- *
- * @param {*} [_dataLayer]
- * @returns {{ destroy: () => void }}
+ * Mount the field-manual console. Self-injecting — no DOM mount
+ * point needed. dataLayer is ignored; this console is content, not
+ * a live event log.
+ * @param {{subscribe:Function, get:Function}|null} [_dataLayer]
+ * @returns {{destroy:()=>void}}
  */
 export function mountConsole(_dataLayer = null){
   injectStyle();
 
-  const startOpen = !!(window.matchMedia && window.matchMedia('(min-width: 720px)').matches);
-
-  const el = document.createElement('aside');
-  el.className = 'sbnt-oracle' + (startOpen ? ' is-open' : '');
-  el.setAttribute('aria-label', 'Subnet Oracle · Bittensor field manual');
-
+  /* tab + body content sets render off the imported FAQ array */
   const tabsHtml = FIELD_MANUAL.map(t =>
-    `<button type="button" class="sbnt-oracle__tab" data-id="${escapeAttr(t.id)}">${escapeText(t.label)}</button>`
+    `<button type="button" class="sbnt-tab" data-id="${t.id}">${t.label}</button>`
   ).join('');
 
+  /* Default state: expanded on desktop, collapsed on phone so the
+     console doesn't overlap the page underneath. The user toggles it
+     either way via the bar. */
+  const startCollapsed = !!(window.matchMedia &&
+    window.matchMedia('(max-width: 720px)').matches);
+
+  const el = document.createElement('aside');
+  el.className = 'sbnt-console' + (startCollapsed ? ' is-collapsed' : '');
+  el.setAttribute('aria-label', 'Subnet Oracle · Bittensor field manual');
   el.innerHTML = `
-    <div class="sbnt-oracle__bar" data-role="bar">
-      <!-- PS5-grade Oracle mark — NodeSphere canvas plexus +
-           CSS-pseudo halo + breathing core overlay -->
-      <span class="sbnt-oracle__mark" aria-hidden="true">
-        <canvas class="sbnt-oracle__mark-canvas" data-role="mark-canvas"></canvas>
+    <span class="sbnt-console__edge" aria-hidden="true"></span>
+    <div class="sbnt-console__bar" data-role="bar">
+      <!-- The Oracle's "consciousness" — 8-node SVG plexus with
+           staggered opacity pulses (signals cascading through the
+           net), an expanding broadcast ring, and a breathing white
+           core. Pure SVG + CSS transform/opacity animations on
+           contained children — Android-compositor-safe. -->
+      <!-- PS5-grade Oracle mark: NodeSphere canvas + CSS pseudo
+           halo + breathing core overlay. Same engine as the
+           masthead brand mark, scaled to 34 px. -->
+      <span class="sbnt-console__nn" aria-hidden="true">
+        <canvas class="sbnt-console__nn-canvas" data-role="nn-canvas"></canvas>
       </span>
-      <span class="sbnt-oracle__brand">
-        <span class="sbnt-oracle__name">Subnet Oracle</span>
-        <span class="sbnt-oracle__sep">//</span>
-        <span class="sbnt-oracle__net">Bi<span class="tau">ττ</span>ensor</span>
+      <span class="sbnt-console__brand">
+        <span class="sbnt-console__name">Subnet Oracle</span>
+        <span class="sbnt-console__sep">//</span>
+        <span class="sbnt-console__net">Bi<span class="tau">ττ</span>ensor</span>
       </span>
-      <span class="sbnt-oracle__push"></span>
-      <span class="sbnt-oracle__hint">Tap to open</span>
-      <span class="sbnt-oracle__toggle" data-role="toggle">${startOpen ? '−' : '+'}</span>
+      <span class="sbnt-console__title" data-role="title"></span>
+      <span class="sbnt-console__push"></span>
+      <span class="sbnt-console__hint">Tap to expand</span>
+      <span class="sbnt-console__toggle" data-role="toggle">${startCollapsed ? '＋' : '−'}</span>
     </div>
-    <div class="sbnt-oracle__tabs" role="tablist">${tabsHtml}</div>
-    <div class="sbnt-oracle__body" data-role="body" tabindex="0"></div>
+    <div class="sbnt-console__tabs" role="tablist">${tabsHtml}</div>
+    <div class="sbnt-console__body" data-role="body"></div>
   `;
   document.body.appendChild(el);
 
   /* Mount the Oracle's PS5-grade plexus mark — a tiny NodeSphere
-     on the 30 px canvas. 18 nodes is dense enough to read as a
-     3D plexus without looking sparse; atmospheric glow + KNN
-     crossings give the live-agent feel. */
-  const markCanvas = el.querySelector('[data-role="mark-canvas"]');
-  const markSphere = markCanvas ? new NodeSphere(markCanvas, {
+     on the bar's 34 px canvas. 18 nodes / K=3 / density .45 /
+     speed .55 / atmos true gives the rotating 3D plexus feel
+     without burning a meaningful frame budget. */
+  const nnCanvas = el.querySelector('[data-role="nn-canvas"]');
+  const nnSphere = nnCanvas ? new NodeSphere(nnCanvas, {
     nodes:   18,
     K:       3,
     density: 0.45,
@@ -370,52 +650,509 @@ export function mountConsole(_dataLayer = null){
     atmos:   true,
   }) : null;
 
-  const bar    = el.querySelector('[data-role="bar"]');
-  const body   = el.querySelector('[data-role="body"]');
-  const toggle = el.querySelector('[data-role="toggle"]');
-  const tabs   = Array.from(el.querySelectorAll('.sbnt-oracle__tab'));
+  const body    = el.querySelector('[data-role="body"]');
+  const title   = el.querySelector('[data-role="title"]');
+  const bar     = el.querySelector('[data-role="bar"]');
+  const toggle  = el.querySelector('[data-role="toggle"]');
+  const tabs    = Array.from(el.querySelectorAll('.sbnt-tab'));
 
-  let activeId = FIELD_MANUAL[0]?.id || '';
+  let activeId = FIELD_MANUAL[0]?.id || 'mine';
+  let searchQuery = '';
+
+  /* ----- search · cross-topic full-text filter with tokenisation +
+     stopword removal so natural-language questions like "what is
+     bittensor?" still surface the right topics. ----- */
+  const STOPWORDS = new Set([
+    'a','an','and','are','as','at','be','but','by','can','do','does','for','from','have','how','i','in','is','it','its','just','like','me','my','no','not','of','on','or','show','that','the','then','this','to','was','what','when','where','which','while','who','why','will','with','you','your'
+  ]);
+  function escRe(s){ return String(s).replace(/[-\/\\^$*+?.()|[\]{}]/g, '\\$&'); }
+  function tokenise(s){
+    return String(s).toLowerCase()
+      /* keep latin + Greek τ/α + digits + dash */
+      .replace(/[^a-z0-9α-ωτ\s-]/gi, ' ')
+      .split(/\s+/)
+      .filter(w => w.length > 1 && !STOPWORDS.has(w));
+  }
+  function mark(text, tokens){
+    if (!tokens || !tokens.length) return String(text).replace(/</g, '&lt;');
+    let out = String(text).replace(/</g, '&lt;');
+    /* highlight each token, longest first so substrings don't shadow */
+    [...tokens].sort((a, b) => b.length - a.length).forEach(t => {
+      const re = new RegExp('(' + escRe(t) + ')', 'gi');
+      out = out.replace(re, '<mark>$1</mark>');
+    });
+    return out;
+  }
+  function searchAll(q){
+    const tokens = tokenise(q);
+    if (!tokens.length) return { tokens: [], hits: [] };
+    const hits = [];
+    FIELD_MANUAL.forEach(topic => {
+      const titleLc = (topic.title || '').toLowerCase();
+      const blurbLc = (topic.blurb || '').toLowerCase();
+      const bodyLc = (topic.body || []).map(l => (l.text || '')).join(' ').toLowerCase();
+      let score = 0;
+      tokens.forEach(t => {
+        if (topic.id.includes(t))                           score += 6;
+        if (titleLc.includes(t))                            score += 4;
+        if (blurbLc.includes(t))                            score += 2;
+        if (bodyLc.includes(t))                             score += 1;
+      });
+      if (score > 0){
+        /* snippet = first body line that contains any token, else blurb, else title */
+        let snippet = topic.blurb || topic.title || '';
+        for (const line of (topic.body || [])){
+          const t = (line.text || '').toLowerCase();
+          if (tokens.some(tok => t.includes(tok))) {
+            snippet = line.text;
+            break;
+          }
+        }
+        hits.push({ topic, snippet, score });
+      }
+    });
+    hits.sort((a, b) => b.score - a.score);
+    return { tokens, hits: hits.slice(0, 8) };
+  }
+
+  function searchHtml(q){
+    const { tokens, hits } = searchAll(q);
+    if (!tokens.length){
+      return `<p class="sbnt-search-empty">Type a topic, a command, or a question.</p>`;
+    }
+    if (!hits.length){
+      return `<p class="sbnt-search-empty">No matches for "${String(q).replace(/</g, '&lt;')}". Try <em>mine</em>, <em>dtao</em>, <em>halving</em>, or <em>weights</em>.</p>`;
+    }
+    return `<ul class="sbnt-search-results">` +
+      hits.map(h => `
+        <li>
+          <button type="button" class="sbnt-search-result" data-topic="${h.topic.id}">
+            <span class="sbnt-search-result__topic">${h.topic.label}</span>
+            <span class="sbnt-search-result__snippet">${mark(h.snippet, tokens)}</span>
+          </button>
+        </li>
+      `).join('') +
+      `</ul>`;
+  }
+
+  function searchBarHtml(){
+    return `
+      <div class="sbnt-console__search">
+        <input type="search" placeholder="Ask the Oracle · search topics, commands, terms…"
+               data-role="search" value="${attrEscape(searchQuery)}" autocomplete="off">
+      </div>
+    `;
+  }
 
   function render(){
-    const topic = FIELD_MANUAL.find(t => t.id === activeId);
-    if (!topic){ body.innerHTML = ''; return; }
-    const blurb = topic.blurb ? `<span class="sbnt-blurb">${escapeText(topic.blurb)}</span>` : '';
-    const lines = (topic.lines || []).map(lineHtml).join('');
-    body.innerHTML = blurb + lines;
+    const topic = FIELD_MANUAL.find(t => t.id === activeId) || FIELD_MANUAL[0];
     tabs.forEach(t => t.classList.toggle('is-active', t.dataset.id === activeId));
+    if (title) title.textContent = '· ' + (topic.title || '');
+
+    /* If the user is searching, replace the body with cross-topic
+       results instead of the active-topic content. */
+    if (searchQuery){
+      body.innerHTML = searchBarHtml() + searchHtml(searchQuery);
+      wireSearch();
+      wireSearchResults();
+      return;
+    }
+
+    const blurb = topic.blurb
+      ? `<span class="sbnt-blurb">${topic.blurb}</span>`
+      : '';
+
+    /* Special topic: /play renders the interactive Yuma-consensus
+       mini-game widget instead of static lines. */
+    const content = topic.id === 'play'
+      ? gameHtml()
+      : (topic.body || []).map(lineHtml).join('');
+
+    body.innerHTML = searchBarHtml() + blurb + content
+      + (topic.id === 'play' ? '' : `<span class="sbnt-p" style="margin-top:10px">› select a topic above<span class="sbnt-cursor"></span></span>`);
+    body.scrollTop = 0;
+    wireSearch();
+    if (topic.id === 'play') wireGame();
   }
 
-  function setOpen(open){
-    el.classList.toggle('is-open', !!open);
-    toggle.textContent = open ? '−' : '+';
+  /* ======================================================================
+     TAO RUNNER · a canvas arcade game built for the Oracle dock.
+     -----------------------------------------------------------------------
+     A miner sprint across the chain. Tap to jump. Catch the α tokens
+     drifting overhead, dodge the deregistration sweeps rolling along
+     the ground. Speed ramps with score. Game over on contact; best
+     score persists in localStorage. The only Bittensor-native arcade
+     game in the ecosystem. ====================================== */
+  let gameRAF = null;
+  let gameLastT = 0;
+
+  /** TAO-Runner state. Survives across body re-renders so the user
+   *  doesn't lose their score on a search/tab change. */
+  const RUNNER = {
+    canvas:   null,
+    ctx:      null,
+    dpr:      1,
+    w:        0,
+    h:        0,
+    ground:   0,
+    speed:    260,
+    baseSpd:  260,
+    maxSpd:   620,
+    px:       70,          // player x (fixed)
+    py:       0,           // player y offset (negative = airborne)
+    vy:       0,
+    grounded: true,
+    hazards:  [],          // [{x, w, h}] dereg sweeps on the ground
+    tokens:   [],          // [{x, y, r}] α tokens floating above
+    score:    0,
+    best:     0,
+    alive:    false,        // not running yet — wait for first tap
+    started:  false,
+    accH:     1.2,
+    accT:     0.6,
+    bgOffset: 0,
+  };
+
+  function gameHtml(){
+    return `
+      <div class="sbnt-game">
+        <div class="sbnt-game__head">
+          <span class="sbnt-game__block-id">TAO RUNNER · BLOCK ${(Math.floor(8190000 + RUNNER.score * 2)).toLocaleString('en-US')}</span>
+          <span class="sbnt-game__query">tap to jump · catch <span class="alpha">α</span> · dodge dereg sweeps · speed ramps with each block</span>
+        </div>
+        <canvas class="sbnt-game__canvas" data-game-canvas tabindex="0" aria-label="TAO Runner game"></canvas>
+        <div class="sbnt-game__hud">
+          <span class="sbnt-game__hud-lbl">SCORE</span>
+          <span class="sbnt-game__hud-val" data-game-score>0</span>
+          <span class="sbnt-game__hud-sep">·</span>
+          <span class="sbnt-game__hud-lbl">BEST</span>
+          <span class="sbnt-game__hud-val" data-game-best>0</span>
+          <span class="sbnt-game__push"></span>
+          <button type="button" class="sbnt-game__btn sbnt-game__btn--ghost" data-role="game-restart">RESET</button>
+        </div>
+      </div>
+    `;
   }
 
-  /* clicking the bar toggles open/closed — except when the click is
-     inside the body itself (the user is trying to scroll or read) */
-  function onBarClick(e){
-    if (e.target.closest('.sbnt-oracle__body')) return;
-    if (e.target.closest('.sbnt-oracle__tab'))  return;
-    setOpen(!el.classList.contains('is-open'));
+  function wireGame(){
+    const cv = body.querySelector('[data-game-canvas]');
+    if (!cv) return;
+    RUNNER.canvas = cv;
+    RUNNER.ctx = cv.getContext('2d');
+    RUNNER.dpr = Math.min(2, window.devicePixelRatio || 1);
+    RUNNER.best = Number(localStorage.getItem('sbnt-game-best') || 0);
+    const bestEl = body.querySelector('[data-game-best]');
+    if (bestEl) bestEl.textContent = RUNNER.best;
+    resizeCanvas();
+
+    /* full reset for a clean intro state */
+    RUNNER.score = 0; RUNNER.hazards = []; RUNNER.tokens = [];
+    RUNNER.speed = RUNNER.baseSpd; RUNNER.alive = false; RUNNER.started = false;
+    RUNNER.py = 0; RUNNER.vy = 0; RUNNER.grounded = true;
+
+    const scoreEl = body.querySelector('[data-game-score]');
+    if (scoreEl) scoreEl.textContent = 0;
+
+    function jump(){
+      if (!RUNNER.started){
+        RUNNER.started = true;
+        RUNNER.alive = true;
+      }
+      if (!RUNNER.alive){
+        /* restart on tap after game over */
+        RUNNER.score = 0; RUNNER.hazards = []; RUNNER.tokens = [];
+        RUNNER.speed = RUNNER.baseSpd; RUNNER.alive = true;
+        RUNNER.py = 0; RUNNER.vy = 0; RUNNER.grounded = true;
+        if (scoreEl) scoreEl.textContent = 0;
+        return;
+      }
+      if (RUNNER.grounded){
+        RUNNER.vy = -520;
+        RUNNER.grounded = false;
+      }
+    }
+
+    cv.addEventListener('click',     jump);
+    cv.addEventListener('touchstart', e => { e.preventDefault(); jump(); }, { passive: false });
+    const keyHandler = (e) => {
+      if (e.code === 'Space' || e.code === 'ArrowUp'){
+        e.preventDefault();
+        jump();
+      }
+    };
+    window.addEventListener('keydown', keyHandler);
+    cv._sbntKeyHandler = keyHandler;
+
+    const restart = body.querySelector('[data-role="game-restart"]');
+    if (restart) restart.addEventListener('click', () => {
+      RUNNER.score = 0; RUNNER.hazards = []; RUNNER.tokens = [];
+      RUNNER.speed = RUNNER.baseSpd;
+      RUNNER.alive = true; RUNNER.started = true;
+      RUNNER.py = 0; RUNNER.vy = 0; RUNNER.grounded = true;
+      if (scoreEl) scoreEl.textContent = 0;
+    });
+
+    const onResize = () => resizeCanvas();
+    window.addEventListener('resize', onResize);
+    cv._sbntResize = onResize;
+
+    /* loop */
+    cancelAnimationFrame(gameRAF);
+    gameLastT = performance.now();
+    gameRAF = requestAnimationFrame(loop);
   }
 
-  function onTabClick(e){
-    const t = e.target.closest('.sbnt-oracle__tab');
-    if (!t) return;
-    activeId = t.dataset.id;
-    if (!el.classList.contains('is-open')) setOpen(true);
-    render();
+  function resizeCanvas(){
+    const cv = RUNNER.canvas; if (!cv) return;
+    const rect = cv.getBoundingClientRect();
+    RUNNER.w = Math.max(280, rect.width);
+    RUNNER.h = 180;
+    cv.width  = RUNNER.w * RUNNER.dpr;
+    cv.height = RUNNER.h * RUNNER.dpr;
+    cv.style.height = RUNNER.h + 'px';
+    RUNNER.ctx.setTransform(RUNNER.dpr, 0, 0, RUNNER.dpr, 0, 0);
+    RUNNER.ground = RUNNER.h - 32;
   }
 
-  bar.addEventListener('click', onBarClick);
-  el.querySelector('.sbnt-oracle__tabs').addEventListener('click', onTabClick);
+  function loop(t){
+    if (!RUNNER.canvas){ gameRAF = null; return; }
+    /* if the user navigated to a different topic, stop the loop */
+    if (!body.contains(RUNNER.canvas)){
+      gameRAF = null;
+      return;
+    }
+    const dt = Math.min((t - gameLastT) / 1000, 1/30);
+    gameLastT = t;
+
+    if (RUNNER.alive && RUNNER.started){
+      step(dt);
+    }
+    draw();
+    gameRAF = requestAnimationFrame(loop);
+  }
+
+  function step(dt){
+    RUNNER.speed = Math.min(RUNNER.maxSpd, RUNNER.baseSpd + RUNNER.score * 3.5);
+    /* player physics */
+    RUNNER.vy += 1500 * dt;
+    RUNNER.py += RUNNER.vy * dt;
+    if (RUNNER.py >= 0){
+      RUNNER.py = 0;
+      RUNNER.vy = 0;
+      RUNNER.grounded = true;
+    }
+    /* spawn */
+    RUNNER.accH -= dt;
+    if (RUNNER.accH <= 0){
+      RUNNER.hazards.push({ x: RUNNER.w + 30, w: 22, h: 16 });
+      RUNNER.accH = 0.65 + Math.random() * 0.95 - Math.min(0.4, RUNNER.score * 0.0025);
+    }
+    RUNNER.accT -= dt;
+    if (RUNNER.accT <= 0){
+      RUNNER.tokens.push({
+        x: RUNNER.w + 20,
+        y: -40 - Math.random() * 60,
+        r: 8,
+      });
+      RUNNER.accT = 0.45 + Math.random() * 0.75;
+    }
+    /* move */
+    const dx = RUNNER.speed * dt;
+    RUNNER.hazards.forEach(h => h.x -= dx);
+    RUNNER.tokens.forEach(t => t.x -= dx);
+    RUNNER.bgOffset = (RUNNER.bgOffset + dx) % 32;
+    /* cull off-screen */
+    RUNNER.hazards = RUNNER.hazards.filter(h => h.x > -40);
+    RUNNER.tokens  = RUNNER.tokens.filter(t => t.x > -40);
+    /* collide — player AABB vs hazard AABB */
+    const pAABB = {
+      x: RUNNER.px,
+      y: RUNNER.ground - 26 + RUNNER.py,
+      w: 22, h: 26,
+    };
+    for (const h of RUNNER.hazards){
+      const hAABB = { x: h.x, y: RUNNER.ground - h.h, w: h.w, h: h.h };
+      if (pAABB.x < hAABB.x + hAABB.w &&
+          pAABB.x + pAABB.w > hAABB.x &&
+          pAABB.y < hAABB.y + hAABB.h &&
+          pAABB.y + pAABB.h > hAABB.y){
+        gameOver();
+        return;
+      }
+    }
+    /* collect tokens — circle-vs-AABB */
+    const cx = RUNNER.px + 11, cy = RUNNER.ground - 13 + RUNNER.py;
+    RUNNER.tokens = RUNNER.tokens.filter(t => {
+      const ay = RUNNER.ground + t.y;
+      const dxD = cx - t.x, dyD = cy - ay;
+      const d2 = dxD * dxD + dyD * dyD;
+      if (d2 < (t.r + 14) * (t.r + 14)){
+        RUNNER.score += 1;
+        const scoreEl = body.querySelector('[data-game-score]');
+        if (scoreEl) scoreEl.textContent = RUNNER.score;
+        return false;
+      }
+      return true;
+    });
+  }
+
+  function gameOver(){
+    RUNNER.alive = false;
+    if (RUNNER.score > RUNNER.best){
+      RUNNER.best = RUNNER.score;
+      try { localStorage.setItem('sbnt-game-best', String(RUNNER.best)); } catch (_){}
+      const bestEl = body.querySelector('[data-game-best]');
+      if (bestEl) bestEl.textContent = RUNNER.best;
+    }
+  }
+
+  function draw(){
+    const ctx = RUNNER.ctx;
+    if (!ctx) return;
+    ctx.clearRect(0, 0, RUNNER.w, RUNNER.h);
+    /* background — faint dot grid */
+    ctx.fillStyle = 'rgba(255,30,60,.18)';
+    for (let x = -32 + RUNNER.bgOffset; x < RUNNER.w; x += 32){
+      for (let y = 16; y < RUNNER.h - 16; y += 24){
+        ctx.fillRect(x, y, 1.2, 1.2);
+      }
+    }
+    /* ground rail */
+    ctx.strokeStyle = '#FF1E3C';
+    ctx.lineWidth = 1.2;
+    ctx.globalAlpha = .55;
+    ctx.beginPath();
+    ctx.moveTo(0, RUNNER.ground + 2);
+    ctx.lineTo(RUNNER.w, RUNNER.ground + 2);
+    ctx.stroke();
+    ctx.globalAlpha = 1;
+    /* hazards — red triangular sweeps */
+    ctx.fillStyle = '#FF1E3C';
+    RUNNER.hazards.forEach(h => {
+      ctx.beginPath();
+      ctx.moveTo(h.x, RUNNER.ground);
+      ctx.lineTo(h.x + h.w / 2, RUNNER.ground - h.h);
+      ctx.lineTo(h.x + h.w, RUNNER.ground);
+      ctx.closePath();
+      ctx.fill();
+    });
+    /* tokens — orange/red α circles */
+    RUNNER.tokens.forEach(t => {
+      const ay = RUNNER.ground + t.y;
+      ctx.save();
+      const grad = ctx.createRadialGradient(t.x, ay, 1, t.x, ay, t.r + 4);
+      grad.addColorStop(0, '#FFB85C');
+      grad.addColorStop(1, 'rgba(255,184,92,0)');
+      ctx.fillStyle = grad;
+      ctx.beginPath();
+      ctx.arc(t.x, ay, t.r + 4, 0, Math.PI * 2);
+      ctx.fill();
+      ctx.fillStyle = '#FFB85C';
+      ctx.beginPath();
+      ctx.arc(t.x, ay, t.r, 0, Math.PI * 2);
+      ctx.fill();
+      ctx.fillStyle = '#1F0A10';
+      ctx.font = 'italic 700 12px "Archivo", serif';
+      ctx.textAlign = 'center';
+      ctx.textBaseline = 'middle';
+      ctx.fillText('α', t.x, ay + 1);
+      ctx.restore();
+    });
+    /* player — small chip with τ */
+    const px = RUNNER.px, py = RUNNER.ground - 26 + RUNNER.py;
+    ctx.fillStyle = RUNNER.alive ? '#FF1E3C' : '#8B0F20';
+    ctx.fillRect(px, py, 22, 26);
+    /* legs / pin tabs */
+    ctx.fillStyle = '#FF4D60';
+    ctx.fillRect(px - 3, py + 6, 3, 2);
+    ctx.fillRect(px - 3, py + 14, 3, 2);
+    ctx.fillRect(px + 22, py + 6, 3, 2);
+    ctx.fillRect(px + 22, py + 14, 3, 2);
+    /* τ glyph centred on the chip */
+    ctx.fillStyle = '#FFFFFF';
+    ctx.font = '700 14px "JetBrains Mono", ui-monospace, monospace';
+    ctx.textAlign = 'center';
+    ctx.textBaseline = 'middle';
+    ctx.fillText('τ', px + 11, py + 14);
+    /* overlays */
+    ctx.textAlign = 'center';
+    ctx.font = '700 11px "JetBrains Mono", ui-monospace, monospace';
+    if (!RUNNER.started){
+      ctx.fillStyle = '#F5E5E8';
+      ctx.fillText('TAP TO START · catch α · dodge dereg', RUNNER.w / 2, RUNNER.h / 2);
+    } else if (!RUNNER.alive){
+      ctx.fillStyle = '#FF1E3C';
+      ctx.font = '800 16px "Archivo", system-ui';
+      ctx.fillText('GAME OVER', RUNNER.w / 2, RUNNER.h / 2 - 8);
+      ctx.font = '700 10px "JetBrains Mono", ui-monospace, monospace';
+      ctx.fillStyle = '#C8A8AD';
+      ctx.fillText('TAP TO RESPAWN', RUNNER.w / 2, RUNNER.h / 2 + 12);
+    }
+  }
+
+  function wireSearch(){
+    const input = body.querySelector('[data-role="search"]');
+    if (!input) return;
+    input.addEventListener('input', e => {
+      searchQuery = e.target.value;
+      render();
+      /* keep focus on the search input after re-render */
+      const next = body.querySelector('[data-role="search"]');
+      if (next){
+        next.focus();
+        next.setSelectionRange(searchQuery.length, searchQuery.length);
+      }
+    });
+  }
+
+  function wireSearchResults(){
+    body.querySelectorAll('.sbnt-search-result').forEach(btn => {
+      btn.addEventListener('click', () => {
+        activeId = btn.dataset.topic;
+        searchQuery = '';
+        render();
+      });
+    });
+  }
+
+  /* tab clicks → switch topic */
+  tabs.forEach(t => {
+    t.addEventListener('click', (e) => {
+      e.stopPropagation();
+      activeId = t.dataset.id;
+      render();
+    });
+  });
+
+  /* collapse / expand on bar click — but not when a child button was clicked */
+  bar.addEventListener('click', (e) => {
+    /* ignore clicks on the tabs, the search input, the game widget,
+       the body content, and any anchor links — only bar-chrome
+       clicks toggle the dock */
+    if (e.target.closest('.sbnt-tab')) return;
+    if (e.target.closest('.sbnt-console__tabs')) return;
+    if (e.target.closest('.sbnt-console__body')) return;
+    const collapsed = el.classList.toggle('is-collapsed');
+    /* keep the toggle glyph the same family as the initial render —
+       single fullwidth ＋ or minus −, no brackets. Brackets wrap
+       onto two lines inside the 24-px circular toggle and read as
+       a broken UI. */
+    toggle.textContent = collapsed ? '＋' : '−';
+  });
 
   render();
 
   return {
     destroy(){
-      bar.removeEventListener('click', onBarClick);
-      markSphere?.destroy();
+      /* stop the game loop + tear down its listeners so the dock can
+         be safely re-mounted */
+      cancelAnimationFrame(gameRAF);
+      gameRAF = null;
+      if (RUNNER.canvas){
+        if (RUNNER.canvas._sbntKeyHandler) window.removeEventListener('keydown', RUNNER.canvas._sbntKeyHandler);
+        if (RUNNER.canvas._sbntResize)     window.removeEventListener('resize', RUNNER.canvas._sbntResize);
+      }
+      nnSphere?.destroy();
       el.remove();
     },
   };
