@@ -1479,25 +1479,59 @@ export function mountHome(root, dataLayer = null){
       </footer>
     </section>
 
-    <!-- ===== EDITOR'S NOTE =====
-         You called it from the start — the heavy portrait + grid
-         layout at the bottom of home was the actual scroll-locker
-         on Android. Lightweight text-only callout instead. Same
-         editorial intent: end the magazine on the editor's note,
-         signpost the full bio + portrait one tap away. -->
-    <aside class="home-edcard" aria-label="Editor's note">
-      <span class="home-edcard__kicker">Editor &middot; Subne<span class="tau">τ</span> Magazine</span>
-      <p class="home-edcard__name">Rondo Campbell</p>
-      <p class="home-edcard__line">
-        Researched, written, designed and coded by one person from
-        inside the U.S. federal system. Projected release <em>2028</em>.
-        The full bio + portrait is on the editor's page.
-      </p>
-      <div class="home-edcard__links">
-        <a class="home-edcard__cta" href="editor.html">Read the editor's page &rarr;</a>
-        <a class="home-edcard__cta home-edcard__cta--ghost" href="https://x.com/subnetmagazine" target="_blank" rel="noopener">𝕏 @subnetmagazine</a>
+    <!-- ===== EDITOR'S COLOPHON =====
+         A magazine prints the editor's bio at the back of the book.
+         This is that page. The site you just scrolled through is
+         built end-to-end by Rondo Campbell from inside the federal
+         system, on a phone, with intermittent connectivity — every
+         line of research, code, and design is his. Projected
+         release: 2028. The work and the story share a repository. -->
+    <section class="home-editor" aria-label="Editor">
+      <div class="home-editor__inner">
+        <div class="home-editor__photo">
+          <img src="assets/editor-rondo.jpg"
+               alt="Rondo Campbell"
+               width="600" height="600"
+               loading="lazy"
+               decoding="async"
+               fetchpriority="low">
+          <span class="home-editor__photo-frame" aria-hidden="true"></span>
+        </div>
+        <div class="home-editor__body">
+          <span class="home-editor__kicker">Editor &middot; Subne<span class="tau">τ</span> Magazine</span>
+          <h2 class="home-editor__name">Rondo Campbell</h2>
+          <p class="home-editor__role">Founder &middot; Editor &middot; Sole engineer</p>
+          <p class="home-editor__bio">
+            Subne<span class="tau">τ</span> Magazine is researched, written,
+            designed, and coded by Rondo Campbell &mdash; working from inside
+            the U.S. federal system, on a phone, with intermittent
+            connectivity. Projected release: <em>2028</em>. The mission is
+            to walk out as a credible builder in the open AI economy. Every
+            line of this site is the proof of work.
+          </p>
+          <p class="home-editor__bio home-editor__bio--quiet">
+            The curriculum is two physical Python textbooks, a stack of
+            AI papers, and an LLM running in the working terminal next to
+            this one. Phase 1 was Python foundations, summer 2025. The
+            magazine you're reading is the portfolio side of the
+            ledger &mdash; built in public, committed in real time. Read the
+            full record in the JOURNAL.md / SESSION_LOG.md at the
+            top of the repository.
+          </p>
+          <div class="home-editor__links">
+            <a class="home-editor__link" href="https://x.com/subnetmagazine" target="_blank" rel="noopener">
+              <span class="home-editor__x">𝕏</span>@subnetmagazine
+            </a>
+            <a class="home-editor__link home-editor__link--ghost" href="https://github.com/RondoAI/rondo-AI-curriculum" target="_blank" rel="noopener">
+              GitHub &middot; the full record
+            </a>
+            <a class="home-editor__link home-editor__link--ghost" href="editor.html">
+              Editor's page &rarr;
+            </a>
+          </div>
+        </div>
       </div>
-    </aside>
+    </section>
 
     <!-- ===== END OF FEATURE =====
          The home view stops here. One editorial closer that doubles

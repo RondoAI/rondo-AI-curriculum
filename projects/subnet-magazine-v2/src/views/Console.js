@@ -30,6 +30,7 @@
    ================================================================= */
 
 import { FIELD_MANUAL } from '../data/bittensor-faq.js';
+import { NodeSphere } from '../charts/NodeSphere.js';
 
 const STYLE_ID = 'sbnt-oracle-style';
 
@@ -72,54 +73,71 @@ const CSS = `
 }
 .sbnt-oracle__bar:hover{ color: var(--c-ink-1, #F5E5E8); }
 
-/* ---- neural-plexus mark ---- */
+/* ---- PS5-grade neural-net mark ----
+   Real-time NodeSphere plexus rendered on canvas + CSS pseudo-
+   element overlays for the breathing core and broadcast halo.
+   Three painted layers, ordered behind → front:
+     1. canvas  — rotating 3D plexus, atmospheric glow, KNN edges
+     2. ::before — expanding broadcast halo ring (CSS)
+     3. ::after  — white-glowing pulsing core (CSS)
+   Compositor cost is contained: contain: layout style paint isolates
+   the mark from the page compositor; the canvas runs at 30 px so
+   the rasterised texture is tiny. */
 .sbnt-oracle__mark{
   position: relative;
   display: inline-block;
-  width: 24px; height: 24px;
-  flex: 0 0 24px;
+  width: 30px; height: 30px;
+  flex: 0 0 30px;
   color: var(--c-red, #FF1E3C);
+  filter: drop-shadow(0 0 6px rgba(255,30,60,.55));
   contain: layout style paint;
 }
-.sbnt-oracle__mark svg{
+.sbnt-oracle__mark-canvas{
   display: block;
   width: 100%; height: 100%;
-  overflow: visible;
+  border-radius: 50%;
 }
-.sbnt-oracle__mark .spoke{
-  stroke: currentColor;
-  stroke-width: .7;
-  stroke-opacity: .3;
-}
-.sbnt-oracle__mark .node{
-  fill: currentColor;
-  fill-opacity: .85;
-}
-.sbnt-oracle__mark .ring{
-  fill: none;
-  stroke: currentColor;
-  stroke-width: 1;
-  transform-origin: 12px 12px;
-  animation: sbntOracleRing 2.4s ease-out infinite;
-  will-change: transform, opacity;
-}
-.sbnt-oracle__mark .core{
-  fill: #FFFFFF;
-  transform-origin: 12px 12px;
+.sbnt-oracle__mark::after{
+  /* white pulsing core — "the thought firing" */
+  content: "";
+  position: absolute;
+  top: 50%; left: 50%;
+  width: 4px; height: 4px;
+  margin: -2px 0 0 -2px;
+  background: #FFFFFF;
+  border-radius: 50%;
+  box-shadow:
+    0 0 3px #FFFFFF,
+    0 0 8px var(--c-red, #FF1E3C),
+    0 0 14px rgba(255,30,60,.4);
+  pointer-events: none;
   animation: sbntOracleCore 1.6s ease-in-out infinite;
-  will-change: transform, opacity;
+  z-index: 2;
 }
-@keyframes sbntOracleRing{
-  0%   { transform: scale(.5); opacity: .85; }
-  100% { transform: scale(2);  opacity: 0;   }
+.sbnt-oracle__mark::before{
+  /* expanding broadcast halo — "the agent broadcasting" */
+  content: "";
+  position: absolute;
+  top: 50%; left: 50%;
+  width: 10px; height: 10px;
+  margin: -5px 0 0 -5px;
+  border: 1px solid var(--c-red, #FF1E3C);
+  border-radius: 50%;
+  pointer-events: none;
+  animation: sbntOracleHalo 2.4s ease-out infinite;
+  z-index: 1;
 }
 @keyframes sbntOracleCore{
   0%, 100% { transform: scale(1);   opacity: 1;   }
-  50%      { transform: scale(1.4); opacity: .65; }
+  50%      { transform: scale(1.5); opacity: .65; }
+}
+@keyframes sbntOracleHalo{
+  0%   { transform: scale(.4); opacity: .9; }
+  100% { transform: scale(2.4); opacity: 0; }
 }
 @media (prefers-reduced-motion: reduce){
-  .sbnt-oracle__mark .ring,
-  .sbnt-oracle__mark .core{ animation: none; }
+  .sbnt-oracle__mark::after,
+  .sbnt-oracle__mark::before{ animation: none; }
 }
 
 /* ---- brand block ---- */
@@ -320,27 +338,10 @@ export function mountConsole(_dataLayer = null){
 
   el.innerHTML = `
     <div class="sbnt-oracle__bar" data-role="bar">
+      <!-- PS5-grade Oracle mark — NodeSphere canvas plexus +
+           CSS-pseudo halo + breathing core overlay -->
       <span class="sbnt-oracle__mark" aria-hidden="true">
-        <svg viewBox="0 0 24 24">
-          <line class="spoke" x1="12" y1="12" x2="12"  y2="3"/>
-          <line class="spoke" x1="12" y1="12" x2="20"  y2="6"/>
-          <line class="spoke" x1="12" y1="12" x2="22"  y2="12"/>
-          <line class="spoke" x1="12" y1="12" x2="20"  y2="18"/>
-          <line class="spoke" x1="12" y1="12" x2="12"  y2="21"/>
-          <line class="spoke" x1="12" y1="12" x2="4"   y2="18"/>
-          <line class="spoke" x1="12" y1="12" x2="2"   y2="12"/>
-          <line class="spoke" x1="12" y1="12" x2="4"   y2="6"/>
-          <circle class="ring" cx="12" cy="12" r="4"/>
-          <circle class="node" cx="12" cy="3"  r="1.4"/>
-          <circle class="node" cx="20" cy="6"  r="1.4"/>
-          <circle class="node" cx="22" cy="12" r="1.4"/>
-          <circle class="node" cx="20" cy="18" r="1.4"/>
-          <circle class="node" cx="12" cy="21" r="1.4"/>
-          <circle class="node" cx="4"  cy="18" r="1.4"/>
-          <circle class="node" cx="2"  cy="12" r="1.4"/>
-          <circle class="node" cx="4"  cy="6"  r="1.4"/>
-          <circle class="core" cx="12" cy="12" r="1.7"/>
-        </svg>
+        <canvas class="sbnt-oracle__mark-canvas" data-role="mark-canvas"></canvas>
       </span>
       <span class="sbnt-oracle__brand">
         <span class="sbnt-oracle__name">Subnet Oracle</span>
@@ -355,6 +356,19 @@ export function mountConsole(_dataLayer = null){
     <div class="sbnt-oracle__body" data-role="body" tabindex="0"></div>
   `;
   document.body.appendChild(el);
+
+  /* Mount the Oracle's PS5-grade plexus mark — a tiny NodeSphere
+     on the 30 px canvas. 18 nodes is dense enough to read as a
+     3D plexus without looking sparse; atmospheric glow + KNN
+     crossings give the live-agent feel. */
+  const markCanvas = el.querySelector('[data-role="mark-canvas"]');
+  const markSphere = markCanvas ? new NodeSphere(markCanvas, {
+    nodes:   18,
+    K:       3,
+    density: 0.45,
+    speed:   0.55,
+    atmos:   true,
+  }) : null;
 
   const bar    = el.querySelector('[data-role="bar"]');
   const body   = el.querySelector('[data-role="body"]');
@@ -401,6 +415,7 @@ export function mountConsole(_dataLayer = null){
   return {
     destroy(){
       bar.removeEventListener('click', onBarClick);
+      markSphere?.destroy();
       el.remove();
     },
   };
