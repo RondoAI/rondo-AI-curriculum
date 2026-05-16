@@ -1,0 +1,7 @@
+# Python
+__pycache__/
+*.pyc
+*.pyo
+
+# Site-local config (never commit secrets)
+projects/subnet-magazine-v2/config.js
