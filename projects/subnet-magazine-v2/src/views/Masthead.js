@@ -42,8 +42,8 @@ export function mountMasthead(root){
   const currentPage = path === '' ? 'index.html' : path;
   const navHtml = NAV_ITEMS.map(n => html`
     <a class="nav-tab ${n.href === currentPage ? 'active' : ''}" href="${n.href}">
-      <span class="nav-tab__code">&lt;${n.code}&gt;</span>
-      <span>${n.label}</span>
+      <span class="nav-tab__code">${n.code}</span>
+      <span class="nav-tab__label">${n.label}</span>
     </a>
   `).join('');
 

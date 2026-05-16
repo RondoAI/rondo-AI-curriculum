@@ -23,9 +23,22 @@
 .statusbar__inner{
   max-width: var(--max-w);
   margin: 0 auto;
-  padding: 7px var(--gutter);
-  display: flex; flex-wrap: wrap; align-items: center;
-  gap: 6px 6px;
+  /* Tightened on phones: 4px vertical padding (was 7), 5px gap
+     (was 6) — the chip stack was reading as a wall of pills.
+     Single-row horizontal scroll on narrow viewports so the bar
+     stays a band, not a wrapped block. */
+  padding: 4px var(--gutter);
+  display: flex;
+  flex-wrap: nowrap;
+  align-items: center;
+  gap: 5px;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none;
+}
+.statusbar__inner::-webkit-scrollbar{ display: none; }
+@media (min-width: 720px){
+  .statusbar__inner{ flex-wrap: wrap; overflow-x: visible; }
 }
 /* the `│` separators in the HTML, hidden in pill mode */
 .statusbar__sep{ display: none; }

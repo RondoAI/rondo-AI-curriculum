@@ -40,35 +40,44 @@
   overflow: hidden;
 }
 .ticker + .ticker{ border-top: var(--b-thin); }
+/* 2028-grade tag chip. A small NodeSphere mark on the left (set
+   via .ticker__mark canvas) instead of a static green LED, then
+   the lowercase serif brand label. Reads as a live agent endpoint
+   rather than a pilot light. */
 .ticker__tag{
   display: flex;
   align-items: center;
-  gap: var(--s-2);
-  padding: var(--s-1) var(--s-4);
+  gap: 7px;
+  padding: 4px 10px;
   border-right: var(--b-thin);
-  background: var(--c-bg-3);
-  font-family: var(--f-mono);
-  font-size: var(--t-xs);
-  letter-spacing: var(--ls-label);
-  text-transform: uppercase;
-  color: var(--c-red-1);
-  white-space: nowrap;
-}
-.ticker__tag--alt{ color: var(--c-ink-2); }
-
-/* the Bittensor tape's tag chip is set as the brand wordmark itself,    lowercase "biττensor" in the wordmark face. The τ characters live
-   at the same x-height as the surrounding b/i/e/n/s/o/r so the chip
-   reads cleanly instead of mixing huge caps with tiny lowercase taus. */
-.ticker__tag--brand{ padding-right: var(--s-3); }
-.ticker__brand{
+  background: linear-gradient(180deg, rgba(255,30,60,.10), rgba(255,30,60,.02));
   font-family: var(--f-serif, 'Archivo', system-ui, sans-serif);
   font-size: 13px;
   font-weight: 800;
   letter-spacing: -.01em;
   text-transform: none;
   color: var(--c-ink-1);
+  white-space: nowrap;
   line-height: 1;
 }
+.ticker__tag--alt{ color: var(--c-ink-1); }
+.ticker__tag--brand .ticker__brand{ color: var(--c-ink-1); }
+.ticker__brand{
+  font-family: inherit;
+  font-size: inherit;
+  font-weight: inherit;
+  letter-spacing: inherit;
+  color: inherit;
+  line-height: 1;
+}
+.ticker__mark{
+  display: inline-block;
+  width: 18px; height: 18px;
+  flex: 0 0 18px;
+  border-radius: 50%;
+  overflow: hidden;
+}
+.ticker__mark canvas{ display: block; width: 100%; height: 100%; }
 /* fade the chips in and out at both edges of the tape */
 .ticker__viewport{
   overflow: hidden;
@@ -127,6 +136,30 @@
 }
 .tick__mark{ width: 16px; height: 16px; line-height: 0; }
 .tick__mark svg{ display: block; width: 100%; height: 100%; }
+
+/* Brand chip used by the centralized ticker (and elsewhere). Mirrors
+   the rule in home.css so the chip renders on every page that loads
+   tickers.css, not just home. */
+.brand-chip{
+  position: relative;
+  display: inline-grid;
+  place-items: center;
+  flex: 0 0 auto;
+  border-radius: 50%;
+  line-height: 1;
+  overflow: hidden;
+  box-shadow: 0 0 0 1px rgba(255,255,255,.04) inset, 0 0 8px rgba(0,0,0,.4);
+}
+.brand-chip__img{ display: block; filter: drop-shadow(0 0 1px rgba(0,0,0,.25)); }
+.brand-chip__mono{
+  position: absolute;
+  inset: 0;
+  display: grid; place-items: center;
+  font-family: var(--f-mono, ui-monospace, monospace);
+  font-weight: 800;
+  letter-spacing: 0;
+  line-height: 1;
+}
 /* the ticker symbol, the visual anchor, bold but tightened */
 .tick__sym{
   font-family: var(--f-mono);

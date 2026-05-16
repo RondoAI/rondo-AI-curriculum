@@ -24,6 +24,8 @@
 import { html, mount, qs, qsa } from '../lib/dom.js';
 import { money, pct } from '../lib/format.js';
 import { mark, seedSeries } from '../lib/mark.js';
+import { brandChip } from '../lib/brand-monograms.js';
+import { NodeSphere } from '../charts/NodeSphere.js';
 import { Sparkline } from '../charts/Sparkline.js';
 import { AI_NEWS } from '../data/ai-news.js';
 import { BITTENSOR_NEWS } from '../data/bittensor-news.js';
@@ -52,21 +54,18 @@ function bittensorNewsChipsHtml(){
     .join('');
 }
 
-/** Render a centralized-AI ticker chip with logo + sparkline slot. */
+/** Render a centralized-AI ticker chip with real brand logo + sparkline. */
 function centralChip(t){
   const up   = (t.chg ?? 0) >= 0;
   const cls  = up ? 'up' : 'down';
-  const glyph = (t.chg ?? 0) === 0 ? '■' : (up ? '▲' : '▼');
-  const chgStr = (t.chg ?? 0) === 0 ? 'Â·' : pct(t.chg);
+  const glyph = (t.chg ?? 0) === 0 ? '·' : (up ? '▲' : '▼');
+  const chgStr = (t.chg ?? 0) === 0 ? '·' : pct(t.chg);
   const id = encodeURIComponent(t.sym);
-  /* Clearbit logo URL with a generative-mark fallback at the same
-     visual footprint. The mark() function takes the company name as
-     a seed and returns deterministic node-graph SVG. */
-  const fallback = `<span class="tick__mark">${mark(t.name, { size: 18 })}</span>`;
-  const logo = t.domain
-    ? `<img class="tick__logo" src="https://logo.clearbit.com/${t.domain}" alt="" loading="lazy"
-        onerror="this.outerHTML = ${JSON.stringify(fallback).replace(/"/g, '&quot;')};">`
-    : fallback;
+  /* Real logo via brandChip (simple-icons CDN, brand-colored disc).
+     The infer order in brand-monograms.js matches the ticker name
+     ('NVIDIA' -> nvidia, 'AMD' -> amd, etc.). When no slug exists,
+     the chip falls back to a colored monogram with the brand's hex. */
+  const logo = brandChip(t.brand || t.name || t.sym, { size: 18 });
   const tagPill = t.tag
     ? `<span class="tick__tag">${t.tag}</span>`
     : '';
@@ -104,7 +103,9 @@ export function mountTickers(root, dataLayer = null){
 
       <div class="ticker">
         <span class="ticker__tag ticker__tag--brand">
-          <span class="live-dot"></span>
+          <span class="ticker__mark" aria-hidden="true">
+            <canvas data-canvas="ticker-brand-mark"></canvas>
+          </span>
           <span class="ticker__brand">Bi<span class="tau">ττ</span>ensor</span>
         </span>
         <div class="ticker__viewport">
@@ -116,8 +117,10 @@ export function mountTickers(root, dataLayer = null){
 
       <div class="ticker">
         <span class="ticker__tag ticker__tag--alt">
-          <span class="live-dot"></span>
-          Central Desk
+          <span class="ticker__mark" aria-hidden="true">
+            <canvas data-canvas="ticker-central-mark"></canvas>
+          </span>
+          <span class="ticker__brand">Central Desk</span>
         </span>
         <div class="ticker__viewport">
           <div class="ticker__track ticker__track--rev" id="ticker-cex">${centralTapeHtml()}</div>
@@ -126,6 +129,19 @@ export function mountTickers(root, dataLayer = null){
 
     </section>
   `);
+
+  /* Replace the static green dot with two tiny NodeSphere instances,
+     one per ticker tape. Same engine as the masthead brand mark and
+     the hero icosphere; reads as 'this rail is alive', not 'this
+     rail has a light on'. */
+  const brandCv = qs('[data-canvas="ticker-brand-mark"]', root);
+  const centralCv = qs('[data-canvas="ticker-central-mark"]', root);
+  const brandSphere = brandCv ? new NodeSphere(brandCv, {
+    nodes: 22, K: 3, density: 0.5, speed: 0.42, atmos: false,
+  }) : null;
+  const centralSphere = centralCv ? new NodeSphere(centralCv, {
+    nodes: 22, K: 3, density: 0.5, speed: 0.42, atmos: false,
+  }) : null;
 
   const ecoTrack = qs('#ticker-eco', root);
   /* seed the tape with the Bittensor newswire so it's never empty,
@@ -203,6 +219,8 @@ export function mountTickers(root, dataLayer = null){
       unsubs.forEach(u => u());
       ecoSparks.splice(0).forEach(sp => { try { sp.destroy(); } catch (_) {} });
       cexSparks.splice(0).forEach(sp => { try { sp.destroy(); } catch (_) {} });
+      brandSphere?.destroy();
+      centralSphere?.destroy();
     },
   };
 }

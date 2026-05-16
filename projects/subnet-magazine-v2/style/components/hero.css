@@ -17,8 +17,11 @@
   inset: 0;
   z-index: 0;
   pointer-events: none;
-  /* lift the plexus toward the top of the hero, off the dek text */
-  transform: translateY(-15%);
+  /* the icosphere centerpiece. NO translate, no overflow off the
+     top, so the mark always sits fully inside the hero box no
+     matter what chrome (tickers + status + masthead) pushes the
+     hero down. Was translateY(-15%) which clipped the top of the
+     sphere under the masthead on small phones. */
 }
 .hero__viz canvas{
   width: 100%;

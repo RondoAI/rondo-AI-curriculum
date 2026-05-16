@@ -223,20 +223,45 @@
   scrollbar-width: none;
 }
 .primary-nav__inner::-webkit-scrollbar{ display: none; }
+/* 2028-grade nav-tab. Drop the angle-bracket <001> code prefix
+   for a modern editorial look: just a tiny mono ordinal, a
+   thin separator dot, and the section name in serif. Active
+   tab gets a glowing red underline + brighter name. */
 .nav-tab{
   flex: 0 0 auto;
-  display: inline-flex; align-items: center; gap: var(--s-2);
-  padding: var(--s-3) var(--s-4);
-  font-family: var(--f-mono);
-  font-size: var(--t-sm);
-  font-weight: 600;
+  display: inline-flex; align-items: center; gap: 6px;
+  padding: 10px 14px;
+  font-family: var(--f-serif, 'Archivo', system-ui, sans-serif);
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: -.005em;
+  text-transform: none;
   color: var(--c-ink-3);
-  letter-spacing: var(--ls-data);
   border-bottom: 2px solid transparent;
   transition: color var(--d-fast), border-color var(--d-fast);
   white-space: nowrap;
+  position: relative;
 }
 .nav-tab:hover{ color: var(--c-ink-1); }
-.nav-tab.active{ color: var(--c-red); border-bottom-color: var(--c-red); }
-.nav-tab__code{ color: var(--c-ink-4); font-weight: 400; }
-.nav-tab.active .nav-tab__code{ color: var(--c-red-deep); }
+.nav-tab.active{
+  color: var(--c-ink-1);
+  border-bottom-color: var(--c-red);
+  box-shadow: 0 1px 0 0 var(--c-red), 0 6px 18px -8px rgba(255,30,60,.6);
+}
+.nav-tab__code{
+  font-family: var(--f-mono);
+  font-size: 9px;
+  font-weight: 600;
+  letter-spacing: var(--ls-label);
+  color: var(--c-ink-4);
+  background: rgba(255,30,60,.08);
+  border: 1px solid var(--c-rule-2);
+  border-radius: 3px;
+  padding: 2px 5px;
+  line-height: 1;
+}
+.nav-tab.active .nav-tab__code{
+  color: #fff;
+  background: var(--c-red);
+  border-color: var(--c-red);
+}
