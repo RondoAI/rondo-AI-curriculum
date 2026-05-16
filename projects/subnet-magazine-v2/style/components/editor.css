@@ -14,6 +14,25 @@
   margin: 0 auto;
   padding: clamp(56px, 9vw, 112px) var(--gutter) clamp(40px, 7vw, 80px);
   border-bottom: var(--b-thin);
+  overflow: hidden;
+  isolation: isolate;
+}
+/* PS5-grade NodeSphere plexus painted behind the bio. Decorative;
+   pointer-events off so it can never intercept touch. Lives on a
+   non-sticky / non-fixed surface so the canvas isn't recomposited
+   under scrolling viewport — the failure mode that broke home. */
+.editor-page__viz{
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  opacity: .55;
+  /* lift toward the top-right so it frames the portrait */
+  transform: translate(8%, -10%);
+}
+.editor-page__viz canvas{
+  width: 100%; height: 100%;
+  display: block;
 }
 .editor-page::before{
   content: "";

@@ -29,8 +29,14 @@
   <div data-mount="statusbar"></div>
   <div data-mount="masthead"></div>
 
-  <main id="main">
+  <main id="main" data-mount="editor">
     <section class="editor-page" aria-label="Editor">
+      <!-- PS5-grade NodeSphere plexus painted behind the page —
+           same engine as the hero, tuned a step richer. Decorative,
+           pointer-events off so it never intercepts touch. -->
+      <div class="editor-page__viz" aria-hidden="true">
+        <canvas data-canvas="editor"></canvas>
+      </div>
       <div class="editor-page__inner">
         <div class="editor-page__photo">
           <img src="assets/editor-rondo.jpg" alt="Rondo Campbell">

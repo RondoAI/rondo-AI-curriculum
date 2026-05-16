@@ -1470,6 +1470,21 @@ export function mountHome(root, dataLayer = null){
       </footer>
     </section>
 
+    <!-- ===== EDITOR'S NOTE =====
+         A small text-only callout naming the editor and linking to
+         the full bio on its own page. Pure text + one CTA pill, no
+         image or canvas — zero compositor cost on the home view. -->
+    <aside class="home-edcard" aria-label="Editor's note">
+      <span class="home-edcard__kicker">Editor &middot; Subne<span class="tau">τ</span> Magazine</span>
+      <p class="home-edcard__name">Rondo Campbell</p>
+      <p class="home-edcard__line">
+        Researched, written, designed and coded by one person from
+        inside the U.S. federal system. Projected release <em>2028</em>.
+        The full story is on the editor's page.
+      </p>
+      <a class="home-edcard__cta" href="editor.html">Read the editor's page &rarr;</a>
+    </aside>
+
     <!-- ===== END OF FEATURE =====
          The home view stops here. One editorial closer that doubles
          as the page colophon — § corner ornaments, an END pill, the
