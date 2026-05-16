@@ -144,6 +144,9 @@ export const VOICES = Object.freeze([
   { handle:'lium_io',    name:'Lium', role:'GPU compute marketplace · Subnet 51', group:'subnet',
     site:'https://lium.io', subnets:[51], expertise:['subnet'],
     bio:'Permissionless decentralized GPU marketplace running as SN51. Per @taomedia_, ~$20K/day revenue, 21% of token supply already burned via revenue-funded buybacks, ~90% cheaper than hyperscaler GPU rentals.' },
+  { handle:'zeussubnet',  name:'Zeus Subnet', role:'Decentralized weather forecast aggregation · Subnet 18', group:'subnet',
+    site:'https://www.zeussubnet.com', subnets:[18], expertise:['subnet','yuma-consensus'],
+    bio:'Built by Ørpheus AI (Amsterdam). Runs a three-phase commit-reveal protocol that aggregates global weather forecasts from miners across a 0.25° grid. Per the V2 benchmark paper (Apr 3-21 2026, n=18), the network reports +23.55% wRMSE improvement on 2m temperature vs ECMWF IFS HRES and +10.90% vs AIFS, with the explicit caveat that gains may reflect regression toward the ERA5 reanalysis target. Primary-source paper saved at intelligence/_primary_sources/.' },
 ]);
 
 /** Voices bucketed by group, in GROUP_LABEL order. */
