@@ -25,6 +25,7 @@ import { brandChip } from '../lib/brand-monograms.js';
 import { cardArt } from '../lib/art.js';
 import { Sparkline } from '../charts/Sparkline.js';
 import { NeuralNet } from '../charts/NeuralNet.js';
+import { NodeSphere } from '../charts/NodeSphere.js';
 import { Treemap } from '../charts/Treemap.js';
 import { articlesByDate } from '../data/articles.js';
 import { recentOracleArticles } from '../data/oracle-articles.js';
@@ -201,9 +202,43 @@ export function mountHome(root, dataLayer = null){
          A separate row, clearly labeled, so readers can distinguish
          work filed by the human editorial desk (§ 01 above) from
          work filed by the Oracle, the autonomous research agent. Same
-         card grammar as the human row, with the kicker prefixed
-         ORACLE and the byline always "Subnet Oracle" so attribution
-         is unambiguous at a glance. ===== -->
+         card grammar as the human row, but each card's cover is a
+         live NodeSphere (the same neural-network mark that appears in
+         the masthead and on the /research page) instead of the
+         generative monogram used by human articles. The spinning
+         sphere is the AI-attribution signature; the kicker prefix
+         ORACLE and the "Subnet Oracle" byline reinforce the same
+         signal in text. ===== -->
+    <style>
+      .home-article--oracle .home-article__art{
+        background: radial-gradient(ellipse at 30% 30%, #15131f 0%, #08070d 70%);
+      }
+      .home-article--oracle .home-article__art > canvas[data-canvas="home-oracle-mark"]{
+        position: absolute;
+        inset: 0;
+        width: 100%;
+        height: 100%;
+        display: block;
+      }
+      .home-article--oracle .home-article__oracle-badge{
+        position: absolute;
+        top: 12px; right: 12px;
+        z-index: 2;
+        font-family: var(--f-mono, monospace);
+        font-size: 9px;
+        font-weight: 800;
+        letter-spacing: .18em;
+        padding: 4px 8px;
+        background: rgba(0,0,0,.72);
+        border: 1px solid var(--c-red, #FF1E3C);
+        border-radius: 3px;
+        color: #fff;
+        box-shadow: 0 0 12px rgba(255,30,60,.35);
+      }
+      .home-article--oracle .home-article__kicker{
+        color: var(--c-red, #FF1E3C);
+      }
+    </style>
     <section class="home-research home-research--oracle" aria-label="Subnet Oracle Research, AI-filed">
       <div class="home-research__head">
         <span class="home-net__kicker"><span class="home-net__ord">§ 02</span><span class="live-dot"></span>Subnet Oracle Research · the agent</span>
@@ -225,8 +260,9 @@ export function mountHome(root, dataLayer = null){
           <li class="home-article home-article--oracle ${i === 0 ? 'is-lead' : ''}">
             <a class="home-article__link" href="${a.pdf}" target="_blank" rel="noopener">
               <span class="home-article__art">
-                ${cardArt(a.id + '|' + a.title, { variant: 'oracle', w: 520, h: i === 0 ? 300 : 220 })}
+                <canvas data-canvas="home-oracle-mark" data-id="${a.id}"></canvas>
                 <span class="home-article__art-frame" aria-hidden="true"></span>
+                <span class="home-article__oracle-badge">AI ORACLE</span>
               </span>
               <span class="home-article__kicker">${kicker}</span>
               <span class="home-article__title">${a.title}</span>
@@ -1790,6 +1826,22 @@ export function mountHome(root, dataLayer = null){
     if (cv) statSparks.push(new Sparkline(cv, { series: seedSeries(key, drift, 32) }));
   });
 
+  /* ---------- ORACLE article cards, one NodeSphere per cover ----------
+     The spinning sphere on each Oracle card is the AI-attribution
+     signature, the same engine as the masthead and the /research page
+     scaled down to card cover size. Tuned for low frame cost so four
+     of them on the homepage don't burn budget: moderate node count,
+     low speed, atmosphere off. Each canvas gets its own instance so
+     they animate independently. */
+  const oracleMarks = [];
+  root.querySelectorAll('[data-canvas="home-oracle-mark"]').forEach(cv => {
+    try {
+      oracleMarks.push(new NodeSphere(cv, {
+        nodes: 32, K: 3, density: 0.5, speed: 0.32, atmos: false,
+      }));
+    } catch (_) {}
+  });
+
   /* ---------- TOP VALIDATORS rail, one sparkline per card ---------- */
   const valSparks = [];
   VALIDATORS.slice(0, 12).forEach((v) => {
@@ -2098,6 +2150,7 @@ export function mountHome(root, dataLayer = null){
       valSparks.splice(0).forEach(sp => { try { sp.destroy(); } catch (_) {} });
       bioSparks.splice(0).forEach(sp => { try { sp.destroy(); } catch (_) {} });
       opSparks.splice(0).forEach(sp => { try { sp.destroy(); } catch (_) {} });
+      oracleMarks.splice(0).forEach(m => { try { m.destroy(); } catch (_) {} });
       neural?.destroy();
       treemap?.destroy();
       slideHintTeardowns.forEach(fn => { try { fn(); } catch (_) {} });
