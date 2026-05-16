@@ -855,20 +855,9 @@ export function mountCodex(root, dataLayer = null){
           <p class="codex-hero__dek">
             Every concept, mechanism, role, and event inside Bittensor. Written
             to be read, sourced so the claims are checkable, drawn so the
-            ideas land. Talk to the Oracle, get an answer with citations.
+            ideas land. The ${CODEX.length} entries scroll below; ask the
+            Oracle directly from the dock at the bottom of the page.
           </p>
-
-          <!-- Ask the Oracle, LLM-style input bar (also opens chat) -->
-          <form class="codex-ask" data-role="ask" autocomplete="off">
-            <span class="codex-ask__lbl">Ask the Oracle</span>
-            <input id="codex-q" type="search" class="codex-ask__input"
-                   placeholder="What is Yuma Consensus? How does dTAO work? Show me the leaderboard."
-                   spellcheck="false" autocomplete="off">
-            <button type="submit" class="codex-ask__send" aria-label="Ask">
-              <svg viewBox="0 0 24 24" width="18" height="18"><path d="M4 12h14M14 6l6 6-6 6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
-            </button>
-            <span class="codex-ask__count" data-bind="codex-count">${CODEX.length}</span>
-          </form>
         </div>
       </header>
 
@@ -1048,13 +1037,6 @@ export function mountCodex(root, dataLayer = null){
     applyFilter();
   }));
   qs('#codex-q', root)?.addEventListener('input', applyFilter);
-  /* Ask-the-Codex submit: scroll the first matching entry into view */
-  qs('[data-role="ask"]', root)?.addEventListener('submit', (e) => {
-    e.preventDefault();
-    applyFilter();
-    const firstShown = entries.find(x => !x.hidden);
-    if (firstShown) firstShown.scrollIntoView({ behavior: 'smooth', block: 'start' });
-  });
 
   /* ---------- see-also: scroll + briefly highlight target entry ---- */
   root.addEventListener('click', (e) => {
