@@ -1,5 +1,5 @@
 /* =================================================================
-   SUBNET MAGAZINE — CANDLE CHART
+   SUBNET MAGAZINE, CANDLE CHART
    -----------------------------------------------------------------
    OHLC candlestick chart with volume bars and an optional crosshair
    readout. Built to extend Chart.js so the lifecycle (DPR + resize

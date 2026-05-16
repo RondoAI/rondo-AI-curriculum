@@ -1,10 +1,10 @@
 /* =================================================================
-   SUBNET MAGAZINE — PRICE CHART (Apple Stocks / Public.com style)
+   SUBNET MAGAZINE, PRICE CHART (Apple Stocks / Public.com style)
    -----------------------------------------------------------------
    The clean stock-app price chart. Pure smooth line, dynamic color
    (green when the period is up, red when down), dotted horizontal
    reference at the start price, hover crosshair with date + price
-   tooltip. No axis labels — those clutter the small view; the
+   tooltip. No axis labels, those clutter the small view; the
    header above (price, delta) and the tooltip on hover do the
    heavy lifting.
 
@@ -115,7 +115,7 @@ export class PriceChart extends Chart {
 
     const { start, isUp } = this.stats();
 
-    /* layout — room on the right for the price scale, bottom for the time axis */
+    /* layout, room on the right for the price scale, bottom for the time axis */
     const padL = 10, padR = 58, padT = 14, padB = 24;
     const innerW = w - padL - padR;
     const innerH = h - padT - padB;
@@ -217,7 +217,7 @@ export class PriceChart extends Chart {
     }
     ctx.stroke();
 
-    /* leading dot — glows while the line is still drawing in */
+    /* leading dot, glows while the line is still drawing in */
     const lastK = revealed[revealed.length - 1];
     ctx.beginPath();
     ctx.arc(xFor(lastK.t), yFor(lastK.p), introDone ? 3 : 4.5, 0, Math.PI * 2);

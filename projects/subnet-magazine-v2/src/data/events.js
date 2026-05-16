@@ -1,5 +1,5 @@
 /* =================================================================
-   SUBNET MAGAZINE — ECOSYSTEM EVENT TIMELINE
+   SUBNET MAGAZINE, ECOSYSTEM EVENT TIMELINE
    -----------------------------------------------------------------
    Major events that moved the Bittensor + decentralized-AI story
    from mainnet launch (Sept 2023) through May 2026. Used by the
@@ -38,11 +38,11 @@ export const EVENTS = Object.freeze([
   { date:'2024-01-22', cat:'market',  title:'τ first major listings',
     body:'Bittensor lands on tier-1 exchanges; institutional access opens.' },
   { date:'2024-03-04', cat:'model',   title:'Claude 3 family',
-    body:'Anthropic ships Opus, Sonnet, Haiku — the first multi-tier flagship line.' },
+    body:'Anthropic ships Opus, Sonnet, Haiku, the first multi-tier flagship line.' },
   { date:'2024-04-18', cat:'model',   title:'Llama 3 ships',
-    body:'Meta open-weights wave — sets the bar every subnet text miner trains against.' },
+    body:'Meta open-weights wave, sets the bar every subnet text miner trains against.' },
   { date:'2024-05-13', cat:'model',   title:'GPT-4o',
-    body:'OpenAI ships the omnimodal default — voice, vision, text, in one model.' },
+    body:'OpenAI ships the omnimodal default, voice, vision, text, in one model.' },
   { date:'2024-06-20', cat:'model',   title:'Claude 3.5 Sonnet',
     body:'Anthropic pushes the mid-tier higher than most flagships.' },
   { date:'2024-09-19', cat:'network', title:'τ halving #1',
@@ -58,7 +58,7 @@ export const EVENTS = Object.freeze([
   { date:'2025-03-12', cat:'subnet',  title:'SN64 Chutes launches',
     body:'Rayon Labs ships verifiable serverless functions on Bittensor.' },
   { date:'2025-05-22', cat:'model',   title:'Claude 4 family',
-    body:'Anthropic Opus / Sonnet 4 — the first models with the new long-horizon agent benchmarks.' },
+    body:'Anthropic Opus / Sonnet 4, the first models with the new long-horizon agent benchmarks.' },
   { date:'2025-08-07', cat:'model',   title:'GPT-5',
     body:'OpenAI ships the reasoning-by-default flagship.' },
   { date:'2025-09-19', cat:'network', title:'τ halving #2',
@@ -72,13 +72,13 @@ export const EVENTS = Object.freeze([
   { date:'2026-02-04', cat:'model',   title:'GPT-5.1',
     body:'OpenAI iterates on reasoning, ships the agent tier.' },
   { date:'2026-03-11', cat:'model',   title:'Claude Opus 4.7',
-    body:'Anthropic ships the current frontier flagship — top of LMSYS Arena.' },
+    body:'Anthropic ships the current frontier flagship, top of LMSYS Arena.' },
   { date:'2026-03-28', cat:'model',   title:'DeepSeek-R3',
     body:'Open-weight reasoning narrows the closed-source lead again.' },
   { date:'2026-04-08', cat:'model',   title:'Llama 5 · 405B',
     body:'Meta ships the largest open-weight foundation model to date.' },
   { date:'2026-04-22', cat:'subnet',  title:'92 active subnets',
-    body:'Network passes a milestone — most active subnets in Bittensor history.' },
+    body:'Network passes a milestone, most active subnets in Bittensor history.' },
   { date:'2026-05-13', cat:'network', title:'Today',
     body:'You are here. Issue 014 of Subneτ Magazine is live.' },
 ]);
@@ -86,7 +86,7 @@ export const EVENTS = Object.freeze([
 /** Numeric epoch ms for an event, derived from its ISO date. */
 export function eventMs(e){ return Date.parse(e.date + 'T00:00:00Z'); }
 
-/** Brand color for each category — used by the Timeline chart. */
+/** Brand color for each category, used by the Timeline chart. */
 export const EVENT_COLORS = Object.freeze({
   network: '#FF1E3C',     // primary red
   subnet:  '#FF8C42',     // amber

@@ -1,15 +1,15 @@
 /* =================================================================
-   SUBNET MAGAZINE — TREEMAP
+   SUBNET MAGAZINE, TREEMAP
    -----------------------------------------------------------------
    Squarified treemap on canvas. Tiles sized by `value`, coloured
    off the red ramp by rank. Used for the home-page "where the
-   emissions go" infographic — a different visual language from the
+   emissions go" infographic, a different visual language from the
    rotating plexus, but the same red-on-black terminal grammar.
    ================================================================= */
 
 import { Chart } from './Chart.js';
 
-/** A red gradient — darker → higher rank. */
+/** A red gradient, darker → higher rank. */
 const RAMP = [
   '#FF1E3C', '#E61833', '#CC152D', '#B31226',
   '#990F20', '#80101D', '#680E1A', '#4D0C16',
@@ -54,7 +54,7 @@ export class Treemap extends Chart {
                    Math.max(0, b.h - pad * 2));
     });
 
-    /* labels — name on top, value below; clipped to each tile so a
+    /* labels, name on top, value below; clipped to each tile so a
        long string never bleeds into the neighbour. Sub-line only if
        there's vertical room for it. */
     ctx.textBaseline = 'top';
@@ -76,7 +76,7 @@ export class Treemap extends Chart {
       ctx.restore();
     }
 
-    /* hairline divisions over the tiles — keeps the terminal grid */
+    /* hairline divisions over the tiles, keeps the terminal grid */
     ctx.strokeStyle = 'rgba(0,0,0,.55)';
     ctx.lineWidth = 1;
     for (const b of this.boxes){

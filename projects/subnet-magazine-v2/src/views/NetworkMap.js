@@ -14,7 +14,7 @@ import { WorldGlobe } from '../charts/WorldGlobe.js';
 import { SUBNETS } from '../data/subnets.js';
 import { catColor, catLabel } from '../data/categories.js';
 
-/* The same hub list as WorldMap.js — keep in sync. */
+/* The same hub list as WorldMap.js, keep in sync. */
 const HUBS = [
   { code:'FRA', city:'Frankfurt',     country:'DE',     stake:11.2 },
   { code:'SIN', city:'Singapore',     country:'SG',     stake: 8.6 },
@@ -161,7 +161,7 @@ export function mountNetworkMap(root, dataLayer = null){
               <ul class="hub-list">${raw(topHubsHtml)}</ul>
             </div>
             <div class="panel__foot">
-              <span>RANK 1—10 OF 16</span>
+              <span>RANK 1, 10 OF 16</span>
               <span>UPDATED 24h</span>
             </div>
           </div>
@@ -188,7 +188,7 @@ export function mountNetworkMap(root, dataLayer = null){
         </aside>
       </div>
 
-      <!-- Network health row — live operational metrics. -->
+      <!-- Network health row, live operational metrics. -->
       <div class="netmap__health">
         <div class="health">
           <span class="health__label">TPS</span>
@@ -222,7 +222,7 @@ export function mountNetworkMap(root, dataLayer = null){
         </div>
       </div>
 
-      <!-- Live activity stream — Bloomberg-style scrolling feed. -->
+      <!-- Live activity stream, Bloomberg-style scrolling feed. -->
       <div class="panel is-bracketed netmap__feed">
         <div class="panel__head">
           <span class="panel__title">
@@ -243,7 +243,7 @@ export function mountNetworkMap(root, dataLayer = null){
         </div>
       </div>
 
-      <!-- Network totals strip — the hard numbers the reader leaves with. -->
+      <!-- Network totals strip, the hard numbers the reader leaves with. -->
       <div class="netmap__totals">
         <div class="total">
           <span class="total__label">VALIDATORS</span>
@@ -306,7 +306,7 @@ export function mountNetworkMap(root, dataLayer = null){
   }
   syncOverlay();
 
-  /* simulated block production — overwritten the moment live data
+  /* simulated block production, overwritten the moment live data
      arrives via DataLayer's 'tao:block' channel. */
   const blockTimer = setInterval(() => {
     state.block += 1;

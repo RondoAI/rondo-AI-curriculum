@@ -1,12 +1,11 @@
 /* =================================================================
-   SUBNET MAGAZINE — NODE SPHERE (v2)
+   SUBNET MAGAZINE, NODE SPHERE (v2)
    -----------------------------------------------------------------
-   The brand mark. A slowly rotating dense plexus of red nodes — a
+   The brand mark. A slowly rotating dense plexus of red nodes, a
    KNN base mesh plus a near-complete density fill so the interior
    packs with crossing chords into a filigree mass, the bittensor
    mark in red. Deliberately quiet: a smooth spin, depth-keyed edge
-   and node alpha, an atmospheric halo. No packets, no flashing —
-   the density itself is the statement.
+   and node alpha, an atmospheric halo. No packets, no flashing,    the density itself is the statement.
 
    Render pipeline (per frame):
      1. Soft red atmospheric halo behind the sphere.
@@ -39,7 +38,7 @@ export class NodeSphere extends Chart {
     super(canvas, { animate: true });
     /** @private */ this.N        = opts.nodes   ?? 72;    // few enough to read angular
     /** @private */ this.K        = opts.K       ?? 4;     // KNN structural mesh
-    /** @private */ this.density  = opts.density ?? 0.45;  // 0..1 — chance any pair wires
+    /** @private */ this.density  = opts.density ?? 0.45;  // 0..1, chance any pair wires
     /** @private */ this.edgeCap  = opts.edgeCap ?? 3000;  // safety cap
     /** @private */ this.chords   = opts.chords  ?? 0;     // extra explicit random chords
     /** @private */ this.speed    = opts.speed   ?? 0.32;
@@ -65,7 +64,7 @@ export class NodeSphere extends Chart {
 
   /** Build the edge web. A KNN base mesh for structure, then a
       near-complete random fill so the interior packs with crossing
-      chords — the dense angular filigree of the bittensor mark, not
+      chords, the dense angular filigree of the bittensor mark, not
       a clean surface sphere. */
   _buildEdges(){
     const N = this.points.length;
@@ -95,7 +94,7 @@ export class NodeSphere extends Chart {
       for (let k = 0; k < this.K && k < d.length; k++) add(i, d[k].j);
     }
 
-    /* dense crossing filigree — every pair, by probability */
+    /* dense crossing filigree, every pair, by probability */
     if (this.density > 0){
       for (let i = 0; i < N; i++)
         for (let j = i + 1; j < N; j++)
@@ -123,7 +122,7 @@ export class NodeSphere extends Chart {
     const cx = w / 2, cy = h / 2;
     const R  = Math.min(w, h) * 0.42;
 
-    /* ===== rotation — a steady Y spin with a slow, gentle nod on X,
+    /* ===== rotation, a steady Y spin with a slow, gentle nod on X,
        instead of a continuous tumble, so it reads smooth ===== */
     const ay = t * this.speed;
     const ax = Math.sin(t * this.speed * 0.45) * 0.42;
@@ -186,14 +185,14 @@ export class NodeSphere extends Chart {
       }
       ctx.fillStyle = `rgba(255,${30 + q.d * 110},${60 + q.d * 100},${a})`;
       ctx.beginPath(); ctx.arc(q.sx, q.sy, r, 0, Math.PI * 2); ctx.fill();
-      /* bright core on the frontmost nodes — a quiet hull sparkle */
+      /* bright core on the frontmost nodes, a quiet hull sparkle */
       if (q.d > 0.86){
         ctx.fillStyle = `rgba(255,224,228,${((q.d - 0.86) / 0.14).toFixed(3)})`;
         ctx.beginPath(); ctx.arc(q.sx, q.sy, r * 0.55, 0, Math.PI * 2); ctx.fill();
       }
     }
 
-    /* no rim ring — the silhouette is the plexus itself, not a circle */
+    /* no rim ring, the silhouette is the plexus itself, not a circle */
 
     /* unused-color guard (lint) */
     void RED; void RED_BR; void RED_HOT; void RED_SOFT;

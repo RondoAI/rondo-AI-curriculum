@@ -1,5 +1,5 @@
 /* =================================================================
-   SUBNET MAGAZINE — AI BENCHMARKS
+   SUBNET MAGAZINE, AI BENCHMARKS
    -----------------------------------------------------------------
    A curated set of the benchmarks that actually drive the
    conversation in frontier AI as of May 2026. Each benchmark has:
@@ -73,7 +73,7 @@ export const BENCHMARKS = Object.freeze([
     full:'Graduate-level Physics, Biology, Chemistry (Diamond set)',
     category:'text',
     unit:'%',
-    description:'PhD-level science questions written by domain experts. Diamond set is the hardest 198 questions — Google-resistant.',
+    description:'PhD-level science questions written by domain experts. Diamond set is the hardest 198 questions, Google-resistant.',
     leaders:[
       { model:'Claude Opus 4.7',     org:'Anthropic',     region:'US', score:76.4, date:'2026-03' },
       { model:'GPT-5.1 (reasoning)', org:'OpenAI',        region:'US', score:75.1, date:'2026-02' },
@@ -90,7 +90,7 @@ export const BENCHMARKS = Object.freeze([
     full:'Real GitHub issues, agentic code fix',
     category:'agents',
     unit:'%',
-    description:'500 real GitHub issues from popular Python projects. Model has to actually fix the bug — verified by maintainers.',
+    description:'500 real GitHub issues from popular Python projects. Model has to actually fix the bug, verified by maintainers.',
     leaders:[
       { model:'Claude Opus 4.7',     org:'Anthropic',     region:'US', score:78.4, date:'2026-03' },
       { model:'GPT-5.1 (agent)',     org:'OpenAI',        region:'US', score:71.3, date:'2026-02' },
@@ -106,7 +106,7 @@ export const BENCHMARKS = Object.freeze([
     full:'American Invitational Mathematics Examination',
     category:'science',
     unit:'%',
-    description:'30 hard high-school competition math problems. Pure reasoning — no Python, no search.',
+    description:'30 hard high-school competition math problems. Pure reasoning, no Python, no search.',
     leaders:[
       { model:'GPT-5.1 (reasoning)', org:'OpenAI',        region:'US', score:96.3, date:'2026-02' },
       { model:'Claude Opus 4.7',     org:'Anthropic',     region:'US', score:94.1, date:'2026-03' },
@@ -153,7 +153,7 @@ export const BENCHMARKS = Object.freeze([
     full:'Chatbot Arena (human preference)',
     category:'text',
     unit:'ELO',
-    description:'Pairwise blind human-preference ratings. The most honest benchmark — vibes-checked by tens of thousands of users.',
+    description:'Pairwise blind human-preference ratings. The most honest benchmark, vibes-checked by tens of thousands of users.',
     leaders:[
       { model:'Claude Opus 4.7',     org:'Anthropic',     region:'US', score:1418, date:'2026-04' },
       { model:'GPT-5.1',             org:'OpenAI',        region:'US', score:1411, date:'2026-04' },
@@ -171,7 +171,7 @@ export const BENCHMARKS = Object.freeze([
     full:'Massive Multi-discipline Multimodal Understanding',
     category:'multimodal',
     unit:'%',
-    description:'College-level multimodal questions across 30 subjects — image + text. The vision-language SAT.',
+    description:'College-level multimodal questions across 30 subjects, image + text. The vision-language SAT.',
     leaders:[
       { model:'Gemini 3 Pro',        org:'Google DeepMind', region:'US', score:79.4, date:'2026-01' },
       { model:'GPT-5.1',             org:'OpenAI',        region:'US', score:78.6, date:'2026-02' },
@@ -250,7 +250,7 @@ export function benchmarksFor(category){
   return BENCHMARKS.filter(b => b.category === category);
 }
 
-/** Top N leaders across all benchmarks (deduped by model) — used as a
+/** Top N leaders across all benchmarks (deduped by model), used as a
     headline "frontier scoreboard". */
 export function flagshipLeaderboard(){
   const map = new Map();

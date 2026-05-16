@@ -1,9 +1,9 @@
 /* =================================================================
-   SUBNET MAGAZINE — BOOT
+   SUBNET MAGAZINE, BOOT
    -----------------------------------------------------------------
    The single entry point. Imports views, finds their mount points
    in the DOM, hands each a destroy() it can store. No logic lives
-   here — just wiring.
+   here, just wiring.
    ================================================================= */
 
 import { qs } from './lib/dom.js';
@@ -48,14 +48,14 @@ function mountIf(selector, mountFn){
 }
 
 function boot(){
-  // 1) start polling adapters (CoinGecko + HN Algolia) — UI subscribes
+  // 1) start polling adapters (CoinGecko + HN Algolia), UI subscribes
   DataLayer.start();
 
-  // 2) mount views — order is the page reading order
+  // 2) mount views, order is the page reading order
   mountIf('[data-mount="tickers"]',   root => mountTickers(root, DataLayer));
   mountIf('[data-mount="statusbar"]', root => mountStatusStrip(root, DataLayer));
 
-  // system console — self-injecting chrome, present on every page
+  // system console, self-injecting chrome, present on every page
   const sysConsole = mountConsole(DataLayer);
   teardowns.push(() => sysConsole.destroy());
 

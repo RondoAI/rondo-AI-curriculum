@@ -1,8 +1,8 @@
 /* =================================================================
-   SUBNET MAGAZINE — COVER ART
+   SUBNET MAGAZINE, COVER ART
    -----------------------------------------------------------------
    The generative banner behind the magazine masthead block. A slow
-   drifting field of nodes with proximity chords — the same "network
+   drifting field of nodes with proximity chords, the same "network
    of intelligence" visual language as the hero icosphere and the
    brand mark, but spread wide and ambient.
 
@@ -43,7 +43,7 @@ export class CoverArt extends Chart {
   draw(ctx, w, h){
     ctx.clearRect(0, 0, w, h);
 
-    /* base wash — a faint radial lift from the lower-left */
+    /* base wash, a faint radial lift from the lower-left */
     const wash = ctx.createRadialGradient(w * 0.2, h * 0.9, 0, w * 0.2, h * 0.9, Math.max(w, h));
     wash.addColorStop(0, 'rgba(255,30,60,0.07)');
     wash.addColorStop(1, 'rgba(255,30,60,0)');
@@ -84,7 +84,7 @@ export class CoverArt extends Chart {
       ctx.fill();
     }
 
-    /* center vignette — keep the headline readable */
+    /* center vignette, keep the headline readable */
     const vig = ctx.createRadialGradient(w / 2, h / 2, 0, w / 2, h / 2, Math.max(w, h) * 0.7);
     vig.addColorStop(0, 'rgba(0,0,0,0.55)');
     vig.addColorStop(0.6, 'rgba(0,0,0,0.25)');

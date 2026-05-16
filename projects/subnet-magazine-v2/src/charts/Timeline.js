@@ -1,5 +1,5 @@
 /* =================================================================
-   SUBNET MAGAZINE — TIMELINE CHART
+   SUBNET MAGAZINE, TIMELINE CHART
    -----------------------------------------------------------------
    A beautiful, readable τ/USD timeline. Two layers:
 
@@ -74,7 +74,7 @@ function rng(seed){
     plus small daily noise. Returns ~32 months of daily samples. */
 function buildPriceHistory(){
   const waypoints = [
-    /* date, price — anchored on real history shape */
+    /* date, price, anchored on real history shape */
     ['2023-09-01',  35], ['2023-12-15', 220],
     ['2024-04-10', 700], ['2024-07-05', 320],
     ['2024-11-20', 600], ['2025-02-20', 700],
@@ -243,7 +243,7 @@ export class Timeline extends Chart {
                subnet > market). Each label runs collision detection
                against already-placed labels in up to 3 vertical
                rows; if no slot fits the label gracefully drops.
-       Compact canvases (w < 540) skip labels entirely — dots only,
+       Compact canvases (w < 540) skip labels entirely, dots only,
        full story in hover tooltip. */
     const drawnEvents = [];
     for (let i = 0; i < EVENTS.length; i++){
@@ -302,7 +302,7 @@ export class Timeline extends Chart {
           const conflict = slots.some(s => s.row === row && !(x2 < s.x1 || x1 > s.x2));
           if (!conflict){ placedRow = row; break; }
         }
-        if (placedRow < 0) continue;  // skip — leave as a dot only
+        if (placedRow < 0) continue;  // skip, leave as a dot only
         slots.push({ x1, x2, row: placedRow });
 
         const labelY = baseY - placedRow * ROW_H;
@@ -428,7 +428,7 @@ export class Timeline extends Chart {
       }
     }
 
-    /* keep animation alive — the price tag glow pulses slightly */
+    /* keep animation alive, the price tag glow pulses slightly */
     void t;
   }
 }

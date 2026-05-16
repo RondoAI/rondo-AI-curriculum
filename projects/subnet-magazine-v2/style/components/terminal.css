@@ -1,7 +1,7 @@
 /* =================================================================
-   TAO TERMINAL — cockpit layout
+   TAO TERMINAL, cockpit layout
    -----------------------------------------------------------------
-   Not a scroll of panels — a room. On desktop the page is a dense
+   Not a scroll of panels, a room. On desktop the page is a dense
    12-column grid that tiles every panel into a Bloomberg-style
    cockpit: chrome rows span full width, data panels tile two- and
    three-up. It collapses to 2-up on tablets and a single column on
@@ -25,7 +25,7 @@
 .term-quote,
 .term-overview{ grid-column: 1 / -1; }
 
-/* data panels — the cockpit tiling */
+/* data panels, the cockpit tiling */
 .term-cell--monitor  { grid-column: span 7; }
 .term-cell--map      { grid-column: span 5; }
 .term-cell--stockp   { grid-column: span 8; }
@@ -180,7 +180,7 @@
   background: rgba(0,0,0,.35);
 }
 
-/* ---------- Network Pulse — cockpit multi-stat strip ---------- */
+/* ---------- Network Pulse, cockpit multi-stat strip ---------- */
 .netpulse{
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
@@ -623,7 +623,7 @@
 }
 
 /* =================================================================
-   MARKET OVERVIEW — CMC-style metric dashboard
+   MARKET OVERVIEW, CMC-style metric dashboard
    ================================================================= */
 .term-overview{ margin-top: var(--s-6); }
 .term-overview__head{ margin-bottom: var(--s-4); }
@@ -676,7 +676,7 @@
 }
 
 /* =================================================================
-   SUBNET MONITOR — dense Bloomberg-style live quote table
+   SUBNET MONITOR, dense Bloomberg-style live quote table
    ================================================================= */
 .term-monitor__scroll{
   max-height: 460px;

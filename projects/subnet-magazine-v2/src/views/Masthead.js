@@ -36,7 +36,7 @@ const X_URL = 'https://x.com/subnetmagazine';
 export function mountMasthead(root){
   /* Highlight the nav item matching the current page (filename of
      the URL). Previously index 0 was hard-coded as 'active', so
-     MAGAZINE looked selected on every page — tapping it from any
+     MAGAZINE looked selected on every page, tapping it from any
      other page felt like a content reset rather than a navigation. */
   const path = (window.location.pathname.split('/').pop() || 'index.html');
   const currentPage = path === '' ? 'index.html' : path;
@@ -50,7 +50,7 @@ export function mountMasthead(root){
   mount(root, html`
     <header class="masthead">
       <div class="masthead__inner">
-        <a class="brand" href="#overview" aria-label="Subnet Magazine — home">
+        <a class="brand" href="#overview" aria-label="Subnet Magazine, home">
           <span class="brand__mark" aria-hidden="true">
             <canvas data-canvas="brand-mark"></canvas>
           </span>
@@ -72,13 +72,13 @@ export function mountMasthead(root){
     </header>
   `);
 
-  // Surface the "▸ swipe left for more" cue on the nav strip — the
+  // Surface the "▸ swipe left for more" cue on the nav strip, the
   // nav has 10+ items but the phone viewport shows ~3 of them, so
   // without a hint the rest of the magazine looks invisible.
   const navInner = qs('.primary-nav__inner', root);
   const teardownNavHint = navInner ? applySlideHint(navInner) : () => {};
 
-  // Mount the rotating brand mark — a compact NodeSphere, the same
+  // Mount the rotating brand mark, a compact NodeSphere, the same
   // dense plexus language as the hero piece, scaled to a logo.
   const markCanvas = qs('[data-canvas="brand-mark"]', root);
   const sphere = markCanvas ? new NodeSphere(markCanvas, {
@@ -89,7 +89,7 @@ export function mountMasthead(root){
     atmos:   false,
   }) : null;
 
-  /* (block ticker moved to the status-strip / pulse bar — single
+  /* (block ticker moved to the status-strip / pulse bar, single
      canonical source of network state at the top of the page) */
 
   // Active-nav highlight on scroll. Only in-page anchors (#…) get

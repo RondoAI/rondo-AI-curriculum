@@ -1,5 +1,5 @@
 /* =================================================================
-   SUBNET MAGAZINE — VALIDATORS PAGE
+   SUBNET MAGAZINE, VALIDATORS PAGE
    -----------------------------------------------------------------
    The validator leaderboard. Runs on live taostats data when a key
    is configured (DataLayer 'tao:validators'); otherwise it renders
@@ -26,7 +26,7 @@ const COLS = [
 
 /** Mask a long Substrate address to head…tail. */
 function maskKey(k){
-  if (!k) return '—';
+  if (!k) return '·';
   return k.length > 16 ? `${k.slice(0, 6)}…${k.slice(-4)}` : k;
 }
 
@@ -66,7 +66,7 @@ export function mountValidators(root, dataLayer = null){
           <span class="vlist__kicker">&lt;050&gt;  VALIDATORS · LEADERBOARD</span>
           <h1 class="vlist__title">The hotkeys that <em>actually</em> run Bittensor.</h1>
           <p class="vlist__sub">
-            Every major validator, ranked by stake — with nominators, network dominance,
+            Every major validator, ranked by stake, with nominators, network dominance,
             APR, take, and subnet participation. Live from the taostats API when a key is
             configured; otherwise the curated seed roster.
           </p>
@@ -89,7 +89,7 @@ export function mountValidators(root, dataLayer = null){
 
       <!-- Table -->
       <div class="snlist__table-wrap panel is-bracketed">
-        <div class="snlist__count" id="vlist-count">— operators</div>
+        <div class="snlist__count" id="vlist-count">, operators</div>
         <div class="snlist__table-scroll">
           <table class="snlist__table vlist__table">
             <thead><tr id="vlist-head"></tr></thead>
@@ -136,7 +136,7 @@ export function mountValidators(root, dataLayer = null){
       </div>
       <div class="vlist__stat">
         <span class="vlist__stat-lbl">Top operator</span>
-        <span class="vlist__stat-val">${top ? top.name : '—'}</span>
+        <span class="vlist__stat-val">${top ? top.name : 'Â·'}</span>
         <span class="vlist__stat-sub">${top ? 'τ ' + Math.round(top.stake).toLocaleString('en-US') : ''}</span>
       </div>
     `;
@@ -193,9 +193,9 @@ export function mountValidators(root, dataLayer = null){
           <span class="vlist__stake-bar"><i style="width:${(v.stake / maxStake) * 100}%"></i></span>
         </td>
         <td class="num">${v.nominators.toLocaleString('en-US')}</td>
-        <td class="num">${v.dominance != null ? v.dominance.toFixed(2) + '%' : '—'}</td>
-        <td class="num up">${v.apr != null ? v.apr.toFixed(1) + '%' : '—'}</td>
-        <td class="num">${v.take != null ? v.take.toFixed(1) + '%' : '—'}</td>
+        <td class="num">${v.dominance != null ? v.dominance.toFixed(2) + '%' : 'Â·'}</td>
+        <td class="num up">${v.apr != null ? v.apr.toFixed(1) + '%' : 'Â·'}</td>
+        <td class="num">${v.take != null ? v.take.toFixed(1) + '%' : 'Â·'}</td>
         <td class="num">${v.subnets}</td>
       </tr>
     `).join('');

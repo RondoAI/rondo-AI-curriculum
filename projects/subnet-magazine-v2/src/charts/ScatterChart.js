@@ -1,8 +1,8 @@
 /* =================================================================
-   SUBNET MAGAZINE — SCATTER CHART
+   SUBNET MAGAZINE, SCATTER CHART
    -----------------------------------------------------------------
    The InferenceX-style comparison plot: every provider is a dot
-   positioned by two metrics — cost on X (log scale, since prices
+   positioned by two metrics, cost on X (log scale, since prices
    span $0.10 → $90), speed on Y. Dots are coloured by kind, so the
    decentralized subnets, the frontier labs and the open-weight
    models separate visually. Top-left is the sweet spot: cheap and
@@ -117,7 +117,7 @@ export class ScatterChart extends Chart {
       ctx.fillStyle = INK_DIM;
       ctx.fillText(this.fmtY(v), padL - 7, y);
     }
-    /* X grid — log decades or linear quarters */
+    /* X grid, log decades or linear quarters */
     const xticks = this.xLog
       ? [0.1, 0.3, 1, 3, 10, 30, 100].filter(v => v >= xMin * 0.6 && v <= xMax * 1.6)
       : [0, 1, 2, 3, 4].map(i => xMin + (i / 4) * (xMax - xMin));
@@ -172,7 +172,7 @@ export class ScatterChart extends Chart {
       ctx.shadowBlur = 0;
       ctx.globalAlpha = 1;
 
-      /* label — subnets always, others when not crowded */
+      /* label, subnets always, others when not crowded */
       if (appear > 0.9){
         ctx.fillStyle = p.kind === 'subnet' ? '#F5E5E8' : INK_DIM;
         ctx.font = `${p.kind === 'subnet' ? '10' : '9'}px ${MONO}`;

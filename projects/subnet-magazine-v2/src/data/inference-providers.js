@@ -1,5 +1,5 @@
 /* =================================================================
-   SUBNET MAGAZINE — INFERENCE PROVIDERS
+   SUBNET MAGAZINE, INFERENCE PROVIDERS
    -----------------------------------------------------------------
    Catalogue of inference providers benchmarked on the Compare
    page. Mirrors the SemiAnalysis InferenceX field set so the
@@ -15,8 +15,8 @@
      - gpu        Hardware class the model runs on for that price tier
      - contextK   Context window in thousands
 
-   Bittensor subnets are heterogeneous — different miners run on
-   different GPUs — so tpsGpu is reported as the median across
+   Bittensor subnets are heterogeneous, different miners run on
+   different GPUs, so tpsGpu is reported as the median across
    active miners for that subnet.
 
    All figures are public best-effort approximations for May 2026.
@@ -47,11 +47,11 @@
 
 /** @type {readonly InferenceProvider[]} */
 export const PROVIDERS = Object.freeze([
-  /* ===== Bittensor subnets — the decentralized compute / GPU class ===== */
+  /* ===== Bittensor subnets, the decentralized compute / GPU class ===== */
   { id:'sn64',    name:'SN64 Chutes',     org:'Rayon Labs',      kind:'subnet',   region:'DECENTRAL',
     priceIn:0.10, priceOut:0.10,  ttft:300, itl:8,  tps:124, tpsGpu:104,
     precision:'mixed', gpu:'Heterogeneous (H200 / H100 / 4090)', contextK:128, open:true,
-    desc:'Serverless decentralized inference — the largest compute subnet, undercuts the centralized APIs on price.', subnetId:'64' },
+    desc:'Serverless decentralized inference, the largest compute subnet, undercuts the centralized APIs on price.', subnetId:'64' },
   { id:'sn4',     name:'SN4 Targon',      org:'Manifold Labs',   kind:'subnet',   region:'DECENTRAL',
     priceIn:0.14, priceOut:0.14,  ttft:380, itl:10, tps:96,  tpsGpu:84,
     precision:'mixed', gpu:'Heterogeneous (H100 / A100)', contextK:128, open:true,
@@ -59,7 +59,7 @@ export const PROVIDERS = Object.freeze([
   { id:'sn51',    name:'SN51 Celium',     org:'Datura',          kind:'subnet',   region:'DECENTRAL',
     priceIn:0.12, priceOut:0.12,  ttft:340, itl:9,  tps:110, tpsGpu:92,
     precision:'mixed', gpu:'Rented GPU marketplace (H200 / H100)', contextK:128, open:true,
-    desc:'Decentralized GPU marketplace — raw rented compute, inference served on top.', subnetId:'51' },
+    desc:'Decentralized GPU marketplace, raw rented compute, inference served on top.', subnetId:'51' },
   { id:'sn1',     name:'SN1 Apex',        org:'Macrocosmos',     kind:'subnet',   region:'DECENTRAL',
     priceIn:0.18, priceOut:0.18,  ttft:420, itl:12, tps:84,  tpsGpu:70,
     precision:'mixed', gpu:'Heterogeneous (H100 / 4090)', contextK:128, open:true,
@@ -71,7 +71,7 @@ export const PROVIDERS = Object.freeze([
   { id:'sn6',     name:'SN6 Nous',        org:'Nous Research',   kind:'subnet',   region:'DECENTRAL',
     priceIn:0.20, priceOut:0.20,  ttft:450, itl:14, tps:72,  tpsGpu:64,
     precision:'mixed', gpu:'Heterogeneous (H100 / A100)', contextK:32,  open:true,
-    desc:'Finetune competitions — best community model wins the epoch.',       subnetId:'6'  },
+    desc:'Finetune competitions, best community model wins the epoch.',       subnetId:'6'  },
   { id:'sn11',    name:'SN11 Dippy',      org:'Dippy AI',        kind:'subnet',   region:'DECENTRAL',
     priceIn:0.18, priceOut:0.18,  ttft:520, itl:16, tps:64,  tpsGpu:56,
     precision:'mixed', gpu:'Heterogeneous (4090 / A100)', contextK:32,  open:true,
@@ -85,7 +85,7 @@ export const PROVIDERS = Object.freeze([
   { id:'sonnet46',name:'Claude Sonnet 4.6', org:'Anthropic',     kind:'frontier', region:'US',
     priceIn:3.00,  priceOut:15.00, ttft:700,  itl:11, tps:88,  tpsGpu:0,
     precision:'FP8',  gpu:'GB200 NVL72 (undisclosed)', contextK:1000, open:false,
-    desc:'Workhorse tier — most enterprise traffic.' },
+    desc:'Workhorse tier, most enterprise traffic.' },
   { id:'gpt51',   name:'GPT-5.1',         org:'OpenAI',          kind:'frontier', region:'US',
     priceIn:12.50, priceOut:50.00, ttft:980,  itl:15, tps:68,  tpsGpu:0,
     precision:'FP4',  gpu:'B200 NVL72',                contextK:256,  open:false,
@@ -141,7 +141,7 @@ export const METRICS = Object.freeze([
   { id:'ttft',     label:'TTFT (ms)',          fmt: v => `${Math.round(v)} ms`, lower:true,pick: p => p.ttft },
   { id:'itl',      label:'ITL (ms / token)',   fmt: v => `${v.toFixed(1)} ms`,  lower:true,pick: p => p.itl },
   { id:'tps',      label:'Tokens / sec',       fmt: v => `${Math.round(v)} t/s`, lower:false, pick: p => p.tps },
-  { id:'tpsGpu',   label:'Tokens / sec / GPU', fmt: v => v ? `${Math.round(v)} t/s` : '—', lower:false, pick: p => p.tpsGpu },
+  { id:'tpsGpu',   label:'Tokens / sec / GPU', fmt: v => v ? `${Math.round(v)} t/s` : 'Â·', lower:false, pick: p => p.tpsGpu },
   { id:'context',  label:'Context (K tokens)', fmt: v => `${v}K`, lower:false, pick: p => p.contextK },
 ]);
 

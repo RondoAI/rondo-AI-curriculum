@@ -1,5 +1,5 @@
 /* =================================================================
-   MASTHEAD — the brand band
+   MASTHEAD, the brand band
    -----------------------------------------------------------------
    "Subneτ Magazine" wordmark in white, rotating red node sphere
    mark, function-code primary nav underneath.
@@ -35,7 +35,7 @@
   line-height: 1;
 }
 /* the tau is a typographic character set in the wordmark's own
-   font — same size, same weight, just the letter */
+   font, same size, same weight, just the letter */
 .brand__word .tau{ color: var(--c-ink-1) !important; }
 .brand__sub{
   display: block;
@@ -57,7 +57,7 @@
   width: 100%; height: 100%;
 }
 
-/* The right-side diag column. Slim — just the date (top) and the
+/* The right-side diag column. Slim, just the date (top) and the
    X handle (bottom). Block-height + countdown moved into the
    status-strip pulse bar to eliminate the duplicate. */
 .masthead__diag{
@@ -133,7 +133,7 @@
   text-align: right;
 }
 
-/* the thin chain ribbon strip — packets traveling left-to-right
+/* the thin chain ribbon strip, packets traveling left-to-right
    across the masthead at block cadence. */
 .masthead__chain{
   grid-column: 1 / -1;

@@ -1,5 +1,5 @@
 /* =================================================================
-   SUBNET MAGAZINE — FORMATTERS
+   SUBNET MAGAZINE, FORMATTERS
    -----------------------------------------------------------------
    Pure functions for turning numbers and dates into terminal-grade
    strings. Single source of truth so every panel formats data the
@@ -31,7 +31,7 @@ export const fx4   = n => NF_FX4.format(n);
  * @param {number} n
  */
 export function compact(n){
-  if (n == null || isNaN(n)) return '—';
+  if (n == null || isNaN(n)) return '·';
   const abs = Math.abs(n);
   if (abs >= 1e12) return (n / 1e12).toFixed(2) + 'T';
   if (abs >= 1e9)  return (n / 1e9 ).toFixed(2) + 'B';

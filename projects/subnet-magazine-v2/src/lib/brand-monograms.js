@@ -1,12 +1,12 @@
 /* =================================================================
-   SUBNET MAGAZINE — BRAND MONOGRAMS + LOGOS
+   SUBNET MAGAZINE, BRAND MONOGRAMS + LOGOS
    -----------------------------------------------------------------
    Editorial-use brand chips for centralized incumbents we cite
    across the magazine. Each entry carries:
-     m    2-character monogram (uppercase)        — fallback
-     c    canonical brand colour (hex)            — chip background
-     ink  optional text colour override           — defaults to #fff
-     s    simple-icons slug                       — real logo, served
+     m    2-character monogram (uppercase), fallback
+     c    canonical brand colour (hex), chip background
+     ink  optional text colour override, defaults to #fff
+     s    simple-icons slug, real logo, served
           via cdn.simpleicons.org (CC0 licensed,
           editorial use is fine; we host nothing)
 
@@ -26,7 +26,7 @@
 
 /** @type {Object<string,BrandMark>} */
 const BRANDS = {
-  // — model labs (all verified against simple-icons.org)
+  //, model labs (all verified against simple-icons.org)
   openai:      { m: 'OA', c: '#10A37F', s: 'openai' },
   anthropic:   { m: 'AC', c: '#D97757', s: 'anthropic' },
   google:      { m: 'G',  c: '#4285F4', s: 'google' },
@@ -40,7 +40,7 @@ const BRANDS = {
   cohere:      { m: 'Co', c: '#39594D', s: 'cohere' },
   databricks:  { m: 'Db', c: '#FF3621', s: 'databricks' },
 
-  // — agents / dev tools
+  //, agents / dev tools
   cursor:      { m: 'Cu', c: '#0d0d0d', ink: '#fff', s: 'cursor' },
   cognition:   { m: 'Co', c: '#6E59A5' },
   devin:       { m: 'Dv', c: '#6E59A5' },
@@ -53,7 +53,7 @@ const BRANDS = {
   github:      { m: 'GH', c: '#181717', ink: '#fff', s: 'github' },
   vercel:      { m: 'Vc', c: '#000000', ink: '#fff', s: 'vercel' },
 
-  // — inference platforms (simple-icons coverage varies)
+  //, inference platforms (simple-icons coverage varies)
   together:    { m: 'TG', c: '#1A75FF', s: 'togetherai' },
   fireworks:   { m: 'FW', c: '#FF6B35' },
   replicate:   { m: 'Rp', c: '#000000', ink: '#fff', s: 'replicate' },
@@ -62,14 +62,14 @@ const BRANDS = {
   runpod:      { m: 'Rp', c: '#673AB7', s: 'runpod' },
   vllm:        { m: 'vL', c: '#7c1ea8' },
 
-  // — data labelling / ETL
+  //, data labelling / ETL
   scale:       { m: 'SC', c: '#000000', ink: '#fff' },
   scaleai:     { m: 'SC', c: '#000000', ink: '#fff' },
   surge:       { m: 'Su', c: '#FF6720' },
   snorkel:     { m: 'Sn', c: '#FFD43B', ink: '#000' },
   commoncrawl: { m: 'CC', c: '#222a35', ink: '#fff' },
 
-  // — compute / cloud
+  //, compute / cloud
   aws:         { m: 'AW', c: '#FF9900', ink: '#000', s: 'amazonwebservices' },
   azure:       { m: 'Az', c: '#0078D4', s: 'microsoftazure' },
   gcp:         { m: 'GC', c: '#4285F4', s: 'googlecloud' },
@@ -84,15 +84,15 @@ const BRANDS = {
   tsmc:        { m: 'TS', c: '#FFCC00', ink: '#000' },
   broadcom:    { m: 'Bc', c: '#CC092F', s: 'broadcom' },
 
-  // — crypto / bittensor adjacent
+  //, crypto / bittensor adjacent
   taostats:    { m: 'TS', c: '#FF1E3C', ink: '#fff' },
   coinbase:    { m: 'Cb', c: '#0052FF', s: 'coinbase' },
   kraken:      { m: 'Kr', c: '#5741D9', s: 'kraken' },
   binance:     { m: 'Bn', c: '#F0B90B', ink: '#000', s: 'binance' },
   bittensor:   { m: 'τ',  c: '#FF1E3C', ink: '#fff' },
 
-  // — neutral
-  none:        { m: '—',  c: '#3a1419', ink: '#FF4D60' },
+  //, neutral
+  none:        { m: '·',  c: '#3a1419', ink: '#FF4D60' },
 };
 
 /**
@@ -152,7 +152,7 @@ export function brandFor(input){
 /**
  * Render the brand chip as inline HTML.
  *   - <img> first with the simple-icons CDN URL (real logo, white)
- *     against a coloured circular background — the canonical brand
+ *     against a coloured circular background, the canonical brand
  *     colour, so the mark reads as the actual company
  *   - <span> monogram fallback hidden by default; onerror reveals it
  *     if the image fails to load (offline, slug missing, etc.)
@@ -175,7 +175,7 @@ export function brandChip(input, opts = {}){
             loading="lazy" decoding="async"
             onerror="this.style.display='none';this.nextElementSibling.style.display='grid';">`
     : '';
-  /* a faint coloured glow that matches the brand — gives each
+  /* a faint coloured glow that matches the brand, gives each
      chip a hint of identity even at thumb size */
   const glow = `box-shadow: 0 0 0 1px rgba(255,255,255,.06) inset, 0 0 10px ${b.c}55;`;
   return `<span class="brand-chip" aria-hidden="true" style="width:${size}px;height:${size}px;background:${b.c};${glow}">${logoImg}<span class="brand-chip__mono" style="display:${b.s ? 'none' : 'grid'};font-size:${monoFs}px;color:${b.ink || '#fff'};">${b.m}</span></span>`;

@@ -1,8 +1,8 @@
 /* =================================================================
-   SUBNET MAGAZINE — ICOSPHERE
+   SUBNET MAGAZINE, ICOSPHERE
    -----------------------------------------------------------------
    The hero piece. A regular polyhedron (dodecahedron: 20 vertices)
-   with EVERY vertex connected to every other vertex — a complete
+   with EVERY vertex connected to every other vertex, a complete
    graph K20 = 190 chords riding on top of the 30 natural edges.
 
    This matches the bittensor.com brand language: a geometric outer
@@ -20,7 +20,7 @@
      5. Paint vertex dots last, front to back, with halo on front-
         facing ones.
 
-   Performance: O(verts^2) for the edge list is 190 — trivial.
+   Performance: O(verts^2) for the edge list is 190, trivial.
    Per-frame work is O(edges + packets), both small.
    ================================================================= */
 
@@ -208,7 +208,7 @@ export class Icosphere extends Chart {
       }
     }
 
-    /* faint silhouette rim — sells the spherical envelope */
+    /* faint silhouette rim, sells the spherical envelope */
     ctx.strokeStyle = 'rgba(255,30,60,.06)';
     ctx.lineWidth = 1;
     ctx.beginPath(); ctx.arc(cx, cy, R, 0, Math.PI * 2); ctx.stroke();

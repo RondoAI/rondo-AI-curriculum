@@ -1,5 +1,5 @@
 /* =================================================================
-   TAO TERMINAL — page view (clarity pass)
+   TAO TERMINAL, page view (clarity pass)
    -----------------------------------------------------------------
    Goal: every panel is readable at a glance. Plain-English titles,
    explicit legends, fully labeled bars. No cryptic codes; the
@@ -9,11 +9,11 @@
    Layout:
      1. Price summary strip (large τ price + change + volume + mcap)
      2. τ/USD price + ecosystem-events timeline (32-month view)
-     3. 24-hour subnet performance — horizontal bipolar bar chart
+     3. 24-hour subnet performance, horizontal bipolar bar chart
         of top gainers and losers in one view
-     4. Daily τ emissions — horizontal bar chart of top 12 subnets
+     4. Daily τ emissions, horizontal bar chart of top 12 subnets
         by emission with category sub-labels
-     5. Where TAO flows — category breakdown table
+     5. Where TAO flows, category breakdown table
    ================================================================= */
 
 import { html, mount, qs, setLive } from '../lib/dom.js';
@@ -30,7 +30,7 @@ import { EVENTS, EVENT_COLORS, EVENT_LABELS } from '../data/events.js';
 import { openChartModal } from '../lib/chart-modal.js';
 import { money, pct, deltaClass, compact } from '../lib/format.js';
 
-/** Heatmap colour for a 24h % move — green up, red down, dim flat. */
+/** Heatmap colour for a 24h % move, green up, red down, dim flat. */
 function heatColor(chg){
   if (chg == null) return '#5a3035';
   if (chg >=  4)   return '#00E5A8';
@@ -109,7 +109,7 @@ export function mountTerminal(root, dataLayer = null){
         </div>
       </div>
 
-      <!-- ===== Network Pulse — cockpit multi-stat strip ===== -->
+      <!-- ===== Network Pulse, cockpit multi-stat strip ===== -->
       <div class="netpulse">
         <div class="netpulse__cell"><span class="netpulse__lbl">BLOCK</span><span class="netpulse__val" data-bind="np-block">4,812,047</span><span class="netpulse__sub">↑ ~12s</span></div>
         <div class="netpulse__cell"><span class="netpulse__lbl">EPOCH</span><span class="netpulse__val">14,302</span><span class="netpulse__sub" data-bind="np-epoch-prog">74% · 18:24</span></div>
@@ -128,21 +128,21 @@ export function mountTerminal(root, dataLayer = null){
         <div class="term-quote__inner">
           <div class="term-quote__main">
             <span class="term-quote__label">τ / USD · live from CoinGecko</span>
-            <span class="term-quote__price" data-bind="quote-price">$—</span>
-            <span class="term-quote__delta" data-bind="quote-delta">—</span>
+            <span class="term-quote__price" data-bind="quote-price">$, </span>
+            <span class="term-quote__delta" data-bind="quote-delta">, </span>
           </div>
           <div class="term-quote__stats">
             <div class="term-quote__stat">
               <span class="lbl">24h Range</span>
-              <span class="val" data-bind="quote-range">—</span>
+              <span class="val" data-bind="quote-range">, </span>
             </div>
             <div class="term-quote__stat">
               <span class="lbl">24h Volume</span>
-              <span class="val" data-bind="quote-vol">$—</span>
+              <span class="val" data-bind="quote-vol">$, </span>
             </div>
             <div class="term-quote__stat">
               <span class="lbl">Market Cap</span>
-              <span class="val" data-bind="quote-mcap">$—</span>
+              <span class="val" data-bind="quote-mcap">$, </span>
             </div>
             <div class="term-quote__stat">
               <span class="lbl">Circulating</span>
@@ -152,7 +152,7 @@ export function mountTerminal(root, dataLayer = null){
         </div>
       </div>
 
-      <!-- ===== Market Overview — CMC-style dashboard ===== -->
+      <!-- ===== Market Overview, CMC-style dashboard ===== -->
       <section class="term-overview" id="market">
         <div class="term-overview__head">
           <span class="term-head__kicker">030&gt;  MARKET OVERVIEW</span>
@@ -161,49 +161,49 @@ export function mountTerminal(root, dataLayer = null){
         <div class="ov-grid">
           <div class="ov-card ov-card--lead">
             <span class="ov-card__lbl">τ / USD</span>
-            <span class="ov-card__val" data-bind="ov-price">$—</span>
-            <span class="ov-card__sub" data-bind="ov-price-d">—</span>
+            <span class="ov-card__val" data-bind="ov-price">$, </span>
+            <span class="ov-card__sub" data-bind="ov-price-d">, </span>
           </div>
           <div class="ov-card">
             <span class="ov-card__lbl">Market Cap</span>
-            <span class="ov-card__val" data-bind="ov-mcap">$—</span>
-            <span class="ov-card__sub" data-bind="ov-mcap-d">7d —</span>
+            <span class="ov-card__val" data-bind="ov-mcap">$, </span>
+            <span class="ov-card__sub" data-bind="ov-mcap-d">7d, </span>
           </div>
           <div class="ov-card">
             <span class="ov-card__lbl">24h Volume</span>
-            <span class="ov-card__val" data-bind="ov-vol">$—</span>
+            <span class="ov-card__val" data-bind="ov-vol">$, </span>
             <span class="ov-card__sub">spot</span>
           </div>
           <div class="ov-card">
             <span class="ov-card__lbl">Fully Diluted</span>
-            <span class="ov-card__val" data-bind="ov-fdv">$—</span>
+            <span class="ov-card__val" data-bind="ov-fdv">$, </span>
             <span class="ov-card__sub">at 21M τ</span>
           </div>
           <div class="ov-card">
             <span class="ov-card__lbl">Circulating</span>
-            <span class="ov-card__val" data-bind="ov-circ">—</span>
+            <span class="ov-card__val" data-bind="ov-circ">, </span>
             <span class="ov-card__sub">of 21M τ max</span>
           </div>
           <div class="ov-card">
             <span class="ov-card__lbl">Staked</span>
-            <span class="ov-card__val" data-bind="ov-staked">—</span>
-            <span class="ov-card__sub" data-bind="ov-apr">APR —</span>
+            <span class="ov-card__val" data-bind="ov-staked">, </span>
+            <span class="ov-card__sub" data-bind="ov-apr">APR, </span>
           </div>
           <div class="ov-card">
             <span class="ov-card__lbl">AI Mkt Dominance</span>
-            <span class="ov-card__val" data-bind="ov-aidom">—</span>
+            <span class="ov-card__val" data-bind="ov-aidom">, </span>
             <span class="ov-card__sub">of crypto-AI</span>
           </div>
           <div class="ov-card">
             <span class="ov-card__lbl">Block Height</span>
-            <span class="ov-card__val" data-bind="ov-block">—</span>
+            <span class="ov-card__val" data-bind="ov-block">, </span>
             <span class="ov-card__sub" data-bind="ov-split">root / subnet</span>
           </div>
         </div>
-        <p class="term-overview__note">Live from the Tao Market Cap public API — falls back to “—” when the feed is unreachable.</p>
+        <p class="term-overview__note">Live from the Tao Market Cap public API, falls back to “, ” when the feed is unreachable.</p>
       </section>
 
-      <!-- ===== Subnet Monitor — Bloomberg-style live quote table ===== -->
+      <!-- ===== Subnet Monitor, Bloomberg-style live quote table ===== -->
       <article class="panel is-bracketed term-cell--monitor" id="panel-monitor">
         <div class="panel__head">
           <span class="panel__title">
@@ -213,11 +213,11 @@ export function mountTerminal(root, dataLayer = null){
           </span>
           <span class="panel__meta">
             <span class="panel__pill panel__pill--live"><span class="live-dot"></span><span data-bind="mon-src">SEED</span></span>
-            <span class="panel__pill" data-bind="mon-count">— rows</span>
+            <span class="panel__pill" data-bind="mon-count">, rows</span>
           </span>
         </div>
         <div class="panel__caption">
-          Every subnet, one screen — α-price, momentum across 24h / 7d / 30d, market cap,
+          Every subnet, one screen, α-price, momentum across 24h / 7d / 30d, market cap,
           24h volume and daily emission. Click a column to sort; click a row for the full
           research page.
         </div>
@@ -233,7 +233,7 @@ export function mountTerminal(root, dataLayer = null){
         </div>
       </article>
 
-      <!-- ===== Subnet Market Map — treemap heatmap ===== -->
+      <!-- ===== Subnet Market Map, treemap heatmap ===== -->
       <article class="panel is-bracketed term-cell--map" id="panel-map">
         <div class="panel__head">
           <span class="panel__title">
@@ -246,7 +246,7 @@ export function mountTerminal(root, dataLayer = null){
           </span>
         </div>
         <div class="panel__caption">
-          Every subnet as a tile — area scaled to market cap, colour to the 24h move.
+          Every subnet as a tile, area scaled to market cap, colour to the 24h move.
           <strong style="color:var(--c-up)">Green</strong> is up,
           <strong style="color:var(--c-down)">red</strong> is down. The shape of the
           α-token market in one frame.
@@ -255,12 +255,12 @@ export function mountTerminal(root, dataLayer = null){
           <canvas data-canvas="marketmap" aria-label="Subnet market-cap heatmap"></canvas>
         </div>
         <div class="panel__foot">
-          <span>AREA · MARKET CAP — COLOUR · 24H Δ</span>
+          <span>AREA · MARKET CAP, COLOUR · 24H Δ</span>
           <span>SRC · TAO MARKET CAP</span>
         </div>
       </article>
 
-      <!-- ===== Top Validators — operator leaderboard ===== -->
+      <!-- ===== Top Validators, operator leaderboard ===== -->
       <article class="panel is-bracketed term-cell--vals" id="panel-vals">
         <div class="panel__head">
           <span class="panel__title">
@@ -274,14 +274,14 @@ export function mountTerminal(root, dataLayer = null){
           </span>
         </div>
         <div class="panel__caption">
-          The hotkeys carrying the most delegated τ — stake, nominator count and APR.
+          The hotkeys carrying the most delegated τ, stake, nominator count and APR.
           Live from taostats when a key is configured, otherwise the curated roster.
         </div>
         <div class="panel__body panel__body--pad-0">
           <ul class="term-vals" id="term-vals-list"></ul>
         </div>
         <div class="panel__foot">
-          <span>RANK 1—10</span>
+          <span>RANK 1, 10</span>
           <span>SRC · TAOSTATS</span>
         </div>
       </article>
@@ -293,15 +293,15 @@ export function mountTerminal(root, dataLayer = null){
             <h2 class="stockp__symbol"><em>τ</em> / USD</h2>
             <span class="stockp__name">Bittensor · live · CoinGecko</span>
           </div>
-          <div class="stockp__price" data-bind="sp-price">$—</div>
-          <div class="stockp__delta up" data-bind="sp-delta">— <span class="label" data-bind="sp-range-label">All time</span></div>
+          <div class="stockp__price" data-bind="sp-price">$, </div>
+          <div class="stockp__delta up" data-bind="sp-delta">, <span class="label" data-bind="sp-range-label">All time</span></div>
         </header>
         <div class="stockp__viz" style="position:relative">
           <canvas data-canvas="pricechart" aria-label="τ/USD price"></canvas>
           <div class="stockp__hover" data-bind="sp-hover">
-            <span class="hd up" data-bind="sp-hover-delta">—</span>
-            <div class="hp" data-bind="sp-hover-price">—</div>
-            <div class="hd" data-bind="sp-hover-date">—</div>
+            <span class="hd up" data-bind="sp-hover-delta">, </span>
+            <div class="hp" data-bind="sp-hover-price">, </div>
+            <div class="hd" data-bind="sp-hover-date">, </div>
           </div>
         </div>
         <footer class="stockp__foot">
@@ -334,7 +334,7 @@ export function mountTerminal(root, dataLayer = null){
           Which subnets are up or down in α-price over the last 24 hours.
           <strong style="color:var(--c-up)">Green bars</strong> on the right = gainers.
           <strong style="color:var(--c-down)">Red bars</strong> on the left = losers.
-          The vertical line is zero — bigger movements live further from it.
+          The vertical line is zero, bigger movements live further from it.
         </div>
         <div class="panel__body panel__body--pad-0">
           <canvas data-canvas="perf" aria-label="24-hour subnet performance bar chart"></canvas>
@@ -410,7 +410,7 @@ export function mountTerminal(root, dataLayer = null){
           </span>
         </div>
         <div class="panel__caption">
-          The benchmarks that actually drive the conversation in frontier AI — May 2026.
+          The benchmarks that actually drive the conversation in frontier AI, May 2026.
           <strong style="color:var(--c-up)">Open-weight models</strong> are flagged so you can
           see where the Bittensor training subnets are competing directly. Pick a benchmark to
           see the top six leaders and their scores.
@@ -455,7 +455,7 @@ export function mountTerminal(root, dataLayer = null){
         </div>
         <div class="panel__foot">
           <span>FILTERED FROM ${CENTRALIZED_PLAYERS.length} TRACKED PLAYERS</span>
-          <span id="asia-count">—</span>
+          <span id="asia-count">, </span>
         </div>
       </article>
 
@@ -636,7 +636,7 @@ export function mountTerminal(root, dataLayer = null){
     priceChart?.setShowEvents(showEvents);
   });
 
-  /* live price subscribes to DataLayer — overrides last point */
+  /* live price subscribes to DataLayer, overrides last point */
   function applyLive(price){
     if (!Number.isFinite(price) || !priceChart) return;
     /* mutate last point's p, refresh header */
@@ -680,7 +680,7 @@ export function mountTerminal(root, dataLayer = null){
   }
   const tickTimer = 0;
 
-  /* ===== Market Overview dashboard — live tao:market + tao:chain ===== */
+  /* ===== Market Overview dashboard, live tao:market + tao:chain ===== */
   const ovEl = sel => qs(`[data-bind="${sel}"]`, root);
   const ov = {
     price: ovEl('ov-price'), priceD: ovEl('ov-price-d'),
@@ -907,7 +907,7 @@ export function mountTerminal(root, dataLayer = null){
     }).join('');
   }
 
-  /* ===== Network Pulse cockpit strip — live ticker ===== */
+  /* ===== Network Pulse cockpit strip, live ticker ===== */
   const npBlock = qs('[data-bind="np-block"]', root);
   const npTps   = qs('[data-bind="np-tps"]',   root);
   const npVp    = qs('[data-bind="np-vp"]',    root);
@@ -978,7 +978,7 @@ export function mountTerminal(root, dataLayer = null){
   for (let i = 0; i < 10; i++) pushActivity();
   const liveTimer = setInterval(pushActivity, 1100);
 
-  /* ===== Subnet Monitor — dense Bloomberg-style live quote table ===== */
+  /* ===== Subnet Monitor, dense Bloomberg-style live quote table ===== */
   const monHead  = qs('#mon-head', root);
   const monBody  = qs('#mon-body', root);
   const monCount = qs('[data-bind="mon-count"]', root);
@@ -1002,15 +1002,15 @@ export function mountTerminal(root, dataLayer = null){
     mcap: (s.mcap ?? 0) * 1e6, volume: null, emission: s.emission ?? 0,
   }));
   const monMoney = n => {
-    if (n == null) return '—';
+    if (n == null) return '·';
     if (n >= 1e9) return '$' + (n / 1e9).toFixed(2) + 'B';
     if (n >= 1e6) return '$' + (n / 1e6).toFixed(2) + 'M';
     if (n >= 1e3) return '$' + (n / 1e3).toFixed(1) + 'K';
     return '$' + n.toFixed(2);
   };
-  const monPrice = p => p == null ? '—' : (p < 1 ? '$' + p.toFixed(4) : '$' + p.toFixed(2));
+  const monPrice = p => p == null ? 'Â·' : (p < 1 ? '$' + p.toFixed(4) : '$' + p.toFixed(2));
   const monPct = v => v == null
-    ? '<span class="mon-flat">—</span>'
+    ? '<span class="mon-flat">, </span>'
     : `<span class="${v >= 0 ? 'mon-up' : 'mon-down'}">${v >= 0 ? '+' : ''}${v.toFixed(2)}%</span>`;
   function renderMonHead(){
     if (!monHead) return;
@@ -1044,7 +1044,7 @@ export function mountTerminal(root, dataLayer = null){
         <td class="num">${monPct(s.chg7)}</td>
         <td class="num">${monPct(s.chg30)}</td>
         <td class="num">${monMoney(s.mcap)}</td>
-        <td class="num">${s.volume != null ? monMoney(s.volume) : '—'}</td>
+        <td class="num">${s.volume != null ? monMoney(s.volume) : 'Â·'}</td>
         <td class="num">τ ${Math.round(s.emission || 0).toLocaleString('en-US')}</td>
       </tr>`).join('');
     monBody.querySelectorAll('tr').forEach(tr => tr.addEventListener('click', () => {
@@ -1066,7 +1066,7 @@ export function mountTerminal(root, dataLayer = null){
       value: s.mcap || 0, color: heatColor(s.chg24),
     })));
   }
-  renderMonitor();   /* seed render — swaps to live via renderLiveSubnets */
+  renderMonitor();   /* seed render, swaps to live via renderLiveSubnets */
 
   /* ===== more live rendering: subnet charts + chain extras =====
      When the real tao:subnets / tao:chain feeds land, rebuild the
@@ -1154,7 +1154,7 @@ export function mountTerminal(root, dataLayer = null){
       } else if (which === 'timeline'){
         openChartModal({
           ChartClass: Timeline,
-          title:    'τ / USD · SEPT 2023 — TODAY',
+          title:    'τ / USD · SEPT 2023, TODAY',
           subtitle: '32-month price line with ecosystem events overlaid',
           fcode:    '021',
         });
@@ -1190,7 +1190,7 @@ export function mountTerminal(root, dataLayer = null){
     chip.addEventListener('click', () => lpGo(chip.dataset.lp));
   });
 
-  /* ===== Top Validators panel — seed roster, swaps to live taostats ===== */
+  /* ===== Top Validators panel, seed roster, swaps to live taostats ===== */
   const valList = qs('#term-vals-list', root);
   const valSrc  = qs('[data-bind="val-src"]', root);
   function renderVals(rows){
@@ -1204,7 +1204,7 @@ export function mountTerminal(root, dataLayer = null){
         <span class="term-val__bar"><i style="width:${(v.stake / max) * 100}%"></i></span>
         <span class="term-val__stake">τ ${Math.round(v.stake).toLocaleString('en-US')}</span>
         <span class="term-val__noms">${v.nominators.toLocaleString('en-US')} noms</span>
-        <span class="term-val__apr">${v.apr != null ? v.apr.toFixed(1) + '%' : '—'}</span>
+        <span class="term-val__apr">${v.apr != null ? v.apr.toFixed(1) + '%' : 'Â·'}</span>
       </li>`).join('');
   }
   renderVals(VALIDATORS

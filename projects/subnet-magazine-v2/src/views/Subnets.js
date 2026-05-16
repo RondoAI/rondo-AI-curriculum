@@ -1,5 +1,5 @@
 /* =================================================================
-   SUBNET MAGAZINE — SUBNETS DIRECTORY PAGE
+   SUBNET MAGAZINE, SUBNETS DIRECTORY PAGE
    -----------------------------------------------------------------
    Sortable, searchable, filterable table of every subnet on
    Bittensor. Runs on the live DataLayer 'tao:subnets' feed (real
@@ -34,19 +34,19 @@ const COLS = [
 ];
 
 function fmtPct(v){
-  if (v == null) return '—';
+  if (v == null) return '·';
   return `${v >= 0 ? '+' : ''}${v.toFixed(2)}%`;
 }
 function pctClass(v){ return v == null ? '' : v >= 0 ? 'up' : 'down'; }
 function fmtMoney(n){
-  if (n == null) return '—';
+  if (n == null) return '·';
   if (n >= 1e9) return '$' + (n / 1e9).toFixed(2) + 'B';
   if (n >= 1e6) return '$' + (n / 1e6).toFixed(2) + 'M';
   if (n >= 1e3) return '$' + (n / 1e3).toFixed(1) + 'K';
   return '$' + n.toFixed(2);
 }
 function fmtPrice(p){
-  if (p == null) return '—';
+  if (p == null) return '·';
   return p < 1 ? '$' + p.toFixed(4) : '$' + p.toFixed(2);
 }
 
@@ -88,7 +88,7 @@ export function mountSubnets(root, dataLayer = null){
           <span class="snlist__kicker">&lt;040&gt;  SUBNETS · FULL DIRECTORY</span>
           <h1 class="snlist__title">Every subnet, <em>side by side.</em></h1>
           <p class="snlist__sub">
-            The full Bittensor subnet directory — sortable, filterable, one click from
+            The full Bittensor subnet directory, sortable, filterable, one click from
             each subnet's research page. Live names, prices, market caps and movement
             from the Tao Market Cap feed; editorial categories from the Subneτ Magazine desk.
           </p>
@@ -116,7 +116,7 @@ export function mountSubnets(root, dataLayer = null){
       </div>
 
       <div class="snlist__table-wrap panel is-bracketed">
-        <div class="snlist__count" id="snlist-count">— rows</div>
+        <div class="snlist__count" id="snlist-count">, rows</div>
         <div class="snlist__table-scroll">
           <table class="snlist__table">
             <thead><tr id="snlist-head"></tr></thead>
@@ -154,7 +154,7 @@ export function mountSubnets(root, dataLayer = null){
       </div>
       <div class="snlist__stat">
         <span class="snlist__stat-lbl">24h volume</span>
-        <span class="snlist__stat-val">${totalVol ? fmtMoney(totalVol) : '—'}</span>
+        <span class="snlist__stat-val">${totalVol ? fmtMoney(totalVol) : 'Â·'}</span>
         <span class="snlist__stat-sub">${live ? 'spot, all subnets' : 'live only'}</span>
       </div>
       <div class="snlist__stat">
@@ -164,7 +164,7 @@ export function mountSubnets(root, dataLayer = null){
       </div>
       <div class="snlist__stat">
         <span class="snlist__stat-lbl">Largest subnet</span>
-        <span class="snlist__stat-val">${top ? top.name : '—'}</span>
+        <span class="snlist__stat-val">${top ? top.name : 'Â·'}</span>
         <span class="snlist__stat-sub">${top ? fmtMoney(top.mcap) : ''}</span>
       </div>
     `;
@@ -226,7 +226,7 @@ export function mountSubnets(root, dataLayer = null){
         <td><span class="snlist__cat" style="--accent:${catColor(s.cat) || 'var(--c-ink-3)'}"><i></i>${catLabel(s.cat) || s.cat}</span></td>
         <td class="num">${fmtPrice(s.price)}</td>
         <td class="num">${fmtMoney(s.mcap)}</td>
-        <td class="num">${s.volume != null ? fmtMoney(s.volume) : '—'}</td>
+        <td class="num">${s.volume != null ? fmtMoney(s.volume) : 'Â·'}</td>
         <td class="num">τ ${Math.round(s.emission || 0).toLocaleString('en-US')}</td>
         <td class="num ${pctClass(s.chg24)}">${fmtPct(s.chg24)}</td>
         <td class="num ${pctClass(s.chg7)}">${fmtPct(s.chg7)}</td>

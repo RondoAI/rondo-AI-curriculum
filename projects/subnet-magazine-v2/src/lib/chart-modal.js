@@ -1,7 +1,7 @@
 /* =================================================================
-   SUBNET MAGAZINE — CHART MODAL
+   SUBNET MAGAZINE, CHART MODAL
    -----------------------------------------------------------------
-   Open any Chart subclass at full screen. Pure DOM — no framework.
+   Open any Chart subclass at full screen. Pure DOM, no framework.
    Usage:
      openChartModal({ ChartClass, opts, title, subtitle })
    The modal creates its own canvas at 90vw × ~80vh, instantiates a

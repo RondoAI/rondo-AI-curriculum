@@ -1,5 +1,5 @@
 /* =================================================================
-   SUBNET MAGAZINE — COMPARE PAGE
+   SUBNET MAGAZINE, COMPARE PAGE
    -----------------------------------------------------------------
    Rebuilt to mirror SemiAnalysis InferenceX. Five tabs share one
    header + filter bar:
@@ -63,7 +63,7 @@ export function mountCompare(root){
           <span class="cmp__kicker">&lt;700&gt;  COMPARE · INFERENCEX-STYLE</span>
           <h1 class="cmp__title">Bittensor <em>versus</em> the centralized world.</h1>
           <p class="cmp__sub">
-            Same metric set as SemiAnalysis InferenceX — TTFT, ITL, tokens/sec, tokens/sec/GPU,
+            Same metric set as SemiAnalysis InferenceX, TTFT, ITL, tokens/sec, tokens/sec/GPU,
             $/1M, precision, GPU class. Bittensor subnets sit next to Claude, GPT, Gemini,
             DeepSeek, Qwen, Llama, Mistral, Yi, Kimi, and Zhipu. Pick a preset, pick a metric,
             see the ranking.
@@ -140,7 +140,7 @@ export function mountCompare(root){
     tco:         qs('[data-bind="tab-tco"]',      root),
     gpu:         qs('[data-bind="tab-gpu"]',      root),
   };
-  /** the cost×speed scatter — recreated each Performance render */
+  /** the cost×speed scatter, recreated each Performance render */
   let scatterChart = null;
 
   /* =================== filtering =================== */
@@ -170,7 +170,7 @@ export function mountCompare(root){
         <div class="panel__head">
           <span class="panel__title">
             <span class="panel__fcode">&lt;701&gt;</span>
-            COST × SPEED — VISUAL COMPARISON
+            COST × SPEED, VISUAL COMPARISON
             <span class="panel__go">&lt;GO&gt;</span>
           </span>
           <span class="panel__meta cmp-scatter__keys">
@@ -181,13 +181,13 @@ export function mountCompare(root){
         </div>
         <div class="panel__caption">
           Every provider plotted by blended cost (X, log scale) against output speed (Y).
-          Top-left is the sweet spot — cheap and fast. The Bittensor subnets are the bright dots.
+          Top-left is the sweet spot, cheap and fast. The Bittensor subnets are the bright dots.
         </div>
         <div class="panel__body panel__body--pad-0 cmp-scatter__viz">
           <canvas data-canvas="cmp-scatter" aria-label="Cost versus speed scatter plot"></canvas>
         </div>
         <div class="panel__foot">
-          <span>X · BLENDED $/1M (LOG) — Y · TOKENS / SEC</span>
+          <span>X · BLENDED $/1M (LOG), Y · TOKENS / SEC</span>
           <span>${arr.length} PROVIDERS · HOVER A DOT</span>
         </div>
       </article>
@@ -278,7 +278,7 @@ export function mountCompare(root){
                     <td class="num">${p.ttft} ms</td>
                     <td class="num">${p.itl} ms</td>
                     <td class="num">${p.tps}</td>
-                    <td class="num">${p.tpsGpu || '—'}</td>
+                    <td class="num">${p.tpsGpu || ', '}</td>
                     <td class="left">${p.precision}</td>
                     <td class="left cmp-data__gpu">${p.gpu}</td>
                     <td class="num">${p.contextK}K</td>
@@ -360,7 +360,7 @@ export function mountCompare(root){
         </div>
         <div class="panel__foot">
           <span>METRICS · TTFT · TOKENS/SEC · COST/RUN · QUALITY</span>
-          <span id="cmp-results-count">— PROVIDERS</span>
+          <span id="cmp-results-count">, PROVIDERS</span>
         </div>
       </article>
     `;
@@ -443,7 +443,7 @@ export function mountCompare(root){
         <div class="panel__caption">
           Three sliders set your workload. The page ranks all selected providers by projected
           monthly inference bill. Bittensor subnets land near the cheapest end at almost any
-          workload — exactly the value proposition decentralized AI has against the centralized
+          workload, exactly the value proposition decentralized AI has against the centralized
           alternative.
         </div>
         <div class="panel__body cmp-calc__body">
@@ -509,9 +509,9 @@ export function mountCompare(root){
                     <td class="left"><strong>${g.name}</strong></td>
                     <td class="left">${g.vendor}</td>
                     <td class="left">${g.tier}</td>
-                    <td class="num">${g.fp4 ? g.fp4.toLocaleString('en-US') : '—'}</td>
-                    <td class="num">${g.fp8 ? g.fp8.toLocaleString('en-US') : '—'}</td>
-                    <td class="num">${g.fp16 ? g.fp16.toLocaleString('en-US') : '—'}</td>
+                    <td class="num">${g.fp4 ? g.fp4.toLocaleString('en-US') : 'Â·'}</td>
+                    <td class="num">${g.fp8 ? g.fp8.toLocaleString('en-US') : 'Â·'}</td>
+                    <td class="num">${g.fp16 ? g.fp16.toLocaleString('en-US') : 'Â·'}</td>
                     <td class="left">${g.hbm}</td>
                     <td class="left">${g.power}</td>
                     <td class="num">${g.year}</td>
@@ -573,10 +573,10 @@ export function mountCompare(root){
               <span class="cmp-out__kind" style="background:${color}22; color:${color}">${kindLabel(p.kind)}</span>
             </header>
             <div class="cmp-out__metrics">
-              <span class="cmp-out__metric"><b>—</b><i>TTFT</i></span>
-              <span class="cmp-out__metric"><b>—</b><i>tokens/sec</i></span>
-              <span class="cmp-out__metric"><b>—</b><i>cost / run</i></span>
-              <span class="cmp-out__metric"><b>—</b><i>quality</i></span>
+              <span class="cmp-out__metric"><b>, </b><i>TTFT</i></span>
+              <span class="cmp-out__metric"><b>, </b><i>tokens/sec</i></span>
+              <span class="cmp-out__metric"><b>, </b><i>cost / run</i></span>
+              <span class="cmp-out__metric"><b>, </b><i>quality</i></span>
             </div>
             <div class="cmp-out__body">
               <div class="cmp-out__spinner"><span></span><span></span><span></span><em>${p.name} is thinking…</em></div>
@@ -635,7 +635,7 @@ export function mountCompare(root){
     qs('#cmp-run', paneRefs.prompt)?.addEventListener('click', run);
     qs('#cmp-clear', paneRefs.prompt)?.addEventListener('click', () => {
       resultsRoot.innerHTML = '<div class="cmp-empty">Hit ▶ RUN to compare responses across the current preset.</div>';
-      if (resultsCount) resultsCount.textContent = '— PROVIDERS';
+      if (resultsCount) resultsCount.textContent = ', PROVIDERS';
     });
     promptEl?.addEventListener('keydown', e => {
       if (e.key === 'Enter' && (e.ctrlKey || e.metaKey)){ e.preventDefault(); run(); }

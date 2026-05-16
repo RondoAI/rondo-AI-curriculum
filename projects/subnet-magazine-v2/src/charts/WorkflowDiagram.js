@@ -1,5 +1,5 @@
 /* =================================================================
-   SUBNET MAGAZINE — WORKFLOW DIAGRAM
+   SUBNET MAGAZINE, WORKFLOW DIAGRAM
    -----------------------------------------------------------------
    A horizontal step-flow visualization that shows what actually
    happens when a Bittensor subnet runs an epoch. Each step is a
@@ -51,7 +51,7 @@ export class WorkflowDiagram extends Chart {
     const innerW = w - padL - padR;
     const innerH = h - padT - padB;
 
-    /* Box geometry — fit boxes into the row, with gap for arrows */
+    /* Box geometry, fit boxes into the row, with gap for arrows */
     const boxW = Math.min(150, (innerW - 18 * (N - 1)) / N);
     const arrW = (innerW - boxW * N) / Math.max(1, N - 1);
     const boxH = Math.min(110, innerH * 0.78);

@@ -1,5 +1,5 @@
 /* =================================================================
-   SUBNET MAGAZINE — DESIGN TOKENS
+   SUBNET MAGAZINE, DESIGN TOKENS
    -----------------------------------------------------------------
    Single source of truth for every color, space, radius, font, and
    timing in the system. Nothing in this stylesheet should be a
@@ -18,7 +18,7 @@
   --c-bg-4:            #1F0A10;     /* input / pressed */
 
   /* ---------- Color: ink (text) ---------- */
-  --c-ink-1:           #F5E5E8;     /* primary text — warm white */
+  --c-ink-1:           #F5E5E8;     /* primary text, warm white */
   --c-ink-2:           #C8A8AD;     /* secondary */
   --c-ink-3:           #8B6B70;     /* tertiary */
   --c-ink-4:           #4A2A30;     /* dim */
@@ -50,14 +50,14 @@
   --c-rule-3:          rgba(255, 30, 60, .36);
 
   /* ---------- Typography ---------- */
-  /* The taomarketcap language: Archivo — a bold, wide geometric
-     grotesk — carries display and the wordmark; Inter runs body
+  /* The taomarketcap language: Archivo, a bold, wide geometric
+     grotesk, carries display and the wordmark; Inter runs body
      text; JetBrains Mono every datum. No old-style serif anywhere. */
   --f-mono:            'JetBrains Mono', ui-monospace, 'SF Mono', Menlo, Consolas, monospace;
   --f-sans:            'Inter', -apple-system, BlinkMacSystemFont, 'Helvetica Neue', Helvetica, Arial, sans-serif;
   --f-serif:           'Archivo', 'Inter', system-ui, sans-serif;
 
-  /* a complete type scale — tied to a 16px root */
+  /* a complete type scale, tied to a 16px root */
   --t-xs:              10.5px;       /* mono column headers */
   --t-sm:              11.5px;       /* mono data */
   --t-base:            13px;         /* body mono */

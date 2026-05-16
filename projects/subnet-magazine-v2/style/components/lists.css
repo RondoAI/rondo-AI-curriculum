@@ -164,7 +164,7 @@
 }
 .snlist__filter.is-active i, .vlist__filter.is-active i{ background: #000; }
 
-/* "All" buttons (no accent) — keep red default when active */
+/* "All" buttons (no accent), keep red default when active */
 .snlist__filter[data-filter="all"], .vlist__filter[data-role="all"]{ --accent: var(--c-red); }
 .snlist__filter[data-filter="all"] i, .vlist__filter[data-role="all"] i{ display: none; }
 

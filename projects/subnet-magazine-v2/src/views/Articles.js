@@ -1,5 +1,5 @@
 /* =================================================================
-   SUBNET MAGAZINE — ARTICLES PAGE
+   SUBNET MAGAZINE, ARTICLES PAGE
    -----------------------------------------------------------------
    The research hub. Renders the curated article cards in two
    sizes (one lead card, then a grid of remaining entries) and
@@ -204,7 +204,7 @@ export function mountArticles(root, dataLayer = null){
   renderCards();
   renderActive();
 
-  /* Live subnet logos — re-render once the feed lands so subnet-
+  /* Live subnet logos, re-render once the feed lands so subnet-
      scoped articles swap their house mark for the real logo. */
   let unsub = null;
   if (dataLayer){

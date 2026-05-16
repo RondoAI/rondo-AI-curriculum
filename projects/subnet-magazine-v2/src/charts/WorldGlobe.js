@@ -1,5 +1,5 @@
 /* =================================================================
-   SUBNET MAGAZINE — WORLD GLOBE
+   SUBNET MAGAZINE, WORLD GLOBE
    -----------------------------------------------------------------
    A 3D rotating earth rendered to 2D canvas. Continents are dot
    density on the sphere surface; validator hubs sit slightly above
@@ -54,7 +54,7 @@ const NAME_SHORT = {
 };
 function shortName(s){ return (NAME_SHORT[s] || s).toUpperCase(); }
 
-/* Country display priority — biggest landmasses first so they
+/* Country display priority, biggest landmasses first so they
    "win" anti-collision over smaller neighbors. */
 const PRIORITY = new Set([
   'USA','RUSSIA','CHINA','BRAZIL','CANADA','INDIA','AUSTRALIA',
@@ -158,7 +158,7 @@ export class WorldGlobe extends Chart {
     }));
     /** @private */ this.mesh = this._buildMesh();
 
-    /* Optional live state — pushed in by the view via setStatus().
+    /* Optional live state, pushed in by the view via setStatus().
        Used to render data overlays inside the canvas. */
     /** @private */ this.status = {
       block:        4_812_047,
@@ -304,7 +304,7 @@ export class WorldGlobe extends Chart {
     return out;
   }
 
-  /** Cheap layout — nothing to precompute now that we render real
+  /** Cheap layout, nothing to precompute now that we render real
       polygons each frame. Just refresh hub vectors. */
   layout(){
     this.hubs.forEach(h => { h.v = sph2cart(h.lat, h.lng); });
@@ -328,7 +328,7 @@ export class WorldGlobe extends Chart {
         this.tgtX = Math.max(-1.2, Math.min(1.2, this.tgtX));
       }
     }
-    /* easing — give it the smooth feel */
+    /* easing, give it the smooth feel */
     this.rotX += (this.tgtX - this.rotX) * 0.12;
     this.rotY += (this.tgtY - this.rotY) * 0.12;
 
@@ -347,7 +347,7 @@ export class WorldGlobe extends Chart {
     ctx.fillStyle = atmos;
     ctx.beginPath(); ctx.arc(cx, cy, R * 1.30, 0, Math.PI * 2); ctx.fill();
 
-    /* sphere body — dark with subtle off-center highlight */
+    /* sphere body, dark with subtle off-center highlight */
     const body = ctx.createRadialGradient(cx - R * 0.35, cy - R * 0.35, R * 0.05, cx, cy, R);
     body.addColorStop(0, '#1A0408');
     body.addColorStop(0.7, '#0A0204');
@@ -355,22 +355,22 @@ export class WorldGlobe extends Chart {
     ctx.fillStyle = body;
     ctx.beginPath(); ctx.arc(cx, cy, R, 0, Math.PI * 2); ctx.fill();
 
-    /* country fills — solid filled landmasses from real polygons */
+    /* country fills, solid filled landmasses from real polygons */
     this._drawCountryFills(ctx, cx, cy, R);
 
-    /* graticule on the sphere — only front-facing arcs */
+    /* graticule on the sphere, only front-facing arcs */
     this._drawGraticule(ctx, cx, cy, R);
 
-    /* country borders — thin strokes on the front hemisphere */
+    /* country borders, thin strokes on the front hemisphere */
     this._drawCountryBorders(ctx, cx, cy, R);
 
-    /* country + state labels — float on the visible hemisphere */
+    /* country + state labels, float on the visible hemisphere */
     this._drawCountryLabels(ctx, cx, cy, R, w, h);
 
     /* radial activity ring around the silhouette */
     this._drawActivityRing(ctx, cx, cy, R, t);
 
-    /* orbital mesh — arcs going OVER the sphere between hub pairs */
+    /* orbital mesh, arcs going OVER the sphere between hub pairs */
     for (const m of this.mesh){
       const ra = this._rotate(m.a.v);
       const rb = this._rotate(m.b.v);
@@ -506,7 +506,7 @@ export class WorldGlobe extends Chart {
     ctx.lineWidth = 0.6;
     ctx.beginPath(); ctx.arc(cx, cy, R * 1.06, 0, Math.PI * 2); ctx.stroke();
 
-    /* === Data overlays — terminal-grade chrome === */
+    /* === Data overlays, terminal-grade chrome === */
     this._drawOverlays(ctx, w, h, t);
 
     /* lint guard */
@@ -618,7 +618,7 @@ export class WorldGlobe extends Chart {
     ctx.stroke();
   }
 
-  /** Country fills — solid landmasses from real polygons. Skips any
+  /** Country fills, solid landmasses from real polygons. Skips any
       polygon that crosses the silhouette so we don't paint smeared
       shapes wrapping the limb. */
   _drawCountryFills(ctx, cx, cy, R){
@@ -659,7 +659,7 @@ export class WorldGlobe extends Chart {
     }
   }
 
-  /** Country borders — Natural Earth real data if loaded, else
+  /** Country borders, Natural Earth real data if loaded, else
       fall back to the curated hand-drawn set. */
   _drawCountryBorders(ctx, cx, cy, R){
     ctx.lineJoin = 'round';
@@ -732,7 +732,7 @@ export class WorldGlobe extends Chart {
       ctx.fillText(c.name, sx, sy);
     }
 
-    /* US states — only when North America is squarely facing us. */
+    /* US states, only when North America is squarely facing us. */
     const usCenter = this._rotate(sph2cart(39, -98));
     if (usCenter.z > 0.55){
       ctx.font = '600 8.5px JetBrains Mono, monospace';
@@ -752,7 +752,7 @@ export class WorldGlobe extends Chart {
     }
   }
 
-  /** Segmented red ring around the silhouette — 36 segments, intensity
+  /** Segmented red ring around the silhouette, 36 segments, intensity
       cycles to suggest live network activity. */
   _drawActivityRing(ctx, cx, cy, R, t){
     const segs = 36;

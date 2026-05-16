@@ -1,5 +1,5 @@
 /* =================================================================
-   SUBNET MAGAZINE — SUBNET DETAIL VIEW
+   SUBNET MAGAZINE, SUBNET DETAIL VIEW
    -----------------------------------------------------------------
    The per-subnet research page. Mounted by subnet.html which reads
    the netuid from `?id=N`. Renders:
@@ -12,7 +12,7 @@
      · Emission share donut (this subnet's % of total daily emit)
      · Miner/validator composition
      · Live activity feed (subnet-scoped)
-     · Competitive landscape — side-by-side cards comparing this
+     · Competitive landscape, side-by-side cards comparing this
                     subnet to its centralized competitors
      · Latest AI benchmarks relevant to this subnet's category
      · Asian competitors spotlight (CN / KR / JP / TW / IN)
@@ -126,7 +126,7 @@ export function mountSubnetDetail(root, dataLayer = null){
   const asian          = asianCompetitorsForCategory(subnet.cat);
   const bench          = benchmarksFor(subnet.cat).length ? benchmarksFor(subnet.cat) : BENCHMARKS.slice(0, 4);
 
-  /* Other subnets in the same category — internal "see also" */
+  /* Other subnets in the same category, internal "see also" */
   const peers = SUBNETS.filter(s => s.cat === subnet.cat && s.netuid !== subnet.netuid)
                        .sort((a, b) => b.emission - a.emission).slice(0, 6);
 
@@ -144,7 +144,7 @@ export function mountSubnetDetail(root, dataLayer = null){
           <p class="sd-tagline">${subnet.desc}</p>
           <div class="sd-owner">
             <span class="sd-owner__label">Owner</span>
-            <span class="sd-owner__value">${subnet.owner ?? '—'}</span>
+            <span class="sd-owner__value">${subnet.owner ?? 'Â·'}</span>
           </div>
           <div class="sd-links">
             ${website ? `<a class="sd-link" href="${website}" target="_blank" rel="noopener">Website ↗</a>` : ''}
@@ -263,7 +263,7 @@ export function mountSubnetDetail(root, dataLayer = null){
               <span class="panel__pill panel__pill--live"><span class="live-dot"></span>TRACKED</span>
             </span>
           </div>
-          <div class="panel__caption">Releases, eval changes, governance, announcements — curated changelog.</div>
+          <div class="panel__caption">Releases, eval changes, governance, announcements, curated changelog.</div>
           <div class="panel__body panel__body--pad-0">
             <ul class="sd-updates" id="sd-updates"></ul>
           </div>
@@ -416,7 +416,7 @@ export function mountSubnetDetail(root, dataLayer = null){
               <div><dt>Miners</dt><dd>${(subnet.miners ?? 0).toLocaleString('en-US')}</dd></div>
               <div><dt>Validators</dt><dd>${(subnet.validators ?? 0).toLocaleString('en-US')}</dd></div>
               <div><dt>Daily emission</dt><dd>τ ${(subnet.emission ?? 0).toLocaleString('en-US')}</dd></div>
-              <div><dt>Source</dt><dd>${subnet.gh ? 'Open' : '—'}</dd></div>
+              <div><dt>Source</dt><dd>${subnet.gh ? 'Open' : 'Â·'}</dd></div>
             </dl>
           </article>
           <article class="sd-vs__centralized">
@@ -464,8 +464,7 @@ export function mountSubnetDetail(root, dataLayer = null){
           </span>
         </div>
         <div class="panel__caption">
-          The Asian half of the field SN${subnet.netuid} is competing against —
-          China, Korea, Japan, Taiwan, India. Open-weight + sovereign-compute heavy.
+          The Asian half of the field SN${subnet.netuid} is competing against,           China, Korea, Japan, Taiwan, India. Open-weight + sovereign-compute heavy.
         </div>
         <div class="panel__body panel__body--pad-0">
           <ul class="asia-list">
@@ -501,7 +500,7 @@ export function mountSubnetDetail(root, dataLayer = null){
             <span class="panel__go">&lt;GO&gt;</span>
           </span>
         </div>
-        <div class="panel__caption">Subnets in the same category — pivot the analysis to a peer.</div>
+        <div class="panel__caption">Subnets in the same category, pivot the analysis to a peer.</div>
         <div class="panel__body">
           <ul class="sd-peers__list">
             ${peers.map(p => `
@@ -533,14 +532,14 @@ export function mountSubnetDetail(root, dataLayer = null){
   if (specsDl){
     const rows = [
       ['Netuid',         `SN${subnet.netuid}`],
-      ['Owner',          subnet.owner ?? '—'],
-      ['Founded',        specs.founded ?? '—'],
-      ['Version',        specs.version ?? '—'],
+      ['Owner',          subnet.owner ?? 'Â·'],
+      ['Founded',        specs.founded ?? 'Â·'],
+      ['Version',        specs.version ?? 'Â·'],
       ['Chain',          specs.chain],
       ['Epoch length',   `${specs.epochBlocks} blocks · ~72 min`],
       ['Scoring',        specs.model],
-      ['Miner reqs',     specs.reqMiner ?? '—'],
-      ['Validator reqs', specs.reqVal ?? '—'],
+      ['Miner reqs',     specs.reqMiner ?? 'Â·'],
+      ['Validator reqs', specs.reqVal ?? 'Â·'],
     ];
     specsDl.innerHTML = rows.map(([k, v]) => `
       <div class="sd-spec">
@@ -695,7 +694,7 @@ export function mountSubnetDetail(root, dataLayer = null){
   }
   renderBench();
 
-  /* ===== Expand button — opens the 90-day chart fullscreen ===== */
+  /* ===== Expand button, opens the 90-day chart fullscreen ===== */
   root.querySelectorAll('[data-expand="perf"]').forEach(btn => {
     btn.addEventListener('click', () => openChartModal({
       ChartClass: Timeline,

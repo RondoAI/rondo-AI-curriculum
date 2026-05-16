@@ -1,5 +1,5 @@
 /* =================================================================
-   SUBNET MAGAZINE — CHART BASE CLASS
+   SUBNET MAGAZINE, CHART BASE CLASS
    -----------------------------------------------------------------
    Every chart in the system extends this. Subclasses implement two
    hooks:
@@ -77,7 +77,7 @@ export class Chart {
   draw(ctx, w, h, t){ /* override */ }
 
   /**
-   * Mark the chart dirty — used by static charts to repaint after
+   * Mark the chart dirty, used by static charts to repaint after
    * data updates without running a rAF loop forever.
    */
   invalidate(){

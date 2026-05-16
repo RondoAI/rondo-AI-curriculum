@@ -2,7 +2,7 @@
    EDITOR VIEW
    -----------------------------------------------------------------
    The standalone "about the editor" page. Renders nothing into the
-   passed root — the bio markup is already in editor.html. This
+   passed root, the bio markup is already in editor.html. This
    view's job is to mount the PS5-grade NodeSphere plexus into the
    data-canvas="editor" element on the page so the editor's portrait
    sits next to a working live mark.
@@ -21,7 +21,7 @@ import { NodeSphere } from '../charts/NodeSphere.js';
 export function mountEditor(root){
   const canvas = qs('[data-canvas="editor"]', root);
   /* Dense plexus tuned a step richer than the hero so the mark
-     reads as a centerpiece, not a background — same engine as the
+     reads as a centerpiece, not a background, same engine as the
      hero / brand mark, but with more nodes, a deeper neighbour
      mesh, and the atmospheric glow halo turned on. */
   const sphere = canvas ? new NodeSphere(canvas, {

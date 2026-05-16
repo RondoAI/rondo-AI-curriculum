@@ -1,9 +1,8 @@
 /* =================================================================
-   SUBNET MAGAZINE — TICKER BAR (2028-grade)
+   SUBNET MAGAZINE, TICKER BAR (2028-grade)
    -----------------------------------------------------------------
    Two marquee tapes at the top of every page. Each chip is a real
-   asset chip — logo, symbol, price, mini-sparkline, % change —
-   rather than a flat text label, so the bar reads as a market wire
+   asset chip, logo, symbol, price, mini-sparkline, % change,    rather than a flat text label, so the bar reads as a market wire
    rather than a press feed.
 
      1. Bittensor tape · live subnet chips from the 'tao:subnets'
@@ -44,7 +43,7 @@ function newsChip(n, href){
     </a>`;
 }
 
-/** Pre-rendered Bittensor news chips, newest first — appended to
+/** Pre-rendered Bittensor news chips, newest first, appended to
     the Bittensor tape after the live subnet price chips. */
 function bittensorNewsChipsHtml(){
   return [...BITTENSOR_NEWS]
@@ -58,7 +57,7 @@ function centralChip(t){
   const up   = (t.chg ?? 0) >= 0;
   const cls  = up ? 'up' : 'down';
   const glyph = (t.chg ?? 0) === 0 ? '■' : (up ? '▲' : '▼');
-  const chgStr = (t.chg ?? 0) === 0 ? '—' : pct(t.chg);
+  const chgStr = (t.chg ?? 0) === 0 ? 'Â·' : pct(t.chg);
   const id = encodeURIComponent(t.sym);
   /* Clearbit logo URL with a generative-mark fallback at the same
      visual footprint. The mark() function takes the company name as

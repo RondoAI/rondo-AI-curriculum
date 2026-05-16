@@ -1,5 +1,5 @@
 /* =================================================================
-   SUBNET MAGAZINE — HEATMAP
+   SUBNET MAGAZINE, HEATMAP
    -----------------------------------------------------------------
    A grid of cells where each cell is one subnet. Cell color is
    driven by 24h % change: deep-red for losses, bright-red for

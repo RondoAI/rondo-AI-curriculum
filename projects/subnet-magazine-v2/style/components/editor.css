@@ -1,5 +1,5 @@
 /* =================================================================
-   SUBNET MAGAZINE — EDITOR PAGE
+   SUBNET MAGAZINE, EDITOR PAGE
    -----------------------------------------------------------------
    The back-of-the-book editor bio. Was originally a section pinned
    below the home view; moved to its own page so the home view stays
@@ -20,7 +20,7 @@
 /* PS5-grade NodeSphere plexus painted behind the bio. Decorative;
    pointer-events off so it can never intercept touch. Lives on a
    non-sticky / non-fixed surface so the canvas isn't recomposited
-   under scrolling viewport — the failure mode that broke home. */
+   under scrolling viewport, the failure mode that broke home. */
 .editor-page__viz{
   position: absolute;
   inset: 0;
@@ -43,7 +43,7 @@
   background: linear-gradient(90deg, var(--c-red), transparent);
 }
 .editor-page__inner{
-  /* legacy single-bio layout — kept for any caller that still
+  /* legacy single-bio layout, kept for any caller that still
      uses .editor-page__inner. New masthead structure uses
      .editor-card below instead. */
   display: grid;

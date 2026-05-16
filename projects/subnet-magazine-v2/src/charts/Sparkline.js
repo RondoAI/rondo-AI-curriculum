@@ -1,15 +1,15 @@
 /* =================================================================
-   SUBNET MAGAZINE — SPARKLINE
+   SUBNET MAGAZINE, SPARKLINE
    -----------------------------------------------------------------
    The tiny inline trend line that rides next to a price anywhere a
-   row or card needs to show direction at a glance — subnet grids,
+   row or card needs to show direction at a glance, subnet grids,
    directory tables, quote boards.
 
    Deliberately minimal: no axes, no labels, no hover. Just a smooth
    line plus a soft area fill, colored green/red by net direction
    (the house "up is green" rule). One dot marks the latest point.
 
-   Static chart — paints once per setData(), no rAF loop.
+   Static chart, paints once per setData(), no rAF loop.
    ================================================================= */
 
 import { Chart } from './Chart.js';

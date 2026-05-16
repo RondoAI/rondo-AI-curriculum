@@ -1,5 +1,5 @@
 /* =================================================================
-   SUBNET MAGAZINE — BITTENSOR FIELD MANUAL
+   SUBNET MAGAZINE, BITTENSOR FIELD MANUAL
    -----------------------------------------------------------------
    Verified · enriched · against May 2026 sources.
    Last research pass: 2026-05-15.
@@ -9,7 +9,7 @@
      h     section heading        (red, uppercased)
      step  numbered instruction   (mono, with [01] prefix)
      cmd   shell command          (mono, $-prompted, ink-1)
-     code  multi-line code block  (mono, no prompt — Python / TOML)
+     code  multi-line code block  (mono, no prompt, Python / TOML)
      note  parenthetical note     (dim, prefixed >)
      warn  warning                (red, prefixed !)
      cost  cost callout           (amber, prefixed τ)
@@ -96,7 +96,7 @@ export const FIELD_MANUAL = Object.freeze([
       { kind:'note', text:'btcli 9.x prefers hyphen flags (--wallet-name) · the legacy dotted form (--wallet.name) still works' },
 
       { kind:'h',    text:'02 · CREATE WALLETS' },
-      { kind:'p',    text:'A "coldkey" holds TAO and signs registration. A "hotkey" runs the miner. They are separate keys for a reason — never co-locate them on the same machine.' },
+      { kind:'p',    text:'A "coldkey" holds TAO and signs registration. A "hotkey" runs the miner. They are separate keys for a reason, never co-locate them on the same machine.' },
       { kind:'cmd',  text:'btcli wallet new-coldkey --wallet-name miner --n-words 24' },
       { kind:'cmd',  text:'btcli wallet new-hotkey  --wallet-name miner --hotkey default' },
       { kind:'note', text:'write the mnemonic on paper · store offline · the coldkey is the only thing that matters' },
@@ -126,10 +126,10 @@ export const FIELD_MANUAL = Object.freeze([
       { kind:'h',    text:'07 · RUN THE MINER' },
       { kind:'p',    text:'Each subnet\'s repo has a neurons/miner.py or equivalent. The generic shape:' },
       { kind:'cmd',  text:'python neurons/miner.py \\\n  --netuid 1 --subtensor.network finney \\\n  --wallet.name miner --wallet.hotkey default \\\n  --logging.debug' },
-      { kind:'note', text:'subnet repos still use the SDK\'s dotted flag style (--wallet.name) — that is correct here' },
+      { kind:'note', text:'subnet repos still use the SDK\'s dotted flag style (--wallet.name), that is correct here' },
 
       { kind:'h',    text:'08 · SURVIVE NEURON IMMUNITY' },
-      { kind:'p',    text:'Each subnet sets a per-neuron immunity period (a hyperparameter, typically a few thousand blocks ≈ a handful of hours — distinct from the 4-month subnet-level immunity). Use this window to confirm your miner is producing valid responses, watch the logs, watch your incentive score climb.' },
+      { kind:'p',    text:'Each subnet sets a per-neuron immunity period (a hyperparameter, typically a few thousand blocks ≈ a handful of hours, distinct from the 4-month subnet-level immunity). Use this window to confirm your miner is producing valid responses, watch the logs, watch your incentive score climb.' },
 
       { kind:'h',    text:'09 · EARN' },
       { kind:'p',    text:'Validators score your output and set weights. Your share of the subnet\'s emission slice is your share of total weight. Miner emissions are paid in that subnet\'s α token. Read /weights for the consensus math and /dtao for what α actually is.' },
@@ -168,13 +168,13 @@ export const FIELD_MANUAL = Object.freeze([
     ],
     body: [
       { kind:'h',    text:'PREREQUISITES' },
-      { kind:'p',    text:'Real α-stake — enough to crack the subnet\'s validator permit threshold. The chain admits the top N hotkeys by α-stake on each subnet (max-allowed-validators is a per-subnet hyperparameter, typically 64). A reliable box; validators that go offline lose vTrust fast.' },
+      { kind:'p',    text:'Real α-stake, enough to crack the subnet\'s validator permit threshold. The chain admits the top N hotkeys by α-stake on each subnet (max-allowed-validators is a per-subnet hyperparameter, typically 64). A reliable box; validators that go offline lose vTrust fast.' },
 
       { kind:'h',    text:'01 · INSTALL + WALLETS' },
-      { kind:'p',    text:'Same as /mine — install bittensor-cli, make a coldkey, make a hotkey. Then come back here.' },
+      { kind:'p',    text:'Same as /mine, install bittensor-cli, make a coldkey, make a hotkey. Then come back here.' },
 
       { kind:'h',    text:'02 · STAKE ON THE SUBNET' },
-      { kind:'p',    text:'Buy α on the target subnet by staking TAO into its bonding-curve pool. Stake enough to crack the permit cutoff. Safe-staking is on by default with a 5% rate-tolerance — a slippage guard.' },
+      { kind:'p',    text:'Buy α on the target subnet by staking TAO into its bonding-curve pool. Stake enough to crack the permit cutoff. Safe-staking is on by default with a 5% rate-tolerance, a slippage guard.' },
       { kind:'cmd',  text:'btcli stake add --wallet-name val --hotkey default \\\n  --netuid 1 --amount 1000' },
       { kind:'note', text:'add --tolerance 0.05 to override default slippage protection · or --unsafe to disable' },
 
@@ -213,14 +213,14 @@ export const FIELD_MANUAL = Object.freeze([
     blurb: 'Define the task · pay the lock cost · seed validators · survive 4 months.',
     difficulty: 'hard',
     timeRequired: '2-8 weeks build · 4-month immunity runway · ongoing',
-    cost: 'lock cost is dynamic — confirm with `btcli subnet burn-cost` before you sign · spent more often in the low thousands of TAO than the early-2025 multi-thousand-TAO peaks · post-Oct 2025 registrations are NOT refunded on dereg',
+    cost: 'lock cost is dynamic, confirm with `btcli subnet burn-cost` before you sign · spent more often in the low thousands of TAO than the early-2025 multi-thousand-TAO peaks · post-Oct 2025 registrations are NOT refunded on dereg',
     prerequisites: [
       'A working miner template · a working validator template · a scoring rule that resists weight-copying',
       'Public GitHub repo with docs',
       'Coldkey funded with the lock cost + buffer for early-validator subsidies',
       'A team or community committed to the next 4 months',
     ],
-    whatYouGet: 'A new subnet UID with its own α-token bonding-curve pool, 4 months of dereg-immunity runway, and an 18% cut of the subnet\'s emissions for as long as it stays alive (the default — many owners now reduce this).',
+    whatYouGet: 'A new subnet UID with its own α-token bonding-curve pool, 4 months of dereg-immunity runway, and an 18% cut of the subnet\'s emissions for as long as it stays alive (the default, many owners now reduce this).',
     confidence: 'high',
     researched: '2026-05-15',
     sources: [
@@ -230,10 +230,10 @@ export const FIELD_MANUAL = Object.freeze([
     ],
     body: [
       { kind:'h',    text:'WHAT YOU ARE BUYING' },
-      { kind:'p',    text:'A subnet is a market. You define the task; miners compete to solve it; you take up to 18% of the subnet\'s emissions for as long as it stays alive. The chain charges a "lock cost" up front. For subnets registered after 1 Oct 2025 the lock cost is NOT refunded on deregistration — it is the price of admission.' },
+      { kind:'p',    text:'A subnet is a market. You define the task; miners compete to solve it; you take up to 18% of the subnet\'s emissions for as long as it stays alive. The chain charges a "lock cost" up front. For subnets registered after 1 Oct 2025 the lock cost is NOT refunded on deregistration, it is the price of admission.' },
 
       { kind:'h',    text:'01 · KNOW THE COST' },
-      { kind:'p',    text:'Subnet creation lock cost is dynamic — it lowers gradually and doubles on every new subnet creation. Always check the live number before signing.' },
+      { kind:'p',    text:'Subnet creation lock cost is dynamic, it lowers gradually and doubles on every new subnet creation. Always check the live number before signing.' },
       { kind:'cmd',  text:'btcli subnet burn-cost --network finney' },
       { kind:'cost', text:'as of mid-May 2026 burn cost has trended in the low thousands of TAO · spikes possible · never trust a cached figure' },
 
@@ -252,7 +252,7 @@ export const FIELD_MANUAL = Object.freeze([
       { kind:'p',    text:'A new subnet starts with zero scoring. Recruit 2–3 honest validators to run your validator code in the first 24 hours. Without scoring, miners cannot earn and your α-pool will not attract liquidity.' },
 
       { kind:'h',    text:'05 · ANNOUNCE' },
-      { kind:'p',    text:'The first 4 months are your immunity window — the dereg sweep cannot touch you. Use them. Discord, X, Subneτ Magazine — say what your subnet does in one sentence and where to read the docs. Your job in immunity is to bid α-pool liquidity high enough that the EMA price clears the bottom of the table by month 4.' },
+      { kind:'p',    text:'The first 4 months are your immunity window, the dereg sweep cannot touch you. Use them. Discord, X, Subneτ Magazine, say what your subnet does in one sentence and where to read the docs. Your job in immunity is to bid α-pool liquidity high enough that the EMA price clears the bottom of the table by month 4.' },
 
       { kind:'h',    text:'06 · KEEP IT ALIVE PAST IMMUNITY' },
       { kind:'p',    text:'After 864,000 blocks (~4 months) you are a dereg candidate. The lowest-EMA-α-price non-immune subnet is pruned every time a new subnet registers and the cap is full. Read /dereg.' },
@@ -282,10 +282,10 @@ export const FIELD_MANUAL = Object.freeze([
     ],
     body: [
       { kind:'h',    text:'COLDKEY · the bank account' },
-      { kind:'p',    text:'Holds TAO and α. Signs transfers, staking, registration, subnet ownership. Never lives on the box that runs the miner or validator. The mnemonic is full control — write it on paper, store it offline.' },
+      { kind:'p',    text:'Holds TAO and α. Signs transfers, staking, registration, subnet ownership. Never lives on the box that runs the miner or validator. The mnemonic is full control, write it on paper, store it offline.' },
 
       { kind:'h',    text:'HOTKEY · the worker' },
-      { kind:'p',    text:'Signs the operational stuff: weight-setting, response submission. Compromise is annoying but recoverable — the coldkey controls the funds and can swap the hotkey out.' },
+      { kind:'p',    text:'Signs the operational stuff: weight-setting, response submission. Compromise is annoying but recoverable, the coldkey controls the funds and can swap the hotkey out.' },
 
       { kind:'h',    text:'CREATE' },
       { kind:'cmd',  text:'btcli wallet new-coldkey --wallet-name <name> --n-words 24' },
@@ -305,7 +305,7 @@ export const FIELD_MANUAL = Object.freeze([
       { kind:'cmd',  text:'btcli wallet regen-hotkey --wallet-name recovered \\\n  --hotkey default --mnemonic "word1 word2 ..."' },
 
       { kind:'h',    text:'IF SOMETHING GOES WRONG' },
-      { kind:'p',    text:'Coldkey leaked: schedule a swap (5-day waiting period, 0.1 TAO fee) — see /security. Hotkey leaked: rotate it immediately with `btcli wallet swap-hotkey` (1 TAO recycle fee, instant).' },
+      { kind:'p',    text:'Coldkey leaked: schedule a swap (5-day waiting period, 0.1 TAO fee), see /security. Hotkey leaked: rotate it immediately with `btcli wallet swap-hotkey` (1 TAO recycle fee, instant).' },
 
       { kind:'h',    text:'CANONICAL SOURCES' },
       { kind:'link', text:'docs.learnbittensor.org/keys/working-with-keys', href:'https://docs.learnbittensor.org/keys/working-with-keys' },
@@ -333,7 +333,7 @@ export const FIELD_MANUAL = Object.freeze([
     ],
     body: [
       { kind:'h',    text:'THE OLD WAY (pre-Feb 2025)' },
-      { kind:'p',    text:'All τ was the same. Validators voted "root weights" that decided how the chain split emissions across subnets — a small group of stakers chose the winners every block.' },
+      { kind:'p',    text:'All τ was the same. Validators voted "root weights" that decided how the chain split emissions across subnets, a small group of stakers chose the winners every block.' },
 
       { kind:'h',    text:'THE NEW WAY · dTAO (live 13 Feb 2025)' },
       { kind:'p',    text:'Every subnet has its own alpha token (α₁, α₂, …, α₁₂₈). TAO and α trade in a per-subnet bonding-curve pool. α-price = TAO reserve / α reserve. The market chooses the winners now, not a small group of voters.' },
@@ -342,7 +342,7 @@ export const FIELD_MANUAL = Object.freeze([
       { kind:'p',    text:'Each subnet pool holds TAO reserves and α reserves and prices α off a constant-product curve (x · y = k). Add TAO → α-price rises and you receive α at the new marginal rate. Remove α → α-price falls. No oracle, no admin keys, no privileged listing.' },
 
       { kind:'h',    text:'EMISSION SHARE' },
-      { kind:'p',    text:'A subnet\'s emission share ≈ its α market cap / sum of all α market caps. Bigger pool, bigger share. The chain itself does not have to choose what is "useful" — the market does, by where it parks TAO.' },
+      { kind:'p',    text:'A subnet\'s emission share ≈ its α market cap / sum of all α market caps. Bigger pool, bigger share. The chain itself does not have to choose what is "useful", the market does, by where it parks TAO.' },
 
       { kind:'h',    text:'TOP 5 SUBNETS BY α-MCAP (per CoinGecko, March 2026 snapshot)' },
       { kind:'note', text:'SN3  · τemplar       · ~$134.9M α-mcap · large-scale LLM training' },
@@ -350,19 +350,19 @@ export const FIELD_MANUAL = Object.freeze([
       { kind:'note', text:'SN4  · Targon        · ~$91.8M  α-mcap · confidential GPU compute' },
       { kind:'note', text:'SN120 · Affine       · ~$71.8M  α-mcap · RL reasoning' },
       { kind:'note', text:'SN51 · Lium          · ~$52.1M  α-mcap · P2P GPU marketplace' },
-      { kind:'p',    text:'Combined top-10 α-mcap reached ~$712M, against total α-mcap ~$1.12B — so the top-10 is roughly 64% of the alpha economy. Verify the live numbers on taostats.io before trading off them.' },
+      { kind:'p',    text:'Combined top-10 α-mcap reached ~$712M, against total α-mcap ~$1.12B, so the top-10 is roughly 64% of the alpha economy. Verify the live numbers on taostats.io before trading off them.' },
 
       { kind:'h',    text:'WORKED EXAMPLE · BOND τ100 TO SN64' },
-      { kind:'p',    text:'Suppose SN64 pool depth is 14,200 τ TAO + 412,000 α. Constant-product k = 14,200 × 412,000 = 5.85B. Pre-trade α-price = 14,200 / 412,000 = 0.0345 τ/α. You add τ100. New TAO reserve = 14,300. New α reserve = k / 14,300 = 408,917. You receive 412,000 − 408,917 ≈ 3,083 α. Your effective entry price = 100 / 3,083 ≈ 0.0324 τ/α — about 6% better than the post-trade marginal price (0.0349 τ/α) because of the curve shape. Round-tripping that same τ100 immediately would lose to the slippage.' },
+      { kind:'p',    text:'Suppose SN64 pool depth is 14,200 τ TAO + 412,000 α. Constant-product k = 14,200 × 412,000 = 5.85B. Pre-trade α-price = 14,200 / 412,000 = 0.0345 τ/α. You add τ100. New TAO reserve = 14,300. New α reserve = k / 14,300 = 408,917. You receive 412,000 − 408,917 ≈ 3,083 α. Your effective entry price = 100 / 3,083 ≈ 0.0324 τ/α, about 6% better than the post-trade marginal price (0.0349 τ/α) because of the curve shape. Round-tripping that same τ100 immediately would lose to the slippage.' },
       { kind:'note', text:'arithmetic example only · live SN64 pool numbers move every block · check taostats before sizing real trades' },
 
       { kind:'h',    text:'STAKE OPTIONS' },
       { kind:'note', text:'stake TAO → root subnet · roughly equal share across the network · paid in TAO' },
       { kind:'note', text:'stake α   → that subnet · leveraged on its success · paid in α' },
-      { kind:'note', text:'α-yield depends on the subnet actually earning emissions through real validator activity — not just on α-price moving up' },
+      { kind:'note', text:'α-yield depends on the subnet actually earning emissions through real validator activity, not just on α-price moving up' },
 
       { kind:'h',    text:'SLIPPAGE · LIQUIDITY' },
-      { kind:'p',    text:'Thin pools cost more to enter and exit. As a rule of thumb, a trade size = 1% of pool depth → ~1% price impact; 10% of pool → ~11% impact. A high α-yield in a shallow pool can vanish on the way out — always check pool depth before staking large into a subnet.' },
+      { kind:'p',    text:'Thin pools cost more to enter and exit. As a rule of thumb, a trade size = 1% of pool depth → ~1% price impact; 10% of pool → ~11% impact. A high α-yield in a shallow pool can vanish on the way out, always check pool depth before staking large into a subnet.' },
 
       { kind:'h',    text:'WHAT TO LOOK FOR' },
       { kind:'note', text:'α-price 30d chart · live demand for the subnet' },
@@ -397,7 +397,7 @@ export const FIELD_MANUAL = Object.freeze([
     ],
     body: [
       { kind:'h',    text:'THE TWO ROUTES' },
-      { kind:'p',    text:'Route A · btcli — sign with your local coldkey, scriptable, no front-end risk. Route B · a wallet UI (Bittensor.com, Taostats.io, Crucible, Talisman, Bitget Wallet) — friendlier for one-off trades, especially with Ledger.' },
+      { kind:'p',    text:'Route A · btcli, sign with your local coldkey, scriptable, no front-end risk. Route B · a wallet UI (Bittensor.com, Taostats.io, Crucible, Talisman, Bitget Wallet), friendlier for one-off trades, especially with Ledger.' },
 
       { kind:'h',    text:'BUY α (TAO → α) · BTCLI' },
       { kind:'cmd',  text:'btcli stake add --wallet-name <name> --hotkey default \\\n  --netuid 64 --amount 100' },
@@ -420,7 +420,7 @@ export const FIELD_MANUAL = Object.freeze([
       { kind:'step', n:4, text:'Sign on device (Ledger users: confirm on-screen).' },
 
       { kind:'h',    text:'BONDING CURVE · WHAT YOU ARE TRADING AGAINST' },
-      { kind:'p',    text:'Every TAO → α buy moves α-price up · every α → TAO sell moves it down. There is no order book. Your effective price is the area under the curve between your start point and end point — strictly worse than the marginal pre-trade price for any non-zero size.' },
+      { kind:'p',    text:'Every TAO → α buy moves α-price up · every α → TAO sell moves it down. There is no order book. Your effective price is the area under the curve between your start point and end point, strictly worse than the marginal pre-trade price for any non-zero size.' },
 
       { kind:'h',    text:'PRICE-IMPACT RULE OF THUMB' },
       { kind:'note', text:'trade ≈ 1% of pool depth → ~1% price impact' },
@@ -445,7 +445,7 @@ export const FIELD_MANUAL = Object.freeze([
     timeRequired: '4-12 weeks build · 4-month immunity window after launch',
     cost: 'lock cost (dynamic, low thousands of τ in mid-2026) + dev time + early-validator/miner subsidies · post-Oct 2025 launches do not get the lock cost back',
     prerequisites: [
-      'A real, defensible task — one with a scoring rule that resists weight-copying',
+      'A real, defensible task, one with a scoring rule that resists weight-copying',
       'Senior Python · async · networking · Substrate-friendly mindset',
       'GitHub repo · Discord · documentation',
       'Coldkey funded with the lock cost + buffer',
@@ -472,7 +472,7 @@ export const FIELD_MANUAL = Object.freeze([
       { kind:'code', text:'import bittensor as bt\n\nclass MyTask(bt.Synapse):\n    # what the validator sends\n    prompt: str\n\n    # what the miner returns (filled by deserialize)\n    response: str | None = None\n\n    def deserialize(self) -> str:\n        return self.response or ""' },
 
       { kind:'h',    text:'PHASE 3 · MINER CODE' },
-      { kind:'p',    text:'Implement the forward function — given a Synapse, populate the response.' },
+      { kind:'p',    text:'Implement the forward function, given a Synapse, populate the response.' },
       { kind:'code', text:'async def forward(synapse: MyTask) -> MyTask:\n    synapse.response = my_model(synapse.prompt)\n    return synapse' },
 
       { kind:'h',    text:'PHASE 4 · VALIDATOR CODE · SCORING' },
@@ -492,10 +492,10 @@ export const FIELD_MANUAL = Object.freeze([
       { kind:'cost', text:'lock cost is dynamic · NOT refunded on dereg for post-1-Oct-2025 subnets · sign with your eyes open' },
 
       { kind:'h',    text:'PHASE 7 · SEED + ANNOUNCE' },
-      { kind:'p',    text:'Recruit 2–3 honest validators in the first 24 hours. Announce on Discord, X, Subneτ Magazine. Your immunity clock is 4 months — every block is runway.' },
+      { kind:'p',    text:'Recruit 2–3 honest validators in the first 24 hours. Announce on Discord, X, Subneτ Magazine. Your immunity clock is 4 months, every block is runway.' },
 
       { kind:'h',    text:'PHASE 8 · BUILD α-LIQUIDITY' },
-      { kind:'p',    text:'EMA-of-α-price is the dereg metric. Bid up your pool — your own treasury, partner stake, real users buying α to access the subnet\'s outputs. Without α-pool depth you will dereg the moment immunity ends.' },
+      { kind:'p',    text:'EMA-of-α-price is the dereg metric. Bid up your pool, your own treasury, partner stake, real users buying α to access the subnet\'s outputs. Without α-pool depth you will dereg the moment immunity ends.' },
 
       { kind:'h',    text:'CANONICAL SOURCES' },
       { kind:'link', text:'docs.learnbittensor.org/subnets/create-a-subnet', href:'https://docs.learnbittensor.org/subnets/create-a-subnet' },
@@ -529,7 +529,7 @@ export const FIELD_MANUAL = Object.freeze([
       { kind:'step', n:4, text:'Final scores split the subnet\'s emission slice for the next tempo.' },
 
       { kind:'h',    text:'YUMA CONSENSUS · the simple version' },
-      { kind:'p',    text:'Aggregate every validator\'s weight vector for miners using a stake-weighted median, then discount validators whose weights diverge from the consensus (kappa-clipping). The output is the consensus rank of every miner on the subnet — that\'s the share split.' },
+      { kind:'p',    text:'Aggregate every validator\'s weight vector for miners using a stake-weighted median, then discount validators whose weights diverge from the consensus (kappa-clipping). The output is the consensus rank of every miner on the subnet, that\'s the share split.' },
 
       { kind:'h',    text:'EMISSION SPLIT · DEFAULT' },
       { kind:'note', text:'41% to miners (the work)' },
@@ -538,7 +538,7 @@ export const FIELD_MANUAL = Object.freeze([
       { kind:'p',    text:'Subnet owners can reduce their share. The split is per-block, per-subnet, paid in that subnet\'s α token.' },
 
       { kind:'h',    text:'BONDS · TRUST' },
-      { kind:'p',    text:'Bonds are a validator\'s persistent vote for a miner — slow to move, prevents cartel flips. Trust is how many other stake-weighted validators agree with you; low trust → less weight in consensus → smaller dividends.' },
+      { kind:'p',    text:'Bonds are a validator\'s persistent vote for a miner, slow to move, prevents cartel flips. Trust is how many other stake-weighted validators agree with you; low trust → less weight in consensus → smaller dividends.' },
 
       { kind:'h',    text:'CHILD HOTKEYS' },
       { kind:'p',    text:'A validator can delegate weight-setting to multiple "child" hotkeys without splitting its α-stake. Useful for redundancy and team setups. See /validate step 07.' },
@@ -580,7 +580,7 @@ export const FIELD_MANUAL = Object.freeze([
       { kind:'note', text:'this is the SUBNET-level immunity · distinct from per-neuron immunity inside a subnet' },
 
       { kind:'h',    text:'THE METRIC · EMA OF α-PRICE' },
-      { kind:'p',    text:'Not stake, not emissions earned — the exponentially-weighted moving average of the subnet\'s α token price. The EMA uses a dynamic alpha that adjusts with subnet age (base ~0.0003 on mainnet), so brand-new subnets have noisier reads early on. Defending α-price = defending your subnet\'s life.' },
+      { kind:'p',    text:'Not stake, not emissions earned, the exponentially-weighted moving average of the subnet\'s α token price. The EMA uses a dynamic alpha that adjusts with subnet age (base ~0.0003 on mainnet), so brand-new subnets have noisier reads early on. Defending α-price = defending your subnet\'s life.' },
 
       { kind:'h',    text:'ON DEREG' },
       { kind:'p',    text:'The subnet ceases · miners stop earning · all alpha is converted to TAO and added to the subnet\'s TAO reserve · α-holders receive proportional distributions from that pool: (your α / total α) × pool TAO.' },
@@ -592,7 +592,7 @@ export const FIELD_MANUAL = Object.freeze([
       { kind:'note', text:'new subnet announcements · they are the trigger' },
 
       { kind:'h',    text:'HISTORY' },
-      { kind:'p',    text:'Mechanism redeployed 17 Sept 2025 with a 7-day delay before the first dereg could fire. Several borderline subnets have cycled out since. The mechanism is working as designed — and the OF community has openly discussed raising the cap to 256 in a future upgrade.' },
+      { kind:'p',    text:'Mechanism redeployed 17 Sept 2025 with a 7-day delay before the first dereg could fire. Several borderline subnets have cycled out since. The mechanism is working as designed, and the OF community has openly discussed raising the cap to 256 in a future upgrade.' },
 
       { kind:'h',    text:'CANONICAL SOURCES' },
       { kind:'link', text:'docs.learnbittensor.org/subnets/subnet-deregistration', href:'https://docs.learnbittensor.org/subnets/subnet-deregistration' },
@@ -632,7 +632,7 @@ export const FIELD_MANUAL = Object.freeze([
       { kind:'note', text:'days to estimated next halving ≈ ~1,310 (target ~Dec 2029, drifts with block production)' },
 
       { kind:'h',    text:'WHAT HAPPENS AT A HALVING' },
-      { kind:'p',    text:'All subnet emissions halve in TAO terms — the chain literally mints half as much per block. Validator dividends and miner rewards both halve in TAO (and in α, since α-emission per subnet is denominated against the global TAO emission). Subnet relative shares are unchanged. α-prices typically reprice in the days after to find a new fee equilibrium.' },
+      { kind:'p',    text:'All subnet emissions halve in TAO terms, the chain literally mints half as much per block. Validator dividends and miner rewards both halve in TAO (and in α, since α-emission per subnet is denominated against the global TAO emission). Subnet relative shares are unchanged. α-prices typically reprice in the days after to find a new fee equilibrium.' },
 
       { kind:'h',    text:'WHAT IT DOES NOT HALVE' },
       { kind:'note', text:'network compute throughput · the work continues' },
@@ -640,7 +640,7 @@ export const FIELD_MANUAL = Object.freeze([
       { kind:'note', text:'demand for the work · only the chain\'s payment for it' },
 
       { kind:'h',    text:'WHY THIS MATTERS' },
-      { kind:'p',    text:'A halving is a 50% supply-side shock with zero corresponding demand-side change. Whether it pushes price up or breaks marginal miners depends on what happens to demand — and on dTAO, demand is per-subnet, not network-wide. Some α-pools strengthen through halvings, others bleed.' },
+      { kind:'p',    text:'A halving is a 50% supply-side shock with zero corresponding demand-side change. Whether it pushes price up or breaks marginal miners depends on what happens to demand, and on dTAO, demand is per-subnet, not network-wide. Some α-pools strengthen through halvings, others bleed.' },
 
       { kind:'h',    text:'CANONICAL SOURCES' },
       { kind:'link', text:'bittensor-halving.com  (live tracker)', href:'https://www.bittensor-halving.com/' },
@@ -675,7 +675,7 @@ export const FIELD_MANUAL = Object.freeze([
       { kind:'note', text:'Ledger Nano X (Polkadot app) → Talisman / Subwallet / Crucible / Nova → Bittensor network' },
       { kind:'note', text:'coldkey private key never touches an internet-connected machine' },
       { kind:'note', text:'sign every transfer / stake on the device screen' },
-      { kind:'p',    text:'What Ledger CAN do: hold the coldkey, sign transfers, sign stake-add / stake-remove. What it CANNOT do (yet): hotkey management, subnet creation, on-chain governance votes — those still need btcli with a software coldkey or a proxy.' },
+      { kind:'p',    text:'What Ledger CAN do: hold the coldkey, sign transfers, sign stake-add / stake-remove. What it CANNOT do (yet): hotkey management, subnet creation, on-chain governance votes, those still need btcli with a software coldkey or a proxy.' },
 
       { kind:'h',    text:'PROXY WALLETS · THE NEXT-BEST SETUP' },
       { kind:'p',    text:'If you cannot use a hardware wallet for everything, give a proxy wallet narrowly-scoped, time-delayed permissions to act on behalf of your coldkey. The proxy lives on the operational box; the coldkey lives offline.' },
@@ -721,7 +721,7 @@ export const FIELD_MANUAL = Object.freeze([
       'Comfort with weighted-median consensus and basic game theory',
       'Optional: read /dtao first to see how the architecture has evolved',
     ],
-    whatYouGet: 'The original thesis behind Bittensor — a peer-to-peer intelligence market with a Byzantine-tolerant scoring algorithm — and the framing the protocol still operates inside.',
+    whatYouGet: 'The original thesis behind Bittensor, a peer-to-peer intelligence market with a Byzantine-tolerant scoring algorithm, and the framing the protocol still operates inside.',
     confidence: 'high',
     researched: '2026-05-15',
     sources: [
@@ -731,20 +731,20 @@ export const FIELD_MANUAL = Object.freeze([
     ],
     body: [
       { kind:'h',    text:'THE PAPER' },
-      { kind:'p',    text:'"BitTensor: A Peer-to-Peer Intelligence Market" — Yuma Rao, Jacob Steeves, Ala Shaabana, Daniel Attevelt, Matthew McAteer. Published on arXiv (2003.03917) in March 2020, revised March 2021. Yuma is the same Yuma the consensus algorithm is named for. The architecture has evolved (subnets, dTAO) but the thesis is unchanged.' },
+      { kind:'p',    text:'"BitTensor: A Peer-to-Peer Intelligence Market", Yuma Rao, Jacob Steeves, Ala Shaabana, Daniel Attevelt, Matthew McAteer. Published on arXiv (2003.03917) in March 2020, revised March 2021. Yuma is the same Yuma the consensus algorithm is named for. The architecture has evolved (subnets, dTAO) but the thesis is unchanged.' },
 
       { kind:'h',    text:'CORE THESIS' },
-      { kind:'p',    text:'AI is centralizing: a few labs with massive compute. The proposal: a token-incentivized market where anyone can run a model, anyone can validate, and the chain rewards whichever model produces the most useful intelligence — measured by peer scoring, not by who owns the inference.' },
+      { kind:'p',    text:'AI is centralizing: a few labs with massive compute. The proposal: a token-incentivized market where anyone can run a model, anyone can validate, and the chain rewards whichever model produces the most useful intelligence, measured by peer scoring, not by who owns the inference.' },
 
       { kind:'h',    text:'KEY CONTRIBUTIONS' },
-      { kind:'note', text:'YUMA CONSENSUS · a Byzantine-fault-tolerant scoring algorithm — clip the dissenters, reward the cluster' },
+      { kind:'note', text:'YUMA CONSENSUS · a Byzantine-fault-tolerant scoring algorithm, clip the dissenters, reward the cluster' },
       { kind:'note', text:'STAKE-WEIGHTED SCORING · validator vote scales with delegated stake, so reputation backs voice' },
       { kind:'note', text:'MINER-VALIDATOR INTERPLAY · miners produce, validators score, the chain settles in the network token' },
       { kind:'note', text:'SUBNETS · each subnet defines its own task and scoring rule, like specialized markets (post-paper, but in the spirit)' },
       { kind:'note', text:'TOKENOMICS · Bitcoin-shaped emission · halving · 21M cap' },
 
       { kind:'h',    text:'THE INTELLIGENCE COMMODITY' },
-      { kind:'p',    text:'The radical claim: machine intelligence can be priced like any other commodity if you can score it. Bittensor\'s answer to "how do you score?" is recursive — validators score miners, the network scores validators on their scoring quality. Honesty pays because dishonesty is detectable.' },
+      { kind:'p',    text:'The radical claim: machine intelligence can be priced like any other commodity if you can score it. Bittensor\'s answer to "how do you score?" is recursive, validators score miners, the network scores validators on their scoring quality. Honesty pays because dishonesty is detectable.' },
 
       { kind:'h',    text:'V2 · DTAO (live 13 Feb 2025)' },
       { kind:'p',    text:'The dTAO upgrade split monolithic TAO into per-subnet alpha tokens and replaced root-weight voting with bonding-curve markets. Now markets, not validator votes, decide which subnets get emissions. See /dtao for the mechanics.' },
@@ -753,7 +753,7 @@ export const FIELD_MANUAL = Object.freeze([
       { kind:'link', text:'arxiv.org/abs/2003.03917  (canonical)', href:'https://arxiv.org/abs/2003.03917' },
       { kind:'link', text:'bittensor.com/whitepaper', href:'https://bittensor.com/whitepaper' },
       { kind:'link', text:'github.com/opentensor/subtensor  (the runtime)', href:'https://github.com/opentensor/subtensor' },
-      { kind:'note', text:'the chain logic lives in pallets/subtensor — the canonical source for what the chain actually does' },
+      { kind:'note', text:'the chain logic lives in pallets/subtensor, the canonical source for what the chain actually does' },
     ] },
 
   /* ===================================================================== */
@@ -765,7 +765,7 @@ export const FIELD_MANUAL = Object.freeze([
     prerequisites: [
       'Read /dtao and /dereg first for context on what these upgrades are touching',
     ],
-    whatYouGet: 'A sourced snapshot of the actually-shipped 2026 protocol changes and ecosystem milestones — not speculation, not internal politics.',
+    whatYouGet: 'A sourced snapshot of the actually-shipped 2026 protocol changes and ecosystem milestones, not speculation, not internal politics.',
     confidence: 'medium',
     researched: '2026-05-15',
     sources: [
@@ -795,7 +795,7 @@ export const FIELD_MANUAL = Object.freeze([
       { kind:'note', text:'source · docs.learnbittensor.org/learn/announcements' },
 
       { kind:'h',    text:'MAY 2026 · TAONSQUARE · LIVE (8 May)' },
-      { kind:'p',    text:'OF launched TaonSquare — a directory aggregating AI tools and apps built on Bittensor subnets. End-user surface for what the network actually outputs, with capability and pricing detail.' },
+      { kind:'p',    text:'OF launched TaonSquare, a directory aggregating AI tools and apps built on Bittensor subnets. End-user surface for what the network actually outputs, with capability and pricing detail.' },
       { kind:'note', text:'source · taonsquare.com · KuCoin / OF announcements' },
 
       { kind:'h',    text:'MAY 2026 · GRAYSCALE GTAO REOPENS · 9 MAY' },
@@ -804,7 +804,7 @@ export const FIELD_MANUAL = Object.freeze([
 
       { kind:'h',    text:'COMMUNITY DISCUSSION · 128 → 256 SUBNET CAP' },
       { kind:'p',    text:'Raising the network subnet cap from 128 to 256 is an active community discussion theme in the OF/community 2026 vision but has NOT been formally scheduled to mainnet as of 15 May 2026. Treat as direction, not commitment.' },
-      { kind:'note', text:'source · community / abittensorjourney / commentary — not OF runtime announcement' },
+      { kind:'note', text:'source · community / abittensorjourney / commentary, not OF runtime announcement' },
       { kind:'warn', text:'this item is reportedly under discussion · do not bet capital on a date' },
 
       { kind:'h',    text:'IF YOU WANT THE SOURCE FEED' },
@@ -818,13 +818,13 @@ export const FIELD_MANUAL = Object.freeze([
   { id: 'play', label: '/play ⚡', title: 'TAO Runner · play the chain',
     difficulty: 'easy', timeRequired: '60 s', cost: 'free', confidence: 'high',
     researched: '2026-05-15',
-    blurb: 'A real game. You\'re a miner running across the chain. Tap to jump — catch α tokens, dodge the deregistration sweeps. Speed ramps with every block. First arcade game built for Bittensor, anywhere.',
+    blurb: 'A real game. You\'re a miner running across the chain. Tap to jump, catch α tokens, dodge the deregistration sweeps. Speed ramps with every block. First arcade game built for Bittensor, anywhere.',
     body: [
-      /* Rendered as an interactive canvas widget by Console.js — body
+      /* Rendered as an interactive canvas widget by Console.js, body
          is a placeholder; the renderer dispatches on topic.id === 'play'. */
     ],
     prerequisites: ['thumb'],
-    whatYouGet: 'A reflex-game intuition for what a miner actually does — collect rewards, survive churn, push through halvings. Your high score persists locally.',
+    whatYouGet: 'A reflex-game intuition for what a miner actually does, collect rewards, survive churn, push through halvings. Your high score persists locally.',
     sources: [],
   },
 
@@ -895,7 +895,7 @@ export const FIELD_MANUAL = Object.freeze([
       { kind:'link', text:'messari.io/research  ·  institutional reports', href:'https://messari.io/research' },
     ],
     prerequisites: [],
-    whatYouGet: 'A single page with every authoritative URL you need to set up, mine, validate, trade, and follow Bittensor — keyed to May 2026, no dead links.',
+    whatYouGet: 'A single page with every authoritative URL you need to set up, mine, validate, trade, and follow Bittensor, keyed to May 2026, no dead links.',
     sources: [],
   },
 

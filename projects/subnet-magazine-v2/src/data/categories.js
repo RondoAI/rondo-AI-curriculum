@@ -1,7 +1,7 @@
 /* =================================================================
-   SUBNET MAGAZINE — CATEGORY COLOR SYSTEM
+   SUBNET MAGAZINE, CATEGORY COLOR SYSTEM
    -----------------------------------------------------------------
-   Every subnet on Bittensor belongs to a category — text/LLM,
+   Every subnet on Bittensor belongs to a category, text/LLM,
    vision, training, etc. The palette below is intentional: the
    whole brand sits inside a red/black wave, so each category is a
    distinct point on the red spectrum (warm-red → magenta-red → wine

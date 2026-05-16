@@ -1,22 +1,22 @@
 /* =================================================================
-   SUBNET MAGAZINE — DATA LAYER (v4 · TMC + taostats, REAL data)
+   SUBNET MAGAZINE, DATA LAYER (v4 · TMC + taostats, REAL data)
    -----------------------------------------------------------------
    Pulls live Bittensor data from two real sources:
 
      1. Tao Market Cap public API (api.taomarketcap.com/public/v1,
-        no auth, 10 req/min per IP) — market, subnet table, chain
+        no auth, 10 req/min per IP), market, subnet table, chain
         analytics. TMC sends no CORS headers, so each request tries
         a direct fetch and, on failure, retries through a public
         CORS proxy (configurable via window.__SUBNET_CONFIG__
         .corsProxy; default codetabs).
 
-     2. taostats.io API (api.taostats.io/api) — used ONLY when a key
+     2. taostats.io API (api.taostats.io/api), used ONLY when a key
         is present in window.__SUBNET_CONFIG__.taostatsKey. taostats
         sends `access-control-allow-origin: *`, so it's a clean
         direct fetch, no proxy. Its unique value here is the live
         validator leaderboard, which TMC does not expose.
 
-   The key lives in config.js (gitignored) — never committed. With
+   The key lives in config.js (gitignored), never committed. With
    no key the site runs fully on the keyless TMC API; the taostats
    feed simply stays empty.
 
@@ -34,7 +34,7 @@
                       nominators, nominatorsChg24h, stake,
                       systemStake, stakeChg24h, dominance, take,
                       apr, apr7d, apr30d, subnets, permits,
-                      pendingEmission }>   (taostats — key required)
+                      pendingEmission }>   (taostats, key required)
      'tao:block'    { height, source }   (derived from market data)
 
    Every channel falls back gracefully: a failed refresh keeps the
@@ -49,7 +49,7 @@ const CONFIG = Object.freeze({
   /* codetabs is keyless and CORS-open; allorigins / corsproxy are
      alternates the user can swap in via config.js if it rate-limits. */
   proxy: USER_CFG.corsProxy || 'https://api.codetabs.com/v1/proxy/?quest=',
-  /* taostats — optional, key-gated, CORS-clean (no proxy needed). */
+  /* taostats, optional, key-gated, CORS-clean (no proxy needed). */
   taostatsBase: 'https://api.taostats.io/api',
   taostatsKey:  USER_CFG.taostatsKey || null,
   refresh: {
@@ -131,7 +131,7 @@ async function tmc(path){
 }
 
 /**
- * Fetch a taostats endpoint. Key-gated, CORS-clean — a single
+ * Fetch a taostats endpoint. Key-gated, CORS-clean, a single
  * direct fetch with the Authorization header, no proxy.
  * @param {string} path  e.g. '/validator/latest/v1?limit=100'
  */
@@ -182,7 +182,7 @@ async function refreshMarket(){
     if (d.block_number){
       emit('tao:block', { height: d.block_number, source: 'taomarketcap' });
     }
-    /* compat: existing views subscribe to 'tao:price' — keep them
+    /* compat: existing views subscribe to 'tao:price', keep them
        working with real data and no edits. */
     emit('tao:price', {
       price:    q.price ?? d.current_price ?? null,
@@ -253,7 +253,7 @@ async function refreshChain(){
 
 /**
  * Live validator leaderboard from taostats. Only runs when a key is
- * configured — TMC has no equivalent feed. Stake amounts arrive in
+ * configured, TMC has no equivalent feed. Stake amounts arrive in
  * RAO and as strings; normalized here to TAO numbers.
  */
 async function refreshValidators(){
@@ -296,7 +296,7 @@ export function start(){
   timers.push(setInterval(refreshMarket,  CONFIG.refresh['tao:market']));
   timers.push(setInterval(refreshSubnets, CONFIG.refresh['tao:subnets']));
   timers.push(setInterval(refreshChain,   CONFIG.refresh['tao:chain']));
-  /* taostats validator feed — only when a key is configured. */
+  /* taostats validator feed, only when a key is configured. */
   if (CONFIG.taostatsKey){
     refreshValidators();
     timers.push(setInterval(refreshValidators, CONFIG.refresh['tao:validators']));

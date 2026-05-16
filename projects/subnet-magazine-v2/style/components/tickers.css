@@ -1,5 +1,5 @@
 /* =================================================================
-   SUBNET MAGAZINE — TICKER BAR
+   SUBNET MAGAZINE, TICKER BAR
    -----------------------------------------------------------------
    The two marquee tapes pinned to the very top of every page,
    above the status strip. Full-bleed, red-on-black, tokens only.
@@ -56,8 +56,7 @@
 }
 .ticker__tag--alt{ color: var(--c-ink-2); }
 
-/* the Bittensor tape's tag chip is set as the brand wordmark itself —
-   lowercase "biττensor" in the wordmark face. The τ characters live
+/* the Bittensor tape's tag chip is set as the brand wordmark itself,    lowercase "biττensor" in the wordmark face. The τ characters live
    at the same x-height as the surrounding b/i/e/n/s/o/r so the chip
    reads cleanly instead of mixing huge caps with tiny lowercase taus. */
 .ticker__tag--brand{ padding-right: var(--s-3); }
@@ -83,7 +82,7 @@
   gap: 0;
   width: max-content;
   padding: 5px 0;
-  /* a slow, readable crawl — not a blur */
+  /* a slow, readable crawl, not a blur */
   animation: ticker-marquee 320s linear infinite;
 }
 /* second tape: same direction (right-to-left, standard ticker
@@ -104,9 +103,9 @@
   padding: var(--s-1) var(--s-2);
 }
 
-/* ---------- chips — LED stock-board hierarchy ----------
+/* ---------- chips, LED stock-board hierarchy ----------
    A prominent mark, a big bold ticker symbol as the anchor, then
-   price and a coloured change — the way a brokerage tape reads. */
+   price and a coloured change, the way a brokerage tape reads. */
 .tick{
   display: inline-flex;
   align-items: center;
@@ -128,7 +127,7 @@
 }
 .tick__mark{ width: 16px; height: 16px; line-height: 0; }
 .tick__mark svg{ display: block; width: 100%; height: 100%; }
-/* the ticker symbol — the visual anchor, bold but tightened */
+/* the ticker symbol, the visual anchor, bold but tightened */
 .tick__sym{
   font-family: var(--f-mono);
   font-size: var(--t-sm);
@@ -154,11 +153,11 @@
   font-size: var(--t-xs);
   font-weight: 700;
   letter-spacing: var(--ls-data);
-  /* a slow pulse on the change glyph — the tape feels live, not dead */
+  /* a slow pulse on the change glyph, the tape feels live, not dead */
   animation: tickGlyphPulse 2.6s ease-in-out infinite;
 }
 
-/* per-chip mini sparkline canvas — 38 × 14 px slot between val and
+/* per-chip mini sparkline canvas, 38 × 14 px slot between val and
    chg. Sparkline auto-colours green / red by net direction. */
 .tick__spark{
   display: inline-block;
@@ -184,7 +183,7 @@
   line-height: 1.3;
 }
 
-/* Central Desk variant — slightly different ground so the two
+/* Central Desk variant, slightly different ground so the two
    tapes feel visually distinct without changing the chip shape */
 .tick--cex{ background: rgba(0, 0, 0, .12); }
 .tick--cex:hover{ background: rgba(255,30,60,.10); }

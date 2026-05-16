@@ -25,7 +25,7 @@ export function mountStatusStrip(root, dataLayer = null){
         <span class="statusbar__live"><span class="live-dot"></span>LIVE</span>
         <span class="statusbar__field" title="Chain block height · finalised">
           <span class="statusbar__label">BLK</span>
-          <span class="statusbar__value mono" data-bind="block">—</span>
+          <span class="statusbar__value mono" data-bind="block">, </span>
         </span>
         <span class="statusbar__field" title="Network emission per day">
           <span class="statusbar__label">EMIT</span>
@@ -41,13 +41,13 @@ export function mountStatusStrip(root, dataLayer = null){
 
         <span class="statusbar__quote" title="τ/USD · live from CoinGecko via TMC">
           <span class="pair"><span class="tao-mark">τ</span>/USD</span>
-          <span class="price" data-bind="tao-price">—</span>
+          <span class="price" data-bind="tao-price">, </span>
           <span class="statusbar__spark"><canvas data-spark="tao"></canvas></span>
-          <span class="delta" data-bind="tao-delta">—</span>
+          <span class="delta" data-bind="tao-delta">, </span>
         </span>
         <span class="statusbar__field" title="TAO market cap · live from TMC">
           <span class="statusbar__label">MCAP</span>
-          <span class="statusbar__value mono" data-bind="mcap">—</span>
+          <span class="statusbar__value mono" data-bind="mcap">, </span>
         </span>
         <span class="statusbar__quote" title="Yuma Composite Index">
           <span class="pair">YCX</span>
@@ -66,7 +66,7 @@ export function mountStatusStrip(root, dataLayer = null){
     ? new Sparkline(sparkCv, { series: seedSeries('statusbar-tao', 14, 28) })
     : null;
 
-  // Block height — from data layer or synthetic
+  // Block height, from data layer or synthetic
   const blockEl = bind('block');
   let block = 8_186_104;
   const renderBlock = (h) => setLive(blockEl, (h ?? block).toLocaleString('en-US'));
@@ -80,13 +80,13 @@ export function mountStatusStrip(root, dataLayer = null){
       }
     });
   }
-  // simulate block tick (12s) — overwritten the moment live data arrives
+  // simulate block tick (12s), overwritten the moment live data arrives
   const blockTimer = setInterval(() => {
     block += 1;
     renderBlock(block);
   }, 12_000);
 
-  // TAO price — live from CoinGecko via data layer
+  // TAO price, live from CoinGecko via data layer
   const priceEl = bind('tao-price');
   const deltaEl = bind('tao-delta');
   let priceUnsub = () => {};
@@ -105,7 +105,7 @@ export function mountStatusStrip(root, dataLayer = null){
     if (deltaEl){ deltaEl.textContent = '+3.08%'; deltaEl.classList.add('up'); }
   }
 
-  /* TAO market — mcap, 24h vol, staked%, all live from TMC. The
+  /* TAO market, mcap, 24h vol, staked%, all live from TMC. The
      hardcoded fallbacks render until the first feed lands. */
   const mcapEl     = bind('mcap');
   const volEl      = bind('vol');

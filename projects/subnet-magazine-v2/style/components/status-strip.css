@@ -1,10 +1,10 @@
 /* =================================================================
-   STATUS STRIP — the 2026 Pulse Bar
+   STATUS STRIP, the 2026 Pulse Bar
    -----------------------------------------------------------------
    A single row of pill-shaped stat cards on a glassy translucent
    surface. Every field is a chip with a soft red-tinted ground and
    a hairline ring; the τ/USD quote is the hero chip with the
-   sparkline riding inline. No more `│` separators — chips breathe.
+   sparkline riding inline. No more `│` separators, chips breathe.
    ================================================================= */
 
 .statusbar{
@@ -27,10 +27,10 @@
   display: flex; flex-wrap: wrap; align-items: center;
   gap: 6px 6px;
 }
-/* the `│` separators in the HTML — hidden in pill mode */
+/* the `│` separators in the HTML, hidden in pill mode */
 .statusbar__sep{ display: none; }
 
-/* LIVE pill — green ring, pulsing dot */
+/* LIVE pill, green ring, pulsing dot */
 .statusbar__live{
   display: inline-flex; align-items: center; gap: 6px;
   padding: 3px 11px 3px 9px;
@@ -58,7 +58,7 @@
   50%      { opacity: .45; transform: scale(.78); }
 }
 
-/* every field is its own pill — no shared borders, no separators */
+/* every field is its own pill, no shared borders, no separators */
 .statusbar__field,
 .statusbar__quote{
   display: inline-flex; align-items: center; gap: 6px;
@@ -95,7 +95,7 @@
 
 .statusbar__push{ margin-left: auto; }
 
-/* τ/USD is the hero quote pill — bigger, more present */
+/* τ/USD is the hero quote pill, bigger, more present */
 .statusbar__quote{
   gap: 8px;
   padding: 3px 12px;

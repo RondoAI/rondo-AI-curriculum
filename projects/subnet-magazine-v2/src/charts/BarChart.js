@@ -1,5 +1,5 @@
 /* =================================================================
-   SUBNET MAGAZINE — BAR CHART
+   SUBNET MAGAZINE, BAR CHART
    -----------------------------------------------------------------
    A clear, labeled bar chart. Two orientations:
      - 'horizontal'   labels on the left, bars to the right

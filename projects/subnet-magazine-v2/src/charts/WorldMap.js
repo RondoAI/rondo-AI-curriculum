@@ -1,9 +1,9 @@
 /* =================================================================
-   SUBNET MAGAZINE — WORLD MAP CHART (v3, clean data-viz)
+   SUBNET MAGAZINE, WORLD MAP CHART (v3, clean data-viz)
    -----------------------------------------------------------------
    Design goal: clean Bloomberg-grade data visualization. Continents
    read instantly. Hubs are unambiguous. Labels are always legible.
-   Motion is restrained — only the consensus head and packets move,
+   Motion is restrained, only the consensus head and packets move,
    and they move slowly enough to read.
 
    Pipeline (per layout):
@@ -11,7 +11,7 @@
         list; emit a dot for every land sample, with coastal cells
         promoted to brighter dots.
      2. Project all hubs.
-     3. Build packet pool — one per hub, riding hub → consensus head.
+     3. Build packet pool, one per hub, riding hub → consensus head.
 
    Pipeline (per frame):
      1. Light grid + axis labels.
@@ -114,7 +114,7 @@ function pointInPoly(x, y, poly){
   return inside;
 }
 
-/* Anti-collision label slots — try one side, fall back to the other. */
+/* Anti-collision label slots, try one side, fall back to the other. */
 function placeLabel(ctx, hub, w, h, occupied){
   const txt = `${hub.code}  τ${hub.stake.toFixed(1)}M`;
   const tw = ctx.measureText(txt).width;
@@ -137,7 +137,7 @@ function placeLabel(ctx, hub, w, h, occupied){
     occupied.push({ x: c.lx, y: c.ly, w: bw, h: bh });
     return { ...c, bw, bh, txt };
   }
-  return null;  // no clean slot — skip this label
+  return null;  // no clean slot, skip this label
 }
 
 /* ---------- Class ---------- */
@@ -257,7 +257,7 @@ export class WorldMap extends Chart {
     }
     ctx.stroke();
 
-    /* equator + prime meridian — slightly bolder */
+    /* equator + prime meridian, slightly bolder */
     ctx.strokeStyle = C_GRID_T;
     ctx.lineWidth = 1;
     const [, yEq] = this._project(0, 0);
@@ -291,12 +291,12 @@ export class WorldMap extends Chart {
       ctx.beginPath(); ctx.arc(d.x, d.y, d.r, 0, Math.PI * 2); ctx.fill();
     }
 
-    /* ===== consensus head — slow, single, no sweep band ===== */
+    /* ===== consensus head, slow, single, no sweep band ===== */
     const consensusAngle = (t * 0.05) % (Math.PI * 2);
     const consensusLng = (consensusAngle / Math.PI * 180) - 180;
     const [chX, chY] = this._project(0, consensusLng);
 
-    /* ===== arcs from each hub to consensus head — restrained ===== */
+    /* ===== arcs from each hub to consensus head, restrained ===== */
     for (const hub of this.hubPts){
       ctx.strokeStyle = 'rgba(255,30,60,.10)';
       ctx.lineWidth = 0.6;
@@ -391,7 +391,7 @@ export class WorldMap extends Chart {
       ctx.fillText(txt, bx + padX, by - 4);
     }
 
-    /* ===== chrome — minimal ===== */
+    /* ===== chrome, minimal ===== */
     ctx.font = '600 9.5px JetBrains Mono, monospace';
     ctx.fillStyle = 'rgba(255,30,60,.55)';
     ctx.textAlign = 'left'; ctx.textBaseline = 'top';

@@ -1,9 +1,9 @@
 /* =================================================================
-   SUBNET MAGAZINE — GENERATED MARKS
+   SUBNET MAGAZINE, GENERATED MARKS
    -----------------------------------------------------------------
    Deterministic, dependency-free identity marks. Every subnet and
    every centralized AI company gets a unique geometric monogram
-   derived purely from its name — no image assets, no network calls,
+   derived purely from its name, no image assets, no network calls,
    stable across reloads.
 
    Two products:
@@ -16,7 +16,7 @@
                           `drift` (the entity's real 24h change) so
                           a viewer scanning a board still reads the
                           trend correctly. It is a synthesized
-                          shape, NOT real history — wire a real
+                          shape, NOT real history, wire a real
                           line-chart endpoint in to replace it.
 
    Everything here is a pure function. No globals, no side effects.
@@ -34,7 +34,7 @@ function hash(str){
   return h >>> 0;
 }
 
-/** Mulberry32 — a tiny, fast, seedable PRNG. Returns a () => [0,1). */
+/** Mulberry32, a tiny, fast, seedable PRNG. Returns a () => [0,1). */
 function rng(seed){
   let a = seed >>> 0;
   return function(){
@@ -55,7 +55,7 @@ function rng(seed){
  */
 export function initials(name){
   const clean = String(name || '')
-    .replace(/^SN\d+\s*[·\-—]?\s*/i, '')   /* drop a leading "SN12 · " */
+    .replace(/^SN\d+\s*[·\-, ]?\s*/i, '')   /* drop a leading "SN12 · " */
     .replace(/[^A-Za-z0-9 ]/g, ' ')
     .trim();
   if (!clean) return '?';
@@ -76,8 +76,8 @@ export function initials(name){
  *
  * @param {string} name
  * @param {{ size?: number, label?: string }} [opts]
- *        size  — px square (default 40)
- *        label — override the auto initials
+ *        size, px square (default 40)
+ *        label, override the auto initials
  * @returns {string} an <svg>…</svg> string, safe to inject
  */
 export function mark(name, opts = {}){
@@ -97,7 +97,7 @@ export function mark(name, opts = {}){
     pts.push([cx + Math.cos(a) * radius, cy + Math.sin(a) * radius]);
   }
 
-  /* complete-graph chords — faint */
+  /* complete-graph chords, faint */
   let chords = '';
   for (let i = 0; i < nodes; i++){
     for (let j = i + 1; j < nodes; j++){
@@ -106,7 +106,7 @@ export function mark(name, opts = {}){
               + `stroke="#FF1E3C" stroke-opacity="0.18" stroke-width="1"/>`;
     }
   }
-  /* nodes — small red dots */
+  /* nodes, small red dots */
   let dots = '';
   for (const [x, y] of pts){
     const r = 1.6 + rand() * 1.8;
@@ -128,7 +128,7 @@ export function mark(name, opts = {}){
        + `</svg>`;
 }
 
-/** A data: URI of the mark — drop straight into an <img src>. */
+/** A data: URI of the mark, drop straight into an <img src>. */
 export function markDataUri(name, opts){
   return 'data:image/svg+xml,' + encodeURIComponent(mark(name, opts));
 }
@@ -141,7 +141,7 @@ export function markDataUri(name, opts){
  * NOTE: synthesized shape, not real history.
  *
  * @param {string} name
- * @param {number} [drift=0]  the real 24h % change — sets end slope
+ * @param {number} [drift=0]  the real 24h % change, sets end slope
  * @param {number} [n=24]     number of points
  * @returns {number[]}
  */

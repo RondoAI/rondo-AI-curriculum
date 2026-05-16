@@ -1,8 +1,7 @@
 /* =================================================================
-   SUBNET MAGAZINE — BITTENSOR NEWSWIRE
+   SUBNET MAGAZINE, BITTENSOR NEWSWIRE
    -----------------------------------------------------------------
-   Source-attributed announcements from the Bittensor ecosystem —
-   Opentensor Foundation, subnet teams (Chutes, Targon, Macrocosmos,
+   Source-attributed announcements from the Bittensor ecosystem,    Opentensor Foundation, subnet teams (Chutes, Targon, Macrocosmos,
    Kaito, Taoshi, Nous, Cortex.t…), validators and research desks.
    Rendered as chips on the Bittensor ticker tape alongside the
    live subnet price chips.
@@ -22,7 +21,7 @@
 /** @type {readonly BittensorNewsItem[]} */
 export const BITTENSOR_NEWS = Object.freeze([
   { source: 'Opentensor Foundation', sourceId: 'opentensor',
-    headline: 'dTAO interest rates recalibrate after the second halving — subnet emissions reshape',
+    headline: 'dTAO interest rates recalibrate after the second halving, subnet emissions reshape',
     date: '2026-05-10', impact: 'up' },
 
   { source: 'Chutes',                sourceId: 'chutes',
@@ -30,7 +29,7 @@ export const BITTENSOR_NEWS = Object.freeze([
     date: '2026-05-08', impact: 'up' },
 
   { source: 'Targon',                sourceId: 'targon',
-    headline: 'SN4 ships speculative decoding to every miner endpoint — TTFT down 38%',
+    headline: 'SN4 ships speculative decoding to every miner endpoint, TTFT down 38%',
     date: '2026-05-05', impact: 'up' },
 
   { source: 'Macrocosmos',           sourceId: 'macrocosmos',
@@ -38,11 +37,11 @@ export const BITTENSOR_NEWS = Object.freeze([
     date: '2026-05-02', impact: 'up' },
 
   { source: 'Rayon Labs',            sourceId: 'rayon',
-    headline: 'Rayon Labs closes $24M Series A — leads on SN56 Gradients and SN64 Chutes',
+    headline: 'Rayon Labs closes $24M Series A, leads on SN56 Gradients and SN64 Chutes',
     date: '2026-04-29', impact: 'up' },
 
   { source: 'Datura',                sourceId: 'datura',
-    headline: 'Celium API standardizes — one client, every GPU cloud',
+    headline: 'Celium API standardizes, one client, every GPU cloud',
     date: '2026-04-27', impact: 'up' },
 
   { source: 'OpenKaito',             sourceId: 'kaito',
@@ -54,15 +53,15 @@ export const BITTENSOR_NEWS = Object.freeze([
     date: '2026-04-22', impact: 'up' },
 
   { source: 'Nous Research',         sourceId: 'nous',
-    headline: 'SN6 ships Hermes-4 70B — MIT-licensed weights, day-zero on Chutes',
+    headline: 'SN6 ships Hermes-4 70B, MIT-licensed weights, day-zero on Chutes',
     date: '2026-04-19', impact: 'up' },
 
   { source: 'Score',                 sourceId: 'score',
-    headline: 'Score launches a subnet-performance scoring desk — public weekly reports',
+    headline: 'Score launches a subnet-performance scoring desk, public weekly reports',
     date: '2026-04-17', impact: 'up' },
 
   { source: 'Cortex.t',              sourceId: 'cortex',
-    headline: 'SN18 SDK 4.0 — typed Python client, OpenAI-compatible endpoints',
+    headline: 'SN18 SDK 4.0, typed Python client, OpenAI-compatible endpoints',
     date: '2026-04-15', impact: 'up' },
 
   { source: 'Polychain Capital',     sourceId: 'polychain',
@@ -70,7 +69,7 @@ export const BITTENSOR_NEWS = Object.freeze([
     date: '2026-04-12', impact: 'flat' },
 
   { source: 'Yuma Group',            sourceId: 'yuma',
-    headline: '100MW datacenter opens in Quebec — all-renewable, validator-priced',
+    headline: '100MW datacenter opens in Quebec, all-renewable, validator-priced',
     date: '2026-04-10', impact: 'up' },
 
   { source: 'Foundry',               sourceId: 'foundry',

@@ -33,7 +33,7 @@
       "name": "Targon",
       "category": "Compute & Infrastructure",
       "subcategory": "Confidential Cloud Compute",
-      "tagline": "Confidential cloud compute — GPU and CPU rentals with hardware-level security",
+      "tagline": "Confidential cloud compute, GPU and CPU rentals with hardware-level security",
       "status": "live",
       "links": {
         "website": "https://targon.com",
@@ -49,9 +49,9 @@
       "researched_at": "2026-05-06T17:00:00Z",
       "confidence": "high",
       "data_gaps": [
-        "Exact serverless per-request/per-token pricing not published — only 'pay for what you use' with idle time free",
-        "1000+ GPUs claim — not independently verified",
-        "99% uptime claim — no public status page found"
+        "Exact serverless per-request/per-token pricing not published, only 'pay for what you use' with idle time free",
+        "1000+ GPUs claim, not independently verified",
+        "99% uptime claim, no public status page found"
       ]
     },
     "sn05_hone": {
@@ -59,7 +59,7 @@
       "name": "Hone",
       "category": "Decentralized Training",
       "subcategory": "Peer-to-Peer LLM Training",
-      "tagline": "Distributed AI model training — train together, build what's next",
+      "tagline": "Distributed AI model training, train together, build what's next",
       "status": "live",
       "links": {
         "website": "https://www.hone.training/",
@@ -101,8 +101,8 @@
       "researched_at": "2026-05-06T17:00:00Z",
       "confidence": "medium",
       "data_gaps": [
-        "Vanta Trading evaluation fee and funding amounts — not publicly listed",
-        "Hyperscaled pricing — not publicly listed",
+        "Vanta Trading evaluation fee and funding amounts, not publicly listed",
+        "Hyperscaled pricing, not publicly listed",
         "API subscription pricing at request.taoshi.io (currently 404)"
       ]
     },
@@ -298,7 +298,7 @@
       "researched_at": "2026-04-29T15:50:00.000Z",
       "confidence": "high",
       "data_gaps": [
-        "price_tao estimated from SubnetRadar USD price ($5.96) / TAO price ($251) — approximate",
+        "price_tao estimated from SubnetRadar USD price ($5.96) / TAO price ($251), approximate",
         "tao_locked and alpha_in_pool not fetched from bittensor.ai/subnets/107"
       ]
     },
@@ -331,7 +331,7 @@
       "name": "Green Compute",
       "category": "Compute & Infrastructure",
       "subcategory": "Green GPU Compute",
-      "tagline": "Clean AI inference — GPU compute powered by renewable energy",
+      "tagline": "Clean AI inference, GPU compute powered by renewable energy",
       "status": "live",
       "links": {
         "website": "https://www.green-compute.com",
@@ -353,7 +353,7 @@
       "name": "Oneoneone",
       "category": "Data Pipeline",
       "subcategory": "User-Generated Content",
-      "tagline": "Authentic human content datasets — Google Maps reviews and X posts",
+      "tagline": "Authentic human content datasets, Google Maps reviews and X posts",
       "status": "live",
       "links": {
         "website": "https://oneoneone.io",
@@ -430,7 +430,7 @@
       "name": "HODL",
       "category": "Finance",
       "subcategory": "Crypto ETF Index",
-      "tagline": "Crypto ETF indices — curated baskets of tokens",
+      "tagline": "Crypto ETF indices, curated baskets of tokens",
       "status": "live",
       "links": {
         "website": "https://trustedstake.gitbook.io/trustedstake/",
@@ -455,7 +455,7 @@
       "name": "Satori",
       "category": "Model & Agent Development",
       "subcategory": "Task Validation",
-      "tagline": "AI task validation (controversial — use with caution)",
+      "tagline": "AI task validation (controversial, use with caution)",
       "status": "beta",
       "links": {
         "website": null,
@@ -496,7 +496,7 @@
       "researched_at": "2026-05-06T17:00:00Z",
       "confidence": "medium",
       "data_gaps": [
-        "389.2K LLM calls and 1.5B tokens processed stat from homepage — unverified date range",
+        "389.2K LLM calls and 1.5B tokens processed stat from homepage, unverified date range",
         "ClawHub skill leaderboard details"
       ]
     },
@@ -621,7 +621,7 @@
       "researched_at": "2026-04-28T20:05:00Z",
       "confidence": "medium",
       "data_gaps": [
-        "Website URL listed as '#' on bittensor.ai — swarm124.com domain from contact email"
+        "Website URL listed as '#' on bittensor.ai, swarm124.com domain from contact email"
       ]
     },
     "sn125_8_ball": {
@@ -629,7 +629,7 @@
       "name": "8 Ball",
       "category": "Predictive Systems",
       "subcategory": "Prediction Markets",
-      "tagline": "Prediction markets — trade on crypto, politics, sports, and more",
+      "tagline": "Prediction markets, trade on crypto, politics, sports, and more",
       "status": "live",
       "links": {
         "website": "https://8ball125.com",
@@ -646,7 +646,7 @@
       "confidence": "high",
       "data_gaps": [
         "alpha_staked estimated from total supply minus pool",
-        "GitHub org may have public repos under Barbariandev — not verified further"
+        "GitHub org may have public repos under Barbariandev, not verified further"
       ]
     },
     "sn127_astrid": {
@@ -654,7 +654,7 @@
       "name": "Astrid",
       "category": "Finance",
       "subcategory": "Trading Agent Competition",
-      "tagline": "Trading agent arena — compete for cash prizes",
+      "tagline": "Trading agent arena, compete for cash prizes",
       "status": "live",
       "links": {
         "website": "https://www.astrid.global",
@@ -800,7 +800,7 @@
       "name": "BitAds",
       "category": "Data Pipeline",
       "subcategory": "Performance Marketing",
-      "tagline": "Performance-based digital marketing — pay only for verified sales",
+      "tagline": "Performance-based digital marketing, pay only for verified sales",
       "status": "live",
       "links": {
         "website": "https://bitads.ai",
@@ -887,7 +887,7 @@
       "researched_at": "2026-05-06T17:00:00Z",
       "confidence": "high",
       "data_gaps": [
-        "Which blockchains are supported — website mentions 'multiple chains' but specific list not confirmed from primary source"
+        "Which blockchains are supported, website mentions 'multiple chains' but specific list not confirmed from primary source"
       ]
     },
     "sn1_apex": {
@@ -935,7 +935,7 @@
       "researched_at": "2026-04-29T15:35:00Z",
       "confidence": "high",
       "data_gaps": [
-        "On-chain description says 'Decentralized AI agents' but website shows capital/OTC focus — may be outdated"
+        "On-chain description says 'Decentralized AI agents' but website shows capital/OTC focus, may be outdated"
       ]
     },
     "sn21_adtao": {
@@ -989,7 +989,7 @@
       "name": "Trishool",
       "category": "Model & Agent Development",
       "subcategory": "AI Safety Testing",
-      "tagline": "AI safety engine — adversarial testing for model alignment",
+      "tagline": "AI safety engine, adversarial testing for model alignment",
       "status": "live",
       "links": {
         "website": "https://trishool.ai",
@@ -1030,7 +1030,7 @@
       "researched_at": "2026-05-06T17:00:00Z",
       "confidence": "medium",
       "data_gaps": [
-        "Model performance benchmarks — SILX claims frontier-class quality but no independent third-party benchmarks found"
+        "Model performance benchmarks, SILX claims frontier-class quality but no independent third-party benchmarks found"
       ]
     },
     "sn25_mainframe": {
@@ -1100,7 +1100,7 @@
       "researched_at": "2026-05-12T14:05:00Z",
       "confidence": "high",
       "data_gaps": [
-        "Enterprise tier pricing — listed as 'custom', no public rates"
+        "Enterprise tier pricing, listed as 'custom', no public rates"
       ]
     },
     "sn28_gm": {
@@ -1200,7 +1200,7 @@
       "name": "ItsAI",
       "category": "Model & Agent Development",
       "subcategory": "AI-Generated Content Detection",
-      "tagline": "Most accurate AI text detector — 99% accuracy",
+      "tagline": "Most accurate AI text detector, 99% accuracy",
       "status": "live",
       "links": {
         "website": "https://its-ai.org/en",
@@ -1224,7 +1224,7 @@
       "name": "ReadyAI",
       "category": "Data Pipeline",
       "subcategory": "AI-Ready Dataset Curation",
-      "tagline": "Structured web intelligence from 1,230+ domains — agent-ready data via MCP",
+      "tagline": "Structured web intelligence from 1,230+ domains, agent-ready data via MCP",
       "status": "live",
       "links": {
         "website": "https://readyai.ai",
@@ -1249,7 +1249,7 @@
       "name": "BitMind",
       "category": "Model & Agent Development",
       "subcategory": "AI-Generated Content Detection",
-      "tagline": "AI content verification — leader in deepfake detection",
+      "tagline": "AI content verification, leader in deepfake detection",
       "status": "live",
       "links": {
         "website": "https://bitmind.ai",
@@ -1273,7 +1273,7 @@
       "name": "OxMarkets",
       "category": "Finance",
       "subcategory": "Perpetual Futures DEX",
-      "tagline": "Perpetual futures DEX for FX, crypto, and commodities — up to 500x leverage",
+      "tagline": "Perpetual futures DEX for FX, crypto, and commodities, up to 500x leverage",
       "status": "live",
       "links": {
         "website": "https://www.0xmarkets.io",
@@ -1289,8 +1289,8 @@
       "researched_at": "2026-04-28T20:05:00Z",
       "confidence": "high",
       "data_gaps": [
-        "APY figures are dynamic and may change — reported at time of research",
-        "Testnet vs mainnet status unclear — app.0xmarkets.io labeled 'Launch Testnet'"
+        "APY figures are dynamic and may change, reported at time of research",
+        "Testnet vs mainnet status unclear, app.0xmarkets.io labeled 'Launch Testnet'"
       ]
     },
     "sn37_aurelius": {
@@ -1322,7 +1322,7 @@
       "name": "Deprecated",
       "category": "Misc",
       "subcategory": "Faultless GPU Infrastructure",
-      "tagline": "Deprecated — no longer active",
+      "tagline": "Deprecated, no longer active",
       "status": "deprecated",
       "links": {
         "website": null,
@@ -1409,7 +1409,7 @@
       "confidence": "medium",
       "data_gaps": [
         "alpha_staked estimated from (mcap_tao/price_tao) - alpha_in_pool",
-        "Current subnet owner vs Masa Finance not confirmed — on-chain owner address not verified against Masa",
+        "Current subnet owner vs Masa Finance not confirmed, on-chain owner address not verified against Masa",
         "masa.ai website not fetched directly"
       ]
     },
@@ -1443,7 +1443,7 @@
       "name": "Score",
       "category": "Model & Agent Development",
       "subcategory": "Visual Intelligence and Computer Vision",
-      "tagline": "Making every camera intelligent — computer vision from a text prompt",
+      "tagline": "Making every camera intelligent, computer vision from a text prompt",
       "status": "live",
       "links": {
         "website": "https://www.wearescore.com",
@@ -1493,7 +1493,7 @@
       "name": "RESI",
       "category": "Predictive Systems",
       "subcategory": "Real Estate Price Prediction",
-      "tagline": "The Real Estate Oracle — institutional-grade property price predictions",
+      "tagline": "The Real Estate Oracle, institutional-grade property price predictions",
       "status": "live",
       "links": {
         "website": "https://resilabs.ai",
@@ -1509,7 +1509,7 @@
       "researched_at": "2026-05-01T22:30:00Z",
       "confidence": "medium",
       "data_gaps": [
-        "Dashboard functionality and data coverage — dashboard.resilabs.ai requires login",
+        "Dashboard functionality and data coverage, dashboard.resilabs.ai requires login",
         "$15K all-time revenue figure (from Discord, not independently verified)"
       ]
     },
@@ -1534,7 +1534,7 @@
       "researched_at": "2026-05-01T22:30:00Z",
       "confidence": "medium",
       "data_gaps": [
-        "Alpine Quantum Technologies partnership — confirmed in Discord by team, not on website"
+        "Alpine Quantum Technologies partnership, confirmed in Discord by team, not on website"
       ]
     },
     "sn50_synth": {
@@ -1580,7 +1580,7 @@
       "researched_at": "2026-05-06T17:00:00Z",
       "confidence": "medium",
       "data_gaps": [
-        "Specific per-GPU hourly pricing — marketplace dynamic, not publicly listed"
+        "Specific per-GPU hourly pricing, marketplace dynamic, not publicly listed"
       ]
     },
     "sn52_dojo": {
@@ -1628,7 +1628,7 @@
       "researched_at": "2026-05-01T22:30:00Z",
       "confidence": "medium",
       "data_gaps": [
-        "SignalPlus connection — mentioned in third-party sources but not confirmed on-chain"
+        "SignalPlus connection, mentioned in third-party sources but not confirmed on-chain"
       ]
     },
     "sn54_yanez_miid": {
@@ -1652,7 +1652,7 @@
       "researched_at": "2026-04-27T20:24:41.207Z",
       "confidence": "high",
       "data_gaps": [
-        "Existing paying clients mentioned in on-chain description — unverified",
+        "Existing paying clients mentioned in on-chain description, unverified",
         "Yanez Compliance website and pricing"
       ]
     },
@@ -1686,7 +1686,7 @@
       "name": "Gradients",
       "category": "Model & Agent Development",
       "subcategory": "On-Demand Model Fine-Tuning",
-      "tagline": "Anyone can train AI — fine-tune models without ML expertise",
+      "tagline": "Anyone can train AI, fine-tune models without ML expertise",
       "status": "live",
       "links": {
         "website": "https://www.gradients.io",
@@ -1702,7 +1702,7 @@
       "researched_at": "2026-05-06T17:00:00Z",
       "confidence": "high",
       "data_gaps": [
-        "Free tier availability — no free tier found but not explicitly confirmed absent"
+        "Free tier availability, no free tier found but not explicitly confirmed absent"
       ]
     },
     "sn58_handshake": {
@@ -1809,7 +1809,7 @@
       "name": "Ridges",
       "category": "Model & Agent Development",
       "subcategory": "Software Development Agents",
-      "tagline": "Decentralized AI software engineering agents — autonomous code, debug, and PR",
+      "tagline": "Decentralized AI software engineering agents, autonomous code, debug, and PR",
       "status": "live",
       "links": {
         "website": "https://www.ridges.ai",
@@ -1825,8 +1825,8 @@
       "researched_at": "2026-05-06T17:00:00Z",
       "confidence": "medium",
       "data_gaps": [
-        "Exact current pricing — sourced from LinkedIn (Dec 2024) and interview (Oct 2025); may have changed",
-        "SWE-bench scores (73-88% Verified) — from third-party interview, not confirmed on primary site",
+        "Exact current pricing, sourced from LinkedIn (Dec 2024) and interview (Oct 2025); may have changed",
+        "SWE-bench scores (73-88% Verified), from third-party interview, not confirmed on primary site",
         "USD payout amounts for miners"
       ]
     },
@@ -1835,7 +1835,7 @@
       "name": "Enigma",
       "category": "Compute & Infrastructure",
       "subcategory": "Advancing Quantum Compute Networks",
-      "tagline": "Quantum circuit challenges — advancing quantum computing research",
+      "tagline": "Quantum circuit challenges, advancing quantum computing research",
       "status": "live",
       "links": {
         "website": "https://www.qbittensorlabs.com",
@@ -1875,8 +1875,8 @@
       "researched_at": "2026-05-06T17:00:00Z",
       "confidence": "high",
       "data_gaps": [
-        "Enterprise tier pricing — listed as 'custom/contact sales', no public rates",
-        "Exact request limits per subscription tier — pricing page says 'View limits' but links to app login"
+        "Enterprise tier pricing, listed as 'custom/contact sales', no public rates",
+        "Exact request limits per subscription tier, pricing page says 'View limits' but links to app login"
       ]
     },
     "sn65_tao_private_network": {
@@ -1909,7 +1909,7 @@
       "name": "Ninja",
       "category": "Model & Agent Development",
       "subcategory": "Software Agents",
-      "tagline": "Coding agent competition platform — king of the hill AI duels",
+      "tagline": "Coding agent competition platform, king of the hill AI duels",
       "status": "live",
       "links": {
         "website": "https://ninja.arbos.life",
@@ -1925,7 +1925,7 @@
       "researched_at": "2026-05-06T17:00:00Z",
       "confidence": "high",
       "data_gaps": [
-        "Terraform/GCP sandbox validation — described on ICM Analytics but not confirmed from primary source"
+        "Terraform/GCP sandbox validation, described on ICM Analytics but not confirmed from primary source"
       ]
     },
     "sn68_nova": {
@@ -1933,7 +1933,7 @@
       "name": "NOVA",
       "category": "Science",
       "subcategory": "Drug Discovery and Design",
-      "tagline": "Open drug screening — compound discovery and nanobody design",
+      "tagline": "Open drug screening, compound discovery and nanobody design",
       "status": "live",
       "links": {
         "website": "https://www.metanova-labs.ai",
@@ -1949,8 +1949,8 @@
       "researched_at": "2026-05-06T17:00:00Z",
       "confidence": "medium",
       "data_gaps": [
-        "Yalotein partnership status — announced via Twitter, not confirmed on either party's website",
-        "Novalyst guide tool — mentioned but no direct URL found"
+        "Yalotein partnership status, announced via Twitter, not confirmed on either party's website",
+        "Novalyst guide tool, mentioned but no direct URL found"
       ]
     },
     "sn69_unknown": {
@@ -2081,7 +2081,7 @@
       "name": "Gittensor",
       "category": "Model & Agent Development",
       "subcategory": "Software Agents",
-      "tagline": "The workforce for open source — earn by contributing code",
+      "tagline": "The workforce for open source, earn by contributing code",
       "status": "live",
       "links": {
         "website": "https://gittensor.io",
@@ -2121,8 +2121,8 @@
       "researched_at": "2026-05-06T17:00:00Z",
       "confidence": "high",
       "data_gaps": [
-        "Virtual machine (VM) pricing — not listed on pricing page",
-        "App hosting pricing — not listed on pricing page",
+        "Virtual machine (VM) pricing, not listed on pricing page",
+        "App hosting pricing, not listed on pricing page",
         "Arion Storage pricing vs S3 storage pricing"
       ]
     },
@@ -2202,7 +2202,7 @@
       "name": "Allways",
       "category": "Finance",
       "subcategory": "Cross-Chain Swaps",
-      "tagline": "Trustless native cross-chain swaps — no bridges, no wrapping",
+      "tagline": "Trustless native cross-chain swaps, no bridges, no wrapping",
       "status": "beta",
       "links": {
         "website": "https://all-ways.io",
@@ -2228,7 +2228,7 @@
       "name": "Deprecated",
       "category": "Misc",
       "subcategory": "Verifiable Inference and Training",
-      "tagline": "Deprecated — no longer active",
+      "tagline": "Deprecated, no longer active",
       "status": "deprecated",
       "links": {
         "website": null,
@@ -2275,7 +2275,7 @@
       "name": "ChipForge",
       "category": "Compute & Infrastructure",
       "subcategory": "AI Chip Design",
-      "tagline": "AI-native semiconductor design — from sketch to verified hardware",
+      "tagline": "AI-native semiconductor design, from sketch to verified hardware",
       "status": "beta",
       "links": {
         "website": "https://chipforge.ai",
@@ -2317,7 +2317,7 @@
       "researched_at": "2026-05-06T17:00:00Z",
       "confidence": "medium",
       "data_gaps": [
-        "Cost reduction claims (up to 80% compression) — sourced from third-party analysis",
+        "Cost reduction claims (up to 80% compression), sourced from third-party analysis",
         "Whether public API is live or still in roadmap Phase 6"
       ]
     },
@@ -2326,7 +2326,7 @@
       "name": "Investing",
       "category": "Predictive Systems",
       "subcategory": "Systematic Trading Strategies",
-      "tagline": "AI-powered portfolio management — the 88 Quant Fund",
+      "tagline": "AI-powered portfolio management, the 88 Quant Fund",
       "status": "live",
       "links": {
         "website": "https://investing88.ai",
@@ -2378,7 +2378,7 @@
       "name": "Bitcast",
       "category": "Data Pipeline",
       "subcategory": "Creator Marketing",
-      "tagline": "Decentralized creator marketing on X/Twitter — Stitch3 rewards tweets about real projects",
+      "tagline": "Decentralized creator marketing on X/Twitter, Stitch3 rewards tweets about real projects",
       "status": "live",
       "links": {
         "website": "https://www.bitcast.network",
@@ -2419,7 +2419,7 @@
       "researched_at": "2026-05-02T21:10:35Z",
       "confidence": "low",
       "data_gaps": [
-        "What the subnet actually does — completely unknown"
+        "What the subnet actually does, completely unknown"
       ]
     },
     "sn96_verathos": {
@@ -2427,7 +2427,7 @@
       "name": "Verathos",
       "category": "Compute & Infrastructure",
       "subcategory": "Serverless Inference",
-      "tagline": "Verified intelligence for everyone — AI you can verify, not trust",
+      "tagline": "Verified intelligence for everyone, AI you can verify, not trust",
       "status": "live",
       "links": {
         "website": "https://verathos.ai",
@@ -2443,8 +2443,8 @@
       "researched_at": "2026-05-12T14:05:00Z",
       "confidence": "high",
       "data_gaps": [
-        "x402 payment integration — documented but not independently tested",
-        "Verified training — described as 'in testing', not yet active on network"
+        "x402 payment integration, documented but not independently tested",
+        "Verified training, described as 'in testing', not yet active on network"
       ]
     },
     "sn97_distil": {
@@ -2452,7 +2452,7 @@
       "name": "Distil",
       "category": "Model & Agent Development",
       "subcategory": "Model Distillation",
-      "tagline": "Competitive model distillation — smaller AI models that outperform larger ones",
+      "tagline": "Competitive model distillation, smaller AI models that outperform larger ones",
       "status": "live",
       "links": {
         "website": "https://distil.arbos.life",

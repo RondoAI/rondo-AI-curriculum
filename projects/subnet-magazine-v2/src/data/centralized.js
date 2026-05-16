@@ -1,9 +1,9 @@
 /* =================================================================
-   SUBNET MAGAZINE — CENTRALIZED AI LANDSCAPE
+   SUBNET MAGAZINE, CENTRALIZED AI LANDSCAPE
    -----------------------------------------------------------------
    Roster of centralized AI / compute companies the Subnet Magazine
    tracks as competitors and benchmarks. Strong Asian representation
-   is intentional — China, Korea, Japan, and Taiwan together hold
+   is intentional, China, Korea, Japan, and Taiwan together hold
    the most consequential half of the frontier-AI map.
 
    Each row carries:
@@ -34,7 +34,7 @@ export const CENTRALIZED_PLAYERS = Object.freeze([
   { id:'hf',         name:'Hugging Face',        region:'US', cat:'text',     subcat:'open-llm',     focus:'Model hub, the de-facto open-source registry',   valuation:'$4.5B', employees:300,   founded:2016, openSource:true,  url:'https://huggingface.co' },
   { id:'nous',       name:'Nous Research',       region:'US', cat:'text',     subcat:'open-llm',     focus:'Hermes models, open finetune research',          valuation:'$1B est.', employees:60,  founded:2023, openSource:true,  url:'https://nousresearch.com' },
 
-  /* ========== LLM / Text (Asia — open-source heavy) ========== */
+  /* ========== LLM / Text (Asia, open-source heavy) ========== */
   { id:'deepseek',   name:'DeepSeek',            region:'CN', cat:'text',     subcat:'open-llm',     focus:'DeepSeek-R3, open reasoning, cheap inference',   valuation:'$10B',  employees:200,   founded:2023, openSource:true,  url:'https://deepseek.com' },
   { id:'qwen',       name:'Alibaba · Qwen',      region:'CN', cat:'text',     subcat:'open-llm',     focus:'Qwen 3, open-weights, multimodal',               valuation:'$200B (parent)', employees:25_000, founded:2023, openSource:true, url:'https://qwen.aliyun.com' },
   { id:'01ai',       name:'01.AI · Yi',          region:'CN', cat:'text',     subcat:'open-llm',     focus:'Yi-Large, founded by Kai-Fu Lee',                valuation:'$2B',   employees:300,   founded:2023, openSource:true,  url:'https://01.ai' },
@@ -69,7 +69,7 @@ export const CENTRALIZED_PLAYERS = Object.freeze([
   { id:'akamai',     name:'Akamai',              region:'US', cat:'infra',    subcat:'edge',         focus:'Edge compute, CDN-native AI',                     valuation:'$13B',   employees:11_000, founded:1998, openSource:false, url:'https://akamai.com' },
   { id:'cloudflare', name:'Cloudflare · Workers AI', region:'US', cat:'infra', subcat:'edge',         focus:'Workers AI, serverless edge',                    valuation:'$50B',   employees:4_500,  founded:2009, openSource:false, url:'https://cloudflare.com' },
 
-  /* ========== Compute / Infrastructure (Asia — sovereign stack) ========== */
+  /* ========== Compute / Infrastructure (Asia, sovereign stack) ========== */
   { id:'huawei',     name:'Huawei · Ascend',     region:'CN', cat:'infra',    subcat:'gpu',          focus:'Ascend 910C, Pangu LLM stack',                    valuation:'private', employees:200_000, founded:1987, openSource:false, url:'https://huawei.com' },
   { id:'biren',      name:'Biren',               region:'CN', cat:'infra',    subcat:'gpu',          focus:'BR100/BR104 domestic GPU',                        valuation:'$2B',     employees:1_000,  founded:2019, openSource:false, url:'https://birentech.com' },
   { id:'moore',      name:'Moore Threads',       region:'CN', cat:'infra',    subcat:'gpu',          focus:'Chinese GPU, CUDA-compatible stack',              valuation:'$3B',     employees:1_500,  founded:2020, openSource:false, url:'https://mthreads.com' },
@@ -136,7 +136,7 @@ export const REGIONS = Object.freeze({
 });
 
 /* Real exchange tickers for the publicly-listed players. Everyone
-   else is private — they get a synthetic ".PVT" symbol (the markets-
+   else is private, they get a synthetic ".PVT" symbol (the markets-
    app convention) derived from their id. */
 const PUBLIC_TICKERS = Object.freeze({
   nvidia:'NVDA', amd:'AMD', intel:'INTC', tsmc:'TSM', broadcom:'AVGO', marvell:'MRVL',
@@ -149,14 +149,14 @@ const PUBLIC_TICKERS = Object.freeze({
 });
 
 /**
- * The display ticker for a player — the real exchange symbol when
+ * The display ticker for a player, the real exchange symbol when
  * listed, otherwise a synthetic ".PVT" symbol. Mirrors how markets
  * apps surface private companies (e.g. "OPAI.PVT" for OpenAI).
  * @param {{id:string}} p
  * @returns {{ symbol: string, isPrivate: boolean }}
  */
 export function tickerFor(p){
-  if (!p) return { symbol: '—', isPrivate: false };
+  if (!p) return { symbol: 'Â·', isPrivate: false };
   if (PUBLIC_TICKERS[p.id]) return { symbol: PUBLIC_TICKERS[p.id], isPrivate: false };
   const slug = String(p.id).replace(/[^a-z0-9]/gi, '').slice(0, 4).toUpperCase();
   return { symbol: `${slug}.PVT`, isPrivate: true };

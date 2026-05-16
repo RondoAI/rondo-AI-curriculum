@@ -144,7 +144,7 @@
 }
 .cmp-fb__field select:focus{ outline: 0; border-color: var(--c-red); }
 
-/* ---------- Tab panes — only one visible ---------- */
+/* ---------- Tab panes, only one visible ---------- */
 .cmp-pane{ display: none; }
 .cmp-pane.is-active{ display: flex; flex-direction: column; gap: var(--s-6); }
 

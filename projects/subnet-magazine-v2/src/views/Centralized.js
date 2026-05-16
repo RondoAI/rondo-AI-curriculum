@@ -1,15 +1,15 @@
 /* =================================================================
-   SUBNET MAGAZINE — THE CENTRALIZED DESK
+   SUBNET MAGAZINE, THE CENTRALIZED DESK
    -----------------------------------------------------------------
-   The "what's happening outside Bittensor" page — reimagined as a
+   The "what's happening outside Bittensor" page, reimagined as a
    visual-first surface, not a wall of text. Three blocks:
 
-     1. THE TAPE — a marquee of centralized AI players, ranked by
+     1. THE TAPE, a marquee of centralized AI players, ranked by
         valuation, so the centralized map reads at a glance.
-     2. READINGS — a CMC-style news feed: source-attributed cards
+     2. READINGS, a CMC-style news feed: source-attributed cards
         with a generated art banner, headline, summary, and an
         editorial impact read. Filterable by desk.
-     3. THE ROSTER — the full ~80-company landscape as a visual
+     3. THE ROSTER, the full ~80-company landscape as a visual
         grid of generated marks, filterable by region (the Asian
         AI map is first-class here).
 
@@ -60,7 +60,7 @@ export function mountCentralized(root){
           <h1 class="cd-head__title">The centralized race, <em>watched.</em></h1>
           <p class="cd-head__sub">
             Decentralized AI doesn't exist in a vacuum. This is the desk that tracks the
-            closed labs, the compute build-outs, and the capital — with the Asian frontier
+            closed labs, the compute build-outs, and the capital, with the Asian frontier
             (China, Korea, Japan, Taiwan) treated as first-class, not a footnote.
           </p>
         </div>

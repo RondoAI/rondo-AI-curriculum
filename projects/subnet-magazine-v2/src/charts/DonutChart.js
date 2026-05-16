@@ -1,5 +1,5 @@
 /* =================================================================
-   SUBNET MAGAZINE — DONUT CHART
+   SUBNET MAGAZINE, DONUT CHART
    -----------------------------------------------------------------
    A focused single-arc donut for "share of total" stats. Optionally
    takes multiple slices for a category breakdown, but the common

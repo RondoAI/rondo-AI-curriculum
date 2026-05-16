@@ -17,7 +17,7 @@ import { NodeSphere } from '../charts/NodeSphere.js';
  */
 export function mountHero(root, dataLayer = null){
   mount(root, html`
-    <section class="hero" id="overview" aria-label="Subnet Magazine — overview">
+    <section class="hero" id="overview" aria-label="Subnet Magazine, overview">
       <div class="hero__viz" aria-hidden="true">
         <canvas data-canvas="hero"></canvas>
       </div>
@@ -36,7 +36,7 @@ export function mountHero(root, dataLayer = null){
           <blockquote class="hero__philosophy">
             <span class="hero__philosophy-q">“</span>
             Decentralized intelligence is the most important market of this decade.
-            We cover it that way — every subnet a market, every operator a builder,
+            We cover it that way, every subnet a market, every operator a builder,
             every claim provenanced.
             <span class="hero__philosophy-q">”</span>
           </blockquote>
@@ -53,7 +53,7 @@ export function mountHero(root, dataLayer = null){
     </section>
   `);
 
-  /* mount the dense node-sphere centerpiece — the bittensor.com
+  /* mount the dense node-sphere centerpiece, the bittensor.com
      plexus language: hundreds of nodes, a thick neighbour mesh, and
      heavy packet traffic so the mark reads as a working network. */
   const canvas = qs('[data-canvas="hero"]', root);
@@ -65,7 +65,7 @@ export function mountHero(root, dataLayer = null){
   }) : null;
 
   /* price + validator/subnet readout used to live here, but the
-     status bar already shows τ/USD live — no duplicate */
+     status bar already shows τ/USD live, no duplicate */
 
   return {
     destroy(){

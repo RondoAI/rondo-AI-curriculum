@@ -1,5 +1,5 @@
 /* =================================================================
-   SUBNET MAGAZINE — DOM HELPERS
+   SUBNET MAGAZINE, DOM HELPERS
    -----------------------------------------------------------------
    Tiny, dependency-free helpers used by every view. Three goals:
 
@@ -21,7 +21,7 @@
 const RAW = Symbol('raw');
 
 /**
- * Mark a string as raw HTML — opt out of auto-escaping. Use only
+ * Mark a string as raw HTML, opt out of auto-escaping. Use only
  * when the source is known-safe (e.g. SVG you constructed locally).
  * @param {string} s
  * @returns {{[RAW]: true, s: string}}
@@ -47,7 +47,7 @@ export function escapeHtml(v){
  *
  * IMPORTANT: this template tag does NOT auto-escape. Every view in
  * this codebase feeds it markup built from trusted local data
- * modules (subnets.js, categories.js, validators.js, …) — auto-
+ * modules (subnets.js, categories.js, validators.js, …), auto-
  * escaping turned that markup into visible text. The two paths
  * that touch genuine user input (the Compare prompt box and the
  * search fields) escape manually at their own boundary
@@ -137,7 +137,7 @@ export function prefersReducedMotion(){
 }
 
 /**
- * Throttle a function by requestAnimationFrame — perfect for
+ * Throttle a function by requestAnimationFrame, perfect for
  * resize and scroll listeners.
  * @template {(...args:any[])=>any} F
  * @param {F} fn

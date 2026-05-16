@@ -1,5 +1,5 @@
 /* =================================================================
-   SUBNET MAGAZINE — SUBNET METADATA OVERLAY
+   SUBNET MAGAZINE, SUBNET METADATA OVERLAY
    -----------------------------------------------------------------
    Per-subnet extras (website, twitter, longer description). Kept in
    a separate file so the core subnets.js dataset stays compact and
@@ -33,7 +33,7 @@
  * @prop {SubnetSpecs}    [specs]    protocol-level fields
  */
 
-/* Common spec defaults — same Substrate chain, same Yuma cycle for
+/* Common spec defaults, same Substrate chain, same Yuma cycle for
    most subnets. Per-subnet overrides supplement these. */
 const DEFAULT_SPECS = {
   chain:       'Subtensor mainnet',
@@ -54,8 +54,8 @@ export const SUBNET_META = {
       reqVal:   '32 GB RAM · ≥ 2.5k τ stake',
     },
     updates: [
-      { date: '2026-05-12', type: 'announce', title: 'SN1 still #1 emitter — τ 412/day average' },
-      { date: '2026-04-28', type: 'release',  title: 'Apex v6.2 — adversarial validator pool expanded' },
+      { date: '2026-05-12', type: 'announce', title: 'SN1 still #1 emitter, τ 412/day average' },
+      { date: '2026-04-28', type: 'release',  title: 'Apex v6.2, adversarial validator pool expanded' },
       { date: '2026-03-30', type: 'eval',     title: 'New rubric set: GPQA-flavored hard reasoning' },
     ],
   },
@@ -86,7 +86,7 @@ export const SUBNET_META = {
   8: {
     website: 'https://taoshi.io',
     twitter: 'taoshiio',
-    longDesc: 'Taoshi PTN is a proprietary trading network — miners submit live trading signals, validators score them on real PnL with risk-adjusted metrics. Closest thing on Bittensor to a quant hedge fund.',
+    longDesc: 'Taoshi PTN is a proprietary trading network, miners submit live trading signals, validators score them on real PnL with risk-adjusted metrics. Closest thing on Bittensor to a quant hedge fund.',
   },
   9: {
     website: 'https://macrocosmos.ai/sn9',
@@ -100,8 +100,8 @@ export const SUBNET_META = {
     },
     updates: [
       { date: '2026-05-11', type: 'eval',     title: 'New eval set: subset of FineWeb-Edu Q4 2025' },
-      { date: '2026-04-30', type: 'announce', title: 'SN9 leader 0xA3 hits 4.18 PPL — new ATL' },
-      { date: '2026-04-12', type: 'release',  title: 'v3.1 — lift parameter cap to 1.7B' },
+      { date: '2026-04-30', type: 'announce', title: 'SN9 leader 0xA3 hits 4.18 PPL, new ATL' },
+      { date: '2026-04-12', type: 'release',  title: 'v3.1, lift parameter cap to 1.7B' },
       { date: '2026-03-18', type: 'governance',title:'Per-checkpoint weight averaging window doubled' },
     ],
   },
@@ -127,7 +127,7 @@ export const SUBNET_META = {
   },
   15: {
     website: 'https://agentartificial.com',
-    longDesc: 'Adversarial validation of LLM outputs. Each prompt is judged against rubrics by independent validator agents — a meta-layer for quality control across the broader Bittensor LLM stack.',
+    longDesc: 'Adversarial validation of LLM outputs. Each prompt is judged against rubrics by independent validator agents, a meta-layer for quality control across the broader Bittensor LLM stack.',
   },
   17: {
     website: 'https://404gen.com',
@@ -141,7 +141,7 @@ export const SUBNET_META = {
   },
   19: {
     website: 'https://vision.taonet.ai',
-    longDesc: 'Image classification, embedding, and synthesis under public scoring. The most general-purpose vision subnet — a competitor to centralized image-gen and vision-model providers.',
+    longDesc: 'Image classification, embedding, and synthesis under public scoring. The most general-purpose vision subnet, a competitor to centralized image-gen and vision-model providers.',
   },
   21: {
     website: 'https://omegalabs.ai',
@@ -155,12 +155,12 @@ export const SUBNET_META = {
   24: {
     website: 'https://bitmind.ai',
     twitter: 'bitmindai',
-    longDesc: 'AI-generated content detection. Classifies real vs synthetic media (image, video, eventually audio) — the deepfake forensics arm of the Bittensor stack.',
+    longDesc: 'AI-generated content detection. Classifies real vs synthetic media (image, video, eventually audio), the deepfake forensics arm of the Bittensor stack.',
   },
   25: {
     website: 'https://macrocosmos.ai/sn25',
     twitter: 'macrocosmos_ai',
-    longDesc: 'Distributed protein folding and molecular simulation. The Folding@home spiritual successor — incentivized this time.',
+    longDesc: 'Distributed protein folding and molecular simulation. The Folding@home spiritual successor, incentivized this time.',
   },
   27: {
     website: 'https://neuralinternet.ai',
@@ -193,7 +193,7 @@ export const SUBNET_META = {
   39: {
     website: 'https://edgemaxxing.womboai.com',
     twitter: 'WomboAI',
-    longDesc: 'On-device inference optimization with verifiable latency proofs. Pushes inference to the edge — competitor to Cloudflare Workers AI and Akamai EdgeWorkers.',
+    longDesc: 'On-device inference optimization with verifiable latency proofs. Pushes inference to the edge, competitor to Cloudflare Workers AI and Akamai EdgeWorkers.',
   },
   42: {
     website: 'https://foresight.gg',
@@ -201,7 +201,7 @@ export const SUBNET_META = {
   },
   43: {
     website: 'https://graphite-ai.com',
-    longDesc: 'Combinatorial optimization on hard graph problems. TSP, scheduling, supply chain — the kind of NP-hard work big consultancies sell at five-figure day rates.',
+    longDesc: 'Combinatorial optimization on hard graph problems. TSP, scheduling, supply chain, the kind of NP-hard work big consultancies sell at five-figure day rates.',
   },
   47: {
     website: 'https://condense.ai',
@@ -213,7 +213,7 @@ export const SUBNET_META = {
   },
   50: {
     website: 'https://synth.mode.network',
-    longDesc: 'Synthetic-data generation for finance with downstream-task scoring. Synthetic candles, order books, returns — for backtest-resistant strategy development.',
+    longDesc: 'Synthetic-data generation for finance with downstream-task scoring. Synthetic candles, order books, returns, for backtest-resistant strategy development.',
   },
   52: {
     website: 'https://tensorplex.ai',
@@ -235,7 +235,7 @@ export const SUBNET_META = {
       reqVal:   '32 GB RAM · ≥ 2k τ stake',
     },
     updates: [
-      { date: '2026-05-09', type: 'release',  title: 'v2.4 — DoRA + QLoRA recipes added' },
+      { date: '2026-05-09', type: 'release',  title: 'v2.4, DoRA + QLoRA recipes added' },
       { date: '2026-04-19', type: 'announce', title: 'SN56 surpasses τ 150/day, second-largest emitter' },
       { date: '2026-04-05', type: 'docs',     title: 'New tutorial: finetuning Llama 5 8B on a 4090' },
       { date: '2026-03-24', type: 'eval',     title: 'Eval set rotated to MMLU-Pro + IFEval mix' },
@@ -243,7 +243,7 @@ export const SUBNET_META = {
   },
   57: {
     website: 'https://nimbus.gg',
-    longDesc: 'Geospatial intelligence and climate modeling with satellite-data validators. Forest cover, fire prediction, ag yield — work normally done by Planet Labs and Maxar.',
+    longDesc: 'Geospatial intelligence and climate modeling with satellite-data validators. Forest cover, fire prediction, ag yield, work normally done by Planet Labs and Maxar.',
   },
   58: {
     website: 'https://dippy.ai/speech',
@@ -252,7 +252,7 @@ export const SUBNET_META = {
   },
   59: {
     website: 'https://agentarena.ai',
-    longDesc: 'Agent-vs-agent benchmark arena. LLM agents face off on tool use, planning, and dialogue tasks — pairwise scoring like a Bittensor-native AgentBench.',
+    longDesc: 'Agent-vs-agent benchmark arena. LLM agents face off on tool use, planning, and dialogue tasks, pairwise scoring like a Bittensor-native AgentBench.',
   },
   60: {
     website: 'https://snowballer.ai',
@@ -265,7 +265,7 @@ export const SUBNET_META = {
   64: {
     website: 'https://chutes.ai',
     twitter: 'rayon_labs',
-    longDesc: 'Verifiable serverless function execution for AI workloads. Chutes is the decentralized answer to AWS Lambda + Modal — deploy a Python function, get it run on miner compute, get a signed receipt of execution.',
+    longDesc: 'Verifiable serverless function execution for AI workloads. Chutes is the decentralized answer to AWS Lambda + Modal, deploy a Python function, get it run on miner compute, get a signed receipt of execution.',
     reads: ['https://chutes.ai/docs', 'https://rayonlabs.ai'],
     specs: {
       founded:  '2025-03-12',
@@ -274,16 +274,16 @@ export const SUBNET_META = {
       reqVal:   '32 GB RAM · 200 GB SSD · ≥ 1k τ stake',
     },
     updates: [
-      { date: '2026-05-08', type: 'release',  title: 'v0.8 — multi-region GPU pool, Hopper class added' },
+      { date: '2026-05-08', type: 'release',  title: 'v0.8, multi-region GPU pool, Hopper class added' },
       { date: '2026-04-22', type: 'docs',     title: 'Provider docs updated for Ampere / Hopper / Blackwell' },
       { date: '2026-04-03', type: 'announce', title: 'Chutes crosses τ 100/day in emissions, top-5 by validator count' },
-      { date: '2026-03-15', type: 'release',  title: 'v0.7 — verifiable receipts moved on-chain' },
+      { date: '2026-03-15', type: 'release',  title: 'v0.7, verifiable receipts moved on-chain' },
       { date: '2026-02-26', type: 'governance',title:'Validator weight cap raised to 18% per coldkey' },
     ],
   },
   67: {
     website: 'https://bitmint.io',
-    longDesc: 'On-chain minting/burning of synthetic assets with validator-priced spreads. Bittensor-native synthetics — like Synthetix on Substrate.',
+    longDesc: 'On-chain minting/burning of synthetic assets with validator-priced spreads. Bittensor-native synthetics, like Synthetix on Substrate.',
   },
   69: {
     website: 'https://kaito.ai/fm',
@@ -296,7 +296,7 @@ export const SUBNET_META = {
   },
   75: {
     website: 'https://pollenlabs.ai',
-    longDesc: 'On-chain knowledge graph construction with citation validation. Builds a verifiable graph of human knowledge with sources — the substrate a future open-source Perplexity might run on.',
+    longDesc: 'On-chain knowledge graph construction with citation validation. Builds a verifiable graph of human knowledge with sources, the substrate a future open-source Perplexity might run on.',
   },
   77: {
     website: 'https://liquiditylabs.ai',
@@ -308,15 +308,15 @@ export const SUBNET_META = {
   },
   81: {
     website: 'https://patrouter.ai',
-    longDesc: 'Routing agent — picks best model + price per prompt across all subnets. A meta-layer that lets users hit "the cheapest subnet that meets quality bar X."',
+    longDesc: 'Routing agent, picks best model + price per prompt across all subnets. A meta-layer that lets users hit "the cheapest subnet that meets quality bar X."',
   },
   83: {
     website: 'https://anchor.gg',
-    longDesc: 'On-chain document hashing and integrity attestation. Validators sign attestations that a document existed at time T — useful wherever notarization is required.',
+    longDesc: 'On-chain document hashing and integrity attestation. Validators sign attestations that a document existed at time T, useful wherever notarization is required.',
   },
   86: {
     website: 'https://audiomind.ai',
-    longDesc: 'Speech recognition and diarization with WER-graded validators. ASR competition open to anyone — direct competitor to OpenAI Whisper, AssemblyAI, Deepgram.',
+    longDesc: 'Speech recognition and diarization with WER-graded validators. ASR competition open to anyone, direct competitor to OpenAI Whisper, AssemblyAI, Deepgram.',
   },
   88: {
     website: 'https://bitcurrent.io',

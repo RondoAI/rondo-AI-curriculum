@@ -1,5 +1,5 @@
 /* =================================================================
-   SUBNET MAGAZINE — BITTENSOR FIELD MANUAL CONSOLE
+   SUBNET MAGAZINE, BITTENSOR FIELD MANUAL CONSOLE
    -----------------------------------------------------------------
    A research-terminal-styled FAQ pinned to the bottom of every
    page. The site's "how to actually do this" companion: mining,
@@ -42,7 +42,7 @@ const CSS = `
   isolation: isolate;
   overflow: hidden;
 }
-/* a bright 1-px red rail at the very top edge — the bar declares
+/* a bright 1-px red rail at the very top edge, the bar declares
    itself before you read the text. The only chrome on the bar; the
    prior horizontal scan-line was retired because it visually
    collided with the side borders and read as a UI bug. */
@@ -67,17 +67,17 @@ const CSS = `
   color: var(--c-ink-2, #C8A8AD);
   user-select: none;
 }
-/* The Oracle's "consciousness" mark — PS5-grade neural net.
+/* The Oracle's "consciousness" mark, PS5-grade neural net.
    Three layers stacked, painted back to front:
-     1. canvas       — real-time NodeSphere plexus (18 nodes, KNN
+     1. canvas, real-time NodeSphere plexus (18 nodes, KNN
                         crossings, atmospheric glow, slow rotation)
-     2. ::before     — expanding broadcast halo (CSS, opacity fade)
-     3. ::after      — white pulsing core with red glow box-shadow
+     2. ::before, expanding broadcast halo (CSS, opacity fade)
+     3. ::after, white pulsing core with red glow box-shadow
                         chain (the "thought firing")
    filter: drop-shadow on the wrapper paints the red glow halo
    that ties the whole assembly together.
    contain: layout style paint isolates the mark's render from
-   the page compositor — the dock won't recomposite scrolling
+   the page compositor, the dock won't recomposite scrolling
    chrome under it. */
 .sbnt-console__nn{
   position: relative;
@@ -135,9 +135,8 @@ const CSS = `
   .sbnt-console__nn::after,
   .sbnt-console__nn::before{ animation: none; }
 }
-/* "Subnet Oracle" — the bar's brand. Serif italic feels editorial,
-   matches the hero wordmark family. Tight letter-spacing, no caps —
-   the brand reads like a magazine sub-imprint, not a CLI app. */
+/* "Subnet Oracle", the bar's brand. Serif italic feels editorial,
+   matches the hero wordmark family. Tight letter-spacing, no caps,    the brand reads like a magazine sub-imprint, not a CLI app. */
 .sbnt-console__brand{
   display: inline-flex; align-items: baseline; gap: 7px;
   min-width: 0;
@@ -156,7 +155,7 @@ const CSS = `
   font-weight: 700;
   font-size: 13px;
 }
-/* "Bittensor" — set as the brand wordmark, same Archivo Black face
+/* "Bittensor", set as the brand wordmark, same Archivo Black face
    as "Subnet Oracle" above. Lowercase so the τ glyphs sit at the
    same x-height as the surrounding Latin letters; previously caps
    pushed B/I/E/N/S/O/R to cap-height while τ stayed small, which
@@ -310,7 +309,7 @@ const CSS = `
   font-weight: 700;
 }
 
-/* link line — outbound URL with ↗ glyph + underline-on-hover */
+/* link line, outbound URL with ↗ glyph + underline-on-hover */
 .sbnt-link{
   display: block;
   color: var(--c-red-1, #FF4D60);
@@ -325,7 +324,7 @@ const CSS = `
   border-bottom-color: var(--c-red, #FF1E3C);
 }
 
-/* cost line — amber chip-style callout used for "costs τ X" notes */
+/* cost line, amber chip-style callout used for "costs τ X" notes */
 .sbnt-cost{
   display: inline-block;
   margin: 4px 0;
@@ -339,7 +338,7 @@ const CSS = `
   letter-spacing: .02em;
 }
 
-/* code line — multi-line code block */
+/* code line, multi-line code block */
 .sbnt-code{
   display: block;
   margin: 6px 0;
@@ -586,7 +585,7 @@ function lineHtml(line){
 }
 
 /**
- * Mount the field-manual console. Self-injecting — no DOM mount
+ * Mount the field-manual console. Self-injecting, no DOM mount
  * point needed. dataLayer is ignored; this console is content, not
  * a live event log.
  * @param {{subscribe:Function, get:Function}|null} [_dataLayer]
@@ -597,8 +596,8 @@ export function mountConsole(_dataLayer = null){
 
   /* tab + body content sets render off the imported FAQ array */
   /* Render tabs in display order. /links and /play are stewards
-     of the rest of the magazine — links to everything you can do
-     off-site, and the arcade game — so they're surfaced near the
+     of the rest of the magazine, links to everything you can do
+     off-site, and the arcade game, so they're surfaced near the
      front rather than buried at the end of the array. The rest
      follow in their data-file order. */
   const TAB_ORDER_FRONT = ['mine', 'links', 'play'];
@@ -624,11 +623,11 @@ export function mountConsole(_dataLayer = null){
   el.innerHTML = `
     <span class="sbnt-console__edge" aria-hidden="true"></span>
     <div class="sbnt-console__bar" data-role="bar">
-      <!-- The Oracle's "consciousness" — 8-node SVG plexus with
+      <!-- The Oracle's "consciousness", 8-node SVG plexus with
            staggered opacity pulses (signals cascading through the
            net), an expanding broadcast ring, and a breathing white
            core. Pure SVG + CSS transform/opacity animations on
-           contained children — Android-compositor-safe. -->
+           contained children, Android-compositor-safe. -->
       <!-- PS5-grade Oracle mark: NodeSphere canvas + CSS pseudo
            halo + breathing core overlay. Same engine as the
            masthead brand mark, scaled to 34 px. -->
@@ -650,7 +649,7 @@ export function mountConsole(_dataLayer = null){
   `;
   document.body.appendChild(el);
 
-  /* Mount the Oracle's PS5-grade plexus mark — a tiny NodeSphere
+  /* Mount the Oracle's PS5-grade plexus mark, a tiny NodeSphere
      on the bar's 34 px canvas. 18 nodes / K=3 / density .45 /
      speed .55 / atmos true gives the rotating 3D plexus feel
      without burning a meaningful frame budget. */
@@ -669,7 +668,7 @@ export function mountConsole(_dataLayer = null){
   const toggle  = el.querySelector('[data-role="toggle"]');
   const tabs    = Array.from(el.querySelectorAll('.sbnt-tab'));
   const tabRail = el.querySelector('.sbnt-console__tabs');
-  /* slide-hint on the tab rail — there are 15 tabs and the phone
+  /* slide-hint on the tab rail, there are 15 tabs and the phone
      viewport shows ~4, so the rest is invisible without the cue */
   const teardownTabHint = tabRail ? applySlideHint(tabRail) : () => {};
 
@@ -823,7 +822,7 @@ export function mountConsole(_dataLayer = null){
     tokens:   [],          // [{x, y, r}] α tokens floating above
     score:    0,
     best:     0,
-    alive:    false,        // not running yet — wait for first tap
+    alive:    false,        // not running yet, wait for first tap
     started:  false,
     accH:     1.2,
     accT:     0.6,
@@ -981,7 +980,7 @@ export function mountConsole(_dataLayer = null){
     /* cull off-screen */
     RUNNER.hazards = RUNNER.hazards.filter(h => h.x > -40);
     RUNNER.tokens  = RUNNER.tokens.filter(t => t.x > -40);
-    /* collide — player AABB vs hazard AABB */
+    /* collide, player AABB vs hazard AABB */
     const pAABB = {
       x: RUNNER.px,
       y: RUNNER.ground - 26 + RUNNER.py,
@@ -997,7 +996,7 @@ export function mountConsole(_dataLayer = null){
         return;
       }
     }
-    /* collect tokens — circle-vs-AABB */
+    /* collect tokens, circle-vs-AABB */
     const cx = RUNNER.px + 11, cy = RUNNER.ground - 13 + RUNNER.py;
     RUNNER.tokens = RUNNER.tokens.filter(t => {
       const ay = RUNNER.ground + t.y;
@@ -1027,7 +1026,7 @@ export function mountConsole(_dataLayer = null){
     const ctx = RUNNER.ctx;
     if (!ctx) return;
     ctx.clearRect(0, 0, RUNNER.w, RUNNER.h);
-    /* background — faint dot grid */
+    /* background, faint dot grid */
     ctx.fillStyle = 'rgba(255,30,60,.18)';
     for (let x = -32 + RUNNER.bgOffset; x < RUNNER.w; x += 32){
       for (let y = 16; y < RUNNER.h - 16; y += 24){
@@ -1043,7 +1042,7 @@ export function mountConsole(_dataLayer = null){
     ctx.lineTo(RUNNER.w, RUNNER.ground + 2);
     ctx.stroke();
     ctx.globalAlpha = 1;
-    /* hazards — red triangular sweeps */
+    /* hazards, red triangular sweeps */
     ctx.fillStyle = '#FF1E3C';
     RUNNER.hazards.forEach(h => {
       ctx.beginPath();
@@ -1053,7 +1052,7 @@ export function mountConsole(_dataLayer = null){
       ctx.closePath();
       ctx.fill();
     });
-    /* tokens — orange/red α circles */
+    /* tokens, orange/red α circles */
     RUNNER.tokens.forEach(t => {
       const ay = RUNNER.ground + t.y;
       ctx.save();
@@ -1075,7 +1074,7 @@ export function mountConsole(_dataLayer = null){
       ctx.fillText('α', t.x, ay + 1);
       ctx.restore();
     });
-    /* player — small chip with τ */
+    /* player, small chip with τ */
     const px = RUNNER.px, py = RUNNER.ground - 26 + RUNNER.py;
     ctx.fillStyle = RUNNER.alive ? '#FF1E3C' : '#8B0F20';
     ctx.fillRect(px, py, 22, 26);
@@ -1141,17 +1140,16 @@ export function mountConsole(_dataLayer = null){
     });
   });
 
-  /* collapse / expand on bar click — but not when a child button was clicked */
+  /* collapse / expand on bar click, but not when a child button was clicked */
   bar.addEventListener('click', (e) => {
     /* ignore clicks on the tabs, the search input, the game widget,
-       the body content, and any anchor links — only bar-chrome
+       the body content, and any anchor links, only bar-chrome
        clicks toggle the dock */
     if (e.target.closest('.sbnt-tab')) return;
     if (e.target.closest('.sbnt-console__tabs')) return;
     if (e.target.closest('.sbnt-console__body')) return;
     const collapsed = el.classList.toggle('is-collapsed');
-    /* keep the toggle glyph the same family as the initial render —
-       single fullwidth ＋ or minus −, no brackets. Brackets wrap
+    /* keep the toggle glyph the same family as the initial render,        single fullwidth ＋ or minus −, no brackets. Brackets wrap
        onto two lines inside the 24-px circular toggle and read as
        a broken UI. */
     toggle.textContent = collapsed ? '＋' : '−';

@@ -1,8 +1,8 @@
 /* =================================================================
-   HERO — the opening visual
+   HERO, the opening visual
    -----------------------------------------------------------------
    Full-bleed-feel section with the rotating Icosphere centerpiece
-   and editorial framing — kicker, big serif headline, dek, a thin
+   and editorial framing, kicker, big serif headline, dek, a thin
    data readout strip below.
    ================================================================= */
 
@@ -64,7 +64,7 @@
   color: var(--c-ink-1);
   text-wrap: balance;
 }
-/* "subnet review" emphasis matches the brand wordmark — white
+/* "subnet review" emphasis matches the brand wordmark, white
    italic serif, same ink as "Subneτ Magazine" above. Italic
    carries the visual emphasis without changing the colour, so
    the title reads as one wordmark, not two halves. */
@@ -81,7 +81,7 @@
 }
 .hero__subtitle em{ color: var(--c-red); font-style: italic; }
 
-/* The editorial philosophy — set apart from the descriptive dek so
+/* The editorial philosophy, set apart from the descriptive dek so
    it reads as the magazine's position, not its product blurb. Big
    red corner quote marks, italic serif, indented inset rule. */
 .hero__philosophy{
@@ -145,7 +145,7 @@
 .hero__btn--ghost{ color: var(--c-ink-1); border: 1px solid var(--c-rule-2); }
 .hero__btn--ghost:hover{ border-color: var(--c-red); color: var(--c-red); }
 
-/* Mini live readout — three vertical fields in the lower-right */
+/* Mini live readout, three vertical fields in the lower-right */
 .hero__readout{
   display: grid;
   grid-template-columns: repeat(3, auto);

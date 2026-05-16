@@ -1,10 +1,10 @@
 /* =================================================================
-   SUBNET ORACLE — fresh v2 (clean, mobile-first, GPU-light)
+   SUBNET ORACLE, fresh v2 (clean, mobile-first, GPU-light)
    -----------------------------------------------------------------
    A complete rebuild of the bottom dock. The original module
    (preserved as Console.legacy.js) accumulated nine months of
-   features — search, an arcade game, /play commands, a multi-layer
-   PS5 neural-net mark — and somewhere in the chrome layering the
+   features, search, an arcade game, /play commands, a multi-layer
+   PS5 neural-net mark, and somewhere in the chrome layering the
    Android Chrome compositor stopped letting the home page scroll.
 
    This rebuild is the minimum viable Oracle:
@@ -12,7 +12,7 @@
      2. tap to expand / collapse
      3. tab row from FIELD_MANUAL data module
      4. body that re-renders on tab change
-     5. a small SVG plexus mark — the "agent endpoint"
+     5. a small SVG plexus mark, the "agent endpoint"
 
    Deliberate omissions vs the legacy:
      - no backdrop-filter, no multi-layer box-shadow, no compound
@@ -77,9 +77,9 @@ const CSS = `
    Real-time NodeSphere plexus rendered on canvas + CSS pseudo-
    element overlays for the breathing core and broadcast halo.
    Three painted layers, ordered behind → front:
-     1. canvas  — rotating 3D plexus, atmospheric glow, KNN edges
-     2. ::before — expanding broadcast halo ring (CSS)
-     3. ::after  — white-glowing pulsing core (CSS)
+     1. canvas, rotating 3D plexus, atmospheric glow, KNN edges
+     2. ::before, expanding broadcast halo ring (CSS)
+     3. ::after, white-glowing pulsing core (CSS)
    Compositor cost is contained: contain: layout style paint isolates
    the mark from the page compositor; the canvas runs at 30 px so
    the rasterised texture is tiny. */
@@ -98,7 +98,7 @@ const CSS = `
   border-radius: 50%;
 }
 .sbnt-oracle__mark::after{
-  /* white pulsing core — "the thought firing" */
+  /* white pulsing core, "the thought firing" */
   content: "";
   position: absolute;
   top: 50%; left: 50%;
@@ -115,7 +115,7 @@ const CSS = `
   z-index: 2;
 }
 .sbnt-oracle__mark::before{
-  /* expanding broadcast halo — "the agent broadcasting" */
+  /* expanding broadcast halo, "the agent broadcasting" */
   content: "";
   position: absolute;
   top: 50%; left: 50%;
@@ -315,9 +315,9 @@ function lineHtml(line){
 }
 
 /**
- * Mount the Subnet Oracle dock. Self-injecting — appends its own
+ * Mount the Subnet Oracle dock. Self-injecting, appends its own
  * fixed element to <body>. Returns a destroy() that fully tears
- * down its DOM and listeners. dataLayer is unused — the Oracle is
+ * down its DOM and listeners. dataLayer is unused, the Oracle is
  * static content, not a live feed.
  *
  * @param {*} [_dataLayer]
@@ -338,7 +338,7 @@ export function mountConsole(_dataLayer = null){
 
   el.innerHTML = `
     <div class="sbnt-oracle__bar" data-role="bar">
-      <!-- PS5-grade Oracle mark — NodeSphere canvas plexus +
+      <!-- PS5-grade Oracle mark, NodeSphere canvas plexus +
            CSS-pseudo halo + breathing core overlay -->
       <span class="sbnt-oracle__mark" aria-hidden="true">
         <canvas class="sbnt-oracle__mark-canvas" data-role="mark-canvas"></canvas>
@@ -357,7 +357,7 @@ export function mountConsole(_dataLayer = null){
   `;
   document.body.appendChild(el);
 
-  /* Mount the Oracle's PS5-grade plexus mark — a tiny NodeSphere
+  /* Mount the Oracle's PS5-grade plexus mark, a tiny NodeSphere
      on the 30 px canvas. 18 nodes is dense enough to read as a
      3D plexus without looking sparse; atmospheric glow + KNN
      crossings give the live-agent feel. */
@@ -391,7 +391,7 @@ export function mountConsole(_dataLayer = null){
     toggle.textContent = open ? '−' : '+';
   }
 
-  /* clicking the bar toggles open/closed — except when the click is
+  /* clicking the bar toggles open/closed, except when the click is
      inside the body itself (the user is trying to scroll or read) */
   function onBarClick(e){
     if (e.target.closest('.sbnt-oracle__body')) return;

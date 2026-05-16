@@ -1,21 +1,21 @@
 /* =================================================================
-   SUBNET MAGAZINE — HOME (magazine cover, real data)
+   SUBNET MAGAZINE, HOME (magazine cover, real data)
    -----------------------------------------------------------------
    The content below the hero icosphere + validator globe on
    index.html. Three blocks:
 
-     1. LIVE NETWORK band — real TAO price, market cap, circulating
+     1. LIVE NETWORK band, real TAO price, market cap, circulating
         supply, staked %, staking APR, FDV, block height. Pulled
         from the TMC API via DataLayer ('tao:market' + 'tao:chain').
-     2. TOP SUBNETS — the real top-12 subnets by market cap, each
+     2. TOP SUBNETS, the real top-12 subnets by market cap, each
         with its real logo, netuid, α-price, 24h change, market
         cap. Click any card → subnet.html?id=N. Sourced from
         DataLayer 'tao:subnets'.
-     3. SECTIONS — a clean card grid linking to every page on the
+     3. SECTIONS, a clean card grid linking to every page on the
         site with a one-line explanation of each.
 
    Everything that's live is labelled LIVE; if the API can't be
-   reached the band falls back to "—" rather than faking numbers.
+   reached the band falls back to ", " rather than faking numbers.
    ================================================================= */
 
 import { html, mount, qs, qsa, setLive } from '../lib/dom.js';
@@ -44,11 +44,11 @@ const CAT_LABEL = {
   'interview':   'INTERVIEW',
 };
 
-/* Seed for top-25 cover banners — subnets whose netuids are NOT in
+/* Seed for top-25 cover banners, subnets whose netuids are NOT in
    the live SUBNETS roster (newer slots, rebrands, or community
    restarts after Covenant's April 2026 exit). Provides price, mcap
    ($M), 24h % change, name, category, and short owner so the cover
-   never falls back to "—". May 2026 reasonable values, designed to
+   never falls back to ", ". May 2026 reasonable values, designed to
    ride on top of whatever the live feed lands later. */
 const BIO_SEED = Object.freeze({
   3:   { name: 'Templar · Teutonic', price: 0.0297, mcap: 132.6, chg24:  +1.25, chg30: +18.4, emission: 142, cat: 'training', owner: 'community' },
@@ -62,7 +62,7 @@ const BIO_SEED = Object.freeze({
   75:  { name: 'Hippius',            price: 0.0246, mcap: 100.6, chg24:  -0.16, chg30:  +6.2, emission:  62, cat: 'infra',    owner: 'Hippius' },
 });
 
-/* Name overrides — slots that existed in SUBNETS under an older
+/* Name overrides, slots that existed in SUBNETS under an older
    identity now reflect their 2026 brand/ownership. */
 const BIO_NAME = Object.freeze({
   2:  'DSperse',
@@ -86,12 +86,12 @@ function artDate(iso){
 
 /* The article cover badge. Subnet-scoped articles wear that subnet's
    generative monogram (deterministic node-graph mark on its name);
-   every other article carries the official Bittensor τ mark — the
+   every other article carries the official Bittensor τ mark, the
    actual brand asset, served from /assets, inverted for the dark
    ground. */
 function coverLogo(a){
   /* only true subnet-profile articles wear the subnet monogram; the
-     rest carry the Bittensor τ — fund letters, op-eds, primers and
+     rest carry the Bittensor τ, fund letters, op-eds, primers and
      interviews are about the network, not a specific subnet */
   const isProfile = (a.kicker || '').toUpperCase() === 'SUBNET PROFILE';
   if (isProfile && a.subnet){
@@ -131,19 +131,19 @@ const SECTIONS = [
   { code:'020', label:'TAO Terminal',  href:'terminal.html',
     desc:'The cockpit. Live τ price chart, network pulse, top movers, emissions, benchmark leaderboard, Asian-AI spotlight, frontier releases.' },
   { code:'030', label:'Markets',       href:'markets.html',
-    desc:'The movers desk — subnets by 24h gainers, losers and activity with sparklines, and the centralized AI landscape ranked by valuation.' },
+    desc:'The movers desk, subnets by 24h gainers, losers and activity with sparklines, and the centralized AI landscape ranked by valuation.' },
   { code:'040', label:'Subnets',       href:'subnets.html',
     desc:'Every active subnet in one sortable, searchable, filterable table. One click into the full research page for any of them.' },
   { code:'050', label:'Validators',    href:'validators.html',
-    desc:'The hotkeys that actually run Bittensor — ranked by stake, nominators, APY, and subnet participation.' },
+    desc:'The hotkeys that actually run Bittensor, ranked by stake, nominators, APY, and subnet participation.' },
   { code:'025', label:'Compare',       href:'compare.html',
-    desc:'Bittensor subnets vs the centralized world. TTFT, tokens/sec, $/1M, precision, GPU class — side by side with Claude, GPT, Gemini, DeepSeek, Qwen.' },
+    desc:'Bittensor subnets vs the centralized world. TTFT, tokens/sec, $/1M, precision, GPU class, side by side with Claude, GPT, Gemini, DeepSeek, Qwen.' },
   { code:'026', label:'Centralized Desk', href:'centralized.html',
-    desc:'The centralized AI race, watched — closed labs, compute build-outs, and capital, with the Asian frontier first-class. Reading cards and the full roster.' },
+    desc:'The centralized AI race, watched, closed labs, compute build-outs, and capital, with the Asian frontier first-class. Reading cards and the full roster.' },
   { code:'060', label:'Research',      href:'articles.html',
-    desc:'Long-form research on decentralized intelligence — subnet profiles, fund letters, primers. Read inline or download the PDF.' },
+    desc:'Long-form research on decentralized intelligence, subnet profiles, fund letters, primers. Read inline or download the PDF.' },
   { code:'070', label:'Community',     href:'community.html',
-    desc:'The ecosystem out loud — a live τ pulse, the Subneτ Magazine X timeline, and a curated directory of the voices worth following.' },
+    desc:'The ecosystem out loud, a live τ pulse, the Subneτ Magazine X timeline, and a curated directory of the voices worth following.' },
   { code:'010', label:'Network Map',   href:'network.html',
     desc:'The validator consensus surface as a rotating 3D globe. Drag to spin; hover a hub for its stake and location.' },
 ];
@@ -202,14 +202,13 @@ export function mountHome(root, dataLayer = null){
          150-200 words with the metric that defines them today, a
          compact stats grid, and the most recent 2026 milestone.
          Researched from taostats, taomarketcap, official repos, and
-         2026 press — sourced inline at the section foot. -->
+         2026 press, sourced inline at the section foot. -->
     <section class="home-bios" aria-label="Top 25 subnet deep profiles">
       <div class="home-net__head">
         <span class="home-net__kicker"><span class="home-net__ord">§ 02</span><span class="live-dot"></span>The Top 25 · deep profiles · 14 May 2026</span>
         <span class="home-net__source"><span class="dot dot--live"></span>LIVE TAOSTATS + EDITORIAL · MCP READY</span>
         <h2 class="home-net__title">The <em>full read</em> on every leader.</h2>
-        <p class="home-net__sub">Editorial bios for the 25 subnets earning the most daily τ as of 14 May 2026 —
-        what they actually do, who runs them, what they shipped in 2026, and the single number that
+        <p class="home-net__sub">Editorial bios for the 25 subnets earning the most daily τ as of 14 May 2026,         what they actually do, who runs them, what they shipped in 2026, and the single number that
         defines each one today. Ordered by emission rank.</p>
       </div>
       <ol class="home-bios__grid">
@@ -218,29 +217,29 @@ export function mountHome(root, dataLayer = null){
           const seed = BIO_SEED[b.netuid] || {};
           const rank  = String(i + 1).padStart(2, '0');
           const name  = BIO_NAME[b.netuid] || sn.name || seed.name || ('Subnet ' + b.netuid);
-          const cat   = sn.cat   ?? seed.cat   ?? '—';
+          const cat   = sn.cat   ?? seed.cat   ?? 'Â·';
           const priceN = sn.price ?? seed.price;
           const mcapN  = sn.mcap  ?? seed.mcap;
           const chgN   = sn.chg24 ?? seed.chg24;
           const up    = (chgN ?? 0) >= 0;
           const price = priceN != null
             ? (priceN < 1 ? '$' + priceN.toFixed(4) : '$' + priceN.toFixed(2))
-            : '—';
-          const mcap  = mcapN  != null ? '$' + (mcapN >= 100 ? mcapN.toFixed(0) + 'M' : mcapN.toFixed(1) + 'M') : '—';
-          const chg   = chgN   != null ? ((chgN >= 0 ? '+' : '') + chgN.toFixed(2) + '%') : '—';
+            : 'Â·';
+          const mcap  = mcapN  != null ? '$' + (mcapN >= 100 ? mcapN.toFixed(0) + 'M' : mcapN.toFixed(1) + 'M') : 'Â·';
+          const chg   = chgN   != null ? ((chgN >= 0 ? '+' : '') + chgN.toFixed(2) + '%') : 'Â·';
           /* prefer the live CDN logo where the API has one; otherwise
              a generated node-graph monogram on the rebranded name */
           const logo = sn.logo
             ? `<img class="home-bio__logo" src="${sn.logo}" alt="" loading="lazy" onerror="this.replaceWith(document.createTextNode(''))">`
             : `<span class="home-bio__logo home-bio__logo--mark">${mark(name, { size: 36 })}</span>`;
-          /* TaonSquare catalog lookup — surfaces verified links per
+          /* TaonSquare catalog lookup, surfaces verified links per
              subnet as a chip-row at the bottom of the cover banner.
              Each link rendered as a proper inline-SVG brand glyph
              (GitHub mark, globe for site, X glyph, Discord, docs).
              X handle pulled separately from FOUNDERS where present
              since TaonSquare's schema doesn't carry it. */
           const ts = tsByNetuid(b.netuid);
-          /* founder lookup for the X handle — TaonSquare's schema
+          /* founder lookup for the X handle, TaonSquare's schema
              doesn't carry per-subnet X handles, so we pull from our
              FOUNDERS table where available */
           const f  = founderById(b.netuid) || {};
@@ -332,14 +331,14 @@ export function mountHome(root, dataLayer = null){
     <!-- ===== § 03 THE MONEY MAP · centralized vs Bittensor by capital =====
          Real infographic, not a competitor list. Per layer of the AI
          stack we put the centralized market cap next to the Bittensor
-         α-mcap of the subnets competing there — to scale, on a log
+         α-mcap of the subnets competing there, to scale, on a log
          axis so the slivers stay legible. The DAVID-vs-GOLIATH chart
          is the lead visual; detail cards underneath carry the
          specifics. The PROTOCOL row inverts: Bittensor owns the
          entire field because there is no centralized analog.
          Section gets a heavier visual treatment so it doesn't blur
          into the bios rail above or the protocol pipeline below. -->
-    <section class="home-stack" aria-label="The decentralized AI money map — centralized vs Bittensor by capital">
+    <section class="home-stack" aria-label="The decentralized AI money map, centralized vs Bittensor by capital">
       <div class="home-stack__hero">
         <div class="home-net__head">
           <span class="home-net__kicker"><span class="home-net__ord">§ 03</span><span class="live-dot"></span>The Money Map · centralized capital vs Bittensor <span class="alpha">α</span>-mcap</span>
@@ -348,7 +347,7 @@ export function mountHome(root, dataLayer = null){
           <p class="home-net__sub">For every layer of the AI stack: the centralized market
           we're competing against in dollars, the Bittensor <span class="alpha">α</span>-market cap of the subnets
           competing there, and the slice we hold today. <em>Drawn to scale.</em> The
-          PROTOCOL layer is the inversion — no centralized analog exists.</p>
+          PROTOCOL layer is the inversion, no centralized analog exists.</p>
         </div>
 
         ${(() => {
@@ -389,7 +388,7 @@ export function mountHome(root, dataLayer = null){
               bAnchors:'Subtensor chain · Yuma Consensus · dTAO bonding · GTAO bridge' },
           ];
 
-          const fmt  = (b) => b === 0 ? '—' :
+          const fmt  = (b) => b === 0 ? 'Â·' :
                               b >= 1000 ? '$' + (b/1000).toFixed(1) + 'T'
                             : b >= 1   ? '$' + (b % 1 === 0 ? b : b.toFixed(1)) + 'B'
                                        : '$' + (b * 1000).toFixed(0) + 'M';
@@ -421,9 +420,8 @@ export function mountHome(root, dataLayer = null){
             <div class="home-stack__gloss">
               <span class="home-stack__gloss-tag">PRIMER</span>
               <p>
-                Every Bittensor subnet has its own token — its <strong><span class="alpha">α</span> (alpha)</strong>.
-                The <strong><span class="alpha">α</span>-MCAP</strong> is the market cap of that <span class="alpha">α</span> token —
-                <em><span class="alpha">α</span> price × <span class="alpha">α</span> circulating supply</em> — the standard way to value a
+                Every Bittensor subnet has its own token, its <strong><span class="alpha">α</span> (alpha)</strong>.
+                The <strong><span class="alpha">α</span>-MCAP</strong> is the market cap of that <span class="alpha">α</span> token,                 <em><span class="alpha">α</span> price × <span class="alpha">α</span> circulating supply</em>, the standard way to value a
                 subnet. The bars below put the centralized AI market on the left in dollars
                 and the rolled-up <span class="alpha">α</span>-MCAP of the subnets competing at each layer on the
                 right.
@@ -452,7 +450,7 @@ export function mountHome(root, dataLayer = null){
                         <span class="home-stack__chart-conf" title="confidence: ${r.conf}" style="background:${confColor(r.conf)};box-shadow:0 0 6px ${confColor(r.conf)};"></span>
                       </span>
                       <span class="home-stack__chart-c-lbl">
-                        ${inverted ? '—' : fmt(r.cap)}<span class="home-stack__chart-yr">${inverted ? '' : r.yr}</span>
+                        ${inverted ? ', ' : fmt(r.cap)}<span class="home-stack__chart-yr">${inverted ? '' : r.yr}</span>
                       </span>
                       <span class="home-stack__chart-b-lbl">${fmtM(r.aMcap)}</span>
                       <span class="home-stack__chart-gap ${inverted ? 'is-inverted' : ''}">${gapStr}</span>
@@ -523,7 +521,7 @@ export function mountHome(root, dataLayer = null){
             verdict: 'Narrowest absolute gap on the chart, but the centralized side has shipped: Claude Code is at $1.5B ARR and Agentforce at $700M+. First decentralized agent to clear 90% on SWE-bench takes the layer.',
             tam:     '~$120B agent SaaS by 2028 (Gartner)',
             recent:  'Claude Sonnet 4.6 with computer-use shipped Apr ’26; Devin GA.',
-            watch:   'SWE-bench leaderboard — first model to clear 90% sets the price.',
+            watch:   'SWE-bench leaderboard, first model to clear 90% sets the price.',
           },
           {
             layer: 'MODEL',
@@ -543,7 +541,7 @@ export function mountHome(root, dataLayer = null){
               { id: 6,   name: 'Numinous', cat: 'text'     },
             ],
             unit:    'MMLU PARITY · Templar-72B (Mar ’26) hit 67.1, beating Llama-2-70B (65.6).',
-            verdict: 'Worst capital gap on the chart, best technical signal. Templar-72B is the first decentralized result within striking distance of frontier — Apache 2.0, cited by Jack Clark, discussed by Jensen Huang. Open weights vs proprietary capture.',
+            verdict: 'Worst capital gap on the chart, best technical signal. Templar-72B is the first decentralized result within striking distance of frontier, Apache 2.0, cited by Jack Clark, discussed by Jensen Huang. Open weights vs proprietary capture.',
             tam:     '~$1.3T foundation-model market by 2032 (Bloomberg)',
             recent:  'Templar-72B hit 67.1 MMLU; SparseLoCo cut inter-node bandwidth 146×.',
             watch:   'Teutonic trillion-param run targeted late May ’26.',
@@ -610,10 +608,10 @@ export function mountHome(root, dataLayer = null){
               { id: 49, name: 'Polaris',  cat: 'infra' },
             ],
             unit:    'CAPEX BURN · MSFT+GOOG+META+AMZN FY26 capex ~$725B total, ~$450B AI-specific.',
-            verdict: 'You don\'t out-capex Microsoft. The play is aggregator economics — coordinate the long-tail GPU supply that hyperscalers don\'t bid on. Chutes\' B200 deployment is the live test.',
+            verdict: 'You don\'t out-capex Microsoft. The play is aggregator economics, coordinate the long-tail GPU supply that hyperscalers don\'t bid on. Chutes\' B200 deployment is the live test.',
             tam:     '~$725B hyperscaler capex FY26 (CNBC)',
             recent:  'CoreWeave IPO at $23B (Mar ’26); H200/B200 cycle in full swing.',
-            watch:   'Long-tail GPU aggregation — Chutes / Lium B200 onboarding cadence.',
+            watch:   'Long-tail GPU aggregation, Chutes / Lium B200 onboarding cadence.',
           },
           {
             layer: 'PROTOCOL',
@@ -629,12 +627,12 @@ export function mountHome(root, dataLayer = null){
             ],
             unit:    'TAO MARKET CAP · $3.3B live, 21M cap, halving #2 due Dec ’29.',
             verdict: 'The only layer where Bittensor owns the field. No centralized product coordinates a network of AI workers like Yuma does. The asymmetric bet sits here, not above.',
-            tam:     'Bittensor owns the field — no centralized analog.',
+            tam:     'Bittensor owns the field, no centralized analog.',
             recent:  'BIT-0011 Conviction Mechanism rolled out May ’26.',
-            watch:   'Post-Covenant governance test — community continuation of SN3 / 39 / 81.',
+            watch:   'Post-Covenant governance test, community continuation of SN3 / 39 / 81.',
           },
         ].map((row, i) => {
-          const fmt  = (b) => b === 0 ? '—' :
+          const fmt  = (b) => b === 0 ? 'Â·' :
                               b >= 1000 ? '$' + (b/1000).toFixed(1) + 'T'
                             : b >= 1   ? '$' + (b % 1 === 0 ? b : b.toFixed(1)) + 'B'
                                        : '$' + (b * 1000).toFixed(0) + 'M';
@@ -683,7 +681,7 @@ export function mountHome(root, dataLayer = null){
               <span class="home-stack__col-lbl">CENTRALIZED INCUMBENTS</span>
               <ul>${row.cent.map(c => {
                 /* tolerate both the old string shape and the new
-                   {name, brand, detail} shape — if anyone reverts
+                   {name, brand, detail} shape, if anyone reverts
                    to plain strings later this still renders */
                 const obj = typeof c === 'string'
                   ? { name: c, brand: c, detail: '' }
@@ -700,8 +698,7 @@ export function mountHome(root, dataLayer = null){
             <div class="home-stack__sn">
               <span class="home-stack__col-lbl">BITTENSOR SUBNETS COMPETING HERE</span>
               <ul>${row.sn.map(s => {
-                /* paint a real node-graph monogram for the subnet —
-                   same engine as the bio-card fallbacks, sized to
+                /* paint a real node-graph monogram for the subnet,                    same engine as the bio-card fallbacks, sized to
                    match the brand chip on the centralized side so
                    the two columns scan equally */
                 const monogram = mark(s.name, { size: 18 });
@@ -733,7 +730,7 @@ export function mountHome(root, dataLayer = null){
         <span class="home-stack__thesis-q">“</span>
         Decentralized AI today is about <em>$3.8B against $2T+</em>. The bet is not that
         Bittensor is large. The bet is that incentive design eats proprietary capture
-        — and that the gap closes from this side, not theirs.
+, and that the gap closes from this side, not theirs.
         <span class="home-stack__thesis-q">”</span>
       </p>
 
@@ -804,7 +801,7 @@ export function mountHome(root, dataLayer = null){
         <p class="home-how__loop-cap">One block of work, six stages. <span data-bind="how-block-cap">9.2 s</span></p>
       </div>
 
-      <!-- LIVE METRICS STRIP — six cells, one per loop stage, each
+      <!-- LIVE METRICS STRIP, six cells, one per loop stage, each
            with a stat that quantifies that stage at the network
            level. Values are live where the DataLayer feeds it
            (subnets count, block time, emissions/day, α-MCAP); the
@@ -857,8 +854,7 @@ export function mountHome(root, dataLayer = null){
               <h3 class="home-how__h">Subnets</h3>
               <span class="home-how__meta">Task markets · the input</span>
             </header>
-            <p class="home-how__brief">Each subnet defines one specific kind of intelligence —
-            a task, a scoring rubric, and a competitive market. Owners register a slot by burning
+            <p class="home-how__brief">Each subnet defines one specific kind of intelligence,             a task, a scoring rubric, and a competitive market. Owners register a slot by burning
             <span class="val">τ100K+</span> and shipping the open-source incentive code; emissions
             then flow to whoever serves the task best.</p>
             <dl class="home-how__data">
@@ -913,7 +909,7 @@ export function mountHome(root, dataLayer = null){
                 <!-- the donut -->
                 <g>${arcs.map(a => `<path d="${a.d}" fill="currentColor" fill-opacity="${a.op}"/>`).join('')}</g>
 
-                <!-- centred dial — big count + small caps caption -->
+                <!-- centred dial, big count + small caps caption -->
                 <text x="${cx}" y="${cy - 4}" text-anchor="middle"
                       font-family="JetBrains Mono, monospace" font-size="22" font-weight="700"
                       fill="#F5E5E8" font-variant-numeric="tabular-nums">92</text>
@@ -960,7 +956,7 @@ export function mountHome(root, dataLayer = null){
               <h3 class="home-how__h">Miners</h3>
               <span class="home-how__meta">Workers · compute output</span>
             </header>
-            <p class="home-how__brief">Miners answer the subnet's queries — usually a GPU running
+            <p class="home-how__brief">Miners answer the subnet's queries, usually a GPU running
             an open-weight model, sometimes an ASIC, sometimes a CPU agent. They pay
             <span class="val">~<span class="tau">τ</span>1</span> to register a UID and then
             compete for the subnet's emission. No permission, no whitelist.</p>
@@ -1035,7 +1031,7 @@ export function mountHome(root, dataLayer = null){
             </header>
             <p class="home-how__brief">Validators score every miner. Each validator runs the subnet's
             incentive code locally, ranks miner outputs, and publishes a weight vector to chain.
-            The weight vector is their honest opinion of who did the work — and their stake is
+            The weight vector is their honest opinion of who did the work, and their stake is
             what makes that opinion expensive to lie about.</p>
             <dl class="home-how__data">
               <div><dt>Active</dt><dd>6,184</dd></div>
@@ -1106,8 +1102,7 @@ export function mountHome(root, dataLayer = null){
               <span class="home-how__meta">Algorithm · Yuma v2</span>
             </header>
             <p class="home-how__brief">Yuma Consensus aggregates every validator's weight vector
-            into one fair score per miner. The weighted-median operation prunes outlier weights —
-            validators that disagree with the consensus get their contributions discounted — so
+            into one fair score per miner. The weighted-median operation prunes outlier weights,             validators that disagree with the consensus get their contributions discounted, so
             the system pays only agreement, not noise.</p>
             <dl class="home-how__data">
               <div><dt>Algorithm</dt><dd>Weighted median</dd></div>
@@ -1155,7 +1150,7 @@ export function mountHome(root, dataLayer = null){
                 `;
               }).join('')}
 
-              <!-- the weighted-median line — where consensus lands -->
+              <!-- the weighted-median line, where consensus lands -->
               ${(() => {
                 const x = 14 + (63 / 100) * 192;
                 return `
@@ -1227,7 +1222,7 @@ export function mountHome(root, dataLayer = null){
               <use href="#how-rail-B" stroke="currentColor" stroke-opacity=".4" stroke-width=".7"/>
               <use href="#how-rail-C" stroke="currentColor" stroke-opacity=".4" stroke-width=".7"/>
 
-              <!-- packets on rail A (MINERS) — 4 dots, dense -->
+              <!-- packets on rail A (MINERS), 4 dots, dense -->
               ${[0, 0.22, 0.44, 0.66].map(off => `
                 <circle r="2" fill="#FF1E3C">
                   <animateMotion dur="2.2s" begin="${off}s" repeatCount="indefinite">
@@ -1235,7 +1230,7 @@ export function mountHome(root, dataLayer = null){
                   </animateMotion>
                 </circle>
               `).join('')}
-              <!-- packets on rail B (VALIDATORS) — 4 dots -->
+              <!-- packets on rail B (VALIDATORS), 4 dots -->
               ${[0.1, 0.32, 0.54, 0.76].map(off => `
                 <circle r="2" fill="#FF4D60">
                   <animateMotion dur="2.2s" begin="${off}s" repeatCount="indefinite">
@@ -1243,7 +1238,7 @@ export function mountHome(root, dataLayer = null){
                   </animateMotion>
                 </circle>
               `).join('')}
-              <!-- packets on rail C (OWNER) — 2 dots, fewer to convey 18% -->
+              <!-- packets on rail C (OWNER), 2 dots, fewer to convey 18% -->
               ${[0.5, 1.6].map(off => `
                 <circle r="2" fill="#FFB0BA">
                   <animateMotion dur="2.2s" begin="${off}s" repeatCount="indefinite">
@@ -1277,7 +1272,7 @@ export function mountHome(root, dataLayer = null){
             </header>
             <p class="home-how__brief">Every subnet has its own <span class="alpha">α</span> token sold on a <span class="tau">τ</span>-bonded curve.
             Buy <span class="alpha">α</span> to bet that a subnet will earn more emissions; the curve sets price as a
-            function of bonded τ. This is the protocol's price-discovery layer — dynamic TAO,
+            function of bonded τ. This is the protocol's price-discovery layer, dynamic TAO,
             or dTAO, live since <span class="val">Feb 2025</span>.</p>
             <dl class="home-how__data">
               <div><dt>Live <span class="alpha">α</span> pools</dt><dd>92</dd></div>
@@ -1312,7 +1307,7 @@ export function mountHome(root, dataLayer = null){
 
               <!-- five overlaid bonding curves: c1 highest, c5 lowest -->
               ${[
-                /* color, curveY at x=14, x=80, x=160, x=214 — the curve shape; label, marker x, marker y, sn label */
+                /* color, curveY at x=14, x=80, x=160, x=214, the curve shape; label, marker x, marker y, sn label */
                 ['#FF1E3C', 'M 14 124 C 60 122, 120 96, 214  28', 'SN64 Chutes',    160,  62, '$199M'],
                 ['#FF4D60', 'M 14 126 C 60 124, 120 110, 214 48', 'SN44 Score',      170,  82, '$190M'],
                 ['#FF7A88', 'M 14 127 C 60 125, 120 118, 214 66', 'SN120 Affine',    142,  98, '$199K'],
@@ -1352,8 +1347,7 @@ export function mountHome(root, dataLayer = null){
          section renders that same loop as a working feed-forward
          network. Five layers labelled SUBNETS → MINERS → VALIDATORS
          → WEIGHTS → CONSENSUS, with red signal pulses crossing them
-         every block. Different mode than the masthead plexus —
-         that's the brand; this is the protocol diagram. -->
+         every block. Different mode than the masthead plexus,          that's the brand; this is the protocol diagram. -->
     <section class="home-neural" aria-label="The Bittensor consensus loop, visualized">
       <div class="home-net__head">
         <span class="home-net__kicker"><span class="home-net__ord">§ 05</span>The machine</span>
@@ -1370,7 +1364,7 @@ export function mountHome(root, dataLayer = null){
 
     <!-- ===== EMISSION TREEMAP =====
          The visual companion to step 05 (Emissions) of the Six Steps
-         explainer above — now you've named the parts, here's how the
+         explainer above, now you've named the parts, here's how the
          pie actually gets split. -->
     <section class="home-neural" aria-label="Subnet emission share treemap">
       <div class="home-net__head">
@@ -1395,42 +1389,42 @@ export function mountHome(root, dataLayer = null){
         <span class="home-net__kicker"><span class="home-net__ord">§ 07</span><span class="live-dot"></span>Live Network · taomarketcap</span>
         <span class="home-net__source"><span class="dot dot--live"></span>LIVE TAO MARKET CAP PUBLIC API · 12s POLL</span>
         <h2 class="home-net__title">Bittensor, <em>right now.</em></h2>
-        <p class="home-net__sub">Real on-chain data — TAO market, supply, staking, and chain state — refreshed straight from the Tao Market Cap public API.</p>
+        <p class="home-net__sub">Real on-chain data, TAO market, supply, staking, and chain state, refreshed straight from the Tao Market Cap public API.</p>
       </div>
       <div class="home-net__grid">
         <div class="home-stat home-stat--lead">
           <span class="home-stat__lbl"><span class="tau">τ</span> / USD</span>
-          <span class="home-stat__val" data-bind="price">—</span>
-          <span class="home-stat__sub" data-bind="price-delta">—</span>
+          <span class="home-stat__val" data-bind="price">, </span>
+          <span class="home-stat__sub" data-bind="price-delta">, </span>
           <span class="home-stat__spark"><canvas data-spark="price"></canvas></span>
         </div>
         <div class="home-stat">
           <span class="home-stat__lbl">Market Cap</span>
-          <span class="home-stat__val" data-bind="mcap">—</span>
-          <span class="home-stat__sub" data-bind="mcap-delta">7d —</span>
+          <span class="home-stat__val" data-bind="mcap">, </span>
+          <span class="home-stat__sub" data-bind="mcap-delta">7d, </span>
           <span class="home-stat__spark"><canvas data-spark="mcap"></canvas></span>
         </div>
         <div class="home-stat">
           <span class="home-stat__lbl">Circulating</span>
-          <span class="home-stat__val" data-bind="circ">—</span>
+          <span class="home-stat__val" data-bind="circ">, </span>
           <span class="home-stat__sub">of 21M max</span>
           <span class="home-stat__spark"><canvas data-spark="circ"></canvas></span>
         </div>
         <div class="home-stat">
           <span class="home-stat__lbl">Staked</span>
-          <span class="home-stat__val" data-bind="staked">—</span>
-          <span class="home-stat__sub" data-bind="apr">APR —</span>
+          <span class="home-stat__val" data-bind="staked">, </span>
+          <span class="home-stat__sub" data-bind="apr">APR, </span>
           <span class="home-stat__spark"><canvas data-spark="staked"></canvas></span>
         </div>
         <div class="home-stat">
           <span class="home-stat__lbl">24h Volume</span>
-          <span class="home-stat__val" data-bind="vol">—</span>
+          <span class="home-stat__val" data-bind="vol">, </span>
           <span class="home-stat__sub" data-bind="vol-sub">spot</span>
           <span class="home-stat__spark"><canvas data-spark="vol"></canvas></span>
         </div>
         <div class="home-stat">
           <span class="home-stat__lbl">Block height</span>
-          <span class="home-stat__val" data-bind="block">—</span>
+          <span class="home-stat__val" data-bind="block">, </span>
           <span class="home-stat__sub" data-bind="chain-sub">root / subnet split</span>
           <span class="home-stat__spark"><canvas data-spark="block"></canvas></span>
         </div>
@@ -1440,7 +1434,7 @@ export function mountHome(root, dataLayer = null){
     <!-- ===== § 07 THE NETWORK · Six Degrees of Const =====
          Bittensor is not a hundred independent subnets. It is one
          founding circle, a dozen operators, and five investors.
-         This is the table that proves it — every top-25 subnet
+         This is the table that proves it, every top-25 subnet
          mapped back to Const by name, role, degree, and chain.
          Sortable HTML table; renders on phone; every cell is
          defensible against a public source in founders.js. -->
@@ -1460,35 +1454,35 @@ export function mountHome(root, dataLayer = null){
           const sn   = subnetById(b.netuid) || {};
           const seed = BIO_SEED[b.netuid]   || {};
           const name = BIO_NAME[b.netuid] || sn.name || seed.name || ('Subnet ' + b.netuid);
-          const parent = f.parent || seed.owner || '—';
+          const parent = f.parent || seed.owner || ', ';
           const cat = sn.cat || seed.cat || '';
           const investors = (f.investors && f.investors.length)
             ? f.investors.slice(0, 2).join(' · ')
             : 'No public round';
           const founderName = f.founders && f.founders[0]
             ? f.founders[0].name.replace(/\s*\(pseudonym\)/i, '')
-            : '—';
+            : 'Â·';
           const emission = sn.emission ?? seed.emission ?? null;
-          const emisStr  = emission != null ? emission : '—';
+          const emisStr  = emission != null ? emission : 'Â·';
           const c30 = sn.chg30 ?? seed.chg30 ?? null;
           const c30Str = c30 != null
             ? ((c30 >= 0 ? '+' : '') + c30.toFixed(1) + '%')
-            : '—';
+            : 'Â·';
           const c30Cls = c30 != null ? (c30 >= 0 ? 'up' : 'down') : '';
           /* per-card live KPIs from SUBNETS / BIO_SEED */
           const priceN = sn.price ?? seed.price ?? null;
           const price  = priceN != null
             ? (priceN < 1 ? '$' + priceN.toFixed(4) : '$' + priceN.toFixed(2))
-            : '—';
+            : 'Â·';
           const mcapN = sn.mcap ?? seed.mcap ?? null;
           const mcap  = mcapN != null
             ? (mcapN >= 1000 ? '$' + (mcapN/1000).toFixed(2) + 'B' : '$' + mcapN.toFixed(1) + 'M')
-            : '—';
-          const miners = sn.miners != null ? sn.miners.toLocaleString('en-US') : '—';
-          const validators = sn.validators != null ? sn.validators.toLocaleString('en-US') : '—';
+            : 'Â·';
+          const miners = sn.miners != null ? sn.miners.toLocaleString('en-US') : 'Â·';
+          const validators = sn.validators != null ? sn.validators.toLocaleString('en-US') : 'Â·';
           const stake  = sn.stake != null
             ? (sn.stake >= 1000 ? (sn.stake/1000).toFixed(1) + 'K' : Math.round(sn.stake).toString())
-            : '—';
+            : 'Â·';
           /* trim recentNews to first sentence for the ship line */
           const ship = (b.recentNews || '').split(/\.(?=\s|$)/)[0].trim() + (b.recentNews ? '.' : '');
           /* emission bar baseline = 200 τ so leaders saturate, long tail still reads */
@@ -1571,7 +1565,7 @@ export function mountHome(root, dataLayer = null){
               <!-- Q2 2026 ship -->
               <div class="home-ops__ship">
                 <span class="home-ops__ship-lbl">Q2 2026 ship</span>
-                <p class="home-ops__ship-text">${ship || '—'}</p>
+                <p class="home-ops__ship-text">${ship || ', '}</p>
               </div>
 
               <a class="home-ops__more" href="subnet.html?id=${b.netuid}">Open full profile →</a>
@@ -1580,7 +1574,7 @@ export function mountHome(root, dataLayer = null){
         }).join('')}
       </ol>
 
-      <!-- Investor concentration strip — real financial signal. The
+      <!-- Investor concentration strip, real financial signal. The
            funds with public positions in 3+ top-25 subnets via the
            parent companies. Pulled live from FOUNDERS.investors via
            subnetsByInvestor(). -->
@@ -1615,7 +1609,7 @@ export function mountHome(root, dataLayer = null){
          This is that page. The site you just scrolled through is
          built end-to-end by Rondo Campbell from inside the U.S.
          prison system, on a prison-issued tablet and textbooks,
-         with intermittent connectivity — every line of research,
+         with intermittent connectivity, every line of research,
          code, and design is his. Projected release: 2028. The work
          and the story share a repository. -->
     <section class="home-editor" aria-label="Editor">
@@ -1638,7 +1632,7 @@ export function mountHome(root, dataLayer = null){
           </p>
           <p class="home-editor__bio">
             Subne<span class="tau">τ</span> Magazine is researched, written,
-            designed, and coded by Rondo Campbell &mdash; working from inside
+            designed, and coded by Rondo Campbell, working from inside
             the U.S. prison system, on a prison-issued tablet and a stack of
             textbooks, with intermittent connectivity. Projected release:
             <em>2028</em>. The mission is to walk out as a credible builder
@@ -1650,7 +1644,7 @@ export function mountHome(root, dataLayer = null){
             AI papers, and an LLM running in the working terminal next to
             this one. Phase 1 was Python foundations, summer 2025. The
             magazine you're reading is the portfolio side of the
-            ledger &mdash; built in public, committed in real time. Read the
+            ledger, built in public, committed in real time. Read the
             full record in the JOURNAL.md / SESSION_LOG.md at the
             top of the repository.
           </p>
@@ -1671,7 +1665,7 @@ export function mountHome(root, dataLayer = null){
 
     <!-- ===== END OF FEATURE =====
          The home view stops here. One editorial closer that doubles
-         as the page colophon — § corner ornaments, an END pill, the
+         as the page colophon, § corner ornaments, an END pill, the
          restated mast and live-data attribution underneath, and a
          direct @subnetmagazine handle on the right. No subnetwork
          leaderboard rail or sections grid below; the rest of the
@@ -1713,8 +1707,8 @@ export function mountHome(root, dataLayer = null){
   `);
 
   /* ---------- neural-net protocol diagram ----------
-     Five labelled layers — subnets, miners, validators, weights,
-     consensus — wired together with red signal pulses. Lives in the
+     Five labelled layers, subnets, miners, validators, weights,
+     consensus, wired together with red signal pulses. Lives in the
      "machine" section right under the Six Steps explainer. */
   const neuralCanvas = qs('[data-canvas="neural"]', root);
   const neural = neuralCanvas ? new NeuralNet(neuralCanvas) : null;
@@ -1740,7 +1734,7 @@ export function mountHome(root, dataLayer = null){
   if (treemapCount) treemapCount.innerHTML = 'TREEMAP · TOP ' + topN + ' SUBNETS · BY <span class="tau">τ</span>/DAY';
 
   /* ---------- LIVE NETWORK band sparklines ---------- */
-  /* one micro-trend per stat — deterministic, keyed to the field, a
+  /* one micro-trend per stat, deterministic, keyed to the field, a
      visual read of momentum until per-field history endpoints land. */
   const statSparks = [];
   [
@@ -1751,7 +1745,7 @@ export function mountHome(root, dataLayer = null){
     if (cv) statSparks.push(new Sparkline(cv, { series: seedSeries(key, drift, 32) }));
   });
 
-  /* ---------- TOP VALIDATORS rail — one sparkline per card ---------- */
+  /* ---------- TOP VALIDATORS rail, one sparkline per card ---------- */
   const valSparks = [];
   VALIDATORS.slice(0, 12).forEach((v) => {
     const cv = qs(`[data-val-spark="${v.id}"]`, root);
@@ -1806,7 +1800,7 @@ export function mountHome(root, dataLayer = null){
       if (cv2) lazySparkObserver.observe(cv2);
     });
   } else {
-    /* graceful fallback for ancient browsers — mount eagerly */
+    /* graceful fallback for ancient browsers, mount eagerly */
     SUBNET_BIOS.forEach((b) => {
       const sn   = subnetById(b.netuid) || {};
       const seed = BIO_SEED[b.netuid]   || {};
@@ -1894,7 +1888,7 @@ export function mountHome(root, dataLayer = null){
         </li>
       `;
     }).join('');
-    /* mount one sparkline per card — synthesized trend keyed to the
+    /* mount one sparkline per card, synthesized trend keyed to the
        subnet name + its real 24h change until a real per-subnet
        history endpoint is wired in. */
     const canvases = qsa('.home-subnet__spark canvas', grid);
@@ -1943,12 +1937,12 @@ export function mountHome(root, dataLayer = null){
   /* ---------- LIVE: § 04 The loop · metrics strip ----------
      Six per-stage figures sit under the loop SVG. Three of them are
      directly computable from the magazine's existing DataLayer feeds:
-       01 SUBNETS    — count of subnets in the tao:subnets list
-       06 dTAO       — sum of α-MCAP across the same list
-       05 EMISSIONS  — derived from the chain emission rate
-       04 CONSENSUS  — live block time from tao:chain
+       01 SUBNETS, count of subnets in the tao:subnets list
+       06 dTAO, sum of α-MCAP across the same list
+       05 EMISSIONS, derived from the chain emission rate
+       04 CONSENSUS, live block time from tao:chain
      02 MINERS / 03 VALIDATORS are calibrated to the May 2026
-     snapshot — neither feed gives a network-wide miner count
+     snapshot, neither feed gives a network-wide miner count
      cleanly, so we leave the snapshot until taostats wiring is
      added. Brighten the value when it goes live (.is-live). */
   function renderHowMetrics(list){
@@ -2039,7 +2033,7 @@ export function mountHome(root, dataLayer = null){
 
   /* "▸ swipe left for more" cue on every horizontally-scrolling
      rail. The selectors map 1:1 to the overflow-x: auto containers
-     in style/components/home.css — drop a new rail in there and
+     in style/components/home.css, drop a new rail in there and
      it picks up the same cue automatically. */
   const slideHintTeardowns = [
     '.home-vals__rail',

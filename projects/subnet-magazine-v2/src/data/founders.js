@@ -1,5 +1,5 @@
 /* =================================================================
-   SUBNET MAGAZINE — FOUNDERS + CROSS-SUBNET CONNECTION GRAPH
+   SUBNET MAGAZINE, FOUNDERS + CROSS-SUBNET CONNECTION GRAPH
    -----------------------------------------------------------------
    Founder profiles and the deduped edge list that backs the
    shared-history graph viz on the site. Top-25 subnets by daily τ
@@ -97,7 +97,7 @@ export const FOUNDERS = Object.freeze([
     subnet: 'Gradients',
     parent: 'Rayon Labs',
     founders: [
-      { name: 'namoray (pseudonym)', role: 'Lead', handles: { x: '@namoray_', github: 'rayonlabs' }, background: 'Same Rayon Labs team as SN64 Chutes.', notableHook: 'Gradients customers training 118B-parameter models for ~$5/hr are paying that because the τ emission subsidy underwrites the Chutes compute SN56 runs on — SN56 is a loss-led acquisition channel for SN64.' },
+      { name: 'namoray (pseudonym)', role: 'Lead', handles: { x: '@namoray_', github: 'rayonlabs' }, background: 'Same Rayon Labs team as SN64 Chutes.', notableHook: 'Gradients customers training 118B-parameter models for ~$5/hr are paying that because the τ emission subsidy underwrites the Chutes compute SN56 runs on, SN56 is a loss-led acquisition channel for SN64.' },
       { name: 'sangar (pseudonym)', role: 'Co-founder', handles: {}, background: 'Same Rayon Labs team.', notableHook: 'Part of vertically-integrated training+inference stack.' },
       { name: 'carro (pseudonym)', role: 'Co-founder', handles: {}, background: 'Same Rayon Labs team.', notableHook: 'Part of vertically-integrated training+inference stack.' },
     ],
@@ -127,7 +127,7 @@ export const FOUNDERS = Object.freeze([
         handles: { linkedin: 'robert-myers-3a8426161' },
         background: 'Founding Bittensor contributor, miner and subnet designer.',
         priorBittensorWork: 'Senior Software Engineer at the Opentensor Foundation prior to founding Manifold.',
-        notableHook: 'Manifold\'s entire senior bench is ex-Opentensor — Myers (ex-Senior SWE) + Woodman (ex-COO). The whole company is structurally an Opentensor spinout.',
+        notableHook: 'Manifold\'s entire senior bench is ex-Opentensor, Myers (ex-Senior SWE) + Woodman (ex-COO). The whole company is structurally an Opentensor spinout.',
       },
       {
         name: 'James Woodman',
@@ -166,7 +166,7 @@ export const FOUNDERS = Object.freeze([
         role: 'Founder, Covenant AI (until exit)',
         handles: { linkedin: 'samuel-b-dare' },
         background: 'AI researcher and entrepreneur; founded Covenant AI in January 2024 to operationalize Templar research. Led the training of Covenant-72B, the largest decentralized LLM run on record at the time (March 2026).',
-        notableHook: 'Sam Dare lists UAE on LinkedIn — the founder of what was, until April, Bittensor\'s flagship pretraining subnet was geographically detached from the Bay Area / NYC / London cluster. His April 2026 public exit citing "decentralization theatre" is also the network\'s first major founder-vs-founder rupture (Dare vs Const).',
+        notableHook: 'Sam Dare lists UAE on LinkedIn, the founder of what was, until April, Bittensor\'s flagship pretraining subnet was geographically detached from the Bay Area / NYC / London cluster. His April 2026 public exit citing "decentralization theatre" is also the network\'s first major founder-vs-founder rupture (Dare vs Const).',
       },
     ],
     investors: [], // no public VC round
@@ -284,7 +284,7 @@ export const FOUNDERS = Object.freeze([
         handles: { x: '@Punk9277', linkedin: 'yuhu9277' },
         background: 'Investment banking analyst at Deutsche Bank (London, 2014-2017); Citadel (London, 2017-2022) managing long/short European-and-US equities. Left Citadel in 2022 to start Kaito from Seattle; now based in Singapore.',
         education: 'University of Cambridge',
-        notableHook: 'Yu Hu is by a wide margin the most TradFi-pedigreed founder in the entire Bittensor top 25 — Citadel is the highest-prestige systematic hedge fund in the world. His presence is the strongest signal that institutional quant talent considers decentralized AI a real opportunity.',
+        notableHook: 'Yu Hu is by a wide margin the most TradFi-pedigreed founder in the entire Bittensor top 25, Citadel is the highest-prestige systematic hedge fund in the world. His presence is the strongest signal that institutional quant talent considers decentralized AI a real opportunity.',
       },
     ],
     investors: ['Sequoia Capital (Kaito parent rounds)', 'Dragonfly Capital (Kaito parent rounds)'],
@@ -338,7 +338,7 @@ export const FOUNDERS = Object.freeze([
         background: 'Co-founded Bittensor in 2019 with Ala Shaabana; ML researcher at Knowm (2015-2016); Software Engineer at Google (2016-2018); CEO of the Opentensor Foundation until stepping down in 2025 to "build in the trenches again."',
         education: 'Simon Fraser University, BASc Mathematics & Computer Science',
         priorBittensorWork: 'Co-founded Bittensor itself; this is his own subnet.',
-        notableHook: 'Const choosing to build Affine on the network he founded is the sharpest possible statement of his post-CEO worldview — Affine is structurally parasitic on every other subnet (RL coordination pulls from them all), and Const built it deliberately to become so.',
+        notableHook: 'Const choosing to build Affine on the network he founded is the sharpest possible statement of his post-CEO worldview, Affine is structurally parasitic on every other subnet (RL coordination pulls from them all), and Const built it deliberately to become so.',
       },
     ],
     investors: [],
@@ -369,7 +369,7 @@ export const FOUNDERS = Object.freeze([
         role: 'Founder',
         handles: { x: '@shak' /* approximate */ , github: 'ridgesai' },
         background: 'Reportedly prior engineering experience at Twitter/X and "Superbase" (likely Supabase, per Bittensor123 profile). Founded Ridges as "Agentao," rebranded in 2025.',
-        notableHook: 'Only top-25 founder publicly claiming a Twitter engineering background. Ridges SWE-bench scores went from 4% to 41% in a week of competitive miner pressure; reportedly hit 66.8% — competing with frontier-lab tooling on a ~$1M annual incentive budget.',
+        notableHook: 'Only top-25 founder publicly claiming a Twitter engineering background. Ridges SWE-bench scores went from 4% to 41% in a week of competitive miner pressure; reportedly hit 66.8%, competing with frontier-lab tooling on a ~$1M annual incentive budget.',
       },
     ],
     investors: [],
@@ -404,7 +404,7 @@ export const FOUNDERS = Object.freeze([
         background: 'Original architect of SN1\'s codebase; founding engineer at SolidState AI (PIML).',
         education: 'PhD, Experimental/Subatomic Nuclear Physics, University of British Columbia (Canada)',
         priorBittensorWork: 'CTO of the Opentensor Foundation prior to co-founding Macrocosmos in March 2024.',
-        notableHook: 'The only top-25 operator-side technical co-founder who held the CTO title at Opentensor itself; "long-time friend" of Squires per their joint Bittensor Guru appearance — Macrocosmos is a deliberate continuation of Cruz\'s Opentensor work.',
+        notableHook: 'The only top-25 operator-side technical co-founder who held the CTO title at Opentensor itself; "long-time friend" of Squires per their joint Bittensor Guru appearance, Macrocosmos is a deliberate continuation of Cruz\'s Opentensor work.',
       },
     ],
     investors: [],
@@ -437,17 +437,17 @@ export const FOUNDERS = Object.freeze([
         handles: { linkedin: 'timkalic' },
         background: 'Technology leader / CTO; sports tech, Web3, and ecommerce background.',
         education: 'Bournemouth University',
-        notableHook: 'Score is the first top-25 subnet to sign a publicly disclosed B2B contract with another top-25 subnet (Data Universe / SN13) — Kalic\'s team set the prototype for inter-subnet commerce.',
+        notableHook: 'Score is the first top-25 subnet to sign a publicly disclosed B2B contract with another top-25 subnet (Data Universe / SN13), Kalic\'s team set the prototype for inter-subnet commerce.',
       },
       {
         name: 'Nigel Grant',
         role: 'Co-Founder & CSO',
         handles: { linkedin: 'nigel-grant-b762159b' },
-        background: 'Also listed as CRO/Co-founder of SIRE (ICM Analytics) — an AI sports-betting analysis brand.',
+        background: 'Also listed as CRO/Co-founder of SIRE (ICM Analytics), an AI sports-betting analysis brand.',
         notableHook: 'Grant\'s simultaneous SIRE role gives Score a direct line into the betting-analytics market without owning the betting brand itself.',
       },
     ],
-    investors: ['Yuma (DCG) — accelerated cohort'],
+    investors: ['Yuma (DCG), accelerated cohort'],
     crossSubnetLinks: [
       { netuid: 13, relation: 'Data partnership · Score is a paying downstream customer of Data Universe (Q1 2026)' },
     ],
@@ -477,7 +477,7 @@ export const FOUNDERS = Object.freeze([
         background: 'Subnet lead for both Data Universe and Mainframe.',
         education: 'MASc, Electrical & Computer Engineering / Computer Vision, McMaster University',
         priorBittensorWork: 'Machine Learning Researcher at the Opentensor Foundation prior to Macrocosmos.',
-        notableHook: 'McCrindle is the third ex-Opentensor person in the Macrocosmos cluster — making Macrocosmos the only top-25 operator where every senior person came directly out of Opentensor.',
+        notableHook: 'McCrindle is the third ex-Opentensor person in the Macrocosmos cluster, making Macrocosmos the only top-25 operator where every senior person came directly out of Opentensor.',
       },
     ],
     investors: [],
@@ -507,7 +507,7 @@ export const FOUNDERS = Object.freeze([
         role: 'Founder, Covenant AI (until exit)',
         handles: { linkedin: 'samuel-b-dare' },
         background: 'See SN3 Templar entry. Launched Basilica January 2026 as agent-native ephemeral sandbox compute.',
-        notableHook: 'Basilica is the most direct competitive overlap with Rayon\'s Chutes anywhere on the network — and its founder (Dare) publicly attacked Const, while Const\'s own SN120 Affine depends on Chutes for compute. The architecture and the politics aligned.',
+        notableHook: 'Basilica is the most direct competitive overlap with Rayon\'s Chutes anywhere on the network, and its founder (Dare) publicly attacked Const, while Const\'s own SN120 Affine depends on Chutes for compute. The architecture and the politics aligned.',
       },
     ],
     investors: [],
@@ -536,7 +536,7 @@ export const FOUNDERS = Object.freeze([
         role: 'Founder, Covenant AI (until exit)',
         handles: { linkedin: 'samuel-b-dare' },
         background: 'See SN3 Templar entry. Grail was the RL/post-training counterpart to Templar in the Covenant trio.',
-        notableHook: 'Grail + Templar + Basilica formed a deliberate vertically-integrated pretrain → post-train → agent stack — the only such stack any single Bittensor founder ever assembled.',
+        notableHook: 'Grail + Templar + Basilica formed a deliberate vertically-integrated pretrain → post-train → agent stack, the only such stack any single Bittensor founder ever assembled.',
       },
     ],
     investors: [],
@@ -597,7 +597,7 @@ export const FOUNDERS = Object.freeze([
         role: 'CTO',
         handles: { github: 'thenervelab' },
         background: 'Blockchain lead with strong Substrate and decentralized-infrastructure background; combined experience in startups, systems design, and decentralized storage.',
-        notableHook: 'Hippius is the only top-25 subnet that runs its own Substrate chain bridged to Bittensor rather than living purely on Bittensor — architecturally a sibling chain with dual-token economics (BABE consensus, NPoS security) that the rest of the network can\'t support.',
+        notableHook: 'Hippius is the only top-25 subnet that runs its own Substrate chain bridged to Bittensor rather than living purely on Bittensor, architecturally a sibling chain with dual-token economics (BABE consensus, NPoS security) that the rest of the network can\'t support.',
       },
     ],
     investors: [],
@@ -624,7 +624,7 @@ export const FOUNDERS = Object.freeze([
         handles: { linkedin: 'sam-forman' },
         background: 'Cryptography researcher (Montclair State, 2016-2018); McKinsey, TuSimple, Kasisto, College Board internships; founded Sturdy in 2021. Also founder of TaoFi, a separate TAO-DeFi project.',
         education: 'Stanford (math/CS, dropout)',
-        notableHook: 'Sturdy Finance had $125M+ allocated deposits before SN10 launched — the only top-25 subnet where the parent company already had real on-chain TVL pre-subnet. The Morpho / Gauntlet integration is the most consequential DeFi-Bittensor bridge in production.',
+        notableHook: 'Sturdy Finance had $125M+ allocated deposits before SN10 launched, the only top-25 subnet where the parent company already had real on-chain TVL pre-subnet. The Morpho / Gauntlet integration is the most consequential DeFi-Bittensor bridge in production.',
       },
     ],
     investors: ['Y Combinator (Sturdy Finance parent)'],
@@ -651,7 +651,7 @@ export const FOUNDERS = Object.freeze([
         handles: { x: '@BitMindAI', linkedin: 'kmiyachi' },
         background: 'SDE II at Amazon; Senior Software Engineer at Polymer Labs; Senior Tech Lead / Senior SWE at the NEAR Foundation; CEO of LedgerSafe prior to BitMind. Based Austin.',
         education: 'UCSD CS · research at the San Diego Supercomputer Center',
-        notableHook: 'The only top-25 founder with documented senior engineering history at a non-EVM L1 foundation (NEAR). BitMind is also the only top-25 subnet to win a Coinbase Developer Platform hackathon prize (Best Infrastructure, Feb 2025) — explicit cross-ecosystem validation from a major US-listed crypto company.',
+        notableHook: 'The only top-25 founder with documented senior engineering history at a non-EVM L1 foundation (NEAR). BitMind is also the only top-25 subnet to win a Coinbase Developer Platform hackathon prize (Best Infrastructure, Feb 2025), explicit cross-ecosystem validation from a major US-listed crypto company.',
       },
     ],
     investors: ['Canonical Crypto (lead)', 'NEAR Foundation'],
@@ -698,7 +698,7 @@ export const FOUNDERS = Object.freeze([
     founders: [
       { name: 'Will Squires', role: 'Co-Founder & CEO', handles: { linkedin: 'willsquires' }, background: 'See SN1.', notableHook: 'Same Macrocosmos team.' },
       { name: 'Steffen Cruz', role: 'Co-Founder & CTO', handles: { linkedin: 'steffen-cruz' }, background: 'See SN1.', notableHook: 'Same Macrocosmos team.' },
-      { name: 'Brian McCrindle', role: 'Subnet Lead', handles: { linkedin: 'brian-mccrindle' }, background: 'See SN13.', education: 'MASc McMaster ECE/CV', priorBittensorWork: 'Ex-Opentensor ML Researcher.', notableHook: 'Runs both SN13 and SN25 — the only single subnet lead in the top 25 who owns two top-25 subnets simultaneously.' },
+      { name: 'Brian McCrindle', role: 'Subnet Lead', handles: { linkedin: 'brian-mccrindle' }, background: 'See SN13.', education: 'MASc McMaster ECE/CV', priorBittensorWork: 'Ex-Opentensor ML Researcher.', notableHook: 'Runs both SN13 and SN25, the only single subnet lead in the top 25 who owns two top-25 subnets simultaneously.' },
     ],
     investors: [],
     crossSubnetLinks: [
@@ -727,7 +727,7 @@ export const FOUNDERS = Object.freeze([
         role: 'Operator',
         handles: { x: '@zeussubnet', github: 'Orpheus-AI' },
         background: 'Dutch B.V. registered in the Netherlands. Team described as combining hands-on Bittensor experience with academic climate-science expertise.',
-        notableHook: 'Zeus benchmarks directly against GraphCast (Google DeepMind), Pangu-Weather (Huawei), and Aurora (Microsoft) — the only top-25 subnet whose listed competitors are frontier-lab papers rather than other crypto products. The slot was bought from Datura/Fish in early 2025, the only documented top-25-operator slot sale in the network.',
+        notableHook: 'Zeus benchmarks directly against GraphCast (Google DeepMind), Pangu-Weather (Huawei), and Aurora (Microsoft), the only top-25 subnet whose listed competitors are frontier-lab papers rather than other crypto products. The slot was bought from Datura/Fish in early 2025, the only documented top-25-operator slot sale in the network.',
       },
     ],
     investors: [],
@@ -763,7 +763,7 @@ export const FOUNDERS = Object.freeze([
         handles: { x: '@karan4d' /* approximate */, linkedin: 'karan-malhotra' },
         background: 'ML Researcher at the Stanford Brain Stimulation Lab prior to Nous.',
         education: 'Emory University · Stanford ML research role (not PhD)',
-        notableHook: 'Only top-25 founder with a documented research role at a Stanford lab (Brain Stimulation, not NLP) — a different academic-adjacency from the rest of the network.',
+        notableHook: 'Only top-25 founder with a documented research role at a Stanford lab (Brain Stimulation, not NLP), a different academic-adjacency from the rest of the network.',
       },
       {
         name: 'Teknium (pseudonym)',
@@ -784,7 +784,7 @@ export const FOUNDERS = Object.freeze([
         role: 'Founding Developer',
         handles: { x: '@bowenpeng' /* approximate */ },
         background: 'YaRN paper (Sept 2023); DeMo (Decoupled Momentum Optimization, Nov 2024).',
-        notableHook: 'Peng\'s DeMo paper is referenced in Nous\'s own Psyche distributed-training infrastructure pitch — directly relevant to SN6\'s technical approach.',
+        notableHook: 'Peng\'s DeMo paper is referenced in Nous\'s own Psyche distributed-training infrastructure pitch, directly relevant to SN6\'s technical approach.',
       },
     ],
     investors: [
@@ -797,7 +797,7 @@ export const FOUNDERS = Object.freeze([
       'Vipul Reddy (Together AI CEO, angel)',
       'Raj Gokal (Solana co-founder, angel)',
       'Balaji Srinivasan (angel)',
-      'Yuma (DCG) — accelerated as "Numinous"',
+      'Yuma (DCG), accelerated as "Numinous"',
     ],
     crossSubnetLinks: [
       { netuid: 4, relation: 'OSS Capital (JJ) invested in both Manifold and Nous' },
@@ -825,14 +825,14 @@ export const FOUNDERS = Object.freeze([
         role: 'Co-Founder',
         handles: { linkedin: 'ronald-chan' /* approximate */ },
         background: 'Inference Labs co-founder; based Hamilton, Ontario.',
-        notableHook: 'Hamilton, ON-based — the only mid-sized-Canada operator in the top 25.',
+        notableHook: 'Hamilton, ON-based, the only mid-sized-Canada operator in the top 25.',
       },
       {
         name: 'Colin Gagich',
         role: 'Co-Founder',
         handles: { linkedin: 'colin-gagich' /* approximate */ },
         background: 'Inference Labs co-founder; appears on Bittensor Guru episodes representing the subnet.',
-        notableHook: 'Inference Labs has parallel non-Bittensor product Sertn AVS on EigenLayer — the only top-25 operator with a direct restaking-economy exposure in addition to Bittensor.',
+        notableHook: 'Inference Labs has parallel non-Bittensor product Sertn AVS on EigenLayer, the only top-25 operator with a direct restaking-economy exposure in addition to Bittensor.',
       },
     ],
     investors: ['$2.3M pre-seed (per BetaKit)'],
@@ -910,7 +910,7 @@ export const FOUNDER_EDGES = Object.freeze([
   { a: 4,  b: 14, kind: 'shared-investor',  label: 'OSS Capital led SN4 Series A; OSS principal JJ operates SN14' },
   { a: 6,  b: 14, kind: 'shared-investor',  label: 'OSS principal JJ invested in Nous (SN6) and operates SN14' },
 
-  // Yuma (DCG) accelerated cohort overlap — SN6, SN44 confirmed publicly
+  // Yuma (DCG) accelerated cohort overlap, SN6, SN44 confirmed publicly
   { a: 6,  b: 44, kind: 'shared-investor',  label: 'Both in Yuma (DCG) accelerated cohort · Numinous + Score' },
 
   // Documented commercial contracts
@@ -937,7 +937,7 @@ export const FOUNDER_EDGES = Object.freeze([
  * own subnet), 1 for any subnet whose founders worked directly at
  * Opentensor under Const or have a documented direct relationship,
  * and 2 for everything else in the top 25 (per the cross-subnet
- * patterns analysis — every top-25 founder is within 2 degrees).
+ * patterns analysis, every top-25 founder is within 2 degrees).
  * @param {number} netuid
  * @returns {0|1|2|null}  null if not in the top 25
  */

@@ -1,12 +1,12 @@
 /* =================================================================
-   SUBNET MAGAZINE — MARKETS
+   SUBNET MAGAZINE, MARKETS
    -----------------------------------------------------------------
    The movers desk, in the markets-app list format:
 
-     1. TRENDING & MOVERS — Bittensor subnets, toggled Gainers /
+     1. TRENDING & MOVERS, Bittensor subnets, toggled Gainers /
         Losers / Most Active. Each row: netuid + name, a sparkline,
         live α-price, and a coloured 24h % pill.
-     2. HIGHEST VALUATION — the centralized AI landscape ranked by
+     2. HIGHEST VALUATION, the centralized AI landscape ranked by
         valuation, with each company's ticker (".PVT" when
         private), the headline valuation, and its region.
 
@@ -26,7 +26,7 @@ function parseVal(v){
   if (!m) return 0;
   return parseFloat(m[1]) * ({ t: 1e12, b: 1e9, m: 1e6 }[m[2].toLowerCase()] || 1);
 }
-const fmtPrice = p => p == null ? '—' : (p < 1 ? '$' + p.toFixed(4) : money(p));
+const fmtPrice = p => p == null ? 'Â·' : (p < 1 ? '$' + p.toFixed(4) : money(p));
 const fmtPct   = v => `${v >= 0 ? '+' : ''}${(v ?? 0).toFixed(2)}%`;
 
 /**
@@ -60,7 +60,7 @@ export function mountMarkets(root, dataLayer = null){
           <span class="mk-head__kicker">&lt;030&gt;  MARKETS</span>
           <h1 class="mk-head__title">The movers desk.</h1>
           <p class="mk-head__sub">
-            What's running and what's bleeding — Bittensor subnets by 24h move and
+            What's running and what's bleeding, Bittensor subnets by 24h move and
             activity, and the centralized AI landscape ranked by valuation. The
             markets-terminal read, live.
           </p>

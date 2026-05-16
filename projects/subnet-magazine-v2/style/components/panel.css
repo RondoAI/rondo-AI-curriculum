@@ -1,5 +1,5 @@
 /* =================================================================
-   PANEL — the universal container in this system
+   PANEL, the universal container in this system
    -----------------------------------------------------------------
    Every chart, table, or chunk of data lives inside a Panel.
    - Header (left): function code in dim red + amber title + GO chip

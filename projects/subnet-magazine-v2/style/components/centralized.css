@@ -1,5 +1,5 @@
 /* =================================================================
-   SUBNET MAGAZINE — THE CENTRALIZED DESK
+   SUBNET MAGAZINE, THE CENTRALIZED DESK
    -----------------------------------------------------------------
    Visual-first: a valuation tape, CMC-style reading cards with
    generated art banners, and the roster grid. Tokens only.
@@ -131,7 +131,7 @@
 }
 
 /* ---------- readings feed (CMC-style cards) ---------- */
-/* news feed — horizontal cards: text left, generated thumbnail right */
+/* news feed, horizontal cards: text left, generated thumbnail right */
 .cd-feed{
   list-style: none; margin: 0; padding: 0;
   display: grid;

@@ -1,5 +1,5 @@
 /* =================================================================
-   SUBNET MAGAZINE — LIVE CHART
+   SUBNET MAGAZINE, LIVE CHART
    -----------------------------------------------------------------
    A real-time line chart that builds itself from a stream of ticks.
    The hosting view subscribes to a DataLayer channel and calls
@@ -7,7 +7,7 @@
    draws a smooth line, soft area fill, a moving grid, and a pulsing
    "now" dot so the feed visibly breathes.
 
-   This is genuinely live data — there is no synthesized history.
+   This is genuinely live data, there is no synthesized history.
    The series starts from the first real tick and grows as the feed
    delivers more, so a fresh page shows "building…" until it has a
    couple of points.
@@ -45,7 +45,7 @@ export class LiveChart extends Chart {
     const plotW = w - pad.l - pad.r;
     const plotH = h - pad.t - pad.b;
 
-    /* grid — a slow horizontal drift so an empty chart still lives */
+    /* grid, a slow horizontal drift so an empty chart still lives */
     ctx.strokeStyle = C_GRID;
     ctx.lineWidth = 1;
     for (let i = 0; i <= 4; i++){

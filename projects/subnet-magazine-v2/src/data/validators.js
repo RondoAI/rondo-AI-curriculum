@@ -1,5 +1,5 @@
 /* =================================================================
-   SUBNET MAGAZINE — VALIDATORS DATASET
+   SUBNET MAGAZINE, VALIDATORS DATASET
    -----------------------------------------------------------------
    A curated roster of the largest and most-watched Bittensor
    validators ("hotkeys"). Used by the Validators leaderboard

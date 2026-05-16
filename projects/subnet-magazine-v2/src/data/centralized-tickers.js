@@ -1,5 +1,5 @@
 /* =================================================================
-   SUBNET MAGAZINE — CENTRALIZED-AI TICKER TAPE
+   SUBNET MAGAZINE, CENTRALIZED-AI TICKER TAPE
    -----------------------------------------------------------------
    The compact roster the Central Desk ticker reads off. Mix of
    public stocks (price + day-change) and private AI labs (last-
@@ -11,7 +11,7 @@
    `chg`     : 24h / Q-to-Q % change, used for the colored Δ badge
    `domain`  : passed to Clearbit's free logo API; the chip falls
                back to a generative monogram if the image 404s.
-   `tag`     : optional badge — 'PVT' for private, 'CN' / 'KR' /
+   `tag`     : optional badge, 'PVT' for private, 'CN' / 'KR' /
                'JP' / 'TW' for non-US public listings
    `href`    : optional company link
    ================================================================= */

@@ -1,12 +1,12 @@
 /* =================================================================
-   SLIDE HINT — reusable "more →" overlay
+   SLIDE HINT, reusable "more →" overlay
    -----------------------------------------------------------------
    Drop on any horizontally scrolling strip to surface that more
    content exists off the right edge. Two layered cues:
      1. a red-tinted gradient fade on the right edge that bleeds
-        the magazine background back over the content — the eye
+        the magazine background back over the content, the eye
         reads "the content continues but is fading off-screen"
-     2. a small pulsing red ▸ chevron at the right edge — the
+     2. a small pulsing red ▸ chevron at the right edge, the
         explicit "swipe left" signal
    The whole overlay fades out when the strip is scrolled to its
    right end, so it stops nagging once the user has slid through
@@ -15,7 +15,7 @@
    To use:
      1. give the scrolling container the class .slide-hint AND
         the inline JS lib will toggle .slide-hint--at-end
-     2. nothing else — the overlay is generated via ::after
+     2. nothing else, the overlay is generated via ::after
    ================================================================= */
 
 [data-slide-hint]{
@@ -48,8 +48,7 @@
   z-index: 3;
 }
 
-/* JS-toggled when the user has scrolled to the right end —
-   hint hides so it stops asking the user to do something they
+/* JS-toggled when the user has scrolled to the right end,    hint hides so it stops asking the user to do something they
    have already done */
 [data-slide-hint].slide-hint--at-end::after{
   opacity: 0;

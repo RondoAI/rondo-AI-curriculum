@@ -1,8 +1,8 @@
 /* =================================================================
-   SUBNET MAGAZINE — INTERVIEWS DATA
+   SUBNET MAGAZINE, INTERVIEWS DATA
    -----------------------------------------------------------------
    Every video interview the magazine has published. Editorial,
-   not algorithmic — each entry is a primary-source conversation
+   not algorithmic, each entry is a primary-source conversation
    with a builder, founder, operator, or capital allocator inside
    the decentralized-intelligence economy.
 
@@ -13,7 +13,7 @@
         of the existing rows. recordedAt is ISO date (YYYY-MM-DD).
         thumb auto-generates from the YouTube ID if omitted.
      4. Commit + push. The /interviews.html page picks it up
-        automatically on next load — no view code to touch.
+        automatically on next load, no view code to touch.
 
    YouTube thumbnail URL template (auto-used by the view):
      https://i.ytimg.com/vi/<ID>/hqdefault.jpg
@@ -43,7 +43,7 @@ export const INTERVIEWS = Object.freeze([
     guestRole:  'Bittensor operator',
     recordedAt: '2026-05-15',
     duration:   '',                  /* fill in once known */
-    dek:        'A primary-source conversation on building inside the Bittensor network — operating subnets, evaluating validators, and what the decentralized-intelligence economy actually looks like from the inside.',
+    dek:        'A primary-source conversation on building inside the Bittensor network, operating subnets, evaluating validators, and what the decentralized-intelligence economy actually looks like from the inside.',
     youtubeId:  'OZACPOPNwJQ',
     tags:       ['operator', 'subnet'],
   },

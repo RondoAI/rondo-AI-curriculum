@@ -1,5 +1,5 @@
 /* =================================================================
-   SUBNET MAGAZINE — BASE
+   SUBNET MAGAZINE, BASE
    -----------------------------------------------------------------
    Reset, body, root typography, and the global grid texture.
    Anything that touches the entire document goes here. Components
@@ -27,7 +27,7 @@ body {
 
   /* Terminal texture: a fine red grid, a coarse red grid over it, a
      top-anchored red bloom, an edge vignette, and faint CRT
-     scanlines — all fixed-attachment so it stays put as you scroll. */
+     scanlines, all fixed-attachment so it stays put as you scroll. */
   background-image:
     radial-gradient(110% 70% at 50% -10%, rgba(255,30,60,.10), transparent 60%),
     radial-gradient(140% 120% at 50% 50%, transparent 55%, rgba(0,0,0,.85)),
@@ -58,7 +58,7 @@ a { color: inherit; text-decoration: none; }
   outline-offset: 2px;
 }
 
-/* Tabular numerals everywhere by default for data UI — opt out where
+/* Tabular numerals everywhere by default for data UI, opt out where
    running text needs proportional figures (.prose). */
 body { font-variant-numeric: tabular-nums; }
 .prose { font-variant-numeric: normal; }
@@ -73,10 +73,10 @@ body { font-variant-numeric: tabular-nums; }
   }
 }
 
-/* Utility helpers used across components — keep this list tiny. */
+/* Utility helpers used across components, keep this list tiny. */
 .mono { font-family: var(--f-mono); }
 /* The Bittensor tau, set as a typographic character. Always preserve
-   its case — many surrounding labels are uppercased, which would
+   its case, many surrounding labels are uppercased, which would
    otherwise convert τ to Τ (visually identical to a Latin T). The
    !important is intentional: any text-transform on an ancestor would
    otherwise eat the glyph. */
@@ -88,7 +88,7 @@ body { font-variant-numeric: tabular-nums; }
   color: inherit;
 }
 
-/* The Bittensor alpha — the per-subnet token glyph. Same rationale
+/* The Bittensor alpha, the per-subnet token glyph. Same rationale
    as .tau: opt out of any inherited uppercase, set as a deliberate
    typographic character. Rendered in serif italic so it reads as a
    brand glyph rather than an inline Greek letter; ever-so-slightly
@@ -114,7 +114,7 @@ body { font-variant-numeric: tabular-nums; }
   overflow: hidden; clip: rect(0,0,0,0); white-space: nowrap; border: 0;
 }
 
-/* AI-2026 data-flow thread — a thin gradient rail down the left
+/* AI-2026 data-flow thread, a thin gradient rail down the left
    edge of the viewport with a glowing red pulse traveling top-to-
    bottom. Sits above the page background, pointer-events off so it
    never intercepts touch / clicks. Decorative; the page works fine

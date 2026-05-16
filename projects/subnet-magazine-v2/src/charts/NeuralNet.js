@@ -1,5 +1,5 @@
 /* =================================================================
-   SUBNET MAGAZINE — NEURAL NETWORK CHART
+   SUBNET MAGAZINE, NEURAL NETWORK CHART
    -----------------------------------------------------------------
    A live feed-forward neural network rendered to canvas. Maps the
    Bittensor consensus stack:
@@ -14,7 +14,7 @@
      - "Pulses" spawn at input nodes on a steady cadence, traverse
        to a random next-layer node, activate it on arrival, then
        chain forward to the next layer. The visible result is a
-       continuously firing network — exactly what Bittensor is
+       continuously firing network, exactly what Bittensor is
        doing under the hood every block.
 
    Performance:
@@ -152,7 +152,7 @@ export class NeuralNet extends Chart {
           // hash-based deterministic weight in [0..1]
           const seed = ((l + 1) * 1009 + i * 73 + j * 13) >>> 0;
           const r = ((seed * 9301 + 49297) % 233280) / 233280;
-          // pruning: keep ~90% of edges — a dense, fully-wired mesh
+          // pruning: keep ~90% of edges, a dense, fully-wired mesh
           if (r < 0.10) continue;
           layerEdges.push({ from: i, to: j, weight: r });
         }
@@ -283,7 +283,7 @@ export class NeuralNet extends Chart {
     }
     this.pulses = survivors;
 
-    /* === nodes — activation decays, halo on active nodes === */
+    /* === nodes, activation decays, halo on active nodes === */
     for (let l = 0; l < this.nodes.length; l++){
       for (const n of this.nodes[l]){
         // exponential decay

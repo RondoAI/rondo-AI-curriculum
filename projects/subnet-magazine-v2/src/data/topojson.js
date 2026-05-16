@@ -1,10 +1,10 @@
 /* =================================================================
-   SUBNET MAGAZINE — TOPOJSON DECODER
+   SUBNET MAGAZINE, TOPOJSON DECODER
    -----------------------------------------------------------------
    A minimal TopoJSON-1 decoder. Just enough to turn the Natural
    Earth `world-atlas/countries-110m.json` (and similar) back into
    GeoJSON-style polygons in (lng, lat). No quantization features
-   beyond what world-atlas uses, no projection — just the math.
+   beyond what world-atlas uses, no projection, just the math.
 
    References:
      https://github.com/topojson/topojson-specification
@@ -98,7 +98,7 @@ export function decodeTopology(topo){
 
 /**
  * Compute a rough centroid of a ring (mean of vertices). Good enough
- * for label placement — does not handle multipart / multiring tricks.
+ * for label placement, does not handle multipart / multiring tricks.
  * @param {[number,number][]} ring
  * @returns {[number,number]}
  */
@@ -110,7 +110,7 @@ export function ringCentroid(ring){
 
 /**
  * Pick the largest polygon of a feature (by ring length) for centroid
- * placement — avoids labels appearing on tiny outlying islands.
+ * placement, avoids labels appearing on tiny outlying islands.
  * @param {CountryFeature} feature
  */
 export function largestPolygonCentroid(feature){

@@ -1,13 +1,13 @@
 /* =================================================================
-   SUBNET MAGAZINE — TAO LOGO
+   SUBNET MAGAZINE, TAO LOGO
    -----------------------------------------------------------------
    The Bittensor τ mark, as a clean geometric SVG so it renders
    sharp at any size and inherits colour from its context. Used
    wherever the network is referenced as a mark rather than a word
-   — the status strip quote, the ticker tape, the masthead.
+, the status strip quote, the ticker tape, the masthead.
 
    Drawn the way the official mark reads: a thin, elegant capital
-   "T" — a horizontal top bar and a centred vertical stem, rounded
+   "T", a horizontal top bar and a centred vertical stem, rounded
    caps. `currentColor` by default so a parent's `color` tints it.
    ================================================================= */
 

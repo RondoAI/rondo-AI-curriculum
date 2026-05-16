@@ -1,9 +1,9 @@
 /* =================================================================
-   SLIDE HINT — JS helper
+   SLIDE HINT, JS helper
    -----------------------------------------------------------------
    Apply to any horizontally-scrolling element so the page surfaces
    a "▸ swipe left" cue. The cue itself is pure CSS in
-   style/components/slide-hint.css — this module just sets the
+   style/components/slide-hint.css, this module just sets the
    data attribute and toggles the at-end class as the user scrolls.
 
    Usage:
@@ -27,7 +27,7 @@ export function applySlideHint(el){
   el.setAttribute('data-slide-hint', '');
 
   const update = () => {
-    /* nothing to scroll — hide the cue */
+    /* nothing to scroll, hide the cue */
     if (el.scrollWidth <= el.clientWidth + 1){
       el.classList.add('slide-hint--at-end');
       return;

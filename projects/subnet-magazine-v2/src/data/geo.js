@@ -1,12 +1,12 @@
 /* =================================================================
-   SUBNET MAGAZINE — GEOGRAPHY
+   SUBNET MAGAZINE, GEOGRAPHY
    -----------------------------------------------------------------
    Hand-authored country borders + label positions, kept tight so we
    can ship the data as part of the bundle without an external map
    library. Borders are stored as (lng, lat) closed polylines; the
    chart renders only the visible-hemisphere portion each frame.
 
-   Country labels carry a `weight` (display priority — 1 = always
+   Country labels carry a `weight` (display priority, 1 = always
    show big, 2 = medium, 3 = only when zoomed).
 
    US state labels: 8 major states by validator activity (CA, TX,
@@ -102,7 +102,7 @@ export const COUNTRY_BORDERS = [
   ]},
 ];
 
-/** Country labels — name + center (lat, lng) + priority. */
+/** Country labels, name + center (lat, lng) + priority. */
 export const COUNTRY_LABELS = [
   { name:'UNITED STATES', lat: 39, lng: -98,  pr: 1 },
   { name:'CANADA',        lat: 58, lng:-106,  pr: 1 },

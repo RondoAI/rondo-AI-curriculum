@@ -3,7 +3,7 @@
    -----------------------------------------------------------------
    Card grid of every Subneτ Magazine video interview. Each card
    shows the thumbnail + title + guest + dek + tags. Tapping the
-   thumbnail swaps it for an embedded YouTube player lazily — we
+   thumbnail swaps it for an embedded YouTube player lazily, we
    never load the iframe until the user actually wants to watch,
    so the page itself stays light.
    ================================================================= */
@@ -71,7 +71,7 @@ export function mountInterviews(root){
     </section>
   `);
 
-  /* Lazy iframe mount on first play tap — swaps the thumbnail
+  /* Lazy iframe mount on first play tap, swaps the thumbnail
      button for the YouTube embed iframe. No iframe is loaded
      until the user clicks. */
   const onPlay = (e) => {

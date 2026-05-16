@@ -1,8 +1,8 @@
 /* =================================================================
-   SUBNET MAGAZINE — GENERATIVE CARD ART
+   SUBNET MAGAZINE, GENERATIVE CARD ART
    -----------------------------------------------------------------
    Deterministic abstract art for news / reading cards. No image
-   assets — every banner is an SVG generated from a seed string, so
+   assets, every banner is an SVG generated from a seed string, so
    it is unique per item, stable across reloads, and free.
 
    The vocabulary is intentionally more painterly than the node-
@@ -37,7 +37,7 @@ function rng(seed){
   };
 }
 
-/* The house palette — every variant draws from these reds. */
+/* The house palette, every variant draws from these reds. */
 const REDS = ['#FF1E3C', '#FF4D60', '#FF7A88', '#C11128', '#8B0F20'];
 
 /**
@@ -70,7 +70,7 @@ export function cardArt(seed, opts = {}){
     blooms += `<circle cx="${f(gx)}" cy="${f(gy)}" r="${f(rad)}" fill="url(#${gid})"/>`;
   }
 
-  /* ---- perspective floor grid — the futuristic terminal horizon ---- */
+  /* ---- perspective floor grid, the futuristic terminal horizon ---- */
   const horizon = h * (0.34 + r() * 0.12);
   const vpx = w * (0.3 + r() * 0.4);          // vanishing point x
   let grid = `<g stroke="#FF1E3C" fill="none">`;
@@ -87,7 +87,7 @@ export function cardArt(seed, opts = {}){
   }
   grid += `<line x1="0" y1="${f(horizon)}" x2="${w}" y2="${f(horizon)}" stroke-opacity="0.30" stroke-width="0.8"/></g>`;
 
-  /* ---- node graph — the neural-net signature, in every banner ---- */
+  /* ---- node graph, the neural-net signature, in every banner ---- */
   const nNodes = 9 + Math.floor(r() * 6);
   const nodes = [];
   for (let i = 0; i < nNodes; i++){

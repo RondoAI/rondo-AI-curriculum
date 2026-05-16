@@ -1,10 +1,10 @@
 /* =================================================================
-   SUBNET MAGAZINE — CATEGORY WORKFLOWS
+   SUBNET MAGAZINE, CATEGORY WORKFLOWS
    -----------------------------------------------------------------
    How each kind of subnet actually runs an epoch, distilled to a
    left-to-right step sequence the WorkflowDiagram chart can paint.
 
-   Steps are intentionally generic — the SubnetDetail view merges
+   Steps are intentionally generic, the SubnetDetail view merges
    the live miner / validator counts into them at render time, so
    the diagram automatically reads "256 miners" instead of "miners".
 

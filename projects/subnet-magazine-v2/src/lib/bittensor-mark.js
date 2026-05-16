@@ -1,14 +1,14 @@
 /* =================================================================
-   SUBNET MAGAZINE — BITTENSOR BRAND MARKS (crisp SVG)
+   SUBNET MAGAZINE, BITTENSOR BRAND MARKS (crisp SVG)
    -----------------------------------------------------------------
    Faithful vector recreations of the two official Bittensor brand
-   assets — the τ glyph (a chamfered, blocky tau, distinct from the
+   assets, the τ glyph (a chamfered, blocky tau, distinct from the
    thin stroked T we used previously) and the wordmark. Both inherit
    colour from `currentColor` so a parent's `color` tints them.
    ================================================================= */
 
 /**
- * The official-style τ mark — a thick horizontal bar over a
+ * The official-style τ mark, a thick horizontal bar over a
  * vertical stem whose bottom-right is chamfered at ~45°.
  *
  * @param {{ size?: number, color?: string, className?: string }} [opts]
@@ -26,7 +26,7 @@ export function tauMark(opts = {}){
 }
 
 /**
- * The lowercase "biττensor" wordmark — the τ characters are the
+ * The lowercase "biττensor" wordmark, the τ characters are the
  * chamfered glyph from `tauMark`, the rest are set in Archivo at
  * a heavy weight via inline styles so it renders the same way on
  * every page even before the font has finished loading.

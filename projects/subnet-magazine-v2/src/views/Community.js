@@ -1,15 +1,15 @@
 /* =================================================================
-   SUBNET MAGAZINE — COMMUNITY
+   SUBNET MAGAZINE, COMMUNITY
    -----------------------------------------------------------------
    The ecosystem's public square. Three blocks:
 
-     1. LIVE PULSE — a real-time τ/USD chart that builds itself from
+     1. LIVE PULSE, a real-time τ/USD chart that builds itself from
         the DataLayer 'tao:market' feed. No synthesized history; the
         line grows as real ticks arrive.
-     2. THE TIMELINE — X's free embed widget rendering the live
+     2. THE TIMELINE, X's free embed widget rendering the live
         @subnetmagazine timeline (and a curated X List, if one is
         configured). Genuinely live tweets, no API key needed.
-     3. ECOSYSTEM VOICES — a curated directory of the real X
+     3. ECOSYSTEM VOICES, a curated directory of the real X
         accounts that move the Bittensor conversation, each a
         follow-card linking straight to the profile.
 
@@ -58,7 +58,7 @@ export function mountCommunity(root, dataLayer = null){
           <span class="cm-head__kicker">&lt;070&gt;  COMMUNITY</span>
           <h1 class="cm-head__title">The ecosystem, <em>out loud.</em></h1>
           <p class="cm-head__sub">
-            A live read on the Bittensor conversation — a real-time τ pulse, the
+            A live read on the Bittensor conversation, a real-time τ pulse, the
             Subneτ Magazine timeline straight from X, and a curated directory of the
             people and teams worth following.
           </p>
@@ -74,16 +74,16 @@ export function mountCommunity(root, dataLayer = null){
         <div class="cm-pulse__head">
           <div>
             <span class="cm-pulse__lbl">τ / USD · live feed</span>
-            <span class="cm-pulse__price" data-bind="price">—</span>
-            <span class="cm-pulse__delta" data-bind="delta">—</span>
+            <span class="cm-pulse__price" data-bind="price">, </span>
+            <span class="cm-pulse__delta" data-bind="delta">, </span>
           </div>
           <div class="cm-pulse__stats">
-            <span class="cm-pulse__stat"><b data-bind="mcap">—</b>market cap</span>
-            <span class="cm-pulse__stat"><b data-bind="vol">—</b>24h volume</span>
+            <span class="cm-pulse__stat"><b data-bind="mcap">, </b>market cap</span>
+            <span class="cm-pulse__stat"><b data-bind="vol">, </b>24h volume</span>
           </div>
         </div>
         <div class="cm-pulse__chart"><canvas data-canvas="pulse"></canvas></div>
-        <p class="cm-pulse__note">Real ticks only — the line is empty until the first live update lands, then it builds in real time.</p>
+        <p class="cm-pulse__note">Real ticks only, the line is empty until the first live update lands, then it builds in real time.</p>
       </section>
 
       <!-- ===== TIMELINE + VOICES ===== -->
@@ -104,14 +104,14 @@ export function mountCommunity(root, dataLayer = null){
             </div>` : `
             <p class="cm-embed__hint">
               Want a ranked, multi-account feed? Create an X List of ecosystem
-              accounts and set <code>xListUrl</code> in config.js — it embeds here automatically.
+              accounts and set <code>xListUrl</code> in config.js, it embeds here automatically.
             </p>`}
           <noscript><p class="cm-embed__hint">Enable JavaScript to load the live X timeline.</p></noscript>
         </section>
 
         <section class="cm-voices" aria-label="Ecosystem voices">
           <h2 class="cm-section__title">Ecosystem voices</h2>
-          <p class="cm-voices__intro">The real accounts behind the Bittensor conversation — founders, funds, subnet teams, analysts. Tap any card to follow on X.</p>
+          <p class="cm-voices__intro">The real accounts behind the Bittensor conversation, founders, funds, subnet teams, analysts. Tap any card to follow on X.</p>
           ${groups.map(g => `
             <div class="cm-voicegroup">
               <h3 class="cm-section__sub">${g.label}</h3>
@@ -170,7 +170,7 @@ export function mountCommunity(root, dataLayer = null){
 
   /* ---------- X timeline embeds ---------- */
   loadTwitterWidgets().then(twttr => {
-    try { twttr.widgets.load(root); } catch (_) { /* widget host unreachable — links still work */ }
+    try { twttr.widgets.load(root); } catch (_) { /* widget host unreachable, links still work */ }
   });
 
   return {
