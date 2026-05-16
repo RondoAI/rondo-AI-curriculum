@@ -45,11 +45,22 @@ const CSS = `
     0 -4px 20px rgba(0,0,0,.55);
   isolation: isolate;
   overflow: hidden;
-  /* never block more than ~38% of the viewport height when
-     expanded, the page always wins the scroll surface back */
+  /* compact default, the page wins the scroll surface back */
   max-height: 38vh;
   display: flex;
   flex-direction: column;
+  transition: max-height .22s ease-out, width .22s ease-out;
+}
+/* tall mode, user opted in via the expand button. Goes nearly
+   full height and widens, so the chat actually breathes. */
+.sbnt-console.is-tall{
+  max-height: 90vh;
+  width: min(640px, 100vw);
+}
+.sbnt-console.is-tall .sbnt-console__body{
+  flex: 1 1 auto;
+  height: auto;
+  min-height: 0;
 }
 /* fully-dismissed state, the entire dock slides off-screen and
    only a tiny relaunch chip remains in the corner */
@@ -218,7 +229,8 @@ const CSS = `
 .sbnt-console.is-collapsed .sbnt-console__hint{ display: inline; }
 .sbnt-console:not(.is-collapsed) .sbnt-console__hint{ display: none; }
 .sbnt-console__toggle,
-.sbnt-console__close{
+.sbnt-console__close,
+.sbnt-console__expand{
   display: inline-grid; place-items: center;
   width: 28px; height: 28px;
   border: 1px solid var(--c-rule-2, rgba(255,30,60,.36));
@@ -231,11 +243,26 @@ const CSS = `
   transition: background .12s ease-out, color .12s ease-out, border-color .12s ease-out, transform .12s ease-out;
 }
 .sbnt-console__toggle:hover,
-.sbnt-console__close:hover{
+.sbnt-console__close:hover,
+.sbnt-console__expand:hover{
   border-color: var(--c-red, #FF1E3C);
   color: var(--c-red-1, #FF4D60);
   background: rgba(255,30,60,.18);
   transform: translateY(-1px);
+}
+.sbnt-console__expand{ margin-left: 2px; margin-right: 2px; }
+/* in tall mode, the expand button rotates 180deg so the icon reads
+   as "collapse back down" */
+.sbnt-console.is-tall .sbnt-console__expand{
+  background: rgba(255,30,60,.22);
+  border-color: var(--c-red, #FF1E3C);
+  color: var(--c-red-1, #FF4D60);
+}
+.sbnt-console.is-tall .sbnt-console__expand svg{
+  transform: rotate(180deg);
+}
+.sbnt-console__expand svg{
+  transition: transform .2s ease-out;
 }
 .sbnt-console__close{ margin-left: 6px; }
 .sbnt-console__close:hover{
@@ -530,11 +557,19 @@ const CSS = `
   display: flex; flex-direction: column;
   gap: 8px;
   padding: 2px 0;
+  /* in tall mode the body is flex:1 so the chat fills its parent and
+     the form sticks to the bottom. height:100% lets that propagate. */
+  min-height: 100%;
 }
 .sbnt-chat__log{
   display: flex; flex-direction: column;
   gap: 8px;
   padding-bottom: 4px;
+  /* in tall mode the log scrolls inside its allotted space, the
+     input form below stays pinned at the bottom of the dock. */
+  flex: 1 1 auto;
+  min-height: 0;
+  overflow-y: auto;
 }
 .sbnt-chat__msg{
   display: flex; flex-direction: column;
@@ -839,6 +874,12 @@ export function mountConsole(_dataLayer = null){
       </span>
       <span class="sbnt-console__push"></span>
       <span class="sbnt-console__hint">Tap to expand</span>
+      <button type="button" class="sbnt-console__expand" data-role="expand"
+              aria-label="Expand Oracle dock to full height" title="Expand tall">
+        <svg viewBox="0 0 14 14" width="12" height="12" aria-hidden="true" data-role="expand-icon">
+          <path d="M3 5 L 7 1 L 11 5 M 3 9 L 7 13 L 11 9" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+        </svg>
+      </button>
       <button type="button" class="sbnt-console__toggle" data-role="toggle" aria-label="Collapse Oracle dock" title="Collapse">
         <svg viewBox="0 0 14 14" width="12" height="12" aria-hidden="true">
           <path d="M3 ${startCollapsed ? '7 L 11 7 M 7 3 L 7 11' : '7 L 11 7'}" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" fill="none"/>
@@ -864,12 +905,16 @@ export function mountConsole(_dataLayer = null){
   relaunch.innerHTML = `<span class="sbnt-console__relaunch-dot" aria-hidden="true"></span>Subnet Oracle`;
   document.body.appendChild(relaunch);
 
-  /* restore dismissed state from localStorage so the user's choice
-     persists across page loads */
+  /* restore dismissed + tall state from localStorage so the user's
+     choices persist across page loads */
   const DISMISS_KEY = 'sbnt-console-dismissed';
+  const TALL_KEY    = 'sbnt-console-tall';
   try {
     if (localStorage.getItem(DISMISS_KEY) === '1'){
       el.classList.add('is-dismissed');
+    }
+    if (localStorage.getItem(TALL_KEY) === '1'){
+      el.classList.add('is-tall');
     }
   } catch (_){}
 
@@ -891,6 +936,7 @@ export function mountConsole(_dataLayer = null){
   const bar     = el.querySelector('[data-role="bar"]');
   const toggle  = el.querySelector('[data-role="toggle"]');
   const closeBt = el.querySelector('[data-role="close"]');
+  const expandBt= el.querySelector('[data-role="expand"]');
   const tabs    = Array.from(el.querySelectorAll('.sbnt-tab'));
   const tabRail = el.querySelector('.sbnt-console__tabs');
   /* slide-hint on the tab rail, there are 15 tabs and the phone
@@ -1513,6 +1559,27 @@ export function mountConsole(_dataLayer = null){
       e.stopPropagation();
       el.classList.add('is-dismissed');
       try { localStorage.setItem(DISMISS_KEY, '1'); } catch (_){}
+    });
+  }
+
+  /* expand button → toggle is-tall + persist. If the dock is
+     collapsed when expand is hit, also uncollapse it so the user
+     sees the result of their action. */
+  if (expandBt){
+    expandBt.addEventListener('click', (e) => {
+      e.stopPropagation();
+      const tall = el.classList.toggle('is-tall');
+      if (tall && el.classList.contains('is-collapsed')){
+        el.classList.remove('is-collapsed');
+        toggle.innerHTML = `<svg viewBox="0 0 14 14" width="12" height="12" aria-hidden="true"><path d="M3 7 L 11 7" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" fill="none"/></svg>`;
+      }
+      try {
+        if (tall) localStorage.setItem(TALL_KEY, '1');
+        else      localStorage.removeItem(TALL_KEY);
+      } catch (_){}
+      expandBt.setAttribute('aria-label',
+        tall ? 'Collapse Oracle dock to default height' : 'Expand Oracle dock to full height');
+      expandBt.setAttribute('title', tall ? 'Collapse to default' : 'Expand tall');
     });
   }
 
