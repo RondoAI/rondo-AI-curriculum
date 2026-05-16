@@ -7,6 +7,159 @@ Format: dated heading + a short note. Add new entries to the TOP.
 
 ---
 
+## 2026-05-16 17:00 UTC, PRIMARY SOURCE from Rondo, Connito whitepaper v1
+Source: Rondo dropped the 21-page Connito whitepaper:
+  intelligence/_primary_sources/2026-05-16-connito-whitepaper-v1-decentralized-moe.pdf
+
+Authors: Isabella Liu (isabella@connito.ai) and George Kim
+(george@connito.ai). Site: connito.ai. The paper does NOT explicitly
+state a Bittensor netuid; one of its references is the original
+Opentensor BitTensor whitepaper, and the architecture maps cleanly
+onto the Bittensor miner-validator pattern, so the desk treats this
+as a Bittensor-aligned project pending netuid confirmation. Flag at
+the next opportunity to confirm whether Connito has a registered
+subnet or is pre-registration.
+
+### What Connito is, in one sentence
+A decentralized framework for trainin sparse subsets of Mixture-of-
+Experts (MoE) models, with a Proof-of-Loss incentive layer that
+rewards miner submissions empirically (held-out validation loss
+reduction) rather than by trust.
+
+### Why this is the third decentralized-MoE story today
+Today's pool now contains three distinct primary sources on the same
+structural problem (how do you train MoE models without owning a
+centralized high-bandwidth GPU cluster):
+  1. Jon Durbin's "Parallax" reveal for Chutes (SN64) earlier today,
+     emphasizing FLOPS reduction per island and elimination of
+     backward pass on (C-1)/C routed experts
+  2. Zeus (SN18) V2 benchmark paper, weather-forecasting application
+     of decentralized aggregation
+  3. This Connito paper, sparse target-expert updates + Proof-of-Loss
+This is not coincidence. The bottleneck is real (model training is
+centralized, hyperscalers control compute), and multiple teams are
+converging on different architectural answers. The Oracle agent has
+material for a STRONG Ecosystem State article framed around
+"decentralized MoE training is going from theory to multiple
+shipped implementations in a single week".
+
+### The Connito mechanism, four phases
+Phase 1, TARGET EXPERT SELECTION: given a target domain dataset
+D_new, compute a selection map S = {S_l} per layer specifying which
+experts get updated. Selection uses routing probability mass, activation
+frequency, or a differential score against a general dataset D_gen.
+Builds on ESFT and DES-MoE.
+
+Phase 2, SPARSE LOCAL OPTIMIZATION: workers do H local optimization
+steps (DiLoCo-style) on only the selected target experts. Submit
+just the updated target-expert weights, no shared parameters, no
+router updates.
+
+Phase 3, FROZEN ROUTING ANCHOR: router stays fixed. This makes all
+worker updates COMPARABLE because they all optimize against the same
+routing distribution. Inherits from ESFT and FlexOLMo.
+
+Phase 4, GLOBAL INTEGRATION: aggregator receives all worker
+submissions, computes weighted average (uniform 1/N or validator-
+weighted to favor submissions that improve held-out loss).
+
+### The Proof-of-Loss incentive mechanism (this is the Yuma analog)
+Validators measure each miner submission's empirical improvement on
+a held-out validation subset. Utility is defined as:
+
+  u_i = max(0, L_val(current_global) - L_val(current_with_miner_i_update))
+
+Only POSITIVE loss reduction is rewarded. Submissions that do not
+improve validation loss receive zero utility. Cycle-by-cycle rankings
+drive emission allocation, with top-K miners receiving rewards via a
+decreasing rank function.
+
+The validation subset is DETERMINISTICALLY sampled from the target
+distribution per cycle, so validators evaluate the same objective.
+This is the analog of Yuma Consensus but with empirical loss reduction
+as the scoring signal rather than weight-vector agreement.
+
+### Commit-reveal mechanism, copy resistance
+Same SHA-256 commit-reveal pattern as Zeus (and the wider Bittensor
+ecosystem). Miner publishes c_i = SHA256(checkpoint_i) during the
+commit window, reveals the checkpoint during the submit window,
+validators verify the hash matches.
+
+Additionally, the EVALUATION SEED is generated from validator-
+provided randomness:
+  s_t = SHA256(sort_and_concat(s_1, ..., s_V))
+where each s_v is validator v's random seed for the cycle. Because
+no single miner controls all validator seeds, miners cannot reliably
+predict the held-out validation partition before committing. This
+prevents miners from optimizing specifically for the eval set.
+
+Three explicit security goals:
+  1. UTILITY ALIGNMENT, rewards track measurable improvement
+  2. COPY RESISTANCE, commit-reveal prevents post-observation cheating
+  3. EVALUATION UNPREDICTABILITY, deterministic for validators but
+     hidden from miners
+
+### The structural efficiency claim
+Communication cost per round scales as O(P_S / P_full) where P_S is
+the selected target expert parameter count and P_full is the total
+MoE parameter count. So if you only update 10 percent of experts,
+you transmit 10 percent of the data. With H local steps before each
+commit, amortized communication per local gradient step becomes
+O(P_S / H).
+
+Worker-side VRAM is reduced because frozen shared parameters (theta_0)
+and frozen router (Psi_0) do not need Adam optimizer state. Memory
+footprint cuts further if those large parameters are kept on disk.
+
+### Future outlook (the team's stated commercial framing)
+Connito explicitly targets domains where customers need deeper model
+customization than generic foundation models, prompt engineering, or
+lightweight PEFT methods can provide. They list: legal, finance,
+healthcare, coding, compliance, enterprise knowledge work. The pitch
+is that validated expert updates form a shared expert library that
+compounds across deployments. This is a B2B story, not a consumer
+story.
+
+### How the Oracle should compare Connito vs Parallax
+Both target decentralized MoE training. Different design choices:
+  - PARALLAX (Chutes/Jon Durbin, no paper yet): claims <=1.5 percent
+    gap on a 20B run, 3.4x per-token FLOPS reduction per island,
+    eliminates backward pass + Adam state on (C-1)/C routed experts.
+    Emphasis on per-step compute reduction.
+  - CONNITO (Liu + Kim, paper now public): trains only selected target
+    experts, frozen router + frozen shared params, Proof-of-Loss
+    incentive on held-out validation loss. Emphasis on update-selection
+    via market discovery rather than direct compute reduction.
+The two are complementary in some ways and competitive in others. Worth
+the Oracle's effort to map them side-by-side in a future spotlight,
+including the open question of whether they could compose (e.g. use
+Parallax's per-step compute reduction inside Connito's Proof-of-Loss
+incentive frame).
+
+### Hedge the Oracle should apply
+Connito's paper presents the framework but does NOT report empirical
+training results yet (no benchmark table comparing Connito-trained
+models against centralized baselines). The mechanism is presented;
+the evidence-of-superiority is not. The Oracle should treat this
+strictly as an architectural proposal until Connito ships preliminary
+training numbers. Same hedge applies to Parallax (no paper yet at
+all). Only Zeus has published actual benchmark numbers among today's
+three decentralized-AI tips.
+
+### Suggested follow-up automation
+- Add Connito to voices.js as a subnet entry once netuid confirmed.
+  Placeholder added with handle @connito_ai (likely but unconfirmed).
+- Add connito.ai/blog to rss_blogs.py if they publish a blog.
+- Watch for "Connito v2" or empirical results paper; that is when
+  this becomes a strong Oracle Spotlight target.
+- Two arXiv references in the bibliography worth flagging for the
+  Oracle's own research: J. Li et al. 2025a (DES-MoE, arXiv 2509.16882)
+  and Wang et al. 2024 (ESFT, arXiv 2407.01906). Both are upstream
+  primary research that the Oracle could cite directly when
+  contextualizing Connito.
+
+---
+
 ## 2026-05-16 16:45 UTC, PRIMARY SOURCE from Rondo, Lium SN51 B300 stock screenshot
 Source: Rondo passed through a Lium marketplace screenshot:
   intelligence/_primary_sources/2026-05-16-lium-sn51-b300-stock-helsinki.jpg
