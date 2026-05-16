@@ -98,7 +98,11 @@ jobs:
       - name: File today's Oracle research
         env:
           ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
-          ORACLE_EXTRA_INSTRUCTION: ${{ inputs.extra_instruction }}
+          # `inputs` only exists for workflow_dispatch events. For
+          # schedule-triggered runs the context is absent; coalesce
+          # to an empty string so the env-var assignment is valid
+          # under both triggers.
+          ORACLE_EXTRA_INSTRUCTION: ${{ github.event.inputs.extra_instruction || '' }}
         working-directory: projects/subnet-magazine-v2
         run: python scripts/daily-research.py
 
