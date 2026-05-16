@@ -9,28 +9,6 @@
    Red-on-black, terminal-grade. Tokens only — no color literals.
    ================================================================= */
 
-/* ---------- COMPOSITOR DIET ----------
-   The home page is the longest, canvas-heaviest view in the
-   magazine. Two modern-CSS hints help Android Chrome paint only
-   what the user is actually looking at:
-
-     content-visibility: auto      tells the browser it may skip
-                                    rendering this element when it
-                                    is far off-screen
-     contain-intrinsic-size: …      reserves the right height while
-                                    the element is skipped, so the
-                                    scroll surface stays stable
-
-   Applied to the heaviest sections only — bio cards (25 nodes
-   with canvas sparklines + chip rows) and the editor section
-   (portrait JPG). Hero stays hot because it's always on screen
-   at load. Other sections are light enough not to need it. */
-.home-bio,
-.home-editor{
-  content-visibility: auto;
-  contain-intrinsic-size: 800px 720px;
-}
-
 /* ---------- COVER ---------- */
 .home-cover{
   position: relative;

@@ -102,17 +102,12 @@ const CSS = `
 }
 .sbnt-console__nn .nn-node{
   fill: currentColor;
-  animation: sbntNNNode 2.4s ease-in-out infinite;
-  will-change: opacity;
+  fill-opacity: .8;
+  /* Static fill — no per-node animation. At 30 px wide on a phone
+     the eye reads the moving ring + breathing core; per-node
+     pulses were 8 extra animations running on a fixed-position
+     dock for visual content you cannot perceive at this size. */
 }
-.sbnt-console__nn .nn-n1{ animation-delay: .00s; }
-.sbnt-console__nn .nn-n2{ animation-delay: .18s; }
-.sbnt-console__nn .nn-n3{ animation-delay: .36s; }
-.sbnt-console__nn .nn-n4{ animation-delay: .54s; }
-.sbnt-console__nn .nn-n5{ animation-delay: .72s; }
-.sbnt-console__nn .nn-n6{ animation-delay: .90s; }
-.sbnt-console__nn .nn-n7{ animation-delay: 1.08s; }
-.sbnt-console__nn .nn-n8{ animation-delay: 1.26s; }
 .sbnt-console__nn .nn-ring{
   fill: none;
   stroke: currentColor;
@@ -127,10 +122,6 @@ const CSS = `
   animation: sbntNNCore 1.6s ease-in-out infinite;
   will-change: transform, opacity;
 }
-@keyframes sbntNNNode{
-  0%, 100% { opacity: .3; }
-  50%      { opacity: 1;  }
-}
 @keyframes sbntNNRing{
   0%   { transform: scale(.5); opacity: .85; }
   100% { transform: scale(2.0); opacity: 0;  }
@@ -140,7 +131,6 @@ const CSS = `
   50%      { transform: scale(1.5); opacity: .55; }
 }
 @media (prefers-reduced-motion: reduce){
-  .sbnt-console__nn .nn-node,
   .sbnt-console__nn .nn-ring,
   .sbnt-console__nn .nn-core{ animation: none; }
 }
@@ -639,15 +629,15 @@ export function mountConsole(_dataLayer = null){
           <line class="nn-spoke" x1="15" y1="15" x2="6.5"  y2="6.5"/>
           <!-- expanding broadcast ring -->
           <circle class="nn-ring" cx="15" cy="15" r="5"/>
-          <!-- 8 outer nodes, each pulses at a staggered delay -->
-          <circle class="nn-node nn-n1" cx="15"   cy="3"    r="1.6"/>
-          <circle class="nn-node nn-n2" cx="23.5" cy="6.5"  r="1.6"/>
-          <circle class="nn-node nn-n3" cx="27"   cy="15"   r="1.6"/>
-          <circle class="nn-node nn-n4" cx="23.5" cy="23.5" r="1.6"/>
-          <circle class="nn-node nn-n5" cx="15"   cy="27"   r="1.6"/>
-          <circle class="nn-node nn-n6" cx="6.5"  cy="23.5" r="1.6"/>
-          <circle class="nn-node nn-n7" cx="3"    cy="15"   r="1.6"/>
-          <circle class="nn-node nn-n8" cx="6.5"  cy="6.5"  r="1.6"/>
+          <!-- 8 outer nodes, static -->
+          <circle class="nn-node" cx="15"   cy="3"    r="1.6"/>
+          <circle class="nn-node" cx="23.5" cy="6.5"  r="1.6"/>
+          <circle class="nn-node" cx="27"   cy="15"   r="1.6"/>
+          <circle class="nn-node" cx="23.5" cy="23.5" r="1.6"/>
+          <circle class="nn-node" cx="15"   cy="27"   r="1.6"/>
+          <circle class="nn-node" cx="6.5"  cy="23.5" r="1.6"/>
+          <circle class="nn-node" cx="3"    cy="15"   r="1.6"/>
+          <circle class="nn-node" cx="6.5"  cy="6.5"  r="1.6"/>
           <!-- central core "thought firing" -->
           <circle class="nn-core" cx="15" cy="15" r="2"/>
         </svg>
