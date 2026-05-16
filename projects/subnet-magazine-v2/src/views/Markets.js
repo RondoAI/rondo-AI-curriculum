@@ -84,7 +84,7 @@ export function mountMarkets(root, dataLayer = null){
             </div>
           </div>
           <ul class="mk-rows" id="mk-movers"></ul>
-          <a class="mk-panel__more" href="oracle.html">Open the Oracle ↗</a>
+          <a class="mk-panel__more" href="oracle.html">Open the Subnet Oracle ↗</a>
         </section>
 
         <!-- ===== HIGHEST VALUATION ===== -->

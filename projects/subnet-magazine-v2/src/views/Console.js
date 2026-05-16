@@ -671,7 +671,7 @@ const CSS = `
 }
 
 /* ===================================================================
-   /play · TAO RUNNER · canvas arcade game pinned in the Oracle dock
+   /play · TAO RUNNER · canvas arcade game pinned in the Subnet Oracle dock
    =================================================================== */
 .sbnt-game{
   display: flex; flex-direction: column;
@@ -875,17 +875,17 @@ export function mountConsole(_dataLayer = null){
       <span class="sbnt-console__push"></span>
       <span class="sbnt-console__hint">Tap to expand</span>
       <button type="button" class="sbnt-console__expand" data-role="expand"
-              aria-label="Expand Oracle dock to full height" title="Expand tall">
+              aria-label="Expand Subnet Oracle dock to full height" title="Expand tall">
         <svg viewBox="0 0 14 14" width="12" height="12" aria-hidden="true" data-role="expand-icon">
           <path d="M3 5 L 7 1 L 11 5 M 3 9 L 7 13 L 11 9" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
         </svg>
       </button>
-      <button type="button" class="sbnt-console__toggle" data-role="toggle" aria-label="Collapse Oracle dock" title="Collapse">
+      <button type="button" class="sbnt-console__toggle" data-role="toggle" aria-label="Collapse Subnet Oracle dock" title="Collapse">
         <svg viewBox="0 0 14 14" width="12" height="12" aria-hidden="true">
           <path d="M3 ${startCollapsed ? '7 L 11 7 M 7 3 L 7 11' : '7 L 11 7'}" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" fill="none"/>
         </svg>
       </button>
-      <button type="button" class="sbnt-console__close" data-role="close" aria-label="Dismiss Oracle dock" title="Dismiss">
+      <button type="button" class="sbnt-console__close" data-role="close" aria-label="Dismiss Subnet Oracle dock" title="Dismiss">
         <svg viewBox="0 0 14 14" width="12" height="12" aria-hidden="true">
           <path d="M3 3 L 11 11 M 11 3 L 3 11" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" fill="none"/>
         </svg>
@@ -1030,7 +1030,7 @@ export function mountConsole(_dataLayer = null){
   function searchBarHtml(){
     return `
       <div class="sbnt-console__search">
-        <input type="search" placeholder="Ask the Oracle · search topics, commands, terms…"
+        <input type="search" placeholder="Ask the Subnet Oracle · search topics, commands, terms…"
                data-role="search" value="${attrEscape(searchQuery)}" autocomplete="off">
       </div>
     `;
@@ -1065,7 +1065,7 @@ export function mountConsole(_dataLayer = null){
         </div>
         <form class="sbnt-chat__form" data-role="chat-form" autocomplete="off">
           <input type="text" class="sbnt-chat__input" data-role="chat-input"
-                 placeholder="Ask the Oracle, e.g. 'How does dTAO work?'"
+                 placeholder="Ask the Subnet Oracle, e.g. 'How does dTAO work?'"
                  spellcheck="false" autocomplete="off">
           <button type="submit" class="sbnt-chat__send" aria-label="Send">
             <svg viewBox="0 0 24 24"><path d="M4 12h14M14 6l6 6-6 6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
@@ -1077,7 +1077,7 @@ export function mountConsole(_dataLayer = null){
   }
   function msgHtml(m){
     if (m.thinking){
-      return `<div class="sbnt-chat__msg sbnt-chat__msg--bot"><span class="sbnt-chat__who">Oracle</span><span class="sbnt-chat__dots"><span></span><span></span><span></span></span></div>`;
+      return `<div class="sbnt-chat__msg sbnt-chat__msg--bot"><span class="sbnt-chat__who">Subnet Oracle</span><span class="sbnt-chat__dots"><span></span><span></span><span></span></span></div>`;
     }
     const safe = String(m.text || '').replace(/</g, '&lt;');
     const cite = (m.cites && m.cites.length)
@@ -1087,7 +1087,7 @@ export function mountConsole(_dataLayer = null){
       : '';
     return `
       <div class="sbnt-chat__msg sbnt-chat__msg--${m.who === 'you' ? 'you' : 'bot'}">
-        <span class="sbnt-chat__who">${m.who === 'you' ? 'You' : 'Oracle'}</span>
+        <span class="sbnt-chat__who">${m.who === 'you' ? 'You' : 'Subnet Oracle'}</span>
         <p>${safe}</p>
         ${cite}
       </div>
@@ -1149,7 +1149,7 @@ export function mountConsole(_dataLayer = null){
        surface instead of topic content. */
     if (activeId === 'ask'){
       tabs.forEach(t => t.classList.toggle('is-active', t.dataset.id === 'ask'));
-      if (title) title.textContent = '· Ask the Oracle';
+      if (title) title.textContent = '· Ask the Subnet Oracle';
       body.innerHTML = chatHtml();
       body.scrollTop = body.scrollHeight;
       wireChat();
@@ -1187,7 +1187,7 @@ export function mountConsole(_dataLayer = null){
   }
 
   /* ======================================================================
-     TAO RUNNER · a canvas arcade game built for the Oracle dock.
+     TAO RUNNER · a canvas arcade game built for the Subnet Oracle dock.
      -----------------------------------------------------------------------
      A miner sprint across the chain. Tap to jump. Catch the α tokens
      drifting overhead, dodge the deregistration sweeps rolling along
@@ -1578,7 +1578,7 @@ export function mountConsole(_dataLayer = null){
         else      localStorage.removeItem(TALL_KEY);
       } catch (_){}
       expandBt.setAttribute('aria-label',
-        tall ? 'Collapse Oracle dock to default height' : 'Expand Oracle dock to full height');
+        tall ? 'Collapse Subnet Oracle dock to default height' : 'Expand Subnet Oracle dock to full height');
       expandBt.setAttribute('title', tall ? 'Collapse to default' : 'Expand tall');
     });
   }

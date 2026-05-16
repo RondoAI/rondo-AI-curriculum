@@ -205,12 +205,12 @@ export function mountCodex(root, dataLayer = null){
         </div>
         <div class="codex-hero__body">
           <span class="codex-hero__kicker">Subne<span class="tau">τ</span> Oracle &middot; Subne<span class="tau">τ</span> Magazine</span>
-          <h1 class="codex-hero__title">Ask the Oracle.</h1>
+          <h1 class="codex-hero__title">Ask the Subnet Oracle.</h1>
           <p class="codex-hero__dek">
             Every concept, mechanism, role, and event inside Bittensor. Written
             to be read, sourced so the claims are checkable, drawn so the
             ideas land. The ${CODEX.length} entries scroll below; ask the
-            Oracle directly from the dock at the bottom of the page.
+            Subnet Oracle directly from the dock at the bottom of the page.
           </p>
         </div>
       </header>

@@ -28,6 +28,7 @@ import { NeuralNet } from '../charts/NeuralNet.js';
 import { NodeSphere } from '../charts/NodeSphere.js';
 import { JarvisNet } from '../charts/JarvisNet.js';
 import { PlexusGlyph } from '../charts/PlexusGlyph.js';
+import { OracleSphere } from '../charts/OracleSphere.js';
 import { Treemap } from '../charts/Treemap.js';
 import { articlesByDate } from '../data/articles.js';
 import { recentOracleArticles } from '../data/oracle-articles.js';
@@ -135,8 +136,8 @@ function priceChip(a){
    editorial spine, a market desk, a reference layer, a directory,
    and the masthead. Everything else is content inside one of them. */
 const SECTIONS = [
-  { code:'010', label:'Oracle',  href:'oracle.html',
-    desc:'The reference layer. Every Bittensor concept, mechanism, role and event in plain English, indexed and cited. Ask the Oracle directly; it answers and cites its sources.' },
+  { code:'010', label:'Subnet Oracle',  href:'oracle.html',
+    desc:'The reference layer. Every Bittensor concept, mechanism, role and event in plain English, indexed and cited. Ask the Subnet Oracle directly; it answers and cites its sources.' },
   { code:'020', label:'Research', href:'research.html',
     desc:'The daily desk. A PhD-level objective brief on what happened in the Bittensor ecosystem that day, filed every morning by the magazine\'s autonomous research agent.' },
   { code:'030', label:'Markets', href:'markets.html',
@@ -1850,23 +1851,26 @@ export function mountHome(root, dataLayer = null){
     if (cv) statSparks.push(new Sparkline(cv, { series: seedSeries(key, drift, 32) }));
   });
 
-  /* ---------- SUBNET ORACLE card covers, one PlexusGlyph per card --
-     Each Subnet Oracle article wears its own identity rendered as a
-     dense red plexus where the dots themselves form the silhouette
-     of the article's subject. Subnet Spotlights show the subnet's
-     name (TARGON, LIUM, RIDGES); Ecosystem State pieces show ORACLE.
-     Sparse ambient background plexus reads as "wider network behind
-     the focus shape". Same red as the magazine's design tokens. */
+  /* ---------- SUBNET ORACLE card covers, one OracleSphere per card --
+     The multimodal Subnet Oracle signature: a rotating red plexus
+     sphere with the article's subject (subnet name for Spotlights,
+     "ORACLE" for Ecosystem State) rendered as a plexus glyph LIVING
+     INSIDE the sphere. Back hemisphere draws behind the glyph, glyph
+     draws in the middle, front hemisphere overlays on top, so the
+     glyph reads as suspended inside a transparent globe of nodes.
+     Each canvas seeded from index for deterministic silhouette. */
   const oracleMarks = [];
   root.querySelectorAll('[data-canvas="home-oracle-mark"]').forEach((cv, i) => {
     const glyph = cv.dataset.glyph || 'ORACLE';
     try {
-      oracleMarks.push(new PlexusGlyph(cv, {
-        text:    glyph,
-        density: 0.62,
-        ambient: 90,
-        seed:    i + 1,
-        weight:  '900',
+      oracleMarks.push(new OracleSphere(cv, {
+        text:         glyph,
+        sphereNodes:  64,
+        sphereSpeed:  0.32,
+        glyphDensity: 0.60,
+        sphereRadius: 0.48,
+        seed:         i + 1,
+        weight:       '900',
       }));
     } catch (_) {}
   });

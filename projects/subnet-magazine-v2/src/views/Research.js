@@ -588,7 +588,7 @@ export function mountResearch(root){
     (a, b) => String(b.date).localeCompare(String(a.date)),
   );
   const deskHtml = `
-    <section class="rsh-desk" aria-label="Oracle articles desk">
+    <section class="rsh-desk" aria-label="Subnet Oracle articles desk">
       <header class="rsh-desk__head">
         <span class="rsh-desk__lbl">The desk</span>
         <span class="rsh-desk__sub">${totalArticles} ${totalArticles === 1 ? 'article' : 'articles'} · scroll for more · each card opens its full body below</span>
