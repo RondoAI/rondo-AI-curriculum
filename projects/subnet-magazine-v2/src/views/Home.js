@@ -1482,10 +1482,11 @@ export function mountHome(root, dataLayer = null){
     <!-- ===== EDITOR'S COLOPHON =====
          A magazine prints the editor's bio at the back of the book.
          This is that page. The site you just scrolled through is
-         built end-to-end by Rondo Campbell from inside the federal
-         system, on a phone, with intermittent connectivity — every
-         line of research, code, and design is his. Projected
-         release: 2028. The work and the story share a repository. -->
+         built end-to-end by Rondo Campbell from inside the U.S.
+         prison system, on a prison-issued tablet and textbooks,
+         with intermittent connectivity — every line of research,
+         code, and design is his. Projected release: 2028. The work
+         and the story share a repository. -->
     <section class="home-editor" aria-label="Editor">
       <div class="home-editor__inner">
         <div class="home-editor__photo">
@@ -1504,10 +1505,11 @@ export function mountHome(root, dataLayer = null){
           <p class="home-editor__bio">
             Subne<span class="tau">τ</span> Magazine is researched, written,
             designed, and coded by Rondo Campbell &mdash; working from inside
-            the U.S. federal system, on a phone, with intermittent
-            connectivity. Projected release: <em>2028</em>. The mission is
-            to walk out as a credible builder in the open AI economy. Every
-            line of this site is the proof of work.
+            the U.S. prison system, on a prison-issued tablet and a stack of
+            textbooks, with intermittent connectivity. Projected release:
+            <em>2028</em>. The mission is to walk out as a credible builder
+            in the open AI economy. Every line of this site is the proof of
+            work.
           </p>
           <p class="home-editor__bio home-editor__bio--quiet">
             The curriculum is two physical Python textbooks, a stack of
