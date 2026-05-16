@@ -1067,13 +1067,25 @@
   text-align: right;
   flex: 0 0 auto;
 }
+/* Tiny year tag rendered alongside the centralized $ value
+   inside its bar. Was rendering on its own line under the price
+   because the cap container was a grid that wrapped the inline
+   span; restyled here so it stays inline with the price text
+   and is brighter so it doesn't read as a paint smudge. Hidden
+   on phones — there's no room for it inside a 60-px-ish bar,
+   and the SOURCES line below the chart carries the same dates. */
 .home-stack__chart-yr{
-  display: inline-block;
-  margin-left: 4px;
-  font-size: 8px;
-  font-weight: 600;
-  color: var(--c-ink-3);
+  display: inline;
+  margin-left: 6px;
+  font-size: 9px;
+  font-weight: 700;
+  color: var(--c-ink-2);
   letter-spacing: var(--ls-label);
+  text-transform: uppercase;
+  opacity: .85;
+}
+@media (max-width: 720px){
+  .home-stack__chart-yr{ display: none; }
 }
 .home-stack__chart-gap{
   font-family: var(--f-mono);
@@ -1120,13 +1132,22 @@
 .home-stack__chart-b-cap{
   position: absolute;
   inset: 0;
-  display: grid; place-items: center;
+  /* flex (not grid) — grid would treat the price text and the
+     inline year span as two separate items and stack them
+     vertically. flex with row direction keeps both pieces on
+     a single line with the rest of the cap; overflow:hidden +
+     nowrap clips cleanly when the bar is narrower than the
+     combined text */
+  display: flex;
+  align-items: center;
+  justify-content: center;
   font-family: var(--f-mono);
   font-size: 10px;
   font-weight: 700;
   letter-spacing: var(--ls-data);
   font-variant-numeric: tabular-nums;
   white-space: nowrap;
+  overflow: hidden;
   padding: 0 4px;
 }
 .home-stack__chart-c-cap{ color: var(--c-ink-2); }

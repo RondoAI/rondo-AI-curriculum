@@ -442,7 +442,7 @@ export function mountHome(root, dataLayer = null){
                 const cw = Math.round((1 - lr(r.aMcap, total)) * 100);
                 const bw = 100 - cw;
                 const inverted = r.cap === 0;
-                const gapStr = inverted ? '100% Bittensor' : gap(r.cap, r.aMcap);
+                const gapStr = inverted ? '100%' : gap(r.cap, r.aMcap);
                 return `
                   <li class="home-stack__chart-row ${inverted ? 'is-inverted' : ''}" data-layer="${r.layer.toLowerCase()}">
                     <span class="home-stack__chart-layer">
