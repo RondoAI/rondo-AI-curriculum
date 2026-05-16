@@ -62,6 +62,243 @@ function tocHtml(){
     budget. Add new infographics by appending a new key + setting
     the entry's `infographic` field in src/data/codex.js. */
 const INFOGRAPHICS = {
+  /* Bittensor: the three layers, chain (Subtensor) at the bottom,
+     subnets in the middle, token (TAO + α) on top, with
+     animated red signal lines binding them. */
+  'bittensor': () => `
+    <figure class="codex-info codex-info--stack" aria-label="Bittensor, three-layer architecture">
+      <figcaption class="codex-info__cap">
+        Three layers. Subtensor (chain) at the base, ~92 active subnets in the middle, TAO + per-subnet α tokens on top. Red signal lines bind them.
+      </figcaption>
+      <svg viewBox="0 0 600 240" class="codex-info__svg" preserveAspectRatio="xMidYMid meet" aria-hidden="true">
+        <defs>
+          <linearGradient id="stackTokenG" x1="0" x2="1" y1="0" y2="0">
+            <stop offset="0%" stop-color="#FF1E3C"/>
+            <stop offset="100%" stop-color="#FF4D60"/>
+          </linearGradient>
+        </defs>
+        <!-- Token layer (top) -->
+        <g transform="translate(0,30)">
+          <rect x="60" y="0" width="480" height="44" rx="3"
+                fill="url(#stackTokenG)" fill-opacity=".75" stroke="#FF1E3C"/>
+          <text x="300" y="22" text-anchor="middle" fill="#fff"
+                font-family="Archivo, system-ui" font-weight="800" font-size="14">
+            TAO + per-subnet α tokens
+          </text>
+          <text x="300" y="36" text-anchor="middle" fill="rgba(255,255,255,.7)"
+                font-family="JetBrains Mono, monospace" font-size="8" letter-spacing="2">
+            UNIT OF ACCOUNT · 21M CAP · HALVING
+          </text>
+        </g>
+        <!-- Subnets layer (middle) -->
+        <g transform="translate(0,100)">
+          ${Array.from({length: 10}).map((_, i) => {
+            const x = 64 + i * 48;
+            return `<rect x="${x}" y="0" width="42" height="44" rx="3"
+                         fill="rgba(255,30,60,.10)" stroke="#FF1E3C" stroke-opacity=".5"/>
+                    <text x="${x + 21}" y="20" text-anchor="middle" fill="#FF4D60"
+                          font-family="JetBrains Mono, monospace" font-weight="700" font-size="8">SN${i + 1}</text>
+                    <text x="${x + 21}" y="32" text-anchor="middle" fill="#F5E5E8"
+                          font-family="JetBrains Mono, monospace" font-size="6" opacity=".8">market</text>`;
+          }).join('')}
+          <text x="300" y="58" text-anchor="middle" fill="#FF1E3C"
+                font-family="JetBrains Mono, monospace" font-size="9" font-weight="700" letter-spacing="2">
+            ~92 ACTIVE SUBNETS · INDEPENDENT MARKETS
+          </text>
+        </g>
+        <!-- Chain layer (bottom) -->
+        <g transform="translate(0,180)">
+          <rect x="60" y="0" width="480" height="44" rx="3"
+                fill="rgba(255,30,60,.05)" stroke="#FF1E3C" stroke-opacity=".6"/>
+          <text x="300" y="22" text-anchor="middle" fill="#F5E5E8"
+                font-family="Archivo, system-ui" font-weight="800" font-size="14">
+            Subtensor chain
+          </text>
+          <text x="300" y="36" text-anchor="middle" fill="#C8A8AD"
+                font-family="JetBrains Mono, monospace" font-size="8" letter-spacing="2">
+            STAKE · WEIGHTS · EMISSIONS · 12s BLOCK
+          </text>
+        </g>
+        <!-- vertical pulse lines binding the layers -->
+        ${[120, 200, 280, 360, 440].map((x, i) => `
+          <line class="codex-info__pulse-line"
+                x1="${x}" y1="74" x2="${x}" y2="100"
+                stroke="#FF1E3C" stroke-width="1" stroke-opacity=".6"
+                style="--d:${i * 0.18}s"/>
+          <line class="codex-info__pulse-line"
+                x1="${x}" y1="144" x2="${x}" y2="180"
+                stroke="#FF1E3C" stroke-width="1" stroke-opacity=".6"
+                style="--d:${i * 0.18 + 0.4}s"/>
+        `).join('')}
+      </svg>
+    </figure>
+  `,
+
+  /* TAO: halving timeline + emission split donut */
+  'tao': () => `
+    <figure class="codex-info codex-info--tao" aria-label="TAO emission and halvings">
+      <figcaption class="codex-info__cap">
+        Halving schedule, every 4 years the per-block emission halves, asymptotically approaching the 21M supply cap.
+      </figcaption>
+      <svg viewBox="0 0 600 200" class="codex-info__svg" preserveAspectRatio="xMidYMid meet" aria-hidden="true">
+        <!-- axis -->
+        <line x1="40" y1="160" x2="560" y2="160" stroke="#3a1419" stroke-width="1"/>
+        ${[2021, 2025, 2029, 2033, 2037, 2041].map((y, i) => {
+          const x = 40 + i * 104;
+          return `<line x1="${x}" y1="160" x2="${x}" y2="166" stroke="#3a1419" stroke-width="1"/>
+                  <text x="${x}" y="180" text-anchor="middle" fill="#8B6B70"
+                        font-family="JetBrains Mono, monospace" font-size="9">${y}</text>`;
+        }).join('')}
+        <!-- emission curve, halvings as drops every 104px -->
+        ${[
+          { x: 40,  y: 30,  h: 130 },  // launch ~7200/day target
+          { x: 144, y: 95,  h: 65 },   // halving 1 (~2025): 50%
+          { x: 248, y: 128, h: 32 },   // halving 2 (~2029): 25%
+          { x: 352, y: 144, h: 16 },   // halving 3 (~2033)
+          { x: 456, y: 152, h: 8 },    // halving 4 (~2037)
+          { x: 560, y: 156, h: 4 },    // halving 5
+        ].map((d, i) => `
+          <rect x="${d.x - 14}" y="${d.y}" width="28" height="${d.h}" rx="2"
+                fill="#FF1E3C" fill-opacity="${0.92 - i * 0.12}"/>
+          <text x="${d.x}" y="${d.y - 6}" text-anchor="middle" fill="#FF4D60"
+                font-family="JetBrains Mono, monospace" font-size="9" font-weight="700">
+            ${[7200, 3600, 1800, 900, 450, 225][i]}τ
+          </text>
+        `).join('')}
+        <text x="300" y="20" text-anchor="middle" fill="#FF1E3C"
+              font-family="JetBrains Mono, monospace" font-size="9" font-weight="700" letter-spacing="2">
+          DAILY EMISSION · τ / DAY
+        </text>
+      </svg>
+    </figure>
+  `,
+
+  /* dTAO: bonding curve, price as a function of supply */
+  'dtao': () => `
+    <figure class="codex-info codex-info--dtao" aria-label="dTAO bonding curve">
+      <figcaption class="codex-info__cap">
+        How α-price floats against TAO. As capital bonds into a subnet (right on x), α-price rises (up on y), pulling emission share toward that subnet, attracting more capital. Self-reinforcing.
+      </figcaption>
+      <svg viewBox="0 0 600 240" class="codex-info__svg" preserveAspectRatio="xMidYMid meet" aria-hidden="true">
+        <!-- axes -->
+        <line x1="60" y1="200" x2="560" y2="200" stroke="#3a1419"/>
+        <line x1="60" y1="40"  x2="60"  y2="200" stroke="#3a1419"/>
+        <text x="310" y="225" text-anchor="middle" fill="#8B6B70"
+              font-family="JetBrains Mono, monospace" font-size="9" letter-spacing="2">
+          α CIRCULATING SUPPLY →
+        </text>
+        <text x="22" y="120" text-anchor="middle" fill="#8B6B70"
+              font-family="JetBrains Mono, monospace" font-size="9" letter-spacing="2"
+              transform="rotate(-90, 22, 120)">α PRICE (vs TAO) →</text>
+        <!-- bonding curve, simple sqrt-style -->
+        <path d="M 60 200 Q 200 180 280 130 T 560 50"
+              fill="none" stroke="#FF1E3C" stroke-width="2.5"/>
+        <!-- area under curve, glow fill -->
+        <path d="M 60 200 Q 200 180 280 130 T 560 50 L 560 200 Z"
+              fill="#FF1E3C" fill-opacity=".10"/>
+        <!-- pulse dot traveling along curve -->
+        <circle r="5" fill="#fff">
+          <animateMotion dur="6s" repeatCount="indefinite"
+                         path="M 60 200 Q 200 180 280 130 T 560 50"/>
+        </circle>
+        <circle r="11" fill="none" stroke="#FF1E3C" stroke-width="1.2">
+          <animateMotion dur="6s" repeatCount="indefinite"
+                         path="M 60 200 Q 200 180 280 130 T 560 50"/>
+          <animate attributeName="r" values="6;18;6" dur="6s" repeatCount="indefinite"/>
+          <animate attributeName="opacity" values=".9;0;.9" dur="6s" repeatCount="indefinite"/>
+        </circle>
+      </svg>
+    </figure>
+  `,
+
+  /* Emission: per-block allocation across subnets, illustrated as
+     bars that pulse height to indicate live flow */
+  'emission': () => `
+    <figure class="codex-info codex-info--emit" aria-label="Per-block emission flow">
+      <figcaption class="codex-info__cap">
+        Every block (~12s), the chain mints ~7,200 τ/day and splits it across subnets in proportion to each subnet's α-MCAP. Bars pulse to indicate live block flow.
+      </figcaption>
+      <svg viewBox="0 0 600 200" class="codex-info__svg" preserveAspectRatio="xMidYMid meet" aria-hidden="true">
+        <text x="300" y="14" text-anchor="middle" fill="#FF1E3C"
+              font-family="JetBrains Mono, monospace" font-size="9" font-weight="700" letter-spacing="2">
+          EMISSION FLOW · ALPHA-MCAP-WEIGHTED · ~12s BLOCK
+        </text>
+        <!-- 10 subnet bars, each pulse-animated independently -->
+        ${[78, 62, 50, 44, 38, 32, 28, 22, 18, 14].map((h, i) => {
+          const x = 50 + i * 52;
+          return `
+            <g class="codex-info__emit-bar" style="--i:${i}">
+              <rect x="${x}" y="${180 - h}" width="40" height="${h}" rx="2"
+                    fill="#FF1E3C" fill-opacity=".82" transform-origin="center bottom"/>
+              <text x="${x + 20}" y="192" text-anchor="middle" fill="#C8A8AD"
+                    font-family="JetBrains Mono, monospace" font-size="8">SN${i + 1}</text>
+              <text x="${x + 20}" y="${180 - h - 4}" text-anchor="middle" fill="#FF4D60"
+                    font-family="JetBrains Mono, monospace" font-size="7" font-weight="700">${[14, 11, 9, 7, 6, 5, 4, 3, 2, 2][i]}%</text>
+            </g>
+          `;
+        }).join('')}
+      </svg>
+    </figure>
+  `,
+
+  /* Subnet: category breakdown donut */
+  'subnet': () => `
+    <figure class="codex-info codex-info--sn" aria-label="Subnet category breakdown">
+      <figcaption class="codex-info__cap">
+        92 active subnets, by primary category. Text and inference still dominate; agents and training are the fastest-growing groups.
+      </figcaption>
+      <svg viewBox="0 0 600 240" class="codex-info__svg" preserveAspectRatio="xMidYMid meet" aria-hidden="true">
+        ${(() => {
+          const cats = [
+            { l: 'TEXT',      n: 24, op: .95 },
+            { l: 'INFERENCE', n: 18, op: .82 },
+            { l: 'TRAINING',  n: 14, op: .70 },
+            { l: 'INFRA',     n: 12, op: .58 },
+            { l: 'AGENTS',    n: 10, op: .46 },
+            { l: 'DATA',      n:  6, op: .34 },
+            { l: 'FINANCE',   n:  5, op: .26 },
+            { l: 'OTHER',     n:  3, op: .18 },
+          ];
+          const total = cats.reduce((s, c) => s + c.n, 0);
+          const cx = 120, cy = 120, R = 88, r = 56;
+          let cum = -90;
+          const arcs = cats.map(c => {
+            const sweep = (c.n / total) * 360;
+            const start = cum, end = cum + sweep;
+            cum = end;
+            const sx = cx + R * Math.cos(start * Math.PI / 180);
+            const sy = cy + R * Math.sin(start * Math.PI / 180);
+            const ex = cx + R * Math.cos(end * Math.PI / 180);
+            const ey = cy + R * Math.sin(end * Math.PI / 180);
+            const ix = cx + r * Math.cos(end * Math.PI / 180);
+            const iy = cy + r * Math.sin(end * Math.PI / 180);
+            const ix2 = cx + r * Math.cos(start * Math.PI / 180);
+            const iy2 = cy + r * Math.sin(start * Math.PI / 180);
+            const large = sweep > 180 ? 1 : 0;
+            return `<path d="M ${sx.toFixed(1)} ${sy.toFixed(1)}
+                       A ${R} ${R} 0 ${large} 1 ${ex.toFixed(1)} ${ey.toFixed(1)}
+                       L ${ix.toFixed(1)} ${iy.toFixed(1)}
+                       A ${r} ${r} 0 ${large} 0 ${ix2.toFixed(1)} ${iy2.toFixed(1)} Z"
+                       fill="#FF1E3C" fill-opacity="${c.op}"/>`;
+          }).join('');
+          const legend = cats.map((c, i) => `
+            <g transform="translate(260, ${30 + i * 24})">
+              <rect width="14" height="14" fill="#FF1E3C" fill-opacity="${c.op}"/>
+              <text x="22" y="11" fill="#F5E5E8"
+                    font-family="JetBrains Mono, monospace" font-size="10" font-weight="700">${c.l}</text>
+              <text x="220" y="11" text-anchor="end" fill="#FF4D60"
+                    font-family="JetBrains Mono, monospace" font-size="10" font-weight="700">${c.n}</text>
+            </g>
+          `).join('');
+          return arcs + legend + `<text x="${cx}" y="${cy - 4}" text-anchor="middle" fill="#F5E5E8"
+                                       font-family="JetBrains Mono, monospace" font-size="22" font-weight="800">${total}</text>
+                                  <text x="${cx}" y="${cy + 14}" text-anchor="middle" fill="#FF4D60"
+                                       font-family="JetBrains Mono, monospace" font-size="9" font-weight="700" letter-spacing="2">ACTIVE</text>`;
+        })()}
+      </svg>
+    </figure>
+  `,
+
   /* Yuma Consensus: 5 validators submit weight vectors -> chain
      aggregates via stake-weighted median -> miners are paid in
      proportion. The pulse travels down the diagram in a loop. */
@@ -253,26 +490,26 @@ export function mountCodex(root, dataLayer = null){
     <section class="codex-page" aria-label="The Codex">
 
       <!-- ===== HERO ===== -->
-      <header class="codex-hero" aria-label="The Codex">
+      <header class="codex-hero" aria-label="Subnet Oracle">
         <div class="codex-hero__viz" aria-hidden="true">
           <canvas data-canvas="codex-mark"></canvas>
         </div>
         <div class="codex-hero__body">
-          <span class="codex-hero__kicker">The Codex &middot; Subne<span class="tau">τ</span> Magazine</span>
-          <h1 class="codex-hero__title">A reference for the&nbsp;network.</h1>
+          <span class="codex-hero__kicker">Subne<span class="tau">τ</span> Oracle &middot; Subne<span class="tau">τ</span> Magazine</span>
+          <h1 class="codex-hero__title">Ask the Oracle.</h1>
           <p class="codex-hero__dek">
             Every concept, mechanism, role, and event inside Bittensor. Written
-            to be read, sourced so the claims are checkable, indexed so the
-            network can finally have a library worth its name.
+            to be read, sourced so the claims are checkable, drawn so the
+            ideas land. Talk to the Oracle, get an answer with citations.
           </p>
 
-          <!-- Ask the Codex, LLM-style input bar -->
+          <!-- Ask the Oracle, LLM-style input bar (also opens chat) -->
           <form class="codex-ask" data-role="ask" autocomplete="off">
-            <span class="codex-ask__lbl">Ask the Codex</span>
+            <span class="codex-ask__lbl">Ask the Oracle</span>
             <input id="codex-q" type="search" class="codex-ask__input"
-                   placeholder="What is Yuma Consensus? How does dTAO work? Who runs SN64?"
+                   placeholder="What is Yuma Consensus? How does dTAO work? Show me the leaderboard."
                    spellcheck="false" autocomplete="off">
-            <button type="submit" class="codex-ask__send" aria-label="Search">
+            <button type="submit" class="codex-ask__send" aria-label="Ask">
               <svg viewBox="0 0 24 24" width="18" height="18"><path d="M4 12h14M14 6l6 6-6 6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
             </button>
             <span class="codex-ask__count" data-bind="codex-count">${CODEX.length}</span>
@@ -334,6 +571,55 @@ export function mountCodex(root, dataLayer = null){
           ${bodyHtml()}
         </main>
       </div>
+
+      <!-- ===== FLOATING CHAT (the Oracle, interactive) ===== -->
+      <aside class="oracle-chat" data-role="chat" aria-label="Ask the Oracle">
+        <button type="button" class="oracle-chat__open" data-role="chat-open"
+                aria-label="Open the Oracle chat">
+          <span class="oracle-chat__open-mark" aria-hidden="true">
+            <svg viewBox="0 0 28 28">
+              <circle cx="14" cy="14" r="11" fill="none" stroke="currentColor" stroke-width="1.2" stroke-opacity=".4"/>
+              <circle cx="14" cy="14" r="2.5" fill="#fff"/>
+              <circle cx="14" cy="6"  r="1.4" fill="currentColor"/>
+              <circle cx="22" cy="14" r="1.4" fill="currentColor"/>
+              <circle cx="14" cy="22" r="1.4" fill="currentColor"/>
+              <circle cx="6"  cy="14" r="1.4" fill="currentColor"/>
+              <line x1="14" y1="14" x2="14" y2="6"  stroke="currentColor" stroke-width=".8" stroke-opacity=".6"/>
+              <line x1="14" y1="14" x2="22" y2="14" stroke="currentColor" stroke-width=".8" stroke-opacity=".6"/>
+              <line x1="14" y1="14" x2="14" y2="22" stroke="currentColor" stroke-width=".8" stroke-opacity=".6"/>
+              <line x1="14" y1="14" x2="6"  y2="14" stroke="currentColor" stroke-width=".8" stroke-opacity=".6"/>
+            </svg>
+          </span>
+          <span class="oracle-chat__open-lbl">Ask</span>
+        </button>
+        <div class="oracle-chat__panel" data-role="chat-panel" hidden>
+          <header class="oracle-chat__head">
+            <div class="oracle-chat__title">
+              <span class="oracle-chat__live"><span class="dot dot--live"></span>LIVE</span>
+              <span>Subne<span class="tau">τ</span> Oracle</span>
+            </div>
+            <button type="button" class="oracle-chat__close" data-role="chat-close" aria-label="Close">×</button>
+          </header>
+          <div class="oracle-chat__log" data-role="chat-log">
+            <div class="oracle-msg oracle-msg--bot">
+              <span class="oracle-msg__who">Oracle</span>
+              <p>I know the Bittensor network. Ask me anything, what a concept means, who runs which subnet, how a mechanism works. I'll cite the entries I'm drawing from so you can verify.</p>
+            </div>
+          </div>
+          <form class="oracle-chat__form" data-role="chat-form" autocomplete="off">
+            <input type="text" class="oracle-chat__input" data-role="chat-input"
+                   placeholder="Ask the Oracle, e.g. 'How does dTAO work?'"
+                   spellcheck="false" autocomplete="off">
+            <button type="submit" class="oracle-chat__send" aria-label="Send">
+              <svg viewBox="0 0 24 24" width="18" height="18"><path d="M4 12h14M14 6l6 6-6 6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </button>
+          </form>
+          <p class="oracle-chat__note">
+            Drawing from the Oracle entries on this page. A direct Claude
+            link arrives when there's a key to plumb through safely.
+          </p>
+        </div>
+      </aside>
 
     </section>
   `);
@@ -477,6 +763,92 @@ export function mountCodex(root, dataLayer = null){
     target.scrollIntoView({ behavior: 'smooth', block: 'start' });
     target.classList.add('is-flash-codex');
     setTimeout(() => target.classList.remove('is-flash-codex'), 1600);
+  });
+
+  /* ---------- chat panel: open / close / send ---------- */
+  const chatOpen   = qs('[data-role="chat-open"]', root);
+  const chatClose  = qs('[data-role="chat-close"]', root);
+  const chatPanel  = qs('[data-role="chat-panel"]', root);
+  const chatLog    = qs('[data-role="chat-log"]', root);
+  const chatForm   = qs('[data-role="chat-form"]', root);
+  const chatInput  = qs('[data-role="chat-input"]', root);
+  const chatWrap   = qs('[data-role="chat"]', root);
+
+  function setChatOpen(open){
+    if (!chatPanel) return;
+    chatPanel.hidden = !open;
+    chatWrap?.classList.toggle('is-open', !!open);
+    if (open) setTimeout(() => chatInput?.focus(), 100);
+  }
+  chatOpen?.addEventListener('click', () => setChatOpen(true));
+  chatClose?.addEventListener('click', () => setChatOpen(false));
+
+  /* Tiny scorer that finds the codex entry most relevant to a
+     free-text question. Tokenises the query, scores each entry
+     by token hits across title (x4), oneLine (x2), section
+     headings (x2), and section body (x1). Stopwords stripped.
+     Returns the top 2 matches. */
+  const STOP = new Set('a an and are as at be by do does for from how i in is it of on or that the to what when where which who whose why with you your yours'.split(' '));
+  function findBest(q){
+    if (!q) return [];
+    const toks = q.toLowerCase().replace(/[^a-z0-9α\s]/g, ' ').split(/\s+/).filter(t => t && !STOP.has(t) && t.length > 1);
+    if (!toks.length) return [];
+    const scored = CODEX.map(e => {
+      const title = e.title.toLowerCase();
+      const one   = (e.oneLine || '').toLowerCase();
+      const heads = (e.sections || []).map(s => (s.h || '').toLowerCase()).join(' ');
+      const body  = (e.sections || []).map(s => (s.body || '').toLowerCase()).join(' ');
+      let score = 0;
+      toks.forEach(t => {
+        if (title.includes(t)) score += 4;
+        if (one.includes(t))   score += 2;
+        if (heads.includes(t)) score += 2;
+        if (body.includes(t))  score += 1;
+      });
+      return { e, score };
+    }).filter(r => r.score > 0).sort((a, b) => b.score - a.score);
+    return scored.slice(0, 2).map(r => r.e);
+  }
+
+  function appendMsg(who, html){
+    if (!chatLog) return;
+    const el = document.createElement('div');
+    el.className = 'oracle-msg oracle-msg--' + (who === 'you' ? 'you' : 'bot');
+    el.innerHTML = `<span class="oracle-msg__who">${who === 'you' ? 'You' : 'Oracle'}</span>${html}`;
+    chatLog.appendChild(el);
+    chatLog.scrollTop = chatLog.scrollHeight;
+  }
+
+  chatForm?.addEventListener('submit', (e) => {
+    e.preventDefault();
+    const q = (chatInput?.value || '').trim();
+    if (!q) return;
+    appendMsg('you', `<p>${escapeHtml(q)}</p>`);
+    chatInput.value = '';
+    /* simulated thinking + answer */
+    const thinking = document.createElement('div');
+    thinking.className = 'oracle-msg oracle-msg--bot oracle-msg--thinking';
+    thinking.innerHTML = `<span class="oracle-msg__who">Oracle</span><p><span class="oracle-msg__dots"><span></span><span></span><span></span></span></p>`;
+    chatLog.appendChild(thinking);
+    chatLog.scrollTop = chatLog.scrollHeight;
+    setTimeout(() => {
+      thinking.remove();
+      const hits = findBest(q);
+      if (!hits.length){
+        appendMsg('bot', `<p>I don't have an entry that matches that yet. Try a concept like <em>Yuma Consensus</em>, <em>dTAO</em>, <em>α token</em>, or a role like <em>miner</em> / <em>validator</em>.</p>`);
+        return;
+      }
+      const first = hits[0];
+      const second = hits[1];
+      const refs = hits.map(h => `<a href="#${h.id}" data-jump="${h.id}">${escapeHtml(h.title)}</a>`).join(' · ');
+      const moreLine = second
+        ? `<p class="oracle-msg__more">Related: ${refs}</p>`
+        : `<p class="oracle-msg__more">More: <a href="#${first.id}" data-jump="${first.id}">${escapeHtml(first.title)}</a></p>`;
+      appendMsg('bot', `
+        <p><strong>${escapeHtml(first.title)}.</strong> ${first.oneLine}</p>
+        ${moreLine}
+      `);
+    }, 380);
   });
 
   return {

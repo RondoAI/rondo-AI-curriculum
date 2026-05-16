@@ -345,6 +345,233 @@
   .codex-info__pulse-line{ animation: none; }
 }
 
+/* per-bar pulse on the emission infographic */
+.codex-info__emit-bar rect{
+  animation: codexEmitPulse 1.6s ease-in-out infinite;
+  animation-delay: calc(var(--i, 0) * 0.12s);
+  transform-origin: center bottom;
+}
+@keyframes codexEmitPulse{
+  0%, 100% { transform: scaleY(.94); }
+  50%      { transform: scaleY(1.04); }
+}
+@media (prefers-reduced-motion: reduce){
+  .codex-info__emit-bar rect{ animation: none; }
+}
+
+/* ===================================================================
+   FLOATING ORACLE CHAT — bottom-right panel, expandable
+   =================================================================== */
+.oracle-chat{
+  position: fixed;
+  right: clamp(12px, 2vw, 24px);
+  bottom: clamp(12px, 2vw, 24px);
+  z-index: 60;
+  font-family: var(--f-sans);
+  /* sits above the bottom Oracle dock when on /codex.html — that
+     dock is z-45, this floats above */
+}
+.oracle-chat__open{
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 16px 10px 12px;
+  border: 1px solid var(--c-red);
+  border-radius: 999px;
+  background: linear-gradient(180deg, rgba(255,30,60,.22), rgba(10,3,6,.85));
+  color: #fff;
+  font-family: var(--f-mono);
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: var(--ls-label);
+  text-transform: uppercase;
+  cursor: pointer;
+  box-shadow: 0 0 0 1px rgba(255,30,60,.15), 0 6px 24px rgba(255,30,60,.25), 0 12px 40px rgba(0,0,0,.5);
+  transition: transform var(--d-fast) var(--e-out), box-shadow var(--d-fast) var(--e-out);
+}
+.oracle-chat__open:hover{
+  transform: translateY(-1px);
+  box-shadow: 0 0 0 1px var(--c-red), 0 8px 28px rgba(255,30,60,.4), 0 16px 48px rgba(0,0,0,.6);
+}
+.oracle-chat__open-mark{
+  width: 24px; height: 24px;
+  color: #fff;
+  display: inline-block;
+}
+.oracle-chat__open-mark svg{ width: 100%; height: 100%; display: block; }
+.oracle-chat__open-mark svg circle{
+  transform-origin: 14px 14px;
+  animation: oraclePulse 2s ease-in-out infinite;
+}
+@keyframes oraclePulse{
+  0%, 100% { opacity: 1; }
+  50%      { opacity: .55; }
+}
+.oracle-chat.is-open .oracle-chat__open{ display: none; }
+
+/* panel */
+.oracle-chat__panel{
+  width: min(380px, calc(100vw - 24px));
+  max-height: min(560px, calc(100vh - 80px));
+  display: flex;
+  flex-direction: column;
+  background: rgba(10, 3, 6, .96);
+  border: 1px solid var(--c-red);
+  border-radius: 8px;
+  box-shadow: 0 0 0 1px rgba(255,30,60,.2), 0 16px 60px rgba(255,30,60,.25), 0 24px 80px rgba(0,0,0,.65);
+  overflow: hidden;
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+}
+.oracle-chat__head{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px 14px;
+  border-bottom: 1px solid var(--c-rule-2);
+  background: linear-gradient(180deg, rgba(255,30,60,.1), transparent);
+}
+.oracle-chat__title{
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-family: var(--f-serif);
+  font-size: 14px;
+  font-weight: 800;
+  color: var(--c-ink-1);
+}
+.oracle-chat__live{
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  font-family: var(--f-mono);
+  font-size: 9px;
+  font-weight: 800;
+  letter-spacing: var(--ls-label);
+  color: var(--c-up);
+}
+.oracle-chat__close{
+  appearance: none;
+  border: 0;
+  background: transparent;
+  color: var(--c-ink-3);
+  font-size: 22px;
+  line-height: 1;
+  cursor: pointer;
+  padding: 0 4px;
+}
+.oracle-chat__close:hover{ color: var(--c-red); }
+
+.oracle-chat__log{
+  flex: 1;
+  padding: 14px;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  background:
+    radial-gradient(120% 70% at 50% 0%, rgba(255,30,60,.04), transparent 60%);
+  overscroll-behavior: contain;
+}
+.oracle-msg{
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  padding: 10px 12px;
+  border-radius: 8px;
+  max-width: 92%;
+}
+.oracle-msg--bot{
+  background: rgba(255, 30, 60, .08);
+  border: 1px solid var(--c-rule-3);
+  align-self: flex-start;
+}
+.oracle-msg--you{
+  background: rgba(255, 255, 255, .04);
+  border: 1px solid var(--c-rule-2);
+  align-self: flex-end;
+}
+.oracle-msg__who{
+  font-family: var(--f-mono);
+  font-size: 8.5px;
+  font-weight: 800;
+  letter-spacing: var(--ls-label);
+  text-transform: uppercase;
+  color: var(--c-red);
+}
+.oracle-msg--you .oracle-msg__who{ color: var(--c-ink-3); }
+.oracle-msg p{
+  margin: 0;
+  font-family: var(--f-sans);
+  font-size: 13px;
+  line-height: 1.5;
+  color: var(--c-ink-1);
+}
+.oracle-msg strong{ color: var(--c-red-1); font-weight: 700; }
+.oracle-msg__more{
+  font-size: 11px;
+  color: var(--c-ink-3);
+}
+.oracle-msg__more a{
+  color: var(--c-red-1);
+  border-bottom: 1px solid var(--c-rule-3);
+  text-decoration: none;
+}
+.oracle-msg__more a:hover{ color: var(--c-red); border-color: var(--c-red); }
+.oracle-msg__dots{ display: inline-flex; gap: 4px; align-items: center; height: 14px; }
+.oracle-msg__dots span{
+  width: 6px; height: 6px; border-radius: 50%; background: var(--c-red);
+  animation: oracleDot 1s ease-in-out infinite;
+}
+.oracle-msg__dots span:nth-child(2){ animation-delay: .15s; }
+.oracle-msg__dots span:nth-child(3){ animation-delay: .30s; }
+@keyframes oracleDot{
+  0%, 100% { opacity: .25; transform: translateY(0); }
+  50%      { opacity: 1;   transform: translateY(-3px); }
+}
+
+.oracle-chat__form{
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 6px;
+  padding: 10px 12px;
+  border-top: 1px solid var(--c-rule-2);
+  background: rgba(0, 0, 0, .35);
+}
+.oracle-chat__input{
+  border: 1px solid var(--c-rule-2);
+  background: rgba(255, 30, 60, .04);
+  border-radius: 999px;
+  padding: 9px 14px;
+  font-family: var(--f-sans);
+  font-size: 13px;
+  color: var(--c-ink-1);
+  outline: 0;
+  min-width: 0;
+}
+.oracle-chat__input::placeholder{ color: var(--c-ink-4); }
+.oracle-chat__input:focus{ border-color: var(--c-red); box-shadow: 0 0 0 2px rgba(255,30,60,.18); }
+.oracle-chat__send{
+  display: inline-grid; place-items: center;
+  width: 36px; height: 36px;
+  border: 0; border-radius: 50%;
+  background: var(--c-red);
+  color: #fff;
+  cursor: pointer;
+  transition: background var(--d-fast) var(--e-out);
+}
+.oracle-chat__send:hover{ background: var(--c-red-1); }
+.oracle-chat__note{
+  margin: 0;
+  padding: 6px 14px 10px;
+  font-family: var(--f-mono);
+  font-size: 9px;
+  letter-spacing: var(--ls-label);
+  text-transform: uppercase;
+  color: var(--c-ink-4);
+  text-align: center;
+}
+
 /* ---------- PAGE HEAD ---------- */
 .codex-page__head{
   display: flex;

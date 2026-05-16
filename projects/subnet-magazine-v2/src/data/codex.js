@@ -73,6 +73,7 @@ export const CODEX = Object.freeze([
       { h: 'The bet', body:
         'Bittensor\'s thesis is that an open, incentive-aligned network of contributors can produce intelligence cheaper and faster than a closed corporate stack, because the long tail of independent compute, the long tail of fine-tuners, and the long tail of domain-specific data don\'t exist inside any single company. The closed labs spend hundreds of billions on capex; Bittensor coordinates the capacity that doesn\'t fit inside that capex envelope.' },
     ],
+    infographic: 'bittensor',
     seeAlso: ['tao', 'subtensor', 'subnet', 'yuma-consensus', 'dtao'],
     sources: [
       { name: 'docs.bittensor.com', href: 'https://docs.bittensor.com' },
@@ -125,6 +126,7 @@ export const CODEX = Object.freeze([
       { h: 'How to acquire', body:
         'Listed on Coinbase, Kraken, MEXC, KuCoin, Binance, and most major exchanges. Can also be earned directly by running a validator, by mining a subnet that pays emission, or by holding alpha tokens that bond to TAO via the dTAO mechanism.' },
     ],
+    infographic: 'tao',
     seeAlso: ['alpha', 'dtao', 'emission', 'halving', 'yuma-consensus'],
     sources: [
       { name: 'taostats.io', href: 'https://taostats.io' },
@@ -199,6 +201,7 @@ export const CODEX = Object.freeze([
       { h: 'What changed', body:
         'Pre-dTAO, validators set "global weights" that decided emission share across subnets. This was a permissioned mechanism, a small number of high-stake validators set the allocation. Post-dTAO, the market sets it directly. Anyone with TAO can move emission share by buying α; the system removes the validator cohort from cross-subnet allocation entirely.' },
     ],
+    infographic: 'dtao',
     seeAlso: ['alpha', 'tao', 'subnet', 'emission'],
     sources: [
       { name: 'docs.bittensor.com, dTAO', href: 'https://docs.bittensor.com' },
@@ -220,6 +223,7 @@ export const CODEX = Object.freeze([
       { h: 'Why it matters', body:
         'Emission is the network\'s only inflation. Every TAO that ever exists comes from emission. Every dollar of "subsidy" that operators receive comes from emission. The Pine Analytics work in early 2026 quantified the structural question this raises: at the network level, miners receive ~$148M/year in TAO emission against $3-15M of measurable external revenue. The subsidy-to-revenue ratio is the open question of whether Bittensor\'s pricing claims survive without the emission line.' },
     ],
+    infographic: 'emission',
     seeAlso: ['tao', 'halving', 'yuma-consensus', 'dtao'],
     sources: [
       { name: 'taostats.io', href: 'https://taostats.io' },
@@ -327,6 +331,7 @@ export const CODEX = Object.freeze([
       { h: 'The state of the network', body:
         'As of May 2026, there are ~120 subnets registered, of which ~92 are actively producing emissions. The top 10 by α-MCAP collectively account for a majority of the network\'s economic activity. The long tail of smaller subnets is where most of the experimental work happens, new scoring mechanisms, new domains, new evaluation rubrics.' },
     ],
+    infographic: 'subnet',
     seeAlso: ['miner', 'validator', 'alpha', 'immunity'],
     sources: [
       { name: 'taonsquare.com, subnet catalog', href: 'https://taonsquare.com' },
