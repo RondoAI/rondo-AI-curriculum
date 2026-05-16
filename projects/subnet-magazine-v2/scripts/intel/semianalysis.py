@@ -47,8 +47,11 @@ ROOT = Path(__file__).resolve().parents[2]
 OUT_DIR = ROOT / "intelligence" / "_external_sources" / "semianalysis"
 STATE_PATH = OUT_DIR / ".state.json"
 INDEX_PATH = OUT_DIR / "INDEX.md"
+COOKIE_PATH = OUT_DIR / ".cookies.json"   # gitignored, opt-in auth
 
 ARCHIVE_API = "https://newsletter.semianalysis.com/api/v1/archive"
+RSS_FEED = "https://newsletter.semianalysis.com/feed"
+WAYBACK_AVAIL = "https://archive.org/wayback/available"
 USER_AGENT = (
     "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) "
     "AppleWebKit/537.36 (KHTML, like Gecko) "
@@ -57,14 +60,36 @@ USER_AGENT = (
 PAGE_SIZE = 12              # Substack caps at 12 per request
 ARCHIVE_TAIL = 300          # observed depth as of May 2026
 POLITE_SLEEP = 1.5          # seconds between post fetches
+THIN_BODY_CHARS = 4000      # below this, escalate to RSS then Wayback
+
+
+def load_cookie_header() -> str | None:
+    """If a `.cookies.json` file exists in the corpus directory, build
+    a Cookie header value from its `{name: value}` mapping. Lets the
+    operator opt into authenticated crawling without committing
+    credentials. The expected key for Substack is `substack.sid`."""
+    if not COOKIE_PATH.exists():
+        return None
+    try:
+        data = json.loads(COOKIE_PATH.read_text("utf-8"))
+        if not isinstance(data, dict) or not data:
+            return None
+        return "; ".join(f"{k}={v}" for k, v in data.items())
+    except Exception:
+        return None
 
 
 # ---------------------------------------------------------------- HTTP
 
-def http_get(url: str, *, accept_json: bool = False, retries: int = 2) -> str | None:
+def http_get(url: str, *, accept_json: bool = False, retries: int = 2,
+             use_auth: bool = True) -> str | None:
     headers = {"User-Agent": USER_AGENT}
     if accept_json:
         headers["Accept"] = "application/json"
+    if use_auth:
+        cookie = load_cookie_header()
+        if cookie:
+            headers["Cookie"] = cookie
     for attempt in range(retries + 1):
         try:
             req = urllib.request.Request(url, headers=headers)
@@ -257,6 +282,115 @@ def fetch_post_body(canonical_url: str) -> str:
     return html_to_markdown(frag)
 
 
+# ---------------------------------------------------------------- RSS FEED CACHE
+
+_RSS_CACHE: dict[str, str] | None = None
+
+
+def load_rss_bodies() -> dict[str, str]:
+    """One-shot fetch of the Substack RSS feed. Substack's RSS exposes
+    `<content:encoded>` with the same public-preview body as the HTML
+    page, but the whole most-recent ~20 posts ship in a single request.
+    We cache by canonical URL and use as a redundancy layer."""
+    global _RSS_CACHE
+    if _RSS_CACHE is not None:
+        return _RSS_CACHE
+    _RSS_CACHE = {}
+    xml = http_get(RSS_FEED, use_auth=False)
+    if not xml:
+        return _RSS_CACHE
+    try:
+        import xml.etree.ElementTree as ET
+        root = ET.fromstring(xml)
+    except Exception:
+        return _RSS_CACHE
+    ns = {"content": "http://purl.org/rss/1.0/modules/content/"}
+    for item in root.iter("item"):
+        link = (item.findtext("link") or "").strip()
+        body_html = item.findtext("content:encoded", default="", namespaces=ns) or ""
+        if link and body_html:
+            _RSS_CACHE[link] = html_to_markdown(body_html)
+    print(f"  [rss-cache] {len(_RSS_CACHE)} posts loaded from feed",
+          file=sys.stderr)
+    return _RSS_CACHE
+
+
+# ---------------------------------------------------------------- WAYBACK FALLBACK
+
+def wayback_snapshot_url(canonical_url: str) -> str | None:
+    """Ask the Wayback Machine availability endpoint whether it has a
+    snapshot for this URL. Returns the snapshot URL or None. Silently
+    skips when egress is blocked (dev sandboxes can lose this; GitHub
+    Actions runners have it)."""
+    try:
+        avail = http_get(
+            f"{WAYBACK_AVAIL}?url={canonical_url}",
+            accept_json=True, retries=1, use_auth=False,
+        )
+        if not avail:
+            return None
+        data = json.loads(avail)
+        snap = (data.get("archived_snapshots") or {}).get("closest") or {}
+        if snap.get("available") and snap.get("status") == "200":
+            return snap.get("url")
+    except Exception:
+        return None
+    return None
+
+
+def fetch_wayback_body(canonical_url: str) -> str:
+    snap = wayback_snapshot_url(canonical_url)
+    if not snap:
+        return ""
+    # Wayback prefixes the snapshot URL with /web/<ts>/ — the page is
+    # the original HTML, possibly with Wayback toolbar injection at top.
+    page = http_get(snap, use_auth=False)
+    if not page:
+        return ""
+    frag = extract_available_content(page)
+    return html_to_markdown(frag)
+
+
+def best_effort_body(canonical_url: str, rss_bodies: dict[str, str],
+                     paywalled: bool) -> tuple[str, list[str]]:
+    """Try every available channel, return the richest body plus a
+    provenance trail. Order:
+      1. Direct HTML page (uses auth cookie if available)
+      2. Substack RSS content:encoded (for recent ~20 posts)
+      3. Wayback Machine snapshot (catches posts that changed paywall
+         enforcement after archival)
+    """
+    sources_tried = []
+    candidates: list[tuple[str, str]] = []
+
+    direct = fetch_post_body(canonical_url)
+    sources_tried.append(f"html-page:{len(direct)}")
+    if direct:
+        candidates.append(("html-page", direct))
+
+    rss = rss_bodies.get(canonical_url, "")
+    sources_tried.append(f"rss-feed:{len(rss)}")
+    if rss:
+        candidates.append(("rss-feed", rss))
+
+    # Only escalate to Wayback if everything else came back thin AND
+    # the post is paywalled (free posts don't benefit; the public page
+    # is already the canonical body).
+    best_so_far = max((len(c[1]) for c in candidates), default=0)
+    if paywalled and best_so_far < THIN_BODY_CHARS:
+        way = fetch_wayback_body(canonical_url)
+        sources_tried.append(f"wayback:{len(way)}")
+        if way:
+            candidates.append(("wayback", way))
+
+    if not candidates:
+        return "", sources_tried
+    # Pick the longest body — usually the most complete capture.
+    label, best = max(candidates, key=lambda c: len(c[1]))
+    sources_tried.append(f"winner={label}")
+    return best, sources_tried
+
+
 # ---------------------------------------------------------------- WRITE
 
 SLUG_SAFE = re.compile(r"[^a-z0-9\-]+")
@@ -317,19 +451,24 @@ def render_post_md(post: dict, body_md: str) -> str:
     ]
 
     if paywalled:
+        body_chars = len(body_md or "")
         front += [
-            "> **Paywalled.** Only the free preview is captured below. "
-            "The Oracle should treat the subtitle and preview as the "
-            "indicative thesis; do not assert claims that depend on the "
-            "paywalled body.",
+            "> **Paywalled.** Captured below is the free preview "
+            f"Substack renders publicly ({body_chars:,} chars of body "
+            "markdown). For long-form analyses this is typically 70 to "
+            "90 percent of the article, with the final deep-dive "
+            "section paywalled. The Oracle may cite the captured "
+            "content; do not assert claims that depend on the "
+            "paywalled tail (look for a 'This post is for paid "
+            "subscribers' marker at the end of the body).",
             "",
         ]
-        if preview:
-            front += [preview, ""]
+        # If our HTML extraction failed and we fell back to the short
+        # API preview, that's already in body_md; no duplicate emit.
 
     if body_md:
         front += [body_md, ""]
-    elif not paywalled:
+    else:
         front += ["_body extraction returned empty; see canonical URL_", ""]
 
     return "\n".join(front).rstrip() + "\n"
@@ -419,13 +558,18 @@ def run(mode: str, limit: int | None) -> int:
     OUT_DIR.mkdir(parents=True, exist_ok=True)
     state = load_state()
     last_id = state.get("last_post_id") if mode == "incremental" else None
+    auth_active = load_cookie_header() is not None
 
-    print(f"[start] semianalysis crawler, mode={mode}, last_id={last_id}",
-          file=sys.stderr)
+    print(f"[start] semianalysis crawler, mode={mode}, last_id={last_id}, "
+          f"auth={'ON' if auth_active else 'off'}", file=sys.stderr)
     posts = walk_archive(stop_at_id=last_id)
     if limit is not None:
         posts = posts[:limit]
     print(f"  [archive] {len(posts)} posts to process", file=sys.stderr)
+
+    # Prime the RSS cache once. Covers ~20 most recent posts in a
+    # single request; saves bandwidth and adds a redundancy channel.
+    rss_bodies = load_rss_bodies()
 
     saved = 0
     skipped = 0
@@ -434,39 +578,87 @@ def run(mode: str, limit: int | None) -> int:
     for i, post in enumerate(posts, 1):
         fname = post_filename(post)
         path = OUT_DIR / fname
-        # Skip if already saved AND audience hasn't flipped to free since
         if path.exists() and mode != "backfill":
             skipped += 1
             continue
 
         audience = post.get("audience", "")
-        if audience == "only_paid":
-            # No body to fetch; metadata + preview only
-            save_post(post, "")
-            saved += 1
-            print(f"  [{i}/{len(posts)}] (paid) {fname}", file=sys.stderr)
+        paywalled = audience == "only_paid"
+        canonical = post.get("canonical_url", "")
+        tag = "paid" if paywalled else "free"
+
+        if canonical:
+            body_md, trail = best_effort_body(canonical, rss_bodies, paywalled)
         else:
-            print(f"  [{i}/{len(posts)}] (free) fetching {post.get('canonical_url')}",
-                  file=sys.stderr)
-            body_md = fetch_post_body(post["canonical_url"])
-            save_post(post, body_md)
-            saved += 1
-            time.sleep(POLITE_SLEEP)
+            body_md, trail = "", []
+        if not body_md:
+            body_md = (post.get("truncated_body_text") or "").strip()
+            trail.append(f"api-truncated:{len(body_md)}")
+
+        print(f"  [{i}/{len(posts)}] ({tag}) {fname} -> {','.join(trail)}",
+              file=sys.stderr)
+        save_post(post, body_md)
+        saved += 1
 
         if newest_id is None or post.get("id", 0) > newest_id:
             newest_id = post.get("id")
+
+        time.sleep(POLITE_SLEEP)
 
     if newest_id:
         save_state({
             "last_post_id": newest_id,
             "last_run_at": datetime.now(timezone.utc).isoformat(),
             "mode": mode,
+            "auth_used": auth_active,
         })
 
     rebuild_index()
     print(f"[done] saved={saved} skipped={skipped} index={INDEX_PATH.name}",
           file=sys.stderr)
     return 0
+
+
+def corpus_stats() -> dict:
+    """Audit the current corpus: per-post body length, paywall coverage,
+    thinnest/richest. Useful for verifying a backfill actually
+    improved things."""
+    stats = {
+        "total": 0, "paywalled": 0, "free": 0,
+        "rich": 0, "thin": 0, "empty": 0,
+        "total_body_chars": 0,
+        "thinnest_paywalled": [], "richest_paywalled": [],
+    }
+    paywalled_sizes: list[tuple[int, str]] = []
+    for fp in OUT_DIR.glob("*.md"):
+        if fp.name == "INDEX.md":
+            continue
+        stats["total"] += 1
+        text = fp.read_text("utf-8", errors="replace")
+        m = re.match(r"---\n(.*?)\n---\n(.*)", text, re.DOTALL)
+        if not m:
+            continue
+        front_raw, body = m.group(1), m.group(2)
+        paywalled = "paywalled: true" in front_raw
+        body_only = re.sub(r"^.*?\n---\n", "", body, count=1, flags=re.DOTALL)
+        body_only = re.sub(r"^>.*\n", "", body_only, flags=re.MULTILINE)
+        n = len(body_only.strip())
+        stats["total_body_chars"] += n
+        if paywalled:
+            stats["paywalled"] += 1
+            paywalled_sizes.append((n, fp.name))
+        else:
+            stats["free"] += 1
+        if n == 0:
+            stats["empty"] += 1
+        elif n < THIN_BODY_CHARS:
+            stats["thin"] += 1
+        else:
+            stats["rich"] += 1
+    paywalled_sizes.sort()
+    stats["thinnest_paywalled"] = paywalled_sizes[:5]
+    stats["richest_paywalled"] = paywalled_sizes[-5:][::-1]
+    return stats
 
 
 def main() -> int:
@@ -478,6 +670,8 @@ def main() -> int:
                    help="Default. Fetch only posts newer than last run")
     g.add_argument("--rebuild-index", action="store_true",
                    help="Regenerate INDEX.md from existing files, fetch nothing")
+    g.add_argument("--stats", action="store_true",
+                   help="Audit corpus coverage, fetch nothing")
     parser.add_argument("--limit", type=int, default=None,
                         help="Stop after N posts (testing)")
     args = parser.parse_args()
@@ -485,6 +679,11 @@ def main() -> int:
     if args.rebuild_index:
         path = rebuild_index()
         print(f"[done] rebuilt {path.relative_to(ROOT)}", file=sys.stderr)
+        return 0
+
+    if args.stats:
+        s = corpus_stats()
+        print(json.dumps(s, indent=2))
         return 0
 
     mode = "backfill" if args.backfill else "incremental"
