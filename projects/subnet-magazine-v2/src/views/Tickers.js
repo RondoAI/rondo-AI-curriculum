@@ -117,8 +117,17 @@ export function mountTickers(root, dataLayer = null){
 
       <div class="ticker">
         <span class="ticker__tag ticker__tag--alt">
-          <span class="ticker__mark" aria-hidden="true">
-            <canvas data-canvas="ticker-central-mark"></canvas>
+          <span class="ticker__mark ticker__mark--bars" aria-hidden="true">
+            <svg viewBox="0 0 18 18">
+              <!-- four vertical bars pulsing height, a tiny trading-
+                   volume indicator. Structured, geometric, institutional,
+                   the centralized desk's signature instead of an
+                   organic plexus. -->
+              <rect class="ticker-bar ticker-bar--1" x="1.5" y="4" width="2.5" height="10" rx="0.5"/>
+              <rect class="ticker-bar ticker-bar--2" x="5.5" y="2" width="2.5" height="14" rx="0.5"/>
+              <rect class="ticker-bar ticker-bar--3" x="9.5" y="6" width="2.5" height="8"  rx="0.5"/>
+              <rect class="ticker-bar ticker-bar--4" x="13.5" y="3" width="2.5" height="12" rx="0.5"/>
+            </svg>
           </span>
           <span class="ticker__brand">Central Desk</span>
         </span>
@@ -130,16 +139,13 @@ export function mountTickers(root, dataLayer = null){
     </section>
   `);
 
-  /* Replace the static green dot with two tiny NodeSphere instances,
-     one per ticker tape. Same engine as the masthead brand mark and
-     the hero icosphere; reads as 'this rail is alive', not 'this
-     rail has a light on'. */
+  /* Bittensor tape gets the live NodeSphere plexus (decentralized
+     intelligence -> a working neural net). Central Desk does NOT —
+     it carries an animated 4-bar SVG mark instead (centralized
+     finance -> a structured volume indicator). One tape, one
+     identity per data source. */
   const brandCv = qs('[data-canvas="ticker-brand-mark"]', root);
-  const centralCv = qs('[data-canvas="ticker-central-mark"]', root);
   const brandSphere = brandCv ? new NodeSphere(brandCv, {
-    nodes: 22, K: 3, density: 0.5, speed: 0.42, atmos: false,
-  }) : null;
-  const centralSphere = centralCv ? new NodeSphere(centralCv, {
     nodes: 22, K: 3, density: 0.5, speed: 0.42, atmos: false,
   }) : null;
 
@@ -220,7 +226,6 @@ export function mountTickers(root, dataLayer = null){
       ecoSparks.splice(0).forEach(sp => { try { sp.destroy(); } catch (_) {} });
       cexSparks.splice(0).forEach(sp => { try { sp.destroy(); } catch (_) {} });
       brandSphere?.destroy();
-      centralSphere?.destroy();
     },
   };
 }
