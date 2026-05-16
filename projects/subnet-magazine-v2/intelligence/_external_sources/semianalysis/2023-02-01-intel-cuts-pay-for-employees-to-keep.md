@@ -9,7 +9,7 @@ paywalled: false
 wordcount: 720
 url: "https://newsletter.semianalysis.com/p/intel-cuts-pay-for-employees-to-keep"
 post_id: 175660920
-captured_at: "2026-05-16T10:40:22.269005+00:00"
+captured_at: "2026-05-16T10:53:47.366327+00:00"
 ---
 
 # Intel Cuts Pay For Employees To Keep Their Quarterly Dividend
