@@ -2632,6 +2632,10 @@
   margin: 0 auto;
   padding: clamp(56px, 9vw, 112px) var(--gutter) clamp(40px, 7vw, 80px);
   border-bottom: var(--b-thin);
+  /* Isolate the editor section's layout + paint from the rest of
+     the page so a delayed portrait decode can't propagate a
+     reflow up the document and disrupt scroll anchoring. */
+  contain: layout style;
 }
 .home-editor::before{
   content: "";

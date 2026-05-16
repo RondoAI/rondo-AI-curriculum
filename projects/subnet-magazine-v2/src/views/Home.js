@@ -1485,7 +1485,12 @@ export function mountHome(root, dataLayer = null){
     <section class="home-editor" aria-label="Editor">
       <div class="home-editor__inner">
         <div class="home-editor__photo">
-          <img src="assets/editor-rondo.jpg" alt="Rondo Campbell" loading="lazy">
+          <img src="assets/editor-rondo.jpg"
+               alt="Rondo Campbell"
+               width="600" height="600"
+               loading="lazy"
+               decoding="async"
+               fetchpriority="low">
           <span class="home-editor__photo-frame" aria-hidden="true"></span>
         </div>
         <div class="home-editor__body">
