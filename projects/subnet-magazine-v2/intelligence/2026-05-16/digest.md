@@ -5,6 +5,144 @@ _Single-file briefing for the daily research agent. Sources listed in trust orde
 
 ## ⊕ HUMAN-CURATED NOTES, last 7 days
 
+## 2026-05-16 19:00 UTC, FLAGSHIP PRIMARY SOURCE from Rondo, the Intel x Manifold Labs joint TDX paper
+Source: Rondo passed through the FULL TEXT of the Intel community
+blog post by Sathi Nair (Intel Employee), Mar 17 2026:
+"Decentralized Compute on Untrusted Hardware Using Intel TDX and
+Encrypted CVMs". Preserved verbatim at:
+  intelligence/_primary_sources/2026-03-17-intel-manifold-tdx-decentralized-compute-paper.md
+
+This is the SINGLE MOST IMPORTANT PRIMARY SOURCE we have logged
+today. Multiple earlier tips (the @taomedia_ Targon article, the
+WallStreetBets thesis) referenced "the Intel paper" without
+providing it. Now the magazine has the actual document.
+
+### Why this changes the desk's read on Targon (SN4)
+This is a Big Tech enterprise (Intel) publishing on its own
+official community blog a joint technical paper with a Bittensor
+subnet (Targon / Manifold Labs / SN4). The authors are:
+  - Manifold Labs: Venish Patidar, Dhruv Bindra, Ahmed Darwich,
+    Josh Brown
+  - Intel: Haidong Xia, Sathi Nair
+
+This is the highest-tier enterprise validation any Bittensor
+subnet has received to date. The earlier @taomedia_ framing
+("Intel does not casually co-author technical papers with crypto
+projects, and this is a big signal of upcoming wider adoption")
+is correct, but now the desk has the document to anchor it.
+
+### The CEO quote on the record (most valuable artifact today)
+Robert Myers, CEO of Manifold Labs, in the Intel paper:
+
+> "The primary challenge in building the Targon Virtual Machine
+> was ensuring confidential computation across untrusted operators
+> (hardware providers) without sacrificing performance. We require
+> strong hardware-rooted isolation and portable attestation that
+> could integrate directly into our network's validation logic.
+> Intel TDX enables secure VM isolation with minimal overhead,
+> while Intel Trust Authority provides verifiable remote attestation
+> that can be embedded into validator workflows. This combination
+> allows us to establish strong trust assurances at the protocol
+> level rather than relying on operator reputation."
+
+The closing phrase "establish strong trust assurances at the
+protocol level rather than relying on operator reputation" is the
+cleanest one-sentence summary of why decentralized confidential
+compute matters as a category. The Oracle should treat this as
+the cornerstone quote for any Targon spotlight.
+
+### The technical architecture is specified in 5 layers
+1. HARDWARE: 5th/6th Gen Xeon (Emerald/Granite Rapids) + Hopper
+   H100/H200 + Blackwell B200
+2. CVM PROVISIONING: Targon Image Gateway clones golden Ubuntu
+   24.04 image, encrypts QCOW2 with per-VM disk key, registers
+   key with Intel ITA Key Broker Service (KBS), pre-records
+   expected TDX measurement
+3. ATTESTATION: Manifold Attestation Agent in initramfs collects
+   TDX measurement registers + generates quote, validators
+   collect quotes + forward to KBS + to Intel Trust Authority
+   for verification. UNIFIED ATTESTATION = NVIDIA nvtrust report
+   embedded in the user data field of the Intel TDX quote (this
+   is novel; both CPU and GPU attestation in one cryptographic
+   proof)
+4. INCENTIVE: Targon's Tower service distributes weights, on-chain
+   stake-weighted consensus pays providers
+5. ORCHESTRATION: WireGuard mesh + Kubernetes control plane,
+   only continuously attested CVMs admitted to the scheduling pool
+
+### Specific quantitative facts to quote
+- Re-attestation cadence: every block interval (~72 minutes)
+- Every attestation round is challenge-response with validator
+  nonces to prevent replay
+- IP-based binding: first successful attestation locks the CVM
+  to the hardware provider's network identity; subsequent
+  attestations must originate from the same IP
+- IF the IP changes, the VM is "permanently inaccessible" and
+  the provider must request a new VM
+- Per-VM disk encryption with KBS-released keys
+- Base image: hardened Ubuntu 24.04 with NVIDIA drivers
+- GPU mode: Protected PCIe (PPCIe)
+- Firmware: TDX-compatible OVMF
+
+### The threat model is fully specified (this is rare in subnet docs)
+The paper assumes a STRONG adaptive adversary with full physical
+control of the host, can manipulate OS/hypervisor/BIOS/firmware,
+can clone/replay/migrate VM images, can observe all network
+traffic, can collude. The system enforces 5 security properties
+(confidentiality, integrity, authenticity, non-migratability,
+continuous trust). The mitigation table is the cleanest available
+summary of how each in-scope attack is countered, with explicit
+out-of-scope items (Intel/NVIDIA root key compromise, DOS).
+
+### The strategic positioning the paper articulates
+"This architecture from Manifold Labs makes premium, enterprise-
+grade compute accessible at a fraction of the traditional cost."
+The frame: Targon competes with centralized cloud confidential VMs
+(AWS, Azure) on price AND on transparency, while matching them on
+the actual security guarantees through hardware-rooted attestation
+rather than vendor trust.
+
+### How this slots into the broader pool
+Today the desk has now received:
+  - Lium (SN51) GPU marketplace screenshot: ~$5.99/hr B300 spot,
+    218 pods, ~1,744 GPUs available, NOT confidential-compute-
+    focused
+  - Targon / Manifold (SN4) Intel TDX paper: confidential-compute-
+    focused, Intel + NVIDIA TEE stack, attestation-grade trust
+
+These are NOT direct competitors. They are different LAYERS of
+the same decentralized-compute market:
+  - Lium: raw GPU access at lowest price
+  - Targon: confidential-compute-verified GPU access for sensitive
+    workloads (training data, model weights, regulated data)
+Worth synthesizing in any Ecosystem State article.
+
+### What this gives the Oracle
+The Targon Spotlight that now becomes writable:
+  1. Open with "Intel published a joint paper" frame and the
+     CEO quote
+  2. Walk the 5-layer architecture with the unified-attestation
+     mechanism as the technical centerpiece
+  3. Walk the threat model and mitigation table verbatim (most
+     subnets do not have one, this differentiates Targon)
+  4. Contrast with Lium SN51 as the price-focused alternative
+     in the same decentralized GPU market
+  5. Note the future-work commitment ("a user-facing approach
+     for independently verifying CVM execution state") as the
+     watchable next step
+
+This is a 2,000-word Spotlight target with verbatim quotes from
+the CEO, primary architectural detail, and a quantitative threat
+model. None of this is in the human magazine's coverage yet.
+
+### Voices.js update needed
+Targon (@TargonCompute) bio significantly expanded with the Intel
+paper context. Robert Myers (Manifold CEO) added as a dedicated
+voice. The other Manifold Labs paper authors flagged for future
+voice additions if their X handles can be confirmed.
+
+---
+
 ## 2026-05-16 18:40 UTC, PRIMARY SOURCE from Rondo, Manako Q1 product launch (Jan 22 2026)
 Source: Rondo passed through the @webuildscore Jan 22 X post
 "Introducing Manako: Build with Vision". Preserved at:
@@ -1180,4 +1318,4 @@ _no posts retrieved · all Nitter instances may be down_
 
 
 ---
-_Generated at 2026-05-16T10:10:10.449297+00:00 by scripts/intel/aggregate.py. Treat this digest as input context, not as ground truth. Verify before quoting._
+_Generated at 2026-05-16T10:13:30.374802+00:00 by scripts/intel/aggregate.py. Treat this digest as input context, not as ground truth. Verify before quoting._
