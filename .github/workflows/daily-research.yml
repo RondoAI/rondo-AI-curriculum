@@ -44,12 +44,34 @@
 
 name: Subnet Oracle Research, daily
 
+# =================================================================
+# CURRENTLY DORMANT.
+#
+# The daily schedule is commented out below because the autopilot
+# uses the Anthropic API (pay-per-token, separate billing from the
+# Claude Max consumer subscription) and the account is on the free
+# evaluation tier with $0 credit. Running every day would just fire
+# failed runs and notification noise.
+#
+# To re-enable when API credit is available:
+#   1. Add credits at https://console.anthropic.com/settings/billing
+#   2. Set the ANTHROPIC_API_KEY repository secret
+#   3. Uncomment the `schedule:` block below
+#   4. Push to main
+#
+# The magazine continues to operate via the inline Claude Code path
+# (human + Oracle co-author articles in conversation). The intel
+# poll workflow stays on its 4h cron because it uses zero API
+# credit (free public scrapers only).
+# =================================================================
+
 on:
-  schedule:
-    # 08:00 UTC every day. Cron is UTC-only on GitHub Actions.
-    - cron: '0 8 * * *'
+  # schedule:
+  #   # 08:00 UTC every day. Cron is UTC-only on GitHub Actions.
+  #   - cron: '0 8 * * *'
   workflow_dispatch:
     # Manual trigger from the Actions tab or the GitHub API.
+    # Kept enabled so a one-off run is possible if credit is loaded.
     inputs:
       extra_instruction:
         description: >
