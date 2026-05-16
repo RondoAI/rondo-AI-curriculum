@@ -111,9 +111,12 @@ export class OracleSphere extends Chart {
 
     if (this._image){
       /* Image path: fit-contain the image into the off-screen box,
-         centered. We render it white-on-black so the pixel-sample
-         pass downstream treats bright pixels as glyph. The original
-         color is discarded; the plexus will be all red. */
+         centered. We then derive a foreground/background mask by
+         sampling the corner pixels as "background" and selecting
+         anything that differs from them by more than a threshold.
+         This handles any logo whose background is a flat color or
+         transparency, regardless of whether the foreground is dark
+         on light, light on dark, or chromatic on neutral. */
       const iw = this._image.naturalWidth  || this._image.width  || 1;
       const ih = this._image.naturalHeight || this._image.height || 1;
       const scale = Math.min(off.width / iw, off.height / ih);
@@ -121,15 +124,47 @@ export class OracleSphere extends Chart {
       const dx = (off.width  - dw) / 2;
       const dy = (off.height - dh) / 2;
       oc.drawImage(this._image, dx, dy, dw, dh);
-      /* Threshold: any pixel with meaningful luminance becomes glyph.
-         We rewrite the off-screen image so the downstream sampler
-         can use the same "green channel > 90" test as the text path. */
+
       const id = oc.getImageData(0, 0, off.width, off.height);
       const d  = id.data;
+      const W = off.width, H = off.height;
+
+      /* Average the four image-region corners as the background
+         reference. We sample inside the drawn-image rect, not at the
+         canvas corners (which are the black fill we painted earlier). */
+      const ix0 = Math.max(0, Math.floor(dx)) + 1;
+      const iy0 = Math.max(0, Math.floor(dy)) + 1;
+      const ix1 = Math.min(W - 1, Math.floor(dx + dw)) - 1;
+      const iy1 = Math.min(H - 1, Math.floor(dy + dh)) - 1;
+      const samp = [
+        [ix0, iy0], [ix1, iy0], [ix0, iy1], [ix1, iy1],
+      ];
+      let br = 0, bg = 0, bb = 0, ba = 0;
+      for (const [sx, sy] of samp){
+        const p = (sy * W + sx) * 4;
+        br += d[p]; bg += d[p + 1]; bb += d[p + 2]; ba += d[p + 3];
+      }
+      br /= 4; bg /= 4; bb /= 4; ba /= 4;
+
+      /* If the corners are transparent, the background test reduces
+         to "any opaque pixel is foreground". Otherwise it is "pixel
+         color distance from background > threshold". */
+      const bgTransparent = ba < 32;
+      const THR = 70; /* Euclidean RGB distance threshold */
+
       for (let p = 0; p < d.length; p += 4){
-        const lum = 0.299 * d[p] + 0.587 * d[p + 1] + 0.114 * d[p + 2];
-        const aa  = d[p + 3];
-        const on  = (aa > 64) && (lum > 60);
+        const aa = d[p + 3];
+        let on;
+        if (aa <= 32){
+          on = false;
+        } else if (bgTransparent){
+          on = true;
+        } else {
+          const dr = d[p]     - br;
+          const dg = d[p + 1] - bg;
+          const db = d[p + 2] - bb;
+          on = Math.sqrt(dr*dr + dg*dg + db*db) > THR;
+        }
         d[p] = d[p + 1] = d[p + 2] = on ? 255 : 0;
         d[p + 3] = 255;
       }

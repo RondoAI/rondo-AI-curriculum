@@ -1854,12 +1854,13 @@ export function mountHome(root, dataLayer = null){
 
   /* Subnet logo files that ship in this project's assets/ folder.
      When a Subnet Spotlight card matches a name here, the cover
-     chart loads the logo PNG and renders its pixels as the red
+     chart loads the logo file and renders its pixels as the red
      plexus glyph inside the spinning sphere. Subnets not in this
      map fall back to rendering the subnet name as text plexus.
      Add new entries here as logo files are added to assets/. */
   const SUBNET_LOGOS = {
     'hippius':  'assets/hippius-mark.png',
+    'targon':   'assets/targon-mark.svg',
   };
 
   /* ---------- SUBNET ORACLE card covers, one OracleSphere per card --
