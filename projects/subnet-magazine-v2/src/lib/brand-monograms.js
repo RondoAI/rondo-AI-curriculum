@@ -91,6 +91,34 @@ const BRANDS = {
   binance:     { m: 'Bn', c: '#F0B90B', ink: '#000', s: 'binance' },
   bittensor:   { m: 'τ',  c: '#FF1E3C', ink: '#fff' },
 
+  // — bittensor-ecosystem funds + capital fallbacks (used when an
+  //   X profile photo fails to load and we paint a coloured chip)
+  stillcore:   { m: 'SC', c: '#FF1E3C', ink: '#fff' },
+  osscapital:  { m: 'OS', c: '#0d0d0d', ink: '#fff' },
+  dcg:         { m: 'DC', c: '#0052FF' },
+  polychain:   { m: 'PC', c: '#000000', ink: '#fff' },
+  multicoin:   { m: 'MC', c: '#FF6720' },
+  galaxy:      { m: 'GX', c: '#1E59A3' },
+  a16z:        { m: 'AZ', c: '#FF6B35' },
+  pantera:     { m: 'Pn', c: '#000000', ink: '#fff' },
+  coinfund:    { m: 'CF', c: '#5741D9' },
+  borderless:  { m: 'BC', c: '#10A37F' },
+  foundry:     { m: 'Fd', c: '#000000', ink: '#fff' },
+  brevan:      { m: 'BH', c: '#001F3F', ink: '#fff' },
+  yuma:        { m: 'Y',  c: '#FF1E3C', ink: '#fff' },
+  opentensor:  { m: 'OT', c: '#FF1E3C', ink: '#fff' },
+  templar:     { m: 'Tp', c: '#000000', ink: '#fff' },
+  rayonlabs:   { m: 'RL', c: '#FF1E3C', ink: '#fff' },
+  macrocosmos: { m: 'Mc', c: '#7c1ea8', ink: '#fff' },
+  manifold:    { m: 'Mf', c: '#000000', ink: '#fff' },
+  taoshi:      { m: 'Ts', c: '#FF1E3C', ink: '#fff' },
+  nous:        { m: 'No', c: '#000000', ink: '#fff' },
+  datura:      { m: 'Dt', c: '#7c1ea8', ink: '#fff' },
+  hippius:     { m: 'Hp', c: '#FF1E3C', ink: '#fff' },
+  affine:      { m: 'Af', c: '#10A37F', ink: '#fff' },
+  ridges:      { m: 'Rg', c: '#000000', ink: '#fff' },
+  latent:      { m: 'Lt', c: '#FF9900', ink: '#000' },
+
   //, neutral
   none:        { m: '·',  c: '#3a1419', ink: '#FF4D60' },
 };
