@@ -136,6 +136,14 @@ export const VOICES = Object.freeze([
   { handle:'brevanhdigital', name:'Brevan Howard Digital', role:'Digital-asset hedge fund',     group:'capital',
     brand:'brevan', site:'https://brevanhowarddigital.com', subnets:[],
     bio:'The digital-asset arm of Brevan Howard. Institutional-grade exposure to permissionless networks including TAO.' },
+
+  /* — analysts & media — */
+  { handle:'taomedia_',  name:'TAO Media', role:'Bittensor-native research and editorial', group:'media',
+    site:'https://www.tao.media', subnets:[],
+    bio:'Self-described "The Bittensor media company". Files deep, primary-sourced research on subnets, ecosystem moves, and protocol governance. Added to Nitter rotation so the desk picks them up automatically.' },
+  { handle:'lium_io',    name:'Lium', role:'GPU compute marketplace · Subnet 51', group:'subnet',
+    site:'https://lium.io', subnets:[51], expertise:['subnet'],
+    bio:'Permissionless decentralized GPU marketplace running as SN51. Per @taomedia_, ~$20K/day revenue, 21% of token supply already burned via revenue-funded buybacks, ~90% cheaper than hyperscaler GPU rentals.' },
 ]);
 
 /** Voices bucketed by group, in GROUP_LABEL order. */
