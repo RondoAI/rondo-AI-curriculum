@@ -804,6 +804,50 @@ export function mountHome(root, dataLayer = null){
         <p class="home-how__loop-cap">One block of work, six stages. <span>9.2 s · 14 MAY 2026</span></p>
       </div>
 
+      <!-- LIVE METRICS STRIP — six cells, one per loop stage, each
+           with a stat that quantifies that stage at the network
+           level. Values are live where the DataLayer feeds it
+           (subnets count, block time, emissions/day, α-MCAP); the
+           rest are calibrated to the May 2026 snapshot. -->
+      <ol class="home-how__metrics" aria-label="Live network metrics by stage">
+        <li class="how-metric" data-stage="subnets">
+          <span class="how-metric__n"><span class="how-metric__ord">01</span>SUBNETS</span>
+          <span class="how-metric__val" data-bind="how-subnets">92</span>
+          <span class="how-metric__u">active · 256 max</span>
+          <span class="how-metric__bar"><span class="how-metric__bar-fill" style="width:36%"></span></span>
+        </li>
+        <li class="how-metric" data-stage="miners">
+          <span class="how-metric__n"><span class="how-metric__ord">02</span>MINERS</span>
+          <span class="how-metric__val" data-bind="how-miners">~120k</span>
+          <span class="how-metric__u">across the network</span>
+          <span class="how-metric__bar"><span class="how-metric__bar-fill" style="width:82%"></span></span>
+        </li>
+        <li class="how-metric" data-stage="validators">
+          <span class="how-metric__n"><span class="how-metric__ord">03</span>VALIDATORS</span>
+          <span class="how-metric__val" data-bind="how-vals">~1,800</span>
+          <span class="how-metric__u">scoring miners</span>
+          <span class="how-metric__bar"><span class="how-metric__bar-fill" style="width:48%"></span></span>
+        </li>
+        <li class="how-metric" data-stage="consensus">
+          <span class="how-metric__n"><span class="how-metric__ord">04</span>CONSENSUS</span>
+          <span class="how-metric__val" data-bind="how-block">12 s</span>
+          <span class="how-metric__u">Yuma · per block</span>
+          <span class="how-metric__bar"><span class="how-metric__bar-fill" style="width:18%"></span></span>
+        </li>
+        <li class="how-metric" data-stage="emissions">
+          <span class="how-metric__n"><span class="how-metric__ord">05</span>EMISSIONS</span>
+          <span class="how-metric__val" data-bind="how-em"><span class="tau">τ</span>7,200</span>
+          <span class="how-metric__u">per day · post-halving</span>
+          <span class="how-metric__bar"><span class="how-metric__bar-fill" style="width:60%"></span></span>
+        </li>
+        <li class="how-metric" data-stage="dtao">
+          <span class="how-metric__n"><span class="how-metric__ord">06</span>dTAO</span>
+          <span class="how-metric__val" data-bind="how-amc">$3.3B</span>
+          <span class="how-metric__u">α-MCAP · 92 subnets</span>
+          <span class="how-metric__bar"><span class="how-metric__bar-fill" style="width:74%"></span></span>
+        </li>
+      </ol>
+
       <ol class="home-how__pipe">
 
         <li class="home-how__row" data-stage="01">
@@ -1882,12 +1926,63 @@ export function mountHome(root, dataLayer = null){
     unsubs.push(dataLayer.subscribe('tao:subnets', renderSubnets));
     unsubs.push(dataLayer.subscribe('tao:subnets', renderArticleLogos));
     unsubs.push(dataLayer.subscribe('tao:subnets', renderStackLive));
+    unsubs.push(dataLayer.subscribe('tao:subnets', renderHowMetrics));
+    unsubs.push(dataLayer.subscribe('tao:market',  renderHowMarket));
+    unsubs.push(dataLayer.subscribe('tao:chain',   renderHowChain));
     /* render anything already cached */
     renderMarket(dataLayer.get('tao:market'));
     renderChain(dataLayer.get('tao:chain'));
     renderSubnets(dataLayer.get('tao:subnets'));
     renderArticleLogos(dataLayer.get('tao:subnets'));
     renderStackLive(dataLayer.get('tao:subnets'));
+    renderHowMetrics(dataLayer.get('tao:subnets'));
+    renderHowMarket(dataLayer.get('tao:market'));
+    renderHowChain(dataLayer.get('tao:chain'));
+  }
+
+  /* ---------- LIVE: § 04 The loop · metrics strip ----------
+     Six per-stage figures sit under the loop SVG. Three of them are
+     directly computable from the magazine's existing DataLayer feeds:
+       01 SUBNETS    — count of subnets in the tao:subnets list
+       06 dTAO       — sum of α-MCAP across the same list
+       05 EMISSIONS  — derived from the chain emission rate
+       04 CONSENSUS  — live block time from tao:chain
+     02 MINERS / 03 VALIDATORS are calibrated to the May 2026
+     snapshot — neither feed gives a network-wide miner count
+     cleanly, so we leave the snapshot until taostats wiring is
+     added. Brighten the value when it goes live (.is-live). */
+  function renderHowMetrics(list){
+    if (!Array.isArray(list) || !list.length) return;
+    const n = list.length;
+    const el = qs('[data-bind="how-subnets"]', root);
+    if (el){ el.textContent = String(n); el.classList.add('is-live'); }
+    /* roll up α-MCAP in millions → render as $X.XB if >= 1000 */
+    const totMcap = list.reduce((s, x) => s + (typeof x.mcap === 'number' ? x.mcap : 0), 0);
+    const amcEl = qs('[data-bind="how-amc"]', root);
+    if (amcEl && totMcap > 0){
+      const v = totMcap >= 1000 ? '$' + (totMcap/1000).toFixed(2) + 'B' : '$' + Math.round(totMcap) + 'M';
+      amcEl.textContent = v;
+      amcEl.classList.add('is-live');
+    }
+  }
+  function renderHowMarket(m){
+    if (!m) return;
+    /* nothing else to bind from market for now — α-MCAP comes from
+       subnets above which has per-token mcaps already */
+  }
+  function renderHowChain(c){
+    if (!c) return;
+    if (typeof c.blockTime === 'number'){
+      const el = qs('[data-bind="how-block"]', root);
+      if (el){ el.textContent = c.blockTime.toFixed(0) + ' s'; el.classList.add('is-live'); }
+    }
+    if (typeof c.emissionPerDay === 'number'){
+      const el = qs('[data-bind="how-em"]', root);
+      if (el){
+        el.innerHTML = '<span class="tau">τ</span>' + Math.round(c.emissionPerDay).toLocaleString();
+        el.classList.add('is-live');
+      }
+    }
   }
 
   /* ---------- LIVE: § 03 Money Map · Bittensor α-MCAP per layer ----

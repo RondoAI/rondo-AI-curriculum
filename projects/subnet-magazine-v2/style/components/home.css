@@ -1663,6 +1663,102 @@
 }
 .home-how__loop-cap span{ color: var(--c-red-1); font-weight: 700; }
 
+/* ---------- LIVE METRICS STRIP under the loop ----------
+   Six cells, one per stage. Each cell carries the stage label
+   (ordinal + name), the live number, a small unit/explainer,
+   and a thin horizontal bar visualizing the relative scale.
+   On desktop the strip is a six-column grid; on phone it falls
+   to a two-column wrap so each cell stays large enough to read.
+   Numbers refresh from the DataLayer ('tao:market', 'tao:chain',
+   'tao:subnets') via the renderHowMetrics subscriber. */
+.home-how__metrics{
+  list-style: none;
+  margin: var(--s-4) 0 var(--s-5);
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  gap: 8px;
+  border: 1px solid var(--c-rule-2);
+  border-radius: 4px;
+  padding: 10px;
+  background:
+    radial-gradient(120% 80% at 50% 0%, rgba(255,30,60,.04), transparent 70%),
+    rgba(10, 3, 6, .6);
+}
+@media (max-width: 1080px){
+  .home-how__metrics{ grid-template-columns: repeat(3, 1fr); }
+}
+@media (max-width: 560px){
+  .home-how__metrics{ grid-template-columns: repeat(2, 1fr); }
+}
+.how-metric{
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  padding: 8px 10px;
+  background: rgba(255,30,60,.04);
+  border-left: 2px solid var(--c-rule-3);
+  border-radius: 2px;
+  min-width: 0;
+}
+.how-metric__n{
+  font-family: var(--f-mono);
+  font-size: 9.5px;
+  font-weight: 700;
+  letter-spacing: var(--ls-label);
+  text-transform: uppercase;
+  color: var(--c-ink-3);
+  display: inline-flex;
+  align-items: baseline;
+  gap: 4px;
+}
+.how-metric__ord{
+  color: var(--c-red);
+  font-weight: 800;
+}
+.how-metric__val{
+  font-family: var(--f-mono);
+  font-size: 22px;
+  font-weight: 700;
+  letter-spacing: -.01em;
+  color: var(--c-ink-1);
+  font-variant-numeric: tabular-nums;
+  line-height: 1.05;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  text-shadow: 0 0 12px rgba(255,30,60,.25);
+}
+.how-metric__val .tau{ color: var(--c-red); }
+.how-metric__u{
+  font-family: var(--f-mono);
+  font-size: 9.5px;
+  font-weight: 500;
+  letter-spacing: var(--ls-label);
+  text-transform: uppercase;
+  color: var(--c-ink-4);
+}
+.how-metric__bar{
+  display: block;
+  height: 2px;
+  background: rgba(255,30,60,.10);
+  border-radius: 999px;
+  overflow: hidden;
+  margin-top: 4px;
+}
+.how-metric__bar-fill{
+  display: block;
+  height: 100%;
+  background: linear-gradient(90deg, var(--c-red-blood), var(--c-red), var(--c-red-1));
+  box-shadow: 0 0 8px rgba(255,30,60,.55);
+  transition: width var(--d-slow) var(--e-out);
+}
+/* live brighten when a metric is sourced from the DataLayer */
+.how-metric__val.is-live{
+  color: var(--c-red-1);
+  text-shadow: 0 0 14px rgba(255,30,60,.55);
+}
+
 .home-how__pipe{
   list-style: none;
   margin: var(--s-4) calc(var(--gutter) * -1) 0;
