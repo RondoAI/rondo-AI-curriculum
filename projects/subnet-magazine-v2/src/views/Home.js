@@ -238,6 +238,10 @@ export function mountHome(root, dataLayer = null){
              X handle pulled separately from FOUNDERS where present
              since TaonSquare's schema doesn't carry it. */
           const ts = tsByNetuid(b.netuid);
+          /* founder lookup for the X handle — TaonSquare's schema
+             doesn't carry per-subnet X handles, so we pull from our
+             FOUNDERS table where available */
+          const f  = founderById(b.netuid) || {};
           const xHandle = f.founders && f.founders[0] && f.founders[0].handles && f.founders[0].handles.x;
           const xUrl = xHandle
             ? (xHandle.startsWith('http')
