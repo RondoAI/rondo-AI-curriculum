@@ -1700,7 +1700,32 @@ _Vera, Rubin, NVLink 6 Switch, ConnectX-9, BlueField-4, Spectrum-6, Seamless Cab
 
 ## ⊕ GITHUB COMMITS + RELEASES, last 24h
 
-_no commits or releases in the lookback window_
+- **btcli** (COMMIT `1e9bc8b`, 2026-05-15 09:25) Merge pull request #966 from latent-to/release/9.21.2  
+  https://github.com/latent-to/btcli/commit/1e9bc8b665d90227460d19ad83888f1f08bfe678
+- **Bittensor SDK** (COMMIT `b90225e`, 2026-05-15 09:21) Merge pull request #3354 from latent-to/release/10.3.2  
+  https://github.com/latent-to/bittensor/commit/b90225ea0f8a42709d4f93ee7fdda1c9c001bf8f
+- **btcli** (COMMIT `e18b69e`, 2026-05-15 09:11) Merge pull request #965 from latent-to/changelog/9.21.2  
+  https://github.com/latent-to/btcli/commit/e18b69e9f91dd676820e94176609eae32e270f0b
+- **btcli** (COMMIT `c56a68b`, 2026-05-15 09:10) Version + Changelog  
+  https://github.com/latent-to/btcli/commit/c56a68bc7782d791e777c9a4c485665dff8c875e
+- **btcli** (COMMIT `b6952f0`, 2026-05-15 09:08) Merge pull request #964 from latent-to/fix/thewhaleking/clear-nonce-cache-on-submission-failure  
+  https://github.com/latent-to/btcli/commit/b6952f0d317082a864c8ab7e9de52f8735f5096f
+- **Bittensor SDK** (COMMIT `6121196`, 2026-05-15 09:03) Merge branch 'master' into release/10.3.2  
+  https://github.com/latent-to/bittensor/commit/6121196063b5fd44c65aaffd0f1bba5846f519af
+- **Bittensor SDK** (COMMIT `77b905f`, 2026-05-15 09:00) Merge pull request #3353 from latent-to/changelog/10.3.2  
+  https://github.com/latent-to/bittensor/commit/77b905f1ffa2429545d58ca69c0ede01a4ecec9e
+- **btcli** (COMMIT `060b524`, 2026-05-15 08:54) Clears the nonce cache on extrinsic submission failure  
+  https://github.com/latent-to/btcli/commit/060b5245d478bcd6ec10d5dad7b106f59546f055
+- **Bittensor SDK** (COMMIT `3bf570c`, 2026-05-15 08:51) Version + changelog  
+  https://github.com/latent-to/bittensor/commit/3bf570ccddefaf4a0d3b9940d858d882044c23e3
+- **Bittensor SDK** (COMMIT `092cbd4`, 2026-05-15 08:38) Merge pull request #3351 from latent-to/fix/thewhaleking/mev-shield-nonce  
+  https://github.com/latent-to/bittensor/commit/092cbd461e442e118df140fa06d903905008b078
+- **Bittensor SDK** (COMMIT `c27bc62`, 2026-05-15 08:38) Merge pull request #3352 from latent-to/fix/thewhaleking/subtensor-upstream-test-fixes  
+  https://github.com/latent-to/bittensor/commit/c27bc62638b5d6784238e535ac1ba775d70256cd
+- **Bittensor SDK** (COMMIT `5bebfbd`, 2026-05-15 08:28) Clear nonce cache on extrinsic submission failure  
+  https://github.com/latent-to/bittensor/commit/5bebfbdc0fb8bcaf3688b35f7a096cdd02568c0c
+- **Bittensor SDK** (COMMIT `ce734c9`, 2026-05-15 08:18) Async test_commit_weights.py fix  
+  https://github.com/latent-to/bittensor/commit/ce734c9f025e4c5ac894bc4f1e7c76f1eaf49ec4
 
 ## ⊕ ECOSYSTEM BLOGS via RSS
 
@@ -1712,4 +1737,4 @@ _no posts retrieved · all Nitter instances may be down_
 
 
 ---
-_Generated at 2026-05-16T10:55:50.098975+00:00 by scripts/intel/aggregate.py. Treat this digest as input context, not as ground truth. Verify before quoting._
+_Generated at 2026-05-16T13:10:11.011026+00:00 by scripts/intel/aggregate.py. Treat this digest as input context, not as ground truth. Verify before quoting._
