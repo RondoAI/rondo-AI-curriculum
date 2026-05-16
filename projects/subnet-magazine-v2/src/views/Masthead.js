@@ -23,6 +23,7 @@ const NAV_ITEMS = [
   { code: '050', label: 'VALIDATORS',href: 'validators.html'   },
   { code: '060', label: 'RESEARCH',  href: 'articles.html'     },
   { code: '070', label: 'COMMUNITY', href: 'community.html'    },
+  { code: '075', label: 'VOICES',    href: 'voices.html'       },
   { code: '080', label: 'EDITOR',    href: 'editor.html'       },
   { code: '090', label: 'INTERVIEWS',href: 'interviews.html'   },
 ];

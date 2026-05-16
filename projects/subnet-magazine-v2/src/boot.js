@@ -26,6 +26,7 @@ import { mountCentralized } from './views/Centralized.js';
 import { mountMarkets } from './views/Markets.js';
 import { mountEditor } from './views/Editor.js';
 import { mountInterviews } from './views/Interviews.js';
+import { mountVoices } from './views/Voices.js';
 
 const teardowns = [];
 
@@ -74,6 +75,7 @@ function boot(){
   mountIf('[data-mount="markets"]',        root => mountMarkets(root, DataLayer));
   mountIf('[data-mount="editor"]',         root => mountEditor(root));
   mountIf('[data-mount="interviews"]',     root => mountInterviews(root));
+  mountIf('[data-mount="voices"]',         root => mountVoices(root));
 
   // 3) clean teardown on unload (idempotent)
   window.addEventListener('beforeunload', () => {
