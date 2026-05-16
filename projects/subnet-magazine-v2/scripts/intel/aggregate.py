@@ -33,7 +33,10 @@ SCRAPERS = [
     ("nitter",         "scripts/intel/nitter.py"),
     ("github_commits", "scripts/intel/github_commits.py"),
     ("rss_blogs",      "scripts/intel/rss_blogs.py"),
+    ("semianalysis",   "scripts/intel/semianalysis.py"),
 ]
+
+SEMIANALYSIS_DIR = INTEL_DIR / "_external_sources" / "semianalysis"
 
 
 def run_scrapers() -> None:
@@ -121,6 +124,66 @@ def fmt_rss(items: list) -> str:
     return "\n".join(lines)
 
 
+def load_semianalysis_recent(n: int = 12) -> list[dict]:
+    """Return the N most-recent SemiAnalysis posts as dicts with
+    title/date/url/authors/audience/preview. Reads from the
+    crawler's per-post markdown files; no network."""
+    if not SEMIANALYSIS_DIR.exists():
+        return []
+    posts = []
+    for fp in SEMIANALYSIS_DIR.glob("*.md"):
+        if fp.name == "INDEX.md":
+            continue
+        text = fp.read_text("utf-8", errors="replace")
+        # Parse YAML-ish frontmatter
+        m = re.match(r"---\n(.*?)\n---\n(.*)", text, re.DOTALL)
+        if not m:
+            continue
+        front_raw, body = m.group(1), m.group(2)
+        front = {}
+        for line in front_raw.split("\n"):
+            kv = re.match(r"([a-zA-Z_]+):\s*(.*)", line)
+            if kv:
+                front[kv.group(1)] = kv.group(2).strip().strip('"')
+        # Pull the body preview: skip the rendered header block
+        body_clean = re.sub(r"^.*?\n---\n", "", body, count=1, flags=re.DOTALL)
+        body_clean = re.sub(r"^>.*\n", "", body_clean, flags=re.MULTILINE)
+        body_clean = body_clean.strip()
+        preview = body_clean[:500].replace("\n", " ").strip()
+        posts.append({
+            "date":      front.get("date", ""),
+            "title":     front.get("title", fp.stem),
+            "subtitle":  front.get("subtitle", ""),
+            "url":       front.get("url", ""),
+            "authors":   front.get("authors", "")[:120],
+            "audience":  front.get("audience", ""),
+            "paywalled": front.get("paywalled", "false") == "true",
+            "preview":   preview,
+            "file":      fp.name,
+        })
+    posts.sort(key=lambda x: x["date"], reverse=True)
+    return posts[:n]
+
+
+def fmt_semianalysis(posts: list[dict]) -> str:
+    if not posts:
+        return ("_no SemiAnalysis posts in the corpus yet, run "
+                "`python3 scripts/intel/semianalysis.py --backfill`_")
+    lines = []
+    for p in posts:
+        tag = "paid-preview" if p["paywalled"] else "FREE-FULL-BODY"
+        lines.append(
+            f"### {p['date']} · {p['title']}\n"
+            f"_{p['subtitle']}_\n\n"
+            f"- **Authors:** {p['authors']}\n"
+            f"- **Access:** {tag}\n"
+            f"- **URL:** {p['url']}\n"
+            f"- **Corpus file:** `intelligence/_external_sources/semianalysis/{p['file']}`\n\n"
+            f"> {p['preview']}\n"
+        )
+    return "\n".join(lines)
+
+
 def fmt_nitter(items: list) -> str:
     if not items:
         return "_no posts retrieved · all Nitter instances may be down_"
@@ -153,6 +216,21 @@ def build_digest(today: str) -> str:
 
     chunks.append("\n## ⊕ HUMAN-CURATED NOTES, last 7 days\n")
     chunks.append(human if human else "_no human notes in the window_")
+
+    semianalysis_posts = load_semianalysis_recent(n=12)
+    chunks.append(
+        "\n## ⊕ MACRO BACKDROP via SEMIANALYSIS, 12 most recent posts\n"
+        "\n_SemiAnalysis is the most-cited semiconductor and AI infrastructure "
+        "publication in the industry. They do NOT cover Bittensor. The Oracle "
+        "uses this corpus for any claim about hyperscaler compute, GPU "
+        "economics, datacenter power, foundry capacity, memory pricing, lab "
+        "unit economics. DO NOT cite SemiAnalysis for any Bittensor-specific "
+        "claim. Full archive (289 posts, May 2020 onwards) lives at "
+        "`intelligence/_external_sources/semianalysis/` with an `INDEX.md` "
+        "table of contents. Paywalled posts show only subtitle + free preview; "
+        "free posts have the full body extracted._\n"
+    )
+    chunks.append(fmt_semianalysis(semianalysis_posts))
 
     chunks.append("\n## ⊕ GITHUB COMMITS + RELEASES, last 24h\n")
     chunks.append(fmt_github(github_items))
