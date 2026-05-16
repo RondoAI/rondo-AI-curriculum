@@ -9,7 +9,7 @@ paywalled: true
 wordcount: 777
 url: "https://newsletter.semianalysis.com/p/openai-chip-team-is-now-serious"
 post_id: 175661157
-captured_at: "2026-05-16T10:50:20.089393+00:00"
+captured_at: "2026-05-16T10:52:49.070964+00:00"
 ---
 
 # OpenAI Chip Team Is Now Serious

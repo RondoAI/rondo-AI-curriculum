@@ -1,5 +1,6 @@
 {
   "last_post_id": 197494856,
-  "last_run_at": "2026-05-16T10:42:52.081162+00:00",
-  "mode": "backfill"
+  "last_run_at": "2026-05-16T10:52:09.942501+00:00",
+  "mode": "upgrade-thin",
+  "auth_used": false
 }

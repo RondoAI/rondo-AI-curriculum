@@ -9,7 +9,7 @@ paywalled: true
 wordcount: 1858
 url: "https://newsletter.semianalysis.com/p/openai-stargate-joint-venture-demystified"
 post_id: 174558488
-captured_at: "2026-05-16T10:49:53.783632+00:00"
+captured_at: "2026-05-16T10:52:43.661932+00:00"
 ---
 
 # OpenAI Stargate Joint Venture Demystified | Microsoft Sore Loser, Does Softbank Have The Capital?, Texas GigaCampus, Winners & Losers

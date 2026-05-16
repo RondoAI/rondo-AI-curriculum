@@ -9,7 +9,7 @@ paywalled: true
 wordcount: 1302
 url: "https://newsletter.semianalysis.com/p/nvidias-new-china-ai-chips-circumvent"
 post_id: 175661068
-captured_at: "2026-05-16T10:50:56.530985+00:00"
+captured_at: "2026-05-16T10:52:55.495389+00:00"
 ---
 
 # Nvidia's New China AI Chips Circumvent US Restrictions | H20 Faster Than H100 | Huawei Ascend 910B
