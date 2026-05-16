@@ -622,54 +622,8 @@ export function mountCodex(root, dataLayer = null){
         </main>
       </div>
 
-      <!-- ===== FLOATING CHAT (the Oracle, interactive) ===== -->
-      <aside class="oracle-chat" data-role="chat" aria-label="Ask the Oracle">
-        <button type="button" class="oracle-chat__open" data-role="chat-open"
-                aria-label="Open the Oracle chat">
-          <span class="oracle-chat__open-mark" aria-hidden="true">
-            <svg viewBox="0 0 28 28">
-              <circle cx="14" cy="14" r="11" fill="none" stroke="currentColor" stroke-width="1.2" stroke-opacity=".4"/>
-              <circle cx="14" cy="14" r="2.5" fill="#fff"/>
-              <circle cx="14" cy="6"  r="1.4" fill="currentColor"/>
-              <circle cx="22" cy="14" r="1.4" fill="currentColor"/>
-              <circle cx="14" cy="22" r="1.4" fill="currentColor"/>
-              <circle cx="6"  cy="14" r="1.4" fill="currentColor"/>
-              <line x1="14" y1="14" x2="14" y2="6"  stroke="currentColor" stroke-width=".8" stroke-opacity=".6"/>
-              <line x1="14" y1="14" x2="22" y2="14" stroke="currentColor" stroke-width=".8" stroke-opacity=".6"/>
-              <line x1="14" y1="14" x2="14" y2="22" stroke="currentColor" stroke-width=".8" stroke-opacity=".6"/>
-              <line x1="14" y1="14" x2="6"  y2="14" stroke="currentColor" stroke-width=".8" stroke-opacity=".6"/>
-            </svg>
-          </span>
-          <span class="oracle-chat__open-lbl">Ask</span>
-        </button>
-        <div class="oracle-chat__panel" data-role="chat-panel" hidden>
-          <header class="oracle-chat__head">
-            <div class="oracle-chat__title">
-              <span class="oracle-chat__live"><span class="dot dot--live"></span>LIVE</span>
-              <span>Subne<span class="tau">τ</span> Oracle</span>
-            </div>
-            <button type="button" class="oracle-chat__close" data-role="chat-close" aria-label="Close">×</button>
-          </header>
-          <div class="oracle-chat__log" data-role="chat-log">
-            <div class="oracle-msg oracle-msg--bot">
-              <span class="oracle-msg__who">Oracle</span>
-              <p>I know the Bittensor network. Ask me anything, what a concept means, who runs which subnet, how a mechanism works. I'll cite the entries I'm drawing from so you can verify.</p>
-            </div>
-          </div>
-          <form class="oracle-chat__form" data-role="chat-form" autocomplete="off">
-            <input type="text" class="oracle-chat__input" data-role="chat-input"
-                   placeholder="Ask the Oracle, e.g. 'How does dTAO work?'"
-                   spellcheck="false" autocomplete="off">
-            <button type="submit" class="oracle-chat__send" aria-label="Send">
-              <svg viewBox="0 0 24 24" width="18" height="18"><path d="M4 12h14M14 6l6 6-6 6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
-            </button>
-          </form>
-          <p class="oracle-chat__note">
-            Drawing from the Oracle entries on this page. A direct Claude
-            link arrives when there's a key to plumb through safely.
-          </p>
-        </div>
-      </aside>
+      <!-- The conversational Oracle lives in the bottom dock now,
+           one Oracle on every page, no duplicate floating panel. -->
 
     </section>
   `);
@@ -815,91 +769,8 @@ export function mountCodex(root, dataLayer = null){
     setTimeout(() => target.classList.remove('is-flash-codex'), 1600);
   });
 
-  /* ---------- chat panel: open / close / send ---------- */
-  const chatOpen   = qs('[data-role="chat-open"]', root);
-  const chatClose  = qs('[data-role="chat-close"]', root);
-  const chatPanel  = qs('[data-role="chat-panel"]', root);
-  const chatLog    = qs('[data-role="chat-log"]', root);
-  const chatForm   = qs('[data-role="chat-form"]', root);
-  const chatInput  = qs('[data-role="chat-input"]', root);
-  const chatWrap   = qs('[data-role="chat"]', root);
-
-  function setChatOpen(open){
-    if (!chatPanel) return;
-    chatPanel.hidden = !open;
-    chatWrap?.classList.toggle('is-open', !!open);
-    if (open) setTimeout(() => chatInput?.focus(), 100);
-  }
-  chatOpen?.addEventListener('click', () => setChatOpen(true));
-  chatClose?.addEventListener('click', () => setChatOpen(false));
-
-  /* Tiny scorer that finds the codex entry most relevant to a
-     free-text question. Tokenises the query, scores each entry
-     by token hits across title (x4), oneLine (x2), section
-     headings (x2), and section body (x1). Stopwords stripped.
-     Returns the top 2 matches. */
-  const STOP = new Set('a an and are as at be by do does for from how i in is it of on or that the to what when where which who whose why with you your yours'.split(' '));
-  function findBest(q){
-    if (!q) return [];
-    const toks = q.toLowerCase().replace(/[^a-z0-9α\s]/g, ' ').split(/\s+/).filter(t => t && !STOP.has(t) && t.length > 1);
-    if (!toks.length) return [];
-    const scored = CODEX.map(e => {
-      const title = e.title.toLowerCase();
-      const one   = (e.oneLine || '').toLowerCase();
-      const heads = (e.sections || []).map(s => (s.h || '').toLowerCase()).join(' ');
-      const body  = (e.sections || []).map(s => (s.body || '').toLowerCase()).join(' ');
-      let score = 0;
-      toks.forEach(t => {
-        if (title.includes(t)) score += 4;
-        if (one.includes(t))   score += 2;
-        if (heads.includes(t)) score += 2;
-        if (body.includes(t))  score += 1;
-      });
-      return { e, score };
-    }).filter(r => r.score > 0).sort((a, b) => b.score - a.score);
-    return scored.slice(0, 2).map(r => r.e);
-  }
-
-  function appendMsg(who, html){
-    if (!chatLog) return;
-    const el = document.createElement('div');
-    el.className = 'oracle-msg oracle-msg--' + (who === 'you' ? 'you' : 'bot');
-    el.innerHTML = `<span class="oracle-msg__who">${who === 'you' ? 'You' : 'Oracle'}</span>${html}`;
-    chatLog.appendChild(el);
-    chatLog.scrollTop = chatLog.scrollHeight;
-  }
-
-  chatForm?.addEventListener('submit', (e) => {
-    e.preventDefault();
-    const q = (chatInput?.value || '').trim();
-    if (!q) return;
-    appendMsg('you', `<p>${escapeHtml(q)}</p>`);
-    chatInput.value = '';
-    /* simulated thinking + answer */
-    const thinking = document.createElement('div');
-    thinking.className = 'oracle-msg oracle-msg--bot oracle-msg--thinking';
-    thinking.innerHTML = `<span class="oracle-msg__who">Oracle</span><p><span class="oracle-msg__dots"><span></span><span></span><span></span></span></p>`;
-    chatLog.appendChild(thinking);
-    chatLog.scrollTop = chatLog.scrollHeight;
-    setTimeout(() => {
-      thinking.remove();
-      const hits = findBest(q);
-      if (!hits.length){
-        appendMsg('bot', `<p>I don't have an entry that matches that yet. Try a concept like <em>Yuma Consensus</em>, <em>dTAO</em>, <em>α token</em>, or a role like <em>miner</em> / <em>validator</em>.</p>`);
-        return;
-      }
-      const first = hits[0];
-      const second = hits[1];
-      const refs = hits.map(h => `<a href="#${h.id}" data-jump="${h.id}">${escapeHtml(h.title)}</a>`).join(' · ');
-      const moreLine = second
-        ? `<p class="oracle-msg__more">Related: ${refs}</p>`
-        : `<p class="oracle-msg__more">More: <a href="#${first.id}" data-jump="${first.id}">${escapeHtml(first.title)}</a></p>`;
-      appendMsg('bot', `
-        <p><strong>${escapeHtml(first.title)}.</strong> ${first.oneLine}</p>
-        ${moreLine}
-      `);
-    }, 380);
-  });
+  /* The conversational chat moved to the bottom Subnet Oracle dock
+     (src/views/Console.js). One Oracle, every page. */
 
   return {
     destroy(){

@@ -13,6 +13,7 @@
    ================================================================= */
 
 import { FIELD_MANUAL } from '../data/bittensor-faq.js';
+import { CODEX } from '../data/codex.js';
 import { NodeSphere } from '../charts/NodeSphere.js';
 import { applySlideHint } from '../lib/slide-hint.js';
 
@@ -509,6 +510,122 @@ const CSS = `
 }
 
 /* ===================================================================
+   /ask · ORACLE CHAT · conversational Q&A pinned in the dock
+   -----------------------------------------------------------------
+   The Oracle's voice. Type a question, it scores against the codex +
+   field-manual corpora and replies with a one-line answer + citation
+   links that jump into the relevant entry on /codex.
+   =================================================================== */
+.sbnt-chat{
+  display: flex; flex-direction: column;
+  gap: 8px;
+  padding: 2px 0;
+}
+.sbnt-chat__log{
+  display: flex; flex-direction: column;
+  gap: 8px;
+  padding-bottom: 4px;
+}
+.sbnt-chat__msg{
+  display: flex; flex-direction: column;
+  gap: 3px;
+  padding: 8px 10px;
+  border-radius: 4px;
+  border: 1px solid var(--c-rule, rgba(255,30,60,.10));
+  font-size: 11px; line-height: 1.55;
+}
+.sbnt-chat__msg--bot{
+  background: rgba(255,30,60,.05);
+  border-color: var(--c-rule-2, rgba(255,30,60,.22));
+  color: var(--c-ink-1, #F5E5E8);
+}
+.sbnt-chat__msg--you{
+  background: rgba(255,255,255,.03);
+  color: var(--c-ink-2, #C8A8AD);
+  align-self: flex-end;
+  max-width: 90%;
+}
+.sbnt-chat__who{
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: .14em;
+  text-transform: uppercase;
+  color: var(--c-red-1, #FF4D60);
+}
+.sbnt-chat__msg--you .sbnt-chat__who{ color: var(--c-ink-3, #8B6B70); }
+.sbnt-chat__msg p{ margin: 0; }
+.sbnt-chat__cite{
+  margin-top: 4px;
+  font-size: 10px;
+  color: var(--c-ink-3, #8B6B70);
+}
+.sbnt-chat__cite a{
+  color: var(--c-red-1, #FF4D60);
+  text-decoration: none;
+  border-bottom: 1px dashed transparent;
+  transition: border-color .12s ease-out;
+}
+.sbnt-chat__cite a:hover{ border-bottom-color: var(--c-red, #FF1E3C); }
+.sbnt-chat__dots{
+  display: inline-flex; gap: 3px;
+}
+.sbnt-chat__dots span{
+  width: 4px; height: 4px;
+  border-radius: 50%;
+  background: var(--c-red, #FF1E3C);
+  animation: sbntChatDot 1s ease-in-out infinite;
+}
+.sbnt-chat__dots span:nth-child(2){ animation-delay: .15s; }
+.sbnt-chat__dots span:nth-child(3){ animation-delay: .30s; }
+@keyframes sbntChatDot{
+  0%, 100%{ opacity: .25; transform: scale(.85); }
+  50%     { opacity: 1;   transform: scale(1.15); }
+}
+.sbnt-chat__form{
+  display: flex; gap: 6px;
+  padding-top: 8px;
+  border-top: 1px dashed var(--c-rule, rgba(255,30,60,.10));
+}
+.sbnt-chat__input{
+  flex: 1;
+  appearance: none;
+  background: rgba(255,30,60,.06);
+  border: 1px solid var(--c-rule-2, rgba(255,30,60,.22));
+  border-radius: 999px;
+  padding: 7px 12px;
+  font-family: var(--f-mono, monospace);
+  font-size: 11px;
+  color: var(--c-ink-1, #F5E5E8);
+  outline: none;
+  min-width: 0;
+}
+.sbnt-chat__input::placeholder{ color: var(--c-ink-3, #8B6B70); }
+.sbnt-chat__input:focus{
+  border-color: var(--c-red, #FF1E3C);
+  background: rgba(255,30,60,.10);
+}
+.sbnt-chat__send{
+  appearance: none;
+  border: 1px solid var(--c-red, #FF1E3C);
+  background: var(--c-red, #FF1E3C);
+  color: #fff;
+  border-radius: 999px;
+  width: 30px; height: 30px;
+  display: grid; place-items: center;
+  cursor: pointer;
+  flex: 0 0 30px;
+}
+.sbnt-chat__send:hover{ background: var(--c-red-1, #FF4D60); border-color: var(--c-red-1, #FF4D60); }
+.sbnt-chat__send svg{ width: 14px; height: 14px; }
+.sbnt-chat__note{
+  margin: 6px 0 0;
+  font-size: 9.5px;
+  letter-spacing: .04em;
+  color: var(--c-ink-4, #6B4D52);
+  font-style: italic;
+}
+
+/* ===================================================================
    /play · TAO RUNNER · canvas arcade game pinned in the Oracle dock
    =================================================================== */
 .sbnt-game{
@@ -662,13 +779,14 @@ export function mountConsole(_dataLayer = null){
   injectStyle();
 
   /* tab + body content sets render off the imported FAQ array */
-  /* Render tabs in display order. /links and /play are stewards
-     of the rest of the magazine, links to everything you can do
-     off-site, and the arcade game, so they're surfaced near the
-     front rather than buried at the end of the array. The rest
-     follow in their data-file order. */
+  /* Render tabs in display order. /ask is the chat surface (the
+     Oracle "speaking"), pinned first; /play is the arcade game;
+     /links is the off-site directory. The rest follow in their
+     data-file order. */
+  const ASK_TAB = { id: 'ask', label: 'ASK' };
   const TAB_ORDER_FRONT = ['mine', 'links', 'play'];
   const orderedTabs = [
+    ASK_TAB,
     ...TAB_ORDER_FRONT
       .map(id => FIELD_MANUAL.find(t => t.id === id))
       .filter(Boolean),
@@ -759,8 +877,13 @@ export function mountConsole(_dataLayer = null){
      viewport shows ~4, so the rest is invisible without the cue */
   const teardownTabHint = tabRail ? applySlideHint(tabRail) : () => {};
 
-  let activeId = FIELD_MANUAL[0]?.id || 'mine';
+  let activeId = 'ask';
   let searchQuery = '';
+  /* chat history survives across body re-renders (tab swap, search) */
+  const chatLog = [{
+    who: 'bot',
+    text: "I'm the Subneτ Oracle. Ask me anything about Bittensor, what a concept means, how a mechanism works, who runs what. I cite my sources.",
+  }];
 
   /* ----- search · cross-topic full-text filter with tokenisation +
      stopword removal so natural-language questions like "what is
@@ -847,7 +970,126 @@ export function mountConsole(_dataLayer = null){
     `;
   }
 
+  /* ----- ASK ORACLE · conversational chat ----- */
+  /** scope a CODEX entry against query tokens, returns top 2 */
+  function findCodex(q){
+    const toks = tokenise(q);
+    if (!toks.length) return [];
+    const scored = (CODEX || []).map(e => {
+      const titleLc = (e.title || '').toLowerCase();
+      const oneLc   = (e.oneLine || '').toLowerCase();
+      const headsLc = (e.sections || []).map(s => (s.h || '').toLowerCase()).join(' ');
+      const bodyLc  = (e.sections || []).map(s => (s.body || '').toLowerCase()).join(' ');
+      let score = 0;
+      toks.forEach(t => {
+        if (titleLc.includes(t)) score += 4;
+        if (oneLc.includes(t))   score += 2;
+        if (headsLc.includes(t)) score += 2;
+        if (bodyLc.includes(t))  score += 1;
+      });
+      return { e, score };
+    }).filter(r => r.score > 0).sort((a, b) => b.score - a.score);
+    return scored.slice(0, 2).map(r => r.e);
+  }
+  function chatHtml(){
+    return `
+      <div class="sbnt-chat">
+        <div class="sbnt-chat__log" data-role="chat-log">
+          ${chatLog.map(m => msgHtml(m)).join('')}
+        </div>
+        <form class="sbnt-chat__form" data-role="chat-form" autocomplete="off">
+          <input type="text" class="sbnt-chat__input" data-role="chat-input"
+                 placeholder="Ask the Oracle, e.g. 'How does dTAO work?'"
+                 spellcheck="false" autocomplete="off">
+          <button type="submit" class="sbnt-chat__send" aria-label="Send">
+            <svg viewBox="0 0 24 24"><path d="M4 12h14M14 6l6 6-6 6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </button>
+        </form>
+        <p class="sbnt-chat__note">Drawing from the Codex entries and field manual on this site. A live Claude link arrives when a server key is plumbed through safely.</p>
+      </div>
+    `;
+  }
+  function msgHtml(m){
+    if (m.thinking){
+      return `<div class="sbnt-chat__msg sbnt-chat__msg--bot"><span class="sbnt-chat__who">Oracle</span><span class="sbnt-chat__dots"><span></span><span></span><span></span></span></div>`;
+    }
+    const safe = String(m.text || '').replace(/</g, '&lt;');
+    const cite = (m.cites && m.cites.length)
+      ? `<span class="sbnt-chat__cite">Cited: ${m.cites.map(c =>
+          `<a href="codex.html#${c.id}">${String(c.title).replace(/</g,'&lt;')}</a>`
+        ).join(' · ')}</span>`
+      : '';
+    return `
+      <div class="sbnt-chat__msg sbnt-chat__msg--${m.who === 'you' ? 'you' : 'bot'}">
+        <span class="sbnt-chat__who">${m.who === 'you' ? 'You' : 'Oracle'}</span>
+        <p>${safe}</p>
+        ${cite}
+      </div>
+    `;
+  }
+  function answer(q){
+    const hits = findCodex(q);
+    if (!hits.length){
+      /* fall back to the field-manual cross-topic scorer */
+      const { hits: faqHits } = searchAll(q);
+      if (faqHits.length){
+        const top = faqHits[0].topic;
+        return {
+          who: 'bot',
+          text: `${top.title}. ${top.blurb || faqHits[0].snippet}`,
+          cites: [],
+        };
+      }
+      return {
+        who: 'bot',
+        text: "I don't have an entry that matches that yet. Try a concept like Yuma Consensus, dTAO, α token, or a role like miner / validator.",
+        cites: [],
+      };
+    }
+    const top = hits[0];
+    return {
+      who: 'bot',
+      text: `${top.title}. ${top.oneLine || ''}`,
+      cites: hits.map(h => ({ id: h.id, title: h.title })),
+    };
+  }
+  function wireChat(){
+    const form  = body.querySelector('[data-role="chat-form"]');
+    const input = body.querySelector('[data-role="chat-input"]');
+    const log   = body.querySelector('[data-role="chat-log"]');
+    if (!form || !input || !log) return;
+    /* scroll the latest message into view + give the input focus */
+    log.scrollTop = log.scrollHeight;
+    setTimeout(() => input.focus(), 50);
+    form.addEventListener('submit', (e) => {
+      e.preventDefault();
+      const q = (input.value || '').trim();
+      if (!q) return;
+      chatLog.push({ who: 'you', text: q });
+      chatLog.push({ who: 'bot', thinking: true });
+      input.value = '';
+      render();
+      /* simulated thinking pause, then answer */
+      setTimeout(() => {
+        chatLog.pop();           // remove thinking
+        chatLog.push(answer(q));
+        render();
+      }, 380);
+    });
+  }
+
   function render(){
+    /* ASK is a synthetic tab, not in FIELD_MANUAL. Render chat
+       surface instead of topic content. */
+    if (activeId === 'ask'){
+      tabs.forEach(t => t.classList.toggle('is-active', t.dataset.id === 'ask'));
+      if (title) title.textContent = '· Ask the Oracle';
+      body.innerHTML = chatHtml();
+      body.scrollTop = body.scrollHeight;
+      wireChat();
+      return;
+    }
+
     const topic = FIELD_MANUAL.find(t => t.id === activeId) || FIELD_MANUAL[0];
     tabs.forEach(t => t.classList.toggle('is-active', t.dataset.id === activeId));
     if (title) title.textContent = '· ' + (topic.title || '');
