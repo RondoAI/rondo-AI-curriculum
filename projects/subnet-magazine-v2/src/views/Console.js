@@ -220,29 +220,28 @@ const CSS = `
 .sbnt-console__toggle,
 .sbnt-console__close{
   display: inline-grid; place-items: center;
-  width: 24px; height: 24px;
-  border: 1px solid var(--c-rule-2, rgba(255,30,60,.22));
-  border-radius: 999px;
+  width: 28px; height: 28px;
+  border: 1px solid var(--c-rule-2, rgba(255,30,60,.36));
+  border-radius: 6px;
   color: var(--c-ink-2, #C8A8AD);
-  background: rgba(255,30,60,.06);
-  font-size: 14px;
-  line-height: 1;
+  background: rgba(255,30,60,.08);
   cursor: pointer;
   appearance: none;
   font-family: inherit;
-  transition: background .12s ease-out, color .12s ease-out, border-color .12s ease-out;
+  transition: background .12s ease-out, color .12s ease-out, border-color .12s ease-out, transform .12s ease-out;
 }
-.sbnt-console:hover .sbnt-console__toggle,
-.sbnt-console:hover .sbnt-console__close{
+.sbnt-console__toggle:hover,
+.sbnt-console__close:hover{
   border-color: var(--c-red, #FF1E3C);
   color: var(--c-red-1, #FF4D60);
-  background: rgba(255,30,60,.14);
+  background: rgba(255,30,60,.18);
+  transform: translateY(-1px);
 }
-.sbnt-console__close{ margin-left: 4px; }
+.sbnt-console__close{ margin-left: 6px; }
 .sbnt-console__close:hover{
-  background: var(--c-red, #FF1E3C) !important;
-  color: #fff !important;
-  border-color: var(--c-red, #FF1E3C) !important;
+  background: var(--c-red, #FF1E3C);
+  color: #fff;
+  border-color: var(--c-red, #FF1E3C);
 }
 .sbnt-console__relaunch:hover{
   background: var(--c-red, #FF1E3C);
@@ -264,31 +263,42 @@ const CSS = `
   50%     { opacity: .4; }
 }
 .sbnt-console__tabs{
-  display: flex; gap: 2px;
-  padding: 4px 6px;
-  border-bottom: 1px solid var(--c-rule, rgba(255,30,60,.10));
+  display: flex; gap: 4px;
+  padding: 6px 8px;
+  border-bottom: 1px solid var(--c-rule-2, rgba(255,30,60,.22));
   overflow-x: auto;
   scrollbar-width: thin;
   scrollbar-color: var(--c-rule-2, rgba(255,30,60,.22)) transparent;
+  /* fade the right edge so users know there is more content */
+  mask-image: linear-gradient(to right, #000 calc(100% - 24px), transparent);
 }
-.sbnt-console__tabs::-webkit-scrollbar{ height: 4px; }
+.sbnt-console__tabs::-webkit-scrollbar{ height: 3px; }
 .sbnt-console__tabs::-webkit-scrollbar-thumb{ background: var(--c-rule-2, rgba(255,30,60,.22)); }
 .sbnt-tab{
   flex: 0 0 auto;
-  appearance: none; border: 0; background: transparent;
-  padding: 4px 9px;
-  font: inherit; font-size: 10.5px; letter-spacing: .04em;
+  appearance: none;
+  background: transparent;
+  padding: 7px 12px;
+  font: inherit;
+  font-size: 10.5px;
+  font-weight: 700;
+  letter-spacing: .08em;
   color: var(--c-ink-3, #8B6B70);
   cursor: pointer;
   border: 1px solid transparent;
+  border-radius: 4px;
   white-space: nowrap;
   transition: color .12s ease-out, background .12s ease-out, border-color .12s ease-out;
 }
-.sbnt-tab:hover{ color: var(--c-ink-1, #F5E5E8); }
+.sbnt-tab:hover{
+  color: var(--c-ink-1, #F5E5E8);
+  background: rgba(255,30,60,.06);
+}
 .sbnt-tab.is-active{
-  color: var(--c-bg, #000);
+  color: #fff;
   background: var(--c-red, #FF1E3C);
   border-color: var(--c-red, #FF1E3C);
+  box-shadow: 0 0 12px rgba(255,30,60,.4);
 }
 .sbnt-console__body{
   height: 248px;
@@ -792,8 +802,12 @@ export function mountConsole(_dataLayer = null){
       .filter(Boolean),
     ...FIELD_MANUAL.filter(t => !TAB_ORDER_FRONT.includes(t.id)),
   ];
+  /* tab labels read better without the `/` prefix that some come
+     with in the data file, and uppercased so the row is one
+     consistent typographic register */
+  const cleanLabel = s => String(s || '').replace(/^\//, '').toUpperCase();
   const tabsHtml = orderedTabs.map(t =>
-    `<button type="button" class="sbnt-tab" data-id="${t.id}">${t.label}</button>`
+    `<button type="button" class="sbnt-tab" data-id="${t.id}">${cleanLabel(t.label)}</button>`
   ).join('');
 
   /* Default state: expanded on desktop, collapsed on phone so the
@@ -821,14 +835,20 @@ export function mountConsole(_dataLayer = null){
       </span>
       <span class="sbnt-console__brand">
         <span class="sbnt-console__name">Subnet Oracle</span>
-        <span class="sbnt-console__sep">//</span>
-        <span class="sbnt-console__net">Bi<span class="tau">ττ</span>ensor</span>
+        <span class="sbnt-console__title" data-role="title"></span>
       </span>
-      <span class="sbnt-console__title" data-role="title"></span>
       <span class="sbnt-console__push"></span>
       <span class="sbnt-console__hint">Tap to expand</span>
-      <button type="button" class="sbnt-console__toggle" data-role="toggle" aria-label="Collapse Oracle dock">${startCollapsed ? '＋' : '−'}</button>
-      <button type="button" class="sbnt-console__close" data-role="close" aria-label="Dismiss Oracle dock" title="Dismiss">×</button>
+      <button type="button" class="sbnt-console__toggle" data-role="toggle" aria-label="Collapse Oracle dock" title="Collapse">
+        <svg viewBox="0 0 14 14" width="12" height="12" aria-hidden="true">
+          <path d="M3 ${startCollapsed ? '7 L 11 7 M 7 3 L 7 11' : '7 L 11 7'}" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" fill="none"/>
+        </svg>
+      </button>
+      <button type="button" class="sbnt-console__close" data-role="close" aria-label="Dismiss Oracle dock" title="Dismiss">
+        <svg viewBox="0 0 14 14" width="12" height="12" aria-hidden="true">
+          <path d="M3 3 L 11 11 M 11 3 L 3 11" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" fill="none"/>
+        </svg>
+      </button>
     </div>
     <div class="sbnt-console__tabs" role="tablist">${tabsHtml}</div>
     <div class="sbnt-console__body" data-role="body"></div>

@@ -308,29 +308,94 @@
 }
 
 /* ===================================================================
-   INLINE INFOGRAPHIC,  Yuma Consensus diagram (and the family)
+   ORACLE INFOGRAPHIC FRAMEWORK
+   -------------------------------------------------------------------
+   Game-grade in-page visualizations: every block has an animated
+   gradient mesh, a scan line sweep, particle flow, breathing glow,
+   pulse rings, and SMIL motion paths layered on top of a sharp
+   SVG structural diagram. The CSS below is the shared animation
+   library; each infographic in src/views/Codex.js composes these
+   utility classes with its own per-block SVG.
    =================================================================== */
 .codex-info{
+  position: relative;
   margin: var(--s-4) 0;
-  padding: clamp(12px, 2vw, 20px);
+  padding: clamp(14px, 2vw, 22px);
   border: 1px solid var(--c-rule-2);
-  border-radius: 4px;
-  background: radial-gradient(120% 80% at 50% 0%, rgba(255,30,60,.05), transparent 70%), rgba(10,3,6,.6);
+  border-radius: 6px;
+  /* layered background: red atmospheric glow at top, faint dot grid
+     across the whole surface, dark base */
+  background:
+    radial-gradient(140% 90% at 50% 0%, rgba(255,30,60,.10), transparent 65%),
+    radial-gradient(60% 60% at 100% 100%, rgba(255,184,92,.04), transparent 70%),
+    radial-gradient(circle at 1px 1px, rgba(255,30,60,.10) 1px, transparent 1px) 0 0/22px 22px,
+    rgba(8,2,3,.85);
+  overflow: hidden;
+  isolation: isolate;
+  /* compositor isolation, particle pulses do not repaint the page */
+  contain: layout style paint;
+}
+/* a top-edge scan line that sweeps down the card */
+.codex-info::before{
+  content: '';
+  position: absolute;
+  left: 0; right: 0; top: 0;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--c-red, #FF1E3C), transparent);
+  opacity: .9;
+  animation: codexScanV 4.8s linear infinite;
+  pointer-events: none;
+  z-index: 1;
+}
+/* a corner radial that breathes, signal of liveness without
+   adding a JS frame loop */
+.codex-info::after{
+  content: '';
+  position: absolute;
+  top: -40px; right: -40px;
+  width: 220px; height: 220px;
+  background: radial-gradient(circle, rgba(255,30,60,.18), transparent 70%);
+  filter: blur(8px);
+  pointer-events: none;
+  z-index: 0;
+  animation: codexBreathe 3.6s ease-in-out infinite;
+}
+@keyframes codexScanV{
+  0%   { transform: translateY(0);     opacity: 0;   }
+  10%  {                               opacity: .9;  }
+  90%  {                               opacity: .9;  }
+  100% { transform: translateY(440px); opacity: 0;   }
+}
+@keyframes codexBreathe{
+  0%, 100% { opacity: .55; transform: scale(1);   }
+  50%      { opacity: 1;   transform: scale(1.12); }
 }
 .codex-info__svg{
+  position: relative;
+  z-index: 2;
   display: block;
   width: 100%;
   height: auto;
+  /* a subtle drop-shadow halo, every infographic feels lit */
+  filter: drop-shadow(0 0 14px rgba(255,30,60,.18));
 }
 .codex-info__cap{
+  position: relative;
+  z-index: 2;
   margin: 0 0 var(--s-2);
   font-family: var(--f-mono);
   font-size: 10px;
-  font-weight: 600;
+  font-weight: 700;
   letter-spacing: var(--ls-label);
   text-transform: uppercase;
-  color: var(--c-ink-3);
+  color: var(--c-ink-2);
+  border-left: 2px solid var(--c-red);
+  padding-left: 10px;
 }
+
+/* ============ SHARED ANIMATION PRIMITIVES ============ */
+
+/* pulse line: dashed stroke flowing along a path */
 .codex-info__pulse-line{
   stroke-dasharray: 6 10;
   stroke-dashoffset: 0;
@@ -338,11 +403,19 @@
   animation-delay: var(--d, 0s);
 }
 @keyframes codexPulse{
-  from { stroke-dashoffset: 0; }
+  from { stroke-dashoffset: 0;   }
   to   { stroke-dashoffset: -64; }
 }
-@media (prefers-reduced-motion: reduce){
-  .codex-info__pulse-line{ animation: none; }
+
+/* bidirectional flow, faster, used for emission / token tubes */
+.codex-info__flow{
+  stroke-dasharray: 4 6;
+  animation: codexFlow 1.4s linear infinite;
+  animation-delay: var(--d, 0s);
+}
+@keyframes codexFlow{
+  from { stroke-dashoffset: 0;   }
+  to   { stroke-dashoffset: -40; }
 }
 
 /* per-bar pulse on the emission infographic */
@@ -352,11 +425,131 @@
   transform-origin: center bottom;
 }
 @keyframes codexEmitPulse{
-  0%, 100% { transform: scaleY(.94); }
-  50%      { transform: scaleY(1.04); }
+  0%, 100% { transform: scaleY(.94); filter: none;                              }
+  50%      { transform: scaleY(1.06); filter: drop-shadow(0 0 6px #FF1E3C);    }
 }
+
+/* breathing element: scale + opacity, the "alive" signal */
+.codex-info__breathe{
+  transform-origin: center;
+  animation: codexBreathePulse 2.4s ease-in-out infinite;
+  animation-delay: var(--d, 0s);
+}
+@keyframes codexBreathePulse{
+  0%, 100% { transform: scale(1);    opacity: 1;   }
+  50%      { transform: scale(1.06); opacity: .82; }
+}
+
+/* expanding ring, used at focal points (aggregators, cores) */
+.codex-info__ring{
+  transform-origin: center;
+  animation: codexRing 2.6s ease-out infinite;
+  animation-delay: var(--d, 0s);
+  fill: none;
+  stroke: var(--c-red, #FF1E3C);
+  stroke-width: 1;
+}
+@keyframes codexRing{
+  0%   { transform: scale(.4); opacity: .95; stroke-width: 2; }
+  100% { transform: scale(2.2); opacity: 0;  stroke-width: .5; }
+}
+
+/* counter glyph that strobes red, used on block-id, epoch displays */
+.codex-info__strobe{
+  animation: codexStrobe 1.8s ease-in-out infinite;
+}
+@keyframes codexStrobe{
+  0%, 100% { opacity: 1;   }
+  50%      { opacity: .55; }
+}
+
+/* particle dot, floats up; used inside emission bars (fountain) */
+.codex-info__spark{
+  animation: codexSpark 2s ease-out infinite;
+  animation-delay: var(--d, 0s);
+}
+@keyframes codexSpark{
+  0%   { transform: translateY(0);    opacity: 1;   }
+  100% { transform: translateY(-80px); opacity: 0;  }
+}
+
+/* validator scan, rotating arc around a node */
+.codex-info__rotor{
+  transform-origin: center;
+  animation: codexRotor 4s linear infinite;
+}
+@keyframes codexRotor{
+  from { transform: rotate(0);      }
+  to   { transform: rotate(360deg); }
+}
+
+/* color flash on cells (weight matrix, miner cells receiving query) */
+.codex-info__flash{
+  animation: codexFlash 1.6s ease-in-out infinite;
+  animation-delay: var(--i, 0s);
+}
+@keyframes codexFlash{
+  0%, 100% { fill-opacity: var(--op, .6);                  }
+  50%      { fill-opacity: 1; filter: drop-shadow(0 0 4px #FF1E3C); }
+}
+
+/* sweeping sheen across a rect; the "production" feel */
+.codex-info__sheen{
+  animation: codexSheen 3s ease-in-out infinite;
+  animation-delay: var(--d, 0s);
+}
+@keyframes codexSheen{
+  0%, 100% { opacity: 0;    }
+  50%      { opacity: .55; }
+}
+
+/* gradient mesh layer that drifts under the diagram */
+.codex-info__mesh{
+  animation: codexMesh 9s ease-in-out infinite alternate;
+  mix-blend-mode: screen;
+  opacity: .55;
+}
+@keyframes codexMesh{
+  0%   { transform: translate(-8px, -4px) scale(1);    }
+  100% { transform: translate( 8px,  4px) scale(1.04); }
+}
+
+/* counter strobe variant, fast, used on incrementing block heights */
+.codex-info__tick{
+  animation: codexTick 1.2s steps(1, end) infinite;
+}
+@keyframes codexTick{
+  0%, 100% { opacity: 1; }
+  50%      { opacity: .35; }
+}
+
+/* HUD strip backing, repeats across the bottom of some infographics */
+.codex-info__hud{
+  animation: codexHud 3.2s linear infinite;
+}
+@keyframes codexHud{
+  0%   { background-position:   0 0; }
+  100% { background-position: -32px 0; }
+}
+
 @media (prefers-reduced-motion: reduce){
-  .codex-info__emit-bar rect{ animation: none; }
+  .codex-info::before,
+  .codex-info::after,
+  .codex-info__pulse-line,
+  .codex-info__flow,
+  .codex-info__emit-bar rect,
+  .codex-info__breathe,
+  .codex-info__ring,
+  .codex-info__strobe,
+  .codex-info__spark,
+  .codex-info__rotor,
+  .codex-info__flash,
+  .codex-info__sheen,
+  .codex-info__mesh,
+  .codex-info__tick,
+  .codex-info__hud{
+    animation: none;
+  }
 }
 
 /* The floating Oracle chat panel was retired. The conversational
