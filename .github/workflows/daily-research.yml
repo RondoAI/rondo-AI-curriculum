@@ -88,7 +88,11 @@ jobs:
         uses: actions/setup-python@v5
         with:
           python-version: '3.12'
-          cache: pip
+          # `cache: pip` requires a discoverable requirements file
+          # (requirements.txt, pyproject.toml, Pipfile.lock) and we
+          # don't ship one; deps are pinned inline in the next step.
+          # Without cache, the install costs roughly 15 seconds per
+          # run, which is acceptable for a daily workflow.
 
       - name: Install dependencies
         run: |
