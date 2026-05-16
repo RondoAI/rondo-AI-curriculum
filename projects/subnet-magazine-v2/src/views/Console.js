@@ -13,7 +13,6 @@
    ================================================================= */
 
 import { FIELD_MANUAL } from '../data/bittensor-faq.js';
-import { NodeSphere } from '../charts/NodeSphere.js';
 
 const STYLE_ID = 'sbnt-console-style';
 
@@ -66,73 +65,84 @@ const CSS = `
   color: var(--c-ink-2, #C8A8AD);
   user-select: none;
 }
-/* The Oracle's "consciousness" mark — a real-time 3D NodeSphere
-   plexus rendered on canvas, with a pulsing white core overlay
-   and an expanding broadcast halo. Three layers, painted in
-   sequence:
-     1. canvas      — NodeSphere (rotating plexus, KNN edges,
-                       atmospheric glow). 60 fps requestAnimationFrame
-                       loop driven by the chart class.
-     2. ::before    — broadcast halo ring expanding scale .45 → 2.4
-                       every 2.4 s.
-     3. ::after     — white-glowing core dot pulsing scale 1 → 1.5
-                       every 1.6 s. The "thought firing".
-   The ::before / ::after are absolutely positioned over the canvas
-   so the plexus shows through. */
+/* The Oracle's "consciousness" mark — Mythos-tier compositor-safe
+   neural plexus. Eight outer nodes pulse opacity at staggered
+   delays so signals appear to cascade through the network ("the
+   agent is thinking"). A broadcast ring expands from the core
+   every 2.4 s. The central core breathes scale 1 → 1.5. All
+   animations use GPU-friendly properties only — transform +
+   opacity — so the Android compositor doesn't have to repaint
+   anything when the dock sits over scrolling content.
+
+   contain: layout style paint isolates this element entirely:
+   the browser knows nothing inside it affects layout / paint /
+   style outside, so it never invalidates the scrolling page.
+
+   Each animated SVG child gets its own will-change hint so the
+   browser promotes it to its own GPU layer. The wrapper itself
+   has zero animation, zero filter, zero box-shadow — only the
+   children move. */
 .sbnt-console__nn{
   position: relative;
   display: inline-block;
-  width: 34px; height: 34px;
-  flex: 0 0 34px;
+  width: 30px; height: 30px;
+  flex: 0 0 30px;
   color: var(--c-red, #FF1E3C);
-  filter: drop-shadow(0 0 8px rgba(255,30,60,.6));
+  contain: layout style paint;
 }
-.sbnt-console__nn-canvas{
+.sbnt-console__nn svg{
   display: block;
   width: 100%; height: 100%;
-  border-radius: 50%;
+  overflow: visible;
 }
-.sbnt-console__nn::after{
-  /* white pulsing core */
-  content: "";
-  position: absolute;
-  top: 50%; left: 50%;
-  width: 5px; height: 5px;
-  margin: -2.5px 0 0 -2.5px;
-  background: #FFFFFF;
-  border-radius: 50%;
-  box-shadow:
-    0 0 4px #FFFFFF,
-    0 0 10px var(--c-red, #FF1E3C),
-    0 0 18px rgba(255,30,60,.45);
-  pointer-events: none;
+.sbnt-console__nn .nn-spoke{
+  stroke: currentColor;
+  stroke-width: .7;
+  stroke-opacity: .25;
+}
+.sbnt-console__nn .nn-node{
+  fill: currentColor;
+  animation: sbntNNNode 2.4s ease-in-out infinite;
+  will-change: opacity;
+}
+.sbnt-console__nn .nn-n1{ animation-delay: .00s; }
+.sbnt-console__nn .nn-n2{ animation-delay: .18s; }
+.sbnt-console__nn .nn-n3{ animation-delay: .36s; }
+.sbnt-console__nn .nn-n4{ animation-delay: .54s; }
+.sbnt-console__nn .nn-n5{ animation-delay: .72s; }
+.sbnt-console__nn .nn-n6{ animation-delay: .90s; }
+.sbnt-console__nn .nn-n7{ animation-delay: 1.08s; }
+.sbnt-console__nn .nn-n8{ animation-delay: 1.26s; }
+.sbnt-console__nn .nn-ring{
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1;
+  transform-origin: 15px 15px;
+  animation: sbntNNRing 2.6s ease-out infinite;
+  will-change: transform, opacity;
+}
+.sbnt-console__nn .nn-core{
+  fill: #FFFFFF;
+  transform-origin: 15px 15px;
   animation: sbntNNCore 1.6s ease-in-out infinite;
-  z-index: 2;
+  will-change: transform, opacity;
 }
-.sbnt-console__nn::before{
-  /* broadcast halo */
-  content: "";
-  position: absolute;
-  top: 50%; left: 50%;
-  width: 12px; height: 12px;
-  margin: -6px 0 0 -6px;
-  border: 1px solid var(--c-red, #FF1E3C);
-  border-radius: 50%;
-  pointer-events: none;
-  animation: sbntNNHalo 2.4s ease-out infinite;
-  z-index: 1;
+@keyframes sbntNNNode{
+  0%, 100% { opacity: .3; }
+  50%      { opacity: 1;  }
+}
+@keyframes sbntNNRing{
+  0%   { transform: scale(.5); opacity: .85; }
+  100% { transform: scale(2.0); opacity: 0;  }
 }
 @keyframes sbntNNCore{
   0%, 100% { transform: scale(1);   opacity: 1;   }
-  50%      { transform: scale(1.5); opacity: .65; }
-}
-@keyframes sbntNNHalo{
-  0%   { transform: scale(.4); opacity: .9; }
-  100% { transform: scale(2.4); opacity: 0; }
+  50%      { transform: scale(1.5); opacity: .55; }
 }
 @media (prefers-reduced-motion: reduce){
-  .sbnt-console__nn::after,
-  .sbnt-console__nn::before{ animation: none; }
+  .sbnt-console__nn .nn-node,
+  .sbnt-console__nn .nn-ring,
+  .sbnt-console__nn .nn-core{ animation: none; }
 }
 /* "Subnet Oracle" — the bar's brand. Serif italic feels editorial,
    matches the hero wordmark family. Tight letter-spacing, no caps —
@@ -611,11 +621,36 @@ export function mountConsole(_dataLayer = null){
   el.innerHTML = `
     <span class="sbnt-console__edge" aria-hidden="true"></span>
     <div class="sbnt-console__bar" data-role="bar">
-      <!-- The Oracle's "consciousness" — a real-time 3D NodeSphere
-           plexus rendered on canvas, with the white pulsing core
-           and broadcast halo as CSS pseudos over the top. -->
+      <!-- The Oracle's "consciousness" — 8-node SVG plexus with
+           staggered opacity pulses (signals cascading through the
+           net), an expanding broadcast ring, and a breathing white
+           core. Pure SVG + CSS transform/opacity animations on
+           contained children — Android-compositor-safe. -->
       <span class="sbnt-console__nn" aria-hidden="true">
-        <canvas class="sbnt-console__nn-canvas" data-role="nn-canvas"></canvas>
+        <svg viewBox="0 0 30 30">
+          <!-- spokes from centre to 8 outer nodes -->
+          <line class="nn-spoke" x1="15" y1="15" x2="15"   y2="3"/>
+          <line class="nn-spoke" x1="15" y1="15" x2="23.5" y2="6.5"/>
+          <line class="nn-spoke" x1="15" y1="15" x2="27"   y2="15"/>
+          <line class="nn-spoke" x1="15" y1="15" x2="23.5" y2="23.5"/>
+          <line class="nn-spoke" x1="15" y1="15" x2="15"   y2="27"/>
+          <line class="nn-spoke" x1="15" y1="15" x2="6.5"  y2="23.5"/>
+          <line class="nn-spoke" x1="15" y1="15" x2="3"    y2="15"/>
+          <line class="nn-spoke" x1="15" y1="15" x2="6.5"  y2="6.5"/>
+          <!-- expanding broadcast ring -->
+          <circle class="nn-ring" cx="15" cy="15" r="5"/>
+          <!-- 8 outer nodes, each pulses at a staggered delay -->
+          <circle class="nn-node nn-n1" cx="15"   cy="3"    r="1.6"/>
+          <circle class="nn-node nn-n2" cx="23.5" cy="6.5"  r="1.6"/>
+          <circle class="nn-node nn-n3" cx="27"   cy="15"   r="1.6"/>
+          <circle class="nn-node nn-n4" cx="23.5" cy="23.5" r="1.6"/>
+          <circle class="nn-node nn-n5" cx="15"   cy="27"   r="1.6"/>
+          <circle class="nn-node nn-n6" cx="6.5"  cy="23.5" r="1.6"/>
+          <circle class="nn-node nn-n7" cx="3"    cy="15"   r="1.6"/>
+          <circle class="nn-node nn-n8" cx="6.5"  cy="6.5"  r="1.6"/>
+          <!-- central core "thought firing" -->
+          <circle class="nn-core" cx="15" cy="15" r="2"/>
+        </svg>
       </span>
       <span class="sbnt-console__brand">
         <span class="sbnt-console__name">Subnet Oracle</span>
@@ -631,19 +666,6 @@ export function mountConsole(_dataLayer = null){
     <div class="sbnt-console__body" data-role="body"></div>
   `;
   document.body.appendChild(el);
-
-  /* Mount the Oracle's "consciousness" plexus — a tiny NodeSphere
-     instance on the bar's neural-net canvas. 18 nodes is enough at
-     34 px to read as a 3D plexus without looking sparse; the
-     atmospheric glow + density crossings give the PS5-grade feel. */
-  const nnCanvas = el.querySelector('[data-role="nn-canvas"]');
-  const nnSphere = nnCanvas ? new NodeSphere(nnCanvas, {
-    nodes:   18,
-    K:       3,
-    density: 0.45,
-    speed:   0.55,
-    atmos:   true,
-  }) : null;
 
   const body    = el.querySelector('[data-role="body"]');
   const title   = el.querySelector('[data-role="title"]');
@@ -1147,7 +1169,6 @@ export function mountConsole(_dataLayer = null){
         if (RUNNER.canvas._sbntKeyHandler) window.removeEventListener('keydown', RUNNER.canvas._sbntKeyHandler);
         if (RUNNER.canvas._sbntResize)     window.removeEventListener('resize', RUNNER.canvas._sbntResize);
       }
-      nnSphere?.destroy();
       el.remove();
     },
   };
