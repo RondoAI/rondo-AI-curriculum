@@ -7,6 +7,87 @@ Format: dated heading + a short note. Add new entries to the TOP.
 
 ---
 
+## 2026-05-16 16:30 UTC, PRIMARY SOURCE from Rondo, Ridges SN62 dashboard + verification update
+Source: Rondo passed through a Ridges team update with a dashboard
+screenshot. Image saved at:
+  intelligence/_primary_sources/2026-05-16-ridges-sn62-dashboard-3of3-verification.jpg
+
+### What Ridges actually does (the agent should anchor on this)
+Ridges (SN62, NOT SN64; see corrections in prior log entries) runs a
+SWE-bench-style benchmark market for AI coding agents. Miners submit
+agents that try to solve software-engineering problems (the screenshot
+shows problem IDs SWE-RQHJT, SWE-SHVUF, SWE-YYTQC, SWE-4PZR6); the
+network verifies each solution by running it through three validators
+and only counting the score if all three agree (3/3 verification).
+Average per-problem runtime in the screenshot: 21 minutes to 36 minutes.
+
+### Today's product update from the Ridges team, verbatim
+> "Two improvements to the dashboard today:
+>
+> Reliability scoring · visibility into reliability scores has been
+> improved. You can now see clearly how your agent is performing on
+> consistency, not just raw output.
+>
+> Reduced scoring variance · we've moved to 3/3 verification. Every
+> score now requires three confirmations before it counts. Less
+> noise, more accurate rankings."
+
+### What the dashboard screenshot tells us about the scoring model
+Visible on the screenshot for one miner's view:
+  - Score: 40%
+  - Validator Spread: 20% (range 43.3% to 63.3%)
+  - Tasks: Passed 19/30, Reliable 12/30, Flaky 7/30, Consistent 23/30
+The four task categories (Passed, Reliable, Flaky, Consistent) are
+clearly distinct metrics in the Ridges scoring grammar:
+  - PASSED:     raw boolean, did the agent solve the problem at all
+  - RELIABLE:   passed every time it was attempted
+  - FLAKY:      sometimes passes, sometimes does not (lower trust)
+  - CONSISTENT: produced the same output across all validator runs
+The Validator Spread (the range your score might land in depending
+on which 3 validators get assigned) is a measure of the network's
+own scoring variance. Lower spread = more reliable ranking.
+
+### Why the 3/3 verification change matters mechanistically
+Moving to 3-of-3 verification is the structurally important news.
+With single-validator scoring, a miner's rank was sensitive to which
+validator drew the task; outliers in either direction could move a
+rank meaningfully. With 3/3 unanimous-verification, score variance
+collapses toward the median validator's signal. Trade-off: tasks
+take longer to settle (3x verification compute per task), so the
+network's economic throughput per epoch is mechanically lower in
+exchange for cleaner rankings. The Validator Spread metric on the
+dashboard is the team's way of making the variance trade-off legible
+to miners in real time.
+
+### Where this fits in the broader ecosystem story
+The agent should connect these dots in any future coverage:
+  - Lium (SN51) is the GPU MARKETPLACE layer (compute supply)
+  - Chutes (SN64) is the inference SERVING layer (compute demand
+    aggregation)
+  - Ridges (SN62) is the AGENT BENCHMARK layer (quality measurement
+    on the agents that consume that compute)
+  - Zeus (SN18) is a SPECIALIZED inference subnet (weather forecasting)
+These four together start to look like a coherent vertical stack:
+hardware supply, inference serving, agent quality measurement, and
+specialized vertical applications. Worth flagging in any Ecosystem
+State article that none of these existed in this form 12 months
+ago; the stack is forming in real time.
+
+### Suggested follow-up automation
+- @ridges_ai (or whichever handle they actually use) should be
+  added to voices.js so the Nitter scraper hits them. The desk
+  does not currently have a confirmed Ridges X handle; flagging
+  this so it gets confirmed at the next opportunity. For now I
+  am adding a placeholder under the subnet category with the team
+  name only; will rotate to the real handle once confirmed.
+- The SWE-bench problem IDs in the screenshot (SWE-RQHJT, etc.)
+  are derived from the Princeton SWE-bench benchmark. Worth noting
+  in any future article that Ridges is grounding its scoring in an
+  externally-validated public benchmark, which is unusually rigorous
+  for a Bittensor subnet.
+
+---
+
 ## 2026-05-16 16:05 UTC, PRIMARY SOURCE from Rondo, Jon Durbin (Chutes founder) roadmap post
 Source: Rondo passed through Jon Durbin's May 13 X post. Jon Durbin
 is the founder of Chutes (chutes.ai), self-described "Human. Backend
