@@ -50,7 +50,7 @@ function newsChip(n, href){
 function bittensorNewsChipsHtml(){
   return [...BITTENSOR_NEWS]
     .sort((a, b) => String(b.date).localeCompare(String(a.date)))
-    .map(n => newsChip(n, 'read.html'))
+    .map(n => newsChip(n, 'research.html'))
     .join('');
 }
 
@@ -87,7 +87,7 @@ function centralTapeHtml(){
   const news = [...AI_NEWS]
     .sort((a, b) => String(b.date).localeCompare(String(a.date)))
     .slice(0, 8)
-    .map(n => newsChip(n, 'read.html'))
+    .map(n => newsChip(n, 'research.html'))
     .join('');
   const once = company + news;
   return once + once;

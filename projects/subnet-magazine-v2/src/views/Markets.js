@@ -106,7 +106,7 @@ export function mountMarkets(root, dataLayer = null){
               </li>
             `).join('')}
           </ul>
-          <a class="mk-panel__more" href="read.html">Magazine coverage ↗</a>
+          <a class="mk-panel__more" href="research.html">Magazine coverage ↗</a>
         </section>
       </div>
     </section>

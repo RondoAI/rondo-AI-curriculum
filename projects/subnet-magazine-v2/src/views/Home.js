@@ -133,8 +133,8 @@ function priceChip(a){
 const SECTIONS = [
   { code:'010', label:'Oracle',  href:'oracle.html',
     desc:'The reference layer. Every Bittensor concept, mechanism, role and event in plain English, indexed and cited. Ask the Oracle directly; it answers and cites its sources.' },
-  { code:'020', label:'Read',    href:'read.html',
-    desc:'Long-form research on decentralized intelligence, plus the primary-source video interviews behind each piece. Read inline or download the PDF.' },
+  { code:'020', label:'Research', href:'research.html',
+    desc:'The daily desk. A PhD-level objective brief on what happened in the Bittensor ecosystem that day, filed every morning by the magazine\'s autonomous research agent.' },
   { code:'030', label:'Markets', href:'markets.html',
     desc:'The movers desk. Subnets by 24h gainers, losers and activity with sparklines, and the centralized AI landscape ranked by valuation.' },
   { code:'040', label:'Voices',  href:'voices.html',
@@ -156,18 +156,16 @@ export function mountHome(root, dataLayer = null){
       <div class="home-research__head">
         <span class="home-net__kicker"><span class="home-net__ord">§ 01</span><span class="live-dot"></span>Featured Research · the desk</span>
         <span class="home-net__source"><span class="dot dot--editorial"></span>EDITORIAL · 14 MAY 2026 · CONFIDENCE HIGH</span>
-        <a class="home-subnets__all" href="read.html">All research ↗</a>
+        <a class="home-subnets__all" href="research.html">Daily research desk ↗</a>
       </div>
       <ul class="home-research__grid">
         ${articles.map((a, i) => {
-          /* externally-hosted articles (X video interviews, podcasts)
-             open in a new tab; locally-hosted PDFs route through the
-             /read.html?id= reader. */
+          /* Article cards open the source directly: externally-hosted
+             pieces use their externalUrl, locally-hosted pieces open
+             the PDF in a new tab. No reader page in between. */
           const ext = !!a.externalUrl;
-          const href = ext ? a.externalUrl : ('read.html?id=' + a.id);
-          const linkAttrs = ext
-            ? `href="${href}" target="_blank" rel="noopener"`
-            : `href="${href}"`;
+          const href = ext ? a.externalUrl : a.pdf;
+          const linkAttrs = `href="${href}" target="_blank" rel="noopener"`;
           return `
           <li class="home-article ${i === 0 ? 'is-lead' : ''} ${ext ? 'is-ext' : ''}">
             <a class="home-article__link" ${linkAttrs}>

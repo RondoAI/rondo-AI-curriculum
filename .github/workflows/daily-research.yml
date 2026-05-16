@@ -1,0 +1,79 @@
+# =================================================================
+# SUBNET MAGAZINE, DAILY RESEARCH AGENT
+# -----------------------------------------------------------------
+# Runs once a day at 08:00 UTC. Calls Claude Opus 4.7 via
+# scripts/daily-research.py to file a PhD-level objective brief on
+# the Bittensor ecosystem, prepends it to
+# projects/subnet-magazine-v2/src/data/research.js, and commits.
+#
+# Manual run: Actions tab -> "Daily research brief" -> Run workflow.
+# Required secret: ANTHROPIC_API_KEY (Settings -> Secrets and
+# variables -> Actions -> New repository secret).
+# =================================================================
+
+name: Daily research brief
+
+on:
+  schedule:
+    # 08:00 UTC every day. Cron is UTC-only on GitHub Actions.
+    - cron: '0 8 * * *'
+  workflow_dispatch:
+    # Allows manual triggering from the Actions tab.
+
+permissions:
+  contents: write
+
+concurrency:
+  # If a manual run is triggered while the cron is in flight, queue
+  # rather than parallelise; the data file is mutated, parallel
+  # writes would race.
+  group: daily-research
+  cancel-in-progress: false
+
+jobs:
+  brief:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+        with:
+          # Need full ref to push the commit back.
+          token: ${{ secrets.GITHUB_TOKEN }}
+          ref: subnet-mag-v2
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+          cache: pip
+
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install 'anthropic>=0.92.0'
+
+      - name: Generate today's brief
+        env:
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+        working-directory: projects/subnet-magazine-v2
+        run: python scripts/daily-research.py
+
+      - name: Commit and push
+        run: |
+          cd "$GITHUB_WORKSPACE"
+          git config user.name  "subnet-magazine-bot"
+          git config user.email "bot@subnetmagazine.com"
+
+          # If nothing changed (e.g. script skipped because today's
+          # brief already exists), exit cleanly.
+          if git diff --quiet -- projects/subnet-magazine-v2/src/data/research.js; then
+            echo "no changes to research.js, exiting"
+            exit 0
+          fi
+
+          today=$(date -u +%Y-%m-%d)
+          git add projects/subnet-magazine-v2/src/data/research.js
+          git commit -m "research: daily brief, ${today}"
+          git push origin subnet-mag-v2

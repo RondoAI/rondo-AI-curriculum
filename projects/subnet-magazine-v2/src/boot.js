@@ -15,9 +15,10 @@ import { mountMasthead } from './views/Masthead.js';
 import { mountHero } from './views/Hero.js';
 import { mountHome } from './views/Home.js';
 import { mountArticles } from './views/Articles.js';
+import { mountInterviews } from './views/Interviews.js';
+import { mountResearch } from './views/Research.js';
 import { mountMarkets } from './views/Markets.js';
 import { mountEditor } from './views/Editor.js';
-import { mountInterviews } from './views/Interviews.js';
 import { mountVoices } from './views/Voices.js';
 import { mountCodex } from './views/Codex.js';
 
@@ -58,6 +59,7 @@ function boot(){
   mountIf('[data-mount="home"]',       root => mountHome(root, DataLayer));
   mountIf('[data-mount="articles"]',   root => mountArticles(root, DataLayer));
   mountIf('[data-mount="interviews"]', root => mountInterviews(root));
+  mountIf('[data-mount="research"]',   root => mountResearch(root));
   mountIf('[data-mount="markets"]',    root => mountMarkets(root, DataLayer));
   mountIf('[data-mount="voices"]',     root => mountVoices(root));
   mountIf('[data-mount="codex"]',      root => mountCodex(root, DataLayer));
