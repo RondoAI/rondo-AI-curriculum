@@ -33,8 +33,14 @@ const X_URL = 'https://x.com/subnetmagazine';
  * @returns {{destroy: () => void}}
  */
 export function mountMasthead(root){
-  const navHtml = NAV_ITEMS.map((n, i) => html`
-    <a class="nav-tab ${i === 0 ? 'active' : ''}" href="${n.href}">
+  /* Highlight the nav item matching the current page (filename of
+     the URL). Previously index 0 was hard-coded as 'active', so
+     MAGAZINE looked selected on every page — tapping it from any
+     other page felt like a content reset rather than a navigation. */
+  const path = (window.location.pathname.split('/').pop() || 'index.html');
+  const currentPage = path === '' ? 'index.html' : path;
+  const navHtml = NAV_ITEMS.map(n => html`
+    <a class="nav-tab ${n.href === currentPage ? 'active' : ''}" href="${n.href}">
       <span class="nav-tab__code">&lt;${n.code}&gt;</span>
       <span>${n.label}</span>
     </a>
