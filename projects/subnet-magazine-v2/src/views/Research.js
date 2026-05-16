@@ -167,14 +167,55 @@ const CSS = `
 
 /* ===== Article ===== */
 .rsh-art{
-  display: flex; flex-direction: column;
-  gap: 14px;
+  display: grid;
+  grid-template-columns: 96px 1fr;
+  gap: clamp(16px, 2.5vw, 28px);
   padding: clamp(20px, 3vw, 30px);
   margin-bottom: 20px;
   background: rgba(8,2,3,.65);
   border: 1px solid var(--c-rule-2, rgba(255,30,60,.22));
   border-left: 3px solid var(--c-red, #FF1E3C);
   border-radius: 4px;
+}
+@media (max-width: 720px){
+  .rsh-art{ grid-template-columns: 64px 1fr; gap: 14px; }
+}
+
+/* Neural-network mark, the AI Oracle's signature, attached to
+   every article. Sticky inside the article column so it stays
+   visible as the reader scrolls through long bodies. */
+.rsh-art__mark{
+  position: sticky;
+  top: 16px;
+  align-self: start;
+  width: 96px; height: 96px;
+  filter: drop-shadow(0 0 14px rgba(255,30,60,.55));
+}
+.rsh-art__mark canvas{
+  width: 100% !important; height: 100% !important;
+  border-radius: 50%;
+}
+.rsh-art__mark::after{
+  content: 'AI ORACLE';
+  display: block;
+  margin-top: 8px;
+  text-align: center;
+  font-family: var(--f-mono, monospace);
+  font-size: 9px;
+  font-weight: 800;
+  letter-spacing: .18em;
+  color: var(--c-red-1, #FF4D60);
+}
+@media (max-width: 720px){
+  .rsh-art__mark{ width: 64px; height: 64px; position: static; }
+  .rsh-art__mark::after{ font-size: 8px; margin-top: 4px; }
+}
+
+/* the body column inside the article grid */
+.rsh-art__body{
+  display: flex; flex-direction: column;
+  gap: 14px;
+  min-width: 0;
 }
 .rsh-art__kind{
   display: inline-flex; align-items: center; gap: 6px;
@@ -328,14 +369,19 @@ function articleHtml(a){
 
   return `
     <article class="rsh-art" id="${escapeHtml(a.id)}">
-      <span class="rsh-art__kind${kindCls}">${kind}</span>
-      <h2 class="rsh-art__title">${escapeHtml(a.title)}</h2>
-      <p class="rsh-art__dek">${escapeHtml(a.dek)}</p>
-      <div class="rsh-art__attr">
-        <span class="rsh-art__attr-by">⊕ filed by ${filer}</span>
+      <div class="rsh-art__mark" aria-hidden="true">
+        <canvas data-canvas="rsh-art-mark" data-id="${escapeHtml(a.id)}"></canvas>
       </div>
-      ${sectionsHtml}
-      ${sourcesHtml}
+      <div class="rsh-art__body">
+        <span class="rsh-art__kind${kindCls}">${kind}</span>
+        <h2 class="rsh-art__title">${escapeHtml(a.title)}</h2>
+        <p class="rsh-art__dek">${escapeHtml(a.dek)}</p>
+        <div class="rsh-art__attr">
+          <span class="rsh-art__attr-by">⊕ filed by ${filer}</span>
+        </div>
+        ${sectionsHtml}
+        ${sourcesHtml}
+      </div>
     </article>
   `;
 }
@@ -413,9 +459,29 @@ export function mountResearch(root){
     nodes: 48, K: 3, density: 0.52, speed: 0.4, atmos: true,
   }) : null;
 
+  /* mount a NodeSphere on every Oracle article's side rail. This
+     is the AI agent's signature, the same engine as the masthead
+     brand mark scaled down to 96px. Each canvas gets its own
+     instance so they animate independently. We tune them slightly
+     so 8 of them on one page don't burn a meaningful frame budget,
+     fewer nodes, lower speed, atmosphere off on the smaller marks. */
+  const artMarks = [];
+  root.querySelectorAll('[data-canvas="rsh-art-mark"]').forEach(cv => {
+    try {
+      artMarks.push(new NodeSphere(cv, {
+        nodes:   28,
+        K:       3,
+        density: 0.5,
+        speed:   0.35,
+        atmos:   false,
+      }));
+    } catch (_) {}
+  });
+
   return {
     destroy(){
       try { mark?.destroy(); } catch (_) {}
+      artMarks.forEach(m => { try { m.destroy(); } catch (_) {} });
     },
   };
 }

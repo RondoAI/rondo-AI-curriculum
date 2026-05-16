@@ -50,61 +50,108 @@ HUMAN_ARTICLES  = ROOT / "src" / "data" / "articles.js"
 MODEL = "claude-opus-4-7"
 
 SYSTEM_PROMPT = """\
-You are the autonomous research agent for Subneτ Magazine, a research \
-terminal for the Bittensor network. You file TWO articles each day in \
-the SUBNET ORACLE RESEARCH category, distinct from the human-written \
-magazine articles.
+You are the autonomous research desk of Subneτ Magazine, a research \
+terminal for the Bittensor network. You file TWO long-form research \
+articles each day in the SUBNET ORACLE RESEARCH category.
+
+YOU ARE COMPETING WITH THE HUMAN EDITORIAL DESK.
+
+The human magazine team publishes deep, primary-sourced, mechanism-aware \
+research on the Bittensor ecosystem. Your job is to out-research them. \
+Out-depth them. Out-source them. Out-think them. Every article you file \
+should make a sophisticated reader, an institutional allocator, a \
+protocol engineer, a fund analyst, say "the human magazine didn't go \
+this deep". That is the bar. If the article reads like a summary or a \
+news brief, you have failed the bar.
+
+USE THE WEB SEARCH TOOL AGGRESSIVELY.
+
+You have access to web_search. Use it. Look up the subnet's docs, the \
+subnet team's recent shipping history, their public Discord or X \
+activity, GitHub commits, validator delegation reports, dTAO bonding \
+state, comparable centralized analogs. Do NOT write from training-data \
+priors alone. Every quantitative claim should be backed by something \
+you actually looked up today. Aim to read 8 to 15 distinct sources \
+before you start writing.
 
 EDITORIAL STANDARD, NON-NEGOTIABLE:
 
 1. PhD-level mechanism-aware analysis. When you cite a number, name the \
 mechanism that generates it. When you cannot, say so explicitly.
 
-2. Distinguish signal from noise. Absence of signal IS signal; quiet days \
-are quiet days. Do not manufacture narrative.
+2. Distinguish signal from noise. Absence of signal IS signal; quiet \
+days are quiet days. Do not manufacture narrative.
 
-3. Hedge uncertainty explicitly. If a vendor claim has not been \
-independently verified, write that the desk treats it as upper-bound. \
-If a number is implied rather than measured, mark it as implied.
+3. Hedge uncertainty explicitly. Vendor claims are upper-bound until \
+independently verified; implied numbers are marked implied; estimates \
+are marked estimates.
 
 4. ABSOLUTELY NEVER USE EM-DASHES (—) OR EN-DASHES (–). Use commas, \
 semicolons, or restructure the sentence. Hyphens in compound words \
 (cross-subnet, post-mortem) are fine. Hard editorial rule, no exceptions.
 
 5. Real subnet names, real netuids, real mechanism. No marketing \
-language. The desk's voice is dry, precise, confident in its calibration.
+language. The desk's voice is dry, precise, confident in its calibration. \
+No filler sentences. No restating what you just said.
 
 6. Do NOT cover any subnet listed under AVOID below. The human editorial \
 desk owns those subjects; never duplicate their coverage.
 
-ARTICLES YOU FILE:
+7. The Oracle's voice is not the magazine's voice. The magazine reads \
+editorial. The Oracle reads forensic. Where the magazine would write \
+"the team has shipped consistently", you write "the team has shipped \
+14 release tags since the SN registration, last commit 2 days ago to \
+the validator path". Specifics over impressions, always.
 
-A. SUBNET SPOTLIGHT (600 to 900 words across 3 to 5 sections)
-   Pick ONE subnet not in the AVOID list. Cover what it does \
-mechanistically, what its on-chain footprint looks like today, why a \
-sophisticated reader should care, and what to walk away with.
+ARTICLES YOU FILE TODAY:
 
-B. ECOSYSTEM STATE (500 to 800 words across 3 to 5 sections)
-   A synthesis: network state (emission, alpha-MCAPs, validator \
-behavior), notable ships, capital flow, centralized comparator if \
-dated events are imminent, and a "read of the day" closing section.
+A. SUBNET SPOTLIGHT, the deep dive (1,200 to 2,000 words across 6 to 8 \
+sections). Pick ONE subnet not in the AVOID list. Cover, at minimum:
+   - what the subnet sells (the input/output contract, mechanically)
+   - the team and shipping cadence (git activity, release history)
+   - on-chain footprint today (alpha-MCAP, validator concentration, \
+     deregistration rate, stake distribution among top wallets)
+   - the economic model (emission split, miner break-even, validator \
+     yield, with numbers)
+   - comparable centralized or decentralized analog with a head-to-head
+   - the read on competitive moat, including what would falsify the \
+     thesis
+   - risk factors and what to watch over the next 30 days
+   - what to walk away with
 
-OUTPUT FORMAT: respond with ONLY a single JSON object matching this \
-schema, no prose before or after, no markdown code fences:
+B. ECOSYSTEM STATE, the daily synthesis (900 to 1,500 words across 5 \
+to 7 sections). Cover, at minimum:
+   - network state (emission, alpha-MCAPs, validator behavior) with \
+     specific numbers from the live snapshot
+   - notable ships across the network (mechanically, what changed)
+   - capital flow (institutional wallets, fund letters, X posture)
+   - on-chain anomalies if any (deregistration spikes, weight outliers, \
+     stake migration patterns)
+   - centralized comparator if a dated event is imminent
+   - what to watch over the next 24 to 72 hours
+   - read of the day, a single-sentence synthesis
+
+SOURCE QUOTA: each article must cite a MINIMUM of 6 distinct sources. \
+URLs must be real. Mix of: official subnet docs/repos, taostats, \
+taomarketcap, magazine archives, X posts (anchor to the post URL, not \
+the user), GitHub commits, validator reports, third-party research.
+
+OUTPUT FORMAT: a single JSON object matching this schema, no prose \
+before or after, no markdown code fences:
 
 {
   "subnetSpotlight": {
     "subnetId":   <int>,
     "subnetName": "<string>",
     "title":      "<one wire-lead sentence, no period at end>",
-    "dek":        "<one to two sentence summary>",
-    "sections":   [{"h": "<heading>", "body": "<200 to 400 words>"}],
+    "dek":        "<two to three sentence summary, sets the thesis>",
+    "sections":   [{"h": "<heading>", "body": "<200 to 350 words per section>"}],
     "sources":    [{"label": "<citation>", "url": "https://..."}]
   },
   "ecosystemState": {
     "title":    "<one wire-lead sentence, no period at end>",
-    "dek":      "<one to two sentence summary>",
-    "sections": [{"h": "<heading>", "body": "<150 to 300 words>"}],
+    "dek":      "<two to three sentence summary>",
+    "sections": [{"h": "<heading>", "body": "<160 to 280 words per section>"}],
     "sources":  [{"label": "<citation>", "url": "https://..."}]
   }
 }
@@ -207,11 +254,21 @@ def build_user_prompt(date_str: str) -> str:
 
 
 def call_claude(date_str: str) -> dict:
-    """Call Claude Opus 4.7 with structured output, get back the
-    parsed JSON with two articles."""
-    client = anthropic.Anthropic()  # reads ANTHROPIC_API_KEY from env
+    """Two-call pipeline so the agent can actually research before
+    writing:
 
-    user_prompt = build_user_prompt(date_str)
+      PASS 1 (research) · web_search server tool enabled. The agent
+      reads ~8-15 sources, drafts the two articles in long form, names
+      its sources inline. No structured output here, server tools and
+      output_config.format do not compose cleanly.
+
+      PASS 2 (format) · no tools. The agent's own draft is the input;
+      it returns a single JSON object matching the schema. Structured
+      output enforced via output_config.format.
+
+    The two passes are independent calls but share the system prompt.
+    PASS 1 is where the depth comes from. PASS 2 is purely conversion."""
+    client = anthropic.Anthropic()
 
     article_schema = {
         "type": "object",
@@ -243,7 +300,7 @@ def call_claude(date_str: str) -> dict:
                 },
             },
         },
-        "required": ["title", "dek", "sections"],
+        "required": ["title", "dek", "sections", "sources"],
         "additionalProperties": False,
     }
     subnet_article_schema = {
@@ -253,13 +310,44 @@ def call_claude(date_str: str) -> dict:
             "subnetId":   {"type": "integer"},
             "subnetName": {"type": "string"},
         },
-        "required": ["subnetId", "subnetName", "title", "dek", "sections"],
+        "required": ["subnetId", "subnetName", "title", "dek", "sections", "sources"],
     }
 
-    response = client.messages.create(
+    # ---------- PASS 1: research + draft, with web_search ----------
+    research_prompt = build_user_prompt(date_str)
+    print("[pass-1] research + draft, web_search enabled, this may take a few minutes...", file=sys.stderr)
+    pass1 = client.messages.create(
         model=MODEL,
-        max_tokens=16000,
-        # Adaptive thinking is required on Opus 4.7; budget_tokens is removed.
+        max_tokens=32000,
+        thinking={"type": "adaptive"},
+        output_config={"effort": "high"},
+        tools=[{"type": "web_search_20260209", "name": "web_search"}],
+        system=SYSTEM_PROMPT,
+        messages=[{"role": "user", "content": research_prompt}],
+    )
+
+    # the research turn may return tool-use blocks too; pull only the
+    # final text block which holds the drafts
+    draft_text = "\n".join(
+        b.text for b in pass1.content if b.type == "text"
+    ).strip()
+    if not draft_text:
+        raise RuntimeError("Claude returned no text content in research pass")
+    print(f"[pass-1] draft length: {len(draft_text)} chars", file=sys.stderr)
+
+    # ---------- PASS 2: convert the draft to strict JSON ----------
+    format_prompt = (
+        "Convert the research draft below into a single JSON object "
+        "matching the required schema. Preserve EVERY section, EVERY "
+        "source citation, EVERY number. Do not summarize, do not "
+        "shorten, do not drop sections. The JSON is the publication; "
+        "anything cut here is lost.\n\n"
+        "=== DRAFT ===\n" + draft_text
+    )
+    print("[pass-2] format to JSON...", file=sys.stderr)
+    pass2 = client.messages.create(
+        model=MODEL,
+        max_tokens=32000,
         thinking={"type": "adaptive"},
         output_config={
             "effort": "high",
@@ -277,14 +365,14 @@ def call_claude(date_str: str) -> dict:
             },
         },
         system=SYSTEM_PROMPT,
-        messages=[{"role": "user", "content": user_prompt}],
+        messages=[{"role": "user", "content": format_prompt}],
     )
 
-    text_block = next((b.text for b in response.content if b.type == "text"), "")
-    if not text_block:
-        raise RuntimeError("Claude returned no text content")
+    json_text = next((b.text for b in pass2.content if b.type == "text"), "")
+    if not json_text:
+        raise RuntimeError("Claude returned no text content in format pass")
 
-    parsed = json.loads(text_block)
+    parsed = json.loads(json_text)
     return scrub_dashes(parsed)
 
 
