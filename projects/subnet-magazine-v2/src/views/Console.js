@@ -14,6 +14,7 @@
 
 import { FIELD_MANUAL } from '../data/bittensor-faq.js';
 import { NodeSphere } from '../charts/NodeSphere.js';
+import { applySlideHint } from '../lib/slide-hint.js';
 
 const STYLE_ID = 'sbnt-console-style';
 
@@ -667,6 +668,10 @@ export function mountConsole(_dataLayer = null){
   const bar     = el.querySelector('[data-role="bar"]');
   const toggle  = el.querySelector('[data-role="toggle"]');
   const tabs    = Array.from(el.querySelectorAll('.sbnt-tab'));
+  const tabRail = el.querySelector('.sbnt-console__tabs');
+  /* slide-hint on the tab rail — there are 15 tabs and the phone
+     viewport shows ~4, so the rest is invisible without the cue */
+  const teardownTabHint = tabRail ? applySlideHint(tabRail) : () => {};
 
   let activeId = FIELD_MANUAL[0]?.id || 'mine';
   let searchQuery = '';
@@ -1165,6 +1170,7 @@ export function mountConsole(_dataLayer = null){
         if (RUNNER.canvas._sbntResize)     window.removeEventListener('resize', RUNNER.canvas._sbntResize);
       }
       nnSphere?.destroy();
+      teardownTabHint();
       el.remove();
     },
   };

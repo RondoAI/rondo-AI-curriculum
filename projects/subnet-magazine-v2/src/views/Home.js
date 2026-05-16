@@ -32,6 +32,7 @@ import { FOUNDERS, founderById } from '../data/founders.js';
 import { tsByNetuid, TAONSQUARE_COUNT, TAONSQUARE_FETCHED_AT } from '../data/taonsquare.js';
 import { socialIcon } from '../lib/social-icons.js';
 import { VALIDATORS } from '../data/validators.js';
+import { applySlideHint } from '../lib/slide-hint.js';
 
 const CAT_LABEL = {
   'reporting':   'REPORTING',
@@ -1796,6 +1797,20 @@ export function mountHome(root, dataLayer = null){
     renderArticleLogos(dataLayer.get('tao:subnets'));
   }
 
+  /* "▸ swipe left for more" cue on every horizontally-scrolling
+     rail. The selectors map 1:1 to the overflow-x: auto containers
+     in style/components/home.css — drop a new rail in there and
+     it picks up the same cue automatically. */
+  const slideHintTeardowns = [
+    '.home-vals__rail',
+    '.home-research__grid',
+    '.home-how__pipe',
+    '.home-bios__grid',
+    '.home-network__rail',
+    '.home-ops__rail',
+  ].flatMap(sel => Array.from(root.querySelectorAll(sel)))
+   .map(el => applySlideHint(el));
+
   return {
     destroy(){
       unsubs.forEach(u => u());
@@ -1806,6 +1821,7 @@ export function mountHome(root, dataLayer = null){
       opSparks.splice(0).forEach(sp => { try { sp.destroy(); } catch (_) {} });
       neural?.destroy();
       treemap?.destroy();
+      slideHintTeardowns.forEach(fn => { try { fn(); } catch (_) {} });
     },
   };
 }

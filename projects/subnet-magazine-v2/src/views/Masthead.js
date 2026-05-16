@@ -10,6 +10,7 @@
 import { html, mount, qs, raw } from '../lib/dom.js';
 import { NodeSphere } from '../charts/NodeSphere.js';
 import { bbgDate } from '../lib/format.js';
+import { applySlideHint } from '../lib/slide-hint.js';
 
 const NAV_ITEMS = [
   { code: '001', label: 'MAGAZINE',  href: 'index.html'        },
@@ -71,6 +72,12 @@ export function mountMasthead(root){
     </header>
   `);
 
+  // Surface the "▸ swipe left for more" cue on the nav strip — the
+  // nav has 10+ items but the phone viewport shows ~3 of them, so
+  // without a hint the rest of the magazine looks invisible.
+  const navInner = qs('.primary-nav__inner', root);
+  const teardownNavHint = navInner ? applySlideHint(navInner) : () => {};
+
   // Mount the rotating brand mark — a compact NodeSphere, the same
   // dense plexus language as the hero piece, scaled to a logo.
   const markCanvas = qs('[data-canvas="brand-mark"]', root);
@@ -111,6 +118,7 @@ export function mountMasthead(root){
   return {
     destroy(){
       sphere?.destroy();
+      teardownNavHint();
       window.removeEventListener('scroll', onScroll);
     }
   };
