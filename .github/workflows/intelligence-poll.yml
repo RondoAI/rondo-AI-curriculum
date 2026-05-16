@@ -65,10 +65,9 @@ jobs:
 
           today=$(date -u +%Y-%m-%d)
           git add projects/subnet-magazine-v2/intelligence/
-          git commit -m "intel: poll, ${today}
-
-Auto-collected from public Nitter instances, GitHub public API,
-and ecosystem RSS feeds. See intelligence/{today}/digest.md for
-the unified briefing. Built by scripts/intel/aggregate.py via
-.github/workflows/intelligence-poll.yml."
+          # Two -m flags so the YAML block scalar stays valid; see the
+          # matching note in daily-research.yml.
+          git commit \
+            -m "intel: poll, ${today}" \
+            -m "Auto-collected from public Nitter instances, GitHub public API, and ecosystem RSS feeds. See intelligence/{today}/digest.md for the unified briefing. Built by scripts/intel/aggregate.py via .github/workflows/intelligence-poll.yml."
           git push origin subnet-mag-v2
