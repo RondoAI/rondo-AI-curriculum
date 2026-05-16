@@ -7,6 +7,227 @@ Format: dated heading + a short note. Add new entries to the TOP.
 
 ---
 
+## 2026-05-16 18:10 UTC, TWO SCORE TIPS from Rondo, technical mining docs + PwC alliance recap
+Sources: Rondo passed through two related artifacts:
+  1. https://github.com/score-technologies/turbovision/blob/main/scorevision/miner/private_track/MINER.md
+     (the TurboVision private-track miner technical documentation
+     from Score's own GitHub repo)
+  2. The full @webuildscore X recap of the Apr 16 PwC France Spaces
+     with verbatim quotes from PwC's Strategy Partner
+
+Both preserved at:
+  intelligence/_primary_sources/2026-05-16-score-sn44-turbovision-private-track-miner-docs.md
+  intelligence/_primary_sources/2026-04-16-score-sn44-pwc-france-alliance-recap.md
+
+Together these convert Score (SN44) from a "they signed a Big Four
+deal" headline into a fully-mechanized story the Oracle can write
+about deeply. Mechanism (TurboVision miner docs) + market (PwC recap)
+in a single Subnet Spotlight is exactly the bar the magazine should
+be hitting.
+
+### What the TurboVision miner docs reveal about what Score sells
+- The private track is element-specific (single-element-per-container
+  with on-chain commitment matching)
+- Two private elements documented: Football (soccer_action) and
+  Cricket (cricket_delivery)
+- Request lifecycle: Score Validator POSTs a challenge with a
+  video_url; miner runs inference; returns predictions + measured
+  processing_time
+- For football, miners detect time-localized actions (pass, tackle,
+  shot, save, goal) with specific tolerance windows
+- The scoring table is the editorial gold. Each action has a weight
+  (network's revealed preference for how valuable detection is) and
+  a tolerance (how close in time the prediction must be):
+    pass 1.0 / pass_received 1.4 / recovery 1.5 / tackle 2.5 /
+    interception 2.8 / ball_out_of_play 2.9 / clearance 3.1 /
+    take_on 3.2 / substitution 4.2 / block 4.2 / aerial_duel 4.3 /
+    shot 4.7 / save 7.3 / foul 7.7 / GOAL 10.9
+- Weight ratio between a goal (10.9) and a pass (1.0) is ~11x
+- For cricket: regression-style output (ball speed kph, bounce_x,
+  stump_y) suitable for broadcast ball-tracking overlays
+- The framing "robust against exploits identified in the classical
+  mAP metric used in literature" tells us the team is doing serious
+  ML engineering, not just plumbing video through a stock detector
+
+### What the PwC recap adds beyond the WallStreetBets thesis
+The earlier thesis (today's 17:30 entry) cited the Score-PwC alliance
+as "first time a Bittensor subnet has partnered with a Big Four firm"
+but did not have the inside detail. This recap fills it in:
+  - 8 months of legal due diligence to close
+  - PwC France: EUR 1bn revenue (standalone)
+  - PwC global: USD 60bn+ across 136 countries
+  - Counterparty named: Jean-Thomas Ledoré (@jtledore),
+    Strategy Partner at PwC France and Maghreb
+  - The product is "Manako's Business Operations World Model"
+    (Manako is the product layer, Score is the underlying subnet)
+  - Distribution channel: PwC France enterprise clients across
+    retail, manufacturing, logistics, energy, infrastructure
+  - Bittensor blockchain named in the PwC press release title in
+    writing (this is the deal status-signal the desk should anchor on)
+  - The "live alpha" disclosed on Spaces: Jean-Thomas had a call two
+    days before with PwC's global head of blockchain in the US.
+    Score/Manako will pitch to the global PwC blockchain community
+    in coming weeks. Each of 136 territories can then reach out.
+    Translation: this is STRUCTURALLY scalable beyond France
+
+### The quotes from PwC's side worth quoting verbatim
+Jean-Thomas Ledoré on the strategic frame: "Bittensor is not PvP.
+The competition is outside. It's decentralised AI versus centralised
+technology. We should all be building together."
+
+Jean-Thomas Ledoré on what wins enterprise (mechanism over hype):
+"If you're leaning only on emissions, you will be stuck. You need
+to solve real world problems, capture value from the world, and
+inject it back into the ecosystem."
+
+The official signed-press-release quote: "Physical AI is rapidly
+moving from emerging technology to an operational necessity. By
+partnering with Manako and leveraging Score decentralised AI
+infrastructure on Bittensor blockchain, we enable our clients to
+move faster beyond observation and experimentation, and toward
+real-world execution, turning physical environments into systems
+that drive decisions, actions, and scalable value creation."
+
+### The Manako product framing for the headline pitch
+"Enterprises are sitting on one billion cameras that record
+everything and act on nothing. Manako turns that into real-time
+systems of action: lockdowns, dispatches, audit reports, workflow
+automations, across infrastructure that's already installed.
+Powered by Score (SN44)."
+
+This sentence IS the Spotlight headline. The Oracle should treat
+"one billion cameras that record everything and act on nothing" as
+the framing for any Score coverage.
+
+### Tim's technical update from the Spaces (architecture detail)
+A few weeks before Apr 16, Score did a major refactor: challenges
+are no longer hard-coded; validators now fetch a manifest JSON that
+encodes the challenge, emissions weight, scoring logic, and model
+size constraints. New challenges can ship without subnet software
+updates. The fuel station detection challenge launched recently and
+produced strong models within a week. This manifest-driven
+architecture is the technical foundation that lets Score serve
+multiple PwC enterprise verticals without code changes per use case.
+
+### The Oracle synthesis the magazine could not write before today
+With TurboVision miner docs + PwC recap together, the Oracle can
+write a single Subnet Spotlight that:
+  1. Opens with the "billion cameras" framing
+  2. Walks through the actual mining contract (Score Validator
+     POSTs video, miner returns timed action predictions, scored
+     against ground truth with weight ratios revealed)
+  3. Quotes the weight table to show what Score's market values
+     (goal=10.9 vs pass=1.0)
+  4. Explains the manifest-driven architecture as the unlock for
+     PwC's vertical-by-vertical rollout
+  5. Cites PwC's Strategy Partner verbatim on why decentralized AI
+     and on the "Bittensor is not PvP" frame
+  6. Sets a 3-datapoint watchlist (global blockchain pitch landing,
+     PwC territory uptake, manifest catalog growth)
+This is a 1,500-word Spotlight target, easily.
+
+### Suggested follow-up automation
+Adding to voices.js: @MaxScore, @tm0klc, @nigescore (the Score team
+trio), @jtledore (PwC Strategy Partner), @manakoai (the product
+layer brand). Score's existing entry (@webuildscore) gets bio
+expanded with the new facts.
+
+---
+
+## 2026-05-16 17:50 UTC, PRIMARY SOURCE from Rondo, RedTeam SN61 / Innerworks commercial-breakout update
+Source: Rondo passed through the RedTeam team's Feb 12 X post.
+Preserved at:
+  intelligence/_primary_sources/2026-02-12-redteam-sn61-commercial-breakout-update.md
+
+### What RedTeam is (new to our coverage)
+SN61 on Bittensor. The research engine for an AI-vs-AI cybersecurity
+loop. Commercial vehicle: Innerworks (theredteam.io). Premise: attacks
+are now generated by AI agents, evolve autonomously, outpace every
+traditional defense; SN61 miners constantly probe + break + innovate,
+and their output flows directly into Innerworks production systems.
+
+### Commercial wins disclosed
+- Fully integrated across a major global messaging platform with
+  100M+ DAU, "live in production, not a pilot". Name not yet
+  publicly disclosed. Only a handful of platforms hit that scale
+  (Telegram, WhatsApp, WeChat, Line, KakaoTalk, Viber, Signal).
+  Worth pressing for the disclosure when it lands.
+- 1inch partnership: paying customer using full stack (device
+  fingerprinting, bot detection, geolocation)
+- Pipeline: DEXs, protocols, transaction monitoring platforms
+  (traditional + crypto), payment providers, identity verification
+
+### The novel token-economic commitment
+Innerworks commits an R&D budget allocation that flows DIRECTLY into
+alpha buybacks, starting at baseline 1 TAO/day plus milestone-triggered
+injections. Framing: subnet miners treated as "key stakeholders in the
+company". Explicitly NOT a revenue-share or % of SaaS, a committed
+R&D budget allocation. Self-aware on the small starting figure:
+"this is the beginning of a model, not the end of it. We want to
+iterate on this carefully." Trajectory: "constant and considerable
+increases" as commercial milestones land.
+
+### A pattern across multiple tips today: subnet alpha buybacks
+This is now the FOURTH commercial-vehicle buyback model surfaced
+today via Rondo's tips:
+  - Lium (SN51): publicly tweeted >$150K buyback+burn on May 3,
+    revenue-driven
+  - RedTeam (SN61): 1 TAO/day baseline + milestone injections,
+    R&D-budget driven (this tip)
+  - Vanta (SN8) per WallStreetBets: "fees are used to buy back
+    alpha tokens, creating a direct flywheel between product
+    revenue and token value"
+  - Chutes (SN64) per Jon Durbin's roadmap: "$ per token revenue
+    is the metric we are concerned with, and we are driving that
+    number up daily" (implies revenue captured back into the
+    network even if not explicit buybacks)
+This is a worth-flagging ecosystem pattern. Subnets with real
+commercial revenue are converging on alpha-buyback flywheels.
+The Oracle agent should write an Ecosystem State article
+specifically about this convergence; the human magazine has not
+yet synthesized it.
+
+### The biological immune system vision (excellent editorial material)
+Already-shipped: internal immune system agent that analyzes attacks
+coming through SN61, reverse-engineers methods, generates
+countermeasures, proposes them to engineers. "What used to take
+weeks of manual reverse engineering now takes hours."
+
+Coming next: miners incentivized to build adaptive attack agents
+("digital viruses") that continuously evolve until they bypass
+proposed challenges. Immune system agent responds in real time,
+deploys defenses, attack agents test again. The biological analogy
+is explicit and quotable:
+  > "antigens (miner attack agents) trigger antibody production
+  > (automated defences), which get deployed and remembered by the
+  > system. The viruses mutate. The immune system adapts. The cycle
+  > repeats, entirely on machine time."
+
+The structural risk the team has NOT addressed: when both sides
+evolve via the same training mechanism, what stops the equilibrium
+from converging to a stalemate? Worth probing in any Oracle coverage.
+
+### Quantitative claims worth quoting
+- 46 repositories in the RedTeamSubnet GitHub org
+- 2,000+ commits, 26 releases shipped
+- 14 challenges run, 9 deprecated, 2 currently active
+- AB Sniffer submission quality scaling: v1 had 4 accepted commits,
+  v4 has 105 (about 28x growth). Cleanest single defensible claim
+  in the entire post for the "decentralized R&D at a pace no
+  traditional team can match" thesis.
+
+### Suggested follow-up automation
+- Added @_redteam_ (the team's X handle) to voices.js as SN61 subnet
+- Added @1inch as a customer voice (positions 1inch as one of the
+  Bittensor ecosystem's first major DeFi-side paying customers)
+- Score (SN44) vs RedTeam (SN61) comparison is an obvious future
+  Oracle Subnet Spotlight: two subnets that moved past "interesting
+  research" into "real enterprise contracts" but with different
+  go-to-market structures (Score via PwC Big Four distribution
+  alliance, RedTeam via direct commercial vehicle Innerworks)
+
+---
+
 ## 2026-05-16 17:30 UTC, MAJOR THESIS DROP from Rondo, WallStreetBets TAO investment thesis
 Source: Rondo passed through the full @wallstreetbets X thread
 "Why TAO is the Bitcoin of AI" (originally posted Apr 30).
