@@ -1461,6 +1461,13 @@
   font-variant-numeric: tabular-nums;
   letter-spacing: -.01em;
   text-shadow: 0 0 12px rgba(255,30,60,.45);
+  transition: text-shadow var(--d-base) var(--e-out), color var(--d-base) var(--e-out);
+}
+/* glow + brighten when the figure flips to live data from the
+   tao:subnets feed (TaoMarketCap public API rolled up by layer) */
+.home-stack__capital-b .home-stack__capital-val.is-live{
+  color: var(--c-red-1);
+  text-shadow: 0 0 16px rgba(255,30,60,.65);
 }
 
 /* gap multiplier chip below the capital row — gives the

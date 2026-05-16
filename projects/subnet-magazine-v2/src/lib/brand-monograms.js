@@ -26,15 +26,19 @@
 
 /** @type {Object<string,BrandMark>} */
 const BRANDS = {
-  // — model labs
+  // — model labs (all verified against simple-icons.org)
   openai:      { m: 'OA', c: '#10A37F', s: 'openai' },
   anthropic:   { m: 'AC', c: '#D97757', s: 'anthropic' },
   google:      { m: 'G',  c: '#4285F4', s: 'google' },
-  googleai:    { m: 'G',  c: '#4285F4', s: 'google' },
+  googleai:    { m: 'G',  c: '#4285F4', s: 'googlegemini' },
+  gemini:      { m: 'Gm', c: '#4285F4', s: 'googlegemini' },
   meta:        { m: 'M',  c: '#0866FF', s: 'meta' },
   deepseek:    { m: 'DS', c: '#4D6BFE', s: 'deepseek' },
   mistral:     { m: 'M',  c: '#FA520F', s: 'mistralai' },
   xai:         { m: 'X',  c: '#000000', ink: '#fff', s: 'x' },
+  huggingface: { m: 'HF', c: '#FFD21E', ink: '#000', s: 'huggingface' },
+  cohere:      { m: 'Co', c: '#39594D', s: 'cohere' },
+  databricks:  { m: 'Db', c: '#FF3621', s: 'databricks' },
 
   // — agents / dev tools
   cursor:      { m: 'Cu', c: '#0d0d0d', ink: '#fff', s: 'cursor' },
@@ -45,12 +49,18 @@ const BRANDS = {
   operator:    { m: 'Op', c: '#10A37F', s: 'openai' },
   salesforce:  { m: 'SF', c: '#00A1E0', s: 'salesforce' },
   agentforce:  { m: 'AF', c: '#00A1E0', s: 'salesforce' },
+  windsurf:    { m: 'Wd', c: '#3DBE99' },
+  github:      { m: 'GH', c: '#181717', ink: '#fff', s: 'github' },
+  vercel:      { m: 'Vc', c: '#000000', ink: '#fff', s: 'vercel' },
 
-  // — inference platforms
-  together:    { m: 'TG', c: '#1A75FF' },
+  // — inference platforms (simple-icons coverage varies)
+  together:    { m: 'TG', c: '#1A75FF', s: 'togetherai' },
   fireworks:   { m: 'FW', c: '#FF6B35' },
   replicate:   { m: 'Rp', c: '#000000', ink: '#fff', s: 'replicate' },
   groq:        { m: 'Gq', c: '#F55036', s: 'groq' },
+  modal:       { m: 'Md', c: '#7FEE64', ink: '#000', s: 'modal' },
+  runpod:      { m: 'Rp', c: '#673AB7', s: 'runpod' },
+  vllm:        { m: 'vL', c: '#7c1ea8' },
 
   // — data labelling / ETL
   scale:       { m: 'SC', c: '#000000', ink: '#fff' },
@@ -64,9 +74,22 @@ const BRANDS = {
   azure:       { m: 'Az', c: '#0078D4', s: 'microsoftazure' },
   gcp:         { m: 'GC', c: '#4285F4', s: 'googlecloud' },
   microsoft:   { m: 'MS', c: '#00BCF2', s: 'microsoft' },
+  apple:       { m: 'Ap', c: '#000000', ink: '#fff', s: 'apple' },
+  amazon:      { m: 'Az', c: '#FF9900', ink: '#000', s: 'amazon' },
   coreweave:   { m: 'CW', c: '#10AB55' },
   lambda:      { m: 'Lm', c: '#7B61FF' },
   nvidia:      { m: 'Nv', c: '#76B900', ink: '#000', s: 'nvidia' },
+  amd:         { m: 'AM', c: '#ED1C24', s: 'amd' },
+  intel:       { m: 'In', c: '#0071C5', s: 'intel' },
+  tsmc:        { m: 'TS', c: '#FFCC00', ink: '#000' },
+  broadcom:    { m: 'Bc', c: '#CC092F', s: 'broadcom' },
+
+  // — crypto / bittensor adjacent
+  taostats:    { m: 'TS', c: '#FF1E3C', ink: '#fff' },
+  coinbase:    { m: 'Cb', c: '#0052FF', s: 'coinbase' },
+  kraken:      { m: 'Kr', c: '#5741D9', s: 'kraken' },
+  binance:     { m: 'Bn', c: '#F0B90B', ink: '#000', s: 'binance' },
+  bittensor:   { m: 'τ',  c: '#FF1E3C', ink: '#fff' },
 
   // — neutral
   none:        { m: '—',  c: '#3a1419', ink: '#FF4D60' },
@@ -84,10 +107,14 @@ export function inferBrandKey(label){
   const order = [
     'claudecode', 'operator', 'agentforce',
     'anthropic', 'openai', 'deepseek', 'mistral', 'xai',
+    'gemini', 'googleai', 'huggingface', 'cohere', 'databricks',
     'cursor', 'cognition', 'devin', 'perplexity', 'salesforce',
-    'together', 'fireworks', 'replicate', 'groq',
+    'windsurf', 'github', 'vercel',
+    'together', 'fireworks', 'replicate', 'groq', 'modal', 'runpod', 'vllm',
     'scaleai', 'scale', 'surge', 'snorkel', 'commoncrawl',
-    'aws', 'azure', 'gcp', 'microsoft', 'coreweave', 'lambda', 'nvidia',
+    'aws', 'azure', 'gcp', 'microsoft', 'apple', 'amazon',
+    'coreweave', 'lambda', 'nvidia', 'amd', 'intel', 'tsmc', 'broadcom',
+    'coinbase', 'kraken', 'binance', 'taostats', 'bittensor',
     'google', 'meta',
   ];
   const niceMap = {
@@ -96,6 +123,7 @@ export function inferBrandKey(label){
     agentforce: 'agentforce',
     commoncrawl: 'common crawl',
     googleai: 'google ai',
+    huggingface: 'hugging face',
   };
   for (const key of order){
     const probe = niceMap[key] || key;
@@ -136,17 +164,20 @@ export function brandChip(input, opts = {}){
   const size = opts.size || 18;
   const b = brandFor(input);
   const monoFs = Math.round(size * 0.5);
-  const imgPad = Math.round(size * 0.18);
-  /* simple-icons CDN serves a white silhouette of the brand mark;
-     we render it inside a coloured disc that matches the brand. */
+  /* image fills the disc with ~12% inset; tighter inset reads as
+     a more confident logo at small sizes */
+  const inner = Math.round(size * 0.78);
   const logoImg = b.s
     ? `<img class="brand-chip__img"
             src="https://cdn.simpleicons.org/${b.s}/white"
             alt=""
-            width="${size - imgPad * 2}" height="${size - imgPad * 2}"
+            width="${inner}" height="${inner}"
             loading="lazy" decoding="async"
             onerror="this.style.display='none';this.nextElementSibling.style.display='grid';">`
     : '';
-  return `<span class="brand-chip" aria-hidden="true" style="width:${size}px;height:${size}px;background:${b.c};">${logoImg}<span class="brand-chip__mono" style="display:${b.s ? 'none' : 'grid'};font-size:${monoFs}px;color:${b.ink || '#fff'};">${b.m}</span></span>`;
+  /* a faint coloured glow that matches the brand — gives each
+     chip a hint of identity even at thumb size */
+  const glow = `box-shadow: 0 0 0 1px rgba(255,255,255,.06) inset, 0 0 10px ${b.c}55;`;
+  return `<span class="brand-chip" aria-hidden="true" style="width:${size}px;height:${size}px;background:${b.c};${glow}">${logoImg}<span class="brand-chip__mono" style="display:${b.s ? 'none' : 'grid'};font-size:${monoFs}px;color:${b.ink || '#fff'};">${b.m}</span></span>`;
 }
 

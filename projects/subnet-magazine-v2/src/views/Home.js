@@ -666,8 +666,11 @@ export function mountHome(root, dataLayer = null){
                 </div>
                 <div class="home-stack__capital-b">
                   <span class="home-stack__capital-lbl" title="α-MCAP = α-token market cap = α price × α circulating supply">BITTENSOR <span class="alpha">α</span>-MCAP</span>
-                  <span class="home-stack__capital-val">${fmtM(row.aMcap)}</span>
-                  <span class="home-stack__capital-sub"><span class="alpha">α</span> price × supply</span>
+                  <span class="home-stack__capital-val"
+                        data-stack-amcap="${row.layer}"
+                        data-stack-amcap-nets="${(row.sn || []).filter(s => s.id != null).map(s => s.id).join(',')}">${fmtM(row.aMcap)}</span>
+                  <span class="home-stack__capital-sub"
+                        data-stack-amcap-src="${row.layer}"><span class="alpha">α</span> price × supply</span>
                 </div>
               </div>
               <div class="home-stack__capital-gap">
@@ -1878,11 +1881,53 @@ export function mountHome(root, dataLayer = null){
     unsubs.push(dataLayer.subscribe('tao:chain',   renderChain));
     unsubs.push(dataLayer.subscribe('tao:subnets', renderSubnets));
     unsubs.push(dataLayer.subscribe('tao:subnets', renderArticleLogos));
+    unsubs.push(dataLayer.subscribe('tao:subnets', renderStackLive));
     /* render anything already cached */
     renderMarket(dataLayer.get('tao:market'));
     renderChain(dataLayer.get('tao:chain'));
     renderSubnets(dataLayer.get('tao:subnets'));
     renderArticleLogos(dataLayer.get('tao:subnets'));
+    renderStackLive(dataLayer.get('tao:subnets'));
+  }
+
+  /* ---------- LIVE: § 03 Money Map · Bittensor α-MCAP per layer ----
+     Replaces each card's editorial-snapshot Bittensor figure with
+     the rolled-up sum of subnet mcap (millions) for the layer's
+     listed competing subnets. Sources the figure from the live
+     tao:subnets feed (TaoMarketCap public API). When data lands,
+     each <span data-stack-amcap-nets="1,9,3,120,6"> gets updated
+     to the summed value and the supplementary line below it
+     flips to 'LIVE · α price × supply'. */
+  function renderStackLive(list){
+    if (!Array.isArray(list) || !list.length) return;
+    /* keyed by netuid for O(1) lookup */
+    const byId = new Map();
+    list.forEach(s => { if (s && s.netuid != null) byId.set(Number(s.netuid), s); });
+    const fmtMillions = (m) => {
+      if (m == null || isNaN(m)) return null;
+      if (m >= 1000) return '$' + (m/1000).toFixed(2) + 'B';
+      if (m >= 10)   return '$' + Math.round(m) + 'M';
+      return '$' + m.toFixed(1) + 'M';
+    };
+    qsa('[data-stack-amcap-nets]', root).forEach(el => {
+      const ids = (el.getAttribute('data-stack-amcap-nets') || '')
+        .split(',').map(s => Number(s.trim())).filter(n => !isNaN(n));
+      if (!ids.length) return;
+      let sum = 0, hits = 0;
+      ids.forEach(id => {
+        const s = byId.get(id);
+        if (s && typeof s.mcap === 'number'){ sum += s.mcap; hits += 1; }
+      });
+      if (hits === 0) return;
+      const txt = fmtMillions(sum);
+      if (!txt) return;
+      el.textContent = txt;
+      el.classList.add('is-live');
+      /* swap the sub-line to surface that it's live now */
+      const layer = el.getAttribute('data-stack-amcap');
+      const sub = root.querySelector(`[data-stack-amcap-src="${layer}"]`);
+      if (sub) sub.innerHTML = '<span class="dot dot--live"></span>LIVE · TAOMARKETCAP · ' + hits + ' subnets';
+    });
   }
 
   /* "▸ swipe left for more" cue on every horizontally-scrolling
