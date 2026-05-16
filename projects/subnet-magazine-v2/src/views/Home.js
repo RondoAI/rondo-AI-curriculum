@@ -27,6 +27,7 @@ import { Sparkline } from '../charts/Sparkline.js';
 import { NeuralNet } from '../charts/NeuralNet.js';
 import { Treemap } from '../charts/Treemap.js';
 import { articlesByDate } from '../data/articles.js';
+import { recentOracleArticles } from '../data/oracle-articles.js';
 import { subnetById, SUBNETS } from '../data/subnets.js';
 import { SUBNET_BIOS } from '../data/subnet-bios.js';
 import { FOUNDERS, founderById } from '../data/founders.js';
@@ -149,6 +150,12 @@ const SECTIONS = [
  */
 export function mountHome(root, dataLayer = null){
   const articles = articlesByDate();
+  // Oracle articles are a separate research class authored by the
+  // AI agent (Claude Opus 4.7), labeled and rendered as a distinct
+  // row below the human editorial desk so readers can tell which
+  // mind wrote which piece.
+  const oracleArticles = recentOracleArticles(6);
+  const oracleLatestDate = oracleArticles[0]?.date || '';
 
   mount(root, html`
     <!-- ===== FEATURED RESEARCH (top of page) ===== -->
@@ -190,6 +197,51 @@ export function mountHome(root, dataLayer = null){
       </ul>
     </section>
 
+    <!-- ===== § 02 SUBNET ORACLE RESEARCH (the AI-agent research arm)
+         A separate row, clearly labeled, so readers can distinguish
+         work filed by the human editorial desk (§ 01 above) from
+         work filed by the Oracle, the autonomous research agent. Same
+         card grammar as the human row, with the kicker prefixed
+         ORACLE and the byline always "Subnet Oracle" so attribution
+         is unambiguous at a glance. ===== -->
+    <section class="home-research home-research--oracle" aria-label="Subnet Oracle Research, AI-filed">
+      <div class="home-research__head">
+        <span class="home-net__kicker"><span class="home-net__ord">§ 02</span><span class="live-dot"></span>Subnet Oracle Research · the agent</span>
+        <span class="home-net__source"><span class="dot dot--editorial"></span>AI-FILED${oracleLatestDate ? ' · ' + artDate(oracleLatestDate).toUpperCase() : ''} · CLAUDE OPUS 4.7</span>
+        <a class="home-subnets__all" href="research.html">Oracle research desk ↗</a>
+      </div>
+      <ul class="home-research__grid">
+        ${oracleArticles.slice(0, 4).map((a, i) => {
+          const isSpot = a.kind === 'subnet-spotlight';
+          const kicker = isSpot
+            ? `ORACLE · SN${a.subnetId} ${(a.subnetName || '').toUpperCase()} SPOTLIGHT`
+            : 'ORACLE · ECOSYSTEM STATE';
+          /* Word-count based read estimate, 200 wpm. Sections may
+             contain markdown; the rough split is fine for a chip. */
+          const wc = (a.sections || []).reduce(
+            (n, s) => n + (s.body || '').split(/\s+/).length, 0);
+          const readMin = Math.max(3, Math.round(wc / 200));
+          return `
+          <li class="home-article home-article--oracle ${i === 0 ? 'is-lead' : ''}">
+            <a class="home-article__link" href="${a.pdf}" target="_blank" rel="noopener">
+              <span class="home-article__art">
+                ${cardArt(a.id + '|' + a.title, { variant: 'oracle', w: 520, h: i === 0 ? 300 : 220 })}
+                <span class="home-article__art-frame" aria-hidden="true"></span>
+              </span>
+              <span class="home-article__kicker">${kicker}</span>
+              <span class="home-article__title">${a.title}</span>
+              <span class="home-article__tagline">${a.dek}</span>
+              <span class="home-article__meta">
+                <span>Subnet Oracle</span>
+                <span>${artDate(a.date)} · ${readMin} min</span>
+              </span>
+            </a>
+          </li>
+          `;
+        }).join('')}
+      </ul>
+    </section>
+
     <!-- ===== TOP 25 BIOS · DEEP PROFILES =====
          The 25 subnets that earn the most daily τ, each profiled in
          150-200 words with the metric that defines them today, a
@@ -198,7 +250,7 @@ export function mountHome(root, dataLayer = null){
          2026 press, sourced inline at the section foot. -->
     <section class="home-bios" aria-label="Top 25 subnet deep profiles">
       <div class="home-net__head">
-        <span class="home-net__kicker"><span class="home-net__ord">§ 02</span><span class="live-dot"></span>The Top 25 · deep profiles · 14 May 2026</span>
+        <span class="home-net__kicker"><span class="home-net__ord">§ 03</span><span class="live-dot"></span>The Top 25 · deep profiles · 14 May 2026</span>
         <span class="home-net__source"><span class="dot dot--live"></span>LIVE TAOSTATS + EDITORIAL · MCP READY</span>
         <h2 class="home-net__title">The <em>full read</em> on every leader.</h2>
         <p class="home-net__sub">Editorial bios for the 25 subnets earning the most daily τ as of 14 May 2026,         what they actually do, who runs them, what they shipped in 2026, and the single number that
@@ -321,7 +373,7 @@ export function mountHome(root, dataLayer = null){
       </span>
     </section>
 
-    <!-- ===== § 03 THE MONEY MAP · centralized vs Bittensor by capital =====
+    <!-- ===== § 04 THE MONEY MAP · centralized vs Bittensor by capital =====
          Real infographic, not a competitor list. Per layer of the AI
          stack we put the centralized market cap next to the Bittensor
          α-mcap of the subnets competing there, to scale, on a log
@@ -334,7 +386,7 @@ export function mountHome(root, dataLayer = null){
     <section class="home-stack" aria-label="The decentralized AI money map, centralized vs Bittensor by capital">
       <div class="home-stack__hero">
         <div class="home-net__head">
-          <span class="home-net__kicker"><span class="home-net__ord">§ 03</span><span class="live-dot"></span>The Money Map · centralized capital vs Bittensor <span class="alpha">α</span>-mcap</span>
+          <span class="home-net__kicker"><span class="home-net__ord">§ 04</span><span class="live-dot"></span>The Money Map · centralized capital vs Bittensor <span class="alpha">α</span>-mcap</span>
           <span class="home-net__source"><span class="dot dot--live"></span>SNAPSHOT · 14 MAY 2026 · ALL CAPITAL FIGURES VERIFIED OR FORWARD-PROJECTED FY26</span>
           <h2 class="home-net__title">How small is <em>decentralized AI,</em> really?</h2>
           <p class="home-net__sub">For every layer of the AI stack: the centralized market
@@ -745,7 +797,7 @@ export function mountHome(root, dataLayer = null){
          documentation, not a marketing card grid. -->
     <section class="home-how" aria-label="The Bittensor protocol, stage by stage">
       <div class="home-net__head">
-        <span class="home-net__kicker"><span class="home-net__ord">§ 04</span>The protocol · yuma v2 · dtao enabled</span>
+        <span class="home-net__kicker"><span class="home-net__ord">§ 05</span>The protocol · yuma v2 · dtao enabled</span>
         <span class="home-net__source"><span class="dot dot--editorial"></span>EDITORIAL · YUMA RAO 2020 + 2026 NETWORK STATE</span>
         <h2 class="home-net__title">The loop, <em>stage by stage.</em></h2>
         <p class="home-net__sub">Six stages from task definition to token emission. What each
@@ -1343,7 +1395,7 @@ export function mountHome(root, dataLayer = null){
          every block. Different mode than the masthead plexus,          that's the brand; this is the protocol diagram. -->
     <section class="home-neural" aria-label="The Bittensor consensus loop, visualized">
       <div class="home-net__head">
-        <span class="home-net__kicker"><span class="home-net__ord">§ 05</span>The machine</span>
+        <span class="home-net__kicker"><span class="home-net__ord">§ 06</span>The machine</span>
         <span class="home-net__source"><span class="dot dot--sim"></span>SIMULATED FEED-FORWARD · 5 LAYERS · 185 PULSES</span>
         <h2 class="home-net__title">Intelligence, <em>incentivized.</em></h2>
         <p class="home-net__sub">The loop you just read about, rendered live. Subnets set the task,
@@ -1361,7 +1413,7 @@ export function mountHome(root, dataLayer = null){
          pie actually gets split. -->
     <section class="home-neural" aria-label="Subnet emission share treemap">
       <div class="home-net__head">
-        <span class="home-net__kicker"><span class="home-net__ord">§ 06</span>The slice</span>
+        <span class="home-net__kicker"><span class="home-net__ord">§ 07</span>The slice</span>
         <span class="home-net__source"><span class="dot dot--live"></span>LIVE TAOSTATS · TOP 16 SUBNETS BY <span class="tau">τ</span>/DAY</span>
         <h2 class="home-net__title">Where the <em>emissions</em> go.</h2>
         <p class="home-net__sub">Bigger tile, bigger share. Chutes, Targon and Apex eat first;
@@ -1379,7 +1431,7 @@ export function mountHome(root, dataLayer = null){
     <!-- ===== LIVE NETWORK band ===== -->
     <section class="home-net" aria-label="Live network statistics">
       <div class="home-net__head">
-        <span class="home-net__kicker"><span class="home-net__ord">§ 07</span><span class="live-dot"></span>Live Network · taomarketcap</span>
+        <span class="home-net__kicker"><span class="home-net__ord">§ 08</span><span class="live-dot"></span>Live Network · taomarketcap</span>
         <span class="home-net__source"><span class="dot dot--live"></span>LIVE TAO MARKET CAP PUBLIC API · 12s POLL</span>
         <h2 class="home-net__title">Bittensor, <em>right now.</em></h2>
         <p class="home-net__sub">Real on-chain data, TAO market, supply, staking, and chain state, refreshed straight from the Tao Market Cap public API.</p>
@@ -1424,7 +1476,7 @@ export function mountHome(root, dataLayer = null){
       </div>
     </section>
 
-    <!-- ===== § 07 THE NETWORK · Six Degrees of Const =====
+    <!-- ===== § 09 THE OPERATORS · research and financial data =====
          Bittensor is not a hundred independent subnets. It is one
          founding circle, a dozen operators, and five investors.
          This is the table that proves it, every top-25 subnet
@@ -1433,7 +1485,7 @@ export function mountHome(root, dataLayer = null){
          defensible against a public source in founders.js. -->
     <section class="home-network" aria-label="The operators desk · research and financial data on every top-25 subnet">
       <div class="home-net__head">
-        <span class="home-net__kicker"><span class="home-net__ord">§ 08</span><span class="live-dot"></span>The Operators · research &amp; financial data</span>
+        <span class="home-net__kicker"><span class="home-net__ord">§ 09</span><span class="live-dot"></span>The Operators · research &amp; financial data</span>
         <span class="home-net__source"><span class="dot dot--editorial"></span>OPERATORS DESK · 25 SUBNETS · 14 MAY 2026</span>
         <h2 class="home-net__title">Who <em>actually runs</em> these subnets.</h2>
         <p class="home-net__sub">For every top-25 subnet: the parent organisation, its lead investors,
