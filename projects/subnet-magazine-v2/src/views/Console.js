@@ -13,6 +13,7 @@
    ================================================================= */
 
 import { FIELD_MANUAL } from '../data/bittensor-faq.js';
+import { NodeSphere } from '../charts/NodeSphere.js';
 
 const STYLE_ID = 'sbnt-console-style';
 
@@ -65,32 +66,73 @@ const CSS = `
   color: var(--c-ink-2, #C8A8AD);
   user-select: none;
 }
-/* The Oracle's "consciousness" — a static SVG neural-net hexagon
-   (six outer nodes, six spokes to center, faint hex outline) that
-   pulses opacity 1 → .5 → 1 every 1.8 s. Reads as a tiny working
-   plexus, but uses only a single opacity animation on a position:
-   fixed element — no filter, no transform, no halo — which is the
-   compositor budget that the previous JARVIS variant blew through
-   on Android Chrome long pages. */
+/* The Oracle's "consciousness" mark — a real-time 3D NodeSphere
+   plexus rendered on canvas, with a pulsing white core overlay
+   and an expanding broadcast halo. Three layers, painted in
+   sequence:
+     1. canvas      — NodeSphere (rotating plexus, KNN edges,
+                       atmospheric glow). 60 fps requestAnimationFrame
+                       loop driven by the chart class.
+     2. ::before    — broadcast halo ring expanding scale .45 → 2.4
+                       every 2.4 s.
+     3. ::after     — white-glowing core dot pulsing scale 1 → 1.5
+                       every 1.6 s. The "thought firing".
+   The ::before / ::after are absolutely positioned over the canvas
+   so the plexus shows through. */
 .sbnt-console__nn{
+  position: relative;
   display: inline-block;
-  width: 18px; height: 18px;
-  flex: 0 0 18px;
+  width: 34px; height: 34px;
+  flex: 0 0 34px;
   color: var(--c-red, #FF1E3C);
-  pointer-events: none;
-  animation: sbntNNPulse 1.8s ease-in-out infinite;
+  filter: drop-shadow(0 0 8px rgba(255,30,60,.6));
 }
-.sbnt-console__nn svg{ display: block; width: 100%; height: 100%; }
-.sbnt-console__nn line{ stroke: currentColor; stroke-width: .9; stroke-opacity: .55; }
-.sbnt-console__nn path{ stroke: currentColor; stroke-width: .8; stroke-opacity: .35; fill: none; }
-.sbnt-console__nn circle{ fill: currentColor; }
-.sbnt-console__nn .nn-core{ fill: #fff; }
-@keyframes sbntNNPulse{
-  0%, 100% { opacity: 1;  }
-  50%      { opacity: .5; }
+.sbnt-console__nn-canvas{
+  display: block;
+  width: 100%; height: 100%;
+  border-radius: 50%;
+}
+.sbnt-console__nn::after{
+  /* white pulsing core */
+  content: "";
+  position: absolute;
+  top: 50%; left: 50%;
+  width: 5px; height: 5px;
+  margin: -2.5px 0 0 -2.5px;
+  background: #FFFFFF;
+  border-radius: 50%;
+  box-shadow:
+    0 0 4px #FFFFFF,
+    0 0 10px var(--c-red, #FF1E3C),
+    0 0 18px rgba(255,30,60,.45);
+  pointer-events: none;
+  animation: sbntNNCore 1.6s ease-in-out infinite;
+  z-index: 2;
+}
+.sbnt-console__nn::before{
+  /* broadcast halo */
+  content: "";
+  position: absolute;
+  top: 50%; left: 50%;
+  width: 12px; height: 12px;
+  margin: -6px 0 0 -6px;
+  border: 1px solid var(--c-red, #FF1E3C);
+  border-radius: 50%;
+  pointer-events: none;
+  animation: sbntNNHalo 2.4s ease-out infinite;
+  z-index: 1;
+}
+@keyframes sbntNNCore{
+  0%, 100% { transform: scale(1);   opacity: 1;   }
+  50%      { transform: scale(1.5); opacity: .65; }
+}
+@keyframes sbntNNHalo{
+  0%   { transform: scale(.4); opacity: .9; }
+  100% { transform: scale(2.4); opacity: 0; }
 }
 @media (prefers-reduced-motion: reduce){
-  .sbnt-console__nn{ animation: none; }
+  .sbnt-console__nn::after,
+  .sbnt-console__nn::before{ animation: none; }
 }
 /* "Subnet Oracle" — the bar's brand. Serif italic feels editorial,
    matches the hero wordmark family. Tight letter-spacing, no caps —
@@ -569,23 +611,11 @@ export function mountConsole(_dataLayer = null){
   el.innerHTML = `
     <span class="sbnt-console__edge" aria-hidden="true"></span>
     <div class="sbnt-console__bar" data-role="bar">
+      <!-- The Oracle's "consciousness" — a real-time 3D NodeSphere
+           plexus rendered on canvas, with the white pulsing core
+           and broadcast halo as CSS pseudos over the top. -->
       <span class="sbnt-console__nn" aria-hidden="true">
-        <svg viewBox="0 0 24 24">
-          <line x1="12" y1="12" x2="12"    y2="3"/>
-          <line x1="12" y1="12" x2="19.79" y2="7.5"/>
-          <line x1="12" y1="12" x2="19.79" y2="16.5"/>
-          <line x1="12" y1="12" x2="12"    y2="21"/>
-          <line x1="12" y1="12" x2="4.21"  y2="16.5"/>
-          <line x1="12" y1="12" x2="4.21"  y2="7.5"/>
-          <path d="M12 3 L19.79 7.5 L19.79 16.5 L12 21 L4.21 16.5 L4.21 7.5 Z"/>
-          <circle cx="12"    cy="3"    r="1.3"/>
-          <circle cx="19.79" cy="7.5"  r="1.3"/>
-          <circle cx="19.79" cy="16.5" r="1.3"/>
-          <circle cx="12"    cy="21"   r="1.3"/>
-          <circle cx="4.21"  cy="16.5" r="1.3"/>
-          <circle cx="4.21"  cy="7.5"  r="1.3"/>
-          <circle class="nn-core" cx="12" cy="12" r="1.7"/>
-        </svg>
+        <canvas class="sbnt-console__nn-canvas" data-role="nn-canvas"></canvas>
       </span>
       <span class="sbnt-console__brand">
         <span class="sbnt-console__name">Subnet Oracle</span>
@@ -601,6 +631,19 @@ export function mountConsole(_dataLayer = null){
     <div class="sbnt-console__body" data-role="body"></div>
   `;
   document.body.appendChild(el);
+
+  /* Mount the Oracle's "consciousness" plexus — a tiny NodeSphere
+     instance on the bar's neural-net canvas. 18 nodes is enough at
+     34 px to read as a 3D plexus without looking sparse; the
+     atmospheric glow + density crossings give the PS5-grade feel. */
+  const nnCanvas = el.querySelector('[data-role="nn-canvas"]');
+  const nnSphere = nnCanvas ? new NodeSphere(nnCanvas, {
+    nodes:   18,
+    K:       3,
+    density: 0.45,
+    speed:   0.55,
+    atmos:   true,
+  }) : null;
 
   const body    = el.querySelector('[data-role="body"]');
   const title   = el.querySelector('[data-role="title"]');
@@ -1104,6 +1147,7 @@ export function mountConsole(_dataLayer = null){
         if (RUNNER.canvas._sbntKeyHandler) window.removeEventListener('keydown', RUNNER.canvas._sbntKeyHandler);
         if (RUNNER.canvas._sbntResize)     window.removeEventListener('resize', RUNNER.canvas._sbntResize);
       }
+      nnSphere?.destroy();
       el.remove();
     },
   };

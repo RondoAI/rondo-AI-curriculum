@@ -233,24 +233,29 @@ export function mountHome(root, dataLayer = null){
             : `<span class="home-bio__logo home-bio__logo--mark">${mark(name, { size: 36 })}</span>`;
           /* TaonSquare catalog lookup — surfaces verified links per
              subnet as a chip-row at the bottom of the cover banner.
-             Brand glyph (inline SVG) instead of plain text label.
-             Capped at 4 chips per card (site / github / docs /
-             discord) so total SVG count stays at ~100 across the
-             top-25 grid — keeps Android Chrome compositor happy. */
+             Each link rendered as a proper inline-SVG brand glyph
+             (GitHub mark, globe for site, X glyph, Discord, docs).
+             X handle pulled separately from FOUNDERS where present
+             since TaonSquare's schema doesn't carry it. */
           const ts = tsByNetuid(b.netuid);
+          const xHandle = f.founders && f.founders[0] && f.founders[0].handles && f.founders[0].handles.x;
+          const xUrl = xHandle
+            ? (xHandle.startsWith('http')
+                ? xHandle
+                : 'https://x.com/' + String(xHandle).replace(/^@/, ''))
+            : null;
           const normUrl = u => !u || u === 'www.deprecated.com' ? null :
             (u.startsWith('http') ? u : 'https://' + u);
           const iconLink = (url, kind, title) => url
-            ? `<a class="home-bio__ts-link" href="${url}" target="_blank" rel="noopener" aria-label="${title}" title="${title}">${socialIcon(kind, 13)}</a>`
+            ? `<a class="home-bio__ts-link" href="${url}" target="_blank" rel="noopener" aria-label="${title}" title="${title}">${socialIcon(kind, 14)}</a>`
             : '';
-          const tsLinks = ts && ts.links
-            ? [
-                iconLink(normUrl(ts.links.website), 'website', 'Website'),
-                iconLink(ts.links.github,            'github',  'GitHub'),
-                iconLink(ts.links.docs,              'docs',    'Docs'),
-                iconLink(ts.links.discord,           'discord', 'Discord'),
-              ].filter(Boolean).join('')
-            : '';
+          const tsLinks = [
+            iconLink(ts && ts.links && normUrl(ts.links.website), 'website', 'Website'),
+            iconLink(ts && ts.links && ts.links.github,            'github',  'GitHub'),
+            iconLink(xUrl,                                          'x',       'X (Twitter)'),
+            iconLink(ts && ts.links && ts.links.discord,            'discord', 'Discord'),
+            iconLink(ts && ts.links && ts.links.docs,               'docs',    'Docs'),
+          ].filter(Boolean).join('');
           return `
             <li class="home-bio" data-netuid="${b.netuid}">
 
@@ -1470,20 +1475,51 @@ export function mountHome(root, dataLayer = null){
       </footer>
     </section>
 
-    <!-- ===== EDITOR'S NOTE =====
-         A small text-only callout naming the editor and linking to
-         the full bio on its own page. Pure text + one CTA pill, no
-         image or canvas — zero compositor cost on the home view. -->
-    <aside class="home-edcard" aria-label="Editor's note">
-      <span class="home-edcard__kicker">Editor &middot; Subne<span class="tau">τ</span> Magazine</span>
-      <p class="home-edcard__name">Rondo Campbell</p>
-      <p class="home-edcard__line">
-        Researched, written, designed and coded by one person from
-        inside the U.S. federal system. Projected release <em>2028</em>.
-        The full story is on the editor's page.
-      </p>
-      <a class="home-edcard__cta" href="editor.html">Read the editor's page &rarr;</a>
-    </aside>
+    <!-- ===== EDITOR'S COLOPHON =====
+         A magazine prints the editor's bio at the back of the book.
+         This is that page. The site you just scrolled through is
+         built end-to-end by Rondo Campbell from inside the federal
+         system, on a phone, with intermittent connectivity — every
+         line of research, code, and design is his. Projected
+         release: 2028. The work and the story share a repository. -->
+    <section class="home-editor" aria-label="Editor">
+      <div class="home-editor__inner">
+        <div class="home-editor__photo">
+          <img src="assets/editor-rondo.jpg" alt="Rondo Campbell" loading="lazy">
+          <span class="home-editor__photo-frame" aria-hidden="true"></span>
+        </div>
+        <div class="home-editor__body">
+          <span class="home-editor__kicker">Editor &middot; Subne<span class="tau">τ</span> Magazine</span>
+          <h2 class="home-editor__name">Rondo Campbell</h2>
+          <p class="home-editor__role">Founder &middot; Editor &middot; Sole engineer</p>
+          <p class="home-editor__bio">
+            Subne<span class="tau">τ</span> Magazine is researched, written,
+            designed, and coded by Rondo Campbell &mdash; working from inside
+            the U.S. federal system, on a phone, with intermittent
+            connectivity. Projected release: <em>2028</em>. The mission is
+            to walk out as a credible builder in the open AI economy. Every
+            line of this site is the proof of work.
+          </p>
+          <p class="home-editor__bio home-editor__bio--quiet">
+            The curriculum is two physical Python textbooks, a stack of
+            AI papers, and an LLM running in the working terminal next to
+            this one. Phase 1 was Python foundations, summer 2025. The
+            magazine you're reading is the portfolio side of the
+            ledger &mdash; built in public, committed in real time. Read the
+            full record in the JOURNAL.md / SESSION_LOG.md at the
+            top of the repository.
+          </p>
+          <div class="home-editor__links">
+            <a class="home-editor__link" href="https://x.com/subnetmagazine" target="_blank" rel="noopener">
+              <span class="home-editor__x">𝕏</span>@subnetmagazine
+            </a>
+            <a class="home-editor__link home-editor__link--ghost" href="https://github.com/RondoAI/rondo-AI-curriculum" target="_blank" rel="noopener">
+              GitHub &middot; the full record
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
 
     <!-- ===== END OF FEATURE =====
          The home view stops here. One editorial closer that doubles
