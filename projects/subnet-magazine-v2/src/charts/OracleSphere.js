@@ -29,6 +29,10 @@ export class OracleSphere extends Chart {
    * @param {HTMLCanvasElement} canvas
    * @param {{
    *   text?:         string,
+   *   imageSrc?:     string,    // optional URL of a logo image; if
+   *                              // present, the chart samples its
+   *                              // pixels to form the plexus glyph,
+   *                              // rather than rendering the text.
    *   sphereNodes?:  number,
    *   sphereSpeed?:  number,
    *   glyphDensity?: number,
@@ -40,6 +44,7 @@ export class OracleSphere extends Chart {
   constructor(canvas, opts = {}){
     super(canvas, { animate: true });
     this.text         = (opts.text || 'ORACLE').toString();
+    this.imageSrc     = opts.imageSrc || null;
     this.sphereNodes  = opts.sphereNodes  ?? 64;
     this.sphereSpeed  = opts.sphereSpeed  ?? 0.32;
     this.glyphDensity = opts.glyphDensity ?? 0.58;
@@ -53,6 +58,22 @@ export class OracleSphere extends Chart {
     this._glyphPts  = [];   // glyph 2D points (canvas coords)
     this._glyphEdges = [];
     this._glyphPhase = [];
+
+    /* if an image is requested, load it now; once it lands we kick a
+       relayout. Until then the chart shows the text fallback. */
+    this._image = null;
+    if (this.imageSrc){
+      const img = new Image();
+      img.crossOrigin = 'anonymous';
+      img.onload = () => {
+        this._image = img;
+        if (this.w && this.h){
+          try { this.layout(this.ctx, this.w, this.h); } catch (_) {}
+        }
+      };
+      img.onerror = () => { /* fall through to text */ };
+      img.src = this.imageSrc;
+    }
   }
 
   /* ---------------------------------------------------------------- */
@@ -74,9 +95,11 @@ export class OracleSphere extends Chart {
     }
     this._spherePts = pts;
 
-    /* 2. Glyph: render to off-screen canvas, sample non-empty pixels.
-          We render at a fraction of the canvas size so the glyph
-          fits inside the sphere with margin to spare. */
+    /* 2. Glyph: render either an image (if the caller supplied a
+          logo URL and it loaded) or the text fallback to an off-screen
+          canvas. Either way we end up with a pixel grid we sample. We
+          size the off-screen canvas so the glyph fits inside the sphere
+          with margin to spare. */
     const gw = Math.floor(w * 0.62);
     const gh = Math.floor(h * 0.52);
     const off = document.createElement('canvas');
@@ -85,22 +108,49 @@ export class OracleSphere extends Chart {
     const oc = off.getContext('2d');
     oc.fillStyle = '#000';
     oc.fillRect(0, 0, off.width, off.height);
-    oc.fillStyle = '#fff';
-    oc.textAlign = 'center';
-    oc.textBaseline = 'middle';
 
-    /* Binary search font size to fit the text snugly into the box */
-    const padX = off.width * 0.08;
-    let lo = 8, hi = Math.min(off.width, off.height) * 2;
-    for (let i = 0; i < 12; i++){
-      const m = (lo + hi) / 2;
-      oc.font = `${this.weight} ${m}px Archivo, "Inter", system-ui, sans-serif`;
-      const tw = oc.measureText(this.text).width;
-      if (tw > off.width - padX * 2) hi = m;
-      else                            lo = m;
+    if (this._image){
+      /* Image path: fit-contain the image into the off-screen box,
+         centered. We render it white-on-black so the pixel-sample
+         pass downstream treats bright pixels as glyph. The original
+         color is discarded; the plexus will be all red. */
+      const iw = this._image.naturalWidth  || this._image.width  || 1;
+      const ih = this._image.naturalHeight || this._image.height || 1;
+      const scale = Math.min(off.width / iw, off.height / ih);
+      const dw = iw * scale, dh = ih * scale;
+      const dx = (off.width  - dw) / 2;
+      const dy = (off.height - dh) / 2;
+      oc.drawImage(this._image, dx, dy, dw, dh);
+      /* Threshold: any pixel with meaningful luminance becomes glyph.
+         We rewrite the off-screen image so the downstream sampler
+         can use the same "green channel > 90" test as the text path. */
+      const id = oc.getImageData(0, 0, off.width, off.height);
+      const d  = id.data;
+      for (let p = 0; p < d.length; p += 4){
+        const lum = 0.299 * d[p] + 0.587 * d[p + 1] + 0.114 * d[p + 2];
+        const aa  = d[p + 3];
+        const on  = (aa > 64) && (lum > 60);
+        d[p] = d[p + 1] = d[p + 2] = on ? 255 : 0;
+        d[p + 3] = 255;
+      }
+      oc.putImageData(id, 0, 0);
+    } else {
+      /* Text path (fallback). Binary search font size to fit. */
+      oc.fillStyle = '#fff';
+      oc.textAlign = 'center';
+      oc.textBaseline = 'middle';
+      const padX = off.width * 0.08;
+      let lo = 8, hi = Math.min(off.width, off.height) * 2;
+      for (let i = 0; i < 12; i++){
+        const m = (lo + hi) / 2;
+        oc.font = `${this.weight} ${m}px Archivo, "Inter", system-ui, sans-serif`;
+        const tw = oc.measureText(this.text).width;
+        if (tw > off.width - padX * 2) hi = m;
+        else                            lo = m;
+      }
+      oc.font = `${this.weight} ${lo}px Archivo, "Inter", system-ui, sans-serif`;
+      oc.fillText(this.text, off.width / 2, off.height / 2);
     }
-    oc.font = `${this.weight} ${lo}px Archivo, "Inter", system-ui, sans-serif`;
-    oc.fillText(this.text, off.width / 2, off.height / 2);
 
     /* Sample pixels on a stride grid */
     const data = oc.getImageData(0, 0, off.width, off.height).data;
