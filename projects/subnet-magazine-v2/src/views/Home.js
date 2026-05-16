@@ -263,9 +263,10 @@ export function mountHome(root, dataLayer = null){
         mix-blend-mode: screen;
         z-index: 3;
       }
-      /* The sphere canvas fills the cover area; this is the canonical
-         NodeSphere brand mark, identical engine and params to the one
-         at the top of the page. */
+      /* The sphere canvas: canonical NodeSphere, dimmed via opacity
+         so it recedes as ambient atmosphere and lets the logo plexus
+         dominate as the focal element. Same engine and params as the
+         top of the page; only the visual weight changes. */
       .home-article--oracle .home-article__sphere{
         position: absolute;
         inset: 0;
@@ -273,22 +274,41 @@ export function mountHome(root, dataLayer = null){
         height: 100%;
         display: block;
         z-index: 1;
-        filter: drop-shadow(0 0 18px rgba(255,30,60,.32));
+        opacity: .55;
+        filter: drop-shadow(0 0 14px rgba(255,30,60,.28));
       }
-      /* The glyph canvas overlays the sphere, centered, sized so the
-         logo plexus reads as suspended inside the rotating sphere.
-         Drop shadow gives the dots a soft red bloom; no blend mode
-         so the bright red dominates cleanly without washing out. */
+      /* Soft dark halo behind the glyph, painted via a radial gradient
+         pseudo so the bright logo dots sit on a quiet field rather
+         than competing directly with the sphere's edges. */
+      .home-article--oracle .home-article__art::before{
+        content: "";
+        position: absolute;
+        left: 50%; top: 50%;
+        transform: translate(-50%, -50%);
+        width: 80%;
+        height: 80%;
+        background: radial-gradient(ellipse at center,
+          rgba(7,5,9,.85) 0%,
+          rgba(7,5,9,.55) 35%,
+          rgba(7,5,9,0)   70%);
+        z-index: 1;
+        pointer-events: none;
+      }
+      /* The glyph canvas overlays the sphere, centered, sized large
+         so the logo dominates the composition. Drop-shadow bloom in
+         pure red; no blend mode so the saturated color reads cleanly. */
       .home-article--oracle .home-article__glyph{
         position: absolute;
         left: 50%; top: 50%;
         transform: translate(-50%, -50%);
-        width: 62%;
-        height: 62%;
+        width: 75%;
+        height: 75%;
         display: block;
         pointer-events: none;
         z-index: 2;
-        filter: drop-shadow(0 0 10px rgba(255,30,60,.55));
+        filter:
+          drop-shadow(0 0 8px  rgba(255,30,60,.75))
+          drop-shadow(0 0 22px rgba(255,30,60,.30));
       }
       /* Refined badge: smaller, glassy, glowing. Uses backdrop-filter
          where supported so it sits cleanly on the busy sphere behind. */
@@ -1958,12 +1978,12 @@ export function mountHome(root, dataLayer = null){
     try {
       oracleMarks.push(new PlexusGlyph(cv, {
         imageSrc:    imgUrl,
-        density:     0.88,    /* tight stride for fine silhouette */
+        density:     0.92,    /* tight stride for fine silhouette */
         ambient:     0,       /* sphere already provides background */
-        maxDots:     1400,    /* afford the detail on the small canvas */
-        maxEdgeDist: 0.028,   /* edges hug the silhouette, no blobbing */
+        maxDots:     1800,    /* afford the detail on the bigger canvas */
+        maxEdgeDist: 0.026,   /* edges hug the silhouette, no blobbing */
         K:           3,
-        dotSize:     1.25,    /* small dots so dense plexus reads clean */
+        dotSize:     1.5,     /* dots big enough to dominate, still distinct */
         supersample: 3,       /* rasterize SVG at 3x for sharp edges */
         seed:        i + 1,
       }));

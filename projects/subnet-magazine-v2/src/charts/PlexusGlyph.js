@@ -257,11 +257,11 @@ export class PlexusGlyph extends Chart {
     ctx.restore();
 
     /* 2. Foreground edges (the glyph's structural mesh). Two passes
-          for depth: a soft red underlayer for the bloom, a brighter
-          crisp line on top so the silhouette reads sharply. */
+          for depth: a soft red bloom underlayer plus a crisp brighter
+          stroke on top so the silhouette reads sharp. */
     ctx.save();
-    ctx.strokeStyle = 'rgba(255,30,60,0.30)';
-    ctx.lineWidth = 1.8;
+    ctx.strokeStyle = 'rgba(255,30,60,0.42)';
+    ctx.lineWidth = 2.0;
     for (const [i, j] of this._edges){
       const a = this._fg[i], b = this._fg[j];
       ctx.beginPath();
@@ -269,8 +269,8 @@ export class PlexusGlyph extends Chart {
       ctx.lineTo(b[0], b[1]);
       ctx.stroke();
     }
-    ctx.strokeStyle = 'rgba(255,77,96,0.75)';
-    ctx.lineWidth = 0.85;
+    ctx.strokeStyle = 'rgba(255,90,110,0.92)';
+    ctx.lineWidth = 0.95;
     for (const [i, j] of this._edges){
       const a = this._fg[i], b = this._fg[j];
       ctx.beginPath();
@@ -280,14 +280,14 @@ export class PlexusGlyph extends Chart {
     }
     ctx.restore();
 
-    /* 3. Foreground dots: bright red, with subtle per-node breathing
-          alpha so the shape feels alive. */
+    /* 3. Foreground dots: pure saturated red, opaque base with
+          subtle per-node breathing for life. */
     ctx.save();
     for (let i = 0; i < this._fg.length; i++){
       const [x, y] = this._fg[i];
       const ph = this._phase[i];
-      const a = 0.78 + 0.20 * Math.sin(t * 1.4 + ph);
-      ctx.fillStyle = `rgba(255,90,110,${a.toFixed(3)})`;
+      const a = 0.92 + 0.08 * Math.sin(t * 1.4 + ph);
+      ctx.fillStyle = `rgba(255,30,60,${a.toFixed(3)})`;
       ctx.beginPath();
       ctx.arc(x, y, this.dotSize, 0, Math.PI * 2);
       ctx.fill();
