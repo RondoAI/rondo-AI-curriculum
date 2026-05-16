@@ -595,7 +595,19 @@ export function mountConsole(_dataLayer = null){
   injectStyle();
 
   /* tab + body content sets render off the imported FAQ array */
-  const tabsHtml = FIELD_MANUAL.map(t =>
+  /* Render tabs in display order. /links and /play are stewards
+     of the rest of the magazine — links to everything you can do
+     off-site, and the arcade game — so they're surfaced near the
+     front rather than buried at the end of the array. The rest
+     follow in their data-file order. */
+  const TAB_ORDER_FRONT = ['mine', 'links', 'play'];
+  const orderedTabs = [
+    ...TAB_ORDER_FRONT
+      .map(id => FIELD_MANUAL.find(t => t.id === id))
+      .filter(Boolean),
+    ...FIELD_MANUAL.filter(t => !TAB_ORDER_FRONT.includes(t.id)),
+  ];
+  const tabsHtml = orderedTabs.map(t =>
     `<button type="button" class="sbnt-tab" data-id="${t.id}">${t.label}</button>`
   ).join('');
 
