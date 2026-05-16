@@ -89,6 +89,7 @@ export const CODEX = Object.freeze([
     title: 'Subtensor',
     kicker: 'Protocol',
     category: 'protocol',
+    infographic: 'subtensor',
     oneLine: 'The Substrate-based blockchain that runs the Bittensor network, records stake, executes weight aggregation, mints emissions.',
     sections: [
       { h: 'What it is', body:
@@ -141,6 +142,7 @@ export const CODEX = Object.freeze([
     id: 'alpha',
     title: 'Alpha (α)',
     kicker: 'Token',
+    infographic: 'alpha',
     category: 'token',
     oneLine: 'Per-subnet tokens minted by individual subnets. Each subnet has its own α; the price floats against TAO via the dTAO bonding mechanism.',
     sections: [
@@ -237,6 +239,7 @@ export const CODEX = Object.freeze([
     id: 'halving',
     title: 'Halving',
     kicker: 'Mechanism',
+    infographic: 'halving',
     category: 'mechanism',
     oneLine: 'The scheduled reduction in block-level TAO emission, modeled on Bitcoin\'s halving. Second halving projected for late 2029.',
     sections: [
@@ -257,6 +260,7 @@ export const CODEX = Object.freeze([
     id: 'weight',
     title: 'Weights',
     kicker: 'Mechanism',
+    infographic: 'weight',
     category: 'mechanism',
     oneLine: 'The numeric scores validators submit on-chain rating each miner. Aggregated by Yuma Consensus into the canonical truth of who produced value.',
     sections: [
@@ -280,6 +284,7 @@ export const CODEX = Object.freeze([
     id: 'miner',
     title: 'Miner',
     kicker: 'Role',
+    infographic: 'miner',
     category: 'role',
     oneLine: 'A participant who runs a model (or other intelligence) on a subnet, answers validator queries, and earns TAO emission scored by Yuma Consensus.',
     sections: [
@@ -300,6 +305,7 @@ export const CODEX = Object.freeze([
     id: 'validator',
     title: 'Validator',
     kicker: 'Role',
+    infographic: 'validator',
     category: 'role',
     oneLine: 'A participant who scores miners on a subnet, sends queries, evaluates responses, submits weight vectors on-chain. Paid for alignment with Yuma consensus.',
     sections: [

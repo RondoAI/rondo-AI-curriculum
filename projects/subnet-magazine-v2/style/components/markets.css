@@ -164,3 +164,67 @@
   .mk-row__spark{ display: none; }
   .mk-head{ grid-template-columns: 1fr; grid-template-areas: "back" "main" "meta"; }
 }
+
+/* ===================================================================
+   ECOSYSTEM VISUALIZATIONS: treemap + 24h heatmap
+   Both sit below the two-column mk-grid. Each is a full-bleed canvas
+   block with an editorial header above it.
+   =================================================================== */
+.mk-viz{
+  margin-top: clamp(28px, 5vw, 56px);
+  padding: clamp(20px, 3vw, 32px);
+  background: rgba(0,0,0,.3);
+  border: 1px solid var(--c-rule-2, rgba(255,30,60,.22));
+  border-radius: 6px;
+  display: flex; flex-direction: column;
+  gap: clamp(16px, 2.5vw, 24px);
+}
+.mk-viz__head{
+  display: flex; flex-direction: column; gap: 6px;
+  padding-bottom: 12px;
+  border-bottom: 1px solid var(--c-rule, rgba(255,30,60,.10));
+}
+.mk-viz__kicker{
+  font-family: var(--f-mono, monospace);
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: .14em;
+  text-transform: uppercase;
+  color: var(--c-red, #FF1E3C);
+}
+.mk-viz__title{
+  margin: 0;
+  font-family: var(--f-serif, 'Archivo', system-ui);
+  font-size: clamp(24px, 3.6vw, 36px);
+  font-weight: 800;
+  letter-spacing: -.018em;
+  line-height: 1.05;
+  color: var(--c-ink-1, #F5E5E8);
+}
+.mk-viz__sub{
+  margin: 0;
+  max-width: 72ch;
+  font-family: var(--f-sans, system-ui);
+  font-size: 14px;
+  line-height: 1.55;
+  color: var(--c-ink-2, #C8A8AD);
+}
+.mk-viz__canvas-wrap{
+  position: relative;
+  width: 100%;
+  height: clamp(360px, 50vh, 520px);
+  background:
+    radial-gradient(70% 60% at 50% 0%, rgba(255,30,60,.05), transparent 70%),
+    var(--c-bg-1, #050203);
+  border: 1px solid var(--c-rule, rgba(255,30,60,.10));
+  border-radius: 4px;
+  overflow: hidden;
+}
+.mk-viz__canvas-wrap--heat{
+  height: clamp(280px, 40vh, 380px);
+}
+.mk-viz__canvas-wrap canvas{
+  display: block;
+  width: 100% !important;
+  height: 100% !important;
+}

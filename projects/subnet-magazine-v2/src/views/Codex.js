@@ -420,6 +420,311 @@ const INFOGRAPHICS = {
       </svg>
     </figure>
   `,
+
+  /* Subtensor: the Substrate chain. 7 blocks marching across with
+     12s timestamps, validator hotkeys orbiting, weight-set windows
+     marked. */
+  'subtensor': () => `
+    <figure class="codex-info codex-info--chain" aria-label="Subtensor chain, block production">
+      <figcaption class="codex-info__cap">
+        The Substrate-based chain that anchors everything. 12-second block time, validator hotkeys produce blocks in turn, weights are committed every 100 blocks (~20 minutes).
+      </figcaption>
+      <svg viewBox="0 0 600 220" class="codex-info__svg" preserveAspectRatio="xMidYMid meet" aria-hidden="true">
+        <text x="300" y="14" text-anchor="middle" fill="#FF1E3C"
+              font-family="JetBrains Mono, monospace" font-size="9" font-weight="700" letter-spacing="2">
+          BLOCK CHAIN · 12s INTERVAL · WEIGHT WINDOW EVERY 100 BLOCKS
+        </text>
+        ${[0,1,2,3,4,5,6].map(i => {
+          const x = 40 + i * 78;
+          const isWeightSet = i === 0 || i === 5;
+          return `
+            <g class="codex-info__validator" style="--i:${i}">
+              <rect x="${x}" y="60" width="64" height="64" rx="3"
+                    fill="${isWeightSet ? 'rgba(255,30,60,.18)' : 'rgba(255,30,60,.06)'}"
+                    stroke="#FF1E3C" stroke-opacity="${isWeightSet ? '.9' : '.4'}" stroke-width="${isWeightSet ? 1.6 : 1}"/>
+              <text x="${x + 32}" y="80" text-anchor="middle" fill="#F5E5E8"
+                    font-family="JetBrains Mono, monospace" font-size="9" font-weight="700">B${8190123 + i}</text>
+              <text x="${x + 32}" y="96" text-anchor="middle" fill="#C8A8AD"
+                    font-family="JetBrains Mono, monospace" font-size="7">0x${(i * 7919 + 0x9f).toString(16).padStart(4,'0')}…</text>
+              <text x="${x + 32}" y="112" text-anchor="middle" fill="#FF4D60"
+                    font-family="JetBrains Mono, monospace" font-size="7" font-weight="700">${isWeightSet ? 'WEIGHT' : 'tx'} </text>
+              ${i < 6 ? `<line class="codex-info__pulse-line" x1="${x + 64}" y1="92" x2="${x + 78}" y2="92" stroke="#FF1E3C" stroke-width="1.4" style="--d:${i*.12}s"/>` : ''}
+              <text x="${x + 32}" y="140" text-anchor="middle" fill="#8B6B70"
+                    font-family="JetBrains Mono, monospace" font-size="7">T+${i * 12}s</text>
+            </g>
+          `;
+        }).join('')}
+        <g transform="translate(0,170)">
+          <text x="40" y="0" fill="#8B6B70" font-family="JetBrains Mono, monospace" font-size="8" letter-spacing="2">STAKE</text>
+          <text x="40" y="14" fill="#F5E5E8" font-family="JetBrains Mono, monospace" font-size="11" font-weight="800">5.6M τ</text>
+          <text x="180" y="0" fill="#8B6B70" font-family="JetBrains Mono, monospace" font-size="8" letter-spacing="2">VALIDATORS</text>
+          <text x="180" y="14" fill="#F5E5E8" font-family="JetBrains Mono, monospace" font-size="11" font-weight="800">256 / subnet</text>
+          <text x="380" y="0" fill="#8B6B70" font-family="JetBrains Mono, monospace" font-size="8" letter-spacing="2">MINERS</text>
+          <text x="380" y="14" fill="#F5E5E8" font-family="JetBrains Mono, monospace" font-size="11" font-weight="800">~8K active</text>
+        </g>
+      </svg>
+    </figure>
+  `,
+
+  /* Alpha: the bonding curve again but framed as the per-subnet
+     token mechanics. TAO in (left tube), alpha out (right tube),
+     pool reserves in the middle. */
+  'alpha': () => `
+    <figure class="codex-info codex-info--alpha" aria-label="Alpha token, TAO swap mechanic">
+      <figcaption class="codex-info__cap">
+        Each subnet has its own α token, swapped against TAO through a per-subnet bonding pool. Bond TAO into the pool, receive α at the current curve price; unbond α, receive TAO back at the (then-current) curve price.
+      </figcaption>
+      <svg viewBox="0 0 600 240" class="codex-info__svg" preserveAspectRatio="xMidYMid meet" aria-hidden="true">
+        <defs>
+          <linearGradient id="alphaTau" x1="0" x2="1">
+            <stop offset="0%" stop-color="#FF1E3C" stop-opacity=".95"/>
+            <stop offset="100%" stop-color="#FF1E3C" stop-opacity=".2"/>
+          </linearGradient>
+          <linearGradient id="alphaAlpha" x1="0" x2="1">
+            <stop offset="0%" stop-color="#FFB85C" stop-opacity=".2"/>
+            <stop offset="100%" stop-color="#FFB85C" stop-opacity=".95"/>
+          </linearGradient>
+        </defs>
+        <!-- TAO tube (left, flowing right) -->
+        <rect x="40" y="80" width="180" height="40" rx="6" fill="url(#alphaTau)"/>
+        <text x="130" y="70" text-anchor="middle" fill="#FF4D60"
+              font-family="Archivo, system-ui" font-size="14" font-weight="800">τ TAO</text>
+        <text x="130" y="135" text-anchor="middle" fill="#8B6B70"
+              font-family="JetBrains Mono, monospace" font-size="8" letter-spacing="2">BONDS IN</text>
+        <!-- Pool (middle) -->
+        <g transform="translate(260,60)">
+          <rect x="0" y="0" width="80" height="80" rx="6"
+                fill="rgba(255,30,60,.08)" stroke="#FF1E3C" stroke-opacity=".8" stroke-width="1.6"/>
+          <text x="40" y="32" text-anchor="middle" fill="#F5E5E8"
+                font-family="Archivo, system-ui" font-size="12" font-weight="800">POOL</text>
+          <text x="40" y="48" text-anchor="middle" fill="#FF4D60"
+                font-family="JetBrains Mono, monospace" font-size="9" font-weight="700">x · y = k</text>
+          <text x="40" y="62" text-anchor="middle" fill="#C8A8AD"
+                font-family="JetBrains Mono, monospace" font-size="7">τ + α reserves</text>
+        </g>
+        <!-- Alpha tube (right, flowing right) -->
+        <rect x="380" y="80" width="180" height="40" rx="6" fill="url(#alphaAlpha)"/>
+        <text x="470" y="70" text-anchor="middle" fill="#FFB85C"
+              font-family="Archivo, system-ui" font-size="14" font-weight="800">α (subnet)</text>
+        <text x="470" y="135" text-anchor="middle" fill="#8B6B70"
+              font-family="JetBrains Mono, monospace" font-size="8" letter-spacing="2">FLOWS OUT</text>
+        <!-- pulses traveling left-to-right -->
+        <circle r="4" fill="#fff">
+          <animateMotion dur="3.2s" repeatCount="indefinite"
+                         path="M 40 100 L 260 100"/>
+        </circle>
+        <circle r="4" fill="#FFB85C">
+          <animateMotion dur="3.2s" repeatCount="indefinite" begin="1.6s"
+                         path="M 340 100 L 560 100"/>
+        </circle>
+        <!-- Price annotation -->
+        <g transform="translate(0,170)">
+          <text x="40" y="0" fill="#8B6B70" font-family="JetBrains Mono, monospace" font-size="8" letter-spacing="2">α PRICE = τ RESERVE / α RESERVE</text>
+          <text x="40" y="20" fill="#F5E5E8" font-family="JetBrains Mono, monospace" font-size="11" font-weight="700">more τ bonded → α price rises → emission share grows → cycle</text>
+          <text x="40" y="40" fill="#FF4D60" font-family="JetBrains Mono, monospace" font-size="9" font-weight="700" letter-spacing="2">↗ ENDOGENOUS DEMAND SIGNAL</text>
+        </g>
+      </svg>
+    </figure>
+  `,
+
+  /* Halving: emission per block over time, with vertical drop lines
+     at each halving event and cumulative supply curve overlay. */
+  'halving': () => `
+    <figure class="codex-info codex-info--halve" aria-label="TAO halving schedule">
+      <figcaption class="codex-info__cap">
+        Per-block emission halves roughly every 4 years (210K blocks at 12s). Cumulative supply (yellow) asymptotes at 21M τ; the next halving is the highest-leverage event in the network's calendar.
+      </figcaption>
+      <svg viewBox="0 0 600 240" class="codex-info__svg" preserveAspectRatio="xMidYMid meet" aria-hidden="true">
+        <!-- axes -->
+        <line x1="50" y1="200" x2="560" y2="200" stroke="#3a1419"/>
+        <line x1="50" y1="30"  x2="50"  y2="200" stroke="#3a1419"/>
+        ${[2021, 2025, 2029, 2033, 2037, 2041].map((y, i) => {
+          const x = 50 + i * 102;
+          return `<text x="${x}" y="218" text-anchor="middle" fill="#8B6B70"
+                        font-family="JetBrains Mono, monospace" font-size="9">${y}</text>
+                  <line x1="${x}" y1="200" x2="${x}" y2="${i === 0 ? 60 : 90 + i * 20}"
+                        stroke="#FF1E3C" stroke-opacity=".2" stroke-dasharray="2,3"/>`;
+        }).join('')}
+        <!-- per-block emission step function -->
+        ${[
+          { x1: 50,  x2: 152, y: 60 },
+          { x1: 152, x2: 254, y: 110 },
+          { x1: 254, x2: 356, y: 143 },
+          { x1: 356, x2: 458, y: 162 },
+          { x1: 458, x2: 560, y: 175 },
+        ].map((s, i) => `
+          <line x1="${s.x1}" y1="${s.y}" x2="${s.x2}" y2="${s.y}"
+                stroke="#FF1E3C" stroke-width="2.5" stroke-opacity="${0.95 - i*0.12}"/>
+          ${i > 0 ? `<line x1="${s.x1}" y1="${i === 1 ? 60 : (s.y - 33)}" x2="${s.x1}" y2="${s.y}"
+                       stroke="#FF1E3C" stroke-width="2" stroke-opacity="${0.95 - i*0.1}"/>` : ''}
+          <text x="${(s.x1 + s.x2) / 2}" y="${s.y - 6}" text-anchor="middle" fill="#FF4D60"
+                font-family="JetBrains Mono, monospace" font-size="8" font-weight="700">${[7200, 3600, 1800, 900, 450][i]} τ/day</text>
+        `).join('')}
+        <!-- cumulative supply (yellow asymptote) -->
+        <path d="M 50 198 Q 200 130 300 90 T 560 50"
+              fill="none" stroke="#FFB85C" stroke-width="1.8" stroke-dasharray="4,3"/>
+        <text x="555" y="44" text-anchor="end" fill="#FFB85C"
+              font-family="JetBrains Mono, monospace" font-size="9" font-weight="700">→ 21M τ cap</text>
+        <text x="55" y="22" fill="#FF4D60"
+              font-family="JetBrains Mono, monospace" font-size="9" font-weight="700" letter-spacing="2">PER-BLOCK EMISSION</text>
+      </svg>
+    </figure>
+  `,
+
+  /* Weight: a matrix grid showing validators (rows) scoring miners
+     (columns), with cell intensity = weight. The bonding/aggregation
+     concept made concrete. */
+  'weight': () => `
+    <figure class="codex-info codex-info--weight" aria-label="Validator weight matrix">
+      <figcaption class="codex-info__cap">
+        Each validator (row) publishes a vector of weights scoring every miner (column). The chain aggregates these vectors into the consensus weight, which determines emission. Intensity = weight magnitude.
+      </figcaption>
+      <svg viewBox="0 0 600 260" class="codex-info__svg" preserveAspectRatio="xMidYMid meet" aria-hidden="true">
+        <text x="300" y="14" text-anchor="middle" fill="#FF1E3C"
+              font-family="JetBrains Mono, monospace" font-size="9" font-weight="700" letter-spacing="2">
+          WEIGHT MATRIX · 6 VALIDATORS × 12 MINERS · STAKE-WEIGHTED MEDIAN
+        </text>
+        <!-- column headers (miners) -->
+        ${Array.from({length: 12}).map((_, j) => `
+          <text x="${110 + j * 36}" y="34" text-anchor="middle" fill="#8B6B70"
+                font-family="JetBrains Mono, monospace" font-size="8">M${j+1}</text>
+        `).join('')}
+        <!-- 6 rows × 12 cols of weight cells -->
+        ${(() => {
+          const rng = (s) => { let x = s; return () => { x = (x * 9301 + 49297) % 233280; return x / 233280; }; };
+          const r = rng(7);
+          let svg = '';
+          for (let i = 0; i < 6; i++){
+            svg += `<text x="80" y="${64 + i * 28}" text-anchor="end" fill="#F5E5E8"
+                          font-family="JetBrains Mono, monospace" font-size="9" font-weight="700">V${i+1}</text>`;
+            svg += `<text x="80" y="${75 + i * 28}" text-anchor="end" fill="#8B6B70"
+                          font-family="JetBrains Mono, monospace" font-size="7">${[28,33,12,9,18,15][i]}K τ</text>`;
+            for (let j = 0; j < 12; j++){
+              const w = r();
+              const op = (w * 0.95).toFixed(2);
+              svg += `<rect x="${94 + j * 36}" y="${48 + i * 28}" width="32" height="22" rx="2"
+                            fill="#FF1E3C" fill-opacity="${op}"/>`;
+              if (w > 0.65) svg += `<text x="${110 + j * 36}" y="${62 + i * 28}" text-anchor="middle" fill="#fff"
+                                          font-family="JetBrains Mono, monospace" font-size="7" font-weight="700">${(w * 100).toFixed(0)}</text>`;
+            }
+          }
+          return svg;
+        })()}
+        <!-- aggregation arrow -->
+        <line x1="300" y1="220" x2="300" y2="238" stroke="#FF1E3C" stroke-width="1.5"/>
+        <polygon points="295,234 305,234 300,242" fill="#FF1E3C"/>
+        <text x="300" y="256" text-anchor="middle" fill="#FF4D60"
+              font-family="JetBrains Mono, monospace" font-size="9" font-weight="700" letter-spacing="2">
+          → CONSENSUS WEIGHT VECTOR → EMISSION
+        </text>
+      </svg>
+    </figure>
+  `,
+
+  /* Miner: lifecycle loop. Register → serve → answer query →
+     scored → emission share. The economic loop, animated. */
+  'miner': () => `
+    <figure class="codex-info codex-info--miner" aria-label="Miner lifecycle">
+      <figcaption class="codex-info__cap">
+        The miner's economic loop. Pay τ to register, serve a model, answer validator queries, get scored, receive emission proportional to score. Quiet miners get pruned.
+      </figcaption>
+      <svg viewBox="0 0 600 220" class="codex-info__svg" preserveAspectRatio="xMidYMid meet" aria-hidden="true">
+        <defs>
+          <marker id="minerArrow" markerWidth="6" markerHeight="6" refX="5" refY="3" orient="auto">
+            <path d="M0,0 L6,3 L0,6 z" fill="#FF1E3C"/>
+          </marker>
+        </defs>
+        ${(() => {
+          const nodes = [
+            { x: 90,  y: 110, label: 'REGISTER',  sub: 'pay τ_burn', icon: 'τ' },
+            { x: 215, y: 60,  label: 'SERVE',     sub: 'model up',    icon: 'M' },
+            { x: 340, y: 60,  label: 'QUERY',     sub: 'validator',   icon: 'Q' },
+            { x: 465, y: 110, label: 'SCORED',    sub: 'weight',      icon: '⊙' },
+            { x: 340, y: 160, label: 'EMISSION',  sub: 'α per epoch', icon: 'α' },
+            { x: 215, y: 160, label: 'OR PRUNED', sub: 'low score',   icon: '✕' },
+          ];
+          const edges = [[0,1],[1,2],[2,3],[3,4],[4,5],[5,0]];
+          let svg = '';
+          edges.forEach(([a, b], i) => {
+            const na = nodes[a], nb = nodes[b];
+            svg += `<line x1="${na.x + 36}" y1="${na.y}" x2="${nb.x - 36}" y2="${nb.y}"
+                          stroke="#FF1E3C" stroke-opacity=".55" stroke-width="1.4"
+                          marker-end="url(#minerArrow)"
+                          class="codex-info__pulse-line" style="--d:${i*.16}s"/>`;
+          });
+          nodes.forEach(n => {
+            svg += `<circle cx="${n.x}" cy="${n.y}" r="32"
+                            fill="rgba(255,30,60,.10)" stroke="#FF1E3C" stroke-width="1.4"/>`;
+            svg += `<text x="${n.x}" y="${n.y - 8}" text-anchor="middle" fill="#FF4D60"
+                          font-family="Archivo, system-ui" font-size="18" font-weight="800">${n.icon}</text>`;
+            svg += `<text x="${n.x}" y="${n.y + 8}" text-anchor="middle" fill="#F5E5E8"
+                          font-family="JetBrains Mono, monospace" font-size="8" font-weight="700">${n.label}</text>`;
+            svg += `<text x="${n.x}" y="${n.y + 20}" text-anchor="middle" fill="#8B6B70"
+                          font-family="JetBrains Mono, monospace" font-size="7">${n.sub}</text>`;
+          });
+          return svg;
+        })()}
+      </svg>
+    </figure>
+  `,
+
+  /* Validator: dual role. Stake (top) → query miners (middle) →
+     score & set weights (bottom). Emission flows back to the
+     validator proportional to consensus alignment. */
+  'validator': () => `
+    <figure class="codex-info codex-info--val" aria-label="Validator role and reward">
+      <figcaption class="codex-info__cap">
+        Validators stake τ, query miners on schedule, score the responses, and submit weight vectors. The chain pays them in proportion to how well their weights align with the consensus (Yuma).
+      </figcaption>
+      <svg viewBox="0 0 600 240" class="codex-info__svg" preserveAspectRatio="xMidYMid meet" aria-hidden="true">
+        <!-- validator hex (top center) -->
+        <g transform="translate(300,46)">
+          <polygon points="-50,0 -25,-36 25,-36 50,0 25,36 -25,36"
+                   fill="rgba(255,30,60,.18)" stroke="#FF1E3C" stroke-width="1.6"/>
+          <text y="-6" text-anchor="middle" fill="#F5E5E8"
+                font-family="Archivo, system-ui" font-size="13" font-weight="800">VALIDATOR</text>
+          <text y="10" text-anchor="middle" fill="#FF4D60"
+                font-family="JetBrains Mono, monospace" font-size="8" font-weight="700">28K τ STAKED</text>
+          <text y="24" text-anchor="middle" fill="#C8A8AD"
+                font-family="JetBrains Mono, monospace" font-size="7">hotkey: 5HG…wf2K</text>
+        </g>
+        <!-- 6 miners across the bottom -->
+        ${Array.from({length: 6}).map((_, i) => {
+          const x = 70 + i * 92;
+          const score = [82, 64, 91, 33, 76, 58][i];
+          return `
+            <g class="codex-info__validator" style="--i:${i}" transform="translate(${x},170)">
+              <rect x="-30" y="0" width="60" height="40" rx="3"
+                    fill="rgba(255,30,60,.05)" stroke="#FF1E3C" stroke-opacity=".4"/>
+              <text y="16" text-anchor="middle" fill="#F5E5E8"
+                    font-family="JetBrains Mono, monospace" font-size="9" font-weight="700">M${i+1}</text>
+              <text y="30" text-anchor="middle" fill="#FF4D60"
+                    font-family="JetBrains Mono, monospace" font-size="8" font-weight="700">w=${score}</text>
+            </g>
+          `;
+        }).join('')}
+        <!-- query arrows out (left side, animated) -->
+        ${[0,1,2,3,4,5].map(i => {
+          const x = 100 + i * 92;
+          return `
+            <line class="codex-info__pulse-line"
+                  x1="300" y1="82" x2="${x}" y2="170"
+                  stroke="#FF1E3C" stroke-width="1.1" stroke-opacity=".55"
+                  style="--d:${i*.12}s"/>
+          `;
+        }).join('')}
+        <!-- emission feedback (right side, returning) -->
+        <text x="540" y="120" text-anchor="end" fill="#FF4D60"
+              font-family="JetBrains Mono, monospace" font-size="9" font-weight="700" letter-spacing="2">
+          ↻ EMISSION
+        </text>
+        <text x="540" y="134" text-anchor="end" fill="#C8A8AD"
+              font-family="JetBrains Mono, monospace" font-size="8">
+          paid in proportion to consensus alignment
+        </text>
+      </svg>
+    </figure>
+  `,
 };
 
 /** Build one entry card. */

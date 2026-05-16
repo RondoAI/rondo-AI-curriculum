@@ -13,6 +13,9 @@
 
 import { html, mount, qs } from '../lib/dom.js';
 import { BRIEFS, latestBrief, briefByDate } from '../data/research.js';
+import { CandleChart } from '../charts/CandleChart.js';
+import { BarChart } from '../charts/BarChart.js';
+import { NodeSphere } from '../charts/NodeSphere.js';
 
 const STYLE_ID = 'rsh-style';
 
@@ -31,10 +34,28 @@ const CSS = `
 
 .rsh-head{
   grid-column: 1 / -1;
-  display: flex; flex-direction: column; gap: 8px;
+  position: relative;
+  display: grid;
+  grid-template-columns: 1fr 88px;
+  align-items: center;
+  gap: 16px;
   padding-bottom: clamp(20px, 3vw, 32px);
   border-bottom: 1px solid var(--c-rule-2, rgba(255,30,60,.22));
   margin-bottom: clamp(20px, 3vw, 32px);
+}
+.rsh-head__text{ display: flex; flex-direction: column; gap: 8px; min-width: 0; }
+.rsh-head__mark{
+  width: 88px; height: 88px;
+  position: relative;
+  filter: drop-shadow(0 0 14px rgba(255,30,60,.45));
+}
+.rsh-head__mark canvas{
+  width: 100% !important; height: 100% !important;
+  border-radius: 50%;
+}
+@media (max-width: 560px){
+  .rsh-head{ grid-template-columns: 1fr; }
+  .rsh-head__mark{ display: none; }
 }
 .rsh-head__kicker{
   font-family: var(--f-mono, monospace);
@@ -122,6 +143,47 @@ const CSS = `
   color: var(--c-ink-2, #C8A8AD);
   padding-left: 12px;
   border-left: 2px solid var(--c-red, #FF1E3C);
+}
+
+/* TAO price candle + movers bar chart, side by side on wide screens */
+.rsh-viz{
+  display: grid;
+  grid-template-columns: 1.4fr 1fr;
+  gap: 14px;
+  margin-bottom: 6px;
+}
+@media (max-width: 720px){
+  .rsh-viz{ grid-template-columns: 1fr; }
+}
+.rsh-viz__block{
+  display: flex; flex-direction: column;
+  background: rgba(0,0,0,.35);
+  border: 1px solid var(--c-rule-2, rgba(255,30,60,.22));
+  border-radius: 4px;
+  overflow: hidden;
+}
+.rsh-viz__bar{
+  display: flex; align-items: center; gap: 8px;
+  padding: 8px 12px;
+  border-bottom: 1px solid var(--c-rule, rgba(255,30,60,.10));
+  font-family: var(--f-mono, monospace);
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: .14em;
+  text-transform: uppercase;
+  color: var(--c-red-1, #FF4D60);
+}
+.rsh-viz__bar-sub{
+  margin-left: auto;
+  color: var(--c-ink-3, #8B6B70);
+  font-weight: 600;
+  letter-spacing: .04em;
+  text-transform: none;
+}
+.rsh-viz__canvas{
+  display: block;
+  width: 100% !important;
+  height: 240px !important;
 }
 
 /* movers strip */
@@ -361,15 +423,20 @@ export function mountResearch(root){
   mount(root, html`
     <section class="rsh">
       <header class="rsh-head">
-        <span class="rsh-head__kicker">Research &middot; Subne<span class="tau">τ</span> Magazine</span>
-        <h1 class="rsh-head__title">The daily desk.</h1>
-        <p class="rsh-head__dek">
-          What happened in the Bittensor ecosystem today, distilled by the magazine's
-          autonomous research agent. Published every morning at 08:00 UTC. The agent
-          reads the chain, the social signal, and the partner subnets, then files
-          the brief you see here. The record is the record, prior briefs are never
-          deleted.
-        </p>
+        <div class="rsh-head__text">
+          <span class="rsh-head__kicker">Research &middot; Subne<span class="tau">τ</span> Magazine</span>
+          <h1 class="rsh-head__title">The daily desk.</h1>
+          <p class="rsh-head__dek">
+            What happened in the Bittensor ecosystem today, distilled by the magazine's
+            autonomous research agent. Published every morning at 08:00 UTC. The agent
+            reads the chain, the social signal, and the partner subnets, then files
+            the brief you see here. The record is the record, prior briefs are never
+            deleted.
+          </p>
+        </div>
+        <div class="rsh-head__mark" aria-hidden="true">
+          <canvas data-canvas="rsh-mark"></canvas>
+        </div>
       </header>
 
       <article class="rsh-brief">
@@ -381,6 +448,24 @@ export function mountResearch(root){
         </div>
         <h2 class="rsh-brief__headline">${escapeHtml(active.headline)}</h2>
         <p class="rsh-brief__summary">${escapeHtml(active.summary)}</p>
+
+        <!-- TAO price + movers visualization, side by side -->
+        <div class="rsh-viz">
+          <div class="rsh-viz__block">
+            <div class="rsh-viz__bar">
+              τ TAO · 60h synthetic
+              <span class="rsh-viz__bar-sub">deterministic seed: ${active.date}</span>
+            </div>
+            <canvas class="rsh-viz__canvas" data-canvas="rsh-candle"></canvas>
+          </div>
+          <div class="rsh-viz__block">
+            <div class="rsh-viz__bar">
+              Today's movers
+              <span class="rsh-viz__bar-sub">${(active.movers || []).length} rows</span>
+            </div>
+            <canvas class="rsh-viz__canvas" data-canvas="rsh-bars"></canvas>
+          </div>
+        </div>
 
         ${moversHtml ? `<ul class="rsh-movers" style="list-style:none;margin:0;padding:14px;">${moversHtml}</ul>` : ''}
 
@@ -400,5 +485,54 @@ export function mountResearch(root){
     </section>
   `);
 
-  return { destroy(){ /* no listeners to tear down */ } };
+  /* ---------- mount the visualizations ---------- */
+  /* NodeSphere mark in the page head, the magazine's signature
+     "this is a working system" cue. */
+  const markCv = qs('[data-canvas="rsh-mark"]', root);
+  const mark = markCv ? new NodeSphere(markCv, {
+    nodes: 42, K: 3, density: 0.5, speed: 0.4, atmos: true,
+  }) : null;
+
+  /* TAO candle chart, deterministic seed off the brief's date so
+     each archived day shows a stable series rather than a roll-of-
+     the-dice synthetic. Real ticker integration lands when there's
+     a price feed plumbed through DataLayer. */
+  const candleCv = qs('[data-canvas="rsh-candle"]', root);
+  const dateSeed = active.date.split('-').reduce((a, p) => a * 31 + Number(p), 0);
+  const candle = candleCv ? new CandleChart(candleCv, {
+    bars:     60,
+    baseline: 487,
+    barMs:    60 * 60 * 1000,
+    seed:     dateSeed,
+  }) : null;
+
+  /* Movers bar chart. Parses the brief's percentage strings into
+     signed numbers, paints positives green, negatives red. */
+  const barsCv = qs('[data-canvas="rsh-bars"]', root);
+  let bars = null;
+  if (barsCv && (active.movers || []).length){
+    const rows = (active.movers || []).map(m => {
+      const n = parseFloat(String(m.change).replace(/[+%]/g, '')) || 0;
+      return {
+        label: `${m.ticker} ${m.name}`,
+        value: n,
+        sub:   m.change,
+        color: n >= 0 ? '#00E5A8' : '#FF4D60',
+      };
+    });
+    bars = new BarChart(barsCv, {
+      data: rows,
+      orientation: 'horizontal',
+      bipolar: true,
+      formatValue: v => `${v >= 0 ? '+' : ''}${v.toFixed(1)}%`,
+    });
+  }
+
+  return {
+    destroy(){
+      try { mark?.destroy(); } catch (_) {}
+      try { candle?.destroy(); } catch (_) {}
+      try { bars?.destroy(); } catch (_) {}
+    },
+  };
 }

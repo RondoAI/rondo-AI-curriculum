@@ -18,6 +18,8 @@ import { html, mount, qs, qsa, on } from '../lib/dom.js';
 import { money, pct } from '../lib/format.js';
 import { seedSeries } from '../lib/mark.js';
 import { Sparkline } from '../charts/Sparkline.js';
+import { Treemap } from '../charts/Treemap.js';
+import { Heatmap } from '../charts/Heatmap.js';
 import { SUBNETS } from '../data/subnets.js';
 import { CENTRALIZED_PLAYERS, ASIAN_REGIONS, tickerFor } from '../data/centralized.js';
 
@@ -109,6 +111,38 @@ export function mountMarkets(root, dataLayer = null){
           <a class="mk-panel__more" href="research.html">Magazine coverage ↗</a>
         </section>
       </div>
+
+      <!-- ===== ECOSYSTEM TREEMAP ===== -->
+      <section class="mk-viz" aria-label="Ecosystem treemap">
+        <header class="mk-viz__head">
+          <span class="mk-viz__kicker">&lt;040&gt;  ECOSYSTEM SURFACE</span>
+          <h2 class="mk-viz__title">Where the cap sits.</h2>
+          <p class="mk-viz__sub">
+            Every active subnet, sized by alpha-MCAP, ranked by emission share. The
+            largest cells are the network's gravity wells, the smaller cells are
+            the experiments and the long-tail bets.
+          </p>
+        </header>
+        <div class="mk-viz__canvas-wrap">
+          <canvas data-canvas="mk-treemap"></canvas>
+        </div>
+      </section>
+
+      <!-- ===== 24h HEATMAP ===== -->
+      <section class="mk-viz" aria-label="24-hour movement heatmap">
+        <header class="mk-viz__head">
+          <span class="mk-viz__kicker">&lt;041&gt;  24h MOVEMENT HEATMAP</span>
+          <h2 class="mk-viz__title">What moved overnight.</h2>
+          <p class="mk-viz__sub">
+            Each cell is one subnet. Bright cells are large positive moves, dark
+            cells are large negative moves; the cluster gradient is the day's
+            risk-on or risk-off read in one glance.
+          </p>
+        </header>
+        <div class="mk-viz__canvas-wrap mk-viz__canvas-wrap--heat">
+          <canvas data-canvas="mk-heatmap"></canvas>
+        </div>
+      </section>
     </section>
   `);
 
@@ -156,6 +190,41 @@ export function mountMarkets(root, dataLayer = null){
     renderMovers();
   }));
 
+  /* ---------- ecosystem treemap + 24h heatmap ----------
+     Both render off the current subnets array; we destroy and rebuild
+     the treemap on live data (it has no incremental updater), and
+     push fresh cells into the heatmap. */
+  const treemapCv = qs('[data-canvas="mk-treemap"]', root);
+  const heatmapCv = qs('[data-canvas="mk-heatmap"]', root);
+  let treemap = null;
+  let heatmap = heatmapCv ? new Heatmap(heatmapCv, { cells: [] }) : null;
+
+  function buildTreemap(){
+    if (!treemapCv) return;
+    if (treemap) { try { treemap.destroy(); } catch (_) {} }
+    const items = subnets
+      .filter(s => s.activity > 0)
+      .sort((a, b) => b.activity - a.activity)
+      .slice(0, 28)
+      .map(s => ({
+        label: `SN${s.netuid} · ${s.name}`,
+        sub:   `${fmtPct(s.chg24)} · ${fmtPrice(s.price)}`,
+        value: s.activity,
+      }));
+    treemap = new Treemap(treemapCv, { items });
+  }
+  function buildHeatmap(){
+    if (!heatmap) return;
+    const cells = subnets
+      .slice()
+      .sort((a, b) => b.activity - a.activity)
+      .slice(0, 64)
+      .map(s => ({ netuid: s.netuid, name: s.name, value: s.chg24 }));
+    heatmap.setData(cells);
+  }
+  buildTreemap();
+  buildHeatmap();
+
   /* ---------- go live ---------- */
   let unsub = null;
   if (dataLayer){
@@ -165,6 +234,8 @@ export function mountMarkets(root, dataLayer = null){
       live = true;
       if (srcEl) srcEl.innerHTML = '<span class="live-dot"></span>LIVE · TAO MARKET CAP';
       renderMovers();
+      buildTreemap();
+      buildHeatmap();
     };
     unsub = dataLayer.subscribe('tao:subnets', onLive);
     onLive(dataLayer.get('tao:subnets'));
@@ -173,6 +244,8 @@ export function mountMarkets(root, dataLayer = null){
   return {
     destroy(){
       sparks.splice(0).forEach(sp => { try { sp.destroy(); } catch (_) {} });
+      try { treemap?.destroy(); } catch (_) {}
+      try { heatmap?.destroy(); } catch (_) {}
       if (unsub) unsub();
     },
   };
