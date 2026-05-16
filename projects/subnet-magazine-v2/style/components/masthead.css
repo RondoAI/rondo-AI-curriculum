@@ -7,7 +7,13 @@
 
 .masthead{
   border-bottom: 1px solid var(--c-rule);
-  background: var(--c-bg);
+  /* slight transparency so the hero plexus shows through the
+     masthead block (was opaque var(--c-bg)). Pure black with
+     .55 alpha keeps headlines crisp while the icosphere still
+     reads behind. */
+  background: rgba(0, 0, 0, .55);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
   position: relative;
 }
 .masthead__inner{
@@ -207,7 +213,7 @@
 .primary-nav{
   position: sticky; top: 33px; /* below status bar */
   z-index: calc(var(--z-nav) - 1);
-  background: rgba(0,0,0,.78);
+  background: rgba(0,0,0,.55);
   backdrop-filter: saturate(140%) blur(12px);
   -webkit-backdrop-filter: saturate(140%) blur(12px);
   border-top: 1px solid var(--c-rule);

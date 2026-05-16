@@ -10,8 +10,12 @@
 .statusbar{
   position: sticky; top: 0; z-index: var(--z-nav);
   background:
-    radial-gradient(120% 80% at 50% -10%, rgba(255,30,60,.10), transparent 60%),
-    rgba(5,2,3,.85);
+    radial-gradient(120% 80% at 50% -10%, rgba(255,30,60,.08), transparent 60%),
+    rgba(5,2,3,.62);
+  /* Slight transparency so the hero icosphere shows through the
+     chrome when it's pinned over the hero. Was .85, now .62 —
+     the bar still reads as dark glass but the big plexus spins
+     visibly behind it. */
   backdrop-filter: blur(14px);
   -webkit-backdrop-filter: blur(14px);
   border-bottom: 1px solid var(--c-rule-2);

@@ -16,7 +16,10 @@
   border-bottom: 1px solid var(--c-rule-2);
   background:
     radial-gradient(120% 60% at 50% 0%, rgba(255,30,60,.05), transparent 70%),
-    linear-gradient(180deg, rgba(10,3,6,.92), rgba(5,2,3,.92));
+    linear-gradient(180deg, rgba(10,3,6,.65), rgba(5,2,3,.65));
+  /* Dropped from .92 -> .65 so the big hero plexus shows through
+     the ticker bar when pinned at the top. backdrop-filter blur
+     keeps the ticker text crisp over whatever's behind. */
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
   position: relative;
