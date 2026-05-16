@@ -31,9 +31,19 @@ const teardowns = [];
 function mountIf(selector, mountFn){
   const el = qs(selector);
   if (!el) return;
-  const t = mountFn(el);
-  if (typeof t === 'function')      teardowns.push(t);
-  else if (t && typeof t.destroy === 'function') teardowns.push(() => t.destroy());
+  /* Wrap each mount in try/catch so a failure in one view (e.g. an
+     ES module import error, or a runtime exception during render)
+     doesn't block the other views from mounting. Errors are shown
+     in the console with the selector so they're easy to find. */
+  try {
+    const t = mountFn(el);
+    if (typeof t === 'function')      teardowns.push(t);
+    else if (t && typeof t.destroy === 'function') teardowns.push(() => t.destroy());
+  } catch (err){
+    // eslint-disable-next-line no-console
+    console.error('[boot] mount failed for', selector, err);
+    el.innerHTML = `<pre style="color:#FF4D60;padding:12px;font-family:monospace;font-size:11px;white-space:pre-wrap;overflow-x:auto">[mount error] ${selector}\n${(err && err.stack) || err}</pre>`;
+  }
 }
 
 function boot(){

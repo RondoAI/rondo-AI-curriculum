@@ -13,31 +13,6 @@ html { -webkit-text-size-adjust: 100%; scroll-behavior: smooth; }
 html, body {
   margin: 0; padding: 0;
   min-height: 100%;
-  /* Mobile-scroll repair belt-and-suspenders. iOS Safari and
-     Android Chrome both ship known quirks where heavy fixed/sticky
-     chrome over a long page stops touch-scrolling. These four lines
-     are the canonical fix kit:
-       touch-action: pan-y        the document always accepts a
-                                   vertical pan gesture, no matter
-                                   what a descendant declares
-       overscroll-behavior-y: auto neutralises any 'contain' or
-                                   'none' coming from a child
-       -webkit-overflow-scrolling: touch  legacy momentum hint
-       overflow-anchor: none      stops the browser auto-anchoring
-                                   to lazily-laid-out elements and
-                                   locking scroll position. */
-  touch-action: pan-y;
-  overscroll-behavior-y: auto;
-  -webkit-overflow-scrolling: touch;
-  overflow-anchor: none;
-}
-/* Promote the main flow to its own GPU layer so it paints
-   independently of the sticky chrome (status strip, masthead, nav).
-   This is the single most effective scroll-jank fix on Android: the
-   compositor can shuffle the main column up/down without having to
-   re-rasterise the blurred chrome bars above. */
-#main{
-  transform: translateZ(0);
 }
 
 body {
