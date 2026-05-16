@@ -2621,11 +2621,86 @@
    chip, a small "Continued." caption, and a tap-target that scrolls
    to the page-02 opener below it. The opener has its own big "PAGE
    02" numeral, a serif title, dek, and a closing rule. */
-/* ---------- EDITOR'S COLOPHON ----------
-   The back-of-the-book editor bio. Portrait left, byline + bio +
-   links right. Same red-band container as the other major sections
-   so it doesn't look like a footer afterthought; same hairline
-   borders so it sits inside the magazine grammar. */
+/* ---------- EDITOR'S NOTE CALLOUT ----------
+   Text-only callout above the END pagebreak that names the editor
+   and links to the full bio + portrait on its own page. Zero
+   image, zero canvas, zero filter, zero transform animation —
+   deliberately the lightest section on home. */
+.home-edcard{
+  max-width: var(--max-w);
+  margin: 0 auto;
+  padding: clamp(40px, 7vw, 80px) var(--gutter) clamp(8px, 2vw, 16px);
+  display: flex; flex-direction: column;
+  gap: var(--s-2);
+  align-items: flex-start;
+}
+.home-edcard__kicker{
+  font-family: var(--f-mono);
+  font-size: var(--t-xs);
+  font-weight: 700;
+  letter-spacing: var(--ls-label);
+  text-transform: uppercase;
+  color: var(--c-red);
+}
+.home-edcard__name{
+  margin: 0;
+  font-family: var(--f-serif);
+  font-size: clamp(28px, 4.4vw, 44px);
+  font-weight: 800;
+  letter-spacing: -.015em;
+  line-height: 1.05;
+  color: var(--c-ink-1);
+}
+.home-edcard__line{
+  margin: 0;
+  max-width: 56ch;
+  font-family: var(--f-sans);
+  font-size: var(--t-md);
+  line-height: 1.5;
+  color: var(--c-ink-2);
+}
+.home-edcard__line em{
+  font-style: italic;
+  color: var(--c-red-1);
+  font-weight: 600;
+}
+.home-edcard__links{
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--s-2);
+  margin-top: var(--s-2);
+}
+.home-edcard__cta{
+  display: inline-block;
+  padding: 8px 14px;
+  border: 1px solid var(--c-rule-3);
+  border-radius: 999px;
+  background: rgba(255,30,60,.10);
+  color: var(--c-ink-1);
+  font-family: var(--f-mono);
+  font-size: var(--t-xs);
+  font-weight: 700;
+  letter-spacing: var(--ls-label);
+  text-transform: uppercase;
+  text-decoration: none;
+  transition: background var(--d-fast) var(--e-out), border-color var(--d-fast) var(--e-out);
+}
+.home-edcard__cta:hover{
+  background: rgba(255,30,60,.20);
+  border-color: var(--c-red);
+}
+.home-edcard__cta--ghost{
+  background: transparent;
+  border-color: var(--c-rule-2);
+  color: var(--c-ink-2);
+}
+.home-edcard__cta--ghost:hover{
+  background: rgba(255,30,60,.06);
+  color: var(--c-ink-1);
+}
+
+/* ---------- EDITOR'S COLOPHON (legacy CSS — section is no longer
+   rendered on home, kept here in case we restore it later) ----- */
 .home-editor{
   position: relative;
   max-width: var(--max-w);

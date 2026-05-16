@@ -1475,56 +1475,25 @@ export function mountHome(root, dataLayer = null){
       </footer>
     </section>
 
-    <!-- ===== EDITOR'S COLOPHON =====
-         A magazine prints the editor's bio at the back of the book.
-         This is that page. The site you just scrolled through is
-         built end-to-end by Rondo Campbell from inside the federal
-         system, on a phone, with intermittent connectivity — every
-         line of research, code, and design is his. Projected
-         release: 2028. The work and the story share a repository. -->
-    <section class="home-editor" aria-label="Editor">
-      <div class="home-editor__inner">
-        <div class="home-editor__photo">
-          <img src="assets/editor-rondo.jpg"
-               alt="Rondo Campbell"
-               width="600" height="600"
-               loading="lazy"
-               decoding="async"
-               fetchpriority="low">
-          <span class="home-editor__photo-frame" aria-hidden="true"></span>
-        </div>
-        <div class="home-editor__body">
-          <span class="home-editor__kicker">Editor &middot; Subne<span class="tau">τ</span> Magazine</span>
-          <h2 class="home-editor__name">Rondo Campbell</h2>
-          <p class="home-editor__role">Founder &middot; Editor &middot; Sole engineer</p>
-          <p class="home-editor__bio">
-            Subne<span class="tau">τ</span> Magazine is researched, written,
-            designed, and coded by Rondo Campbell &mdash; working from inside
-            the U.S. federal system, on a phone, with intermittent
-            connectivity. Projected release: <em>2028</em>. The mission is
-            to walk out as a credible builder in the open AI economy. Every
-            line of this site is the proof of work.
-          </p>
-          <p class="home-editor__bio home-editor__bio--quiet">
-            The curriculum is two physical Python textbooks, a stack of
-            AI papers, and an LLM running in the working terminal next to
-            this one. Phase 1 was Python foundations, summer 2025. The
-            magazine you're reading is the portfolio side of the
-            ledger &mdash; built in public, committed in real time. Read the
-            full record in the JOURNAL.md / SESSION_LOG.md at the
-            top of the repository.
-          </p>
-          <div class="home-editor__links">
-            <a class="home-editor__link" href="https://x.com/subnetmagazine" target="_blank" rel="noopener">
-              <span class="home-editor__x">𝕏</span>@subnetmagazine
-            </a>
-            <a class="home-editor__link home-editor__link--ghost" href="https://github.com/RondoAI/rondo-AI-curriculum" target="_blank" rel="noopener">
-              GitHub &middot; the full record
-            </a>
-          </div>
-        </div>
+    <!-- ===== EDITOR'S NOTE =====
+         You called it from the start — the heavy portrait + grid
+         layout at the bottom of home was the actual scroll-locker
+         on Android. Lightweight text-only callout instead. Same
+         editorial intent: end the magazine on the editor's note,
+         signpost the full bio + portrait one tap away. -->
+    <aside class="home-edcard" aria-label="Editor's note">
+      <span class="home-edcard__kicker">Editor &middot; Subne<span class="tau">τ</span> Magazine</span>
+      <p class="home-edcard__name">Rondo Campbell</p>
+      <p class="home-edcard__line">
+        Researched, written, designed and coded by one person from
+        inside the U.S. federal system. Projected release <em>2028</em>.
+        The full bio + portrait is on the editor's page.
+      </p>
+      <div class="home-edcard__links">
+        <a class="home-edcard__cta" href="editor.html">Read the editor's page &rarr;</a>
+        <a class="home-edcard__cta home-edcard__cta--ghost" href="https://x.com/subnetmagazine" target="_blank" rel="noopener">𝕏 @subnetmagazine</a>
       </div>
-    </section>
+    </aside>
 
     <!-- ===== END OF FEATURE =====
          The home view stops here. One editorial closer that doubles
@@ -1615,40 +1584,66 @@ export function mountHome(root, dataLayer = null){
     if (cv) valSparks.push(new Sparkline(cv, { series: seedSeries(v.id + 'v', v.apy * 1.4 - 14, 28) }));
   });
 
-  /* ---------- TOP 25 BIOS — one sparkline per card cover ----------
-     Each cover banner gets a 30-pt sparkline biased by the subnet's
-     24h change so the line colour matches the reported direction.
-     Sparkline auto-colours green / red by net direction. */
+  /* ---------- TOP 25 BIOS + § 08 OPERATORS · lazy-mount sparklines
+     The home page wants 50 canvas sparklines in total (25 bio + 25
+     ops). On Android Chrome each <canvas> can become its own GPU
+     compositor layer; mounting 50 at boot exhausts the layer budget
+     on phones with limited GPU memory and silently locks scroll.
+     Solution: only mount a sparkline when its canvas is within a
+     viewport of the visible area. Sparklines outside that band
+     stay un-mounted until the user scrolls toward them. */
   const bioSparks = [];
-  SUBNET_BIOS.forEach((b) => {
-    const sn   = subnetById(b.netuid) || {};
-    const seed = BIO_SEED[b.netuid]   || {};
-    const drift = (sn.chg24 ?? seed.chg24 ?? 0) * 1.6;
-    const cv = qs(`[data-bio-spark="${b.netuid}"]`, root);
-    if (cv) bioSparks.push(new Sparkline(cv, {
-      series:    seedSeries('bio-' + b.netuid, drift, 30),
-      lineWidth: 1.6,
-      fill:      true,
-    }));
-  });
-
-  /* ---------- § 08 OPERATORS · sparkline per card --------------
-     30-day mock series biased to the 30-day chg so the slope of
-     the line tracks the badge in the card header. Swap to live
-     price-history series when the taostats per-subnet history
-     endpoint is wired. */
-  const opSparks = [];
-  SUBNET_BIOS.forEach((b) => {
-    const sn   = subnetById(b.netuid) || {};
-    const seed = BIO_SEED[b.netuid]   || {};
-    const drift = (sn.chg30 ?? seed.chg30 ?? sn.chg24 ?? seed.chg24 ?? 0) * 1.2;
-    const cv = qs(`[data-ops-spark="${b.netuid}"]`, root);
-    if (cv) opSparks.push(new Sparkline(cv, {
-      series:    seedSeries('ops-' + b.netuid, drift, 36),
-      lineWidth: 1.6,
-      fill:      true,
-    }));
-  });
+  const opSparks  = [];
+  const lazySparkObserver = ('IntersectionObserver' in window)
+    ? new IntersectionObserver((entries, ob) => {
+        entries.forEach(entry => {
+          if (!entry.isIntersecting) return;
+          const cv = entry.target;
+          if (cv.dataset.sparkMounted === '1') { ob.unobserve(cv); return; }
+          cv.dataset.sparkMounted = '1';
+          const isBio = cv.hasAttribute('data-bio-spark');
+          const netuid = Number(cv.getAttribute('data-bio-spark') || cv.getAttribute('data-ops-spark'));
+          const sn   = subnetById(netuid) || {};
+          const seed = BIO_SEED[netuid]   || {};
+          if (isBio){
+            const drift = (sn.chg24 ?? seed.chg24 ?? 0) * 1.6;
+            bioSparks.push(new Sparkline(cv, {
+              series:    seedSeries('bio-' + netuid, drift, 30),
+              lineWidth: 1.6,
+              fill:      true,
+            }));
+          } else {
+            const drift = (sn.chg30 ?? seed.chg30 ?? sn.chg24 ?? seed.chg24 ?? 0) * 1.2;
+            opSparks.push(new Sparkline(cv, {
+              series:    seedSeries('ops-' + netuid, drift, 36),
+              lineWidth: 1.6,
+              fill:      true,
+            }));
+          }
+          ob.unobserve(cv);
+        });
+      }, { rootMargin: '200px 0px' })
+    : null;
+  if (lazySparkObserver){
+    SUBNET_BIOS.forEach(b => {
+      const cv1 = qs(`[data-bio-spark="${b.netuid}"]`, root);
+      if (cv1) lazySparkObserver.observe(cv1);
+      const cv2 = qs(`[data-ops-spark="${b.netuid}"]`, root);
+      if (cv2) lazySparkObserver.observe(cv2);
+    });
+  } else {
+    /* graceful fallback for ancient browsers — mount eagerly */
+    SUBNET_BIOS.forEach((b) => {
+      const sn   = subnetById(b.netuid) || {};
+      const seed = BIO_SEED[b.netuid]   || {};
+      const driftA = (sn.chg24 ?? seed.chg24 ?? 0) * 1.6;
+      const cv1 = qs(`[data-bio-spark="${b.netuid}"]`, root);
+      if (cv1) bioSparks.push(new Sparkline(cv1, { series: seedSeries('bio-' + b.netuid, driftA, 30), lineWidth: 1.6, fill: true }));
+      const driftB = (sn.chg30 ?? seed.chg30 ?? sn.chg24 ?? seed.chg24 ?? 0) * 1.2;
+      const cv2 = qs(`[data-ops-spark="${b.netuid}"]`, root);
+      if (cv2) opSparks.push(new Sparkline(cv2, { series: seedSeries('ops-' + b.netuid, driftB, 36), lineWidth: 1.6, fill: true }));
+    });
+  }
 
   /* ---------- bind: LIVE NETWORK band ---------- */
   const bind = sel => qs(`[data-bind="${sel}"]`, root);
