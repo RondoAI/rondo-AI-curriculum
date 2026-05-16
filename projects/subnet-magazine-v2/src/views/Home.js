@@ -1585,7 +1585,10 @@ export function mountHome(root, dataLayer = null){
         <div class="home-editor__body">
           <span class="home-editor__kicker">Editor &middot; Subne<span class="tau">τ</span> Magazine</span>
           <h2 class="home-editor__name">Rondo Campbell</h2>
-          <p class="home-editor__role">Founder &middot; Editor &middot; Sole engineer</p>
+          <p class="home-editor__role">Founder &middot; Editor &middot; Engineer</p>
+          <p class="home-editor__role home-editor__role--quiet">
+            with <a href="editor.html">Shifa Abbas</a>, Co-Founder
+          </p>
           <p class="home-editor__bio">
             Subne<span class="tau">τ</span> Magazine is researched, written,
             designed, and coded by Rondo Campbell &mdash; working from inside

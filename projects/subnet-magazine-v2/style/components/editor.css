@@ -43,10 +43,97 @@
   background: linear-gradient(90deg, var(--c-red), transparent);
 }
 .editor-page__inner{
+  /* legacy single-bio layout — kept for any caller that still
+     uses .editor-page__inner. New masthead structure uses
+     .editor-card below instead. */
   display: grid;
   grid-template-columns: clamp(180px, 26vw, 260px) 1fr;
   gap: clamp(20px, 4vw, 48px);
   align-items: start;
+}
+
+/* ---------- MASTHEAD HEAD ----------
+   The intro block above the two editor cards. Same red kicker,
+   serif headline, dek. */
+.editor-page__head{
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  gap: var(--s-3);
+  padding-bottom: var(--s-5);
+  margin-bottom: clamp(40px, 6vw, 80px);
+  border-bottom: 1px solid var(--c-rule-2);
+}
+.editor-page__big{
+  margin: 0;
+  font-family: var(--f-serif);
+  font-size: clamp(40px, 6.4vw, 72px);
+  font-weight: 800;
+  letter-spacing: -.02em;
+  line-height: 1;
+  color: var(--c-ink-1);
+}
+.editor-page__sub{
+  margin: 0;
+  max-width: 64ch;
+  font-family: var(--f-sans);
+  font-size: var(--t-md);
+  line-height: 1.55;
+  color: var(--c-ink-2);
+}
+
+/* ---------- EDITOR CARD ----------
+   One card per person. Square portrait left, byline + bio + links
+   right; alternates sides on desktop via .editor-card--flip.
+   Stacks single-column under 720 px. */
+.editor-card{
+  position: relative;
+  z-index: 1;
+  display: grid;
+  grid-template-columns: clamp(180px, 26vw, 260px) 1fr;
+  gap: clamp(20px, 4vw, 48px);
+  align-items: start;
+  padding: clamp(32px, 5vw, 56px) 0;
+  border-bottom: 1px dashed var(--c-rule-2);
+}
+.editor-card:last-child{ border-bottom: 0; }
+.editor-card--flip{ grid-template-columns: 1fr clamp(180px, 26vw, 260px); }
+.editor-card--flip .editor-card__photo{ order: 2; }
+.editor-card--flip .editor-card__body{ order: 1; }
+@media (max-width: 720px){
+  .editor-card,
+  .editor-card--flip{
+    grid-template-columns: 1fr;
+    text-align: left;
+  }
+  .editor-card--flip .editor-card__photo,
+  .editor-card--flip .editor-card__body{ order: initial; }
+}
+.editor-card__photo{
+  position: relative;
+  aspect-ratio: 1 / 1;
+  background: var(--c-bg-2);
+  border: 1px solid var(--c-rule-2);
+  overflow: hidden;
+  border-radius: 3px;
+  width: 100%;
+  max-width: 260px;
+}
+@media (max-width: 720px){
+  .editor-card__photo{ width: 60vw; max-width: 240px; }
+}
+.editor-card__photo img{
+  display: block;
+  width: 100%; height: 100%;
+  object-fit: cover;
+  filter: contrast(1.02) saturate(.95);
+}
+.editor-card__body{
+  display: flex;
+  flex-direction: column;
+  gap: var(--s-3);
+  min-width: 0;
 }
 .editor-page__photo{
   position: relative;

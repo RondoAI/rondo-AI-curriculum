@@ -2909,6 +2909,19 @@
   text-transform: uppercase;
   color: var(--c-red-1);
 }
+.home-editor__role--quiet{
+  margin-top: 2px;
+  font-size: var(--t-xs);
+  font-weight: 500;
+  color: var(--c-ink-3);
+  text-transform: none;
+  letter-spacing: 0;
+}
+.home-editor__role--quiet a{
+  color: var(--c-ink-1);
+  border-bottom: 1px solid var(--c-rule-3);
+}
+.home-editor__role--quiet a:hover{ color: var(--c-red); border-color: var(--c-red); }
 .home-editor__bio{
   margin: var(--s-2) 0 0;
   max-width: 56ch;
