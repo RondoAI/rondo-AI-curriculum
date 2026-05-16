@@ -1128,28 +1128,47 @@
   box-shadow: 0 0 18px rgba(255,30,60,.6) inset;
   min-width: 0;
 }
-.home-stack__chart-c-cap,
-.home-stack__chart-b-cap{
-  position: absolute;
-  inset: 0;
-  /* flex (not grid) — grid would treat the price text and the
-     inline year span as two separate items and stack them
-     vertically. flex with row direction keeps both pieces on
-     a single line with the rest of the cap; overflow:hidden +
-     nowrap clips cleanly when the bar is narrower than the
-     combined text */
+/* ---------- middle column: labels stacked over the bar ----------
+   Was: $-values rendered INSIDE the bar segments via
+   position: absolute caps. Pulled out so:
+     - readable regardless of bar proportion (the MODEL row's
+       Bittensor bar is ~1% wide, the old caps clipped to garbled
+       characters like 'L39' inside it)
+     - bars stay purely visual: ratio at a glance
+     - same horizontal grid line, one row per layer */
+.home-stack__chart-mid{
   display: flex;
-  align-items: center;
-  justify-content: center;
+  flex-direction: column;
+  gap: 4px;
+  min-width: 0;
+}
+.home-stack__chart-labels{
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: var(--s-2);
   font-family: var(--f-mono);
-  font-size: 10px;
+  font-size: 11px;
   font-weight: 700;
   letter-spacing: var(--ls-data);
   font-variant-numeric: tabular-nums;
-  white-space: nowrap;
-  overflow: hidden;
-  padding: 0 4px;
+  line-height: 1;
 }
+.home-stack__chart-c-lbl{
+  color: var(--c-ink-2);
+  white-space: nowrap;
+}
+.home-stack__chart-b-lbl{
+  color: var(--c-red-1);
+  white-space: nowrap;
+  text-shadow: 0 0 6px rgba(255,30,60,.35);
+}
+/* PROTOCOL row: Bittensor-only label aligned right, Bittensor red */
+.home-stack__chart-row.is-inverted .home-stack__chart-c-lbl{ display: none; }
+.home-stack__chart-row.is-inverted .home-stack__chart-b-lbl{ margin-left: auto; }
+
+.home-stack__chart-c-cap,
+.home-stack__chart-b-cap{ display: none; }
 .home-stack__chart-c-cap{ color: var(--c-ink-2); }
 .home-stack__chart-b-cap{ color: var(--c-bg); text-shadow: 0 0 6px rgba(0,0,0,.4); }
 .home-stack__chart-share{

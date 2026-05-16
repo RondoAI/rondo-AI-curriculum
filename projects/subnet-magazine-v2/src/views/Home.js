@@ -449,17 +449,18 @@ export function mountHome(root, dataLayer = null){
                       ${r.layer}
                       <span class="home-stack__chart-conf" title="confidence: ${r.conf}" style="background:${confColor(r.conf)};box-shadow:0 0 6px ${confColor(r.conf)};"></span>
                     </span>
-                    <span class="home-stack__chart-bar">
-                      <span class="home-stack__chart-c" style="width: ${cw}%">
-                        <span class="home-stack__chart-c-cap">
-                          ${inverted ? '—' : fmt(r.cap)}
-                          ${inverted ? '' : `<span class="home-stack__chart-yr">${r.yr}</span>`}
+                    <div class="home-stack__chart-mid">
+                      <div class="home-stack__chart-labels">
+                        <span class="home-stack__chart-c-lbl">
+                          ${inverted ? '—' : fmt(r.cap)}<span class="home-stack__chart-yr">${inverted ? '' : r.yr}</span>
                         </span>
+                        <span class="home-stack__chart-b-lbl">${fmtM(r.aMcap)}</span>
+                      </div>
+                      <span class="home-stack__chart-bar">
+                        <span class="home-stack__chart-c" style="width: ${cw}%"></span>
+                        <span class="home-stack__chart-b" style="width: ${bw}%"></span>
                       </span>
-                      <span class="home-stack__chart-b" style="width: ${bw}%">
-                        <span class="home-stack__chart-b-cap">${fmtM(r.aMcap)}</span>
-                      </span>
-                    </span>
+                    </div>
                     <span class="home-stack__chart-gap ${inverted ? 'is-inverted' : ''}">${gapStr}</span>
                   </li>
                 `;
