@@ -7,6 +7,149 @@ Format: dated heading + a short note. Add new entries to the TOP.
 
 ---
 
+## 2026-05-16 17:30 UTC, MAJOR THESIS DROP from Rondo, WallStreetBets TAO investment thesis
+Source: Rondo passed through the full @wallstreetbets X thread
+"Why TAO is the Bitcoin of AI" (originally posted Apr 30).
+Preserved verbatim at:
+  intelligence/_primary_sources/2026-04-30-wallstreetbets-tao-is-bitcoin-of-ai-thesis.md
+
+This is the densest single tip of the day. A full bullish investment
+thesis naming 8+ subnets with founder attributions, capital allocator
+positioning, and several factual corrections to our existing data.
+Treating as the seed asset map for the magazine's subnet coverage
+going forward.
+
+### MAJOR FACT CORRECTIONS embedded
+Three things our system had wrong or missing that this thesis settles.
+
+1. **SN3 is Templar (covenant_ai), not Hippius.** I had written
+   earlier today that Hippius is SN75 (CONFIRMED by Mark Jeffrey
+   bio in voices.js). I never claimed SN3 = Hippius, but the
+   ecosystem article seed said "Hippius (SN75)" so Hippius is
+   correctly attributed. The new information: **SN3 = Templar,
+   parent company Covenant AI**, the team that trained a 72B
+   parameter model with 70+ contributors on home GPUs.
+
+2. **Chutes founder attribution needs nuance.** Per this thesis,
+   Chutes (SN64) is "Built by @rayon_labs". Per Jon Durbin's own
+   May 13 roadmap post (logged earlier today as his "founder"
+   post), he writes as Chutes' frontline backend dev. His X bio
+   reads "Human. Backend dev http://chutes.ai". The likely truth:
+   Rayon Labs is the company, Jon Durbin is a senior engineer
+   there (possibly co-founder, possibly lead). The Oracle should
+   say "built by Rayon Labs, with Jon Durbin as a lead engineer
+   and public voice" rather than asserting either as sole founder.
+
+3. **Const (@const_reborn) is now building Affine (SN120).** I had
+   Const in voices as core (Opentensor co-founder). This thesis
+   reveals he is ALSO building his own subnet, Affine, which runs
+   continuous evaluations to fine-tune open-source reasoning models.
+   Affine uses Chutes for hosting. Need to expand Const's bio to
+   reflect this.
+
+### The capital + thesis structure to anchor on
+Quotes worth re-using:
+  - Rob Greer (Stillcore): "TAO 2026 = ETH 2016 = BTC 2013"
+  - Stillcore's stated goal: own 1 percent of all TAO in existence
+  - Rob Greer is "targeting a 1T TAO market cap by 2030"
+  - Jason (Stillcore, of Uber 25K -> 100M fame): put close to 1M
+    of his own money into TAO, calling for 200x in 5 to 10 years
+  - Barry Silbert (DCG) "called TAO a generational opportunity"
+    at the DCG summit per the author
+  - Unsupervised Capital projects TAO at 4,800 USD by Dec 2027
+    (19x), bull case 10,800 USD
+  - Grayscale holds TAO in their Decentralized AI Fund; has filed
+    with SEC to convert the GTAO Trust into a SPOT ETF (same path
+    that preceded Bitcoin's spot ETF approval). This is a real
+    institutional signal worth tracking for filing updates.
+  - Jensen Huang "mentioned Bittensor" (worth source-confirming
+    the exact context before quoting)
+  - Mark Jeffrey thesis: less than 20 percent of all TAO is staked
+    into subnets; when the first subnet crosses 1B mcap, root
+    stakers will rush in. That migration alone could 3-4x subnet
+    valuations without any new TAO purchased
+
+### The Templar black swan worth understanding deeply
+- Templar (SN3, parent Covenant AI) trained a 72B parameter model
+  decentralized, 70+ home-GPU contributors, no datacenter
+- TAO surged ~90 percent on the news, ecosystem hit ~1.5B combined
+  valuation
+- April 2026: founder Sam Dare dumped 37,000 TAO (~10M USD)
+- Community questioned fundamentals
+- Const took "immediate steps to fix it" including introduction of
+  "Locked Stake" mechanism to strengthen subnet ownership and
+  decentralization
+- Read: this is the analog of FTX for Bittensor's narrative.
+  Recovery posture from Const + introduction of Locked Stake is
+  the institutional response. Worth a future Oracle Ecosystem
+  State article specifically on Locked Stake mechanics
+
+### The full subnet asset map this thesis surfaces
+(All previously unknown to or under-specified in our system)
+  - **SN3   Templar       @tplr_ai / @covenant_ai** (Sam Dare,
+            72B decentralized training, Apr 2026 black swan)
+  - **SN4   Targon       @TargonCompute** (decentralized AWS for
+            AI, Targon VM, Targon OS, INTEL co-authored paper
+            Mar 2026, powers Dippy 8M+ users, built by @0xcarro
+            + @jameswoodmanv, aka Manifold Labs)
+  - **SN8   Vanta        @VantaTrading** (prop firm with 100%
+            profit split, Hyperliquid version Hyperscaled, A-books
+            via CFTC-compliant Glitch, net profitable on emissions
+            as of last month)
+  - **SN15  Oro          @oroagents** (autonomous AI shopping
+            agents, 45 agents outperformed GPT 5.4, co-founded
+            @shardiban + @ironseth_s)
+  - **SN44  Score        @webuildscore** (computer vision, FIRST
+            Bittensor subnet to partner with a Big Four firm,
+            PwC France formal alliance to distribute Manako
+            product, won Bittensor track at Paris Blockchain Week)
+  - **SN46  RESI         @resilabsai** (real estate intelligence,
+            98%+ remote appraisal accuracy, 1000+ appraisals first
+            week, nationwide lender partnership, Stillcore
+            invested, founded by @Sebyverse)
+  - **SN64  Chutes       built by @rayon_labs, Jon Durbin lead
+            engineer** (already in our data, expand bio)
+  - **SN120 Affine       @affine_io** (Const's new subnet, runs
+            continuous evals, hosts on Chutes, direct value loop)
+  - **TAO.com  @TAO_dot_com** (mobile wallet, ONE OF THREE
+            MULTISIG KEY HOLDERS for Bittensor ecosystem-level
+            changes, was one of largest early miners, Android
+            launching soon)
+
+### Why this matters for the Oracle's competitive bar
+This single thread gives the Oracle 8+ ready-made Subnet Spotlight
+candidates with founder names, technical details, and quantitative
+adoption metrics. None are on the human-magazine avoid list except
+SN64 Chutes (which we already cover via Jon Durbin). The Oracle
+should rotate through:
+  - SN4 Targon (Intel partnership angle)
+  - SN44 Score (PwC partnership angle, first Big Four)
+  - SN46 RESI (real estate disruption angle, $600T TAM)
+  - SN8 Vanta (prop firm disruption angle, FTMO comparison)
+  - SN120 Affine (Const founder angle, Chutes-Affine value loop)
+  - SN15 Oro (agent benchmarking angle, GPT 5.4 beat)
+  - SN3 Templar (post-black-swan recovery angle, Locked Stake)
+That is roughly two months of differentiated daily spotlights from
+one tip alone.
+
+### Suggested follow-up automation
+Adding 11 new handles to voices.js so the Nitter scraper picks them
+up automatically going forward. Bios pre-baked with the WallStreetBets
+thesis facts so the Oracle has context even without re-reading the
+full thread. Const's bio expanded to include Affine (SN120).
+
+### Hedge the Oracle should apply
+This is an explicit BULL THESIS by a positioned voice. The price
+targets ($4,800 Dec 2027, $10,800 bull case, 1T mcap by 2030,
+200x in 5-10 years) are projections, not facts. Cite as "X projects"
+or "X expects", never as "expected". The "TAO 2026 = ETH 2016 = BTC
+2013" frame is quotable but the Oracle should also note disanalogies
+(TAO has an active product layer BTC/ETH did not have at equivalent
+maturity; AI compute economics are not crypto economics; subnet-by-
+subnet revenue is a different signal than network-effect alone).
+
+---
+
 ## 2026-05-16 17:00 UTC, PRIMARY SOURCE from Rondo, Connito whitepaper v1
 Source: Rondo dropped the 21-page Connito whitepaper:
   intelligence/_primary_sources/2026-05-16-connito-whitepaper-v1-decentralized-moe.pdf
