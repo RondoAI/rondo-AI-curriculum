@@ -14,17 +14,17 @@ import { applySlideHint } from '../lib/slide-hint.js';
 
 const NAV_ITEMS = [
   { code: '001', label: 'MAGAZINE',  href: 'index.html'        },
-  { code: '020', label: 'TERMINAL',  href: 'terminal.html'     },
-  { code: '030', label: 'MARKETS',   href: 'markets.html'      },
   { code: '010', label: 'NETWORK',   href: 'network.html'      },
+  { code: '020', label: 'TERMINAL',  href: 'terminal.html'     },
   { code: '025', label: 'COMPARE',   href: 'compare.html'      },
   { code: '026', label: 'CENTRAL',   href: 'centralized.html'  },
-  { code: '060', label: 'RESEARCH',  href: 'articles.html'     },
-  { code: '070', label: 'COMMUNITY', href: 'community.html'    },
+  { code: '030', label: 'MARKETS',   href: 'markets.html'      },
   { code: '040', label: 'SUBNETS',   href: 'subnets.html'      },
   { code: '050', label: 'VALIDATORS',href: 'validators.html'   },
-  { code: '090', label: 'INTERVIEWS',href: 'interviews.html'   },
+  { code: '060', label: 'RESEARCH',  href: 'articles.html'     },
+  { code: '070', label: 'COMMUNITY', href: 'community.html'    },
   { code: '080', label: 'EDITOR',    href: 'editor.html'       },
+  { code: '090', label: 'INTERVIEWS',href: 'interviews.html'   },
 ];
 
 const X_URL = 'https://x.com/subnetmagazine';
