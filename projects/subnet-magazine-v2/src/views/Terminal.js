@@ -44,6 +44,7 @@ import { recentOracleArticles } from '../data/oracle-articles.js';
 import { ARTICLES } from '../data/articles.js';
 /* Mode adapter imports — each terminal mode is its own module under
    src/views/terminal/. Registered in MODE_REGISTRY below. */
+import { mountChartMode    } from './terminal/chart-mode.js';
 import { mountBriefingsMode } from './terminal/briefings-mode.js';
 import { mountEditorialMode } from './terminal/editorial-mode.js';
 import { mountMarketsMode  } from './terminal/markets-mode.js';
@@ -75,7 +76,7 @@ function stubMode(key, title, brief){
 }
 
 export const MODE_REGISTRY = Object.freeze({
-  chart:     { label: 'CHART',     mount: stubMode('chart',     'Per-subnet price + emission + volume chart, with KPI strip and tool tray.',                'Migrate from src/views/Cockpit.js renderMain + drawChart + KPI strip. The whole cockpit center pane becomes this mode.') },
+  chart:     { label: 'CHART',     mount: mountChartMode },
   markets:   { label: 'MARKETS',   mount: mountMarketsMode },
   analytics: { label: 'ANALYTICS', mount: mountAnalyticsMode },
   desk:      { label: 'DESK',      mount: stubMode('desk',      'Paper portfolio + Brinson-Fachler attribution running on your actual positions.',           'Compose src/views/dashboard/paper-portfolio.js + src/views/dashboard/attribution.js inside this mode. Keep their existing wiring.') },

@@ -26,31 +26,33 @@
 
 /* ---------- STATUS BAR ----------------------------------------- */
 .dash-status{
-  position: sticky;
-  top: 0;
-  z-index: 50;
-  /* Solid opaque background, no rgba. Reported bug: previous .96
-     alpha let scrolled content (article text, category chips,
-     company names) bleed through the sticky bar on mobile. A
-     stacked solid color + the brand bloom on top kills the bleed
-     completely while keeping the red-glass look the bar wants. */
+  /* Rondo, 2026-05-17: "this bar is way too big · in the way of
+     scrolling." Two fixes:
+       1. Sizing tightened below (rail padding 6/12, val 13px, lbl
+          7.5px) — bar height halved.
+       2. NON-sticky position. The global StatusStrip at the very
+          top of every page is the always-visible network heartbeat
+          (TAO price / BLK / EMIT / STAKED / MCAP). The dashboard
+          status bar carries DASHBOARD-specific aggregates (SUBNET
+          MCAP sum, validators, miners, top mover, AI dominance) —
+          contextual, not network-vital, so it can scroll away with
+          the rest of the dashboard. */
+  position: relative;
+  z-index: 1;
   background-color: #050203;
   background-image:
     linear-gradient(180deg, rgba(255,30,60,.04) 0%, transparent 100%);
   border-bottom: 1px solid rgba(255,30,60,.42);
-  box-shadow:
-    0 1px 0 rgba(255,30,60,.18) inset,
-    0 6px 18px rgba(0,0,0,.65);
-  /* Promote to its own compositor layer so the GPU doesn't ask
-     the page underneath to redraw under it on every scroll tick. */
-  transform: translateZ(0);
-  will-change: transform;
 }
 .dash-status__rail{
   display: grid;
   grid-template-columns: repeat(6, minmax(0,1fr));
   gap: 0;
-  padding: 10px 14px;
+  /* Tightened padding so the sticky status bar doesn't eat 110px
+     of vertical real estate on every scroll. Rondo's feedback:
+     "this bar is way too big · in the way of scrolling." Going
+     from 10px/14px to 6px/12px shaves the rail down to ~50px. */
+  padding: 6px 12px;
   border-top: 1px solid rgba(255,30,60,.18);
 }
 /* On phones the 6-cell status grid is unreadable, cells crash into
@@ -59,19 +61,22 @@
    to breathe and every label is still visible. */
 @media (max-width: 720px){
   .dash-status__rail{
+    /* Mobile keeps the 2-col grid for legibility but with tighter
+       cell padding so the sticky bar height drops from ~240px to
+       ~165px on a 414×900 screen — frees ~80px of every scroll. */
     grid-template-columns: 1fr 1fr;
-    padding: 8px 10px;
-    gap: 6px;
+    padding: 4px 8px;
+    gap: 3px;
   }
   .dash-status__cell{
-    padding: 8px 10px;
+    padding: 4px 8px;
     border-right: 0;
     border: 1px solid rgba(255,30,60,.10);
     background: rgba(20,5,9,.45);
   }
-  .dash-status__cell__val{ font-size: 14px; }
-  .dash-status__cell__lbl{ font-size: 8px; letter-spacing: .18em; }
-  .dash-status__cell__sub{ font-size: 8.5px; }
+  .dash-status__cell__val{ font-size: 13px; }
+  .dash-status__cell__lbl{ font-size: 7.5px; letter-spacing: .18em; }
+  .dash-status__cell__sub{ font-size: 8px; }
 }
 @media (max-width: 720px){
   .dash-status__title{
@@ -87,30 +92,42 @@
   }
 }
 .dash-status__cell{
-  padding: 0 14px;
+  /* Compressed cells: tighter padding + single-line content layout
+     so the status bar is a thin tape, not a panel. Numbers shrink
+     from 17px → 13px; labels from 8.5px → 7.5px. Total cell height
+     drops from ~70px → ~38px. */
+  padding: 0 12px;
   border-right: 1px solid rgba(255,30,60,.15);
   display: grid;
-  grid-template-rows: auto auto auto;
-  gap: 2px;
+  grid-template-rows: auto auto;
+  gap: 1px;
+  align-content: center;
 }
 .dash-status__cell:last-child{ border-right: 0; }
 .dash-status__cell__lbl{
-  font-size: 8.5px;
+  font-size: 7.5px;
   letter-spacing: .22em;
   color: rgba(255,30,60,.7);
   text-transform: uppercase;
-  font-weight: 700;
+  font-weight: 800;
 }
 .dash-status__cell__val{
-  font-size: 17px;
-  font-weight: 700;
+  font-size: 13px;
+  font-weight: 800;
   color: #fff;
   font-variant-numeric: tabular-nums;
+  letter-spacing: -.01em;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 .dash-status__cell__sub{
-  font-size: 9.5px;
-  letter-spacing: .08em;
+  font-size: 8.5px;
+  letter-spacing: .06em;
   color: var(--c-ink-3);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 .dash-status__cell__sub.is-up { color: #5BE599; }
 .dash-status__cell__sub.is-down{ color: #FF4D60; }
@@ -118,10 +135,12 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 8px 14px 6px;
+  /* Tightened title row — was 8/6, now 5/4. Cuts ~6px off the
+     overall sticky-bar height. */
+  padding: 5px 14px 4px;
   border-bottom: 1px solid rgba(255,30,60,.10);
-  font-size: 9.5px;
-  letter-spacing: .26em;
+  font-size: 9px;
+  letter-spacing: .24em;
   color: rgba(255,30,60,.85);
   font-weight: 800;
   text-transform: uppercase;
