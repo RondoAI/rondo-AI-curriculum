@@ -310,6 +310,17 @@ export function mountHome(root, dataLayer = null){
          this is a terminal, not a button). Both refuse to wrap and
          cap at 45% of the cover width so they coexist on narrow
          cards without overlap. */
+      /* HUD reticle instrument tags. Sharp rectangle with a single
+         chamfered corner cut diagonally (clip-path polygon), the
+         signature flourish. Reads as an aerospace/terminal label,
+         not a chat-app pill. SUBNET ORACLE chamfers the TOP-RIGHT,
+         the ticker chamfers the TOP-LEFT, so the pair points
+         inward and the cover reads as a bracketed instrument
+         readout. Heavier monospace, .22em letter-spacing, sharp
+         hairline border, layered shadow stack with a 1px top
+         bevel highlight. The pulsing dot and inward chamfer make
+         this the distinct identity it should be, not a generic
+         red chip. */
       .home-article--oracle .home-article__oracle-badge,
       .home-article--oracle .home-article__ticker{
         position: absolute;
@@ -323,30 +334,41 @@ export function mountHome(root, dataLayer = null){
         overflow: hidden;
         font-family: var(--f-mono, monospace);
         font-size: 9.5px;
-        font-weight: 700;
-        letter-spacing: .19em;
+        font-weight: 800;
+        letter-spacing: .22em;
         color: #fff;
         background:
           linear-gradient(180deg,
-            rgba(28,10,14,.92) 0%,
-            rgba(10,4,6,.86)  100%);
+            rgba(28,10,14,.94) 0%,
+            rgba(8,3,5,.90)   100%);
         backdrop-filter: blur(10px) saturate(160%);
         -webkit-backdrop-filter: blur(10px) saturate(160%);
-        border: 1px solid rgba(255,30,60,.82);
-        border-radius: 1px;
+        border: 1px solid rgba(255,30,60,.78);
+        /* No corner radius, the chamfer is the signature, not a
+           web-2.0 rounded chip. */
+        border-radius: 0;
         text-shadow: 0 0 6px rgba(255,30,60,.55);
         box-shadow:
-          0 0 14px rgba(255,30,60,.38),
+          0 0 12px rgba(255,30,60,.30),
           0 2px 8px rgba(0,0,0,.55),
-          inset 0 0 10px rgba(255,30,60,.20),
-          inset 0 1px 0 rgba(255,90,110,.32);
+          inset 0 0 10px rgba(255,30,60,.18),
+          inset 0 1px 0 rgba(255,90,110,.28);
       }
-      /* SUBNET ORACLE: top-right, with a live-pulse dot as a ::before
-         so we get the indicator without changing the markup. */
+      /* SUBNET ORACLE: top-right HUD reticle. Chamfer the TOP-RIGHT
+         corner so the tag visually points back toward the cover's
+         center, where the sphere lives. Pulsing live dot via
+         ::before. */
       .home-article--oracle .home-article__oracle-badge{
         right: 10px;
         gap: 7px;
         padding: 5px 10px 4px 8px;
+        clip-path: polygon(
+          0 0,
+          calc(100% - 7px) 0,
+          100% 7px,
+          100% 100%,
+          0 100%
+        );
       }
       .home-article--oracle .home-article__oracle-badge::before{
         content: "";
@@ -376,12 +398,22 @@ export function mountHome(root, dataLayer = null){
             0 0 4px  rgba(255,200,210,.7);
         }
       }
-      /* Ticker: top-left, logo + uppercase name + SN id. The signature
-         tag of the article, mirrors SUBNET ORACLE in chrome. */
+      /* Ticker: top-left HUD reticle. Chamfer the TOP-LEFT corner
+         so the tag mirrors SUBNET ORACLE on the right, the pair
+         visually brackets the sphere underneath like a HUD readout
+         framing its instrument. logo + uppercase company name +
+         SN id. */
       .home-article--oracle .home-article__ticker{
         left: 10px;
         gap: 7px;
         padding: 4px 9px 3px 5px;
+        clip-path: polygon(
+          7px 0,
+          100% 0,
+          100% 100%,
+          0 100%,
+          0 7px
+        );
       }
       .home-article--oracle .home-article__ticker-logo{
         flex: 0 0 auto;
