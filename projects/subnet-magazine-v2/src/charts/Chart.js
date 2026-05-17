@@ -11,12 +11,6 @@
    The base handles:
      - DevicePixelRatio scaling so canvas stays crisp on retina
      - ResizeObserver wired to a rAF-throttled resize
-     - IntersectionObserver: an animated chart pauses its rAF loop
-       the moment it scrolls off-screen and resumes when scrolled
-       back in, so 12+ animated charts on a page no longer fight
-       scrolling for GPU time
-     - Mobile frame-rate cap (30fps under 720px viewport) so each
-       animated chart costs half the GPU per second
      - prefers-reduced-motion: animated charts fall back to a single
        draw on data change
      - destroy() unbinds everything cleanly
@@ -26,15 +20,6 @@
    ================================================================= */
 
 import { rafThrottle, prefersReducedMotion } from '../lib/dom.js';
-
-/* Mobile gets a 30fps cap. Each animated chart costs half the GPU
-   per second compared to an uncapped 60fps loop, and 30fps is the
-   threshold above which slow motion stops reading as choppy. */
-const MOBILE_FRAME_MS = 1000 / 30;
-const isMobileViewport = () =>
-  typeof window !== 'undefined' &&
-  typeof window.matchMedia === 'function' &&
-  window.matchMedia('(max-width: 720px)').matches;
 
 /**
  * @typedef {Object} ChartOptions
@@ -60,23 +45,11 @@ export class Chart {
     /** @protected */ this.t = 0;
     /** @private */ this._opts = {
       animate: opts.animate !== false,
-      /* Cap pixel ratio. On mobile (<= 720px) we cap at 1.5 instead
-         of 2: phones routinely report DPR 2-3, which means a 200px
-         canvas would draw 600x600 = 360k pixels per frame on a
-         DPR-3 device. The soft strokes, glows and gradients in
-         NodeSphere/NeuralLogo hide aliasing well, so the visual
-         drop from 2 to 1.5 is negligible while the per-frame paint
-         cost drops by ~40-55%, which is exactly what an animated
-         plexus on a mid-tier Android phone needs. */
-      maxDPR: opts.maxDPR ?? (isMobileViewport() ? 1.5 : 2),
+      maxDPR: opts.maxDPR ?? 2,
     };
     /** @private */ this._destroyed = false;
     /** @private */ this._rafId = 0;
     /** @private */ this._observer = null;
-    /** @private */ this._intersector = null;
-    /** @private */ this._visible = true;        // assume visible until told otherwise
-    /** @private */ this._lastFrame = 0;
-    /** @private */ this._frameMs = isMobileViewport() ? MOBILE_FRAME_MS : 0;
     /** @private */ this._reduced = prefersReducedMotion();
 
     this._onResize = rafThrottle(() => this._resize());
@@ -92,21 +65,6 @@ export class Chart {
       this._observer.observe(canvas);
     } else {
       window.addEventListener('resize', this._onResize);
-    }
-    /* IntersectionObserver: pause the rAF loop when the canvas
-       scrolls off-screen, resume when it scrolls back in. 200px
-       rootMargin means we wake up slightly before the canvas is
-       visible so the reader never sees a blank frame on scroll-in.
-       Falls back to always-animating if the API is missing. */
-    if (typeof IntersectionObserver !== 'undefined'){
-      this._intersector = new IntersectionObserver((entries) => {
-        const wasVisible = this._visible;
-        this._visible = entries[0].isIntersecting;
-        if (this._visible && !wasVisible && this._opts.animate && !this._reduced){
-          this._start();
-        }
-      }, { rootMargin: '200px' });
-      this._intersector.observe(canvas);
     }
   }
 
@@ -136,7 +94,6 @@ export class Chart {
     cancelAnimationFrame(this._rafId);
     if (this._observer) this._observer.disconnect();
     else window.removeEventListener('resize', this._onResize);
-    if (this._intersector) this._intersector.disconnect();
   }
 
   /* ---------- internals ---------- */
@@ -159,26 +116,9 @@ export class Chart {
   /** @private */
   _start(){
     if (this._destroyed) return;
-    /* Don't start an animation loop for an off-screen chart. The
-       IntersectionObserver in the constructor will call _start
-       again when the canvas scrolls into view. */
-    if (!this._visible) return;
-    /* Guard against double-loops: if a previous loop is in flight
-       (e.g. resume after intersection-in fired while loop was
-       still running because we just scrolled in fast), kill it
-       first so we don't end up with two rAFs per chart. */
-    if (this._rafId) cancelAnimationFrame(this._rafId);
     if (this._opts.animate && !this._reduced){
-      const loop = (now) => {
-        if (this._destroyed || !this._visible) { this._rafId = 0; return; }
-        /* Frame-rate cap on mobile, 30fps. The browser still wakes
-           every rAF (~16ms) but we only paint on the throttled
-           cadence, halving the GPU cost per chart per second. */
-        if (this._frameMs && (now - this._lastFrame) < this._frameMs){
-          this._rafId = requestAnimationFrame(loop);
-          return;
-        }
-        this._lastFrame = now || performance.now();
+      const loop = () => {
+        if (this._destroyed) return;
         this._frame();
         this._rafId = requestAnimationFrame(loop);
       };

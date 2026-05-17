@@ -2037,27 +2037,13 @@ export function mountHome(root, dataLayer = null){
      The cover is THE canonical NodeSphere, same engine and params as
      the masthead. The subject company is identified by a Bloomberg-
      terminal-style ticker badge pinned to the top-left of the art
-     (TARGON, SN4) instead of being painted into the sphere.
-
-     Mobile path: render the sphere ONCE and freeze it (animate: false)
-     plus reduce node count and density. Reason: four 78-node animated
-     spheres simultaneously in view (the Oracle row) was the dominant
-     scroll-time GPU cost on mid-tier Android, ~5,500 strokes per
-     frame across the row. Frozen they still read as the same dense
-     red plexus, just held at one rotation. The hero sphere up top
-     stays animated as the signature element. */
-  const _isMobileOracle = typeof window !== 'undefined' &&
-    typeof window.matchMedia === 'function' &&
-    window.matchMedia('(max-width: 720px)').matches;
+     (TARGON, SN4) instead of being painted into the sphere. The
+     sphere stays pure. */
   const oracleMarks = [];
   root.querySelectorAll('[data-canvas="home-oracle-sphere"]').forEach((cv) => {
     try {
       oracleMarks.push(new NodeSphere(cv, {
-        nodes:   _isMobileOracle ? 56 : 78,
-        K:       4,
-        density: _isMobileOracle ? 0.34 : 0.46,
-        speed:   0.2,
-        animate: !_isMobileOracle,
+        nodes: 78, K: 4, density: 0.46, speed: 0.2,
       }));
     } catch (_) {}
   });

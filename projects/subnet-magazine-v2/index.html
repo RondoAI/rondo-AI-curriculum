@@ -2,14 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="utf-8">
-  <!-- minimum-scale=1 prevents pinch-zoom-out below the design's
-       intended scale, otherwise the mobile-first layout (sized to
-       the device's CSS-pixel width) would float left with the body
-       background grid extending into empty space on the right when
-       the user zooms out. Pinch-zoom-IN still works freely for
-       accessibility. maximum-scale=5 keeps the upper bound generous
-       for low-vision readers. -->
-  <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=5, viewport-fit=cover">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
   <meta name="theme-color" content="#000000">
   <title>Subneτ Magazine, A research terminal for decentralized intelligence</title>
   <meta name="description" content="Subneτ Magazine is a research terminal for the Bittensor network. Live consensus map, subnet markets, validator analytics, and editorial coverage of decentralized AI.">
@@ -20,7 +13,7 @@
 
   <!-- Stylesheet order matters: tokens → base → components. -->
   <link rel="stylesheet" href="style/tokens.css">
-  <link rel="stylesheet" href="style/base.css?v=20260517j">
+  <link rel="stylesheet" href="style/base.css">
   <link rel="stylesheet" href="style/components/slide-hint.css">
   <link rel="stylesheet" href="style/components/tickers.css">
   <link rel="stylesheet" href="style/components/status-strip.css">
@@ -61,6 +54,6 @@
        param is a manual cache-buster, bump it whenever a deployed
        module change isn't picking up on phones with aggressive
        browser caches. -->
-  <script type="module" src="src/boot.js?v=20260517j"></script>
+  <script type="module" src="src/boot.js?v=20260517z"></script>
 </body>
 </html>
