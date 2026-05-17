@@ -41,6 +41,7 @@
    ================================================================= */
 
 import { SUBNETS } from '../../data/subnets.js';
+import { loadPaperState, annotatePositions } from '../../data/paper-portfolio.js';
 
 /* ---------- presets ------------------------------------------- */
 
@@ -51,6 +52,7 @@ const HORIZONS = [
 ];
 
 const PORTFOLIOS = [
+  { key: 'PAPER',    label: 'PAPER',      meta: 'your paper-trading positions, weighted by current value' },
   { key: 'WATCH',    label: 'WATCHLIST',  meta: 'starred subnets, equal-weight' },
   { key: 'TOP10EM',  label: 'TOP 10 EM',  meta: 'top 10 by emission, emission-weighted' },
   { key: 'TOP20MC',  label: 'TOP 20 MCAP',meta: 'top 20 by FDV, mcap-weighted' },
@@ -120,6 +122,20 @@ function loadWatchlistSet(){
 /* Return [{netuid, ..., weight}] where weight is the fraction of
    portfolio that subnet represents. Weights always sum to 1. */
 function resolvePortfolio(key){
+  if (key === 'PAPER'){
+    const paper = loadPaperState();
+    const annotated = annotatePositions(paper);
+    const totalValue = annotated.reduce((a,p) => a + p.value, 0);
+    if (annotated.length === 0 || totalValue <= 0){
+      // No paper positions yet -> fall back to TOP10EM so the panel
+      // still has something to analyze, flag with fallback for the UI.
+      return resolvePortfolio('TOP10EM').map(s => ({ ...s, fallback: true }));
+    }
+    return annotated.map(p => {
+      const full = SUBNETS.find(s => s.netuid === p.netuid) || {};
+      return { ...full, weight: p.value / totalValue };
+    });
+  }
   if (key === 'WATCH'){
     const set = loadWatchlistSet();
     const picks = SUBNETS.filter(s => set.has(s.netuid));
@@ -458,8 +474,9 @@ export function renderAttribution(state){
 
   const fallbackNote = a.isFallback ? `
     <div class="attrib-fallback">
-      ★ WATCHLIST is empty &mdash; showing TOP 10 EM as a stand-in.
-      Star subnets in the rail to build your own portfolio.
+      ${state.portfolio === 'PAPER'
+        ? '⊕ PAPER PORTFOLIO is empty &mdash; showing TOP 10 EM as a stand-in. Use the Paper Portfolio panel below to buy your first positions, then this analysis will be about your actual bets.'
+        : '★ WATCHLIST is empty &mdash; showing TOP 10 EM as a stand-in. Star subnets in the rail to build your own portfolio.'}
     </div>` : '';
 
   return `
