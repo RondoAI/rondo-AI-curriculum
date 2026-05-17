@@ -656,8 +656,11 @@ export function mountDashboard(root, dataLayer = null){
        n/p       vim-style aliases
        1-9       jump to top-N visible
        Esc       clear search + blur
+     (⌘K / Ctrl+K opens the global command palette; that's wired in
+     boot.js via installCommandPalette and is intentionally not
+     handled here, the palette wraps every page in the magazine.)
    */
-  document.addEventListener('keydown', (e) => {
+  const onDashKeydown = (e) => {
     const inSearch = e.target?.dataset?.search != null;
     if (e.key === '/' && !inSearch){
       e.preventDefault();
@@ -684,7 +687,8 @@ export function mountDashboard(root, dataLayer = null){
       const idx = parseInt(e.key, 10) - 1;
       if (visible[idx]){ visible[idx].click(); visible[idx].scrollIntoView({ block: 'nearest' }); }
     }
-  });
+  };
+  document.addEventListener('keydown', onDashKeydown);
   function moveSelection(dir){
     const visible = qsa('.dash-command__row', root).filter(r => r.offsetParent !== null);
     const idx = visible.findIndex(r => parseInt(r.dataset.row, 10) === selectedId);
@@ -783,8 +787,148 @@ export function mountDashboard(root, dataLayer = null){
     } catch (_) {}
   }
 
+  /* =================================================================
+     COMMAND BUS LISTENER
+     -----------------------------------------------------------------
+     Honors CustomEvent('subnetmag:command') dispatched by the
+     command palette (src/lib/command-palette.js) or any future
+     view. The palette knows nothing about dashboard internals, it
+     just emits { fn, … } detail objects. We translate them here
+     into the same state mutations + zone repaints the inline rail
+     handlers already use, so palette commands and direct clicks
+     produce identical UI state.
+
+     Coupling: loose. New verbs in the palette don't require any
+     change here unless they need a new action; this switch is the
+     single point of dispatch.
+     ================================================================= */
+  function _selectSubnet(id){
+    if (!Number.isFinite(id) || id === selectedId) return;
+    if (!subnetState.rows.find(s => s.netuid === id)) return;
+    selectedId = id;
+    qsa('.dash-command__row', root).forEach(r =>
+      r.classList.toggle('is-selected', parseInt(r.dataset.row, 10) === id));
+    qsa('.dash-master__row',  root).forEach(r =>
+      r.classList.toggle('is-selected', parseInt(r.dataset.masterRow, 10) === id));
+    repaintDetail();
+    qs('.dash-detail', root)?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  }
+  function _toggleWatch(id){
+    if (!Number.isFinite(id)) return;
+    if (watchlist.has(id)) watchlist.delete(id); else watchlist.add(id);
+    saveWatchlist(watchlist);
+    repaintToolbar();
+    repaintList();
+  }
+  function _setWatchedOnly(b){
+    onlyWatched = !!b;
+    const tog = qs('[data-watched-toggle]', root);
+    if (tog){
+      tog.classList.toggle('is-on', onlyWatched);
+      tog.setAttribute('aria-pressed', String(onlyWatched));
+    }
+    repaintList();
+  }
+  function _setSort(id){
+    if (!SORT_OPTIONS.find(o => o.id === id)) return;
+    sortMode = id;
+    qsa('[data-sort]', root).forEach(b => b.classList.toggle('is-on', b.dataset.sort === id));
+    repaintList();
+  }
+  function _setFilter(cat){
+    if (cat !== 'all' && !presentCats.includes(cat)) return;
+    activeFilter = cat;
+    qsa('[data-filter]', root).forEach(c =>
+      c.classList.toggle('is-active', c.dataset.filter === cat));
+    repaintList();
+  }
+  function _setMasterSort(col, dir){
+    masterSort    = col;
+    masterSortDir = dir;
+    repaintMaster();
+    qs('.dash-master', root)?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  }
+  function _setArchiveFilter(mode){
+    if (!['all','magazine','oracle','ecosystem','selected'].includes(mode)) return;
+    applyArchiveFilter(mode);
+    qsa('[data-arc-filter]', root).forEach(c =>
+      c.classList.toggle('is-active', c.dataset.arcFilter === mode));
+    qs('.dash-arc', root)?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  }
+  function _scrollTo(target){
+    const el = qs(target, root);
+    if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  }
+  /* Local subnet-arg parser used by the command bus. '23', 'sn23',
+     or 'targon' (case-insensitive fuzzy match against current rows)
+     → netuid or null. Empty/null argument falls back to whatever
+     subnet is currently selected. */
+  function _parseSubnetArg(s){
+    if (s == null || s === '') return selectedId;
+    const num = parseInt(String(s).replace(/^sn/i, ''), 10);
+    if (Number.isFinite(num) && subnetState.rows.find(r => r.netuid === num)) return num;
+    const ql = String(s).toLowerCase();
+    const hit = subnetState.rows.find(r => (r.name || '').toLowerCase() === ql)
+             || subnetState.rows.find(r => (r.name || '').toLowerCase().startsWith(ql))
+             || subnetState.rows.find(r => (r.name || '').toLowerCase().includes(ql));
+    return hit ? hit.netuid : null;
+  }
+
+  const onDashCommand = (e) => {
+    const d = e.detail || {};
+    const parts = d.parts || [];
+    switch (d.fn){
+      case 'goto-subnet':
+        _selectSubnet(d.netuid != null ? d.netuid : _parseSubnetArg(parts[0]));
+        break;
+      case 'toggle-watch':
+        _toggleWatch(d.netuid != null ? d.netuid : _parseSubnetArg(parts[0]));
+        break;
+      case 'watched-only':
+        _setWatchedOnly(true);
+        break;
+      case 'set-sort': {
+        /* Accept friendly aliases: CHG/24H → chg24, EM/EMISSION → em,
+           NAME/AZ → name, MCAP → mcap. Unknown → no-op. */
+        const m = (d.mode || '').toLowerCase();
+        const map = { mcap:'mcap', chg:'chg24', '24h':'chg24', em:'em',
+                      emission:'em', name:'name', az:'name' };
+        _setSort(map[m] || m);
+        break;
+      }
+      case 'set-filter':
+        _setFilter((d.mode || 'all').toLowerCase());
+        break;
+      case 'top-gainers': _setMasterSort('chg24', 'desc'); break;
+      case 'top-losers':  _setMasterSort('chg24', 'asc');  break;
+      case 'set-archive': {
+        /* RESEARCH with an explicit id arg also selects that subnet
+           so the "selected" filter has the right anchor. */
+        if (d.netuid != null) _selectSubnet(d.netuid);
+        _setArchiveFilter(d.mode || 'all');
+        break;
+      }
+      case 'scroll-to':
+        _scrollTo(d.target || '.dash-detail');
+        break;
+      /* WIP verbs, palette already showed a toast, dashboard no-ops. */
+      case 'open-hist':
+      case 'open-compare':
+      case 'open-alert':
+      case 'open-layout':
+      case 'open-backdrop':
+      case 'open-briefing':
+        break;
+    }
+  };
+  document.addEventListener('subnetmag:command', onDashCommand);
+
   return {
-    destroy(){ /* charts get torn down by their own ResizeObserver */ }
+    destroy(){
+      document.removeEventListener('keydown',           onDashKeydown);
+      document.removeEventListener('subnetmag:command', onDashCommand);
+      /* charts get torn down by their own ResizeObserver */
+    }
   };
 
   /* =================================================================
@@ -799,7 +943,7 @@ export function mountDashboard(root, dataLayer = null){
           <span class="dash-status__title__right">
             LIVE · ${new Date().toISOString().slice(0,10)} · updated <span data-fresh>0s ago</span> · ${subnetState.rows.length} SUBNETS
             · <a href="${DISCORD_HUB}" target="_blank" rel="noopener" style="color:var(--c-red-1);text-decoration:none;letter-spacing:.14em">DISCORD HUB ↗</a>
-            · <span class="dash-status__kbd" title="Press / to search, j/k to navigate, 1-9 to jump">⌨ KEYBOARD</span>
+            · <button type="button" class="dash-status__kbd" data-cmd-trigger title="⌘K / Ctrl+K · open command palette">⌘ COMMAND</button>
           </span>
         </div>
         <div class="dash-status__rail">

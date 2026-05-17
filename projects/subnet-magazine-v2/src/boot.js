@@ -8,6 +8,8 @@
 
 import { qs } from './lib/dom.js';
 import { DataLayer } from './data/layer.js';
+import { SUBNETS } from './data/subnets.js';
+import { installCommandPalette } from './lib/command-palette.js?v=20260520a';
 import { mountTickers } from './views/Tickers.js';
 import { mountConsole } from './views/Console.js';
 import { mountStatusStrip } from './views/StatusStrip.js';
@@ -17,12 +19,12 @@ import { mountHero } from './views/Hero.js';
    browser caches re-fetch it after the SUBNET_LOGOS TDZ fix. The
    index.html boot script tag carries the same version. Bump both
    when a deployed Home.js change isn't being picked up. */
-import { mountHome } from './views/Home.js?v=20260519b';
+import { mountHome } from './views/Home.js?v=20260520a';
 import { mountArticles } from './views/Articles.js';
 import { mountInterviews } from './views/Interviews.js';
 import { mountResearch } from './views/Research.js';
 import { mountMarkets } from './views/Markets.js';
-import { mountDashboard } from './views/Dashboard.js?v=20260519b';
+import { mountDashboard } from './views/Dashboard.js?v=20260520a';
 import { mountEditor } from './views/Editor.js';
 import { mountVoices } from './views/Voices.js';
 import { mountCodex } from './views/Codex.js';
@@ -48,8 +50,13 @@ function mountIf(selector, mountFn){
 }
 
 function boot(){
-  // 1) start polling adapters (CoinGecko + HN Algolia), UI subscribes
+  // 1) start polling adapters (TMC + taostats), UI subscribes
   DataLayer.start();
+
+  // 1b) install the global command palette (⌘K / Ctrl+K + any
+  //     [data-cmd-trigger] click). The status-bar ⌘ COMMAND chip
+  //     on the dashboard view doubles as the mobile tap entrypoint.
+  installCommandPalette({ subnets: SUBNETS });
 
   // 2) mount views, order is the page reading order
   mountIf('[data-mount="tickers"]',   root => mountTickers(root, DataLayer));
