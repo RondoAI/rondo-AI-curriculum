@@ -22,7 +22,7 @@
      DataLayer               src/data/layer.js                live overlay
    ================================================================= */
 
-import { html, mount, qs, qsa, setLive } from '../lib/dom.js';
+import { html, mount, qs, qsa, setLive, escapeHtml } from '../lib/dom.js';
 import { money, pct, compact } from '../lib/format.js';
 import { seedSeries } from '../lib/mark.js';
 import { Sparkline } from '../charts/Sparkline.js';
@@ -524,6 +524,27 @@ export function mountDashboard(root, dataLayer = null){
      the most recent ones if nothing matches. */
   const recentOracle = recentOracleArticles(12);
 
+  /* Editorial-coverage rollup: per-subnet, how many in-house
+     articles + oracle dispatches exist? Surfaces as a small chip
+     in the master grid + as an editorial line in the detail head,
+     so the magazine's coverage shows up AS DATA next to the
+     subnet's price/emission/etc., not just as a sidebar item.
+     Built once at mount (the editorialArchive set above is static
+     per page-load). */
+  const ALL_ORACLE_BY_NETUID = (() => {
+    const m = new Map();
+    for (const a of recentOracleArticles(Infinity)){
+      if (a.subnetId == null) continue;
+      if (!m.has(a.subnetId)) m.set(a.subnetId, []);
+      m.get(a.subnetId).push(a);
+    }
+    return m;
+  })();
+  const coverageStats = (netuid) => ({
+    mag:    (ARTICLES_BY_NETUID.get(netuid) || []).length,
+    oracle: (ALL_ORACLE_BY_NETUID.get(netuid)  || []).length,
+  });
+
   /* Unified editorial archive across ALL articles, every team
      article from ARTICLES (15 local + 3 external X interviews)
      PLUS every Oracle research entry. The dashboard's footer
@@ -790,6 +811,21 @@ export function mountDashboard(root, dataLayer = null){
   wireRailRows();
   wireToolbar();
   wireSearch();
+
+  /* Editorial-coverage jump: clicking the editorial line under the
+     detail head dispatches the RESEARCH command with that subnet's
+     id, which selects the subnet + filters the research archive +
+     scrolls to it. Single click = "show me everything the magazine
+     has written about this subnet." */
+  document.addEventListener('click', (e) => {
+    const btn = e.target.closest && e.target.closest('[data-edit-jump]');
+    if (!btn || !root.contains(btn)) return;
+    const id = parseInt(btn.dataset.editJump, 10);
+    if (!Number.isFinite(id)) return;
+    document.dispatchEvent(new CustomEvent('subnetmag:command', {
+      detail: { fn: 'set-archive', mode: 'selected', netuid: id }
+    }));
+  });
 
   /* Mount desk commentary — Bloomberg-PORT-style narrative panel
      between briefings (centralized context) and the 3-col grid.
@@ -1594,12 +1630,31 @@ export function mountDashboard(root, dataLayer = null){
     const pulseCls = gh ? `dash-gh-pulse--${gh.pulse}` : 'dash-gh-pulse--cold';
     const pulseTxt = gh ? gh.pulse : 'no data';
 
+    /* Editorial coverage for THIS subnet — surfaces as a clickable
+       line under the team. Shows the magazine's coverage as a fact
+       about the subnet, not just a sidebar item. Clicking dispatches
+       the RESEARCH command (existing palette verb) to filter the
+       archive to this subnet's pieces. */
+    const cov = coverageStats(id);
+    const covTotal = cov.mag + cov.oracle;
+    const editLine = covTotal > 0
+      ? `<div class="dash-detail__editorial">
+           editorial:
+           <button type="button" class="dash-detail__edit-chip" data-edit-jump="${id}"
+             aria-label="Filter research archive to SN${id} ${escapeHtml(s.name)}">
+             📄 ${cov.mag} article${cov.mag === 1 ? '' : 's'} ·
+             ${cov.oracle} oracle dispatch${cov.oracle === 1 ? '' : 'es'}
+           </button>
+         </div>`
+      : `<div class="dash-detail__editorial dash-detail__editorial--empty">editorial: no in-house coverage yet · Oracle desk rotates a deep profile when a subnet enters the top emission tier</div>`;
+
     return `
       <div class="dash-detail__head">
         <div>
           <div class="dash-detail__id">SN${s.netuid} · ${CAT_LABEL[s.cat] || (s.cat || '').toUpperCase()}</div>
           <div class="dash-detail__name">${s.name}<span class="dash-detail__cat">· ${(s.cat || '').toUpperCase()}</span></div>
           <div class="dash-detail__owner">team: ${s.owner || '·'}</div>
+          ${editLine}
           <div class="dash-detail__desc">${s.desc || ''}</div>
         </div>
         <div></div>
@@ -2053,11 +2108,20 @@ export function mountDashboard(root, dataLayer = null){
                        : 'is-flat';
       const sparkColor = s.chg24 >= 0 ? '#5BE599' : '#FF4D60';
       const sparkSeries = seedSeries(s.name + ':master', s.chg30 ?? 0, 24);
+      const cov = coverageStats(s.netuid);
+      const covTotal = cov.mag + cov.oracle;
+      /* Coverage chip — only renders when there's any editorial
+         backing. Title shows the breakdown for hover-tap-and-hold
+         on mobile. Clickable area is the row, not the chip — the
+         existing rail-click handler still wins. */
+      const covChip = covTotal > 0
+        ? ` <span class="dash-master__cov" title="${cov.mag} magazine · ${cov.oracle} oracle dispatch${cov.oracle === 1 ? '' : 'es'}" aria-label="${covTotal} editorial coverage items">·${covTotal}</span>`
+        : '';
       return `
         <tr class="dash-master__row ${accentCls}" data-master-row="${s.netuid}">
           <td class="dash-master__accent"></td>
           <td class="dash-master__sn">SN${s.netuid}</td>
-          <td class="dash-master__name">${s.name}</td>
+          <td class="dash-master__name">${s.name}${covChip}</td>
           <td class="dash-master__cat">${(s.cat || '').toUpperCase()}</td>
           <td class="dash-master__num">${fmtPrice(s.price)}</td>
           <td class="dash-master__num ${cls}">${fmtPct(s.chg24)}</td>
