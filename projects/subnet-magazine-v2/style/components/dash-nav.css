@@ -1,0 +1,173 @@
+/* =================================================================
+   SUBNET MAGAZINE, DASHBOARD SECTION NAV + DESK WRAPPER
+   -----------------------------------------------------------------
+   Two small organizational primitives that turn a 21,000px-tall
+   strip-mall of panels into a navigable workspace:
+
+   1. .dash-jump — sticky in-page section nav directly below the
+      status bar. Five chips (BRIEFINGS · DETAIL · MY DESK · MARKET
+      · ARCHIVE). Tap = smooth scroll. Active chip = which zone owns
+      the viewport midline. Solves "I scrolled 24 screens and lost
+      where I am."
+
+   2. .dash-desk — unifying wrapper around paper-portfolio +
+      attribution panels. They're not two unrelated products, they're
+      positions + analytics-on-those-positions. The wrapper gives
+      them ONE eyebrow + headline + sub so the reader sees one zone.
+   ================================================================= */
+
+/* ---------- in-page jump nav -------------------------------- */
+.dash-jump{
+  position: sticky;
+  /* Sticks just below the status bar. The status bar sticks at
+     top:0 with z-index:50; we sit beneath it. The actual offset
+     varies because the status bar's height changes between mobile
+     (2-row, ~240px) and desktop (1-row, ~80px). Use scroll-padding
+     on the html element instead of a hard pixel offset so anchor
+     jumps land correctly regardless. */
+  top: 0;
+  z-index: 45;
+  background-color: #050203;
+  background-image: linear-gradient(180deg, rgba(255,30,60,.04) 0%, transparent 100%);
+  border-bottom: 1px solid var(--c-rule-2);
+  border-top: 1px solid var(--c-rule-2);
+  padding: 8px 14px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  /* GPU layer so it doesn't drag the page underneath into repaint */
+  transform: translateZ(0);
+  will-change: transform;
+}
+.dash-jump__lbl{
+  font-family: var(--f-mono);
+  font-size: 9px;
+  letter-spacing: .22em;
+  font-weight: 800;
+  color: var(--c-ink-3);
+  flex-shrink: 0;
+}
+.dash-jump__chips{
+  display: flex;
+  gap: 4px;
+  overflow-x: auto;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+  /* horizontal scroll if chips overflow at narrow widths */
+}
+.dash-jump__chips::-webkit-scrollbar{ display: none; }
+.dash-jump__chip{
+  -webkit-appearance: none;
+  appearance: none;
+  background: transparent;
+  border: 1px solid var(--c-rule-2);
+  color: var(--c-ink-2);
+  font-family: var(--f-mono);
+  font-size: 10px;
+  letter-spacing: .14em;
+  font-weight: 800;
+  padding: 6px 10px;
+  cursor: pointer;
+  white-space: nowrap;
+  transition: background 120ms, color 120ms, border-color 120ms;
+}
+.dash-jump__chip:hover{
+  background: var(--c-bg-3);
+  color: #fff;
+  border-color: var(--c-red-1);
+}
+.dash-jump__chip.is-on{
+  background: var(--c-red);
+  color: #fff;
+  border-color: var(--c-red);
+  box-shadow: 0 0 12px rgba(255,30,60,.45);
+}
+
+/* Anchor scroll-padding is set dynamically in JS (wireJumpNav)
+   because the status bar's height varies between mobile (2-row
+   KPI grid) and desktop (1-row), and a hardcoded value here
+   leaves anchor jumps either under the chrome (too small) or
+   well below it (too large). JS measures and writes
+   scroll-padding-top on <html>. */
+
+.dash-zone{
+  /* Each top-level zone is its own scroll target; the IntersectionObserver
+     uses the zone boundaries to flip the active chip. No box on the
+     wrapper itself — the inner panels carry their own framing. */
+  display: block;
+}
+
+/* ---------- MY DESK wrapper -------------------------------- */
+.dash-desk{
+  /* The wrapper provides one unifying eyebrow + headline + sub
+     above the paper portfolio and attribution panels. The two
+     inner panels keep their own sub-headers, but visually the
+     reader sees one zone. */
+}
+.dash-desk__head{
+  margin: 32px 12px 0;
+  padding: 24px 0 8px;
+  border-top: 1px solid var(--c-rule-3);
+}
+.dash-desk__title{ min-width: 0; }
+.dash-desk__eyebrow{
+  font-size: 11px;
+  letter-spacing: .26em;
+  font-weight: 800;
+  color: var(--c-red);
+  display: block;
+  margin-bottom: 6px;
+}
+.dash-desk__h{
+  font-family: var(--f-serif);
+  font-size: 24px;
+  line-height: 1.1;
+  letter-spacing: -.01em;
+  font-weight: 800;
+  margin: 0;
+  color: #fff;
+}
+.dash-desk__sub{
+  margin-top: 6px;
+  font-family: var(--f-sans);
+  font-size: 13px;
+  color: var(--c-ink-3);
+  max-width: 620px;
+  font-style: italic;
+}
+
+/* Inside the desk wrapper, the inner panels (paper, attribution) no
+   longer need their own top-border separator since the wrapper owns
+   the section boundary. Tighten their top margins and drop their
+   own top-rule so the desk reads as one continuous zone. */
+.dash-desk .paper,
+.dash-desk .attrib{
+  border-top: 0;
+  padding-top: 8px;
+  margin-top: 14px;
+}
+
+/* Subtle internal divider between paper and attribution inside the
+   desk, so they're still visually distinct sub-panels. */
+.dash-desk .attrib{
+  margin-top: 30px;
+  position: relative;
+}
+.dash-desk .attrib::before{
+  content: '';
+  display: block;
+  position: absolute;
+  top: -16px;
+  left: 12px;
+  right: 12px;
+  height: 1px;
+  background: linear-gradient(90deg, transparent 0%, var(--c-rule-2) 30%, var(--c-rule-2) 70%, transparent 100%);
+}
+
+@media (min-width: 1080px){
+  .dash-desk__head{
+    margin: 40px 18px 0;
+    padding: 32px 0 10px;
+  }
+  .dash-desk__h{ font-size: 32px; }
+}
