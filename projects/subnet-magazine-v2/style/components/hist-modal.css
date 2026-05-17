@@ -174,6 +174,83 @@
   height: 100%;
 }
 
+/* ---------- editorial annotations overlay -------------------- */
+/* Bloomberg news-flag pattern: vertical amber hairlines at the
+   dates when articles / oracle dispatches published about this
+   subnet. The chart itself is canvas; the overlay is SVG
+   positioned absolutely over the same plot area. */
+.histm__annot{
+  position: absolute;
+  inset: 6px;            /* matches .histm__chart-wrap padding */
+  pointer-events: none;  /* let chart hover work through; only
+                            the marker <g>s opt back in */
+}
+.histm__annot-empty{
+  position: absolute;
+  top: 8px; right: 12px;
+  font-family: var(--f-mono);
+  font-size: 9.5px;
+  letter-spacing: .14em;
+  text-transform: uppercase;
+  color: var(--c-ink-3);
+  background: rgba(8, 3, 5, .72);
+  padding: 3px 8px 2px;
+  border: 1px solid rgba(255, 184, 92, .26);
+  pointer-events: none;
+}
+.histm__annot-flag{
+  transition: transform .12s ease;
+}
+.histm__annot-flag:hover{
+  transform: translateY(-2px);
+}
+.histm__annot-flag circle{
+  transition: fill-opacity .12s ease, stroke-width .12s ease;
+}
+.histm__annot-flag:hover circle{
+  fill-opacity: 1;
+  stroke-width: 2;
+}
+
+.histm__annot-tip{
+  position: absolute;
+  z-index: 2;
+  background: #050203;
+  border: 1px solid rgba(255, 184, 92, .42);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, .65);
+  padding: 8px 12px 9px;
+  width: 260px;
+  display: grid;
+  gap: 4px;
+  pointer-events: auto;
+  font-family: var(--f-mono);
+}
+.histm__annot-tip__date{
+  font-size: 8.5px;
+  letter-spacing: .22em;
+  text-transform: uppercase;
+  font-weight: 800;
+  color: #FFB85C;
+}
+.histm__annot-tip__title{
+  font-family: var(--f-serif);
+  font-size: 13px;
+  font-weight: 700;
+  color: #fff;
+  line-height: 1.28;
+}
+.histm__annot-tip__link{
+  font-family: var(--f-mono);
+  font-size: 9.5px;
+  letter-spacing: .18em;
+  text-transform: uppercase;
+  font-weight: 800;
+  color: var(--c-red-1);
+  text-decoration: none;
+  margin-top: 4px;
+}
+.histm__annot-tip__link:hover{ color: #fff; }
+
 /* ---------- footer ----------------------------------------- */
 .histm__foot{
   display: flex; align-items: center; justify-content: space-between;

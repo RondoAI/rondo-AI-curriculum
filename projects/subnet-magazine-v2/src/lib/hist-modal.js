@@ -26,6 +26,8 @@
 
 import { qs, escapeHtml } from './dom.js';
 import { SUBNETS } from '../data/subnets.js';
+import { ARTICLES } from '../data/articles.js';
+import { recentOracleArticles } from '../data/oracle-articles.js';
 import { CandleChart } from '../charts/CandleChart.js';
 
 let active = null;
@@ -104,6 +106,12 @@ function mount({ subnet, range }){
   const prevOverflow = document.body.style.overflow;
   document.body.style.overflow = 'hidden';
 
+  /* Editorial annotations for this subnet — drives the news-flag
+     overlay on the chart. Built once per modal open; the overlay
+     re-renders when range changes (different bars cover different
+     date windows, so some markers may scroll out of view). */
+  const annotations = annotationsForSubnet(subnet.netuid);
+
   let chart = null;
   function buildChart(r){
     if (chart && typeof chart.destroy === 'function') chart.destroy();
@@ -120,8 +128,20 @@ function mount({ subnet, range }){
     /* Update the footer sub-line with the new range label. */
     const sub = qs('.histm__sub', root);
     if (sub) sub.textContent = `${r.label} · synthetic seed walk from current price · live TMC line-chart adapter pending`;
+    /* News-flag overlay: amber vertical hairlines at article dates,
+       hover for tooltip. Re-rendered on range change since each
+       range covers a different date window. */
+    renderAnnotations(root, annotations, r);
   }
   buildChart(range);
+
+  /* Keep the overlay aligned on viewport resize. The candle chart
+     itself handles ResizeObserver internally; we just re-position
+     the markers when the canvas dimensions change. */
+  const ro = new ResizeObserver(() => renderAnnotations(root, annotations, currentRange));
+  const canvasEl = qs('.histm__canvas', root);
+  if (canvasEl) ro.observe(canvasEl);
+  let currentRange = range;
 
   function onKey(e){
     if (e.key === 'Escape'){ e.preventDefault(); close(); return; }
@@ -142,6 +162,7 @@ function mount({ subnet, range }){
   function switchTo(id){
     const next = RANGES.find(x => x.id === id);
     if (!next) return;
+    currentRange = next;
     root.querySelectorAll('[data-histm-range]').forEach(b =>
       b.classList.toggle('is-on', b.dataset.histmRange === id));
     buildChart(next);
@@ -153,12 +174,173 @@ function mount({ subnet, range }){
 
   function close(){
     if (chart && typeof chart.destroy === 'function') chart.destroy();
+    if (ro) ro.disconnect();
     document.removeEventListener('keydown', onKey);
     document.body.style.overflow = prevOverflow;
     root.remove();
     active = null;
   }
   return { close };
+}
+
+/* ---------- annotations ----------------------------------- */
+
+/**
+ * Build the editorial-event list for a subnet: every in-house
+ * article + every oracle dispatch that names this subnet, each
+ * carrying { date, title, kind, href }. Drives the news-flag
+ * overlay on the chart.
+ * @param {number} netuid
+ */
+function annotationsForSubnet(netuid){
+  const out = [];
+  for (const a of ARTICLES){
+    const sn = parseInt(a.subnet, 10);
+    if (sn === netuid){
+      out.push({
+        date: a.date,
+        title: a.title,
+        kind: 'mag',
+        href: a.pdf || a.externalUrl || '',
+      });
+    }
+  }
+  for (const a of recentOracleArticles(Infinity)){
+    if (a.subnetId === netuid){
+      out.push({
+        date: a.date,
+        title: a.title,
+        kind: 'oracle',
+        href: a.pdf || '',
+      });
+    }
+  }
+  /* Sort by date ascending — left-to-right on the chart. */
+  return out.sort((x, y) => (x.date || '').localeCompare(y.date || ''));
+}
+
+/**
+ * Render or re-render the amber news-flag overlay. The overlay is
+ * an SVG positioned absolutely over the canvas. Each annotation
+ * becomes a vertical hairline + a clickable marker dot at top,
+ * with a tooltip wired via title attribute (also a custom DOM
+ * tooltip for richer content).
+ *
+ * We compute x positions from the chart's time range:
+ *   x = ((annotationTime - chartStart) / (chartEnd - chartStart)) * canvasWidth
+ * Annotations outside the visible window are filtered out.
+ *
+ * @param {HTMLElement} root         the modal root
+ * @param {Array}       annotations  result of annotationsForSubnet()
+ * @param {{bars:number,barMs:number}} range  active range spec
+ */
+function renderAnnotations(root, annotations, range){
+  const overlay = qs('.histm__annot', root);
+  const canvas  = qs('.histm__canvas', root);
+  if (!overlay || !canvas) return;
+  if (!annotations || !annotations.length){
+    overlay.innerHTML = '';
+    return;
+  }
+
+  /* Canvas client size (CSS px). The CandleChart class draws at
+     device-pixel-ratio internally but the canvas element's CSS
+     dimensions are what the overlay needs to align to. */
+  const rect = canvas.getBoundingClientRect();
+  if (!rect.width || !rect.height) { overlay.innerHTML = ''; return; }
+
+  const now      = Date.now();
+  const span     = range.bars * range.barMs;
+  const chartT0  = now - span;
+  /* Chart's own internal padding for axes — keep in sync with
+     CandleChart.draw() (padL=56, padR=12, padT=26, padB=30).
+     Annotations should sit inside the plot area, not over the
+     axis labels. */
+  const padL = 56, padR = 12, padT = 26, padB = 30;
+  const plotL = padL;
+  const plotR = rect.width  - padR;
+  const plotT = padT;
+  const plotB = rect.height - padB;
+  const plotW = plotR - plotL;
+  const plotH = plotB - plotT;
+
+  const visible = annotations
+    .map(a => {
+      const t = Date.parse(a.date + 'T12:00:00Z');
+      if (!Number.isFinite(t)) return null;
+      const frac = (t - chartT0) / span;
+      if (frac < 0 || frac > 1) return null;
+      const x = plotL + frac * plotW;
+      return { ...a, t, x };
+    })
+    .filter(Boolean);
+
+  if (!visible.length){
+    overlay.innerHTML = `<div class="histm__annot-empty">No editorial dispatches in this ${range.label.split(' ')[0]} window. Switch range to see longer history.</div>`;
+    return;
+  }
+
+  /* Stagger overlapping flags vertically so adjacent dates don't
+     collide. We don't reposition x (it has to mean date), but the
+     marker dot pops up to a higher offset when its x is within 18px
+     of a previous marker. */
+  let lastX = -Infinity;
+  let lane  = 0;
+  const lanes = [];
+  for (const v of visible){
+    if (v.x - lastX < 18) lane = (lane + 1) % 3; else lane = 0;
+    lanes.push(lane);
+    lastX = v.x;
+  }
+
+  const markersSvg = visible.map((v, i) => {
+    const dotY = plotT + 10 + lanes[i] * 12;
+    const kindColor = v.kind === 'mag' ? '#FFB85C' : '#FF4D60';
+    return `
+      <g class="histm__annot-flag" data-annot-i="${i}">
+        <line x1="${v.x.toFixed(1)}" y1="${plotT}" x2="${v.x.toFixed(1)}" y2="${plotB.toFixed(1)}"
+              stroke="${kindColor}" stroke-opacity="0.42" stroke-width="0.8" stroke-dasharray="2 3" />
+        <circle cx="${v.x.toFixed(1)}" cy="${dotY}" r="4" fill="${kindColor}" fill-opacity="0.9"
+                stroke="#050203" stroke-width="1.4" />
+        <rect x="${(v.x - 10).toFixed(1)}" y="${dotY - 8}" width="20" height="16" fill="transparent" />
+      </g>`;
+  }).join('');
+
+  overlay.innerHTML = `
+    <svg viewBox="0 0 ${rect.width} ${rect.height}" preserveAspectRatio="none"
+         style="position:absolute;inset:0;width:100%;height:100%;pointer-events:none;">
+      <g style="pointer-events:auto">${markersSvg}</g>
+    </svg>
+    <div class="histm__annot-tip" style="display:none" role="tooltip"></div>
+  `;
+
+  /* Hover handling — show the custom tooltip with the article title,
+     date, kind, and a "READ ↗" link when hovering or focusing a
+     flag. Uses the overlay's <svg> click area. */
+  const tip = qs('.histm__annot-tip', overlay);
+  overlay.querySelectorAll('[data-annot-i]').forEach(g => {
+    const i = +g.dataset.annotI;
+    const ann = visible[i];
+    g.style.cursor = 'pointer';
+    g.addEventListener('mouseenter', () => {
+      if (!tip) return;
+      tip.innerHTML = `
+        <span class="histm__annot-tip__date">${escapeHtml(ann.date)} · ${ann.kind === 'mag' ? 'MAGAZINE' : 'ORACLE'}</span>
+        <span class="histm__annot-tip__title">${escapeHtml(ann.title)}</span>
+        ${ann.href ? `<a class="histm__annot-tip__link" href="${escapeHtml(ann.href)}" target="_blank" rel="noopener">READ ↗</a>` : ''}
+      `;
+      tip.style.display = '';
+      /* Anchor near the marker, clamped to the overlay. */
+      const ox = ann.x;
+      const oy = plotT + 8 + lanes[i] * 12;
+      tip.style.left = Math.max(10, Math.min(rect.width - 280, ox - 130)) + 'px';
+      tip.style.top  = Math.max(2,  oy - 56) + 'px';
+    });
+    g.addEventListener('mouseleave', () => { if (tip) tip.style.display = 'none'; });
+    g.addEventListener('click', () => {
+      if (ann.href) window.open(ann.href, '_blank', 'noopener');
+    });
+  });
 }
 
 function template(s, r){
@@ -190,6 +372,7 @@ function template(s, r){
       </header>
       <div class="histm__chart-wrap">
         <canvas class="histm__canvas" aria-label="OHLC candlestick chart"></canvas>
+        <div class="histm__annot" aria-label="Editorial event annotations"></div>
       </div>
       <footer class="histm__foot">
         <span class="histm__sub">${escapeHtml(r.label)} · synthetic seed walk from current price · live TMC line-chart adapter pending</span>
