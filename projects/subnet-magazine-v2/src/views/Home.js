@@ -26,6 +26,7 @@ import { cardArt } from '../lib/art.js';
 import { Sparkline } from '../charts/Sparkline.js';
 import { NeuralNet } from '../charts/NeuralNet.js';
 import { NodeSphere } from '../charts/NodeSphere.js';
+import { NeuralLogo } from '../charts/NeuralLogo.js';
 import { JarvisNet } from '../charts/JarvisNet.js';
 import { PlexusGlyph } from '../charts/PlexusGlyph.js';
 import { OracleSphere } from '../charts/OracleSphere.js';
@@ -294,21 +295,19 @@ export function mountHome(root, dataLayer = null){
         z-index: 1;
         pointer-events: none;
       }
-      /* The glyph canvas overlays the sphere, centered, sized large
-         so the logo dominates the composition. Drop-shadow bloom in
-         pure red; no blend mode so the saturated color reads cleanly. */
+      /* The glyph canvas overlays the sphere. NeuralLogo paints its
+         own atmospheric red halo, so we skip the CSS drop-shadow
+         to avoid a double bloom. The chart's depth-keyed nodes and
+         frontmost sparkle carry the highlight. */
       .home-article--oracle .home-article__glyph{
         position: absolute;
         left: 50%; top: 50%;
         transform: translate(-50%, -50%);
-        width: 75%;
-        height: 75%;
+        width: 78%;
+        height: 78%;
         display: block;
         pointer-events: none;
         z-index: 2;
-        filter:
-          drop-shadow(0 0 8px  rgba(255,30,60,.75))
-          drop-shadow(0 0 22px rgba(255,30,60,.30));
       }
       /* Refined badge: smaller, glassy, glowing. Uses backdrop-filter
          where supported so it sits cleanly on the busy sphere behind. */
@@ -1976,15 +1975,21 @@ export function mountHome(root, dataLayer = null){
     const subnetSlug = (cv.dataset.subnetSlug || '').toLowerCase();
     const imgUrl = SUBNET_LOGOS[subnetSlug] || FALLBACK_LOGO;
     try {
-      oracleMarks.push(new PlexusGlyph(cv, {
+      /* NeuralLogo renders the logo silhouette in the EXACT same
+         visual language as the masthead NodeSphere: same node count,
+         same K, same density, same speed, same atmosphere. Only the
+         node distribution changes (logo silhouette instead of
+         Fibonacci sphere). The brand mark is unmistakable; the
+         visual language is canonical. */
+      oracleMarks.push(new NeuralLogo(cv, {
         imageSrc:    imgUrl,
-        density:     0.92,    /* tight stride for fine silhouette */
-        ambient:     0,       /* sphere already provides background */
-        maxDots:     1800,    /* afford the detail on the bigger canvas */
-        maxEdgeDist: 0.026,   /* edges hug the silhouette, no blobbing */
-        K:           3,
-        dotSize:     1.5,     /* dots big enough to dominate, still distinct */
-        supersample: 3,       /* rasterize SVG at 3x for sharp edges */
+        nodes:       78,
+        K:           4,
+        density:     0.46,
+        speed:       0.32,
+        glow:        true,
+        atmos:       true,
+        supersample: 3,
         seed:        i + 1,
       }));
     } catch (_) {}
