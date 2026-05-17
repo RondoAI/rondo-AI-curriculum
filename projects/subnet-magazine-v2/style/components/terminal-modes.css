@@ -1081,3 +1081,79 @@
   letter-spacing: .18em;
   font-weight: 800;
 }
+
+/* =================================================================
+   ATTR MODE — Brinson-Fachler attribution wrapper
+   -----------------------------------------------------------------
+   Thin terminal chrome around sibling's attribution.js panel.
+   Keeps the panel itself unchanged; adds an institutional-context
+   header above and a footer below so the mode reads as a desk
+   surface rather than a popup.
+   ================================================================= */
+.term-attr{
+  display: grid;
+  gap: 14px;
+  padding: 16px 18px 22px;
+  max-width: 1480px;
+  margin: 0 auto;
+}
+@media (max-width: 720px){
+  .term-attr{ padding: 12px 12px 18px; }
+}
+.term-attr__head{
+  display: grid; gap: 6px;
+  padding-bottom: 10px;
+  border-bottom: 1px solid rgba(255, 30, 60, .26);
+}
+.term-attr__kicker{
+  display: inline-flex; align-items: baseline; gap: 8px;
+  font-family: var(--f-mono);
+  font-size: 9.5px;
+  letter-spacing: .26em;
+  font-weight: 800;
+  text-transform: uppercase;
+  color: rgba(255, 30, 60, .85);
+}
+.term-attr__dot{
+  display: inline-block;
+  width: 6px; height: 6px;
+  border-radius: 50%;
+  background: var(--c-red);
+  box-shadow: 0 0 6px rgba(255, 30, 60, .9);
+  animation: termAttrPulse 2s ease-in-out infinite;
+  align-self: center;
+}
+@keyframes termAttrPulse{
+  0%, 100%{ opacity: 1;   transform: scale(1);    }
+  50%     { opacity: .55; transform: scale(1.25); }
+}
+.term-attr__hint{
+  font-family: var(--f-sans);
+  font-style: italic;
+  font-size: 12px;
+  line-height: 1.5;
+  color: var(--c-ink-3);
+  max-width: 72ch;
+}
+.term-attr__panel{
+  /* The panel inside already carries its own borders, padding,
+     and headers — we don't double-frame it. This wrapper exists
+     only so future cross-mode spacing rules apply consistently. */
+}
+.term-attr__foot{
+  display: flex; align-items: center; justify-content: space-between;
+  gap: 10px;
+  padding-top: 8px;
+  border-top: 1px solid rgba(255, 30, 60, .22);
+  font-family: var(--f-mono);
+  font-size: 9.5px;
+  letter-spacing: .08em;
+  font-weight: 700;
+  color: var(--c-ink-3);
+  flex-wrap: wrap;
+}
+.term-attr__brand{
+  color: var(--c-red-1);
+  letter-spacing: .18em;
+  font-weight: 800;
+}

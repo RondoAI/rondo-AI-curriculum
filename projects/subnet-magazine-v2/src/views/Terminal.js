@@ -48,6 +48,7 @@ import { mountChartMode    } from './terminal/chart-mode.js';
 import { mountBriefingsMode } from './terminal/briefings-mode.js';
 import { mountEditorialMode } from './terminal/editorial-mode.js';
 import { mountMarketsMode  } from './terminal/markets-mode.js';
+import { mountAttrMode      } from './terminal/attr-mode.js';
 import { mountAnalyticsMode } from './terminal/analytics-mode.js?v=20260520p';
 
 const TERMINAL_KEY  = 'sbn:terminal:v1';
@@ -82,7 +83,7 @@ export const MODE_REGISTRY = Object.freeze({
   desk:      { label: 'DESK',      mount: stubMode('desk',      'Paper portfolio + Brinson-Fachler attribution running on your actual positions.',           'Compose src/views/dashboard/paper-portfolio.js + src/views/dashboard/attribution.js inside this mode. Keep their existing wiring.') },
   editorial: { label: 'EDITORIAL', mount: mountEditorialMode },
   briefings: { label: 'BRIEFINGS', mount: mountBriefingsMode },
-  attr:      { label: 'ATTR',      mount: stubMode('attr',      'Attribution analytics on the active portfolio — Brinson-Fachler decomposition with controls.', 'Extract src/views/dashboard/attribution.js into its own mode. Standalone, not nested in DESK.') },
+  attr:      { label: 'ATTR',      mount: mountAttrMode },
 });
 
 /* ---------- shared state ------------------------------------ */
