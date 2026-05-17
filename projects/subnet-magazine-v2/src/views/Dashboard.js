@@ -774,19 +774,73 @@ export function mountDashboard(root, dataLayer = null){
     setInterval(update, 1000);
   }
 
-  /* If the data layer can feed us live tao + subnet data,
-     hot-swap the values without re-rendering the whole shell. */
+  /* Live data hot-swap. Two bugs fixed here vs. the prior version:
+     (1) the market subscriber read d.marketcap, but layer.js emits
+         d.marketCap (camelCase). Live network mcap never updated.
+     (2) the chain subscriber read d.blockHeight, but layer.js emits
+         d.blockNumber. Live block height never updated either.
+     Plus a new subscriber on 'tao:subnets' so the SUBNET MCAP /
+     VALIDATORS / MINERS / EMISSION ticks update from real chain
+     data as new subnet rows land, not just from the first-paint
+     animated counters. */
   if (dataLayer && typeof dataLayer.subscribe === 'function'){
     try {
       dataLayer.subscribe('tao:market', d => {
         if (!d) return;
-        if (d.price)        setLive(qs('[data-live="tao-price"]', root), '$' + (+d.price).toFixed(2));
-        if (d.marketcap)    setLive(qs('[data-live="tao-mcap"]', root), '$' + compact(d.marketcap));
-        if (d.volume24h)    setLive(qs('[data-live="tao-vol"]', root), '$' + compact(d.volume24h));
+        if (d.price != null){
+          setLive(qs('[data-live="tao-price"]', root), '$' + (+d.price).toFixed(2));
+          /* Also update the 24H change subtitle below the price so
+             it reflects live data, not the hardcoded "+2.4%" seed. */
+          const sub = qs('.dash-status__cell .dash-status__cell__sub', root);
+          if (sub && d.change24h != null){
+            const c = +d.change24h;
+            sub.textContent = (c >= 0 ? '+' : '') + c.toFixed(2) + '% · 24h';
+            sub.classList.toggle('is-up',   c >  0);
+            sub.classList.toggle('is-down', c <  0);
+          }
+        }
+        if (d.marketCap != null) setLive(qs('[data-live="tao-mcap"]', root), '$' + compact(d.marketCap));
+        if (d.volume24h != null) setLive(qs('[data-live="tao-vol"]',  root), '$' + compact(d.volume24h));
+        if (d.blockNumber != null){
+          setLive(qs('[data-live="tao-block"]', root), fmtInt(d.blockNumber));
+        }
       });
       dataLayer.subscribe('tao:chain', d => {
         if (!d) return;
-        if (d.blockHeight)  setLive(qs('[data-live="tao-block"]', root), fmtInt(d.blockHeight));
+        /* Field is blockNumber (was incorrectly read as blockHeight
+           before, which meant the block-height KPI never moved). */
+        if (d.blockNumber != null){
+          setLive(qs('[data-live="tao-block"]', root), fmtInt(d.blockNumber));
+        }
+      });
+      dataLayer.subscribe('tao:block', d => {
+        if (!d) return;
+        if (d.height != null){
+          setLive(qs('[data-live="tao-block"]', root), fmtInt(d.height));
+        }
+      });
+      dataLayer.subscribe('tao:subnets', rows => {
+        if (!Array.isArray(rows) || !rows.length) return;
+        /* Network-wide rollups, recomputed on every tick. The seed
+           shape uses `mcap` (3 letters) while the live API uses
+           `marketcap` (the field name TMC's table endpoint returns),
+           so we read both keys per row to be tolerant of the
+           normalization not having run yet. */
+        let mcap = 0, miners = 0, validators = 0, emission = 0;
+        for (const r of rows){
+          mcap       += (r.marketcap ?? r.mcap ?? 0);
+          miners     += (r.miners     ?? 0);
+          validators += (r.validators ?? 0);
+          emission   += (r.emission   ?? 0);
+        }
+        if (mcap)       setLive(qs('[data-tween="subnet-mcap"]', root), '$' + mcap.toFixed(0) + 'M');
+        if (validators) setLive(qs('[data-tween="validators"]',  root), fmtInt(validators));
+        if (miners)     setLive(qs('[data-tween="miners"]',      root), fmtInt(miners));
+        if (emission)   setLive(qs('[data-tween="emission"]',    root), fmtInt(emission));
+        /* Reset the freshness counter on every successful subnets
+           tick so the "Ns ago" pill reflects the truth. */
+        const fresh = qs('[data-fresh]', root);
+        if (fresh) fresh.dataset.t0 = String(Date.now());
       });
     } catch (_) {}
   }

@@ -52,11 +52,18 @@ const CONFIG = Object.freeze({
   /* taostats, optional, key-gated, CORS-clean (no proxy needed). */
   taostatsBase: 'https://api.taostats.io/api',
   taostatsKey:  USER_CFG.taostatsKey || null,
+  /* Tightened poll intervals to give the dashboard a Bloomberg-grade
+     tick cadence. TMC's keyless public API rate-limits at 10 req/min
+     per IP; total here is ~8/min so we stay comfortably under the
+     cap (market 4/min + subnets 2/min + chain 1/min + validators
+     1/min). The `setLive` helper in dom.js already flashes any
+     cell whose value actually changed, so a tighter cadence means
+     a more visibly alive page without a code change. */
   refresh: {
-    'tao:market':     45_000,
-    'tao:subnets':    90_000,
-    'tao:chain':      120_000,
-    'tao:validators': 120_000,
+    'tao:market':     15_000,
+    'tao:subnets':    30_000,
+    'tao:chain':      60_000,
+    'tao:validators': 60_000,
   },
   timeout: 12_000,
   retries: 1,
