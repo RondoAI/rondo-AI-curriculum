@@ -29,11 +29,24 @@
    ================================================================= */
 
 import { SUBNETS, subnetById } from '../../data/subnets.js';
+import { escapeHtml } from '../../lib/dom.js';
 
-const ANALYTICS_URL = 'src/data/analytics.json?v=20260520p';
+/* Cache-bust URL — query stays current as long as the analytics.json
+   file is regenerated; the leading `?v=` is just a hint for browser
+   caches that the content can change. We deliberately do NOT pin a
+   sibling-bumped version here because nightly Python regeneration
+   means the file should be re-fetched any time the user opens the
+   mode (cache:'no-store' below already enforces this; the query is
+   just for shared CDN / proxy caches that ignore that header). */
+const ANALYTICS_URL = 'src/data/analytics.json';
 
 /* Cluster palette — 6 colors matching the magazine register.
-   Reds + warm accents; cool colors only as accents. */
+   Reds + warm accents; cool colors only as accents.
+   IMPORTANT: this array MUST be at least as long as the largest
+   cluster id Python emits. Today the build script uses k=6 so 6
+   colors is sufficient; if scripts/analytics/build_analytics.py
+   raises k, this array must grow in lockstep or clusters 6+ will
+   silently alias clusters 0+ via the modulo below. */
 const CLUSTER_COLORS = [
   '#FF1E3C',  // 0 - red primary
   '#FF8094',  // 1 - red hot
@@ -311,20 +324,20 @@ function renderHeatmapInsights(analytics){
   const concRows = conc.length ? conc.map(p => `
     <li class="ins-pair">
       <span class="ins-pair__sn">SN${p.a}</span>
-      <span class="ins-pair__name">${p.aName}</span>
+      <span class="ins-pair__name">${escapeHtml(p.aName)}</span>
       <span class="ins-pair__x">×</span>
       <span class="ins-pair__sn">SN${p.b}</span>
-      <span class="ins-pair__name">${p.bName}</span>
+      <span class="ins-pair__name">${escapeHtml(p.bName)}</span>
       <span class="ins-pair__r ${rClass(p.r)}">r ${fmtR(p.r)}</span>
     </li>`).join('') : `<li class="ins-empty">No pairs above r=0.6.</li>`;
 
   const divRows = div.length ? div.map(p => `
     <li class="ins-pair">
       <span class="ins-pair__sn">SN${p.a}</span>
-      <span class="ins-pair__name">${p.aName}</span>
+      <span class="ins-pair__name">${escapeHtml(p.aName)}</span>
       <span class="ins-pair__x">×</span>
       <span class="ins-pair__sn">SN${p.b}</span>
-      <span class="ins-pair__name">${p.bName}</span>
+      <span class="ins-pair__name">${escapeHtml(p.bName)}</span>
       <span class="ins-pair__r ${rClass(p.r)}">r ${fmtR(p.r)}</span>
     </li>`).join('') : `<li class="ins-empty">No negative-r pairs in scope.</li>`;
 
@@ -371,8 +384,8 @@ function renderClusterInsights(analytics, ctx){
   });
   const clusterRows = Object.entries(labels).map(([cid, lab]) => `
     <li class="ins-row">
-      <span class="ins-row__lbl">cluster ${cid}</span>
-      <span class="ins-row__val">${lab}</span>
+      <span class="ins-row__lbl">cluster ${escapeHtml(cid)}</span>
+      <span class="ins-row__val">${escapeHtml(lab)}</span>
       <span class="ins-row__n">${sizes[cid] || 0} subnets</span>
     </li>`).join('');
 
@@ -391,12 +404,12 @@ function renderClusterInsights(analytics, ctx){
     sharpeInClusterHtml = `
       <div class="ins-section">
         <div class="ins-section__h">⊕ BEST SHARPE IN CLUSTER</div>
-        <div class="ins-section__sub">Top risk-adjusted returns within "${selClusterLabel}" — peer comparison for SN${sel} ${sub?.name || ''}.</div>
+        <div class="ins-section__sub">Top risk-adjusted returns within &quot;${escapeHtml(selClusterLabel || '·')}&quot; — peer comparison for SN${sel} ${escapeHtml(sub?.name || '')}.</div>
         <ul class="ins-list">${members.map(m => `
           <li class="ins-pair">
             <span class="ins-pair__sn">SN${m.id}</span>
-            <span class="ins-pair__name">${m.name}</span>
-            <span class="ins-pair__r ${m.sharpe >= 5 ? 'is-good' : (m.sharpe >= 2 ? 'is-info' : 'is-flat')}">Sharpe ${m.sharpe.toFixed(2)}</span>
+            <span class="ins-pair__name">${escapeHtml(m.name)}</span>
+            <span class="ins-pair__r ${m.sharpe >= 5 ? 'is-good' : (m.sharpe >= 2 ? 'is-info' : 'is-flat')}">Sharpe ${Number.isFinite(m.sharpe) ? m.sharpe.toFixed(2) : '·'}</span>
           </li>`).join('')}</ul>
       </div>`;
   }
@@ -442,17 +455,26 @@ function renderRiskScreen(analytics, sortKey, sortDir){
     return '';
   };
 
+  /* Defensive number formatting: a missing or NaN metric should
+     render '·', not crash the row. Without these guards, one stale
+     analytics.json row with a partial record killed the whole
+     table. */
+  const num = (v, d = 0, prefix = '') =>
+    Number.isFinite(v)
+      ? prefix + (v >= 0 && prefix === '+' ? v.toFixed(d) : v.toFixed(d))
+      : '·';
+
   const body = rows.map(r => `
     <tr class="risk-tr" data-risk-row="${r.netuid}">
       <td class="risk-td risk-td--name">
         <span class="risk-td__sn">SN${r.netuid}</span>
-        <span class="risk-td__nm">${r.name}</span>
+        <span class="risk-td__nm">${escapeHtml(r.name || ('SN' + r.netuid))}</span>
       </td>
-      <td class="risk-td risk-td--num ${valCls('ann_ret', r.ann_ret)}">${r.ann_ret >= 0 ? '+' : ''}${r.ann_ret.toFixed(0)}%</td>
-      <td class="risk-td risk-td--num">${r.ann_vol.toFixed(0)}%</td>
-      <td class="risk-td risk-td--num ${valCls('sharpe', r.sharpe)}">${r.sharpe.toFixed(2)}</td>
-      <td class="risk-td risk-td--num ${valCls('max_dd', r.max_dd)}">${r.max_dd.toFixed(0)}%</td>
-      <td class="risk-td risk-td--num ${valCls('beta', r.beta)}">${r.beta.toFixed(2)}</td>
+      <td class="risk-td risk-td--num ${valCls('ann_ret', r.ann_ret)}">${Number.isFinite(r.ann_ret) ? ((r.ann_ret >= 0 ? '+' : '') + r.ann_ret.toFixed(0) + '%') : '·'}</td>
+      <td class="risk-td risk-td--num">${num(r.ann_vol)}${Number.isFinite(r.ann_vol) ? '%' : ''}</td>
+      <td class="risk-td risk-td--num ${valCls('sharpe', r.sharpe)}">${num(r.sharpe, 2)}</td>
+      <td class="risk-td risk-td--num ${valCls('max_dd', r.max_dd)}">${num(r.max_dd)}${Number.isFinite(r.max_dd) ? '%' : ''}</td>
+      <td class="risk-td risk-td--num ${valCls('beta', r.beta)}">${num(r.beta, 2)}</td>
     </tr>`).join('');
 
   return `
@@ -488,13 +510,13 @@ export function mountAnalyticsMode(root, ctx){
           <h2 class="analytics__h" data-analytics-title>SUBNET CORRELATION MATRIX · 90d</h2>
           <div class="analytics__sub" data-analytics-sub>Pearson r of daily returns across all 53 subnets. Mint = move together, red = move opposite, black = independent.</div>
         </div>
-        <div class="analytics__tabs" role="tablist">
-          <button type="button" class="analytics__tab is-on" data-view="heatmap">CORRELATION</button>
-          <button type="button" class="analytics__tab"        data-view="cluster">t-SNE CLUSTER</button>
-          <button type="button" class="analytics__tab"        data-view="risk">RISK SCREEN</button>
+        <div class="analytics__tabs" role="tablist" aria-label="Analytics view">
+          <button type="button" class="analytics__tab is-on" data-view="heatmap" role="tab" aria-selected="true"  aria-controls="analytics-body">CORRELATION</button>
+          <button type="button" class="analytics__tab"        data-view="cluster" role="tab" aria-selected="false" aria-controls="analytics-body">t-SNE CLUSTER</button>
+          <button type="button" class="analytics__tab"        data-view="risk"    role="tab" aria-selected="false" aria-controls="analytics-body">RISK SCREEN</button>
         </div>
       </div>
-      <div class="analytics__body" data-analytics-body>
+      <div class="analytics__body" data-analytics-body id="analytics-body" role="tabpanel">
         <div class="analytics__canvas-wrap" data-analytics-canvas-wrap>
           <canvas class="analytics__canvas" data-analytics-canvas></canvas>
           <div class="analytics__hover" data-analytics-hover style="display:none"></div>
@@ -573,11 +595,16 @@ export function mountAnalyticsMode(root, ctx){
     metaEl.textContent = `generated ${new Date(analytics.generated_at).toISOString().slice(0,10)} · ${analytics.subnets.length} subnets · ${Object.keys(analytics.cluster_labels).length} clusters · risk metrics on 90d daily returns`;
   };
 
-  // Tab swap
+  // Tab swap — keep aria-selected in sync with .is-on so screen
+  // readers know which view is current.
   sec.querySelectorAll('[data-view]').forEach(b => {
     b.addEventListener('click', () => {
       view = b.dataset.view;
-      sec.querySelectorAll('[data-view]').forEach(o => o.classList.toggle('is-on', o.dataset.view === view));
+      sec.querySelectorAll('[data-view]').forEach(o => {
+        const on = o.dataset.view === view;
+        o.classList.toggle('is-on', on);
+        o.setAttribute('aria-selected', String(on));
+      });
       drawAndWire();
     });
   });
