@@ -1672,74 +1672,96 @@ export function mountDashboard(root, dataLayer = null){
            are now folded into the CHART panel below per the "data
            within the chart" directive. -->
 
-      <div class="dash-panels">
+      <!-- Restructured (mac-session): the prior 8-panel detail view
+           (profile / price / emission / heat / wallet / github / intel
+           / links) is now 5 focused panels with combined surfaces:
+             1. PROFILE  (bio + key metric — unchanged)
+             2. CHART    (price + emission MERGED with internal tabs —
+                          "data within the chart" per Rondo)
+             3. NETWORK  (validator-miner heat + wallet tracker as
+                          a single side-by-side row, since both
+                          answer "who holds the network")
+             4. CODE+PRESS (github stats + press cards side-by-side,
+                          since both answer "what's the activity")
+             5. LINKS    (compact strip — external destinations)
+           Net: ~38% fewer panels on this view. -->
+      <div class="dash-panels dash-panels--lean">
+
+        <!-- 1. PROFILE -->
         <div class="dash-panel dash-panel--wide">
           <div class="dash-panel__head">
-            <span class="dash-panel__lbl">PROFILE · editorial</span>
+            <span class="dash-panel__lbl">PROFILE · ${escapeHtml(s.owner || 'editorial')}</span>
             <span class="dash-panel__meta">${profilePanelMeta}</span>
           </div>
           ${profilePanel}
         </div>
 
-        <div class="dash-panel">
+        <!-- 2. CHART · "data within the chart": price + emission share
+             one panel, swap via internal tabs. Bottom metric strip
+             carries the 4-5 most relevant numbers so the reader has
+             context without leaving the chart. -->
+        <div class="dash-panel dash-panel--wide" data-focus-chart>
           <div class="dash-panel__head">
-            <span class="dash-panel__lbl">α PRICE · 30D</span>
-            <span class="dash-panel__meta">${fmtPct(s.chg30)} 30d · ${fmtPct(s.chg7)} 7d</span>
+            <span class="dash-panel__lbl">CHART · ${escapeHtml(s.name)}</span>
+            <div class="dash-focus-tabs" role="tablist">
+              <button type="button" class="dash-focus-tab is-on" data-focus-tab="price"    role="tab" aria-selected="true">PRICE 30D</button>
+              <button type="button" class="dash-focus-tab"       data-focus-tab="emission" role="tab" aria-selected="false">EMISSION 30D</button>
+            </div>
           </div>
-          <div class="dash-chart"><canvas data-spark="price"></canvas></div>
+          <div class="dash-chart" data-focus-pane="price"><canvas data-spark="price"></canvas></div>
+          <div class="dash-chart" data-focus-pane="emission" style="display:none"><canvas data-spark="emission"></canvas></div>
+          <div class="dash-focus-meta">
+            <span>FDV   <strong>${fmtMcap(s.mcap)}</strong></span>
+            <span>EMIT  <strong>${fmtInt(s.emission)} τ/d</strong></span>
+            <span>STAKE <strong>${fmtInt(s.stake)} τ</strong></span>
+            <span>7D    <strong class="${chgClass(s.chg7)}">${fmtPct(s.chg7)}</strong></span>
+            <span>30D   <strong class="${chgClass(s.chg30)}">${fmtPct(s.chg30)}</strong></span>
+          </div>
         </div>
 
-        <div class="dash-panel">
-          <div class="dash-panel__head">
-            <span class="dash-panel__lbl">EMISSION · 30D τ</span>
-            <span class="dash-panel__meta">${fmtInt(s.emission)} τ / 24h</span>
-          </div>
-          <div class="dash-chart"><canvas data-spark="emission"></canvas></div>
-        </div>
-
-        <div class="dash-panel">
-          <div class="dash-panel__head">
-            <span class="dash-panel__lbl">VALIDATOR · MINER HEAT</span>
-            <span class="dash-panel__meta">${fmtInt(s.validators)} · ${fmtInt(s.miners)}</span>
-          </div>
-          <div class="dash-heat">${heatCells}</div>
-          <div style="margin-top:10px;font-size:9.5px;color:var(--c-ink-3);letter-spacing:.10em">Each cell = a validator-slot bucket (8x8 grid). Hotter = larger stake share.</div>
-        </div>
-
+        <!-- 3. NETWORK · validator/miner heat + wallet tracker, one row -->
         <div class="dash-panel dash-panel--wide">
           <div class="dash-panel__head">
-            <span class="dash-panel__lbl">WALLET TRACKER · top holders + recent moves</span>
-            <span class="dash-panel__meta">${(topHoldersFor(id) || []).length} holders · live whale watch</span>
+            <span class="dash-panel__lbl">NETWORK · ${fmtInt(s.validators)} validators · ${fmtInt(s.miners)} miners</span>
+            <span class="dash-panel__meta">${(topHoldersFor(id) || []).length} holders indexed · live whale watch</span>
           </div>
-          ${renderWalletPanel(id)}
+          <div class="dash-network-row">
+            <div class="dash-network-row__heat">
+              <div class="dash-heat">${heatCells}</div>
+              <div class="dash-network-row__hint">8×8 validator-slot heat · larger stake = hotter</div>
+            </div>
+            <div class="dash-network-row__wallet">
+              ${renderWalletPanel(id)}
+            </div>
+          </div>
         </div>
 
-        <div class="dash-panel">
-          <div class="dash-panel__head">
-            <span class="dash-panel__lbl">GITHUB ACTIVITY · 30D</span>
-            <span class="dash-gh-pulse ${pulseCls}"><span class="dash-gh-pulse__dot"></span>${pulseTxt}</span>
-          </div>
-          ${ghPanel}
-        </div>
-
+        <!-- 4. CODE + PRESS · github + news cards side-by-side -->
         <div class="dash-panel dash-panel--wide">
-          <div class="dash-panel__head">
-            <span class="dash-panel__lbl">EDITORIAL INTEL · signal per subnet</span>
-            <span class="dash-panel__meta">${team.length + oracle.length} dispatches indexed · evidence backing this subnet's data</span>
+          <div class="dash-codepress">
+            <div class="dash-codepress__col dash-codepress__col--code">
+              <div class="dash-panel__head dash-panel__head--inner">
+                <span class="dash-panel__lbl">CODE · 30D</span>
+                <span class="dash-gh-pulse ${pulseCls}"><span class="dash-gh-pulse__dot"></span>${pulseTxt}</span>
+              </div>
+              ${ghPanel}
+            </div>
+            <div class="dash-codepress__col dash-codepress__col--press">
+              <div class="dash-panel__head dash-panel__head--inner">
+                <span class="dash-panel__lbl">PRESS · ${team.length + oracle.length} dispatches</span>
+                <span class="dash-panel__meta">editorial signal · evidence</span>
+              </div>
+              <div class="news-cards news-cards--inline">${newsCards}</div>
+            </div>
           </div>
-          <div style="font-size:9.5px;color:var(--c-ink-3);letter-spacing:.10em;margin-bottom:8px;font-family:var(--f-sans);font-style:italic">Each dispatch logged here is a research signal, not reading material. The dashboard treats them as citations behind the numbers above. Tap into a dispatch when you need the source.</div>
-          <div class="news-cards">${newsCards}</div>
         </div>
 
-        <div class="dash-panel dash-panel--wide">
-          <div class="dash-panel__head">
-            <span class="dash-panel__lbl">LINKS · external</span>
-            <span class="dash-panel__meta">team surfaces</span>
-          </div>
+        <!-- 5. LINKS · compact footer strip -->
+        <div class="dash-panel dash-panel--wide dash-panel--linksfoot">
           <div class="dash-links">
             ${s.gh ? `<a class="dash-links__a" href="https://github.com/${s.gh}" target="_blank" rel="noopener">GitHub ↗</a>` : ''}
             ${s.url ? `<a class="dash-links__a" href="${s.url}" target="_blank" rel="noopener">Website ↗</a>` : ''}
-            <a class="dash-links__a" href="${DISCORD_HUB}" target="_blank" rel="noopener">Discord Hub ↗</a>
+            <a class="dash-links__a" href="${DISCORD_HUB}" target="_blank" rel="noopener">Discord ↗</a>
             <a class="dash-links__a" href="https://taostats.io/subnets/${s.netuid}" target="_blank" rel="noopener">Taostats ↗</a>
             <a class="dash-links__a" href="https://taomarketcap.com/subnets/${s.netuid}" target="_blank" rel="noopener">TaoMarketcap ↗</a>
           </div>
@@ -2247,5 +2269,22 @@ export function mountDashboard(root, dataLayer = null){
         });
       } catch (_) {}
     }
+    /* Chart tabs: clicking PRICE / EMISSION toggles which pane is
+       visible. "Data within the chart" — same panel, different
+       facet. Both Sparkline instances are mounted on first paint
+       so swapping is instant. */
+    qsa('[data-focus-tab]', scope).forEach(btn => {
+      btn.addEventListener('click', () => {
+        const target = btn.dataset.focusTab;
+        qsa('[data-focus-tab]', scope).forEach(b => {
+          const on = b === btn;
+          b.classList.toggle('is-on', on);
+          b.setAttribute('aria-selected', String(on));
+        });
+        qsa('[data-focus-pane]', scope).forEach(p => {
+          p.style.display = (p.dataset.focusPane === target) ? '' : 'none';
+        });
+      });
+    });
   }
 }
