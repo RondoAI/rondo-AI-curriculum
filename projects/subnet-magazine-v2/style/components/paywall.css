@@ -110,3 +110,37 @@
   .paywall__veil-inner{ padding: 16px 14px 18px; }
   .paywall__veil-h{ font-size: 18px; }
 }
+
+/* ---------- inline PRO / INSTITUTIONAL badges --------------- */
+/* Sprinkle on any paid feature so the reader sees "PRO" badges
+   throughout — works for OBSERVER (signals what they'd unlock) and
+   for PRO users (reminds them what they're paying for). Per the
+   "every paid feature pitches itself" rule in CLAUDE.md. */
+.pro-badge,
+.ent-badge{
+  display: inline-block;
+  font-family: var(--f-mono);
+  font-size: 8.5px;
+  letter-spacing: .18em;
+  font-weight: 800;
+  padding: 1px 6px;
+  border: 1px solid;
+  vertical-align: 1px;
+  margin-left: 6px;
+}
+.pro-badge{
+  color: var(--c-warn);
+  border-color: var(--c-warn);
+}
+.pro-badge::before{ content: 'PRO'; }
+.ent-badge{
+  color: var(--c-up);
+  border-color: var(--c-up);
+}
+.ent-badge::before{ content: 'INST'; }
+
+/* When the viewer HAS pro/enterprise access, dim the badge so it
+   reads as a calm reminder, not an upsell. JS toggles
+   .pro-badge.is-active when getCurrentTier() >= required. */
+.pro-badge.is-active{ opacity: 0.55; }
+.ent-badge.is-active{ opacity: 0.55; }
