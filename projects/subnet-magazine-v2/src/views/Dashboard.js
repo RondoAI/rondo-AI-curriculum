@@ -35,6 +35,7 @@ import { BRIEFINGS, latestBriefing, priorBriefings, currencyHeader, daysBetween 
 import { GH_ACTIVITY, ghByNetuid } from '../data/github-activity.js';
 import { recentOracleArticles } from '../data/oracle-articles.js';
 import { TOP_HOLDERS_NETWORK, RECENT_TRANSFERS_NETWORK, topHoldersFor, recentTransfersFor } from '../data/wallet-activity.js';
+import { renderAttribution, wireAttribution, defaultAttribState } from './dashboard/attribution.js';
 
 /* Bio lookup by netuid. Three netuids are explicitly skipped here
    because their SUBNET_BIOS entries describe entities that were
@@ -394,6 +395,7 @@ export function mountDashboard(root, dataLayer = null){
   let onlyWatched = false;             // command-rail filter pill
   let masterSort = 'mcap';             // master-grid current sort col
   let masterSortDir = 'desc';          // 'asc' | 'desc'
+  let attribState = defaultAttribState(); // PORT-style attribution panel state
   const SORT_OPTIONS = [
     { id: 'mcap',  label: 'MCAP',     cmp: (a,b) => (b.mcap||0)-(a.mcap||0) },
     { id: 'chg24', label: '24H %',    cmp: (a,b) => (b.chg24||0)-(a.chg24||0) },
@@ -483,6 +485,7 @@ export function mountDashboard(root, dataLayer = null){
         </div>
         ${renderComparator(subnetById(selectedId))}
       </div>
+      ${renderAttribution(attribState)}
       ${renderMasterTable()}
       ${renderArchive()}
       ${renderFooter()}
@@ -653,6 +656,15 @@ export function mountDashboard(root, dataLayer = null){
       qs('.dash-detail', root)?.scrollIntoView({ behavior: 'smooth', block: 'start' });
     });
   });
+
+  /* PORT-style attribution panel: chips mutate attribState in place
+     and trigger a self-rebind via the onRepaint callback so each
+     click swap of (portfolio | benchmark | horizon | currency |
+     group) re-runs Brinson-Fachler and redraws the whole section. */
+  function wireAttribPanel(){
+    wireAttribution(root, attribState, wireAttribPanel);
+  }
+  wireAttribPanel();
 
   /* Bloomberg-style power-user shortcuts:
        /         focus the rail search
