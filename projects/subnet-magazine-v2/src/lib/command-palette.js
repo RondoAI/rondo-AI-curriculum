@@ -64,9 +64,59 @@ const COMMANDS = [
   { fn: 'open-backdrop',    verb: 'BACKDROP',  args: '[id]',                desc: 'Centralized AI backdrop for selected subnet', kind: 'fn' },
   { fn: 'open-briefing',    verb: 'BRIEFING',  args: '[date]',              desc: 'Jump to the daily briefing strip',       kind: 'fn' },
 
+  /* ---- Multi-step workflows (Bloomberg ASKB-style preset tasks) ---- */
+  { fn: 'workflow',         verb: 'WORKFLOW',  args: 'MORNING|MOVERS|LOSSES|WATCH|TOUR', desc: 'Run a multi-step preset', kind: 'fn' },
+
   /* ---- Meta ---- */
   { fn: 'help',             verb: 'HELP',      args: '',                    desc: 'Keyboard shortcuts & syntax',            kind: 'meta' },
 ];
+
+/* Multi-step workflows — Bloomberg ASKB's "describe a structured task,
+   we assemble the data + news + research" pattern, transposed to our
+   command-bus architecture. Each workflow is an ordered list of bus
+   events; runWorkflow() fires them with small delays so each repaint
+   completes before the next.
+   New workflows: add an entry here. Naming convention: short uppercase
+   nouns that read as verbs (MORNING = "do my morning routine"). */
+const WORKFLOWS = Object.freeze({
+  MORNING: {
+    desc: 'Briefings → today\'s top gainers → master grid',
+    steps: [
+      { fn: 'scroll-to', target: '[data-zone="briefings"]' },
+      { fn: 'top-gainers' },
+    ],
+  },
+  MOVERS: {
+    desc: 'Sort master by 24h gainers + scroll there',
+    steps: [
+      { fn: 'top-gainers' },
+      { fn: 'scroll-to', target: '.dash-master' },
+    ],
+  },
+  LOSSES: {
+    desc: 'Sort master by 24h losers + scroll there',
+    steps: [
+      { fn: 'top-losers' },
+      { fn: 'scroll-to', target: '.dash-master' },
+    ],
+  },
+  WATCH: {
+    desc: 'Show watchlist only + scroll to command rail',
+    steps: [
+      { fn: 'watched-only' },
+      { fn: 'scroll-to', target: '.dash-command' },
+    ],
+  },
+  TOUR: {
+    desc: 'Animated tour: briefings → detail → master → archive',
+    steps: [
+      { fn: 'scroll-to', target: '[data-zone="briefings"]' },
+      { fn: 'scroll-to', target: '.dash-detail',     delay: 1100 },
+      { fn: 'scroll-to', target: '.dash-master',     delay: 2200 },
+      { fn: 'scroll-to', target: '.dash-arc',        delay: 3300 },
+    ],
+  },
+});
 
 const KEYBOARD_HELP = [
   ['⌘K · Ctrl+K', 'Open command palette'],
@@ -144,10 +194,11 @@ function mountPalette({ subnets, initial }){
   const prevOverflow = document.body.style.overflow;
   document.body.style.overflow = 'hidden';
 
-  const input  = qs('.cmdpal__input',  root);
-  const list   = qs('.cmdpal__list',   root);
-  const empty  = qs('.cmdpal__empty',  root);
-  const status = qs('.cmdpal__status', root);
+  const input     = qs('.cmdpal__input',     root);
+  const list      = qs('.cmdpal__list',      root);
+  const empty     = qs('.cmdpal__empty',     root);
+  const status    = qs('.cmdpal__status',    root);
+  const translate = qs('.cmdpal__translate', root);
 
   let items  = [];
   let cursor = 0;
@@ -157,6 +208,7 @@ function mountPalette({ subnets, initial }){
     items  = match(q, subnets);
     cursor = 0;
     render();
+    renderTranslate();
   }
 
   function render(){
@@ -172,10 +224,56 @@ function mountPalette({ subnets, initial }){
       `${items.length} match${items.length === 1 ? '' : 'es'} · ↵ run · ↑↓ move · ESC close`;
   }
 
+  /* ASKB-style translation chip. Bloomberg ASKB shows the BQL it
+     plans to run before executing; ours shows the parsed verb +
+     args. Updates on every keystroke and on cursor move so the
+     reader always sees "this is what Enter will do." Empty input
+     hides the chip so it doesn't read as noise at rest. */
+  function renderTranslate(){
+    if (!translate) return;
+    const q = input.value.trim();
+    if (!q || !items.length){
+      translate.style.display = 'none';
+      translate.textContent = '';
+      return;
+    }
+    translate.style.display = '';
+    const it = items[cursor];
+    if (!it){ translate.textContent = ''; return; }
+    if (it.kind === 'subnet'){
+      const s = it.subnet;
+      translate.innerHTML =
+        `<span class="cmdpal__translate__arrow">↳</span> ` +
+        `<strong>GO ${s.netuid}</strong> · ` +
+        `<em>jump to SN${s.netuid} ${escapeHtml(s.name)} (${escapeHtml((s.cat || '').toUpperCase())})</em>`;
+    } else if (it.kind === 'cmd'){
+      const def  = it.def;
+      const rest = (it.parsed && it.parsed.rest) || '';
+      const argStr = rest ? ' ' + escapeHtml(rest) : '';
+      /* WORKFLOW shows the steps it'll dispatch — keeps the
+         multi-step preset honest about what it does. */
+      let extra = '';
+      if (def.fn === 'workflow' && rest){
+        const wf = WORKFLOWS[rest.toUpperCase()];
+        if (wf) extra = ` · ${wf.steps.length} steps: ${wf.desc}`;
+      }
+      translate.innerHTML =
+        `<span class="cmdpal__translate__arrow">↳</span> ` +
+        `<strong>${escapeHtml(def.verb)}${argStr}</strong> · ` +
+        `<em>${escapeHtml(def.desc)}${extra}</em>` +
+        (def.wip ? ` <span class="cmdpal__translate__wip">WIP</span>` : '');
+    } else if (it.kind === 'help'){
+      translate.innerHTML =
+        `<span class="cmdpal__translate__arrow">↳</span> ` +
+        `<strong>HELP</strong> · <em>keyboard shortcuts and syntax reference</em>`;
+    }
+  }
+
   function move(d){
     if (!items.length) return;
     cursor = (cursor + d + items.length) % items.length;
     render();
+    renderTranslate();
     const sel = qs('.cmdpal__row.is-on', list);
     if (sel) sel.scrollIntoView({ block: 'nearest' });
   }
@@ -215,6 +313,31 @@ function mountPalette({ subnets, initial }){
         }
         openHistModal({ netuid, range });
         close();
+        return;
+      }
+
+      /* WORKFLOW: Bloomberg ASKB's "describe a structured task"
+         pattern. Each workflow is an ordered list of bus events
+         dispatched with progressive delays so each repaint
+         completes before the next step fires. Close the palette
+         first so the dashboard is fully visible during the run. */
+      if (def.fn === 'workflow'){
+        const name = (parts[0] || '').toUpperCase();
+        const wf   = WORKFLOWS[name];
+        if (!wf){
+          const names = Object.keys(WORKFLOWS).join(', ');
+          toast(`WORKFLOW needs a preset. Try: ${names}`);
+          close();
+          return;
+        }
+        close();
+        wf.steps.forEach((step, i) => {
+          const t = step.delay != null ? step.delay : (i * 350);
+          setTimeout(() => {
+            document.dispatchEvent(new CustomEvent('subnetmag:command', { detail: step }));
+          }, t);
+        });
+        toast(`▶ WORKFLOW · ${name} · ${wf.steps.length} steps`);
         return;
       }
 
@@ -326,6 +449,7 @@ function template(initial){
                inputmode="search" aria-label="Command" />
         <kbd class="cmdpal__kbdhint" aria-label="Press Escape to close">ESC</kbd>
       </div>
+      <div class="cmdpal__translate" aria-live="polite" style="display:none"></div>
       <div class="cmdpal__list" role="listbox" aria-label="Command results"></div>
       <div class="cmdpal__empty" style="display:none">
         No matches. Try <code>GO 4</code>, <code>RESEARCH</code>, or <code>HELP</code>.

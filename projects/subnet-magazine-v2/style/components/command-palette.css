@@ -84,6 +84,54 @@
   white-space: nowrap;
 }
 
+/* ---------- translation chip (ASKB-style "show your work") ---- */
+/* Below the input, above the list. Shows the parsed verb + args
+   for the currently-highlighted result so the reader always sees
+   "this is what Enter will do." Empty input hides it. */
+.cmdpal__translate{
+  padding: 8px 14px 9px;
+  background: rgba(20, 5, 9, .55);
+  border-bottom: 1px solid rgba(255, 30, 60, .14);
+  font-family: var(--f-mono);
+  font-size: 10.5px;
+  color: var(--c-red-1);
+  letter-spacing: .03em;
+  line-height: 1.4;
+  /* The chip can carry verb + dim italic description; clamp to one
+     line so a long description never pushes the result list down. */
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.cmdpal__translate strong{
+  color: #fff;
+  font-weight: 800;
+  letter-spacing: .04em;
+}
+.cmdpal__translate em{
+  color: var(--c-ink-3);
+  font-style: italic;
+  font-weight: 500;
+  margin-left: 4px;
+}
+.cmdpal__translate__arrow{
+  color: var(--c-red);
+  margin-right: 6px;
+  font-weight: 800;
+  display: inline-block;
+}
+.cmdpal__translate__wip{
+  display: inline-block;
+  font-size: 8.5px;
+  font-weight: 800;
+  letter-spacing: .14em;
+  color: #FFB85C;
+  border: 1px solid #FFB85C;
+  padding: 1px 4px 0;
+  margin-left: 6px;
+  vertical-align: 1px;
+}
+
 /* ---------- list of matches --------------------------------- */
 .cmdpal__list{
   overflow-y: auto;
