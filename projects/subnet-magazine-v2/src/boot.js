@@ -22,6 +22,7 @@ import { mountArticles } from './views/Articles.js';
 import { mountInterviews } from './views/Interviews.js';
 import { mountResearch } from './views/Research.js';
 import { mountMarkets } from './views/Markets.js';
+import { mountDashboard } from './views/Dashboard.js';
 import { mountEditor } from './views/Editor.js';
 import { mountVoices } from './views/Voices.js';
 import { mountCodex } from './views/Codex.js';
@@ -65,6 +66,7 @@ function boot(){
   mountIf('[data-mount="interviews"]', root => mountInterviews(root));
   mountIf('[data-mount="research"]',   root => mountResearch(root));
   mountIf('[data-mount="markets"]',    root => mountMarkets(root, DataLayer));
+  mountIf('[data-mount="dashboard"]',  root => mountDashboard(root, DataLayer));
   mountIf('[data-mount="voices"]',     root => mountVoices(root));
   mountIf('[data-mount="codex"]',      root => mountCodex(root, DataLayer));
   mountIf('[data-mount="editor"]',     root => mountEditor(root));

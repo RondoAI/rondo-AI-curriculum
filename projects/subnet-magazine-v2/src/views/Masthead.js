@@ -19,6 +19,7 @@ const NAV_ITEMS = [
   { code: '010', label: 'ORACLE',   href: 'oracle.html'   },
   { code: '020', label: 'RESEARCH', href: 'research.html' },
   { code: '030', label: 'MARKETS',  href: 'markets.html' },
+  { code: '035', label: 'DASHBOARD',href: 'dashboard.html' },
   { code: '040', label: 'VOICES',   href: 'voices.html'  },
   { code: '050', label: 'EDITOR',   href: 'editor.html'  },
 ];
