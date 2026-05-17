@@ -437,9 +437,17 @@ function renderHTML(s, gh, state, series){
         </div>
       </header>
 
-      <!-- mac-session: 2-col layout — main chart column + news sidebar.
-           Sidebar collapses below the chart on viewports < 1080px. -->
+      <!-- mac-session restructure: data + articles on the LEFT,
+           chart on the RIGHT. Reader's eye scans data → chart left
+           to right, chart and data work together (per Rondo). On
+           viewports <1080px the left column collapses ABOVE the
+           chart so density is preserved on mobile. -->
       <div class="cm-grid">
+        <aside class="cm-left" aria-label="Subnet data and editorial">
+          <div class="cm-kpis cm-kpis--stack">${kpis}</div>
+          ${renderNewsSidebar(s)}
+        </aside>
+
         <div class="cm-main">
           <div class="cm-canvas-wrap">
             <canvas class="cm-canvas" data-chart-canvas></canvas>
@@ -452,11 +460,7 @@ function renderHTML(s, gh, state, series){
               ${range.pro ? 'PRO range' : 'FREE · 30D window'}
             </span>
           </div>
-
-          <div class="cm-kpis">${kpis}</div>
         </div>
-
-        ${renderNewsSidebar(s)}
       </div>
     </div>`;
 }

@@ -1247,38 +1247,82 @@
    within its own bounded frame.
    ================================================================= */
 
+/* mac-session restructure: data + articles LEFT, chart RIGHT.
+   Reader scans the column of metrics and headlines, eye lands on
+   the chart context to the right. Single 360px left rail, fluid
+   main column. */
 .cm-grid{
   display: grid;
-  grid-template-columns: 1fr 320px;
-  gap: 10px;
+  grid-template-columns: 360px 1fr;
+  gap: 12px;
   min-height: 0;
+  align-items: start;
 }
 @media (max-width: 1080px){
   .cm-grid{ grid-template-columns: 1fr; }
 }
-.cm-main{ min-width: 0; display: grid; gap: 8px; }
+.cm-main{
+  min-width: 0;
+  display: grid; gap: 8px;
+  /* The chart and its range tabs are the primary surface; main
+     fills the remaining width with no internal scroll. */
+}
 
-.cm-side{
+/* Left rail container (data above, articles below) */
+.cm-left{
   display: grid;
-  gap: 8px;
+  gap: 10px;
   align-content: start;
-  border-left: 1px solid rgba(255, 30, 60, .14);
-  padding-left: 10px;
   max-height: calc(100vh - 220px);
   overflow-y: auto;
   overscroll-behavior: contain;
   scrollbar-width: thin;
   scrollbar-color: rgba(255, 30, 60, .3) transparent;
+  padding-right: 8px;
+  border-right: 1px solid rgba(255, 30, 60, .14);
 }
 @media (max-width: 1080px){
-  .cm-side{
-    border-left: 0;
-    padding-left: 0;
-    border-top: 1px solid rgba(255, 30, 60, .14);
-    padding-top: 10px;
+  .cm-left{
+    border-right: 0;
+    padding-right: 0;
+    border-bottom: 1px solid rgba(255, 30, 60, .14);
+    padding-bottom: 8px;
     max-height: none;
     overflow-y: visible;
   }
+}
+.cm-left::-webkit-scrollbar       { width: 5px; }
+.cm-left::-webkit-scrollbar-thumb { background: rgba(255, 30, 60, .3); }
+.cm-left::-webkit-scrollbar-track { background: transparent; }
+
+/* KPIs as vertical stack when in the left rail (cm-kpis--stack).
+   Each row: label + value with a dim delta line below — single
+   column, tight padding. Sibling's horizontal .cm-kpis layout
+   is preserved as the default for other consumers. */
+.cm-kpis--stack{
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 0;
+}
+.cm-kpis--stack .cm-kpi{
+  display: grid;
+  grid-template-columns: 1fr auto;
+  grid-template-areas: "lbl val" "note note";
+  gap: 0 8px;
+  padding: 7px 8px;
+  border-bottom: 1px dashed rgba(255, 30, 60, .10);
+  background: rgba(20, 5, 9, .35);
+}
+.cm-kpis--stack .cm-kpi:last-child{ border-bottom: 0; }
+.cm-kpis--stack .cm-kpi__lbl  { grid-area: lbl; font-size: 8.5px; }
+.cm-kpis--stack .cm-kpi__val  { grid-area: val; font-size: 14px; font-weight: 800; color: #fff; text-align: right; font-variant-numeric: tabular-nums; }
+.cm-kpis--stack .cm-kpi__note { grid-area: note; font-size: 9px; padding-top: 2px; }
+
+/* Articles section (was .cm-side, now inside .cm-left) */
+.cm-side{
+  display: grid;
+  gap: 8px;
+  align-content: start;
 }
 .cm-side::-webkit-scrollbar { width: 5px; }
 .cm-side::-webkit-scrollbar-thumb { background: rgba(255, 30, 60, .3); }
