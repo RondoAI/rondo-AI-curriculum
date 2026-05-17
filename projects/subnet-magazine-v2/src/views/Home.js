@@ -264,10 +264,8 @@ export function mountHome(root, dataLayer = null){
         mix-blend-mode: screen;
         z-index: 3;
       }
-      /* The sphere canvas: canonical NodeSphere, dimmed via opacity
-         so it recedes as ambient atmosphere and lets the logo plexus
-         dominate as the focal element. Same engine and params as the
-         top of the page; only the visual weight changes. */
+      /* Sphere canvas: canonical NodeSphere at full strength. It is
+         the centerpiece of the composition, not a backdrop. */
       .home-article--oracle .home-article__sphere{
         position: absolute;
         inset: 0;
@@ -275,51 +273,21 @@ export function mountHome(root, dataLayer = null){
         height: 100%;
         display: block;
         z-index: 1;
-        opacity: .55;
         filter: drop-shadow(0 0 14px rgba(255,30,60,.28));
       }
-      /* Soft dark halo behind the glyph, painted via a radial gradient
-         pseudo so the bright logo dots sit on a quiet field rather
-         than competing directly with the sphere's edges. */
-      .home-article--oracle .home-article__art::before{
-        content: "";
+      /* The SUBNET ORACLE badge sits top-right, the company ticker
+         sits top-left. Both share the same glassy, blurred, red-
+         bordered chrome so they read as a matched pair, like a
+         financial-terminal header. */
+      .home-article--oracle .home-article__oracle-badge,
+      .home-article--oracle .home-article__ticker{
         position: absolute;
-        left: 50%; top: 50%;
-        transform: translate(-50%, -50%);
-        width: 80%;
-        height: 80%;
-        background: radial-gradient(ellipse at center,
-          rgba(7,5,9,.85) 0%,
-          rgba(7,5,9,.55) 35%,
-          rgba(7,5,9,0)   70%);
-        z-index: 1;
-        pointer-events: none;
-      }
-      /* The glyph canvas overlays the sphere. NeuralLogo paints its
-         own atmospheric red halo, so we skip the CSS drop-shadow
-         to avoid a double bloom. The chart's depth-keyed nodes and
-         frontmost sparkle carry the highlight. */
-      .home-article--oracle .home-article__glyph{
-        position: absolute;
-        left: 50%; top: 50%;
-        transform: translate(-50%, -50%);
-        width: 78%;
-        height: 78%;
-        display: block;
-        pointer-events: none;
-        z-index: 2;
-      }
-      /* Refined badge: smaller, glassy, glowing. Uses backdrop-filter
-         where supported so it sits cleanly on the busy sphere behind. */
-      .home-article--oracle .home-article__oracle-badge{
-        position: absolute;
-        top: 10px; right: 10px;
+        top: 10px;
         z-index: 4;
         font-family: var(--f-mono, monospace);
         font-size: 8.5px;
         font-weight: 700;
         letter-spacing: .22em;
-        padding: 4px 9px 3px;
         background: rgba(8,4,6,.62);
         backdrop-filter: blur(6px) saturate(140%);
         -webkit-backdrop-filter: blur(6px) saturate(140%);
@@ -331,20 +299,51 @@ export function mountHome(root, dataLayer = null){
           0 0 10px rgba(255,30,60,.32),
           inset 0 0 8px rgba(255,30,60,.18);
       }
+      .home-article--oracle .home-article__oracle-badge{
+        right: 10px;
+        padding: 4px 9px 3px;
+      }
+      /* Ticker: small subject-company logo + uppercase name + SN id,
+         pinned top-left. Reads as "TARGON · SN4" with a 16px mark.
+         This is the signature, the article's stock ticker. */
+      .home-article--oracle .home-article__ticker{
+        left: 10px;
+        padding: 3px 8px 2px 4px;
+        display: inline-flex;
+        align-items: center;
+        gap: 6px;
+        line-height: 1;
+      }
+      .home-article--oracle .home-article__ticker-logo{
+        width: 16px;
+        height: 16px;
+        object-fit: contain;
+        display: block;
+        filter: drop-shadow(0 0 4px rgba(255,30,60,.55));
+      }
+      .home-article--oracle .home-article__ticker-text{
+        padding-top: 1px; /* optical centering against the logo */
+      }
+      .home-article--oracle .home-article__ticker-sep{
+        color: rgba(255,30,60,.85);
+        margin: 0 2px;
+      }
       .home-article--oracle .home-article__kicker{
         color: var(--c-red, #FF1E3C);
         text-shadow: 0 0 6px rgba(255,30,60,.4);
       }
-      /* Smooth hover lift: subtle scale on the sphere + brighter
-         glow, no jumpy size changes elsewhere. */
+      /* Smooth hover lift on the sphere */
       .home-article--oracle .home-article__link:hover .home-article__sphere{
         filter: drop-shadow(0 0 24px rgba(255,30,60,.55));
         transform: scale(1.02);
         transition: transform .35s ease, filter .35s ease;
       }
-      .home-article--oracle .home-article__link:hover .home-article__glyph{
-        filter: drop-shadow(0 0 16px rgba(255,30,60,.85));
-        transition: filter .35s ease;
+      .home-article--oracle .home-article__link:hover .home-article__ticker{
+        border-color: rgba(255,30,60,1);
+        box-shadow:
+          0 0 14px rgba(255,30,60,.5),
+          inset 0 0 10px rgba(255,30,60,.25);
+        transition: border-color .25s ease, box-shadow .25s ease;
       }
     </style>
     <section class="home-research home-research--oracle" aria-label="Subnet Oracle research desk">
@@ -371,12 +370,16 @@ export function mountHome(root, dataLayer = null){
                 <canvas class="home-article__sphere"
                         data-canvas="home-oracle-sphere"
                         data-id="${a.id}"></canvas>
-                <canvas class="home-article__glyph"
-                        data-canvas="home-oracle-glyph"
-                        data-id="${a.id}"
-                        data-subnet-slug="${isSpot ? (a.subnetName || '').toLowerCase() : ''}"></canvas>
                 <span class="home-article__art-frame" aria-hidden="true"></span>
                 <span class="home-article__oracle-badge">SUBNET ORACLE</span>
+                ${isSpot ? `<span class="home-article__ticker">
+                  <img class="home-article__ticker-logo"
+                       src="${SUBNET_LOGOS[(a.subnetName || '').toLowerCase()] || FALLBACK_LOGO}"
+                       alt=""
+                       loading="lazy"
+                       onerror="this.style.display='none'">
+                  <span class="home-article__ticker-text">${(a.subnetName || '').toUpperCase()} <span class="home-article__ticker-sep">·</span> SN${a.subnetId}</span>
+                </span>` : ''}
               </span>
               <span class="home-article__kicker">${kicker}</span>
               <span class="home-article__title">${a.title}</span>
@@ -1953,44 +1956,17 @@ export function mountHome(root, dataLayer = null){
   };
   const FALLBACK_LOGO = 'assets/bittensor-tau.png';
 
-  /* ---------- SUBNET ORACLE card covers, two canvases per card -----
-     Architecture mirrors the top of the page exactly:
-       - sphere canvas: NodeSphere instance with the same params as
-         the Hero brand mark (78 nodes, K=4, density 0.46, speed 0.2,
-         atmosphere on). This is THE Subnet Oracle visual; same class,
-         same engine, same look as the masthead.
-       - glyph canvas: PlexusGlyph layered on top, centered at 55%
-         size with mix-blend-mode screen so the bright red glyph sits
-         cleanly on top of the sphere edges. The logo silhouette
-         reads as living inside the rotating sphere. */
+  /* ---------- SUBNET ORACLE card covers ---------------------------
+     The cover is THE canonical NodeSphere, same engine and params as
+     the masthead. The subject company is identified by a Bloomberg-
+     terminal-style ticker badge pinned to the top-left of the art
+     (TARGON, SN4) instead of being painted into the sphere. The
+     sphere stays pure. */
   const oracleMarks = [];
   root.querySelectorAll('[data-canvas="home-oracle-sphere"]').forEach((cv) => {
     try {
       oracleMarks.push(new NodeSphere(cv, {
         nodes: 78, K: 4, density: 0.46, speed: 0.2,
-      }));
-    } catch (_) {}
-  });
-  root.querySelectorAll('[data-canvas="home-oracle-glyph"]').forEach((cv, i) => {
-    const subnetSlug = (cv.dataset.subnetSlug || '').toLowerCase();
-    const imgUrl = SUBNET_LOGOS[subnetSlug] || FALLBACK_LOGO;
-    try {
-      /* NeuralLogo renders the logo silhouette in the EXACT same
-         visual language as the masthead NodeSphere: same node count,
-         same K, same density, same speed, same atmosphere. Only the
-         node distribution changes (logo silhouette instead of
-         Fibonacci sphere). The brand mark is unmistakable; the
-         visual language is canonical. */
-      oracleMarks.push(new NeuralLogo(cv, {
-        imageSrc:    imgUrl,
-        nodes:       78,
-        K:           4,
-        density:     0.46,
-        speed:       0.32,
-        glow:        true,
-        atmos:       true,
-        supersample: 3,
-        seed:        i + 1,
       }));
     } catch (_) {}
   });
