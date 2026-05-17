@@ -563,24 +563,119 @@ export function mountDashboard(root, dataLayer = null){
   })();
 
   /* Render --------------------------------------------------- */
+  /* Layout discipline: the page is one long scroll because mobile
+     wants it that way (no tab-jumping context loss), but we mark
+     the major zones with #ids and surface a sticky in-page anchor
+     nav (`dash-jump`) directly below the status bar. Five chips:
+     BRIEFINGS · DETAIL · DESK · MARKET · ARCHIVE. Tap = smooth
+     scroll. Active chip = whichever zone owns the current viewport
+     midline. Wraps paper-portfolio + attribution into one DESK zone
+     so they read as positions + analytics-on-those-positions, not
+     two disconnected products. */
   mount(root, html`
     <section class="dash" data-mount="dashboard-root">
       ${renderStatusBar()}
-      ${renderBriefings()}
-      <div class="dash-grid">
-        ${renderCommand()}
-        <div class="dash-detail" data-zone="detail">
-          ${renderDetail(selectedId)}
-        </div>
-        ${renderComparator(subnetById(selectedId))}
+      ${renderJumpNav()}
+      <div id="briefings" class="dash-zone" data-zone-id="briefings">
+        ${renderBriefings()}
       </div>
-      ${renderPaperPortfolio()}
-      ${renderAttribution(attribState)}
-      ${renderMasterTable()}
-      ${renderArchive()}
+      <div id="detail" class="dash-zone" data-zone-id="detail">
+        <div class="dash-grid">
+          ${renderCommand()}
+          <div class="dash-detail" data-zone="detail">
+            ${renderDetail(selectedId)}
+          </div>
+          ${renderComparator(subnetById(selectedId))}
+        </div>
+      </div>
+      <div id="desk" class="dash-zone dash-desk" data-zone-id="desk">
+        ${renderDeskHeader()}
+        ${renderPaperPortfolio()}
+        ${renderAttribution(attribState)}
+      </div>
+      <div id="market" class="dash-zone" data-zone-id="market">
+        ${renderMasterTable()}
+      </div>
+      <div id="archive" class="dash-zone" data-zone-id="archive">
+        ${renderArchive()}
+      </div>
       ${renderFooter()}
     </section>
   `);
+
+  /* Section nav: tap any chip to smooth-scroll to that zone.
+     Critical fix: the status bar is sticky-top with z:50 and varies
+     in height between mobile (~240px, 2-row KPI grid) and desktop
+     (~80px, 1-row). We measure it on mount + on resize, then set
+     the JUMP nav's `top` to the status bar's bottom edge so it
+     stacks correctly. scroll-padding-top is set to (status + jump
+     + small buffer) so anchor jumps land at the top of each zone,
+     not under the sticky chrome.
+     IntersectionObserver flips the .is-on chip as the user scrolls
+     so the nav reads as "where am I". */
+  function wireJumpNav(){
+    const nav  = qs('.dash-jump', root);
+    const stat = qs('.dash-status', root);
+    if (!nav) return;
+
+    const restickChrome = () => {
+      if (!stat) return;
+      const sh = stat.getBoundingClientRect().height || 0;
+      nav.style.top = sh + 'px';
+      const nh = nav.getBoundingClientRect().height || 0;
+      /* scroll-padding-top reserves space at the viewport top so
+         anchor #ids land below the sticky chrome, not under it. */
+      document.documentElement.style.scrollPaddingTop = (sh + nh + 8) + 'px';
+    };
+    restickChrome();
+    window.addEventListener('resize', restickChrome);
+    if (typeof ResizeObserver !== 'undefined' && stat){
+      new ResizeObserver(restickChrome).observe(stat);
+    }
+
+    nav.querySelectorAll('[data-jump]').forEach(btn => {
+      btn.addEventListener('click', (e) => {
+        e.preventDefault();
+        const id = btn.dataset.jump;
+        const t  = document.getElementById(id);
+        if (t) t.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      });
+    });
+    /* Active-chip detection: which zone's TOP edge is closest to
+       the line just below the sticky chrome? On every scroll we
+       compute each zone's top relative to the viewport's effective
+       top (sticky chrome height + a 20px buffer) and pick the zone
+       whose top is the largest non-positive number — i.e. the most
+       recently-passed zone boundary above us. Scroll-throttled via
+       rAF so it costs nothing on mobile. */
+    const zones = qsa('.dash-zone', root);
+    let scrollTick = 0;
+    const updateActive = () => {
+      if (scrollTick) return;
+      scrollTick = requestAnimationFrame(() => {
+        scrollTick = 0;
+        const sh = stat ? stat.getBoundingClientRect().height : 0;
+        const nh = nav.getBoundingClientRect().height;
+        const cutoff = sh + nh + 20; // anchor line just below sticky chrome
+        let activeId = zones[0]?.dataset.zoneId;
+        let bestY = -Infinity;
+        for (const z of zones){
+          const y = z.getBoundingClientRect().top - cutoff;
+          if (y <= 0 && y > bestY){
+            bestY = y;
+            activeId = z.dataset.zoneId;
+          }
+        }
+        nav.querySelectorAll('[data-jump]').forEach(b => {
+          b.classList.toggle('is-on', b.dataset.jump === activeId);
+        });
+      });
+    };
+    updateActive();
+    window.addEventListener('scroll', updateActive, { passive: true });
+    window.addEventListener('resize', updateActive);
+  }
+  wireJumpNav();
 
   /* Repaint primitives. Selection / filter / sort changes only
      re-render the affected zones, never the whole shell, so
@@ -1130,6 +1225,45 @@ export function mountDashboard(root, dataLayer = null){
   /* =================================================================
      RENDER FUNCTIONS
      ============================================================== */
+
+  /* Sticky in-page section nav. Lives directly under the status bar
+     and gives the reader a 5-chip elevator to every major zone on
+     the dashboard. Solves the 21,000px-tall-page problem by making
+     every section ONE TAP away instead of N scroll-flicks.
+     Chip set is intentionally short — five labels max so the row
+     fits one line at 320px and reads at a glance. */
+  function renderJumpNav(){
+    const chips = [
+      { id: 'briefings', lbl: 'BRIEFINGS' },
+      { id: 'detail',    lbl: 'DETAIL'    },
+      { id: 'desk',      lbl: 'MY DESK'   },
+      { id: 'market',    lbl: 'MARKET'    },
+      { id: 'archive',   lbl: 'ARCHIVE'   },
+    ].map(c => `<button type="button" class="dash-jump__chip" data-jump="${c.id}">${c.lbl}</button>`).join('');
+    return `
+      <nav class="dash-jump" aria-label="Dashboard sections">
+        <span class="dash-jump__lbl">JUMP</span>
+        <div class="dash-jump__chips">${chips}</div>
+      </nav>`;
+  }
+
+  /* DESK zone header — wraps paper portfolio + attribution into one
+     unified section. Both panels keep their own sub-headers, but the
+     reader sees this as "MY DESK · positions and analytics on those
+     positions" rather than two unrelated products stacked. Drops a
+     three-way mode indicator (POSITIONS / ANALYTICS / both visible)
+     which is currently informational — future work could collapse one
+     half on tap to compress the desk further. */
+  function renderDeskHeader(){
+    return `
+      <header class="dash-desk__head">
+        <div class="dash-desk__title">
+          <span class="dash-desk__eyebrow">⊕ MY DESK</span>
+          <h2 class="dash-desk__h">Your positions, analyzed against the market.</h2>
+          <div class="dash-desk__sub">Buy mock positions below, then watch the attribution engine decompose your returns into sector tilt + within-sector picking skill. The two panels are one workflow: hold &rarr; measure.</div>
+        </div>
+      </header>`;
+  }
 
   function renderStatusBar(){
     return `
