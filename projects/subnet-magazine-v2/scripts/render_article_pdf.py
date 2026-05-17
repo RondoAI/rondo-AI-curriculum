@@ -34,7 +34,31 @@ from reportlab.platypus import (
 )
 
 ROOT = Path(__file__).resolve().parents[1]
-OUT_DIR = ROOT / "oracle-articles"
+
+# Two output trees, the same renderer feeds both. Articles authored
+# by the Subnet Oracle (Claude Opus 4.7) land in oracle-articles/.
+# Team / human-authored Subneτ Magazine articles land in articles/
+# so every PDF the reader can open from anywhere on the site
+# follows one consistent dark-mode visual language. The article
+# dict's "article_type" field ('oracle' default, or 'team') picks
+# the destination and toggles a handful of strings in the chrome.
+OUT_DIRS = {
+    "oracle": ROOT / "oracle-articles",
+    "team":   ROOT / "articles",
+}
+OUT_DIR = OUT_DIRS["oracle"]  # back-compat default for existing callers
+
+# Display labels for team-article categories, used as the kicker
+# under the "SUBNEτ MAGAZINE" badge. Mirrors src/data/articles.js
+# Article.category union.
+CATEGORY_LABELS = {
+    "reporting":   "REPORTING",
+    "profile":     "SUBNET PROFILE",
+    "op-ed":       "OP-ED",
+    "fund-letter": "FUND LETTER",
+    "primer":      "PRIMER",
+    "interview":   "INTERVIEW",
+}
 
 # ---------- colors, matching the site's design tokens ----------
 C_BG       = HexColor("#080203")  # near-black
@@ -164,8 +188,13 @@ def _draw_node_sphere(canvas, cx, cy, radius, seed=0):
 def _draw_chrome(canvas, doc):
     """Paint the dark background, red accent rail, header/footer chrome,
     and, on the first page only, the Subnet Oracle node-sphere mark.
-    Called by reportlab once per page."""
+    Called by reportlab once per page. Header/footer text switches on
+    doc._article_type, so the same chrome serves both Oracle research
+    and team-authored Subneτ Magazine articles, one unified dark-mode
+    template across the whole site."""
     w, h = letter
+    article_type = getattr(doc, "_article_type", "oracle")
+    is_team = article_type == "team"
 
     # Fill the entire page black
     canvas.saveState()
@@ -179,27 +208,32 @@ def _draw_chrome(canvas, doc):
 
     canvas.setFillColor(C_RED)
     canvas.setFont("Helvetica-Bold", 9)
-    canvas.drawString(0.5 * inch, h - 0.4 * inch, "⊕ SUBNET ORACLE RESEARCH")
+    badge = "⊕ SUBNEτ MAGAZINE" if is_team else "⊕ SUBNET ORACLE RESEARCH"
+    canvas.drawString(0.5 * inch, h - 0.4 * inch, badge)
     canvas.setFillColor(C_INK_3)
     canvas.setFont("Helvetica", 8)
-    canvas.drawRightString(w - 0.5 * inch, h - 0.4 * inch, "Subneτ Magazine · Filed by Subnet Oracle")
+    right_label = (
+        getattr(doc, "_top_right", None) or
+        ("Subneτ Magazine · Editorial Desk" if is_team
+         else "Subneτ Magazine · Filed by Subnet Oracle")
+    )
+    canvas.drawRightString(w - 0.5 * inch, h - 0.4 * inch, right_label)
 
-    # Left accent rail, the Subnet Oracle attribution marker
+    # Left accent rail, the brand-attribution marker
     canvas.setFillColor(C_RED)
     canvas.rect(0.4 * inch, 0.6 * inch, 3, h - 1.2 * inch, fill=1, stroke=0)
 
     # First-page neural-network signature, watermarked behind the
-    # text. Sized large enough to read as the Subnet Oracle's mark,
-    # subtle enough that body text remains legible above it.
+    # text. Sized large enough to read as the brand mark, subtle
+    # enough that body text remains legible above it.
     if doc.page == 1:
         seed = hash(getattr(doc, '_oracle_article_id', 'subnet-oracle')) & 0xFFFFFFFF
         _draw_node_sphere(canvas, w - 1.6 * inch, h - 2.2 * inch,
                           radius=0.7 * inch, seed=seed)
-        # Caption under the mark
         canvas.setFillColor(C_INK_4)
         canvas.setFont("Helvetica-Bold", 6.5)
-        canvas.drawCentredString(w - 1.6 * inch, h - 3.05 * inch,
-                                 "SUBNET ORACLE · LIVE")
+        watermark = "SUBNEτ MAGAZINE · LIVE" if is_team else "SUBNET ORACLE · LIVE"
+        canvas.drawCentredString(w - 1.6 * inch, h - 3.05 * inch, watermark)
 
     # Footer
     canvas.setStrokeColor(C_RULE)
@@ -207,7 +241,13 @@ def _draw_chrome(canvas, doc):
     canvas.line(0.5 * inch, 0.55 * inch, w - 0.5 * inch, 0.55 * inch)
     canvas.setFillColor(C_INK_4)
     canvas.setFont("Helvetica", 7.5)
-    canvas.drawString(0.5 * inch, 0.4 * inch, "Filed by the Subnet Oracle (Claude Opus 4.7). Dry, mechanism-aware, hedged.")
+    foot_line = (
+        getattr(doc, "_footer_line", None) or
+        ("Filed by Subneτ Magazine. Editorial standard: long-form, mechanism-aware, sourced."
+         if is_team
+         else "Filed by the Subnet Oracle (Claude Opus 4.7). Dry, mechanism-aware, hedged.")
+    )
+    canvas.drawString(0.5 * inch, 0.4 * inch, foot_line)
     canvas.drawRightString(w - 0.5 * inch, 0.4 * inch, f"Page {doc.page}")
     canvas.restoreState()
 
@@ -223,10 +263,25 @@ def _esc(s: str) -> str:
 
 
 def render_article_pdf(article: dict) -> Path:
-    """Render one Oracle article to a dark-mode PDF.
-    Returns the relative path (from project root) of the written file."""
-    OUT_DIR.mkdir(parents=True, exist_ok=True)
-    out_path = OUT_DIR / f"{article['id']}.pdf"
+    """Render one article to a dark-mode PDF.
+    Returns the relative path (from project root) of the written file.
+
+    Article type is selected by article["article_type"]:
+      - "oracle" (default): SUBNET ORACLE RESEARCH header, files into
+        oracle-articles/, attribution to the Subnet Oracle.
+      - "team": SUBNEτ MAGAZINE header, files into articles/,
+        attribution to the article's authors[], shows category +
+        issue line in the kicker."""
+    article_type = article.get("article_type", "oracle")
+    out_dir = OUT_DIRS.get(article_type, OUT_DIRS["oracle"])
+    out_dir.mkdir(parents=True, exist_ok=True)
+    out_path = out_dir / f"{article['id']}.pdf"
+    is_team = article_type == "team"
+
+    pdf_author = (
+        ", ".join(article.get("authors") or ["Subneτ Magazine"])
+        if is_team else "Subneτ Magazine, Subnet Oracle Research"
+    )
 
     doc = BaseDocTemplate(
         str(out_path),
@@ -235,8 +290,8 @@ def render_article_pdf(article: dict) -> Path:
         rightMargin=0.6 * inch,
         topMargin=0.85 * inch,
         bottomMargin=0.75 * inch,
-        title=article.get("title", "Oracle Article"),
-        author="Subneτ Magazine, Subnet Oracle Research",
+        title=article.get("title", "Article"),
+        author=pdf_author,
     )
     frame = Frame(
         doc.leftMargin,
@@ -245,32 +300,51 @@ def render_article_pdf(article: dict) -> Path:
         doc.height,
         showBoundary=0,
     )
-    # Stash the article id on the doc object so the chrome callback
-    # can seed the per-article node-sphere mark.
+    # Stash per-document context on the doc object so the chrome
+    # callback can pick header/footer text and seed the node-sphere.
     doc._oracle_article_id = article.get("id", "subnet-oracle")
+    doc._article_type = article_type
+    if is_team:
+        issue = article.get("issue") or ""
+        doc._footer_line = (
+            f"Subneτ Magazine. {issue}" if issue
+            else "Subneτ Magazine. Editorial desk."
+        )
+        doc._top_right = "Subneτ Magazine · Editorial Desk"
     doc.addPageTemplates([PageTemplate(id="dark", frames=[frame], onPage=_draw_chrome)])
 
     s = _styles()
     flow = []
 
     # ===== HEADER =====
-    flow.append(Paragraph("⊕ SUBNET ORACLE RESEARCH", s["badge"]))
-    if article.get("kind") == "subnet-spotlight":
-        sn_id = article.get("subnetId", "?")
-        sn_nm = article.get("subnetName", "")
-        kind_text = f"SUBNET SPOTLIGHT &nbsp; · &nbsp; SN{sn_id} {_esc(sn_nm)}"
+    if is_team:
+        flow.append(Paragraph("⊕ SUBNEτ MAGAZINE", s["badge"]))
+        cat = article.get("category", "")
+        cat_label = CATEGORY_LABELS.get(cat, cat.upper() if cat else "FEATURE")
+        issue = article.get("issue", "")
+        kind_text = f"{cat_label} &nbsp; · &nbsp; {_esc(issue)}" if issue else cat_label
     else:
-        kind_text = "ECOSYSTEM STATE"
+        flow.append(Paragraph("⊕ SUBNET ORACLE RESEARCH", s["badge"]))
+        if article.get("kind") == "subnet-spotlight":
+            sn_id = article.get("subnetId", "?")
+            sn_nm = article.get("subnetName", "")
+            kind_text = f"SUBNET SPOTLIGHT &nbsp; · &nbsp; SN{sn_id} {_esc(sn_nm)}"
+        else:
+            kind_text = "ECOSYSTEM STATE"
     flow.append(Paragraph(kind_text, s["kind"]))
 
     flow.append(Paragraph(_esc(article.get("title", "")), s["title"]))
     flow.append(Paragraph(_esc(article.get("dek", "")), s["dek"]))
 
-    filer = (
-        "the Subnet Oracle (Claude Opus 4.7)"
-        if article.get("generatedBy") == "claude-opus-4-7"
-        else "the editorial desk (seed)"
-    )
+    if is_team:
+        authors_str = ", ".join(article.get("authors") or ["Subneτ Magazine"])
+        filer = authors_str
+    else:
+        filer = (
+            "the Subnet Oracle (Claude Opus 4.7)"
+            if article.get("generatedBy") == "claude-opus-4-7"
+            else "the editorial desk (seed)"
+        )
     date_str = article.get("date", "")
     flow.append(Paragraph(f"⊕ {date_str} &nbsp; · &nbsp; filed by {filer}", s["attr"]))
 
