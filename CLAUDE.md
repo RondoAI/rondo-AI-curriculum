@@ -152,3 +152,51 @@ Practical: for PDFs, `pdftoppm -png -r 150 -f 1 -l 1 <pdf>
 <prefix>` then read the PNG via the Read tool. For HTML changes
 where a screenshot is the only true verification, say so
 explicitly rather than claiming success on code grep alone.
+
+## 45-Minute Minimum on Substantive Pushes
+
+Saved by Rondo's instruction, 2026-05-17, after a series of rapid
+dashboard iterations he flagged as "quick cheap code" producing
+bugs (mobile layouts merging, sticky bars bleeding through content,
+missing chart panels). His exact words: "if it took less than 45
+minutes to write the code then you made a big mistake."
+
+Rule, applied to any code work Claude does on this repository
+that is more than a typo fix, a one-line copy edit, or a
+manifest bump:
+
+  A push representing substantive code work, building a new view,
+  building a new data file, adding meaningful new functionality,
+  refactoring a module, fixing a non-trivial bug, must reflect at
+  least 45 minutes of focused, layered work. That time is spent
+  on, in order:
+
+    1. Reading the relevant existing code completely, not just
+       the file being edited. Tracing imports, data shapes,
+       conventions used elsewhere in the project, mobile +
+       desktop layout assumptions.
+    2. Designing the change end-to-end before writing it.
+       Sketching the data model, the render path, the failure
+       modes, the mobile behavior, the keyboard behavior, the
+       empty + loading states, the interaction with the
+       neighboring code.
+    3. Writing the change in layered passes, each pass small
+       enough to reason about + verify, with the next pass
+       building on the verified base.
+    4. Screenshot-verifying every visual surface that changed,
+       on both desktop (1440x900) and mobile (414x900), per the
+       Visual Self-Check rule above. Visible bugs (overlaps,
+       bleed-through, cramped grids) MUST be fixed before the
+       push, not deferred with a "wave 2" note.
+    5. Cross-checking the live CDN serves the bumped files (HTML
+       references the new cache-bust query, JS imports reference
+       the new query) before reporting done.
+
+  If Claude finds the work is done in less than 45 minutes, the
+  work is NOT done; missing layers above need to be revisited.
+  The stop hook may force an intermediate commit; that does NOT
+  reset the 45-minute timer, the next push still has to reflect
+  the full layered work.
+
+This rule binds Claude. Rondo gets to decide when something is
+small enough to skip the 45-minute investment; Claude does not.
