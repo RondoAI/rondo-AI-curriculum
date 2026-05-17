@@ -170,3 +170,43 @@ body { font-variant-numeric: tabular-nums; }
 @media (prefers-reduced-motion: reduce) {
   .is-flash { animation: none; }
 }
+
+/* =================================================================
+   MOBILE SCROLL GESTURE LOCK
+   -----------------------------------------------------------------
+   The home page has multiple sideways-scrolling rails (validators,
+   research, oracle, stack, how, bios, network, ops) plus the
+   masthead nav and the status strip. Without an explicit
+   touch-action, mobile browsers cannot tell whether a slightly-
+   diagonal swipe means "scroll this rail sideways" or "scroll the
+   page down", so they gamble. On near-vertical swipes they often
+   pick horizontal, jittering the rail and making the whole layout
+   feel like it is lurching sideways while you are trying to scroll.
+
+   Setting touch-action: pan-x on each rail tells the browser: when
+   a touch starts on me, I only own horizontal panning. Any pan with
+   a vertical component falls through to my ancestor (the document,
+   touch-action: auto) which scrolls the page smoothly.
+
+   overscroll-behavior-x: contain prevents the rail from chaining
+   its overscroll up to the document when it hits an end, so the
+   page does not lurch when you flick a rail past its edge. Most
+   rails already have this; this rule guarantees it everywhere.
+
+   -webkit-overflow-scrolling: touch turns on legacy iOS momentum
+   scrolling on the rails that did not already declare it. Newer
+   iOS treats this as a no-op; older iOS gets buttery scrolling.
+   ================================================================= */
+.home-vals__rail,
+.home-research__grid,
+.home-stack__rows,
+.home-how__pipe,
+.home-bios__grid,
+.home-network__rail,
+.home-ops__rail,
+.primary-nav__inner,
+.statusbar__inner{
+  touch-action: pan-x;
+  overscroll-behavior-x: contain;
+  -webkit-overflow-scrolling: touch;
+}
