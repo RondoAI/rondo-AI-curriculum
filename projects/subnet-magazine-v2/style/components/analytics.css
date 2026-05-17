@@ -1,0 +1,139 @@
+/* =================================================================
+   SUBNET MAGAZINE, ANALYTICS MODE
+   -----------------------------------------------------------------
+   Styles for the terminal's ANALYTICS mode. The mode has a header
+   (eyebrow + title + sub + view tabs) and a Canvas filling the
+   remaining space, plus a hover tooltip that floats over the canvas.
+   ================================================================= */
+
+.analytics{
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  min-height: 0;
+  background: var(--c-bg);
+  font-family: var(--f-mono);
+}
+
+.analytics__head{
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 14px;
+  align-items: end;
+  padding: 14px 16px 12px;
+  border-bottom: 1px solid var(--c-rule);
+  flex-shrink: 0;
+}
+.analytics__title{ min-width: 0; }
+.analytics__eyebrow{
+  display: block;
+  font-size: 9.5px;
+  letter-spacing: .18em;
+  font-weight: 800;
+  color: var(--c-red);
+  margin-bottom: 4px;
+}
+.analytics__h{
+  font-family: var(--f-serif);
+  font-size: 20px;
+  line-height: 1.15;
+  font-weight: 800;
+  margin: 0;
+  color: #fff;
+  letter-spacing: -.01em;
+}
+.analytics__sub{
+  margin-top: 4px;
+  font-family: var(--f-sans);
+  font-size: 11.5px;
+  color: var(--c-ink-3);
+  max-width: 580px;
+  font-style: italic;
+}
+
+.analytics__tabs{
+  display: flex;
+  gap: 4px;
+  flex-shrink: 0;
+}
+.analytics__tab{
+  -webkit-appearance: none;
+  appearance: none;
+  background: transparent;
+  border: 1px solid var(--c-rule-2);
+  color: var(--c-ink-2);
+  font-family: var(--f-mono);
+  font-size: 10px;
+  letter-spacing: .14em;
+  font-weight: 800;
+  padding: 6px 12px;
+  cursor: pointer;
+  white-space: nowrap;
+}
+.analytics__tab:hover{
+  background: var(--c-bg-3);
+  color: #fff;
+  border-color: var(--c-red-1);
+}
+.analytics__tab.is-on{
+  background: var(--c-red);
+  color: #fff;
+  border-color: var(--c-red);
+  box-shadow: 0 0 12px rgba(255,30,60,.45);
+}
+
+.analytics__canvas-wrap{
+  position: relative;
+  flex: 1;
+  min-height: 240px;
+  background:
+    radial-gradient(ellipse at center, rgba(255,30,60,.02) 0%, transparent 60%);
+}
+.analytics__canvas{
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  display: block;
+  cursor: crosshair;
+}
+.analytics__hover{
+  position: absolute;
+  pointer-events: none;
+  background: rgba(5,2,3,0.92);
+  border: 1px solid var(--c-red);
+  padding: 5px 9px;
+  font-family: var(--f-mono);
+  font-size: 11px;
+  color: #fff;
+  letter-spacing: .02em;
+  white-space: nowrap;
+  z-index: 10;
+  box-shadow: 0 0 12px rgba(255,30,60,.35);
+}
+
+.analytics__footer{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 8px 16px;
+  border-top: 1px solid var(--c-rule);
+  flex-shrink: 0;
+  background: var(--c-bg-1);
+}
+.analytics__meta{
+  font-family: var(--f-mono);
+  font-size: 9.5px;
+  letter-spacing: .12em;
+  color: var(--c-ink-3);
+  font-style: italic;
+}
+
+@media (max-width: 720px){
+  .analytics__head{
+    grid-template-columns: 1fr;
+    gap: 10px;
+  }
+  .analytics__h{ font-size: 17px; }
+  .analytics__tabs{ flex-wrap: wrap; }
+}
