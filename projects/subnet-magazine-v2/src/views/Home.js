@@ -153,6 +153,15 @@ const SECTIONS = [
  * @param {HTMLElement} root
  * @param {{subscribe:Function, get:Function}|null} [dataLayer]
  */
+/* Subject-company logo lookup. Module-scope so the article template
+   can reference SUBNET_LOGOS during render (string-building) without
+   a TDZ error. Add entries as logo files land in assets/. */
+const SUBNET_LOGOS = {
+  'hippius':  'assets/hippius-mark.png',
+  'targon':   'assets/targon-mark.svg',
+};
+const FALLBACK_LOGO = 'assets/bittensor-tau.png';
+
 export function mountHome(root, dataLayer = null){
   const articles = articlesByDate();
   // Subnet Oracle articles are a separate research class authored
@@ -2010,13 +2019,9 @@ export function mountHome(root, dataLayer = null){
      canvas loads this image and renders its pixels as the red
      plexus suspended inside the sphere. Subnets without a logo
      file (and every Ecosystem State card) fall back to the
-     Bittensor τ mark so no card ever shows text. Add new entries
-     here as logo files are added to assets/. */
-  const SUBNET_LOGOS = {
-    'hippius':  'assets/hippius-mark.png',
-    'targon':   'assets/targon-mark.svg',
-  };
-  const FALLBACK_LOGO = 'assets/bittensor-tau.png';
+     Bittensor τ mark so no card ever shows text. SUBNET_LOGOS and
+     FALLBACK_LOGO are declared at module scope above so the
+     article template can reference them during render. */
 
   /* ---------- SUBNET ORACLE card covers ---------------------------
      The cover is THE canonical NodeSphere, same engine and params as
