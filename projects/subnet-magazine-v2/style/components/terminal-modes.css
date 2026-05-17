@@ -1157,3 +1157,79 @@
   letter-spacing: .18em;
   font-weight: 800;
 }
+
+/* =================================================================
+   DESK MODE — paper portfolio + attribution composition
+   -----------------------------------------------------------------
+   Two existing sibling panels (paper-portfolio + attribution)
+   stacked in one mode. Each panel keeps its own internal chrome;
+   the wrapper adds the institutional header + footer so the mode
+   reads as a desk surface.
+   ================================================================= */
+.term-desk{
+  display: grid;
+  gap: 14px;
+  padding: 16px 18px 22px;
+  max-width: 1480px;
+  margin: 0 auto;
+}
+@media (max-width: 720px){
+  .term-desk{ padding: 12px 12px 18px; }
+}
+.term-desk__head{
+  display: grid; gap: 6px;
+  padding-bottom: 10px;
+  border-bottom: 1px solid rgba(255, 30, 60, .26);
+}
+.term-desk__kicker{
+  display: inline-flex; align-items: baseline; gap: 8px;
+  font-family: var(--f-mono);
+  font-size: 9.5px;
+  letter-spacing: .26em;
+  font-weight: 800;
+  text-transform: uppercase;
+  color: rgba(255, 30, 60, .85);
+}
+.term-desk__dot{
+  display: inline-block;
+  width: 6px; height: 6px;
+  border-radius: 50%;
+  background: var(--c-red);
+  box-shadow: 0 0 6px rgba(255, 30, 60, .9);
+  animation: termDeskPulse 2s ease-in-out infinite;
+  align-self: center;
+}
+@keyframes termDeskPulse{
+  0%, 100%{ opacity: 1;   transform: scale(1);    }
+  50%     { opacity: .55; transform: scale(1.25); }
+}
+.term-desk__hint{
+  font-family: var(--f-sans);
+  font-style: italic;
+  font-size: 12px;
+  line-height: 1.55;
+  color: var(--c-ink-3);
+  max-width: 78ch;
+}
+.term-desk__portfolio,
+.term-desk__attribution{
+  /* Inner panels carry their own chrome; this wrapper just
+     reserves a single grid slot per panel. */
+}
+.term-desk__foot{
+  display: flex; align-items: center; justify-content: space-between;
+  gap: 10px;
+  padding-top: 8px;
+  border-top: 1px solid rgba(255, 30, 60, .22);
+  font-family: var(--f-mono);
+  font-size: 9.5px;
+  letter-spacing: .08em;
+  font-weight: 700;
+  color: var(--c-ink-3);
+  flex-wrap: wrap;
+}
+.term-desk__brand{
+  color: var(--c-red-1);
+  letter-spacing: .18em;
+  font-weight: 800;
+}
