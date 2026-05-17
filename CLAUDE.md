@@ -130,3 +130,25 @@ push; verify; sign off. Not optional.
 
 No individualized financial advice. Stock discussion is thesis
 development and risk reasoning, not buy/sell recommendations.
+
+## Visual Self-Check
+
+Saved by Rondo's instruction, 2026-05-17, after a PDF font-embedding
+chain where subset-only TTFs rendered τ and ⊕ as missing-glyph
+boxes on the device while pdftotext extracted them correctly as
+Unicode, the failure was invisible to programmatic checks.
+
+Rule, applied to every update to any rendered visual artifact
+Claude produces (PDFs, generated images, exported diagrams,
+charts written to file, screenshot fixtures, any binary visual):
+
+  Always convert the artifact to an image and inspect the image
+  before reporting the update as done. Do not rely on text
+  extraction, file size, font-table dumps, or programmatic checks
+  alone, they all passed for the box-glyph PDFs Rondo saw on his
+  phone. Verify with the eye, the way the reader will.
+
+Practical: for PDFs, `pdftoppm -png -r 150 -f 1 -l 1 <pdf>
+<prefix>` then read the PNG via the Read tool. For HTML changes
+where a screenshot is the only true verification, say so
+explicitly rather than claiming success on code grep alone.
