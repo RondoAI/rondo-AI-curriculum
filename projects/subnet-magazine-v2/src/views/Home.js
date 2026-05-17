@@ -266,6 +266,16 @@ export function mountHome(root, dataLayer = null){
         overflow: hidden;
         isolation: isolate;
       }
+      /* The base .home-article__art-frame paints a heavy
+         linear-gradient(transparent 58%, var(--c-bg-2)) across the
+         bottom 42% of the art. On standard article cards that fades
+         art into the card background, but on the oracle cover it
+         covers the lower half of the sphere with a dark band, which
+         is the squashed-band look we saw. Wipe the frame entirely
+         on oracle, the scan-line texture below is plenty. */
+      .home-article--oracle .home-article__art-frame{
+        display: none;
+      }
       /* Subtle holographic scan line ladder, low opacity, gives the
          cover that "looking at a HUD" texture without distracting. */
       .home-article--oracle .home-article__art::after{
