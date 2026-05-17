@@ -272,3 +272,11 @@ body { font-variant-numeric: tabular-nums; }
   }
   .masthead{ background: rgba(0,0,0,.92); }
 }
+
+/* (Removed: an earlier revision promoted every canvas to its own
+   GPU compositor layer with transform: translateZ(0) + will-change.
+   On mid-tier Android GPUs the 18+ simultaneous layers caused more
+   memory pressure and compositor overhead than they saved in paint
+   work, scroll got worse, not better. The right tools are the
+   chart-engine IntersectionObserver pause and the mobile DPR cap,
+   no blanket GPU promotion across all canvases.) */
