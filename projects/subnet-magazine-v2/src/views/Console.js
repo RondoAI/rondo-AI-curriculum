@@ -37,9 +37,14 @@ const CSS = `
   border: 1px solid var(--c-rule-3, rgba(255,30,60,.36));
   border-left: 0; border-bottom: 0;
   border-top-right-radius: 6px;
-  /* Touch + scroll containment, every touch event inside the dock
-     stays inside the dock, the page underneath doesn't drift when
-     the reader scrolls within the panel. */
+  /* Touch + scroll containment. overscroll-behavior alone is not
+     enough: if the chat content fits its container and there is
+     nothing to scroll, the gesture passes through to the page
+     anyway. touch-action: pan-y CLAIMS every vertical touch for
+     the dock whether or not there is internal scroll left to do,
+     the page underneath physically can't move when the user is
+     dragging inside this element. pinch-zoom is preserved. */
+  touch-action: pan-y pinch-zoom;
   overscroll-behavior: contain;
   backdrop-filter: blur(14px) saturate(140%);
   -webkit-backdrop-filter: blur(14px) saturate(140%);
@@ -66,16 +71,33 @@ const CSS = `
   height: auto;
   min-height: 0;
 }
-/* On mobile, "expand" should truly fill the viewport, the chat
-   is the focus, the page is hidden behind it. Avoid the 10vh of
-   awkward page-peek that 90vh leaves on a phone screen. */
+/* On mobile, "expand" must truly fill the viewport. Use inset: 0
+   so the dock is pinned to all four viewport edges, not just the
+   bottom, so the previous symptom (only goes "halfway" up the
+   screen) cannot recur, the dock owns top, right, bottom, left
+   regardless of any other layout math. Falls back to height/width
+   100vh/100vw for browsers that don't honor inset on a fixed
+   element with one edge anchor already set. Border-radius and
+   the right/top borders are zeroed because there's no edge to
+   draw against, the dock is the screen. */
 @media (max-width: 720px){
   .sbnt-console.is-tall{
+    inset: 0;
+    left: 0; right: 0; top: 0; bottom: 0;
     width: 100vw;
-    max-height: 100vh;
     height: 100vh;
-    border-top-right-radius: 0;
-    border-right: 0;
+    max-height: 100vh;
+    border: 0;
+    border-radius: 0;
+  }
+  .sbnt-console.is-tall .sbnt-console__body{
+    /* Body grows to fill all the new vertical space available, so
+       the chat actually breathes when the user expands on a phone.
+       248px hard height from default mode must NOT apply when
+       expanded, override it. */
+    height: auto;
+    flex: 1 1 auto;
+    min-height: 0;
   }
 }
 /* fully-dismissed state, the entire dock slides off-screen and
@@ -356,11 +378,12 @@ const CSS = `
   font-size: 11px; line-height: 1.6;
   scrollbar-width: thin;
   scrollbar-color: var(--c-rule-2, rgba(255,30,60,.22)) transparent;
-  /* Scroll-leak fix, the body's overscroll does NOT bubble up to
-     the page. Without contain, reaching the top or bottom of the
-     chat would chain into a page scroll, which is what the reader
-     reported. touch-action: pan-y keeps vertical pans inside the
-     body and lets horizontal stay with the document. */
+  /* touch-action: pan-y on the body again so vertical pans are
+     consumed here even when the content fits and there's no scroll
+     left to do, prevents the gesture from ever reaching the page
+     beneath the dock. overscroll-behavior: contain handles the
+     end-of-content case. */
+  touch-action: pan-y;
   overscroll-behavior: contain;
   -webkit-overflow-scrolling: touch;
 }
