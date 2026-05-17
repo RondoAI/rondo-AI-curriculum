@@ -30,7 +30,7 @@
 
 import { SUBNETS, subnetById } from '../../data/subnets.js';
 
-const ANALYTICS_URL = 'src/data/analytics.json?v=20260520o';
+const ANALYTICS_URL = 'src/data/analytics.json?v=20260520p';
 
 /* Cluster palette — 6 colors matching the magazine register.
    Reds + warm accents; cool colors only as accents. */
@@ -286,53 +286,291 @@ function drawClusterMap(canvas, analytics){
 
 /* ---------- mode mount -------------------------------------- */
 
+/* ---------- INSIGHT renderers (BlackRock-grade "so what") --- */
+/* Each tab gets a paired insights panel that translates the chart
+   into a portfolio decision. No chart in this terminal exists just
+   for picture-value — each one needs an actionable read attached.
+   Renderers return HTML strings the mode's right column consumes. */
+
+function fmtR(r){
+  const sign = r >= 0 ? '+' : '';
+  return sign + r.toFixed(2);
+}
+function rClass(r){
+  if (r >= 0.6)  return 'is-warn';
+  if (r >= 0.3)  return 'is-info';
+  if (r <= -0.2) return 'is-good';
+  return 'is-flat';
+}
+
+function renderHeatmapInsights(analytics){
+  const ins = analytics.insights || {};
+  const conc = (ins.concentration || []).slice(0, 5);
+  const div  = (ins.diversifiers  || []).slice(0, 5);
+
+  const concRows = conc.length ? conc.map(p => `
+    <li class="ins-pair">
+      <span class="ins-pair__sn">SN${p.a}</span>
+      <span class="ins-pair__name">${p.aName}</span>
+      <span class="ins-pair__x">×</span>
+      <span class="ins-pair__sn">SN${p.b}</span>
+      <span class="ins-pair__name">${p.bName}</span>
+      <span class="ins-pair__r ${rClass(p.r)}">r ${fmtR(p.r)}</span>
+    </li>`).join('') : `<li class="ins-empty">No pairs above r=0.6.</li>`;
+
+  const divRows = div.length ? div.map(p => `
+    <li class="ins-pair">
+      <span class="ins-pair__sn">SN${p.a}</span>
+      <span class="ins-pair__name">${p.aName}</span>
+      <span class="ins-pair__x">×</span>
+      <span class="ins-pair__sn">SN${p.b}</span>
+      <span class="ins-pair__name">${p.bName}</span>
+      <span class="ins-pair__r ${rClass(p.r)}">r ${fmtR(p.r)}</span>
+    </li>`).join('') : `<li class="ins-empty">No negative-r pairs in scope.</li>`;
+
+  return `
+    <div class="ins-section">
+      <div class="ins-section__h">⊕ CONCENTRATION RISK</div>
+      <div class="ins-section__sub">Pairs with r &gt; 0.6 — holding BOTH gives near-zero diversification. Pick one or hedge with a diversifier below.</div>
+      <ul class="ins-list">${concRows}</ul>
+    </div>
+    <div class="ins-section">
+      <div class="ins-section__h">⊕ DIVERSIFIERS</div>
+      <div class="ins-section__sub">Lowest-correlation pairs in the network. Holding both reduces portfolio variance.</div>
+      <ul class="ins-list">${divRows}</ul>
+    </div>
+    <div class="ins-section">
+      <div class="ins-section__h">⊕ NETWORK CONCENTRATION</div>
+      <div class="ins-kpi-row">
+        <div class="ins-kpi">
+          <div class="ins-kpi__lbl">HHI · emission</div>
+          <div class="ins-kpi__val">${(ins.emission_hhi || 0).toFixed(3)}</div>
+          <div class="ins-kpi__note">1/53 = 0.019 (perfect equal weight)</div>
+        </div>
+        <div class="ins-kpi">
+          <div class="ins-kpi__lbl">EFFECTIVE N</div>
+          <div class="ins-kpi__val">${(ins.effective_n || 0).toFixed(1)}</div>
+          <div class="ins-kpi__note">of ${analytics.subnets.length} active subnets</div>
+        </div>
+      </div>
+    </div>`;
+}
+
+function renderClusterInsights(analytics, ctx){
+  const ins = analytics.insights || {};
+  const labels = analytics.cluster_labels || {};
+  const sel = ctx?.selectedId;
+  const selCluster = sel != null ? analytics.cluster[String(sel)] : null;
+  const selClusterLabel = selCluster != null ? labels[String(selCluster)] : null;
+  const sub = subnetById(sel);
+
+  // Cluster sizes
+  const sizes = {};
+  Object.entries(analytics.cluster || {}).forEach(([nid, cid]) => {
+    sizes[cid] = (sizes[cid] || 0) + 1;
+  });
+  const clusterRows = Object.entries(labels).map(([cid, lab]) => `
+    <li class="ins-row">
+      <span class="ins-row__lbl">cluster ${cid}</span>
+      <span class="ins-row__val">${lab}</span>
+      <span class="ins-row__n">${sizes[cid] || 0} subnets</span>
+    </li>`).join('');
+
+  // Sharpe leaders inside selected cluster
+  let sharpeInClusterHtml = '';
+  if (selCluster != null){
+    const members = analytics.subnets
+      .filter(id => analytics.cluster[String(id)] === selCluster)
+      .map(id => {
+        const r = analytics.risk[String(id)];
+        return r ? { id, name: analytics.names[String(id)], ...r } : null;
+      })
+      .filter(Boolean)
+      .sort((a, b) => b.sharpe - a.sharpe)
+      .slice(0, 5);
+    sharpeInClusterHtml = `
+      <div class="ins-section">
+        <div class="ins-section__h">⊕ BEST SHARPE IN CLUSTER</div>
+        <div class="ins-section__sub">Top risk-adjusted returns within "${selClusterLabel}" — peer comparison for SN${sel} ${sub?.name || ''}.</div>
+        <ul class="ins-list">${members.map(m => `
+          <li class="ins-pair">
+            <span class="ins-pair__sn">SN${m.id}</span>
+            <span class="ins-pair__name">${m.name}</span>
+            <span class="ins-pair__r ${m.sharpe >= 5 ? 'is-good' : (m.sharpe >= 2 ? 'is-info' : 'is-flat')}">Sharpe ${m.sharpe.toFixed(2)}</span>
+          </li>`).join('')}</ul>
+      </div>`;
+  }
+
+  return `
+    <div class="ins-section">
+      <div class="ins-section__h">⊕ CLUSTER MAP</div>
+      <div class="ins-section__sub">k-means on 7 behavioral features. Subnets in the same cluster move together — useful for substitution analysis (swap one for another, similar exposure).</div>
+      <ul class="ins-list">${clusterRows}</ul>
+    </div>
+    ${sharpeInClusterHtml}`;
+}
+
+function renderRiskScreen(analytics, sortKey, sortDir){
+  const risk = analytics.risk || {};
+  const rows = Object.entries(risk)
+    .map(([nid, r]) => r ? { netuid: Number(nid), name: analytics.names[nid], ...r } : null)
+    .filter(Boolean);
+  rows.sort((a, b) => {
+    const av = a[sortKey] ?? 0, bv = b[sortKey] ?? 0;
+    return sortDir === 'asc' ? av - bv : bv - av;
+  });
+
+  const cols = [
+    { key: 'name',    lbl: 'NAME',       align: 'left'  },
+    { key: 'ann_ret', lbl: 'ANN RET %',  align: 'right' },
+    { key: 'ann_vol', lbl: 'ANN VOL %',  align: 'right' },
+    { key: 'sharpe',  lbl: 'SHARPE',     align: 'right' },
+    { key: 'max_dd',  lbl: 'MAX DD %',   align: 'right' },
+    { key: 'beta',    lbl: 'β vs NET',   align: 'right' },
+  ];
+
+  const head = cols.map(c => `
+    <th class="risk-th risk-th--${c.align} ${c.key === sortKey ? 'is-sort' : ''}" data-sort-key="${c.key}">
+      ${c.lbl}${c.key === sortKey ? (sortDir === 'asc' ? ' ▲' : ' ▼') : ''}
+    </th>`).join('');
+
+  const valCls = (k, v) => {
+    if (k === 'ann_ret') return v >= 0 ? 'is-up' : 'is-down';
+    if (k === 'max_dd')  return 'is-down';
+    if (k === 'sharpe')  return v >= 2 ? 'is-up' : (v <= 0 ? 'is-down' : '');
+    if (k === 'beta')    return Math.abs(v - 1) <= 0.3 ? '' : (v > 1 ? 'is-down' : 'is-up');
+    return '';
+  };
+
+  const body = rows.map(r => `
+    <tr class="risk-tr" data-risk-row="${r.netuid}">
+      <td class="risk-td risk-td--name">
+        <span class="risk-td__sn">SN${r.netuid}</span>
+        <span class="risk-td__nm">${r.name}</span>
+      </td>
+      <td class="risk-td risk-td--num ${valCls('ann_ret', r.ann_ret)}">${r.ann_ret >= 0 ? '+' : ''}${r.ann_ret.toFixed(0)}%</td>
+      <td class="risk-td risk-td--num">${r.ann_vol.toFixed(0)}%</td>
+      <td class="risk-td risk-td--num ${valCls('sharpe', r.sharpe)}">${r.sharpe.toFixed(2)}</td>
+      <td class="risk-td risk-td--num ${valCls('max_dd', r.max_dd)}">${r.max_dd.toFixed(0)}%</td>
+      <td class="risk-td risk-td--num ${valCls('beta', r.beta)}">${r.beta.toFixed(2)}</td>
+    </tr>`).join('');
+
+  return `
+    <div class="risk-screen">
+      <table class="risk-table">
+        <thead>
+          <tr>${head}</tr>
+        </thead>
+        <tbody>${body}</tbody>
+      </table>
+      <div class="risk-screen__legend">
+        <span><b>Sharpe</b> — daily-return-based, annualized; risk-free assumed 0% (compares INSIDE the network, not vs treasuries)</span>
+        <span><b>Max DD</b> — worst peak-to-trough drawdown over the 90-day window</span>
+        <span><b>β vs NET</b> — beta to equal-weighted network index; 1.0 = moves with the network, &gt;1 = amplified, &lt;1 = damped</span>
+      </div>
+    </div>`;
+}
+
+/* ---------- mount ------------------------------------------- */
+
 export function mountAnalyticsMode(root, ctx){
-  let view = 'heatmap';   // 'heatmap' | 'cluster'
+  let view = 'heatmap';   // 'heatmap' | 'cluster' | 'risk'
   let analytics = null;
   let hit = null;
   let resizeTick = 0;
+  let riskSort = { key: 'sharpe', dir: 'desc' };
 
   root.innerHTML = `
     <div class="analytics" data-analytics-root>
       <div class="analytics__head">
         <div class="analytics__title">
-          <span class="analytics__eyebrow">⊕ ANALYTICS · numpy + sklearn (build-time) → Canvas (live)</span>
+          <span class="analytics__eyebrow">⊕ ANALYTICS · numpy + sklearn (build-time) → Canvas (live) · BlackRock-grade reads</span>
           <h2 class="analytics__h" data-analytics-title>SUBNET CORRELATION MATRIX · 90d</h2>
           <div class="analytics__sub" data-analytics-sub>Pearson r of daily returns across all 53 subnets. Mint = move together, red = move opposite, black = independent.</div>
         </div>
         <div class="analytics__tabs" role="tablist">
           <button type="button" class="analytics__tab is-on" data-view="heatmap">CORRELATION</button>
-          <button type="button" class="analytics__tab" data-view="cluster">t-SNE CLUSTER</button>
+          <button type="button" class="analytics__tab"        data-view="cluster">t-SNE CLUSTER</button>
+          <button type="button" class="analytics__tab"        data-view="risk">RISK SCREEN</button>
         </div>
       </div>
-      <div class="analytics__canvas-wrap">
-        <canvas class="analytics__canvas" data-analytics-canvas></canvas>
-        <div class="analytics__hover" data-analytics-hover style="display:none"></div>
+      <div class="analytics__body" data-analytics-body>
+        <div class="analytics__canvas-wrap" data-analytics-canvas-wrap>
+          <canvas class="analytics__canvas" data-analytics-canvas></canvas>
+          <div class="analytics__hover" data-analytics-hover style="display:none"></div>
+        </div>
+        <aside class="analytics__insights" data-analytics-insights>
+          <div class="ins-empty">loading…</div>
+        </aside>
       </div>
       <div class="analytics__footer">
         <span class="analytics__meta" data-analytics-meta>loading analytics.json…</span>
       </div>
     </div>`;
 
-  const sec      = root.querySelector('[data-analytics-root]');
-  const canvas   = root.querySelector('[data-analytics-canvas]');
-  const title    = root.querySelector('[data-analytics-title]');
-  const sub      = root.querySelector('[data-analytics-sub]');
-  const hoverEl  = root.querySelector('[data-analytics-hover]');
-  const metaEl   = root.querySelector('[data-analytics-meta]');
+  const sec       = root.querySelector('[data-analytics-root]');
+  const body      = root.querySelector('[data-analytics-body]');
+  const canvasWrap= root.querySelector('[data-analytics-canvas-wrap]');
+  const canvas    = root.querySelector('[data-analytics-canvas]');
+  const title     = root.querySelector('[data-analytics-title]');
+  const sub       = root.querySelector('[data-analytics-sub]');
+  const hoverEl   = root.querySelector('[data-analytics-hover]');
+  const metaEl    = root.querySelector('[data-analytics-meta]');
+  const insightsEl= root.querySelector('[data-analytics-insights]');
+
+  const renderRiskTable = () => {
+    canvasWrap.style.display = 'none';
+    insightsEl.style.display = 'none';
+    body.classList.add('analytics__body--risk');
+    /* Replace body content with the table; preserve canvas + insights
+       elements in DOM (just hidden) so swapping tabs is fast. */
+    let table = body.querySelector('.risk-screen');
+    if (table) table.remove();
+    body.insertAdjacentHTML('beforeend', renderRiskScreen(analytics, riskSort.key, riskSort.dir));
+    /* Wire column-header sort */
+    body.querySelectorAll('.risk-th[data-sort-key]').forEach(th => {
+      th.addEventListener('click', () => {
+        const k = th.dataset.sortKey;
+        if (k === riskSort.key) riskSort.dir = riskSort.dir === 'asc' ? 'desc' : 'asc';
+        else { riskSort.key = k; riskSort.dir = (k === 'name' ? 'asc' : 'desc'); }
+        renderRiskTable();
+      });
+    });
+    /* Click row jumps to subnet across the terminal */
+    body.querySelectorAll('[data-risk-row]').forEach(r => {
+      r.addEventListener('click', () => {
+        const id = parseInt(r.dataset.riskRow, 10);
+        if (Number.isFinite(id) && typeof ctx?.select === 'function') ctx.select(id);
+      });
+    });
+  };
 
   const drawAndWire = () => {
     if (!analytics) return;
+
+    /* Tear down any prior risk-screen DOM */
+    const stale = body.querySelector('.risk-screen');
+    if (stale) stale.remove();
+    body.classList.remove('analytics__body--risk');
+    canvasWrap.style.display = '';
+    insightsEl.style.display = '';
+
     if (view === 'heatmap'){
       title.textContent = 'SUBNET CORRELATION MATRIX · 90d';
       sub.textContent   = 'Pearson r of daily returns across all 53 subnets. Mint = move together, red = move opposite, black = independent.';
       hit = drawHeatmap(canvas, analytics);
-    } else {
+      insightsEl.innerHTML = renderHeatmapInsights(analytics);
+    } else if (view === 'cluster'){
       title.textContent = 'BEHAVIORAL CLUSTER MAP · t-SNE';
       sub.textContent   = 'Each dot is a subnet, positioned by 7-feature similarity (chg24/7/30, log mcap/emission/validators/miners). Color = k-means cluster, size = market cap.';
       hit = drawClusterMap(canvas, analytics);
+      insightsEl.innerHTML = renderClusterInsights(analytics, ctx);
+    } else if (view === 'risk'){
+      title.textContent = 'RISK SCREEN · 90d';
+      sub.textContent   = 'Per-subnet annualized return, vol, Sharpe, max drawdown, beta to network. Sort any column. Click a row to load that subnet across the terminal.';
+      renderRiskTable();
     }
-    metaEl.textContent = `generated ${new Date(analytics.generated_at).toISOString().slice(0,10)} · ${analytics.subnets.length} subnets · ${Object.keys(analytics.cluster_labels).length} clusters`;
+    metaEl.textContent = `generated ${new Date(analytics.generated_at).toISOString().slice(0,10)} · ${analytics.subnets.length} subnets · ${Object.keys(analytics.cluster_labels).length} clusters · risk metrics on 90d daily returns`;
   };
 
   // Tab swap

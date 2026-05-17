@@ -143,6 +143,135 @@ def correlation_matrix(subnets, prices):
     return corr.tolist()
 
 
+# ---------- per-subnet risk metrics (BlackRock-grade) ---------------
+# Numbers a portfolio manager actually uses: vol, Sharpe, max DD, beta.
+# All annualized. Sharpe assumes 0% risk-free for simplicity (the
+# magazine reader compares INSIDE the network; absolute Sharpe to USD
+# treasuries is a separate frame).
+def risk_metrics(subnets, prices):
+    df = pd.DataFrame({s['netuid']: prices[s['netuid']] for s in subnets})
+    rets = df.pct_change().dropna()
+
+    # Network equal-weighted index (the "market" for beta)
+    market_rets = rets.mean(axis=1)
+    market_var = market_rets.var()
+    if market_var == 0:
+        market_var = 1e-12
+
+    # Annualization factor for daily data ~365 trading days for crypto
+    ANN = np.sqrt(365)
+
+    out = {}
+    for s in subnets:
+        nid = s['netuid']
+        r = rets[nid].values
+        if len(r) < 2:
+            out[str(nid)] = None
+            continue
+        mu_d  = float(np.mean(r))
+        sig_d = float(np.std(r, ddof=1))
+        ann_ret = mu_d * 365 * 100                      # %, annualized
+        ann_vol = sig_d * ANN * 100                     # %, annualized
+        sharpe  = (mu_d * 365) / (sig_d * ANN) if sig_d > 0 else 0.0
+
+        # Max drawdown over the 90-day price path
+        path = np.array(prices[nid])
+        peaks = np.maximum.accumulate(path)
+        dd = (path - peaks) / peaks
+        max_dd = float(np.min(dd) * 100)                # negative %, worst
+
+        # Beta to the equal-weighted network index
+        cov = float(np.cov(r, market_rets, ddof=1)[0, 1])
+        beta = cov / float(market_var)
+
+        out[str(nid)] = {
+            'ann_ret': round(ann_ret, 2),
+            'ann_vol': round(ann_vol, 2),
+            'sharpe':  round(sharpe, 2),
+            'max_dd':  round(max_dd, 2),
+            'beta':    round(beta, 2),
+        }
+    return out
+
+
+# ---------- network-wide insights (the "so what") -------------------
+# Translates the matrix + risk metrics into the 3-5 things a portfolio
+# manager would actually want to know on first glance. Not just data —
+# DECISIONS the data implies.
+def derive_insights(subnets, corr, risk, prices):
+    N = len(subnets)
+    ids = [s['netuid'] for s in subnets]
+    name_of = {s['netuid']: s['name'] for s in subnets}
+
+    # All pairs (i < j) with their r, sorted by abs(r) desc
+    pairs = []
+    for i in range(N):
+        for j in range(i+1, N):
+            r = corr[i][j]
+            if r is None or np.isnan(r): continue
+            pairs.append({
+                'a':  ids[i], 'aName': name_of[ids[i]],
+                'b':  ids[j], 'bName': name_of[ids[j]],
+                'r':  round(float(r), 3),
+            })
+
+    # CONCENTRATION RISK — pairs with r > 0.6, ranked desc
+    concentration = sorted(
+        [p for p in pairs if p['r'] > 0.6],
+        key=lambda p: p['r'], reverse=True
+    )[:8]
+
+    # DIVERSIFIERS — pairs with r < -0.1 (rare; even r<0 is good in crypto)
+    diversifiers = sorted(
+        [p for p in pairs if p['r'] < -0.1],
+        key=lambda p: p['r']
+    )[:8]
+    # If no negative correlations, fall back to lowest positive r
+    if not diversifiers:
+        diversifiers = sorted(pairs, key=lambda p: p['r'])[:8]
+
+    # RANKINGS — top/bottom by Sharpe, vol, beta, drawdown
+    valid = [{'netuid': int(nid), 'name': name_of[int(nid)], **m}
+             for nid, m in risk.items() if m is not None]
+    by_sharpe   = sorted(valid, key=lambda x: x['sharpe'],  reverse=True)
+    by_vol_hi   = sorted(valid, key=lambda x: x['ann_vol'], reverse=True)
+    by_vol_lo   = sorted(valid, key=lambda x: x['ann_vol'])
+    by_dd       = sorted(valid, key=lambda x: x['max_dd'])  # most negative first
+    by_beta_hi  = sorted(valid, key=lambda x: x['beta'],    reverse=True)
+    by_beta_lo  = sorted(valid, key=lambda x: x['beta'])
+
+    # Herfindahl-Hirschman concentration on emission share (network-wide)
+    em = np.array([max(0, s['emission']) for s in subnets], dtype=float)
+    em_share = em / em.sum() if em.sum() > 0 else em
+    hhi = float(np.sum(em_share ** 2))         # 1/N (perfect) -> 1 (monopoly)
+    effective_n = 1 / hhi if hhi > 0 else N    # "effective number" of subnets
+
+    # Top-5 emission share (which subnets dominate the incentive flow)
+    em_order = np.argsort(-em)
+    top_emit = []
+    for k in em_order[:8]:
+        top_emit.append({
+            'netuid': int(ids[k]),
+            'name':   name_of[ids[k]],
+            'share':  round(float(em_share[k]) * 100, 2),
+            'emission': int(em[k]),
+        })
+
+    return {
+        'concentration': concentration,
+        'diversifiers':  diversifiers,
+        'by_sharpe':     by_sharpe[:8],
+        'by_vol_hi':     by_vol_hi[:8],
+        'by_vol_lo':     by_vol_lo[:8],
+        'by_dd':         by_dd[:8],
+        'by_beta_hi':    by_beta_hi[:8],
+        'by_beta_lo':    by_beta_lo[:8],
+        'emission_hhi':  round(hhi, 4),
+        'effective_n':   round(effective_n, 1),
+        'top_emitters':  top_emit,
+    }
+
+
 # ---------- t-SNE 2D embedding + k-means clustering -----------------
 def tsne_and_clusters(subnets, k=6):
     feats = []
@@ -209,6 +338,15 @@ def main():
     tsne, clusters, labels = tsne_and_clusters(subnets, k=6)
     print(f't-SNE + k-means clusters computed (k={len(labels)})')
 
+    risk = risk_metrics(subnets, prices)
+    valid_risk = sum(1 for v in risk.values() if v is not None)
+    print(f'Risk metrics computed: {valid_risk} subnets (vol, Sharpe, max-DD, beta)')
+
+    insights = derive_insights(subnets, corr, risk, prices)
+    print(f'Insights derived: {len(insights["concentration"])} concentration pairs, '
+          f'{len(insights["diversifiers"])} diversifiers, HHI={insights["emission_hhi"]:.4f} '
+          f'(effective N={insights["effective_n"]:.1f})')
+
     out = {
         'generated_at': dt.datetime.utcnow().isoformat() + 'Z',
         'subnets':      [s['netuid'] for s in subnets],
@@ -218,6 +356,8 @@ def main():
         'tsne':         tsne,
         'cluster':      clusters,
         'cluster_labels': labels,
+        'risk':         risk,
+        'insights':     insights,
     }
     OUT_JSON.write_text(json.dumps(out, indent=2))
     print(f'Wrote {OUT_JSON.relative_to(ROOT)}  ({OUT_JSON.stat().st_size/1024:.1f}KB)')
