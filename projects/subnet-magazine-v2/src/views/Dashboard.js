@@ -196,6 +196,55 @@ function synthesizeGh(s){
    wherever they are on the dashboard. */
 const DISCORD_HUB = 'https://discord.gg/bittensor';
 
+/* ---------- terminal-grade infrastructure ---------------------- */
+
+/* Watchlist persistence. Survives reloads + cross-tab via the
+   storage event. Simple Set of netuids serialized to JSON. */
+const WATCHLIST_KEY = 'sbn:dashboard:watchlist:v1';
+function loadWatchlist(){
+  try { return new Set(JSON.parse(localStorage.getItem(WATCHLIST_KEY) || '[]')); }
+  catch (_) { return new Set(); }
+}
+function saveWatchlist(set){
+  try { localStorage.setItem(WATCHLIST_KEY, JSON.stringify([...set])); } catch (_) {}
+}
+
+/* 60fps tween, smoothstep easing. Used by the status-bar counters
+   so initial values count up on first paint and updates animate
+   between old and new values instead of snapping. */
+function tween(from, to, ms, onTick){
+  const t0 = performance.now();
+  const easeSmooth = t => t * t * (3 - 2 * t);
+  const step = (now) => {
+    const u = Math.min(1, (now - t0) / ms);
+    const v = from + (to - from) * easeSmooth(u);
+    onTick(v, u >= 1);
+    if (u < 1) requestAnimationFrame(step);
+  };
+  requestAnimationFrame(step);
+}
+
+/* Smart number formatter with thresholds and tabular nums.
+   $358.00 / $3.42B / 184M / 8,032 / +12.3% */
+function smartNumber(n, kind){
+  if (n == null || !Number.isFinite(n)) return '·';
+  if (kind === 'usd'){
+    if (n >= 1e12) return '$' + (n/1e12).toFixed(2) + 'T';
+    if (n >= 1e9)  return '$' + (n/1e9).toFixed(2) + 'B';
+    if (n >= 1e6)  return '$' + (n/1e6).toFixed(2) + 'M';
+    if (n >= 1e3)  return '$' + (n/1e3).toFixed(2) + 'K';
+    return '$' + n.toFixed(2);
+  }
+  if (kind === 'tao'){
+    if (n >= 1e6)  return (n/1e6).toFixed(2) + 'M τ';
+    if (n >= 1e3)  return (n/1e3).toFixed(1) + 'K τ';
+    return Math.round(n).toLocaleString('en-US') + ' τ';
+  }
+  if (kind === 'int') return Math.round(n).toLocaleString('en-US');
+  if (kind === 'pct') return (n >= 0 ? '+' : '') + n.toFixed(2) + '%';
+  return String(n);
+}
+
 /* ---------- format helpers ------------------------------------- */
 const fmtPrice = p => p == null ? '·' : (p < 1 ? '$' + p.toFixed(4) : '$' + p.toFixed(2));
 const fmtMcap  = m => m == null ? '·' : '$' + (m >= 1000 ? (m/1000).toFixed(2) + 'B' : m.toFixed(1) + 'M');
@@ -241,10 +290,22 @@ function rollupCategories(subnets){
  * @param {{subscribe:Function, get:Function}|null} [dataLayer]
  */
 export function mountDashboard(root, dataLayer = null){
-  /* Selection state. Default to SN4 (Targon) because the Oracle
-     has spotlighted it most recently and it has GitHub seed data. */
-  let selectedId = 4;
-  let activeFilter = 'all';
+  /* Selection + UI state. Each lives in a single place so the
+     re-render is deterministic; mutate via the small setters
+     below and let repaintCommand() / repaintDetail() update the
+     DOM. Keyboard shortcuts + URL hash sync are layered on top. */
+  let selectedId = 4;                  // SN4 Targon, Oracle's recent spotlight
+  let activeFilter = 'all';            // category chip
+  let sortMode = 'mcap';               // mcap | chg24 | em | name
+  let searchQuery = '';                // command-rail inline search
+  let watchlist = loadWatchlist();     // persists to localStorage
+  let onlyWatched = false;             // command-rail filter pill
+  const SORT_OPTIONS = [
+    { id: 'mcap',  label: 'MCAP',     cmp: (a,b) => (b.mcap||0)-(a.mcap||0) },
+    { id: 'chg24', label: '24H %',    cmp: (a,b) => (b.chg24||0)-(a.chg24||0) },
+    { id: 'em',    label: 'EMISSION', cmp: (a,b) => (b.emission||0)-(a.emission||0) },
+    { id: 'name',  label: 'A-Z',      cmp: (a,b) => (a.name||'').localeCompare(b.name||'') },
+  ];
 
   /* Live network rollups + reactive UI state ------------------- */
   const subnetState = { rows: SUBNETS.map(s => ({ ...s })), live: false };
@@ -332,24 +393,154 @@ export function mountDashboard(root, dataLayer = null){
     </section>
   `);
 
-  /* Selection wiring ---------------------------------------- */
+  /* Repaint primitives. Selection / filter / sort changes only
+     re-render the affected zones, never the whole shell, so
+     status bar counters keep tweening and sparklines don't get
+     destroyed + recreated on every keystroke. */
   function repaintDetail(){
     const z = qs('[data-zone="detail"]', root);
     if (!z) return;
     z.innerHTML = renderDetail(selectedId);
     wireDetailSparklines(z);
   }
+  function repaintList(){
+    /* Re-render only the rail's <ul>. Preserves the search input
+       focus + caret position because we don't touch the input. */
+    const list = qs('[data-list]', root);
+    if (!list) return;
+    const rowsHtml = filteredSortedRows().map(s => {
+      const cls = chgClass(s.chg24);
+      const isStarred = watchlist.has(s.netuid);
+      return `
+        <li class="dash-command__row ${s.netuid === selectedId ? 'is-selected' : ''}"
+            data-row="${s.netuid}" data-cat="${s.cat || ''}">
+          <button type="button" class="dash-command__star ${isStarred ? 'is-on' : ''}"
+                  data-star="${s.netuid}" aria-label="${isStarred ? 'Unwatch' : 'Watch'} SN${s.netuid}">★</button>
+          <span class="dash-command__sn">SN${s.netuid}</span>
+          <span class="dash-command__name">${s.name}</span>
+          <span class="dash-command__price">${fmtPrice(s.price)}</span>
+          <span class="dash-command__chg ${cls}">${fmtPct(s.chg24)}</span>
+        </li>`;
+    }).join('');
+    list.innerHTML = rowsHtml;
+    wireRailRows();
+  }
+  function repaintToolbar(){
+    const tb = qs('.dash-command__toolbar', root);
+    if (!tb) return;
+    const sortBtns = SORT_OPTIONS.map(o =>
+      `<button type="button" class="dash-command__sort-btn ${o.id === sortMode ? 'is-on' : ''}" data-sort="${o.id}">${o.label}</button>`
+    ).join('');
+    tb.innerHTML = `
+      <button type="button" class="dash-command__pill ${onlyWatched ? 'is-on' : ''}" data-watched-toggle aria-pressed="${onlyWatched}">
+        ★ WATCHED ${watchlist.size ? '<span class="dash-command__pill-count">' + watchlist.size + '</span>' : ''}
+      </button>
+      <div class="dash-command__sort">${sortBtns}</div>
+    `;
+    wireToolbar();
+  }
 
-  qsa('[data-row]', root).forEach(rowEl => {
-    rowEl.addEventListener('click', () => {
-      const id = parseInt(rowEl.dataset.row, 10);
-      if (Number.isNaN(id)) return;
-      selectedId = id;
-      qsa('.dash-command__row', root).forEach(r => r.classList.remove('is-selected'));
-      rowEl.classList.add('is-selected');
-      repaintDetail();
+  /* Row click + star toggle, re-bound whenever the list re-renders */
+  function wireRailRows(){
+    qsa('[data-row]', root).forEach(rowEl => {
+      rowEl.addEventListener('click', (e) => {
+        if (e.target.closest('[data-star]')) return;
+        const id = parseInt(rowEl.dataset.row, 10);
+        if (Number.isNaN(id) || id === selectedId) return;
+        selectedId = id;
+        qsa('.dash-command__row', root).forEach(r => r.classList.remove('is-selected'));
+        rowEl.classList.add('is-selected');
+        repaintDetail();
+      });
     });
+    qsa('[data-star]', root).forEach(btn => {
+      btn.addEventListener('click', (e) => {
+        e.stopPropagation();
+        const id = parseInt(btn.dataset.star, 10);
+        if (watchlist.has(id)) watchlist.delete(id); else watchlist.add(id);
+        saveWatchlist(watchlist);
+        btn.classList.toggle('is-on');
+        repaintToolbar();
+        if (onlyWatched) repaintList();
+      });
+    });
+  }
+
+  function wireToolbar(){
+    qsa('[data-sort]', root).forEach(btn => {
+      btn.addEventListener('click', () => {
+        sortMode = btn.dataset.sort;
+        qsa('[data-sort]', root).forEach(b => b.classList.toggle('is-on', b === btn));
+        repaintList();
+      });
+    });
+    const wtog = qs('[data-watched-toggle]', root);
+    if (wtog){
+      wtog.addEventListener('click', () => {
+        onlyWatched = !onlyWatched;
+        wtog.classList.toggle('is-on', onlyWatched);
+        wtog.setAttribute('aria-pressed', onlyWatched);
+        repaintList();
+      });
+    }
+  }
+
+  let searchTimer = 0;
+  function wireSearch(){
+    const inp = qs('[data-search]', root);
+    if (!inp) return;
+    inp.addEventListener('input', (e) => {
+      searchQuery = e.target.value || '';
+      clearTimeout(searchTimer);
+      searchTimer = setTimeout(repaintList, 80);
+    });
+  }
+
+  wireRailRows();
+  wireToolbar();
+  wireSearch();
+
+  /* Bloomberg-style power-user shortcuts:
+       /         focus the rail search
+       j/k/↑/↓   move selection through visible rows
+       n/p       vim-style aliases
+       1-9       jump to top-N visible
+       Esc       clear search + blur
+   */
+  document.addEventListener('keydown', (e) => {
+    const inSearch = e.target?.dataset?.search != null;
+    if (e.key === '/' && !inSearch){
+      e.preventDefault();
+      const inp = qs('[data-search]', root);
+      if (inp){ inp.focus(); inp.select(); }
+      return;
+    }
+    if (e.key === 'Escape' && inSearch){
+      searchQuery = '';
+      e.target.value = '';
+      e.target.blur();
+      repaintList();
+      return;
+    }
+    if (inSearch) return;
+    if (['INPUT','TEXTAREA','SELECT'].includes((e.target.tagName || ''))) return;
+
+    if (e.key === 'j' || e.key === 'n' || e.key === 'ArrowDown'){
+      moveSelection(+1); e.preventDefault();
+    } else if (e.key === 'k' || e.key === 'p' || e.key === 'ArrowUp'){
+      moveSelection(-1); e.preventDefault();
+    } else if (/^[1-9]$/.test(e.key)){
+      const visible = qsa('.dash-command__row', root).filter(r => r.offsetParent !== null);
+      const idx = parseInt(e.key, 10) - 1;
+      if (visible[idx]){ visible[idx].click(); visible[idx].scrollIntoView({ block: 'nearest' }); }
+    }
   });
+  function moveSelection(dir){
+    const visible = qsa('.dash-command__row', root).filter(r => r.offsetParent !== null);
+    const idx = visible.findIndex(r => parseInt(r.dataset.row, 10) === selectedId);
+    const next = visible[Math.max(0, Math.min(visible.length - 1, (idx < 0 ? 0 : idx + dir)))];
+    if (next){ next.click(); next.scrollIntoView({ block: 'nearest' }); }
+  }
 
   /* Archive filter wiring: chip clicks hide / show rows according
      to the filter mode. "selected" matches the currently selected
@@ -375,20 +566,55 @@ export function mountDashboard(root, dataLayer = null){
     });
   });
 
+  /* Category chip click, drives the activeFilter state and
+     re-renders the list through filteredSortedRows() so we get
+     consistent filtering instead of the old hide-by-style hack. */
   qsa('[data-filter]', root).forEach(chipEl => {
     chipEl.addEventListener('click', () => {
       activeFilter = chipEl.dataset.filter;
       qsa('[data-filter]', root).forEach(c => c.classList.toggle('is-active', c === chipEl));
-      qsa('.dash-command__row', root).forEach(rowEl => {
-        const cat = rowEl.dataset.cat || '';
-        const show = activeFilter === 'all' || cat === activeFilter;
-        rowEl.style.display = show ? '' : 'none';
-      });
+      repaintList();
     });
   });
 
   /* Sparkline wiring for first paint */
   wireDetailSparklines(root);
+
+  /* Animated counters in the status bar. Each numeric cell ticks
+     from 0 up to its target value over ~1.2s on first paint, giving
+     the page an "instruments coming online" feel and signaling the
+     live nature of the data. Falls back to a snap-set if
+     prefers-reduced-motion is on. */
+  const reducedMotion = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  function animateCounter(selector, target, fmt){
+    const el = qs(selector, root);
+    if (!el) return;
+    if (reducedMotion){ el.textContent = fmt(target); return; }
+    tween(0, target, 1200, (v, done) => {
+      el.textContent = fmt(done ? target : v);
+    });
+  }
+  animateCounter('[data-live="tao-price"]', tao.price,        v => '$' + v.toFixed(2));
+  animateCounter('[data-live="tao-mcap"]',  tao.mcap,         v => '$' + smartNumber(v, 'usd').replace('$',''));
+  animateCounter('[data-live="tao-vol"]',   tao.vol24,        v => '$' + smartNumber(v, 'usd').replace('$',''));
+  animateCounter('[data-live="tao-block"]', tao.blocks,       v => fmtInt(v));
+  animateCounter('[data-tween="subnet-mcap"]',  totalMcap,       v => '$' + v.toFixed(0) + 'M');
+  animateCounter('[data-tween="validators"]',   totalValidators, v => fmtInt(v));
+  animateCounter('[data-tween="miners"]',       totalMiners,     v => fmtInt(v));
+  animateCounter('[data-tween="emission"]',     totalEmission,   v => fmtInt(v));
+
+  /* Freshness ticker. Increments the "updated Ns ago" stamp in the
+     title strip every second so the page reads as actively live. */
+  const freshEl = qs('[data-fresh]', root);
+  if (freshEl){
+    const t0 = Date.now();
+    const update = () => {
+      const s = Math.floor((Date.now() - t0) / 1000);
+      freshEl.textContent = s < 60 ? `${s}s ago` : `${Math.floor(s/60)}m ${s%60}s ago`;
+    };
+    update();
+    setInterval(update, 1000);
+  }
 
   /* If the data layer can feed us live tao + subnet data,
      hot-swap the values without re-rendering the whole shell. */
@@ -421,40 +647,40 @@ export function mountDashboard(root, dataLayer = null){
         <div class="dash-status__title">
           <span><span class="dash-status__live"></span> DASHBOARD · BITTENSOR COMMAND DECK</span>
           <span class="dash-status__title__right">
-            LIVE · ${new Date().toISOString().slice(0,10)} · ${subnetState.rows.length} SUBNETS
+            LIVE · ${new Date().toISOString().slice(0,10)} · updated <span data-fresh>0s ago</span> · ${subnetState.rows.length} SUBNETS
             · <a href="${DISCORD_HUB}" target="_blank" rel="noopener" style="color:var(--c-red-1);text-decoration:none;letter-spacing:.14em">DISCORD HUB ↗</a>
-            · CONFIDENCE HIGH
+            · <span class="dash-status__kbd" title="Press / to search, j/k to navigate, 1-9 to jump">⌨ KEYBOARD</span>
           </span>
         </div>
         <div class="dash-status__rail">
           <div class="dash-status__cell">
             <span class="dash-status__cell__lbl">τ / USD</span>
-            <span class="dash-status__cell__val" data-live="tao-price">${'$' + tao.price.toFixed(2)}</span>
+            <span class="dash-status__cell__val" data-live="tao-price">$0.00</span>
             <span class="dash-status__cell__sub is-up">+2.4% · 24h</span>
           </div>
           <div class="dash-status__cell">
             <span class="dash-status__cell__lbl">NETWORK MCAP</span>
-            <span class="dash-status__cell__val" data-live="tao-mcap">${'$' + compact(tao.mcap)}</span>
+            <span class="dash-status__cell__val" data-live="tao-mcap">$0</span>
             <span class="dash-status__cell__sub">FDV across τ + α</span>
           </div>
           <div class="dash-status__cell">
             <span class="dash-status__cell__lbl">24H VOLUME</span>
-            <span class="dash-status__cell__val" data-live="tao-vol">${'$' + compact(tao.vol24)}</span>
+            <span class="dash-status__cell__val" data-live="tao-vol">$0</span>
             <span class="dash-status__cell__sub">across all venues</span>
           </div>
           <div class="dash-status__cell">
             <span class="dash-status__cell__lbl">SUBNET MCAP</span>
-            <span class="dash-status__cell__val">${'$' + totalMcap.toFixed(0)}M</span>
+            <span class="dash-status__cell__val" data-tween="subnet-mcap">$0M</span>
             <span class="dash-status__cell__sub">${subnetState.rows.length} active</span>
           </div>
           <div class="dash-status__cell">
             <span class="dash-status__cell__lbl">VALIDATORS / MINERS</span>
-            <span class="dash-status__cell__val">${fmtInt(totalValidators)} <span style="color:var(--c-ink-3);font-weight:400">/</span> ${fmtInt(totalMiners)}</span>
-            <span class="dash-status__cell__sub">${fmtInt(totalEmission)} τ/day emit</span>
+            <span class="dash-status__cell__val"><span data-tween="validators">0</span> <span style="color:var(--c-ink-3);font-weight:400">/</span> <span data-tween="miners">0</span></span>
+            <span class="dash-status__cell__sub"><span data-tween="emission">0</span> τ/day emit</span>
           </div>
           <div class="dash-status__cell">
             <span class="dash-status__cell__lbl">BLOCK HEIGHT</span>
-            <span class="dash-status__cell__val" data-live="tao-block">${fmtInt(tao.blocks)}</span>
+            <span class="dash-status__cell__val" data-live="tao-block">0</span>
             <span class="dash-status__cell__sub">~12 s/block</span>
           </div>
         </div>
@@ -462,33 +688,69 @@ export function mountDashboard(root, dataLayer = null){
     `;
   }
 
-  function renderCommand(){
-    const rows = subnetState.rows
+  /* Filter + sort the subnet rows according to the live UI state.
+     Pure function of (rows, state), used to drive both initial
+     render and live repaints. */
+  function filteredSortedRows(){
+    const q = searchQuery.trim().toLowerCase();
+    const sorter = (SORT_OPTIONS.find(s => s.id === sortMode) || SORT_OPTIONS[0]).cmp;
+    return subnetState.rows
+      .filter(s => activeFilter === 'all' || s.cat === activeFilter)
+      .filter(s => !onlyWatched || watchlist.has(s.netuid))
+      .filter(s => !q
+        || s.name.toLowerCase().includes(q)
+        || ('sn' + s.netuid).includes(q)
+        || (s.owner || '').toLowerCase().includes(q)
+        || (s.tags || []).some(t => t.toLowerCase().includes(q))
+      )
       .slice()
-      .sort((a, b) => (b.mcap || 0) - (a.mcap || 0))
-      .map(s => {
-        const cls = chgClass(s.chg24);
-        return `
-          <li class="dash-command__row ${s.netuid === selectedId ? 'is-selected' : ''}"
-              data-row="${s.netuid}" data-cat="${s.cat || ''}">
-            <span class="dash-command__sn">SN${s.netuid}</span>
-            <span class="dash-command__name">${s.name}</span>
-            <span class="dash-command__price">${fmtPrice(s.price)}</span>
-            <span class="dash-command__chg ${cls}">${fmtPct(s.chg24)}</span>
-          </li>`;
-      })
-      .join('');
+      .sort(sorter);
+  }
+
+  function renderCommand(){
+    const rows = filteredSortedRows().map(s => {
+      const cls = chgClass(s.chg24);
+      const isStarred = watchlist.has(s.netuid);
+      return `
+        <li class="dash-command__row ${s.netuid === selectedId ? 'is-selected' : ''}"
+            data-row="${s.netuid}" data-cat="${s.cat || ''}">
+          <button type="button" class="dash-command__star ${isStarred ? 'is-on' : ''}"
+                  data-star="${s.netuid}" aria-label="${isStarred ? 'Unwatch' : 'Watch'} SN${s.netuid}">★</button>
+          <span class="dash-command__sn">SN${s.netuid}</span>
+          <span class="dash-command__name">${s.name}</span>
+          <span class="dash-command__price">${fmtPrice(s.price)}</span>
+          <span class="dash-command__chg ${cls}">${fmtPct(s.chg24)}</span>
+        </li>`;
+    }).join('');
+
     const chips = ['all', ...presentCats]
       .map(c => `<button type="button" class="dash-command__chip ${c === activeFilter ? 'is-active' : ''}" data-filter="${c}">${c === 'all' ? 'ALL' : CAT_LABEL[c] || c.toUpperCase()}</button>`)
       .join('');
+
+    const sortBtns = SORT_OPTIONS.map(o =>
+      `<button type="button" class="dash-command__sort-btn ${o.id === sortMode ? 'is-on' : ''}" data-sort="${o.id}">${o.label}</button>`
+    ).join('');
+
+    const watchCount = watchlist.size;
     return `
       <aside class="dash-command">
         <div class="dash-command__head">
           <span>COMMAND RAIL · subnets</span>
           <span class="dash-command__count">${subnetState.rows.length}</span>
         </div>
+        <div class="dash-command__search">
+          <span class="dash-command__search-icon">⌕</span>
+          <input type="search" class="dash-command__search-input" placeholder="search name, SN, owner, tag…" value="${searchQuery}" data-search aria-label="Filter subnets" />
+          <span class="dash-command__search-kbd" aria-hidden="true">/</span>
+        </div>
+        <div class="dash-command__toolbar">
+          <button type="button" class="dash-command__pill ${onlyWatched ? 'is-on' : ''}" data-watched-toggle aria-pressed="${onlyWatched}">
+            ★ WATCHED ${watchCount ? '<span class="dash-command__pill-count">' + watchCount + '</span>' : ''}
+          </button>
+          <div class="dash-command__sort">${sortBtns}</div>
+        </div>
         <div class="dash-command__filter">${chips}</div>
-        <ul class="dash-command__list">${rows}</ul>
+        <ul class="dash-command__list" data-list>${rows}</ul>
       </aside>
     `;
   }
