@@ -1663,9 +1663,14 @@ export function mountDashboard(root, dataLayer = null){
           <div class="dash-detail__chg ${cls}">${fmtPct(s.chg24)} · 24h</div>
         </div>
       </div>
-      <div class="dash-kpi">${kpiCells}</div>
-
-      ${renderInfographicRow(s)}
+      <!-- Decluttered (mac-session): the KPI tile row and the 5-widget
+           infographic row used to live here. Removed because the same
+           data (price, mcap, emission, stake, validators, miners) is
+           already visible in the detail head + master grid + chart
+           below. The reader doesn't need it three times. Stake share
+           and 7-day emission flow are unique enough to surface; both
+           are now folded into the CHART panel below per the "data
+           within the chart" directive. -->
 
       <div class="dash-panels">
         <div class="dash-panel dash-panel--wide">
