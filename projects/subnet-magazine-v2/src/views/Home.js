@@ -238,6 +238,14 @@ export function mountHome(root, dataLayer = null){
          center where the sphere sits, plus an inset vignette that
          pulls the eye toward the focus. PS5-style depth. */
       .home-article--oracle .home-article__art{
+        /* Square the cover so the NodeSphere has room to read as a
+           sphere. The base .home-article__art is a short 128px band
+           which squashes the plexus into a horizontal stretched
+           shape, not what we want. aspect-ratio: 1/1 here gives the
+           sphere a 1:1 canvas so it renders proportionally as the
+           focal element of the card, matching the masthead. */
+        height: auto;
+        aspect-ratio: 1 / 1;
         background:
           radial-gradient(circle at 50% 50%,
             rgba(255,30,60,.10) 0%,
