@@ -1233,3 +1233,166 @@
   letter-spacing: .18em;
   font-weight: 800;
 }
+
+/* =================================================================
+   CHART MODE NEWS SIDEBAR (mac-session addition)
+   -----------------------------------------------------------------
+   2-column layout inside the existing .cm-mode: main chart column
+   + news sidebar on the right. Editorial dispatches for the
+   selected subnet on top, centralized backdrop below.
+
+   Density discipline: title-first, mono caps meta, no thumbnails.
+   The chart is the visual focus; the sidebar is supporting
+   research context. Hairline dividers, tight padding, scrollable
+   within its own bounded frame.
+   ================================================================= */
+
+.cm-grid{
+  display: grid;
+  grid-template-columns: 1fr 320px;
+  gap: 10px;
+  min-height: 0;
+}
+@media (max-width: 1080px){
+  .cm-grid{ grid-template-columns: 1fr; }
+}
+.cm-main{ min-width: 0; display: grid; gap: 8px; }
+
+.cm-side{
+  display: grid;
+  gap: 8px;
+  align-content: start;
+  border-left: 1px solid rgba(255, 30, 60, .14);
+  padding-left: 10px;
+  max-height: calc(100vh - 220px);
+  overflow-y: auto;
+  overscroll-behavior: contain;
+  scrollbar-width: thin;
+  scrollbar-color: rgba(255, 30, 60, .3) transparent;
+}
+@media (max-width: 1080px){
+  .cm-side{
+    border-left: 0;
+    padding-left: 0;
+    border-top: 1px solid rgba(255, 30, 60, .14);
+    padding-top: 10px;
+    max-height: none;
+    overflow-y: visible;
+  }
+}
+.cm-side::-webkit-scrollbar { width: 5px; }
+.cm-side::-webkit-scrollbar-thumb { background: rgba(255, 30, 60, .3); }
+.cm-side::-webkit-scrollbar-track { background: transparent; }
+
+.cm-side__sec{ display: grid; gap: 4px; }
+.cm-side__head{
+  display: flex; align-items: baseline; justify-content: space-between;
+  padding-bottom: 4px;
+  border-bottom: 1px solid rgba(255, 30, 60, .22);
+}
+.cm-side__h{
+  font-family: var(--f-mono);
+  font-size: 9px;
+  font-weight: 800;
+  letter-spacing: .22em;
+  text-transform: uppercase;
+  color: rgba(255, 30, 60, .85);
+}
+.cm-side__n{
+  font-family: var(--f-mono);
+  font-size: 9px;
+  font-weight: 800;
+  letter-spacing: .08em;
+  color: var(--c-red-1);
+  background: rgba(255, 30, 60, .14);
+  padding: 1px 5px;
+  font-variant-numeric: tabular-nums;
+}
+.cm-side__list{
+  list-style: none; margin: 0; padding: 0;
+  display: grid;
+  gap: 0;
+}
+.cm-side__item{
+  border-bottom: 1px dashed rgba(255, 30, 60, .10);
+}
+.cm-side__item:last-child{ border-bottom: 0; }
+.cm-side__link{
+  display: grid; gap: 3px;
+  padding: 6px 4px 7px;
+  text-decoration: none;
+  color: inherit;
+  transition: background .1s ease;
+}
+.cm-side__link:hover,
+.cm-side__link:focus-visible{
+  background: rgba(255, 30, 60, .06);
+  outline: none;
+}
+.cm-side__title{
+  font-family: var(--f-serif);
+  font-size: 12px;
+  line-height: 1.32;
+  color: #fff;
+  font-weight: 700;
+  letter-spacing: -.005em;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+.cm-side__link:hover .cm-side__title{ color: var(--c-red-1); }
+.cm-side__meta{
+  display: flex; flex-wrap: wrap; gap: 4px 6px;
+  align-items: baseline;
+  font-family: var(--f-mono);
+  font-size: 8.5px;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+  font-weight: 700;
+}
+.cm-side__date{
+  color: rgba(255, 30, 60, .75);
+  font-variant-numeric: tabular-nums;
+}
+.cm-side__kind{
+  padding: 1px 4px 0;
+  border: 1px solid currentColor;
+  line-height: 1.2;
+  font-size: 8px;
+}
+.cm-side__kind--mag,
+.cm-side__kind--magazine{ color: #FFB85C; }
+.cm-side__kind--orc,
+.cm-side__kind--oracle  { color: var(--c-red-1); }
+/* Centralized news category color coding (matches dash-cnews__cat) */
+.cm-side__kind--chip    { color: #FF8094; }
+.cm-side__kind--capex   { color: #FFB85C; }
+.cm-side__kind--lab     { color: #5BE599; }
+.cm-side__kind--capital { color: #C8A8AD; }
+.cm-side__kind--policy  { color: #FF4D60; }
+.cm-side__kind--infra   { color: #8B6B70; }
+.cm-side__kind--research{ color: #FF1E3C; }
+.cm-side__cat,
+.cm-side__source{
+  color: var(--c-ink-3);
+}
+.cm-side__take{
+  font-family: var(--f-sans);
+  font-size: 10.5px;
+  line-height: 1.45;
+  color: var(--c-ink-2);
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+.cm-side__empty{
+  padding: 8px 4px 10px;
+  font-family: var(--f-sans);
+  font-style: italic;
+  font-size: 11px;
+  color: var(--c-ink-3);
+  line-height: 1.4;
+  border-bottom: 0;
+}

@@ -28,6 +28,36 @@
 
 import { SUBNETS, subnetById } from '../../data/subnets.js';
 import { ghByNetuid } from '../../data/github-activity.js';
+import { ARTICLES } from '../../data/articles.js';
+import { recentOracleArticles } from '../../data/oracle-articles.js';
+import { newsForSubnet } from '../../data/centralized-news.js';
+
+/* Helpers for the per-subnet news sidebar (mac-session addition).
+   Built once at module load; queried per-subnet on mount. */
+const ARTICLES_BY_NETUID = (() => {
+  const m = new Map();
+  for (const a of ARTICLES){
+    const id = a.subnet ? parseInt(a.subnet, 10) : null;
+    if (!Number.isFinite(id)) continue;
+    if (!m.has(id)) m.set(id, []);
+    m.get(id).push(a);
+  }
+  return m;
+})();
+const ORACLE_BY_NETUID = (() => {
+  const m = new Map();
+  for (const a of recentOracleArticles(Infinity)){
+    if (a.subnetId == null) continue;
+    if (!m.has(a.subnetId)) m.set(a.subnetId, []);
+    m.get(a.subnetId).push(a);
+  }
+  return m;
+})();
+function escAttr(v){
+  return String(v == null ? '' : v)
+    .replace(/&/g, '&amp;').replace(/"/g, '&quot;').replace(/'/g, '&#39;')
+    .replace(/</g, '&lt;').replace(/>/g, '&gt;');
+}
 
 const RANGES = [
   { key: '1D',  days: 1,   label: '1D',  pro: true  },
@@ -407,18 +437,118 @@ function renderHTML(s, gh, state, series){
         </div>
       </header>
 
-      <div class="cm-canvas-wrap">
-        <canvas class="cm-canvas" data-chart-canvas></canvas>
-        <div class="cm-tooltip" data-chart-tooltip style="display:none"></div>
-      </div>
+      <!-- mac-session: 2-col layout — main chart column + news sidebar.
+           Sidebar collapses below the chart on viewports < 1080px. -->
+      <div class="cm-grid">
+        <div class="cm-main">
+          <div class="cm-canvas-wrap">
+            <canvas class="cm-canvas" data-chart-canvas></canvas>
+            <div class="cm-tooltip" data-chart-tooltip style="display:none"></div>
+          </div>
 
-      <div class="cm-range" role="tablist" aria-label="Time range">
-        ${rangeBtns}
-        <span class="cm-tier ${range.pro ? 'is-pro' : ''}" data-chart-tier>
-          ${range.pro ? 'PRO range' : 'FREE · 30D window'}
-        </span>
-      </div>
+          <div class="cm-range" role="tablist" aria-label="Time range">
+            ${rangeBtns}
+            <span class="cm-tier ${range.pro ? 'is-pro' : ''}" data-chart-tier>
+              ${range.pro ? 'PRO range' : 'FREE · 30D window'}
+            </span>
+          </div>
 
-      <div class="cm-kpis">${kpis}</div>
+          <div class="cm-kpis">${kpis}</div>
+        </div>
+
+        ${renderNewsSidebar(s)}
+      </div>
     </div>`;
+}
+
+/* ---------- news sidebar (mac-session) -------------------- */
+/* Right column on desktop, stacks below on mobile. Three sections:
+   1. EDITORIAL — in-house articles + oracle dispatches for this
+      subnet (PDFs open in the inline PDF viewer drawer)
+   2. CENTRALIZED BACKDROP — frontier-AI signals filtered to this
+      subnet's category
+   3. fallback if neither set has anything
+
+   Dense card stack — title-first, date + source + kind chip on
+   the meta line. No thumbnails (deliberately) so the sidebar
+   stays compact; the chart is the visual focus.
+*/
+function renderNewsSidebar(s){
+  const mag    = (ARTICLES_BY_NETUID.get(s.netuid) || []).map(a => ({
+    kind: 'mag',
+    title: a.title, date: a.date, href: a.pdf || a.externalUrl || '',
+    source: 'Subneτ Magazine', cat: a.category || '',
+  }));
+  const oracle = (ORACLE_BY_NETUID.get(s.netuid) || []).map(a => ({
+    kind: 'orc',
+    title: a.title, date: a.date, href: a.pdf || '',
+    source: 'Subnet Oracle', cat: a.kind || '',
+  }));
+  const editorial = [...mag, ...oracle]
+    .sort((a, b) => (b.date || '').localeCompare(a.date || ''));
+
+  /* Centralized backdrop — already category-aware via the helper.
+     We surface 6 items max for sidebar density. */
+  let backdrop = [];
+  try { backdrop = newsForSubnet(s, 6); } catch (_) {}
+
+  const editHtml = editorial.length
+    ? editorial.slice(0, 8).map(it => itemHtml(it)).join('')
+    : `<li class="cm-side__empty">No in-house coverage indexed for SN${s.netuid} yet. The Oracle desk rotates a deep profile when a subnet enters the top emission tier.</li>`;
+
+  const backHtml = backdrop.length
+    ? backdrop.map(n => `
+        <li class="cm-side__item">
+          <a class="cm-side__link" href="${escAttr(n.url || '#')}" target="_blank" rel="noopener">
+            <span class="cm-side__title">${escAttr(n.headline)}</span>
+            <span class="cm-side__meta">
+              <span class="cm-side__date">${escAttr(n.date || '·')}</span>
+              <span class="cm-side__kind cm-side__kind--${escAttr(n.cat)}">${escAttr((n.cat || '').toUpperCase())}</span>
+              <span class="cm-side__source">${escAttr(n.source || '·')}</span>
+            </span>
+            <span class="cm-side__take">${escAttr(n.takeaway || '')}</span>
+          </a>
+        </li>`).join('')
+    : `<li class="cm-side__empty">No centralized signals indexed for ${escAttr(catLabel(s.cat).toLowerCase())} yet.</li>`;
+
+  const editCount = editorial.length;
+  const backCount = backdrop.length;
+  return `
+    <aside class="cm-side" aria-label="News for ${escAttr(s.name)}">
+
+      <section class="cm-side__sec">
+        <header class="cm-side__head">
+          <span class="cm-side__h">EDITORIAL · SN${s.netuid}</span>
+          <span class="cm-side__n">${editCount}</span>
+        </header>
+        <ul class="cm-side__list">${editHtml}</ul>
+      </section>
+
+      <section class="cm-side__sec">
+        <header class="cm-side__head">
+          <span class="cm-side__h">CENTRALIZED · ${escAttr(catLabel(s.cat))}</span>
+          <span class="cm-side__n">${backCount}</span>
+        </header>
+        <ul class="cm-side__list cm-side__list--centralized">${backHtml}</ul>
+      </section>
+
+    </aside>`;
+}
+
+function itemHtml(it){
+  const isPdf = /\.pdf(\?|$|#)/i.test(it.href || '');
+  const pdfAttrs = isPdf
+    ? ` data-pdf-href="${escAttr(it.href)}" data-pdf-title="${escAttr(it.title)}" data-pdf-kind="${it.kind === 'mag' ? 'magazine' : 'oracle'}" data-pdf-date="${escAttr(it.date)}" data-pdf-kicker="${escAttr(it.source)}"`
+    : '';
+  return `
+    <li class="cm-side__item">
+      <a class="cm-side__link" href="${escAttr(it.href || '#')}" target="_blank" rel="noopener"${pdfAttrs}>
+        <span class="cm-side__title">${escAttr(it.title)}</span>
+        <span class="cm-side__meta">
+          <span class="cm-side__date">${escAttr(it.date || '·')}</span>
+          <span class="cm-side__kind cm-side__kind--${it.kind}">${it.kind === 'mag' ? 'MAGAZINE' : 'ORACLE'}</span>
+          ${it.cat ? `<span class="cm-side__cat">${escAttr(it.cat.toUpperCase().replace(/-/g, ' '))}</span>` : ''}
+        </span>
+      </a>
+    </li>`;
 }
