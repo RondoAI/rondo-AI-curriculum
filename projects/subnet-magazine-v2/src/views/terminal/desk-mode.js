@@ -1,31 +1,30 @@
 /* =================================================================
-   SUBNET MAGAZINE, TERMINAL · DESK MODE
+   SUBNET MAGAZINE, DESK MODE (terminal mode)
    -----------------------------------------------------------------
-   "Paper portfolio + Brinson-Fachler attribution running on your
-   actual positions" per the sibling-session REIMAGINE plan.
+   Composes two existing modules into ONE terminal mode per the
+   "Reimagined Architecture" plan:
 
-   Composes the two existing sibling-session modules:
-     src/views/dashboard/paper-portfolio.js  (positions + P&L)
-     src/views/dashboard/attribution.js      (Brinson-Fachler decomp)
+     - src/views/dashboard/paper-portfolio.js  (the positions book)
+     - src/views/dashboard/attribution.js      (Brinson-Fachler
+                                                analytics on portfolio)
 
-   Layout: paper portfolio on top (positions table + KPIs), then
-   the attribution panel below (decomposes the return into
-   allocation + selection effects). When the user changes positions
-   in the portfolio, the attribution recomputes — the two views
-   are bound by the global localStorage paper state, so a re-render
-   of attribution after any portfolio change picks up the new
-   weights automatically.
+   The two read as ONE workflow: hold (positions) → measure
+   (attribution). Same pattern shipped in the dashboard's MY DESK
+   zone, but here it lives inside the terminal's center pane —
+   no separate page navigation, no dashboard scrolling chrome.
 
-   Selection: DESK uses ctx.selectedId only as a "default for the
-   BUY input" inside paper portfolio (which the panel handles
-   internally). The attribution panel uses its own PORTFOLIO
-   preset chip set (PAPER / WATCHLIST / TOP10EM / TOP20MCAP / ALL).
+   Re-mounts when the global terminal selection changes (the shell
+   calls our mount fn each time the user picks a different subnet
+   on the LEFT rail). Both inner modules are subnet-agnostic at
+   their top level — they react to the watchlist + paper portfolio
+   global state — so we don't actually wire `ctx.subnet` into them
+   here. The global selection still drives the FEED pane on the
+   right, which is what the reader uses to navigate while studying
+   the desk.
 
-   PRO tier per Monetization plan: paper portfolio CLOUD-SYNCED +
-   attribution are PRO features. OBSERVER sees the empty-state
-   teaser (the modules handle that themselves today; future auth
-   wires the gate). Honest about the tier without blocking the
-   click.
+   Tier: paper portfolio is FREE for up to 5 positions; attribution
+   is PRO. Both modules render with soft paywall overlays on the
+   PRO surface when the future auth flag says tier=free.
    ================================================================= */
 
 import {
@@ -33,78 +32,59 @@ import {
   wirePaperPortfolio,
 } from '../dashboard/paper-portfolio.js';
 import {
-  defaultAttribState,
   renderAttribution,
   wireAttribution,
+  defaultAttribState,
 } from '../dashboard/attribution.js';
 
-/**
- * Mount the DESK mode into the terminal's center pane.
- *
- * @param {HTMLElement} root  the center-pane container
- * @param {{selectedId:number,dataLayer:any,select:Function}} _ctx
- * @returns {()=>void}        destroy callback
- */
-export function mountDeskMode(root, _ctx){
-  if (!root) return () => {};
+const attribState = defaultAttribState();
 
-  /* Attribution state lives in the closure so the two halves
-     share the same recompute trigger. */
-  let attribState = defaultAttribState();
-
-  function repaintAll(){
-    root.innerHTML = `
-      <section class="term-desk">
-        <header class="term-desk__head">
-          <span class="term-desk__kicker"><span class="term-desk__dot"></span>DESK · paper portfolio + brinson-fachler attribution</span>
-          <span class="term-desk__hint">
-            Buy any subnet α at the current mark · track P&amp;L vs cost basis · attribution decomposes the active return
-            into allocation (sector tilt) + selection (pick quality) effects. Both panels read/write the same
-            localStorage paper state, so any trade re-flows the attribution below.
-          </span>
-        </header>
-
-        <div class="term-desk__portfolio" data-desk-portfolio>
-          ${renderPaperPortfolio()}
+export function mountDeskMode(root, ctx){
+  root.innerHTML = `
+    <div class="desk-mode" data-desk-root>
+      <header class="desk-mode__head">
+        <div>
+          <div class="desk-mode__eyebrow">⊕ DESK · positions + analytics</div>
+          <h2 class="desk-mode__h">Your book. Measured.</h2>
+          <div class="desk-mode__sub">
+            Paper portfolio at the top — buy any subnet α at the live mark, P&amp;L vs cost basis.
+            Below: Brinson-Fachler attribution decomposes YOUR returns into sector tilt
+            (allocation effect) + within-sector picking skill (selection effect). One workflow:
+            hold &rarr; measure.
+          </div>
         </div>
+      </header>
 
-        <div class="term-desk__attribution" data-desk-attribution>
-          ${renderAttribution(attribState)}
-        </div>
+      <div class="desk-mode__paper" data-desk-paper>
+        ${renderPaperPortfolio()}
+      </div>
+      <div class="desk-mode__divider" aria-hidden="true">
+        <span class="desk-mode__divider-lbl">↓ ANALYTICS ON YOUR BOOK</span>
+      </div>
+      <div class="desk-mode__attrib" data-desk-attrib>
+        ${renderAttribution(attribState)}
+      </div>
+    </div>`;
 
-        <footer class="term-desk__foot">
-          <span>PRO · cloud-synced positions across devices + per-position attribution coming with auth</span>
-          <span class="term-desk__brand">⌘ DESK · YOUR POSITIONS</span>
-        </footer>
-      </section>
-    `;
-
-    /* Wire both panels. Paper portfolio re-renders the whole DESK
-       on any change so attribution picks up the new positions.
-       Attribution re-renders only its own panel on chip changes
-       (its own state). */
-    const portfolio = root.querySelector('[data-desk-portfolio]');
-    if (portfolio){
-      wirePaperPortfolio(portfolio, () => {
-        /* Position changed — full repaint so attribution recomputes
-           against the new weights. */
-        repaintAll();
-      });
-    }
-    const attribution = root.querySelector('[data-desk-attribution] [data-attrib-root]');
-    if (attribution){
-      wireAttribution(attribution, attribState, () => {
-        /* Attribution chip changed — re-render just that half so we
-           don't lose portfolio scroll state. */
-        const att = root.querySelector('[data-desk-attribution]');
-        if (att) att.innerHTML = renderAttribution(attribState);
-        const inner = root.querySelector('[data-desk-attribution] [data-attrib-root]');
-        if (inner) wireAttribution(inner, attribState, repaintAll);
-      });
-    }
+  /* When paper-portfolio mutates (buy/sell/reset), re-render BOTH:
+     - the paper panel itself, to reflect the new state
+     - the attribution panel, because its PAPER portfolio preset
+       depends on the user's actual positions */
+  function repaintBoth(){
+    const paperEl  = root.querySelector('[data-desk-paper]');
+    const attribEl = root.querySelector('[data-desk-attrib]');
+    if (paperEl)  paperEl.innerHTML  = renderPaperPortfolio();
+    if (attribEl) attribEl.innerHTML = renderAttribution(attribState);
+    wirePaperPortfolio(root, repaintBoth);
+    wireAttribPanel();
+  }
+  function wireAttribPanel(){
+    wireAttribution(root, attribState, wireAttribPanel);
   }
 
-  repaintAll();
+  wirePaperPortfolio(root, repaintBoth);
+  wireAttribPanel();
 
-  return () => {};
+  return () => { /* no global teardown — handlers live with the
+                    DOM and die when the shell re-mounts */ };
 }

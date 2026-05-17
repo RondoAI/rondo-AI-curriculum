@@ -30,6 +30,7 @@
 
 import { SUBNETS, subnetById } from '../../data/subnets.js';
 import { escapeHtml } from '../../lib/dom.js';
+import { paywallWrap, canAccess } from '../../lib/paywall.js';
 
 /* Cache-bust URL — query stays current as long as the analytics.json
    file is regenerated; the leading `?v=` is just a hint for browser
@@ -545,10 +546,21 @@ export function mountAnalyticsMode(root, ctx){
     insightsEl.style.display = 'none';
     body.classList.add('analytics__body--risk');
     /* Replace body content with the table; preserve canvas + insights
-       elements in DOM (just hidden) so swapping tabs is fast. */
-    let table = body.querySelector('.risk-screen');
-    if (table) table.remove();
-    body.insertAdjacentHTML('beforeend', renderRiskScreen(analytics, riskSort.key, riskSort.dir));
+       elements in DOM (just hidden) so swapping tabs is fast.
+       PRO-gated: OBSERVER readers see the table behind a soft paywall
+       so they know what they'd unlock; PRO sees it fully interactive. */
+    let oldTable = body.querySelector('.risk-screen');
+    if (oldTable) oldTable.remove();
+    let oldPaywall = body.querySelector('.paywall');
+    if (oldPaywall) oldPaywall.remove();
+    const tableHtml = renderRiskScreen(analytics, riskSort.key, riskSort.dir);
+    const wrapped = paywallWrap(tableHtml, {
+      requires: 'pro',
+      feature:  'RISK SCREEN · all 53 subnets',
+      pitch:    'Sortable annualized return, vol, Sharpe, max drawdown, and beta to network. The screen institutional desks run first.',
+    });
+    body.insertAdjacentHTML('beforeend', wrapped);
+    if (!canAccess('pro')) return; // paywall in place; skip wiring interactions
     /* Wire column-header sort */
     body.querySelectorAll('.risk-th[data-sort-key]').forEach(th => {
       th.addEventListener('click', () => {

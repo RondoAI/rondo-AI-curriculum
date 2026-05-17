@@ -32,8 +32,10 @@ import { ARTICLES } from '../../data/articles.js';
 import { recentOracleArticles } from '../../data/oracle-articles.js';
 import { newsForSubnet } from '../../data/centralized-news.js';
 
-/* Helpers for the per-subnet news sidebar (mac-session addition).
-   Built once at module load; queried per-subnet on mount. */
+/* Per-subnet article lookup, built once at module load — both my
+   composeArticles below AND any future renderers can use these
+   maps to fetch a subnet's editorial coverage without re-filtering
+   ARTICLES/oracle on every paint. */
 const ARTICLES_BY_NETUID = (() => {
   const m = new Map();
   for (const a of ARTICLES){
@@ -394,8 +396,90 @@ export function mountChartMode(root, ctx){
   };
 }
 
+/* ---------- article sidebar data ---------------------------- */
+/* Rondo, 2026-05-17: "All these articles should be within the
+   chart on a side bar." So EDITORIAL dispatches + centralized
+   news no longer live as a separate mode — they sit beside the
+   chart, scoped to the active subnet. Same data the right-pane
+   feed pulls; rendered compact inside CHART so mobile readers
+   (who don't see the shell's right pane) get the context. */
+function composeArticles(subnet){
+  const teamRaw = ARTICLES.filter(a =>
+    Number(a.subnet) === subnet.netuid ||
+    String(a.subnet) === String(subnet.name)
+  );
+  const team = teamRaw.map(a => ({
+    kind:    'magazine',
+    date:    a.date,
+    title:   a.title,
+    tagline: a.tagline || a.dek || '',
+    href:    a.pdf || a.externalUrl || '#',
+    author:  (a.authors || ['Subneτ Magazine'])[0],
+    category: a.category || '',
+  }));
+  const oracle = recentOracleArticles(Infinity)
+    .filter(a =>
+      (a.subnetId === subnet.netuid) ||
+      ((a.subnetName || '').toLowerCase() === subnet.name.toLowerCase()) ||
+      ((a.title || '').toLowerCase().includes(subnet.name.toLowerCase()))
+    )
+    .slice(0, 6)
+    .map(a => ({
+      kind:    'oracle',
+      date:    a.date,
+      title:   a.title,
+      tagline: a.dek || '',
+      href:    a.pdf || '#',
+      author:  'Subnet Oracle',
+      category: a.kind || 'research',
+    }));
+  const central = newsForSubnet(subnet, 5).map(n => ({
+    kind:    'central',
+    date:    n.date,
+    title:   n.headline,
+    tagline: n.takeaway || '',
+    href:    n.url || '#',
+    author:  n.source,
+    category: n.cat || '',
+  }));
+  return [...team, ...oracle, ...central].sort((a, b) =>
+    (b.date || '').localeCompare(a.date || '')
+  );
+}
+
+function fmtArticleDate(d){
+  if (!d) return '·';
+  const [y, m, dd] = String(d).split('-');
+  const MON = ['JAN','FEB','MAR','APR','MAY','JUN','JUL','AUG','SEP','OCT','NOV','DEC'];
+  return `${dd} ${MON[parseInt(m,10)-1]} ${y.slice(2)}`;
+}
+
+function renderArticleCard(a){
+  const kindLbl = a.kind === 'oracle'  ? 'ORC'
+                : a.kind === 'magazine' ? 'MAG'
+                : (a.category || a.kind || '·').toString().slice(0, 4).toUpperCase();
+  return `
+    <a class="cm-art" href="${a.href}" target="_blank" rel="noopener">
+      <div class="cm-art__head">
+        <span class="cm-art__kind cm-art__kind--${a.kind}">${kindLbl}</span>
+        <span class="cm-art__date">${fmtArticleDate(a.date)}</span>
+      </div>
+      <h4 class="cm-art__title">${a.title || '·'}</h4>
+      ${a.tagline ? `<p class="cm-art__dek">${a.tagline}</p>` : ''}
+      <div class="cm-art__foot">
+        <span class="cm-art__src">${a.author || '·'}</span>
+        <span class="cm-art__read">READ ↗</span>
+      </div>
+    </a>`;
+}
+
 function renderHTML(s, gh, state, series){
   const range = RANGES.find(r => r.key === state.range) || RANGES[2];
+
+  /* Articles render via renderNewsSidebar(s) called inside the
+     template — composeArticles + renderArticleCard helpers below
+     remain available for other call sites but the chart template
+     uses the mac-session-shipped renderNewsSidebar instead. */
 
   const kpis = [
     { lbl: 'α PRICE',      val: fmtPrice(s.price),         chg: s.chg24, note: '24h' },
@@ -437,23 +521,20 @@ function renderHTML(s, gh, state, series){
         </div>
       </header>
 
-      <!-- mac-session restructure: data + articles on the LEFT,
-           chart on the RIGHT. Reader's eye scans data → chart left
-           to right, chart and data work together (per Rondo). On
-           viewports <1080px the left column collapses ABOVE the
-           chart so density is preserved on mobile. -->
+      <!-- Layout: data + editorial sidebar on the LEFT, chart on
+           the RIGHT. Articles live WITHIN the chart frame (per
+           Rondo's directive). Mobile (<1080px) collapses to a
+           single column with chart on top, data + articles below. -->
       <div class="cm-grid">
         <aside class="cm-left" aria-label="Subnet data and editorial">
           <div class="cm-kpis cm-kpis--stack">${kpis}</div>
           ${renderNewsSidebar(s)}
         </aside>
-
         <div class="cm-main">
           <div class="cm-canvas-wrap">
             <canvas class="cm-canvas" data-chart-canvas></canvas>
             <div class="cm-tooltip" data-chart-tooltip style="display:none"></div>
           </div>
-
           <div class="cm-range" role="tablist" aria-label="Time range">
             ${rangeBtns}
             <span class="cm-tier ${range.pro ? 'is-pro' : ''}" data-chart-tier>

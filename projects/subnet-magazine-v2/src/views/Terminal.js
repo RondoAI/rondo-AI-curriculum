@@ -48,8 +48,8 @@ import { mountChartMode    } from './terminal/chart-mode.js';
 import { mountBriefingsMode } from './terminal/briefings-mode.js';
 import { mountEditorialMode } from './terminal/editorial-mode.js';
 import { mountMarketsMode  } from './terminal/markets-mode.js';
-import { mountAttrMode      } from './terminal/attr-mode.js';
-import { mountDeskMode      } from './terminal/desk-mode.js';
+import { mountDeskMode     } from './terminal/desk-mode.js';
+import { mountAttrMode     } from './terminal/attr-mode.js';
 import { mountAnalyticsMode } from './terminal/analytics-mode.js?v=20260520p';
 
 const TERMINAL_KEY  = 'sbn:terminal:v1';

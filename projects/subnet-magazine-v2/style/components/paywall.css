@@ -1,0 +1,112 @@
+/* =================================================================
+   SUBNET MAGAZINE, SOFT PAYWALL OVERLAY
+   -----------------------------------------------------------------
+   Wraps any PRO+ feature for OBSERVER-tier readers. The actual
+   feature renders behind a semi-transparent veil with the bottom
+   half feathered to mostly-opaque + a centered "UPGRADE TO PRO"
+   card. Top half stays semi-readable so the reader knows what
+   they're paying for.
+   ================================================================= */
+
+.paywall{
+  position: relative;
+}
+
+.paywall__content{
+  /* Underlying feature renders normally but its pointer-events are
+     disabled (clicking goes through to the veil's CTA). The veil's
+     CTA has pointer-events: auto specifically so it captures clicks. */
+  pointer-events: none;
+  user-select: none;
+  filter: saturate(0.7);
+}
+
+.paywall__veil{
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  pointer-events: none;
+  /* Gradient bottom-fade so the top half of the feature is visible
+     as a teaser, the bottom half is mostly opaque with the CTA. */
+  background:
+    linear-gradient(
+      180deg,
+      rgba(5,2,3,0)   0%,
+      rgba(5,2,3,0.55) 35%,
+      rgba(5,2,3,0.92) 65%,
+      rgba(5,2,3,0.99) 100%
+    );
+  padding: 20px;
+}
+
+.paywall__veil-inner{
+  pointer-events: auto;
+  max-width: 420px;
+  text-align: center;
+  padding: 20px 22px 24px;
+  background: var(--c-bg);
+  border: 1px solid var(--c-red);
+  /* Sharp corners, no shadow — matches the magazine register. */
+  box-shadow: 0 0 26px rgba(255,30,60,.35);
+  font-family: var(--f-mono);
+}
+
+.paywall__veil-eyebrow{
+  font-size: 9.5px;
+  letter-spacing: .26em;
+  font-weight: 800;
+  color: var(--c-red);
+  margin-bottom: 8px;
+}
+
+.paywall__veil-h{
+  font-family: var(--f-serif);
+  font-size: 22px;
+  line-height: 1.15;
+  font-weight: 800;
+  margin: 0 0 8px;
+  color: #fff;
+  letter-spacing: -.01em;
+}
+
+.paywall__veil-pitch{
+  margin: 0 0 16px;
+  font-family: var(--f-sans);
+  font-size: 13px;
+  line-height: 1.45;
+  color: var(--c-ink-2);
+  font-style: italic;
+}
+
+.paywall__veil-cta{
+  display: inline-block;
+  font-family: var(--f-mono);
+  font-size: 11.5px;
+  letter-spacing: .22em;
+  font-weight: 800;
+  padding: 11px 22px;
+  background: var(--c-red);
+  color: #fff;
+  border: 1px solid var(--c-red);
+  text-decoration: none;
+  transition: background 120ms;
+}
+.paywall__veil-cta:hover{
+  background: var(--c-red-deep);
+}
+
+.paywall__veil-note{
+  margin-top: 12px;
+  font-family: var(--f-sans);
+  font-size: 10.5px;
+  color: var(--c-ink-3);
+  font-style: italic;
+}
+
+@media (max-width: 720px){
+  .paywall__veil{ padding: 12px; }
+  .paywall__veil-inner{ padding: 16px 14px 18px; }
+  .paywall__veil-h{ font-size: 18px; }
+}
