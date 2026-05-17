@@ -937,3 +937,107 @@
   -webkit-line-clamp: 2;
   -webkit-box-orient: vertical;
 }
+
+/* =================================================================
+   CENTRALIZED INTEL · news + valuation in the right rail
+   -----------------------------------------------------------------
+   SemiAnalysis-style register: dated source, category chip, head-
+   line link, source / subjects line, takeaway sentence. Reader of
+   the broader AI domain (NVIDIA, OpenAI, hyperscalers, policy)
+   finds value here without needing to care about Bittensor.
+   ================================================================= */
+.dash-cnews__sectionhead{
+  padding: 12px 12px 6px;
+  font-size: 9px;
+  letter-spacing: .22em;
+  text-transform: uppercase;
+  color: rgba(255,30,60,.85);
+  font-weight: 800;
+  border-top: 1px solid rgba(255,30,60,.18);
+  background: rgba(20,5,9,.45);
+}
+.dash-cnews__list{
+  list-style: none; margin: 0; padding: 0;
+}
+.dash-cnews__row{
+  display: grid;
+  grid-template-columns: 60px 1fr;
+  grid-template-areas:
+    "date cat"
+    "date headline"
+    "date src"
+    "date take";
+  gap: 2px 8px;
+  padding: 8px 12px 10px;
+  border-bottom: 1px solid rgba(255,30,60,.08);
+  font-variant-numeric: tabular-nums;
+}
+.dash-cnews__date{
+  grid-area: date;
+  font-size: 9px;
+  letter-spacing: .14em;
+  color: rgba(255,30,60,.7);
+  font-weight: 800;
+  padding-top: 2px;
+}
+.dash-cnews__cat{
+  grid-area: cat;
+  display: inline-block;
+  width: fit-content;
+  font-size: 8.5px;
+  letter-spacing: .14em;
+  font-weight: 800;
+  padding: 1px 5px;
+  border: 1px solid currentColor;
+  margin-bottom: 2px;
+}
+.dash-cnews__cat--chip    { color: #FF8094; }
+.dash-cnews__cat--capex   { color: #FFB85C; }
+.dash-cnews__cat--lab     { color: #5BE599; }
+.dash-cnews__cat--capital { color: #C8A8AD; }
+.dash-cnews__cat--policy  { color: #FF4D60; }
+.dash-cnews__cat--infra   { color: #8B6B70; }
+.dash-cnews__cat--research{ color: #FF1E3C; }
+.dash-cnews__headline{
+  grid-area: headline;
+  font-size: 11px;
+  color: #fff;
+  font-weight: 600;
+  text-decoration: none;
+  line-height: 1.4;
+}
+.dash-cnews__headline:hover{
+  color: var(--c-red-1);
+  text-decoration: underline;
+}
+.dash-cnews__src{
+  grid-area: src;
+  font-size: 9px;
+  color: var(--c-ink-3);
+  letter-spacing: .08em;
+  font-weight: 700;
+  margin-top: 1px;
+}
+.dash-cnews__take{
+  grid-area: take;
+  font-size: 10px;
+  color: var(--c-ink-2);
+  font-family: var(--f-sans);
+  line-height: 1.45;
+  margin-top: 4px;
+}
+
+/* On smaller desktops (1080px) the right rail was hidden entirely
+   to make room for the command rail. With the centralized news now
+   here, the rail is worth keeping visible. Show it below 1080 but
+   render as a full-width section beneath the detail grid instead. */
+@media (max-width: 1080px){
+  .dash-grid{ grid-template-columns: 220px 1fr; }
+  .dash-comparator{ display: block; grid-column: 1 / -1; border-left: 0; border-top: 1px solid rgba(255,30,60,.18); position: static; max-height: none; }
+}
+@media (max-width: 720px){
+  .dash-cnews__row{
+    grid-template-columns: 50px 1fr;
+    padding: 8px 10px;
+  }
+}

@@ -30,13 +30,72 @@ import { SUBNETS, subnetById } from '../data/subnets.js';
 import { SUBNET_BIOS } from '../data/subnet-bios.js';
 import { ARTICLES } from '../data/articles.js';
 import { CENTRALIZED_PLAYERS } from '../data/centralized.js';
+import { CENTRALIZED_NEWS, recentCentralizedNews } from '../data/centralized-news.js';
 import { GH_ACTIVITY, ghByNetuid } from '../data/github-activity.js';
 import { recentOracleArticles } from '../data/oracle-articles.js';
 
-/* Bio lookup by netuid, indexed once at module load for O(1)
-   per-subnet pulls when the user picks a row. */
-const BIO_BY_NETUID = new Map(SUBNET_BIOS.map(b => [b.netuid, b]));
-const bioByNetuid = id => BIO_BY_NETUID.get(id) || null;
+/* Bio lookup by netuid. Three netuids are explicitly skipped here
+   because their SUBNET_BIOS entries describe entities that were
+   DEREGISTERED in Covenant AI's April 2026 exit, the slots have
+   since been re-occupied by different teams with different products:
+     SN3   Templar  (deregistered)  -> not in SUBNETS at all
+     SN39  Basilica (deregistered)  -> SUBNETS now lists EdgeMaxxing (WomboAI)
+     SN81  Grail    (deregistered)  -> SUBNETS now lists PatRouter
+   Surfacing the old bio against the new operator would be a factual
+   mismatch ("here is what Basilica does" rendered over EdgeMaxxing
+   chart), so we skip and let synthesizeBio() build a profile from
+   the current SUBNETS data for the live operator instead. */
+const DEREGISTERED_BIO_NETUIDS = new Set([3, 39, 81]);
+
+/* Surgical text sanitizer. Some bios for currently-operating
+   subnets reference deregistered entities as historical context
+   (Targon's bio mentions "Covenant turbulence", etc.). The
+   dashboard's job is to show the live network, not narrate its
+   history, so we rewrite those references at module load with
+   neutral phrasing that preserves the analytical meaning. The
+   underlying SUBNET_BIOS data is unchanged, the article pages
+   still get the full editorial text. */
+function sanitizeBioText(t){
+  if (!t) return t;
+  return t
+    .replace(/Covenant AI(?:'s)?/g, 'a since-removed operator')
+    .replace(/Covenant[- ]?72B/g, 'the 72B decentralized training run')
+    .replace(/Covenant turbulence/g, 'the April 2026 reshuffle')
+    .replace(/the Covenant narrative/g, 'the broader rally')
+    .replace(/post-Covenant/g, 'post-reshuffle')
+    .replace(/\bCovenant\b/g, 'the prior operator')
+    .replace(/\bTemplar(?:'s)?\b/g, 'the prior pretraining subnet')
+    .replace(/\bBasilica\b/g, 'the prior agent-compute subnet')
+    .replace(/\bGrail\b/g, 'the prior RL subnet')
+    .replace(/\bdeprecated\b/g, 'replaced')
+    .replace(/\bderegistered\b/g, 'replaced');
+}
+
+const BIO_BY_NETUID = new Map(SUBNET_BIOS.map(b => [b.netuid, {
+  ...b,
+  oneline: sanitizeBioText(b.oneline),
+  keyMetric: sanitizeBioText(b.keyMetric),
+  recentNews: sanitizeBioText(b.recentNews),
+  bio: sanitizeBioText(b.bio),
+}]));
+const bioByNetuid = id =>
+  DEREGISTERED_BIO_NETUIDS.has(id) ? null : (BIO_BY_NETUID.get(id) || null);
+
+/* Names that belong to entities deregistered in the Covenant AI
+   April 2026 exit. We strip ANY dashboard surface that mentions
+   them, the dashboard is a live picture of the network, not its
+   history. Editorial pieces that reference these names as
+   historical context still exist on the article pages, they just
+   don't surface in the dashboard's intelligence feeds. */
+const DEREGISTERED_NAMES = ['Templar', 'Basilica', 'Grail', 'Covenant'];
+const referencesDeregistered = (...texts) => {
+  for (const t of texts){
+    if (!t) continue;
+    const lower = String(t).toLowerCase();
+    if (DEREGISTERED_NAMES.some(n => lower.includes(n.toLowerCase()))) return true;
+  }
+  return false;
+};
 
 /* Team articles indexed by the netuid they cover. Each ARTICLES
    row carries a single `subnet` string field (the netuid as
@@ -71,12 +130,16 @@ function synthesizeBio(s){
   const recentNews = s.chg24 != null
     ? `α-price moved ${s.chg24 >= 0 ? '+' : ''}${s.chg24.toFixed(1)}% in the last 24h, ${ch30 || '·'} over the trailing 30 days. ${(s.miners || 0)} active miners across ${(s.validators || 0)} validators.`
     : `${(s.miners || 0)} active miners across ${(s.validators || 0)} validators.`;
+  /* Synthesized bio: deliberately describes ONLY the current
+     operator and the current state of the subnet. Never references
+     prior teams, deregistration, or deprecation history; the
+     dashboard is a live picture, not a historical record. */
   const bio =
     `${s.name} is a Bittensor ${cat ? cat.toLowerCase() + ' ' : ''}subnet (SN${s.netuid}) operated by ${s.owner || 'an anonymous team'}. ${s.desc || ''}` +
     (tags.length ? ` Tagged ${tags.join(', ')}.` : '') +
     ` It currently emits about ${Math.round(s.emission || 0)} τ a day and holds a ${(s.stake || 0).toLocaleString()} τ stake base across ${(s.validators || 0)} validators. ` +
     (s.gh ? `Open repo at github.com/${s.gh}. ` : '') +
-    `Editorial coverage is still pending, the Oracle desk rotates a deep profile into this slot when the subnet enters the top emission tier.`;
+    `Editorial coverage is still pending; the Oracle desk rotates a deep profile into this slot when the subnet enters the top emission tier.`;
   return { netuid: s.netuid, oneline, keyMetric, recentNews, bio, synthetic: true };
 }
 
@@ -243,8 +306,14 @@ export function mountDashboard(root, dataLayer = null){
       subnetId: a.subnetId || null,
       subnetName: a.subnetName || null,
     }));
-    return [...team, ...oracle].sort((x, y) =>
-      (y.date || '').localeCompare(x.date || ''));
+    /* Filter: any dispatch whose title, tagline, subnet tag, or
+       subnetId points at a deregistered entity is dropped from the
+       dashboard surface. The piece remains on the article / research
+       pages, the dashboard just doesn't list it. */
+    return [...team, ...oracle]
+      .filter(a => !DEREGISTERED_BIO_NETUIDS.has(a.subnetId))
+      .filter(a => !referencesDeregistered(a.title, a.tagline, a.subnetName))
+      .sort((x, y) => (y.date || '').localeCompare(x.date || ''));
   })();
 
   /* Render --------------------------------------------------- */
@@ -486,7 +555,12 @@ export function mountDashboard(root, dataLayer = null){
         author: 'Subnet Oracle',
         category: a.kind || '',
       }));
-    let feed = [...team, ...oracle].sort((x, y) => (y.date || '').localeCompare(x.date || ''));
+    /* Strip any dispatch whose title or tagline names a deregistered
+       entity, the per-subnet feed is dashboard intel, not editorial
+       history. */
+    let feed = [...team, ...oracle]
+      .filter(a => !referencesDeregistered(a.title))
+      .sort((x, y) => (y.date || '').localeCompare(x.date || ''));
     if (!feed.length){
       feed = recentOracle.slice(0, 4).map(a => ({
         kind: 'oracle',
@@ -662,10 +736,32 @@ export function mountDashboard(root, dataLayer = null){
         </div>
       </li>
     `).join('');
+
+    /* Centralized AI news feed: top-8 items from the SemiAnalysis-
+       style seed (chip economics, hyperscaler capex, frontier-lab
+       moves, policy). Each row dated, sourced, categorized, with a
+       one-line takeaway so a serious reader of the broader AI
+       domain finds value here even if they don't trade subnets. */
+    const news = recentCentralizedNews(8);
+    const newsRows = news.map(n => `
+      <li class="dash-cnews__row">
+        <span class="dash-cnews__date">${fmtDate(n.date)}</span>
+        <span class="dash-cnews__cat dash-cnews__cat--${n.cat}">${n.cat.toUpperCase()}</span>
+        <a class="dash-cnews__headline" href="${n.url}" target="_blank" rel="noopener">${n.headline}</a>
+        <span class="dash-cnews__src">${n.source} · ${n.subjects.join(' · ')}</span>
+        <span class="dash-cnews__take">${n.takeaway}</span>
+      </li>
+    `).join('');
+
     return `
       <aside class="dash-comparator">
-        <div class="dash-comparator__head">CENTRALIZED LANDSCAPE</div>
-        <div class="dash-comparator__sub">Top centralized AI by valuation. Compared head-to-head with the Bittensor subnet column at right scale so the reader sees where decentralized intelligence sits relative to the incumbents.</div>
+        <div class="dash-comparator__head">CENTRALIZED INTEL · landscape + news</div>
+        <div class="dash-comparator__sub">The AI domain a Bittensor reader still has to track, frontier labs, GPU economics, hyperscaler capex, policy. Curated in the SemiAnalysis register, source / scope / takeaway per signal.</div>
+
+        <div class="dash-cnews__sectionhead">FRONTIER NEWS</div>
+        <ul class="dash-cnews__list">${newsRows}</ul>
+
+        <div class="dash-cnews__sectionhead">VALUATION LADDER</div>
         <ul class="dash-comparator__list">${rows}</ul>
       </aside>
     `;
