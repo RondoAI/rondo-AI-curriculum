@@ -77,7 +77,7 @@ export function paywallWrap(innerHtml, opts){
           <div class="paywall__veil-eyebrow">⊕ ${tierLbl} · UPGRADE TO UNLOCK</div>
           <h3 class="paywall__veil-h">${opts.feature}</h3>
           <p class="paywall__veil-pitch">${opts.pitch || ''}</p>
-          <a class="paywall__veil-cta" href="pricing.html">${ctaLbl}</a>
+          <a class="paywall__veil-cta" href="signup.html?tier=${opts.requires}">${ctaLbl}</a>
           <div class="paywall__veil-note">Free preview · what you see above is the live PRO surface, with interactions disabled.</div>
         </div>
       </div>

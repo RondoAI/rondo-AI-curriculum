@@ -29,6 +29,7 @@ import { mountDashboard } from './views/Dashboard.js?v=20260520s';
 import { mountCockpit } from './views/Cockpit.js?v=20260520s';
 import { mountTerminal } from './views/Terminal.js?v=20260520s';
 import { mountPricing } from './views/Pricing.js?v=20260520s';
+import { mountSignup  } from './views/Signup.js?v=20260520s';
 import { mountEditor } from './views/Editor.js';
 import { mountVoices } from './views/Voices.js';
 import { mountCodex } from './views/Codex.js';
@@ -87,6 +88,7 @@ function boot(){
   mountIf('[data-mount="cockpit"]',    root => mountCockpit(root, DataLayer));
   mountIf('[data-mount="terminal"]',   root => mountTerminal(root, DataLayer));
   mountIf('[data-mount="pricing"]',    root => mountPricing(root));
+  mountIf('[data-mount="signup"]',     root => mountSignup(root));
   mountIf('[data-mount="voices"]',     root => mountVoices(root));
   mountIf('[data-mount="codex"]',      root => mountCodex(root, DataLayer));
   mountIf('[data-mount="editor"]',     root => mountEditor(root));
