@@ -37,6 +37,7 @@ import { GH_ACTIVITY, ghByNetuid } from '../data/github-activity.js';
 import { recentOracleArticles } from '../data/oracle-articles.js';
 import { TOP_HOLDERS_NETWORK, RECENT_TRANSFERS_NETWORK, topHoldersFor, recentTransfersFor } from '../data/wallet-activity.js';
 import { renderAttribution, wireAttribution, defaultAttribState } from './dashboard/attribution.js';
+import { wireFolds } from '../lib/fold.js';
 import { renderPaperPortfolio, wirePaperPortfolio } from './dashboard/paper-portfolio.js';
 
 /* Bio lookup by netuid. Three netuids are explicitly skipped here
@@ -630,16 +631,18 @@ export function mountDashboard(root, dataLayer = null){
     </section>
   `);
 
-  /* Section nav: tap any chip to smooth-scroll to that zone.
-     Critical fix: the status bar is sticky-top with z:50 and varies
-     in height between mobile (~240px, 2-row KPI grid) and desktop
-     (~80px, 1-row). We measure it on mount + on resize, then set
-     the JUMP nav's `top` to the status bar's bottom edge so it
-     stacks correctly. scroll-padding-top is set to (status + jump
-     + small buffer) so anchor jumps land at the top of each zone,
-     not under the sticky chrome.
-     IntersectionObserver flips the .is-on chip as the user scrolls
-     so the nav reads as "where am I". */
+  /* Section nav: tab shell. Only ONE zone is visible at a time;
+     tapping a chip hides every other zone via `is-hidden` class
+     and shows the selected one. Eliminates the 21,000px scroll
+     by making zones tabbed siblings instead of stacked. Active
+     zone fills the viewport; scrolling within it is bounded.
+
+     Sticky-positioning: status bar varies in height between mobile
+     (~240px, 2-row KPI grid) and desktop (~80px, 1-row). JS measures
+     it on mount + on resize so the JUMP nav stacks just below.
+
+     Persistence: active tab saved to sbn:dash-tab:v1 so the user
+     returns to their last-viewed zone on reload. */
   function wireJumpNav(){
     const nav  = qs('.dash-jump', root);
     const stat = qs('.dash-status', root);
@@ -649,10 +652,6 @@ export function mountDashboard(root, dataLayer = null){
       if (!stat) return;
       const sh = stat.getBoundingClientRect().height || 0;
       nav.style.top = sh + 'px';
-      const nh = nav.getBoundingClientRect().height || 0;
-      /* scroll-padding-top reserves space at the viewport top so
-         anchor #ids land below the sticky chrome, not under it. */
-      document.documentElement.style.scrollPaddingTop = (sh + nh + 8) + 'px';
     };
     restickChrome();
     window.addEventListener('resize', restickChrome);
@@ -660,49 +659,42 @@ export function mountDashboard(root, dataLayer = null){
       new ResizeObserver(restickChrome).observe(stat);
     }
 
+    const TAB_KEY = 'sbn:dash-tab:v1';
+    const initial = (() => {
+      try { return localStorage.getItem(TAB_KEY) || 'detail'; }
+      catch (_) { return 'detail'; }
+    })();
+
+    const setActiveTab = (id) => {
+      qsa('.dash-zone', root).forEach(z => {
+        z.classList.toggle('is-hidden', z.dataset.zoneId !== id);
+      });
+      nav.querySelectorAll('[data-jump]').forEach(b => {
+        b.classList.toggle('is-on', b.dataset.jump === id);
+      });
+      try { localStorage.setItem(TAB_KEY, id); } catch (_) {}
+      /* Scroll to top of the page (under sticky chrome) so the
+         user lands at the active zone's top edge, not wherever
+         they were when they tapped. */
+      window.scrollTo({ top: 0, behavior: 'instant' });
+    };
+
+    setActiveTab(initial);
+
     nav.querySelectorAll('[data-jump]').forEach(btn => {
       btn.addEventListener('click', (e) => {
         e.preventDefault();
-        const id = btn.dataset.jump;
-        const t  = document.getElementById(id);
-        if (t) t.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        setActiveTab(btn.dataset.jump);
       });
     });
-    /* Active-chip detection: which zone's TOP edge is closest to
-       the line just below the sticky chrome? On every scroll we
-       compute each zone's top relative to the viewport's effective
-       top (sticky chrome height + a 20px buffer) and pick the zone
-       whose top is the largest non-positive number — i.e. the most
-       recently-passed zone boundary above us. Scroll-throttled via
-       rAF so it costs nothing on mobile. */
-    const zones = qsa('.dash-zone', root);
-    let scrollTick = 0;
-    const updateActive = () => {
-      if (scrollTick) return;
-      scrollTick = requestAnimationFrame(() => {
-        scrollTick = 0;
-        const sh = stat ? stat.getBoundingClientRect().height : 0;
-        const nh = nav.getBoundingClientRect().height;
-        const cutoff = sh + nh + 20; // anchor line just below sticky chrome
-        let activeId = zones[0]?.dataset.zoneId;
-        let bestY = -Infinity;
-        for (const z of zones){
-          const y = z.getBoundingClientRect().top - cutoff;
-          if (y <= 0 && y > bestY){
-            bestY = y;
-            activeId = z.dataset.zoneId;
-          }
-        }
-        nav.querySelectorAll('[data-jump]').forEach(b => {
-          b.classList.toggle('is-on', b.dataset.jump === activeId);
-        });
-      });
-    };
-    updateActive();
-    window.addEventListener('scroll', updateActive, { passive: true });
-    window.addEventListener('resize', updateActive);
   }
   wireJumpNav();
+  /* Wire <details data-fold="..."> persistence across the whole
+     mounted shell. Each fold's open/closed state is stored in
+     localStorage (sbn:fold:v1) keyed by data-fold id, so a reader
+     who opens the WALLET TRACKER on SN4 sees it open next time
+     they pick SN4. */
+  wireFolds(root);
 
   /* Repaint primitives. Selection / filter / sort changes only
      re-render the affected zones, never the whole shell, so
@@ -713,6 +705,9 @@ export function mountDashboard(root, dataLayer = null){
     if (!z) return;
     z.innerHTML = renderDetail(selectedId);
     wireDetailSparklines(z);
+    /* Re-wire fold persistence on the freshly-rendered DOM —
+       new <details> nodes need their toggle listeners attached. */
+    wireFolds(z);
   }
   function repaintList(){
     /* Re-render only the rail's <ul>. Preserves the search input
@@ -1656,6 +1651,10 @@ export function mountDashboard(root, dataLayer = null){
           <div class="dash-detail__owner">team: ${s.owner || '·'}</div>
           ${editLine}
           <div class="dash-detail__desc">${s.desc || ''}</div>
+          <a class="dash-detail__cockpit-cta" href="cockpit.html"
+             title="Open this subnet in the research cockpit — chart + feed + data, no scrolling">
+            ⊕ OPEN IN COCKPIT ↗
+          </a>
         </div>
         <div></div>
         <div class="dash-detail__price-block">
@@ -1672,100 +1671,115 @@ export function mountDashboard(root, dataLayer = null){
            are now folded into the CHART panel below per the "data
            within the chart" directive. -->
 
-      <!-- Restructured (mac-session): the prior 8-panel detail view
-           (profile / price / emission / heat / wallet / github / intel
-           / links) is now 5 focused panels with combined surfaces:
-             1. PROFILE  (bio + key metric — unchanged)
-             2. CHART    (price + emission MERGED with internal tabs —
-                          "data within the chart" per Rondo)
-             3. NETWORK  (validator-miner heat + wallet tracker as
-                          a single side-by-side row, since both
-                          answer "who holds the network")
-             4. CODE+PRESS (github stats + press cards side-by-side,
-                          since both answer "what's the activity")
-             5. LINKS    (compact strip — external destinations)
-           Net: ~38% fewer panels on this view. -->
-      <div class="dash-panels dash-panels--lean">
+      <!-- Conflict resolved (mac-session): taking sibling's
+           <details>-based collapsible-fold pattern wholesale. They
+           shipped 29ec359 with the same intent (kill the long scroll,
+           things within things) using HTML5 native folds. My competing
+           5-cluster restructure is discarded in favor of theirs —
+           same problem, two solutions, sibling's is more conservative
+           (keeps all 8 surfaces accessible, just collapsed by default
+           except PROFILE) and ships earlier.
 
-        <!-- 1. PROFILE -->
-        <div class="dash-panel dash-panel--wide">
-          <div class="dash-panel__head">
-            <span class="dash-panel__lbl">PROFILE · ${escapeHtml(s.owner || 'editorial')}</span>
-            <span class="dash-panel__meta">${profilePanelMeta}</span>
+           Push A's deletion of the KPI tiles + infographic row
+           survives above this block. The follow-up multi-pane
+           workspace ("chart next to news next to emissions all at
+           once" per Rondo's latest) is the next session's work and
+           belongs at a different architectural layer (zone shell)
+           anyway. -->
+      <div class="dash-panels">
+        <details class="fold fold--primary" data-fold="dash-profile-${id}" open>
+          <summary class="fold__head">
+            <span class="fold__sigil">⊕</span>
+            <span class="fold__lbl">PROFILE · editorial</span>
+            <span class="fold__meta">${profilePanelMeta}</span>
+            <span class="fold__chev">▸</span>
+          </summary>
+          <div class="fold__body">${profilePanel}</div>
+        </details>
+
+        <details class="fold" data-fold="dash-price-chart">
+          <summary class="fold__head">
+            <span class="fold__sigil">⊕</span>
+            <span class="fold__lbl">α PRICE · 30D</span>
+            <span class="fold__meta">${fmtPct(s.chg30)} 30d · ${fmtPct(s.chg7)} 7d &nbsp; → study in cockpit</span>
+            <span class="fold__chev">▸</span>
+          </summary>
+          <div class="fold__body"><div class="dash-chart"><canvas data-spark="price"></canvas></div></div>
+        </details>
+
+        <details class="fold" data-fold="dash-emission-chart">
+          <summary class="fold__head">
+            <span class="fold__sigil">⊕</span>
+            <span class="fold__lbl">EMISSION · 30D τ</span>
+            <span class="fold__meta">${fmtInt(s.emission)} τ / 24h</span>
+            <span class="fold__chev">▸</span>
+          </summary>
+          <div class="fold__body"><div class="dash-chart"><canvas data-spark="emission"></canvas></div></div>
+        </details>
+
+        <details class="fold" data-fold="dash-heat">
+          <summary class="fold__head">
+            <span class="fold__sigil">⊕</span>
+            <span class="fold__lbl">VALIDATOR · MINER HEAT</span>
+            <span class="fold__meta">${fmtInt(s.validators)} validators · ${fmtInt(s.miners)} miners</span>
+            <span class="fold__chev">▸</span>
+          </summary>
+          <div class="fold__body">
+            <div class="dash-heat">${heatCells}</div>
+            <div style="margin-top:10px;font-size:9.5px;color:var(--c-ink-3);letter-spacing:.10em">Each cell = a validator-slot bucket (8x8 grid). Hotter = larger stake share.</div>
           </div>
-          ${profilePanel}
-        </div>
+        </details>
 
-        <!-- 2. CHART · "data within the chart": price + emission share
-             one panel, swap via internal tabs. Bottom metric strip
-             carries the 4-5 most relevant numbers so the reader has
-             context without leaving the chart. -->
-        <div class="dash-panel dash-panel--wide" data-focus-chart>
-          <div class="dash-panel__head">
-            <span class="dash-panel__lbl">CHART · ${escapeHtml(s.name)}</span>
-            <div class="dash-focus-tabs" role="tablist">
-              <button type="button" class="dash-focus-tab is-on" data-focus-tab="price"    role="tab" aria-selected="true">PRICE 30D</button>
-              <button type="button" class="dash-focus-tab"       data-focus-tab="emission" role="tab" aria-selected="false">EMISSION 30D</button>
+        <details class="fold" data-fold="dash-wallet-${id}">
+          <summary class="fold__head">
+            <span class="fold__sigil">⊕</span>
+            <span class="fold__lbl">WALLET TRACKER</span>
+            <span class="fold__meta">${(topHoldersFor(id) || []).length} top holders · recent large moves</span>
+            <span class="fold__chev">▸</span>
+          </summary>
+          <div class="fold__body">${renderWalletPanel(id)}</div>
+        </details>
+
+        <details class="fold" data-fold="dash-github-${id}">
+          <summary class="fold__head">
+            <span class="fold__sigil">⊕</span>
+            <span class="fold__lbl">GITHUB ACTIVITY · 30D</span>
+            <span class="fold__meta">${gh ? fmtInt(gh.commits30d) + ' commits · ' + gh.pulse : 'no telemetry'}</span>
+            <span class="fold__chev">▸</span>
+          </summary>
+          <div class="fold__body">${ghPanel}</div>
+        </details>
+
+        <details class="fold" data-fold="dash-news-${id}">
+          <summary class="fold__head">
+            <span class="fold__sigil">⊕</span>
+            <span class="fold__lbl">EDITORIAL INTEL</span>
+            <span class="fold__meta">${team.length + oracle.length} dispatches indexed</span>
+            <span class="fold__chev">▸</span>
+          </summary>
+          <div class="fold__body">
+            <div style="font-size:9.5px;color:var(--c-ink-3);letter-spacing:.10em;margin-bottom:8px;font-family:var(--f-sans);font-style:italic">Each dispatch is a research signal. Tap into one when you need the source behind the numbers above.</div>
+            <div class="news-cards">${newsCards}</div>
+          </div>
+        </details>
+
+        <details class="fold" data-fold="dash-links">
+          <summary class="fold__head">
+            <span class="fold__sigil">⊕</span>
+            <span class="fold__lbl">EXTERNAL LINKS</span>
+            <span class="fold__meta">team surfaces</span>
+            <span class="fold__chev">▸</span>
+          </summary>
+          <div class="fold__body">
+            <div class="dash-links">
+              ${s.gh ? `<a class="dash-links__a" href="https://github.com/${s.gh}" target="_blank" rel="noopener">GitHub ↗</a>` : ''}
+              ${s.url ? `<a class="dash-links__a" href="${s.url}" target="_blank" rel="noopener">Website ↗</a>` : ''}
+              <a class="dash-links__a" href="${DISCORD_HUB}" target="_blank" rel="noopener">Discord Hub ↗</a>
+              <a class="dash-links__a" href="https://taostats.io/subnets/${s.netuid}" target="_blank" rel="noopener">Taostats ↗</a>
+              <a class="dash-links__a" href="https://taomarketcap.com/subnets/${s.netuid}" target="_blank" rel="noopener">TaoMarketcap ↗</a>
             </div>
           </div>
-          <div class="dash-chart" data-focus-pane="price"><canvas data-spark="price"></canvas></div>
-          <div class="dash-chart" data-focus-pane="emission" style="display:none"><canvas data-spark="emission"></canvas></div>
-          <div class="dash-focus-meta">
-            <span>FDV   <strong>${fmtMcap(s.mcap)}</strong></span>
-            <span>EMIT  <strong>${fmtInt(s.emission)} τ/d</strong></span>
-            <span>STAKE <strong>${fmtInt(s.stake)} τ</strong></span>
-            <span>7D    <strong class="${chgClass(s.chg7)}">${fmtPct(s.chg7)}</strong></span>
-            <span>30D   <strong class="${chgClass(s.chg30)}">${fmtPct(s.chg30)}</strong></span>
-          </div>
-        </div>
-
-        <!-- 3. NETWORK · validator/miner heat + wallet tracker, one row -->
-        <div class="dash-panel dash-panel--wide">
-          <div class="dash-panel__head">
-            <span class="dash-panel__lbl">NETWORK · ${fmtInt(s.validators)} validators · ${fmtInt(s.miners)} miners</span>
-            <span class="dash-panel__meta">${(topHoldersFor(id) || []).length} holders indexed · live whale watch</span>
-          </div>
-          <div class="dash-network-row">
-            <div class="dash-network-row__heat">
-              <div class="dash-heat">${heatCells}</div>
-              <div class="dash-network-row__hint">8×8 validator-slot heat · larger stake = hotter</div>
-            </div>
-            <div class="dash-network-row__wallet">
-              ${renderWalletPanel(id)}
-            </div>
-          </div>
-        </div>
-
-        <!-- 4. CODE + PRESS · github + news cards side-by-side -->
-        <div class="dash-panel dash-panel--wide">
-          <div class="dash-codepress">
-            <div class="dash-codepress__col dash-codepress__col--code">
-              <div class="dash-panel__head dash-panel__head--inner">
-                <span class="dash-panel__lbl">CODE · 30D</span>
-                <span class="dash-gh-pulse ${pulseCls}"><span class="dash-gh-pulse__dot"></span>${pulseTxt}</span>
-              </div>
-              ${ghPanel}
-            </div>
-            <div class="dash-codepress__col dash-codepress__col--press">
-              <div class="dash-panel__head dash-panel__head--inner">
-                <span class="dash-panel__lbl">PRESS · ${team.length + oracle.length} dispatches</span>
-                <span class="dash-panel__meta">editorial signal · evidence</span>
-              </div>
-              <div class="news-cards news-cards--inline">${newsCards}</div>
-            </div>
-          </div>
-        </div>
-
-        <!-- 5. LINKS · compact footer strip -->
-        <div class="dash-panel dash-panel--wide dash-panel--linksfoot">
-          <div class="dash-links">
-            ${s.gh ? `<a class="dash-links__a" href="https://github.com/${s.gh}" target="_blank" rel="noopener">GitHub ↗</a>` : ''}
-            ${s.url ? `<a class="dash-links__a" href="${s.url}" target="_blank" rel="noopener">Website ↗</a>` : ''}
-            <a class="dash-links__a" href="${DISCORD_HUB}" target="_blank" rel="noopener">Discord ↗</a>
-            <a class="dash-links__a" href="https://taostats.io/subnets/${s.netuid}" target="_blank" rel="noopener">Taostats ↗</a>
-            <a class="dash-links__a" href="https://taomarketcap.com/subnets/${s.netuid}" target="_blank" rel="noopener">TaoMarketcap ↗</a>
-          </div>
-        </div>
+        </details>
       </div>
     `;
   }
