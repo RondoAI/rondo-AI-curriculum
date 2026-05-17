@@ -1015,14 +1015,17 @@ export function mountDashboard(root, dataLayer = null){
       el.textContent = fmt(done ? target : v);
     });
   }
-  animateCounter('[data-live="tao-price"]', tao.price,        v => '$' + v.toFixed(2));
-  animateCounter('[data-live="tao-mcap"]',  tao.mcap,         v => '$' + smartNumber(v, 'usd').replace('$',''));
-  animateCounter('[data-live="tao-vol"]',   tao.vol24,        v => '$' + smartNumber(v, 'usd').replace('$',''));
-  animateCounter('[data-live="tao-block"]', tao.blocks,       v => fmtInt(v));
+  /* tao-price / tao-mcap / tao-block counters were removed when the
+     dashboard's status bar de-duplicated against the global StatusStrip.
+     Only fields unique to the dashboard's rail get animated counters
+     here (subnet rollups, validator/miner counts, emission, AI dom). */
+  animateCounter('[data-live="tao-vol"]',       tao.vol24,        v => '$' + smartNumber(v, 'usd').replace('$',''));
   animateCounter('[data-tween="subnet-mcap"]',  totalMcap,       v => '$' + v.toFixed(0) + 'M');
   animateCounter('[data-tween="validators"]',   totalValidators, v => fmtInt(v));
   animateCounter('[data-tween="miners"]',       totalMiners,     v => fmtInt(v));
-  animateCounter('[data-tween="emission"]',     totalEmission,   v => fmtInt(v));
+  /* emission counter removed — EMIT is owned by StatusStrip (global
+     header). The freed cell now shows TOP 24H GAINER (computed live
+     from tao:subnets, see subscriber below). */
 
   /* Freshness ticker. Increments the "updated Ns ago" stamp in the
      title strip every second so the page reads as actively live. */
@@ -1048,58 +1051,41 @@ export function mountDashboard(root, dataLayer = null){
      animated counters. */
   if (dataLayer && typeof dataLayer.subscribe === 'function'){
     try {
+      /* After de-dup, the dashboard's status bar only updates the
+         fields it OWNS: 24H VOLUME and AI DOMINANCE come from the
+         tao:market feed; SUBNET MCAP / VALIDATORS / MINERS / EMISSION
+         come from tao:subnets aggregation below. TAO price / TAO mcap
+         / block height are owned by the global StatusStrip, not here. */
       dataLayer.subscribe('tao:market', d => {
         if (!d) return;
-        if (d.price != null){
-          setLive(qs('[data-live="tao-price"]', root), '$' + (+d.price).toFixed(2));
-          /* Also update the 24H change subtitle below the price so
-             it reflects live data, not the hardcoded "+2.4%" seed. */
-          const sub = qs('.dash-status__cell .dash-status__cell__sub', root);
-          if (sub && d.change24h != null){
-            const c = +d.change24h;
-            sub.textContent = (c >= 0 ? '+' : '') + c.toFixed(2) + '% · 24h';
-            sub.classList.toggle('is-up',   c >  0);
-            sub.classList.toggle('is-down', c <  0);
-          }
-        }
-        if (d.marketCap != null) setLive(qs('[data-live="tao-mcap"]', root), '$' + compact(d.marketCap));
-        if (d.volume24h != null) setLive(qs('[data-live="tao-vol"]',  root), '$' + compact(d.volume24h));
-        if (d.blockNumber != null){
-          setLive(qs('[data-live="tao-block"]', root), fmtInt(d.blockNumber));
-        }
-      });
-      dataLayer.subscribe('tao:chain', d => {
-        if (!d) return;
-        /* Field is blockNumber (was incorrectly read as blockHeight
-           before, which meant the block-height KPI never moved). */
-        if (d.blockNumber != null){
-          setLive(qs('[data-live="tao-block"]', root), fmtInt(d.blockNumber));
-        }
-      });
-      dataLayer.subscribe('tao:block', d => {
-        if (!d) return;
-        if (d.height != null){
-          setLive(qs('[data-live="tao-block"]', root), fmtInt(d.height));
-        }
+        if (d.volume24h   != null) setLive(qs('[data-live="tao-vol"]',    root), '$' + compact(d.volume24h));
+        if (d.aiDominance != null) setLive(qs('[data-live="tao-ai-dom"]', root), d.aiDominance.toFixed(1) + '%');
       });
       dataLayer.subscribe('tao:subnets', rows => {
         if (!Array.isArray(rows) || !rows.length) return;
-        /* Network-wide rollups, recomputed on every tick. The seed
-           shape uses `mcap` (3 letters) while the live API uses
-           `marketcap` (the field name TMC's table endpoint returns),
-           so we read both keys per row to be tolerant of the
-           normalization not having run yet. */
-        let mcap = 0, miners = 0, validators = 0, emission = 0;
+        /* Network-wide rollups + the dashboard-unique top-gainer
+           callout. Two-pass over rows so we can compute aggregates
+           AND identify the best 24h gainer in one sweep. */
+        let mcap = 0, miners = 0, validators = 0;
+        let best = null;
         for (const r of rows){
           mcap       += (r.marketcap ?? r.mcap ?? 0);
           miners     += (r.miners     ?? 0);
           validators += (r.validators ?? 0);
-          emission   += (r.emission   ?? 0);
+          const chg = r.chg24 ?? 0;
+          if (best == null || chg > (best.chg24 ?? -Infinity)){
+            best = r;
+          }
         }
         if (mcap)       setLive(qs('[data-tween="subnet-mcap"]', root), '$' + mcap.toFixed(0) + 'M');
         if (validators) setLive(qs('[data-tween="validators"]',  root), fmtInt(validators));
         if (miners)     setLive(qs('[data-tween="miners"]',      root), fmtInt(miners));
-        if (emission)   setLive(qs('[data-tween="emission"]',    root), fmtInt(emission));
+        if (best){
+          const chg = best.chg24 ?? 0;
+          const sign = chg >= 0 ? '+' : '';
+          setLive(qs('[data-live="top-gainer"]',     root), `SN${best.netuid} · ${sign}${chg.toFixed(1)}%`);
+          setLive(qs('[data-live="top-gainer-sub"]', root), best.name || best.symbol || '');
+        }
         /* Reset the freshness counter on every successful subnets
            tick so the "Ns ago" pill reflects the truth. */
         const fresh = qs('[data-fresh]', root);
@@ -1311,6 +1297,32 @@ export function mountDashboard(root, dataLayer = null){
   }
 
   function renderStatusBar(){
+    /* ------------------------------------------------------------
+       DATA OWNERSHIP MAP (Rondo's rule: no field appears twice on
+       the site; each data point has ONE home):
+
+         StatusStrip   (global header, every page)
+           TAO/USD price (with delta + sparkline)
+           TAO MCAP
+         Dashboard status bar (dashboard.html only — this view)
+           SUBNET MCAP            (sum of all α mcaps, distinct
+                                   from TAO mcap which is in
+                                   StatusStrip)
+           24H VOLUME             (whole network)
+           VALIDATORS / MINERS    (network-internal headcount)
+           EMISSION τ/day         (network throughput)
+           STAKED %               (already in StatusStrip — REMOVED
+                                   here, keeping global home only)
+           BLK / BLOCK HEIGHT     (already in StatusStrip — REMOVED
+                                   here, keeping global home only)
+
+       The duplicates (TAO price, TAO MCAP, BLK, STAKED) were
+       redundant when both rendered: the reader saw the same
+       number twice on the dashboard page. Now StatusStrip owns
+       the network-level vitals (visible everywhere) and the
+       dashboard status bar owns dashboard-specific aggregates
+       that don't make sense outside a dashboard context.
+     ------------------------------------------------------------ */
     return `
       <div class="dash-status">
         <div class="dash-status__title">
@@ -1323,34 +1335,34 @@ export function mountDashboard(root, dataLayer = null){
         </div>
         <div class="dash-status__rail">
           <div class="dash-status__cell">
-            <span class="dash-status__cell__lbl">τ / USD</span>
-            <span class="dash-status__cell__val" data-live="tao-price">$0.00</span>
-            <span class="dash-status__cell__sub is-up">+2.4% · 24h</span>
-          </div>
-          <div class="dash-status__cell">
-            <span class="dash-status__cell__lbl">NETWORK MCAP</span>
-            <span class="dash-status__cell__val" data-live="tao-mcap">$0</span>
-            <span class="dash-status__cell__sub">FDV across τ + α</span>
+            <span class="dash-status__cell__lbl">SUBNET MCAP</span>
+            <span class="dash-status__cell__val" data-tween="subnet-mcap">$0M</span>
+            <span class="dash-status__cell__sub">${subnetState.rows.length} α tokens, sum</span>
           </div>
           <div class="dash-status__cell">
             <span class="dash-status__cell__lbl">24H VOLUME</span>
             <span class="dash-status__cell__val" data-live="tao-vol">$0</span>
-            <span class="dash-status__cell__sub">across all venues</span>
+            <span class="dash-status__cell__sub">all venues, network total</span>
           </div>
           <div class="dash-status__cell">
-            <span class="dash-status__cell__lbl">SUBNET MCAP</span>
-            <span class="dash-status__cell__val" data-tween="subnet-mcap">$0M</span>
-            <span class="dash-status__cell__sub">${subnetState.rows.length} active</span>
+            <span class="dash-status__cell__lbl">VALIDATORS</span>
+            <span class="dash-status__cell__val" data-tween="validators">0</span>
+            <span class="dash-status__cell__sub">across all subnets</span>
           </div>
           <div class="dash-status__cell">
-            <span class="dash-status__cell__lbl">VALIDATORS / MINERS</span>
-            <span class="dash-status__cell__val"><span data-tween="validators">0</span> <span style="color:var(--c-ink-3);font-weight:400">/</span> <span data-tween="miners">0</span></span>
-            <span class="dash-status__cell__sub"><span data-tween="emission">0</span> τ/day emit</span>
+            <span class="dash-status__cell__lbl">MINERS</span>
+            <span class="dash-status__cell__val" data-tween="miners">0</span>
+            <span class="dash-status__cell__sub">active 24h</span>
           </div>
           <div class="dash-status__cell">
-            <span class="dash-status__cell__lbl">BLOCK HEIGHT</span>
-            <span class="dash-status__cell__val" data-live="tao-block">0</span>
-            <span class="dash-status__cell__sub">~12 s/block</span>
+            <span class="dash-status__cell__lbl">TOP 24H GAINER</span>
+            <span class="dash-status__cell__val" data-live="top-gainer">·</span>
+            <span class="dash-status__cell__sub" data-live="top-gainer-sub">scoring…</span>
+          </div>
+          <div class="dash-status__cell">
+            <span class="dash-status__cell__lbl">AI DOMINANCE</span>
+            <span class="dash-status__cell__val" data-live="tao-ai-dom">·</span>
+            <span class="dash-status__cell__sub">τ vs all AI-cat crypto</span>
           </div>
         </div>
       </div>
