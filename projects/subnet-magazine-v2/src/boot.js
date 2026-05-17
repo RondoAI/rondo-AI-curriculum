@@ -27,6 +27,7 @@ import { mountResearch } from './views/Research.js';
 import { mountMarkets } from './views/Markets.js';
 import { mountDashboard } from './views/Dashboard.js?v=20260520n';
 import { mountCockpit } from './views/Cockpit.js?v=20260520n';
+import { mountTerminal } from './views/Terminal.js?v=20260520n';
 import { mountEditor } from './views/Editor.js';
 import { mountVoices } from './views/Voices.js';
 import { mountCodex } from './views/Codex.js';
@@ -83,6 +84,7 @@ function boot(){
   mountIf('[data-mount="markets"]',    root => mountMarkets(root, DataLayer));
   mountIf('[data-mount="dashboard"]',  root => mountDashboard(root, DataLayer));
   mountIf('[data-mount="cockpit"]',    root => mountCockpit(root, DataLayer));
+  mountIf('[data-mount="terminal"]',   root => mountTerminal(root, DataLayer));
   mountIf('[data-mount="voices"]',     root => mountVoices(root));
   mountIf('[data-mount="codex"]',      root => mountCodex(root, DataLayer));
   mountIf('[data-mount="editor"]',     root => mountEditor(root));

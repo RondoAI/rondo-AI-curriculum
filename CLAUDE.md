@@ -358,3 +358,122 @@ Future additions to consider (all free, all no-CORS for crypto):
 
 Stock APIs (NVDA, AMD, etc.) require keys — when wiring, store
 the key in window.__SUBNET_CONFIG__ in gitignored config.js.
+
+## Reimagined Architecture: Terminal SPA (the v3 vision)
+
+Saved by Rondo's instruction, 2026-05-17, after a series of
+incremental cleanup commits. His exact words: "Coordinate with the
+other Claude and work together and reimagine this whole entire
+thing. Reimagine how you put it together. You need to do it all
+over... you need to upgrade it. 100% upgrade."
+
+The directive is to stop layering features onto 8 separate pages
+and rebuild as ONE Bloomberg-style terminal. Both sessions read
+this plan on boot and divide work along the lines below.
+
+### The diagnosis
+
+Current state: 8 page shells (index, markets, oracle, research,
+voices, editor, dashboard, cockpit) each with their own chrome
+(tickers + masthead + status strip), overlapping data, redundant
+layouts, no shared selection state. The reader navigates BETWEEN
+pages, losing context every click. Mobile is the worst — page
+loads are slow and each one is a different layout language.
+
+Bloomberg Terminal solved this 30 years ago: ONE workspace, many
+"functions" (PORT, GP, NEWS, GIP, etc.). The function name changes
+the center pane; the rest of the screen stays put. Selection is
+global. Every function operates on the currently-selected ticker.
+
+### The reimagined site
+
+ONE primary URL: /terminal.html (eventually just /).
+
+Persistent chrome (never changes between modes):
+  - TOP        StatusStrip — network vitals (BLK/EMIT/STAKED/τ-USD/MCAP)
+  - LEFT RAIL  Subnet picker — search + watchlist + 53 rows. The
+               selection is GLOBAL: pick a subnet here, every mode
+               in the center pane reacts.
+  - RIGHT      SIGNALS feed — image-rich news cards scored for
+               the current subnet (FRESH strip + editorial + centralized
+               stacks, exactly the pattern shipped 4a1b43f)
+  - BOTTOM     MODE switcher — chips like Bloomberg function codes:
+               CHART · MARKETS · DESK · EDITORIAL · BRIEFINGS · ATTR
+
+Center pane (swaps per selected mode):
+  CHART      → the cockpit's chart pane (current cockpit body)
+  MARKETS    → 53-subnet master grid sortable/filterable
+  DESK       → paper portfolio + Brinson-Fachler attribution
+  EDITORIAL  → all articles, filterable by subnet/category/source
+  BRIEFINGS  → daily research briefs, newest first
+  ATTR       → standalone attribution view (currently inside DESK)
+
+Selection model:
+  Picking SN4 Targon on the LEFT rail updates:
+   - the CHART center (if CHART mode)
+   - the SIGNALS feed (always — feed reflects current subnet)
+   - the MARKETS table (highlights SN4's row + scrolls to it)
+   - the DESK attribution (active subnet shown in context)
+
+No more 8 separate pages. The old pages (dashboard, cockpit,
+markets, oracle, research, voices, editor) get redirected to the
+new terminal with the appropriate mode pre-selected:
+  /dashboard.html  → /terminal.html?mode=desk
+  /cockpit.html    → /terminal.html?mode=chart
+  /markets.html    → /terminal.html?mode=markets
+  /oracle.html     → /terminal.html?mode=editorial&filter=oracle
+  /research.html   → /terminal.html?mode=briefings
+  /index.html      → marketing landing (kept, one CTA: "OPEN TERMINAL")
+
+### Work division
+
+SANDBOX SESSION (this one) takes the SHELL:
+  - Create /terminal.html with the 4-region grid layout
+  - Create src/views/Terminal.js exporting mountTerminal(root, dataLayer)
+    that mounts the StatusStrip, the LEFT rail, the RIGHT signals feed,
+    the BOTTOM mode switcher, and a center-pane SWAPPER
+  - Wire global selection state to sbn:terminal:v1 in localStorage
+  - Define the MODE_REGISTRY (mode key → mount function + title)
+    so each mode is a self-contained module the other session can fill in
+  - Add link from masthead nav to /terminal.html
+  - Default mode: CHART
+
+MAC SESSION takes MODE MIGRATIONS:
+  - Migrate cockpit's chart pane into mode=CHART. Easiest first
+    (cockpit already has the right structure — just extract the
+    center pane render into a Mode adapter exporting mountChartMode).
+  - Migrate dashboard's MASTER TABLE into mode=MARKETS
+  - Migrate dashboard's DESK section into mode=DESK
+  - Migrate dashboard's EDITORIAL INTEL + ARCHIVE into mode=EDITORIAL
+  - Migrate dashboard's BRIEFINGS into mode=BRIEFINGS
+  - Add legacy redirects in dashboard.html and cockpit.html
+    (<meta http-equiv="refresh" content="0;url=terminal.html?mode=X">)
+    once the corresponding mode is live
+
+Both sessions:
+  - Honor the data ownership map (no field appears twice — see the
+    Data Ownership section above)
+  - Honor the fold + tab primitives already shipped (style/components/
+    collapsible.css + dash-nav.css)
+  - Each new pane is one BOUNDED frame: no scroll PAST it, scroll
+    WITHIN it
+  - Image-rich news cards (style/components/cockpit.css cock-news)
+    are the canonical pattern for any list-of-articles surface
+
+### Don't blow up what works
+
+Keep the existing /dashboard.html and /cockpit.html FUNCTIONAL during
+the migration. They keep serving content while terminal.html is built
+alongside. Redirect them only AFTER the equivalent mode lives in
+terminal.html and looks better. Reader continuity matters more than
+naming purity.
+
+### The aesthetic target
+
+Bloomberg Terminal (function-code grammar) ×
+SemiAnalysis (deep research density) ×
+Palantir (sharp UI, hairline borders) ×
+2028 (subtle micro-animations, dense data, monochromatic
+discipline, no rounded pills, no shadow noise).
+
+Beautiful AND functional. Every pixel earns its place.
