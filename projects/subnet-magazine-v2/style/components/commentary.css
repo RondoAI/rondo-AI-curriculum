@@ -1,0 +1,220 @@
+/* =================================================================
+   SUBNET MAGAZINE, DESK COMMENTARY
+   -----------------------------------------------------------------
+   Bloomberg PORT's AI Portfolio Commentary, translated to our
+   register. A daily narrative paragraph that reads the user's
+   actual portfolio + the day's briefing + sector aggregates and
+   composes a senior-trader's morning note.
+
+   Visual register: editorial side of the magazine (serif body in
+   Archivo, not the mono data register). Sits between BRIEFINGS
+   (centralized context) and the 3-col grid (operational deck).
+
+   World-class polish notes:
+     - Paragraphs stagger-fade in on first paint (subtle settling
+       motion, never showy)
+     - Citation chips have a 1px inset shadow on hover so they
+       feel pressable, not link-y
+     - Provenance footer is intentionally tiny — the trust is in
+       the existence of named sources, not their loudness
+     - Live red dot pulses on the kicker so the panel reads as
+       a live surface, not a static block
+   ================================================================= */
+
+.cmt{
+  position: relative;
+  background:
+    linear-gradient(180deg, rgba(20, 5, 9, .65), rgba(8, 3, 5, .35));
+  border-bottom: 1px solid rgba(255, 30, 60, .22);
+  padding: 16px 20px 18px;
+}
+@media (max-width: 720px){
+  .cmt{ padding: 14px 14px 16px; }
+}
+
+/* ---------- header ---------------------------------------- */
+.cmt__head{
+  display: flex; align-items: baseline; justify-content: space-between;
+  gap: 12px;
+  margin-bottom: 10px;
+  flex-wrap: wrap;
+}
+.cmt__kicker{
+  display: inline-flex; align-items: baseline; gap: 8px;
+  font-family: var(--f-mono);
+  font-size: 9.5px;
+  letter-spacing: .26em;
+  text-transform: uppercase;
+  font-weight: 800;
+  color: rgba(255, 30, 60, .85);
+}
+.cmt__dot{
+  display: inline-block;
+  width: 6px; height: 6px;
+  border-radius: 50%;
+  background: var(--c-red);
+  box-shadow: 0 0 6px rgba(255, 30, 60, .9);
+  animation: cmtPulse 2s ease-in-out infinite;
+  align-self: center;
+}
+@keyframes cmtPulse{
+  0%, 100%{ opacity: 1;   transform: scale(1);    }
+  50%     { opacity: .55; transform: scale(1.25); }
+}
+.cmt__meta{
+  font-family: var(--f-mono);
+  font-size: 9px;
+  letter-spacing: .14em;
+  text-transform: uppercase;
+  font-weight: 700;
+  color: var(--c-ink-3);
+  font-variant-numeric: tabular-nums;
+}
+
+/* ---------- body (narrative paragraphs) ------------------ */
+.cmt__body{
+  display: grid;
+  gap: 10px;
+  max-width: 78ch;
+}
+.cmt__p{
+  font-family: var(--f-serif);
+  font-size: 15.5px;
+  line-height: 1.55;
+  color: var(--c-ink-1);
+  margin: 0;
+  letter-spacing: -.003em;
+  /* Tabular figures inside paragraphs so the numbers don't jiggle
+     under the chips. */
+  font-variant-numeric: tabular-nums;
+  /* Stagger-reveal on first paint. The custom property is set in
+     JS based on paragraph index. */
+  opacity: 0;
+  transform: translateY(4px);
+  animation: cmtFadeIn .42s cubic-bezier(.2, .7, .2, 1) both;
+  animation-delay: calc(60ms + var(--cmt-stagger, 0) * 90ms);
+}
+@keyframes cmtFadeIn{
+  to { opacity: 1; transform: none; }
+}
+.cmt__p strong{
+  font-family: var(--f-mono);
+  font-weight: 800;
+  color: #fff;
+  letter-spacing: -.01em;
+  font-size: 14.5px;
+  font-variant-numeric: tabular-nums;
+}
+
+/* ---------- inline delta + chips ------------------------- */
+.cmt__delta{
+  font-family: var(--f-mono);
+  font-weight: 800;
+  font-size: 13.5px;
+  letter-spacing: 0;
+  font-variant-numeric: tabular-nums;
+}
+.cmt__delta--up   { color: #5BE599; }
+.cmt__delta--down { color: #FF4D60; }
+.cmt__delta--flat { color: var(--c-ink-3); }
+
+.cmt__chip{
+  /* Reset for both <button> and <a> */
+  appearance: none;
+  background: rgba(255, 30, 60, .06);
+  border: 1px solid rgba(255, 30, 60, .32);
+  color: var(--c-red-1);
+  text-decoration: none;
+  font-family: var(--f-mono);
+  font-size: 11px;
+  font-weight: 700;
+  padding: 1px 7px 0;
+  letter-spacing: .03em;
+  cursor: pointer;
+  transition: color .12s ease, background .12s ease, border-color .12s ease, box-shadow .12s ease;
+  display: inline-block;
+  line-height: 1.45;
+  vertical-align: baseline;
+  white-space: nowrap;
+}
+.cmt__chip:hover,
+.cmt__chip:focus-visible{
+  color: #fff;
+  background: rgba(255, 30, 60, .22);
+  border-color: var(--c-red);
+  box-shadow: inset 0 -1px 0 var(--c-red);
+  outline: none;
+}
+.cmt__chip--cat{
+  color: var(--c-ink-2);
+  border-color: rgba(200, 168, 173, .26);
+  background: transparent;
+  cursor: default;
+}
+.cmt__chip--brief{
+  /* Briefing link, slightly distinct register so it reads as
+     "external destination" not "in-app jump." */
+  color: #FFB85C;
+  border-color: rgba(255, 184, 92, .42);
+  background: rgba(255, 184, 92, .06);
+}
+.cmt__chip--brief:hover,
+.cmt__chip--brief:focus-visible{
+  color: #fff;
+  background: rgba(255, 184, 92, .22);
+  border-color: #FFB85C;
+  box-shadow: inset 0 -1px 0 #FFB85C;
+}
+
+/* ---------- provenance footer ----------------------------- */
+.cmt__foot{
+  display: flex; align-items: center; gap: 12px;
+  margin-top: 14px;
+  padding-top: 10px;
+  border-top: 1px dashed rgba(255, 30, 60, .14);
+  flex-wrap: wrap;
+}
+.cmt__sources-lbl{
+  font-family: var(--f-mono);
+  font-size: 8.5px;
+  letter-spacing: .22em;
+  text-transform: uppercase;
+  font-weight: 800;
+  color: rgba(255, 30, 60, .7);
+}
+.cmt__sources{
+  display: flex; gap: 6px; flex-wrap: wrap;
+}
+.cmt__source{
+  appearance: none;
+  background: transparent;
+  border: 1px solid rgba(200, 168, 173, .24);
+  color: var(--c-ink-3);
+  font-family: var(--f-mono);
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: .14em;
+  text-transform: uppercase;
+  padding: 3px 7px 2px;
+  cursor: pointer;
+  transition: color .12s ease, border-color .12s ease, background .12s ease;
+  line-height: 1.2;
+}
+.cmt__source:hover,
+.cmt__source:focus-visible{
+  color: #fff;
+  border-color: var(--c-red);
+  background: rgba(255, 30, 60, .14);
+  outline: none;
+}
+
+/* ---------- mobile tuning -------------------------------- */
+@media (max-width: 720px){
+  .cmt__head      { gap: 6px; }
+  .cmt__meta      { font-size: 8.5px; letter-spacing: .12em; }
+  .cmt__p         { font-size: 14.5px; line-height: 1.52; }
+  .cmt__p strong  { font-size: 13.5px; }
+  .cmt__delta     { font-size: 12.5px; }
+  .cmt__chip      { font-size: 10.5px; padding: 1px 6px 0; }
+  .cmt__source    { font-size: 8.5px; padding: 3px 6px 2px; letter-spacing: .12em; }
+}

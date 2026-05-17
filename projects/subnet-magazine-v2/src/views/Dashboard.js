@@ -32,6 +32,7 @@ import { ARTICLES } from '../data/articles.js';
 import { CENTRALIZED_PLAYERS, playersForSubnet } from '../data/centralized.js';
 import { CENTRALIZED_NEWS, recentCentralizedNews, newsForSubnet } from '../data/centralized-news.js';
 import { BRIEFINGS, latestBriefing, priorBriefings, currencyHeader, daysBetween } from '../data/briefings.js';
+import { mountCommentary } from './dashboard/commentary.js';
 import { GH_ACTIVITY, ghByNetuid } from '../data/github-activity.js';
 import { recentOracleArticles } from '../data/oracle-articles.js';
 import { TOP_HOLDERS_NETWORK, RECENT_TRANSFERS_NETWORK, topHoldersFor, recentTransfersFor } from '../data/wallet-activity.js';
@@ -567,6 +568,7 @@ export function mountDashboard(root, dataLayer = null){
     <section class="dash" data-mount="dashboard-root">
       ${renderStatusBar()}
       ${renderBriefings()}
+      <div data-zone="commentary"></div>
       <div class="dash-grid">
         ${renderCommand()}
         <div class="dash-detail" data-zone="detail">
@@ -689,6 +691,14 @@ export function mountDashboard(root, dataLayer = null){
   wireRailRows();
   wireToolbar();
   wireSearch();
+
+  /* Mount desk commentary — Bloomberg-PORT-style narrative panel
+     between briefings (centralized context) and the 3-col grid.
+     Reads paper portfolio + briefings + sector aggregates and
+     composes a senior-trader's morning note. Self-contained;
+     destroy returned but currently not stashed in teardowns
+     since the closure doesn't go away until page navigation. */
+  mountCommentary(qs('[data-zone="commentary"]', root));
 
   /* Master-table row click: jump that subnet into the command deck
      above without disturbing the rail's current scroll position. */
