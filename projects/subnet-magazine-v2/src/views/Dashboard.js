@@ -36,6 +36,7 @@ import { GH_ACTIVITY, ghByNetuid } from '../data/github-activity.js';
 import { recentOracleArticles } from '../data/oracle-articles.js';
 import { TOP_HOLDERS_NETWORK, RECENT_TRANSFERS_NETWORK, topHoldersFor, recentTransfersFor } from '../data/wallet-activity.js';
 import { renderAttribution, wireAttribution, defaultAttribState } from './dashboard/attribution.js';
+import { renderPaperPortfolio, wirePaperPortfolio } from './dashboard/paper-portfolio.js';
 
 /* Bio lookup by netuid. Three netuids are explicitly skipped here
    because their SUBNET_BIOS entries describe entities that were
@@ -573,6 +574,7 @@ export function mountDashboard(root, dataLayer = null){
         </div>
         ${renderComparator(subnetById(selectedId))}
       </div>
+      ${renderPaperPortfolio()}
       ${renderAttribution(attribState)}
       ${renderMasterTable()}
       ${renderArchive()}
@@ -753,6 +755,27 @@ export function mountDashboard(root, dataLayer = null){
     wireAttribution(root, attribState, wireAttribPanel);
   }
   wireAttribPanel();
+
+  /* Paper portfolio: buy/sell mutations write to localStorage and
+     repaint the panel in place. Also re-renders Attribution because
+     the PAPER preset depends on paper-portfolio state. */
+  function repaintPaperAndAttrib(){
+    const paperSec = qs('[data-paper-root]', root);
+    if (paperSec){
+      const wrap = document.createElement('div');
+      wrap.innerHTML = renderPaperPortfolio();
+      paperSec.replaceWith(wrap.firstElementChild);
+    }
+    const attribSec = qs('[data-attrib-root]', root);
+    if (attribSec){
+      const wrap = document.createElement('div');
+      wrap.innerHTML = renderAttribution(attribState);
+      attribSec.replaceWith(wrap.firstElementChild);
+    }
+    wirePaperPortfolio(root, repaintPaperAndAttrib);
+    wireAttribPanel();
+  }
+  wirePaperPortfolio(root, repaintPaperAndAttrib);
 
   /* Bloomberg-style power-user shortcuts:
        /         focus the rail search
