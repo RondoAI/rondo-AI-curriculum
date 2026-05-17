@@ -60,7 +60,15 @@ export class Chart {
     /** @protected */ this.t = 0;
     /** @private */ this._opts = {
       animate: opts.animate !== false,
-      maxDPR: opts.maxDPR ?? 2,
+      /* Cap pixel ratio. On mobile (<= 720px) we cap at 1.5 instead
+         of 2: phones routinely report DPR 2-3, which means a 200px
+         canvas would draw 600x600 = 360k pixels per frame on a
+         DPR-3 device. The soft strokes, glows and gradients in
+         NodeSphere/NeuralLogo hide aliasing well, so the visual
+         drop from 2 to 1.5 is negligible while the per-frame paint
+         cost drops by ~40-55%, which is exactly what an animated
+         plexus on a mid-tier Android phone needs. */
+      maxDPR: opts.maxDPR ?? (isMobileViewport() ? 1.5 : 2),
     };
     /** @private */ this._destroyed = false;
     /** @private */ this._rafId = 0;
