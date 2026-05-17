@@ -45,6 +45,7 @@ import { ARTICLES } from '../data/articles.js';
 /* mac-session mode migrations — each new mode is its own module
    under src/views/terminal/. Registered in MODE_REGISTRY below. */
 import { mountBriefingsMode } from './terminal/briefings-mode.js';
+import { mountEditorialMode } from './terminal/editorial-mode.js';
 
 const TERMINAL_KEY  = 'sbn:terminal:v1';
 const WATCHLIST_KEY = 'sbn:dashboard:watchlist:v1';
@@ -75,7 +76,7 @@ export const MODE_REGISTRY = Object.freeze({
   chart:     { label: 'CHART',     mount: stubMode('chart',     'Per-subnet price + emission + volume chart, with KPI strip and tool tray.',                'Migrate from src/views/Cockpit.js renderMain + drawChart + KPI strip. The whole cockpit center pane becomes this mode.') },
   markets:   { label: 'MARKETS',   mount: stubMode('markets',   'All 53 subnets in a sortable, filterable master grid. Click any row to load it across the terminal.', 'Migrate from src/views/Dashboard.js renderMasterTable. On row click: ctx.select(netuid) updates the global selection so every other mode reflects the pick.') },
   desk:      { label: 'DESK',      mount: stubMode('desk',      'Paper portfolio + Brinson-Fachler attribution running on your actual positions.',           'Compose src/views/dashboard/paper-portfolio.js + src/views/dashboard/attribution.js inside this mode. Keep their existing wiring.') },
-  editorial: { label: 'EDITORIAL', mount: stubMode('editorial', 'All magazine + oracle dispatches, filterable by subnet / category / source.',                'Pull from src/data/articles.js + src/data/oracle-articles.js. Render with the cock-news card pattern (see style/components/cockpit.css).') },
+  editorial: { label: 'EDITORIAL', mount: mountEditorialMode },
   briefings: { label: 'BRIEFINGS', mount: mountBriefingsMode },
   attr:      { label: 'ATTR',      mount: stubMode('attr',      'Attribution analytics on the active portfolio — Brinson-Fachler decomposition with controls.', 'Extract src/views/dashboard/attribution.js into its own mode. Standalone, not nested in DESK.') },
 });

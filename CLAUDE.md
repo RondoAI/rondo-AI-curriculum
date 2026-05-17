@@ -477,3 +477,132 @@ Palantir (sharp UI, hairline borders) ×
 discipline, no rounded pills, no shadow noise).
 
 Beautiful AND functional. Every pixel earns its place.
+
+## Signal Taxonomy: Insight-First, Decorative-Out (mac-session)
+
+Saved by Rondo's instruction, 2026-05-17. The bar:
+
+> "I don't want just pictures of stuff that looks nice. People
+> want insights, understanding. A 360-degree view of the market
+> in precise details. Every chart has to make sense for a
+> BlackRock engineer / financial advisor. Enterprise private
+> software standard."
+
+Every chart, every panel, every datum must answer a decision
+question. Decorative goes. Below is the curated list of
+institutional insights the magazine should compute + surface.
+Both sessions reference this list; mode migrations layer the
+relevant signals into their mode (no separate "signals" mode —
+integrate where the insight is contextual).
+
+### Per-subnet signals
+
+  Concentration risk     stake Gini coefficient + top-3 holder share
+                         (decision: exit risk if a large holder dumps?)
+
+  Capital efficiency     30D return per τ staked
+                         (decision: yield worth the stake locked?)
+
+  Velocity-of-emission   emission per validator per day
+                         (decision: efficiency of yield distribution?)
+
+  Github velocity        commits-per-week 4W trailing
+                         (decision: is the team still shipping?)
+
+  Editorial coverage     count + days-since-last
+                         (decision: research depth vs. mcap rank?)
+
+  Net flow 24h           Σ(buys) − Σ(sells) from wallet activity
+                         (decision: smart-money direction?)
+
+  Survival probability   p(no deregistration in 90D) — based on
+                         emission trajectory + age + immune flag
+                         (decision: will this subnet exist when my
+                         position matures?)
+
+  Cluster membership     k-means cluster id from (return, stake,
+                         emission, miners) — assigned label
+                         (decision: which subnets are functionally
+                         similar — diversification or duplication?)
+
+### Network-level signals
+
+  Network concentration  Gini of stake across all subnets
+                         (decision: is value concentrating?)
+
+  Editorial alpha        avg 7D return post-Oracle-publication vs.
+                         the network avg, t-stat for significance
+                         (decision: does our coverage carry alpha?)
+
+  Sector tape            mcap-weighted 7D return by cat
+                         (decision: which categories outperforming?)
+
+  Correlation matrix     pairwise return correlation 30D
+                         (decision: which pairs are redundant?)
+
+  Coverage gaps          top-N by mcap with 0 in-house articles
+                         (decision: where should the desk publish next?)
+
+### Centralized-context signals
+
+  TAO vs frontier basket TAO return vs equal-weight mean of
+                         (OpenAI revenue proxy, Anthropic
+                         valuation, NVDA, AMD, TSMC)
+                         (decision: TAO vs. centralized comp set?)
+
+  Hyperscaler capex      Σ quarterly capex of Big 5 vs. TAO mcap
+                         (decision: how much centralized AI
+                         spend would one TAO buy?)
+
+### Where each signal renders (no duplication)
+
+  MARKETS mode    concentration, capital efficiency, velocity,
+                  github velocity, editorial coverage count,
+                  net flow — all as sortable columns. Cluster
+                  membership as a color-coded badge per row.
+
+  CHART mode      survival prob as a footer chip on the chart.
+                  TA-Lib indicators (RSI/MACD) as overlays.
+                  Net flow as a volume-like sub-strip.
+
+  DESK mode       portfolio Sharpe, drawdown, win rate,
+                  correlation-vs-network. Each position's
+                  capital efficiency vs. network avg. Plug
+                  PyPortfolioOpt's efficient frontier as a
+                  "your portfolio vs. optimal" overlay.
+
+  EDITORIAL mode  coverage gaps (lead chip), editorial alpha
+                  back-test (header insight strip), coverage
+                  Gini, dispatches by source / date / cat.
+
+  BRIEFINGS mode  hyperscaler capex as the recurring context
+                  anchor below each briefing.
+
+  ATTR mode       Brinson-Fachler decomposition (already shipped)
+                  + factor regression (decompose return into
+                  beta_subnet + beta_network + alpha).
+
+### Compute path
+
+Static-site reality: all signals computed from data already in
+the repo (SUBNETS, ARTICLES, oracle, briefings, wallet activity,
+gh activity). Pure JS, no Python infra yet. The Python lib
+integration (TA-Lib, PyPortfolioOpt, scikit-learn) is a separate
+push that pre-computes nightly via GitHub Action → JSON in
+src/data/computed/ → static site loads.
+
+Until that lands, the signals listed above ship with seeded
+approximations + honest "synthetic — Python pipeline pending"
+footnotes. Signal SHAPE > signal precision; the bar is "is this
+the right insight to surface" first, "is the math exactly right"
+second.
+
+### Anti-patterns guarded against
+
+  - Decorative SVG that doesn't carry a decision-grade reading
+  - "Looks beautiful but I don't know what it means" charts
+  - Sparklines that aren't anchored with a "what does this mean"
+  - Repeating the same fact in three places (the Data Ownership
+    rule above already covers this — restating for emphasis)
+  - Signals computed but never surfaced (compute IS rendering)
+
