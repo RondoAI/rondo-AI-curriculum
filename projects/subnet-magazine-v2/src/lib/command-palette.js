@@ -24,6 +24,7 @@
 import { qs, qsa, escapeHtml } from './dom.js';
 import { SUBNETS } from '../data/subnets.js';
 import { openCompareModal, resolveCompareTokens } from './compare-modal.js';
+import { openHistModal, resolveHistArgs } from './hist-modal.js';
 
 let active = null;
 let wired  = false;
@@ -56,7 +57,7 @@ const COMMANDS = [
   { fn: 'scroll-to',        verb: 'LABS',      args: '',                    desc: 'Scroll to frontier-labs valuation',      kind: 'jump' },
 
   /* ---- Function tabs (next upgrade passes) ---- */
-  { fn: 'open-hist',        verb: 'HIST',      args: '<id> [1d|7d|30d|90d]',desc: 'Historical chart for a subnet',          kind: 'fn',     wip: true },
+  { fn: 'open-hist',        verb: 'HIST',      args: '<id> [1D|7D|30D|90D]',desc: 'Historical OHLC candlestick chart',      kind: 'fn' },
   { fn: 'open-compare',     verb: 'COMPARE',   args: '<id> <id> …',         desc: 'Side-by-side compare (subnets + centralized players)', kind: 'fn' },
   { fn: 'open-alert',       verb: 'ALERT',     args: '',                    desc: 'Price / stake / emission alerts',        kind: 'fn',     wip: true },
   { fn: 'open-layout',      verb: 'LAYOUT',    args: '',                    desc: 'Customize panel layout',                 kind: 'fn',     wip: true },
@@ -199,6 +200,20 @@ function mountPalette({ subnets, initial }){
         const tokens = parts.filter(Boolean);
         const items  = resolveCompareTokens(tokens);
         openCompareModal({ items });
+        close();
+        return;
+      }
+
+      /* HIST is also self-contained — just needs SUBNETS + CandleChart.
+         Opens the historical OHLC modal inline. Works from any page. */
+      if (def.fn === 'open-hist'){
+        const { netuid, range } = resolveHistArgs(parts);
+        if (netuid == null){
+          toast('HIST needs a subnet. Try HIST 4  or  HIST targon 7D');
+          close();
+          return;
+        }
+        openHistModal({ netuid, range });
         close();
         return;
       }

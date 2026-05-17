@@ -1,0 +1,233 @@
+/* =================================================================
+   SUBNET MAGAZINE, HIST MODAL
+   -----------------------------------------------------------------
+   Full-screen historical chart for a single subnet. Same eDEX /
+   Bloomberg register as the rest of the magazine. The CandleChart
+   does its own colored candles (up = mint, down = red), the modal
+   shell carries the header / range tabs / footer chrome.
+   ================================================================= */
+
+.histm{
+  position: fixed; inset: 0;
+  z-index: 215;
+  display: flex; align-items: center; justify-content: center;
+  padding: 32px 16px;
+  font-family: var(--f-mono);
+}
+.histm__backdrop{
+  position: absolute; inset: 0;
+  background: rgba(0, 0, 0, .82);
+  backdrop-filter: blur(2px);
+  -webkit-backdrop-filter: blur(2px);
+}
+.histm__panel{
+  position: relative;
+  width: min(1100px, 96vw);
+  height: min(720px, 92vh);
+  display: flex; flex-direction: column;
+  background: #050203;
+  border: 1px solid rgba(255, 30, 60, .42);
+  box-shadow:
+    0 30px 80px rgba(0, 0, 0, .78),
+    inset 0 0 0 1px rgba(255, 30, 60, .18),
+    0 0 30px rgba(255, 30, 60, .14);
+  animation: histmIn .16s cubic-bezier(.2, .7, .2, 1) both;
+  overflow: hidden;
+}
+@keyframes histmIn{
+  from { opacity: 0; transform: scale(.97); }
+  to   { opacity: 1; transform: none; }
+}
+
+/* ---------- header ------------------------------------------ */
+.histm__head{
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto auto auto;
+  align-items: center;
+  gap: 14px;
+  padding: 14px 18px;
+  border-bottom: 1px solid rgba(255, 30, 60, .26);
+  background: linear-gradient(180deg, rgba(255, 30, 60, .08), transparent);
+}
+.histm__title{
+  display: inline-flex; align-items: baseline; gap: 10px;
+  min-width: 0;
+  flex-wrap: wrap;
+}
+.histm__fcode{
+  color: var(--c-red);
+  font-family: var(--f-mono);
+  font-size: 11.5px;
+  letter-spacing: .14em;
+  font-weight: 800;
+  text-transform: uppercase;
+}
+.histm__sn{
+  color: rgba(255, 30, 60, .85);
+  font-family: var(--f-mono);
+  font-size: 10.5px;
+  letter-spacing: .12em;
+  font-weight: 800;
+}
+.histm__name{
+  color: #fff;
+  font-family: var(--f-serif);
+  font-size: 20px;
+  font-weight: 700;
+  letter-spacing: -.005em;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.histm__cat{
+  color: var(--c-ink-3);
+  font-family: var(--f-mono);
+  font-size: 9.5px;
+  letter-spacing: .18em;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+.histm__price{
+  display: inline-flex; align-items: baseline; gap: 8px;
+  font-variant-numeric: tabular-nums;
+}
+.histm__price-val{
+  color: #fff;
+  font-family: var(--f-mono);
+  font-size: 18px;
+  font-weight: 800;
+}
+.histm__price-chg{
+  font-family: var(--f-mono);
+  font-size: 10px;
+  font-weight: 700;
+  padding: 2px 6px 1px;
+  border: 1px solid currentColor;
+  letter-spacing: .06em;
+}
+.histm__price-chg.is-up   { color: #5BE599; }
+.histm__price-chg.is-down { color: #FF4D60; }
+.histm__price-chg.is-flat { color: var(--c-ink-3); }
+
+.histm__ranges{
+  display: inline-flex;
+  border: 1px solid rgba(255, 30, 60, .26);
+}
+.histm__range{
+  appearance: none;
+  background: transparent;
+  border: 0;
+  border-right: 1px solid rgba(255, 30, 60, .14);
+  color: var(--c-ink-3);
+  font-family: var(--f-mono);
+  font-size: 9.5px;
+  font-weight: 800;
+  letter-spacing: .14em;
+  padding: 6px 11px 5px;
+  cursor: pointer;
+  transition: color .15s ease, background .15s ease;
+}
+.histm__range:last-child{ border-right: 0; }
+.histm__range:hover{ color: #fff; background: rgba(255, 30, 60, .06); }
+.histm__range.is-on{
+  color: #fff;
+  background: rgba(255, 30, 60, .22);
+  box-shadow: inset 0 -2px 0 var(--c-red);
+}
+
+.histm__close{
+  appearance: none;
+  background: transparent;
+  border: 1px solid rgba(255, 30, 60, .36);
+  color: var(--c-red-1);
+  font-family: var(--f-mono);
+  font-size: 14px;
+  font-weight: 800;
+  width: 30px; height: 30px;
+  cursor: pointer;
+  transition: color .15s ease, border-color .15s ease, background .15s ease;
+}
+.histm__close:hover,
+.histm__close:focus-visible{
+  color: #fff;
+  border-color: var(--c-red);
+  background: rgba(255, 30, 60, .18);
+  outline: none;
+}
+
+/* ---------- chart wrapper ---------------------------------- */
+.histm__chart-wrap{
+  position: relative;
+  flex: 1;
+  min-height: 0;
+  background:
+    /* Hairline grid backdrop reinforces the terminal register
+       even before the chart paints anything. */
+    linear-gradient(180deg, rgba(255,30,60,.04), transparent),
+    repeating-linear-gradient(0deg, transparent 0, transparent 39px, rgba(255,30,60,.04) 39px, rgba(255,30,60,.04) 40px);
+  padding: 6px;
+}
+.histm__canvas{
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+/* ---------- footer ----------------------------------------- */
+.histm__foot{
+  display: flex; align-items: center; justify-content: space-between;
+  gap: 10px;
+  padding: 8px 14px;
+  border-top: 1px solid rgba(255, 30, 60, .22);
+  background: rgba(20, 5, 9, .55);
+  font-size: 9.5px;
+  color: var(--c-ink-3);
+  letter-spacing: .08em;
+  font-weight: 700;
+}
+.histm__sub{
+  font-family: var(--f-sans);
+  font-style: italic;
+  font-size: 10.5px;
+  color: var(--c-ink-3);
+  letter-spacing: .02em;
+  font-weight: 500;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.histm__brand{
+  color: var(--c-red-1);
+  letter-spacing: .18em;
+  font-weight: 800;
+  font-family: var(--f-mono);
+}
+
+/* ---------- mobile ------------------------------------------ */
+@media (max-width: 720px){
+  .histm{ padding: 0; }
+  .histm__panel{
+    width: 100vw;
+    height: 100vh;
+    height: 100dvh;
+    border: 0;
+    box-shadow: none;
+  }
+  .histm__head{
+    grid-template-columns: 1fr auto;
+    grid-template-areas:
+      "title close"
+      "price ranges";
+    gap: 10px;
+    padding: 12px 12px 10px;
+  }
+  .histm__title  { grid-area: title; }
+  .histm__close  { grid-area: close; }
+  .histm__price  { grid-area: price; }
+  .histm__ranges { grid-area: ranges; justify-self: end; }
+  .histm__name   { font-size: 16px; }
+  .histm__price-val { font-size: 16px; }
+  .histm__range  { padding: 6px 10px 5px; font-size: 9px; }
+  .histm__sub    { white-space: normal; }
+}
