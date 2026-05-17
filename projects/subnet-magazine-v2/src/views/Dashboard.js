@@ -576,16 +576,6 @@ export function mountDashboard(root, dataLayer = null){
   mount(root, html`
     <section class="dash" data-mount="dashboard-root">
       ${renderStatusBar()}
-<<<<<<< HEAD
-      ${renderBriefings()}
-      <div data-zone="commentary"></div>
-      <div class="dash-grid">
-        ${renderCommand()}
-        <div class="dash-detail" data-zone="detail">
-          ${renderDetail(selectedId)}
-        </div>
-        ${renderComparator(subnetById(selectedId))}
-=======
       ${renderJumpNav()}
       <div id="briefings" class="dash-zone" data-zone-id="briefings">
         ${renderBriefings()}
@@ -601,6 +591,11 @@ export function mountDashboard(root, dataLayer = null){
       </div>
       <div id="desk" class="dash-zone dash-desk" data-zone-id="desk">
         ${renderDeskHeader()}
+        <!-- Commentary narrative leads MY DESK — narrative before
+             math, so the reader sees the story before the
+             attribution decomposes it. Async-mounts after first
+             paint into this slot. -->
+        <div data-zone="commentary"></div>
         ${renderPaperPortfolio()}
         ${renderAttribution(attribState)}
       </div>
@@ -609,7 +604,6 @@ export function mountDashboard(root, dataLayer = null){
       </div>
       <div id="archive" class="dash-zone" data-zone-id="archive">
         ${renderArchive()}
->>>>>>> origin/subnet-mag-v2
       </div>
       ${renderFooter()}
     </section>
