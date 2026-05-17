@@ -261,3 +261,23 @@ is not compliance with this rule. Compliance is the
 contemplation actually happening, the visible bugs actually
 seen, the next-order implications actually considered. If those
 do not occur, the rule was not honored regardless of clock time.
+
+## Screenshot Delivery: One PDF, Not Multiple PNGs
+
+Saved by Rondo's instruction, 2026-05-17. When sending multiple
+screenshots back to him via SendUserFile, stitch them into ONE
+continuous-page PDF rather than attaching 4-8 separate PNGs.
+His chat history is on a phone; one file is easier to scroll,
+archive, and revisit than a wall of image attachments.
+
+Implementation: `/tmp/png2pdf.py` (Pillow-based, lossless).
+  python3 /tmp/png2pdf.py <out.pdf> <png1> <png2> ...
+Stitches vertically, scales all to the narrowest width, saves
+as a single-page PDF at 150 DPI.
+
+Workflow: take all screenshots → stitch → send the .pdf via
+SendUserFile (not the PNGs). One file per batch, captioned with
+what's in the document and any reading order cues.
+
+Rule: every time you deliver more than one screenshot, deliver
+the PDF, not the loose PNGs.
