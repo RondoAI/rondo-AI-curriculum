@@ -8,11 +8,32 @@
 
 *, *::before, *::after { box-sizing: border-box; }
 
-html { -webkit-text-size-adjust: 100%; scroll-behavior: smooth; }
+html {
+  /* iOS/Android shared base. -webkit-text-size-adjust pins font
+     size against the browser's "smart sizing" on rotation. iOS
+     Safari sometimes treats <html> as the scroll root instead of
+     <body>, so overscroll-behavior goes here too, otherwise the
+     rubber-band bounce still fires on iOS even when body has the
+     rule. text-size-adjust uses the standardized name as a
+     fallback for browsers that have dropped the prefix. */
+  -webkit-text-size-adjust: 100%;
+          text-size-adjust: 100%;
+  scroll-behavior: smooth;
+  overscroll-behavior: contain;
+  /* Lock horizontal at the html level too so neither root scrolls
+     sideways no matter which platform is calling the shots. */
+  overflow-x: hidden;
+}
 
 html, body {
   margin: 0; padding: 0;
   min-height: 100%;
+  /* Anchor body to viewport width on both Android Chrome and iOS
+     Safari, defends against the rare child whose box model leaks
+     1-2px past the viewport edge (sub-pixel rounding, scrollbar
+     gutter on landscape, etc.). */
+  width: 100%;
+  position: relative;
 }
 
 body {
