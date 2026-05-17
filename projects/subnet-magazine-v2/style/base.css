@@ -39,11 +39,28 @@ body {
      element, the terminal aesthetic has its own focus + hover states
      and the flash reads as a glitch. Pure cosmetic, no scroll impact. */
   -webkit-tap-highlight-color: transparent;
+}
 
-  /* Terminal texture: a fine red grid, a coarse red grid over it, a
-     top-anchored red bloom, an edge vignette, and faint CRT
-     scanlines, all fixed-attachment so it stays put as you scroll. */
-  background-image:
+/* Terminal texture, painted on a position:fixed pseudo-element so it
+   lives in its own compositor layer and is NOT repainted on every
+   scroll frame. Previously this lived directly on body with
+   background-attachment: fixed, which made the browser repaint the
+   entire 7-layer gradient stack at viewport size on every frame as
+   the user scrolled, the single biggest source of mobile scroll
+   jank on the page. Layers (back to front): a fine red grid, a
+   coarse red grid over it, a top-anchored red bloom, an edge
+   vignette, and faint CRT scanlines. Same visual as before, but
+   the GPU can now treat it as a static layer and just translate it
+   under the moving content. transform: translateZ(0) promotes the
+   pseudo-element to its own composited layer on the few browsers
+   that wouldn't otherwise. */
+body::before{
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  background:
     radial-gradient(110% 70% at 50% -10%, rgba(255,30,60,.10), transparent 60%),
     radial-gradient(140% 120% at 50% 50%, transparent 55%, rgba(0,0,0,.85)),
     linear-gradient(rgba(255,30,60,.10) 1px, transparent 1px),
@@ -56,7 +73,8 @@ body {
     192px 192px, 192px 192px,
     48px 48px, 48px 48px,
     100% 3px;
-  background-attachment: fixed;
+  transform: translateZ(0);
+  will-change: transform;
 }
 
 img, svg, canvas, video { display: block; max-width: 100%; }
@@ -222,4 +240,35 @@ body { font-variant-numeric: tabular-nums; }
 .statusbar__inner{
   overscroll-behavior-x: contain;
   -webkit-overflow-scrolling: touch;
+}
+
+/* =================================================================
+   MOBILE SCROLL-SMOOTHNESS: drop backdrop-filter on sticky chrome
+   -----------------------------------------------------------------
+   The status strip, ticker bar, and masthead all use backdrop-filter
+   blur to keep their text crisp while the hero plexus shows through.
+   On mobile, every one of those backdrops forces the GPU to re-blur
+   a viewport-wide region on every scroll frame, the second-biggest
+   source of scroll jank after fixed backgrounds (already handled by
+   the body::before pseudo above). Drop backdrop-filter on phones,
+   substitute a more opaque solid background so the text stays
+   legible, and the sticky chrome composites for free.
+   ================================================================= */
+@media (max-width: 720px){
+  .statusbar,
+  .tickerbar,
+  .masthead{
+    backdrop-filter: none;
+    -webkit-backdrop-filter: none;
+    /* Promote each sticky bar to its own compositor layer so it
+       translates with the page instead of repainting. */
+    transform: translateZ(0);
+    will-change: transform;
+  }
+  .statusbar{ background: rgba(5,2,3,.94); }
+  .tickerbar{
+    background:
+      linear-gradient(180deg, rgba(10,3,6,.94), rgba(5,2,3,.94));
+  }
+  .masthead{ background: rgba(0,0,0,.92); }
 }
