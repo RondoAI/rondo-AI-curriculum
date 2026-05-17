@@ -281,3 +281,80 @@ what's in the document and any reading order cues.
 
 Rule: every time you deliver more than one screenshot, deliver
 the PDF, not the loose PNGs.
+
+## Data Ownership: One Home Per Data Point
+
+Saved by Rondo's instruction, 2026-05-17. His exact example:
+"if you have block space in the ticker and then you have block
+space in the analytics, then what's the point? Keep the block
+space in the analytics, not in the ticker."
+
+Rule: every data point has ONE canonical surface on the site.
+Never render the same field in two places. If the reader sees
+the same number twice, one of them is wasted real estate AND
+risks drifting out of sync.
+
+Canonical ownership map for Subnet Magazine v2 (always honor
+this when adding/editing a tile or chip):
+
+  TAO/USD price + 24h delta + sparkline      → StatusStrip (global)
+  TAO MCAP                                    → StatusStrip (global)
+  BLK / Block height                          → StatusStrip (global)
+  STAKED %                                    → StatusStrip (global)
+  EMIT τ/day (network total)                  → StatusStrip (global)
+  YCX (Yuma Composite Index)                  → StatusStrip (global)
+
+  SUBNET MCAP (sum of all α mcaps)            → Dashboard status bar
+  24H VOLUME (network total)                  → Dashboard status bar
+  VALIDATORS (count, network-wide)            → Dashboard status bar
+  MINERS (count, network-wide)                → Dashboard status bar
+  EMISSION τ/d (network total)                → Dashboard status bar
+                                                (note: same field as
+                                                 StatusStrip EMIT —
+                                                 pick one when next
+                                                 touching this code;
+                                                 the cleaner home is
+                                                 StatusStrip global)
+  AI DOMINANCE %                              → Dashboard status bar
+
+  Per-subnet α price + chg24/7/30             → Dashboard DETAIL,
+                                                 Cockpit CHART pane,
+                                                 Cockpit subnet rail
+                                                 (selection echo,
+                                                 not duplicates)
+
+  Live subnet ticker chips                    → Top ticker bar
+                                                (Bittensor tape)
+  Centralized ticker chips (NVDA, AMD, etc.)  → Top ticker bar
+                                                (Central Desk tape)
+  AI-world news headlines                     → Top ticker bar
+                                                (Central Desk tail)
+  Bittensor news headlines                    → Top ticker bar
+                                                (Bittensor tail)
+
+Before adding a new tile / chip / panel:
+  1. Check this map for the field's existing home.
+  2. If a home exists, DO NOT duplicate — link or anchor instead.
+  3. If a new field, add it here AND in the relevant file's
+     header comment block (search for "DATA OWNERSHIP MAP" in
+     code).
+  4. When removing a duplicate, leave a brief comment naming the
+     canonical home so a future session doesn't re-add it.
+
+Free / no-key live data sources currently plugged in:
+  TaoMarketcap public API   api.taomarketcap.com/public/v1
+                            (10 req/min, no auth, CORS via proxy)
+  TaoStats API              api.taostats.io/api
+                            (key-gated, see window.__SUBNET_CONFIG__
+                             .taostatsKey in gitignored config.js;
+                             with no key the dashboard runs fine
+                             on TMC alone)
+
+Future additions to consider (all free, all no-CORS for crypto):
+  CoinGecko simple/price     api.coingecko.com/api/v3
+                             (backup TAO price, BTC/ETH/SOL context)
+  Bittensor public RPC       wss://entrypoint-finney.opentensor.ai
+                             (chain head, validator info, raw chain)
+
+Stock APIs (NVDA, AMD, etc.) require keys — when wiring, store
+the key in window.__SUBNET_CONFIG__ in gitignored config.js.

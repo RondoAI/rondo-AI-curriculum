@@ -1,11 +1,24 @@
 /* =================================================================
-   STATUS STRIP VIEW
+   STATUS STRIP VIEW (the global header, every page)
    -----------------------------------------------------------------
-   The persistent infographic band at the very top of the document,
-   under the ticker tapes. A dense, Bloomberg-grade readout of the
-   network: live state on the left, market on the right, with a
-   micro-trend sparkline on the τ quote. Live where the data layer
-   provides it (τ price, block height); a researched seed otherwise.
+   Rondo's de-dup rule: every data point has ONE home. StatusStrip
+   owns the network-level vitals visible on every page:
+
+     TAO/USD price + 24h delta + sparkline      ← canonical home
+     TAO MCAP                                   ← canonical home
+     BLK (block height)                         ← canonical home
+     STAKED %                                   ← canonical home
+     EMIT (τ/day)                               ← canonical home
+     YCX (Yuma Composite Index, seeded for now)
+
+   Dashboard status bar owns dashboard-specific aggregates (subnet
+   mcap sum, validator/miner headcount, AI dominance, 24h volume)
+   that don't make sense outside the dashboard context.
+
+   Live data: τ price + 24h change + market cap arrive from the
+   data layer's 'tao:market' channel (powered by TaoMarketcap public
+   API, no auth, 15s polling). Block height arrives from 'tao:block'.
+   Hardcoded seeds render until the first payload lands.
    ================================================================= */
 
 import { html, mount, qs, setLive } from '../lib/dom.js';
