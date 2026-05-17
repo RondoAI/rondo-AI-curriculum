@@ -59,8 +59,8 @@ const COMMANDS = [
   { fn: 'open-compare',     verb: 'COMPARE',   args: '<id> <id> …',         desc: 'Side-by-side subnet comparison',         kind: 'fn',     wip: true },
   { fn: 'open-alert',       verb: 'ALERT',     args: '',                    desc: 'Price / stake / emission alerts',        kind: 'fn',     wip: true },
   { fn: 'open-layout',      verb: 'LAYOUT',    args: '',                    desc: 'Customize panel layout',                 kind: 'fn',     wip: true },
-  { fn: 'open-backdrop',    verb: 'BACKDROP',  args: '<id>',                desc: 'Centralized AI news for subnet category',kind: 'fn',     wip: true },
-  { fn: 'open-briefing',    verb: 'BRIEFING',  args: '[date]',              desc: "Today's daily briefing",                 kind: 'fn',     wip: true },
+  { fn: 'open-backdrop',    verb: 'BACKDROP',  args: '[id]',                desc: 'Centralized AI backdrop for selected subnet', kind: 'fn' },
+  { fn: 'open-briefing',    verb: 'BRIEFING',  args: '[date]',              desc: 'Jump to the daily briefing strip',       kind: 'fn' },
 
   /* ---- Meta ---- */
   { fn: 'help',             verb: 'HELP',      args: '',                    desc: 'Keyboard shortcuts & syntax',            kind: 'meta' },

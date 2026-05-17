@@ -24,6 +24,8 @@
        budget cycles, frontier capability moves.
    ================================================================= */
 
+import { playersForSubnet } from './centralized.js';
+
 /**
  * @typedef {Object} CentralNewsItem
  * @prop {string}   id              slug
@@ -179,4 +181,71 @@ export function recentCentralizedNews(limit = Infinity, cat){
     .slice()
     .sort((a, b) => (b.date || '').localeCompare(a.date || ''))
     .slice(0, limit);
+}
+
+/* Subnet category → centralized-news cats that are always relevant.
+   News cats ('lab','chip','capex','infra','policy','research',
+   'capital') aren't the same vocabulary as subnet cats; this map
+   says "for a text subnet, any 'lab' or 'research' news is relevant
+   context even if its subjects[] don't explicitly name a player in
+   that subnet's competitive set." Pairs with subject-name overlap
+   in newsForSubnet() below. */
+const RELEVANT_NEWS_CATS_FOR_SUBNET_CAT = Object.freeze({
+  text:       new Set(['lab', 'research', 'capital']),
+  vision:     new Set(['lab', 'research']),
+  audio:      new Set(['lab', 'research']),
+  video:      new Set(['lab', 'research']),
+  multimodal: new Set(['lab', 'research']),
+  agents:     new Set(['lab', 'research', 'capital']),
+  training:   new Set(['chip', 'capex', 'infra']),
+  data:       new Set(['research', 'infra']),
+  search:     new Set(['lab', 'research']),
+  finance:    new Set(['capital', 'policy']),
+  robotics:   new Set(['lab', 'research']),
+  science:    new Set(['research']),
+  infra:      new Set(['infra', 'capex', 'chip', 'policy']),
+  prediction: new Set(['research']),
+});
+
+/**
+ * Top centralized-news items relevant to a given subnet. Two-tier
+ * scoring:
+ *   +3 if a news item's subjects[] intersects with any centralized-
+ *      player name in the subnet's competitive set
+ *   +1 if the item's cat is in the always-relevant set for the
+ *      subnet's category
+ * Items with score 0 are dropped. Sort by score desc, then date desc.
+ * Falls back to recentCentralizedNews if the subnet has no cat.
+ * @param {{cat?: string}} subnet
+ * @param {number}         [limit=8]
+ * @returns {CentralNewsItem[]}
+ */
+export function newsForSubnet(subnet, limit = 8){
+  if (!subnet || !subnet.cat) return recentCentralizedNews(limit);
+  const players = playersForSubnet(subnet);
+  /* Match full name AND the lead segment ('Alibaba' from 'Alibaba ·
+     Qwen'), because news subjects use the short brand. */
+  const playerKeys = new Set();
+  for (const p of players){
+    const full = (p.name || '').toLowerCase();
+    if (full) playerKeys.add(full);
+    const lead = (p.name || '').split(/\s*[·\.]\s*/)[0].toLowerCase();
+    if (lead && lead !== full) playerKeys.add(lead);
+  }
+  const relevantCats = RELEVANT_NEWS_CATS_FOR_SUBNET_CAT[subnet.cat] || new Set();
+
+  const scored = CENTRALIZED_NEWS.map(n => {
+    let score = 0;
+    for (const subj of (n.subjects || [])){
+      const sl = String(subj).toLowerCase();
+      if (playerKeys.has(sl)){ score += 3; break; }
+    }
+    if (relevantCats.has(n.cat)) score += 1;
+    return { n, score };
+  });
+  return scored
+    .filter(x => x.score > 0)
+    .sort((a, b) => (b.score - a.score) || (b.n.date || '').localeCompare(a.n.date || ''))
+    .slice(0, limit)
+    .map(x => x.n);
 }

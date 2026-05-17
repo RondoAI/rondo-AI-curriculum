@@ -182,3 +182,49 @@ export const ASIAN_REGIONS = new Set(['CN','KR','JP','TW','IN']);
 export function asianCompetitorsForCategory(cat){
   return CENTRALIZED_PLAYERS.filter(p => p.cat === cat && ASIAN_REGIONS.has(p.region));
 }
+
+/* Subnet category → centralized player categories that compete in
+   the same space. Subnet cats aren't 1:1 with player cats:
+   'multimodal' folds into text+vision; 'agents' (= LLM applications)
+   maps to text; 'training' is fundamentally infra; 'finance' has no
+   centralized-player cat so falls back to prediction. The 1:1 cats
+   (text/vision/audio/video/data/search/robotics/science/infra/
+   prediction) map to themselves. */
+const PLAYER_CAT_FOR_SUBNET_CAT = Object.freeze({
+  text:       ['text'],
+  vision:     ['vision'],
+  audio:      ['audio'],
+  video:      ['video'],
+  multimodal: ['text', 'vision'],
+  agents:     ['text'],
+  training:   ['infra'],
+  data:       ['data'],
+  search:     ['search'],
+  finance:    ['prediction'],
+  robotics:   ['robotics'],
+  science:    ['science'],
+  infra:      ['infra'],
+  prediction: ['prediction'],
+});
+
+/**
+ * Centralized competitors for a subnet, by its category. Returns
+ * players in matching cats, deduped. When the subnet category has
+ * no 1:1 player cat (multimodal, agents, training, finance) the
+ * lookup folds in the most-relevant adjacent cats.
+ * @param {{cat?: string}} subnet
+ */
+export function playersForSubnet(subnet){
+  if (!subnet || !subnet.cat) return [];
+  const cats = PLAYER_CAT_FOR_SUBNET_CAT[subnet.cat] || [subnet.cat];
+  const seen = new Set();
+  const out = [];
+  for (const c of cats){
+    for (const p of competitorsForCategory(c)){
+      if (seen.has(p.id)) continue;
+      seen.add(p.id);
+      out.push(p);
+    }
+  }
+  return out;
+}

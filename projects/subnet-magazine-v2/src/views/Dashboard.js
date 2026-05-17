@@ -29,8 +29,9 @@ import { Sparkline } from '../charts/Sparkline.js';
 import { SUBNETS, subnetById } from '../data/subnets.js';
 import { SUBNET_BIOS } from '../data/subnet-bios.js';
 import { ARTICLES } from '../data/articles.js';
-import { CENTRALIZED_PLAYERS } from '../data/centralized.js';
-import { CENTRALIZED_NEWS, recentCentralizedNews } from '../data/centralized-news.js';
+import { CENTRALIZED_PLAYERS, playersForSubnet } from '../data/centralized.js';
+import { CENTRALIZED_NEWS, recentCentralizedNews, newsForSubnet } from '../data/centralized-news.js';
+import { BRIEFINGS, latestBriefing, priorBriefings, currencyHeader, daysBetween } from '../data/briefings.js';
 import { GH_ACTIVITY, ghByNetuid } from '../data/github-activity.js';
 import { recentOracleArticles } from '../data/oracle-articles.js';
 import { TOP_HOLDERS_NETWORK, RECENT_TRANSFERS_NETWORK, topHoldersFor, recentTransfersFor } from '../data/wallet-activity.js';
@@ -474,12 +475,13 @@ export function mountDashboard(root, dataLayer = null){
   mount(root, html`
     <section class="dash" data-mount="dashboard-root">
       ${renderStatusBar()}
+      ${renderBriefings()}
       <div class="dash-grid">
         ${renderCommand()}
         <div class="dash-detail" data-zone="detail">
           ${renderDetail(selectedId)}
         </div>
-        ${renderComparator()}
+        ${renderComparator(subnetById(selectedId))}
       </div>
       ${renderMasterTable()}
       ${renderArchive()}
@@ -545,6 +547,7 @@ export function mountDashboard(root, dataLayer = null){
         qsa('.dash-command__row', root).forEach(r => r.classList.remove('is-selected'));
         rowEl.classList.add('is-selected');
         repaintDetail();
+        repaintComparator();
       });
     });
     qsa('[data-star]', root).forEach(btn => {
@@ -630,6 +633,7 @@ export function mountDashboard(root, dataLayer = null){
         qsa('.dash-command__row', root).forEach(r => r.classList.toggle('is-selected', parseInt(r.dataset.row,10) === id));
         qsa('.dash-master__row', root).forEach(r => r.classList.toggle('is-selected', parseInt(r.dataset.masterRow,10) === id));
         repaintDetail();
+        repaintComparator();
         qs('.dash-detail', root)?.scrollIntoView({ behavior: 'smooth', block: 'start' });
       });
     });
@@ -911,13 +915,28 @@ export function mountDashboard(root, dataLayer = null){
       case 'scroll-to':
         _scrollTo(d.target || '.dash-detail');
         break;
-      /* WIP verbs, palette already showed a toast, dashboard no-ops. */
+      case 'open-briefing':
+        /* Scroll the daily briefings strip into view. With a date
+           arg we could pre-select that briefing, but the strip
+           always shows the lead first so the basic scroll-to is
+           sufficient for v1; date-deep-link is a future pass. */
+        qs('[data-zone="briefings"]', root)?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        break;
+      case 'open-backdrop': {
+        /* With a subnet arg, select that subnet first so the rail
+           reflects its category. Without one, just scroll to the
+           rail as it stands for the currently-selected subnet. */
+        const id = d.netuid != null ? d.netuid : _parseSubnetArg(parts[0]);
+        if (id != null) _selectSubnet(id);
+        qs('.dash-comparator', root)?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        break;
+      }
+      /* Remaining WIP verbs, palette already showed a toast,
+         dashboard no-ops. */
       case 'open-hist':
       case 'open-compare':
       case 'open-alert':
       case 'open-layout':
-      case 'open-backdrop':
-      case 'open-briefing':
         break;
     }
   };
@@ -1341,7 +1360,25 @@ export function mountDashboard(root, dataLayer = null){
     `;
   }
 
-  function renderComparator(){
+  function renderComparator(selectedSubnet){
+    /* Per-subnet centralized backdrop. When a subnet is selected we
+       filter both the frontier news and the valuation ladder to its
+       competitive set: text subnet → text-domain labs, infra subnet
+       → chip/foundry/cloud, etc. The header names the category so
+       the reader sees WHY the rail looks the way it does. With no
+       selection (shouldn't happen — selectedId defaults to 4 — but
+       the fallback is here defensively) we surface the full
+       universe. */
+    const subCat   = selectedSubnet?.cat || '';
+    const catLabel = (CAT_LABEL[subCat] || subCat || '').toUpperCase();
+    const players  = selectedSubnet ? playersForSubnet(selectedSubnet) : CENTRALIZED_PLAYERS;
+    const news     = selectedSubnet ? newsForSubnet(selectedSubnet, 10) : recentCentralizedNews(10);
+
+    const compTop  = players
+      .map(p => ({ ...p, _v: parseVal(p.valuation) }))
+      .sort((a, b) => b._v - a._v)
+      .slice(0, 14);
+
     const rows = compTop.map(p => `
       <li class="dash-comparator__row">
         <div>
@@ -1355,13 +1392,11 @@ export function mountDashboard(root, dataLayer = null){
       </li>
     `).join('');
 
-    /* Centralized AI news feed: top-8 items from the SemiAnalysis-
-       style seed (chip economics, hyperscaler capex, frontier-lab
-       moves, policy). Each row dated, sourced, categorized, with a
-       one-line takeaway so a serious reader of the broader AI
-       domain finds value here even if they don't trade subnets. */
-    const news = recentCentralizedNews(8);
-    const newsRows = news.map(n => `
+    /* Empty-state friendly: when filtering produces zero news the
+       rail is brittle and reads as "no data" — instead, name the
+       gap and point the reader at the briefings archive which always
+       has the cross-cutting picture. */
+    const newsRows = news.length ? news.map(n => `
       <li class="dash-cnews__row">
         <span class="dash-cnews__date">${fmtDate(n.date)}</span>
         <span class="dash-cnews__cat dash-cnews__cat--${n.cat}">${n.cat.toUpperCase()}</span>
@@ -1369,20 +1404,104 @@ export function mountDashboard(root, dataLayer = null){
         <span class="dash-cnews__src">${n.source} · ${n.subjects.join(' · ')}</span>
         <span class="dash-cnews__take">${n.takeaway}</span>
       </li>
-    `).join('');
+    `).join('') : `
+      <li class="dash-cnews__row" style="display:block;padding:14px 12px;color:var(--c-ink-3);font-style:italic;font-family:var(--f-sans);font-size:11px">
+        No centralized-AI signals indexed for the ${catLabel.toLowerCase() || 'selected'} category yet. The desk catches up daily, see <a style="color:var(--c-red-1)" href="https://github.com/RondoAI/rondo-AI-curriculum/tree/main/briefings" target="_blank" rel="noopener">/briefings ↗</a> for the cross-cutting picture.
+      </li>
+    `;
+
+    const head = selectedSubnet && catLabel
+      ? `CENTRALIZED BACKDROP · ${catLabel}`
+      : 'CENTRALIZED INTEL · landscape + news';
+    const sub  = selectedSubnet && catLabel
+      ? `Frontier-AI signals filtered to the ${catLabel.toLowerCase()} space, so the centralized competitive picture matches the subnet you're reading. Source / scope / takeaway per signal.`
+      : 'The AI domain a Bittensor reader still has to track, frontier labs, GPU economics, hyperscaler capex, policy. Curated in the SemiAnalysis register, source / scope / takeaway per signal.';
 
     return `
       <aside class="dash-comparator">
-        <div class="dash-comparator__head">CENTRALIZED INTEL · landscape + news</div>
-        <div class="dash-comparator__sub">The AI domain a Bittensor reader still has to track, frontier labs, GPU economics, hyperscaler capex, policy. Curated in the SemiAnalysis register, source / scope / takeaway per signal.</div>
+        <div class="dash-comparator__head">${head}</div>
+        <div class="dash-comparator__sub">${sub}</div>
 
-        <div class="dash-cnews__sectionhead">FRONTIER NEWS</div>
+        <div class="dash-cnews__sectionhead">FRONTIER NEWS${catLabel ? ' · ' + catLabel : ''} · ${news.length} indexed</div>
         <ul class="dash-cnews__list">${newsRows}</ul>
 
-        <div class="dash-cnews__sectionhead">VALUATION LADDER</div>
+        <div class="dash-cnews__sectionhead">VALUATION LADDER${catLabel ? ' · ' + catLabel : ''} · ${compTop.length} players</div>
         <ul class="dash-comparator__list">${rows}</ul>
       </aside>
     `;
+  }
+
+  function renderBriefings(){
+    /* Daily-briefings hero strip. Sits between status bar and the
+       3-col grid. The magazine's deepest analytical work is the
+       briefings — making them load-bearing here moves them from
+       invisible (just MD files in /briefings/) to the editorial
+       lead of the dashboard.
+
+       Honest currency: the kicker reflects how many days old the
+       most-recent briefing is. We never fake "TODAY" when the
+       lead is older. If it's >24h old, the dot turns amber. */
+    const lead = latestBriefing();
+    if (!lead) return '';
+
+    const todayIso = new Date().toISOString().slice(0, 10);
+    const dOld     = daysBetween(lead.date, todayIso);
+    const stale    = dOld != null && dOld > 1;
+    const header   = currencyHeader(todayIso, lead.date);
+
+    const highlights = lead.highlights.map(h => `
+      <li>
+        <span class="dash-brief__hl__tag">${h.tag}</span>
+        <span class="dash-brief__hl__txt">${h.text}</span>
+      </li>
+    `).join('');
+
+    const cats = (lead.cats || []).map(c =>
+      `<span class="dash-brief__cat">${c.toUpperCase()}</span>`
+    ).join('');
+
+    const priorCards = priorBriefings(2).map(b => `
+      <a class="dash-brief__prior-card" href="${b.href}" target="_blank" rel="noopener">
+        <span class="dash-brief__prior-card__date">${fmtDate(b.date)} · BRIEFING</span>
+        <h3 class="dash-brief__prior-card__title">${b.title}</h3>
+        <p class="dash-brief__prior-card__dek">${b.dek}</p>
+      </a>
+    `).join('');
+
+    return `
+      <section class="dash-brief${stale ? ' is-stale' : ''}" data-zone="briefings">
+        <div class="dash-brief__head">
+          <span class="dash-brief__kicker">
+            <span class="dash-brief__kicker__dot"></span>${header}
+          </span>
+          <a class="dash-brief__arch" href="https://github.com/RondoAI/rondo-AI-curriculum/tree/main/briefings" target="_blank" rel="noopener">FULL ARCHIVE ↗</a>
+        </div>
+        <div class="dash-brief__grid">
+          <a class="dash-brief__lead" href="${lead.href}" target="_blank" rel="noopener" aria-label="Read full briefing ${lead.date}">
+            <span class="dash-brief__lead__date">${fmtDate(lead.date)} · ${lead.kicker}</span>
+            <h2 class="dash-brief__lead__title">${lead.title}</h2>
+            <p class="dash-brief__lead__dek">${lead.dek}</p>
+            <div class="dash-brief__rule"></div>
+            <ul class="dash-brief__hl">${highlights}</ul>
+            <div class="dash-brief__lead__foot">
+              <div class="dash-brief__lead__cats">${cats}</div>
+              <span class="dash-brief__lead__link">READ FULL BRIEFING ↗</span>
+            </div>
+          </a>
+          <div class="dash-brief__prior">${priorCards}</div>
+        </div>
+      </section>
+    `;
+  }
+
+  function repaintComparator(){
+    /* outerHTML replace, the rail has no internal interactive state
+       (no focused input, no scroll position to preserve), so a full
+       swap is fine. Same pattern repaintMaster uses. */
+    const z = qs('.dash-comparator', root);
+    if (!z) return;
+    const subnet = subnetState.rows.find(s => s.netuid === selectedId);
+    z.outerHTML = renderComparator(subnet);
   }
 
   function renderArchive(){
