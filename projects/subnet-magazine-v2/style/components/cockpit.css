@@ -510,6 +510,214 @@
   font-style: italic;
 }
 
+/* ---------- FRESH side-scroll strip (Bloomberg-style) ----- */
+/* Horizontal scroll of the freshest 5-6 items, snap-aligned, so the
+   reader can scrub through headlines at-a-glance without losing
+   the cockpit's bounded layout. Lives at the top of the FEED pane,
+   above the deeper editorial / centralized stacks. */
+.cock-feed__strip-wrap{
+  border-bottom: 1px solid var(--c-rule-2);
+  flex-shrink: 0;
+}
+.cock-feed__strip-head{
+  display: flex; justify-content: space-between; align-items: baseline;
+  padding: 8px 14px 4px;
+  font-family: var(--f-mono);
+  font-size: 9.5px;
+  letter-spacing: .18em;
+  font-weight: 800;
+  color: var(--c-red);
+}
+.cock-feed__strip-meta{
+  color: var(--c-ink-3);
+  font-style: italic;
+  font-family: var(--f-sans);
+  text-transform: none;
+  letter-spacing: .04em;
+  font-size: 10px;
+}
+.cock-feed__strip{
+  display: flex;
+  gap: 8px;
+  padding: 8px 14px 14px;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  -webkit-overflow-scrolling: touch;
+}
+.cock-feed__strip::-webkit-scrollbar{ height: 4px; }
+.cock-feed__strip::-webkit-scrollbar-thumb{ background: var(--c-rule-3); }
+
+/* ---------- rich news card ------------------------------- */
+/* 16:9 cover with procedural SVG art, kind chip top-right, SN tag
+   bottom-left, monospace date, serif title (clamped 2 lines), sans
+   takeaway (clamped 2 lines), and a meta + READ ↗ foot. Reads as
+   a research card, not a list row. */
+.cock-news{
+  display: flex;
+  flex-direction: column;
+  background: var(--c-bg-2);
+  border: 1px solid var(--c-rule-2);
+  text-decoration: none;
+  color: inherit;
+  transition: border-color 120ms, transform 120ms;
+  min-width: 0;
+}
+.cock-news:hover{
+  border-color: var(--c-red);
+}
+.cock-news__cover{
+  position: relative;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  background: #050203;
+  border-bottom: 1px solid var(--c-rule);
+  overflow: hidden;
+}
+.cock-news__cover-svg{
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+.cock-news__kind{
+  position: absolute;
+  top: 6px;
+  right: 6px;
+  font-family: var(--f-mono);
+  font-size: 8.5px;
+  font-weight: 800;
+  letter-spacing: .16em;
+  padding: 2px 6px;
+  background: rgba(5,2,3,.85);
+  border: 1px solid var(--c-ink-3);
+  color: var(--c-ink-2);
+}
+.cock-news__kind--magazine{ border-color: var(--c-warn); color: var(--c-warn); }
+.cock-news__kind--oracle  { border-color: var(--c-red);  color: var(--c-red);  }
+.cock-news__kind--lab     { border-color: #FF8094;       color: #FF8094;       }
+.cock-news__kind--chip    { border-color: var(--c-warn); color: var(--c-warn); }
+.cock-news__kind--capex   { border-color: var(--c-up);   color: var(--c-up);   }
+.cock-news__kind--capital { border-color: var(--c-up);   color: var(--c-up);   }
+.cock-news__kind--policy  { border-color: var(--c-down); color: var(--c-down); }
+.cock-news__kind--research{ border-color: var(--c-red);  color: var(--c-red);  }
+.cock-news__kind--infra   { border-color: var(--c-ink-2); color: var(--c-ink-2); }
+.cock-news__sn{
+  position: absolute;
+  bottom: 6px;
+  left: 6px;
+  font-family: var(--f-mono);
+  font-size: 9px;
+  font-weight: 800;
+  letter-spacing: .04em;
+  padding: 2px 6px;
+  background: var(--c-red);
+  color: #fff;
+}
+.cock-news__body{
+  padding: 10px 12px 12px;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  min-width: 0;
+}
+.cock-news__date{
+  font-family: var(--f-mono);
+  font-size: 9px;
+  letter-spacing: .14em;
+  color: var(--c-ink-3);
+  font-weight: 800;
+}
+.cock-news__title{
+  font-family: var(--f-serif);
+  font-size: 14px;
+  line-height: 1.25;
+  color: #fff;
+  font-weight: 700;
+  margin: 2px 0 0;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+.cock-news__dek{
+  margin: 4px 0 0;
+  font-family: var(--f-sans);
+  font-size: 11.5px;
+  line-height: 1.4;
+  color: var(--c-ink-2);
+  font-style: italic;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+.cock-news__foot{
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 8px;
+  margin-top: 6px;
+  padding-top: 6px;
+  border-top: 1px dashed var(--c-rule);
+}
+.cock-news__meta{
+  font-family: var(--f-mono);
+  font-size: 9px;
+  letter-spacing: .08em;
+  color: var(--c-ink-3);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  min-width: 0;
+}
+.cock-news__read{
+  font-family: var(--f-mono);
+  font-size: 9px;
+  letter-spacing: .14em;
+  font-weight: 800;
+  color: var(--c-red-1);
+  white-space: nowrap;
+}
+
+/* COMPACT variant for the FRESH side-scroll strip — fixed width,
+   snap-aligned, no dek clamp. */
+.cock-news--compact{
+  width: 220px;
+  flex-shrink: 0;
+  scroll-snap-align: start;
+}
+.cock-news--compact .cock-news__dek{
+  -webkit-line-clamp: 1;
+}
+
+/* Cards-list under each group: vertical stack with thin separators,
+   on desktop becomes a 2-col grid where space allows. */
+.cock-news-list{
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 10px;
+  padding: 10px 14px 16px;
+}
+.cock-feed__group{
+  flex: 1;
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
+}
+.cockpit__feed > .cock-feed__group + .cock-feed__group{
+  border-top: 1px solid var(--c-rule-2);
+}
+.cock-feed__group-n{
+  display: inline-block;
+  margin-left: 6px;
+  padding: 0 5px;
+  font-size: 9px;
+  font-family: var(--f-mono);
+  font-weight: 800;
+  color: var(--c-ink-3);
+  border: 1px solid var(--c-rule-2);
+}
+
 /* ---------- DESKTOP (>=901px) ----------------------------- */
 @media (min-width: 901px){
   .cockpit{

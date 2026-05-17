@@ -407,22 +407,109 @@ export function mountCockpit(root, dataLayer = null){
     `;
   }
 
+  /* Procedural cover art for a news/article item. The magazine has
+     no photo pipeline, so each item gets a deterministic SVG cover
+     keyed off (kind, subject hash): hairline grid + kind-tinted
+     gradient + large display-weight glyph (SN# / source initial /
+     τ). Stable per title so readers learn the visual as identity. */
+  function feedCoverSvg(item, subnet){
+    const isMag    = item.kind === 'magazine';
+    const isOracle = item.kind === 'oracle';
+    const accent =
+      isMag    ? '#FFB85C' :
+      isOracle ? '#FF1E3C' :
+      item.kind === 'chip'    ? '#FFB85C' :
+      item.kind === 'capex'   ? '#00E5A8' :
+      item.kind === 'capital' ? '#00E5A8' :
+      item.kind === 'policy'  ? '#FF4D60' :
+      item.kind === 'lab'     ? '#FF8094' :
+      item.kind === 'research'? '#FF4D60' :
+      '#FF1E3C';
+    const glyph = subnet ? 'SN' + subnet.netuid
+                : (item.source ? item.source.slice(0, 3).toUpperCase()
+                                : 'τ');
+    const title = String(item.title || item.headline || '');
+    let h = 0;
+    for (let i = 0; i < title.length; i++) h = ((h << 5) - h + title.charCodeAt(i)) | 0;
+    const seed = Math.abs(h) % 1000;
+    const rotate  = ((seed * 7) % 12) - 6;
+    const offsetX = (seed % 30) - 15;
+    const fontSize = glyph.length > 4 ? 28 : 44;
+    return `<svg viewBox="0 0 280 140" preserveAspectRatio="xMidYMid slice" aria-hidden="true" class="cock-news__cover-svg">
+      <defs>
+        <linearGradient id="cf${seed}" x1="0" y1="0" x2="1" y2="1">
+          <stop offset="0%"   stop-color="#050203"/>
+          <stop offset="100%" stop-color="${accent}" stop-opacity="0.28"/>
+        </linearGradient>
+        <pattern id="cp${seed}" patternUnits="userSpaceOnUse" width="14" height="14">
+          <path d="M0 7L14 7M7 0L7 14" stroke="${accent}" stroke-opacity="0.10" stroke-width="0.6"/>
+        </pattern>
+      </defs>
+      <rect width="280" height="140" fill="#050203"/>
+      <rect width="280" height="140" fill="url(#cf${seed})"/>
+      <rect width="280" height="140" fill="url(#cp${seed})"/>
+      <line x1="0" y1="140" x2="280" y2="${80 - (seed % 30)}" stroke="${accent}" stroke-opacity="0.22" stroke-width="0.8"/>
+      <text x="${140 + offsetX}" y="86" text-anchor="middle"
+            font-family="Archivo, Inter, sans-serif" font-size="${fontSize}" font-weight="800"
+            fill="${accent}" fill-opacity="0.85"
+            transform="rotate(${rotate} ${140 + offsetX} 70)">${glyph}</text>
+      <line x1="12" y1="128" x2="268" y2="128" stroke="${accent}" stroke-opacity="0.4" stroke-width="0.6"/>
+      <text x="12" y="137" font-family="JetBrains Mono, monospace" font-size="6.5"
+            font-weight="800" letter-spacing="1.8" fill="${accent}" fill-opacity="0.7">SUBNE&#x3C4; MAGAZINE</text>
+    </svg>`;
+  }
+
+  /* Image-rich news card. Replaces the prior plain-text item with a
+     Yahoo Finance / Bloomberg-style card: 16:9 cover + kind chip
+     + serif headline + sans takeaway + bottom meta. Reads as a
+     research feed, not a wall of text. */
+  function renderNewsCard(item, subnet, opts = {}){
+    const kindLbl = ({
+      magazine: 'MAG',
+      oracle:   'ORC',
+      lab: 'LAB', chip: 'CHIP', capex: 'CAPEX', capital: 'CAPITAL',
+      policy: 'POLICY', research: 'RESEARCH', infra: 'INFRA',
+    })[item.kind] || (item.kind || '·').slice(0, 4).toUpperCase();
+    const title = item.title || item.headline || '·';
+    const dek   = item.takeaway || item.dek || item.meta || '';
+    const meta  = item.source ? `${item.source}${(item.subjects||[]).length ? ' · ' + item.subjects.slice(0,2).join(' · ') : ''}` : (item.meta || '');
+    return `
+      <a class="cock-news ${opts.compact ? 'cock-news--compact' : ''}"
+         href="${item.url || '#'}" target="_blank" rel="noopener">
+        <div class="cock-news__cover">
+          ${feedCoverSvg(item, subnet)}
+          <span class="cock-news__kind cock-news__kind--${item.kind}">${kindLbl}</span>
+          ${subnet ? `<span class="cock-news__sn">SN${subnet.netuid}</span>` : ''}
+        </div>
+        <div class="cock-news__body">
+          <span class="cock-news__date">${fmtDate(item.date)}</span>
+          <h4 class="cock-news__title">${title}</h4>
+          ${dek ? `<p class="cock-news__dek">${dek}</p>` : ''}
+          <div class="cock-news__foot">
+            <span class="cock-news__meta">${meta}</span>
+            <span class="cock-news__read">READ ↗</span>
+          </div>
+        </div>
+      </a>`;
+  }
+
   function renderFeed(){
     const s = subnetById(state.selectedId) || SUBNETS[0];
 
     // Centralized news scored for this subnet
-    const centralized = newsForSubnet(s, 6);
+    const centralized = newsForSubnet(s, 8);
 
     // Magazine + Oracle articles tied to this subnet
     const team = ARTICLES.filter(a =>
       Number(a.subnet) === s.netuid ||
       String(a.subnet) === String(s.name)
-    ).slice(0, 4).map(a => ({
+    ).slice(0, 5).map(a => ({
       kind: 'magazine',
       date: a.date,
       title: a.title,
       url:  a.pdf || a.externalUrl || '#',
       meta: (a.authors || ['Subneτ Magazine'])[0],
+      dek:  a.tagline || a.dek || '',
     }));
     const oracle = recentOracleArticles(Infinity)
       .filter(a =>
@@ -430,47 +517,69 @@ export function mountCockpit(root, dataLayer = null){
         ((a.subnetName || '').toLowerCase() === s.name.toLowerCase()) ||
         ((a.title || '').toLowerCase().includes(s.name.toLowerCase()))
       )
-      .slice(0, 3)
+      .slice(0, 4)
       .map(a => ({
         kind: 'oracle',
         date: a.date,
         title: a.title,
         url:  a.pdf || '#',
         meta: 'Subnet Oracle',
+        dek:  a.dek || '',
       }));
 
-    const editorialHtml = (team.length || oracle.length) ? [...team, ...oracle]
-      .sort((a,b) => (b.date || '').localeCompare(a.date || ''))
-      .slice(0, 5)
-      .map(a => `
-        <a class="cock-feed__item" href="${a.url}" target="_blank" rel="noopener">
-          <span class="cock-feed__kind cock-feed__kind--${a.kind}">${a.kind.toUpperCase()}</span>
-          <span class="cock-feed__date">${fmtDate(a.date)}</span>
-          <div class="cock-feed__title">${a.title}</div>
-          <span class="cock-feed__meta">${a.meta}</span>
-        </a>`).join('') : `<div class="cock-feed__empty">No editorial dispatches indexed for SN${s.netuid} yet.</div>`;
+    const editorial = [...team, ...oracle]
+      .sort((a,b) => (b.date || '').localeCompare(a.date || ''));
 
-    const newsHtml = centralized.length ? centralized.map(n => `
-      <a class="cock-feed__item" href="${n.url}" target="_blank" rel="noopener">
-        <span class="cock-feed__kind cock-feed__kind--${n.cat}">${n.cat.toUpperCase()}</span>
-        <span class="cock-feed__date">${fmtDate(n.date)}</span>
-        <div class="cock-feed__title">${n.headline}</div>
-        <span class="cock-feed__meta">${n.source} · ${(n.subjects || []).slice(0, 3).join(' · ')}</span>
-        <div class="cock-feed__take">${n.takeaway}</div>
-      </a>`).join('') : `<div class="cock-feed__empty">No centralized signals scored for this subnet's category yet.</div>`;
+    /* Top strip: side-scrolling row of the FRESHEST 5 items (mix of
+       editorial + centralized, newest first) so the reader has an
+       at-a-glance scrubbable header before diving into the deeper
+       stack below. Horizontal scroll-snap on mobile, no scroll on
+       desktop where the strip just fits. */
+    const fresh = [...editorial, ...centralized.map(n => ({
+      kind: n.cat, date: n.date, title: n.headline, url: n.url,
+      meta: `${n.source} · ${(n.subjects || []).slice(0, 2).join(' · ')}`,
+      dek: n.takeaway, source: n.source, subjects: n.subjects,
+    }))]
+      .sort((a,b) => (b.date || '').localeCompare(a.date || ''))
+      .slice(0, 6);
+
+    const stripHtml = fresh.length ? fresh.map(item =>
+      renderNewsCard(item, item.kind === 'magazine' || item.kind === 'oracle' ? s : null, { compact: true })
+    ).join('') : `<div class="cock-feed__empty">No signals indexed.</div>`;
+
+    const editorialCards = editorial.length ? editorial.slice(0, 4).map(a =>
+      renderNewsCard(a, s)
+    ).join('') : `<div class="cock-feed__empty">No editorial dispatches indexed for SN${s.netuid} yet.</div>`;
+
+    const centralCards = centralized.length ? centralized.map(n =>
+      renderNewsCard({
+        kind: n.cat, date: n.date, title: n.headline, url: n.url,
+        meta: n.source, dek: n.takeaway, source: n.source, subjects: n.subjects,
+      }, null)
+    ).join('') : `<div class="cock-feed__empty">No centralized signals scored for this subnet's category yet.</div>`;
 
     return `
       <header class="cock-feed__head">
         <div class="cock-feed__lbl">SIGNALS · SN${s.netuid} ${s.name}</div>
-        <div class="cock-feed__sub">Editorial dispatches + centralized AI backdrop scored for this subnet.</div>
+        <div class="cock-feed__sub">${s.desc || 'Editorial + centralized signals scored for this subnet.'}</div>
       </header>
-      <section class="cock-feed__group">
-        <h3 class="cock-feed__group-h">⊕ EDITORIAL · MAG &amp; ORACLE</h3>
-        <div class="cock-feed__list">${editorialHtml}</div>
+
+      <section class="cock-feed__strip-wrap">
+        <div class="cock-feed__strip-head">
+          <span class="cock-feed__strip-lbl">⊕ FRESH · scroll →</span>
+          <span class="cock-feed__strip-meta">${fresh.length} items</span>
+        </div>
+        <div class="cock-feed__strip">${stripHtml}</div>
       </section>
+
       <section class="cock-feed__group">
-        <h3 class="cock-feed__group-h">⊕ CENTRALIZED · BACKDROP</h3>
-        <div class="cock-feed__list">${newsHtml}</div>
+        <h3 class="cock-feed__group-h">⊕ EDITORIAL · MAG &amp; ORACLE <span class="cock-feed__group-n">${editorial.length}</span></h3>
+        <div class="cock-news-list">${editorialCards}</div>
+      </section>
+
+      <section class="cock-feed__group">
+        <h3 class="cock-feed__group-h">⊕ CENTRALIZED · BACKDROP <span class="cock-feed__group-n">${centralized.length}</span></h3>
+        <div class="cock-news-list">${centralCards}</div>
       </section>
     `;
   }
