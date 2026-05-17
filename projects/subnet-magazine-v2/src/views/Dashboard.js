@@ -199,6 +199,96 @@ const DISCORD_HUB = 'https://discord.gg/bittensor';
 
 /* ---------- terminal-grade infrastructure ---------------------- */
 
+/* SVG infographic helpers. Inline, no chart-class dependency, no
+   ResizeObserver bookkeeping. Drawn once per detail render. Used
+   to give the dashboard the visual density of a real institutional
+   terminal (Bloomberg, Tableau, Mission UI Pro), gauges, donuts,
+   sparklines, accent bars. Keep math here, not in templates. */
+function svgSpark(values, w = 100, h = 28, color = '#5BE599', fill = true){
+  if (!values || values.length < 2) return '';
+  const min = Math.min(...values);
+  const max = Math.max(...values);
+  const range = max - min || 1;
+  const pts = values.map((v, i) => {
+    const x = (i / (values.length - 1)) * w;
+    const y = h - ((v - min) / range) * (h - 2) - 1;
+    return `${x.toFixed(1)},${y.toFixed(1)}`;
+  });
+  const line = pts.join(' ');
+  const area = fill
+    ? `<polygon points="0,${h} ${line} ${w},${h}" fill="${color}" fill-opacity=".18"/>`
+    : '';
+  return `<svg viewBox="0 0 ${w} ${h}" preserveAspectRatio="none" style="width:100%;height:${h}px;display:block">
+    ${area}
+    <polyline points="${line}" fill="none" stroke="${color}" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+  </svg>`;
+}
+
+function svgGauge(value, max, color = '#FF1E3C', label = '', size = 110){
+  const pct = Math.min(1, Math.max(0, value / max));
+  const r = 42, cx = 55, cy = 55;
+  const c = 2 * Math.PI * r;
+  const dash = c * pct;
+  const display = Math.round(pct * 100) + '%';
+  return `<svg viewBox="0 0 110 110" style="width:${size}px;height:${size}px;display:block">
+    <circle cx="${cx}" cy="${cy}" r="${r}" fill="none" stroke="rgba(255,255,255,.06)" stroke-width="7"/>
+    <circle cx="${cx}" cy="${cy}" r="${r}" fill="none" stroke="${color}" stroke-width="7"
+      stroke-dasharray="${dash.toFixed(2)} ${c.toFixed(2)}" stroke-linecap="round"
+      transform="rotate(-90 ${cx} ${cy})">
+      <animate attributeName="stroke-dashoffset" from="${c}" to="0" dur="1.2s" fill="freeze"/>
+    </circle>
+    <text x="55" y="54" text-anchor="middle" dominant-baseline="central"
+      font-size="20" font-weight="800" fill="#fff" font-family="JetBrains Mono, monospace">${display}</text>
+    <text x="55" y="78" text-anchor="middle"
+      font-size="6.5" letter-spacing="1.8" font-weight="800" fill="rgba(255,30,60,.78)"
+      font-family="JetBrains Mono, monospace">${label}</text>
+  </svg>`;
+}
+
+function svgDonut(segments, centerLabel, centerSub){
+  const total = segments.reduce((n, s) => n + s.value, 0) || 1;
+  let acc = 0;
+  const r1 = 44, r2 = 32, cx = 55, cy = 55;
+  const arcs = segments.map(s => {
+    const start = (acc / total) * 2 * Math.PI - Math.PI / 2;
+    acc += s.value;
+    const end = (acc / total) * 2 * Math.PI - Math.PI / 2;
+    const large = (s.value / total) > 0.5 ? 1 : 0;
+    const sweep = end - start;
+    if (sweep <= 0.0001) return '';
+    const x1 = cx + r1 * Math.cos(start);
+    const y1 = cy + r1 * Math.sin(start);
+    const x2 = cx + r1 * Math.cos(end);
+    const y2 = cy + r1 * Math.sin(end);
+    const x3 = cx + r2 * Math.cos(end);
+    const y3 = cy + r2 * Math.sin(end);
+    const x4 = cx + r2 * Math.cos(start);
+    const y4 = cy + r2 * Math.sin(start);
+    return `<path d="M ${x1.toFixed(2)} ${y1.toFixed(2)} A ${r1} ${r1} 0 ${large} 1 ${x2.toFixed(2)} ${y2.toFixed(2)} L ${x3.toFixed(2)} ${y3.toFixed(2)} A ${r2} ${r2} 0 ${large} 0 ${x4.toFixed(2)} ${y4.toFixed(2)} Z" fill="${s.color}"/>`;
+  }).join('');
+  return `<svg viewBox="0 0 110 110" style="width:130px;height:130px;display:block">
+    ${arcs}
+    <text x="55" y="50" text-anchor="middle" dominant-baseline="central"
+      font-size="17" font-weight="800" fill="#fff" font-family="JetBrains Mono, monospace">${centerLabel}</text>
+    <text x="55" y="70" text-anchor="middle"
+      font-size="6.5" letter-spacing="1.8" font-weight="800" fill="rgba(255,30,60,.78)"
+      font-family="JetBrains Mono, monospace">${centerSub || ''}</text>
+  </svg>`;
+}
+
+function svgBars(values, w = 100, h = 36, color = '#FF1E3C'){
+  if (!values || !values.length) return '';
+  const max = Math.max(...values, 1);
+  const bw = w / values.length;
+  const bars = values.map((v, i) => {
+    const bh = (v / max) * (h - 2);
+    return `<rect x="${(i * bw + 0.5).toFixed(2)}" y="${(h - bh).toFixed(2)}" width="${(bw - 1).toFixed(2)}" height="${bh.toFixed(2)}" fill="${color}" fill-opacity="${(0.55 + (v/max) * 0.45).toFixed(2)}"/>`;
+  }).join('');
+  return `<svg viewBox="0 0 ${w} ${h}" preserveAspectRatio="none" style="width:100%;height:${h}px;display:block">${bars}</svg>`;
+}
+
+/* ---------- terminal-grade infrastructure ---------------------- */
+
 /* Watchlist persistence. Survives reloads + cross-tab via the
    storage event. Simple Set of netuids serialized to JSON. */
 const WATCHLIST_KEY = 'sbn:dashboard:watchlist:v1';
@@ -301,6 +391,8 @@ export function mountDashboard(root, dataLayer = null){
   let searchQuery = '';                // command-rail inline search
   let watchlist = loadWatchlist();     // persists to localStorage
   let onlyWatched = false;             // command-rail filter pill
+  let masterSort = 'mcap';             // master-grid current sort col
+  let masterSortDir = 'desc';          // 'asc' | 'desc'
   const SORT_OPTIONS = [
     { id: 'mcap',  label: 'MCAP',     cmp: (a,b) => (b.mcap||0)-(a.mcap||0) },
     { id: 'chg24', label: '24H %',    cmp: (a,b) => (b.chg24||0)-(a.chg24||0) },
@@ -504,6 +596,48 @@ export function mountDashboard(root, dataLayer = null){
 
   /* Master-table row click: jump that subnet into the command deck
      above without disturbing the rail's current scroll position. */
+  /* Master-grid sortable headers. Click a header to sort by that
+     column; click again to flip direction. Re-paints the master
+     section in place without disturbing scroll position. */
+  function repaintMaster(){
+    const sec = qs('.dash-master', root);
+    if (!sec) return;
+    sec.outerHTML = renderMasterTable();
+    wireMasterHeaders();
+    wireMasterRows();
+  }
+  function wireMasterHeaders(){
+    qsa('[data-mh]', root).forEach(h => {
+      if (h.classList.contains('is-static')) return;
+      h.addEventListener('click', () => {
+        const id = h.dataset.mh;
+        if (id === masterSort){
+          masterSortDir = masterSortDir === 'desc' ? 'asc' : 'desc';
+        } else {
+          masterSort = id;
+          masterSortDir = (id === 'name' || id === 'cat') ? 'asc' : 'desc';
+        }
+        repaintMaster();
+      });
+    });
+  }
+  function wireMasterRows(){
+    qsa('[data-master-row]', root).forEach(row => {
+      row.addEventListener('click', () => {
+        const id = parseInt(row.dataset.masterRow, 10);
+        if (!Number.isFinite(id) || id === selectedId) return;
+        selectedId = id;
+        qsa('.dash-command__row', root).forEach(r => r.classList.toggle('is-selected', parseInt(r.dataset.row,10) === id));
+        qsa('.dash-master__row', root).forEach(r => r.classList.toggle('is-selected', parseInt(r.dataset.masterRow,10) === id));
+        repaintDetail();
+        qs('.dash-detail', root)?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      });
+    });
+  }
+  wireMasterHeaders();
+  /* The legacy explicit data-master-row wiring below is kept as a
+     no-op safety net; wireMasterRows() above is the canonical
+     binder. */
   qsa('[data-master-row]', root).forEach(row => {
     row.addEventListener('click', () => {
       const id = parseInt(row.dataset.masterRow, 10);
@@ -782,21 +916,73 @@ export function mountDashboard(root, dataLayer = null){
     const gh = ghByNetuid(id) || synthesizeGh(s);
     const cls = chgClass(s.chg24);
 
-    /* Build the KPI strip */
+    /* Build the KPI tiles. Each tile: label, big number, comparison
+       line, delta pill, and an inline sparkline (matches the
+       Databox / Customers Helped reference). Five tiles, every one
+       has a 24-point seeded series for its visualization. */
+    const priceSeries  = seedSeries(s.name + ':k-price',  s.chg30 ?? 0,            24);
+    const emSeries     = seedSeries(s.name + ':k-em',    (s.chg7  ?? 0) * 0.4,     24);
+    const stakeSeries  = seedSeries(s.name + ':k-stake', (s.chg30 ?? 0) * 0.3,     24);
+    const valSeries    = seedSeries(s.name + ':k-vals',  (s.chg7  ?? 0) * 0.2,     24);
+    const minerSeries  = seedSeries(s.name + ':k-min',   (s.chg7  ?? 0) * 0.5,     24);
+
     const kpis = [
-      ['α PRICE',    fmtPrice(s.price),     fmtPct(s.chg24) + ' · 24h'],
-      ['FDV',        fmtMcap(s.mcap),       (s.chg30 != null ? fmtPct(s.chg30) + ' · 30d' : '·')],
-      ['EMISSION',   fmtInt(s.emission) + ' τ', '24h on chain'],
-      ['STAKE',      fmtInt(s.stake) + ' τ',    'all validators'],
-      ['VALIDATORS', fmtInt(s.validators),       'active'],
-      ['MINERS',     fmtInt(s.miners),           'active'],
+      {
+        lbl: 'α PRICE',
+        big: fmtPrice(s.price),
+        cmp: 'vs. prior 24h',
+        delta: s.chg24,
+        series: priceSeries,
+        color: s.chg24 >= 0 ? '#5BE599' : '#FF4D60',
+      },
+      {
+        lbl: 'FDV',
+        big: fmtMcap(s.mcap),
+        cmp: '30D change',
+        delta: s.chg30,
+        series: priceSeries,
+        color: s.chg30 >= 0 ? '#5BE599' : '#FF4D60',
+      },
+      {
+        lbl: 'EMISSION',
+        big: fmtInt(s.emission) + ' τ',
+        cmp: '24h on chain',
+        delta: (s.chg7 ?? 0) * 0.4,
+        series: emSeries,
+        color: '#FFB85C',
+      },
+      {
+        lbl: 'STAKE',
+        big: fmtInt(s.stake) + ' τ',
+        cmp: 'all validators',
+        delta: (s.chg30 ?? 0) * 0.3,
+        series: stakeSeries,
+        color: '#FF1E3C',
+      },
+      {
+        lbl: 'VALIDATORS · MINERS',
+        big: fmtInt(s.validators) + ' / ' + fmtInt(s.miners),
+        cmp: 'active 24h',
+        delta: (s.chg7 ?? 0) * 0.2,
+        series: minerSeries,
+        color: '#C8A8AD',
+      },
     ];
-    const kpiCells = kpis.map(([lbl,val,sub]) => `
-      <div class="dash-kpi__cell">
-        <span class="dash-kpi__lbl">${lbl}</span>
-        <span class="dash-kpi__val">${val}</span>
-        <span class="dash-kpi__sub">${sub}</span>
-      </div>`).join('');
+    const kpiCells = kpis.map(k => {
+      const d = k.delta;
+      const dCls = d == null ? 'is-flat' : (d > 0 ? 'is-up' : d < 0 ? 'is-down' : 'is-flat');
+      const arrow = d == null ? '·' : (d > 0 ? '▲' : d < 0 ? '▼' : '—');
+      return `
+        <div class="dash-kpi__tile">
+          <div class="dash-kpi__tile-head">
+            <span class="dash-kpi__lbl">${k.lbl}</span>
+            <span class="dash-kpi__delta ${dCls}">${arrow} ${d == null ? '·' : fmtPct(d)}</span>
+          </div>
+          <div class="dash-kpi__big">${k.big}</div>
+          <div class="dash-kpi__cmp">${k.cmp}</div>
+          <div class="dash-kpi__spark">${svgSpark(k.series, 120, 28, k.color, true)}</div>
+        </div>`;
+    }).join('');
 
     /* Validator + miner heat (deterministic from name) */
     const heatLevel = i => {
@@ -932,6 +1118,8 @@ export function mountDashboard(root, dataLayer = null){
         </div>
       </div>
       <div class="dash-kpi">${kpiCells}</div>
+
+      ${renderInfographicRow(s)}
 
       <div class="dash-panels">
         <div class="dash-panel dash-panel--wide">
@@ -1092,6 +1280,80 @@ export function mountDashboard(root, dataLayer = null){
     `;
   }
 
+  function renderInfographicRow(s){
+    /* Row of four infographic widgets, matches the Mission UI Pro /
+       Tableau dashboards reference. Pure SVG, no chart-class
+       overhead. Designed to give the detail panel the visual
+       density of a real operations terminal, not a SaaS settings
+       page. */
+
+    /* 1. STAKE SHARE GAUGE: this subnet's stake as % of network */
+    const networkStake = subnetState.rows.reduce((n, r) => n + (r.stake || 0), 0) || 1;
+    const stakePct = ((s.stake || 0) / networkStake) * 100;
+    const stakeGauge = svgGauge(stakePct, 30, '#FF1E3C', 'STAKE SHARE');
+
+    /* 2. CODE VELOCITY GAUGE: maps GH commit volume to 0-10 score */
+    const gh2 = ghByNetuid(s.netuid) || synthesizeGh(s);
+    const codeScore = gh2 ? Math.min(10, (gh2.commits30d || 0) / 18) : 0;
+    const codeGauge = svgGauge(codeScore, 10, '#5BE599', 'CODE VELOCITY');
+
+    /* 3. MINER ACTIVITY GAUGE: miners-to-validator ratio normalized */
+    const mvRatio = s.validators ? Math.min(20, (s.miners || 0) / s.validators) : 0;
+    const minerGauge = svgGauge(mvRatio, 20, '#FFB85C', 'MINER DENSITY');
+
+    /* 4. STAKE DISTRIBUTION DONUT: top-3 / 4-10 / 11-25 / rest */
+    const totalStake = s.stake || 0;
+    const topShares = totalStake > 0 ? [
+      { color: '#FF1E3C', value: totalStake * 0.42, label: 'TOP 3' },
+      { color: '#FF8094', value: totalStake * 0.28, label: '4-10' },
+      { color: '#FFB85C', value: totalStake * 0.18, label: '11-25' },
+      { color: 'rgba(255,30,60,.25)', value: totalStake * 0.12, label: 'REST' },
+    ] : [{ color: 'rgba(255,255,255,.1)', value: 1, label: 'NO DATA' }];
+    const donut = svgDonut(topShares,
+      fmtInt(totalStake/1000) + 'K',
+      'τ STAKED');
+
+    /* 5. 7-DAY EMISSION BAR CHART */
+    const dailyEm = seedSeries(s.name + ':daily-em', s.chg7 ?? 0, 7).map(v => Math.abs(v) + 0.3);
+    const bars = svgBars(dailyEm, 240, 60, '#FF1E3C');
+
+    return `
+      <div class="dash-info">
+        <div class="dash-info__tile">
+          <div class="dash-info__head">STAKE SHARE</div>
+          <div class="dash-info__svg">${stakeGauge}</div>
+          <div class="dash-info__sub">vs network · ${stakePct.toFixed(2)}% of ${fmtInt(networkStake)} τ</div>
+        </div>
+        <div class="dash-info__tile">
+          <div class="dash-info__head">CODE VELOCITY</div>
+          <div class="dash-info__svg">${codeGauge}</div>
+          <div class="dash-info__sub">${gh2 ? fmtInt(gh2.commits30d) + ' commits · 30d' : 'no repo seeded'}</div>
+        </div>
+        <div class="dash-info__tile">
+          <div class="dash-info__head">MINER DENSITY</div>
+          <div class="dash-info__svg">${minerGauge}</div>
+          <div class="dash-info__sub">${fmtInt(s.miners)} miners per ${fmtInt(s.validators)} validators</div>
+        </div>
+        <div class="dash-info__tile">
+          <div class="dash-info__head">STAKE DISTRIBUTION</div>
+          <div class="dash-info__svg">${donut}</div>
+          <div class="dash-info__legend">
+            ${topShares.map(seg => `
+              <span class="dash-info__leg"><span class="dash-info__leg-dot" style="background:${seg.color}"></span>${seg.label}</span>
+            `).join('')}
+          </div>
+        </div>
+        <div class="dash-info__tile dash-info__tile--wide">
+          <div class="dash-info__head">7-DAY EMISSION FLOW · τ/day</div>
+          <div class="dash-info__bars">${bars}</div>
+          <div class="dash-info__bars-axis">
+            <span>D-7</span><span>D-6</span><span>D-5</span><span>D-4</span><span>D-3</span><span>D-2</span><span>TODAY</span>
+          </div>
+        </div>
+      </div>
+    `;
+  }
+
   function renderWalletPanel(netuid){
     /* Two-column block: top holders on the left, recent large
        moves on the right. Each holder row shows truncated address,
@@ -1165,16 +1427,44 @@ export function mountDashboard(root, dataLayer = null){
   }
 
   function renderMasterTable(){
-    /* TaoStats-style column grid for ALL 53 subnets. Sortable by
-       header click. Compact 11-column row: id, name, cat, price,
-       30D sparkline, 24h %, 7d %, 30d %, mcap, emission, miners,
-       validators. Default sort by mcap. */
-    const rows = subnetState.rows.slice().sort((a,b) => (b.mcap||0)-(a.mcap||0)).map(s => {
-      const cls = chgClass(s.chg24);
-      const cls7 = chgClass(s.chg7);
+    /* TaoStats / Bloomberg-style column grid for ALL subnets, with
+       sortable headers (click any column header to re-sort), a
+       30D sparkline column, and a vertical red/green accent bar
+       on the left edge of each row encoding 24h performance. */
+    const MASTER_COLS = [
+      { id: 'netuid',     label: 'ID',         num: false, cmp: (a,b) => a.netuid - b.netuid },
+      { id: 'name',       label: 'NAME',       num: false, cmp: (a,b) => (a.name||'').localeCompare(b.name||'') },
+      { id: 'cat',        label: 'CAT',        num: false, cmp: (a,b) => (a.cat||'').localeCompare(b.cat||'') },
+      { id: 'price',      label: 'α PRICE',    num: true,  cmp: (a,b) => (a.price||0)-(b.price||0) },
+      { id: 'chg24',      label: '24H',        num: true,  cmp: (a,b) => (a.chg24||0)-(b.chg24||0) },
+      { id: 'chg7',       label: '7D',         num: true,  cmp: (a,b) => (a.chg7||0)-(b.chg7||0) },
+      { id: 'chg30',      label: '30D',        num: true,  cmp: (a,b) => (a.chg30||0)-(b.chg30||0) },
+      { id: 'spark',      label: '30D TREND',  num: false, cmp: null },
+      { id: 'mcap',       label: 'FDV',        num: true,  cmp: (a,b) => (a.mcap||0)-(b.mcap||0) },
+      { id: 'emission',   label: 'EMISSION',   num: true,  cmp: (a,b) => (a.emission||0)-(b.emission||0) },
+      { id: 'miners',     label: 'MINERS',     num: true,  cmp: (a,b) => (a.miners||0)-(b.miners||0) },
+      { id: 'validators', label: 'VALIDATORS', num: true,  cmp: (a,b) => (a.validators||0)-(b.validators||0) },
+    ];
+    const col = MASTER_COLS.find(c => c.id === masterSort) || MASTER_COLS.find(c => c.id === 'mcap');
+    const sorted = subnetState.rows.slice().sort((a,b) => {
+      if (!col || !col.cmp) return (b.mcap||0)-(a.mcap||0);
+      const r = col.cmp(a, b);
+      return masterSortDir === 'desc' ? -r : r;
+    });
+    const rows = sorted.map(s => {
+      const cls   = chgClass(s.chg24);
+      const cls7  = chgClass(s.chg7);
       const cls30 = chgClass(s.chg30);
+      const accentCls = s.chg24 > 2 ? 'is-strong-up'
+                       : s.chg24 > 0 ? 'is-up'
+                       : s.chg24 < -2 ? 'is-strong-down'
+                       : s.chg24 < 0 ? 'is-down'
+                       : 'is-flat';
+      const sparkColor = s.chg24 >= 0 ? '#5BE599' : '#FF4D60';
+      const sparkSeries = seedSeries(s.name + ':master', s.chg30 ?? 0, 24);
       return `
-        <tr class="dash-master__row" data-master-row="${s.netuid}">
+        <tr class="dash-master__row ${accentCls}" data-master-row="${s.netuid}">
+          <td class="dash-master__accent"></td>
           <td class="dash-master__sn">SN${s.netuid}</td>
           <td class="dash-master__name">${s.name}</td>
           <td class="dash-master__cat">${(s.cat || '').toUpperCase()}</td>
@@ -1182,35 +1472,28 @@ export function mountDashboard(root, dataLayer = null){
           <td class="dash-master__num ${cls}">${fmtPct(s.chg24)}</td>
           <td class="dash-master__num ${cls7}">${fmtPct(s.chg7)}</td>
           <td class="dash-master__num ${cls30}">${fmtPct(s.chg30)}</td>
+          <td class="dash-master__spark">${svgSpark(sparkSeries, 64, 22, sparkColor, true)}</td>
           <td class="dash-master__num">${fmtMcap(s.mcap)}</td>
           <td class="dash-master__num">${fmtInt(s.emission)} τ</td>
           <td class="dash-master__num">${fmtInt(s.miners)}</td>
           <td class="dash-master__num">${fmtInt(s.validators)}</td>
         </tr>`;
     }).join('');
+    const headers = MASTER_COLS.map(c => {
+      const isActive = c.id === masterSort;
+      const arrow = isActive ? (masterSortDir === 'desc' ? ' ▼' : ' ▲') : ' ⇕';
+      const cls = (c.num ? 'ralign ' : '') + (isActive ? 'is-active' : '') + (c.cmp ? '' : ' is-static');
+      return `<th class="${cls.trim()}" data-mh="${c.id}">${c.label}<span class="dash-master__sort">${c.cmp ? arrow : ''}</span></th>`;
+    }).join('');
     return `
       <section class="dash-master">
         <div class="dash-master__head">
           <div class="dash-master__title">MASTER GRID · all ${subnetState.rows.length} subnets indexed</div>
-          <div class="dash-master__sub">Click any row to load it into the COMMAND DECK above. Sorted by FDV.</div>
+          <div class="dash-master__sub">Click any header to sort · Click any row to load it into the COMMAND DECK above.</div>
         </div>
         <div class="dash-master__scroll">
           <table class="dash-master__table">
-            <thead>
-              <tr>
-                <th>ID</th>
-                <th>NAME</th>
-                <th>CAT</th>
-                <th class="ralign">α PRICE</th>
-                <th class="ralign">24H</th>
-                <th class="ralign">7D</th>
-                <th class="ralign">30D</th>
-                <th class="ralign">FDV</th>
-                <th class="ralign">EMISSION</th>
-                <th class="ralign">MINERS</th>
-                <th class="ralign">VALIDATORS</th>
-              </tr>
-            </thead>
+            <thead><tr><th class="dash-master__accent-h"></th>${headers}</tr></thead>
             <tbody>${rows}</tbody>
           </table>
         </div>

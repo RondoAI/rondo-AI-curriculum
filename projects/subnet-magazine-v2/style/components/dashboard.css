@@ -1473,3 +1473,202 @@
 .dash-master__num.is-up   { color: #5BE599; }
 .dash-master__num.is-down { color: #FF4D60; }
 .dash-master__num.is-flat { color: var(--c-ink-3); }
+
+/* =================================================================
+   KPI TILES · big-number + sparkline + comparison + delta pill
+   -----------------------------------------------------------------
+   Replaces the prior dash-kpi compact strip. Modeled on the
+   Databox / Customers Helped reference: each tile gets a big
+   primary number, an inline sparkline below, a comparison line,
+   and a colored ▲/▼ delta pill in the top-right.
+   ================================================================= */
+.dash-kpi{
+  display: grid;
+  grid-template-columns: repeat(5, minmax(0,1fr));
+  border-bottom: 1px solid rgba(255,30,60,.14);
+}
+@media (max-width: 1080px){ .dash-kpi{ grid-template-columns: repeat(3, 1fr); } }
+@media (max-width:  720px){ .dash-kpi{ grid-template-columns: repeat(2, 1fr); } }
+.dash-kpi__tile{
+  padding: 12px 14px;
+  border-right: 1px solid rgba(255,30,60,.10);
+  display: grid; gap: 6px;
+  background: rgba(8,3,5,.4);
+  min-width: 0;
+}
+.dash-kpi__tile:last-child{ border-right: 0; }
+.dash-kpi__tile-head{
+  display: flex; align-items: center; justify-content: space-between;
+  gap: 6px;
+}
+.dash-kpi__lbl{
+  font-size: 8.5px; letter-spacing: .22em;
+  color: rgba(255,30,60,.7);
+  text-transform: uppercase;
+  font-weight: 800;
+}
+.dash-kpi__delta{
+  font-size: 8.5px;
+  font-weight: 800;
+  letter-spacing: .08em;
+  padding: 2px 5px 1px;
+  border: 1px solid currentColor;
+  white-space: nowrap;
+  font-variant-numeric: tabular-nums;
+}
+.dash-kpi__delta.is-up   { color: #5BE599; }
+.dash-kpi__delta.is-down { color: #FF4D60; }
+.dash-kpi__delta.is-flat { color: var(--c-ink-3); }
+.dash-kpi__big{
+  font-size: 18px;
+  font-weight: 800;
+  color: #fff;
+  font-variant-numeric: tabular-nums;
+  line-height: 1.1;
+}
+.dash-kpi__cmp{
+  font-size: 9px;
+  color: var(--c-ink-3);
+  font-family: var(--f-sans);
+  font-style: italic;
+}
+.dash-kpi__spark{
+  margin-top: 2px;
+  min-height: 28px;
+}
+
+/* =================================================================
+   INFOGRAPHIC ROW · gauges + donut + 7d bar
+   -----------------------------------------------------------------
+   The Tableau / Mission UI Pro layer the reader sees right under
+   the KPI tiles. Three SVG gauges, one stake-distribution donut,
+   one 7-day emission bar chart. Pure SVG, drawn once per detail.
+   ================================================================= */
+.dash-info{
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr)) 1.4fr;
+  border-bottom: 1px solid rgba(255,30,60,.14);
+}
+@media (max-width: 1180px){
+  .dash-info{ grid-template-columns: repeat(2, 1fr); }
+  .dash-info__tile--wide{ grid-column: 1 / -1; }
+}
+@media (max-width: 480px){
+  .dash-info{ grid-template-columns: 1fr; }
+}
+.dash-info__tile{
+  padding: 12px 14px 14px;
+  border-right: 1px solid rgba(255,30,60,.10);
+  display: grid;
+  gap: 6px;
+  text-align: center;
+  justify-items: center;
+  background: rgba(8,3,5,.35);
+  min-width: 0;
+}
+.dash-info__tile:last-child{ border-right: 0; }
+.dash-info__tile--wide{ text-align: left; justify-items: stretch; }
+.dash-info__head{
+  font-size: 8.5px; letter-spacing: .22em;
+  color: rgba(255,30,60,.78);
+  text-transform: uppercase;
+  font-weight: 800;
+}
+.dash-info__svg{ margin: 4px 0; line-height: 0; }
+.dash-info__sub{
+  font-size: 9.5px;
+  color: var(--c-ink-3);
+  font-family: var(--f-sans);
+  font-style: italic;
+  line-height: 1.4;
+  margin-top: -2px;
+}
+.dash-info__legend{
+  display: flex; flex-wrap: wrap; gap: 6px 10px;
+  justify-content: center;
+  margin-top: 2px;
+}
+.dash-info__leg{
+  display: inline-flex; align-items: center; gap: 4px;
+  font-size: 8.5px;
+  letter-spacing: .14em;
+  color: var(--c-ink-2);
+  font-weight: 700;
+}
+.dash-info__leg-dot{
+  width: 7px; height: 7px;
+  border-radius: 50%;
+  display: inline-block;
+}
+.dash-info__bars{ margin-top: 4px; }
+.dash-info__bars-axis{
+  display: flex; justify-content: space-between;
+  margin-top: 4px;
+  font-size: 8px;
+  letter-spacing: .14em;
+  color: var(--c-ink-3);
+  font-weight: 700;
+}
+
+/* =================================================================
+   MASTER GRID enhancements: accent bars + sortable headers
+   ================================================================= */
+.dash-master__table th[data-mh]{ cursor: pointer; user-select: none; transition: color .12s ease; }
+.dash-master__table th[data-mh]:hover{ color: #fff; }
+.dash-master__table th.is-active{ color: var(--c-red-1); }
+.dash-master__table th.is-static{ cursor: default; }
+.dash-master__sort{
+  display: inline-block;
+  margin-left: 4px;
+  font-size: 9px;
+  color: rgba(200,168,173,.5);
+}
+.dash-master__table th.is-active .dash-master__sort{ color: var(--c-red-1); }
+.dash-master__accent,
+.dash-master__accent-h{
+  width: 4px; padding: 0 !important;
+  border-bottom: 1px solid rgba(255,30,60,.06);
+}
+.dash-master__row.is-up           .dash-master__accent{ background: rgba(91,229,153,.6); }
+.dash-master__row.is-strong-up    .dash-master__accent{ background: #5BE599; box-shadow: 0 0 4px rgba(91,229,153,.5); }
+.dash-master__row.is-down         .dash-master__accent{ background: rgba(255,77,96,.6); }
+.dash-master__row.is-strong-down  .dash-master__accent{ background: #FF4D60; box-shadow: 0 0 4px rgba(255,77,96,.5); }
+.dash-master__row.is-flat         .dash-master__accent{ background: rgba(200,168,173,.25); }
+.dash-master__spark{
+  width: 64px; min-width: 64px;
+  vertical-align: middle;
+  padding: 4px 6px !important;
+}
+
+/* =================================================================
+   MOBILE WALLET TIGHTER, no more cramped overlap
+   -----------------------------------------------------------------
+   On phones the wallet panel collapses to one column AND its
+   internal table hides the redundant α-balance column so the τ
+   balance + 24h delta fit in the row width without overflow.
+   The recent-moves feed gets a tighter row layout.
+   ================================================================= */
+@media (max-width: 720px){
+  .dash-wallet__table th:nth-child(2),
+  .dash-wallet__table td:nth-child(2),
+  .dash-wallet__table th:nth-child(4),
+  .dash-wallet__table td:nth-child(4){
+    display: none;
+  }
+  .dash-wallet__addr{ font-size: 9.5px; }
+  .dash-wallet__tao { font-size: 10.5px; }
+  .dash-wallet__chg { font-size: 9.5px; }
+  .dash-flow__row { padding: 6px 8px; }
+  .dash-flow__head{
+    grid-template-columns: auto 1fr;
+    grid-template-areas:
+      "dir amt"
+      "usd date";
+    gap: 2px 8px;
+  }
+  .dash-flow__dir  { grid-area: dir; }
+  .dash-flow__amt  { grid-area: amt; text-align: right; }
+  .dash-flow__usd  { grid-area: usd; }
+  .dash-flow__date { grid-area: date; }
+  .dash-flow__body { font-size: 9px; }
+}
