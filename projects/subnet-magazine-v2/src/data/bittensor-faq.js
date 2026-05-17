@@ -815,7 +815,7 @@ export const FIELD_MANUAL = Object.freeze([
     ] },
 
   /* ===================================================================== */
-  { id: 'play', label: '/play ⚡', title: 'TAO Runner · play the chain',
+  { id: 'play', label: '/play', title: 'TAO Runner · play the chain',
     difficulty: 'easy', timeRequired: '60 s', cost: 'free', confidence: 'high',
     researched: '2026-05-15',
     blurb: 'A real game. You\'re a miner running across the chain. Tap to jump, catch α tokens, dodge the deregistration sweeps. Speed ramps with every block. First arcade game built for Bittensor, anywhere.',

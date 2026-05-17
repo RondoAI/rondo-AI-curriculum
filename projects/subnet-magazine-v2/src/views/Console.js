@@ -37,6 +37,10 @@ const CSS = `
   border: 1px solid var(--c-rule-3, rgba(255,30,60,.36));
   border-left: 0; border-bottom: 0;
   border-top-right-radius: 6px;
+  /* Touch + scroll containment, every touch event inside the dock
+     stays inside the dock, the page underneath doesn't drift when
+     the reader scrolls within the panel. */
+  overscroll-behavior: contain;
   backdrop-filter: blur(14px) saturate(140%);
   -webkit-backdrop-filter: blur(14px) saturate(140%);
   box-shadow:
@@ -61,6 +65,18 @@ const CSS = `
   flex: 1 1 auto;
   height: auto;
   min-height: 0;
+}
+/* On mobile, "expand" should truly fill the viewport, the chat
+   is the focus, the page is hidden behind it. Avoid the 10vh of
+   awkward page-peek that 90vh leaves on a phone screen. */
+@media (max-width: 720px){
+  .sbnt-console.is-tall{
+    width: 100vw;
+    max-height: 100vh;
+    height: 100vh;
+    border-top-right-radius: 0;
+    border-right: 0;
+  }
 }
 /* fully-dismissed state, the entire dock slides off-screen and
    only a tiny relaunch chip remains in the corner */
@@ -234,7 +250,9 @@ const CSS = `
   display: inline-grid; place-items: center;
   width: 28px; height: 28px;
   border: 1px solid var(--c-rule-2, rgba(255,30,60,.36));
-  border-radius: 6px;
+  /* Sharp HUD corner, matches the SUBNET ORACLE + ticker badges on
+     the article cards, no rounded chat-widget look. */
+  border-radius: 2px;
   color: var(--c-ink-2, #C8A8AD);
   background: rgba(255,30,60,.08);
   cursor: pointer;
@@ -294,6 +312,7 @@ const CSS = `
   padding: 6px 8px;
   border-bottom: 1px solid var(--c-rule-2, rgba(255,30,60,.22));
   overflow-x: auto;
+  overscroll-behavior-x: contain;
   scrollbar-width: thin;
   scrollbar-color: var(--c-rule-2, rgba(255,30,60,.22)) transparent;
   /* fade the right edge so users know there is more content */
@@ -309,11 +328,14 @@ const CSS = `
   font: inherit;
   font-size: 10.5px;
   font-weight: 700;
-  letter-spacing: .08em;
+  /* Match the SUBNET ORACLE/ticker HUD badge typography elsewhere
+     on the site, .19em letter-spacing and sharp 1px corners. The
+     row should read as one consistent terminal register. */
+  letter-spacing: .19em;
   color: var(--c-ink-3, #8B6B70);
   cursor: pointer;
   border: 1px solid transparent;
-  border-radius: 4px;
+  border-radius: 1px;
   white-space: nowrap;
   transition: color .12s ease-out, background .12s ease-out, border-color .12s ease-out;
 }
@@ -334,6 +356,13 @@ const CSS = `
   font-size: 11px; line-height: 1.6;
   scrollbar-width: thin;
   scrollbar-color: var(--c-rule-2, rgba(255,30,60,.22)) transparent;
+  /* Scroll-leak fix, the body's overscroll does NOT bubble up to
+     the page. Without contain, reaching the top or bottom of the
+     chat would chain into a page scroll, which is what the reader
+     reported. touch-action: pan-y keeps vertical pans inside the
+     body and lets horizontal stay with the document. */
+  overscroll-behavior: contain;
+  -webkit-overflow-scrolling: touch;
 }
 .sbnt-console__body::-webkit-scrollbar{ width: 4px; }
 .sbnt-console__body::-webkit-scrollbar-thumb{ background: var(--c-rule-2, rgba(255,30,60,.22)); }
@@ -654,11 +683,18 @@ const CSS = `
   border: 1px solid var(--c-red, #FF1E3C);
   background: var(--c-red, #FF1E3C);
   color: #fff;
-  border-radius: 999px;
-  width: 30px; height: 30px;
+  /* Sharp 2px corner instead of a full circle, matches the rest of
+     the terminal HUD chrome (oracle/ticker badges, control buttons).
+     The previous fully-round chat-app circle was the strongest visual
+     mismatch on the panel. */
+  border-radius: 2px;
+  width: 32px; height: 32px;
   display: grid; place-items: center;
   cursor: pointer;
-  flex: 0 0 30px;
+  flex: 0 0 32px;
+  box-shadow:
+    0 0 10px rgba(255,30,60,.45),
+    inset 0 1px 0 rgba(255,150,170,.35);
 }
 .sbnt-chat__send:hover{ background: var(--c-red-1, #FF4D60); border-color: var(--c-red-1, #FF4D60); }
 .sbnt-chat__send svg{ width: 14px; height: 14px; }
