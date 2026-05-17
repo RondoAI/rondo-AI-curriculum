@@ -2,7 +2,14 @@
 <html lang="en">
 <head>
   <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <!-- minimum-scale=1 prevents pinch-zoom-out below the design's
+       intended scale, otherwise the mobile-first layout (sized to
+       the device's CSS-pixel width) would float left with the body
+       background grid extending into empty space on the right when
+       the user zooms out. Pinch-zoom-IN still works freely for
+       accessibility. maximum-scale=5 keeps the upper bound generous
+       for low-vision readers. -->
+  <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=5, viewport-fit=cover">
   <meta name="theme-color" content="#000000">
   <title>Subneτ Magazine, A research terminal for decentralized intelligence</title>
   <meta name="description" content="Subneτ Magazine is a research terminal for the Bittensor network. Live consensus map, subnet markets, validator analytics, and editorial coverage of decentralized AI.">
