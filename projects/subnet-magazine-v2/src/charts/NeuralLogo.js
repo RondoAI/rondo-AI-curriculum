@@ -7,19 +7,31 @@
    front low-alpha edges that build to a filigree mass, depth-keyed
    nodes with a frontmost sparkle, atmospheric red halo.
 
-   Where NodeSphere distributes nodes on a Fibonacci sphere, this
-   class distributes them inside the silhouette of a logo image
-   (rejection-sampled from a threshold mask). The silhouette stays
-   put so the brand mark is always readable; depth comes from a per-
-   node fake z that oscillates gently to give the plexus the same
-   sense of life as the spinning sphere at the top of the page.
+   THE ILLUSION
+   ------------
+   The logo is a flat 2D shape but reads as a living 3D neural net.
+   Three known-good graphics techniques compose to make this work:
 
-   Render pipeline (per frame):
-     1. Soft red atmospheric halo at the logo's bounding box.
-     2. Each node's z oscillates a touch for parallax breathing.
-     3. Edges painted back-to-front, alpha keyed to mid-depth.
-     4. Nodes painted back-to-front, brighter toward the front,
-        with a quiet white sparkle on the frontmost.
+     1. Bridson Poisson-disk sampling (Bridson, 2007) places nodes
+        inside the silhouette with an organic-but-even spread, no
+        clumps, no gaps. Gold-standard distribution for plexus work.
+
+     2. Virtual sphere depth projection: each 2D logo node (x, y)
+        is mapped to a position (nx, ny, nz) on an invisible unit
+        sphere fitted to the logo's bounding box. nz is chosen so
+        the point sits on the sphere; a random sign so half the
+        nodes are on the front hemisphere and half on the back. The
+        invisible sphere is rotated each frame with the same Y spin
+        plus X nod NodeSphere uses; the rotated nz becomes the
+        depth. The screen position stays at the original logo (x,y).
+        Result: a brightness wave sweeps across the logo silhouette
+        as if the logo itself were a 3D sphere, even though the
+        shape never deforms.
+
+     3. NodeSphere render pipeline, unchanged: atmospheric halo,
+        KNN base mesh, dense crossing-chord fill by probability,
+        back-to-front low-alpha edges, depth-keyed node size and
+        color, white-pink sparkle on the frontmost nodes.
    ================================================================= */
 
 import { Chart } from './Chart.js';
@@ -28,16 +40,16 @@ export class NeuralLogo extends Chart {
   /**
    * @param {HTMLCanvasElement} canvas
    * @param {{
-   *   imageSrc?: string,    // required for image mode
-   *   nodes?:    number,    // target node count (matches NodeSphere default)
-   *   K?:        number,    // KNN structural mesh size
-   *   density?:  number,    // 0..1 pairwise wiring probability
-   *   edgeCap?:  number,    // safety cap on edge count
-   *   speed?:    number,    // depth-breathing rate
-   *   glow?:     boolean,   // frontmost-node bloom
-   *   atmos?:    boolean,   // atmospheric halo behind logo
-   *   supersample?: number, // off-canvas rasterization multiplier
-   *   seed?:     number,
+   *   imageSrc?:    string,
+   *   nodes?:       number,    // target node count (matches NodeSphere default)
+   *   K?:           number,    // KNN structural mesh size
+   *   density?:     number,    // 0..1 pairwise wiring probability
+   *   edgeCap?:     number,    // safety cap on edge count
+   *   speed?:       number,    // virtual-sphere rotation rate
+   *   glow?:        boolean,   // frontmost-node bloom
+   *   atmos?:       boolean,   // atmospheric halo behind logo
+   *   supersample?: number,    // off-canvas rasterization multiplier
+   *   seed?:        number,
    * }} [opts]
    */
   constructor(canvas, opts = {}){
@@ -53,17 +65,16 @@ export class NeuralLogo extends Chart {
     this.supersample = opts.supersample ?? 3;
     this.seed        = (opts.seed       ?? 1) >>> 0;
 
-    /** Sampled 2D node positions in CSS-pixel coords + static base z */
+    /** Sampled nodes: { x, y, nx, ny, nz }
+     *    x, y    = screen position in CSS pixels (the logo silhouette)
+     *    nx,ny,nz = position on the invisible unit sphere (drives depth)
+     */
     this._nodes = [];
     /** Edge list { a, b } */
     this._edges = [];
-    /** Per-node breathing phase */
-    this._phase = [];
-    /** Logo bounding box in CSS pixels for the atmospheric halo */
+    /** Logo bounding box in CSS pixels (for halo + virtual sphere fit) */
     this._bbox  = { cx: 0, cy: 0, r: 0 };
 
-    /* Async image load: relayout once it lands. Until then no draw
-       happens because _nodes is empty. */
     this._image = null;
     if (this.imageSrc){
       const img = new Image();
@@ -83,16 +94,11 @@ export class NeuralLogo extends Chart {
   layout(ctx, w, h){
     this._nodes = [];
     this._edges = [];
-    this._phase = [];
     if (!this._image) return;
 
     const rng = mulberry32(this.seed * 9007 + 11);
 
-    /* 1. Rasterize the logo to an off-canvas at supersample x display.
-          We then build a binary mask of "logo" pixels by sampling the
-          four image-rect corners as background and treating anything
-          that differs by more than a color threshold as foreground.
-          This handles any logo color scheme without per-image tuning. */
+    /* --- 1. Rasterize logo and threshold to a binary mask --- */
     const ss = Math.max(1, this.supersample);
     const off = document.createElement('canvas');
     off.width  = Math.max(8, Math.floor(w * ss));
@@ -115,7 +121,8 @@ export class NeuralLogo extends Chart {
     const id = oc.getImageData(0, 0, off.width, off.height);
     const data = id.data;
 
-    /* Sample background from image-rect corners */
+    /* Sample background from image-rect corners so we work with any
+       logo regardless of color scheme. */
     const cx0 = Math.max(0, Math.floor(dx)) + 1;
     const cy0 = Math.max(0, Math.floor(dy)) + 1;
     const cx1 = Math.min(off.width  - 1, Math.floor(dx + dw)) - 1;
@@ -129,7 +136,6 @@ export class NeuralLogo extends Chart {
     const bgTransparent = ba < 32;
     const THR = 70;
 
-    /* Build a packed mask (1 byte per pixel) and capture bbox of fg */
     const W = off.width, H = off.height;
     const mask = new Uint8Array(W * H);
     let minX = W, minY = H, maxX = 0, maxY = 0;
@@ -155,58 +161,67 @@ export class NeuralLogo extends Chart {
     }
     if (fgCount === 0) return;
 
-    /* 2. Rejection-sample N node positions uniformly from the mask.
-          Convert from off-canvas pixels to CSS-pixel coords. */
-    const target = this.N;
-    const maxTries = target * 200;
-    let tries = 0;
-    while (this._nodes.length < target && tries < maxTries){
-      tries++;
-      const x = (minX + rng() * (maxX - minX)) | 0;
-      const y = (minY + rng() * (maxY - minY)) | 0;
-      if (!mask[y * W + x]) continue;
-      /* Reject if too close to an existing node, gives the field a
-         Poisson-disk-ish even spread instead of clumps. */
-      const cssX = x / ss;
-      const cssY = y / ss;
-      const minDist = Math.max(4, Math.min(w, h) / Math.sqrt(target) * 0.62);
-      let ok = true;
-      for (let k = 0; k < this._nodes.length; k++){
-        const dx2 = this._nodes[k].x - cssX;
-        const dy2 = this._nodes[k].y - cssY;
-        if (dx2*dx2 + dy2*dy2 < minDist*minDist){ ok = false; break; }
+    /* --- 2. Bridson Poisson-disk sampling of the mask, then Lloyd
+            relaxation (centroidal Voronoi, two passes) to kill any
+            residual clumping. Lloyd was unnecessary for a tonal
+            stippling render but on a binary silhouette mask it
+            tightens the spacing for free. --- */
+    const area = fgCount;
+    const r = Math.max(2.5, Math.sqrt(area / (this.N * 0.7)));
+    let samples = poissonDiskInMask(mask, W, H, minX, minY, maxX, maxY, r, 30, rng);
+
+    if (samples.length > this.N){
+      for (let i = samples.length - 1; i > 0; i--){
+        const k = (rng() * (i + 1)) | 0;
+        [samples[i], samples[k]] = [samples[k], samples[i]];
       }
-      if (!ok) continue;
-      /* Random static base z plus a phase so each node breathes on
-         its own clock. The z creates the depth-shaded look that
-         NodeSphere gets from its spherical projection; the phase
-         keeps the field shimmering instead of all-in-sync pulsing. */
-      this._nodes.push({
-        x:  cssX,
-        y:  cssY,
-        bz: rng() * 2 - 1,
-        ph: rng() * Math.PI * 2,
-      });
+      samples = samples.slice(0, this.N);
     }
+    if (samples.length >= 2){
+      lloydRelax(samples, mask, W, H, minX, minY, maxX, maxY, 2);
+    }
+    const picks = samples;
 
-    /* 3. Per-node oscillation phase already stored on node */
-    this._phase = this._nodes.map(n => n.ph);
-
-    /* 4. Bounding box for the atmospheric halo (in CSS px) */
+    /* --- 3. Map each sample to logo screen coords + virtual sphere --- */
     const bx0 = minX / ss, by0 = minY / ss;
     const bx1 = maxX / ss, by1 = maxY / ss;
-    this._bbox = {
-      cx: (bx0 + bx1) / 2,
-      cy: (by0 + by1) / 2,
-      r:  Math.max(bx1 - bx0, by1 - by0) * 0.62,
-    };
+    const bcx = (bx0 + bx1) / 2;
+    const bcy = (by0 + by1) / 2;
+    /* Use the larger half-extent so the inscribed virtual sphere fits
+       the whole logo. Nodes outside that radius get clamped to the
+       sphere surface, which is fine, they still get valid depth. */
+    const bR  = Math.max(bx1 - bx0, by1 - by0) / 2;
+    this._bbox = { cx: bcx, cy: bcy, r: bR };
 
-    /* 5. Build edges: KNN structural mesh + dense crossing-chord fill
-          based on probability, exactly the NodeSphere algorithm. */
+    for (const s of picks){
+      const cssX = s.x / ss;
+      const cssY = s.y / ss;
+      const nx = (cssX - bcx) / bR;
+      const ny = (cssY - bcy) / bR;
+      const k = nx*nx + ny*ny;
+      let nz;
+      if (k >= 1){
+        /* Slightly outside the inscribed circle, sit on the equator */
+        const m = Math.sqrt(k);
+        const nx2 = nx / m, ny2 = ny / m;
+        nz = 0;
+        this._nodes.push({ x: cssX, y: cssY, nx: nx2, ny: ny2, nz });
+      } else {
+        const sign = rng() < 0.5 ? -1 : 1;
+        nz = sign * Math.sqrt(1 - k);
+        this._nodes.push({ x: cssX, y: cssY, nx, ny, nz });
+      }
+    }
+
+    /* --- 4. Edges: KNN structural mesh + dense crossing-chord fill,
+            exactly the NodeSphere algorithm. Distance is computed in
+            screen space (the chord mass is what the viewer sees). --- */
     const N = this._nodes.length;
+    if (N < 2) return;
+
     const seen = new Set();
-    const out = [];
-    const add = (i, j) => {
+    const out  = [];
+    const add  = (i, j) => {
       if (i === j) return;
       const key = i < j ? `${i}:${j}` : `${j}:${i}`;
       if (seen.has(key)) return;
@@ -214,7 +229,6 @@ export class NeuralLogo extends Chart {
       out.push({ a: i, b: j });
     };
 
-    /* KNN base, using 2D distance (the silhouette IS planar) */
     for (let i = 0; i < N; i++){
       const a = this._nodes[i];
       const d = [];
@@ -228,7 +242,6 @@ export class NeuralLogo extends Chart {
       for (let k = 0; k < this.K && k < d.length; k++) add(i, d[k].j);
     }
 
-    /* Dense crossing-chord fill */
     if (this.density > 0){
       for (let i = 0; i < N; i++)
         for (let j = i + 1; j < N; j++)
@@ -252,7 +265,7 @@ export class NeuralLogo extends Chart {
 
     const { cx, cy, r: R } = this._bbox;
 
-    /* Atmospheric halo behind the logo silhouette */
+    /* Atmospheric halo, sized to the logo bounding box */
     if (this.atmos){
       const grad = ctx.createRadialGradient(cx, cy, R * 0.4, cx, cy, R * 1.4);
       grad.addColorStop(0,    'rgba(255,30,60,.12)');
@@ -264,21 +277,29 @@ export class NeuralLogo extends Chart {
       ctx.fill();
     }
 
-    /* Per-node live depth, base z + a slow per-node breathing wave.
-       Range stays inside [-1, 1] so the depth scaling matches the
-       NodeSphere formulas. */
+    /* Rotate the invisible virtual sphere, same Y-spin + slow X-nod
+       as NodeSphere. The screen positions (x, y) do NOT change, only
+       the per-node depth does. */
+    const ay = t * this.speed;
+    const ax = Math.sin(t * this.speed * 0.45) * 0.42;
+    const cosX = Math.cos(ax), sinX = Math.sin(ax);
+    const cosY = Math.cos(ay), sinY = Math.sin(ay);
+
     const N = this._nodes.length;
     const live = new Array(N);
     for (let i = 0; i < N; i++){
       const n = this._nodes[i];
-      const z = n.bz + 0.45 * Math.sin(t * this.speed + n.ph);
-      const d = (Math.max(-1, Math.min(1, z)) + 1) / 2;  // 0 (back) .. 1 (front)
+      /* Y rotation: (nx, nz) -> (x1, z1) */
+      const x1 = n.nx * cosY + n.nz * sinY;
+      const z1 = -n.nx * sinY + n.nz * cosY;
+      /* X rotation: (ny, z1) -> (y2, z2) */
+      const z2 = n.ny * sinX + z1 * cosX;
+      const d  = (z2 + 1) / 2;   // 0 (back) .. 1 (front)
       live[i] = { sx: n.x, sy: n.y, d };
     }
 
-    /* Edges, back to front. Low per-edge alpha so the dense chord
-       mesh builds to a filigree mass instead of a solid red blob,
-       same formula as NodeSphere. */
+    /* Edges, back to front, low per-edge alpha so the dense chord
+       mesh builds to a filigree mass instead of a solid blob. */
     const eSorted = this._edges
       .map(e => ({ a: e.a, b: e.b, mid: (live[e.a].d + live[e.b].d) / 2 }))
       .sort((u, v) => u.mid - v.mid);
@@ -295,7 +316,15 @@ export class NeuralLogo extends Chart {
       ctx.stroke();
     }
 
-    /* Nodes, back to front, depth-keyed exactly like NodeSphere */
+    /* Nodes, back to front, depth-keyed exactly like NodeSphere.
+       'lighter' blend mode here is the signature trick: it gives
+       the bloom feel of the masthead without a real postprocess
+       blur pass, because overlapping front-node halos accumulate
+       additively. Edges stay on source-over so the dense chord
+       mesh accumulates correctly as filigree, not white-out. */
+    ctx.save();
+    ctx.globalCompositeOperation = 'lighter';
+
     const pSorted = live
       .map((q, i) => ({ ...q, i }))
       .sort((u, v) => u.d - v.d);
@@ -315,6 +344,133 @@ export class NeuralLogo extends Chart {
         ctx.fillStyle = `rgba(255,224,228,${((q.d - 0.86) / 0.14).toFixed(3)})`;
         ctx.beginPath(); ctx.arc(q.sx, q.sy, r * 0.55, 0, Math.PI * 2); ctx.fill();
       }
+    }
+
+    ctx.restore();
+  }
+}
+
+/* =================================================================
+   Bridson Poisson-disk sampling, restricted to a binary mask.
+   Reference: Robert Bridson, "Fast Poisson Disk Sampling in
+   Arbitrary Dimensions", SIGGRAPH 2007 sketches.
+   Returns array of { x, y } in off-canvas pixel coords.
+   ================================================================= */
+function poissonDiskInMask(mask, W, H, minX, minY, maxX, maxY, r, k, rng){
+  const cell  = r / Math.SQRT2;
+  const gridW = Math.ceil((maxX - minX + 1) / cell) + 1;
+  const gridH = Math.ceil((maxY - minY + 1) / cell) + 1;
+  const grid  = new Int32Array(gridW * gridH).fill(-1);
+  const pts   = [];
+  const active = [];
+
+  const inMask = (x, y) => {
+    const xi = x | 0, yi = y | 0;
+    if (xi < 0 || xi >= W || yi < 0 || yi >= H) return false;
+    return mask[yi * W + xi] === 1;
+  };
+
+  const insertSeed = () => {
+    /* Random seed inside the mask, retry up to a few times */
+    for (let tries = 0; tries < 200; tries++){
+      const x = minX + rng() * (maxX - minX);
+      const y = minY + rng() * (maxY - minY);
+      if (inMask(x, y)){
+        pts.push({ x, y });
+        active.push(0);
+        const gx = ((x - minX) / cell) | 0;
+        const gy = ((y - minY) / cell) | 0;
+        grid[gy * gridW + gx] = 0;
+        return true;
+      }
+    }
+    return false;
+  };
+
+  if (!insertSeed()) return pts;
+
+  while (active.length){
+    const ai = (rng() * active.length) | 0;
+    const idx = active[ai];
+    const base = pts[idx];
+    let placed = false;
+
+    for (let tries = 0; tries < k; tries++){
+      const angle = rng() * Math.PI * 2;
+      const radius = r * (1 + rng());
+      const x = base.x + Math.cos(angle) * radius;
+      const y = base.y + Math.sin(angle) * radius;
+      if (!inMask(x, y)) continue;
+
+      const gx = ((x - minX) / cell) | 0;
+      const gy = ((y - minY) / cell) | 0;
+      if (gx < 0 || gx >= gridW || gy < 0 || gy >= gridH) continue;
+
+      /* Check 5x5 cell neighborhood for any point closer than r */
+      let ok = true;
+      for (let dyc = -2; dyc <= 2 && ok; dyc++){
+        for (let dxc = -2; dxc <= 2 && ok; dxc++){
+          const nx = gx + dxc, ny = gy + dyc;
+          if (nx < 0 || nx >= gridW || ny < 0 || ny >= gridH) continue;
+          const pi = grid[ny * gridW + nx];
+          if (pi < 0) continue;
+          const p = pts[pi];
+          const ex = p.x - x, ey = p.y - y;
+          if (ex*ex + ey*ey < r*r) ok = false;
+        }
+      }
+      if (!ok) continue;
+
+      pts.push({ x, y });
+      grid[gy * gridW + gx] = pts.length - 1;
+      active.push(pts.length - 1);
+      placed = true;
+      break;
+    }
+
+    if (!placed){
+      /* Pop this active point, swap with last */
+      active[ai] = active[active.length - 1];
+      active.pop();
+    }
+  }
+
+  return pts;
+}
+
+/* =================================================================
+   Lloyd relaxation (centroidal Voronoi) restricted to a binary
+   mask. For each foreground pixel, assign it to the nearest point
+   by squared distance; then move each point to the centroid of its
+   assigned pixels. Two passes is plenty for visual cleanup.
+   ================================================================= */
+function lloydRelax(points, mask, W, H, minX, minY, maxX, maxY, iters){
+  const N = points.length;
+  for (let it = 0; it < iters; it++){
+    const sx = new Float64Array(N);
+    const sy = new Float64Array(N);
+    const cnt = new Uint32Array(N);
+
+    for (let y = minY; y <= maxY; y++){
+      const row = y * W;
+      for (let x = minX; x <= maxX; x++){
+        if (mask[row + x] !== 1) continue;
+        let best = 0, bestD = Infinity;
+        for (let i = 0; i < N; i++){
+          const dx = points[i].x - x, dy = points[i].y - y;
+          const d2 = dx*dx + dy*dy;
+          if (d2 < bestD){ bestD = d2; best = i; }
+        }
+        sx[best]  += x;
+        sy[best]  += y;
+        cnt[best] += 1;
+      }
+    }
+
+    for (let i = 0; i < N; i++){
+      if (cnt[i] === 0) continue;
+      points[i].x = sx[i] / cnt[i];
+      points[i].y = sy[i] / cnt[i];
     }
   }
 }
