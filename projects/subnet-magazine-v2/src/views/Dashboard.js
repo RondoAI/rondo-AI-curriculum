@@ -31,6 +31,13 @@ import { CENTRALIZED_PLAYERS } from '../data/centralized.js';
 import { GH_ACTIVITY, ghByNetuid } from '../data/github-activity.js';
 import { recentOracleArticles } from '../data/oracle-articles.js';
 
+/* ---------- shared links --------------------------------------- */
+/* The Bittensor Discord is the hub where every subnet's own server
+   is interconnected. We surface it on every subnet detail and once
+   in the status bar, so the reader is one tap from the community
+   wherever they are on the dashboard. */
+const DISCORD_HUB = 'https://discord.gg/bittensor';
+
 /* ---------- format helpers ------------------------------------- */
 const fmtPrice = p => p == null ? '·' : (p < 1 ? '$' + p.toFixed(4) : '$' + p.toFixed(2));
 const fmtMcap  = m => m == null ? '·' : '$' + (m >= 1000 ? (m/1000).toFixed(2) + 'B' : m.toFixed(1) + 'M');
@@ -192,7 +199,9 @@ export function mountDashboard(root, dataLayer = null){
         <div class="dash-status__title">
           <span><span class="dash-status__live"></span> DASHBOARD · BITTENSOR COMMAND DECK</span>
           <span class="dash-status__title__right">
-            LIVE · ${new Date().toISOString().slice(0,10)} · ${subnetState.rows.length} SUBNETS · CONFIDENCE HIGH
+            LIVE · ${new Date().toISOString().slice(0,10)} · ${subnetState.rows.length} SUBNETS
+            · <a href="${DISCORD_HUB}" target="_blank" rel="noopener" style="color:var(--c-red-1);text-decoration:none;letter-spacing:.14em">DISCORD HUB ↗</a>
+            · CONFIDENCE HIGH
           </span>
         </div>
         <div class="dash-status__rail">
@@ -414,6 +423,7 @@ export function mountDashboard(root, dataLayer = null){
           <div class="dash-links">
             ${s.gh ? `<a class="dash-links__a" href="https://github.com/${s.gh}" target="_blank" rel="noopener">GitHub ↗</a>` : ''}
             ${s.url ? `<a class="dash-links__a" href="${s.url}" target="_blank" rel="noopener">Website ↗</a>` : ''}
+            <a class="dash-links__a" href="${DISCORD_HUB}" target="_blank" rel="noopener">Discord Hub ↗</a>
             <a class="dash-links__a" href="https://taostats.io/subnets/${s.netuid}" target="_blank" rel="noopener">Taostats ↗</a>
             <a class="dash-links__a" href="https://taomarketcap.com/subnets/${s.netuid}" target="_blank" rel="noopener">TaoMarketcap ↗</a>
           </div>
