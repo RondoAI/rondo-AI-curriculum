@@ -1,0 +1,199 @@
+/* =================================================================
+   SUBNET MAGAZINE, NEWS CARDS
+   -----------------------------------------------------------------
+   Image-rich card treatment for editorial dispatches (magazine
+   articles, oracle research, external interviews). Replaces the
+   plain dash-news <ul> in the EDITORIAL INTEL panel of each
+   subnet's detail view.
+
+   Reference: Bloomberg Professional pages — image-on-top card
+   with mono caps meta + serif title + sans dek. Their orange
+   becomes our red; their navy becomes our #050203.
+
+   Aesthetic discipline (Bloomberg's "authority through clarity"):
+     - Sharp 0-radius corners
+     - Hairline 1px borders
+     - One core idea per card
+     - Generous internal padding (vs. the otherwise-dense register)
+     - No gradients beyond the cover art; no shadow effects
+     - Monochromatic — single accent per kind (mag/oracle/external)
+
+   Because the magazine has no photo pipeline, covers are SVG, drawn
+   deterministically from the article metadata (subnet id, kind,
+   title hash). Each cover is a hairline-grid background + the
+   subnet number or τ glyph in display weight, gradient-tinted by
+   the kind's accent color.
+   ================================================================= */
+
+.news-cards{
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: 12px;
+  margin-top: 4px;
+}
+@media (max-width: 720px){
+  .news-cards{
+    grid-template-columns: 1fr;
+    gap: 10px;
+  }
+}
+
+/* ---------- card shell ------------------------------------- */
+.news-card{
+  display: block;
+  text-decoration: none;
+  color: inherit;
+  background: #0a0306;
+  border: 1px solid rgba(255, 30, 60, .14);
+  transition:
+    border-color .14s ease,
+    background   .14s ease,
+    transform    .14s ease;
+  overflow: hidden;
+  position: relative;
+  /* Promote so hover transforms don't repaint the whole panel. */
+  transform: translateZ(0);
+}
+.news-card:hover,
+.news-card:focus-visible{
+  border-color: var(--c-red);
+  background: #140509;
+  transform: translateY(-1px);
+  outline: none;
+}
+.news-card:active{
+  transform: translateY(0);
+}
+
+/* ---------- cover (top 16:9 visual) ----------------------- */
+.news-card__cover{
+  position: relative;
+  aspect-ratio: 16 / 9;
+  background: #050203;
+  overflow: hidden;
+  border-bottom: 1px solid rgba(255, 30, 60, .10);
+}
+.news-card__cover svg{
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+/* Kind chip pinned top-right of the cover. Variants color-code
+   editorial source so the reader can scan a grid by kind without
+   reading the labels. */
+.news-card__kind{
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  font-family: var(--f-mono);
+  font-size: 8.5px;
+  font-weight: 800;
+  letter-spacing: .18em;
+  text-transform: uppercase;
+  padding: 3px 7px 2px;
+  border: 1px solid currentColor;
+  background: rgba(8, 3, 5, .82);
+  line-height: 1;
+  z-index: 1;
+}
+.news-card__kind--magazine { color: #FFB85C; }   /* amber for in-house */
+.news-card__kind--oracle   { color: var(--c-red-1); }   /* red for research desk */
+.news-card__kind--external { color: var(--c-ink-2); }   /* grey for re-posts */
+
+/* SN tag pinned bottom-left of the cover when the article is
+   tied to a specific subnet. Otherwise omitted; the cover already
+   shows τ for ecosystem pieces. */
+.news-card__sn-tag{
+  position: absolute;
+  bottom: 8px; left: 8px;
+  font-family: var(--f-mono);
+  font-size: 8.5px;
+  font-weight: 800;
+  letter-spacing: .14em;
+  text-transform: uppercase;
+  padding: 3px 6px 2px;
+  border: 1px solid rgba(255, 30, 60, .42);
+  background: rgba(8, 3, 5, .82);
+  color: var(--c-red-1);
+  line-height: 1;
+}
+
+/* ---------- card body -------------------------------------- */
+.news-card__body{
+  padding: 12px 14px 14px;
+  display: grid;
+  gap: 6px;
+}
+@media (max-width: 720px){
+  .news-card__body{ padding: 12px 12px 13px; }
+}
+
+.news-card__meta{
+  font-family: var(--f-mono);
+  font-size: 9px;
+  letter-spacing: .18em;
+  text-transform: uppercase;
+  font-weight: 700;
+  color: rgba(255, 30, 60, .7);
+}
+
+.news-card__title{
+  font-family: var(--f-serif);
+  font-size: 15px;
+  font-weight: 700;
+  color: #fff;
+  line-height: 1.28;
+  margin: 0;
+  letter-spacing: -.005em;
+  /* Clamp at 3 lines so the grid is uniform; no card balloons
+     because of a long headline. */
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+.news-card:hover .news-card__title{ color: var(--c-red-1); }
+
+.news-card__dek{
+  font-family: var(--f-sans);
+  font-size: 11.5px;
+  line-height: 1.5;
+  color: var(--c-ink-2);
+  margin: 0;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.news-card__foot{
+  display: flex; align-items: center; justify-content: space-between;
+  gap: 8px;
+  margin-top: 4px;
+  padding-top: 8px;
+  border-top: 1px dashed rgba(255, 30, 60, .10);
+  font-family: var(--f-mono);
+  font-size: 9px;
+  letter-spacing: .14em;
+  text-transform: uppercase;
+  font-weight: 700;
+  color: var(--c-ink-3);
+}
+.news-card__cat{
+  color: rgba(255, 30, 60, .85);
+}
+.news-card__read{
+  color: var(--c-red-1);
+}
+
+/* ---------- empty state ----------------------------------- */
+.news-cards__empty{
+  grid-column: 1 / -1;
+  padding: 20px;
+  text-align: center;
+  font-family: var(--f-sans);
+  font-style: italic;
+  font-size: 12px;
+  color: var(--c-ink-3);
+}

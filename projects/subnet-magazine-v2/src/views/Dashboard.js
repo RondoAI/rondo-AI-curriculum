@@ -288,6 +288,94 @@ function svgBars(values, w = 100, h = 36, color = '#FF1E3C'){
   return `<svg viewBox="0 0 ${w} ${h}" preserveAspectRatio="none" style="width:100%;height:${h}px;display:block">${bars}</svg>`;
 }
 
+/* =================================================================
+   NEWS-CARD COVER ART — procedural SVG since the magazine has no
+   -----------------------------------------------------------------
+   photo pipeline. Each editorial dispatch gets a deterministic
+   cover from (kind, subnet netuid, title hash): hairline grid
+   background, kind-tinted gradient, large display-weight glyph
+   (subnet id or τ for ecosystem pieces), bottom wordmark hairline.
+
+   Inspired by Bloomberg Professional's card treatment: one strong
+   visual idea per card, monochromatic discipline, no photography.
+   Translates Bloomberg's orange to our red, navy to our #050203,
+   their photo-realistic webinar thumbnails to our procedural
+   eDEX register.
+   ================================================================= */
+function coverArtSvg(article, subnet){
+  const isMag = article.kind === 'magazine';
+  const accent = isMag ? '#FFB85C' : '#FF1E3C';
+  const glyph = (subnet && subnet.netuid) ? 'SN' + subnet.netuid
+              : (article.subnetId ? 'SN' + article.subnetId : 'τ');
+  /* Stable per-article hash so the same article always renders the
+     same cover — readers learn the visual as identity. */
+  let h = 0;
+  const t = String(article.title || '');
+  for (let i = 0; i < t.length; i++){
+    h = ((h << 5) - h + t.charCodeAt(i)) | 0;
+  }
+  const seed = Math.abs(h) % 1000;
+  const offsetX = (seed % 40) - 20;
+  const rotate  = ((seed * 7) % 12) - 6;
+  const fontSize = glyph.length > 4 ? 36 : 56;
+  return `<svg viewBox="0 0 320 180" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
+    <defs>
+      <linearGradient id="ng${seed}" x1="0" y1="0" x2="1" y2="1">
+        <stop offset="0%"   stop-color="#0A0306"/>
+        <stop offset="100%" stop-color="${accent}" stop-opacity="0.22"/>
+      </linearGradient>
+      <pattern id="np${seed}" patternUnits="userSpaceOnUse" width="16" height="16">
+        <path d="M0 8L16 8M8 0L8 16" stroke="${accent}" stroke-opacity="0.08" stroke-width="0.6"/>
+      </pattern>
+    </defs>
+    <rect width="320" height="180" fill="#050203"/>
+    <rect width="320" height="180" fill="url(#ng${seed})"/>
+    <rect width="320" height="180" fill="url(#np${seed})"/>
+    <line x1="0" y1="180" x2="320" y2="${100 - (seed % 40)}" stroke="${accent}" stroke-opacity="0.18" stroke-width="0.8"/>
+    <text x="${160 + offsetX}" y="108" text-anchor="middle"
+          font-family="Archivo, Inter, sans-serif" font-size="${fontSize}" font-weight="800"
+          fill="${accent}" fill-opacity="0.78"
+          transform="rotate(${rotate} ${160 + offsetX} 95)">${glyph}</text>
+    <line x1="14" y1="166" x2="306" y2="166" stroke="${accent}" stroke-opacity="0.4" stroke-width="0.6"/>
+    <text x="14" y="175" font-family="JetBrains Mono, monospace" font-size="7.5"
+          font-weight="800" letter-spacing="1.8" fill="${accent}" fill-opacity="0.7">SUBNE&#x3C4; MAGAZINE</text>
+  </svg>`;
+}
+
+/**
+ * Render one editorial dispatch as a news card (image-on-top,
+ * mono caps meta, serif title, sans dek, kind chip + SN tag in
+ * cover corners). Built to render inside a .news-cards grid.
+ */
+function newsCardHtml(article, subnet){
+  const href      = article.pdf || article.externalUrl || '#';
+  const kind      = article.kind || 'magazine';
+  const kindLbl   = kind === 'magazine' ? 'MAG'
+                  : kind === 'oracle'   ? 'ORC'
+                  : String(kind).slice(0, 3).toUpperCase();
+  const dek       = article.tagline || article.dek || '';
+  const author    = (article.author || '·').toUpperCase();
+  const cat       = (article.category || '').toUpperCase().replace(/-/g, ' ');
+  const showSnTag = subnet && subnet.netuid;
+  return `
+    <a class="news-card" href="${href}" target="_blank" rel="noopener">
+      <div class="news-card__cover">
+        ${coverArtSvg(article, subnet)}
+        <span class="news-card__kind news-card__kind--${kind}">${kindLbl}</span>
+        ${showSnTag ? `<span class="news-card__sn-tag">SN${subnet.netuid}</span>` : ''}
+      </div>
+      <div class="news-card__body">
+        <span class="news-card__meta">${fmtDate(article.date)} · BY ${author}</span>
+        <h3 class="news-card__title">${article.title}</h3>
+        ${dek ? `<p class="news-card__dek">${dek}</p>` : ''}
+        <div class="news-card__foot">
+          <span class="news-card__cat">${cat || '·'}</span>
+          <span class="news-card__read">READ ↗</span>
+        </div>
+      </div>
+    </a>`;
+}
+
 /* ---------- terminal-grade infrastructure ---------------------- */
 
 /* Watchlist persistence. Survives reloads + cross-tab via the
@@ -1220,9 +1308,11 @@ export function mountDashboard(root, dataLayer = null){
     const team = articlesByNetuid(id).map(a => ({
       kind: 'magazine',
       date: a.date, title: a.title,
+      tagline: a.tagline || '',
       pdf: a.pdf, externalUrl: a.externalUrl,
       author: (a.authors || ['Subneτ Magazine'])[0],
       category: a.category || '',
+      subnetId: id,
     }));
     const oracle = recentOracle
       .filter(a =>
@@ -1233,8 +1323,10 @@ export function mountDashboard(root, dataLayer = null){
       .map(a => ({
         kind: 'oracle',
         date: a.date, title: a.title, pdf: a.pdf,
+        tagline: a.dek || '',
         author: 'Subnet Oracle',
         category: a.kind || '',
+        subnetId: a.subnetId || id,
       }));
     /* Strip any dispatch whose title or tagline names a deregistered
        entity, the per-subnet feed is dashboard intel, not editorial
@@ -1246,19 +1338,18 @@ export function mountDashboard(root, dataLayer = null){
       feed = recentOracle.slice(0, 4).map(a => ({
         kind: 'oracle',
         date: a.date, title: a.title, pdf: a.pdf,
+        tagline: a.dek || '',
         author: 'Subnet Oracle', category: a.kind || '',
+        subnetId: a.subnetId || null,
       }));
     }
-    const newsItems = feed.slice(0, 6).map(a => `
-      <li class="dash-news__item">
-        <span class="dash-news__date">${fmtDate(a.date)}</span>
-        <span class="dash-news__body">
-          <span class="dash-news__kind">${a.kind.toUpperCase()}${a.category ? ' · ' + a.category.toUpperCase().replace(/-/g,' ') : ''}</span>
-          <a href="${a.pdf || a.externalUrl || '#'}" target="_blank" rel="noopener">${a.title}</a>
-          <span style="color:var(--c-ink-3);font-size:9px;letter-spacing:.10em;margin-left:6px">by ${a.author}</span>
-        </span>
-      </li>`).join('') ||
-      `<li class="dash-news__item"><span class="dash-news__body" style="color:var(--c-ink-3)">No articles indexed yet.</span></li>`;
+    /* Image-rich card grid (Bloomberg-style) replaces the prior
+       plain dash-news <ul>. Each card carries a procedural SVG
+       cover, mono caps meta, serif title, sans dek, kind chip +
+       SN tag in cover corners. Auto-fill grid drops from ~3
+       columns at desktop width down to 1 on phones via CSS. */
+    const newsCards = feed.slice(0, 6).map(a => newsCardHtml(a, s)).join('') ||
+      `<div class="news-cards__empty">No editorial dispatches indexed for this subnet yet. The Oracle desk rotates a deep profile in when a subnet enters the top emission tier.</div>`;
 
     /* Editorial bio. Real SUBNET_BIOS entry if the subnet is top-25,
        synthesized bio assembled from SUBNETS data otherwise, so
@@ -1394,7 +1485,7 @@ export function mountDashboard(root, dataLayer = null){
             <span class="dash-panel__meta">${team.length + oracle.length} dispatches indexed · evidence backing this subnet's data</span>
           </div>
           <div style="font-size:9.5px;color:var(--c-ink-3);letter-spacing:.10em;margin-bottom:8px;font-family:var(--f-sans);font-style:italic">Each dispatch logged here is a research signal, not reading material. The dashboard treats them as citations behind the numbers above. Tap into a dispatch when you need the source.</div>
-          <ul class="dash-news">${newsItems}</ul>
+          <div class="news-cards">${newsCards}</div>
         </div>
 
         <div class="dash-panel dash-panel--wide">
