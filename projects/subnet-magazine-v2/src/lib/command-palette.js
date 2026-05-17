@@ -23,6 +23,7 @@
 
 import { qs, qsa, escapeHtml } from './dom.js';
 import { SUBNETS } from '../data/subnets.js';
+import { openCompareModal, resolveCompareTokens } from './compare-modal.js';
 
 let active = null;
 let wired  = false;
@@ -56,7 +57,7 @@ const COMMANDS = [
 
   /* ---- Function tabs (next upgrade passes) ---- */
   { fn: 'open-hist',        verb: 'HIST',      args: '<id> [1d|7d|30d|90d]',desc: 'Historical chart for a subnet',          kind: 'fn',     wip: true },
-  { fn: 'open-compare',     verb: 'COMPARE',   args: '<id> <id> …',         desc: 'Side-by-side subnet comparison',         kind: 'fn',     wip: true },
+  { fn: 'open-compare',     verb: 'COMPARE',   args: '<id> <id> …',         desc: 'Side-by-side compare (subnets + centralized players)', kind: 'fn' },
   { fn: 'open-alert',       verb: 'ALERT',     args: '',                    desc: 'Price / stake / emission alerts',        kind: 'fn',     wip: true },
   { fn: 'open-layout',      verb: 'LAYOUT',    args: '',                    desc: 'Customize panel layout',                 kind: 'fn',     wip: true },
   { fn: 'open-backdrop',    verb: 'BACKDROP',  args: '[id]',                desc: 'Centralized AI backdrop for selected subnet', kind: 'fn' },
@@ -189,6 +190,19 @@ function mountPalette({ subnets, initial }){
     if (it.kind === 'cmd'){
       const def = it.def;
       const parts = (it.parsed && it.parsed.parts) || [];
+
+      /* COMPARE bypasses the command bus, the modal is self-
+         contained (just needs SUBNETS + CENTRALIZED_PLAYERS, both
+         imported by compare-modal.js itself), so we open it inline
+         and skip the dispatch. Works from any page. */
+      if (def.fn === 'open-compare'){
+        const tokens = parts.filter(Boolean);
+        const items  = resolveCompareTokens(tokens);
+        openCompareModal({ items });
+        close();
+        return;
+      }
+
       /* RESEARCH/MAGAZINE/ORACLE/ECOSYSTEM all dispatch the same
          fn with a `mode` field. The verb itself is the mode unless
          it's RESEARCH, which means "the currently selected subnet". */
