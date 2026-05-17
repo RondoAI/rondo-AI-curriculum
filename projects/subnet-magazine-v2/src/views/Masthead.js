@@ -23,6 +23,7 @@ const NAV_ITEMS = [
   { code: '037', label: 'COCKPIT',  href: 'cockpit.html'  },
   { code: '038', label: 'TERMINAL', href: 'terminal.html' },
   { code: '040', label: 'VOICES',   href: 'voices.html'   },
+  { code: '999', label: 'PRO ↗',    href: 'pricing.html'  },
   { code: '050', label: 'EDITOR',   href: 'editor.html'  },
 ];
 
