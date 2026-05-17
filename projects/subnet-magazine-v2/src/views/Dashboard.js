@@ -27,9 +27,32 @@ import { money, pct, compact } from '../lib/format.js';
 import { seedSeries } from '../lib/mark.js';
 import { Sparkline } from '../charts/Sparkline.js';
 import { SUBNETS, subnetById } from '../data/subnets.js';
+import { SUBNET_BIOS } from '../data/subnet-bios.js';
+import { ARTICLES } from '../data/articles.js';
 import { CENTRALIZED_PLAYERS } from '../data/centralized.js';
 import { GH_ACTIVITY, ghByNetuid } from '../data/github-activity.js';
 import { recentOracleArticles } from '../data/oracle-articles.js';
+
+/* Bio lookup by netuid, indexed once at module load for O(1)
+   per-subnet pulls when the user picks a row. */
+const BIO_BY_NETUID = new Map(SUBNET_BIOS.map(b => [b.netuid, b]));
+const bioByNetuid = id => BIO_BY_NETUID.get(id) || null;
+
+/* Team articles indexed by the netuid they cover. Each ARTICLES
+   row carries a single `subnet` string field (the netuid as
+   string), parsed and mapped into a multi-value index because some
+   subnets are profiled in more than one piece. */
+const ARTICLES_BY_NETUID = (() => {
+  const m = new Map();
+  for (const a of ARTICLES){
+    const id = a.subnet ? parseInt(a.subnet, 10) : null;
+    if (!Number.isFinite(id)) continue;
+    if (!m.has(id)) m.set(id, []);
+    m.get(id).push(a);
+  }
+  return m;
+})();
+const articlesByNetuid = id => ARTICLES_BY_NETUID.get(id) || [];
 
 /* ---------- shared links --------------------------------------- */
 /* The Bittensor Discord is the hub where every subnet's own server
@@ -305,22 +328,77 @@ export function mountDashboard(root, dataLayer = null){
       return `<div class="dash-heat__cell ${lvl ? 'dash-heat__cell--l' + lvl : ''}"></div>`;
     }).join('');
 
-    /* News feed: prefer Oracle articles that mention this subnet,
-       otherwise the most recent five overall. */
-    const matching = recentOracle.filter(a =>
-      (a.subnetId === id) ||
-      (a.title || '').toLowerCase().includes(s.name.toLowerCase()) ||
-      (a.subnetName || '').toLowerCase() === s.name.toLowerCase()
-    );
-    const newsItems = (matching.length ? matching : recentOracle).slice(0, 5).map(a => `
+    /* Unified news feed: team articles that cover this subnet (from
+       ARTICLES, keyed by subnet) PLUS Oracle research that mentions
+       it (by subnetId or by title-substring). Each entry is tagged
+       MAGAZINE or ORACLE so the reader knows what they're clicking
+       into. Most-recent-first by date. Falls back to most-recent
+       Oracle overall if nothing matches the current subnet. */
+    const team = articlesByNetuid(id).map(a => ({
+      kind: 'magazine',
+      date: a.date, title: a.title,
+      pdf: a.pdf, externalUrl: a.externalUrl,
+      author: (a.authors || ['Subneτ Magazine'])[0],
+      category: a.category || '',
+    }));
+    const oracle = recentOracle
+      .filter(a =>
+        (a.subnetId === id) ||
+        (a.subnetName || '').toLowerCase() === s.name.toLowerCase() ||
+        (a.title || '').toLowerCase().includes(s.name.toLowerCase())
+      )
+      .map(a => ({
+        kind: 'oracle',
+        date: a.date, title: a.title, pdf: a.pdf,
+        author: 'Subnet Oracle',
+        category: a.kind || '',
+      }));
+    let feed = [...team, ...oracle].sort((x, y) => (y.date || '').localeCompare(x.date || ''));
+    if (!feed.length){
+      feed = recentOracle.slice(0, 4).map(a => ({
+        kind: 'oracle',
+        date: a.date, title: a.title, pdf: a.pdf,
+        author: 'Subnet Oracle', category: a.kind || '',
+      }));
+    }
+    const newsItems = feed.slice(0, 6).map(a => `
       <li class="dash-news__item">
         <span class="dash-news__date">${fmtDate(a.date)}</span>
         <span class="dash-news__body">
-          <span class="dash-news__kind">${(a.kind || 'oracle').replace(/-/g,' ').toUpperCase()}</span>
-          <a href="${a.pdf || '#'}" target="_blank" rel="noopener">${a.title}</a>
+          <span class="dash-news__kind">${a.kind.toUpperCase()}${a.category ? ' · ' + a.category.toUpperCase().replace(/-/g,' ') : ''}</span>
+          <a href="${a.pdf || a.externalUrl || '#'}" target="_blank" rel="noopener">${a.title}</a>
+          <span style="color:var(--c-ink-3);font-size:9px;letter-spacing:.10em;margin-left:6px">by ${a.author}</span>
         </span>
       </li>`).join('') ||
-      `<li class="dash-news__item"><span class="dash-news__body" style="color:var(--c-ink-3)">No oracle entries indexed yet.</span></li>`;
+      `<li class="dash-news__item"><span class="dash-news__body" style="color:var(--c-ink-3)">No articles indexed yet.</span></li>`;
+
+    /* Editorial bio (top-25 subnets only). When present, render a
+       PROFILE panel with the magazine's one-liner, the key metric,
+       the most recent news, and the full bio paragraph. When absent
+       (subnet outside top-25), fall back to the desc on SUBNETS so
+       every subnet still has SOMETHING substantive in the panel. */
+    const bio = bioByNetuid(id);
+    const profilePanel = bio ? `
+      <div class="dash-profile">
+        <div class="dash-profile__oneline">${bio.oneline}</div>
+        <div class="dash-profile__metrics">
+          <div>
+            <div class="dash-profile__lbl">KEY METRIC</div>
+            <div class="dash-profile__metric">${bio.keyMetric}</div>
+          </div>
+          <div>
+            <div class="dash-profile__lbl">RECENT</div>
+            <div class="dash-profile__news">${bio.recentNews}</div>
+          </div>
+        </div>
+        <div class="dash-profile__bio">${bio.bio}</div>
+      </div>
+    ` : `
+      <div class="dash-profile">
+        <div class="dash-profile__oneline">${s.desc || 'No editorial profile yet.'}</div>
+        <div class="dash-profile__bio" style="color:var(--c-ink-3);font-style:italic">No deep profile in SUBNET_BIOS yet — this subnet sits outside the top 25 by daily emission. The Oracle desk pulls one of the rotating spotlights each week; expect a long-form profile soon.</div>
+      </div>
+    `;
 
     /* GitHub panel content */
     const ghPanel = gh ? `
@@ -374,6 +452,14 @@ export function mountDashboard(root, dataLayer = null){
       <div class="dash-kpi">${kpiCells}</div>
 
       <div class="dash-panels">
+        <div class="dash-panel dash-panel--wide">
+          <div class="dash-panel__head">
+            <span class="dash-panel__lbl">PROFILE · editorial</span>
+            <span class="dash-panel__meta">${bio ? 'from SUBNET_BIOS · top-25 deep profile' : 'from SUBNETS · seed description'}</span>
+          </div>
+          ${profilePanel}
+        </div>
+
         <div class="dash-panel">
           <div class="dash-panel__head">
             <span class="dash-panel__lbl">α PRICE · 30D</span>
@@ -409,8 +495,8 @@ export function mountDashboard(root, dataLayer = null){
 
         <div class="dash-panel dash-panel--wide">
           <div class="dash-panel__head">
-            <span class="dash-panel__lbl">ORACLE FEED · related research</span>
-            <span class="dash-panel__meta">filed by Subnet Oracle</span>
+            <span class="dash-panel__lbl">COVERAGE FEED · magazine + oracle</span>
+            <span class="dash-panel__meta">${team.length} team · ${oracle.length} oracle · most-recent first</span>
           </div>
           <ul class="dash-news">${newsItems}</ul>
         </div>

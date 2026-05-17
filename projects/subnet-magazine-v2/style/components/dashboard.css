@@ -43,6 +43,39 @@
   padding: 10px 14px;
   border-top: 1px solid rgba(255,30,60,.18);
 }
+/* On phones the 6-cell status grid is unreadable, cells crash into
+   each other and numbers wrap mid-glyph. Drop to a 2x3 grid with
+   real padding and slightly smaller numbers so each cell has room
+   to breathe and every label is still visible. */
+@media (max-width: 720px){
+  .dash-status__rail{
+    grid-template-columns: 1fr 1fr;
+    padding: 8px 10px;
+    gap: 6px;
+  }
+  .dash-status__cell{
+    padding: 8px 10px;
+    border-right: 0;
+    border: 1px solid rgba(255,30,60,.10);
+    background: rgba(20,5,9,.45);
+  }
+  .dash-status__cell__val{ font-size: 14px; }
+  .dash-status__cell__lbl{ font-size: 8px; letter-spacing: .18em; }
+  .dash-status__cell__sub{ font-size: 8.5px; }
+}
+@media (max-width: 720px){
+  .dash-status__title{
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 4px;
+    padding: 8px 10px;
+    font-size: 8.5px;
+    letter-spacing: .22em;
+  }
+  .dash-status__title__right{
+    font-size: 8px;
+  }
+}
 .dash-status__cell{
   padding: 0 14px;
   border-right: 1px solid rgba(255,30,60,.15);
@@ -113,9 +146,59 @@
   .dash-grid{ grid-template-columns: 220px 1fr; }
   .dash-comparator{ display: none; }
 }
+/* On phones the 3-column grid collapses to a single column. The
+   command rail can NOT stay sticky/scrollable here, because a
+   sticky 100vh-tall element above the detail makes the detail
+   render BEHIND it, the bug Rondo flagged. Switch it from a
+   vertical sticky scroll-list to a horizontal swipe-able subnet
+   chip-picker that takes one short row and never overlaps the
+   detail. The full list is still accessible by horizontal swipe
+   inside that strip. */
 @media (max-width: 720px){
   .dash-grid{ grid-template-columns: 1fr; }
-  .dash-command{ border-right: 0; border-bottom: 1px solid rgba(255,30,60,.18); }
+  .dash-command{
+    position: static;
+    border-right: 0;
+    border-bottom: 1px solid rgba(255,30,60,.18);
+    overflow-y: visible;
+    max-height: none;
+  }
+  .dash-command__list{
+    display: flex;
+    overflow-x: auto;
+    gap: 4px;
+    padding: 8px 10px;
+    scrollbar-width: thin;
+    -webkit-overflow-scrolling: touch;
+  }
+  .dash-command__row{
+    flex: 0 0 auto;
+    grid-template-columns: auto auto;
+    padding: 6px 10px;
+    border: 1px solid rgba(255,30,60,.18);
+    border-bottom: 1px solid rgba(255,30,60,.18);
+    background: rgba(20,5,9,.55);
+    min-width: 0;
+  }
+  .dash-command__row.is-selected{
+    box-shadow: none;
+    border-color: var(--c-red);
+    background: rgba(255,30,60,.22);
+  }
+  /* On the chip row we only need the SN id and the name + 24h chg.
+     Hide the per-row price to keep the chips short and scannable. */
+  .dash-command__price{ display: none; }
+  .dash-command__head{
+    padding: 8px 10px 4px;
+    font-size: 8.5px;
+  }
+  .dash-command__filter{
+    padding: 4px 10px 6px;
+    overflow-x: auto;
+    flex-wrap: nowrap;
+    -webkit-overflow-scrolling: touch;
+  }
+  .dash-command__chip{ flex: 0 0 auto; }
 }
 
 /* ---------- COMMAND RAIL (left) -------------------------------- */
@@ -233,6 +316,19 @@
   grid-template-columns: auto 1fr auto;
   align-items: end;
   gap: 14px;
+}
+/* Mobile detail head: stack the headline block on top of the price
+   block so neither truncates. */
+@media (max-width: 720px){
+  .dash-detail__head{
+    grid-template-columns: 1fr;
+    gap: 8px;
+    padding: 12px 14px 10px;
+  }
+  .dash-detail__name{ font-size: 22px; }
+  .dash-detail__desc{ font-size: 11.5px; }
+  .dash-detail__price-block{ text-align: left; }
+  .dash-detail__price{ font-size: 22px; }
 }
 .dash-detail__id{
   font-size: 9px;
@@ -629,4 +725,65 @@
 }
 .dash-cat__mcap{
   font-size: 9.5px; color: var(--c-ink-3);
+}
+
+/* =================================================================
+   PROFILE PANEL · editorial bio per subnet
+   -----------------------------------------------------------------
+   Pulled from SUBNET_BIOS (top-25 by emission) when available. Has
+   its own typographic register, oneline tagline up top, two
+   side-by-side data callouts (key metric + recent news), then the
+   long-form bio paragraph in serif body for sustained reading.
+   ================================================================= */
+.dash-profile{
+  display: grid;
+  gap: 10px;
+  font-family: var(--f-sans);
+  color: var(--c-ink-1);
+}
+.dash-profile__oneline{
+  font-family: var(--f-serif);
+  font-size: 17px;
+  font-weight: 700;
+  color: #fff;
+  line-height: 1.3;
+  letter-spacing: -0.01em;
+}
+.dash-profile__metrics{
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  gap: 12px;
+  padding: 8px 0;
+  border-top: 1px solid rgba(255,30,60,.10);
+  border-bottom: 1px solid rgba(255,30,60,.10);
+}
+@media (max-width: 720px){
+  .dash-profile__metrics{ grid-template-columns: 1fr; gap: 8px; }
+}
+.dash-profile__lbl{
+  font-family: var(--f-mono);
+  font-size: 8.5px;
+  letter-spacing: .22em;
+  text-transform: uppercase;
+  color: rgba(255,30,60,.7);
+  font-weight: 800;
+  margin-bottom: 3px;
+}
+.dash-profile__metric{
+  font-family: var(--f-mono);
+  font-size: 12.5px;
+  color: var(--c-red-1);
+  font-weight: 700;
+  letter-spacing: .02em;
+}
+.dash-profile__news{
+  font-size: 11.5px;
+  color: var(--c-ink-2);
+  line-height: 1.5;
+}
+.dash-profile__bio{
+  font-size: 12.5px;
+  line-height: 1.65;
+  color: var(--c-ink-1);
+  max-width: 70ch;
 }
