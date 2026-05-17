@@ -9,31 +9,20 @@
 *, *::before, *::after { box-sizing: border-box; }
 
 html {
-  /* iOS/Android shared base. -webkit-text-size-adjust pins font
-     size against the browser's "smart sizing" on rotation. iOS
-     Safari sometimes treats <html> as the scroll root instead of
-     <body>, so overscroll-behavior goes here too, otherwise the
-     rubber-band bounce still fires on iOS even when body has the
-     rule. text-size-adjust uses the standardized name as a
-     fallback for browsers that have dropped the prefix. */
+  /* Keep <html> minimal. Mobile browsers (iOS Safari in particular)
+     treat <html> as the scroll root when ANY overflow value other
+     than visible is set on it, which can outright break vertical
+     page scrolling on the device. Overflow, overscroll, and width
+     locks all live on <body> below instead, which is what every
+     mobile browser expects as the scroll container. */
   -webkit-text-size-adjust: 100%;
           text-size-adjust: 100%;
   scroll-behavior: smooth;
-  overscroll-behavior: contain;
-  /* Lock horizontal at the html level too so neither root scrolls
-     sideways no matter which platform is calling the shots. */
-  overflow-x: hidden;
 }
 
 html, body {
   margin: 0; padding: 0;
   min-height: 100%;
-  /* Anchor body to viewport width on both Android Chrome and iOS
-     Safari, defends against the rare child whose box model leaks
-     1-2px past the viewport edge (sub-pixel rounding, scrollbar
-     gutter on landscape, etc.). */
-  width: 100%;
-  position: relative;
 }
 
 body {
@@ -46,16 +35,9 @@ body {
   text-rendering: optimizeLegibility;
   overflow-x: hidden;
 
-  /* Mobile screen-lock: kill iOS pull-to-refresh and the rubber-band
-     overscroll bounce so the page feels rooted under the finger.
-     Combined with overflow-x: hidden above and the per-rail
-     touch-action: pan-x rules at the bottom of this file, the
-     document only scrolls vertically and never lurches sideways or
-     vertically past its bounds. */
-  overscroll-behavior: contain;
   /* Suppress the gray-flash mobile tap-highlight on every interactive
      element, the terminal aesthetic has its own focus + hover states
-     and the flash reads as a glitch. */
+     and the flash reads as a glitch. Pure cosmetic, no scroll impact. */
   -webkit-tap-highlight-color: transparent;
 
   /* Terminal texture: a fine red grid, a coarse red grid over it, a
