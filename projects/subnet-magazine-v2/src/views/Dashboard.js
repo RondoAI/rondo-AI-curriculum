@@ -625,9 +625,10 @@ export function mountDashboard(root, dataLayer = null){
 
         <div class="dash-panel dash-panel--wide">
           <div class="dash-panel__head">
-            <span class="dash-panel__lbl">COVERAGE FEED · magazine + oracle</span>
-            <span class="dash-panel__meta">${team.length} team · ${oracle.length} oracle · most-recent first</span>
+            <span class="dash-panel__lbl">EDITORIAL INTEL · signal per subnet</span>
+            <span class="dash-panel__meta">${team.length + oracle.length} dispatches indexed · evidence backing this subnet's data</span>
           </div>
+          <div style="font-size:9.5px;color:var(--c-ink-3);letter-spacing:.10em;margin-bottom:8px;font-family:var(--f-sans);font-style:italic">Each dispatch logged here is a research signal, not reading material. The dashboard treats them as citations behind the numbers above. Tap into a dispatch when you need the source.</div>
           <ul class="dash-news">${newsItems}</ul>
         </div>
 
@@ -692,8 +693,8 @@ export function mountDashboard(root, dataLayer = null){
       <section class="dash-arc">
         <div class="dash-arc__head">
           <div class="dash-arc__title-line">
-            EDITORIAL ARCHIVE
-            <span class="dash-arc__count">${editorialArchive.length} pieces · ${teamCount} magazine · ${oracleCount} oracle</span>
+            RESEARCH ARCHIVE · all dispatches indexed
+            <span class="dash-arc__count">${editorialArchive.length} signals · ${teamCount} magazine · ${oracleCount} oracle</span>
           </div>
           <div class="dash-arc__filters">
             <button type="button" class="dash-arc__chip is-active" data-arc-filter="all">ALL</button>
@@ -703,6 +704,7 @@ export function mountDashboard(root, dataLayer = null){
             <button type="button" class="dash-arc__chip" data-arc-filter="selected">SELECTED SUBNET</button>
           </div>
         </div>
+        <div style="font-size:9.5px;color:var(--c-ink-3);letter-spacing:.10em;padding:6px 0 4px;font-family:var(--f-sans);font-style:italic">A dashboard, not a reader. Each row is a dated research signal, source / scope / takeaway. The full piece opens in a new tab if you need the prose; the dashboard's job is to keep every claim cited at a glance.</div>
         <ul class="dash-arc__list">${rows}</ul>
       </section>
     `;
