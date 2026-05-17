@@ -13,7 +13,11 @@ import { mountConsole } from './views/Console.js';
 import { mountStatusStrip } from './views/StatusStrip.js';
 import { mountMasthead } from './views/Masthead.js';
 import { mountHero } from './views/Hero.js';
-import { mountHome } from './views/Home.js';
+/* Home.js carries the cache-bust query so phones with aggressive
+   browser caches re-fetch it after the SUBNET_LOGOS TDZ fix. The
+   index.html boot script tag carries the same version. Bump both
+   when a deployed Home.js change isn't being picked up. */
+import { mountHome } from './views/Home.js?v=20260517a';
 import { mountArticles } from './views/Articles.js';
 import { mountInterviews } from './views/Interviews.js';
 import { mountResearch } from './views/Research.js';
