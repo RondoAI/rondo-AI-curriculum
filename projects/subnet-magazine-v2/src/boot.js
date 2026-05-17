@@ -17,7 +17,7 @@ import { mountHero } from './views/Hero.js';
    browser caches re-fetch it after the SUBNET_LOGOS TDZ fix. The
    index.html boot script tag carries the same version. Bump both
    when a deployed Home.js change isn't being picked up. */
-import { mountHome } from './views/Home.js?v=20260517e';
+import { mountHome } from './views/Home.js?v=20260517f';
 import { mountArticles } from './views/Articles.js';
 import { mountInterviews } from './views/Interviews.js';
 import { mountResearch } from './views/Research.js';

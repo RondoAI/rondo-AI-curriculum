@@ -187,30 +187,29 @@ body { font-variant-numeric: tabular-nums; }
 }
 
 /* =================================================================
-   MOBILE SCROLL GESTURE LOCK
+   HORIZONTAL RAIL CONTAINMENT
    -----------------------------------------------------------------
    The home page has multiple sideways-scrolling rails (validators,
    research, oracle, stack, how, bios, network, ops) plus the
-   masthead nav and the status strip. Without an explicit
-   touch-action, mobile browsers cannot tell whether a slightly-
-   diagonal swipe means "scroll this rail sideways" or "scroll the
-   page down", so they gamble. On near-vertical swipes they often
-   pick horizontal, jittering the rail and making the whole layout
-   feel like it is lurching sideways while you are trying to scroll.
+   masthead nav and the status strip. Two safe properties applied
+   to all of them:
 
-   Setting touch-action: pan-x on each rail tells the browser: when
-   a touch starts on me, I only own horizontal panning. Any pan with
-   a vertical component falls through to my ancestor (the document,
-   touch-action: auto) which scrolls the page smoothly.
+     - overscroll-behavior-x: contain prevents a rail from chaining
+       its overscroll up to the document when it hits an end, so
+       the page does not lurch when you flick a rail past its edge.
+     - -webkit-overflow-scrolling: touch turns on legacy iOS
+       momentum scrolling on the rails that did not already declare
+       it. Newer iOS treats this as a no-op; older iOS gets buttery
+       scrolling.
 
-   overscroll-behavior-x: contain prevents the rail from chaining
-   its overscroll up to the document when it hits an end, so the
-   page does not lurch when you flick a rail past its edge. Most
-   rails already have this; this rule guarantees it everywhere.
-
-   -webkit-overflow-scrolling: touch turns on legacy iOS momentum
-   scrolling on the rails that did not already declare it. Newer
-   iOS treats this as a no-op; older iOS gets buttery scrolling.
+   We deliberately do NOT set touch-action: pan-x. On Android Chrome,
+   setting touch-action: pan-x on the sticky-top status strip and
+   masthead nav causes the browser to lock into a horizontal pan
+   interpretation as soon as the user touches the top of the screen,
+   and the vertical component never gets routed back to the page,
+   the page won't scroll. Without touch-action, the default 'auto'
+   lets the browser's own gesture-intent detection handle direction
+   on its own, which is the safer default across Android + iOS.
    ================================================================= */
 .home-vals__rail,
 .home-research__grid,
@@ -221,7 +220,6 @@ body { font-variant-numeric: tabular-nums; }
 .home-ops__rail,
 .primary-nav__inner,
 .statusbar__inner{
-  touch-action: pan-x;
   overscroll-behavior-x: contain;
   -webkit-overflow-scrolling: touch;
 }
