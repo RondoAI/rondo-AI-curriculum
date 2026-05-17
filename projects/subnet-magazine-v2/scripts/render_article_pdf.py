@@ -35,6 +35,26 @@ from reportlab.platypus import (
 
 ROOT = Path(__file__).resolve().parents[1]
 
+# ---------- font embedding ----------
+# The site's brand wordmark "Subneτ Magazine" is rendered on the
+# web in Archivo (var(--f-serif)). Helvetica's tau glyph (U+03C4)
+# is visibly different from Archivo's, so a PDF set in Helvetica
+# would show a wrong-looking τ in the header band. Register the
+# real Archivo Regular + Bold TTF that ship in assets/fonts/ so
+# every PDF the site serves uses the same wordmark glyph as the
+# web pages. Falls back silently to Helvetica if the files are
+# missing (e.g. fresh clone before the asset is fetched).
+_FONTS_DIR = ROOT / "assets" / "fonts"
+BRAND_FONT = "Helvetica-Bold"            # default fallback
+BRAND_FONT_REG = "Helvetica"
+try:
+    pdfmetrics.registerFont(TTFont("Archivo", str(_FONTS_DIR / "Archivo-Regular.ttf")))
+    pdfmetrics.registerFont(TTFont("Archivo-Bold", str(_FONTS_DIR / "Archivo-Bold.ttf")))
+    BRAND_FONT = "Archivo-Bold"
+    BRAND_FONT_REG = "Archivo"
+except Exception:
+    pass
+
 # Two output trees, the same renderer feeds both. Articles authored
 # by the Subnet Oracle (Claude Opus 4.7) land in oracle-articles/.
 # Team / human-authored Subneτ Magazine articles land in articles/
@@ -74,58 +94,63 @@ C_RULE     = HexColor("#3A1419")
 
 # ---------- styles ----------
 def _styles():
-    """Build paragraph styles once per render. Helvetica is the
-    portable default; we keep things consistent so the PDFs look like
-    a magazine, not a slide."""
+    """Build paragraph styles once per render. Every style uses the
+    embedded Archivo font so the τ glyph (and the whole wordmark)
+    is identical to what the web pages render in their masthead.
+    Falls back to Helvetica silently via BRAND_FONT_* if the .ttf
+    files aren't present (covered by the registration in the module
+    header, which only swaps the names if the load succeeded)."""
+    body_font = BRAND_FONT_REG
+    bold_font = BRAND_FONT
     return {
         "badge": ParagraphStyle(
-            "badge", fontName="Helvetica-Bold", fontSize=8.5,
+            "badge", fontName=bold_font, fontSize=8.5,
             leading=11, textColor=C_RED,
             spaceAfter=4,
         ),
         "kind": ParagraphStyle(
-            "kind", fontName="Helvetica-Bold", fontSize=10,
+            "kind", fontName=bold_font, fontSize=10,
             leading=14, textColor=C_RED_1,
             spaceAfter=8,
         ),
         "title": ParagraphStyle(
-            "title", fontName="Helvetica-Bold", fontSize=22,
+            "title", fontName=bold_font, fontSize=22,
             leading=27, textColor=C_INK_1,
             spaceAfter=10,
         ),
         "dek": ParagraphStyle(
-            "dek", fontName="Helvetica-Oblique", fontSize=12,
+            "dek", fontName=body_font, fontSize=12,
             leading=18, textColor=C_INK_2,
             spaceAfter=14,
             leftIndent=8, borderColor=C_RED_1, borderWidth=0,
         ),
         "attr": ParagraphStyle(
-            "attr", fontName="Helvetica-Bold", fontSize=8,
+            "attr", fontName=bold_font, fontSize=8,
             leading=11, textColor=C_RED_1,
             spaceAfter=18,
         ),
         "section_h": ParagraphStyle(
-            "section_h", fontName="Helvetica-Bold", fontSize=14,
+            "section_h", fontName=bold_font, fontSize=14,
             leading=18, textColor=C_RED_1,
             spaceBefore=10, spaceAfter=6,
         ),
         "body": ParagraphStyle(
-            "body", fontName="Helvetica", fontSize=10.5,
+            "body", fontName=body_font, fontSize=10.5,
             leading=16, textColor=C_INK_1,
             spaceAfter=8,
         ),
         "src_label": ParagraphStyle(
-            "src_label", fontName="Helvetica-Bold", fontSize=9,
+            "src_label", fontName=bold_font, fontSize=9,
             leading=12, textColor=C_INK_3,
             spaceBefore=14, spaceAfter=4,
         ),
         "src": ParagraphStyle(
-            "src", fontName="Helvetica", fontSize=8.5,
+            "src", fontName=body_font, fontSize=8.5,
             leading=12, textColor=C_RED_1,
             leftIndent=12, spaceAfter=2,
         ),
         "foot": ParagraphStyle(
-            "foot", fontName="Helvetica-Bold", fontSize=7.5,
+            "foot", fontName=bold_font, fontSize=7.5,
             leading=10, textColor=C_INK_4,
         ),
     }
@@ -207,11 +232,16 @@ def _draw_chrome(canvas, doc):
     canvas.line(0.5 * inch, h - 0.5 * inch, w - 0.5 * inch, h - 0.5 * inch)
 
     canvas.setFillColor(C_RED)
-    canvas.setFont("Helvetica-Bold", 9)
+    # Use Archivo for the brand wordmark in the header band so the
+    # "Subneτ MAGAZINE" τ glyph matches the site's masthead exactly.
+    # Falls back to Helvetica-Bold transparently if Archivo wasn't
+    # registered. Oracle's "SUBNET ORACLE RESEARCH" band has no τ
+    # but stays in the same font for cross-template consistency.
+    canvas.setFont(BRAND_FONT, 9)
     badge = "⊕ SUBNEτ MAGAZINE" if is_team else "⊕ SUBNET ORACLE RESEARCH"
     canvas.drawString(0.5 * inch, h - 0.4 * inch, badge)
     canvas.setFillColor(C_INK_3)
-    canvas.setFont("Helvetica", 8)
+    canvas.setFont(BRAND_FONT_REG, 8)
     right_label = (
         getattr(doc, "_top_right", None) or
         ("Subneτ Magazine · Editorial Desk" if is_team
@@ -232,6 +262,9 @@ def _draw_chrome(canvas, doc):
                           radius=0.7 * inch, seed=seed)
         canvas.setFillColor(C_INK_4)
         canvas.setFont("Helvetica-Bold", 6.5)
+        # Watermark caption also goes through Archivo so its τ glyph
+        # matches the header band above it.
+        canvas.setFont(BRAND_FONT, 6.5)
         watermark = "SUBNEτ MAGAZINE · LIVE" if is_team else "SUBNET ORACLE · LIVE"
         canvas.drawCentredString(w - 1.6 * inch, h - 3.05 * inch, watermark)
 
@@ -240,7 +273,9 @@ def _draw_chrome(canvas, doc):
     canvas.setLineWidth(0.5)
     canvas.line(0.5 * inch, 0.55 * inch, w - 0.5 * inch, 0.55 * inch)
     canvas.setFillColor(C_INK_4)
-    canvas.setFont("Helvetica", 7.5)
+    # Footer also uses Archivo so the τ in "Subneτ Magazine"
+    # there matches everywhere else.
+    canvas.setFont(BRAND_FONT_REG, 7.5)
     foot_line = (
         getattr(doc, "_footer_line", None) or
         ("Filed by Subneτ Magazine. Editorial standard: long-form, mechanism-aware, sourced."
