@@ -36,22 +36,32 @@ from reportlab.platypus import (
 ROOT = Path(__file__).resolve().parents[1]
 
 # ---------- font embedding ----------
-# The site's brand wordmark "Subneτ Magazine" is rendered on the
-# web in Archivo (var(--f-serif)). Helvetica's tau glyph (U+03C4)
-# is visibly different from Archivo's, so a PDF set in Helvetica
-# would show a wrong-looking τ in the header band. Register the
-# real Archivo Regular + Bold TTF that ship in assets/fonts/ so
-# every PDF the site serves uses the same wordmark glyph as the
-# web pages. Falls back silently to Helvetica if the files are
-# missing (e.g. fresh clone before the asset is fetched).
+# Why Inter and not Archivo, even though the site's brand wordmark
+# nominally uses Archivo (var(--f-serif): 'Archivo', 'Inter', ...).
+#
+# Archivo's TTF on Google's CDN is a Latin-only subset, no Greek,
+# no math operators. The wordmark "Subneτ Magazine" contains τ
+# (U+03C4) and the chrome contains ⊕ (U+2295); subset-embedding
+# Archivo into a PDF produces a missing-glyph BOX for both
+# characters, strictly worse than the Helvetica baseline.
+#
+# Inter is the SECOND face in the site's serif stack and the first
+# fallback the browser actually uses for any glyph Archivo cannot
+# render, which means the τ a reader sees on the live site is
+# already rendered in Inter, not Archivo. Using Inter in the PDFs
+# matches the on-screen τ exactly while also covering ⊕, ·, em-
+# dashes, sigma, and the rest of the Unicode the page draws on.
+#
+# Falls back silently to Helvetica if the .ttf files are absent
+# (fresh clone before scripts/fetch-fonts has run).
 _FONTS_DIR = ROOT / "assets" / "fonts"
-BRAND_FONT = "Helvetica-Bold"            # default fallback
+BRAND_FONT = "Helvetica-Bold"
 BRAND_FONT_REG = "Helvetica"
 try:
-    pdfmetrics.registerFont(TTFont("Archivo", str(_FONTS_DIR / "Archivo-Regular.ttf")))
-    pdfmetrics.registerFont(TTFont("Archivo-Bold", str(_FONTS_DIR / "Archivo-Bold.ttf")))
-    BRAND_FONT = "Archivo-Bold"
-    BRAND_FONT_REG = "Archivo"
+    pdfmetrics.registerFont(TTFont("Inter",      str(_FONTS_DIR / "Inter-Regular.ttf")))
+    pdfmetrics.registerFont(TTFont("Inter-Bold", str(_FONTS_DIR / "Inter-Bold.ttf")))
+    BRAND_FONT = "Inter-Bold"
+    BRAND_FONT_REG = "Inter"
 except Exception:
     pass
 
