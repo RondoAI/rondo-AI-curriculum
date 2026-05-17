@@ -91,10 +91,15 @@
    scroll-padding-top on <html>. */
 
 .dash-zone{
-  /* Each top-level zone is its own scroll target; the IntersectionObserver
-     uses the zone boundaries to flip the active chip. No box on the
-     wrapper itself — the inner panels carry their own framing. */
+  /* Each zone is a TAB content panel; only one is visible at a
+     time. When .is-hidden, the zone is removed from layout entirely
+     so the page collapses to just the active zone — no scrolling
+     past hidden content. Replaces the prior 21,000px stacked
+     scroll model with a tabbed shell. */
   display: block;
+}
+.dash-zone.is-hidden{
+  display: none !important;
 }
 
 /* ---------- MY DESK wrapper -------------------------------- */
@@ -170,4 +175,28 @@
     padding: 32px 0 10px;
   }
   .dash-desk__h{ font-size: 32px; }
+}
+
+/* ---------- OPEN IN COCKPIT CTA ----------------------------- */
+/* On the dashboard's per-subnet DETAIL header, this CTA points
+   the reader to the cockpit for deep analysis without scrolling.
+   "Things within things" — the dashboard's tab system surfaces the
+   data; the cockpit is the bounded workspace for studying it. */
+.dash-detail__cockpit-cta{
+  display: inline-block;
+  margin-top: 10px;
+  padding: 6px 12px;
+  font-family: var(--f-mono);
+  font-size: 10px;
+  letter-spacing: .18em;
+  font-weight: 800;
+  color: var(--c-up);
+  border: 1px solid var(--c-up);
+  background: transparent;
+  text-decoration: none;
+  transition: background 120ms, color 120ms;
+}
+.dash-detail__cockpit-cta:hover{
+  background: var(--c-up);
+  color: #050203;
 }
