@@ -33,10 +33,11 @@ import { CandleChart } from '../charts/CandleChart.js';
 let active = null;
 
 const RANGES = [
-  { id: '1D',  bars: 24, barMs:        60 * 60 * 1000, label: '1 day · hourly bars'   },
-  { id: '7D',  bars: 28, barMs: 6 * 60 * 60 * 1000,    label: '7 days · 6-hour bars'  },
-  { id: '30D', bars: 30, barMs: 24 * 60 * 60 * 1000,   label: '30 days · daily bars'  },
-  { id: '90D', bars: 90, barMs: 24 * 60 * 60 * 1000,   label: '90 days · daily bars'  },
+  { id: '1D',  bars: 24,  barMs:        60 * 60 * 1000, label: '1 day · hourly bars'    },
+  { id: '7D',  bars: 28,  barMs: 6 * 60 * 60 * 1000,    label: '7 days · 6-hour bars'   },
+  { id: '30D', bars: 30,  barMs: 24 * 60 * 60 * 1000,   label: '30 days · daily bars'   },
+  { id: '90D', bars: 90,  barMs: 24 * 60 * 60 * 1000,   label: '90 days · daily bars'   },
+  { id: '1Y',  bars: 52,  barMs: 7 * 24 * 60 * 60 * 1000, label: '1 year · weekly bars' },
 ];
 
 /* ---------- public API --------------------------------------- */
@@ -276,7 +277,21 @@ function renderAnnotations(root, annotations, range){
     .filter(Boolean);
 
   if (!visible.length){
-    overlay.innerHTML = `<div class="histm__annot-empty">No editorial dispatches in this ${range.label.split(' ')[0]} window. Switch range to see longer history.</div>`;
+    /* Be honest about WHY the overlay is empty: either no
+       dispatches exist for this subnet at all, or they all fall
+       outside the chart's current window. The reader knows which
+       case applies + what to do. */
+    const totalForSubnet = annotations.length;
+    let msg;
+    if (totalForSubnet === 0){
+      msg = `No editorial coverage indexed for this subnet yet. The desk rotates a deep profile in when a subnet enters the top emission tier.`;
+    } else {
+      const dates = annotations.map(a => a.date).filter(Boolean).sort();
+      const oldest = dates[0] || '·';
+      const newest = dates[dates.length - 1] || '·';
+      msg = `All ${totalForSubnet} press item${totalForSubnet === 1 ? '' : 's'} for this subnet fall outside the ${range.id} window (${oldest} → ${newest}). Switch to 1Y to see them on the timeline.`;
+    }
+    overlay.innerHTML = `<div class="histm__annot-empty">${msg}</div>`;
     return;
   }
 
