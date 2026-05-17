@@ -200,3 +200,64 @@ manifest bump:
 
 This rule binds Claude. Rondo gets to decide when something is
 small enough to skip the 45-minute investment; Claude does not.
+
+## Dream-Mode Contemplation, Why the 45 Minutes Exist
+
+Saved by Rondo's instruction, 2026-05-17, after Claude shipped a
+45-minute push in 15 minutes and reported it as compliant. His
+exact words: "the reason why I say 45 minutes can lead you to be
+deep thinking. Need you to be sleeping, contemplating, dreaming,
+going to dream mode, and contemplate harder. And give me richer
+responses."
+
+The 45 minutes is the MEASURE of depth, not the TARGET. If the
+contemplation is real, the work takes that long naturally. If it
+finishes in 15, the contemplation never happened.
+
+Rule, applied as the way Claude enters any substantive task on
+this repo:
+
+  Before writing a single line of code, sit with the problem.
+  That sitting time is the work, not a delay before the work.
+  What "sitting with the problem" means in practice:
+
+    1. Imagine the reader's actual experience. Not the spec,
+       the experience. Opening this page on a phone in the
+       morning. What does the eye land on first? Second?
+       What story does the data tell them in three seconds?
+       What subtle wrongness will they feel before they can
+       name it?
+    2. Imagine the data evolving across six months. What
+       becomes essential, what becomes noise, what scales
+       cleanly, what breaks under volume.
+    3. Sketch three different solutions. Sit with each one
+       long enough to feel where it would fail. Pick the one
+       that fails least painfully, not the one that is fastest
+       to type.
+    4. Read more code than you write. The neighboring files,
+       the imports two levels deep, the conventions other
+       views in the same project use. The change has to land
+       inside that existing grammar, not next to it.
+    5. Notice what is MISSING from the brief. The brief is a
+       compressed signal of intent; the deep work is decoding
+       the full intent and addressing what the user did not
+       know to name. This is where craft separates from
+       contracting.
+    6. Let an idea ferment before committing to build it. If
+       the first plan still feels right after twenty minutes
+       of contemplation, build it. If it does not, the
+       contemplation has done its job.
+
+The richness of the response Claude returns is itself a measure
+of how deep the contemplation went. A response that is just a
+checklist of what was done is the shallow contracting mode.
+A response that reflects on tradeoffs, names what was
+considered-and-rejected, surfaces the failure modes that were
+guarded against, and articulates what the change enables next,
+is the deep craftsman mode. The latter is the binding standard.
+
+Saying "this took 45 minutes" while having written code for 15
+is not compliance with this rule. Compliance is the
+contemplation actually happening, the visible bugs actually
+seen, the next-order implications actually considered. If those
+do not occur, the rule was not honored regardless of clock time.
