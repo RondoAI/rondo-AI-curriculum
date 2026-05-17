@@ -283,58 +283,106 @@ export function mountHome(root, dataLayer = null){
         z-index: 1;
         filter: drop-shadow(0 0 14px rgba(255,30,60,.28));
       }
-      /* The SUBNET ORACLE badge sits top-right, the company ticker
-         sits top-left. Both share the same glassy, blurred, red-
-         bordered chrome so they read as a matched pair, like a
-         financial-terminal header. */
+      /* HUD instrument tags: SUBNET ORACLE (top-right, live) and the
+         subject ticker (top-left). They share a visual chassis:
+         dark gradient backdrop with backdrop-filter blur, hairline
+         red border, layered red glow + a 1px top inner highlight
+         that reads as a glass bevel, sharp 1px corners (not a pill,
+         this is a terminal, not a button). Both refuse to wrap and
+         cap at 45% of the cover width so they coexist on narrow
+         cards without overlap. */
       .home-article--oracle .home-article__oracle-badge,
       .home-article--oracle .home-article__ticker{
         position: absolute;
         top: 10px;
         z-index: 4;
-        font-family: var(--f-mono, monospace);
-        font-size: 8.5px;
-        font-weight: 700;
-        letter-spacing: .22em;
-        background: rgba(8,4,6,.62);
-        backdrop-filter: blur(6px) saturate(140%);
-        -webkit-backdrop-filter: blur(6px) saturate(140%);
-        border: 1px solid rgba(255,30,60,.7);
-        border-radius: 2px;
-        color: #fff;
-        text-shadow: 0 0 8px rgba(255,30,60,.65);
-        box-shadow:
-          0 0 10px rgba(255,30,60,.32),
-          inset 0 0 8px rgba(255,30,60,.18);
-      }
-      .home-article--oracle .home-article__oracle-badge{
-        right: 10px;
-        padding: 4px 9px 3px;
-      }
-      /* Ticker: small subject-company logo + uppercase name + SN id,
-         pinned top-left. Reads as "TARGON · SN4" with a 16px mark.
-         This is the signature, the article's stock ticker. */
-      .home-article--oracle .home-article__ticker{
-        left: 10px;
-        padding: 3px 8px 2px 4px;
         display: inline-flex;
         align-items: center;
-        gap: 6px;
         line-height: 1;
+        white-space: nowrap;
+        max-width: calc(50% - 12px);
+        overflow: hidden;
+        font-family: var(--f-mono, monospace);
+        font-size: 9.5px;
+        font-weight: 700;
+        letter-spacing: .19em;
+        color: #fff;
+        background:
+          linear-gradient(180deg,
+            rgba(28,10,14,.92) 0%,
+            rgba(10,4,6,.86)  100%);
+        backdrop-filter: blur(10px) saturate(160%);
+        -webkit-backdrop-filter: blur(10px) saturate(160%);
+        border: 1px solid rgba(255,30,60,.82);
+        border-radius: 1px;
+        text-shadow: 0 0 6px rgba(255,30,60,.55);
+        box-shadow:
+          0 0 14px rgba(255,30,60,.38),
+          0 2px 8px rgba(0,0,0,.55),
+          inset 0 0 10px rgba(255,30,60,.20),
+          inset 0 1px 0 rgba(255,90,110,.32);
+      }
+      /* SUBNET ORACLE: top-right, with a live-pulse dot as a ::before
+         so we get the indicator without changing the markup. */
+      .home-article--oracle .home-article__oracle-badge{
+        right: 10px;
+        gap: 7px;
+        padding: 5px 10px 4px 8px;
+      }
+      .home-article--oracle .home-article__oracle-badge::before{
+        content: "";
+        flex: 0 0 auto;
+        width: 5px; height: 5px;
+        border-radius: 50%;
+        background: #ff3050;
+        box-shadow:
+          0 0 6px  rgba(255,30,60,1),
+          0 0 12px rgba(255,30,60,.7);
+        animation: oracleLivePulse 1.6s cubic-bezier(.4,0,.6,1) infinite;
+      }
+      @keyframes oracleLivePulse{
+        0%, 100%{
+          transform: scale(1);
+          background: #ff3050;
+          box-shadow:
+            0 0 6px  rgba(255,30,60,1),
+            0 0 12px rgba(255,30,60,.7);
+        }
+        50%{
+          transform: scale(1.25);
+          background: #ff8094;
+          box-shadow:
+            0 0 10px rgba(255,30,60,1),
+            0 0 20px rgba(255,30,60,.85),
+            0 0 4px  rgba(255,200,210,.7);
+        }
+      }
+      /* Ticker: top-left, logo + uppercase name + SN id. The signature
+         tag of the article, mirrors SUBNET ORACLE in chrome. */
+      .home-article--oracle .home-article__ticker{
+        left: 10px;
+        gap: 7px;
+        padding: 4px 9px 3px 5px;
       }
       .home-article--oracle .home-article__ticker-logo{
-        width: 16px;
-        height: 16px;
+        flex: 0 0 auto;
+        width: 18px;
+        height: 18px;
         object-fit: contain;
         display: block;
-        filter: drop-shadow(0 0 4px rgba(255,30,60,.55));
+        filter:
+          drop-shadow(0 0 3px rgba(255,30,60,.65))
+          drop-shadow(0 0 6px rgba(255,30,60,.35));
       }
       .home-article--oracle .home-article__ticker-text{
-        padding-top: 1px; /* optical centering against the logo */
+        padding-top: 1px;  /* optical centering against the logo */
+        overflow: hidden;
+        text-overflow: ellipsis;
       }
       .home-article--oracle .home-article__ticker-sep{
-        color: rgba(255,30,60,.85);
-        margin: 0 2px;
+        color: rgba(255,30,60,.9);
+        margin: 0 3px;
+        font-weight: 400;
       }
       .home-article--oracle .home-article__kicker{
         color: var(--c-red, #FF1E3C);
@@ -346,11 +394,17 @@ export function mountHome(root, dataLayer = null){
         transform: scale(1.02);
         transition: transform .35s ease, filter .35s ease;
       }
-      .home-article--oracle .home-article__link:hover .home-article__ticker{
+      /* Hover lights up both HUD tags so they read as part of the
+         interactive surface, not chrome glued to the cover. Keeps
+         the bevel highlight, brightens the border + outer glow. */
+      .home-article--oracle .home-article__link:hover .home-article__ticker,
+      .home-article--oracle .home-article__link:hover .home-article__oracle-badge{
         border-color: rgba(255,30,60,1);
         box-shadow:
-          0 0 14px rgba(255,30,60,.5),
-          inset 0 0 10px rgba(255,30,60,.25);
+          0 0 18px rgba(255,30,60,.55),
+          0 2px 8px rgba(0,0,0,.55),
+          inset 0 0 12px rgba(255,30,60,.28),
+          inset 0 1px 0 rgba(255,90,110,.42);
         transition: border-color .25s ease, box-shadow .25s ease;
       }
     </style>
