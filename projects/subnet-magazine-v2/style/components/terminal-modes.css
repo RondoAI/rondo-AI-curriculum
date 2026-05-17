@@ -1,0 +1,338 @@
+/* =================================================================
+   SUBNET MAGAZINE, TERMINAL MODE STYLES (mac-session)
+   -----------------------------------------------------------------
+   Shared styles for each mode that lands in the terminal center
+   pane. Each mode has its own scoped namespace (term-briefings,
+   term-editorial, term-markets, etc.) so they don't bleed into
+   each other or into the shell.
+
+   Density discipline: each mode is one BOUNDED frame. Scroll
+   WITHIN the mode, not past it. Modes are read-this-and-act
+   surfaces, not infinite scrolls.
+
+   Aesthetic: matches the magazine's existing register —
+   monospace data, serif body, hairline red borders, BLACK + RED
+   palette, no rounded pills, no shadow noise.
+   ================================================================= */
+
+/* =================================================================
+   BRIEFINGS MODE — serif morning-read column
+   ================================================================= */
+
+.term-briefings{
+  display: grid;
+  gap: 24px;
+  max-width: 820px;
+  margin: 0 auto;
+  padding: 22px 24px 28px;
+  color: var(--c-ink-1);
+}
+@media (max-width: 720px){
+  .term-briefings{
+    padding: 14px 14px 22px;
+    gap: 18px;
+  }
+}
+
+/* ---------- header ---------------------------------------- */
+.term-briefings__head{
+  display: flex; align-items: baseline; justify-content: space-between;
+  gap: 12px;
+  padding-bottom: 12px;
+  border-bottom: 1px solid rgba(255, 30, 60, .26);
+  flex-wrap: wrap;
+}
+.term-briefings__kicker{
+  display: inline-flex; align-items: baseline; gap: 8px;
+  font-family: var(--f-mono);
+  font-size: 9.5px;
+  letter-spacing: .26em;
+  text-transform: uppercase;
+  font-weight: 800;
+  color: rgba(255, 30, 60, .85);
+}
+.term-briefings__dot{
+  display: inline-block;
+  width: 6px; height: 6px;
+  border-radius: 50%;
+  background: var(--c-red);
+  box-shadow: 0 0 6px rgba(255, 30, 60, .9);
+  animation: termBriefPulse 2s ease-in-out infinite;
+  align-self: center;
+}
+@keyframes termBriefPulse{
+  0%, 100%{ opacity: 1;   transform: scale(1);    }
+  50%     { opacity: .55; transform: scale(1.25); }
+}
+.term-briefings__arch{
+  font-family: var(--f-mono);
+  font-size: 9px;
+  letter-spacing: .18em;
+  font-weight: 800;
+  text-transform: uppercase;
+  color: var(--c-ink-3);
+  text-decoration: none;
+  border: 1px solid rgba(200, 168, 173, .26);
+  padding: 4px 8px 3px;
+  transition: color .15s ease, border-color .15s ease, background .15s ease;
+}
+.term-briefings__arch:hover,
+.term-briefings__arch:focus-visible{
+  color: #fff;
+  border-color: var(--c-red);
+  background: rgba(255, 30, 60, .12);
+  outline: none;
+}
+
+/* ---------- LEAD briefing -------------------------------- */
+.term-briefings__lead{
+  position: relative;
+  display: grid;
+  gap: 14px;
+  padding: 18px 22px 22px 26px;
+  background: rgba(8, 3, 5, .65);
+  border: 1px solid rgba(255, 30, 60, .26);
+  box-shadow: inset 4px 0 0 var(--c-red);
+}
+@media (max-width: 720px){
+  .term-briefings__lead{ padding: 14px 14px 16px 18px; }
+}
+.term-briefings__lead-date{
+  font-family: var(--f-mono);
+  font-size: 9.5px;
+  letter-spacing: .22em;
+  text-transform: uppercase;
+  font-weight: 800;
+  color: var(--c-red-1);
+}
+.term-briefings__lead-title{
+  font-family: var(--f-serif);
+  font-size: clamp(22px, 3vw, 30px);
+  font-weight: 700;
+  line-height: 1.18;
+  color: #fff;
+  letter-spacing: -.012em;
+  margin: 0;
+}
+.term-briefings__lead-dek{
+  font-family: var(--f-serif);
+  font-style: italic;
+  font-size: clamp(15px, 1.6vw, 17px);
+  line-height: 1.55;
+  color: var(--c-ink-2);
+  margin: 0;
+  max-width: 64ch;
+}
+
+.term-briefings__rule{
+  height: 1px;
+  background: linear-gradient(90deg,
+    rgba(255,30,60,.34), rgba(255,30,60,.10), transparent);
+  margin: 2px 0 0;
+}
+
+.term-briefings__hls{
+  list-style: none; margin: 0; padding: 0;
+  display: grid; gap: 10px;
+}
+.term-briefings__hl{
+  display: grid;
+  grid-template-columns: 140px 1fr;
+  gap: 14px;
+  align-items: start;
+  font-variant-numeric: tabular-nums;
+}
+@media (max-width: 720px){
+  .term-briefings__hl{
+    grid-template-columns: 1fr;
+    gap: 4px;
+  }
+}
+.term-briefings__hl-tag{
+  font-family: var(--f-mono);
+  font-size: 9px;
+  font-weight: 800;
+  letter-spacing: .2em;
+  text-transform: uppercase;
+  padding: 3px 8px 2px;
+  border: 1px solid currentColor;
+  color: var(--c-red-1);
+  width: max-content;
+  line-height: 1.1;
+  justify-self: start;
+}
+.term-briefings__hl-txt{
+  font-family: var(--f-sans);
+  font-size: 13.5px;
+  line-height: 1.55;
+  color: var(--c-ink-1);
+}
+
+.term-briefings__lead-foot{
+  display: flex; align-items: center; justify-content: space-between;
+  gap: 12px;
+  flex-wrap: wrap;
+  padding-top: 8px;
+  border-top: 1px dashed rgba(255, 30, 60, .14);
+}
+.term-briefings__cats{
+  display: flex; flex-wrap: wrap; gap: 4px;
+}
+.term-briefings__cat{
+  font-family: var(--f-mono);
+  font-size: 8.5px;
+  letter-spacing: .2em;
+  font-weight: 800;
+  text-transform: uppercase;
+  color: var(--c-ink-3);
+  border: 1px solid rgba(200, 168, 173, .26);
+  padding: 2px 6px 1px;
+}
+.term-briefings__lead-link{
+  font-family: var(--f-mono);
+  font-size: 10px;
+  letter-spacing: .2em;
+  font-weight: 800;
+  text-transform: uppercase;
+  color: var(--c-red-1);
+  text-decoration: none;
+  padding: 5px 12px 4px;
+  border: 1px solid rgba(255, 30, 60, .42);
+  background: rgba(255, 30, 60, .04);
+  transition: color .12s ease, background .12s ease, border-color .12s ease;
+}
+.term-briefings__lead-link:hover,
+.term-briefings__lead-link:focus-visible{
+  color: #fff;
+  background: rgba(255, 30, 60, .22);
+  border-color: var(--c-red);
+  outline: none;
+}
+
+/* ---------- archive list --------------------------------- */
+.term-briefings__archive{
+  display: grid; gap: 10px;
+  padding-top: 6px;
+}
+.term-briefings__arch-head{
+  font-family: var(--f-mono);
+  font-size: 9px;
+  letter-spacing: .26em;
+  text-transform: uppercase;
+  font-weight: 800;
+  color: rgba(255, 30, 60, .85);
+  padding-bottom: 6px;
+  border-bottom: 1px solid rgba(255, 30, 60, .22);
+}
+.term-briefings__list{
+  list-style: none; margin: 0; padding: 0;
+  display: grid; gap: 2px;
+}
+.term-briefings__row{ }
+.term-briefings__row-link{
+  display: grid;
+  grid-template-columns: 90px 1fr auto;
+  gap: 16px;
+  align-items: start;
+  padding: 12px 8px;
+  border-bottom: 1px dashed rgba(255, 30, 60, .10);
+  text-decoration: none;
+  color: inherit;
+  transition: background .12s ease;
+}
+.term-briefings__row-link:hover,
+.term-briefings__row-link:focus-visible{
+  background: rgba(255, 30, 60, .04);
+  outline: none;
+}
+.term-briefings__row-date{
+  font-family: var(--f-mono);
+  font-size: 9.5px;
+  letter-spacing: .14em;
+  font-weight: 800;
+  color: rgba(255, 30, 60, .75);
+  font-variant-numeric: tabular-nums;
+}
+.term-briefings__row-body{
+  display: grid; gap: 3px;
+  min-width: 0;
+}
+.term-briefings__row-title{
+  font-family: var(--f-serif);
+  font-size: 15px;
+  font-weight: 700;
+  color: #fff;
+  line-height: 1.32;
+  letter-spacing: -.005em;
+}
+.term-briefings__row-dek{
+  font-family: var(--f-sans);
+  font-size: 12px;
+  line-height: 1.45;
+  color: var(--c-ink-3);
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+.term-briefings__row-tags{
+  display: inline-flex; flex-wrap: wrap; gap: 4px;
+  justify-content: flex-end;
+}
+.term-briefings__row-tag{
+  font-family: var(--f-mono);
+  font-size: 8px;
+  letter-spacing: .14em;
+  font-weight: 800;
+  text-transform: uppercase;
+  padding: 2px 5px 1px;
+  border: 1px solid rgba(255, 30, 60, .22);
+  color: var(--c-ink-3);
+}
+@media (max-width: 720px){
+  .term-briefings__row-link{
+    grid-template-columns: 70px 1fr;
+    gap: 10px;
+  }
+  .term-briefings__row-tags{ display: none; }
+}
+
+/* ---------- footer --------------------------------------- */
+.term-briefings__foot{
+  display: flex; align-items: center; justify-content: space-between;
+  gap: 12px;
+  padding-top: 12px;
+  border-top: 1px solid rgba(255, 30, 60, .22);
+  font-family: var(--f-mono);
+  font-size: 9.5px;
+  letter-spacing: .08em;
+  font-weight: 700;
+  color: var(--c-ink-3);
+  flex-wrap: wrap;
+}
+.term-briefings__brand{
+  color: var(--c-red-1);
+  letter-spacing: .18em;
+  font-weight: 800;
+}
+
+/* Empty state */
+.term-briefings__empty{
+  padding: 40px 24px;
+  text-align: center;
+  color: var(--c-ink-3);
+}
+.term-briefings__empty h2{
+  font-family: var(--f-serif);
+  font-size: 18px;
+  color: #fff;
+  margin: 0 0 8px;
+}
+.term-briefings__empty code{
+  font-family: var(--f-mono);
+  font-size: 11px;
+  color: var(--c-red-1);
+  background: rgba(255, 30, 60, .06);
+  border: 1px solid rgba(255, 30, 60, .22);
+  padding: 1px 5px;
+}

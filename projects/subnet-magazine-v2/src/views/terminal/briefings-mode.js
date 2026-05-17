@@ -1,0 +1,159 @@
+/* =================================================================
+   SUBNET MAGAZINE, TERMINAL · BRIEFINGS MODE
+   -----------------------------------------------------------------
+   First mode migration per the sibling-session REIMAGINE plan in
+   CLAUDE.md. Replaces the stub in Terminal.js MODE_REGISTRY entry
+   `briefings`.
+
+   What this mode is: the desk's morning read. A serif column —
+   not a card grid, not a table — leading with today's freshest
+   briefing in full (kicker + title + dek + highlight bullets +
+   the full set of category tags + the source PDF / GitHub link)
+   and archiving older briefings underneath in compact form.
+
+   Why serif column, not card grid: this is reading content. The
+   user reads it top-to-bottom like a morning note. Cards work for
+   scanning; the briefings deserve to be READ. Bloomberg's morning
+   briefings have always been serif text columns, not card grids,
+   for exactly this reason.
+
+   Selection contract: BRIEFINGS are network-wide editorial, not
+   per-subnet. The mode ignores ctx.selectedId. (If a future
+   briefing is tagged to a specific subnet, we can filter then;
+   none currently are.)
+
+   Density discipline: matches the magazine's editorial register
+   (Archivo serif body, JetBrains Mono kickers, hairline red
+   dividers). No graphical decoration that doesn't carry meaning.
+   ================================================================= */
+
+import { qs, escapeHtml } from '../../lib/dom.js';
+import { BRIEFINGS, latestBriefing, priorBriefings, currencyHeader, daysBetween } from '../../data/briefings.js';
+
+/**
+ * Mount the BRIEFINGS mode into the terminal's center pane.
+ * @param {HTMLElement} root  the center-pane container the
+ *                            terminal shell hands us
+ * @param {{selectedId:number,dataLayer:any,select:Function}} ctx
+ * @returns {()=>void}        destroy callback
+ */
+export function mountBriefingsMode(root, _ctx){
+  if (!root) return () => {};
+
+  const todayIso = new Date().toISOString().slice(0, 10);
+  const lead     = latestBriefing();
+  const priors   = priorBriefings(Infinity);
+  const headerTxt = lead ? currencyHeader(todayIso, lead.date) : 'NO BRIEFINGS INDEXED';
+
+  root.innerHTML = template({ lead, priors, headerTxt });
+
+  /* No live timers, no event listeners — briefings.js is static
+     data at module load and the mode is read-only. The destroy
+     callback exists for symmetry with the other modes that DO
+     install listeners. */
+  return () => {};
+}
+
+/* ---------- template -------------------------------------- */
+
+function template({ lead, priors, headerTxt }){
+  if (!lead){
+    return `<div class="term-briefings__empty">
+      <h2>No briefings indexed yet.</h2>
+      <p>The desk hasn't filed a daily briefing in this repository's history. Once <code>briefings/YYYY-MM-DD.md</code> entries land + a row is added to <code>src/data/briefings.js</code>, this mode reads from that index.</p>
+    </div>`;
+  }
+
+  return `
+    <article class="term-briefings">
+      <header class="term-briefings__head">
+        <span class="term-briefings__kicker"><span class="term-briefings__dot"></span>${escapeHtml(headerTxt)}</span>
+        <a class="term-briefings__arch" href="https://github.com/RondoAI/rondo-AI-curriculum/tree/main/briefings" target="_blank" rel="noopener">FULL ARCHIVE ↗</a>
+      </header>
+
+      <!-- LEAD briefing — full read, not summary -->
+      ${renderLead(lead)}
+
+      <!-- ARCHIVE — compact entries, newest-first -->
+      ${priors.length ? `
+        <section class="term-briefings__archive">
+          <div class="term-briefings__arch-head">PRIOR BRIEFINGS · ${priors.length} indexed</div>
+          <ul class="term-briefings__list">
+            ${priors.map(renderPriorRow).join('')}
+          </ul>
+        </section>
+      ` : ''}
+
+      <footer class="term-briefings__foot">
+        <span>Briefings curated by the editorial desk · written by Rondo Campbell</span>
+        <span class="term-briefings__brand">⌘ BRIEFINGS · DESK READ</span>
+      </footer>
+    </article>
+  `;
+}
+
+function renderLead(b){
+  const cats = (b.cats || []).map(c => `<span class="term-briefings__cat">${escapeHtml(c.toUpperCase())}</span>`).join('');
+  const hl   = (b.highlights || []).map(h => `
+    <li class="term-briefings__hl">
+      <span class="term-briefings__hl-tag">${escapeHtml(h.tag)}</span>
+      <span class="term-briefings__hl-txt">${escapeHtml(h.text)}</span>
+    </li>
+  `).join('');
+  const isPdf = /\.pdf(\?|$|#)/i.test(b.href || '');
+  const linkAttrs = isPdf
+    ? ` data-pdf-href="${escapeHtml(b.href)}" data-pdf-title="${escapeHtml(b.title)}" data-pdf-kind="oracle" data-pdf-date="${escapeHtml(b.date)}" data-pdf-kicker="Daily Briefing"`
+    : '';
+  return `
+    <section class="term-briefings__lead">
+      <div class="term-briefings__lead-date">${escapeHtml(formatLong(b.date))} · ${escapeHtml(b.kicker || 'DAILY BRIEFING')}</div>
+      <h1 class="term-briefings__lead-title">${escapeHtml(b.title)}</h1>
+      <p class="term-briefings__lead-dek">${escapeHtml(b.dek)}</p>
+
+      <div class="term-briefings__rule"></div>
+
+      <ul class="term-briefings__hls">${hl}</ul>
+
+      <div class="term-briefings__lead-foot">
+        <div class="term-briefings__cats">${cats}</div>
+        <a class="term-briefings__lead-link" href="${escapeHtml(b.href)}" target="_blank" rel="noopener"${linkAttrs}>READ THE FULL BRIEFING ↗</a>
+      </div>
+    </section>
+  `;
+}
+
+function renderPriorRow(b){
+  const isPdf = /\.pdf(\?|$|#)/i.test(b.href || '');
+  const linkAttrs = isPdf
+    ? ` data-pdf-href="${escapeHtml(b.href)}" data-pdf-title="${escapeHtml(b.title)}" data-pdf-kind="oracle" data-pdf-date="${escapeHtml(b.date)}" data-pdf-kicker="Daily Briefing"`
+    : '';
+  const tagPreview = (b.highlights || []).slice(0, 3).map(h =>
+    `<span class="term-briefings__row-tag">${escapeHtml(h.tag)}</span>`
+  ).join(' ');
+  return `
+    <li class="term-briefings__row">
+      <a class="term-briefings__row-link" href="${escapeHtml(b.href)}" target="_blank" rel="noopener"${linkAttrs}>
+        <span class="term-briefings__row-date">${escapeHtml(formatShort(b.date))}</span>
+        <span class="term-briefings__row-body">
+          <span class="term-briefings__row-title">${escapeHtml(b.title)}</span>
+          <span class="term-briefings__row-dek">${escapeHtml(b.dek)}</span>
+        </span>
+        <span class="term-briefings__row-tags">${tagPreview}</span>
+      </a>
+    </li>
+  `;
+}
+
+/* ---------- date formatting ------------------------------ */
+function formatLong(iso){
+  if (!iso) return '·';
+  const [y, m, d] = iso.split('-');
+  const mo = ['JANUARY','FEBRUARY','MARCH','APRIL','MAY','JUNE','JULY','AUGUST','SEPTEMBER','OCTOBER','NOVEMBER','DECEMBER'];
+  return `${parseInt(d, 10)} ${mo[parseInt(m, 10) - 1]} ${y}`;
+}
+function formatShort(iso){
+  if (!iso) return '·';
+  const [y, m, d] = iso.split('-');
+  const mo = ['JAN','FEB','MAR','APR','MAY','JUN','JUL','AUG','SEP','OCT','NOV','DEC'];
+  return `${parseInt(d, 10)} ${mo[parseInt(m, 10) - 1]} ${y.slice(2)}`;
+}
