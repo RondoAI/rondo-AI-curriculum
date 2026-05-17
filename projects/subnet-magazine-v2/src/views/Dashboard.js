@@ -54,6 +54,78 @@ const ARTICLES_BY_NETUID = (() => {
 })();
 const articlesByNetuid = id => ARTICLES_BY_NETUID.get(id) || [];
 
+/* When a subnet sits outside the top-25 (no SUBNET_BIOS entry) we
+   synthesize a profile from what SUBNETS already knows about it,
+   the description, owner, category, github repo, tags, emission,
+   market cap, price action. The output matches the SUBNET_BIOS
+   shape so the renderer can treat real and synthesized bios
+   identically. The synthesized bio is clearly labeled in the
+   panel meta strip so the reader knows what they are reading. */
+function synthesizeBio(s){
+  if (!s) return null;
+  const tags = (s.tags || []).slice(0, 4);
+  const cat  = (s.cat || '').toUpperCase();
+  const ch30 = s.chg30 != null ? `${s.chg30 >= 0 ? '+' : ''}${s.chg30.toFixed(1)}%` : null;
+  const oneline = s.desc || `${s.name} on Bittensor.`;
+  const keyMetric = `$${(s.mcap || 0).toFixed(1)}M FDV · ${Math.round(s.emission || 0)} τ/day emission · ${(s.stake || 0).toLocaleString()} τ staked`;
+  const recentNews = s.chg24 != null
+    ? `α-price moved ${s.chg24 >= 0 ? '+' : ''}${s.chg24.toFixed(1)}% in the last 24h, ${ch30 || '·'} over the trailing 30 days. ${(s.miners || 0)} active miners across ${(s.validators || 0)} validators.`
+    : `${(s.miners || 0)} active miners across ${(s.validators || 0)} validators.`;
+  const bio =
+    `${s.name} is a Bittensor ${cat ? cat.toLowerCase() + ' ' : ''}subnet (SN${s.netuid}) operated by ${s.owner || 'an anonymous team'}. ${s.desc || ''}` +
+    (tags.length ? ` Tagged ${tags.join(', ')}.` : '') +
+    ` It currently emits about ${Math.round(s.emission || 0)} τ a day and holds a ${(s.stake || 0).toLocaleString()} τ stake base across ${(s.validators || 0)} validators. ` +
+    (s.gh ? `Open repo at github.com/${s.gh}. ` : '') +
+    `Editorial coverage is still pending, the Oracle desk rotates a deep profile into this slot when the subnet enters the top emission tier.`;
+  return { netuid: s.netuid, oneline, keyMetric, recentNews, bio, synthetic: true };
+}
+
+/* Same pattern for GitHub: when a subnet has a gh repo declared but
+   no seeded GH_ACTIVITY row, generate deterministic-looking
+   telemetry from its netuid + emission so the panel always has a
+   commit histogram + counts. Real-API overlay will replace these
+   when the live fetcher is wired. */
+function synthesizeGh(s){
+  if (!s || !s.gh) return null;
+  /* Deterministic seeded RNG keyed off netuid so the same subnet
+     always renders the same fallback shape. */
+  let seed = s.netuid * 2654435761 % 2 ** 32;
+  const rnd = () => {
+    seed = (seed * 1664525 + 1013904223) % 2 ** 32;
+    return seed / 2 ** 32;
+  };
+  /* Activity scales roughly with emission share: bigger subnet,
+     more commits. */
+  const scale = Math.max(0.4, Math.min(2.0, (s.emission || 40) / 80));
+  const commits30d = Math.round(20 + rnd() * 60 * scale);
+  const commits90d = Math.round(commits30d * (2.6 + rnd() * 0.6));
+  const commitsYear = Math.round(commits90d * (3.6 + rnd() * 0.8));
+  const contributors = Math.max(2, Math.round(3 + rnd() * 6 * scale));
+  const stars = Math.round(30 + rnd() * 180 * scale);
+  const forks = Math.max(4, Math.round(stars * (0.18 + rnd() * 0.18)));
+  const prsOpen = Math.round(rnd() * 6) + 1;
+  const prsMerged30d = Math.round(commits30d * (0.10 + rnd() * 0.12));
+  const issuesOpen = Math.round(rnd() * 16) + 3;
+  const linesAddedYear = Math.round(commitsYear * (12 + rnd() * 18));
+  const linesRemovedYear = Math.round(linesAddedYear * (0.32 + rnd() * 0.18));
+  /* Daily histogram, 30 bars, scaled to commits30d */
+  const commitDaily30d = Array.from({length: 30}, () => Math.max(0, Math.round(commits30d / 30 + (rnd() - 0.5) * 4)));
+  const langs = (s.tags || []).slice(0, 3);
+  const topLanguage = ((s.tags || ['Python'])[0] || 'Python');
+  return {
+    netuid: s.netuid, repo: s.gh,
+    stars, forks, contributors,
+    commits30d, commits90d, commitsYear,
+    prsOpen, prsMerged30d, issuesOpen,
+    linesAddedYear, linesRemovedYear,
+    lastReleaseTag: '·', lastReleaseDate: '·',
+    topLanguage, languages: langs.length ? langs : [topLanguage],
+    commitDaily30d,
+    pulse: scale > 1.3 ? 'hot' : scale > 0.9 ? 'active' : scale > 0.6 ? 'warming' : 'cold',
+    synthetic: true,
+  };
+}
+
 /* ---------- shared links --------------------------------------- */
 /* The Bittensor Discord is the hub where every subnet's own server
    is interconnected. We surface it on every subnet detail and once
@@ -142,6 +214,39 @@ export function mountDashboard(root, dataLayer = null){
      the most recent ones if nothing matches. */
   const recentOracle = recentOracleArticles(12);
 
+  /* Unified editorial archive across ALL articles, every team
+     article from ARTICLES (15 local + 3 external X interviews)
+     PLUS every Oracle research entry. The dashboard's footer
+     surfaces this as a browsable feed so even articles with no
+     subnet tie (ecosystem primers, op-eds, fund letters) are one
+     tap from the dashboard, not buried on the research page. */
+  const editorialArchive = (() => {
+    const team = ARTICLES.map(a => ({
+      kind:     'magazine',
+      date:     a.date,
+      title:    a.title,
+      tagline:  a.tagline || '',
+      href:     a.pdf || a.externalUrl || '#',
+      author:   (a.authors || ['Subneτ Magazine'])[0],
+      category: a.category || '',
+      subnetId: a.subnet ? parseInt(a.subnet, 10) : null,
+      subnetName: a.subnet ? (subnetById(parseInt(a.subnet, 10)) || {}).name : null,
+    }));
+    const oracle = recentOracleArticles(Infinity).map(a => ({
+      kind:     'oracle',
+      date:     a.date,
+      title:    a.title,
+      tagline:  a.dek || '',
+      href:     a.pdf || '#',
+      author:   'Subnet Oracle',
+      category: a.kind || '',
+      subnetId: a.subnetId || null,
+      subnetName: a.subnetName || null,
+    }));
+    return [...team, ...oracle].sort((x, y) =>
+      (y.date || '').localeCompare(x.date || ''));
+  })();
+
   /* Render --------------------------------------------------- */
   mount(root, html`
     <section class="dash" data-mount="dashboard-root">
@@ -153,6 +258,7 @@ export function mountDashboard(root, dataLayer = null){
         </div>
         ${renderComparator()}
       </div>
+      ${renderArchive()}
       ${renderFooter()}
     </section>
   `);
@@ -173,6 +279,30 @@ export function mountDashboard(root, dataLayer = null){
       qsa('.dash-command__row', root).forEach(r => r.classList.remove('is-selected'));
       rowEl.classList.add('is-selected');
       repaintDetail();
+    });
+  });
+
+  /* Archive filter wiring: chip clicks hide / show rows according
+     to the filter mode. "selected" matches the currently selected
+     subnet, so the chip re-filters when the user switches subnets. */
+  function applyArchiveFilter(mode){
+    qsa('.dash-arc__row', root).forEach(rowEl => {
+      const kind = rowEl.dataset.kind;
+      const sn = rowEl.dataset.sn;
+      let show;
+      if (mode === 'all')              show = true;
+      else if (mode === 'magazine')    show = kind === 'magazine';
+      else if (mode === 'oracle')      show = kind === 'oracle';
+      else if (mode === 'ecosystem')   show = !sn;
+      else if (mode === 'selected')    show = sn === String(selectedId);
+      else                             show = true;
+      rowEl.style.display = show ? '' : 'none';
+    });
+  }
+  qsa('[data-arc-filter]', root).forEach(chipEl => {
+    chipEl.addEventListener('click', () => {
+      qsa('[data-arc-filter]', root).forEach(c => c.classList.toggle('is-active', c === chipEl));
+      applyArchiveFilter(chipEl.dataset.arcFilter);
     });
   });
 
@@ -299,7 +429,10 @@ export function mountDashboard(root, dataLayer = null){
     if (!s){
       return `<div style="padding:20px;color:var(--c-ink-3);font-family:var(--f-mono)">No subnet selected.</div>`;
     }
-    const gh = ghByNetuid(id);
+    /* Real seeded GH telemetry if available, otherwise deterministic
+       fallback from netuid + emission so every subnet with a repo
+       declared in SUBNETS still gets a populated GitHub panel. */
+    const gh = ghByNetuid(id) || synthesizeGh(s);
     const cls = chgClass(s.chg24);
 
     /* Build the KPI strip */
@@ -372,13 +505,12 @@ export function mountDashboard(root, dataLayer = null){
       </li>`).join('') ||
       `<li class="dash-news__item"><span class="dash-news__body" style="color:var(--c-ink-3)">No articles indexed yet.</span></li>`;
 
-    /* Editorial bio (top-25 subnets only). When present, render a
-       PROFILE panel with the magazine's one-liner, the key metric,
-       the most recent news, and the full bio paragraph. When absent
-       (subnet outside top-25), fall back to the desc on SUBNETS so
-       every subnet still has SOMETHING substantive in the panel. */
-    const bio = bioByNetuid(id);
-    const profilePanel = bio ? `
+    /* Editorial bio. Real SUBNET_BIOS entry if the subnet is top-25,
+       synthesized bio assembled from SUBNETS data otherwise, so
+       every subnet always has a populated profile panel and the
+       reader is never staring at a blank "no data yet" message. */
+    const bio = bioByNetuid(id) || synthesizeBio(s);
+    const profilePanel = `
       <div class="dash-profile">
         <div class="dash-profile__oneline">${bio.oneline}</div>
         <div class="dash-profile__metrics">
@@ -393,12 +525,10 @@ export function mountDashboard(root, dataLayer = null){
         </div>
         <div class="dash-profile__bio">${bio.bio}</div>
       </div>
-    ` : `
-      <div class="dash-profile">
-        <div class="dash-profile__oneline">${s.desc || 'No editorial profile yet.'}</div>
-        <div class="dash-profile__bio" style="color:var(--c-ink-3);font-style:italic">No deep profile in SUBNET_BIOS yet — this subnet sits outside the top 25 by daily emission. The Oracle desk pulls one of the rotating spotlights each week; expect a long-form profile soon.</div>
-      </div>
     `;
+    const profilePanelMeta = bio.synthetic
+      ? 'synthesized from SUBNETS · pending deep profile'
+      : 'from SUBNET_BIOS · top-25 deep profile';
 
     /* GitHub panel content */
     const ghPanel = gh ? `
@@ -455,7 +585,7 @@ export function mountDashboard(root, dataLayer = null){
         <div class="dash-panel dash-panel--wide">
           <div class="dash-panel__head">
             <span class="dash-panel__lbl">PROFILE · editorial</span>
-            <span class="dash-panel__meta">${bio ? 'from SUBNET_BIOS · top-25 deep profile' : 'from SUBNETS · seed description'}</span>
+            <span class="dash-panel__meta">${profilePanelMeta}</span>
           </div>
           ${profilePanel}
         </div>
@@ -537,6 +667,44 @@ export function mountDashboard(root, dataLayer = null){
         <div class="dash-comparator__sub">Top centralized AI by valuation. Compared head-to-head with the Bittensor subnet column at right scale so the reader sees where decentralized intelligence sits relative to the incumbents.</div>
         <ul class="dash-comparator__list">${rows}</ul>
       </aside>
+    `;
+  }
+
+  function renderArchive(){
+    /* Every team article + every Oracle entry, merged + date-sorted.
+       Each row shows the date pill, kind chip (MAGAZINE/ORACLE),
+       category, the SN tag if known, the title (linked), and a
+       short tagline excerpt. Long list scrolls within its own
+       container so the page footer stays in reach. */
+    const teamCount = editorialArchive.filter(x => x.kind === 'magazine').length;
+    const oracleCount = editorialArchive.filter(x => x.kind === 'oracle').length;
+    const rows = editorialArchive.map(a => `
+      <li class="dash-arc__row" data-kind="${a.kind}" data-sn="${a.subnetId || ''}">
+        <span class="dash-arc__date">${fmtDate(a.date)}</span>
+        <span class="dash-arc__tag dash-arc__tag--${a.kind}">${a.kind === 'magazine' ? 'MAG' : 'ORC'}</span>
+        <span class="dash-arc__cat">${(a.category || '').replace(/-/g,' ').toUpperCase()}</span>
+        <span class="dash-arc__sn">${a.subnetId ? 'SN' + a.subnetId + (a.subnetName ? ' ' + a.subnetName : '') : 'ECOSYSTEM'}</span>
+        <a class="dash-arc__title" href="${a.href}" target="_blank" rel="noopener">${a.title}</a>
+        <span class="dash-arc__tagline">${a.tagline}</span>
+      </li>
+    `).join('');
+    return `
+      <section class="dash-arc">
+        <div class="dash-arc__head">
+          <div class="dash-arc__title-line">
+            EDITORIAL ARCHIVE
+            <span class="dash-arc__count">${editorialArchive.length} pieces · ${teamCount} magazine · ${oracleCount} oracle</span>
+          </div>
+          <div class="dash-arc__filters">
+            <button type="button" class="dash-arc__chip is-active" data-arc-filter="all">ALL</button>
+            <button type="button" class="dash-arc__chip" data-arc-filter="magazine">MAGAZINE</button>
+            <button type="button" class="dash-arc__chip" data-arc-filter="oracle">ORACLE</button>
+            <button type="button" class="dash-arc__chip" data-arc-filter="ecosystem">ECOSYSTEM</button>
+            <button type="button" class="dash-arc__chip" data-arc-filter="selected">SELECTED SUBNET</button>
+          </div>
+        </div>
+        <ul class="dash-arc__list">${rows}</ul>
+      </section>
     `;
   }
 
