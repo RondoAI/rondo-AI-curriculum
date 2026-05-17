@@ -704,3 +704,126 @@ scripts/analytics/build_analytics.py
      drawClusterMap pattern (~150 LOC per viz).
   5. Add a tab to the analytics mode header so the reader can swap
      between views.
+
+## Monetization & Pricing Plan
+
+Saved by Rondo's instruction, 2026-05-17: "We have to monetize the
+page, get people to sign up, and like our layout so that they wanna
+pay for a service. So it has to be really good."
+
+The product is now binding-monetized — every new feature gets
+designed with WHICH TIER it belongs to before it ships, and the
+visible UX should always nudge unauthenticated readers toward
+sign-up at moments of value realization.
+
+### Three-tier ladder (canonical, do not drift)
+
+OBSERVER (free, acquisition hook)
+  - Live subnet markets (read-only, all 53)
+  - Per-subnet 30D chart (window cap; longer ranges paywalled)
+  - Watchlist, up to 5 subnets
+  - Daily briefing preview (first 200 words)
+  - Oracle research articles, 3 / month
+  - Static correlation + cluster analytics (weekly refresh)
+  - Command palette: limited verbs
+
+PRO DESK ($29/mo, $24/mo annual — the daily-user tier)
+  - Everything in OBSERVER
+  - Unlimited charts (1D / 7D / 30D / 90D / 1Y)
+  - Unlimited watchlists, unlimited subnets per watchlist
+  - Full oracle archive
+  - Full daily briefings
+  - Paper portfolio CLOUD-SYNCED across devices
+  - Brinson-Fachler attribution on YOUR positions
+  - RISK SCREEN (Sharpe / vol / β / max-DD, sortable)
+  - Custom alerts (price, news, wallet)
+  - COMPARE + HIST modals
+  - Per-subnet wallet tracker
+  - Export to CSV / PDF
+  - Full ⌘K palette grammar
+
+INSTITUTIONAL ($249/mo, $199/mo annual — the desk tier)
+  - Everything in PRO
+  - TaoStats live API data (real intraday chain data)
+  - CoinGecko Pro cross-asset feed
+  - Custom analytics requests (factor models, back-tests)
+  - Team workspaces (shared portfolios)
+  - Internal Slack-style messaging (subnet channels + DMs)
+  - White-label dashboards (embed in fund reports)
+  - Full REST + WebSocket API access
+  - Bring-your-own TaoStats key option
+  - Priority research desk access (private briefings)
+  - SOC 2 / SLA on data freshness
+  - Dedicated success manager
+
+### Feature gating rule (binding)
+
+When adding ANY new feature:
+  1. Mark its tier in the source comment block (FREE / PRO / ENTERPRISE)
+  2. If PRO+: render the feature but check a `tier` flag from the
+     (future) auth context; if tier === 'free' show a soft paywall
+     overlay with "UPGRADE TO PRO" CTA instead of blocking the click
+  3. The free tier should always show ENOUGH of the feature that the
+     reader understands what they'd unlock — never a hard wall
+
+### Conversion surfaces
+
+  /pricing.html         — the canonical pricing page, 3-tier card
+                          grid + FAQ + footer CTAs. Always link here
+                          from any "PRO" badge or upgrade CTA.
+  Masthead nav          — "PRO ↗" (code 999) chip points readers to
+                          /pricing.html from every page
+  Paper portfolio       — when an OBSERVER tries to add a 2nd
+                          watchlist or save more than 5 positions,
+                          show inline "PRO unlocks unlimited"
+  Risk screen           — OBSERVER sees a static teaser; PRO sees
+                          the live sortable table
+  Daily briefing        — OBSERVER reads first 200 words + blurred
+                          continuation with "PRO unlocks full text"
+
+### Auth + billing architecture (still pending Rondo greenlight)
+
+Recommended stack:
+  Auth        Supabase Auth (magic-link email, no passwords)
+  Database    Supabase Postgres (per-user portfolios, watchlists, txns)
+  Realtime    Supabase Realtime channels (for ENTERPRISE messaging)
+  Billing     Stripe Checkout + Customer Portal for monthly/annual
+                tier upgrades; on-chain TAO/USDC option via the
+                Bittensor RPC for crypto-native users
+  Frontend    Supabase JS SDK loaded from CDN, single <script> tag,
+                no build step required (preserves our static-HTML model)
+
+Free tier cost: ~$0 until ~50K monthly active users (Supabase free
+tier limit). Stripe charges ~2.9% + 30¢ per transaction.
+
+Why Supabase over alternatives:
+  - Static-HTML compatible (single CDN <script>, no build)
+  - Magic-link auth = no password storage/support burden
+  - Standard Postgres = easy migration off if needed
+  - Realtime built-in (no separate WebSocket server)
+  - Generous free tier
+  - Row-level security policies for per-user data isolation
+
+Rejected: Firebase (heavier SDK, more vendor lock), Auth0 (~$200/mo
+floor pricing kills our economics until we have hundreds of paid
+users), self-hosted Node+Postgres+JWT (more work, no benefit until
+we need control we don't have yet).
+
+### Sign-up flow (when auth lands)
+
+  /signup        Email + "Send magic link" + tier selector (start with
+                 OBSERVER, upgrade later in /settings)
+  /login         Email + magic link (or returning session restore)
+  /settings      Tier + billing + connected payment + sign-out
+  /pricing       Tier comparison (CURRENT). CTAs become "/signup?tier=pro"
+                 instead of "#signup-pro" anchors.
+
+Until Rondo greenlights Supabase, the pricing page CTAs route to
+placeholder anchors. ONE-LINE href swap when ready.
+
+### Rule: every new feature pitches itself
+
+In addition to gating, every paid feature should have a visible
+"YOU'RE GETTING THIS BECAUSE YOU'RE PRO" moment — a subtle PRO badge
+on the panel header, or a "PRO · since {month}" line under your
+account chip. Compounding satisfaction = retention.
