@@ -1485,12 +1485,57 @@ export function mountDashboard(root, dataLayer = null){
       const cls = (c.num ? 'ralign ' : '') + (isActive ? 'is-active' : '') + (c.cmp ? '' : ' is-static');
       return `<th class="${cls.trim()}" data-mh="${c.id}">${c.label}<span class="dash-master__sort">${c.cmp ? arrow : ''}</span></th>`;
     }).join('');
+    /* Mobile-friendly card list, rendered alongside the desktop
+       table. CSS shows one or the other based on viewport: cards
+       under 880px, table above. Avoids the horizontal-scroll-table-
+       inside-vertical-scroll-page anti-pattern that was the most
+       visible bug in Rondo's last screenshots. */
+    const cards = sorted.map(s => {
+      const cls    = chgClass(s.chg24);
+      const cls7   = chgClass(s.chg7);
+      const cls30  = chgClass(s.chg30);
+      const accent = s.chg24 > 2 ? 'is-strong-up'
+                   : s.chg24 > 0 ? 'is-up'
+                   : s.chg24 < -2 ? 'is-strong-down'
+                   : s.chg24 < 0 ? 'is-down'
+                   : 'is-flat';
+      const sparkColor = s.chg24 >= 0 ? '#5BE599' : '#FF4D60';
+      const sparkSeries = seedSeries(s.name + ':mc', s.chg30 ?? 0, 24);
+      return `
+        <div class="dash-mc ${accent}" data-master-row="${s.netuid}">
+          <div class="dash-mc__accent"></div>
+          <div class="dash-mc__body">
+            <div class="dash-mc__head">
+              <span class="dash-mc__sn">SN${s.netuid}</span>
+              <span class="dash-mc__name">${s.name}</span>
+              <span class="dash-mc__cat">${(s.cat || '').toUpperCase()}</span>
+            </div>
+            <div class="dash-mc__priceline">
+              <span class="dash-mc__price">${fmtPrice(s.price)}</span>
+              <span class="dash-mc__chg ${cls}">${fmtPct(s.chg24)} <span class="dash-mc__chg-lbl">24H</span></span>
+              <span class="dash-mc__spark">${svgSpark(sparkSeries, 110, 26, sparkColor, true)}</span>
+            </div>
+            <div class="dash-mc__chgs">
+              <span class="${cls7}">${fmtPct(s.chg7)} <span class="dash-mc__chg-lbl">7D</span></span>
+              <span class="${cls30}">${fmtPct(s.chg30)} <span class="dash-mc__chg-lbl">30D</span></span>
+            </div>
+            <div class="dash-mc__stats">
+              <span><label>FDV</label><strong>${fmtMcap(s.mcap)}</strong></span>
+              <span><label>EMIT</label><strong>${fmtInt(s.emission)} τ</strong></span>
+              <span><label>MIN</label><strong>${fmtInt(s.miners)}</strong></span>
+              <span><label>VAL</label><strong>${fmtInt(s.validators)}</strong></span>
+            </div>
+          </div>
+        </div>`;
+    }).join('');
+
     return `
       <section class="dash-master">
         <div class="dash-master__head">
           <div class="dash-master__title">MASTER GRID · all ${subnetState.rows.length} subnets indexed</div>
           <div class="dash-master__sub">Click any header to sort · Click any row to load it into the COMMAND DECK above.</div>
         </div>
+        <div class="dash-master__cards">${cards}</div>
         <div class="dash-master__scroll">
           <table class="dash-master__table">
             <thead><tr><th class="dash-master__accent-h"></th>${headers}</tr></thead>

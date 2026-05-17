@@ -145,79 +145,140 @@
   50%     { transform: scale(1.3); background: #ff8094; }
 }
 
-/* ---------- GRID --------------------------------------------- */
+/* =================================================================
+   LAYOUT, MOBILE-FIRST
+   -----------------------------------------------------------------
+   The dashboard ships as a SINGLE stacked column by default. That
+   is the truth on a phone: status bar → subnet picker → selected
+   subnet (KPIs + infographics + panels) → master grid (cards) →
+   centralized intel → research archive → footer. Each section is
+   opaque and full-width, no sticky sidebars, no horizontal-scroll
+   tables, no transparency that lets neighbor content bleed
+   through. The desktop layout below 1080px is a layered
+   enhancement: a 3-column grid with the command + comparator rails
+   stickied, the master grid switching from cards to a proper
+   table. Mobile is the foundation, not the afterthought.
+   ================================================================= */
+
 .dash-grid{
-  display: grid;
-  grid-template-columns: 260px 1fr 320px;
-  gap: 0;
-  min-height: calc(100vh - 200px);
-}
-@media (max-width: 1080px){
-  .dash-grid{ grid-template-columns: 220px 1fr; }
-  .dash-comparator{ display: none; }
-}
-/* On phones the 3-column grid collapses to a single column. The
-   command rail can NOT stay sticky/scrollable here, because a
-   sticky 100vh-tall element above the detail makes the detail
-   render BEHIND it, the bug Rondo flagged. Switch it from a
-   vertical sticky scroll-list to a horizontal swipe-able subnet
-   chip-picker that takes one short row and never overlaps the
-   detail. The full list is still accessible by horizontal swipe
-   inside that strip. */
-@media (max-width: 720px){
-  .dash-grid{ grid-template-columns: 1fr; }
-  .dash-command{
-    position: static;
-    border-right: 0;
-    border-bottom: 1px solid rgba(255,30,60,.18);
-    overflow-y: visible;
-    max-height: none;
-  }
-  .dash-command__list{
-    display: flex;
-    overflow-x: auto;
-    gap: 4px;
-    padding: 8px 10px;
-    scrollbar-width: thin;
-    -webkit-overflow-scrolling: touch;
-  }
-  .dash-command__row{
-    flex: 0 0 auto;
-    grid-template-columns: auto auto;
-    padding: 6px 10px;
-    border: 1px solid rgba(255,30,60,.18);
-    border-bottom: 1px solid rgba(255,30,60,.18);
-    background: rgba(20,5,9,.55);
-    min-width: 0;
-  }
-  .dash-command__row.is-selected{
-    box-shadow: none;
-    border-color: var(--c-red);
-    background: rgba(255,30,60,.22);
-  }
-  /* On the chip row we only need the SN id and the name + 24h chg.
-     Hide the per-row price to keep the chips short and scannable. */
-  .dash-command__price{ display: none; }
-  .dash-command__head{
-    padding: 8px 10px 4px;
-    font-size: 8.5px;
-  }
-  .dash-command__filter{
-    padding: 4px 10px 6px;
-    overflow-x: auto;
-    flex-wrap: nowrap;
-    -webkit-overflow-scrolling: touch;
-  }
-  .dash-command__chip{ flex: 0 0 auto; }
+  display: flex;
+  flex-direction: column;
 }
 
-/* ---------- COMMAND RAIL (left) -------------------------------- */
+/* ---------- COMMAND RAIL · mobile (chip strip at top) --------- */
 .dash-command{
-  border-right: 1px solid rgba(255,30,60,.18);
-  background: rgba(8,3,5,.55);
-  overflow-y: auto;
-  max-height: calc(100vh - 64px);
-  position: sticky; top: 60px;
+  background: #0a0306;
+  border-bottom: 1px solid rgba(255,30,60,.18);
+  /* Important: no position:sticky here on mobile, the rail flows
+     in document order as a full-width section. */
+}
+.dash-command__list{
+  /* Mobile default: horizontal swipe chip strip. */
+  display: flex;
+  overflow-x: auto;
+  gap: 4px;
+  padding: 8px 10px;
+  scrollbar-width: thin;
+  -webkit-overflow-scrolling: touch;
+  list-style: none; margin: 0;
+}
+.dash-command__row{
+  /* Chip mode: SN id + name + 24h delta, star tucked in front. */
+  display: grid;
+  grid-template-columns: 16px auto auto auto;
+  align-items: center;
+  flex: 0 0 auto;
+  padding: 6px 10px;
+  gap: 6px;
+  border: 1px solid rgba(255,30,60,.18);
+  background: #0a0306;
+  cursor: pointer;
+  font-variant-numeric: tabular-nums;
+  transition: border-color .12s ease;
+}
+.dash-command__row.is-selected{
+  border-color: var(--c-red);
+  background: rgba(255,30,60,.22);
+}
+.dash-command__row:hover{ border-color: rgba(255,30,60,.45); }
+.dash-command__price{ display: none; }  /* hidden in chip mode */
+.dash-command__sn{
+  color: rgba(255,30,60,.85);
+  font-size: 9px;
+  font-weight: 800;
+  letter-spacing: .08em;
+}
+.dash-command__name{
+  color: #fff;
+  font-weight: 600;
+  font-size: 11px;
+  white-space: nowrap;
+}
+.dash-command__chg{
+  font-size: 9.5px;
+  font-weight: 700;
+  padding: 1px 4px;
+  border: 1px solid currentColor;
+}
+.dash-command__filter{
+  display: flex; gap: 4px;
+  padding: 4px 10px 6px;
+  overflow-x: auto;
+  flex-wrap: nowrap;
+  -webkit-overflow-scrolling: touch;
+  border-bottom: 1px solid rgba(255,30,60,.10);
+}
+.dash-command__chip{ flex: 0 0 auto; }
+
+/* ---------- DESKTOP ENHANCEMENT (1080px and up) -------------- */
+@media (min-width: 1080px){
+  .dash-grid{
+    display: grid;
+    grid-template-columns: 260px 1fr 320px;
+    min-height: calc(100vh - 200px);
+  }
+  /* Command rail becomes a sticky left sidebar. */
+  .dash-command{
+    border-right: 1px solid rgba(255,30,60,.18);
+    border-bottom: 0;
+    position: sticky; top: 60px;
+    overflow-y: auto;
+    max-height: calc(100vh - 64px);
+    background: rgba(8,3,5,.7);
+  }
+  .dash-command__list{
+    display: block;
+    overflow: visible;
+    padding: 0;
+    -webkit-overflow-scrolling: auto;
+  }
+  .dash-command__row{
+    grid-template-columns: 16px 30px 1fr auto auto;
+    flex: initial;
+    background: transparent;
+    border: 0;
+    border-bottom: 1px solid rgba(255,30,60,.06);
+    padding: 6px 10px;
+  }
+  .dash-command__row.is-selected{
+    box-shadow: inset 3px 0 0 var(--c-red);
+    background: rgba(255,30,60,.16);
+    border-color: transparent;
+  }
+  .dash-command__price{ display: inline; }
+  .dash-command__filter{
+    flex-wrap: wrap;
+    overflow: visible;
+  }
+  /* Comparator becomes a sticky right sidebar. */
+  .dash-comparator{
+    border-left: 1px solid rgba(255,30,60,.18);
+    border-top: 0;
+    position: sticky; top: 60px;
+    overflow-y: auto;
+    max-height: calc(100vh - 64px);
+    background: rgba(8,3,5,.7);
+  }
 }
 .dash-command__head{
   padding: 10px 12px 8px;
@@ -233,11 +294,9 @@
   color: var(--c-ink-3);
   font-weight: 600;
 }
-.dash-command__filter{
-  display: flex; flex-wrap: wrap; gap: 4px;
-  padding: 8px 10px;
-  border-bottom: 1px solid rgba(255,30,60,.10);
-}
+/* Chip + color-variant rules. Apply at every viewport. Layout
+   rules for .dash-command__row / list / etc. live in the
+   mobile-first defaults above + the desktop @media block. */
 .dash-command__chip{
   appearance: none;
   border: 1px solid rgba(255,30,60,.32);
@@ -262,55 +321,9 @@
   border-color: var(--c-red);
   color: #fff;
 }
-.dash-command__list{
-  list-style: none;
-  margin: 0; padding: 0;
-}
-.dash-command__row{
-  display: grid;
-  grid-template-columns: 30px 1fr auto auto;
-  align-items: center;
-  gap: 6px;
-  padding: 6px 10px;
-  border-bottom: 1px solid rgba(255,30,60,.06);
-  cursor: pointer;
-  font-variant-numeric: tabular-nums;
-}
-.dash-command__row:hover{
-  background: rgba(255,30,60,.06);
-}
-.dash-command__row.is-selected{
-  background: rgba(255,30,60,.16);
-  box-shadow: inset 3px 0 0 var(--c-red);
-}
-.dash-command__sn{
-  color: rgba(255,30,60,.85);
-  font-size: 9px;
-  font-weight: 800;
-  letter-spacing: .08em;
-}
-.dash-command__name{
-  color: #fff;
-  font-weight: 600;
-  font-size: 11px;
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
-}
-.dash-command__price{
-  font-size: 10px;
-  color: var(--c-ink-2);
-}
-.dash-command__chg{
-  font-size: 9.5px;
-  font-weight: 700;
-  padding: 1px 4px;
-  border-radius: 0;
-  border: 1px solid currentColor;
-}
-.dash-command__chg.is-up{ color: #5BE599; }
-.dash-command__chg.is-down{ color: #FF4D60; }
-.dash-command__chg.is-flat{ color: var(--c-ink-3); }
+.dash-command__chg.is-up   { color: #5BE599; }
+.dash-command__chg.is-down { color: #FF4D60; }
+.dash-command__chg.is-flat { color: var(--c-ink-3); }
 
 /* ---------- DETAIL CENTER (middle) ----------------------------- */
 .dash-detail{
@@ -626,12 +639,12 @@
 }
 
 /* ---------- COMPARATOR RAIL (right) ---------------------------- */
+/* ---------- COMPARATOR · mobile (full-width inline section) -- */
 .dash-comparator{
-  border-left: 1px solid rgba(255,30,60,.18);
-  background: rgba(8,3,5,.55);
-  overflow-y: auto;
-  max-height: calc(100vh - 64px);
-  position: sticky; top: 60px;
+  background: #0a0306;
+  border-top: 1px solid rgba(255,30,60,.22);
+  /* Important: no position:sticky and no border-left here on
+     mobile; that's a desktop-only sidebar treatment. */
 }
 .dash-comparator__head{
   padding: 10px 12px;
@@ -1671,4 +1684,138 @@
   .dash-flow__usd  { grid-area: usd; }
   .dash-flow__date { grid-area: date; }
   .dash-flow__body { font-size: 9px; }
+}
+
+/* =================================================================
+   MASTER GRID · viewport-switched cards (mobile) vs table (desktop)
+   -----------------------------------------------------------------
+   The horizontal-scroll table inside a vertical-scroll page is the
+   most user-hostile pattern on a phone. On <880px we hide the
+   table entirely and render each subnet as a self-contained card,
+   tappable, no horizontal scroll. On >=880px we hide the cards
+   and show the proper sortable table.
+   ================================================================= */
+.dash-master__cards{
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 6px;
+  padding: 10px 6px;
+}
+.dash-master__scroll{ display: none; }
+@media (min-width: 880px){
+  .dash-master__cards{ display: none; }
+  .dash-master__scroll{ display: block; }
+}
+.dash-mc{
+  display: grid;
+  grid-template-columns: 4px 1fr;
+  border: 1px solid rgba(255,30,60,.12);
+  background: #0a0306;
+  overflow: hidden;
+  cursor: pointer;
+  transition: border-color .12s ease, background-color .12s ease;
+  font-variant-numeric: tabular-nums;
+}
+.dash-mc:hover           { border-color: rgba(255,30,60,.45); background: #100407; }
+.dash-mc.is-up           .dash-mc__accent{ background: rgba(91,229,153,.6); }
+.dash-mc.is-strong-up    .dash-mc__accent{ background: #5BE599; box-shadow: 0 0 6px rgba(91,229,153,.4); }
+.dash-mc.is-down         .dash-mc__accent{ background: rgba(255,77,96,.6); }
+.dash-mc.is-strong-down  .dash-mc__accent{ background: #FF4D60; box-shadow: 0 0 6px rgba(255,77,96,.4); }
+.dash-mc.is-flat         .dash-mc__accent{ background: rgba(200,168,173,.22); }
+.dash-mc__accent{ width: 4px; }
+.dash-mc__body{
+  padding: 8px 10px 9px;
+  display: grid;
+  gap: 6px;
+  min-width: 0;
+}
+.dash-mc__head{
+  display: flex; align-items: baseline; gap: 8px;
+  white-space: nowrap;
+  overflow: hidden;
+}
+.dash-mc__sn{
+  font-size: 9.5px;
+  font-weight: 800;
+  letter-spacing: .08em;
+  color: rgba(255,30,60,.85);
+}
+.dash-mc__name{
+  font-size: 13.5px;
+  font-weight: 700;
+  color: #fff;
+  font-family: var(--f-serif);
+  letter-spacing: -.005em;
+  flex: 0 1 auto;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.dash-mc__cat{
+  font-size: 8.5px;
+  letter-spacing: .18em;
+  font-weight: 700;
+  color: var(--c-ink-3);
+  margin-left: auto;
+}
+.dash-mc__priceline{
+  display: grid;
+  grid-template-columns: auto auto 1fr;
+  gap: 10px;
+  align-items: center;
+}
+.dash-mc__price{
+  font-size: 16px;
+  font-weight: 800;
+  color: #fff;
+}
+.dash-mc__chg{
+  font-size: 11px;
+  font-weight: 700;
+  padding: 2px 6px 1px;
+  border: 1px solid currentColor;
+  white-space: nowrap;
+}
+.dash-mc__chg.is-up   { color: #5BE599; }
+.dash-mc__chg.is-down { color: #FF4D60; }
+.dash-mc__chg.is-flat { color: var(--c-ink-3); }
+.dash-mc__chg-lbl{
+  font-size: 7.5px;
+  letter-spacing: .14em;
+  font-weight: 700;
+  opacity: .6;
+  margin-left: 2px;
+}
+.dash-mc__spark{ min-width: 0; }
+.dash-mc__chgs{
+  display: flex; gap: 12px;
+  font-size: 10.5px;
+  font-weight: 700;
+}
+.dash-mc__chgs .is-up   { color: #5BE599; }
+.dash-mc__chgs .is-down { color: #FF4D60; }
+.dash-mc__chgs .is-flat { color: var(--c-ink-3); }
+.dash-mc__stats{
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 6px;
+  padding-top: 4px;
+  border-top: 1px solid rgba(255,30,60,.08);
+}
+.dash-mc__stats span{
+  display: grid; gap: 1px;
+  min-width: 0;
+}
+.dash-mc__stats label{
+  font-size: 8px;
+  letter-spacing: .14em;
+  color: rgba(255,30,60,.55);
+  font-weight: 800;
+}
+.dash-mc__stats strong{
+  font-size: 10.5px;
+  color: #fff;
+  font-weight: 700;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
