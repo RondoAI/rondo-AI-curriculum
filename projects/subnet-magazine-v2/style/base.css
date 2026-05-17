@@ -25,6 +25,18 @@ body {
   text-rendering: optimizeLegibility;
   overflow-x: hidden;
 
+  /* Mobile screen-lock: kill iOS pull-to-refresh and the rubber-band
+     overscroll bounce so the page feels rooted under the finger.
+     Combined with overflow-x: hidden above and the per-rail
+     touch-action: pan-x rules at the bottom of this file, the
+     document only scrolls vertically and never lurches sideways or
+     vertically past its bounds. */
+  overscroll-behavior: contain;
+  /* Suppress the gray-flash mobile tap-highlight on every interactive
+     element, the terminal aesthetic has its own focus + hover states
+     and the flash reads as a glitch. */
+  -webkit-tap-highlight-color: transparent;
+
   /* Terminal texture: a fine red grid, a coarse red grid over it, a
      top-anchored red bloom, an edge vignette, and faint CRT
      scanlines, all fixed-attachment so it stays put as you scroll. */
