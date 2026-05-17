@@ -645,18 +645,21 @@ export function mountDashboard(root, dataLayer = null){
      returns to their last-viewed zone on reload. */
   function wireJumpNav(){
     const nav  = qs('.dash-jump', root);
-    const stat = qs('.dash-status', root);
     if (!nav) return;
 
+    /* JUMP nav sticks just under the GLOBAL StatusStrip (the always-
+       visible network-vitals bar, sticky at top of every page).
+       Dashboard's own status bar is non-sticky (per Rondo's fix),
+       so we only need to clear the page-global StatusStrip height. */
+    const stripStat = document.querySelector('.statusbar');
     const restickChrome = () => {
-      if (!stat) return;
-      const sh = stat.getBoundingClientRect().height || 0;
+      const sh = stripStat ? stripStat.getBoundingClientRect().height : 0;
       nav.style.top = sh + 'px';
     };
     restickChrome();
     window.addEventListener('resize', restickChrome);
-    if (typeof ResizeObserver !== 'undefined' && stat){
-      new ResizeObserver(restickChrome).observe(stat);
+    if (typeof ResizeObserver !== 'undefined' && stripStat){
+      new ResizeObserver(restickChrome).observe(stripStat);
     }
 
     const TAB_KEY = 'sbn:dash-tab:v1';
