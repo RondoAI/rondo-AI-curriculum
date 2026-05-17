@@ -46,6 +46,7 @@ import { ARTICLES } from '../data/articles.js';
    src/views/terminal/. Registered in MODE_REGISTRY below. */
 import { mountBriefingsMode } from './terminal/briefings-mode.js';
 import { mountEditorialMode } from './terminal/editorial-mode.js';
+import { mountMarketsMode  } from './terminal/markets-mode.js';
 import { mountAnalyticsMode } from './terminal/analytics-mode.js?v=20260520p';
 
 const TERMINAL_KEY  = 'sbn:terminal:v1';
@@ -75,7 +76,7 @@ function stubMode(key, title, brief){
 
 export const MODE_REGISTRY = Object.freeze({
   chart:     { label: 'CHART',     mount: stubMode('chart',     'Per-subnet price + emission + volume chart, with KPI strip and tool tray.',                'Migrate from src/views/Cockpit.js renderMain + drawChart + KPI strip. The whole cockpit center pane becomes this mode.') },
-  markets:   { label: 'MARKETS',   mount: stubMode('markets',   'All 53 subnets in a sortable, filterable master grid. Click any row to load it across the terminal.', 'Migrate from src/views/Dashboard.js renderMasterTable. On row click: ctx.select(netuid) updates the global selection so every other mode reflects the pick.') },
+  markets:   { label: 'MARKETS',   mount: mountMarketsMode },
   analytics: { label: 'ANALYTICS', mount: mountAnalyticsMode },
   desk:      { label: 'DESK',      mount: stubMode('desk',      'Paper portfolio + Brinson-Fachler attribution running on your actual positions.',           'Compose src/views/dashboard/paper-portfolio.js + src/views/dashboard/attribution.js inside this mode. Keep their existing wiring.') },
   editorial: { label: 'EDITORIAL', mount: mountEditorialMode },
