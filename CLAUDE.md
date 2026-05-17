@@ -606,3 +606,101 @@ second.
     rule above already covers this — restating for emphasis)
   - Signals computed but never surfaced (compute IS rendering)
 
+## Data Analytics Stack (Python build-time → JSON → Canvas render)
+
+Saved by Rondo's instruction, 2026-05-17: "Find open source Python
+libraries for data analytics and stuff like that... TensorFlow that
+you can integrate to make the UI a lot better."
+
+The site is static HTML on a CDN, so the browser can't run scikit-
+learn. The pattern we use instead:
+
+  1. Python at BUILD-TIME (in scripts/analytics/) computes the heavy
+     analytics (correlations, clustering, dimension reduction,
+     time-series decomposition, forecasting).
+  2. Output is saved as JSON to src/data/analytics*.json.
+  3. The browser fetches the JSON once on mode-mount and renders
+     it with PURE CANVAS (no chart library — keeps bundle tight,
+     matches our monochromatic red+black theme).
+
+### Libraries chosen + why
+
+Python (build-time):
+  numpy         numerical core, vectorized ops
+  pandas        time-series + frame ops (correlation, resampling)
+  scikit-learn  ML toolkit:
+                  - StandardScaler  feature normalization
+                  - TSNE             dimensionality reduction (t-SNE)
+                  - KMeans           clustering
+                  - PCA              principal components (future)
+                  - LinearRegression simple trend lines (future)
+  scipy         signal + stats (future: spectral, hypothesis tests)
+
+Considered-and-rejected for build-time:
+  TensorFlow / PyTorch  too heavy for the analyses we need; sklearn
+                        gives us t-SNE, k-means, PCA, regression at
+                        a fraction of the install footprint
+  Prophet (Meta)        nice for forecasting but adds 50+ MB of
+                        Stan deps; defer until we need real
+                        time-series forecasts
+  statsmodels           good for serious econometrics; not needed
+                        until we add ARIMA / GARCH forecasting
+  networkx              for graph analysis of subnet relationships;
+                        add when we model validator-overlap graphs
+
+Browser (render):
+  PURE CANVAS           no chart library — keeps bundle ~150 LOC of
+                        drawing code per visualization, matches the
+                        eDEX-UI register exactly
+
+Considered-and-rejected for browser:
+  TensorFlow.js         actual ML in browser, but ~1MB+ bundle and
+                        we don't need in-browser inference yet —
+                        build-time Python covers our cases
+  Plotly.js             full-featured but 3.5MB; the magazine's
+                        density doesn't need its interactive layer
+  Apache ECharts        beautiful + declarative but 1MB; same logic
+  D3.js                 modular (250KB+) but every chart costs us
+                        another 200-500 LOC of D3 plumbing. Pure
+                        Canvas wins for our terminal register.
+  Vega-Lite             great for one-offs; the consistent theme
+                        across panels means our own Canvas helpers
+                        give a tighter visual
+
+### When to use what
+
+Reach for the Python+Canvas pattern when:
+  - The computation is O(n²) or worse (correlation matrices) → Python
+  - The data is derived (clustering, embedding, regression) → Python
+  - The viz is custom (heatmap, network graph, treemap) → Canvas
+  - The user shouldn't pay a 1MB chart library tax → Canvas
+
+Reach for an external library when:
+  - We need a 3D / WebGL visualization that Canvas can't do well
+  - We need user-side interactivity that requires real DOM event
+    propagation through complex chart objects (rare in our register)
+
+### Current build-time scripts
+
+scripts/analytics/build_analytics.py
+  Reads src/data/subnets.js (53 subnets)
+  Synthesizes 90-day price series per subnet (same seeded walk as
+    src/views/Cockpit.js generateSeries so chart + analytics agree)
+  Computes:
+    - 53x53 Pearson correlation matrix (daily returns)
+    - t-SNE 2D embedding on 7 features
+    - K-means clustering (k=6) with human-readable cluster labels
+  Writes src/data/analytics.json (~80KB)
+  Run: python3 scripts/analytics/build_analytics.py
+  Consumer: src/views/terminal/analytics-mode.js
+
+### Adding new analyses
+
+  1. Add a function to build_analytics.py (or a new file in
+     scripts/analytics/) that returns a JSON-serializable dict.
+  2. Merge its output into analytics.json (or a new file).
+  3. Bump the ANALYTICS_URL cache-bust in analytics-mode.js.
+  4. Build the Canvas renderer alongside the existing drawHeatmap /
+     drawClusterMap pattern (~150 LOC per viz).
+  5. Add a tab to the analytics mode header so the reader can swap
+     between views.
