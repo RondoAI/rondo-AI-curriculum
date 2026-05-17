@@ -28,13 +28,23 @@
 .dash-status{
   position: sticky;
   top: 0;
-  z-index: 30;
-  background:
-    linear-gradient(180deg, rgba(20,5,9,.96), rgba(8,3,5,.96));
+  z-index: 50;
+  /* Solid opaque background, no rgba. Reported bug: previous .96
+     alpha let scrolled content (article text, category chips,
+     company names) bleed through the sticky bar on mobile. A
+     stacked solid color + the brand bloom on top kills the bleed
+     completely while keeping the red-glass look the bar wants. */
+  background-color: #050203;
+  background-image:
+    linear-gradient(180deg, rgba(255,30,60,.04) 0%, transparent 100%);
   border-bottom: 1px solid rgba(255,30,60,.42);
   box-shadow:
     0 1px 0 rgba(255,30,60,.18) inset,
-    0 6px 18px rgba(0,0,0,.6);
+    0 6px 18px rgba(0,0,0,.65);
+  /* Promote to its own compositor layer so the GPU doesn't ask
+     the page underneath to redraw under it on every scroll tick. */
+  transform: translateZ(0);
+  will-change: transform;
 }
 .dash-status__rail{
   display: grid;
@@ -1213,3 +1223,253 @@
   .dash-command__sort{ margin-left: 0; }
   .dash-command__search-input{ font-size: 12px; }
 }
+
+/* =================================================================
+   WALLET TRACKER · per-subnet panel
+   -----------------------------------------------------------------
+   Two-column layout: top-holders table on the left, recent large
+   transfers on the right. Each holder row keyed with their
+   kind-pill (team / fund / whale / exchange / validator) so the
+   reader can instantly classify who owns what. Each transfer row
+   shows direction arrow, amount + token, USD value, the from/to
+   addresses, and an Oracle-tagged context note where present.
+   ================================================================= */
+.dash-wallet{
+  display: grid;
+  grid-template-columns: 1.4fr 1fr;
+  gap: 14px;
+  margin-top: 4px;
+}
+@media (max-width: 980px){
+  .dash-wallet{ grid-template-columns: 1fr; }
+}
+.dash-wallet__col{ min-width: 0; }
+.dash-wallet__colhead{
+  font-size: 8.5px;
+  letter-spacing: .22em;
+  text-transform: uppercase;
+  color: rgba(255,30,60,.7);
+  font-weight: 800;
+  margin-bottom: 6px;
+}
+.dash-wallet__table{
+  width: 100%;
+  border-collapse: collapse;
+  font-family: var(--f-mono);
+  font-size: 10.5px;
+  font-variant-numeric: tabular-nums;
+}
+.dash-wallet__table th{
+  padding: 4px 6px;
+  border-bottom: 1px solid rgba(255,30,60,.22);
+  text-align: left;
+  font-size: 8.5px;
+  letter-spacing: .14em;
+  font-weight: 800;
+  color: rgba(255,30,60,.6);
+  text-transform: uppercase;
+}
+.dash-wallet__table .ralign{ text-align: right; }
+.dash-wallet__row{
+  border-bottom: 1px solid rgba(255,30,60,.06);
+  transition: background-color .12s ease;
+}
+.dash-wallet__row:hover{ background: rgba(255,30,60,.04); }
+.dash-wallet__row td{ padding: 6px 6px; vertical-align: top; }
+.dash-wallet__kind{
+  display: inline-block;
+  border: 1px solid currentColor;
+  font-size: 7.5px;
+  letter-spacing: .14em;
+  font-weight: 800;
+  padding: 1px 3px;
+  margin-right: 6px;
+  text-transform: uppercase;
+}
+.dash-wallet__row--team      .dash-wallet__kind{ color: #FF8094; }
+.dash-wallet__row--fund      .dash-wallet__kind{ color: #FFB85C; }
+.dash-wallet__row--whale     .dash-wallet__kind{ color: #5BE599; }
+.dash-wallet__row--exchange  .dash-wallet__kind{ color: var(--c-red-1); }
+.dash-wallet__row--validator .dash-wallet__kind{ color: #C8A8AD; }
+.dash-wallet__row--unknown   .dash-wallet__kind{ color: var(--c-ink-3); }
+.dash-wallet__addr{ color: #fff; }
+.dash-wallet__label{ color: var(--c-ink-2); font-size: 10px; }
+.dash-wallet__tao{ text-align: right; color: #fff; font-weight: 700; }
+.dash-wallet__alpha-cell{ text-align: right; }
+.dash-wallet__alpha{ color: var(--c-ink-3); font-size: 10px; }
+.dash-wallet__chg{ text-align: right; font-weight: 700; font-size: 10px; }
+.dash-wallet__chg.is-up   { color: #5BE599; }
+.dash-wallet__chg.is-down { color: #FF4D60; }
+.dash-wallet__chg.is-flat { color: var(--c-ink-3); }
+
+/* RECENT MOVES feed */
+.dash-flow{
+  list-style: none; margin: 0; padding: 0;
+  display: grid; gap: 6px;
+  max-height: 360px;
+  overflow-y: auto;
+  overscroll-behavior: contain;
+}
+.dash-flow__row{
+  padding: 8px 10px;
+  border: 1px solid rgba(255,30,60,.10);
+  background: rgba(20,5,9,.45);
+  display: grid; gap: 4px;
+  font-variant-numeric: tabular-nums;
+}
+.dash-flow__head{
+  display: grid;
+  grid-template-columns: auto auto 1fr auto;
+  gap: 8px;
+  align-items: baseline;
+  font-family: var(--f-mono);
+}
+.dash-flow__dir{
+  font-size: 9px;
+  font-weight: 800;
+  letter-spacing: .14em;
+  padding: 1px 5px;
+  border: 1px solid currentColor;
+}
+.dash-flow__dir.is-in   { color: #5BE599; }
+.dash-flow__dir.is-out  { color: #FF4D60; }
+.dash-flow__dir.is-swap { color: #FFB85C; }
+.dash-flow__amt{
+  font-size: 12.5px;
+  font-weight: 800;
+  color: #fff;
+}
+.dash-flow__usd{
+  font-size: 10px;
+  color: var(--c-red-1);
+  font-weight: 700;
+  text-align: left;
+}
+.dash-flow__date{
+  font-size: 9px;
+  color: var(--c-ink-3);
+  letter-spacing: .08em;
+  font-weight: 700;
+  text-align: right;
+}
+.dash-flow__body{
+  display: flex; align-items: center; gap: 6px; flex-wrap: wrap;
+  font-size: 9.5px;
+  color: var(--c-ink-3);
+}
+.dash-flow__body code{
+  font-family: var(--f-mono);
+  color: var(--c-ink-1);
+  font-size: 10px;
+}
+.dash-flow__sep{ color: var(--c-red-1); font-weight: 700; }
+.dash-flow__note{
+  font-family: var(--f-sans);
+  font-size: 10.5px;
+  font-style: italic;
+  color: var(--c-ink-2);
+  line-height: 1.4;
+  padding-top: 4px;
+  border-top: 1px dashed rgba(255,30,60,.10);
+  margin-top: 2px;
+}
+
+/* =================================================================
+   MASTER GRID · all subnets, TaoStats-style column table
+   -----------------------------------------------------------------
+   Dense data table for the full universe of subnets. Click any row
+   to load it into the command deck. Horizontally scrolls if the
+   viewport can't hold all columns. Tabular numerals throughout.
+   ================================================================= */
+.dash-master{
+  border-top: 1px solid rgba(255,30,60,.22);
+  background: rgba(8,3,5,.6);
+  padding: 14px 18px;
+}
+.dash-master__head{
+  display: flex; align-items: baseline; justify-content: space-between;
+  margin-bottom: 10px;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+.dash-master__title{
+  font-size: 10px;
+  letter-spacing: .26em;
+  text-transform: uppercase;
+  color: rgba(255,30,60,.85);
+  font-weight: 800;
+}
+.dash-master__sub{
+  font-size: 9.5px;
+  color: var(--c-ink-3);
+  letter-spacing: .10em;
+  font-family: var(--f-sans);
+  font-style: italic;
+}
+.dash-master__scroll{
+  overflow-x: auto;
+  border: 1px solid rgba(255,30,60,.14);
+  max-height: 480px;
+  overflow-y: auto;
+  overscroll-behavior: contain;
+}
+.dash-master__table{
+  width: 100%;
+  border-collapse: collapse;
+  font-family: var(--f-mono);
+  font-size: 10.5px;
+  font-variant-numeric: tabular-nums;
+  min-width: 720px;
+}
+.dash-master__table thead{
+  position: sticky; top: 0;
+  background: #050203;
+  z-index: 1;
+}
+.dash-master__table th{
+  padding: 6px 8px;
+  border-bottom: 1px solid rgba(255,30,60,.32);
+  text-align: left;
+  font-size: 8.5px;
+  letter-spacing: .14em;
+  font-weight: 800;
+  color: rgba(255,30,60,.75);
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+.dash-master__table .ralign{ text-align: right; }
+.dash-master__row{
+  cursor: pointer;
+  border-bottom: 1px solid rgba(255,30,60,.06);
+  transition: background-color .12s ease;
+}
+.dash-master__row:hover{ background: rgba(255,30,60,.06); }
+.dash-master__row.is-selected{
+  background: rgba(255,30,60,.16);
+  box-shadow: inset 3px 0 0 var(--c-red);
+}
+.dash-master__row td{ padding: 6px 8px; }
+.dash-master__sn{
+  font-size: 9px;
+  font-weight: 800;
+  color: rgba(255,30,60,.85);
+  letter-spacing: .08em;
+}
+.dash-master__name{
+  color: #fff;
+  font-weight: 600;
+  white-space: nowrap;
+}
+.dash-master__cat{
+  font-size: 9px;
+  color: var(--c-ink-3);
+  letter-spacing: .12em;
+  font-weight: 700;
+}
+.dash-master__num{
+  text-align: right;
+  white-space: nowrap;
+}
+.dash-master__num.is-up   { color: #5BE599; }
+.dash-master__num.is-down { color: #FF4D60; }
+.dash-master__num.is-flat { color: var(--c-ink-3); }

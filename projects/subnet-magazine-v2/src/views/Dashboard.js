@@ -33,6 +33,7 @@ import { CENTRALIZED_PLAYERS } from '../data/centralized.js';
 import { CENTRALIZED_NEWS, recentCentralizedNews } from '../data/centralized-news.js';
 import { GH_ACTIVITY, ghByNetuid } from '../data/github-activity.js';
 import { recentOracleArticles } from '../data/oracle-articles.js';
+import { TOP_HOLDERS_NETWORK, RECENT_TRANSFERS_NETWORK, topHoldersFor, recentTransfersFor } from '../data/wallet-activity.js';
 
 /* Bio lookup by netuid. Three netuids are explicitly skipped here
    because their SUBNET_BIOS entries describe entities that were
@@ -388,6 +389,7 @@ export function mountDashboard(root, dataLayer = null){
         </div>
         ${renderComparator()}
       </div>
+      ${renderMasterTable()}
       ${renderArchive()}
       ${renderFooter()}
     </section>
@@ -499,6 +501,20 @@ export function mountDashboard(root, dataLayer = null){
   wireRailRows();
   wireToolbar();
   wireSearch();
+
+  /* Master-table row click: jump that subnet into the command deck
+     above without disturbing the rail's current scroll position. */
+  qsa('[data-master-row]', root).forEach(row => {
+    row.addEventListener('click', () => {
+      const id = parseInt(row.dataset.masterRow, 10);
+      if (!Number.isFinite(id) || id === selectedId) return;
+      selectedId = id;
+      qsa('.dash-command__row', root).forEach(r => r.classList.toggle('is-selected', parseInt(r.dataset.row,10) === id));
+      qsa('.dash-master__row', root).forEach(r => r.classList.toggle('is-selected', parseInt(r.dataset.masterRow,10) === id));
+      repaintDetail();
+      qs('.dash-detail', root)?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    });
+  });
 
   /* Bloomberg-style power-user shortcuts:
        /         focus the rail search
@@ -951,6 +967,14 @@ export function mountDashboard(root, dataLayer = null){
           <div style="margin-top:10px;font-size:9.5px;color:var(--c-ink-3);letter-spacing:.10em">Each cell = a validator-slot bucket (8x8 grid). Hotter = larger stake share.</div>
         </div>
 
+        <div class="dash-panel dash-panel--wide">
+          <div class="dash-panel__head">
+            <span class="dash-panel__lbl">WALLET TRACKER · top holders + recent moves</span>
+            <span class="dash-panel__meta">${(topHoldersFor(id) || []).length} holders · live whale watch</span>
+          </div>
+          ${renderWalletPanel(id)}
+        </div>
+
         <div class="dash-panel">
           <div class="dash-panel__head">
             <span class="dash-panel__lbl">GITHUB ACTIVITY · 30D</span>
@@ -1064,6 +1088,132 @@ export function mountDashboard(root, dataLayer = null){
         </div>
         <div style="font-size:9.5px;color:var(--c-ink-3);letter-spacing:.10em;padding:6px 0 4px;font-family:var(--f-sans);font-style:italic">A dashboard, not a reader. Each row is a dated research signal, source / scope / takeaway. The full piece opens in a new tab if you need the prose; the dashboard's job is to keep every claim cited at a glance.</div>
         <ul class="dash-arc__list">${rows}</ul>
+      </section>
+    `;
+  }
+
+  function renderWalletPanel(netuid){
+    /* Two-column block: top holders on the left, recent large
+       moves on the right. Each holder row shows truncated address,
+       label/kind, τ balance, α balance, and 24h Δ. Each move row
+       shows direction icon, from/to, amount + token, USD value,
+       and the Oracle's contextual note where present. */
+    const holders = topHoldersFor(netuid) || [];
+    const transfers = (recentTransfersFor(netuid, 8).length
+      ? recentTransfersFor(netuid, 8)
+      : RECENT_TRANSFERS_NETWORK.slice(0, 8));
+
+    const holderRows = holders.map(h => {
+      const chgCls = h.chg24Tao > 0 ? 'is-up' : h.chg24Tao < 0 ? 'is-down' : 'is-flat';
+      const chgStr = h.chg24Tao === 0 ? '·' : (h.chg24Tao > 0 ? '+' : '') + fmtInt(Math.abs(h.chg24Tao)) + ' τ';
+      const alphaCol = h.balanceAlpha != null ? `<span class="dash-wallet__alpha">${fmtInt(h.balanceAlpha)} α</span>` : '<span class="dash-wallet__alpha">·</span>';
+      return `
+        <tr class="dash-wallet__row dash-wallet__row--${h.kind}">
+          <td class="dash-wallet__addr"><span class="dash-wallet__kind">${h.kind.toUpperCase()}</span> ${h.addr}</td>
+          <td class="dash-wallet__label">${h.label || '·'}</td>
+          <td class="dash-wallet__tao">${fmtInt(h.balanceTao)} τ</td>
+          <td class="dash-wallet__alpha-cell">${alphaCol}</td>
+          <td class="dash-wallet__chg ${chgCls}">${chgStr}</td>
+        </tr>`;
+    }).join('');
+
+    const transferRows = transfers.map(t => {
+      const arrow = t.direction === 'in' ? '▼' : t.direction === 'out' ? '▲' : '↔';
+      const dirCls = t.direction === 'in' ? 'is-in' : t.direction === 'out' ? 'is-out' : 'is-swap';
+      const time = (t.date || '').slice(11, 16);
+      const day = (t.date || '').slice(0, 10);
+      return `
+        <li class="dash-flow__row">
+          <div class="dash-flow__head">
+            <span class="dash-flow__dir ${dirCls}">${arrow} ${t.direction.toUpperCase()}</span>
+            <span class="dash-flow__amt">${fmtInt(t.amount)} ${t.token}</span>
+            <span class="dash-flow__usd">${'$' + fmtInt(t.usd)}</span>
+            <span class="dash-flow__date">${day} · ${time}</span>
+          </div>
+          <div class="dash-flow__body">
+            <span class="dash-flow__from">FROM <code>${t.from}</code></span>
+            <span class="dash-flow__sep">→</span>
+            <span class="dash-flow__to">TO <code>${t.to}</code></span>
+          </div>
+          ${t.note ? `<div class="dash-flow__note">${t.note}</div>` : ''}
+        </li>`;
+    }).join('');
+
+    return `
+      <div class="dash-wallet">
+        <div class="dash-wallet__col">
+          <div class="dash-wallet__colhead">TOP HOLDERS · by τ balance</div>
+          <table class="dash-wallet__table">
+            <thead>
+              <tr>
+                <th>ADDRESS</th>
+                <th>LABEL</th>
+                <th class="ralign">τ BAL</th>
+                <th class="ralign">α BAL</th>
+                <th class="ralign">24H Δ</th>
+              </tr>
+            </thead>
+            <tbody>${holderRows}</tbody>
+          </table>
+        </div>
+        <div class="dash-wallet__col">
+          <div class="dash-wallet__colhead">RECENT LARGE MOVES · ≥$50K</div>
+          <ul class="dash-flow">${transferRows}</ul>
+        </div>
+      </div>
+    `;
+  }
+
+  function renderMasterTable(){
+    /* TaoStats-style column grid for ALL 53 subnets. Sortable by
+       header click. Compact 11-column row: id, name, cat, price,
+       30D sparkline, 24h %, 7d %, 30d %, mcap, emission, miners,
+       validators. Default sort by mcap. */
+    const rows = subnetState.rows.slice().sort((a,b) => (b.mcap||0)-(a.mcap||0)).map(s => {
+      const cls = chgClass(s.chg24);
+      const cls7 = chgClass(s.chg7);
+      const cls30 = chgClass(s.chg30);
+      return `
+        <tr class="dash-master__row" data-master-row="${s.netuid}">
+          <td class="dash-master__sn">SN${s.netuid}</td>
+          <td class="dash-master__name">${s.name}</td>
+          <td class="dash-master__cat">${(s.cat || '').toUpperCase()}</td>
+          <td class="dash-master__num">${fmtPrice(s.price)}</td>
+          <td class="dash-master__num ${cls}">${fmtPct(s.chg24)}</td>
+          <td class="dash-master__num ${cls7}">${fmtPct(s.chg7)}</td>
+          <td class="dash-master__num ${cls30}">${fmtPct(s.chg30)}</td>
+          <td class="dash-master__num">${fmtMcap(s.mcap)}</td>
+          <td class="dash-master__num">${fmtInt(s.emission)} τ</td>
+          <td class="dash-master__num">${fmtInt(s.miners)}</td>
+          <td class="dash-master__num">${fmtInt(s.validators)}</td>
+        </tr>`;
+    }).join('');
+    return `
+      <section class="dash-master">
+        <div class="dash-master__head">
+          <div class="dash-master__title">MASTER GRID · all ${subnetState.rows.length} subnets indexed</div>
+          <div class="dash-master__sub">Click any row to load it into the COMMAND DECK above. Sorted by FDV.</div>
+        </div>
+        <div class="dash-master__scroll">
+          <table class="dash-master__table">
+            <thead>
+              <tr>
+                <th>ID</th>
+                <th>NAME</th>
+                <th>CAT</th>
+                <th class="ralign">α PRICE</th>
+                <th class="ralign">24H</th>
+                <th class="ralign">7D</th>
+                <th class="ralign">30D</th>
+                <th class="ralign">FDV</th>
+                <th class="ralign">EMISSION</th>
+                <th class="ralign">MINERS</th>
+                <th class="ralign">VALIDATORS</th>
+              </tr>
+            </thead>
+            <tbody>${rows}</tbody>
+          </table>
+        </div>
       </section>
     `;
   }
