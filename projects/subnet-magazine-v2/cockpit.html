@@ -29,6 +29,24 @@
        the Cockpit Chart Tooltip Parity ask). Unused chart-mode
        layout/header rules silently no-op here. -->
   <link rel="stylesheet" href="style/components/chart-mode.css">
+  <!-- Dashboard stylesheets — per Rondo 2026-05-18 the whole
+       dashboard content (KPI status bar, MY DESK, BRIEFINGS,
+       DETAIL, MARKETS, ARC, EDITORIAL INTEL, ATTR) is mounted
+       below the cockpit pane on this page, so the cockpit page
+       needs every CSS the dashboard view paints against. Loaded
+       AFTER cockpit.css so cockpit's specific rules win on the
+       shared selectors (.panel etc.) inside the cockpit pane;
+       dashboard rules apply to the dashboard mount below. -->
+  <link rel="stylesheet" href="style/components/dashboard.css">
+  <link rel="stylesheet" href="style/components/briefings.css">
+  <link rel="stylesheet" href="style/components/news-cards.css">
+  <link rel="stylesheet" href="style/components/commentary.css">
+  <link rel="stylesheet" href="style/components/article-coverage.css">
+  <link rel="stylesheet" href="style/components/attribution.css">
+  <link rel="stylesheet" href="style/components/paper-portfolio.css">
+  <link rel="stylesheet" href="style/components/dash-nav.css">
+  <link rel="stylesheet" href="style/components/collapsible.css">
+  <link rel="stylesheet" href="style/components/paywall.css">
 </head>
 <body>
   <div data-mount="tickers"></div>
@@ -39,6 +57,13 @@
   </aside>
   <main id="main">
     <div data-mount="cockpit"></div>
+    <!-- Per Rondo 2026-05-18: the entire dashboard content goes
+         here, beneath the cockpit pane, so the cockpit page is
+         the single workspace ("this whole entire content should
+         be in the cockpit"). Mounting the dashboard view second
+         appends KPI strip + MY DESK + BRIEFINGS + DETAIL + MARKETS
+         + ARC + EDITORIAL INTEL sections below the cockpit chart. -->
+    <div data-mount="dashboard"></div>
   </main>
   <script src="config.js"></script>
   <script type="module" src="src/boot.js?v=20260520s"></script>
