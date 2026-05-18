@@ -12,24 +12,35 @@ import { NodeSphere } from '../charts/NodeSphere.js';
 import { bbgDate } from '../lib/format.js';
 import { applySlideHint } from '../lib/slide-hint.js';
 
-/* Site nav. COCKPIT is the canonical chart-first workspace (big
-   live price chart with article sidebar scrolling beside it).
-   DASHBOARD + TERMINAL remain as their own surfaces for the
-   readers who prefer those layouts — kept per Rondo's directive
-   to not delete what was working. */
+/* Site nav, consolidated 2026-05-18 per Rondo "way too many
+   options on the top bar it needs to be consolidated."
+
+   Was 9 items (MAGAZINE/ORACLE/RESEARCH/MARKETS/COCKPIT/
+   DASHBOARD/TERMINAL/VOICES/EDITOR). Now 3, mapped to the three
+   reading modes the magazine actually serves:
+
+     COCKPIT  — the workspace. Chart + dashboard + markets all
+                live here per the "unified cockpit" directive.
+                Subsumes markets.html, dashboard.html, terminal.html.
+     MAGAZINE — the editorial home. Articles, daily story, fresh
+                dispatches. The reader-as-reader landing.
+     ORACLE   — research. Long-form analytical pieces, briefings,
+                interviews. Subsumes research.html, voices.html.
+
+   Pages removed from nav but kept in the repo (still served at
+   their URLs so existing bookmarks survive; not promoted):
+     markets.html, dashboard.html, terminal.html → merged into
+       cockpit.html as panes / collapsibles, but the standalone
+       pages still render for direct-link readers.
+     research.html, voices.html → reachable via the ORACLE page's
+       internal nav, but not separately in the masthead.
+     editor.html → staff-only; accessible by URL.
+     pricing.html → removed 2026-05-18 ("Get rid of pay wall"),
+       still in repo, no longer promoted. */
 const NAV_ITEMS = [
-  { code: '001', label: 'MAGAZINE', href: 'index.html'     },
-  { code: '010', label: 'ORACLE',   href: 'oracle.html'    },
-  { code: '020', label: 'RESEARCH', href: 'research.html'  },
-  { code: '030', label: 'MARKETS',  href: 'markets.html'   },
-  { code: '037', label: 'COCKPIT',  href: 'cockpit.html'   },
-  { code: '035', label: 'DASHBOARD',href: 'dashboard.html' },
-  { code: '038', label: 'TERMINAL', href: 'terminal.html'  },
-  { code: '050', label: 'VOICES',   href: 'voices.html'    },
-  { code: '060', label: 'EDITOR',   href: 'editor.html'    },
-  /* Pricing CTA removed 2026-05-18 per Rondo "Get rid of pay wall".
-     The pricing.html page is still in the repo but no longer
-     promoted from the masthead. */
+  { code: '001', label: 'MAGAZINE', href: 'index.html'   },
+  { code: '010', label: 'ORACLE',   href: 'oracle.html'  },
+  { code: '037', label: 'COCKPIT',  href: 'cockpit.html' },
 ];
 
 const X_URL = 'https://x.com/subnetmagazine';
