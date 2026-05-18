@@ -603,18 +603,24 @@ export function mountDashboard(root, dataLayer = null){
      <details> the reader expands on demand. Open/closed state
      persists via wireFolds → sbn:fold:v1 keyed by data-fold id,
      so a reader who opens MARKETS once finds it open next visit.
-     Defaults match what a reader probably wants on first land:
-     BRIEFINGS + DETAIL open, DESK + MARKETS + ARCHIVE closed
-     (still one tap away, but not consuming first-screen real
-     estate). */
+
+     Context-aware defaults — when this dashboard is mounted
+     UNDER the cockpit (cockpit.html, the unified workspace),
+     ALL zones default closed so the cockpit chart stays the
+     focal point. On the standalone /dashboard.html page, the
+     cockpit isn't mounted, so BRIEFINGS + DETAIL default open
+     as the reader's lead reading order. */
+  const isUnderCockpit = !!document.querySelector('[data-mount="cockpit"]');
+  const briefOpen  = isUnderCockpit ? '' : 'open';
+  const detailOpen = isUnderCockpit ? '' : 'open';
   mount(root, html`
     <section class="dash" data-mount="dashboard-root">
       ${renderStatusBar()}
-      <details id="briefings" class="dash-zone dash-zone--fold" data-zone-id="briefings" data-fold="dash-briefings" open>
+      <details id="briefings" class="dash-zone dash-zone--fold" data-zone-id="briefings" data-fold="dash-briefings" ${briefOpen}>
         <summary class="dash-zone__summary"><span class="dash-zone__eyebrow">⊕</span> BRIEFINGS</summary>
         ${renderBriefings()}
       </details>
-      <details id="detail" class="dash-zone dash-zone--fold" data-zone-id="detail" data-fold="dash-detail" open>
+      <details id="detail" class="dash-zone dash-zone--fold" data-zone-id="detail" data-fold="dash-detail" ${detailOpen}>
         <summary class="dash-zone__summary"><span class="dash-zone__eyebrow">⊕</span> SUBNET DETAIL</summary>
         <div class="dash-grid">
           ${renderCommand()}

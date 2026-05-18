@@ -1159,11 +1159,12 @@ export function mountConsole(_dataLayer = null){
     `<button type="button" class="sbnt-tab" data-id="${t.id}">${cleanLabel(t.label)}</button>`
   ).join('');
 
-  /* Default state: expanded on desktop, collapsed on phone so the
-     console doesn't overlap the page underneath. The user toggles it
-     either way via the bar. */
-  const startCollapsed = !!(window.matchMedia &&
-    window.matchMedia('(max-width: 720px)').matches);
+  /* Default state: COLLAPSED on every screen so the console doesn't
+     overlap the page underneath (Rondo 2026-05-18 — desktop cockpit
+     was being visually swallowed by the open dock). The user expands
+     it via the bar; the START tab + welcome card still surface on
+     first expand so first-visit onboarding is preserved. */
+  const startCollapsed = true;
 
   const el = document.createElement('aside');
   el.className = 'sbnt-console' + (startCollapsed ? ' is-collapsed' : '');
