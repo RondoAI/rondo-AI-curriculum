@@ -514,6 +514,10 @@ export function mountCockpit(root, dataLayer = null){
      change + range change so the reader doesn't get stuck deep in
      history after picking a different subnet. */
   let chartOffset = 0;
+  /* Live-data state — set true when 'tao:subnets' first emits a
+     real batch, surfaces a pulsing red LIVE badge in the chart
+     header. */
+  let isLive = false;
   /* QUICK ACTION block state — must be hoisted ABOVE the mount()
      template because renderAction() runs at template-eval time
      and reads actionState. TDZ bug otherwise. */
@@ -820,6 +824,9 @@ export function mountCockpit(root, dataLayer = null){
               <span class="cock-chart__sn">SN${s.netuid}</span>
               <span class="cock-chart__name">${s.name}</span>
               <span class="cock-chart__cat">${catLabel(s.cat)}</span>
+              <span class="cock-chart__live ${isLive ? 'is-live' : ''}" data-live-pill title="${isLive ? 'Pulling live data from TaoMarketcap' : 'Seed data, waiting on live feed'}">
+                <span class="cock-chart__live-dot"></span>${isLive ? 'LIVE · TMC' : 'SEED'}
+              </span>
             </h1>
             <div class="cock-chart__sub">${s.desc || ''} · <span style="color:var(--c-ink-3)">team ${s.owner || '·'}</span></div>
           `}
@@ -2040,6 +2047,7 @@ export function mountCockpit(root, dataLayer = null){
   if (dataLayer && typeof dataLayer.subscribe === 'function'){
     const onLiveSubnets = (listRaw) => {
       if (!Array.isArray(listRaw) || !listRaw.length) return;
+      isLive = true;
       let touched = false;
       listRaw.forEach(live => {
         if (live == null || live.netuid == null) return;

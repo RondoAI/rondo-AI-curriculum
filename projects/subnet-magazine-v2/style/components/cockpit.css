@@ -15,12 +15,14 @@
 .cockpit{
   display: flex;
   flex-direction: column;
-  /* Fill the viewport minus the top chrome. The exact chrome height
-     varies; using 100dvh with a generous min-height keeps the cockpit
-     usable on tall + short viewports. Browsers that don't support
-     dvh fall back to vh. */
-  height: calc(100dvh - 280px);
-  min-height: 540px;
+  /* 2026-05-18 Rondo "why can't i scroll down past the chart in
+     cockpit?" — height was calc(100dvh - 280px), a fixed
+     viewport-sized box. Content below the chart (HOLDINGS table,
+     dashboard footer link, activity-trends fold when open) got
+     CLIPPED instead of pushing the cockpit down. Switched to
+     auto-height so the cockpit grows to fit its content and the
+     page scrolls naturally past the chart. */
+  min-height: calc(100dvh - 280px);
   margin: 8px 12px 16px;
   border: 1px solid var(--c-rule-2);
   background: var(--c-bg);
@@ -2673,4 +2675,46 @@
   .cock-holdings__alloc{ min-width: 80px; padding: 9px 8px; }
   .cock-holdings__alloc-pct{ min-width: 30px; }
   .cock-holdings__alloc-bar{ height: 4px; }
+}
+
+/* LIVE / SEED data pill in chart header — shows "LIVE · TMC"
+   pulsing red when subscribed to a live tao:subnets feed, or
+   "SEED" muted gray when no live payload has arrived yet. */
+.cock-chart__live{
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  padding: 3px 8px;
+  font-family: var(--f-mono);
+  font-size: 9px;
+  letter-spacing: .22em;
+  font-weight: 800;
+  text-transform: uppercase;
+  color: var(--c-ink-4);
+  border: 1px solid var(--c-rule-2);
+  margin-left: 6px;
+  white-space: nowrap;
+}
+.cock-chart__live.is-live{
+  color: #fff;
+  border-color: var(--c-red);
+  background: rgba(255,30,60,.10);
+}
+.cock-chart__live-dot{
+  width: 6px;
+  height: 6px;
+  background: var(--c-ink-4);
+  display: inline-block;
+}
+.cock-chart__live.is-live .cock-chart__live-dot{
+  background: var(--c-red);
+  box-shadow: 0 0 6px rgba(255,30,60,.7);
+  animation: cockLivePulse 1.6s ease-in-out infinite;
+}
+@keyframes cockLivePulse {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50%      { opacity: .6; transform: scale(1.25); }
+}
+@media (prefers-reduced-motion: reduce){
+  .cock-chart__live.is-live .cock-chart__live-dot{ animation: none; }
 }
