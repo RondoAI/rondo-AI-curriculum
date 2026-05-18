@@ -1485,3 +1485,36 @@ WHAT RONDO WANTS YOU TO IMPLEMENT:
 Sandbox will close this entry once your pass lands and fold any
 visual-language additions into the cockpit's surface to keep
 modes consistent.
+
+## Coordination Reply: Oracle Dock Pass — Item 1 SHIPPED (mac-session)
+
+Rondo (2026-05-18): "1" — picked item 1 from your brief.
+
+Shipped Welcome / Onboarding state for the dock in this turn
+(commit forthcoming):
+
+  - New START tab inserted at position 0 for first-visit readers
+    (gated on sbn:console-onboarded:v1 localStorage flag).
+  - Renders a "NEW TO BITTENSOR?" welcome card with 6 stepped
+    cards in the reading flow:
+      01 /whitepaper → 02 /dtao → 03 /mine → 04 /validate →
+      05 /wallet → 06 /security
+    Each step has the step number, label, one-line tease, and
+    a → arrow. Tap any step jumps to that field-manual tab AND
+    sets the onboarded flag so the welcome doesn't re-appear.
+  - "Skip — just open the chat" footer link also marks
+    onboarded + jumps to ASK.
+  - Tab-click handler updated so leaving the START tab via any
+    OTHER tab also marks onboarded + removes the START tab
+    from the DOM (matches what a fresh page load with the flag
+    set would render).
+  - Steps are filtered against FIELD_MANUAL.some(t => t.id === id)
+    so a future data change that drops one of the six topics
+    just drops that step from the welcome — graceful, no broken
+    links (rule 5, validate inputs).
+
+Items 2-6 from the brief still queued: richer field-manual
+rendering (TL;DR + NEXT footer + sparkline-of-effort), semantic
+search on ASK, FIELD_MANUAL coverage gap check, cross-link
+from oracle articles into dock tabs, taostats-grammar polish
+on per-topic pages.

@@ -882,6 +882,123 @@ const CSS = `
 @media (prefers-reduced-motion: reduce){
   .sbnt-cursor{ animation: none; }
 }
+
+/* ---------- WELCOME / ONBOARDING ---------- */
+.sbnt-welcome{
+  padding: 16px 18px 18px;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+.sbnt-welcome__head{ display: flex; flex-direction: column; gap: 6px; }
+.sbnt-welcome__eyebrow{
+  font-family: var(--f-mono, monospace);
+  font-size: 9px;
+  letter-spacing: .22em;
+  font-weight: 800;
+  color: var(--c-red, #FF1E3C);
+  text-transform: uppercase;
+}
+.sbnt-welcome__h{
+  font-family: var(--f-serif, Archivo);
+  font-size: 18px;
+  font-weight: 800;
+  color: #fff;
+  line-height: 1.25;
+  letter-spacing: -.005em;
+  margin: 0;
+}
+.sbnt-welcome__sub{
+  font-family: var(--f-sans, Inter);
+  font-size: 12.5px;
+  line-height: 1.45;
+  color: var(--c-ink-2, #C8A8AD);
+  margin: 0;
+}
+.sbnt-welcome__steps{
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+.sbnt-welcome__step{
+  -webkit-appearance: none;
+  appearance: none;
+  display: grid;
+  grid-template-columns: 32px 1fr auto;
+  gap: 12px;
+  align-items: center;
+  text-align: left;
+  padding: 10px 12px;
+  background: var(--c-bg-1, #0A0306);
+  border: 1px solid var(--c-rule-2, rgba(255, 30, 60, .22));
+  cursor: pointer;
+  color: inherit;
+  font-family: inherit;
+  transition: background 140ms ease, border-color 140ms ease;
+}
+.sbnt-welcome__step:hover,
+.sbnt-welcome__step:focus-visible{
+  background: rgba(255, 30, 60, .06);
+  border-color: var(--c-red, #FF1E3C);
+  outline: none;
+}
+.sbnt-welcome__step-n{
+  font-family: var(--f-mono, monospace);
+  font-size: 13px;
+  letter-spacing: .08em;
+  font-weight: 800;
+  color: var(--c-red-1, #FF4D60);
+  font-variant-numeric: tabular-nums;
+}
+.sbnt-welcome__step-body{
+  display: flex; flex-direction: column; gap: 2px; min-width: 0;
+}
+.sbnt-welcome__step-label{
+  font-family: var(--f-serif, Archivo);
+  font-size: 13.5px;
+  font-weight: 700;
+  color: #fff;
+  letter-spacing: -.005em;
+}
+.sbnt-welcome__step-tease{
+  font-family: var(--f-sans, Inter);
+  font-size: 11.5px;
+  line-height: 1.35;
+  color: var(--c-ink-3, #8B6B70);
+}
+.sbnt-welcome__step-arrow{
+  font-family: var(--f-mono, monospace);
+  color: var(--c-ink-3, #8B6B70);
+  font-size: 14px;
+  transition: color 140ms ease, transform 140ms ease;
+}
+.sbnt-welcome__step:hover .sbnt-welcome__step-arrow{
+  color: var(--c-red, #FF1E3C);
+  transform: translateX(2px);
+}
+.sbnt-welcome__foot{
+  display: flex;
+  justify-content: flex-end;
+  padding-top: 4px;
+  border-top: 1px dashed var(--c-rule-2, rgba(255, 30, 60, .14));
+}
+.sbnt-welcome__skip{
+  -webkit-appearance: none;
+  appearance: none;
+  background: transparent;
+  border: 0;
+  color: var(--c-ink-3, #8B6B70);
+  font-family: var(--f-mono, monospace);
+  font-size: 10px;
+  letter-spacing: .08em;
+  cursor: pointer;
+  padding: 4px 6px;
+  text-decoration: underline;
+}
+.sbnt-welcome__skip:hover{ color: var(--c-red-1, #FF4D60); }
 `;
 
 function injectStyle(){
@@ -930,8 +1047,22 @@ export function mountConsole(_dataLayer = null){
      /links is the off-site directory. The rest follow in their
      data-file order. */
   const ASK_TAB = { id: 'ask', label: 'ASK' };
+  /* WELCOME tab: first-visit-only onboarding shown until the
+     reader interacts with any other tab (then we set the seen
+     flag and stop offering it). Per sibling's coordination ask
+     (CLAUDE.md, item 1: "Welcome / Onboarding State"). */
+  const ONBOARD_KEY = 'sbn:console-onboarded:v1';
+  const hasOnboarded = (() => {
+    try { return localStorage.getItem(ONBOARD_KEY) === '1'; }
+    catch (_) { return false; }
+  })();
+  const markOnboarded = () => {
+    try { localStorage.setItem(ONBOARD_KEY, '1'); } catch (_) {}
+  };
+  const START_TAB = { id: 'start', label: 'START' };
   const TAB_ORDER_FRONT = ['mine', 'links', 'play'];
   const orderedTabs = [
+    ...(hasOnboarded ? [] : [START_TAB]),
     ASK_TAB,
     ...TAB_ORDER_FRONT
       .map(id => FIELD_MANUAL.find(t => t.id === id))
@@ -1057,7 +1188,9 @@ export function mountConsole(_dataLayer = null){
      viewport shows ~4, so the rest is invisible without the cue */
   const teardownTabHint = tabRail ? applySlideHint(tabRail) : () => {};
 
-  let activeId = 'ask';
+  /* First-time visitors land on the START welcome card; returning
+     readers land on ASK. */
+  let activeId = hasOnboarded ? 'ask' : 'start';
   let searchQuery = '';
   /* chat history survives across body re-renders (tab swap, search) */
   const chatLog = [{
@@ -1258,7 +1391,91 @@ export function mountConsole(_dataLayer = null){
     });
   }
 
+  /* ---------- WELCOME / ONBOARDING ---------- */
+  /* Reading flow for new Bittensor readers — sibling's
+     coordination ask spelled out the path:
+       /whitepaper → /dtao → /mine OR /validate → /wallet → /security
+     Each step is a clickable card; tapping any one switches
+     to that field-manual tab AND sets the onboarded flag so the
+     welcome view doesn't return. */
+  const WELCOME_STEPS = [
+    { id: 'whitepaper', n: '01', label: 'The whitepaper',         tease: 'What Bittensor IS, in the founders’ own words.' },
+    { id: 'dtao',       n: '02', label: 'dTAO · alpha tokens',    tease: 'How each subnet has its own market-priced token.' },
+    { id: 'mine',       n: '03', label: 'Mine a subnet',          tease: 'Install → register → run → earn α.' },
+    { id: 'validate',   n: '04', label: 'Run a validator',        tease: 'Earn by scoring miners, lock TAO as stake.' },
+    { id: 'wallet',     n: '05', label: 'Wallets · keys',    tease: 'Coldkey vs hotkey — the safety contract.' },
+    { id: 'security',   n: '06', label: 'Security · hygiene', tease: 'Survive a six-figure account on a phone.' },
+  ].filter(step => FIELD_MANUAL.some(t => t.id === step.id));
+
+  function welcomeHtml(){
+    const stepsHtml = WELCOME_STEPS.map(s => `
+      <button type="button" class="sbnt-welcome__step" data-welcome-step="${s.id}">
+        <span class="sbnt-welcome__step-n">${s.n}</span>
+        <span class="sbnt-welcome__step-body">
+          <span class="sbnt-welcome__step-label">${s.label}</span>
+          <span class="sbnt-welcome__step-tease">${s.tease}</span>
+        </span>
+        <span class="sbnt-welcome__step-arrow" aria-hidden="true">→</span>
+      </button>
+    `).join('');
+    return `
+      <section class="sbnt-welcome" aria-labelledby="sbnt-welcome-h">
+        <header class="sbnt-welcome__head">
+          <span class="sbnt-welcome__eyebrow">⊕ NEW TO BITTENSOR?</span>
+          <h2 class="sbnt-welcome__h" id="sbnt-welcome-h">A reading path through the Subnet Oracle’s field manual.</h2>
+          <p class="sbnt-welcome__sub">Six short topics in the order a new operator actually needs them — from "what is this thing?" through registering your first miner. Tap any step to jump in. Once you do, this welcome card stops appearing.</p>
+        </header>
+        <ol class="sbnt-welcome__steps">${stepsHtml}</ol>
+        <footer class="sbnt-welcome__foot">
+          <button type="button" class="sbnt-welcome__skip" data-welcome-skip>Skip — just open the chat</button>
+        </footer>
+      </section>`;
+  }
+
+  function wireWelcome(){
+    body.querySelectorAll('[data-welcome-step]').forEach(btn => {
+      btn.addEventListener('click', () => {
+        const id = btn.dataset.welcomeStep;
+        markOnboarded();
+        removeStartTab();
+        activeId = id;
+        render();
+      });
+    });
+    const skip = body.querySelector('[data-welcome-skip]');
+    if (skip){
+      skip.addEventListener('click', () => {
+        markOnboarded();
+        removeStartTab();
+        activeId = 'ask';
+        render();
+      });
+    }
+  }
+
+  /* Once the reader interacts with the welcome card OR clicks any
+     other tab while welcome is showing, drop the START tab from
+     the DOM so the next render's tab row matches the onboarded
+     state. Mirrors what we'd see on a fresh page load with the
+     flag set. */
+  function removeStartTab(){
+    const startTab = el.querySelector('.sbnt-console__tabs [data-id="start"]');
+    if (startTab) startTab.remove();
+  }
+
   function render(){
+    /* START is the first-visit onboarding card. Renders a
+       reading-order flow (5 steps from whitepaper → security)
+       so a new reader has a clear path into the field manual.
+       Dismissing the card or tapping any step sets the
+       onboarded flag — returning readers land on ASK instead. */
+    if (activeId === 'start'){
+      tabs.forEach(t => t.classList.toggle('is-active', t.dataset.id === 'start'));
+      if (title) title.textContent = '· Welcome';
+      body.innerHTML = welcomeHtml();
+      wireWelcome();
+      return;
+    }
     /* ASK is a synthetic tab, not in FIELD_MANUAL. Render chat
        surface instead of topic content. */
     if (activeId === 'ask'){
@@ -1640,11 +1857,18 @@ export function mountConsole(_dataLayer = null){
     });
   }
 
-  /* tab clicks → switch topic */
+  /* tab clicks → switch topic. If the reader was on the welcome
+     START tab and clicked anything else, set the onboarded flag
+     + remove START from the row so the welcome doesn't re-appear. */
   tabs.forEach(t => {
     t.addEventListener('click', (e) => {
       e.stopPropagation();
-      activeId = t.dataset.id;
+      const nextId = t.dataset.id;
+      if (activeId === 'start' && nextId !== 'start'){
+        markOnboarded();
+        removeStartTab();
+      }
+      activeId = nextId;
       render();
     });
   });
