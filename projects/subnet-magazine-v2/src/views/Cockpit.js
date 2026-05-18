@@ -452,6 +452,12 @@ export function mountCockpit(root, dataLayer = null){
   let watchlist  = loadWatchlist();
   let series     = generateSeries(subnetById(state.selectedId) || SUBNETS[0]);
   let searchQ    = '';
+  /* `hit` is the drawChart-returned hit-test controller. Declared
+     at the top of the closure so drawChartNow() (called during
+     initial mount, before its own internal definition site)
+     doesn't hit a temporal-dead-zone ReferenceError when assigning
+     to it. */
+  let hit        = null;
 
   /* Render the whole cockpit shell once; sub-panes repaint in place
      on selection / range / pane changes without disturbing the chart
@@ -911,12 +917,10 @@ export function mountCockpit(root, dataLayer = null){
     if (f) f.innerHTML = renderFeed();
   }
 
-  /* `hit` is the controller returned by drawChart — exposes the
-     hit-test functions the hover handlers in wireChart() use to
-     resolve cursor-over-bar and cursor-over-flag. Lives in the
-     mountCockpit closure so wireChart() (defined later) can read
-     the LATEST hit object after each redraw. */
-  let hit = null;
+  /* drawChartNow assigns to `hit` (declared at the top of
+     mountCockpit). The closure-level `let hit` was hoisted up so
+     this function — invoked during initial mount before its own
+     definition site — doesn't trip the temporal dead zone. */
   function drawChartNow(){
     const c = qs('[data-chart-canvas]', root);
     const range = RANGES.find(r => r.key === state.range) || RANGES[2];
