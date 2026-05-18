@@ -295,9 +295,12 @@
 .cock-chart__chg2.is-down{ color: var(--c-down); }
 
 .cock-chart__canvas-wrap{
+  /* Fills its grid cell inside .cock-chart__row. Also remains
+     flex:1-friendly for callers that nest it in a flex column. */
   flex: 1;
   position: relative;
-  min-height: 200px;
+  min-width: 0;
+  min-height: 240px;
   background:
     linear-gradient(90deg, rgba(255,30,60,.02) 0%, transparent 100%),
     radial-gradient(ellipse at center top, rgba(255,30,60,.025) 0%, transparent 65%);
@@ -308,6 +311,149 @@
   width: 100%;
   height: 100%;
   display: block;
+}
+
+/* ---------- inline ARTICLE COLUMN + chart row ------------- */
+/* Per Rondo's 2026-05-17 directive (blue-line annotation on the
+   cockpit screenshot): articles live INSIDE the chart pane on the
+   LEFT, next to the chart, with their own scroll. Not under, not
+   on a separate FEED tab. The column scrolls independently. */
+.cock-chart__row{
+  flex: 1;
+  display: grid;
+  grid-template-columns: 150px 1fr;
+  gap: 0;
+  min-height: 0;
+  min-width: 0;
+}
+@media (min-width: 901px){
+  /* On desktop the cockpit's RIGHT pane (.cockpit__feed) carries
+     the deeper image-rich news cards, so the inline column on the
+     chart's left is redundant. Hide it on desktop, keep the chart
+     full-width inside the center pane. */
+  .cock-chart__row{
+    grid-template-columns: 1fr;
+  }
+  .cock-chart__news{ display: none; }
+}
+.cock-chart__news{
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+  background: var(--c-bg-1);
+  border-right: 1px solid var(--c-rule-2);
+}
+.cock-chart__news-head{
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  padding: 6px 8px 4px;
+  border-bottom: 1px solid var(--c-rule-2);
+  background: var(--c-bg-2);
+}
+.cock-chart__news-h{
+  font-family: var(--f-mono);
+  font-size: 8.5px;
+  letter-spacing: .16em;
+  font-weight: 800;
+  color: var(--c-red-1);
+}
+.cock-chart__news-n{
+  font-family: var(--f-mono);
+  font-size: 8.5px;
+  font-weight: 800;
+  color: var(--c-ink-3);
+  border: 1px solid var(--c-rule-2);
+  padding: 0 5px;
+}
+.cock-chart__news-list{
+  flex: 1;
+  overflow-y: auto;
+  overscroll-behavior: contain;
+  -webkit-overflow-scrolling: touch;
+  /* Hairline scrollbar */
+  scrollbar-width: thin;
+  scrollbar-color: rgba(255,30,60,.3) transparent;
+}
+.cock-chart__news-list::-webkit-scrollbar{ width: 3px; }
+.cock-chart__news-list::-webkit-scrollbar-thumb{ background: rgba(255,30,60,.3); }
+.cock-chart__news-list::-webkit-scrollbar-track{ background: transparent; }
+
+.cock-chart__news-item{
+  display: grid;
+  grid-template-columns: auto 1fr;
+  grid-template-rows: auto auto auto;
+  grid-template-areas:
+    "kind date"
+    "title title"
+    "src src";
+  column-gap: 4px;
+  row-gap: 1px;
+  padding: 6px 8px;
+  border-bottom: 1px dashed var(--c-rule);
+  text-decoration: none;
+  color: inherit;
+  transition: background 100ms;
+}
+.cock-chart__news-item:hover{
+  background: rgba(255,30,60,.05);
+}
+.cock-chart__news-kind{
+  grid-area: kind;
+  font-family: var(--f-mono);
+  font-size: 7px;
+  letter-spacing: .14em;
+  font-weight: 800;
+  padding: 0 3px;
+  border: 1px solid var(--c-ink-3);
+  color: var(--c-ink-3);
+  align-self: start;
+  justify-self: start;
+}
+.cock-chart__news-kind--mag{ color: var(--c-warn); border-color: var(--c-warn); }
+.cock-chart__news-kind--orc{ color: var(--c-red);  border-color: var(--c-red);  }
+.cock-chart__news-kind--cen{ color: var(--c-up);   border-color: var(--c-up);   }
+.cock-chart__news-date{
+  grid-area: date;
+  font-family: var(--f-mono);
+  font-size: 7.5px;
+  letter-spacing: .08em;
+  color: var(--c-ink-3);
+  text-align: right;
+  align-self: center;
+}
+.cock-chart__news-title{
+  grid-area: title;
+  font-family: var(--f-serif);
+  font-size: 10.5px;
+  line-height: 1.25;
+  font-weight: 700;
+  color: #fff;
+  margin-top: 3px;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+.cock-chart__news-src{
+  grid-area: src;
+  font-family: var(--f-mono);
+  font-size: 7px;
+  letter-spacing: .08em;
+  color: var(--c-ink-3);
+  font-style: italic;
+}
+.cock-chart__news-empty{
+  padding: 10px 8px;
+  font-family: var(--f-sans);
+  font-size: 9px;
+  color: var(--c-ink-3);
+  font-style: italic;
+}
+
+@media (max-width: 480px){
+  .cock-chart__row{ grid-template-columns: 130px 1fr; }
+  .cock-chart__news-title{ font-size: 9.5px; }
 }
 
 .cock-chart__range{

@@ -827,3 +827,52 @@ In addition to gating, every paid feature should have a visible
 "YOU'RE GETTING THIS BECAUSE YOU'RE PRO" moment — a subtle PRO badge
 on the panel header, or a "PRO · since {month}" line under your
 account chip. Compounding satisfaction = retention.
+
+## Open Feedback Request: Cockpit Chart-Pane Inline Article Column
+
+Saved by Rondo's instruction, 2026-05-17: "Also show the other
+Claude and get his feedback to make it better."
+
+Mac session — when you boot, please review the cockpit's CHART
+pane inline article column shipped in commit (sandbox-session)
+~~tip 2026-05-17~~ and suggest improvements. Specifically:
+
+  File:      src/views/Cockpit.js  function renderMain()
+  CSS:       style/components/cockpit.css  .cock-chart__row +
+             .cock-chart__news* rules
+  What:     A narrow (~150px) left-of-chart column on MOBILE
+             ONLY (hidden on desktop where the .cockpit__feed
+             right pane already carries the deeper card grid).
+             Renders the 10 most-recent SN-scoped dispatches
+             (magazine + oracle + centralized) as compact rows
+             with kind chip + date + serif title + source.
+             Scrolls independently of the page.
+
+  Rondo's directive (with screenshot blue-line annotation):
+    "Put terminal data here where the blue line is — an example
+     of where the articles should go next to the chart integrated."
+    "On the side of the chart, news articles you can scroll. Not
+     under the chart, on the side of the chart, scrollable
+     content that integrates into your chart."
+
+  Questions for review:
+    1. Is 150px wide enough to read article titles cleanly on
+       414px viewports, or should we trade chart width for more
+       article column width (180px)?
+    2. The chart canvas shrinks ~150px on mobile — does the
+       drawChart axis-label spacing still work? Verify y-axis
+       labels don't crowd.
+    3. Should the article column also appear on desktop alongside
+       the chart, OR is the .cockpit__feed right-pane sufficient?
+       (Current behavior: column hidden on desktop, only mobile.)
+    4. The dashboard.html now has a duplicate article surface
+       (EDITORIAL INTEL inside the per-subnet DETAIL panel).
+       Should we tighten/de-dup vs. the cockpit's chart-inline
+       column?
+    5. Density pass — any KPI rows you could compress to free
+       up more vertical for the chart on mobile?
+
+  Please leave your feedback as a follow-up commit on the
+  subnet-mag-v2 branch with the (mac-session) suffix. Either
+  ship improvements directly or write a comment-only commit
+  with your notes if the change is non-obvious.
