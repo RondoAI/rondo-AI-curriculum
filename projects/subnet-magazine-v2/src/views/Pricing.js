@@ -29,7 +29,7 @@ const TIERS = [
     price: '$0',
     period: 'forever',
     pitch: 'Read the network. Daily briefings, top markets, a starter watchlist.',
-    cta: { label: 'START FREE', href: '#signup-free', kind: 'ghost' },
+    cta: { label: 'START FREE', href: 'signup.html?tier=free', kind: 'ghost' },
     features: [
       { lbl: 'Live subnet markets',                yes: true,  note: 'all 53, read-only' },
       { lbl: 'Per-subnet 30D chart',               yes: true,  note: '30D window cap' },
@@ -54,7 +54,7 @@ const TIERS = [
     period: '/month',
     annualNote: '$288/yr · 2 months free',
     pitch: 'The full terminal. Unlimited charts, your paper portfolio synced, risk + attribution on your bets, real alerts.',
-    cta: { label: 'UPGRADE TO PRO', href: '#signup-pro', kind: 'primary' },
+    cta: { label: 'UPGRADE TO PRO', href: 'signup.html?tier=pro', kind: 'primary' },
     badge: 'RECOMMENDED',
     features: [
       { lbl: 'Everything in OBSERVER',             yes: true,  bold: true },
@@ -82,7 +82,7 @@ const TIERS = [
     period: '/month',
     annualNote: '$2,388/yr · 2 months free · or custom contract',
     pitch: 'For funds and trading desks. Live institutional data, team workspaces, programmatic access, white-label dashboards.',
-    cta: { label: 'TALK TO US', href: '#signup-enterprise', kind: 'ghost' },
+    cta: { label: 'TALK TO US', href: 'signup.html?tier=enterprise', kind: 'ghost' },
     features: [
       { lbl: 'Everything in PRO DESK',             yes: true,  bold: true },
       { lbl: 'TaoStats live institutional API',    yes: true,  note: 'real chain data, intraday' },

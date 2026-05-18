@@ -1253,13 +1253,23 @@
    main column. */
 .cm-grid{
   display: grid;
+  /* Per Rondo's 2026-05-17 directive: "on the side of the chart,
+     not under it." Side panel STAYS BESIDE the chart even on mobile
+     — no more single-column collapse. We narrow the side rail on
+     small viewports (140px-180px) instead of stacking. */
   grid-template-columns: 360px 1fr;
   gap: 12px;
   min-height: 0;
   align-items: start;
 }
 @media (max-width: 1080px){
-  .cm-grid{ grid-template-columns: 1fr; }
+  .cm-grid{ grid-template-columns: 280px 1fr; gap: 8px; }
+}
+@media (max-width: 720px){
+  .cm-grid{ grid-template-columns: 170px 1fr; gap: 6px; }
+}
+@media (max-width: 480px){
+  .cm-grid{ grid-template-columns: 140px 1fr; gap: 4px; }
 }
 .cm-main{
   min-width: 0;
@@ -1268,7 +1278,9 @@
      fills the remaining width with no internal scroll. */
 }
 
-/* Left rail container (data above, articles below) */
+/* Left rail container (data above, articles below). Has its OWN
+   independent scroll bar so the reader can scroll articles next
+   to the chart without scrolling the whole page. */
 .cm-left{
   display: grid;
   gap: 10px;
@@ -1283,13 +1295,31 @@
 }
 @media (max-width: 1080px){
   .cm-left{
-    border-right: 0;
-    padding-right: 0;
-    border-bottom: 1px solid rgba(255, 30, 60, .14);
-    padding-bottom: 8px;
-    max-height: none;
-    overflow-y: visible;
+    /* Keep the independent scroll on mobile too — side panel
+       scrolls beside the chart, not page-stacked underneath. */
+    padding-right: 4px;
+    gap: 6px;
+    max-height: calc(100vh - 260px);
   }
+}
+@media (max-width: 720px){
+  .cm-left{ font-size: 11px; max-height: calc(100vh - 280px); }
+  /* At narrow widths the side rail is 140-170px; the label+value
+     grid was squishing into each other. Collapse each KPI to a
+     single column (label on top, value below) so the rail reads
+     cleanly even when narrow. */
+  .cm-left .cm-kpis--stack .cm-kpi{
+    grid-template-columns: 1fr;
+    grid-template-areas: "lbl" "val" "note";
+    padding: 5px 6px;
+    gap: 1px;
+  }
+  .cm-left .cm-kpis--stack .cm-kpi__val{
+    font-size: 12px;
+    text-align: left;
+  }
+  .cm-left .cm-kpis--stack .cm-kpi__lbl{ font-size: 7px; }
+  .cm-left .cm-kpis--stack .cm-kpi__note{ font-size: 8.5px; }
 }
 .cm-left::-webkit-scrollbar       { width: 5px; }
 .cm-left::-webkit-scrollbar-thumb { background: rgba(255, 30, 60, .3); }

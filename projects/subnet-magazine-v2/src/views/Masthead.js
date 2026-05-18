@@ -12,19 +12,22 @@ import { NodeSphere } from '../charts/NodeSphere.js';
 import { bbgDate } from '../lib/format.js';
 import { applySlideHint } from '../lib/slide-hint.js';
 
-/* The whole magazine, six surfaces. Anything else became
-   noise; the depth lives inside these pages now. */
+/* Site nav. COCKPIT is the canonical chart-first workspace (big
+   live price chart with article sidebar scrolling beside it).
+   DASHBOARD + TERMINAL remain as their own surfaces for the
+   readers who prefer those layouts — kept per Rondo's directive
+   to not delete what was working. */
 const NAV_ITEMS = [
-  { code: '001', label: 'MAGAZINE', href: 'index.html'   },
-  { code: '010', label: 'ORACLE',   href: 'oracle.html'   },
-  { code: '020', label: 'RESEARCH', href: 'research.html' },
-  { code: '030', label: 'MARKETS',  href: 'markets.html' },
+  { code: '001', label: 'MAGAZINE', href: 'index.html'     },
+  { code: '010', label: 'ORACLE',   href: 'oracle.html'    },
+  { code: '020', label: 'RESEARCH', href: 'research.html'  },
+  { code: '030', label: 'MARKETS',  href: 'markets.html'   },
+  { code: '037', label: 'COCKPIT',  href: 'cockpit.html'   },
   { code: '035', label: 'DASHBOARD',href: 'dashboard.html' },
-  { code: '037', label: 'COCKPIT',  href: 'cockpit.html'  },
-  { code: '038', label: 'TERMINAL', href: 'terminal.html' },
-  { code: '040', label: 'VOICES',   href: 'voices.html'   },
-  { code: '999', label: 'PRO ↗',    href: 'pricing.html'  },
-  { code: '050', label: 'EDITOR',   href: 'editor.html'  },
+  { code: '038', label: 'TERMINAL', href: 'terminal.html'  },
+  { code: '050', label: 'VOICES',   href: 'voices.html'    },
+  { code: '060', label: 'EDITOR',   href: 'editor.html'    },
+  { code: '999', label: 'PRO ↗',    href: 'pricing.html'   },
 ];
 
 const X_URL = 'https://x.com/subnetmagazine';

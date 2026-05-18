@@ -83,12 +83,17 @@ function saveWatchlist(set){
   try { localStorage.setItem(WATCHLIST_KEY, JSON.stringify([...set])); } catch (_) {}
 }
 function loadCockpitState(){
+  /* Cockpit ALWAYS leads with the CHART pane on every fresh page
+     load (Rondo's directive: "the page to lead with a price chart").
+     We don't restore a previously-active pane — the chart is the
+     primary, always-visible-first. Selection + range + watched-filter
+     still persist across visits. */
   try {
     const raw = JSON.parse(localStorage.getItem(COCKPIT_KEY) || '{}');
     return {
       selectedId:  Number.isFinite(raw.selectedId)  ? raw.selectedId  : 4,
       range:       raw.range                        || '30D',
-      pane:        raw.pane                         || 'chart',
+      pane:        'chart',
       onlyWatched: !!raw.onlyWatched,
     };
   } catch (_) { return { selectedId: 4, range: '30D', pane: 'chart', onlyWatched: false }; }
@@ -380,6 +385,50 @@ export function mountCockpit(root, dataLayer = null){
       <button type="button" class="cock-range__btn ${r.key === state.range ? 'is-on' : ''}" data-range="${r.key}">${r.label}</button>
     `).join('');
 
+    /* INLINE ARTICLE COLUMN — per Rondo's 2026-05-17 directive
+       (blue-line annotation on the cockpit screenshot): articles
+       should live INSIDE the chart pane on the LEFT, not on a
+       separate FEED tab. Build a tight column scoped to the
+       current subnet. */
+    const team = ARTICLES.filter(a =>
+      Number(a.subnet) === s.netuid ||
+      String(a.subnet) === String(s.name)
+    ).slice(0, 4).map(a => ({
+      kind: 'mag', date: a.date, title: a.title,
+      url: a.pdf || a.externalUrl || '#',
+      source: 'Magazine',
+    }));
+    const oracle = recentOracleArticles(Infinity)
+      .filter(a =>
+        (a.subnetId === s.netuid) ||
+        ((a.subnetName || '').toLowerCase() === s.name.toLowerCase()) ||
+        ((a.title || '').toLowerCase().includes(s.name.toLowerCase()))
+      )
+      .slice(0, 4)
+      .map(a => ({
+        kind: 'orc', date: a.date, title: a.title,
+        url: a.pdf || '#',
+        source: 'Subnet Oracle',
+      }));
+    let central = [];
+    try { central = newsForSubnet(s, 4).map(n => ({
+      kind: 'cen', date: n.date, title: n.headline,
+      url: n.url || '#',
+      source: n.source,
+    })); } catch (_) {}
+    const inlineArticles = [...team, ...oracle, ...central]
+      .sort((a,b) => (b.date || '').localeCompare(a.date || ''))
+      .slice(0, 10);
+    const inlineArticlesHtml = inlineArticles.length
+      ? inlineArticles.map(a => `
+          <a class="cock-chart__news-item" href="${a.url}" target="_blank" rel="noopener">
+            <span class="cock-chart__news-kind cock-chart__news-kind--${a.kind}">${a.kind.toUpperCase()}</span>
+            <span class="cock-chart__news-date">${fmtDate(a.date)}</span>
+            <span class="cock-chart__news-title">${a.title || '·'}</span>
+            <span class="cock-chart__news-src">${a.source || '·'}</span>
+          </a>`).join('')
+      : `<div class="cock-chart__news-empty">No dispatches indexed for SN${s.netuid} yet.</div>`;
+
     return `
       <header class="cock-chart__head">
         <div class="cock-chart__title">
@@ -395,8 +444,23 @@ export function mountCockpit(root, dataLayer = null){
         </div>
       </header>
 
-      <div class="cock-chart__canvas-wrap">
-        <canvas class="cock-chart__canvas" data-chart-canvas></canvas>
+      <!-- Chart + inline article column live side-by-side. Article
+           column on the LEFT (per Rondo's blue-line annotation),
+           chart fills the rest. Article column has its own scroll
+           bar. -->
+      <div class="cock-chart__row">
+        <aside class="cock-chart__news" aria-label="News for SN${s.netuid} ${s.name}">
+          <div class="cock-chart__news-head">
+            <span class="cock-chart__news-h">⊕ SIGNALS · SN${s.netuid}</span>
+            <span class="cock-chart__news-n">${inlineArticles.length}</span>
+          </div>
+          <div class="cock-chart__news-list">
+            ${inlineArticlesHtml}
+          </div>
+        </aside>
+        <div class="cock-chart__canvas-wrap">
+          <canvas class="cock-chart__canvas" data-chart-canvas></canvas>
+        </div>
       </div>
 
       <div class="cock-chart__range" role="tablist" aria-label="Time range">
