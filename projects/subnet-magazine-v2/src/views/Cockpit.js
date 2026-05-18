@@ -502,6 +502,14 @@ export function mountCockpit(root, dataLayer = null){
      change + range change so the reader doesn't get stuck deep in
      history after picking a different subnet. */
   let chartOffset = 0;
+  /* QUICK ACTION block state — must be hoisted ABOVE the mount()
+     template because renderAction() runs at template-eval time
+     and reads actionState. TDZ bug otherwise. */
+  const ACTION_PRESETS_USD = [10, 25, 50, 100, 250, 500];
+  let actionState = {
+    side:   'buy',
+    qtyUSD: 100,
+  };
 
   /* Render the whole cockpit shell once; sub-panes repaint in place
      on selection / range / pane changes without disturbing the chart
@@ -970,12 +978,9 @@ export function mountCockpit(root, dataLayer = null){
   /* ---- right-rail QUICK ACTION block ----
      Buy/sell the currently-charted subnet without leaving the
      cockpit. Keyed to state.selectedId — repaints when the
-     reader swaps subnets. */
-  const ACTION_PRESETS_USD = [10, 25, 50, 100, 250, 500];
-  let actionState = {
-    side:   'buy',    // 'buy' | 'sell'
-    qtyUSD: 100,      // dollar amount (presets) — converted to shares at execute time
-  };
+     reader swaps subnets. State (ACTION_PRESETS_USD, actionState)
+     is declared at the top of mountCockpit() so the mount()
+     template can call renderAction() without a TDZ error. */
   function renderAction(){
     const s = subnetById(state.selectedId) || SUBNETS[0];
     const paper = loadPaperState();
