@@ -433,16 +433,28 @@
   .cock-chart__row{ grid-template-columns: minmax(170px, 44%) 1fr; }
 }
 @media (min-width: 901px){
-  /* On desktop the inline column inside the chart pane IS the
-     canonical article surface (per Rondo's directive: articles
-     beside the chart). Hide the redundant right-pane .cockpit__feed
-     so the chart pane stretches to fill the space, and we don't
-     have two article surfaces on screen at the same time. */
+  /* PHOENIX SHAPE — per Rondo 2026-05-18 (Phoenix portfolio
+     screenshot from sibling): "this is what dashboard should
+     look like." Big chart top-left, articles/news in the side
+     column (here: inline LEFT inside the chart pane), full-
+     width markets table BELOW (the dashboard's MARKETS ROSTER
+     fold defaults open under cockpit per Dashboard.js).
+
+     The LEFT subnet rail (.cockpit__rail) is hidden on desktop
+     — subnet selection happens via the chart pane's PICK SUBNET
+     dropdown and via row-click on the markets table below. The
+     rail keeps rendering inside the DOM so mobile (the pane-
+     swap layout) is unaffected, but it doesn't consume any
+     desktop real estate. The redundant right-pane .cockpit__feed
+     is still hidden for the same reason it was before — the
+     inline article column inside the chart IS the canonical
+     article surface.
+
+     Grid collapses to ONE column (the chart pane). Chart pane
+     fills the viewport edge-to-edge. */
   .cockpit__feed{ display: none !important; }
-  .cockpit__grid{ grid-template-columns: 260px 1fr !important; }
-}
-@media (min-width: 1440px){
-  .cockpit__grid{ grid-template-columns: 280px 1fr !important; }
+  .cockpit__rail{ display: none !important; }
+  .cockpit__grid{ grid-template-columns: 1fr !important; }
 }
 
 .cock-chart__news{

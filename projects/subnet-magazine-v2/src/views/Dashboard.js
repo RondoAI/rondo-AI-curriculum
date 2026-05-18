@@ -605,14 +605,21 @@ export function mountDashboard(root, dataLayer = null){
      so a reader who opens MARKETS once finds it open next visit.
 
      Context-aware defaults — when this dashboard is mounted
-     UNDER the cockpit (cockpit.html, the unified workspace),
-     ALL zones default closed so the cockpit chart stays the
-     focal point. On the standalone /dashboard.html page, the
-     cockpit isn't mounted, so BRIEFINGS + DETAIL default open
-     as the reader's lead reading order. */
+     UNDER the cockpit (cockpit.html, the Phoenix-shape unified
+     workspace), only the MARKETS ROSTER zone defaults open
+     (that's the Phoenix bottom-table region — full-width data
+     table beneath the chart + side-articles). DESK + BRIEFINGS
+     + DETAIL + ARCHIVE default closed so they don't push the
+     chart up off-screen; reader opens what they want.
+
+     On the standalone /dashboard.html page (no cockpit mount),
+     BRIEFINGS + DETAIL default open as the lead reading order,
+     and the markets table stays closed (the markets page itself
+     is the canonical home for the full table). */
   const isUnderCockpit = !!document.querySelector('[data-mount="cockpit"]');
   const briefOpen  = isUnderCockpit ? '' : 'open';
   const detailOpen = isUnderCockpit ? '' : 'open';
+  const marketOpen = isUnderCockpit ? 'open' : '';
   mount(root, html`
     <section class="dash" data-mount="dashboard-root">
       ${renderStatusBar()}
@@ -641,7 +648,7 @@ export function mountDashboard(root, dataLayer = null){
         ${renderPaperPortfolio()}
         ${renderAttribution(attribState)}
       </details>
-      <details id="market" class="dash-zone dash-zone--fold" data-zone-id="market" data-fold="dash-market">
+      <details id="market" class="dash-zone dash-zone--fold" data-zone-id="market" data-fold="dash-market" ${marketOpen}>
         <summary class="dash-zone__summary"><span class="dash-zone__eyebrow">⊕</span> MARKETS ROSTER</summary>
         ${renderMasterTable()}
       </details>
