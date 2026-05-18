@@ -146,13 +146,55 @@ const CSS = `
 
 .sbnt-console__bar{
   position: relative; z-index: 3;
-  display: flex; align-items: center; gap: 8px;
-  padding: 8px 12px;
+  display: flex; align-items: center; gap: 10px;
+  padding: 11px 14px;
   cursor: pointer;
   border-bottom: 1px solid var(--c-rule-2, rgba(255,30,60,.22));
   font-size: 12px; letter-spacing: .04em;
   color: var(--c-ink-2, #C8A8AD);
   user-select: none;
+  /* Brighter red top accent on the collapsed bar so the dock
+     advertises itself instead of blending into the page bottom.
+     Per Rondo 2026-05-18: "I don't see my subnet oracle bar." */
+  box-shadow: inset 0 2px 0 var(--c-red, #FF1E3C),
+              inset 0 3px 16px rgba(255, 30, 60, .14);
+}
+/* Tab-preview chips visible in the collapsed bar — readers see
+   ASK · MINE · PLAY · LINKS at a glance + can tap directly into
+   that tab. Hidden when the dock is expanded (the real tab row
+   below takes over). */
+.sbnt-console__chips{
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  flex: 1 1 auto;
+  min-width: 0;
+  overflow: hidden;
+}
+.sbnt-console__chip{
+  display: inline-block;
+  padding: 3px 8px 2px;
+  font-family: var(--f-mono, monospace);
+  font-size: 9.5px;
+  letter-spacing: .14em;
+  font-weight: 800;
+  color: var(--c-red-1, #FF4D60);
+  border: 1px solid rgba(255, 30, 60, .35);
+  background: rgba(255, 30, 60, .06);
+  text-transform: uppercase;
+  white-space: nowrap;
+  cursor: pointer;
+}
+.sbnt-console__chip:hover{
+  color: #fff;
+  background: var(--c-red, #FF1E3C);
+  border-color: var(--c-red, #FF1E3C);
+}
+.sbnt-console:not(.is-collapsed) .sbnt-console__chips{ display: none; }
+/* On the narrowest viewports drop one chip to keep things from
+   wrapping (mobile already shows ASK/MINE/PLAY/LINKS = 4 chips). */
+@media (max-width: 380px){
+  .sbnt-console__chip[data-id="links"]{ display: none; }
 }
 /* The Oracle's "consciousness" mark, PS5-grade neural net.
    Three layers stacked, painted back to front:
@@ -931,6 +973,19 @@ export function mountConsole(_dataLayer = null){
         <span class="sbnt-console__name">Subnet Oracle</span>
         <span class="sbnt-console__title" data-role="title"></span>
       </span>
+      <!-- Collapsed-only tab preview chips. Rondo 2026-05-18 said
+           he couldn't see the dock; this puts ASK / MINE / PLAY /
+           LINKS visible in the collapsed bar so the dock advertises
+           its content + reads as a real toolbar instead of a thin
+           "tap to expand" line. Tapping any chip expands the dock
+           AND switches to that tab via the existing data-id click
+           delegate. -->
+      <span class="sbnt-console__chips" data-role="bar-chips" aria-hidden="true">
+        <span class="sbnt-console__chip" data-id="ask">ASK</span>
+        <span class="sbnt-console__chip" data-id="mine">MINE</span>
+        <span class="sbnt-console__chip" data-id="play">PLAY</span>
+        <span class="sbnt-console__chip" data-id="links">LINKS</span>
+      </span>
       <span class="sbnt-console__push"></span>
       <span class="sbnt-console__hint">Tap to expand</span>
       <button type="button" class="sbnt-console__expand" data-role="expand"
@@ -1596,6 +1651,19 @@ export function mountConsole(_dataLayer = null){
 
   /* collapse / expand on bar click, but not when a child button was clicked */
   bar.addEventListener('click', (e) => {
+    /* Chip click in the collapsed bar = uncollapse AND jump to
+       that tab. Handled FIRST so the bar's collapse-toggle below
+       doesn't also fire on the same click. */
+    const chip = e.target.closest('.sbnt-console__chip');
+    if (chip){
+      e.stopPropagation();
+      const id = chip.dataset.id;
+      if (id) activeId = id;
+      el.classList.remove('is-collapsed');
+      toggle.textContent = '−';
+      render();
+      return;
+    }
     /* ignore clicks on the tabs, the search input, the game widget,
        the body content, the close button, and any anchor links,
        only bar-chrome clicks toggle the dock */
