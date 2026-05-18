@@ -1059,3 +1059,89 @@ pane inline article column shipped in commit (sandbox-session)
   subnet-mag-v2 branch with the (mac-session) suffix. Either
   ship improvements directly or write a comment-only commit
   with your notes if the change is non-obvious.
+
+## Coordination Ask: Twitter Banner 150% Pass (OPEN — for mac-session)
+
+Saved by Rondo's instruction, 2026-05-18: "Please refer to your
+sibling for the hundred and fifty percent coding upgrade."
+
+Mac session — sandbox shipped projects/subnet-magazine-v2/banner.html
+(canonical Twitter header renderer for @subnetmagazine). Composition
+went through ~7 iterations under Rondo's direction. Final state is
+stripped to brand essentials per his repeated "this is not what I
+asked for" feedback:
+
+  Files:    projects/subnet-magazine-v2/banner.html (renderer)
+            /tmp/shoot-banner.js (Playwright shoot script — not in repo)
+  Outputs:  /tmp/subnetmag-banner-1500x500.png (Twitter upload spec)
+            /tmp/subnetmag-banner-3000x1000.png (retina master)
+
+What's IN the current banner (and intentional):
+  - "Subneτ Magazine" wordmark — Archivo 800 / 86-94px white
+  - "Biττensor research." tagline — Archivo 26px, Biττensor in
+    white bold via <em>
+  - NodeSphere brand mark on the right (canonical viz; atmos:false
+    to prevent halo bleed into wordmark per Rondo's "neural network
+    should not be merging into the words")
+  - Subtle red atmospheric vignette tight to the right edge
+  - Soft black vignette lower-left as the PFP landing pocket
+  - Every τ is the same canonical Archivo glyph as the original
+    Subneτ wordmark (auto-wrapped via .tau-brand TreeWalker pass)
+
+What's OUT (each removed after a Rondo correction):
+  - Edition strip (vol/no/date) — "I don't need a date on a Twitter banner"
+  - Section menu (128 SUBNEτS · MARKEτS · …) — chrome, not brand
+  - Plexus band along the bottom — "silly red neural network things
+    at the bottom of the page. They look very cheap"
+  - Sphere caption + attribution chip — Twitter already shows @handle
+  - Red accent rule under the wordmark — last decorative element
+
+The 150% ask:
+  Rondo explicitly wants a sibling-driven upgrade. Look at the v6
+  banner (current state). What would a deeper pass produce? Some
+  open questions to consider — not a checklist, just possibilities:
+
+    1. COMPOSITION. Sphere center-right vs corner logomark vs
+       full-bleed atmospheric backdrop? Wordmark center vs left?
+       Vertical asymmetric vs centered? Could the negative space
+       in the lower-left (PFP landing zone) be a deliberate
+       compositional element rather than just "empty"?
+
+    2. TYPOGRAPHY. Tagline says "Biττensor research." — too short?
+       Could the editorial voice be sharper? ("The Bittensor research
+       terminal." / "Subnet markets. Validator analytics. Editorial."
+       / something else entirely?). Letter-spacing on the wordmark
+       at this size — does -.030em feel right, or should it be tighter
+       at -.045em to feel more masthead-confident?
+
+    3. SPHERE INTEGRATION. atmos:false keeps the sphere contained
+       but loses the atmospheric depth. Could there be a middle path
+       — atmos rendered but clipped tighter, OR a manual radial
+       gradient anchored on the sphere that doesn't leak left?
+
+    4. THE τ BRANDING. Currently every t becomes τ via DOM TreeWalker
+       wrap. Subneτ wordmark and Biττensor tagline both get the same
+       Archivo glyph. Is the τ height in "Biττensor" (tagline weight
+       600 at 26px) flush with surrounding lowercase, or does it
+       still sit off? Per Rondo's repeated "same height" feedback.
+
+    5. PFP RHYME. The PFP is the canonical NodeSphere at high density.
+       The banner sphere is the same renderer at t=2.4 (same rotation).
+       Both feel like the same brand mark at two scales — intentional.
+       But should the banner sphere be a slightly DIFFERENT rotation
+       so they don't look identical (creates more interest)?
+
+    6. RETINA RENDER. The 3000x1000 master is meaningful — Twitter
+       compresses on upload. Anything we can do to make compression
+       artifacts less damaging? (Heavier line weights on the sphere
+       so it doesn't disintegrate at small avatar size?)
+
+  Please ship as a follow-up commit on subnet-mag-v2 with the
+  (mac-session) suffix. If the change is structural (composition
+  rework), include a fresh render and credit in the commit body
+  per the 150% bar's "credit sibling" rule. If the change is a
+  small refinement (typography tightening, gradient tweak), just
+  ship it.
+
+  Sandbox will close this entry once mac's pass lands and add a
+  retrospective on what changed.

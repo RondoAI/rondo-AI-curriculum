@@ -33,15 +33,16 @@
     overflow: hidden;
   }
 
-  /* Subtle red atmosphere anchored on the sphere — softens the
-     transition from the dense plexus into the black, so the sphere
-     doesn't feel pasted on top of the field. The faint vignette
-     toward the lower-left gives the PFP a darker pocket to land
-     on so its silhouette pops. */
+  /* Subtle red atmosphere — TIGHTLY scoped to the right edge so it
+     doesn't bleed into the wordmark area. Previous gradient had a
+     38% radius that reached x=660 (well inside the wordmark zone);
+     this one fades at 18% so it dies cleanly in the gap between
+     wordmark and sphere. Soft black vignette in the lower-left
+     gives the PFP its own pocket of darkness. */
   .banner__atmos{
     position: absolute; inset: 0;
     background:
-      radial-gradient(circle at 82% 50%, rgba(255,30,60,.14) 0%, rgba(255,30,60,0) 38%),
+      radial-gradient(circle at 90% 50%, rgba(255,30,60,.10) 0%, rgba(255,30,60,0) 18%),
       radial-gradient(circle at 14% 88%, rgba(0,0,0,.55) 0%, rgba(0,0,0,0) 32%);
     pointer-events: none;
   }
@@ -80,13 +81,16 @@
     font-weight: 600;
   }
 
-  /* NodeSphere brand mark on the right — the canonical visual
-     identity that drives the PFP, masthead, and every other surface.
-     Sized so it sits beside the wordmark without crowding. */
+  /* NodeSphere brand mark on the right — same canonical viz as the
+     PFP. Sized DOWN to 320 (was 380) and pulled in to right=70 so
+     there's a clean ~130px gap between the wordmark's right edge
+     and the sphere's left edge. Rendered with atmos:false in the
+     JS below so the sphere has a contained silhouette — no halo
+     bleed into the wordmark area. */
   .banner__sphere{
-    position: absolute; right: 80px; top: 50%;
+    position: absolute; right: 70px; top: 50%;
     transform: translateY(-50%);
-    width: 380px; height: 380px;
+    width: 320px; height: 320px;
     display: block;
   }
 
@@ -114,16 +118,20 @@
     <p class="banner__tagline"><em>Biττensor</em> research.</p>
   </div>
 
-  <canvas id="sphere" class="banner__sphere" width="380" height="380"></canvas>
+  <canvas id="sphere" class="banner__sphere" width="320" height="320"></canvas>
 
   <script type="module">
     import { NodeSphere } from '/src/charts/NodeSphere.js';
 
-    /* Same canonical NodeSphere as the PFP + masthead, sized to fill
-       the right side of the banner without crowding the wordmark.
-       Frozen at t=2.4 — the same rotation that gives the PFP its
-       dense forward silhouette, so the PFP and the banner sphere
-       carry the identical visual mark. */
+    /* Same canonical NodeSphere as the PFP + masthead, sized to fit
+       the right column without bleeding into the wordmark.
+         - atmos: false   — the soft red halo is what was bleeding
+                           leftward into "Magazine"; contained silhouette
+                           per Rondo's "neural network should not be
+                           merging into the words"
+         - 320x320        — tighter footprint than the prior 380
+         - t = 2.4        — same rotation as the PFP so the two
+                           visually rhyme across the profile chrome */
     const c = document.getElementById('sphere');
     const sphere = new NodeSphere(c, {
       nodes:   180,
@@ -132,9 +140,9 @@
       edgeCap: 7000,
       speed:   0,
       glow:    true,
-      atmos:   true,
+      atmos:   false,
     });
-    sphere.draw(c.getContext('2d'), 380, 380, 2.4);
+    sphere.draw(c.getContext('2d'), 320, 320, 2.4);
 
     /* Promote every τ to the .tau-brand span so the Archivo glyph
        (already the parent font here) is explicit and any future
