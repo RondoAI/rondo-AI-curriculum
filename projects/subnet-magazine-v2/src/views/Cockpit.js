@@ -1055,13 +1055,28 @@ export function mountCockpit(root, dataLayer = null){
     if (chartOffset > maxOffset) chartOffset = maxOffset;
     if (chartOffset < 0)         chartOffset = 0;
     hit = drawChart(c, series, range, annotations, chartOffset);
-    /* Pan-state label below the chart — "now", "−30d", "−90d",
-       so the reader always knows where they are in history. */
+    /* Pan-state label below the chart — the visible window's
+       literal start → end dates ("01/19 → 02/18" style) plus
+       the pan offset ("now" / "−30d") so the reader sees BOTH
+       where they are in the chart's history AND the actual
+       dates they're looking at. */
     const lbl = qs('[data-pan-lbl]', root);
-    if (lbl){
-      lbl.textContent = chartOffset === 0
-        ? 'now'
-        : `−${chartOffset}d`;
+    if (lbl && series && series.length){
+      const sliceStart = Math.max(0, series.length - range.days - chartOffset);
+      const sliceEnd   = Math.min(series.length, sliceStart + range.days);
+      const startT = series[sliceStart]?.t;
+      const endT   = series[sliceEnd - 1]?.t;
+      const fmtDate = (t) => {
+        if (!Number.isFinite(t)) return '·';
+        const d = new Date(t);
+        const m = String(d.getMonth() + 1).padStart(2, '0');
+        const dd = String(d.getDate()).padStart(2, '0');
+        return `${m}/${dd}`;
+      };
+      const offsetTxt = chartOffset === 0 ? 'NOW' : `−${chartOffset}d`;
+      lbl.innerHTML =
+        `<span class="cock-pan__dates">${fmtDate(startT)} → ${fmtDate(endT)}</span>` +
+        `<span class="cock-pan__offset">${offsetTxt}</span>`;
       lbl.classList.toggle('is-back', chartOffset > 0);
     }
     /* Refresh canvas aria-label so SR users hear the new subnet
