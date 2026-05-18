@@ -438,18 +438,25 @@ export function mountChartMode(root, ctx){
   const draw = () => {
     const range = RANGES.find(r => r.key === state.range) || RANGES[2];
     hit = drawChart(canvas, series, range, annotations);
+    /* Refresh the canvas's ARIA label to reflect the new window's
+       headline reading — SR users hear "up 12.4% over 30D" on
+       each range swap. */
+    canvas.setAttribute('aria-label', canvasAriaLabel(s, range, series));
   };
   draw();
 
-  // Range tab clicks
+  // Range tab clicks — keep ARIA + visual state in lockstep
   root.querySelectorAll('[data-range]').forEach(b => {
     b.addEventListener('click', () => {
       const k = b.dataset.range;
       if (k === state.range) return;
       state.range = k;
       saveChartState(state);
-      root.querySelectorAll('[data-range]').forEach(o =>
-        o.classList.toggle('is-on', o.dataset.range === k));
+      root.querySelectorAll('[data-range]').forEach(o => {
+        const on = o.dataset.range === k;
+        o.classList.toggle('is-on', on);
+        o.setAttribute('aria-selected', String(on));
+      });
       // Toggle 30D-only free badge
       const r = RANGES.find(rr => rr.key === k);
       const badge = root.querySelector('[data-chart-tier]');
@@ -670,13 +677,19 @@ function renderHTML(s, gh, state, series){
       </div>
     </div>`).join('');
 
-  const rangeBtns = RANGES.map(r => `
+  const rangeBtns = RANGES.map(r => {
+    const on = r.key === state.range;
+    return `
     <button type="button"
-            class="cm-range__btn ${r.key === state.range ? 'is-on' : ''}"
+            class="cm-range__btn ${on ? 'is-on' : ''}"
             data-range="${r.key}"
-            title="${r.pro ? 'PRO · upgrade to unlock' : 'free'}">
-      ${r.label}${r.pro ? '<span class="cm-range__pro">PRO</span>' : ''}
-    </button>`).join('');
+            role="tab"
+            aria-selected="${on}"
+            title="${r.pro ? 'PRO · upgrade to unlock' : 'free'}"
+            aria-label="${r.label}${r.pro ? ', PRO tier' : ', free tier'}">
+      ${r.label}${r.pro ? '<span class="cm-range__pro" aria-hidden="true">PRO</span>' : ''}
+    </button>`;
+  }).join('');
 
   return `
     <div class="cm-mode">
@@ -705,18 +718,35 @@ function renderHTML(s, gh, state, series){
         </aside>
         <div class="cm-main">
           <div class="cm-canvas-wrap">
-            <canvas class="cm-canvas" data-chart-canvas></canvas>
-            <div class="cm-tooltip" data-chart-tooltip style="display:none"></div>
+            <canvas class="cm-canvas" data-chart-canvas
+                    role="img"
+                    aria-label="${escAttr(canvasAriaLabel(s, range, series))}"></canvas>
+            <div class="cm-tooltip" data-chart-tooltip style="display:none" role="tooltip" aria-live="polite"></div>
           </div>
           <div class="cm-range" role="tablist" aria-label="Time range">
             ${rangeBtns}
-            <span class="cm-tier ${range.pro ? 'is-pro' : ''}" data-chart-tier>
+            <span class="cm-tier ${range.pro ? 'is-pro' : ''}" data-chart-tier aria-live="polite">
               ${range.pro ? 'PRO range' : 'FREE · 30D window'}
             </span>
           </div>
         </div>
       </div>
     </div>`;
+}
+
+/* Canvas can't carry intrinsic text, so we synthesize a sentence
+   that captures the headline reading of the visible window for
+   screen-reader users. Re-runs on every range change via the
+   data-attr updater in mountChartMode's draw cycle. */
+function canvasAriaLabel(s, range, series){
+  if (!series || !series.length) return `${s.name || 'SN' + s.netuid} chart, no data`;
+  const slice = series.slice(Math.max(0, series.length - range.days));
+  if (slice.length < 2) return `${s.name || 'SN' + s.netuid} chart, insufficient history`;
+  const first = slice[0].close;
+  const last  = slice[slice.length - 1].close;
+  const ret   = first > 0 ? ((last - first) / first) * 100 : 0;
+  const dir   = ret >= 0 ? 'up' : 'down';
+  return `SN${s.netuid} ${s.name || ''} price chart, ${range.label} window, ${dir} ${Math.abs(ret).toFixed(2)} percent, last close ${fmtPrice(last)}`;
 }
 
 /* ---------- unified article sidebar (mac + sandbox merged) -
