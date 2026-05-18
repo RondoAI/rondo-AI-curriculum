@@ -2,12 +2,10 @@
    SUBNET MAGAZINE, TERMINAL · MARKETS MODE
    -----------------------------------------------------------------
    The full subnet universe in a sortable, filterable master grid.
-   Per the sibling's monetization plan (CLAUDE.md → Monetization &
-   Pricing): MARKETS is the OBSERVER (free) tier acquisition hook —
-   all 53 subnets read-only, no gating. The institutional analytics
-   columns (concentration risk, capital efficiency, net flow) live
-   in the PRO RISK SCREEN inside ANALYTICS mode; we render a
-   compact set here.
+   All 128 subnets read-only, no gating (paywall removed
+   2026-05-18). The institutional analytics columns (concentration
+   risk, capital efficiency, net flow) live in the RISK SCREEN
+   inside ANALYTICS mode; we render a compact set here.
 
    Per the Signal Taxonomy in CLAUDE.md, MARKETS owns these signals:
      - editorial coverage count (chip per row, from ARTICLES + oracle)

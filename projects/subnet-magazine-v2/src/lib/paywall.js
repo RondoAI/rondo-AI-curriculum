@@ -48,7 +48,7 @@ export function canAccess(_requires){
  *  @param {object} opts
  *  @param {'pro'|'enterprise'} opts.requires
  *  @param {string} opts.feature  human-readable name ("RISK SCREEN")
- *  @param {string} opts.pitch    one-liner ("All 53 subnets, sortable risk metrics")
+ *  @param {string} opts.pitch    one-liner ("All 128 subnets, sortable risk metrics")
  *  @returns {string} possibly-wrapped HTML
  */
 export function paywallWrap(innerHtml, opts){

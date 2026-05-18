@@ -22,7 +22,7 @@
    the watchlist, so picks in either surface flow to the other.
 
    Data:
-     SUBNETS           src/data/subnets.js          53-subnet seed
+     SUBNETS           src/data/subnets.js          128-subnet roster
      CENTRALIZED_NEWS  src/data/centralized-news.js SemiAnalysis feed
      ORACLE_ARTICLES   src/data/oracle-articles.js  oracle research
      ARTICLES          src/data/articles.js         magazine articles
@@ -627,7 +627,7 @@ export function mountCockpit(root, dataLayer = null){
                from the rest of the subnets, expand this page"
                directive. Native select for max touch-friendliness
                on mobile; the OS dropdown handles the long list of
-               53 subnets without us building custom UI. -->
+               128 subnets without us building custom UI. -->
           <div class="cock-chart__picker">
             <label class="cock-chart__picker-lbl" for="cock-chart-picker">PICK SUBNET</label>
             <select class="cock-chart__picker-sel" id="cock-chart-picker" data-chart-picker>

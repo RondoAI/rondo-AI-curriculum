@@ -683,11 +683,11 @@ Reach for an external library when:
 ### Current build-time scripts
 
 scripts/analytics/build_analytics.py
-  Reads src/data/subnets.js (53 subnets)
+  Reads src/data/subnets.js (128 subnets)
   Synthesizes 90-day price series per subnet (same seeded walk as
-    src/views/Cockpit.js generateSeries so chart + analytics agree)
+    src/lib/synthetic-series.js so chart + analytics agree)
   Computes:
-    - 53x53 Pearson correlation matrix (daily returns)
+    - 128x128 Pearson correlation matrix (daily returns)
     - t-SNE 2D embedding on 7 features
     - K-means clustering (k=6) with human-readable cluster labels
   Writes src/data/analytics.json (~80KB)
@@ -705,7 +705,26 @@ scripts/analytics/build_analytics.py
   5. Add a tab to the analytics mode header so the reader can swap
      between views.
 
-## Monetization & Pricing Plan
+## Monetization & Pricing Plan (OVERRIDDEN 2026-05-18)
+
+> **STATUS: OVERRIDDEN.** Rondo's directive 2026-05-18: "Get rid
+> of pay wall." Commit `2a0806b` disabled the paywall primitive
+> (canAccess always returns true; paywallWrap is a no-op
+> pass-through). Commit `212bd8a` rewrote Pricing.js and Signup.js
+> to remove tier marketing and tier-aware intent capture. Every
+> feature listed in the tier ladder below is now free to every
+> reader. The "Feature gating rule (binding)" sub-section is
+> NO LONGER binding — when adding new features, do NOT add tier
+> checks, do NOT add paywall overlays, do NOT add "PRO" badges.
+>
+> The section is kept (not deleted) so the history is auditable
+> and the re-enable path is documented. If Rondo ever wants tier
+> gating back: flip canAccess() in src/lib/paywall.js to read the
+> real tier, restore the visible PRO chips from git
+> (`git show 2a0806b^ -- <path>`), and restore Pricing.js +
+> Signup.js the same way. All call sites are still in place.
+
+
 
 Saved by Rondo's instruction, 2026-05-17: "We have to monetize the
 page, get people to sign up, and like our layout so that they wanna

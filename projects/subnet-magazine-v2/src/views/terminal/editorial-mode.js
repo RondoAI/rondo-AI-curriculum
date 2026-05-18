@@ -160,7 +160,7 @@ function computeInsights(all){
 const ALPHA_WINDOW_DAYS = 7;
 
 /* Pre-build a netuid → close[] map ONCE so per-dispatch lookups
-   are O(1). 53 subnets × 365 closes = trivial memory. */
+   are O(1). 128 subnets × 365 closes = ~47K floats, trivial. */
 const _SERIES_BY_NETUID = (() => {
   const m = new Map();
   for (const s of SUBNETS){
