@@ -1869,3 +1869,207 @@ ask above):
     fused into chart, auxiliary panel relocations)
   - Screenshot-verify @ 414x900 + 1440x900 per Visual Self-Check
   - Sandbox closes this entry once mac's rebuild lands
+
+## Coordination Ask: Paper-Portfolio-IN-Chart — CMC Pattern Reference (OPEN — for mac-session)
+
+Saved by Rondo's instruction, 2026-05-18, refining the
+"PAPER PORTFOLIO LIVES INSIDE THE CHART" item from the
+Cockpit Urgent Restructure ask above. His exact words:
+
+  "the paper money chart should be within the chart at the
+  top of the page. Just integrate that whole interface with
+  the paper money and the actual chart. Instead, it'd be
+  one whole chart with the people able to create their own
+  portfolio, kinda like what CoinMarketCap does. So it
+  won't be two charts on the same page. Integrate the
+  charts. The paper money chart and the regular chart for
+  the subnet, it seems to be one chart that you can swap
+  through. You can look at all the chart. Now if you wanna
+  create or make or add something to it, you can add
+  something to it. And I'll give you an example of what
+  that looks like. We'll look at CoinMarketCap, and I'll
+  show you."
+
+Reference screenshot saved to:
+  projects/subnet-magazine-v2/docs/inspiration/coinmarketcap-portfolio-swap-chart.jpg
+
+### What the CMC portfolio view shows (single-chart, swappable)
+
+  TOP CHROME:
+    - "All Portfolios" header (with up/down picker to switch
+      between portfolios) + search + PFP
+    - $1,727,338.62 total portfolio value (huge, white, bold)
+    - 24h delta in red:  -$30,108.77 ▼ 1.71%
+    - "+" button top-right to ADD an asset to portfolio
+
+  TWO TAB ROWS:
+    - Overview / Earn (page-level)
+    - Holdings / Allocation + "Analyze" button (view-mode)
+
+  TIME RANGE TABS (one row): 24h · 7d · 30d · 90d · All
+
+  THE CHART (one big canvas):
+    - Aggregate portfolio value over time
+    - Red line with red-gradient fill below
+    - Y-axis labels on right (1.76M, 1.74M, 1.72M, 1.70M)
+    - Date labels bottom-corners (17 May / 18 May)
+    - NO chart chrome, NO toolbar — pure data
+
+  HOLDINGS TABLE BELOW (Asset · Price · Holdings):
+    - Sortable by Holdings (arrow on column header)
+    - Each row: icon · ticker · price + 24h% (red/green) ·
+      holding $ value + holding qty
+    - BTC $77,058.33 ▼1.68% / $1.69M / 22.00 BTC
+    - TAO $261.22 ▼2.87% / $32,054.89 / 122.71 TAO
+    - DOG, SOL etc.
+
+  IMPLIED INTERACTION (CMC standard):
+    - Tap a holdings row → chart SWAPS to that asset's
+      individual price chart with entry markers overlaid
+    - Tap the portfolio name → chart swaps back to aggregate
+    - "+" button → add-position sheet appears (subnet/qty/
+      entry price/entry date)
+
+### Translation to the cockpit (the spec)
+
+  ONE chart canvas, two DATA MODES driven by selection state:
+
+    MODE A — SUBNET PRICE (current cockpit default)
+      - Active when reader has a subnet selected in the
+        PICK SUBNET dropdown (mac's --head variant, shipped
+        8514454)
+      - X-axis: time (range tab range)
+      - Y-axis: α price
+      - Line: subnet α price series
+      - Overlay: ENTRY MARKERS for any paper positions the
+        reader has on this subnet (horizontal dashed line +
+        a "long $X.XX, +Y.YY%" badge per entry)
+      - Header reads: "SN${n} · ${name} — α $${price}"
+
+    MODE B — PORTFOLIO AGGREGATE
+      - Active when reader taps the "PORTFOLIO" toggle in
+        the chart header (or taps a "All Holdings" row in
+        the holdings table)
+      - X-axis: time (range tab range)
+      - Y-axis: total portfolio $ value
+      - Line: aggregate paper-portfolio value over time,
+        computed as Σ(qty_i × price_i(t)) across all
+        positions
+      - Header reads: "PAPER PORTFOLIO · $${total}" with
+        24h delta beside it (red/green per CMC pattern)
+      - NO entry markers (aggregate view); reader can dig
+        into a position by tapping its row in the holdings
+        table below
+
+  CHART HEADER TOGGLE (the swap mechanism):
+
+    A small mode toggle in the chart-pane header, two chips:
+      [ SN${n} ${name} ]   [ PORTFOLIO $${total} ]
+    Tap toggles which data mode the chart renders. State
+    persists in localStorage (sbn:cockpit:chart-mode:v1).
+    Default to SUBNET mode for first visit, PORTFOLIO mode
+    on subsequent visits if the reader has any positions.
+
+  RANGE TABS UNCHANGED:
+    1D / 7D / 30D / 90D / 1Y already in the chart-pane
+    footer. Both modes use the same range tabs — they're
+    just looking at different Y-axis data on the same time
+    window. No duplication.
+
+  "+" ADD-POSITION BUTTON:
+
+    Replaces the dedicated paper-portfolio entry form that
+    used to live at the bottom of the dashboard. Floats in
+    the chart-pane header at top-right (CMC's exact pattern).
+
+    Tap → small inline sheet slides down from the chart
+    header with:
+      - SUBNET selector (defaults to currently selected SN)
+      - QUANTITY input (α units)
+      - ENTRY PRICE (defaults to current α price, editable)
+      - ENTRY DATE (defaults to today, editable for
+        backdated paper trades)
+      - [ ADD POSITION ] confirm button
+    Confirm appends the position to localStorage paper-
+    portfolio + closes the sheet + redraws the chart with
+    the new entry marker (if in SUBNET mode for the
+    matching SN) or with the new aggregate (if in
+    PORTFOLIO mode).
+
+  HOLDINGS TABLE BELOW THE CHART:
+
+    Replaces the rest of the auxiliary panels (Valuation
+    Ladder, ARC, Desk, etc.) that Rondo wants deleted.
+    Single table, Asset · Entry · Current · Value · P&L
+    columns:
+
+      SUBNET    ENTRY        CURRENT      VALUE       P&L
+      SN4       $0.0124      $0.0156      $156.00     +25.8%
+      SN1       $0.342       $0.298       $298.00     -12.9%
+      ...
+
+    Sortable by any column. Tap a row → chart swaps to
+    that subnet's SUBNET mode + scrolls to that entry's
+    marker. Last row is a TOTALS row: $X,XXX value,
+    +Y.YY% blended P&L. This is the "Holdings" tab in
+    CMC's pattern.
+
+    "Allocation" tab toggle next to "Holdings" (matching
+    CMC) shows a sector-allocation donut + cluster breakdown
+    instead of the table. Future pass.
+
+### What this kills (per the previous rant)
+
+  The dedicated paper-portfolio block at the bottom of the
+  page is GONE — the chart IS the portfolio view. No two
+  charts on the same page. Aggregate value lives on the
+  same canvas as subnet prices; the reader swaps modes
+  with a single tap.
+
+  Valuation Ladder, Desk, Editorial Archive, Deterministic
+  LLMs section — all gone (from the prior rant brief).
+  The cockpit page is now: chart-pane (with mode toggle +
+  "+" button) → holdings table → that's it. Briefings
+  collapsible fold optional below.
+
+### Cross-reference with the other inspiration
+
+  Phoenix portfolio (phoenix-portfolio-layout.jpg) showed
+  the 3-region grid (hero chart top, sidebar right, table
+  bottom). CMC's pattern is the EVOLUTION of that for the
+  cockpit's specific need — Phoenix's sidebar is moot when
+  the holdings table below already shows every position
+  cleanly, and CMC's mode toggle solves the "two charts"
+  problem Phoenix doesn't address.
+
+  Trading-terminal multi-pane (trading-terminal-multipane.jpg)
+  showed the density ceiling for institutional readers. The
+  cockpit's audience is mostly individual readers (paper
+  trading their own conviction), so CMC's simpler register
+  is the right register for v1; the trading-terminal density
+  can layer in later for the INSTITUTIONAL tier (per the
+  monetization ladder).
+
+### Mac's implementation order (suggested)
+
+  1. Add the chart-pane header MODE TOGGLE (two chips).
+     Defaults to SUBNET mode. Tapping PORTFOLIO chip is a
+     no-op until step 2 is built.
+  2. Wire the aggregate-value computation: read the paper-
+     portfolio from localStorage, compute Σ over time using
+     the same synthetic-series.js shared lib, return a value
+     series that drawChart can render. Header shows the
+     total + 24h delta.
+  3. Add the "+" button + add-position sheet. Wire to
+     localStorage. Auto-redraw chart on add.
+  4. Replace the bottom-of-page paper-portfolio block with
+     the new HOLDINGS TABLE. Row-tap dispatches the same
+     selection event the PICK SUBNET dropdown dispatches +
+     flips the mode toggle back to SUBNET.
+  5. Delete the Valuation Ladder, Desk, Editorial Archive,
+     Deterministic LLMs sections from Cockpit.js. (Mac's
+     scroll-down-the-cockpit cleanup pass closes this.)
+
+  Screenshot-verify each step @ 414x900 + 1440x900 per the
+  Visual Self-Check rule. Sandbox closes this entry once
+  the CMC pattern is live.
