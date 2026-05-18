@@ -574,19 +574,27 @@ function fmtArticleDate(d){
 }
 
 function renderArticleCard(a){
-  const kindLbl = a.kind === 'oracle'  ? 'ORC'
-                : a.kind === 'magazine' ? 'MAG'
+  const kindLbl = a.kind === 'oracle'   ? 'ORACLE'
+                : a.kind === 'magazine' ? 'MAGAZINE'
+                : a.kind === 'central'  ? 'CENTRAL'
                 : (a.category || a.kind || '·').toString().slice(0, 4).toUpperCase();
+  /* PDF viewer integration — magazine + oracle PDFs open in the
+     inline research drawer (data-pdf-* hooks the global viewer
+     reads); centralized news + external URLs open in a new tab. */
+  const isPdf = /\.pdf(\?|$|#)/i.test(a.href || '');
+  const pdfAttrs = isPdf
+    ? ` data-pdf-href="${escAttr(a.href)}" data-pdf-title="${escAttr(a.title || '')}" data-pdf-kind="${a.kind}" data-pdf-date="${escAttr(a.date || '')}" data-pdf-kicker="${escAttr(a.author || '')}"`
+    : '';
   return `
-    <a class="cm-art" href="${a.href}" target="_blank" rel="noopener">
+    <a class="cm-art" href="${escAttr(a.href || '#')}" target="_blank" rel="noopener"${pdfAttrs}>
       <div class="cm-art__head">
         <span class="cm-art__kind cm-art__kind--${a.kind}">${kindLbl}</span>
         <span class="cm-art__date">${fmtArticleDate(a.date)}</span>
       </div>
-      <h4 class="cm-art__title">${a.title || '·'}</h4>
-      ${a.tagline ? `<p class="cm-art__dek">${a.tagline}</p>` : ''}
+      <h4 class="cm-art__title">${escAttr(a.title || '·')}</h4>
+      ${a.tagline ? `<p class="cm-art__dek">${escAttr(a.tagline)}</p>` : ''}
       <div class="cm-art__foot">
-        <span class="cm-art__src">${a.author || '·'}</span>
+        <span class="cm-art__src">${escAttr(a.author || '·')}</span>
         <span class="cm-art__read">READ ↗</span>
       </div>
     </a>`;
@@ -665,94 +673,62 @@ function renderHTML(s, gh, state, series){
     </div>`;
 }
 
-/* ---------- news sidebar (mac-session) -------------------- */
-/* Right column on desktop, stacks below on mobile. Three sections:
-   1. EDITORIAL — in-house articles + oracle dispatches for this
-      subnet (PDFs open in the inline PDF viewer drawer)
-   2. CENTRALIZED BACKDROP — frontier-AI signals filtered to this
-      subnet's category
-   3. fallback if neither set has anything
+/* ---------- unified article sidebar (mac + sandbox merged) -
+   The merge of sibling's composeArticles (filter logic) +
+   renderArticleCard (cm-art card design with kind-color chips:
+   amber=mag / red=oracle / green=central) into one sidebar that
+   uses sibling's CSS classes (cm-articles, cm-art) rather than
+   the duplicate cm-side that grew during parallel work.
+
+   Two surfaces:
+   - EDITORIAL · SN<id>   in-house + oracle dispatches (PDFs open
+                          in the inline viewer drawer via the
+                          data-pdf-* attrs)
+   - CENTRALIZED · CAT    newsForSubnet filtered to the subnet's
+                          competitive cat space
+
+   Empty states name the gap honestly per the editorial discipline.
 
    Dense card stack — title-first, date + source + kind chip on
    the meta line. No thumbnails (deliberately) so the sidebar
    stays compact; the chart is the visual focus.
 */
 function renderNewsSidebar(s){
-  const mag    = (ARTICLES_BY_NETUID.get(s.netuid) || []).map(a => ({
-    kind: 'mag',
-    title: a.title, date: a.date, href: a.pdf || a.externalUrl || '',
-    source: 'Subneτ Magazine', cat: a.category || '',
-  }));
-  const oracle = (ORACLE_BY_NETUID.get(s.netuid) || []).map(a => ({
-    kind: 'orc',
-    title: a.title, date: a.date, href: a.pdf || '',
-    source: 'Subnet Oracle', cat: a.kind || '',
-  }));
-  const editorial = [...mag, ...oracle]
-    .sort((a, b) => (b.date || '').localeCompare(a.date || ''));
-
-  /* Centralized backdrop — already category-aware via the helper.
-     We surface 6 items max for sidebar density. */
-  let backdrop = [];
-  try { backdrop = newsForSubnet(s, 6); } catch (_) {}
+  /* Use sibling's composeArticles() filter (already imports above) —
+     it catches oracle dispatches that mention the subnet by name
+     even when subnetId isn't set, which my map-based lookup missed.
+     Split the unified list into editorial (mag + oracle) vs.
+     centralized backdrop so each section reads as its own surface. */
+  const all = composeArticles(s);
+  const editorial = all.filter(a => a.kind !== 'central');
+  const backdrop  = all.filter(a => a.kind === 'central');
 
   const editHtml = editorial.length
-    ? editorial.slice(0, 8).map(it => itemHtml(it)).join('')
-    : `<li class="cm-side__empty">No in-house coverage indexed for SN${s.netuid} yet. The Oracle desk rotates a deep profile when a subnet enters the top emission tier.</li>`;
+    ? editorial.slice(0, 10).map(renderArticleCard).join('')
+    : `<div class="cm-art-empty">No in-house coverage indexed for SN${s.netuid} yet. The Oracle desk rotates a deep profile when a subnet enters the top emission tier.</div>`;
 
   const backHtml = backdrop.length
-    ? backdrop.map(n => `
-        <li class="cm-side__item">
-          <a class="cm-side__link" href="${escAttr(n.url || '#')}" target="_blank" rel="noopener">
-            <span class="cm-side__title">${escAttr(n.headline)}</span>
-            <span class="cm-side__meta">
-              <span class="cm-side__date">${escAttr(n.date || '·')}</span>
-              <span class="cm-side__kind cm-side__kind--${escAttr(n.cat)}">${escAttr((n.cat || '').toUpperCase())}</span>
-              <span class="cm-side__source">${escAttr(n.source || '·')}</span>
-            </span>
-            <span class="cm-side__take">${escAttr(n.takeaway || '')}</span>
-          </a>
-        </li>`).join('')
-    : `<li class="cm-side__empty">No centralized signals indexed for ${escAttr(catLabel(s.cat).toLowerCase())} yet.</li>`;
+    ? backdrop.slice(0, 6).map(renderArticleCard).join('')
+    : `<div class="cm-art-empty">No centralized signals indexed for ${escAttr(catLabel(s.cat).toLowerCase())} yet.</div>`;
 
-  const editCount = editorial.length;
-  const backCount = backdrop.length;
   return `
-    <aside class="cm-side" aria-label="News for ${escAttr(s.name)}">
+    <aside class="cm-articles" aria-label="News for ${escAttr(s.name)}">
 
-      <section class="cm-side__sec">
-        <header class="cm-side__head">
-          <span class="cm-side__h">EDITORIAL · SN${s.netuid}</span>
-          <span class="cm-side__n">${editCount}</span>
+      <section class="cm-articles__sec">
+        <header class="cm-articles__head">
+          <span class="cm-articles__lbl">EDITORIAL · SN${s.netuid}</span>
+          <span class="cm-articles__n">${editorial.length}</span>
         </header>
-        <ul class="cm-side__list">${editHtml}</ul>
+        <div class="cm-articles__list">${editHtml}</div>
       </section>
 
-      <section class="cm-side__sec">
-        <header class="cm-side__head">
-          <span class="cm-side__h">CENTRALIZED · ${escAttr(catLabel(s.cat))}</span>
-          <span class="cm-side__n">${backCount}</span>
+      <section class="cm-articles__sec">
+        <header class="cm-articles__head">
+          <span class="cm-articles__lbl">CENTRALIZED · ${escAttr(catLabel(s.cat))}</span>
+          <span class="cm-articles__n">${backdrop.length}</span>
         </header>
-        <ul class="cm-side__list cm-side__list--centralized">${backHtml}</ul>
+        <div class="cm-articles__list">${backHtml}</div>
       </section>
 
     </aside>`;
-}
-
-function itemHtml(it){
-  const isPdf = /\.pdf(\?|$|#)/i.test(it.href || '');
-  const pdfAttrs = isPdf
-    ? ` data-pdf-href="${escAttr(it.href)}" data-pdf-title="${escAttr(it.title)}" data-pdf-kind="${it.kind === 'mag' ? 'magazine' : 'oracle'}" data-pdf-date="${escAttr(it.date)}" data-pdf-kicker="${escAttr(it.source)}"`
-    : '';
-  return `
-    <li class="cm-side__item">
-      <a class="cm-side__link" href="${escAttr(it.href || '#')}" target="_blank" rel="noopener"${pdfAttrs}>
-        <span class="cm-side__title">${escAttr(it.title)}</span>
-        <span class="cm-side__meta">
-          <span class="cm-side__date">${escAttr(it.date || '·')}</span>
-          <span class="cm-side__kind cm-side__kind--${it.kind}">${it.kind === 'mag' ? 'MAGAZINE' : 'ORACLE'}</span>
-          ${it.cat ? `<span class="cm-side__cat">${escAttr(it.cat.toUpperCase().replace(/-/g, ' '))}</span>` : ''}
-        </span>
-      </a>
-    </li>`;
 }
