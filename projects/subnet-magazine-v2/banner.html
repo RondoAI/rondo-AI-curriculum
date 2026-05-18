@@ -46,11 +46,11 @@
     pointer-events: none;
   }
 
-  /* HERO — wordmark + accent rule + tagline. Anchored to the left
-     of the banner but offset right of the PFP overlap zone so the
-     avatar doesn't cover any letterforms. Vertically centered.
-     Wordmark sized to end ~30px short of the NodeSphere on the
-     right so the two never collide. */
+  /* HERO — wordmark + tagline. Anchored to the left of the banner
+     but offset right of the PFP overlap zone so the avatar doesn't
+     cover any letterforms. Vertically centered. Wordmark sized to
+     end ~30px short of the NodeSphere on the right so the two
+     never collide. */
   .banner__hero{
     position: absolute; left: 290px; top: 50%;
     transform: translateY(-50%);
@@ -66,18 +66,13 @@
     margin: 0;
     white-space: nowrap;
   }
-  .banner__accent{
-    width: 78px; height: 2px;
-    background: var(--c-red);
-    margin: 26px 0 22px;
-  }
   .banner__tagline{
     font-family: var(--f-serif);
     font-weight: 400;
     font-size: 26px; line-height: 1.2;
     color: var(--c-ink-2);
     letter-spacing: -.005em;
-    margin: 0;
+    margin: 28px 0 0;
   }
   .banner__tagline em{
     font-style: normal;
@@ -116,7 +111,6 @@
 
   <div class="banner__hero">
     <h1 class="banner__wordmark">Subneτ Magazine</h1>
-    <div class="banner__accent"></div>
     <p class="banner__tagline"><em>Biττensor</em> research.</p>
   </div>
 
