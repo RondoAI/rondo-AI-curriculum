@@ -5,7 +5,7 @@
 <title>Subneτ Magazine — Twitter banner renderer</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@300..800&family=JetBrains+Mono:wght@400;500;600&family=EB+Garamond:ital,wght@1,500;1,600;1,700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@300..800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="/style/tokens.css">
 <style>
   /* TWITTER BANNER (1500x500, 3:1).
@@ -82,57 +82,40 @@
   }
   .banner__wordmark .tau{ color: var(--c-ink-1); font-weight: 800; }
 
-  /* Every τ across the banner gets this treatment — promoted from
-     "a Greek lowercase glyph that looks like a t" to a visible
-     calligraphic mark in the brand's voice. EB Garamond italic has
-     a properly drawn Greek τ with the top crossbar and curling
-     descender. Auto-wrapped by JS at the bottom of this file so
-     every τ in static markup AND generated content gets the look.
+  /* Every τ across the banner uses the SAME glyph as the canonical
+     "Subneτ Magazine" wordmark — plain Archivo (the magazine's
+     display family). Auto-wrapped by JS at the bottom of this file
+     so every τ in static markup AND generated content carries the
+     same brand mark.
 
-     Height invariant: in uppercase contexts (BIττENSOR, AττRIBUτION),
-     the τ is scaled ~1.35x so its TOP reaches cap-height of the
-     surrounding capitals — flush, not floating low. No vertical
-     baseline nudge anywhere (was producing the uneven look). */
+     In mixed-case contexts (wordmark, deck) the τ inherits at 1em
+     and sits at lowercase x-height — exactly the rhythm Rondo
+     approved on Subneτ. In uppercase contexts (BIττENSOR, etc.)
+     it scales up so the τ ascender meets cap-height of surrounding
+     capitals — same glyph, taller, so the word reads flush. */
   .tau-brand{
-    font-family: 'EB Garamond', 'Cormorant Garamond', 'Georgia', serif;
-    font-style: italic;
-    font-weight: 600;
-    font-size: 1.08em;
-    letter-spacing: -.01em;
+    font-family: 'Archivo', 'Inter', system-ui, sans-serif;
+    font-style: normal;
+    font-weight: inherit;
+    font-size: 1em;
     color: inherit;
     display: inline-block;
     line-height: 1;
   }
-  /* Display wordmark — mixed case "Subneτ Magazine", τ sits next
-     to lowercase "ubne" so it stays at near-x-height, just slightly
-     bumped so the calligraphic curl reads. */
-  .banner__wordmark .tau-brand{
-    font-weight: 700;
-    font-size: 1.05em;
-  }
-  /* Body deck — mixed-case "Biττensor neτwork", τ sits among
-     lowercase letters so a small bump keeps it flush. */
-  .banner__deck .tau-brand{
-    font-weight: 600;
-    font-size: 1.08em;
-  }
-  /* UPPERCASE mono contexts — meta strip, menu, sphere caption,
-     attribution. The τ is a lowercase Greek glyph; to match the
-     cap-height of surrounding capitals we scale it ~1.35x. Result:
-     "BIττENSOR" reads as a single word with all letterforms at the
-     same visual height — the τ no longer dips low. */
+
+  /* UPPERCASE mono contexts — scale the same Archivo τ to match
+     surrounding cap-height. Result: BIττENSOR reads as one word
+     with all glyphs hitting the same top line. */
   .banner__meta .tau-brand,
   .banner__menu .tau-brand,
   .banner__sphere-label .tau-brand,
   .banner__tag .tau-brand{
-    font-size: 1.22em;
-    font-weight: 500;
+    font-size: 1.30em;
+    font-weight: 700;
   }
-  /* Flag SUBNEτ MAGAZINE in the top-left — slightly tighter scale
-     so the τ ascender lands EXACTLY at cap-height of the 16px caps,
-     not above. */
   .banner__meta .flag .tau-brand{
-    font-size: 1.20em;
+    font-size: 1.28em;
+    font-weight: 700;
   }
 
   .banner__accent{
