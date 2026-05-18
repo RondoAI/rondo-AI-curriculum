@@ -426,11 +426,40 @@
      overflows over the range tabs + KPIs below. */
   overflow: hidden;
 }
-@media (max-width: 720px){
-  .cock-chart__row{ grid-template-columns: minmax(200px, 40%) 1fr; }
-}
-@media (max-width: 480px){
-  .cock-chart__row{ grid-template-columns: minmax(170px, 44%) 1fr; }
+/* Mobile re-stack — at narrow widths the side-by-side row
+   produces a 170-200px article column NEXT TO a 200-220px chart
+   slice, which is too cramped for either to render usefully.
+   Worse, the chart canvas often collapsed to zero-height under
+   the article column's full content height, leaving only the
+   range tabs + pan bar visible, and the PICK SUBNET dropdown
+   inside the article column overlapped the range tabs that
+   span across both columns (Rondo 2026-05-18: "the pick a
+   subnet section is cut off by the 90 day moving average
+   button").
+
+   Solution: STACK on mobile. Single column, chart on top
+   (full mobile width), article list below (full width, real
+   reading surface). Picker moves into the chart pane header
+   so it doesn't fight the range tabs for the same row. */
+@media (max-width: 900px){
+  .cock-chart__row{
+    grid-template-columns: 1fr;
+    overflow: visible;
+  }
+  .cock-chart__news{
+    /* Article list below the chart, full width, capped height
+       with internal scroll so it doesn't push the dashboard
+       folds down off the screen. */
+    border-right: 0;
+    border-top: 1px solid var(--c-rule);
+    max-height: 60vh;
+  }
+  /* Picker moves to its own band ABOVE the chart, not inside
+     the article column where the range tabs collided with it. */
+  .cock-chart__picker{
+    border-bottom: 1px solid var(--c-rule);
+    padding: 10px 14px;
+  }
 }
 @media (min-width: 901px){
   /* PHOENIX SHAPE — per Rondo 2026-05-18 (Phoenix portfolio
