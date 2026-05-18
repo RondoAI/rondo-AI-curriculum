@@ -999,6 +999,88 @@ const CSS = `
   text-decoration: underline;
 }
 .sbnt-welcome__skip:hover{ color: var(--c-red-1, #FF4D60); }
+
+/* ---------- TL;DR strip (per-topic read-first chip) ---------- */
+.sbnt-tldr{
+  display: flex;
+  align-items: baseline;
+  gap: 10px;
+  padding: 8px 12px;
+  margin: 0 0 12px;
+  background: rgba(255, 184, 92, .06);
+  border: 1px solid rgba(255, 184, 92, .28);
+  border-left: 2px solid var(--c-warn, #FFB85C);
+}
+.sbnt-tldr__lbl{
+  font-family: var(--f-mono, monospace);
+  font-size: 9px;
+  letter-spacing: .18em;
+  font-weight: 800;
+  color: var(--c-warn, #FFB85C);
+  text-transform: uppercase;
+  flex-shrink: 0;
+}
+.sbnt-tldr__txt{
+  font-family: var(--f-sans, Inter);
+  font-size: 12.5px;
+  line-height: 1.45;
+  color: #fff;
+}
+
+/* ---------- NEXT footer (next topic in the reading flow) ---------- */
+.sbnt-next{
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  padding: 12px 14px 14px;
+  margin: 16px 0 4px;
+  background: rgba(255, 30, 60, .03);
+  border-top: 1px dashed var(--c-rule-2, rgba(255, 30, 60, .22));
+}
+.sbnt-next__lbl{
+  font-family: var(--f-mono, monospace);
+  font-size: 8.5px;
+  letter-spacing: .22em;
+  font-weight: 800;
+  color: var(--c-ink-3, #8B6B70);
+  text-transform: uppercase;
+}
+.sbnt-next__btn{
+  -webkit-appearance: none;
+  appearance: none;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 10px 14px;
+  background: var(--c-bg-1, #0A0306);
+  border: 1px solid var(--c-rule-2, rgba(255, 30, 60, .22));
+  color: inherit;
+  font-family: inherit;
+  cursor: pointer;
+  transition: background 140ms ease, border-color 140ms ease;
+}
+.sbnt-next__btn:hover,
+.sbnt-next__btn:focus-visible{
+  background: rgba(255, 30, 60, .06);
+  border-color: var(--c-red, #FF1E3C);
+  outline: none;
+}
+.sbnt-next__label{
+  font-family: var(--f-serif, Archivo);
+  font-size: 14px;
+  font-weight: 700;
+  color: #fff;
+  letter-spacing: -.005em;
+  text-align: left;
+}
+.sbnt-next__arrow{
+  font-family: var(--f-mono, monospace);
+  color: var(--c-red-1, #FF4D60);
+  font-size: 16px;
+  transition: transform 140ms ease;
+}
+.sbnt-next__btn:hover .sbnt-next__arrow{ transform: translateX(2px); }
 `;
 
 function injectStyle(){
@@ -1500,8 +1582,13 @@ export function mountConsole(_dataLayer = null){
       return;
     }
 
-    const blurb = topic.blurb
-      ? `<span class="sbnt-blurb">${topic.blurb}</span>`
+    /* TL;DR — sibling brief item 2: "A 'TL;DR' line at the top
+       (one-sentence summary)." Built from topic.blurb (already
+       a one-line description in the data file). Read-first
+       chip-style strip so the reader knows what they're about
+       to dive into. */
+    const tldr = topic.blurb
+      ? `<div class="sbnt-tldr"><span class="sbnt-tldr__lbl">TL;DR</span><span class="sbnt-tldr__txt">${topic.blurb}</span></div>`
       : '';
 
     /* Special topic: /play renders the interactive Yuma-consensus
@@ -1510,10 +1597,47 @@ export function mountConsole(_dataLayer = null){
       ? gameHtml()
       : (topic.body || []).map(lineHtml).join('');
 
-    body.innerHTML = searchBarHtml() + blurb + content
+    /* NEXT footer — sibling brief item 2: "A 'NEXT' footer linking
+       the next topic in the reading flow." Uses WELCOME_STEPS as
+       the canonical reading order (whitepaper → dtao → mine →
+       validate → wallet → security). For topics outside that
+       flow, fall back to the next adjacent FIELD_MANUAL entry. */
+    const nextHtml = topic.id === 'play' ? '' : (() => {
+      const idx = WELCOME_STEPS.findIndex(s => s.id === topic.id);
+      let next = null;
+      if (idx >= 0 && idx + 1 < WELCOME_STEPS.length){
+        next = WELCOME_STEPS[idx + 1];
+      } else {
+        const fmIdx = FIELD_MANUAL.findIndex(t => t.id === topic.id);
+        if (fmIdx >= 0 && fmIdx + 1 < FIELD_MANUAL.length){
+          const n = FIELD_MANUAL[fmIdx + 1];
+          next = { id: n.id, label: n.title || n.label };
+        }
+      }
+      if (!next) return '';
+      return `
+        <footer class="sbnt-next">
+          <span class="sbnt-next__lbl">NEXT IN THE FLOW</span>
+          <button type="button" class="sbnt-next__btn" data-next-topic="${next.id}">
+            <span class="sbnt-next__label">${next.label}</span>
+            <span class="sbnt-next__arrow" aria-hidden="true">→</span>
+          </button>
+        </footer>`;
+    })();
+
+    body.innerHTML = searchBarHtml() + tldr + content + nextHtml
       + (topic.id === 'play' ? '' : `<span class="sbnt-p" style="margin-top:10px">› select a topic above<span class="sbnt-cursor"></span></span>`);
     body.scrollTop = 0;
     wireSearch();
+    /* Wire NEXT button to switch active topic */
+    const nextBtn = body.querySelector('[data-next-topic]');
+    if (nextBtn){
+      nextBtn.addEventListener('click', (e) => {
+        e.stopPropagation();
+        activeId = nextBtn.dataset.nextTopic;
+        render();
+      });
+    }
     if (topic.id === 'play') wireGame();
   }
 
