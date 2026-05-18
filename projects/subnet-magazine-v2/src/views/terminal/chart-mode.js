@@ -31,6 +31,7 @@ import { ghByNetuid } from '../../data/github-activity.js';
 import { ARTICLES } from '../../data/articles.js';
 import { recentOracleArticles } from '../../data/oracle-articles.js';
 import { newsForSubnet } from '../../data/centralized-news.js';
+import { escapeHtml } from '../../lib/dom.js';
 
 /* Per-subnet article lookup, built once at module load — both my
    composeArticles below AND any future renderers can use these
@@ -55,11 +56,10 @@ const ORACLE_BY_NETUID = (() => {
   }
   return m;
 })();
-function escAttr(v){
-  return String(v == null ? '' : v)
-    .replace(/&/g, '&amp;').replace(/"/g, '&quot;').replace(/'/g, '&#39;')
-    .replace(/</g, '&lt;').replace(/>/g, '&gt;');
-}
+/* escAttr was a local duplicate of lib/dom.js escapeHtml — we now
+   import the shared helper. Keeping the same call-site name so
+   downstream string-interp templates didn't need to change. */
+const escAttr = escapeHtml;
 
 const RANGES = [
   { key: '1D',  days: 1,   label: '1D',  pro: true  },
@@ -585,8 +585,12 @@ function renderArticleCard(a){
   const pdfAttrs = isPdf
     ? ` data-pdf-href="${escAttr(a.href)}" data-pdf-title="${escAttr(a.title || '')}" data-pdf-kind="${a.kind}" data-pdf-date="${escAttr(a.date || '')}" data-pdf-kicker="${escAttr(a.author || '')}"`
     : '';
+  /* cm-art--<kind> drives the colored LEFT accent bar (CSS
+     ::before) — visual identity for the editorial spine without
+     any extra DOM nodes. */
+  const kindMod = a.kind ? `cm-art--${a.kind}` : '';
   return `
-    <a class="cm-art" href="${escAttr(a.href || '#')}" target="_blank" rel="noopener"${pdfAttrs}>
+    <a class="cm-art ${kindMod}" href="${escAttr(a.href || '#')}" target="_blank" rel="noopener"${pdfAttrs}>
       <div class="cm-art__head">
         <span class="cm-art__kind cm-art__kind--${a.kind}">${kindLbl}</span>
         <span class="cm-art__date">${fmtArticleDate(a.date)}</span>
