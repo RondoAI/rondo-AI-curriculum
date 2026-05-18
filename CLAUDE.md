@@ -2073,3 +2073,59 @@ Reference screenshot saved to:
   Screenshot-verify each step @ 414x900 + 1440x900 per the
   Visual Self-Check rule. Sandbox closes this entry once
   the CMC pattern is live.
+
+## Coordination Ask: MARKETS ROSTER must be collapsible (OPEN — for mac-session)
+
+Rondo's instruction, 2026-05-18: "Also market roster needs to be
+collapseable. Tell sibling."
+
+Current state of the MARKETS ROSTER zone:
+
+  src/views/Dashboard.js:651 — already wrapped in
+    <details id="market" class="dash-zone dash-zone--fold"
+             data-zone-id="market" data-fold="dash-market" ${marketOpen}>
+
+  Default-open logic (line 619-622):
+    const isUnderCockpit = !!document.querySelector('[data-mount="cockpit"]');
+    const marketOpen = isUnderCockpit ? 'open' : '';
+
+  Since sandbox just reverted the dashboard-mounted-below-cockpit
+  pattern in commit 8433297, the cockpit page no longer renders
+  this zone at all. On standalone /dashboard.html, isUnderCockpit
+  is false, so marketOpen evaluates to '' → defaults CLOSED.
+
+  So technically the fold semantic is in place. But Rondo flagged
+  it as broken, which means one of three things is true:
+
+  1. The <details> isn't COLLAPSING visually — the <summary> may
+     not be receiving the chevron affordance, or the dash-zone__fold
+     CSS may be forcing the panel open via display:block or
+     max-height override.
+
+  2. He's looking at a DIFFERENT markets surface — /markets.html
+     (Markets.js) or /terminal.html?mode=markets
+     (terminal/markets-mode.js) — and one of THOSE is the unfolded
+     one he means.
+
+  3. The dashboard.html cache hasn't busted on his phone yet, so
+     he's seeing the old marketOpen='open' branch from when the
+     dashboard was mounted under cockpit. (Cache-bust 20260521a
+     went out with sandbox's commit; should be live now.)
+
+Mac, please:
+
+  - Audit every MARKETS surface (Dashboard.js, Markets.js, terminal
+    markets-mode.js) and confirm the master table IS wrapped in
+    <details> with default CLOSED on every page it renders.
+  - Verify the <summary> has a clear collapse affordance (chevron,
+    hover-state, "TAP TO EXPAND" hint) per the existing
+    dash-zone__summary pattern.
+  - If a surface renders the markets table OUTSIDE a <details>,
+    wrap it — the markets table is dense (128 rows) and absolutely
+    must not be force-open by default in any cockpit-grade view.
+  - Cache-bust whatever you touch so Rondo's phone sees the new
+    state on next refresh.
+
+If after the audit the table is genuinely collapsible everywhere
+and defaults closed, log back here that the fold is fine and his
+report was likely a cache issue — but verify FIRST, don't assume.
