@@ -95,6 +95,164 @@
   font-style: italic;
 }
 
+/* ---------- multi-portfolio switcher (2026-05-18) ---------- */
+/* CMC-style multi-portfolio support. Dropdown + NEW + DELETE
+   buttons in a tight row; inline create form unfolds when NEW
+   is tapped. Lives above the KPI tiles so the reader always
+   sees WHICH portfolio's numbers they're looking at. */
+.paper-pswitch{
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 8px;
+  padding: 8px 12px;
+  background: var(--c-bg-1);
+  border: 1px solid var(--c-rule-2);
+  border-left: 2px solid var(--c-warn);
+}
+.paper-pswitch__lbl{
+  font-family: var(--f-mono);
+  font-size: 9px;
+  letter-spacing: .18em;
+  font-weight: 800;
+  color: var(--c-ink-3);
+  text-transform: uppercase;
+}
+.paper-pswitch__sel{
+  flex: 1;
+  min-width: 200px;
+  -webkit-appearance: none;
+  appearance: none;
+  background: rgba(8, 3, 5, .8);
+  border: 1px solid var(--c-rule-3);
+  color: #fff;
+  font-family: var(--f-mono);
+  font-size: 12px;
+  font-weight: 700;
+  padding: 6px 24px 6px 10px;
+  cursor: pointer;
+  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='10' height='6' viewBox='0 0 10 6'><path fill='%23FFB85C' d='M0 0 L10 0 L5 6 Z'/></svg>");
+  background-repeat: no-repeat;
+  background-position: right 10px center;
+}
+.paper-pswitch__sel:focus-visible{
+  outline: 2px solid var(--c-warn);
+  outline-offset: 2px;
+}
+.paper-pswitch__btn{
+  -webkit-appearance: none;
+  appearance: none;
+  background: transparent;
+  border: 1px solid var(--c-rule-2);
+  color: var(--c-ink-2);
+  font-family: var(--f-mono);
+  font-size: 9.5px;
+  letter-spacing: .14em;
+  font-weight: 800;
+  padding: 5px 10px 4px;
+  cursor: pointer;
+  text-transform: uppercase;
+  transition: color 140ms ease, border-color 140ms ease, background 140ms ease;
+}
+.paper-pswitch__btn--new{
+  color: var(--c-warn);
+  border-color: rgba(255, 184, 92, .45);
+}
+.paper-pswitch__btn--new:hover,
+.paper-pswitch__btn--new:focus-visible{
+  color: #fff;
+  background: var(--c-warn);
+  border-color: var(--c-warn);
+  outline: none;
+}
+.paper-pswitch__btn--del{
+  color: var(--c-red-1);
+  border-color: rgba(255, 30, 60, .35);
+}
+.paper-pswitch__btn--del:hover{
+  color: #fff;
+  background: var(--c-red);
+  border-color: var(--c-red);
+}
+
+/* Inline create-portfolio form — unfolds when "+ NEW" is tapped */
+.paper-pswitch-new{
+  margin-bottom: 12px;
+  padding: 12px 14px;
+  background: rgba(255, 184, 92, .05);
+  border: 1px dashed rgba(255, 184, 92, .35);
+}
+.paper-pswitch-new__row{
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  align-items: end;
+}
+.paper-pswitch-new__lbl{
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  font-family: var(--f-mono);
+  font-size: 9px;
+  letter-spacing: .14em;
+  font-weight: 800;
+  color: var(--c-ink-3);
+  text-transform: uppercase;
+  flex: 1;
+  min-width: 160px;
+}
+.paper-pswitch-new__inp{
+  -webkit-appearance: none;
+  appearance: none;
+  background: rgba(8, 3, 5, .85);
+  border: 1px solid var(--c-rule-3);
+  color: #fff;
+  font-family: var(--f-mono);
+  font-size: 13px;
+  padding: 7px 10px;
+  font-variant-numeric: tabular-nums;
+}
+.paper-pswitch-new__inp.is-bad{
+  border-color: var(--c-red);
+  background: rgba(255, 30, 60, .08);
+}
+.paper-pswitch-new__inp:focus-visible{
+  outline: 2px solid var(--c-warn);
+  outline-offset: 2px;
+}
+.paper-pswitch-new__submit{
+  -webkit-appearance: none;
+  appearance: none;
+  padding: 7px 14px 6px;
+  background: var(--c-warn);
+  border: 1px solid var(--c-warn);
+  color: #050203;
+  font-family: var(--f-mono);
+  font-size: 10px;
+  letter-spacing: .14em;
+  font-weight: 800;
+  cursor: pointer;
+  text-transform: uppercase;
+}
+.paper-pswitch-new__submit:hover{
+  background: #fff;
+  border-color: #fff;
+}
+.paper-pswitch-new__cancel{
+  -webkit-appearance: none;
+  appearance: none;
+  padding: 7px 8px;
+  background: transparent;
+  border: 0;
+  color: var(--c-ink-3);
+  font-family: var(--f-mono);
+  font-size: 10px;
+  letter-spacing: .08em;
+  cursor: pointer;
+  text-decoration: underline;
+}
+
 /* ---------- actions bar ------------------------------------ */
 .paper-actions{
   display: flex;

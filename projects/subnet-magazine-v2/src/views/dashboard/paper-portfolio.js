@@ -22,11 +22,28 @@
 
 import { SUBNETS, subnetById } from '../../data/subnets.js';
 import {
-  loadPaperState, savePaperState,
   buy, sell, reset,
   annotatePositions, summarize, sectorTilt, insights,
   STARTING_CASH,
 } from '../../data/paper-portfolio.js';
+/* 2026-05-18: multi-portfolio support per Rondo "CoinMarketCap
+   has a feature where you can use paper money to track your
+   portfolio and add different amounts of fake money." All
+   load/save calls now route through the active-portfolio shim
+   so a reader can create N portfolios with arbitrary starting
+   amounts, switch between them, and watch each one's P&L
+   independently. The default $100K portfolio stays at the
+   original storage key — no migration needed. */
+import {
+  loadActivePortfolio as loadPaperState,
+  saveActivePortfolio as savePaperState,
+  listPortfolios,
+  loadActiveId,
+  saveActiveId,
+  createPortfolio,
+  deletePortfolio,
+  DEFAULT_PORTFOLIO_ID,
+} from '../../data/paper-portfolios.js';
 
 const CAT_COLOR = {
   text:'#FF1E3C', vision:'#FF8094', audio:'#FFB85C', video:'#C8A8AD',
@@ -284,19 +301,57 @@ export function renderPaperPortfolio(){
   const sparkColor = sum.pnl >= 0 ? '#00E5A8' : '#FF4D60';
   const sparkHtml  = annotated.length ? svgSpark(valSeries, 320, 80, sparkColor) : '';
 
+  /* Multi-portfolio switcher (2026-05-18) — dropdown + create
+     button + delete (for non-default). CMC-style: reader can
+     run several theoretical portfolios with different starting
+     amounts side by side. */
+  const portfolios = listPortfolios();
+  const activeId   = loadActiveId();
+  const active     = portfolios.find(p => p.id === activeId) || portfolios[0];
+  const portfolioOptions = portfolios.map(p => {
+    const isActive = p.id === activeId;
+    const startTxt = p.startingCash >= 1e6
+      ? '$' + (p.startingCash/1e6).toFixed(1) + 'M'
+      : p.startingCash >= 1e3
+        ? '$' + (p.startingCash/1e3).toFixed(0) + 'K'
+        : '$' + p.startingCash.toFixed(0);
+    const escName = (p.name || '').replace(/&/g, '&amp;').replace(/</g, '&lt;');
+    return `<option value="${p.id}"${isActive ? ' selected' : ''}>${escName} · ${startTxt}</option>`;
+  }).join('');
+  const canDelete  = active && active.id !== DEFAULT_PORTFOLIO_ID;
+
   return `
     <section class="paper" data-paper-root>
       <header class="paper__head">
         <div class="paper__title">
           <span class="paper__eyebrow">⊕ PAPER PORTFOLIO</span>
           <h2 class="paper__h">Your positions, scored against the live market.</h2>
-          <div class="paper__sub">Mock-trading account. $${(STARTING_CASH/1000).toFixed(0)}K paper capital, buy α at the current mark, P&L vs cost basis. Persists in your browser; backend sync ships with the auth layer.</div>
+          <div class="paper__sub">Mock-trading account. CoinMarketCap-style: spin up multiple portfolios with any starting amount, switch between them, watch each one's P&L mark-to-mark. Persists in your browser; backend sync ships with the auth layer.</div>
         </div>
         <div class="paper__pulse">
           <span class="paper__pulse-dot"></span>
           <span class="paper__pulse-txt">PAPER</span>
         </div>
       </header>
+
+      <div class="paper-pswitch" data-paper-pswitch>
+        <label class="paper-pswitch__lbl" for="paper-pswitch-sel">PORTFOLIO</label>
+        <select class="paper-pswitch__sel" id="paper-pswitch-sel" data-paper-pswitch-sel>${portfolioOptions}</select>
+        <button type="button" class="paper-pswitch__btn paper-pswitch__btn--new" data-paper-pswitch-new>+ NEW</button>
+        ${canDelete ? `<button type="button" class="paper-pswitch__btn paper-pswitch__btn--del" data-paper-pswitch-del aria-label="Delete this portfolio">DELETE</button>` : ''}
+      </div>
+      <form class="paper-pswitch-new" data-paper-pswitch-newform style="display:none">
+        <div class="paper-pswitch-new__row">
+          <label class="paper-pswitch-new__lbl">NAME
+            <input class="paper-pswitch-new__inp" type="text" maxlength="40" placeholder="Aggressive AI book · $250K" data-paper-pswitch-name>
+          </label>
+          <label class="paper-pswitch-new__lbl">STARTING CASH (USD)
+            <input class="paper-pswitch-new__inp" type="number" min="100" max="100000000" step="100" placeholder="250000" data-paper-pswitch-cash>
+          </label>
+          <button type="submit" class="paper-pswitch-new__submit">CREATE</button>
+          <button type="button" class="paper-pswitch-new__cancel" data-paper-pswitch-cancel>cancel</button>
+        </div>
+      </form>
 
       <div class="paper-kpis">${metricTiles}</div>
 
@@ -364,6 +419,62 @@ export function renderPaperPortfolio(){
 export function wirePaperPortfolio(root, onChange){
   const sec = root.querySelector('[data-paper-root]');
   if (!sec) return;
+
+  /* ---------- multi-portfolio switcher --------------------- */
+  const pSel       = sec.querySelector('[data-paper-pswitch-sel]');
+  const pNewBtn    = sec.querySelector('[data-paper-pswitch-new]');
+  const pDelBtn    = sec.querySelector('[data-paper-pswitch-del]');
+  const pNewForm   = sec.querySelector('[data-paper-pswitch-newform]');
+  const pCancelBtn = sec.querySelector('[data-paper-pswitch-cancel]');
+  const pNameInp   = sec.querySelector('[data-paper-pswitch-name]');
+  const pCashInp   = sec.querySelector('[data-paper-pswitch-cash]');
+
+  if (pSel){
+    pSel.addEventListener('change', () => {
+      saveActiveId(pSel.value);
+      if (typeof onChange === 'function') onChange();
+    });
+  }
+  if (pNewBtn && pNewForm){
+    pNewBtn.addEventListener('click', () => {
+      pNewForm.style.display = '';
+      pNameInp?.focus();
+    });
+  }
+  if (pCancelBtn && pNewForm){
+    pCancelBtn.addEventListener('click', () => {
+      pNewForm.style.display = 'none';
+      if (pNameInp) pNameInp.value = '';
+      if (pCashInp) pCashInp.value = '';
+    });
+  }
+  if (pNewForm){
+    pNewForm.addEventListener('submit', (e) => {
+      e.preventDefault();
+      const name = (pNameInp?.value || '').trim();
+      const cash = Number(pCashInp?.value || '');
+      if (!Number.isFinite(cash) || cash <= 0){
+        pCashInp?.focus();
+        pCashInp?.classList.add('is-bad');
+        return;
+      }
+      try {
+        createPortfolio(name, cash);
+        if (typeof onChange === 'function') onChange();
+      } catch (_) { /* silently swallow — UI already validated */ }
+    });
+  }
+  if (pDelBtn){
+    pDelBtn.addEventListener('click', () => {
+      const id = loadActiveId();
+      if (id === DEFAULT_PORTFOLIO_ID) return;
+      /* Brief confirm to avoid accidental destruction of a paper
+         track record. */
+      if (!window.confirm('Delete this portfolio permanently? Track record will be lost.')) return;
+      deletePortfolio(id);
+      if (typeof onChange === 'function') onChange();
+    });
+  }
 
   const toggle  = sec.querySelector('[data-paper-buy-toggle]');
   const form    = sec.querySelector('[data-paper-buyform]');
