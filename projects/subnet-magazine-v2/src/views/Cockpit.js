@@ -35,6 +35,15 @@ import { recentOracleArticles } from '../data/oracle-articles.js';
 import { ARTICLES } from '../data/articles.js';
 import { GH_ACTIVITY, ghByNetuid } from '../data/github-activity.js';
 import { generateSeries, sma, SERIES_DAYS } from '../lib/synthetic-series.js';
+/* Dashboard ↔ cockpit merge (2026-05-18). Per Rondo "merge
+   dashboard and cockpit," the cockpit page now mounts the same
+   paper portfolio + Brinson-Fachler attribution surface the
+   dashboard's DESK section shipped, so the chart + the reader's
+   book live on one page. */
+import { renderPaperPortfolio, wirePaperPortfolio } from './dashboard/paper-portfolio.js';
+import { renderAttribution,    wireAttribution,    defaultAttribState } from './dashboard/attribution.js';
+
+const deskAttribState = defaultAttribState();
 
 const WATCHLIST_KEY = 'sbn:dashboard:watchlist:v1';
 const COCKPIT_KEY   = 'sbn:cockpit:v1';
@@ -59,6 +68,12 @@ const RANGES = [
 const PANES = [
   { key: 'subnets', label: 'SUBNETS' },
   { key: 'chart',   label: 'CHART'   },
+  /* DESK pane added 2026-05-18 per Rondo "merge dashboard and
+     cockpit." Mounts the same renderPaperPortfolio +
+     renderAttribution that the dashboard surfaces. One page,
+     three workflows: pick a subnet (rail) → study its chart
+     (chart) → measure your book (desk). */
+  { key: 'desk',    label: 'DESK'    },
   { key: 'feed',    label: 'FEED'    },
 ];
 
@@ -484,12 +499,32 @@ export function mountCockpit(root, dataLayer = null){
         <section class="cockpit__main" data-pane="chart">
           ${renderMain()}
         </section>
+        <section class="cockpit__desk" data-pane="desk">
+          ${renderDesk()}
+        </section>
         <aside class="cockpit__feed" data-pane="feed">
           ${renderFeed()}
         </aside>
       </div>
     </section>
   `);
+
+  /* DESK pane wiring — paper portfolio + Brinson-Fachler
+     attribution mounted directly inside the cockpit. Same pattern
+     terminal/desk-mode.js uses; here the desk lives on the same
+     page as the chart so the reader's book + the active subnet
+     can be studied together. Repaints both panes on every paper
+     mutation so attribution's PAPER preset stays consistent. */
+  function repaintDesk(){
+    const dp = qs('[data-cockpit-desk-paper]', root);
+    const da = qs('[data-cockpit-desk-attrib]', root);
+    if (dp) dp.innerHTML = renderPaperPortfolio();
+    if (da) da.innerHTML = renderAttribution(deskAttribState);
+    wirePaperPortfolio(root, repaintDesk);
+    wireAttribution(root, deskAttribState, () => wireAttribution(root, deskAttribState, () => {}));
+  }
+  wirePaperPortfolio(root, repaintDesk);
+  wireAttribution(root, deskAttribState, () => wireAttribution(root, deskAttribState, () => {}));
 
   setActivePane(state.pane);
   drawChartNow();
@@ -872,6 +907,36 @@ export function mountCockpit(root, dataLayer = null){
       </a>`;
   }
 
+  /* DESK pane render — paper portfolio book + Brinson-Fachler
+     attribution on that book. Same composition terminal/
+     desk-mode.js uses; lifted into cockpit so the chart + the
+     reader's positions live on one page. Per Rondo "merge
+     dashboard and cockpit." */
+  function renderDesk(){
+    return `
+      <div class="cockpit-desk">
+        <header class="cockpit-desk__head">
+          <span class="cockpit-desk__eyebrow">⊕ DESK · positions + analytics</span>
+          <h2 class="cockpit-desk__h">Your book. Measured.</h2>
+          <p class="cockpit-desk__sub">
+            Paper portfolio above — buy any subnet α at the live mark, P&amp;L vs cost.
+            Brinson-Fachler attribution below decomposes YOUR returns into sector tilt
+            (allocation) + within-sector picking skill (selection). One workflow:
+            hold &rarr; measure.
+          </p>
+        </header>
+        <div class="cockpit-desk__paper" data-cockpit-desk-paper>
+          ${renderPaperPortfolio()}
+        </div>
+        <div class="cockpit-desk__divider" aria-hidden="true">
+          <span class="cockpit-desk__divider-lbl">↓ ANALYTICS ON YOUR BOOK</span>
+        </div>
+        <div class="cockpit-desk__attrib" data-cockpit-desk-attrib>
+          ${renderAttribution(deskAttribState)}
+        </div>
+      </div>`;
+  }
+
   function renderFeed(){
     const s = subnetById(state.selectedId) || SUBNETS[0];
 
@@ -1018,6 +1083,11 @@ export function mountCockpit(root, dataLayer = null){
     saveCockpitState(state);
     qsa('[data-pane]',     root).forEach(p => p.classList.toggle('is-active', p.dataset.pane === key));
     qsa('[data-pane-btn]', root).forEach(b => b.classList.toggle('is-on',     b.dataset.paneBtn === key));
+    /* DESK pane share the chart pane's grid column on desktop —
+       toggle a class on .cockpit__grid so CSS can swap which
+       section is display:flex without :has() selector dependency. */
+    const grid = qs('.cockpit__grid', root);
+    if (grid) grid.classList.toggle('is-desk-active', key === 'desk');
     /* Chart needs to recompute its bounds when the pane becomes
        visible because it was display:none before and getBoundingClientRect
        returned zero. Re-draw on the next frame. */

@@ -115,6 +115,7 @@
    display:none so they don't take up scroll space. */
 .cockpit__rail,
 .cockpit__main,
+.cockpit__desk,
 .cockpit__feed{
   display: none;
   min-width: 0;
@@ -124,8 +125,64 @@
 }
 .cockpit__rail.is-active,
 .cockpit__main.is-active,
+.cockpit__desk.is-active,
 .cockpit__feed.is-active{
   display: flex;
+}
+/* DESK pane background + scroll container */
+.cockpit__desk{
+  background: var(--c-bg);
+  overflow: auto;
+  -webkit-overflow-scrolling: touch;
+}
+.cockpit-desk{
+  padding: clamp(16px, 2.5vw, 28px);
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+.cockpit-desk__head{ display: flex; flex-direction: column; gap: 6px; }
+.cockpit-desk__eyebrow{
+  font-family: var(--f-mono);
+  font-size: 9px;
+  letter-spacing: .22em;
+  font-weight: 800;
+  color: var(--c-red);
+  text-transform: uppercase;
+}
+.cockpit-desk__h{
+  font-family: var(--f-serif);
+  font-size: 22px;
+  line-height: 1.15;
+  font-weight: 800;
+  color: #fff;
+  letter-spacing: -.01em;
+  margin: 0;
+}
+.cockpit-desk__sub{
+  font-family: var(--f-sans);
+  font-size: 12.5px;
+  line-height: 1.5;
+  color: var(--c-ink-2);
+  font-style: italic;
+  max-width: 720px;
+  margin: 0;
+}
+.cockpit-desk__divider{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 6px 12px;
+  border-top: 1px solid var(--c-rule-2);
+  border-bottom: 1px solid var(--c-rule-2);
+  background: var(--c-bg-2);
+}
+.cockpit-desk__divider-lbl{
+  font-family: var(--f-mono);
+  font-size: 10px;
+  letter-spacing: .22em;
+  font-weight: 800;
+  color: var(--c-red-1);
 }
 
 /* ---------- RAIL (subnet list) ----------------------------- */
@@ -1072,12 +1129,17 @@
   .cockpit__grid{
     grid-template-columns: 260px 1fr 340px;
   }
-  /* All three panes always visible on desktop. */
+  /* Rail + main always visible on desktop; feed forced hidden
+     in the @901+ block above. DESK pane shares the MAIN grid
+     column — tap DESK in cockpit-tabs and the grid's
+     is-desk-active class flips which one shows. */
   .cockpit__rail,
-  .cockpit__main,
-  .cockpit__feed{
+  .cockpit__main{
     display: flex;
   }
+  .cockpit__desk{ display: none; grid-column: 2; }
+  .cockpit__grid.is-desk-active .cockpit__main{ display: none; }
+  .cockpit__grid.is-desk-active .cockpit__desk{ display: flex; }
   .cock-chart__h{ font-size: 26px; }
   .cock-chart__price{ font-size: 32px; }
   .cock-kpis{
