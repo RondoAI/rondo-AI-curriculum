@@ -274,3 +274,224 @@
 .mk-fold[open] > .mk-fold__summary > .mk-fold__chev{
   transform: rotate(45deg);
 }
+
+/* =================================================================
+   MOVERS DESK 150% UPGRADE (2026-05-18, per Rondo "the movers
+   desk needs a 150% upgrade with much better infographics").
+   TOP 3 podium hero cards + enhanced compact rows with logos,
+   sparklines, and magnitude bars.
+   ================================================================= */
+.mk-podium{
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10px;
+  padding: 14px 14px 6px;
+}
+.mk-podium__card{
+  position: relative;
+  display: grid;
+  grid-template-columns: auto 1fr;
+  grid-template-rows: auto auto auto auto;
+  gap: 6px 12px;
+  padding: 14px 14px 12px;
+  text-decoration: none;
+  color: inherit;
+  background: rgba(0,0,0,.35);
+  border: 1px solid var(--c-rule-2);
+  border-top: 3px solid var(--c-rule-3);
+  transition: background 140ms, border-color 140ms, transform 140ms;
+  overflow: hidden;
+}
+.mk-podium__card::before{
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(120% 60% at 100% 0%, rgba(255,30,60,.10), transparent 60%);
+  pointer-events: none;
+  z-index: 0;
+}
+.mk-podium__card.is-up::before{
+  background: radial-gradient(120% 60% at 100% 0%, rgba(0,229,168,.12), transparent 60%);
+}
+.mk-podium__card.is-down::before{
+  background: radial-gradient(120% 60% at 100% 0%, rgba(255,30,60,.14), transparent 60%);
+}
+.mk-podium__card--gold{ border-top-color: #FFB85C; }
+.mk-podium__card--silver{ border-top-color: var(--c-ink-3); }
+.mk-podium__card--bronze{ border-top-color: rgba(255,184,92,.55); }
+.mk-podium__card:hover{
+  background: rgba(0,0,0,.55);
+  border-color: var(--c-red-1);
+  transform: translateY(-1px);
+}
+.mk-podium__card > *{ position: relative; z-index: 1; }
+.mk-podium__rank{
+  grid-column: 1; grid-row: 1;
+  font-family: var(--f-mono);
+  font-size: 16px;
+  font-weight: 800;
+  letter-spacing: .04em;
+  color: var(--c-red-1);
+  align-self: center;
+}
+.mk-podium__card--gold .mk-podium__rank{ color: #FFB85C; }
+.mk-podium__logo{
+  grid-column: 1; grid-row: 2;
+  display: inline-flex; align-items: center; justify-content: center;
+  width: 34px; height: 34px;
+  background: rgba(255,30,60,.10);
+  border: 1px solid var(--c-rule-3);
+  align-self: start;
+}
+.mk-podium__logo img{ width: 26px; height: 26px; object-fit: contain; }
+.mk-podium__id{
+  grid-column: 2; grid-row: 1 / span 2;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  min-width: 0;
+}
+.mk-podium__sn{
+  font-family: var(--f-mono);
+  font-size: 10px;
+  letter-spacing: .18em;
+  font-weight: 800;
+  color: var(--c-ink-3);
+}
+.mk-podium__name{
+  font-family: var(--f-serif);
+  font-size: 18px;
+  font-weight: 700;
+  line-height: 1.15;
+  color: #fff;
+  letter-spacing: -.01em;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.mk-podium__spark{
+  grid-column: 1 / -1; grid-row: 3;
+  display: block;
+  margin-top: 4px;
+}
+.mk-podium__spark canvas{
+  display: block;
+  width: 100%;
+  height: 38px;
+}
+.mk-podium__metric{
+  grid-column: 1; grid-row: 4;
+  font-family: var(--f-mono);
+  font-size: 15px;
+  font-weight: 800;
+  font-variant-numeric: tabular-nums;
+}
+.mk-podium__card.is-up .mk-podium__metric{ color: #5BE599; }
+.mk-podium__card.is-down .mk-podium__metric{ color: var(--c-red-1); }
+.mk-podium__price{
+  grid-column: 2; grid-row: 4;
+  font-family: var(--f-mono);
+  font-size: 10.5px;
+  letter-spacing: .04em;
+  color: var(--c-ink-3);
+  text-align: right;
+  font-variant-numeric: tabular-nums;
+  align-self: center;
+}
+@media (max-width: 720px){
+  .mk-podium{ grid-template-columns: 1fr; }
+}
+
+/* Enhanced compact rows (ranks 4-12) — adds rank chip, logo,
+   magnitude bar between sparkline and price. */
+.mk-rows--ranked{ list-style: none; padding: 0; margin: 0; counter-reset: mover; }
+.mk-row--enhanced .mk-row__link{
+  display: grid;
+  grid-template-columns: 32px 28px 1fr 70px 80px auto auto;
+  gap: 10px;
+  align-items: center;
+  padding: 9px 14px;
+  border-bottom: 1px solid var(--c-rule);
+  text-decoration: none;
+  color: inherit;
+  transition: background 120ms;
+}
+.mk-row--enhanced .mk-row__link:hover{
+  background: rgba(255,30,60,.06);
+}
+.mk-row--enhanced .mk-row__rank{
+  font-family: var(--f-mono);
+  font-size: 10.5px;
+  font-weight: 800;
+  color: var(--c-ink-3);
+  letter-spacing: .04em;
+}
+.mk-row--enhanced .mk-row__logo{
+  display: inline-flex; align-items: center; justify-content: center;
+  width: 24px; height: 24px;
+  background: rgba(255,30,60,.10);
+  border: 1px solid var(--c-rule-3);
+}
+.mk-row--enhanced .mk-row__logo img{ width: 18px; height: 18px; object-fit: contain; }
+.mk-row--enhanced .mk-row__id{
+  display: flex; align-items: baseline; gap: 8px;
+  min-width: 0;
+}
+.mk-row--enhanced .mk-row__tk{
+  font-family: var(--f-mono);
+  font-size: 11px;
+  font-weight: 800;
+  color: var(--c-red-1);
+  letter-spacing: .04em;
+}
+.mk-row--enhanced .mk-row__name{
+  font-family: var(--f-serif);
+  font-size: 13.5px;
+  color: #fff;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.mk-row--enhanced .mk-row__spark canvas{ width: 70px; height: 22px; display: block; }
+.mk-row--enhanced .mk-row__magbar{
+  height: 5px;
+  width: 80px;
+  background: rgba(255,255,255,.04);
+  border: 1px solid var(--c-rule-2);
+  overflow: hidden;
+  display: block;
+}
+.mk-row--enhanced .mk-row__magfill{
+  display: block;
+  height: 100%;
+  transition: width 200ms ease-out;
+}
+.mk-row--enhanced.is-up .mk-row__magfill{ background: #5BE599; box-shadow: 0 0 4px rgba(91,229,153,.5); }
+.mk-row--enhanced.is-down .mk-row__magfill{ background: var(--c-red); box-shadow: 0 0 4px rgba(255,30,60,.55); }
+.mk-row--enhanced .mk-row__price{
+  font-family: var(--f-mono);
+  font-size: 11.5px;
+  color: var(--c-ink-2);
+  font-variant-numeric: tabular-nums;
+}
+.mk-row--enhanced .mk-row__chg{
+  font-family: var(--f-mono);
+  font-size: 12px;
+  font-weight: 800;
+  font-variant-numeric: tabular-nums;
+  min-width: 56px;
+  text-align: right;
+}
+.mk-row--enhanced .mk-row__chg.up{ color: #5BE599; }
+.mk-row--enhanced .mk-row__chg.down{ color: var(--c-red-1); }
+
+@media (max-width: 720px){
+  .mk-row--enhanced .mk-row__link{
+    grid-template-columns: 24px 22px 1fr 60px auto;
+    gap: 7px;
+    padding: 8px 10px;
+  }
+  /* Drop sparkline + magbar on phone; keep rank/logo/name/price/chg. */
+  .mk-row--enhanced .mk-row__spark,
+  .mk-row--enhanced .mk-row__magbar{ display: none; }
+}
