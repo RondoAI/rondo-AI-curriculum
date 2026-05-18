@@ -145,8 +145,32 @@ function generateSeries(subnet){
   return out;
 }
 
+/* ---------- editorial event list for chart annotations ------ */
+/* Computes the timestamped flag events (magazine + oracle) for a
+   given subnet. drawChart consumes these and renders vertical
+   amber/red lines at each publish date. Same pattern HIST modal
+   already uses; here the lines paint directly on the canvas
+   (vs. SVG overlay) so they don't compete with the cursor for
+   hover events. */
+function annotationsFor(netuid){
+  const out = [];
+  for (const a of (ARTICLES_BY_NETUID.get(netuid) || [])){
+    if (!a.date) continue;
+    const t = Date.parse(a.date + 'T12:00:00Z');
+    if (!Number.isFinite(t)) continue;
+    out.push({ t, kind: 'mag',    title: a.title, href: a.pdf || a.externalUrl || '', date: a.date });
+  }
+  for (const a of (ORACLE_BY_NETUID.get(netuid) || [])){
+    if (!a.date) continue;
+    const t = Date.parse(a.date + 'T12:00:00Z');
+    if (!Number.isFinite(t)) continue;
+    out.push({ t, kind: 'orc',    title: a.title, href: a.pdf || '',                  date: a.date });
+  }
+  return out.sort((x, y) => x.t - y.t);
+}
+
 /* ---------- canvas draw (price area + volume bars) --------- */
-function drawChart(canvas, series, range){
+function drawChart(canvas, series, range, annotations){
   if (!canvas) return null;
   const ctx = canvas.getContext('2d');
   const dpr = Math.min(window.devicePixelRatio || 1, 2);
@@ -270,8 +294,60 @@ function drawChart(canvas, series, range){
   ctx.textBaseline = 'top';
   ctx.fillText(range.label + ' · ' + slice.length + 'd', PAD_L + 4, PAD_T + 4);
 
-  // Return hit-test for crosshair tooltip
+  // News-flag overlays — Bloomberg-style markers at editorial
+  // publish dates that fall inside the visible window. Amber for
+  // magazine, red for oracle. Stagger dotY when adjacent dates
+  // collide within 18px so neither overlaps the other.
+  const flags = [];
+  if (annotations && annotations.length){
+    const tMin = slice[0].t, tMax = slice[slice.length - 1].t;
+    let lastFlagX = -Infinity;
+    let lane = 0;
+    for (const a of annotations){
+      if (a.t < tMin || a.t > tMax) continue;
+      const f = (a.t - tMin) / (tMax - tMin);
+      const x = PAD_L + f * (W - PAD_L - PAD_R);
+      if (x - lastFlagX < 18) lane = (lane + 1) % 3; else lane = 0;
+      lastFlagX = x;
+      const dotY = priceY0 + 8 + lane * 11;
+      const color = a.kind === 'mag' ? '#FFB85C' : '#FF4D60';
+      // Vertical hairline through the plot
+      ctx.save();
+      ctx.strokeStyle = color;
+      ctx.globalAlpha = 0.40;
+      ctx.setLineDash([2, 3]);
+      ctx.lineWidth = 0.8;
+      ctx.beginPath();
+      ctx.moveTo(x, priceY0);
+      ctx.lineTo(x, priceY1);
+      ctx.stroke();
+      ctx.restore();
+      // Marker dot at the top
+      ctx.beginPath();
+      ctx.arc(x, dotY, 3.2, 0, Math.PI * 2);
+      ctx.fillStyle = color;
+      ctx.fill();
+      ctx.strokeStyle = '#050203';
+      ctx.lineWidth = 1.2;
+      ctx.stroke();
+      flags.push({ x, y: dotY, ann: a });
+    }
+  }
+
+  // Return hit-test for crosshair tooltip + flag detection
   return {
+    flags,
+    hitFlag(px, py){
+      /* Prefer flag hover when within 8px of a marker dot —
+         vertical price hover takes over otherwise. */
+      let best = null, bestD = Infinity;
+      for (const f of flags){
+        const dx = px - f.x, dy = py - f.y;
+        const d = Math.sqrt(dx*dx + dy*dy);
+        if (d < 10 && d < bestD){ bestD = d; best = f; }
+      }
+      return best;
+    },
     hitTest(px, py){
       if (px < PAD_L || px > W - PAD_R) return null;
       const f = (px - PAD_L) / (W - PAD_L - PAD_R);
@@ -312,6 +388,9 @@ export function mountChartMode(root, ctx){
   const s        = ctx?.subnet || subnetById(ctx?.selectedId) || SUBNETS[0];
   const gh       = ghByNetuid(s.netuid) || null;
   const series   = generateSeries(s);
+  /* News-flag annotations for this subnet — passed into drawChart
+     so the canvas can render markers at publish dates. */
+  const annotations = annotationsFor(s.netuid);
 
   root.innerHTML = renderHTML(s, gh, state, series);
 
@@ -321,7 +400,7 @@ export function mountChartMode(root, ctx){
 
   const draw = () => {
     const range = RANGES.find(r => r.key === state.range) || RANGES[2];
-    hit = drawChart(canvas, series, range);
+    hit = drawChart(canvas, series, range, annotations);
   };
   draw();
 
@@ -345,11 +424,36 @@ export function mountChartMode(root, ctx){
     });
   });
 
-  // Hover crosshair tooltip
+  // Hover crosshair tooltip — flag hover takes priority within 10px
+  // of a marker, otherwise normal price-bar tooltip wins.
   const onMove = (ev) => {
     if (!hit) return;
     const r = canvas.getBoundingClientRect();
     const x = ev.clientX - r.left, y = ev.clientY - r.top;
+    /* News-flag hover first — if the cursor is near a marker, show
+       the editorial tooltip instead of the OHLC bar tooltip. */
+    const flagHit = hit.hitFlag(x, y);
+    if (flagHit){
+      draw();   /* repaint to clear any previous crosshair */
+      const a = flagHit.ann;
+      const kindCls   = a.kind === 'mag' ? 'is-mag'    : 'is-orc';
+      const kindLabel = a.kind === 'mag' ? 'MAGAZINE' : 'ORACLE';
+      if (tooltipEl){
+        tooltipEl.innerHTML = `
+          <span class="ct-tt__date ct-tt__flag ${kindCls}">${escAttr(a.date)} · ${kindLabel}</span>
+          <span class="ct-tt__title">${escAttr(a.title)}</span>
+          ${a.href ? `<span class="ct-tt__cta">↗ click marker to open</span>` : ''}`;
+        tooltipEl.style.display = 'block';
+        const cw = canvas.clientWidth || r.width;
+        const left = Math.max(8, Math.min(cw - 240, x + 14));
+        const top  = Math.max(8, y - 10);
+        tooltipEl.style.left = left + 'px';
+        tooltipEl.style.top  = top + 'px';
+      }
+      canvas.style.cursor = a.href ? 'pointer' : 'help';
+      return;
+    }
+    canvas.style.cursor = '';
     const h = hit.hitTest(x, y);
     if (!h){ if (tooltipEl) tooltipEl.style.display = 'none'; draw(); return; }
     draw();
@@ -372,6 +476,20 @@ export function mountChartMode(root, ctx){
       tooltipEl.style.top  = top + 'px';
     }
   };
+
+  /* Click on a flag marker → open the article in a new tab.
+     The inline PDF viewer drawer (installed globally by boot.js)
+     catches .pdf hrefs and opens them in the side drawer instead;
+     external URLs open in a new tab as usual. */
+  const onClick = (ev) => {
+    if (!hit) return;
+    const r = canvas.getBoundingClientRect();
+    const flagHit = hit.hitFlag(ev.clientX - r.left, ev.clientY - r.top);
+    if (flagHit && flagHit.ann.href){
+      window.open(flagHit.ann.href, '_blank', 'noopener');
+    }
+  };
+  canvas.addEventListener('click', onClick);
   const onLeave = () => {
     if (tooltipEl) tooltipEl.style.display = 'none';
     draw();
@@ -390,6 +508,7 @@ export function mountChartMode(root, ctx){
   return () => {
     canvas.removeEventListener('mousemove', onMove);
     canvas.removeEventListener('mouseleave', onLeave);
+    canvas.removeEventListener('click', onClick);
     window.removeEventListener('resize', onResize);
   };
 }
