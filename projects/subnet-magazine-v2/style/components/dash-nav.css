@@ -102,31 +102,52 @@
   display: block;
 }
 .dash-zone--fold{
-  /* The fold owns its own top border so each zone reads as a
-     distinct band. No accordion gating — every fold opens/closes
-     independently, matching the rest of the magazine's collapse
-     primitives (collapsible.css fold pattern). */
-  border-top: 1px solid var(--c-rule-2);
-  margin: 0;
+  /* Each fold reads as its own SEPARATED band — Rondo 2026-05-18
+     "the folds are running into each other": the first version
+     had no inter-fold breathing room (49px summary kissing the
+     next 49px summary). Margin-top opens the gap and a stronger
+     top rule turns the summary cluster into a clear list of
+     distinct cells rather than one merged stripe. */
+  border-top: 1px solid var(--c-rule-3);
+  margin: 14px 0 0;
   padding: 0;
 }
+.dash-zone--fold:first-of-type{
+  /* The first fold sits directly under the cockpit pane (or
+     the dashboard status bar on the standalone page); give it
+     a stronger separator margin so the dashboard band reads
+     as a distinct section from the chart above. */
+  margin-top: 28px;
+  border-top-width: 1px;
+  border-top-color: var(--c-red);
+  border-top-style: solid;
+  /* A thin red accent stroke instead of a 2px rule keeps the
+     hairline discipline of the rest of the magazine. */
+}
 .dash-zone--fold[open]{
-  padding-bottom: 24px;
+  padding-bottom: 28px;
+  /* Open folds get a soft inner divider beneath their content
+     so the closed fold that follows sits on a clean baseline,
+     not against the last sentence of the open one. */
+  border-bottom: 1px solid var(--c-rule-2);
 }
 .dash-zone__summary{
   list-style: none;
   cursor: pointer;
   display: flex;
   align-items: center;
-  gap: 10px;
-  padding: 14px 16px;
+  gap: 12px;
+  /* Taller summary row gives a clear tap target on phones
+     (was 14px vertical, now 18px) and lets the chip-bar
+     breathe even when several closed folds stack. */
+  padding: 18px 18px;
   font-family: var(--f-mono);
   font-size: 11px;
   letter-spacing: .22em;
   font-weight: 800;
   color: #fff;
   background:
-    linear-gradient(180deg, rgba(255,30,60,.04) 0%, transparent 100%);
+    linear-gradient(180deg, rgba(255,30,60,.05) 0%, transparent 100%);
   user-select: none;
   /* The summary row reads as a chip-bar — clear affordance to
      tap, no extra UI chrome. */
