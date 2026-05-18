@@ -309,19 +309,76 @@ const CSS = `
 }
 
 /* ===== Article ===== */
+/* 2026-05-18: <details> wrapper per Rondo "all articles in research
+   need to be collapsable as well." Summary holds the preview
+   (mark + kind + title + dek), body holds the expanded sections.
+   Default collapsed — reader scans the day's titles, expands what
+   matters. Cuts the page from N × ~1200px stacks to N × ~180px. */
 .rsh-art{
-  display: grid;
-  grid-template-columns: 96px 1fr;
-  gap: clamp(16px, 2.5vw, 28px);
-  padding: clamp(20px, 3vw, 30px);
+  display: block;
+  padding: 0;
   margin-bottom: 20px;
   background: rgba(8,2,3,.65);
   border: 1px solid var(--c-rule-2, rgba(255,30,60,.22));
   border-left: 3px solid var(--c-red, #FF1E3C);
   border-radius: 4px;
+  overflow: hidden;
+}
+.rsh-art__summary{
+  display: grid;
+  grid-template-columns: 96px 1fr;
+  gap: clamp(16px, 2.5vw, 28px);
+  padding: clamp(20px, 3vw, 30px);
+  list-style: none;
+  cursor: pointer;
+  transition: background 140ms ease;
+  align-items: start;
+}
+.rsh-art__summary::-webkit-details-marker{ display: none; }
+.rsh-art__summary:hover,
+.rsh-art__summary:focus-visible{
+  background: rgba(255, 30, 60, .04);
+  outline: none;
+}
+.rsh-art__head{
+  display: flex; flex-direction: column;
+  gap: 10px;
+  min-width: 0;
+}
+/* Expand chip in the top-right of the summary, with a caret that
+   rotates 180deg when the <details> is open. The reader's eye lands
+   on it as a clear affordance "click to read the full article." */
+.rsh-art__expand{
+  align-self: flex-end;
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  margin-top: -2px;
+  padding: 4px 9px 3px;
+  font-family: var(--f-mono, monospace);
+  font-size: 9.5px;
+  font-weight: 800;
+  letter-spacing: .16em;
+  color: var(--c-red-1, #FF4D60);
+  border: 1px solid rgba(255, 30, 60, .35);
+  background: rgba(255, 30, 60, .06);
+  text-transform: uppercase;
+}
+.rsh-art__expand-caret{
+  display: inline-block;
+  transition: transform 180ms ease;
+}
+.rsh-art[open] > .rsh-art__summary .rsh-art__expand-caret{
+  transform: rotate(180deg);
+}
+.rsh-art[open] > .rsh-art__summary .rsh-art__expand-lbl::after{
+  content: " LESS";
+}
+.rsh-art:not([open]) > .rsh-art__summary .rsh-art__expand-lbl::after{
+  content: " MORE";
 }
 @media (max-width: 720px){
-  .rsh-art{ grid-template-columns: 64px 1fr; gap: 14px; }
+  .rsh-art__summary{ grid-template-columns: 64px 1fr; gap: 14px; padding: 18px 16px; }
 }
 
 /* Neural-network mark, the Subnet Oracle's signature, attached to
@@ -354,11 +411,20 @@ const CSS = `
   .rsh-art__mark::after{ font-size: 8px; margin-top: 4px; }
 }
 
-/* the body column inside the article grid */
+/* expanded body — appears below the summary when <details open>.
+   Same horizontal indent as the summary's body column so sections
+   align under the title. */
 .rsh-art__body{
   display: flex; flex-direction: column;
   gap: 14px;
   min-width: 0;
+  padding: 0 clamp(20px, 3vw, 30px) clamp(20px, 3vw, 30px) calc(96px + clamp(16px, 2.5vw, 28px) + clamp(20px, 3vw, 30px));
+  border-top: 1px solid var(--c-rule-2, rgba(255,30,60,.18));
+  padding-top: 18px;
+  margin-top: 4px;
+}
+@media (max-width: 720px){
+  .rsh-art__body{ padding-left: 16px; padding-right: 16px; }
 }
 .rsh-art__kind{
   display: inline-flex; align-items: center; gap: 6px;
@@ -546,15 +612,30 @@ function articleHtml(a){
     ? 'the Subnet Oracle (Claude Opus 4.7)'
     : 'the editorial desk (seed)';
 
+  /* Wrapped in <details> per Rondo's 2026-05-18 directive ("all
+     articles in research need to be collapsable as well"). Summary
+     stays the article PREVIEW — mark, kind, title, dek — always
+     visible so the reader can scan. The body (attribution +
+     sections + sources + PDF) is hidden by default and expands on
+     summary click. Cuts the page from N × ~1200px of stacked
+     bodies to N × ~180px of previews. */
   return `
-    <article class="rsh-art" id="${escapeHtml(a.id)}">
-      <div class="rsh-art__mark" aria-hidden="true">
-        <canvas data-canvas="rsh-art-mark" data-id="${escapeHtml(a.id)}"></canvas>
-      </div>
+    <details class="rsh-art" id="${escapeHtml(a.id)}">
+      <summary class="rsh-art__summary">
+        <div class="rsh-art__mark" aria-hidden="true">
+          <canvas data-canvas="rsh-art-mark" data-id="${escapeHtml(a.id)}"></canvas>
+        </div>
+        <div class="rsh-art__head">
+          <span class="rsh-art__kind${kindCls}">${kind}</span>
+          <h2 class="rsh-art__title">${escapeHtml(a.title)}</h2>
+          <p class="rsh-art__dek">${escapeHtml(a.dek)}</p>
+          <span class="rsh-art__expand" aria-hidden="true">
+            <span class="rsh-art__expand-lbl">READ</span>
+            <span class="rsh-art__expand-caret">▾</span>
+          </span>
+        </div>
+      </summary>
       <div class="rsh-art__body">
-        <span class="rsh-art__kind${kindCls}">${kind}</span>
-        <h2 class="rsh-art__title">${escapeHtml(a.title)}</h2>
-        <p class="rsh-art__dek">${escapeHtml(a.dek)}</p>
         <div class="rsh-art__attr">
           <span class="rsh-art__attr-by">⊕ filed by ${filer}</span>
         </div>
@@ -562,7 +643,7 @@ function articleHtml(a){
         ${sourcesHtml}
         ${pdfHtml}
       </div>
-    </article>
+    </details>
   `;
 }
 
