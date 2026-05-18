@@ -24,6 +24,11 @@
   <link rel="stylesheet" href="style/components/mobile-nav.css">
   <link rel="stylesheet" href="style/components/hist-modal.css">
   <link rel="stylesheet" href="style/components/cockpit.css">
+  <!-- chart-mode.css carries the shared .cm-tooltip + .ct-tt__*
+       selectors the cockpit chart's hover tooltip reuses (closes
+       the Cockpit Chart Tooltip Parity ask). Unused chart-mode
+       layout/header rules silently no-op here. -->
+  <link rel="stylesheet" href="style/components/chart-mode.css">
 </head>
 <body>
   <div data-mount="tickers"></div>

@@ -948,7 +948,34 @@ When real OHLC history lands (TaoStats wiring → src/data/series/
 for a fetch + cache layer behind the same signature. All three
 consumers stay unchanged.
 
-## Coordination Log: Cockpit Chart Tooltip Parity (OPEN — sandbox-session)
+## Coordination Log: Cockpit Chart Tooltip Parity (RESOLVED — mac-session)
+
+  Mac picked up the open ask after sibling cycled through 8
+  banner-focused commits without touching Cockpit.js. Per "keep
+  going until we reach the goal" — closed the gap directly.
+
+  Cockpit.js drawChart now returns the same hit-test controller
+  the terminal CHART mode's drawChart returns: { flags, hitFlag,
+  hitTest, drawCrosshair }. mountCockpit captures `hit` in its
+  closure and wireChart() adds mousemove / mouseleave / click
+  handlers on the canvas — OHLC + MA values render in a positioned
+  tooltip on bar hover, editorial-flag tooltip on marker hover,
+  flag click opens the article URL in a new tab.
+
+  Selector reuse: tooltip DOM uses .cm-tooltip + .ct-tt__* — the
+  exact same selectors the terminal CHART mode uses. cockpit.html
+  now also loads style/components/chart-mode.css to pick up the
+  rules; unused chart-mode layout rules silently no-op since
+  cockpit doesn't have those classes. Minor coupling cost vs. the
+  refactor risk of extracting a shared chart-tooltip.css — defer
+  the extraction as a future cleanup if a third surface needs it.
+
+  Reader switching between /cockpit.html and /terminal.html?mode=chart
+  now experiences IDENTICAL hover behavior. Same OHLC tooltip,
+  same MA color-keyed rows, same red crosshair, same news-flag
+  click-through.
+
+## Past Coordination Log: Cockpit Chart Tooltip Parity (ORIGINAL ASK)
 
 Saved by Rondo's instruction, 2026-05-17 (mac-session audit per the
 "double check sibling + 150% bar" rule above).

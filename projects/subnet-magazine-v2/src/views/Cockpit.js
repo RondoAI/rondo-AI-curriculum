@@ -161,7 +161,7 @@ function annotationsFor(netuid, subnetName){
 }
 
 function drawChart(canvas, series, range, annotations){
-  if (!canvas) return;
+  if (!canvas) return null;
   const ctx = canvas.getContext('2d');
   const dpr = Math.min(window.devicePixelRatio || 1, 2);
   const rect = canvas.getBoundingClientRect();
@@ -172,11 +172,11 @@ function drawChart(canvas, series, range, annotations){
   ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
   ctx.clearRect(0, 0, W, H);
 
-  if (!series || !series.length) return;
+  if (!series || !series.length) return null;
 
   const sliceStart = Math.max(0, series.length - range.days);
   const slice = series.slice(sliceStart);
-  if (slice.length < 2) return;
+  if (slice.length < 2) return null;
 
   const PAD_L = 50, PAD_R = 14, PAD_T = 14, PAD_B = 60;
   const VOL_H = 38;
@@ -297,7 +297,10 @@ function drawChart(canvas, series, range, annotations){
      Mac's terminal CHART mode (commit 6234f0e) so the cockpit and
      terminal chart surfaces use the same visual language. Amber
      dots = magazine, red dots = oracle. Stagger lane (0/1/2) when
-     adjacent dates collide within 18px. */
+     adjacent dates collide within 18px.
+     Flags collected into an array so the returned hit-tester can
+     resolve cursor-over-flag → article click/hover. */
+  const flags = [];
   if (annotations && annotations.length){
     const tMin = slice[0].t, tMax = slice[slice.length - 1].t;
     let lastFlagX = -Infinity;
@@ -329,6 +332,7 @@ function drawChart(canvas, series, range, annotations){
       ctx.strokeStyle = '#050203';
       ctx.lineWidth = 1.2;
       ctx.stroke();
+      flags.push({ x, y: dotY, ann: a });
     }
   }
 
@@ -383,6 +387,59 @@ function drawChart(canvas, series, range, annotations){
   ctx.fillRect(legendX, legendY + 4, 3, 1);
   ctx.fillRect(legendX + 5, legendY + 4, 3, 1);
   ctx.fillText('MA' + MA_SLOW_WINDOW, legendX + 14, legendY);
+
+  /* Hit-test controller — closes Cockpit Chart Tooltip Parity gap
+     logged in CLAUDE.md by mac-session. Mirrors the pattern in
+     src/views/terminal/chart-mode.js drawChart so cockpit + terminal
+     CHART expose the SAME hover interaction — OHLC + MA values on
+     bar hover, editorial-flag tooltip on marker hover.
+     Returns null if drawChart bailed early; the caller null-checks. */
+  return {
+    flags,
+    hitFlag(px, py){
+      let best = null, bestD = Infinity;
+      for (const f of flags){
+        const dx = px - f.x, dy = py - f.y;
+        const d = Math.sqrt(dx*dx + dy*dy);
+        if (d < 10 && d < bestD){ bestD = d; best = f; }
+      }
+      return best;
+    },
+    hitTest(px, py){
+      if (px < PAD_L || px > W - PAD_R) return null;
+      const f = (px - PAD_L) / (W - PAD_L - PAD_R);
+      const idx = Math.round(f * (slice.length - 1));
+      const bar = slice[idx];
+      if (!bar) return null;
+      return {
+        idx, bar,
+        x: xAt(idx), y: yAt(bar.close),
+        ma20: ma20[idx],
+        ma50: ma50[idx],
+      };
+    },
+    drawCrosshair(px, py){
+      const h = this.hitTest(px, py);
+      if (!h) return;
+      ctx.save();
+      ctx.strokeStyle = 'rgba(255,30,60,0.55)';
+      ctx.lineWidth = 1;
+      ctx.setLineDash([3, 3]);
+      ctx.beginPath();
+      ctx.moveTo(h.x, priceY0); ctx.lineTo(h.x, priceY1);
+      ctx.moveTo(PAD_L, h.y);    ctx.lineTo(W - PAD_R, h.y);
+      ctx.stroke();
+      ctx.setLineDash([]);
+      ctx.fillStyle = lineColor;
+      ctx.beginPath();
+      ctx.arc(h.x, h.y, 4, 0, Math.PI * 2);
+      ctx.fill();
+      ctx.strokeStyle = '#050203';
+      ctx.lineWidth = 1.2;
+      ctx.stroke();
+      ctx.restore();
+    },
+  };
 }
 
 /* ---------- main mount -------------------------------------- */
@@ -589,6 +646,10 @@ export function mountCockpit(root, dataLayer = null){
         </aside>
         <div class="cock-chart__canvas-wrap">
           <canvas class="cock-chart__canvas" data-chart-canvas></canvas>
+          <!-- Hover tooltip — reuses chart-mode.css .cm-tooltip +
+               .ct-tt__* selectors so cockpit + terminal CHART
+               speak the same visual language on hover. -->
+          <div class="cm-tooltip" data-chart-tooltip style="display:none" role="tooltip" aria-live="polite"></div>
         </div>
       </div>
 
@@ -840,12 +901,18 @@ export function mountCockpit(root, dataLayer = null){
     if (f) f.innerHTML = renderFeed();
   }
 
+  /* `hit` is the controller returned by drawChart — exposes the
+     hit-test functions the hover handlers in wireChart() use to
+     resolve cursor-over-bar and cursor-over-flag. Lives in the
+     mountCockpit closure so wireChart() (defined later) can read
+     the LATEST hit object after each redraw. */
+  let hit = null;
   function drawChartNow(){
     const c = qs('[data-chart-canvas]', root);
     const range = RANGES.find(r => r.key === state.range) || RANGES[2];
     const s = subnetById(state.selectedId) || SUBNETS[0];
     const annotations = annotationsFor(s.netuid, s.name);
-    drawChart(c, series, range, annotations);
+    hit = drawChart(c, series, range, annotations);
   }
 
   /* ---------- wiring --------------------------------------- */
@@ -923,6 +990,95 @@ export function mountCockpit(root, dataLayer = null){
         if (Number.isFinite(id)) setSelected(id);
       });
     }
+
+    /* Chart hover — OHLC + MA tooltip on bar hover, editorial
+       tooltip on news-flag marker hover. Closes the "Cockpit Chart
+       Tooltip Parity" coordination ask logged in CLAUDE.md
+       (commit 2cb3f75) — cockpit + terminal CHART now expose the
+       same hover interaction. */
+    const canvas    = qs('[data-chart-canvas]', root);
+    const tooltipEl = qs('[data-chart-tooltip]', root);
+    if (!canvas) return;
+    const onMove = (ev) => {
+      if (!hit) return;
+      const r = canvas.getBoundingClientRect();
+      const x = ev.clientX - r.left, y = ev.clientY - r.top;
+      /* Flag hover first — within 10px of a marker dot we show
+         the editorial tooltip instead of the price-bar tooltip. */
+      const flagHit = hit.hitFlag(x, y);
+      if (flagHit){
+        drawChartNow();              // clear any prior crosshair
+        const a = flagHit.ann;
+        const kindCls   = a.kind === 'mag' ? 'is-mag' : 'is-orc';
+        const kindLabel = a.kind === 'mag' ? 'MAGAZINE' : 'ORACLE';
+        if (tooltipEl){
+          tooltipEl.innerHTML = `
+            <span class="ct-tt__date ct-tt__flag ${kindCls}">${escapeAttr(a.date)} · ${kindLabel}</span>
+            <span class="ct-tt__title">${escapeAttr(a.title)}</span>
+            ${a.url || a.href ? `<span class="ct-tt__cta">↗ click marker to open</span>` : ''}`;
+          tooltipEl.style.display = 'block';
+          const cw = canvas.clientWidth || r.width;
+          const left = Math.max(8, Math.min(cw - 240, x + 14));
+          const top  = Math.max(8, y - 10);
+          tooltipEl.style.left = left + 'px';
+          tooltipEl.style.top  = top + 'px';
+        }
+        canvas.style.cursor = (a.url || a.href) ? 'pointer' : 'help';
+        return;
+      }
+      canvas.style.cursor = '';
+      const h = hit.hitTest(x, y);
+      if (!h){ if (tooltipEl) tooltipEl.style.display = 'none'; drawChartNow(); return; }
+      drawChartNow();
+      hit.drawCrosshair(x, y);
+      if (tooltipEl){
+        const d = new Date(h.bar.t);
+        const date = `${['JAN','FEB','MAR','APR','MAY','JUN','JUL','AUG','SEP','OCT','NOV','DEC'][d.getMonth()]} ${d.getDate()} ${String(d.getFullYear()).slice(2)}`;
+        const fmtP = p => p == null ? '·' : (p < 1 ? '$' + p.toFixed(4) : '$' + p.toFixed(2));
+        const maRows =
+          (h.ma20 != null ? `<span class="ct-tt__row ct-tt__row--ma20">MA20 <b>${fmtP(h.ma20)}</b></span>` : '') +
+          (h.ma50 != null ? `<span class="ct-tt__row ct-tt__row--ma50">MA50 <b>${fmtP(h.ma50)}</b></span>` : '');
+        tooltipEl.innerHTML = `
+          <span class="ct-tt__date">${date}</span>
+          <span class="ct-tt__row">O <b>${fmtP(h.bar.open)}</b></span>
+          <span class="ct-tt__row">H <b>${fmtP(h.bar.high)}</b></span>
+          <span class="ct-tt__row">L <b>${fmtP(h.bar.low)}</b></span>
+          <span class="ct-tt__row">C <b>${fmtP(h.bar.close)}</b></span>
+          <span class="ct-tt__row">V <b>${(h.bar.volume/1e3).toFixed(1)}K</b></span>
+          ${maRows}`;
+        tooltipEl.style.display = 'block';
+        const cw = canvas.clientWidth || r.width;
+        const left = Math.max(8, Math.min(cw - 160, x + 14));
+        const top  = Math.max(8, y - 10);
+        tooltipEl.style.left = left + 'px';
+        tooltipEl.style.top  = top + 'px';
+      }
+    };
+    const onLeave = () => {
+      if (tooltipEl) tooltipEl.style.display = 'none';
+      drawChartNow();
+    };
+    const onClick = (ev) => {
+      if (!hit) return;
+      const r = canvas.getBoundingClientRect();
+      const f = hit.hitFlag(ev.clientX - r.left, ev.clientY - r.top);
+      const href = f && (f.ann.url || f.ann.href);
+      if (href) window.open(href, '_blank', 'noopener');
+    };
+    canvas.addEventListener('mousemove', onMove);
+    canvas.addEventListener('mouseleave', onLeave);
+    canvas.addEventListener('click', onClick);
+  }
+
+  /* Minimal HTML-attribute escape for the tooltip strings. The
+     annotation data comes from local SUBNETS-keyed files so it's
+     trusted, but we escape at the boundary anyway per Code
+     Quality Bar rule 5 (validate at boundaries even when sources
+     are trusted). */
+  function escapeAttr(v){
+    return String(v == null ? '' : v)
+      .replace(/&/g, '&amp;').replace(/"/g, '&quot;').replace(/'/g, '&#39;')
+      .replace(/</g, '&lt;').replace(/>/g, '&gt;');
   }
 
   /* Optional: react to live data ticks when the DataLayer wiring
