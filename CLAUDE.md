@@ -920,6 +920,34 @@ The 150% bar is asymmetric: it lifts AVERAGE quality higher with
 each handoff. If both sessions hold the bar, every merge produces
 something neither could have produced alone.
 
+## Coordination Log: Synthetic Series Extracted to Shared Lib (RESOLVED)
+
+Saved 2026-05-17 (mac-session). The seeded backward-walk price
+synthesizer + simple moving average lived as duplicate definitions
+in src/views/Cockpit.js and src/views/terminal/chart-mode.js, with
+a cross-language-invariant comment chain reminding both sessions
+to edit both files in lockstep when tuning.
+
+The invariant was real but the right resolution was extraction,
+not coordination. Both copies now import from a new shared module:
+
+  src/lib/synthetic-series.js
+    export const SERIES_DAYS = 365
+    export function generateSeries(subnet, days = SERIES_DAYS)
+    export function sma(values, window)
+
+This becomes the canonical home. The cross-language invariant
+shrinks to zero (one source, can't drift). A third consumer —
+src/views/terminal/editorial-mode.js — joined the same import to
+compute synthetic editorial alpha (mean N-day post-publication
+return vs. equal-weighted network return, with t-stat for
+significance), which previously rendered as a "pending" placeholder.
+
+When real OHLC history lands (TaoStats wiring → src/data/series/
+<netuid>.json or analytics.json), the lib swaps out generateSeries
+for a fetch + cache layer behind the same signature. All three
+consumers stay unchanged.
+
 ## Coordination Log: Cockpit Chart Tooltip Parity (OPEN — sandbox-session)
 
 Saved by Rondo's instruction, 2026-05-17 (mac-session audit per the

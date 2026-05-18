@@ -22,6 +22,7 @@ import { qs, qsa, escapeHtml } from '../../lib/dom.js';
 import { SUBNETS, subnetById } from '../../data/subnets.js';
 import { ARTICLES } from '../../data/articles.js';
 import { recentOracleArticles } from '../../data/oracle-articles.js';
+import { generateSeries, SERIES_DAYS } from '../../lib/synthetic-series.js';
 
 /* ---------- public mount ----------------------------------- */
 
@@ -123,6 +124,9 @@ function computeInsights(all){
     return Number.isFinite(t) && (todayMs - t) < ms30;
   }).length;
 
+  /* 8. Editorial alpha — synthetic until real OHLC lands. */
+  const alpha = computeEditorialAlpha(all);
+
   return {
     total: all.length,
     counts,
@@ -133,7 +137,92 @@ function computeInsights(all){
     latest,
     daysSince,
     last30,
+    alpha,
   };
+}
+
+/* ---------- editorial alpha (synthetic) --------------------- */
+/* For each dated dispatch with a known subnetId, measure the
+   subnet's N-day forward return from the publish date and subtract
+   the network's equal-weighted mean N-day return over the same
+   window. Average across all eligible dispatches = "did our
+   coverage precede outperformance, on average."
+
+   Synthetic caveat: the price series is the seeded backward-walk
+   from src/lib/synthetic-series.js, not real OHLC. Signal SHAPE
+   over signal precision (per CLAUDE.md Signal Taxonomy) — the
+   value is HONEST about what it is in the UI footnote.
+
+   Heavy O(53 * 365 + dispatches * 53) work runs ONCE at module
+   load — the analytics.json pipeline will eventually pre-compute
+   this nightly with real OHLC + serve it as a JSON load. */
+
+const ALPHA_WINDOW_DAYS = 7;
+
+/* Pre-build a netuid → close[] map ONCE so per-dispatch lookups
+   are O(1). 53 subnets × 365 closes = trivial memory. */
+const _SERIES_BY_NETUID = (() => {
+  const m = new Map();
+  for (const s of SUBNETS){
+    try {
+      const series = generateSeries(s);
+      m.set(s.netuid, series.map(b => b.close));
+    } catch (_) { /* a malformed subnet row skips silently here —
+                     parse_subnets equivalent has its own warn path */ }
+  }
+  return m;
+})();
+
+/* Network equal-weighted close as an array aligned with SERIES_DAYS.
+   Used as the alpha baseline for every dispatch. */
+const _NETWORK_CLOSES = (() => {
+  const out = new Array(SERIES_DAYS).fill(0);
+  let counted = 0;
+  for (const closes of _SERIES_BY_NETUID.values()){
+    if (closes.length !== SERIES_DAYS) continue;
+    for (let i = 0; i < SERIES_DAYS; i++) out[i] += closes[i];
+    counted++;
+  }
+  if (counted === 0) return null;
+  for (let i = 0; i < SERIES_DAYS; i++) out[i] /= counted;
+  return out;
+})();
+
+function dateToSeriesIndex(dateStr){
+  const ms = Date.parse(dateStr + 'T00:00:00Z');
+  if (!Number.isFinite(ms)) return -1;
+  const today = new Date();
+  today.setHours(0, 0, 0, 0);
+  const todayMs = today.getTime();
+  const daysAgo = Math.round((todayMs - ms) / 86_400_000);
+  if (daysAgo < 0 || daysAgo >= SERIES_DAYS) return -1;
+  return SERIES_DAYS - 1 - daysAgo;
+}
+
+function computeEditorialAlpha(all){
+  if (!_NETWORK_CLOSES) return { n: 0, meanAlpha: null, tStat: null, window: ALPHA_WINDOW_DAYS };
+  const alphas = [];
+  for (const a of all){
+    if (a.subnetId == null || !a.date) continue;
+    const closes = _SERIES_BY_NETUID.get(a.subnetId);
+    if (!closes) continue;
+    const i0 = dateToSeriesIndex(a.date);
+    const i1 = i0 + ALPHA_WINDOW_DAYS;
+    if (i0 < 0 || i1 >= SERIES_DAYS) continue;
+    const c0 = closes[i0], c1 = closes[i1];
+    const n0 = _NETWORK_CLOSES[i0], n1 = _NETWORK_CLOSES[i1];
+    if (!Number.isFinite(c0) || !Number.isFinite(c1) || c0 <= 0 || n0 <= 0) continue;
+    const subnetRet  = (c1 - c0) / c0;
+    const networkRet = (n1 - n0) / n0;
+    alphas.push((subnetRet - networkRet) * 100);     /* in % points */
+  }
+  const n = alphas.length;
+  if (n < 2) return { n, meanAlpha: null, tStat: null, window: ALPHA_WINDOW_DAYS };
+  const mean = alphas.reduce((a, b) => a + b, 0) / n;
+  const variance = alphas.reduce((acc, v) => acc + (v - mean) ** 2, 0) / (n - 1);
+  const stderr = Math.sqrt(variance / n);
+  const tStat = stderr > 0 ? mean / stderr : null;
+  return { n, meanAlpha: mean, tStat, window: ALPHA_WINDOW_DAYS };
 }
 
 function giniCoefficient(values){
@@ -172,6 +261,39 @@ function template({ insights, state, all }){
       </footer>
     </article>
   `;
+}
+
+function renderAlphaInsight(alpha){
+  if (!alpha || alpha.n < 2){
+    return `
+      <div class="term-edit__insight">
+        <div class="term-edit__insight-lbl">EDITORIAL ALPHA · ${alpha?.window || ALPHA_WINDOW_DAYS}D POST-PUB</div>
+        <div class="term-edit__insight-big term-edit__insight-big--pending">·</div>
+        <div class="term-edit__insight-sub term-edit__insight-sub--pending">
+          <em>Need ≥2 dated dispatches inside the ${SERIES_DAYS}-day window.</em>
+        </div>
+      </div>`;
+  }
+  const sign      = alpha.meanAlpha >= 0 ? '+' : '';
+  const valTxt    = sign + alpha.meanAlpha.toFixed(2) + 'pp';
+  const cls       = alpha.meanAlpha > 0.1 ? 'is-up' : (alpha.meanAlpha < -0.1 ? 'is-down' : 'is-flat');
+  const tTxt      = alpha.tStat == null ? '·' : (alpha.tStat >= 0 ? '+' : '') + alpha.tStat.toFixed(2);
+  /* Reading: |t| > 2 is the conventional weak-significance bar;
+     > 3 starts to look like real signal. Honest framing. */
+  const sigLabel  = alpha.tStat == null ? 'unknown'
+                  : Math.abs(alpha.tStat) >= 3 ? 'STRONG'
+                  : Math.abs(alpha.tStat) >= 2 ? 'WEAK'
+                  : 'NOISE';
+  return `
+    <div class="term-edit__insight">
+      <div class="term-edit__insight-lbl">EDITORIAL ALPHA · ${alpha.window}D POST-PUB</div>
+      <div class="term-edit__insight-big ${cls}">${escapeHtml(valTxt)}</div>
+      <div class="term-edit__insight-sub">
+        <span><strong>t=${escapeHtml(tTxt)}</strong> ${escapeHtml(sigLabel)}</span>
+        <span>n=${alpha.n} dispatches</span>
+        <em title="Synthetic OHLC from src/lib/synthetic-series.js — Python pipeline will replace with real history.">synthetic</em>
+      </div>
+    </div>`;
 }
 
 function renderInsightStrip(insights){
@@ -230,14 +352,8 @@ function renderInsightStrip(insights){
           </div>
         </div>
 
-        <!-- INSIGHT 3: Editorial alpha (placeholder — needs OHLC) -->
-        <div class="term-edit__insight">
-          <div class="term-edit__insight-lbl">EDITORIAL ALPHA · 7D POST-PUB</div>
-          <div class="term-edit__insight-big term-edit__insight-big--pending">·</div>
-          <div class="term-edit__insight-sub term-edit__insight-sub--pending">
-            <em>pending real OHLC history — see Signal Taxonomy in CLAUDE.md.</em>
-          </div>
-        </div>
+        <!-- INSIGHT 3: Editorial alpha (synthetic computation) -->
+        ${renderAlphaInsight(insights.alpha)}
 
         <!-- INSIGHT 4: Top covered subnets -->
         <div class="term-edit__insight term-edit__insight--list">

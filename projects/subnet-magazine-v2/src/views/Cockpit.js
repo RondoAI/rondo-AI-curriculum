@@ -34,6 +34,7 @@ import { CENTRALIZED_NEWS, newsForSubnet } from '../data/centralized-news.js';
 import { recentOracleArticles } from '../data/oracle-articles.js';
 import { ARTICLES } from '../data/articles.js';
 import { GH_ACTIVITY, ghByNetuid } from '../data/github-activity.js';
+import { generateSeries, sma, SERIES_DAYS } from '../lib/synthetic-series.js';
 
 const WATCHLIST_KEY = 'sbn:dashboard:watchlist:v1';
 const COCKPIT_KEY   = 'sbn:cockpit:v1';
@@ -108,91 +109,19 @@ function saveCockpitState(s){
    a small random walk. Seeded per netuid so the series is stable
    across renders. Real time-series ships when DataLayer / TaoStats
    wiring lands; this gives the chart a credible shape today. */
-/* ---------- chart-rendering tunables (named constants) ------
-   Per CLAUDE.md "Code Quality Bar" rule 1: no magic numbers in
-   computation bodies. Named here so an analyst can re-tune
-   without touching the math below. */
-const MA_FAST_WINDOW   = 20;          // bars in the fast moving average
-const MA_SLOW_WINDOW   = 50;          // bars in the slow moving average
-const CHART_SERIES_DAYS = 365;        // backwards-walk depth for synthesis
-// MA palette — single source of truth for the on-canvas overlay
-// lines AND the top-right legend swatches. Tune alpha here, both
-// surfaces update together. Same RGB lives in terminal/chart-mode.js
-// — keep the two files in lockstep when retuning colors.
+/* ---------- chart-rendering tunables ------------------------- */
+/* generateSeries() + sma() + SERIES_DAYS are imported from
+   src/lib/synthetic-series.js — single source of truth shared
+   with terminal/chart-mode.js and editorial-mode.js. The MA
+   palette below is chart-rendering only (lines + legend swatches)
+   and stays here. Same RGB lives in terminal/chart-mode.js. */
+const MA_FAST_WINDOW      = 20;
+const MA_SLOW_WINDOW      = 50;
 const MA_FAST_LINE_RGBA   = 'rgba(156,230,204,0.55)';
 const MA_FAST_SWATCH_RGBA = 'rgba(156,230,204,0.85)';
 const MA_SLOW_LINE_RGBA   = 'rgba(232,192,103,0.45)';
 const MA_SLOW_SWATCH_RGBA = 'rgba(232,192,103,0.85)';
-const MA_SLOW_DASH        = [4, 3];   // segment + gap for the slow line
-
-/* ---------- simple moving average ---------------------------- */
-/* O(n) rolling-sum SMA. Returns an array the same length as `values`
-   with `null` at indices that don't have `window` preceding closes
-   (the first window-1 entries). Computed over the FULL series so
-   the MA at day 0 of a sliced visible window still uses real
-   preceding closes — not a partial-window approximation that would
-   silently mislead a trader.
-   Cross-language invariant: this MUST stay numerically identical to
-   src/views/terminal/chart-mode.js sma() (mac-session ported the
-   same algorithm there in commit 5f3995e). When tuning, edit both. */
-function sma(values, window){
-  const out = new Array(values.length).fill(null);
-  if (window <= 0 || values.length < window) return out;
-  let sum = 0;
-  for (let i = 0; i < window; i++) sum += values[i];
-  out[window - 1] = sum / window;
-  for (let i = window; i < values.length; i++){
-    sum += values[i] - values[i - window];
-    out[i] = sum / window;
-  }
-  return out;
-}
-
-function generateSeries(subnet){
-  const days = CHART_SERIES_DAYS;
-  const out  = new Array(days);
-  let seed   = (subnet.netuid * 12345 + 67) >>> 0;
-  const rand = () => {
-    seed = (seed * 1103515245 + 12345) >>> 0;
-    return ((seed >>> 16) & 0x7FFF) / 0x7FFF;
-  };
-
-  const currentPrice = subnet.price || 1;
-  const r24 = (subnet.chg24 || 0) / 100;
-  const r7  = (subnet.chg7  || 0) / 100;
-  const r30 = (subnet.chg30 || 0) / 100;
-
-  // Today's bar
-  const today = new Date();
-  today.setHours(0, 0, 0, 0);
-  out[days - 1] = {
-    t:      today.getTime(),
-    close:  currentPrice,
-    open:   currentPrice / (1 + r24),
-    high:   currentPrice * (1 + Math.abs(r24) * 0.4 + rand() * 0.01),
-    low:    currentPrice * (1 - Math.abs(r24) * 0.4 - rand() * 0.01),
-    volume: (subnet.emission || 100) * 24 * (subnet.price || 1) * (0.8 + rand() * 0.4),
-  };
-
-  for (let i = days - 2; i >= 0; i--){
-    const dayAgo = days - 1 - i;
-    let drift;
-    if (dayAgo <= 1)       drift = -r24 / 1;
-    else if (dayAgo <= 7)  drift = -r7  / 7;
-    else if (dayAgo <= 30) drift = -r30 / 30;
-    else                   drift = -0.0008 + (rand() - 0.5) * 0.001;
-    const noise   = (rand() - 0.5) * 0.045;
-    const tomorrow = out[i + 1];
-    const close = tomorrow.close * (1 + drift + noise);
-    const open  = close * (1 + (rand() - 0.5) * 0.012);
-    const high  = Math.max(open, close) * (1 + rand() * 0.025);
-    const low   = Math.min(open, close) * (1 - rand() * 0.025);
-    const vol   = (subnet.emission || 100) * 24 * (subnet.price || 1) * (0.4 + rand() * 1.2);
-    const t     = today.getTime() - (days - 1 - i) * 86400000;
-    out[i] = { t, close, open, high: Math.max(low, high), low: Math.min(low, high), volume: vol };
-  }
-  return out;
-}
+const MA_SLOW_DASH        = [4, 3];
 
 /* ---------- canvas chart drawing ---------------------------- */
 /* No external chart lib — direct canvas2d. Reasons: keeps bundle

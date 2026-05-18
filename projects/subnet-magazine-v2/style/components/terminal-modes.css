@@ -441,6 +441,23 @@
   color: var(--c-ink-3);
   font-size: 22px;
 }
+.term-edit__insight-big.is-up   { color: #5BE599; }
+.term-edit__insight-big.is-down { color: #FF4D60; }
+.term-edit__insight-big.is-flat { color: var(--c-ink-2); }
+/* Small "synthetic" caveat tag on the alpha insight — italic +
+   subtle border so the reader knows the value is honest about
+   being placeholder math, without burying the actual reading. */
+.term-edit__insight-sub em{
+  display: inline-block;
+  padding: 0 5px;
+  font-style: italic;
+  font-size: 9px;
+  letter-spacing: .08em;
+  color: var(--c-warn);
+  border: 1px solid rgba(255, 184, 92, .32);
+  text-transform: uppercase;
+  font-weight: 700;
+}
 .term-edit__insight-sub{
   display: flex; flex-wrap: wrap; gap: 8px 12px;
   font-family: var(--f-mono);

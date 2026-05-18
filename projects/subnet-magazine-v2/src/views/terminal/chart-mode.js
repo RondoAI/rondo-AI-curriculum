@@ -32,6 +32,7 @@ import { ARTICLES } from '../../data/articles.js';
 import { recentOracleArticles } from '../../data/oracle-articles.js';
 import { newsForSubnet } from '../../data/centralized-news.js';
 import { escapeHtml } from '../../lib/dom.js';
+import { generateSeries, sma } from '../../lib/synthetic-series.js';
 
 /* Per-subnet article lookup, built once at module load — both my
    composeArticles below AND any future renderers can use these
@@ -97,55 +98,8 @@ const fmtMcap  = m => m == null ? '·' : '$' + (m >= 1000 ? (m/1000).toFixed(2) 
 const cls      = v => v == null ? 'is-flat' : (v > 0 ? 'is-up' : v < 0 ? 'is-down' : 'is-flat');
 const arrow    = v => v == null ? '·' : (v > 0.001 ? '▲' : v < -0.001 ? '▼' : '—');
 
-/* ---------- deterministic 365-day series ------------------- */
-/* Same seeded walk as src/views/Cockpit.js generateSeries — so the
-   standalone cockpit and this terminal mode agree on the underlying
-   data. Backwards-walk from current price, apportioning chg24/7/30
-   across their windows with seeded noise. */
-function generateSeries(subnet){
-  const days = 365;
-  const out  = new Array(days);
-  let seed   = (subnet.netuid * 12345 + 67) >>> 0;
-  const rand = () => {
-    seed = (seed * 1103515245 + 12345) >>> 0;
-    return ((seed >>> 16) & 0x7FFF) / 0x7FFF;
-  };
-
-  const currentPrice = subnet.price || 1;
-  const r24 = (subnet.chg24 || 0) / 100;
-  const r7  = (subnet.chg7  || 0) / 100;
-  const r30 = (subnet.chg30 || 0) / 100;
-
-  const today = new Date();
-  today.setHours(0, 0, 0, 0);
-  out[days - 1] = {
-    t:      today.getTime(),
-    close:  currentPrice,
-    open:   currentPrice / (1 + r24),
-    high:   currentPrice * (1 + Math.abs(r24) * 0.4 + rand() * 0.01),
-    low:    currentPrice * (1 - Math.abs(r24) * 0.4 - rand() * 0.01),
-    volume: (subnet.emission || 100) * 24 * (subnet.price || 1) * (0.8 + rand() * 0.4),
-  };
-
-  for (let i = days - 2; i >= 0; i--){
-    const dayAgo = days - 1 - i;
-    let drift;
-    if (dayAgo <= 1)       drift = -r24 / 1;
-    else if (dayAgo <= 7)  drift = -r7  / 7;
-    else if (dayAgo <= 30) drift = -r30 / 30;
-    else                   drift = -0.0008 + (rand() - 0.5) * 0.001;
-    const noise   = (rand() - 0.5) * 0.045;
-    const tomorrow = out[i + 1];
-    const close = tomorrow.close * (1 + drift + noise);
-    const open  = close * (1 + (rand() - 0.5) * 0.012);
-    const high  = Math.max(open, close) * (1 + rand() * 0.025);
-    const low   = Math.min(open, close) * (1 - rand() * 0.025);
-    const vol   = (subnet.emission || 100) * 24 * (subnet.price || 1) * (0.4 + rand() * 1.2);
-    const t     = today.getTime() - (days - 1 - i) * 86400000;
-    out[i] = { t, close, open, high: Math.max(low, high), low: Math.min(low, high), volume: vol };
-  }
-  return out;
-}
+/* generateSeries() lives in src/lib/synthetic-series.js — single
+   source of truth shared with Cockpit.js + editorial-mode.js. */
 
 /* ---------- editorial event list for chart annotations ------ */
 /* Computes the timestamped flag events (magazine + oracle) for a
@@ -189,27 +143,8 @@ const MA_SLOW_DASH        = [4, 3];
    as the swatches above. Keep all three (canvas line, canvas
    swatch, CSS tooltip row) in lockstep when retuning. */
 
-/* Simple moving average — O(n) rolling window. Returns an array
-   the same length as `values` with `null` at indices that don't
-   have `window` preceding closes (the first window-1 entries).
-   Computed over the FULL series so the MA at day 0 of the visible
-   slice still uses the real preceding closes — not a partial
-   window approximation that would mislead the reader.
-   Cross-language invariant: this MUST stay numerically identical
-   to src/views/Cockpit.js sma() (sibling-session ported the same
-   algorithm there in commit 47cbe43). When tuning, edit both. */
-function sma(values, window){
-  const out = new Array(values.length).fill(null);
-  if (window <= 0 || values.length < window) return out;
-  let sum = 0;
-  for (let i = 0; i < window; i++) sum += values[i];
-  out[window - 1] = sum / window;
-  for (let i = window; i < values.length; i++){
-    sum += values[i] - values[i - window];
-    out[i] = sum / window;
-  }
-  return out;
-}
+/* sma() lives in src/lib/synthetic-series.js — single source of
+   truth shared with Cockpit.js. */
 
 function drawChart(canvas, series, range, annotations){
   if (!canvas) return null;
