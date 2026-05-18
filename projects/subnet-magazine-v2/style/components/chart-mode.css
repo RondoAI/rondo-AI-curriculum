@@ -383,14 +383,43 @@
     border-left: 1px solid var(--c-rule-2);
   }
 }
+/* Article sections are <details> elements 2026-05-18+ — readers
+   can collapse either stack to reduce scroll burden. Strip the
+   browser's default disclosure triangle (the ▾ caret in the
+   header is our visual cue) and make the <summary> a styled
+   bar that doubles as the tap/click toggle. */
+.cm-articles__sec{
+  min-height: 0;
+  min-width: 0;
+}
+.cm-articles__sec[open]{
+  flex: 1 1 auto;
+}
+.cm-articles__sec + .cm-articles__sec{
+  border-top: 2px solid var(--c-rule-2);
+}
+.cm-articles__sec + .cm-articles__sec[open]{
+  flex: 0 1 50%;
+}
 .cm-articles__head{
   display: flex;
   justify-content: space-between;
   align-items: baseline;
+  gap: 8px;
   padding: 10px 14px 8px;
   border-bottom: 1px solid var(--c-rule-2);
   background: var(--c-bg-2);
   flex-shrink: 0;
+  cursor: pointer;
+  list-style: none;          /* hide default ▶ marker */
+  user-select: none;
+  transition: background 120ms ease;
+}
+.cm-articles__head::-webkit-details-marker{ display: none; }
+.cm-articles__head:hover,
+.cm-articles__head:focus-visible{
+  background: var(--c-bg-3);
+  outline: none;
 }
 .cm-articles__lbl{
   font-family: var(--f-mono);
@@ -398,6 +427,8 @@
   letter-spacing: .18em;
   font-weight: 800;
   color: var(--c-red-1);
+  flex: 1 1 auto;
+  min-width: 0;
 }
 .cm-articles__n{
   font-family: var(--f-mono);
@@ -406,27 +437,29 @@
   color: var(--c-ink-3);
   padding: 1px 6px;
   border: 1px solid var(--c-rule-2);
+  flex-shrink: 0;
+}
+.cm-articles__caret{
+  font-family: var(--f-mono);
+  font-size: 10px;
+  color: var(--c-ink-3);
+  margin-left: 4px;
+  display: inline-block;
+  transition: transform 160ms ease;
+  flex-shrink: 0;
+}
+.cm-articles__sec[open] > .cm-articles__head > .cm-articles__caret{
+  transform: rotate(180deg);
+  color: var(--c-red-1);
 }
 .cm-articles__list{
   overflow-y: auto;
   -webkit-overflow-scrolling: touch;
   padding: 0;
+  max-height: 60vh;
 }
-/* Two-section sidebar (EDITORIAL + CENTRALIZED). First section
-   expands to fill, second is capped so the divider is always
-   visible — reader sees both signal sources without scrolling
-   the whole rail. */
-.cm-articles__sec{
-  display: flex;
-  flex-direction: column;
-  min-height: 0;
-  min-width: 0;
-  flex: 1 1 auto;
-}
-.cm-articles__sec + .cm-articles__sec{
-  border-top: 2px solid var(--c-rule-2);
-  flex: 0 1 38%;
-  min-height: 120px;
+@media (min-width: 900px){
+  .cm-articles__list{ max-height: none; }
 }
 .cm-art-empty{
   padding: 14px;

@@ -31,7 +31,7 @@ export function mountEditorialMode(root, ctx){
 
   const all = composeDispatches();
   const insights = computeInsights(all);
-  const state = { source: 'all', cat: 'all', sn: null };
+  const state = { source: 'all', cat: 'all', sn: null, expanded: false };
 
   root.innerHTML = template({ insights, state, all });
   wireFilters(root, state, all);
@@ -393,6 +393,14 @@ function renderFilters(insights, state){
   `;
 }
 
+/* Visible-card cap to keep the initial render short. Rondo's
+   2026-05-18 directive ("make research articles collapsable so
+   long scrolling does not overwhelm people"): show the first
+   COLLAPSE_LIMIT cards, hide the rest behind a "SHOW ALL" CTA
+   the reader expands intentionally. state.expanded persists the
+   toggle so re-renders (filter swaps) keep the choice. */
+const COLLAPSE_LIMIT = 12;
+
 function renderGrid(all, state){
   const filtered = all.filter(a => {
     if (state.source === 'all')      return true;
@@ -404,7 +412,21 @@ function renderGrid(all, state){
   if (!filtered.length){
     return `<div class="term-edit__empty">No dispatches match this filter.</div>`;
   }
-  return `<div class="term-edit__cards">${filtered.map(cardHtml).join('')}</div>`;
+  const isExpanded = !!state.expanded;
+  const visible = isExpanded ? filtered : filtered.slice(0, COLLAPSE_LIMIT);
+  const hidden  = filtered.length - visible.length;
+  const cards   = `<div class="term-edit__cards">${visible.map(cardHtml).join('')}</div>`;
+  /* Show toggle only when there's MORE than the cap to hide.
+     When expanded, the toggle becomes "SHOW LESS" so the reader
+     can re-collapse without scrolling back to filters. */
+  const toggle = filtered.length > COLLAPSE_LIMIT
+    ? `<button type="button" class="term-edit__more" data-edit-more aria-expanded="${isExpanded}">
+         ${isExpanded
+           ? `▴ SHOW LESS · showing all ${filtered.length}`
+           : `▾ SHOW ALL · ${hidden} more dispatch${hidden === 1 ? '' : 'es'} hidden`}
+       </button>`
+    : '';
+  return cards + toggle;
 }
 
 function cardHtml(a){
@@ -445,8 +467,25 @@ function wireFilters(root, state, all){
         b.classList.toggle('is-on', on);
         b.setAttribute('aria-pressed', String(on));
       });
+      /* Source change resets the expansion — readers swapping
+         filters expect to see the "first N + show all" pattern
+         fresh, not a previously-expanded full grid. */
+      state.expanded = false;
       const g = qs('[data-grid]', root);
       if (g) g.innerHTML = renderGrid(all, state);
     });
   });
+
+  /* Show-all/show-less toggle. Event delegation on the grid
+     container so the freshly-rendered button always receives
+     the click after a re-render. */
+  const grid = qs('[data-grid]', root);
+  if (grid){
+    grid.addEventListener('click', (e) => {
+      const btn = e.target.closest('[data-edit-more]');
+      if (!btn) return;
+      state.expanded = !state.expanded;
+      grid.innerHTML = renderGrid(all, state);
+    });
+  }
 }

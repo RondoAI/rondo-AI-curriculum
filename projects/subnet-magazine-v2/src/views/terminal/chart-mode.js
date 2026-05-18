@@ -785,24 +785,33 @@ function renderNewsSidebar(s){
     ? backdrop.slice(0, 6).map(renderArticleCard).join('')
     : `<div class="cm-art-empty">No centralized signals indexed for ${escAttr(catLabel(s.cat).toLowerCase())} yet.</div>`;
 
+  /* Each section is a <details> so the reader can collapse either
+     stack to reduce scroll burden per Rondo's 2026-05-18 directive
+     ("make research articles collapsable so long scrolling does
+     not overwhelm people"). EDITORIAL defaults OPEN (it's the
+     in-house signal — read first), CENTRALIZED defaults CLOSED
+     (backdrop context — peek when needed). The summary doubles
+     as a tap target on mobile + a click target on desktop. */
   return `
     <aside class="cm-articles" aria-label="News for ${escAttr(s.name)}">
 
-      <section class="cm-articles__sec">
-        <header class="cm-articles__head">
+      <details class="cm-articles__sec" open>
+        <summary class="cm-articles__head">
           <span class="cm-articles__lbl">EDITORIAL · SN${s.netuid}</span>
           <span class="cm-articles__n">${editorial.length}</span>
-        </header>
+          <span class="cm-articles__caret" aria-hidden="true">▾</span>
+        </summary>
         <div class="cm-articles__list">${editHtml}</div>
-      </section>
+      </details>
 
-      <section class="cm-articles__sec">
-        <header class="cm-articles__head">
+      <details class="cm-articles__sec">
+        <summary class="cm-articles__head">
           <span class="cm-articles__lbl">CENTRALIZED · ${escAttr(catLabel(s.cat))}</span>
           <span class="cm-articles__n">${backdrop.length}</span>
-        </header>
+          <span class="cm-articles__caret" aria-hidden="true">▾</span>
+        </summary>
         <div class="cm-articles__list">${backHtml}</div>
-      </section>
+      </details>
 
     </aside>`;
 }
