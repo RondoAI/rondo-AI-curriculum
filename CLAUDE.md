@@ -2354,3 +2354,144 @@ SECONDARY SUSPECT — repaintMain() on picker change
   owns its own surfaces (Dashboard.js banner, Console.js dock,
   etc.) and pushes those directly. The new rule is specifically
   the cockpit handoff pattern Rondo just asked for.
+
+## Coordination Ask: Cockpit Ruthless Deletion List + Salvage Map (OPEN — for mac-session)
+
+Rondo's instruction, 2026-05-18 — fourth rant on the cockpit
+restructure, this one a precise enumeration of what to DELETE
+vs what to KEEP-AND-RELOCATE. Captured verbatim then translated.
+
+### Rondo's exact list (faithfully paraphrased)
+
+  "In the cockpit we don't need:
+   - sector tilt, paper versus network chart
+   - the portfolio approximate upgrades to live mark-to-market
+     with τ stamp wiring — don't need that data point
+   - attribution desk, where the alpha is coming from
+   - sector attributions
+   - attribution effect
+   - top 5 active contributions [REVERSED below]
+   - active drag, bottom 5 [REVERSED below]
+   - markets roster — too long, pointless to have at this point
+   - category breakdown
+
+   Actually, we CAN keep:
+   - top 5 active contributions
+   - bottom 5 active drag
+
+   Portfolio mix / weight share — should be somewhere UP THERE
+   with the chart.
+
+   The paper money should go into the first chart. We shouldn't
+   have two paper monies."
+
+### Where these sections currently live
+
+All inside Cockpit.js's DESK pane (the `data-pane="desk"`
+section that shows when the reader taps the DESK cockpit-tab):
+
+  Cockpit.js:976-984
+    <div class="cockpit-desk__paper" data-cockpit-desk-paper>
+      ${renderPaperPortfolio()}                  ← "second paper money"
+    </div>
+    <div class="cockpit-desk__attrib" data-cockpit-desk-attrib>
+      ${renderAttribution(deskAttribState)}     ← all the attribution
+                                                  sub-sections Rondo
+                                                  named
+    </div>
+
+  renderAttribution lives in src/views/dashboard/attribution.js
+  and produces these sub-sections (search for them by their
+  on-screen labels):
+    - Sector Tilt (paper vs network) chart
+    - Mark-to-market with τ stamp wiring (approximate upgrades)
+    - Allocation effect / "ALLOCATION" metric tile
+    - Sector Attribution table
+    - Category Breakdown donut + table
+    - Top 5 active contributions
+    - Bottom 5 active drag
+    - Portfolio Mix / Weight Share donut
+
+The MARKETS ROSTER is in Dashboard.js:651 — already collapsible
+on standalone /dashboard.html (defaults closed since sandbox's
+8433297 revert killed the cockpit-mounted-dashboard pattern).
+Rondo wants it ENTIRELY OUT of the cockpit. Confirmed already
+gone from cockpit.html; this entry's instruction is to remove
+any remaining markets-table widget that might still render
+inside the DESK pane or any cockpit sub-component.
+
+### The clean delete-vs-keep matrix
+
+  DELETE FROM COCKPIT (still ok on dashboard.html):
+    Sector Tilt (paper vs network) chart
+    Mark-to-market τ stamp wiring widget
+    Attribution Desk header + scaffolding
+    Allocation effect metric tile
+    Sector Attribution table
+    Category Breakdown donut + table
+    Markets Roster (any remaining cockpit-side rendering)
+
+  KEEP IN COCKPIT (but RELOCATE):
+    Portfolio Mix / Weight Share
+      → MOVE up near the chart pane (compact donut in the
+         sidebar Rondo wants on the chart, OR as a footer
+         strip under the chart header)
+    Top 5 Active Contributions
+      → MOVE up near the chart (compact list in the sidebar
+         or in a footer strip — one row per contribution:
+         SN${k} ${name} +XX.X bp)
+    Bottom 5 Active Drag
+      → SAME — paired list with Top 5, color-coded red
+         (drag) vs green (contribution)
+
+  THE PAPER-MONEY UNIFICATION (binding):
+    The DESK pane's renderPaperPortfolio() block goes AWAY.
+    Paper money lives ONLY in the main chart per the CMC
+    pattern coordination ask above (mode toggle: SUBNET ↔
+    PORTFOLIO, "+" button to add positions, holdings table
+    below the chart). "Two paper monies" — the chart's
+    paper overlay AND the DESK pane's separate paper block
+    — is the redundancy Rondo flagged.
+
+### Mac's pickup order (revised, incorporating this delete list)
+
+  P0 — FREEZE FIX (still urgent, per prior coordination ask)
+
+  P1 — DELETE THE DESK PANE FROM THE COCKPIT entirely.
+       The cockpit-tabs no longer has a DESK tab; the
+       cockpit shell renders only the CHART pane. Strip
+       the `data-pane="desk"` section + the cockpit-tabs__btn
+       for DESK + the related is-desk-active CSS branches +
+       the renderAttribution/renderPaperPortfolio imports
+       from Cockpit.js. The functions still exist; they're
+       just not consumed from the cockpit.
+
+  P2 — SALVAGE the three keep-list panels into the chart-
+       pane sidebar (the right rail Rondo described). The
+       sidebar layout becomes:
+         NETWORK VITALS  (TAO price, mcap, blk, staked, emit)
+         PORTFOLIO MIX   (compact donut — weight by subnet)
+         TOP / DRAG      (top 5 ↑ contributions + bottom 5 ↓
+                          drag, color-coded list)
+       Sidebar is dense, mono, no chrome — pure data column.
+       Mobile: stacks below the chart in the same order.
+
+  P3 — IMPLEMENT THE CMC PATTERN per the prior ask. Chart
+       mode toggle (SUBNET ↔ PORTFOLIO), "+" button for
+       add-position sheet, holdings table below. This is
+       the unified paper-money surface that replaces the
+       deleted DESK pane.
+
+  All four screenshot-verified per the Visual Self-Check
+  rule, both 414x900 mobile and 1440x900 desktop. Sandbox
+  closes this entry once mac's deletion + salvage lands.
+
+### What stays untouched
+
+  - /dashboard.html and dashboard view still render the full
+    attribution + paper-portfolio + markets roster + category
+    breakdown surfaces. Rondo's deletion list applies to the
+    COCKPIT only — the dashboard remains the canonical home
+    for deep-dive desk analytics.
+  - /markets.html and its master table stay as-is.
+  - /editor.html, /oracle.html, /research.html all unchanged.
