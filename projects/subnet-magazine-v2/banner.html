@@ -5,7 +5,7 @@
 <title>Subneτ Magazine — Twitter banner renderer</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@300..800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@300..800&family=JetBrains+Mono:wght@400;500;600&family=EB+Garamond:ital,wght@1,500;1,600;1,700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="/style/tokens.css">
 <style>
   /* TWITTER BANNER (1500x500, 3:1).
@@ -43,22 +43,25 @@
     background: var(--c-rule-2);
   }
   .banner__rule--top    { top: 22px; }
-  .banner__rule--bottom { bottom: 36px; }
+  .banner__rule--bottom { bottom: 56px; }
 
-  /* Magazine masthead edition strip — top mono labels. Vol/no on
-     the left, date + sector on the right, separated by · so it
-     reads as a single editorial line. */
+  /* Magazine masthead edition strip — top mono labels. 14px / 600,
+     pure white on the flag and the BIττENSOR network labels so they
+     read crisp at Twitter's thumbnail crop. Every t/T across the
+     banner is the Greek τ — the brand mark extended into the
+     typography itself. */
   .banner__meta{
-    position: absolute; left: 40px; right: 40px; top: 36px;
-    display: flex; justify-content: space-between;
-    font-family: var(--f-mono); font-size: 11px;
-    color: var(--c-ink-3);
-    letter-spacing: var(--ls-label);
+    position: absolute; left: 40px; right: 40px; top: 32px;
+    display: flex; justify-content: space-between; align-items: baseline;
+    font-family: var(--f-mono); font-size: 14px; font-weight: 600;
+    color: var(--c-ink-1);
+    letter-spacing: .14em;
     text-transform: uppercase;
   }
-  .banner__meta .flag { color: var(--c-ink-1); font-weight: 600; letter-spacing: var(--ls-label); }
-  .banner__meta .dot  { color: var(--c-red);   margin: 0 8px; }
-  .banner__meta .sep  { color: var(--c-ink-5); margin: 0 10px; }
+  .banner__meta .flag    { color: #ffffff; font-weight: 700; letter-spacing: .20em; font-size: 16px; }
+  .banner__meta .network { color: #ffffff; font-weight: 700; letter-spacing: .18em; }
+  .banner__meta .dim     { color: var(--c-ink-3); font-weight: 500; }
+  .banner__meta .sep     { color: var(--c-red);  margin: 0 12px; font-weight: 700; opacity: .65; }
 
   /* The hero block — wordmark, accent rule, deck line, menu.
      Anchored center-vertically, offset right of the PFP overlap.
@@ -78,6 +81,59 @@
     white-space: nowrap;
   }
   .banner__wordmark .tau{ color: var(--c-ink-1); font-weight: 800; }
+
+  /* Every τ across the banner gets this treatment — promoted from
+     "a Greek lowercase glyph that looks like a t" to a visible
+     calligraphic mark in the brand's voice. EB Garamond italic has
+     a properly drawn Greek τ with the top crossbar and curling
+     descender. Auto-wrapped by JS at the bottom of this file so
+     every τ in static markup AND generated content gets the look.
+
+     Height invariant: in uppercase contexts (BIττENSOR, AττRIBUτION),
+     the τ is scaled ~1.35x so its TOP reaches cap-height of the
+     surrounding capitals — flush, not floating low. No vertical
+     baseline nudge anywhere (was producing the uneven look). */
+  .tau-brand{
+    font-family: 'EB Garamond', 'Cormorant Garamond', 'Georgia', serif;
+    font-style: italic;
+    font-weight: 600;
+    font-size: 1.08em;
+    letter-spacing: -.01em;
+    color: inherit;
+    display: inline-block;
+    line-height: 1;
+  }
+  /* Display wordmark — mixed case "Subneτ Magazine", τ sits next
+     to lowercase "ubne" so it stays at near-x-height, just slightly
+     bumped so the calligraphic curl reads. */
+  .banner__wordmark .tau-brand{
+    font-weight: 700;
+    font-size: 1.05em;
+  }
+  /* Body deck — mixed-case "Biττensor neτwork", τ sits among
+     lowercase letters so a small bump keeps it flush. */
+  .banner__deck .tau-brand{
+    font-weight: 600;
+    font-size: 1.08em;
+  }
+  /* UPPERCASE mono contexts — meta strip, menu, sphere caption,
+     attribution. The τ is a lowercase Greek glyph; to match the
+     cap-height of surrounding capitals we scale it ~1.35x. Result:
+     "BIττENSOR" reads as a single word with all letterforms at the
+     same visual height — the τ no longer dips low. */
+  .banner__meta .tau-brand,
+  .banner__menu .tau-brand,
+  .banner__sphere-label .tau-brand,
+  .banner__tag .tau-brand{
+    font-size: 1.22em;
+    font-weight: 500;
+  }
+  /* Flag SUBNEτ MAGAZINE in the top-left — slightly tighter scale
+     so the τ ascender lands EXACTLY at cap-height of the 16px caps,
+     not above. */
+  .banner__meta .flag .tau-brand{
+    font-size: 1.20em;
+  }
 
   .banner__accent{
     width: 72px; height: 2px;
@@ -125,34 +181,31 @@
     text-transform: uppercase;
   }
 
-  /* Live ticker tape at the bottom — real top-N subnets by mcap,
-     with chg24 color-coded green/red Bloomberg-style. Single line,
-     clipped on overflow. Starts at x=240 so the PFP overlap doesn't
-     swallow the leading tickers. */
-  .banner__ticker{
-    position: absolute; left: 240px; right: 40px; bottom: 12px;
-    font-family: var(--f-mono); font-size: 12px; font-weight: 500;
-    color: var(--c-ink-3);
-    white-space: nowrap; overflow: hidden;
-    letter-spacing: var(--ls-data);
+  /* Horizontal neural plexus running along the bottom edge of the
+     banner — replaces the ticker tape. Same red filigree language
+     as the NodeSphere brand mark, unwrapped into a low band. Drawn
+     procedurally in JS at the bottom of this file (seeded so it's
+     reproducible). Sits below the bottom hairline rule + above the
+     attribution chip. */
+  .banner__plexus{
+    position: absolute; left: 0; right: 0; bottom: 0;
+    width: 1500px; height: 56px;
+    display: block;
+    opacity: .95;
   }
-  .banner__ticker .sym  { color: var(--c-ink-2); }
-  .banner__ticker .code { color: var(--c-ink-1); margin: 0 6px; }
-  .banner__ticker .up   { color: var(--c-up);   font-weight: 600; }
-  .banner__ticker .dn   { color: var(--c-down); font-weight: 600; }
-  .banner__ticker .sep  { color: var(--c-ink-5); margin: 0 16px; }
 
-  /* Tiny attribution tag bottom-right under the rule */
+  /* Tiny attribution chip at the bottom-right, on top of the plexus
+     band, with a small dark mask so the wordmark reads cleanly. */
   .banner__tag{
-    position: absolute; right: 40px; bottom: 14px;
-    background: var(--c-bg-1);
-    padding-left: 14px;
-    font-family: var(--f-mono); font-size: 10px;
-    color: var(--c-ink-4);
-    letter-spacing: var(--ls-label);
+    position: absolute; right: 40px; bottom: 22px;
+    background: linear-gradient(90deg, rgba(5,2,3,0) 0%, rgba(5,2,3,.85) 18%, rgba(5,2,3,.95) 100%);
+    padding: 4px 0 4px 18px;
+    font-family: var(--f-mono); font-size: 11px; font-weight: 600;
+    color: var(--c-ink-1);
+    letter-spacing: .14em;
     text-transform: uppercase;
   }
-  .banner__tag .x{ color: var(--c-red); }
+  .banner__tag .x{ color: var(--c-red); margin-right: 4px; font-size: 13px; }
 </style>
 </head>
 <body>
@@ -161,26 +214,26 @@
   <div class="banner__rule banner__rule--top"></div>
 
   <div class="banner__meta">
-    <span><span class="flag">SUBNEτ MAGAZINE</span><span class="sep">·</span>VOL. I<span class="sep">·</span>NO. XXIV<span class="sep">·</span>BITTENSOR</span>
-    <span>MAY 18 2026<span class="sep">·</span>BITTENSOR RESEARCH TERMINAL</span>
+    <span><span class="flag">SUBNEτ MAGAZINE</span><span class="sep">·</span><span class="dim">VOL. I<span class="sep">·</span>NO. XXIV<span class="sep">·</span></span><span class="network">BIττENSOR NEτWORK</span></span>
+    <span><span class="dim">MAY 18 2026<span class="sep">·</span></span><span class="network">BIττENSOR</span> <span class="dim">RESEARCH τERMINAL</span></span>
   </div>
 
   <div class="banner__hero">
     <h1 class="banner__wordmark">Subne<span class="tau">τ</span> Magazine</h1>
     <div class="banner__accent"></div>
-    <p class="banner__deck">The research terminal for the <em>Bittensor</em> network.</p>
+    <p class="banner__deck">τhe research τerminal for τhe <em>Biττensor</em> neτwork.</p>
     <div class="banner__menu">
-      53 SUBNETS<span class="sep">·</span>MARKETS<span class="sep">·</span>EDITORIAL<span class="sep">·</span>ANALYTICS<span class="sep">·</span>ATTRIBUTION
+      128 SUBNEτS<span class="sep">·</span>MARKEτS<span class="sep">·</span>EDIτORIAL<span class="sep">·</span>ANALYτICS<span class="sep">·</span>AττRIBUτION
     </div>
   </div>
 
   <canvas id="sphere" class="banner__sphere" width="380" height="380"></canvas>
-  <div class="banner__sphere-label">NODESPHERE · CONSENSUS BRAND MARK</div>
+  <div class="banner__sphere-label">NODESPHERE · BIττENSOR CONSENSUS</div>
 
   <div class="banner__rule banner__rule--bottom"></div>
 
-  <div class="banner__ticker" id="ticker"></div>
-  <div class="banner__tag"><span class="x">𝕏</span> @SUBNETMAGAZINE</div>
+  <canvas id="plexus" class="banner__plexus" width="1500" height="56"></canvas>
+  <div class="banner__tag"><span class="x">𝕏</span> @SUBNEτMAGAZINE</div>
 
   <script type="module">
     import { NodeSphere } from '/src/charts/NodeSphere.js';
@@ -204,21 +257,114 @@
     });
     sphere.draw(c.getContext('2d'), 340, 340, 1.85);
 
-    /* Ticker tape: top-12 subnets by mcap, code shortened to 3-4
-       chars from the subnet name, chg24 color-coded green/red.
-       Pulled from the canonical SUBNETS array so it matches every
-       other surface on the magazine. */
-    const top = [...SUBNETS].sort((a,b) => b.mcap - a.mcap).slice(0, 12);
-    const fmtCode = name => (name || '').toUpperCase()
-      .replace(/[^A-Z0-9]/g, '')
-      .slice(0, 4);
-    document.getElementById('ticker').innerHTML = top.map(s => {
-      const cls   = s.chg24 >= 0 ? 'up' : 'dn';
-      const sign  = s.chg24 >= 0 ? '+' : '';
-      const code  = fmtCode(s.name);
-      const value = `${sign}${s.chg24.toFixed(1)}%`;
-      return `<span class="sym">SN${s.netuid}</span><span class="code">${code}</span><span class="${cls}">${value}</span>`;
-    }).join('<span class="sep">·</span>');
+    /* Horizontal neural plexus across the bottom — replaces the
+       former ticker tape per Rondo's directive. Procedural, seeded
+       (deterministic across renders). Same red-on-black brand
+       language as the NodeSphere on the right: KNN-connected nodes,
+       depth-keyed alpha, soft halos on the nodes. */
+    (function drawPlexusBand(){
+      const c = document.getElementById('plexus');
+      const w = c.width, h = c.height;
+      const ctx = c.getContext('2d');
+      ctx.clearRect(0, 0, w, h);
+
+      const NODES = 110;          // density across 1500x56 band
+      const K     = 3;            // KNN connectivity
+      const MAX_EDGE_D = 130;     // skip edges longer than this (avoids long ugly chords)
+      const SEED = 20260518;      // stable seed (today's date)
+
+      // Mulberry32 — small deterministic PRNG
+      let s = SEED >>> 0;
+      const rand = () => { s |= 0; s = s + 0x6D2B79F5 | 0;
+        let t = Math.imul(s ^ s >>> 15, 1 | s);
+        t = t + Math.imul(t ^ t >>> 7, 61 | t) ^ t;
+        return ((t ^ t >>> 14) >>> 0) / 4294967296;
+      };
+
+      // Sample points across the band with a y-distribution that
+      // slightly favors the middle (a "spine" feel)
+      const pts = [];
+      for (let i = 0; i < NODES; i++){
+        const x = rand() * w;
+        const yBias = (rand() + rand() + rand()) / 3;  // triangular ~ center
+        const y = yBias * h;
+        pts.push({ x, y });
+      }
+
+      // KNN edges
+      const edges = [];
+      for (let i = 0; i < NODES; i++){
+        const dists = [];
+        for (let j = 0; j < NODES; j++){
+          if (i === j) continue;
+          const dx = pts[i].x - pts[j].x, dy = pts[i].y - pts[j].y;
+          const d  = Math.sqrt(dx*dx + dy*dy);
+          if (d > MAX_EDGE_D) continue;
+          dists.push({ j, d });
+        }
+        dists.sort((a,b) => a.d - b.d);
+        for (let k = 0; k < Math.min(K, dists.length); k++){
+          const o = dists[k];
+          if (i < o.j) edges.push({ a: i, b: o.j, d: o.d });
+        }
+      }
+
+      // Draw edges — alpha keyed to length, shorter edges brighter
+      ctx.lineWidth = 1;
+      edges.forEach(e => {
+        const t = 1 - e.d / MAX_EDGE_D;            // 0..1, closer = brighter
+        const a = Math.max(0.04, Math.min(0.35, t * 0.40));
+        ctx.strokeStyle = `rgba(255, 30, 60, ${a})`;
+        ctx.beginPath();
+        ctx.moveTo(pts[e.a].x, pts[e.a].y);
+        ctx.lineTo(pts[e.b].x, pts[e.b].y);
+        ctx.stroke();
+      });
+
+      // Draw nodes — bright core + soft halo for the "alive" feel
+      pts.forEach(p => {
+        ctx.fillStyle = 'rgba(255, 30, 60, .22)';
+        ctx.beginPath(); ctx.arc(p.x, p.y, 3.2, 0, Math.PI * 2); ctx.fill();
+        ctx.fillStyle = '#FF4D60';
+        ctx.beginPath(); ctx.arc(p.x, p.y, 1.4, 0, Math.PI * 2); ctx.fill();
+      });
+    })();
+
+    /* Promote every τ in the DOM to a calligraphic brand span so
+       the EB-Garamond-italic override (.tau-brand in CSS) catches
+       it. Walks text nodes only, skips script/style/canvas, and
+       won't re-wrap τ's already inside a .tau-brand. */
+    (function wrapTaus(root){
+      const SKIP = new Set(['SCRIPT','STYLE','CANVAS','SVG']);
+      const walker = document.createTreeWalker(root, NodeFilter.SHOW_TEXT, {
+        acceptNode(node){
+          if (SKIP.has(node.parentNode?.tagName)) return NodeFilter.FILTER_REJECT;
+          let p = node.parentNode;
+          while (p){
+            if (p.classList && p.classList.contains('tau-brand')) return NodeFilter.FILTER_REJECT;
+            p = p.parentNode;
+          }
+          return node.nodeValue.includes('τ') ? NodeFilter.FILTER_ACCEPT : NodeFilter.FILTER_REJECT;
+        }
+      });
+      const targets = [];
+      let n;
+      while ((n = walker.nextNode())) targets.push(n);
+      targets.forEach(textNode => {
+        const frag = document.createDocumentFragment();
+        textNode.nodeValue.split(/(τ)/).forEach(part => {
+          if (part === 'τ'){
+            const s = document.createElement('span');
+            s.className = 'tau-brand';
+            s.textContent = 'τ';
+            frag.appendChild(s);
+          } else if (part){
+            frag.appendChild(document.createTextNode(part));
+          }
+        });
+        textNode.parentNode.replaceChild(frag, textNode);
+      });
+    })(document.body);
 
     window.__BANNER_READY__ = true;
   </script>
