@@ -214,17 +214,25 @@ function filterAndSort(state){
 function template(state){
   const total = SUBNETS.length;
   const cats  = ['all', ...presentCats()];
-  const chips = cats.map(c => `
-    <button type="button" class="term-mkts__chip ${c === state.cat ? 'is-on' : ''}" data-mkts-cat="${escapeHtml(c)}">
-      ${escapeHtml(c === 'all' ? 'ALL' : (CAT_LABEL[c] || c.toUpperCase()))}
-    </button>
-  `).join('');
+  const chips = cats.map(c => {
+    const on = c === state.cat;
+    return `
+      <button type="button" class="term-mkts__chip ${on ? 'is-on' : ''}" data-mkts-cat="${escapeHtml(c)}" aria-pressed="${on}">
+        ${escapeHtml(c === 'all' ? 'ALL' : (CAT_LABEL[c] || c.toUpperCase()))}
+      </button>`;
+  }).join('');
 
   const ths = COLS.map(c => {
     const isSort = c.key === state.sortKey;
     const arrow  = !c.cmp ? '' : (isSort ? (state.sortDir === 'desc' ? ' ▼' : ' ▲') : ' ⇕');
     const cls    = `term-mkts__th term-mkts__th--${c.align} ${isSort ? 'is-sort' : ''} ${c.cmp ? '' : 'is-static'}`;
-    return `<th class="${cls}" data-mkts-sort="${c.key}">${escapeHtml(c.label)}<span class="term-mkts__sort">${arrow}</span></th>`;
+    /* role="columnheader" makes the th a true grid column for SR
+       users. aria-sort communicates the current sort state to AT. */
+    const ariaSort = !c.cmp ? 'none'
+                   : !isSort ? 'none'
+                   : (state.sortDir === 'desc' ? 'descending' : 'ascending');
+    const tabAttr = c.cmp ? ` tabindex="0"` : '';
+    return `<th class="${cls}" aria-sort="${ariaSort}" data-mkts-sort="${c.key}"${tabAttr}>${escapeHtml(c.label)}<span class="term-mkts__sort" aria-hidden="true">${arrow}</span></th>`;
   }).join('');
 
   return `
@@ -247,7 +255,7 @@ function template(state){
       ${statsStripHtml(state)}
 
       <div class="term-mkts__scroll" data-markets-scroll>
-        <table class="term-mkts__table" role="grid">
+        <table class="term-mkts__table">
           <thead>
             <tr>${ths}</tr>
           </thead>
@@ -258,7 +266,7 @@ function template(state){
       <div class="term-mkts__cards" data-markets-cards>${cardsHtml(state)}</div>
 
       <footer class="term-mkts__foot">
-        <span class="term-mkts__meta" data-mkts-meta>${rowCountText(state)}</span>
+        <span class="term-mkts__meta" data-mkts-meta aria-live="polite" aria-atomic="true">${rowCountText(state)}</span>
         <span class="term-mkts__brand">⌘ MARKETS · OBSERVER</span>
       </footer>
     </article>
@@ -334,7 +342,7 @@ function rowHtml(s, state, heat){
   const cov        = coverageCount(id);
 
   return `
-    <tr class="term-mkts__tr ${isSel ? 'is-selected' : ''}" data-mkts-row="${id}">
+    <tr class="term-mkts__tr ${isSel ? 'is-selected' : ''}" data-mkts-row="${id}" tabindex="0" aria-selected="${isSel}" aria-label="SN${id} ${escapeHtml(s.name)}, press Enter to load across the terminal">
       <td class="term-mkts__td term-mkts__td--id">SN${id}</td>
       <td class="term-mkts__td term-mkts__td--name">${escapeHtml(s.name)}</td>
       <td class="term-mkts__td term-mkts__td--cat">${escapeHtml(CAT_LABEL[s.cat] || (s.cat || '').toUpperCase())}</td>
@@ -416,8 +424,27 @@ function wire(root, state, ctx){
   qsa('[data-mkts-cat]', root).forEach(btn => {
     btn.addEventListener('click', () => {
       state.cat = btn.dataset.mktsCat;
-      qsa('[data-mkts-cat]', root).forEach(b => b.classList.toggle('is-on', b === btn));
+      /* Update DOM + ARIA in lockstep so screen readers
+         announce the new filter state. */
+      qsa('[data-mkts-cat]', root).forEach(b => {
+        const on = b === btn;
+        b.classList.toggle('is-on', on);
+        b.setAttribute('aria-pressed', String(on));
+      });
       rerender(root, state);
+    });
+  });
+
+  /* Sort headers — keyboard parity. Header has tabindex="0" so
+     Tab walks through the sortable columns; Enter / Space fires
+     the sort just like a click would. */
+  qsa('[data-mkts-sort]', root).forEach(th => {
+    if (th.classList.contains('is-static')) return;
+    th.addEventListener('keydown', (e) => {
+      if (e.key === 'Enter' || e.key === ' '){
+        e.preventDefault();
+        th.click();
+      }
     });
   });
 
@@ -432,23 +459,41 @@ function wire(root, state, ctx){
     });
   }
 
-  /* Row clicks via event delegation on the scroll + cards
-     containers. Single listener each, no rewiring after re-render —
-     ctx stays in closure cleanly. */
-  const onRowClick = (e) => {
-    const row = e.target.closest('[data-mkts-row]');
+  /* Row activation (click OR Enter/Space) via event delegation on
+     the scroll + cards containers. Single listener each, no
+     rewiring after re-render — ctx stays in closure cleanly.
+     Keyboard parity: each row has tabindex="0", so Tab walks the
+     rows + Enter/Space activates — full table is keyboard-first. */
+  const activateRow = (row) => {
     if (!row || !root.contains(row)) return;
     const id = parseInt(row.dataset.mktsRow, 10);
     if (!Number.isFinite(id)) return;
     state.selectedId = id;
-    qsa('[data-mkts-row]', root).forEach(r =>
-      r.classList.toggle('is-selected', parseInt(r.dataset.mktsRow, 10) === id));
+    qsa('[data-mkts-row]', root).forEach(r => {
+      const on = parseInt(r.dataset.mktsRow, 10) === id;
+      r.classList.toggle('is-selected', on);
+      r.setAttribute('aria-selected', String(on));
+    });
     if (typeof ctx?.select === 'function') ctx.select(id);
+  };
+  const onRowClick = (e) => activateRow(e.target.closest('[data-mkts-row]'));
+  const onRowKey   = (e) => {
+    if (e.key !== 'Enter' && e.key !== ' ') return;
+    const row = e.target.closest('[data-mkts-row]');
+    if (!row) return;
+    e.preventDefault();
+    activateRow(row);
   };
   const scroll = qs('[data-markets-scroll]', root);
   const cards  = qs('[data-markets-cards]', root);
-  if (scroll) scroll.addEventListener('click', onRowClick);
-  if (cards)  cards.addEventListener('click',  onRowClick);
+  if (scroll){
+    scroll.addEventListener('click',   onRowClick);
+    scroll.addEventListener('keydown', onRowKey);
+  }
+  if (cards){
+    cards.addEventListener('click',   onRowClick);
+    cards.addEventListener('keydown', onRowKey);
+  }
 }
 
 function rerender(root, state){
@@ -465,14 +510,18 @@ function rerender(root, state){
   /* Stats strip outerHTML swap — keep the inserted node in the same
      DOM position so cat/search/sort all repaint a consistent set. */
   if (stats) stats.outerHTML = statsStripHtml(state);
-  /* Update sort indicators on the headers */
+  /* Update sort indicators + ARIA on the headers in lockstep */
   qsa('[data-mkts-sort]', root).forEach(th => {
     const k = th.dataset.mktsSort;
     const isSort = k === state.sortKey;
     th.classList.toggle('is-sort', isSort);
+    const col = COLS.find(c => c.key === k);
+    const ariaSort = !col?.cmp ? 'none'
+                   : !isSort ? 'none'
+                   : (state.sortDir === 'desc' ? 'descending' : 'ascending');
+    th.setAttribute('aria-sort', ariaSort);
     const sortEl = th.querySelector('.term-mkts__sort');
     if (sortEl){
-      const col = COLS.find(c => c.key === k);
       if (!col?.cmp) { sortEl.textContent = ''; return; }
       sortEl.textContent = isSort ? (state.sortDir === 'desc' ? ' ▼' : ' ▲') : ' ⇕';
     }

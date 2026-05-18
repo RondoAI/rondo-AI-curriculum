@@ -382,11 +382,13 @@ function renderFilters(insights, state){
   return `
     <nav class="term-edit__filters" aria-label="Editorial filters">
       <span class="term-edit__filt-lbl">SOURCE</span>
-      ${sources.map(s => `
-        <button type="button" class="term-edit__chip ${s.id === state.source ? 'is-on' : ''}" data-edit-source="${s.id}">
-          ${s.label}<span class="term-edit__chip-n">${s.n}</span>
-        </button>
-      `).join('')}
+      ${sources.map(s => {
+        const on = s.id === state.source;
+        return `
+        <button type="button" class="term-edit__chip ${on ? 'is-on' : ''}" data-edit-source="${s.id}" aria-pressed="${on}">
+          ${s.label}<span class="term-edit__chip-n" aria-hidden="true">${s.n}</span>
+        </button>`;
+      }).join('')}
     </nav>
   `;
 }
@@ -436,7 +438,13 @@ function wireFilters(root, state, all){
   qsa('[data-edit-source]', root).forEach(btn => {
     btn.addEventListener('click', () => {
       state.source = btn.dataset.editSource;
-      qsa('[data-edit-source]', root).forEach(b => b.classList.toggle('is-on', b === btn));
+      /* Update both the visual is-on AND aria-pressed in lockstep
+         so screen readers announce the new filter state. */
+      qsa('[data-edit-source]', root).forEach(b => {
+        const on = b === btn;
+        b.classList.toggle('is-on', on);
+        b.setAttribute('aria-pressed', String(on));
+      });
       const g = qs('[data-grid]', root);
       if (g) g.innerHTML = renderGrid(all, state);
     });
