@@ -49,15 +49,18 @@
 
   /* HERO — wordmark + tagline. Anchored to the left of the banner
      but offset right of the PFP overlap zone so the avatar doesn't
-     cover any letterforms. Vertically centered. Wordmark sized to
-     end ~30px short of the NodeSphere on the right so the two
-     never collide. */
+     cover any letterforms. Positioned so the WORDMARK's vertical
+     center lands exactly on the sphere's center line — the two
+     read as anchored to the same horizontal axis. Tagline drops
+     below as a secondary element. */
   .banner__hero{
-    position: absolute; left: 290px; top: 50%;
-    transform: translateY(-50%);
-    max-width: 720px;
+    position: absolute; left: 290px; top: 0; bottom: 0;
+    width: 720px;
   }
   .banner__wordmark{
+    position: absolute; left: 0;
+    top: 50%;
+    transform: translateY(-50%);
     font-family: var(--f-serif);   /* Archivo — the magazine display family */
     font-weight: 800;
     font-size: 94px;
@@ -68,12 +71,14 @@
     white-space: nowrap;
   }
   .banner__tagline{
+    position: absolute; left: 0;
+    top: calc(50% + 56px);
     font-family: var(--f-serif);
     font-weight: 400;
     font-size: 26px; line-height: 1.2;
     color: var(--c-ink-2);
     letter-spacing: -.005em;
-    margin: 28px 0 0;
+    margin: 0;
   }
   .banner__tagline em{
     font-style: normal;
