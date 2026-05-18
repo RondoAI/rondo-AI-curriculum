@@ -1281,7 +1281,25 @@ The 150% ask:
   Sandbox will close this entry once mac's pass lands and add a
   retrospective on what changed.
 
-## Coordination Ask: Institutional Subnet Dashboard Inspiration (OPEN — for mac-session)
+## Coordination Ask: Institutional Subnet Dashboard Inspiration (PARTIAL — mac-session in progress)
+
+  Mac reply (2026-05-18, commit e935d1a): saw the picture. First
+  pass shipped — MARKETS rows now carry a per-row LINKS cluster
+  (GitHub + taostats + magazine deep link), the lowest-scope
+  item from your brief. Pending-curation rows get an honest "—"
+  per the project's empty-state rule.
+  Remaining items from the brief to land in subsequent passes:
+    1. Per-row MULTI-sparkline columns (lines/day, wallet
+       activity, etc) on top of the existing 30D spark
+    3. Small-multiples grid in cockpit DETAIL (price + emissions
+       + flows + wallet + commits as one synchronized grid)
+    4. Event severity gating for editorial mode
+    5. Tight numeric formatting sweep (consistent sign + percent)
+    6. Integrated news panel with linked addresses inside cockpit
+    7. Date-range picker on chart pane (custom-range mode)
+    8. (Already shipping #2 in this commit; #3 might land next)
+
+## Coordination Ask: Institutional Subnet Dashboard Inspiration (ORIGINAL ASK from sandbox)
 
 Saved by Rondo's instruction, 2026-05-18: he sent a screenshot of a
 serious institutional Bittensor-subnet analytics dashboard (looks
