@@ -172,12 +172,32 @@ function annotationsFor(netuid){
 }
 
 /* ---------- canvas draw (price area + volume bars) --------- */
+/* MA palette + window constants — single source of truth for this
+   file. The same RGB / window values live in src/views/Cockpit.js
+   under MA_FAST_LINE_RGBA / MA_FAST_WINDOW / etc. When retuning
+   colors or windows, edit BOTH files (cross-language invariant
+   per CLAUDE.md Code Quality Bar rule 8). */
+const MA_FAST_WINDOW      = 20;
+const MA_SLOW_WINDOW      = 50;
+const MA_FAST_LINE_RGBA   = 'rgba(156,230,204,0.55)';
+const MA_FAST_SWATCH_RGBA = 'rgba(156,230,204,0.85)';
+const MA_SLOW_LINE_RGBA   = 'rgba(232,192,103,0.45)';
+const MA_SLOW_SWATCH_RGBA = 'rgba(232,192,103,0.85)';
+const MA_SLOW_DASH        = [4, 3];
+/* Tooltip MA row colors live in style/components/chart-mode.css
+   (.ct-tt__row--ma20 / .ct-tt__row--ma50) and use the same RGB
+   as the swatches above. Keep all three (canvas line, canvas
+   swatch, CSS tooltip row) in lockstep when retuning. */
+
 /* Simple moving average — O(n) rolling window. Returns an array
    the same length as `values` with `null` at indices that don't
    have `window` preceding closes (the first window-1 entries).
    Computed over the FULL series so the MA at day 0 of the visible
    slice still uses the real preceding closes — not a partial
-   window approximation that would mislead the reader. */
+   window approximation that would mislead the reader.
+   Cross-language invariant: this MUST stay numerically identical
+   to src/views/Cockpit.js sma() (sibling-session ported the same
+   algorithm there in commit 47cbe43). When tuning, edit both. */
 function sma(values, window){
   const out = new Array(values.length).fill(null);
   if (window <= 0 || values.length < window) return out;
@@ -213,8 +233,8 @@ function drawChart(canvas, series, range, annotations){
      the real preceding 20 closes, not a partial-window approximation
      that would silently mislead a trader. */
   const allCloses = series.map(b => b.close);
-  const ma20Full = sma(allCloses, 20);
-  const ma50Full = sma(allCloses, 50);
+  const ma20Full = sma(allCloses, MA_FAST_WINDOW);
+  const ma50Full = sma(allCloses, MA_SLOW_WINDOW);
   const ma20 = ma20Full.slice(sliceStart);
   const ma50 = ma50Full.slice(sliceStart);
 
@@ -292,8 +312,8 @@ function drawChart(canvas, series, range, annotations){
     if (started) ctx.stroke();
     ctx.restore();
   };
-  drawMA(ma20, 'rgba(156,230,204,0.55)', []);
-  drawMA(ma50, 'rgba(232,192,103,0.45)', [4, 3]);
+  drawMA(ma20, MA_FAST_LINE_RGBA, []);
+  drawMA(ma50, MA_SLOW_LINE_RGBA, MA_SLOW_DASH);
 
   // Price line
   ctx.beginPath();
@@ -362,14 +382,14 @@ function drawChart(canvas, series, range, annotations){
   ctx.textBaseline = 'top';
   const legendY = PAD_T + 4;
   let legendX = W - PAD_R - 110;
-  ctx.fillStyle = 'rgba(156,230,204,0.85)';
+  ctx.fillStyle = MA_FAST_SWATCH_RGBA;
   ctx.fillRect(legendX, legendY + 4, 10, 1);
-  ctx.fillText('MA20', legendX + 14, legendY);
+  ctx.fillText('MA' + MA_FAST_WINDOW, legendX + 14, legendY);
   legendX += 56;
-  ctx.fillStyle = 'rgba(232,192,103,0.85)';
+  ctx.fillStyle = MA_SLOW_SWATCH_RGBA;
   ctx.fillRect(legendX, legendY + 4, 3, 1);
   ctx.fillRect(legendX + 5, legendY + 4, 3, 1);
-  ctx.fillText('MA50', legendX + 14, legendY);
+  ctx.fillText('MA' + MA_SLOW_WINDOW, legendX + 14, legendY);
 
   // News-flag overlays — Bloomberg-style markers at editorial
   // publish dates that fall inside the visible window. Amber for

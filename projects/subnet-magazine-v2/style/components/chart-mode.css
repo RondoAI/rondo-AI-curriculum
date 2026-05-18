@@ -182,7 +182,11 @@
 }
 .ct-tt__row b{ color: #fff; font-weight: 700; }
 /* MA tooltip rows are color-keyed to their on-canvas lines so the
-   reader can match each value back to the overlay it came from. */
+   reader can match each value back to the overlay it came from.
+   These RGBA literals MUST match MA_FAST_SWATCH_RGBA / MA_SLOW_
+   SWATCH_RGBA in src/views/terminal/chart-mode.js AND the parallel
+   constants in src/views/Cockpit.js. Retune all three together
+   (CLAUDE.md Code Quality Bar rule 8 — cross-language invariants). */
 .ct-tt__row--ma20{ color: rgba(156,230,204,0.85); }
 .ct-tt__row--ma20 b{ color: #9CE6CC; }
 .ct-tt__row--ma50{ color: rgba(232,192,103,0.85); }

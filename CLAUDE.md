@@ -892,6 +892,76 @@ against this list specifically. Don't just fix — explain in the
 commit message which rule the original code violated and how the
 fix honors it. The bar gets stronger when violations are visible.
 
+### Standing rule: double-check sibling, push to 150%
+
+Saved by Rondo's instruction, 2026-05-17: "double check your sibling's
+work and always strive to do 150% improvement to whatever it produces."
+
+Every time one session merges the other's commit:
+
+  1. READ the diff in full, not just the commit message. The commit
+     message describes intent — the diff describes reality.
+  2. SCORE against the nine Code Quality Bar rules above. Name
+     specific violations or near-misses, even small ones.
+  3. SHIP a follow-up commit that lifts the work +50% beyond what
+     sibling delivered. Not a rewrite — an additive pass: tighter
+     constants, missing edge case, missing tooltip parity, missing
+     focus state, missing docstring, missing cross-language pointer.
+  4. CREDIT sibling in the commit body — "sibling's commit XYZ
+     shipped A, B, C; this lifts it to D, E, F by adding G, H." The
+     two-session collaboration only works if both sessions trust
+     each other to extend rather than undo.
+  5. WHEN the 150% pass exceeds the current commit's scope (e.g.,
+     adding a tooltip system to a chart that doesn't have one),
+     log the gap as a coordination ask in this CLAUDE.md instead
+     of silently leaving it. Coordination is visible, not implicit.
+
+The 150% bar is asymmetric: it lifts AVERAGE quality higher with
+each handoff. If both sessions hold the bar, every merge produces
+something neither could have produced alone.
+
+## Coordination Log: Cockpit Chart Tooltip Parity (OPEN — sandbox-session)
+
+Saved by Rondo's instruction, 2026-05-17 (mac-session audit per the
+"double check sibling + 150% bar" rule above).
+
+Background: sibling ported mac-session's MA20/MA50 overlays into
+cockpit's drawChart (commit 47cbe43). Visual parity achieved.
+However, cockpit's chart canvas has NO hover/crosshair/tooltip
+system — `grep -n "mousemove\|tooltip\|hover\|crosshair"
+src/views/Cockpit.js` returns zero matches. So a reader can SEE the
+MA lines but cannot READ the underlying values.
+
+Per signal taxonomy ("every chart must answer a decision question"
++ "BlackRock-engineer bar"), drawing a moving-average line without
+exposing its hovered value is half a feature. The terminal CHART
+mode (mac-session) exposes ma20/ma50 in its hitTest return + renders
+color-keyed MA rows in the tooltip; cockpit needs the same.
+
+Coordination ask for sandbox-session:
+
+  Port mac-session's hitTest + drawCrosshair + tooltip pattern from
+  src/views/terminal/chart-mode.js (around the drawChart return
+  block and the mountChartMode mousemove handler) into Cockpit.js
+  drawChart. Specifically:
+
+    - hitTest(px, py) returning { idx, bar, x, y, ma20, ma50 }
+    - drawCrosshair(px, py) drawing dashed red crosshair + price dot
+    - Mousemove handler that toggles a positioned .cm-tooltip
+      (style/components/chart-mode.css already has the rules —
+      reuse rather than duplicate) with OHLC + MA rows
+    - Mouseleave clears the tooltip + redraws clean
+    - Add to the existing repaintChartPane() draw cycle
+
+  Cross-language invariant rule applies: the MA color-keyed CSS
+  classes (.ct-tt__row--ma20 / .ct-tt__row--ma50) already exist
+  in chart-mode.css — Cockpit can reuse them. If it does, log it
+  as a SHARED selector in both files' header comments.
+
+mac-session will not duplicate the pattern in Cockpit (would
+conflict with the active sandbox-session ownership of Cockpit.js);
+this log marks the gap so the next sandbox iteration picks it up.
+
 ## Coordination Log: Cockpit ↔ Terminal CHART Alignment (RESOLVED)
 
   Mac's reply (2026-05-17 via commit 6234f0e): shipped Bloomberg-

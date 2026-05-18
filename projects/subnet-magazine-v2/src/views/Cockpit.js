@@ -115,6 +115,15 @@ function saveCockpitState(s){
 const MA_FAST_WINDOW   = 20;          // bars in the fast moving average
 const MA_SLOW_WINDOW   = 50;          // bars in the slow moving average
 const CHART_SERIES_DAYS = 365;        // backwards-walk depth for synthesis
+// MA palette — single source of truth for the on-canvas overlay
+// lines AND the top-right legend swatches. Tune alpha here, both
+// surfaces update together. Same RGB lives in terminal/chart-mode.js
+// — keep the two files in lockstep when retuning colors.
+const MA_FAST_LINE_RGBA   = 'rgba(156,230,204,0.55)';
+const MA_FAST_SWATCH_RGBA = 'rgba(156,230,204,0.85)';
+const MA_SLOW_LINE_RGBA   = 'rgba(232,192,103,0.45)';
+const MA_SLOW_SWATCH_RGBA = 'rgba(232,192,103,0.85)';
+const MA_SLOW_DASH        = [4, 3];   // segment + gap for the slow line
 
 /* ---------- simple moving average ---------------------------- */
 /* O(n) rolling-sum SMA. Returns an array the same length as `values`
@@ -140,7 +149,7 @@ function sma(values, window){
 }
 
 function generateSeries(subnet){
-  const days = 365;
+  const days = CHART_SERIES_DAYS;
   const out  = new Array(days);
   let seed   = (subnet.netuid * 12345 + 67) >>> 0;
   const rand = () => {
@@ -329,8 +338,8 @@ function drawChart(canvas, series, range, annotations){
     if (started) ctx.stroke();
     ctx.restore();
   };
-  drawMA(ma20, 'rgba(156,230,204,0.55)', []);
-  drawMA(ma50, 'rgba(232,192,103,0.45)', [4, 3]);
+  drawMA(ma20, MA_FAST_LINE_RGBA, []);
+  drawMA(ma50, MA_SLOW_LINE_RGBA, MA_SLOW_DASH);
 
   /* Price line */
   ctx.beginPath();
@@ -437,11 +446,11 @@ function drawChart(canvas, series, range, annotations){
   ctx.textBaseline = 'top';
   const legendY = PAD_T + 4;
   let legendX = W - PAD_R - 110;
-  ctx.fillStyle = 'rgba(156,230,204,0.85)';
+  ctx.fillStyle = MA_FAST_SWATCH_RGBA;
   ctx.fillRect(legendX, legendY + 4, 10, 1);
   ctx.fillText('MA' + MA_FAST_WINDOW, legendX + 14, legendY);
   legendX += 56;
-  ctx.fillStyle = 'rgba(232,192,103,0.85)';
+  ctx.fillStyle = MA_SLOW_SWATCH_RGBA;
   ctx.fillRect(legendX, legendY + 4, 3, 1);
   ctx.fillRect(legendX + 5, legendY + 4, 3, 1);
   ctx.fillText('MA' + MA_SLOW_WINDOW, legendX + 14, legendY);
