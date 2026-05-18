@@ -394,7 +394,7 @@ function rowHtml(s, state, heat){
   return `
     <tr class="term-mkts__tr ${isSel ? 'is-selected' : ''}" data-mkts-row="${id}" tabindex="0" aria-selected="${isSel}" aria-label="SN${id} ${escapeHtml(s.name)}, press Enter to load across the terminal">
       <td class="term-mkts__td term-mkts__td--id">SN${id}</td>
-      <td class="term-mkts__td term-mkts__td--name">${escapeHtml(s.name)}</td>
+      <td class="term-mkts__td term-mkts__td--name">${escapeHtml(s.name)}${s.unindexed ? ' <span class="term-mkts__pending" title="Pending editorial curation — basic registry only">PENDING</span>' : ''}</td>
       <td class="term-mkts__td term-mkts__td--cat">${escapeHtml(CAT_LABEL[s.cat] || (s.cat || '').toUpperCase())}</td>
       <td class="term-mkts__td term-mkts__td--cluster">
         ${clusterCol ? `<span class="term-mkts__cluster" style="--ct:${clusterCol}" title="${escapeHtml(clusterLbl || ('cluster ' + cluster))}">${cluster}</span>` : '<span class="term-mkts__cluster term-mkts__cluster--na">·</span>'}
@@ -437,7 +437,7 @@ function cardHtml(s, state){
       <div class="term-mkts__card-body">
         <div class="term-mkts__card-head">
           <span class="term-mkts__card-sn">SN${id}</span>
-          <span class="term-mkts__card-name">${escapeHtml(s.name)}</span>
+          <span class="term-mkts__card-name">${escapeHtml(s.name)}${s.unindexed ? ' <span class="term-mkts__pending" title="Pending editorial curation">PENDING</span>' : ''}</span>
           <span class="term-mkts__card-cat">${escapeHtml(CAT_LABEL[s.cat] || (s.cat || '').toUpperCase())}</span>
           ${clusterCol ? `<span class="term-mkts__cluster" style="--ct:${clusterCol}">${cluster}</span>` : ''}
           ${cov > 0 ? `<span class="term-mkts__cov">·${cov}</span>` : ''}

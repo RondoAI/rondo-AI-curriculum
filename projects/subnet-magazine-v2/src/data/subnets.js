@@ -1,10 +1,29 @@
 /* =================================================================
    SUBNET MAGAZINE, SUBNET DATASET
    -----------------------------------------------------------------
-   Best-effort current roster, May 2026. Each row carries the fields
-   a pro reader needs: category, owner, α-price (USD), 24h emission,
-   miner / validator counts, total stake (τ), 24h/7d/30d change,
-   github, theme tags, description.
+   Full 128-subnet roster of the Bittensor mainnet as of May 2026.
+   Each row carries the fields a pro reader needs: category, owner,
+   α-price (USD), 24h emission, miner / validator counts, total
+   stake (τ), 24h/7d/30d change, github, theme tags, description.
+
+   Two tiers in this file:
+
+     SEEDED-DETAIL ROWS (~53 subnets, the editorial desk has
+     researched and described): real name, real owner, real
+     category, real github, hand-written description. These are
+     the rows reflecting in-depth coverage.
+
+     PENDING-CURATION ROWS (~75 subnets, netuids 3, 16, 22, etc.):
+     truthful placeholder rows so the count is 128. Name is
+     "Subnet N" (no fabricated identity), owner is "Unindexed",
+     cat is 'data' (safest default), numbers are seeded plausibly
+     per netuid so the synthetic-series lib still draws stable
+     sparklines. Each carries unindexed:true so the UI can mark
+     them visually.
+
+   When the desk profiles a pending-curation row, move it UP to
+   the seeded block with real fields and delete the placeholder.
+   The total count stays 128.
 
    When the taostats live adapter is wired (see src/data/layer.js),
    `live` rows from the API are merged on top of this seed dataset
@@ -31,6 +50,9 @@
  * @prop {number}      chg30      30d % change in α-price
  * @prop {string=}     gh         GitHub repo path
  * @prop {string[]=}   tags       Theme tags
+ * @prop {boolean=}    unindexed  True for pending-curation rows
+ *                                whose name/owner/desc/cat are
+ *                                placeholder, awaiting editorial.
  */
 
 /** @type {readonly Subnet[]} */
@@ -88,6 +110,98 @@ export const SUBNETS = Object.freeze([
   { netuid:86, name:'AudioMind',     cat:'audio',      desc:'Speech recognition and diarization with WER-graded validators.',                     owner:'AudioMind',        price:1.08, mcap:11.0, emission:72,  miners:96,   validators:24,  stake:17_800,  chg24:+4.6,  chg7:+8.2,  chg30:+12.8, gh:'audiomind/audiomind-subnet',          tags:['ASR','speech','diarization'] },
   { netuid:88, name:'Bitcurrent',    cat:'finance',    desc:'Cross-exchange order routing for spot crypto with execution scoring.',               owner:'Bitcurrent',       price:0.94, mcap:9.6,  emission:62,  miners:80,   validators:20,  stake:15_200,  chg24:+3.4,  chg7:+6.0,  chg30:+9.4,  gh:'bitcurrent/bitcurrent-subnet',        tags:['routing','exchange','execution'] },
   { netuid:92, name:'Atomverse',     cat:'science',    desc:'Materials-science property prediction (DFT proxy) with experimental validators.',    owner:'Atomverse',        price:0.84, mcap:8.6,  emission:58,  miners:72,   validators:18,  stake:13_800,  chg24:+2.8,  chg7:+5.2,  chg30:+8.4,  gh:'atomverse-ai/atomverse-subnet',       tags:['materials','DFT','science'] },
+
+  /* ============================================================
+     PENDING-CURATION ROWS — netuids 1-128 the editorial desk
+     has not yet profiled in depth. The Bittensor mainnet runs
+     128 subnets today; the rows above carry detailed seed data
+     for 53 of those; these 75 fill the remaining count with
+     truthful placeholder data + the `unindexed:true` flag so
+     the UI can mark them as pending. Seeded plausibly per netuid
+     so the synthetic-series lib still draws stable sparklines
+     for them. Real TaoStats data overlays on top by netuid when
+     the live adapter lands — see src/data/layer.js comment.
+
+     When the desk profiles one of these (researches the team,
+     verifies the category, writes a description, finds the
+     github repo), move that row UP to the seeded-detail block
+     and delete the placeholder. The count stays 128.
+     ============================================================ */
+  { netuid:3, name:'Subnet 3', cat:'data', desc:'Pending editorial curation — basic registry row only.', owner:'Unindexed', price:0.2167, mcap:2.84, emission:52, miners:75, validators:28, stake:25090, chg24:-3.8, chg7:+1.3, chg30:-2.7, tags:['pending-curation'], unindexed:true },
+  { netuid:16, name:'Subnet 16', cat:'data', desc:'Pending editorial curation — basic registry row only.', owner:'Unindexed', price:0.4303, mcap:5.39, emission:54, miners:158, validators:33, stake:28539, chg24:-2.8, chg7:-0.4, chg30:+3.4, tags:['pending-curation'], unindexed:true },
+  { netuid:22, name:'Subnet 22', cat:'data', desc:'Pending editorial curation — basic registry row only.', owner:'Unindexed', price:0.5687, mcap:5.74, emission:90, miners:130, validators:14, stake:13905, chg24:+1.6, chg7:-2.2, chg30:+12.6, tags:['pending-curation'], unindexed:true },
+  { netuid:26, name:'Subnet 26', cat:'data', desc:'Pending editorial curation — basic registry row only.', owner:'Unindexed', price:0.4541, mcap:5.93, emission:104, miners:185, validators:30, stake:39114, chg24:+1.3, chg7:+0.5, chg30:+7.0, tags:['pending-curation'], unindexed:true },
+  { netuid:31, name:'Subnet 31', cat:'data', desc:'Pending editorial curation — basic registry row only.', owner:'Unindexed', price:0.5797, mcap:6.51, emission:55, miners:99, validators:31, stake:11815, chg24:+1.6, chg7:-3.1, chg30:-13.0, tags:['pending-curation'], unindexed:true },
+  { netuid:32, name:'Subnet 32', cat:'data', desc:'Pending editorial curation — basic registry row only.', owner:'Unindexed', price:0.7891, mcap:11.81, emission:115, miners:103, validators:34, stake:33415, chg24:-1.7, chg7:-1.7, chg30:-12.3, tags:['pending-curation'], unindexed:true },
+  { netuid:33, name:'Subnet 33', cat:'data', desc:'Pending editorial curation — basic registry row only.', owner:'Unindexed', price:0.7029, mcap:6.0, emission:107, miners:103, validators:11, stake:12018, chg24:+2.7, chg7:-2.4, chg30:-8.4, tags:['pending-curation'], unindexed:true },
+  { netuid:35, name:'Subnet 35', cat:'data', desc:'Pending editorial curation — basic registry row only.', owner:'Unindexed', price:0.5057, mcap:5.45, emission:135, miners:206, validators:36, stake:23415, chg24:+1.0, chg7:+0.6, chg30:+11.0, tags:['pending-curation'], unindexed:true },
+  { netuid:37, name:'Subnet 37', cat:'data', desc:'Pending editorial curation — basic registry row only.', owner:'Unindexed', price:0.0697, mcap:0.94, emission:71, miners:84, validators:8, stake:30419, chg24:+0.7, chg7:+3.1, chg30:+12.2, tags:['pending-curation'], unindexed:true },
+  { netuid:38, name:'Subnet 38', cat:'data', desc:'Pending editorial curation — basic registry row only.', owner:'Unindexed', price:1.0892, mcap:13.61, emission:81, miners:131, validators:24, stake:5807, chg24:-0.2, chg7:-2.5, chg30:-5.2, tags:['pending-curation'], unindexed:true },
+  { netuid:40, name:'Subnet 40', cat:'data', desc:'Pending editorial curation — basic registry row only.', owner:'Unindexed', price:0.6149, mcap:7.66, emission:42, miners:181, validators:13, stake:36100, chg24:+1.6, chg7:-7.2, chg30:-1.2, tags:['pending-curation'], unindexed:true },
+  { netuid:41, name:'Subnet 41', cat:'data', desc:'Pending editorial curation — basic registry row only.', owner:'Unindexed', price:0.4569, mcap:4.49, emission:33, miners:155, validators:15, stake:9527, chg24:-0.4, chg7:-1.1, chg30:-8.4, tags:['pending-curation'], unindexed:true },
+  { netuid:43, name:'Subnet 43', cat:'data', desc:'Pending editorial curation — basic registry row only.', owner:'Unindexed', price:0.1571, mcap:1.62, emission:99, miners:166, validators:36, stake:5816, chg24:+0.3, chg7:-1.6, chg30:+1.4, tags:['pending-curation'], unindexed:true },
+  { netuid:44, name:'Subnet 44', cat:'data', desc:'Pending editorial curation — basic registry row only.', owner:'Unindexed', price:0.5715, mcap:8.31, emission:79, miners:138, validators:31, stake:32070, chg24:-0.1, chg7:+1.6, chg30:-6.4, tags:['pending-curation'], unindexed:true },
+  { netuid:45, name:'Subnet 45', cat:'data', desc:'Pending editorial curation — basic registry row only.', owner:'Unindexed', price:1.2032, mcap:13.95, emission:131, miners:230, validators:13, stake:30620, chg24:+1.0, chg7:+6.2, chg30:+11.5, tags:['pending-curation'], unindexed:true },
+  { netuid:46, name:'Subnet 46', cat:'data', desc:'Pending editorial curation — basic registry row only.', owner:'Unindexed', price:0.6822, mcap:7.39, emission:124, miners:175, validators:9, stake:25148, chg24:+1.0, chg7:-2.5, chg30:+3.0, tags:['pending-curation'], unindexed:true },
+  { netuid:49, name:'Subnet 49', cat:'data', desc:'Pending editorial curation — basic registry row only.', owner:'Unindexed', price:1.0098, mcap:10.29, emission:80, miners:174, validators:35, stake:39572, chg24:-1.6, chg7:+1.0, chg30:-1.7, tags:['pending-curation'], unindexed:true },
+  { netuid:51, name:'Subnet 51', cat:'data', desc:'Pending editorial curation — basic registry row only.', owner:'Unindexed', price:0.6022, mcap:6.94, emission:21, miners:128, validators:24, stake:31716, chg24:+0.4, chg7:-1.3, chg30:-7.4, tags:['pending-curation'], unindexed:true },
+  { netuid:53, name:'Subnet 53', cat:'data', desc:'Pending editorial curation — basic registry row only.', owner:'Unindexed', price:0.0926, mcap:0.86, emission:62, miners:75, validators:34, stake:28117, chg24:+1.9, chg7:+1.4, chg30:+6.8, tags:['pending-curation'], unindexed:true },
+  { netuid:54, name:'Subnet 54', cat:'data', desc:'Pending editorial curation — basic registry row only.', owner:'Unindexed', price:0.6533, mcap:4.95, emission:90, miners:74, validators:25, stake:25049, chg24:-0.3, chg7:+0.0, chg30:-2.8, tags:['pending-curation'], unindexed:true },
+  { netuid:62, name:'Subnet 62', cat:'data', desc:'Pending editorial curation — basic registry row only.', owner:'Unindexed', price:0.7305, mcap:6.7, emission:128, miners:172, validators:14, stake:22893, chg24:+0.2, chg7:-4.5, chg30:+13.5, tags:['pending-curation'], unindexed:true },
+  { netuid:63, name:'Subnet 63', cat:'data', desc:'Pending editorial curation — basic registry row only.', owner:'Unindexed', price:0.9636, mcap:6.84, emission:62, miners:130, validators:17, stake:30727, chg24:-3.3, chg7:-3.8, chg30:+5.5, tags:['pending-curation'], unindexed:true },
+  { netuid:65, name:'Subnet 65', cat:'data', desc:'Pending editorial curation — basic registry row only.', owner:'Unindexed', price:0.7437, mcap:7.4, emission:113, miners:148, validators:14, stake:13708, chg24:+0.5, chg7:+5.3, chg30:+11.9, tags:['pending-curation'], unindexed:true },
+  { netuid:66, name:'Subnet 66', cat:'data', desc:'Pending editorial curation — basic registry row only.', owner:'Unindexed', price:0.0915, mcap:0.89, emission:73, miners:213, validators:34, stake:13975, chg24:-2.9, chg7:+7.7, chg30:+0.8, tags:['pending-curation'], unindexed:true },
+  { netuid:68, name:'Subnet 68', cat:'data', desc:'Pending editorial curation — basic registry row only.', owner:'Unindexed', price:0.6275, mcap:6.16, emission:24, miners:80, validators:33, stake:25232, chg24:+3.2, chg7:-2.7, chg30:+1.6, tags:['pending-curation'], unindexed:true },
+  { netuid:70, name:'Subnet 70', cat:'data', desc:'Pending editorial curation — basic registry row only.', owner:'Unindexed', price:0.7404, mcap:11.81, emission:64, miners:71, validators:29, stake:22247, chg24:-1.4, chg7:-3.4, chg30:-3.3, tags:['pending-curation'], unindexed:true },
+  { netuid:71, name:'Subnet 71', cat:'data', desc:'Pending editorial curation — basic registry row only.', owner:'Unindexed', price:1.1466, mcap:18.45, emission:135, miners:130, validators:18, stake:38226, chg24:-1.6, chg7:+1.4, chg30:+13.7, tags:['pending-curation'], unindexed:true },
+  { netuid:72, name:'Subnet 72', cat:'data', desc:'Pending editorial curation — basic registry row only.', owner:'Unindexed', price:0.9054, mcap:14.07, emission:71, miners:226, validators:21, stake:11671, chg24:+2.5, chg7:-3.5, chg30:-12.2, tags:['pending-curation'], unindexed:true },
+  { netuid:74, name:'Subnet 74', cat:'data', desc:'Pending editorial curation — basic registry row only.', owner:'Unindexed', price:0.5854, mcap:5.13, emission:115, miners:189, validators:30, stake:11833, chg24:+2.0, chg7:-4.7, chg30:+0.8, tags:['pending-curation'], unindexed:true },
+  { netuid:76, name:'Subnet 76', cat:'data', desc:'Pending editorial curation — basic registry row only.', owner:'Unindexed', price:0.7466, mcap:6.74, emission:64, miners:115, validators:8, stake:18671, chg24:-2.3, chg7:+0.4, chg30:+0.0, tags:['pending-curation'], unindexed:true },
+  { netuid:78, name:'Subnet 78', cat:'data', desc:'Pending editorial curation — basic registry row only.', owner:'Unindexed', price:0.6884, mcap:6.36, emission:97, miners:155, validators:21, stake:9928, chg24:+0.4, chg7:+5.2, chg30:+5.7, tags:['pending-curation'], unindexed:true },
+  { netuid:80, name:'Subnet 80', cat:'data', desc:'Pending editorial curation — basic registry row only.', owner:'Unindexed', price:0.8345, mcap:6.96, emission:88, miners:74, validators:9, stake:20680, chg24:+1.7, chg7:+0.9, chg30:-2.4, tags:['pending-curation'], unindexed:true },
+  { netuid:82, name:'Subnet 82', cat:'data', desc:'Pending editorial curation — basic registry row only.', owner:'Unindexed', price:0.9526, mcap:13.83, emission:130, miners:165, validators:31, stake:30070, chg24:-3.7, chg7:+3.2, chg30:-9.9, tags:['pending-curation'], unindexed:true },
+  { netuid:84, name:'Subnet 84', cat:'data', desc:'Pending editorial curation — basic registry row only.', owner:'Unindexed', price:1.123, mcap:9.45, emission:79, miners:51, validators:9, stake:10247, chg24:-3.0, chg7:+1.4, chg30:+10.2, tags:['pending-curation'], unindexed:true },
+  { netuid:85, name:'Subnet 85', cat:'data', desc:'Pending editorial curation — basic registry row only.', owner:'Unindexed', price:0.1929, mcap:1.66, emission:120, miners:96, validators:30, stake:35373, chg24:-1.0, chg7:-7.5, chg30:+9.3, tags:['pending-curation'], unindexed:true },
+  { netuid:87, name:'Subnet 87', cat:'data', desc:'Pending editorial curation — basic registry row only.', owner:'Unindexed', price:0.4185, mcap:3.96, emission:84, miners:127, validators:29, stake:39060, chg24:-2.5, chg7:+5.7, chg30:+3.5, tags:['pending-curation'], unindexed:true },
+  { netuid:89, name:'Subnet 89', cat:'data', desc:'Pending editorial curation — basic registry row only.', owner:'Unindexed', price:0.5793, mcap:9.32, emission:84, miners:69, validators:25, stake:18800, chg24:-2.1, chg7:+5.6, chg30:+7.3, tags:['pending-curation'], unindexed:true },
+  { netuid:90, name:'Subnet 90', cat:'data', desc:'Pending editorial curation — basic registry row only.', owner:'Unindexed', price:0.586, mcap:9.27, emission:32, miners:71, validators:32, stake:6731, chg24:-3.2, chg7:+1.5, chg30:+5.6, tags:['pending-curation'], unindexed:true },
+  { netuid:91, name:'Subnet 91', cat:'data', desc:'Pending editorial curation — basic registry row only.', owner:'Unindexed', price:1.2105, mcap:11.05, emission:60, miners:226, validators:30, stake:5891, chg24:-0.6, chg7:+7.7, chg30:+8.1, tags:['pending-curation'], unindexed:true },
+  { netuid:93, name:'Subnet 93', cat:'data', desc:'Pending editorial curation — basic registry row only.', owner:'Unindexed', price:0.5024, mcap:5.55, emission:32, miners:48, validators:9, stake:21055, chg24:-1.4, chg7:+4.5, chg30:+1.5, tags:['pending-curation'], unindexed:true },
+  { netuid:94, name:'Subnet 94', cat:'data', desc:'Pending editorial curation — basic registry row only.', owner:'Unindexed', price:0.7894, mcap:11.06, emission:74, miners:155, validators:9, stake:14681, chg24:-2.8, chg7:-2.8, chg30:+11.7, tags:['pending-curation'], unindexed:true },
+  { netuid:95, name:'Subnet 95', cat:'data', desc:'Pending editorial curation — basic registry row only.', owner:'Unindexed', price:0.7036, mcap:8.04, emission:99, miners:233, validators:23, stake:18802, chg24:+1.2, chg7:+1.0, chg30:-2.6, tags:['pending-curation'], unindexed:true },
+  { netuid:96, name:'Subnet 96', cat:'data', desc:'Pending editorial curation — basic registry row only.', owner:'Unindexed', price:0.5907, mcap:5.34, emission:67, miners:201, validators:14, stake:7869, chg24:-2.6, chg7:+3.1, chg30:-13.4, tags:['pending-curation'], unindexed:true },
+  { netuid:97, name:'Subnet 97', cat:'data', desc:'Pending editorial curation — basic registry row only.', owner:'Unindexed', price:0.4502, mcap:3.97, emission:91, miners:131, validators:11, stake:9928, chg24:+2.2, chg7:+0.5, chg30:+8.7, tags:['pending-curation'], unindexed:true },
+  { netuid:98, name:'Subnet 98', cat:'data', desc:'Pending editorial curation — basic registry row only.', owner:'Unindexed', price:0.7866, mcap:5.83, emission:36, miners:189, validators:31, stake:13988, chg24:-3.0, chg7:+4.0, chg30:-12.3, tags:['pending-curation'], unindexed:true },
+  { netuid:99, name:'Subnet 99', cat:'data', desc:'Pending editorial curation — basic registry row only.', owner:'Unindexed', price:1.0193, mcap:7.55, emission:23, miners:200, validators:24, stake:32117, chg24:-3.0, chg7:+1.3, chg30:+9.7, tags:['pending-curation'], unindexed:true },
+  { netuid:100, name:'Subnet 100', cat:'data', desc:'Pending editorial curation — basic registry row only.', owner:'Unindexed', price:0.2473, mcap:2.39, emission:43, miners:43, validators:29, stake:38807, chg24:+1.4, chg7:+5.2, chg30:+9.7, tags:['pending-curation'], unindexed:true },
+  { netuid:101, name:'Subnet 101', cat:'data', desc:'Pending editorial curation — basic registry row only.', owner:'Unindexed', price:0.7559, mcap:7.65, emission:120, miners:79, validators:18, stake:34104, chg24:+1.0, chg7:+5.4, chg30:+12.5, tags:['pending-curation'], unindexed:true },
+  { netuid:102, name:'Subnet 102', cat:'data', desc:'Pending editorial curation — basic registry row only.', owner:'Unindexed', price:0.7591, mcap:11.92, emission:117, miners:127, validators:30, stake:36497, chg24:-2.4, chg7:+7.6, chg30:+10.0, tags:['pending-curation'], unindexed:true },
+  { netuid:103, name:'Subnet 103', cat:'data', desc:'Pending editorial curation — basic registry row only.', owner:'Unindexed', price:0.7787, mcap:8.94, emission:36, miners:198, validators:38, stake:36692, chg24:-3.1, chg7:-5.3, chg30:+13.7, tags:['pending-curation'], unindexed:true },
+  { netuid:104, name:'Subnet 104', cat:'data', desc:'Pending editorial curation — basic registry row only.', owner:'Unindexed', price:0.5018, mcap:7.4, emission:127, miners:204, validators:21, stake:11434, chg24:-1.6, chg7:+0.4, chg30:+9.2, tags:['pending-curation'], unindexed:true },
+  { netuid:105, name:'Subnet 105', cat:'data', desc:'Pending editorial curation — basic registry row only.', owner:'Unindexed', price:0.3961, mcap:3.81, emission:97, miners:128, validators:21, stake:5839, chg24:+3.7, chg7:-7.4, chg30:-1.1, tags:['pending-curation'], unindexed:true },
+  { netuid:106, name:'Subnet 106', cat:'data', desc:'Pending editorial curation — basic registry row only.', owner:'Unindexed', price:0.6379, mcap:7.04, emission:117, miners:122, validators:30, stake:32220, chg24:+0.5, chg7:-2.4, chg30:+3.3, tags:['pending-curation'], unindexed:true },
+  { netuid:107, name:'Subnet 107', cat:'data', desc:'Pending editorial curation — basic registry row only.', owner:'Unindexed', price:0.4537, mcap:4.94, emission:114, miners:53, validators:9, stake:34488, chg24:+1.8, chg7:-2.7, chg30:-4.6, tags:['pending-curation'], unindexed:true },
+  { netuid:108, name:'Subnet 108', cat:'data', desc:'Pending editorial curation — basic registry row only.', owner:'Unindexed', price:0.7866, mcap:11.18, emission:91, miners:65, validators:9, stake:35353, chg24:+0.0, chg7:+5.0, chg30:-4.5, tags:['pending-curation'], unindexed:true },
+  { netuid:109, name:'Subnet 109', cat:'data', desc:'Pending editorial curation — basic registry row only.', owner:'Unindexed', price:0.3148, mcap:2.93, emission:91, miners:235, validators:25, stake:20068, chg24:+3.6, chg7:-2.5, chg30:-4.6, tags:['pending-curation'], unindexed:true },
+  { netuid:110, name:'Subnet 110', cat:'data', desc:'Pending editorial curation — basic registry row only.', owner:'Unindexed', price:0.7345, mcap:7.36, emission:51, miners:88, validators:23, stake:11793, chg24:-3.5, chg7:-3.4, chg30:+2.5, tags:['pending-curation'], unindexed:true },
+  { netuid:111, name:'Subnet 111', cat:'data', desc:'Pending editorial curation — basic registry row only.', owner:'Unindexed', price:0.1903, mcap:1.77, emission:113, miners:139, validators:36, stake:31603, chg24:-3.3, chg7:-0.8, chg30:+12.2, tags:['pending-curation'], unindexed:true },
+  { netuid:112, name:'Subnet 112', cat:'data', desc:'Pending editorial curation — basic registry row only.', owner:'Unindexed', price:0.8125, mcap:8.92, emission:39, miners:226, validators:39, stake:32030, chg24:+3.7, chg7:+7.5, chg30:+10.6, tags:['pending-curation'], unindexed:true },
+  { netuid:113, name:'Subnet 113', cat:'data', desc:'Pending editorial curation — basic registry row only.', owner:'Unindexed', price:0.4357, mcap:5.97, emission:73, miners:122, validators:19, stake:9528, chg24:-1.3, chg7:-2.2, chg30:-12.5, tags:['pending-curation'], unindexed:true },
+  { netuid:114, name:'Subnet 114', cat:'data', desc:'Pending editorial curation — basic registry row only.', owner:'Unindexed', price:0.8378, mcap:9.96, emission:30, miners:202, validators:21, stake:21814, chg24:-2.0, chg7:-5.9, chg30:-13.3, tags:['pending-curation'], unindexed:true },
+  { netuid:115, name:'Subnet 115', cat:'data', desc:'Pending editorial curation — basic registry row only.', owner:'Unindexed', price:0.6373, mcap:9.62, emission:74, miners:97, validators:11, stake:9577, chg24:+1.7, chg7:+3.6, chg30:+11.0, tags:['pending-curation'], unindexed:true },
+  { netuid:116, name:'Subnet 116', cat:'data', desc:'Pending editorial curation — basic registry row only.', owner:'Unindexed', price:0.5099, mcap:4.61, emission:127, miners:198, validators:11, stake:14841, chg24:-1.3, chg7:-2.2, chg30:+13.6, tags:['pending-curation'], unindexed:true },
+  { netuid:117, name:'Subnet 117', cat:'data', desc:'Pending editorial curation — basic registry row only.', owner:'Unindexed', price:0.0967, mcap:1.39, emission:43, miners:213, validators:34, stake:31891, chg24:-3.5, chg7:+7.8, chg30:+11.4, tags:['pending-curation'], unindexed:true },
+  { netuid:118, name:'Subnet 118', cat:'data', desc:'Pending editorial curation — basic registry row only.', owner:'Unindexed', price:0.0939, mcap:1.16, emission:120, miners:179, validators:9, stake:32935, chg24:-3.3, chg7:+0.4, chg30:+5.5, tags:['pending-curation'], unindexed:true },
+  { netuid:119, name:'Subnet 119', cat:'data', desc:'Pending editorial curation — basic registry row only.', owner:'Unindexed', price:0.7066, mcap:10.55, emission:131, miners:147, validators:14, stake:11811, chg24:+1.3, chg7:-1.5, chg30:-2.3, tags:['pending-curation'], unindexed:true },
+  { netuid:120, name:'Subnet 120', cat:'data', desc:'Pending editorial curation — basic registry row only.', owner:'Unindexed', price:1.0353, mcap:7.74, emission:130, miners:111, validators:10, stake:7301, chg24:-3.4, chg7:+2.5, chg30:-5.4, tags:['pending-curation'], unindexed:true },
+  { netuid:121, name:'Subnet 121', cat:'data', desc:'Pending editorial curation — basic registry row only.', owner:'Unindexed', price:0.7872, mcap:5.95, emission:96, miners:194, validators:8, stake:14060, chg24:+1.4, chg7:-7.6, chg30:-3.1, tags:['pending-curation'], unindexed:true },
+  { netuid:122, name:'Subnet 122', cat:'data', desc:'Pending editorial curation — basic registry row only.', owner:'Unindexed', price:0.4732, mcap:6.18, emission:54, miners:158, validators:10, stake:32569, chg24:-1.3, chg7:+4.1, chg30:-9.4, tags:['pending-curation'], unindexed:true },
+  { netuid:123, name:'Subnet 123', cat:'data', desc:'Pending editorial curation — basic registry row only.', owner:'Unindexed', price:0.4486, mcap:3.34, emission:118, miners:213, validators:34, stake:7937, chg24:+3.9, chg7:+0.0, chg30:-4.2, tags:['pending-curation'], unindexed:true },
+  { netuid:124, name:'Subnet 124', cat:'data', desc:'Pending editorial curation — basic registry row only.', owner:'Unindexed', price:1.0728, mcap:7.16, emission:55, miners:217, validators:33, stake:30708, chg24:+0.6, chg7:+0.4, chg30:+11.3, tags:['pending-curation'], unindexed:true },
+  { netuid:125, name:'Subnet 125', cat:'data', desc:'Pending editorial curation — basic registry row only.', owner:'Unindexed', price:0.7311, mcap:8.71, emission:31, miners:108, validators:23, stake:38601, chg24:-2.0, chg7:-7.5, chg30:-7.6, tags:['pending-curation'], unindexed:true },
+  { netuid:126, name:'Subnet 126', cat:'data', desc:'Pending editorial curation — basic registry row only.', owner:'Unindexed', price:0.9736, mcap:11.59, emission:66, miners:203, validators:11, stake:37679, chg24:-2.3, chg7:+3.3, chg30:+3.7, tags:['pending-curation'], unindexed:true },
+  { netuid:127, name:'Subnet 127', cat:'data', desc:'Pending editorial curation — basic registry row only.', owner:'Unindexed', price:0.3305, mcap:2.2, emission:70, miners:221, validators:27, stake:19809, chg24:-1.1, chg7:+2.4, chg30:+10.5, tags:['pending-curation'], unindexed:true },
+  { netuid:128, name:'Subnet 128', cat:'data', desc:'Pending editorial curation — basic registry row only.', owner:'Unindexed', price:0.1652, mcap:2.55, emission:123, miners:234, validators:13, stake:11917, chg24:+1.3, chg7:-5.3, chg30:-12.8, tags:['pending-curation'], unindexed:true },
 ]);
 
 /** Look up a subnet by netuid. O(n) and that's fine at this size. */

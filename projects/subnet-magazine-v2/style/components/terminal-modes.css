@@ -1588,6 +1588,24 @@
 }
 .term-mkts__card-spark .term-mkts__spark-svg{ display: inline-block; }
 
+/* PENDING badge — appended to subnet name on rows where the
+   editorial desk hasn't profiled the subnet yet. Amber-on-faint
+   so the eye can spot them at scroll-scan without the badge
+   competing with chg cells for color attention. */
+.term-mkts__pending{
+  display: inline-block;
+  padding: 0 4px;
+  margin-left: 4px;
+  font-family: var(--f-mono);
+  font-size: 7.5px;
+  letter-spacing: .14em;
+  font-weight: 800;
+  color: var(--c-warn);
+  border: 1px solid rgba(255, 184, 92, .32);
+  vertical-align: middle;
+  text-transform: uppercase;
+}
+
 /* Markets stats strip — 4-up quick-stat chips computed over the
    FILTERED row set (avg 24h, top mover, worst drag, running-hot
    count). Sits between the cat filters and the table so the
