@@ -521,30 +521,17 @@
      fills the viewport edge-to-edge. */
   .cockpit__feed{ display: none !important; }
   .cockpit__rail{ display: none !important; }
-  /* Phoenix + sibling ref #3 grid: chart pane (1fr) | right-rail
-     action block. Width 2026-05-18 reduced from 320/360 → 260/300
-     after Rondo flagged "in cockpit the chart is now cut off by
-     the $ options." The action block (Portfolio / Cash / chips /
-     CTA) was claiming too much of the row; chart canvas was
-     getting squeezed into ~500px on 1280-wide laptops.
-     New widths leave more room for the chart while still fitting
-     balance + toggle + qty + chips at compact type. */
-  .cockpit__grid{ grid-template-columns: 1fr 240px !important; }
-  .cockpit__action{ display: flex !important; padding: 14px 12px; gap: 12px; }
-  /* Compact action-block type at the narrower column so the
-     surface remains legible without bleeding into the chart. */
-  .cockpit__action .cock-action__chip{ font-size: 10.5px; padding: 6px 4px; }
-  .cockpit__action .cock-action__qty-inp{ font-size: 14px; padding: 8px 10px; }
-  .cockpit__action .cock-action__cta{ font-size: 12px; padding: 12px 12px; }
-  .cockpit__action .cock-action__bal-row{ font-size: 11.5px; }
-  .cockpit__action .cock-action__sum-row{ font-size: 10.5px; }
-  .cockpit__action .cock-action__side{ font-size: 11px; padding: 8px 10px; }
-}
-@media (min-width: 1280px){
-  .cockpit__grid{ grid-template-columns: 1fr 280px !important; }
-}
-@media (min-width: 1600px){
-  .cockpit__grid{ grid-template-columns: 1fr 320px !important; }
+  /* Right-rail QUICK ACTION block REMOVED on desktop 2026-05-18:
+     Rondo "quick action is blocking the whole chart." Even at
+     240-280px the buy/sell rail was eating into chart width and
+     reading as a wall next to the chart. The CMC pattern (sibling
+     coordination 10c861d) is the right end-state: a "+" add-
+     position button INSIDE the chart-pane header (deferred), with
+     buy/sell + holdings table below the chart. Until those land,
+     keep the chart-pane full-width and reach the existing DESK
+     pane for paper trades. */
+  .cockpit__action{ display: none !important; }
+  .cockpit__grid{ grid-template-columns: 1fr !important; }
 }
 
 .cock-chart__news{
@@ -2135,15 +2122,13 @@
   letter-spacing: .04em;
   font-style: italic;
 }
-/* Mobile: the action block is ALWAYS visible (stacked below
-   whichever pane is .is-active). Border on top instead of left
-   so it reads as a stacked band, not a sidebar. */
+/* Mobile: action block also hidden — the chart was being blocked
+   on every screen size. Buy/sell stays reachable via the DESK
+   pane (the existing tab swap). The CMC inline "+" pattern
+   will replace this surface end-to-end in a follow-up. */
 @media (max-width: 900px){
   .cockpit__action{
-    display: flex !important;
-    border-left: 0;
-    border-top: 1px solid var(--c-rule-2);
-    padding: 16px 14px;
+    display: none !important;
   }
 }
 
