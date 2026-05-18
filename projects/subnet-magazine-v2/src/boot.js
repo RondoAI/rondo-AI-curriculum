@@ -10,7 +10,17 @@ import { qs } from './lib/dom.js';
 import { DataLayer } from './data/layer.js';
 import { SUBNETS } from './data/subnets.js';
 import { installCommandPalette } from './lib/command-palette.js?v=20260520s';
-import { installMobileNav } from './lib/mobile-nav.js?v=20260520s';
+/* Mobile nav bar (HOME · MARKETS · DASH · ORACLE · MENU) removed per
+   Rondo 2026-05-18 — the Subnet Oracle dock (mountConsole below) is
+   the canonical bottom bar on mobile. The Oracle dock carries the
+   neural-network brand mark on the left and the FIELD_MANUAL
+   educational content (/mine, /validate, /register, /wallet,
+   /security, /weights, /whitepaper, etc. — the simplified
+   technical onboarding for the OpenTensor Foundation network).
+   Page navigation lives in the masthead (desktop) and the
+   command palette (mobile MENU surface).
+
+import { installMobileNav } from './lib/mobile-nav.js?v=20260520s'; */
 import { mountTickers } from './views/Tickers.js';
 import { mountConsole } from './views/Console.js';
 import { mountStatusStrip } from './views/StatusStrip.js';
@@ -64,10 +74,11 @@ function boot(){
   //     as does the MENU button in the mobile bottom nav below.
   installCommandPalette({ subnets: SUBNETS });
 
-  // 1c) install the fixed-bottom mobile nav (≤720px viewports).
-  //     HOME · MARKETS · DASHBOARD · ORACLE · MENU. Hidden on
-  //     desktop by CSS — desktop has the masthead nav at the top.
-  installMobileNav();
+  // 1c) Mobile bottom nav REMOVED per Rondo 2026-05-18 — the Subnet
+  //     Oracle dock mounted below is the canonical bottom bar on
+  //     mobile. Page navigation lives in the masthead (desktop) and
+  //     the command palette (mobile via [data-cmd-trigger]).
+  // installMobileNav();
 
   // 2) mount views, order is the page reading order
   mountIf('[data-mount="tickers"]',   root => mountTickers(root, DataLayer));
