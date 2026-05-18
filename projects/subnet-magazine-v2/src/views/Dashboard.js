@@ -595,14 +595,27 @@ export function mountDashboard(root, dataLayer = null){
      midline. Wraps paper-portfolio + attribution into one DESK zone
      so they read as positions + analytics-on-those-positions, not
      two disconnected products. */
+  /* Zones rendered as INDEPENDENT COLLAPSIBLES (per Rondo
+     2026-05-18: "my desk, brief, market, detail, bar is confusing
+     ... info should be all integrated into the cockpit in a
+     collapsible way"). The old JUMP tab nav + tab-swap logic
+     (one zone visible at a time) is gone; each zone is now a
+     <details> the reader expands on demand. Open/closed state
+     persists via wireFolds → sbn:fold:v1 keyed by data-fold id,
+     so a reader who opens MARKETS once finds it open next visit.
+     Defaults match what a reader probably wants on first land:
+     BRIEFINGS + DETAIL open, DESK + MARKETS + ARCHIVE closed
+     (still one tap away, but not consuming first-screen real
+     estate). */
   mount(root, html`
     <section class="dash" data-mount="dashboard-root">
       ${renderStatusBar()}
-      ${renderJumpNav()}
-      <div id="briefings" class="dash-zone" data-zone-id="briefings">
+      <details id="briefings" class="dash-zone dash-zone--fold" data-zone-id="briefings" data-fold="dash-briefings" open>
+        <summary class="dash-zone__summary"><span class="dash-zone__eyebrow">⊕</span> BRIEFINGS</summary>
         ${renderBriefings()}
-      </div>
-      <div id="detail" class="dash-zone" data-zone-id="detail">
+      </details>
+      <details id="detail" class="dash-zone dash-zone--fold" data-zone-id="detail" data-fold="dash-detail" open>
+        <summary class="dash-zone__summary"><span class="dash-zone__eyebrow">⊕</span> SUBNET DETAIL</summary>
         <div class="dash-grid">
           ${renderCommand()}
           <div class="dash-detail" data-zone="detail">
@@ -610,8 +623,9 @@ export function mountDashboard(root, dataLayer = null){
           </div>
           ${renderComparator(subnetById(selectedId))}
         </div>
-      </div>
-      <div id="desk" class="dash-zone dash-desk" data-zone-id="desk">
+      </details>
+      <details id="desk" class="dash-zone dash-zone--fold dash-desk" data-zone-id="desk" data-fold="dash-desk">
+        <summary class="dash-zone__summary"><span class="dash-zone__eyebrow">⊕</span> MY DESK</summary>
         ${renderDeskHeader()}
         <!-- Commentary narrative leads MY DESK — narrative before
              math, so the reader sees the story before the
@@ -620,13 +634,15 @@ export function mountDashboard(root, dataLayer = null){
         <div data-zone="commentary"></div>
         ${renderPaperPortfolio()}
         ${renderAttribution(attribState)}
-      </div>
-      <div id="market" class="dash-zone" data-zone-id="market">
+      </details>
+      <details id="market" class="dash-zone dash-zone--fold" data-zone-id="market" data-fold="dash-market">
+        <summary class="dash-zone__summary"><span class="dash-zone__eyebrow">⊕</span> MARKETS ROSTER</summary>
         ${renderMasterTable()}
-      </div>
-      <div id="archive" class="dash-zone" data-zone-id="archive">
+      </details>
+      <details id="archive" class="dash-zone dash-zone--fold" data-zone-id="archive" data-fold="dash-archive">
+        <summary class="dash-zone__summary"><span class="dash-zone__eyebrow">⊕</span> EDITORIAL ARCHIVE</summary>
         ${renderArchive()}
-      </div>
+      </details>
       ${renderFooter()}
     </section>
   `);
@@ -691,12 +707,14 @@ export function mountDashboard(root, dataLayer = null){
       });
     });
   }
-  wireJumpNav();
-  /* Wire <details data-fold="..."> persistence across the whole
-     mounted shell. Each fold's open/closed state is stored in
-     localStorage (sbn:fold:v1) keyed by data-fold id, so a reader
-     who opens the WALLET TRACKER on SN4 sees it open next time
-     they pick SN4. */
+  /* wireJumpNav() removed 2026-05-18 per Rondo "my desk, brief,
+     market, detail, bar is confusing" — zones are now <details>
+     collapsibles, no JUMP tab nav, no tab-swap. Each zone
+     opens/closes independently and the open/closed state
+     persists via wireFolds (sbn:fold:v1 keyed by data-fold id).
+     A reader who opens MARKETS once finds it open next visit;
+     same for any inner WALLET TRACKER / per-subnet detail
+     folds nested inside the zones. */
   wireFolds(root);
 
   /* Repaint primitives. Selection / filter / sort changes only
@@ -1222,11 +1240,15 @@ export function mountDashboard(root, dataLayer = null){
         _scrollTo(d.target || '.dash-detail');
         break;
       case 'open-briefing':
-        /* Scroll the daily briefings strip into view. With a date
-           arg we could pre-select that briefing, but the strip
-           always shows the lead first so the basic scroll-to is
-           sufficient for v1; date-deep-link is a future pass. */
-        qs('[data-zone="briefings"]', root)?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        /* Open the BRIEFINGS fold (now <details>) before scrolling
+           so the reader lands on actual content, not on a closed
+           summary line. Date-deep-link inside the strip is a
+           future pass. */
+        {
+          const briefFold = qs('#briefings', root);
+          if (briefFold && 'open' in briefFold) briefFold.open = true;
+          qs('[data-zone="briefings"]', root)?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
         break;
       case 'open-backdrop': {
         /* With a subnet arg, select that subnet first so the rail

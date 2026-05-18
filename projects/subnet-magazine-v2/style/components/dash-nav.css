@@ -90,16 +90,70 @@
    well below it (too large). JS measures and writes
    scroll-padding-top on <html>. */
 
+/* ---------- zones as INDEPENDENT COLLAPSIBLES ---------------
+   Per Rondo 2026-05-18 "my desk, brief, market, detail, bar is
+   confusing": the JUMP tab nav is gone. Each zone now renders as
+   <details class="dash-zone dash-zone--fold"> with a <summary>
+   header the reader taps to expand/collapse independently. State
+   persists via wireFolds (sbn:fold:v1). The dash-jump rules above
+   are kept for the time being because the markup is no longer
+   emitted; future cleanup can drop them. */
 .dash-zone{
-  /* Each zone is a TAB content panel; only one is visible at a
-     time. When .is-hidden, the zone is removed from layout entirely
-     so the page collapses to just the active zone — no scrolling
-     past hidden content. Replaces the prior 21,000px stacked
-     scroll model with a tabbed shell. */
   display: block;
 }
-.dash-zone.is-hidden{
-  display: none !important;
+.dash-zone--fold{
+  /* The fold owns its own top border so each zone reads as a
+     distinct band. No accordion gating — every fold opens/closes
+     independently, matching the rest of the magazine's collapse
+     primitives (collapsible.css fold pattern). */
+  border-top: 1px solid var(--c-rule-2);
+  margin: 0;
+  padding: 0;
+}
+.dash-zone--fold[open]{
+  padding-bottom: 24px;
+}
+.dash-zone__summary{
+  list-style: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 14px 16px;
+  font-family: var(--f-mono);
+  font-size: 11px;
+  letter-spacing: .22em;
+  font-weight: 800;
+  color: #fff;
+  background:
+    linear-gradient(180deg, rgba(255,30,60,.04) 0%, transparent 100%);
+  user-select: none;
+  /* The summary row reads as a chip-bar — clear affordance to
+     tap, no extra UI chrome. */
+  transition: background 120ms;
+}
+.dash-zone__summary::-webkit-details-marker{ display: none; }
+.dash-zone__summary::marker{ display: none; content: ''; }
+.dash-zone__summary:hover{
+  background: linear-gradient(180deg, rgba(255,30,60,.10) 0%, transparent 100%);
+}
+.dash-zone__eyebrow{
+  color: var(--c-red);
+  font-size: 14px;
+  letter-spacing: 0;
+  /* Rotates on open so the ⊕ becomes an open-indicator without
+     having to swap the glyph itself. */
+  transition: transform 180ms ease-out;
+  display: inline-block;
+}
+.dash-zone[open] > .dash-zone__summary > .dash-zone__eyebrow{
+  transform: rotate(45deg);
+}
+/* Default-open zones (BRIEFINGS, DETAIL) get a slightly stronger
+   top edge so the page hierarchy stays legible even when every
+   zone is expanded. */
+.dash-zone[open]{
+  border-top-color: var(--c-rule-3);
 }
 
 /* ---------- MY DESK wrapper -------------------------------- */
