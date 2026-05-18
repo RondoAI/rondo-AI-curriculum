@@ -83,12 +83,17 @@ function saveWatchlist(set){
   try { localStorage.setItem(WATCHLIST_KEY, JSON.stringify([...set])); } catch (_) {}
 }
 function loadCockpitState(){
+  /* Cockpit ALWAYS leads with the CHART pane on every fresh page
+     load (Rondo's directive: "the page to lead with a price chart").
+     We don't restore a previously-active pane — the chart is the
+     primary, always-visible-first. Selection + range + watched-filter
+     still persist across visits. */
   try {
     const raw = JSON.parse(localStorage.getItem(COCKPIT_KEY) || '{}');
     return {
       selectedId:  Number.isFinite(raw.selectedId)  ? raw.selectedId  : 4,
       range:       raw.range                        || '30D',
-      pane:        raw.pane                         || 'chart',
+      pane:        'chart',
       onlyWatched: !!raw.onlyWatched,
     };
   } catch (_) { return { selectedId: 4, range: '30D', pane: 'chart', onlyWatched: false }; }
