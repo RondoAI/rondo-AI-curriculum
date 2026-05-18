@@ -317,11 +317,24 @@
 }
 .cock-chart__head{
   display: grid;
-  grid-template-columns: 1fr auto;
+  grid-template-columns: 1fr auto auto;
+  align-items: start;
   gap: 14px;
   padding: 14px 16px 10px;
   border-bottom: 1px solid var(--c-rule);
   flex-shrink: 0;
+}
+@media (max-width: 720px){
+  /* On mobile, wrap the "+" button below the price block so the
+     title block still has full width. */
+  .cock-chart__head{
+    grid-template-columns: 1fr auto;
+  }
+  .cock-chart__addbtn{
+    grid-column: 1 / -1;
+    width: 100%;
+    margin-left: 0;
+  }
 }
 .cock-chart__title{
   min-width: 0;
