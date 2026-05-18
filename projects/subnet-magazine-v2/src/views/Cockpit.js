@@ -471,6 +471,11 @@ function drawChart(canvas, series, range, annotations, offset = 0){
  */
 export function mountCockpit(root, dataLayer = null){
   const state    = loadCockpitState();
+  /* Tab simplification 2026-05-18: dropped SUBNETS/FEED buttons.
+     If a returning reader has state.pane saved as one of those,
+     normalize to 'chart' so they don't land on an unreachable
+     pane with no toggle back. */
+  if (state.pane !== 'chart' && state.pane !== 'desk') state.pane = 'chart';
   let watchlist  = loadWatchlist();
   let series     = generateSeries(subnetById(state.selectedId) || SUBNETS[0]);
   let searchQ    = '';
@@ -533,17 +538,18 @@ export function mountCockpit(root, dataLayer = null){
   /* ---------- sub-renders ----------------------------------- */
 
   function renderTabs(){
+    /* Simplified 2026-05-18 per Rondo "way too many panel options
+       and panel options within panel options it's confusing."
+       Drop the SUBNETS + FEED buttons — on desktop they don't
+       swap anything (panes are pinned), on mobile the rail is
+       always one tap away via the masthead's MAGAZINE/MARKETS
+       links, and FEED was rarely tapped. Keep CHART · DESK as
+       the two meaningful workflow toggles, plus the MARKETS
+       jump pill. Three controls instead of five. */
     return `
-      <nav class="cockpit-tabs" aria-label="Cockpit panes">
-        ${PANES.map(p => `
-          <button type="button" class="cockpit-tabs__btn" data-pane-btn="${p.key}">${p.label}</button>
-        `).join('')}
-        <span class="cockpit-tabs__hint">tap to swap panes on mobile</span>
-        <!-- MARKETS shortcut — the mobile bottom-nav was removed
-             from the cockpit (Subnet Oracle dock owns the bottom);
-             this pill keeps the markets jump one tap away inside
-             the cockpit chrome itself. Per Rondo 2026-05-18 "but
-             markets in the cockpit." -->
+      <nav class="cockpit-tabs" aria-label="Cockpit view">
+        <button type="button" class="cockpit-tabs__btn" data-pane-btn="chart">CHART</button>
+        <button type="button" class="cockpit-tabs__btn" data-pane-btn="desk">DESK</button>
         <a class="cockpit-tabs__markets" href="markets.html" aria-label="Open markets page">⊕ MARKETS ↗</a>
       </nav>`;
   }
