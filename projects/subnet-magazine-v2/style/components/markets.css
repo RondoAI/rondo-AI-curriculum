@@ -228,3 +228,49 @@
   width: 100% !important;
   height: 100% !important;
 }
+
+/* =================================================================
+   MARKETS page collapsible folds (2026-05-18, Rondo: "market
+   roster needs to be collapsable. Tell sibling.") — wraps each
+   panel/viz section in <details class="mk-fold">. Defaults open
+   so the page is functional on first visit, but the reader can
+   collapse what they don't need.
+   ================================================================= */
+.mk-fold{
+  /* Reset native <details> chrome so the fold reads as a
+     panel with a tappable summary band. */
+  display: block;
+}
+.mk-fold__summary{
+  list-style: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 12px 16px;
+  font-family: var(--f-mono);
+  font-size: 11px;
+  letter-spacing: .22em;
+  font-weight: 800;
+  color: #fff;
+  background:
+    linear-gradient(180deg, rgba(255,30,60,.06) 0%, transparent 100%);
+  border-bottom: 1px solid var(--c-rule-2);
+  user-select: none;
+  transition: background 120ms;
+}
+.mk-fold__summary::-webkit-details-marker{ display: none; }
+.mk-fold__summary::marker{ content: ''; display: none; }
+.mk-fold__summary:hover{
+  background: linear-gradient(180deg, rgba(255,30,60,.12) 0%, transparent 100%);
+}
+.mk-fold__chev{
+  color: var(--c-red);
+  font-size: 14px;
+  letter-spacing: 0;
+  transition: transform 180ms ease-out;
+  display: inline-block;
+}
+.mk-fold[open] > .mk-fold__summary > .mk-fold__chev{
+  transform: rotate(45deg);
+}

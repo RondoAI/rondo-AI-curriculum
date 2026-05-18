@@ -73,8 +73,10 @@ export function mountMarkets(root, dataLayer = null){
       </header>
 
       <div class="mk-grid">
-        <!-- ===== TRENDING & MOVERS ===== -->
-        <section class="mk-panel" aria-label="Trending and movers">
+        <!-- ===== TRENDING & MOVERS — collapsible (2026-05-18,
+             sibling coordination ask) ===== -->
+        <details class="mk-panel mk-fold" open>
+          <summary class="mk-fold__summary"><span class="mk-fold__chev">⊕</span> TRENDING &amp; MOVERS</summary>
           <div class="mk-panel__head">
             <h2 class="mk-panel__title">Trending &amp; movers</h2>
             <div class="mk-tabs" role="tablist">
@@ -85,10 +87,11 @@ export function mountMarkets(root, dataLayer = null){
           </div>
           <ul class="mk-rows" id="mk-movers"></ul>
           <a class="mk-panel__more" href="oracle.html">Open the Subnet Oracle ↗</a>
-        </section>
+        </details>
 
-        <!-- ===== HIGHEST VALUATION ===== -->
-        <section class="mk-panel" aria-label="Highest valuation">
+        <!-- ===== HIGHEST VALUATION — collapsible ===== -->
+        <details class="mk-panel mk-fold" open>
+          <summary class="mk-fold__summary"><span class="mk-fold__chev">⊕</span> HIGHEST VALUATION · CENTRALIZED AI</summary>
           <div class="mk-panel__head">
             <h2 class="mk-panel__title">Highest valuation</h2>
             <span class="mk-panel__tag">Centralized AI</span>
@@ -109,11 +112,12 @@ export function mountMarkets(root, dataLayer = null){
             `).join('')}
           </ul>
           <a class="mk-panel__more" href="research.html">Magazine coverage ↗</a>
-        </section>
+        </details>
       </div>
 
-      <!-- ===== ECOSYSTEM TREEMAP ===== -->
-      <section class="mk-viz" aria-label="Ecosystem treemap">
+      <!-- ===== ECOSYSTEM TREEMAP — collapsible ===== -->
+      <details class="mk-viz mk-fold" open aria-label="Ecosystem treemap">
+        <summary class="mk-fold__summary"><span class="mk-fold__chev">⊕</span> ECOSYSTEM TREEMAP</summary>
         <header class="mk-viz__head">
           <span class="mk-viz__kicker">&lt;040&gt;  ECOSYSTEM SURFACE</span>
           <h2 class="mk-viz__title">Where the cap sits.</h2>
@@ -126,10 +130,11 @@ export function mountMarkets(root, dataLayer = null){
         <div class="mk-viz__canvas-wrap">
           <canvas data-canvas="mk-treemap"></canvas>
         </div>
-      </section>
+      </details>
 
-      <!-- ===== 24h HEATMAP ===== -->
-      <section class="mk-viz" aria-label="24-hour movement heatmap">
+      <!-- ===== 24h HEATMAP — collapsible ===== -->
+      <details class="mk-viz mk-fold" open aria-label="24-hour movement heatmap">
+        <summary class="mk-fold__summary"><span class="mk-fold__chev">⊕</span> 24H MOVEMENT HEATMAP</summary>
         <header class="mk-viz__head">
           <span class="mk-viz__kicker">&lt;041&gt;  24h MOVEMENT HEATMAP</span>
           <h2 class="mk-viz__title">What moved overnight.</h2>
@@ -142,7 +147,7 @@ export function mountMarkets(root, dataLayer = null){
         <div class="mk-viz__canvas-wrap mk-viz__canvas-wrap--heat">
           <canvas data-canvas="mk-heatmap"></canvas>
         </div>
-      </section>
+      </details>
     </section>
   `);
 
