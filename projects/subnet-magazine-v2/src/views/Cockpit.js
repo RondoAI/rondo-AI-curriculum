@@ -542,6 +542,19 @@ export function mountCockpit(root, dataLayer = null){
            bar. -->
       <div class="cock-chart__row">
         <aside class="cock-chart__news" aria-label="News for SN${s.netuid} ${s.name}">
+          <!-- Inline subnet picker — per Rondo's "a place to pick
+               from the rest of the subnets, expand this page"
+               directive. Native select for max touch-friendliness
+               on mobile; the OS dropdown handles the long list of
+               53 subnets without us building custom UI. -->
+          <div class="cock-chart__picker">
+            <label class="cock-chart__picker-lbl" for="cock-chart-picker">PICK SUBNET</label>
+            <select class="cock-chart__picker-sel" id="cock-chart-picker" data-chart-picker>
+              ${SUBNETS.slice().sort((a,b) => (b.mcap||0)-(a.mcap||0)).map(x =>
+                `<option value="${x.netuid}" ${x.netuid === s.netuid ? 'selected' : ''}>SN${x.netuid} · ${x.name} · $${(x.price||0).toFixed(x.price < 1 ? 4 : 2)} ${x.chg24 >= 0 ? '+' : ''}${(x.chg24||0).toFixed(1)}%</option>`
+              ).join('')}
+            </select>
+          </div>
           <div class="cock-chart__news-head">
             <span class="cock-chart__news-h">⊕ SIGNALS · SN${s.netuid}</span>
             <span class="cock-chart__news-n">${inlineArticles.length}</span>
@@ -876,6 +889,16 @@ export function mountCockpit(root, dataLayer = null){
     qsa('[data-range]', root).forEach(b => {
       b.addEventListener('click', () => setRange(b.dataset.range));
     });
+    /* Inline subnet picker — change event switches the global
+       selection across the cockpit (chart re-mounts, articles
+       re-list, KPIs reload). */
+    const picker = qs('[data-chart-picker]', root);
+    if (picker){
+      picker.addEventListener('change', () => {
+        const id = parseInt(picker.value, 10);
+        if (Number.isFinite(id)) setSelected(id);
+      });
+    }
   }
 
   /* Optional: react to live data ticks when the DataLayer wiring

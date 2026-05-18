@@ -324,28 +324,36 @@
 .cock-chart__row{
   flex: 1;
   display: grid;
-  grid-template-columns: 174px 1fr;
+  /* Rondo's 2026-05-17 directive (red-line annotation): article
+     column should be much wider — about ⅓ of the viewport. Using
+     minmax + fr so the column scales with viewport: at least 240px,
+     at most ~33% of the chart row. Chart fills the remaining ⅔. */
+  grid-template-columns: minmax(240px, 33%) 1fr;
   gap: 0;
   min-height: 0;
   min-width: 0;
-  /* CRITICAL — without overflow:hidden the grid cell sizes to the
-     intrinsic content of .cock-chart__news (all 10 article cards
-     at full height), which pushes the whole .cockpit__main flex
-     column past its bounds and the range tabs + KPIs render UNDER
-     the overflowing articles. overflow:hidden forces children to
-     respect the row's flex:1 height and scroll internally. */
+  /* overflow:hidden forces children to respect the row's flex:1
+     height and scroll internally — without it, the article list
+     overflows over the range tabs + KPIs below. */
   overflow: hidden;
 }
+@media (max-width: 720px){
+  .cock-chart__row{ grid-template-columns: minmax(200px, 40%) 1fr; }
+}
 @media (max-width: 480px){
-  .cock-chart__row{ grid-template-columns: 156px 1fr; }
+  .cock-chart__row{ grid-template-columns: minmax(170px, 44%) 1fr; }
 }
 @media (min-width: 901px){
-  /* Desktop: the cockpit's RIGHT pane (.cockpit__feed) carries the
-     deeper image-rich news cards, so the inline column on the
-     chart's left is redundant. Hide it on desktop, keep the chart
-     full-width inside the center pane. */
-  .cock-chart__row{ grid-template-columns: 1fr; }
-  .cock-chart__news{ display: none; }
+  /* On desktop the inline column inside the chart pane IS the
+     canonical article surface (per Rondo's directive: articles
+     beside the chart). Hide the redundant right-pane .cockpit__feed
+     so the chart pane stretches to fill the space, and we don't
+     have two article surfaces on screen at the same time. */
+  .cockpit__feed{ display: none !important; }
+  .cockpit__grid{ grid-template-columns: 260px 1fr !important; }
+}
+@media (min-width: 1440px){
+  .cockpit__grid{ grid-template-columns: 280px 1fr !important; }
 }
 
 .cock-chart__news{
@@ -360,6 +368,58 @@
     radial-gradient(140% 60% at 0% 0%, rgba(255,30,60,.05), transparent 70%),
     var(--c-bg-1);
   border-right: 1px solid var(--c-rule-3);
+}
+
+/* ---------- INLINE SUBNET PICKER ------------------------- */
+/* Per Rondo's 2026-05-17 directive ("a place to pick from the
+   rest of the subnets, expand this page"): native select dropdown
+   at the top of the article column. Tap → OS dropdown with all
+   53 subnets, change → switch the cockpit's global selection. */
+.cock-chart__picker{
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+  padding: 8px 10px 7px;
+  border-bottom: 1px solid var(--c-rule-3);
+  background:
+    linear-gradient(180deg, rgba(255,30,60,.10), rgba(20,5,9,.45));
+  flex-shrink: 0;
+}
+.cock-chart__picker-lbl{
+  font-family: var(--f-mono);
+  font-size: 8px;
+  letter-spacing: .22em;
+  font-weight: 800;
+  color: var(--c-red);
+}
+.cock-chart__picker-sel{
+  -webkit-appearance: none;
+  appearance: none;
+  background: var(--c-bg);
+  color: #fff;
+  border: 1px solid var(--c-rule-3);
+  font-family: var(--f-mono);
+  font-size: 11px;
+  letter-spacing: .02em;
+  font-weight: 600;
+  padding: 7px 22px 7px 8px;
+  cursor: pointer;
+  width: 100%;
+  /* Custom red caret on the right */
+  background-image: linear-gradient(45deg, transparent 50%, var(--c-red) 50%),
+                    linear-gradient(135deg, var(--c-red) 50%, transparent 50%);
+  background-position: calc(100% - 12px) 50%, calc(100% - 7px) 50%;
+  background-size: 5px 5px;
+  background-repeat: no-repeat;
+}
+.cock-chart__picker-sel:focus{
+  outline: none;
+  border-color: var(--c-red);
+  background-color: var(--c-bg-3);
+}
+.cock-chart__picker-sel option{
+  background: #050203;
+  color: #fff;
 }
 
 /* ---------- HEADER --------------------------------------- */
