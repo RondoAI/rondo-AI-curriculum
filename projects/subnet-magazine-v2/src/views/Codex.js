@@ -138,39 +138,54 @@ function entryCard(e){
       </footer>`
     : '';
 
+  /* Entry now a <details> per Rondo's 2026-05-18 directive
+     ("all the information in the oracle tab needs to be
+     colapseable with the infographic as the cover of each
+     topic"). SUMMARY = infographic (cover) + kicker + title +
+     one-line preview + expand caret. BODY = the deep content
+     (sections, see-also, sources, cited-in, meta). Reader
+     scans covers + titles at-a-glance, expands what they want
+     to read in full. */
   return `
-    <article class="codex-entry" id="${e.id}" data-id="${e.id}"
+    <details class="codex-entry" id="${e.id}" data-id="${e.id}"
              data-search="${escapeHtml((e.title + ' ' + e.kicker + ' ' + e.oneLine + ' ' + (e.sections || []).map(s => s.h + ' ' + s.body).join(' ')).toLowerCase())}">
-      <header class="codex-entry__head">
-        <span class="codex-entry__kicker">${escapeHtml(CATEGORY_LABEL[e.category] || e.kicker)}</span>
-        <h2 class="codex-entry__title">${escapeHtml(e.title)} ${conf}</h2>
-        <p class="codex-entry__one">${e.oneLine}</p>
-      </header>
+      <summary class="codex-entry__summary">
+        ${infographic ? `<div class="codex-entry__cover">${infographic}</div>` : ''}
+        <header class="codex-entry__head">
+          <span class="codex-entry__kicker">${escapeHtml(CATEGORY_LABEL[e.category] || e.kicker)}</span>
+          <h2 class="codex-entry__title">${escapeHtml(e.title)} ${conf}</h2>
+          <p class="codex-entry__one">${e.oneLine}</p>
+          <span class="codex-entry__expand" aria-hidden="true">
+            <span class="codex-entry__expand-lbl">READ</span>
+            <span class="codex-entry__expand-caret">▾</span>
+          </span>
+        </header>
+      </summary>
 
-      ${infographic}
+      <div class="codex-entry__body-wrap">
+        ${sections}
 
-      ${sections}
+        ${seeAlso ? `
+          <footer class="codex-entry__see">
+            <span class="codex-entry__see-lbl">See also</span>
+            <div class="codex-entry__see-list">${seeAlso}</div>
+          </footer>` : ''}
 
-      ${seeAlso ? `
-        <footer class="codex-entry__see">
-          <span class="codex-entry__see-lbl">See also</span>
-          <div class="codex-entry__see-list">${seeAlso}</div>
-        </footer>` : ''}
+        ${sources ? `
+          <footer class="codex-entry__sources">
+            <span class="codex-entry__see-lbl">Sources</span>
+            <div class="codex-entry__src-list">${sources}</div>
+          </footer>` : ''}
 
-      ${sources ? `
-        <footer class="codex-entry__sources">
-          <span class="codex-entry__see-lbl">Sources</span>
-          <div class="codex-entry__src-list">${sources}</div>
-        </footer>` : ''}
+        ${citedHtml}
 
-      ${citedHtml}
-
-      <footer class="codex-entry__meta">
-        <span>Updated <time datetime="${e.updated}">${e.updated}</time></span>
-        <span>·</span>
-        <span>Confidence <em>${e.confidence}</em></span>
-      </footer>
-    </article>
+        <footer class="codex-entry__meta">
+          <span>Updated <time datetime="${e.updated}">${e.updated}</time></span>
+          <span>·</span>
+          <span>Confidence <em>${e.confidence}</em></span>
+        </footer>
+      </div>
+    </details>
   `;
 }
 
@@ -392,7 +407,7 @@ export function mountCodex(root, dataLayer = null){
   }));
   qs('#codex-q', root)?.addEventListener('input', applyFilter);
 
-  /* ---------- see-also: scroll + briefly highlight target entry ---- */
+  /* ---------- see-also: scroll + briefly highlight + AUTO-OPEN ---- */
   root.addEventListener('click', (e) => {
     const a = e.target.closest('[data-jump]');
     if (!a) return;
@@ -405,10 +420,30 @@ export function mountCodex(root, dataLayer = null){
     const q = qs('#codex-q', root);
     if (q) q.value = '';
     applyFilter();
+    /* Auto-open the <details> entry the see-also link points at —
+       reader expects the destination to be readable on arrival,
+       not still collapsed. */
+    if (target.tagName === 'DETAILS') target.open = true;
     target.scrollIntoView({ behavior: 'smooth', block: 'start' });
     target.classList.add('is-flash-codex');
     setTimeout(() => target.classList.remove('is-flash-codex'), 1600);
   });
+
+  /* URL hash auto-open: if someone lands on /oracle.html#some-id
+     (deep link from elsewhere), open that <details> so the
+     destination renders ready-to-read, not collapsed. Runs once
+     on mount + once on hashchange (re-shared links). */
+  function openHashTarget(){
+    const id = (window.location.hash || '').slice(1);
+    if (!id) return;
+    const target = root.querySelector('#' + CSS.escape(id));
+    if (target && target.tagName === 'DETAILS'){
+      target.open = true;
+      requestAnimationFrame(() => target.scrollIntoView({ behavior: 'smooth', block: 'start' }));
+    }
+  }
+  openHashTarget();
+  window.addEventListener('hashchange', openHashTarget);
 
   /* The conversational chat moved to the bottom Subnet Oracle dock
      (src/views/Console.js). One Oracle, every page. */

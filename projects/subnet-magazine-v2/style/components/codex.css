@@ -782,15 +782,82 @@
 }
 
 /* one entry card */
+/* Codex entry is a <details> as of 2026-05-18 per Rondo:
+   "all the information in the oracle tab needs to be colapseable
+   with the infographic as the cover of each topic." Summary
+   holds the cover (infographic) + title + one-line preview;
+   body holds sections + see-also + sources + cited-in + meta.
+   Default closed — reader scans the cover-grid + titles, expands
+   the entries they want to read in depth. */
 .codex-entry{
   scroll-margin-top: 120px;
-  padding: clamp(20px, 3vw, 32px);
+  padding: 0;
   border: 1px solid var(--c-rule-2);
   border-radius: 4px;
   background: linear-gradient(180deg, rgba(255,30,60,.03), rgba(10,3,6,.6));
   position: relative;
   contain: layout style;
+  overflow: hidden;
   transition: border-color var(--d-base) var(--e-out), box-shadow var(--d-base) var(--e-out);
+}
+.codex-entry[open]{
+  border-color: rgba(255, 30, 60, .35);
+}
+.codex-entry__summary{
+  display: block;
+  padding: clamp(20px, 3vw, 32px);
+  list-style: none;
+  cursor: pointer;
+  transition: background var(--d-base) var(--e-out);
+}
+.codex-entry__summary::-webkit-details-marker{ display: none; }
+.codex-entry__summary:hover,
+.codex-entry__summary:focus-visible{
+  background: rgba(255, 30, 60, .04);
+  outline: none;
+}
+.codex-entry__cover{
+  margin: 0 calc(-1 * clamp(20px, 3vw, 32px)) clamp(16px, 2.5vw, 24px);
+  padding: 14px clamp(20px, 3vw, 32px);
+  background: rgba(255, 30, 60, .03);
+  border-bottom: 1px solid var(--c-rule);
+}
+/* Reader sees a clear "click to read" affordance in the corner
+   of every summary. Caret rotates 180deg on open; chip background
+   tints red. */
+.codex-entry__expand{
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  float: right;
+  margin: 4px 0 0;
+  padding: 5px 10px 4px;
+  font-family: var(--f-mono);
+  font-size: 10px;
+  letter-spacing: .16em;
+  font-weight: 800;
+  color: var(--c-red-1);
+  border: 1px solid rgba(255, 30, 60, .35);
+  background: rgba(255, 30, 60, .06);
+  text-transform: uppercase;
+}
+.codex-entry__expand-caret{
+  display: inline-block;
+  transition: transform 180ms ease;
+}
+.codex-entry[open] > .codex-entry__summary .codex-entry__expand-caret{
+  transform: rotate(180deg);
+}
+.codex-entry[open] > .codex-entry__summary .codex-entry__expand-lbl::after{
+  content: " LESS";
+}
+.codex-entry:not([open]) > .codex-entry__summary .codex-entry__expand-lbl::after{
+  content: " MORE";
+}
+.codex-entry__body-wrap{
+  padding: 0 clamp(20px, 3vw, 32px) clamp(20px, 3vw, 32px);
+  border-top: 1px dashed var(--c-rule-2);
+  padding-top: clamp(16px, 2.5vw, 24px);
 }
 .codex-entry::before{
   /* red top-left rail, magazine-grade signal */
