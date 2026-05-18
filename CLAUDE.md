@@ -1712,3 +1712,160 @@ The 128-subnet master grid mac extracted should sit in the
 "Active orders" position (center-bottom), and the streaming chain-
 events feed could occupy the LEFT RAIL once we have a live feed
 adapter.
+
+## Coordination Ask: Cockpit Urgent Restructure — Rondo Direct Feedback (OPEN — for mac-session)
+
+Saved by Rondo's instruction, 2026-05-18 — direct rant after
+opening /cockpit.html on his phone. His exact themes (paraphrased
+faithfully, decision-grade actionable below):
+
+  "in the cockpit, if you look at where it says SN69 Kato FM, you
+  can't even see what's inside because the bar with the 1D / 7D /
+  30D / 90D / 1Y earlier bar under it is in the way. So you can't
+  really even pick a different subnet because the 7D bars is over
+  on top of it. We don't like that."
+
+  "the emission TD, validator, miner... that's just stuff to go on
+  the side. On the opposite side panel. There should be a panel on
+  the left side and a panel on the right side and a panel under.
+  Briefings collapsible is fine. But under it, it goes down further,
+  and it says deterministic LLMs, the emissions, and all that stuff.
+  It's all in the wrong place. That stuff doesn't need to be there."
+
+  "External Links, Editorial Intel, GitHub Activity, Wallet Tracker,
+  Validator/Miner Heat Estimate — all just thrown everywhere in a
+  very, very bad way, and it's unorganized."
+
+  "The page reads too long. The Valuation Ladder is not needed. The
+  Desk at the bottom — as you keep scrolling, everything is too much
+  stuff going on, and then you gotta go all the way down to the
+  bottom to do the portfolio value and do your mock — your paper
+  portfolio. It's all the way down at the bottom. That shouldn't
+  happen."
+
+  "The paper portfolio and the actual chart should just be ONE. You
+  should be able to do a paper portfolio WITHIN your regular chart,
+  and shouldn't be two different charts. That's what you need to
+  understand."
+
+  "We don't need Editorial Archive at the bottom of the page."
+
+  "This page is too long, and people cannot read through all this.
+  We need to fix this immediately. It needs to be totally different."
+
+### Decision-grade translation of the feedback
+
+  IMMEDIATE VISUAL BUG (fix-first, both sessions can touch):
+    The chart range tabs (1D / 7D / 30D / 90D / 1Y) are visually
+    OVERLAPPING the subnet picker / subnet name in the chart-pane
+    header. Reader cannot READ the active subnet and cannot CLICK
+    the picker to switch. Likely a z-index or absolute-positioning
+    bug in src/views/Cockpit.js (chart pane header) interacting
+    with style/components/cockpit.css. Sandbox will hot-fix this
+    as a contained CSS pass under sandbox's existing Cockpit.js
+    ownership.
+
+  STRUCTURAL REBUILD (mac's lane — folds into the existing
+  Phoenix-grade ask above):
+
+  1. KILL the "dashboard mounted below cockpit" pattern (sandbox
+     shipped this in ee4d17e). Rondo explicitly rejected it:
+     "as you keep scrolling, everything is too much." The cockpit
+     should be SELF-CONTAINED, not a cockpit + the entire
+     dashboard concatenated vertically. Sandbox will revert the
+     mount call in cockpit.html as part of the hot-fix push so
+     mac's rebuild starts from a clean slate.
+
+  2. THREE-PANEL LAYOUT, not a long scroll:
+       LEFT panel  — auxiliary metrics (Emission τ/d, validator
+                     count, miner count, MCAP, Vol24h, etc.)
+                     compact mono rows or small-multiples sparks
+       CENTER      — the chart pane (price + MAs + range tabs +
+                     news flags), unchanged composition but the
+                     header layout fixed so range tabs don't
+                     cover the picker
+       RIGHT panel — news / editorial intel feed, image-rich
+                     cards (the cock-news pattern already shipped)
+       BOTTOM      — ONE bounded panel: collapsible briefings.
+                     That's it. Nothing else below.
+
+  3. DELETE entirely (Rondo named these as not-needed in this view):
+       - Valuation Ladder section
+       - Editorial Archive at the bottom
+       - "Deterministic LLMs / emissions" inline block under
+         briefings (sounds like it belongs in EDITORIAL mode or
+         as a deep-link target, not in the cockpit)
+       - The DESK section that requires scrolling all the way down
+         (paper portfolio integration is the real fix — see #4)
+
+  4. PAPER PORTFOLIO LIVES INSIDE THE CHART. This is the deep
+     insight in Rondo's feedback, and the highest-leverage
+     architectural change in the brief. Currently the cockpit has
+     a chart pane AND a separate paper-portfolio block at the
+     bottom of the page. Rondo wants ONE chart that does both:
+
+       - The reader views the live price chart for the selected
+         subnet (existing behavior)
+       - The reader can TAP/CLICK ON the chart to mark an entry
+         position (paper buy) at that price/timestamp
+       - The position renders as a horizontal entry line + a
+         "P&L since entry" badge directly on the chart
+       - Multiple positions stack as multiple lines, color-coded
+       - A compact "your positions on this subnet" footer strip
+         under the chart shows the running P&L for each entry
+       - The full multi-subnet paper portfolio (cross-subnet
+         summary, total NAV, Brinson-Fachler attribution) lives
+         in the DESK mode of the terminal SPA (already mac's
+         lane per the Reimagined Architecture map), NOT in the
+         cockpit's main view
+
+     This collapses TWO chart instances into ONE and makes the
+     cockpit feel like a real trading workspace (Bloomberg /
+     Phoenix / TradingView all do this — entries + positions
+     render directly on the price chart, not in a separate panel).
+
+  5. AUXILIARY PANELS — relocate to LEFT/RIGHT side panels or
+     delete:
+       External Links              → LEFT panel footer (or move to
+                                     the per-subnet link cluster
+                                     mac already shipped in MARKETS
+                                     rows — e935d1a)
+       Editorial Intel             → RIGHT panel (news feed already
+                                     lives there, fold into it)
+       GitHub Activity             → LEFT panel compact card with
+                                     commit count + 7D sparkline,
+                                     no full activity log inline
+       Wallet Tracker              → LEFT panel compact card (top-3
+                                     holder % + net flow 24h, no
+                                     full transaction log inline)
+       Validator / Miner Heat Est. → LEFT panel sparkline pair
+                                     (validators + miners over 30D)
+       Deterministic LLMs section  → DELETE from cockpit (move to
+                                     EDITORIAL mode if it belongs
+                                     anywhere)
+
+### Why this matters
+
+The Phoenix + multi-pane terminal references (already saved to
+projects/subnet-magazine-v2/docs/inspiration/) showed the TARGET
+register. Rondo's feedback today is the COUNTERPOINT — what the
+current cockpit is doing WRONG against those references. Both
+sessions now have the gap named explicitly: scroll-festival cockpit
+→ Phoenix 3-region + multi-pane density.
+
+### Coordination split for the immediate push
+
+SANDBOX (this session, next push):
+  1. Hot-fix the range-tabs-over-picker layout bug in
+     Cockpit.js + cockpit.css
+  2. Revert the dashboard-mounted-below in cockpit.html (the
+     ee4d17e mount call) so mac's rebuild starts clean
+  3. Append a brief commit body explaining both as a feedback
+     response to Rondo's 2026-05-18 cockpit rant
+
+MAC (next session, structural rebuild — folds into Phoenix-grade
+ask above):
+  - Items 2-5 above (three-panel layout, deletes, paper portfolio
+    fused into chart, auxiliary panel relocations)
+  - Screenshot-verify @ 414x900 + 1440x900 per Visual Self-Check
+  - Sandbox closes this entry once mac's rebuild lands

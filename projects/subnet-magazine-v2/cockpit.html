@@ -29,23 +29,6 @@
        the Cockpit Chart Tooltip Parity ask). Unused chart-mode
        layout/header rules silently no-op here. -->
   <link rel="stylesheet" href="style/components/chart-mode.css">
-  <!-- Dashboard stylesheets — per Rondo 2026-05-18 the whole
-       dashboard content (KPI status bar, MY DESK, BRIEFINGS,
-       DETAIL, MARKETS, ARC, EDITORIAL INTEL, ATTR) is mounted
-       below the cockpit pane on this page, so the cockpit page
-       needs every CSS the dashboard view paints against. Loaded
-       AFTER cockpit.css so cockpit's specific rules win on the
-       shared selectors (.panel etc.) inside the cockpit pane;
-       dashboard rules apply to the dashboard mount below. -->
-  <link rel="stylesheet" href="style/components/dashboard.css">
-  <link rel="stylesheet" href="style/components/briefings.css">
-  <link rel="stylesheet" href="style/components/news-cards.css">
-  <link rel="stylesheet" href="style/components/commentary.css">
-  <link rel="stylesheet" href="style/components/article-coverage.css">
-  <link rel="stylesheet" href="style/components/attribution.css">
-  <link rel="stylesheet" href="style/components/paper-portfolio.css">
-  <link rel="stylesheet" href="style/components/dash-nav.css">
-  <link rel="stylesheet" href="style/components/collapsible.css">
   <link rel="stylesheet" href="style/components/paywall.css">
 </head>
 <body>
@@ -56,16 +39,21 @@
     <span class="flow-thread__pulse"></span>
   </aside>
   <main id="main">
+    <!-- Cockpit is now a SELF-CONTAINED workspace per Rondo
+         2026-05-18 follow-up rant: "this page is too long, and
+         people cannot read through all this." The dashboard-
+         mounted-below pattern (sandbox ee4d17e) is reverted —
+         the auxiliary panels Rondo named (External Links /
+         Editorial Intel / GitHub Activity / Wallet Tracker /
+         Validator-Miner Heat / Valuation Ladder / Editorial
+         Archive / Deterministic LLMs) belong in side panels or
+         in the dashboard's own page, not concatenated below
+         the cockpit chart. Mac's Phoenix-grade rebuild (see
+         CLAUDE.md coordination ask) handles the three-panel
+         restructure; this revert leaves a clean slate. -->
     <div data-mount="cockpit"></div>
-    <!-- Per Rondo 2026-05-18: the entire dashboard content goes
-         here, beneath the cockpit pane, so the cockpit page is
-         the single workspace ("this whole entire content should
-         be in the cockpit"). Mounting the dashboard view second
-         appends KPI strip + MY DESK + BRIEFINGS + DETAIL + MARKETS
-         + ARC + EDITORIAL INTEL sections below the cockpit chart. -->
-    <div data-mount="dashboard"></div>
   </main>
   <script src="config.js"></script>
-  <script type="module" src="src/boot.js?v=20260520s"></script>
+  <script type="module" src="src/boot.js?v=20260521a"></script>
 </body>
 </html>

@@ -775,8 +775,12 @@ export function mountCockpit(root, dataLayer = null){
       </header>
 
       <!-- CHART + SIDE ARTICLE COLUMN — picker has moved up to
-           the chart header (cock-chart__head). Article column
-           starts directly with the SIGNALS header. -->
+           the chart header (cock-chart__head, .cock-chart__picker--head
+           variant per mac-session 8514454, which independently
+           solved the same overlap Rondo flagged in his 2026-05-18
+           rant by replacing the redundant ⊕ COCKPIT · LIVE eyebrow
+           with the functional picker). Article column starts directly
+           with the SIGNALS header. -->
       <div class="cock-chart__row">
         <aside class="cock-chart__news" aria-label="News for SN${s.netuid} ${s.name}">
           <header class="cock-chart__news-head">
