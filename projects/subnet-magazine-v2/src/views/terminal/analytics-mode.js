@@ -509,7 +509,7 @@ export function mountAnalyticsMode(root, ctx){
         <div class="analytics__title">
           <span class="analytics__eyebrow">⊕ ANALYTICS · numpy + sklearn (build-time) → Canvas (live) · BlackRock-grade reads</span>
           <h2 class="analytics__h" data-analytics-title>SUBNET CORRELATION MATRIX · 90d</h2>
-          <div class="analytics__sub" data-analytics-sub>Pearson r of daily returns across all 53 subnets. Mint = move together, red = move opposite, black = independent.</div>
+          <div class="analytics__sub" data-analytics-sub>Pearson r of daily returns across the network. Mint = move together, red = move opposite, black = independent.</div>
         </div>
         <div class="analytics__tabs" role="tablist" aria-label="Analytics view">
           <button type="button" class="analytics__tab is-on" data-view="heatmap" role="tab" aria-selected="true"  aria-controls="analytics-body">CORRELATION</button>
@@ -520,14 +520,33 @@ export function mountAnalyticsMode(root, ctx){
       <div class="analytics__body" data-analytics-body id="analytics-body" role="tabpanel">
         <div class="analytics__canvas-wrap" data-analytics-canvas-wrap>
           <canvas class="analytics__canvas" data-analytics-canvas></canvas>
+          <!-- Loading skeleton — covers the canvas area until
+               analytics.json (≈486KB at 128 subnets) lands. Shimmer
+               communicates "loading, not broken" on slow connections.
+               Removed once data resolves. -->
+          <div class="analytics__skel" data-analytics-skel aria-hidden="true">
+            <div class="analytics__skel-grid">
+              ${'<div class="analytics__skel-cell"></div>'.repeat(64)}
+            </div>
+            <div class="analytics__skel-msg">Loading 128-subnet correlation matrix…</div>
+          </div>
           <div class="analytics__hover" data-analytics-hover style="display:none"></div>
         </div>
         <aside class="analytics__insights" data-analytics-insights>
-          <div class="ins-empty">loading…</div>
+          <!-- Insights skeleton — three pulsing row placeholders so
+               the right column doesn't read as a blank panel during
+               load. Replaced when computeInsights() renders for real. -->
+          <div class="analytics__skel-list" aria-hidden="true">
+            <div class="analytics__skel-row analytics__skel-row--big"></div>
+            <div class="analytics__skel-row"></div>
+            <div class="analytics__skel-row"></div>
+            <div class="analytics__skel-row analytics__skel-row--big"></div>
+            <div class="analytics__skel-row"></div>
+          </div>
         </aside>
       </div>
       <div class="analytics__footer">
-        <span class="analytics__meta" data-analytics-meta>loading analytics.json…</span>
+        <span class="analytics__meta" data-analytics-meta aria-live="polite">Loading analytics.json (≈486KB, 128 subnets)…</span>
       </div>
     </div>`;
 
@@ -556,7 +575,7 @@ export function mountAnalyticsMode(root, ctx){
     const tableHtml = renderRiskScreen(analytics, riskSort.key, riskSort.dir);
     const wrapped = paywallWrap(tableHtml, {
       requires: 'pro',
-      feature:  'RISK SCREEN · all 53 subnets',
+      feature:  `RISK SCREEN · all ${analytics.subnets?.length || 0} subnets`,
       pitch:    'Sortable annualized return, vol, Sharpe, max drawdown, and beta to network. The screen institutional desks run first.',
     });
     body.insertAdjacentHTML('beforeend', wrapped);
@@ -591,7 +610,7 @@ export function mountAnalyticsMode(root, ctx){
 
     if (view === 'heatmap'){
       title.textContent = 'SUBNET CORRELATION MATRIX · 90d';
-      sub.textContent   = 'Pearson r of daily returns across all 53 subnets. Mint = move together, red = move opposite, black = independent.';
+      sub.textContent   = `Pearson r of daily returns across all ${analytics.subnets?.length || 0} subnets. Mint = move together, red = move opposite, black = independent.`;
       hit = drawHeatmap(canvas, analytics);
       insightsEl.innerHTML = renderHeatmapInsights(analytics);
     } else if (view === 'cluster'){
@@ -672,8 +691,15 @@ export function mountAnalyticsMode(root, ctx){
 
   // Kick off async load
   loadAnalytics().then(a => {
+    /* Strip skeletons whether load succeeded OR failed — leaving a
+       pulsing grid behind an error message would lie about what's
+       happening. */
+    const skel = root.querySelector('[data-analytics-skel]');
+    if (skel) skel.remove();
     if (!a){
       metaEl.textContent = 'analytics.json not available — run scripts/analytics/build_analytics.py';
+      const empty = `<div class="ins-empty">analytics.json not available — run scripts/analytics/build_analytics.py to generate.</div>`;
+      insightsEl.innerHTML = empty;
       return;
     }
     analytics = a;
