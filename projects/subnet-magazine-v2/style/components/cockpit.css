@@ -2630,3 +2630,47 @@
   .cock-holdings thead th, .cock-holdings tbody td{ padding: 9px 10px; }
   .cock-holdings__sn-name{ display: none; }
 }
+
+/* Allocation column with inline bar — sibling pattern #2
+   "status-inline columns" applied to the HOLDINGS table.
+   Each row shows the position's share of the total book
+   alongside a thin horizontal bar that visualizes the
+   distribution at a glance. */
+.cock-holdings__alloc{
+  padding: 11px 14px;
+  min-width: 110px;
+}
+.cock-holdings__alloc-row{
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-family: var(--f-mono);
+  font-size: 11px;
+}
+.cock-holdings__alloc-pct{
+  flex-shrink: 0;
+  color: #fff;
+  font-weight: 700;
+  font-variant-numeric: tabular-nums;
+  min-width: 36px;
+}
+.cock-holdings__alloc-bar{
+  flex: 1;
+  height: 6px;
+  background: rgba(255,255,255,.06);
+  border: 1px solid var(--c-rule-2);
+  overflow: hidden;
+  position: relative;
+}
+.cock-holdings__alloc-fill{
+  display: block;
+  height: 100%;
+  background: var(--c-red);
+  box-shadow: 0 0 4px rgba(255,30,60,.45);
+  transition: width 180ms ease-out;
+}
+@media (max-width: 720px){
+  .cock-holdings__alloc{ min-width: 80px; padding: 9px 8px; }
+  .cock-holdings__alloc-pct{ min-width: 30px; }
+  .cock-holdings__alloc-bar{ height: 4px; }
+}

@@ -990,6 +990,15 @@ export function mountCockpit(root, dataLayer = null){
       const vb = b.shares * ((sb && sb.price) || 0);
       return vb - va;
     });
+    /* Total book value (positions side only — excludes cash so
+       allocation % reflects equity composition, not the dry-
+       powder mix). Used for the inline ALLOCATION bar per row
+       (sibling pattern #2: status-inline columns / progress
+       bars inside cells). */
+    const totalPositionsValue = ranked.reduce((acc, p) => {
+      const sn = subnetById(p.netuid);
+      return acc + p.shares * ((sn && sn.price) || 0);
+    }, 0);
     const rows = ranked.map(p => {
       const sn = subnetById(p.netuid);
       if (!sn) return '';
@@ -1000,6 +1009,7 @@ export function mountCockpit(root, dataLayer = null){
       const pnlUsd = value - cost;
       const pnlPct = cost > 0 ? (pnlUsd / cost) * 100 : 0;
       const cls = pnlUsd >= 0 ? 'is-up' : 'is-down';
+      const allocPct = totalPositionsValue > 0 ? (value / totalPositionsValue) * 100 : 0;
       const logoSrc = SUBNET_LOGOS[(sn.name || '').toLowerCase()] || FALLBACK_LOGO;
       return `
         <tr class="cock-holdings__row" data-holdings-row="${p.netuid}" tabindex="0" role="button" aria-label="Open SN${p.netuid} ${sn.name} chart">
@@ -1012,6 +1022,12 @@ export function mountCockpit(root, dataLayer = null){
           <td class="cock-holdings__num">${fmtUsd(entry)}</td>
           <td class="cock-holdings__num">${fmtUsd(current)}</td>
           <td class="cock-holdings__num">${fmtUsd(value)}</td>
+          <td class="cock-holdings__alloc">
+            <div class="cock-holdings__alloc-row">
+              <span class="cock-holdings__alloc-pct">${allocPct.toFixed(1)}%</span>
+              <span class="cock-holdings__alloc-bar" aria-hidden="true"><span class="cock-holdings__alloc-fill" style="width:${Math.min(100, allocPct).toFixed(2)}%"></span></span>
+            </div>
+          </td>
           <td class="cock-holdings__num ${cls}"><b>${pnlUsd >= 0 ? '+' : ''}${fmtUsd(pnlUsd)}</b><br><span style="font-size:10px">${pnlPct >= 0 ? '+' : ''}${pnlPct.toFixed(2)}%</span></td>
         </tr>
       `;
@@ -1037,6 +1053,7 @@ export function mountCockpit(root, dataLayer = null){
                 <th class="cock-holdings__num">ENTRY</th>
                 <th class="cock-holdings__num">CURRENT</th>
                 <th class="cock-holdings__num">VALUE</th>
+                <th>% OF BOOK</th>
                 <th class="cock-holdings__num">P&amp;L</th>
               </tr>
             </thead>
@@ -1048,6 +1065,7 @@ export function mountCockpit(root, dataLayer = null){
                 <td class="cock-holdings__num">—</td>
                 <td class="cock-holdings__num">—</td>
                 <td class="cock-holdings__num"><b>${fmtUsd(totalValue)}</b></td>
+                <td class="cock-holdings__num">100%</td>
                 <td class="cock-holdings__num ${totalCls}"><b>${totalPnL >= 0 ? '+' : ''}${fmtUsd(totalPnL)}</b><br><span style="font-size:10px">${totalPct >= 0 ? '+' : ''}${totalPct.toFixed(2)}%</span></td>
               </tr>
             </tfoot>
