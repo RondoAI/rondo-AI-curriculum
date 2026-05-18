@@ -160,7 +160,12 @@ function annotationsFor(netuid, subnetName){
   return out.sort((x, y) => x.t - y.t);
 }
 
-function drawChart(canvas, series, range, annotations){
+/* offset (in days back from today) lets the reader pan the chart
+   into history without changing the window size. offset=0 means
+   "window ending today"; offset=range.days shifts back one full
+   window; etc. Clamped so slice never reads off the start of the
+   synthesized series. */
+function drawChart(canvas, series, range, annotations, offset = 0){
   if (!canvas) return null;
   const ctx = canvas.getContext('2d');
   const dpr = Math.min(window.devicePixelRatio || 1, 2);
@@ -174,8 +179,10 @@ function drawChart(canvas, series, range, annotations){
 
   if (!series || !series.length) return null;
 
-  const sliceStart = Math.max(0, series.length - range.days);
-  const slice = series.slice(sliceStart);
+  const safeOffset = Math.max(0, Math.min(offset, series.length - range.days));
+  const sliceStart = Math.max(0, series.length - range.days - safeOffset);
+  const sliceEnd   = Math.min(series.length, sliceStart + range.days);
+  const slice = series.slice(sliceStart, sliceEnd);
   if (slice.length < 2) return null;
 
   const PAD_L = 50, PAD_R = 14, PAD_T = 14, PAD_B = 60;
@@ -458,6 +465,11 @@ export function mountCockpit(root, dataLayer = null){
      doesn't hit a temporal-dead-zone ReferenceError when assigning
      to it. */
   let hit        = null;
+  /* Chart pan offset in DAYS BACK FROM TODAY. 0 = window ends today,
+     positive shifts the window into history. Reset on subnet
+     change + range change so the reader doesn't get stuck deep in
+     history after picking a different subnet. */
+  let chartOffset = 0;
 
   /* Render the whole cockpit shell once; sub-panes repaint in place
      on selection / range / pane changes without disturbing the chart
@@ -637,52 +649,63 @@ export function mountCockpit(root, dataLayer = null){
         </div>
       </header>
 
-      <!-- Subnet picker — moved from inside the article column to
-           the header zone (its own row below the title+price) so
-           the chart + articles below can use the full page width.
-           Native <select> for OS-native touch on mobile, 128
-           subnets sorted by mcap desc. -->
-      <div class="cock-chart__picker">
-        <label class="cock-chart__picker-lbl" for="cock-chart-picker">PICK SUBNET</label>
-        <select class="cock-chart__picker-sel" id="cock-chart-picker" data-chart-picker>
-          ${SUBNETS.slice().sort((a,b) => (b.mcap||0)-(a.mcap||0)).map(x =>
-            `<option value="${x.netuid}" ${x.netuid === s.netuid ? 'selected' : ''}>SN${x.netuid} · ${x.name} · $${(x.price||0).toFixed(x.price < 1 ? 4 : 2)} ${x.chg24 >= 0 ? '+' : ''}${(x.chg24||0).toFixed(1)}%</option>`
-          ).join('')}
-        </select>
+      <!-- CHART + SIDE ARTICLE COLUMN — restored 2026-05-18 per
+           Rondo: "keep my original idea — put the feed back inside
+           the chart." Side column on the LEFT with the picker at
+           the top + richer article cards (kind/date/title/dek/source)
+           — same kind-color spine as the chart-mode sidebar so the
+           visual language is consistent across surfaces. Chart fills
+           the remaining width on the right. -->
+      <div class="cock-chart__row">
+        <aside class="cock-chart__news" aria-label="News for SN${s.netuid} ${s.name}">
+          <div class="cock-chart__picker">
+            <label class="cock-chart__picker-lbl" for="cock-chart-picker">PICK SUBNET</label>
+            <select class="cock-chart__picker-sel" id="cock-chart-picker" data-chart-picker>
+              ${SUBNETS.slice().sort((a,b) => (b.mcap||0)-(a.mcap||0)).map(x =>
+                `<option value="${x.netuid}" ${x.netuid === s.netuid ? 'selected' : ''}>SN${x.netuid} · ${x.name} · $${(x.price||0).toFixed(x.price < 1 ? 4 : 2)} ${x.chg24 >= 0 ? '+' : ''}${(x.chg24||0).toFixed(1)}%</option>`
+              ).join('')}
+            </select>
+          </div>
+          <header class="cock-chart__news-head">
+            <span class="cock-chart__news-h">⊕ SIGNALS · SN${s.netuid}</span>
+            <span class="cock-chart__news-n">${cockpitArticles.length}</span>
+          </header>
+          <div class="cock-chart__news-list">
+            ${cockpitArticlesHtml}
+          </div>
+        </aside>
+        <div class="cock-chart__canvas-wrap">
+          <canvas class="cock-chart__canvas" data-chart-canvas
+                  role="img"
+                  aria-label="SN${s.netuid} ${s.name} price chart, ${state.range} window"></canvas>
+          <div class="cm-tooltip" data-chart-tooltip style="display:none" role="tooltip" aria-live="polite"></div>
+          <!-- Inline article preview reveal — populated when the
+               reader clicks a news-flag marker on the chart. Slides
+               up from the bottom of the chart pane so the article
+               appears INSIDE the chart context, not in a new tab. -->
+          <div class="cock-chart__flag-preview" data-flag-preview hidden></div>
+        </div>
       </div>
 
-      <!-- CHART — full width now. Articles moved to a dedicated
-           full-width section below. -->
-      <div class="cock-chart__canvas-wrap">
-        <canvas class="cock-chart__canvas" data-chart-canvas
-                role="img"
-                aria-label="SN${s.netuid} ${s.name} price chart, ${state.range} window"></canvas>
-        <!-- Hover tooltip — reuses chart-mode.css .cm-tooltip +
-             .ct-tt__* selectors so cockpit + terminal CHART
-             speak the same visual language on hover. -->
-        <div class="cm-tooltip" data-chart-tooltip style="display:none" role="tooltip" aria-live="polite"></div>
-      </div>
-
-      <div class="cock-chart__range" role="tablist" aria-label="Time range">
-        ${rangeBtns}
+      <!-- Chart navigation: range tabs + pan history controls.
+           ◀ pans the visible window BACKWARD by its own width
+           (on 30D, ◀ shows day-60 to day-30 instead of 30D-to-
+           today); ▶ pans forward. ⏵ Today resets offset to 0
+           (window ending today). Per Rondo: "add chart navigation
+           so people can see chart history." -->
+      <div class="cock-chart__nav">
+        <div class="cock-chart__range" role="tablist" aria-label="Time range">
+          ${rangeBtns}
+        </div>
+        <div class="cock-chart__pan" role="group" aria-label="Chart history navigation">
+          <button type="button" class="cock-pan__btn" data-pan="back" aria-label="Pan chart history backward by one window">◀ EARLIER</button>
+          <span class="cock-pan__lbl" data-pan-lbl>now</span>
+          <button type="button" class="cock-pan__btn" data-pan="fwd"  aria-label="Pan chart history forward by one window">LATER ▶</button>
+          <button type="button" class="cock-pan__btn cock-pan__btn--today" data-pan="today" aria-label="Reset chart to current window">⏵ TODAY</button>
+        </div>
       </div>
 
       <div class="cock-kpis">${kpis}</div>
-
-      <!-- ARTICLES — full-width editorial grid. Reimagined
-           2026-05-18: was a cramped 33% side column; now uses the
-           whole page width with bigger cards (kind + date + serif
-           title + dek + source + read). 2-col on desktop, 1-col on
-           mobile. -->
-      <section class="cock-articles" aria-label="News for SN${s.netuid} ${s.name}">
-        <header class="cock-articles__head">
-          <span class="cock-articles__h">⊕ EDITORIAL · SN${s.netuid} ${s.name}</span>
-          <span class="cock-articles__n">${cockpitArticles.length} dispatch${cockpitArticles.length === 1 ? '' : 'es'}</span>
-        </header>
-        <div class="cock-articles__grid">
-          ${cockpitArticlesHtml}
-        </div>
-      </section>
     `;
   }
 
@@ -887,6 +910,10 @@ export function mountCockpit(root, dataLayer = null){
     state.selectedId = netuid;
     saveCockpitState(state);
     series = generateSeries(subnetById(netuid) || SUBNETS[0]);
+    /* Subnet change resets pan so the reader lands on the new
+       subnet's CURRENT window, not whatever historic offset the
+       prior subnet was parked at. */
+    chartOffset = 0;
     repaintMain();
     repaintFeed();
     qsa('[data-row]', root).forEach(r => r.classList.toggle('is-on', parseInt(r.dataset.row, 10) === netuid));
@@ -903,6 +930,9 @@ export function mountCockpit(root, dataLayer = null){
       b.classList.toggle('is-on', on);
       b.setAttribute('aria-selected', String(on));
     });
+    /* Range change resets pan — the new window starts at "today"
+       so the reader has a known anchor. */
+    chartOffset = 0;
     drawChartNow();
   }
 
@@ -941,22 +971,39 @@ export function mountCockpit(root, dataLayer = null){
     const range = RANGES.find(r => r.key === state.range) || RANGES[2];
     const s = subnetById(state.selectedId) || SUBNETS[0];
     const annotations = annotationsFor(s.netuid, s.name);
-    hit = drawChart(c, series, range, annotations);
+    /* Clamp the pan offset so we never read off the start of the
+       series. range.days <= series.length means max offset is
+       (series.length - range.days). */
+    const maxOffset = Math.max(0, series.length - range.days);
+    if (chartOffset > maxOffset) chartOffset = maxOffset;
+    if (chartOffset < 0)         chartOffset = 0;
+    hit = drawChart(c, series, range, annotations, chartOffset);
+    /* Pan-state label below the chart — "now", "−30d", "−90d",
+       so the reader always knows where they are in history. */
+    const lbl = qs('[data-pan-lbl]', root);
+    if (lbl){
+      lbl.textContent = chartOffset === 0
+        ? 'now'
+        : `−${chartOffset}d`;
+      lbl.classList.toggle('is-back', chartOffset > 0);
+    }
     /* Refresh canvas aria-label so SR users hear the new subnet
        + range pair on every redraw. Synthesizes the headline read
        of the visible window (up X% / down Y% / last close $Z) from
        the price slice — same pattern as the terminal CHART mode. */
     if (c && series && series.length){
-      const sliceStart = Math.max(0, series.length - range.days);
-      const slice = series.slice(sliceStart);
+      const sliceStart = Math.max(0, series.length - range.days - chartOffset);
+      const sliceEnd   = Math.min(series.length, sliceStart + range.days);
+      const slice = series.slice(sliceStart, sliceEnd);
       if (slice.length >= 2){
         const first = slice[0].close;
         const last  = slice[slice.length - 1].close;
         const ret   = first > 0 ? ((last - first) / first) * 100 : 0;
         const dir   = ret >= 0 ? 'up' : 'down';
         const lastPriced = last < 1 ? '$' + last.toFixed(4) : '$' + last.toFixed(2);
+        const histTag = chartOffset === 0 ? '' : `, ${chartOffset} days back`;
         c.setAttribute('aria-label',
-          `SN${s.netuid} ${s.name || ''} price chart, ${range.label} window, ${dir} ${Math.abs(ret).toFixed(2)} percent, last close ${lastPriced}`);
+          `SN${s.netuid} ${s.name || ''} price chart, ${range.label} window${histTag}, ${dir} ${Math.abs(ret).toFixed(2)} percent, last close ${lastPriced}`);
       }
     }
   }
@@ -1104,16 +1151,68 @@ export function mountCockpit(root, dataLayer = null){
       if (tooltipEl) tooltipEl.style.display = 'none';
       drawChartNow();
     };
+    /* News-flag click → inline article preview slides up INSIDE
+       the chart pane (per Rondo's "add in article" direction —
+       article appears in the chart context, not in a new tab).
+       PDF hrefs additionally open in the inline PDF viewer drawer
+       (the global handler in pdf-viewer.js picks up data-pdf-*
+       attrs on the panel's READ button). */
+    const previewEl = qs('[data-flag-preview]', root);
     const onClick = (ev) => {
       if (!hit) return;
       const r = canvas.getBoundingClientRect();
       const f = hit.hitFlag(ev.clientX - r.left, ev.clientY - r.top);
-      const href = f && (f.ann.url || f.ann.href);
-      if (href) window.open(href, '_blank', 'noopener');
+      if (!f) {
+        if (previewEl){ previewEl.hidden = true; previewEl.innerHTML = ''; }
+        return;
+      }
+      const a = f.ann;
+      const href = a.url || a.href || '';
+      const isPdf = /\.pdf(\?|$|#)/i.test(href);
+      const kindLbl = a.kind === 'mag' ? 'MAGAZINE' : a.kind === 'orc' ? 'ORACLE' : 'EDITORIAL';
+      const kindCls = a.kind === 'mag' ? 'is-mag' : (a.kind === 'orc' ? 'is-orc' : 'is-cen');
+      const pdfAttrs = isPdf
+        ? ` data-pdf-href="${escapeAttr(href)}" data-pdf-title="${escapeAttr(a.title || '')}" data-pdf-kind="${escapeAttr(a.kind || '')}" data-pdf-date="${escapeAttr(a.date || '')}" data-pdf-kicker="${kindLbl}"`
+        : '';
+      if (previewEl){
+        previewEl.innerHTML = `
+          <div class="cock-chart__flag-preview-inner">
+            <div class="cock-chart__flag-preview-head">
+              <span class="cock-chart__flag-preview-kind ${kindCls}">${kindLbl}</span>
+              <span class="cock-chart__flag-preview-date">${escapeAttr(a.date || '·')}</span>
+              <button type="button" class="cock-chart__flag-preview-x" data-flag-close aria-label="Close article preview">×</button>
+            </div>
+            <h4 class="cock-chart__flag-preview-title">${escapeAttr(a.title || '·')}</h4>
+            ${href ? `<a class="cock-chart__flag-preview-cta" href="${escapeAttr(href)}" target="_blank" rel="noopener"${pdfAttrs}>READ ${isPdf ? 'PDF' : 'ARTICLE'} ↗</a>` : ''}
+          </div>`;
+        previewEl.hidden = false;
+      }
     };
     canvas.addEventListener('mousemove', onMove);
     canvas.addEventListener('mouseleave', onLeave);
     canvas.addEventListener('click', onClick);
+
+    /* Pan history controls — wired once. Each click recomputes
+       offset relative to current range.days so the step matches
+       the visible window. Bounded by drawChartNow's own clamp.
+       Plus close-X on the flag preview panel. */
+    const range_ = () => (RANGES.find(r => r.key === state.range) || RANGES[2]);
+    root.addEventListener('click', (ev) => {
+      const closeBtn = ev.target.closest('[data-flag-close]');
+      if (closeBtn){
+        if (previewEl){ previewEl.hidden = true; previewEl.innerHTML = ''; }
+        ev.preventDefault();
+        return;
+      }
+      const panBtn = ev.target.closest('[data-pan]');
+      if (!panBtn) return;
+      const cmd = panBtn.dataset.pan;
+      const step = range_().days;
+      if      (cmd === 'back')  chartOffset += step;
+      else if (cmd === 'fwd')   chartOffset = Math.max(0, chartOffset - step);
+      else if (cmd === 'today') chartOffset = 0;
+      drawChartNow();
+    });
   }
 
   /* Minimal HTML-attribute escape for the tooltip strings. The
