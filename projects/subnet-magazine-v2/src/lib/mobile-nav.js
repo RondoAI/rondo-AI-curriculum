@@ -40,13 +40,20 @@ export function installMobileNav(){
   if (installed || typeof document === 'undefined') return;
   installed = true;
 
+  /* Disabled site-wide per Rondo's 2026-05-18 directive: "remove
+     bar from the bottom of the screen and replace it with the
+     subnet oracle one we created before with the game inside and
+     how to set up mining etc." The Subnet Oracle dock (Console.js)
+     IS the bottom bar everywhere now — it carries ASK chat,
+     /mine setup, /play game, and the rest of the Field Manual
+     tabs. Mobile page-to-page navigation lives on the masthead
+     row at the top of every page.
+     File kept (not deleted) so re-enabling is a one-line revert
+     of this early-return if the directive ever reverses. */
+  return;
+
+  // eslint-disable-next-line no-unreachable
   const path = window.location.pathname;
-  /* The cockpit owns its own dedicated MARKETS pill + Subnet
-     Oracle dock at the bottom (Console.js). Per Rondo 2026-05-18
-     ("remove the bottom bar and replace it with the subnet oracle
-     bar from before"), skip the mobile nav on the cockpit page —
-     the Oracle dock IS the bottom bar there. */
-  if (/\/cockpit\.html(\?|$)/i.test(path)) return;
   const isActive = (item) => item.match.test(path);
   const anyActive = NAV_ITEMS.some(isActive);
 
