@@ -5,318 +5,147 @@
 <title>Subneτ Magazine — Twitter banner renderer</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@300..800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@300..800&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="/style/tokens.css">
 <style>
   /* TWITTER BANNER (1500x500, 3:1).
      Twitter overlays the profile picture on the lower-left of the
      banner — avatar centroid roughly at (180, 460), 200px diameter.
      The lower-left ~280x180 wedge is therefore reserved as
-     atmospheric / empty so the PFP sits cleanly on top with the big
-     NodeSphere we ship as the avatar visually rhyming with the
-     smaller NodeSphere brand mark on the right of the banner. */
+     atmospheric / empty so the PFP NodeSphere sits cleanly on top.
+
+     What goes on this banner (and what does NOT):
+       YES — the wordmark
+       YES — the NodeSphere brand mark
+       YES — one short Biττensor tagline
+       NO  — dates, edition strips, vol/no, menus
+       NO  — ticker tapes, plexus bands, decorative chrome
+       NO  — @handle attribution (Twitter already shows the handle)
+     A Twitter banner is a brand statement, not a magazine cover. */
+
   html, body { margin: 0; padding: 0; }
   body{
     width: 1500px; height: 500px;
     background: var(--c-bg-1);
     color: var(--c-ink-1);
-    font-family: var(--f-mono);
+    font-family: var(--f-serif);
     position: relative;
     overflow: hidden;
   }
 
-  /* Subtle red atmosphere at the right anchored on the sphere — so
-     the sphere doesn't feel pasted on top of the black, it feels
-     embedded into a faint red field that bleeds back across the
-     banner toward the wordmark. Reinforces the brand without
-     competing with the typography. */
+  /* Subtle red atmosphere anchored on the sphere — softens the
+     transition from the dense plexus into the black, so the sphere
+     doesn't feel pasted on top of the field. The faint vignette
+     toward the lower-left gives the PFP a darker pocket to land
+     on so its silhouette pops. */
   .banner__atmos{
     position: absolute; inset: 0;
     background:
-      radial-gradient(circle at 86% 50%, rgba(255,30,60,.10) 0%, rgba(255,30,60,0) 36%),
-      radial-gradient(circle at 100% 0%,   rgba(255,30,60,.04) 0%, rgba(255,30,60,0) 50%);
+      radial-gradient(circle at 82% 50%, rgba(255,30,60,.14) 0%, rgba(255,30,60,0) 38%),
+      radial-gradient(circle at 14% 88%, rgba(0,0,0,.55) 0%, rgba(0,0,0,0) 32%);
     pointer-events: none;
   }
 
-  .banner__rule{
-    position: absolute; left: 0; right: 0; height: 1px;
-    background: var(--c-rule-2);
-  }
-  .banner__rule--top    { top: 22px; }
-  .banner__rule--bottom { bottom: 56px; }
-
-  /* Magazine masthead edition strip — top mono labels. 14px / 600,
-     pure white on the flag and the BIττENSOR network labels so they
-     read crisp at Twitter's thumbnail crop. Every t/T across the
-     banner is the Greek τ — the brand mark extended into the
-     typography itself. */
-  .banner__meta{
-    position: absolute; left: 40px; right: 40px; top: 32px;
-    display: flex; justify-content: space-between; align-items: baseline;
-    font-family: var(--f-mono); font-size: 14px; font-weight: 600;
-    color: var(--c-ink-1);
-    letter-spacing: .14em;
-    text-transform: uppercase;
-  }
-  .banner__meta .flag    { color: #ffffff; font-weight: 700; letter-spacing: .20em; font-size: 16px; }
-  .banner__meta .network { color: #ffffff; font-weight: 700; letter-spacing: .18em; }
-  .banner__meta .dim     { color: var(--c-ink-3); font-weight: 500; }
-  .banner__meta .sep     { color: var(--c-red);  margin: 0 12px; font-weight: 700; opacity: .65; }
-
-  /* The hero block — wordmark, accent rule, deck line, menu.
-     Anchored center-vertically, offset right of the PFP overlap.
-     Wordmark sized to fit one line in the ~720px column between
-     the PFP overlap zone and the NodeSphere; menu trimmed to short
-     labels for the same reason. */
+  /* HERO — wordmark + accent rule + tagline. Anchored to the left
+     of the banner but offset right of the PFP overlap zone so the
+     avatar doesn't cover any letterforms. Vertically centered.
+     Wordmark sized to end ~30px short of the NodeSphere on the
+     right so the two never collide. */
   .banner__hero{
-    position: absolute; left: 290px; top: 125px;
-    width: 760px;
+    position: absolute; left: 290px; top: 50%;
+    transform: translateY(-50%);
+    max-width: 720px;
   }
   .banner__wordmark{
-    font-family: var(--f-serif); font-weight: 800;
-    font-size: 82px; line-height: 1;
-    letter-spacing: -.028em;
+    font-family: var(--f-serif);   /* Archivo — the magazine display family */
+    font-weight: 800;
+    font-size: 94px;
+    line-height: 1;
+    letter-spacing: -.030em;
     color: var(--c-ink-1);
     margin: 0;
     white-space: nowrap;
   }
-  .banner__wordmark .tau{ color: var(--c-ink-1); font-weight: 800; }
+  .banner__accent{
+    width: 78px; height: 2px;
+    background: var(--c-red);
+    margin: 26px 0 22px;
+  }
+  .banner__tagline{
+    font-family: var(--f-serif);
+    font-weight: 400;
+    font-size: 26px; line-height: 1.2;
+    color: var(--c-ink-2);
+    letter-spacing: -.005em;
+    margin: 0;
+  }
+  .banner__tagline em{
+    font-style: normal;
+    color: var(--c-ink-1);
+    font-weight: 600;
+  }
+
+  /* NodeSphere brand mark on the right — the canonical visual
+     identity that drives the PFP, masthead, and every other surface.
+     Sized so it sits beside the wordmark without crowding. */
+  .banner__sphere{
+    position: absolute; right: 80px; top: 50%;
+    transform: translateY(-50%);
+    width: 380px; height: 380px;
+    display: block;
+  }
 
   /* Every τ across the banner uses the SAME glyph as the canonical
      "Subneτ Magazine" wordmark — plain Archivo (the magazine's
-     display family). Auto-wrapped by JS at the bottom of this file
-     so every τ in static markup AND generated content carries the
-     same brand mark.
-
-     In mixed-case contexts (wordmark, deck) the τ inherits at 1em
-     and sits at lowercase x-height — exactly the rhythm Rondo
-     approved on Subneτ. In uppercase contexts (BIττENSOR, etc.)
-     it scales up so the τ ascender meets cap-height of surrounding
-     capitals — same glyph, taller, so the word reads flush. */
+     display family), the exact treatment Rondo approved. Auto-wrapped
+     by the JS at the bottom of this file so every τ in markup AND
+     generated content carries the same brand mark. */
   .tau-brand{
     font-family: 'Archivo', 'Inter', system-ui, sans-serif;
     font-style: normal;
     font-weight: inherit;
     font-size: 1em;
     color: inherit;
-    display: inline-block;
+    display: inline;
     line-height: 1;
   }
-
-  /* UPPERCASE mono contexts — scale the same Archivo τ to match
-     surrounding cap-height. Result: BIττENSOR reads as one word
-     with all glyphs hitting the same top line. */
-  .banner__meta .tau-brand,
-  .banner__menu .tau-brand,
-  .banner__sphere-label .tau-brand,
-  .banner__tag .tau-brand{
-    font-size: 1.30em;
-    font-weight: 700;
-  }
-  .banner__meta .flag .tau-brand{
-    font-size: 1.28em;
-    font-weight: 700;
-  }
-
-  .banner__accent{
-    width: 72px; height: 2px;
-    background: var(--c-red);
-    margin: 26px 0 20px;
-  }
-
-  .banner__deck{
-    font-family: var(--f-serif); font-weight: 400;
-    font-size: 24px; line-height: 1.25;
-    color: var(--c-ink-2);
-    letter-spacing: -.008em;
-    margin: 0;
-    white-space: nowrap;
-  }
-  .banner__deck em{
-    font-style: normal; color: var(--c-ink-1); font-weight: 700;
-  }
-
-  .banner__menu{
-    margin-top: 22px;
-    font-family: var(--f-mono); font-size: 11.5px; font-weight: 500;
-    color: var(--c-ink-3);
-    letter-spacing: var(--ls-label);
-    text-transform: uppercase;
-    white-space: nowrap;
-  }
-  .banner__menu .sep{ color: var(--c-red); margin: 0 12px; }
-
-  /* NodeSphere brand mark on the right — the same canonical
-     visualization driving the PFP, masthead, and pfp.html, at the
-     scale that fits a 340x340 frame inside the right column without
-     crowding the top-right metadata or the bottom ticker. */
-  .banner__sphere{
-    position: absolute; right: 110px; top: 76px;
-    width: 340px; height: 340px;
-    display: block;
-  }
-  .banner__sphere-label{
-    position: absolute; right: 110px; top: 425px;
-    width: 340px; text-align: center;
-    font-family: var(--f-mono); font-size: 10px;
-    color: var(--c-ink-4);
-    letter-spacing: var(--ls-label);
-    text-transform: uppercase;
-  }
-
-  /* Horizontal neural plexus running along the bottom edge of the
-     banner — replaces the ticker tape. Same red filigree language
-     as the NodeSphere brand mark, unwrapped into a low band. Drawn
-     procedurally in JS at the bottom of this file (seeded so it's
-     reproducible). Sits below the bottom hairline rule + above the
-     attribution chip. */
-  .banner__plexus{
-    position: absolute; left: 0; right: 0; bottom: 0;
-    width: 1500px; height: 56px;
-    display: block;
-    opacity: .95;
-  }
-
-  /* Tiny attribution chip at the bottom-right, on top of the plexus
-     band, with a small dark mask so the wordmark reads cleanly. */
-  .banner__tag{
-    position: absolute; right: 40px; bottom: 22px;
-    background: linear-gradient(90deg, rgba(5,2,3,0) 0%, rgba(5,2,3,.85) 18%, rgba(5,2,3,.95) 100%);
-    padding: 4px 0 4px 18px;
-    font-family: var(--f-mono); font-size: 11px; font-weight: 600;
-    color: var(--c-ink-1);
-    letter-spacing: .14em;
-    text-transform: uppercase;
-  }
-  .banner__tag .x{ color: var(--c-red); margin-right: 4px; font-size: 13px; }
 </style>
 </head>
 <body>
   <div class="banner__atmos"></div>
 
-  <div class="banner__rule banner__rule--top"></div>
-
-  <div class="banner__meta">
-    <span><span class="flag">SUBNEτ MAGAZINE</span><span class="sep">·</span><span class="dim">VOL. I<span class="sep">·</span>NO. XXIV<span class="sep">·</span></span><span class="network">BIττENSOR NEτWORK</span></span>
-    <span><span class="dim">MAY 18 2026<span class="sep">·</span></span><span class="network">BIττENSOR</span> <span class="dim">RESEARCH τERMINAL</span></span>
-  </div>
-
   <div class="banner__hero">
-    <h1 class="banner__wordmark">Subne<span class="tau">τ</span> Magazine</h1>
+    <h1 class="banner__wordmark">Subneτ Magazine</h1>
     <div class="banner__accent"></div>
-    <p class="banner__deck">τhe research τerminal for τhe <em>Biττensor</em> neτwork.</p>
-    <div class="banner__menu">
-      128 SUBNEτS<span class="sep">·</span>MARKEτS<span class="sep">·</span>EDIτORIAL<span class="sep">·</span>ANALYτICS<span class="sep">·</span>AττRIBUτION
-    </div>
+    <p class="banner__tagline"><em>Biττensor</em> research.</p>
   </div>
 
   <canvas id="sphere" class="banner__sphere" width="380" height="380"></canvas>
-  <div class="banner__sphere-label">NODESPHERE · BIττENSOR CONSENSUS</div>
-
-  <div class="banner__rule banner__rule--bottom"></div>
-
-  <canvas id="plexus" class="banner__plexus" width="1500" height="56"></canvas>
-  <div class="banner__tag"><span class="x">𝕏</span> @SUBNEτMAGAZINE</div>
 
   <script type="module">
     import { NodeSphere } from '/src/charts/NodeSphere.js';
-    import { SUBNETS }    from '/src/data/subnets.js';
 
-    /* Sphere: same canonical NodeSphere as PFP + masthead. Dense
-       enough to read at 380px (more than the masthead's 52 nodes,
-       fewer than the PFP's 220 because we have less canvas).
-       Frozen at t=1.85 — a rotation where the densest cluster sits
-       slightly upper-front, giving the silhouette a strong top-edge
-       that catches the eye against the dark banner. */
+    /* Same canonical NodeSphere as the PFP + masthead, sized to fill
+       the right side of the banner without crowding the wordmark.
+       Frozen at t=2.4 — the same rotation that gives the PFP its
+       dense forward silhouette, so the PFP and the banner sphere
+       carry the identical visual mark. */
     const c = document.getElementById('sphere');
     const sphere = new NodeSphere(c, {
-      nodes:   150,
-      K:       5,
-      density: 0.22,
-      edgeCap: 6000,
+      nodes:   180,
+      K:       6,
+      density: 0.20,
+      edgeCap: 7000,
       speed:   0,
       glow:    true,
       atmos:   true,
     });
-    sphere.draw(c.getContext('2d'), 340, 340, 1.85);
+    sphere.draw(c.getContext('2d'), 380, 380, 2.4);
 
-    /* Horizontal neural plexus across the bottom — replaces the
-       former ticker tape per Rondo's directive. Procedural, seeded
-       (deterministic across renders). Same red-on-black brand
-       language as the NodeSphere on the right: KNN-connected nodes,
-       depth-keyed alpha, soft halos on the nodes. */
-    (function drawPlexusBand(){
-      const c = document.getElementById('plexus');
-      const w = c.width, h = c.height;
-      const ctx = c.getContext('2d');
-      ctx.clearRect(0, 0, w, h);
-
-      const NODES = 110;          // density across 1500x56 band
-      const K     = 3;            // KNN connectivity
-      const MAX_EDGE_D = 130;     // skip edges longer than this (avoids long ugly chords)
-      const SEED = 20260518;      // stable seed (today's date)
-
-      // Mulberry32 — small deterministic PRNG
-      let s = SEED >>> 0;
-      const rand = () => { s |= 0; s = s + 0x6D2B79F5 | 0;
-        let t = Math.imul(s ^ s >>> 15, 1 | s);
-        t = t + Math.imul(t ^ t >>> 7, 61 | t) ^ t;
-        return ((t ^ t >>> 14) >>> 0) / 4294967296;
-      };
-
-      // Sample points across the band with a y-distribution that
-      // slightly favors the middle (a "spine" feel)
-      const pts = [];
-      for (let i = 0; i < NODES; i++){
-        const x = rand() * w;
-        const yBias = (rand() + rand() + rand()) / 3;  // triangular ~ center
-        const y = yBias * h;
-        pts.push({ x, y });
-      }
-
-      // KNN edges
-      const edges = [];
-      for (let i = 0; i < NODES; i++){
-        const dists = [];
-        for (let j = 0; j < NODES; j++){
-          if (i === j) continue;
-          const dx = pts[i].x - pts[j].x, dy = pts[i].y - pts[j].y;
-          const d  = Math.sqrt(dx*dx + dy*dy);
-          if (d > MAX_EDGE_D) continue;
-          dists.push({ j, d });
-        }
-        dists.sort((a,b) => a.d - b.d);
-        for (let k = 0; k < Math.min(K, dists.length); k++){
-          const o = dists[k];
-          if (i < o.j) edges.push({ a: i, b: o.j, d: o.d });
-        }
-      }
-
-      // Draw edges — alpha keyed to length, shorter edges brighter
-      ctx.lineWidth = 1;
-      edges.forEach(e => {
-        const t = 1 - e.d / MAX_EDGE_D;            // 0..1, closer = brighter
-        const a = Math.max(0.04, Math.min(0.35, t * 0.40));
-        ctx.strokeStyle = `rgba(255, 30, 60, ${a})`;
-        ctx.beginPath();
-        ctx.moveTo(pts[e.a].x, pts[e.a].y);
-        ctx.lineTo(pts[e.b].x, pts[e.b].y);
-        ctx.stroke();
-      });
-
-      // Draw nodes — bright core + soft halo for the "alive" feel
-      pts.forEach(p => {
-        ctx.fillStyle = 'rgba(255, 30, 60, .22)';
-        ctx.beginPath(); ctx.arc(p.x, p.y, 3.2, 0, Math.PI * 2); ctx.fill();
-        ctx.fillStyle = '#FF4D60';
-        ctx.beginPath(); ctx.arc(p.x, p.y, 1.4, 0, Math.PI * 2); ctx.fill();
-      });
-    })();
-
-    /* Promote every τ in the DOM to a calligraphic brand span so
-       the EB-Garamond-italic override (.tau-brand in CSS) catches
-       it. Walks text nodes only, skips script/style/canvas, and
-       won't re-wrap τ's already inside a .tau-brand. */
+    /* Promote every τ to the .tau-brand span so the Archivo glyph
+       (already the parent font here) is explicit and any future
+       per-character treatment is a one-line CSS change rather than
+       a markup hunt. */
     (function wrapTaus(root){
       const SKIP = new Set(['SCRIPT','STYLE','CANVAS','SVG']);
       const walker = document.createTreeWalker(root, NodeFilter.SHOW_TEXT, {
