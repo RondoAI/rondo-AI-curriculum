@@ -177,7 +177,18 @@ export function installCommandPalette(opts = {}){
     const t = e.target.closest && e.target.closest('[data-cmd-trigger]');
     if (!t) return;
     e.preventDefault();
-    openCommandPalette({ subnets });
+    /* TOGGLE behavior — taps to a trigger (mobile MENU button,
+       status-bar palette chip, etc.) open the palette when it's
+       closed AND close it when it's open. Without this the mobile
+       MENU button was open-only and there was no way to "go back"
+       on touch since ESC isn't a touch gesture and the kbd chip
+       wasn't a tappable close target. Fixed per Rondo 2026-05-18
+       "the menu button doesn't allow you to go back on mobile." */
+    if (active){
+      closeCommandPalette();
+    } else {
+      openCommandPalette({ subnets });
+    }
   });
 }
 
@@ -447,7 +458,7 @@ function template(initial){
                value="${escapeHtml(initial)}"
                autocomplete="off" autocorrect="off" spellcheck="false"
                inputmode="search" aria-label="Command" />
-        <kbd class="cmdpal__kbdhint" aria-label="Press Escape to close">ESC</kbd>
+        <button type="button" class="cmdpal__kbdhint" data-cmd-close aria-label="Close command palette"><span class="cmdpal__kbdhint__esc">ESC</span><span class="cmdpal__kbdhint__close">CLOSE</span></button>
       </div>
       <div class="cmdpal__translate" aria-live="polite" style="display:none"></div>
       <div class="cmdpal__list" role="listbox" aria-label="Command results"></div>

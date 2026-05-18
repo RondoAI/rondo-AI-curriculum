@@ -82,6 +82,39 @@
   padding: 2px 6px 1px;
   background: rgba(8, 3, 5, .5);
   white-space: nowrap;
+  /* button reset — element was <kbd> until 2026-05-18, now a real
+     <button> so mobile readers can tap to close. Strip the browser
+     button chrome so it still reads as a kbd chip. */
+  -webkit-appearance: none;
+  appearance: none;
+  cursor: pointer;
+  line-height: 1.4;
+  border-radius: 0;
+  margin: 0;
+  font-family: var(--f-mono);
+}
+.cmdpal__kbdhint:hover,
+.cmdpal__kbdhint:focus-visible{
+  color: #fff;
+  border-color: var(--c-red);
+  outline: none;
+}
+/* The button carries TWO labels in its markup — desktop "ESC" + mobile
+   "CLOSE". Show one based on viewport width. The CLOSE pill is bigger
+   + red-tinted so it reads as a tap target on phone, not a keyboard
+   hint that doesn't map to anything mobile-real. */
+.cmdpal__kbdhint__esc   { display: inline; }
+.cmdpal__kbdhint__close { display: none; }
+@media (max-width: 720px){
+  .cmdpal__kbdhint{
+    font-size: 9.5px;
+    padding: 5px 10px 4px;
+    color: var(--c-red-1);
+    border-color: rgba(255, 30, 60, .45);
+    background: rgba(255, 30, 60, .08);
+  }
+  .cmdpal__kbdhint__esc   { display: none; }
+  .cmdpal__kbdhint__close { display: inline; }
 }
 
 /* ---------- translation chip (ASKB-style "show your work") ---- */
