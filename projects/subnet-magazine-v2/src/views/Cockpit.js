@@ -1064,6 +1064,66 @@ export function mountCockpit(root, dataLayer = null){
       </button>
       ${invalidBuy  ? `<div class="cock-action__err">Insufficient paper cash for ${fmtUsd(costUSD)} buy.</div>` : ''}
       ${invalidSell ? `<div class="cock-action__err">You only hold ${fmtA(heldShares)} of SN${s.netuid}; reduce the amount.</div>` : ''}
+      ${(() => {
+        /* Active-subnet P&L row — shown when the reader holds
+           the charted subnet, gives instant feedback on whether
+           the chart's price action is helping or hurting them. */
+        if (heldShares <= 0 || !lot) return '';
+        const costBasis = lot.shares * lot.avgCost;
+        const markValue = lot.shares * price;
+        const pnlUSD = markValue - costBasis;
+        const pnlPct = costBasis > 0 ? (pnlUSD / costBasis) * 100 : 0;
+        const cls = pnlUSD >= 0 ? 'is-up' : 'is-down';
+        return `
+          <section class="cock-action__pnl">
+            <div class="cock-action__pnl-lbl">⊕ YOUR SN${s.netuid} POSITION</div>
+            <div class="cock-action__pnl-rows">
+              <div class="cock-action__bal-row">
+                <span class="cock-action__bal-lbl">Cost basis</span>
+                <span class="cock-action__bal-val">${fmtUsd(costBasis)}</span>
+              </div>
+              <div class="cock-action__bal-row">
+                <span class="cock-action__bal-lbl">Mark value</span>
+                <span class="cock-action__bal-val">${fmtUsd(markValue)}</span>
+              </div>
+              <div class="cock-action__bal-row">
+                <span class="cock-action__bal-lbl">Unrealized P&amp;L</span>
+                <span class="cock-action__bal-val cock-action__pnl-val ${cls}">${pnlUSD >= 0 ? '+' : ''}${fmtUsd(pnlUSD)} · ${pnlPct >= 0 ? '+' : ''}${pnlPct.toFixed(2)}%</span>
+              </div>
+            </div>
+          </section>
+        `;
+      })()}
+      ${(() => {
+        /* All-positions strip — shows the rest of the paper
+           book at a glance (up to 4 other holdings), so the
+           reader can swap to any of their positions in one tap
+           via the [data-action-jump] handler. */
+        const others = paper.positions.filter(p => p.netuid !== s.netuid).slice(0, 4);
+        if (others.length === 0) return '';
+        const rows = others.map(p => {
+          const sn = subnetById(p.netuid);
+          if (!sn) return '';
+          const mkVal = p.shares * (sn.price || 0);
+          const cstBas = p.shares * p.avgCost;
+          const delta = cstBas > 0 ? ((mkVal - cstBas) / cstBas) * 100 : 0;
+          const cls = delta >= 0 ? 'is-up' : 'is-down';
+          return `
+            <button type="button" class="cock-action__pos" data-action-jump="${p.netuid}" aria-label="Switch chart to SN${p.netuid}">
+              <span class="cock-action__pos-sn">SN${p.netuid}</span>
+              <span class="cock-action__pos-name">${sn.name}</span>
+              <span class="cock-action__pos-val">${fmtUsd(mkVal)}</span>
+              <span class="cock-action__pos-pct ${cls}">${delta >= 0 ? '+' : ''}${delta.toFixed(1)}%</span>
+            </button>
+          `;
+        }).join('');
+        return `
+          <section class="cock-action__book">
+            <div class="cock-action__pnl-lbl">⊕ OTHER POSITIONS · tap to chart</div>
+            <div class="cock-action__pos-list">${rows}</div>
+          </section>
+        `;
+      })()}
     `;
   }
   function repaintAction(){
@@ -1096,6 +1156,16 @@ export function mountCockpit(root, dataLayer = null){
         repaintAction();
       });
     }
+    /* Tap an OTHER POSITION row to retarget the cockpit chart
+       (and the action block) to that subnet — same pattern as
+       picking a row in the rail or the markets table. */
+    root2.querySelectorAll('[data-action-jump]').forEach(b => {
+      b.addEventListener('click', () => {
+        const id = parseInt(b.dataset.actionJump, 10);
+        if (!Number.isFinite(id) || id === state.selectedId) return;
+        selectSubnet(id);
+      });
+    });
     const cta = qs('[data-action-cta]', root2);
     if (cta){
       cta.addEventListener('click', () => {

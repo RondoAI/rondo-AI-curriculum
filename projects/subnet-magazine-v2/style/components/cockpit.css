@@ -2163,3 +2163,90 @@
   color: #fff;
   border-bottom: 1px solid var(--c-rule);
 }
+
+/* P&L block — active subnet position summary inside the right-
+   rail action block. Renders only when reader holds the
+   charted subnet (otherwise hidden by JS). */
+.cock-action__pnl,
+.cock-action__book{
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  padding: 12px;
+  background: rgba(0,0,0,.30);
+  border: 1px solid var(--c-rule);
+}
+.cock-action__pnl-lbl{
+  font-family: var(--f-mono);
+  font-size: 10px;
+  letter-spacing: .22em;
+  font-weight: 800;
+  color: var(--c-red);
+  display: block;
+  margin-bottom: 4px;
+}
+.cock-action__pnl-rows{
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+.cock-action__pnl-val{
+  font-weight: 800;
+}
+.cock-action__pnl-val.is-up{ color: #5BE599; }
+.cock-action__pnl-val.is-down{ color: var(--c-red-1); }
+
+/* OTHER POSITIONS strip — compact tappable rows that retarget
+   the chart to another held subnet. Each row is a button. */
+.cock-action__pos-list{
+  display: flex;
+  flex-direction: column;
+  gap: 1px;
+  background: var(--c-rule);
+}
+.cock-action__pos{
+  -webkit-appearance: none;
+  appearance: none;
+  background: rgba(0,0,0,.40);
+  border: 0;
+  display: grid;
+  grid-template-columns: auto 1fr auto auto;
+  gap: 8px;
+  align-items: baseline;
+  padding: 8px 10px;
+  font-family: var(--f-mono);
+  font-size: 11px;
+  color: var(--c-ink-2);
+  cursor: pointer;
+  text-align: left;
+  transition: background 120ms, color 120ms;
+}
+.cock-action__pos:hover{
+  background: rgba(255,30,60,.10);
+  color: #fff;
+}
+.cock-action__pos-sn{
+  font-weight: 800;
+  color: var(--c-red-1);
+  letter-spacing: .04em;
+}
+.cock-action__pos-name{
+  font-family: var(--f-serif);
+  font-size: 12px;
+  font-weight: 700;
+  color: #fff;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  min-width: 0;
+}
+.cock-action__pos-val{
+  font-variant-numeric: tabular-nums;
+  color: var(--c-ink-2);
+}
+.cock-action__pos-pct{
+  font-weight: 700;
+  font-variant-numeric: tabular-nums;
+}
+.cock-action__pos-pct.is-up{ color: #5BE599; }
+.cock-action__pos-pct.is-down{ color: var(--c-red-1); }
