@@ -1609,3 +1609,106 @@ three-region layout with taostats' column density.
 Sandbox will fold any cockpit grammar additions back into the
 terminal CHART mode + DETAIL mode so the visual language stays
 consistent across all chart-bearing surfaces.
+
+## Coordination Ask: Cockpit Phoenix-Grade Layout — REFERENCE #3 (sandbox-session, for mac)
+
+Rondo 2026-05-18 sent a SECOND inspiration screenshot, alongside
+the Phoenix portfolio layout — a multi-pane institutional trading
+terminal (Bloomberg / sell-side desk register). Saved at:
+
+  projects/subnet-magazine-v2/docs/inspiration/trading-terminal-multipane.jpg
+
+His direct words: "Give this to your sibling as another example."
+
+WHAT THE TRADING TERMINAL SHOWS (single workspace, ~7 zones):
+
+  TOP NAV (full width):     Agency · Trade Report · Settlements ·
+                            Research & Commentary · Transfers
+                            (page-level navigation as compact tabs,
+                             not a heavy chrome bar)
+
+  LEFT RAIL (~16%):         Currency Pair selector ("BTC / USD")
+                            Trade History — streaming list, columns
+                            TIME · QTY · AVG. PRICE · EXCH, last
+                            ~30 trades visible at once, alternating
+                            row tint for scan-ability
+
+  CENTER (~46%):            Price Chart pane with tabs (Price Chart /
+                            Market Depth), candlestick + volume
+                            histogram below it. Compare + Indicators
+                            dropdowns. Tight axis labels.
+
+  CENTER-BOTTOM (~46%):     Active orders table — tabs (Active /
+                            Default / Default / Default), columns
+                            ↓ TS · STATUS · STATUS% · SIDE · EXCHANGE
+                            · INSTRUMENT · PRICE · QTY · FILLED ·
+                            LEAVES · TRADER. STATUS% column has
+                            inline progress-bar fills (e.g. "100%"
+                            with a solid bar, "00%" with empty)
+
+  CENTER-RIGHT (~17%):      Orderbook — Price Grouping dropdown +
+                            two stacked tables (asks above / spread
+                            indicator in middle / bids below), columns
+                            PRICE · SIZE BTC · TOTAL BTC. Red asks
+                            above, green bids below. Spread shown
+                            inline ("32,864.765 / Spread 5.43 (1.6522 bps)")
+
+  RIGHT RAIL (~21%):        Balances — CURRENCY · QUANTITY rows,
+                            below: TOTAL HELD / AVAILABLE CREDIT /
+                            TOTAL CREDIT / CREDIT USAGE (gauge bar)
+                            Order Entry — Buy/Sell tab, Market type,
+                            Quantity with quick-set chips (5/10/15/
+                            20/25/50), Exchanges tag toggles (GEM
+                            BTS KRKN), summary (ORDER NOTIONAL /
+                            NEW USD BALANCE / NEW BTC BALANCE),
+                            big BUY BTC action button at bottom
+
+KEY DESIGN PATTERNS WORTH STEALING:
+
+  1. SEVEN ZONES IN ONE VIEWPORT, no scroll. Every zone is dense,
+     no wasted whitespace. Premium institutional pattern.
+
+  2. STATUS-INLINE COLUMNS. The active orders table's STATUS% column
+     renders the percentage value over an inline progress bar at the
+     same height as the row — composite metric in a single cell.
+     Steal for: subnet emission utilization, validator participation,
+     paper portfolio position fill state.
+
+  3. ORDERBOOK SPLIT. Asks-above / spread-middle / bids-below with
+     red/green color coding. Steal for: subnet "interest book"
+     showing concentration of buy/sell wallets, or sector flows
+     above/below network average.
+
+  4. STREAMING LEFT RAIL. The trade history rail just streams,
+     newest at top, capped to N visible rows. Steal for: chain
+     event ticker (new stake / new dereg / new subnet / large
+     transfer), or oracle desk dispatches.
+
+  5. RIGHT-RAIL ACTION BLOCK with big primary button. Bloomberg /
+     Phoenix / this terminal all have it. Steal for: paper portfolio
+     entry ("BUY α" green button at the bottom of the right rail,
+     with quick-chip quantity selectors).
+
+  6. TOP-NAV AS THIN MONO TABS, not a heavy chrome bar. Free up
+     vertical for data. We already do this in the masthead — extend
+     to the cockpit workspace navigation.
+
+HOW THIS COMPLEMENTS THE PHOENIX REFERENCE:
+
+  Phoenix shows the THREE-REGION clarity (top hero chart, right
+  sidebar, bottom table). This terminal shows the DENSITY ceiling —
+  how much functional information fits in one viewport when every
+  zone earns its space. Phoenix's right-sidebar Summary cards are
+  this terminal's Balances + Order Entry combined. Phoenix's bottom
+  Positions table is this terminal's Active orders + Trade History
+  combined. Same DNA, denser execution.
+
+For mac's cockpit rebuild: start from Phoenix's clean 3-region grid,
+then graduate the density toward this terminal's 7-zone pattern as
+each zone's content matures (per-row sparklines, inline progress
+bars, orderbook depth panels, action blocks).
+
+The 128-subnet master grid mac extracted should sit in the
+"Active orders" position (center-bottom), and the streaming chain-
+events feed could occupy the LEFT RAIL once we have a live feed
+adapter.
