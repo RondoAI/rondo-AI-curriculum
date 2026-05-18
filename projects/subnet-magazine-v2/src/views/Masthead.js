@@ -12,19 +12,20 @@ import { NodeSphere } from '../charts/NodeSphere.js';
 import { bbgDate } from '../lib/format.js';
 import { applySlideHint } from '../lib/slide-hint.js';
 
-/* The whole magazine, six surfaces. Anything else became
-   noise; the depth lives inside these pages now. */
+/* Site nav. Per Rondo's 2026-05-17 merge directive, DASHBOARD and
+   COCKPIT collapsed into TERMINAL (they're meta-refresh redirects
+   now), so nav surfaces TERMINAL as the canonical workspace and
+   drops the two legacy entries. Reader continuity: legacy URLs
+   still resolve, they just land on the right Terminal mode. */
 const NAV_ITEMS = [
-  { code: '001', label: 'MAGAZINE', href: 'index.html'   },
+  { code: '001', label: 'MAGAZINE', href: 'index.html'    },
   { code: '010', label: 'ORACLE',   href: 'oracle.html'   },
   { code: '020', label: 'RESEARCH', href: 'research.html' },
-  { code: '030', label: 'MARKETS',  href: 'markets.html' },
-  { code: '035', label: 'DASHBOARD',href: 'dashboard.html' },
-  { code: '037', label: 'COCKPIT',  href: 'cockpit.html'  },
-  { code: '038', label: 'TERMINAL', href: 'terminal.html' },
-  { code: '040', label: 'VOICES',   href: 'voices.html'   },
+  { code: '030', label: 'MARKETS',  href: 'markets.html'  },
+  { code: '040', label: 'TERMINAL', href: 'terminal.html' },
+  { code: '050', label: 'VOICES',   href: 'voices.html'   },
+  { code: '060', label: 'EDITOR',   href: 'editor.html'   },
   { code: '999', label: 'PRO ↗',    href: 'pricing.html'  },
-  { code: '050', label: 'EDITOR',   href: 'editor.html'  },
 ];
 
 const X_URL = 'https://x.com/subnetmagazine';
