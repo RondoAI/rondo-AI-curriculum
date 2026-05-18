@@ -51,7 +51,9 @@
   .banner__atmos{
     position: absolute; inset: 0;
     background:
-      radial-gradient(circle at 92% 22%, rgba(255,30,60,.14) 0%, rgba(255,30,60,0) 22%),
+      /* anchored on the new sphere position (right=130, top=140 →
+         center ~(1270, 240) → ~85% x, 48% y in 1500x500) */
+      radial-gradient(circle at 85% 48%, rgba(255,30,60,.14) 0%, rgba(255,30,60,0) 22%),
       radial-gradient(circle at 14% 88%, rgba(0,0,0,.55) 0%, rgba(0,0,0,0) 30%);
     pointer-events: none;
   }
@@ -63,33 +65,31 @@
      Tagline drops as a secondary line directly below. */
   .banner__wordmark{
     position: absolute;
-    left: 120px;            /* further left — uses more of the banner
-                               real estate; PFP avatar overlay sits at
-                               y=360+ so doesn't cover the wordmark
-                               which is at vertical center */
+    left: 180px;            /* pulled back right from v9's left=120
+                               per Rondo — gives the wordmark more
+                               breathing room from the left edge
+                               and from the PFP avatar zone below */
     top: 50%;
     transform: translateY(-58%);
     font-family: var(--f-serif);   /* Archivo — magazine display family */
     font-weight: 800;
-    font-size: 124px;       /* bumped 108 → 124 for full masthead presence */
+    font-size: 110px;       /* dialed 124 → 110 so the wordmark fits
+                               cleanly alongside the repositioned
+                               (now non-corner) sphere */
     line-height: 1;
-    /* Mac's -.042em — masthead-tight tracking. Bloomberg, NYT, FT
-       all run their display wordmarks tighter than -.030em at this
-       size; -.042em packs the letterforms so the wordmark reads as
-       ONE word, not seven adjacent characters. */
-    letter-spacing: -.042em;
+    letter-spacing: -.042em;  /* mac's masthead-tight tracking */
     color: var(--c-ink-1);
     margin: 0;
     white-space: nowrap;
   }
   .banner__tagline{
     position: absolute;
-    left: 120px;
+    left: 180px;
     top: 50%;
-    transform: translateY(54px);    /* bumped from 46 to clear larger wordmark */
+    transform: translateY(48px);
     font-family: var(--f-serif);
     font-weight: 400;
-    font-size: 28px; line-height: 1.2;   /* bumped 24 → 28 to scale with wordmark */
+    font-size: 26px; line-height: 1.2;
     color: var(--c-ink-2);
     letter-spacing: -.005em;
     margin: 0;
@@ -100,13 +100,15 @@
     font-weight: 600;
   }
 
-  /* NodeSphere as TOP-RIGHT LOGOMARK — bumped to 200 (was 160) so
-     it has real presence as a brand mark, not a token corner badge.
-     Still contained (atmos:false in JS); still in the top-right
-     corner so it doesn't compete with the wordmark for the same
-     horizontal axis. */
+  /* NodeSphere as UPPER-RIGHT BRAND MARK — moved AWAY from the
+     pure corner so Twitter's UI overlay (edit-profile / grok /
+     share buttons, which sit in the top-right ~150x80 corner of
+     the banner viewport) doesn't bisect the sphere. Now at
+     top=140 / right=130 — still anchored to the upper-right
+     quadrant for the three-corner composition, but inset enough
+     that the chrome buttons have their own clear space above. */
   .banner__sphere{
-    position: absolute; right: 60px; top: 50px;
+    position: absolute; right: 130px; top: 140px;
     width: 200px; height: 200px;
     display: block;
   }
