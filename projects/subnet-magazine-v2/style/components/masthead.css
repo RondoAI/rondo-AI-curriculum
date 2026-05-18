@@ -271,3 +271,20 @@
   background: var(--c-red);
   border-color: var(--c-red);
 }
+/* Mobile clip fix 2026-05-18 — at 390px (iPhone 13) the 3
+   consolidated nav items (MAGAZINE/ORACLE/COCKPIT) totalled 399px
+   wide with the desktop padding, so the rightmost "COCKPIT" tab
+   clipped past the viewport edge. Tighten the padding and the
+   code chip on small screens so all three fit comfortably on a
+   single line at 360px+. */
+@media (max-width: 480px){
+  .nav-tab{
+    padding: 9px 9px;
+    font-size: 12px;
+    gap: 5px;
+  }
+  .nav-tab__code{
+    font-size: 8px;
+    padding: 2px 4px;
+  }
+}
