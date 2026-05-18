@@ -1470,3 +1470,218 @@
   line-height: 1.4;
   border-bottom: 0;
 }
+
+/* =================================================================
+   GAP FILLERS — JS-referenced classes that had no CSS rules
+   -----------------------------------------------------------------
+   Audited 2026-05-17 against the same bug pattern that broke
+   chart-mode (template emits class names with no matching CSS,
+   layout silently degrades to default block). Each rule below
+   corrects one specific gap.
+   ================================================================= */
+
+/* --- markets fill-ins ------------------------------------------ */
+.term-mkts__head-right{
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  min-width: 0;
+  flex: 0 0 auto;
+}
+.term-mkts__meta{
+  font-family: var(--f-mono);
+  font-size: 10px;
+  letter-spacing: .12em;
+  color: var(--c-ink-3);
+  text-transform: uppercase;
+}
+.term-mkts__td--cluster{
+  width: 1%;
+  white-space: nowrap;
+  text-align: center;
+}
+.term-mkts__td--cov{
+  width: 1%;
+  white-space: nowrap;
+  text-align: right;
+  font-variant-numeric: tabular-nums;
+}
+
+/* --- editorial fill-in ----------------------------------------- */
+.term-edit__grid{
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1px;
+  background: var(--c-rule);
+}
+@media (min-width: 720px){
+  .term-edit__grid{ grid-template-columns: repeat(2, 1fr); }
+}
+@media (min-width: 1280px){
+  .term-edit__grid{ grid-template-columns: repeat(3, 1fr); }
+}
+
+/* =================================================================
+   DESK MODE — full styling (was zero-CSS before this commit)
+   -----------------------------------------------------------------
+   Composes paper portfolio + Brinson-Fachler attribution as ONE
+   workflow: hold → measure. Inner modules carry their own styles,
+   the wrapper just provides head, body rhythm, and the divider
+   that announces the analytics layer below the positions.
+   ================================================================= */
+.desk-mode{
+  display: flex;
+  flex-direction: column;
+  min-height: 0;
+  min-width: 0;
+  height: 100%;
+  background: var(--c-bg);
+}
+.desk-mode__head{
+  padding: 14px 16px 12px;
+  border-bottom: 1px solid var(--c-rule);
+  flex-shrink: 0;
+}
+.desk-mode__eyebrow{
+  display: block;
+  font-family: var(--f-mono);
+  font-size: 9px;
+  letter-spacing: .22em;
+  font-weight: 800;
+  color: var(--c-red);
+  margin-bottom: 4px;
+}
+.desk-mode__h{
+  font-family: var(--f-serif);
+  font-size: 22px;
+  line-height: 1.1;
+  font-weight: 800;
+  margin: 0;
+  color: #fff;
+  letter-spacing: -.01em;
+}
+.desk-mode__sub{
+  margin-top: 6px;
+  font-family: var(--f-sans);
+  font-size: 12px;
+  color: var(--c-ink-2);
+  font-style: italic;
+  max-width: 720px;
+  line-height: 1.5;
+}
+.desk-mode__paper{
+  flex: 0 1 auto;
+  min-height: 0;
+  overflow: auto;
+  -webkit-overflow-scrolling: touch;
+}
+.desk-mode__divider{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 8px 16px;
+  border-top: 1px solid var(--c-rule-2);
+  border-bottom: 1px solid var(--c-rule-2);
+  background: var(--c-bg-2);
+  flex-shrink: 0;
+}
+.desk-mode__divider-lbl{
+  font-family: var(--f-mono);
+  font-size: 10px;
+  letter-spacing: .22em;
+  font-weight: 800;
+  color: var(--c-red-1);
+}
+.desk-mode__attrib{
+  flex: 1 1 auto;
+  min-height: 0;
+  overflow: auto;
+  -webkit-overflow-scrolling: touch;
+}
+@media (min-width: 900px){
+  .desk-mode__head{ padding: 16px 22px 14px; }
+  .desk-mode__h{ font-size: 26px; }
+}
+
+/* =================================================================
+   ATTR MODE — full styling (was zero-CSS before this commit)
+   -----------------------------------------------------------------
+   Standalone Brinson-Fachler decomposition surface. Inner
+   attribution module brings its own selector + table chrome; the
+   wrapper carries head + body rhythm only.
+   ================================================================= */
+.attr-mode{
+  display: flex;
+  flex-direction: column;
+  min-height: 0;
+  min-width: 0;
+  height: 100%;
+  background: var(--c-bg);
+}
+.attr-mode__head{
+  padding: 14px 16px 12px;
+  border-bottom: 1px solid var(--c-rule);
+  flex-shrink: 0;
+}
+.attr-mode__eyebrow{
+  display: block;
+  font-family: var(--f-mono);
+  font-size: 9px;
+  letter-spacing: .22em;
+  font-weight: 800;
+  color: var(--c-red);
+  margin-bottom: 4px;
+}
+.attr-mode__h{
+  font-family: var(--f-serif);
+  font-size: 22px;
+  line-height: 1.1;
+  font-weight: 800;
+  margin: 0;
+  color: #fff;
+  letter-spacing: -.01em;
+}
+.attr-mode__sub{
+  margin-top: 6px;
+  font-family: var(--f-sans);
+  font-size: 12px;
+  color: var(--c-ink-2);
+  font-style: italic;
+  max-width: 720px;
+  line-height: 1.5;
+}
+.attr-mode__body{
+  flex: 1 1 auto;
+  min-height: 0;
+  overflow: auto;
+  -webkit-overflow-scrolling: touch;
+}
+@media (min-width: 900px){
+  .attr-mode__head{ padding: 16px 22px 14px; }
+  .attr-mode__h{ font-size: 26px; }
+}
+
+/* =================================================================
+   FOCUS-VISIBLE DISCIPLINE — keyboard-first across all modes
+   -----------------------------------------------------------------
+   Same red ring chart-mode now uses, applied to interactive
+   elements in markets, editorial, briefings. Buttons get the
+   outline; clickable rows + cards get an inset ring (outlines on
+   tr elements behave inconsistently across browsers).
+   ================================================================= */
+.term-mkts__chip:focus-visible,
+.term-mkts__th:focus-visible,
+.term-mkts__search:focus-visible,
+.term-edit__chip:focus-visible,
+.term-briefings__cat:focus-visible{
+  outline: 2px solid var(--c-red);
+  outline-offset: 2px;
+}
+.term-mkts__tr:focus-visible,
+.term-mkts__card:focus-visible,
+.term-edit__card:focus-visible,
+.term-briefings__row:focus-visible,
+.term-briefings__lead:focus-visible{
+  outline: none;
+  box-shadow: inset 0 0 0 2px var(--c-red);
+}
