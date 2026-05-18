@@ -317,143 +317,232 @@
 /* Per Rondo's 2026-05-17 directive (blue-line annotation on the
    cockpit screenshot): articles live INSIDE the chart pane on the
    LEFT, next to the chart, with their own scroll. Not under, not
-   on a separate FEED tab. The column scrolls independently. */
+   on a separate FEED tab. The column has graphic-design weight:
+   left-edge color bar per kind, monogram glyph, dated chip, serif
+   title, source + read arrow. Custom red-themed scrollbar matches
+   the chart palette. */
 .cock-chart__row{
   flex: 1;
   display: grid;
-  grid-template-columns: 150px 1fr;
+  grid-template-columns: 174px 1fr;
   gap: 0;
   min-height: 0;
   min-width: 0;
 }
+@media (max-width: 480px){
+  .cock-chart__row{ grid-template-columns: 156px 1fr; }
+}
 @media (min-width: 901px){
-  /* On desktop the cockpit's RIGHT pane (.cockpit__feed) carries
-     the deeper image-rich news cards, so the inline column on the
+  /* Desktop: the cockpit's RIGHT pane (.cockpit__feed) carries the
+     deeper image-rich news cards, so the inline column on the
      chart's left is redundant. Hide it on desktop, keep the chart
      full-width inside the center pane. */
-  .cock-chart__row{
-    grid-template-columns: 1fr;
-  }
+  .cock-chart__row{ grid-template-columns: 1fr; }
   .cock-chart__news{ display: none; }
 }
+
 .cock-chart__news{
   display: flex;
   flex-direction: column;
   min-width: 0;
-  background: var(--c-bg-1);
-  border-right: 1px solid var(--c-rule-2);
+  background:
+    radial-gradient(140% 60% at 0% 0%, rgba(255,30,60,.05), transparent 70%),
+    var(--c-bg-1);
+  border-right: 1px solid var(--c-rule-3);
 }
+
+/* ---------- HEADER --------------------------------------- */
 .cock-chart__news-head{
   display: flex;
   justify-content: space-between;
-  align-items: baseline;
-  padding: 6px 8px 4px;
-  border-bottom: 1px solid var(--c-rule-2);
-  background: var(--c-bg-2);
+  align-items: center;
+  padding: 8px 10px 7px;
+  border-bottom: 1px solid var(--c-rule-3);
+  background: linear-gradient(180deg, rgba(255,30,60,.08), rgba(20,5,9,.4));
 }
 .cock-chart__news-h{
   font-family: var(--f-mono);
-  font-size: 8.5px;
-  letter-spacing: .16em;
+  font-size: 9px;
+  letter-spacing: .20em;
   font-weight: 800;
-  color: var(--c-red-1);
+  color: var(--c-red);
+  text-transform: uppercase;
 }
 .cock-chart__news-n{
   font-family: var(--f-mono);
-  font-size: 8.5px;
+  font-size: 9px;
   font-weight: 800;
-  color: var(--c-ink-3);
-  border: 1px solid var(--c-rule-2);
-  padding: 0 5px;
+  color: #fff;
+  background: var(--c-red);
+  padding: 1px 6px;
+  min-width: 14px;
+  text-align: center;
 }
+
+/* ---------- SCROLL LIST + CUSTOM SCROLLBAR --------------- */
 .cock-chart__news-list{
   flex: 1;
   overflow-y: auto;
   overscroll-behavior: contain;
   -webkit-overflow-scrolling: touch;
-  /* Hairline scrollbar */
   scrollbar-width: thin;
-  scrollbar-color: rgba(255,30,60,.3) transparent;
+  scrollbar-color: var(--c-red) transparent;
 }
-.cock-chart__news-list::-webkit-scrollbar{ width: 3px; }
-.cock-chart__news-list::-webkit-scrollbar-thumb{ background: rgba(255,30,60,.3); }
-.cock-chart__news-list::-webkit-scrollbar-track{ background: transparent; }
-
-.cock-chart__news-item{
-  display: grid;
-  grid-template-columns: auto 1fr;
-  grid-template-rows: auto auto auto;
-  grid-template-areas:
-    "kind date"
-    "title title"
-    "src src";
-  column-gap: 4px;
-  row-gap: 1px;
-  padding: 6px 8px;
-  border-bottom: 1px dashed var(--c-rule);
-  text-decoration: none;
-  color: inherit;
-  transition: background 100ms;
+.cock-chart__news-list::-webkit-scrollbar{ width: 4px; }
+.cock-chart__news-list::-webkit-scrollbar-thumb{
+  background: linear-gradient(180deg, var(--c-red), var(--c-red-deep));
+  border-radius: 0;
 }
-.cock-chart__news-item:hover{
+.cock-chart__news-list::-webkit-scrollbar-track{
   background: rgba(255,30,60,.05);
 }
+
+/* ---------- ITEM CARD (graphic-design treatment) -------- */
+.cock-chart__news-item{
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  padding: 9px 10px 9px 13px;
+  border-bottom: 1px solid rgba(255,30,60,.10);
+  text-decoration: none;
+  color: inherit;
+  transition: background 140ms, transform 140ms;
+  overflow: hidden;
+}
+.cock-chart__news-item::after{
+  /* Subtle bottom-right gradient bloom keyed to kind, so each
+     card has a hint of color without being a flat rectangle. */
+  content: '';
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  opacity: 0.5;
+}
+.cock-chart__news-item--mag::after{
+  background: radial-gradient(180% 100% at 100% 100%, rgba(255,184,92,.10), transparent 55%);
+}
+.cock-chart__news-item--orc::after{
+  background: radial-gradient(180% 100% at 100% 100%, rgba(255,30,60,.12), transparent 55%);
+}
+.cock-chart__news-item--cen::after{
+  background: radial-gradient(180% 100% at 100% 100%, rgba(0,229,168,.08), transparent 55%);
+}
+.cock-chart__news-item:hover{
+  background: rgba(255,30,60,.07);
+}
+.cock-chart__news-item:hover .cock-chart__news-bar{ width: 5px; }
+
+/* Left-edge color bar — the strong visual signal per kind */
+.cock-chart__news-bar{
+  position: absolute;
+  left: 0; top: 0; bottom: 0;
+  width: 3px;
+  transition: width 140ms;
+}
+.cock-chart__news-item--mag .cock-chart__news-bar{ background: var(--c-warn); }
+.cock-chart__news-item--orc .cock-chart__news-bar{ background: var(--c-red);  }
+.cock-chart__news-item--cen .cock-chart__news-bar{ background: var(--c-up);   }
+
+/* Per-item head row: glyph + date + kind chip.
+   (Distinct class from .cock-chart__news-head which is the
+   column header at the very top.) */
+.cock-chart__news-row{
+  display: grid;
+  grid-template-columns: 14px 1fr auto;
+  align-items: center;
+  gap: 5px;
+  position: relative;
+  z-index: 1;
+}
+.cock-chart__news-glyph{
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 14px; height: 14px;
+}
+.cock-chart__news-glyph--mag{ color: var(--c-warn); }
+.cock-chart__news-glyph--orc{ color: var(--c-red);  }
+.cock-chart__news-glyph--cen{ color: var(--c-up);   }
+.cock-chart__news-mark{
+  width: 12px;
+  height: 12px;
+  display: block;
+}
+.cock-chart__news-date{
+  display: inline-flex;
+  align-items: baseline;
+  gap: 2px;
+  font-family: var(--f-mono);
+}
+.cock-chart__news-day{
+  font-size: 11px;
+  font-weight: 800;
+  color: #fff;
+  letter-spacing: -.02em;
+  font-variant-numeric: tabular-nums;
+}
+.cock-chart__news-mon{
+  font-size: 7.5px;
+  letter-spacing: .14em;
+  color: var(--c-ink-3);
+  font-weight: 800;
+}
 .cock-chart__news-kind{
-  grid-area: kind;
   font-family: var(--f-mono);
   font-size: 7px;
   letter-spacing: .14em;
   font-weight: 800;
-  padding: 0 3px;
-  border: 1px solid var(--c-ink-3);
+  padding: 1px 4px;
+  border: 1px solid;
   color: var(--c-ink-3);
-  align-self: start;
-  justify-self: start;
 }
 .cock-chart__news-kind--mag{ color: var(--c-warn); border-color: var(--c-warn); }
 .cock-chart__news-kind--orc{ color: var(--c-red);  border-color: var(--c-red);  }
 .cock-chart__news-kind--cen{ color: var(--c-up);   border-color: var(--c-up);   }
-.cock-chart__news-date{
-  grid-area: date;
-  font-family: var(--f-mono);
-  font-size: 7.5px;
-  letter-spacing: .08em;
-  color: var(--c-ink-3);
-  text-align: right;
-  align-self: center;
-}
+
+/* Title — serif, multi-line clamp, the real content */
 .cock-chart__news-title{
-  grid-area: title;
   font-family: var(--f-serif);
-  font-size: 10.5px;
-  line-height: 1.25;
+  font-size: 11px;
+  line-height: 1.3;
   font-weight: 700;
   color: #fff;
-  margin-top: 3px;
+  letter-spacing: -.005em;
   display: -webkit-box;
   -webkit-line-clamp: 3;
   -webkit-box-orient: vertical;
   overflow: hidden;
+  position: relative;
+  z-index: 1;
 }
 .cock-chart__news-src{
-  grid-area: src;
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 4px;
   font-family: var(--f-mono);
-  font-size: 7px;
+  font-size: 8px;
   letter-spacing: .08em;
   color: var(--c-ink-3);
   font-style: italic;
+  position: relative;
+  z-index: 1;
+}
+.cock-chart__news-read{
+  font-style: normal;
+  font-weight: 800;
+  color: var(--c-red-1);
+  letter-spacing: .12em;
+  font-size: 9px;
 }
 .cock-chart__news-empty{
-  padding: 10px 8px;
+  padding: 14px 10px;
   font-family: var(--f-sans);
-  font-size: 9px;
+  font-size: 10px;
   color: var(--c-ink-3);
   font-style: italic;
-}
-
-@media (max-width: 480px){
-  .cock-chart__row{ grid-template-columns: 130px 1fr; }
-  .cock-chart__news-title{ font-size: 9.5px; }
+  line-height: 1.4;
 }
 
 .cock-chart__range{
