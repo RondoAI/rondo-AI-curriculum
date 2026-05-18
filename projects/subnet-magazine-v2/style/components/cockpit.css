@@ -2288,3 +2288,126 @@
 .cock-chart__picker--head.is-muted .cock-chart__picker-sel{
   filter: grayscale(.6);
 }
+
+/* =================================================================
+   CMC ADD POSITION sheet (2026-05-18) — "+" button in chart-pane
+   header opens an inline drop-down sheet for adding paper-book
+   positions without leaving the cockpit. Sibling coordination
+   10c861d step 3.
+   ================================================================= */
+.cock-chart__addbtn{
+  -webkit-appearance: none;
+  appearance: none;
+  background: #5BE599;
+  color: #050203;
+  border: 0;
+  padding: 8px 12px;
+  font-family: var(--f-mono);
+  font-size: 11px;
+  letter-spacing: .14em;
+  font-weight: 800;
+  cursor: pointer;
+  flex-shrink: 0;
+  align-self: flex-start;
+  margin-left: 12px;
+  transition: filter 120ms, transform 120ms;
+}
+.cock-chart__addbtn:hover{ filter: brightness(1.10); }
+.cock-chart__addbtn.is-on{
+  background: var(--c-red);
+  color: #fff;
+}
+.cock-chart__addsheet{
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10px;
+  padding: 16px;
+  background: rgba(0,0,0,.45);
+  border-top: 1px solid var(--c-rule-3);
+  border-bottom: 1px solid var(--c-rule-3);
+  animation: cockSheetSlide 180ms ease-out;
+}
+@keyframes cockSheetSlide {
+  from { opacity: 0; transform: translateY(-6px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+@media (prefers-reduced-motion: reduce){
+  .cock-chart__addsheet{ animation: none; }
+}
+.cock-chart__addsheet[hidden]{ display: none; }
+.cock-chart__addsheet-row{
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+.cock-chart__addsheet-lbl{
+  font-family: var(--f-mono);
+  font-size: 9px;
+  letter-spacing: .22em;
+  font-weight: 800;
+  color: var(--c-ink-3);
+  text-transform: uppercase;
+}
+.cock-chart__addsheet-sel,
+.cock-chart__addsheet-inp{
+  -webkit-appearance: none;
+  appearance: none;
+  background: rgba(0,0,0,.40);
+  border: 1px solid var(--c-rule-2);
+  padding: 8px 10px;
+  font-family: var(--f-mono);
+  font-size: 12px;
+  color: #fff;
+  font-variant-numeric: tabular-nums;
+}
+.cock-chart__addsheet-sel:focus,
+.cock-chart__addsheet-inp:focus{
+  outline: none;
+  border-color: var(--c-red);
+}
+.cock-chart__addsheet-cost{
+  grid-column: 1 / -1;
+  font-family: var(--f-mono);
+  font-size: 12px;
+  color: var(--c-ink-2);
+  padding: 4px 0;
+}
+.cock-chart__addsheet-cost .is-bad{ color: var(--c-red-1); font-weight: 700; }
+.cock-chart__addsheet-actions{
+  grid-column: 1 / -1;
+  display: flex;
+  gap: 8px;
+  justify-content: flex-end;
+}
+.cock-chart__addsheet-cancel{
+  -webkit-appearance: none;
+  appearance: none;
+  background: transparent;
+  border: 1px solid var(--c-rule-2);
+  color: var(--c-ink-2);
+  padding: 10px 16px;
+  font-family: var(--f-mono);
+  font-size: 11px;
+  letter-spacing: .14em;
+  font-weight: 800;
+  cursor: pointer;
+}
+.cock-chart__addsheet-cancel:hover{ color: #fff; border-color: var(--c-red-1); }
+.cock-chart__addsheet-confirm{
+  -webkit-appearance: none;
+  appearance: none;
+  background: #5BE599;
+  color: #050203;
+  border: 0;
+  padding: 10px 20px;
+  font-family: var(--f-mono);
+  font-size: 12px;
+  letter-spacing: .14em;
+  font-weight: 800;
+  cursor: pointer;
+  transition: filter 120ms;
+}
+.cock-chart__addsheet-confirm:hover{ filter: brightness(1.10); }
+@media (max-width: 720px){
+  .cock-chart__addsheet{ grid-template-columns: 1fr; }
+}

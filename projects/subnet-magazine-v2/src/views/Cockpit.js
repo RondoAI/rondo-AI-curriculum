@@ -820,7 +820,42 @@ export function mountCockpit(root, dataLayer = null){
             <div class="cock-chart__chg2 ${cls(s.chg30)}">${fmtPct(s.chg30)} · 30d</div>
           </div>
         `}
+        <!-- CMC "+" add-position button — pinned top-right of the
+             chart-pane header. Tap toggles an inline sheet that
+             slides down (cock-chart__addsheet) with subnet / qty
+             / entry-price / entry-date fields, mirroring the CMC
+             portfolio add flow. Adds straight to the paper book
+             so chart re-renders in PORTFOLIO mode show the new
+             position immediately. -->
+        <button type="button" class="cock-chart__addbtn" data-add-toggle aria-label="Add position to paper portfolio" aria-expanded="false">+ ADD POSITION</button>
       </header>
+      <!-- Inline ADD POSITION sheet — collapsed by default, slides
+           down from the chart-pane header when "+" is tapped.
+           Confirms append to paper-portfolio, closes sheet, repaints
+           the chart + (when active) the action block. -->
+      <div class="cock-chart__addsheet" data-add-sheet hidden>
+        <div class="cock-chart__addsheet-row">
+          <label class="cock-chart__addsheet-lbl">Subnet</label>
+          <select class="cock-chart__addsheet-sel" data-add-subnet>
+            ${SUBNETS.slice().sort((a,b) => (b.mcap||0)-(a.mcap||0)).map(x =>
+              `<option value="${x.netuid}" ${x.netuid === s.netuid ? 'selected' : ''}>SN${x.netuid} · ${x.name} · $${(x.price||0).toFixed(x.price < 1 ? 4 : 2)}</option>`
+            ).join('')}
+          </select>
+        </div>
+        <div class="cock-chart__addsheet-row">
+          <label class="cock-chart__addsheet-lbl">Quantity (α)</label>
+          <input type="number" class="cock-chart__addsheet-inp" data-add-qty min="0.0001" step="0.0001" value="1" inputmode="decimal">
+        </div>
+        <div class="cock-chart__addsheet-row">
+          <label class="cock-chart__addsheet-lbl">Entry price (USD)</label>
+          <input type="number" class="cock-chart__addsheet-inp" data-add-price min="0" step="0.0001" value="${(s.price || 0).toFixed(s.price < 1 ? 4 : 2)}" inputmode="decimal">
+        </div>
+        <div class="cock-chart__addsheet-cost" data-add-cost>Total: $${((s.price || 0) * 1).toFixed(2)}</div>
+        <div class="cock-chart__addsheet-actions">
+          <button type="button" class="cock-chart__addsheet-cancel" data-add-cancel>CANCEL</button>
+          <button type="button" class="cock-chart__addsheet-confirm" data-add-confirm>↑ ADD POSITION</button>
+        </div>
+      </div>
 
       <!-- CHART + SIDE ARTICLE COLUMN — picker has moved up to
            the chart header (cock-chart__head, .cock-chart__picker--head
@@ -1597,6 +1632,83 @@ export function mountCockpit(root, dataLayer = null){
       picker.addEventListener('change', () => {
         const id = parseInt(picker.value, 10);
         if (Number.isFinite(id)) setSelected(id);
+      });
+    }
+    /* CMC "+" ADD POSITION sheet — toggle visibility on header
+       button tap, refresh the cost summary on qty/price input,
+       confirm appends to paper-portfolio and triggers a chart
+       repaint so PORTFOLIO mode reflects the new position. */
+    const addToggle = qs('[data-add-toggle]', root);
+    const addSheet  = qs('[data-add-sheet]', root);
+    if (addToggle && addSheet){
+      addToggle.addEventListener('click', () => {
+        const open = !addSheet.hasAttribute('hidden');
+        if (open){
+          addSheet.setAttribute('hidden', '');
+          addToggle.setAttribute('aria-expanded', 'false');
+          addToggle.classList.remove('is-on');
+        } else {
+          addSheet.removeAttribute('hidden');
+          addToggle.setAttribute('aria-expanded', 'true');
+          addToggle.classList.add('is-on');
+        }
+      });
+    }
+    const addQty   = qs('[data-add-qty]', root);
+    const addPrice = qs('[data-add-price]', root);
+    const addCost  = qs('[data-add-cost]', root);
+    const refreshAddCost = () => {
+      if (!addQty || !addPrice || !addCost) return;
+      const q = parseFloat(addQty.value);
+      const p = parseFloat(addPrice.value);
+      const cost = (Number.isFinite(q) && Number.isFinite(p) && q > 0 && p > 0) ? q * p : 0;
+      const paper = loadPaperState();
+      const after = paper.cashUSD - cost;
+      const bad = after < 0;
+      addCost.innerHTML = `Total: <b>$${cost.toLocaleString('en-US', {minimumFractionDigits:2, maximumFractionDigits:2})}</b> · Cash after: <b${bad ? ' class="is-bad"' : ''}>$${after.toLocaleString('en-US', {minimumFractionDigits:2, maximumFractionDigits:2})}</b>`;
+    };
+    if (addQty)   addQty.addEventListener('input', refreshAddCost);
+    if (addPrice) addPrice.addEventListener('input', refreshAddCost);
+    refreshAddCost();
+    const addCancel = qs('[data-add-cancel]', root);
+    if (addCancel){
+      addCancel.addEventListener('click', () => {
+        if (addSheet) addSheet.setAttribute('hidden', '');
+        if (addToggle){
+          addToggle.setAttribute('aria-expanded', 'false');
+          addToggle.classList.remove('is-on');
+        }
+      });
+    }
+    const addConfirm = qs('[data-add-confirm]', root);
+    if (addConfirm){
+      addConfirm.addEventListener('click', () => {
+        const sel  = qs('[data-add-subnet]', root);
+        if (!sel || !addQty || !addPrice) return;
+        const netuid = parseInt(sel.value, 10);
+        const q = parseFloat(addQty.value);
+        const p = parseFloat(addPrice.value);
+        if (!Number.isFinite(netuid) || !Number.isFinite(q) || !Number.isFinite(p) || q <= 0 || p <= 0){
+          if (addCost) addCost.innerHTML = '<span class="is-bad">Invalid input — set a positive quantity + entry price.</span>';
+          return;
+        }
+        const cur = loadPaperState();
+        const next = paperBuy(cur, netuid, q, p);
+        if (next === cur){
+          if (addCost) addCost.innerHTML = '<span class="is-bad">Insufficient paper cash.</span>';
+          return;
+        }
+        savePaperState(next);
+        /* Close the sheet, redraw chart (PORTFOLIO mode reflects
+           the new position immediately), and propagate to the
+           DESK pane via the shared repaint. */
+        if (addSheet) addSheet.setAttribute('hidden', '');
+        if (addToggle){
+          addToggle.setAttribute('aria-expanded', 'false');
+          addToggle.classList.remove('is-on');
+        }
+        repaintMain();
+        if (typeof repaintDesk === 'function') repaintDesk();
       });
     }
 
