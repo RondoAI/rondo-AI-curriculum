@@ -636,20 +636,77 @@
   grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
   gap: 8px;
 }
+/* Editorial cards became <details> elements 2026-05-18 per
+   Rondo: "subnet oracle articles in research tab need to be
+   colapseable." Summary holds the preview (kind + date + title),
+   body holds the dek + author + READ link. Stripped browser
+   default ▶ marker so the magazine's own ▾ caret is the cue. */
 .term-edit__card{
-  display: grid; gap: 5px;
-  padding: 9px 11px 9px;
+  display: block;
+  padding: 0;
   background: #0a0306;
   border: 1px solid rgba(255, 30, 60, .14);
-  text-decoration: none;
   color: inherit;
-  transition: border-color .12s ease, background .12s ease, transform .12s ease;
+  overflow: hidden;
+  transition: border-color .12s ease, background .12s ease;
 }
-.term-edit__card:hover,
-.term-edit__card:focus-visible{
-  border-color: var(--c-red);
+.term-edit__card[open]{
+  border-color: rgba(255, 30, 60, .35);
+  background: #100407;
+}
+.term-edit__card-summary{
+  display: grid; gap: 5px;
+  padding: 9px 11px;
+  list-style: none;
+  cursor: pointer;
+  transition: background .12s ease;
+}
+.term-edit__card-summary::-webkit-details-marker{ display: none; }
+.term-edit__card-summary:hover,
+.term-edit__card-summary:focus-visible{
   background: #140509;
-  transform: translateY(-1px);
+  outline: none;
+}
+.term-edit__card-body{
+  display: grid; gap: 6px;
+  padding: 10px 11px 11px;
+  border-top: 1px dashed rgba(255, 30, 60, .14);
+  background: rgba(255, 30, 60, .02);
+}
+.term-edit__card-caret{
+  font-family: var(--f-mono);
+  font-size: 9px;
+  font-weight: 800;
+  color: var(--c-ink-3);
+  margin-left: 6px;
+  display: inline-block;
+  transition: transform 160ms ease, color 160ms ease;
+}
+.term-edit__card[open] > .term-edit__card-summary .term-edit__card-caret{
+  transform: rotate(180deg);
+  color: var(--c-red-1);
+}
+.term-edit__card-read{
+  display: inline-block;
+  align-self: flex-start;
+  margin-top: 4px;
+  padding: 5px 10px 4px;
+  font-family: var(--f-mono);
+  font-size: 9.5px;
+  letter-spacing: .14em;
+  font-weight: 800;
+  text-decoration: none;
+  color: var(--c-red-1);
+  border: 1px solid rgba(255, 30, 60, .40);
+  background: rgba(255, 30, 60, .06);
+  text-transform: uppercase;
+  transition: color .12s ease, border-color .12s ease, background .12s ease;
+}
+.term-edit__card-read:hover,
+.term-edit__card-read:focus-visible{
+  color: #fff;
+  background: var(--c-red);
+  border-color: var(--c-red);
   outline: none;
 }
 .term-edit__card-head{
@@ -691,7 +748,7 @@
   -webkit-box-orient: vertical;
   overflow: hidden;
 }
-.term-edit__card:hover .term-edit__card-title{ color: var(--c-red-1); }
+.term-edit__card-summary:hover .term-edit__card-title{ color: var(--c-red-1); }
 .term-edit__card-dek{
   font-family: var(--f-sans);
   font-size: 11px;

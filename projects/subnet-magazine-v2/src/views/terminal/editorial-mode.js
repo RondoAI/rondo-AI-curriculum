@@ -439,20 +439,33 @@ function cardHtml(a){
   const kindCls = a.isExternal ? 'ext' : a.kind;
   const kindLbl = a.isExternal ? 'EXT' : (a.kind === 'magazine' ? 'MAG' : 'ORC');
   const cat     = (a.category || '').toUpperCase().replace(/-/g, ' ');
+  /* Each card is a <details> per Rondo 2026-05-18 "subnet oracle
+     articles in research tab need to be colapseable." Summary
+     stays the at-a-glance preview (kind + date + title) — always
+     visible. Body (dek + author + sn + cat + READ link) hides
+     by default and expands on summary click. Replaces the
+     previous <a> wrapper; the READ button inside the body is
+     the click-through to the article. */
   return `
-    <a class="term-edit__card" href="${escapeHtml(a.href || '#')}" target="_blank" rel="noopener"${pdfAttrs}>
-      <header class="term-edit__card-head">
-        <span class="term-edit__card-kind term-edit__card-kind--${kindCls}">${kindLbl}</span>
-        <span class="term-edit__card-date">${escapeHtml(a.date || '·')}</span>
-      </header>
-      <h3 class="term-edit__card-title">${escapeHtml(a.title)}</h3>
-      ${a.tagline ? `<p class="term-edit__card-dek">${escapeHtml(a.tagline)}</p>` : ''}
-      <footer class="term-edit__card-foot">
-        <span class="term-edit__card-author">${escapeHtml(a.author)}</span>
-        ${snBadge}
-        ${cat ? `<span class="term-edit__card-cat">${cat}</span>` : ''}
-      </footer>
-    </a>
+    <details class="term-edit__card">
+      <summary class="term-edit__card-summary">
+        <header class="term-edit__card-head">
+          <span class="term-edit__card-kind term-edit__card-kind--${kindCls}">${kindLbl}</span>
+          <span class="term-edit__card-date">${escapeHtml(a.date || '·')}</span>
+          <span class="term-edit__card-caret" aria-hidden="true">▾</span>
+        </header>
+        <h3 class="term-edit__card-title">${escapeHtml(a.title)}</h3>
+      </summary>
+      <div class="term-edit__card-body">
+        ${a.tagline ? `<p class="term-edit__card-dek">${escapeHtml(a.tagline)}</p>` : ''}
+        <footer class="term-edit__card-foot">
+          <span class="term-edit__card-author">${escapeHtml(a.author)}</span>
+          ${snBadge}
+          ${cat ? `<span class="term-edit__card-cat">${cat}</span>` : ''}
+        </footer>
+        <a class="term-edit__card-read" href="${escapeHtml(a.href || '#')}" target="_blank" rel="noopener"${pdfAttrs}>READ ${isPdf ? 'PDF' : 'ARTICLE'} ↗</a>
+      </div>
+    </details>
   `;
 }
 
