@@ -1842,6 +1842,66 @@
   overflow: auto;
   -webkit-overflow-scrolling: touch;
 }
+/* ATTR headline strip — 4-up chips above the BF decomposition
+   panel. Derived from the same computeAttribution() the inner
+   panel uses, so the headline + the body always agree on the
+   numbers. */
+.attr-mode__stats{
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1px;
+  background: var(--c-rule);
+  flex-shrink: 0;
+  border-bottom: 1px solid var(--c-rule-2);
+}
+.attr-mode__stat{
+  background: var(--c-bg-1);
+  padding: 10px 14px 11px;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  min-width: 0;
+}
+.attr-mode__stat-lbl{
+  font-family: var(--f-mono);
+  font-size: 8.5px;
+  letter-spacing: .18em;
+  font-weight: 800;
+  color: var(--c-ink-3);
+  text-transform: uppercase;
+}
+.attr-mode__stat-val{
+  font-family: var(--f-mono);
+  font-size: 18px;
+  font-weight: 800;
+  color: #fff;
+  font-variant-numeric: tabular-nums;
+  letter-spacing: -.01em;
+  line-height: 1.1;
+}
+.attr-mode__stat-val.is-up   { color: #5BE599; }
+.attr-mode__stat-val.is-down { color: #FF4D60; }
+.attr-mode__stat-val.is-flat { color: var(--c-ink-2); }
+.attr-mode__stat-sub{
+  font-family: var(--f-mono);
+  font-size: 9.5px;
+  letter-spacing: .04em;
+  color: var(--c-ink-2);
+  font-variant-numeric: tabular-nums;
+  min-width: 0;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.attr-mode__stat-sub em{
+  font-style: italic;
+  color: var(--c-ink-3);
+  font-weight: 500;
+}
+@media (max-width: 720px){
+  .attr-mode__stats{ grid-template-columns: repeat(2, 1fr); }
+  .attr-mode__stat-val{ font-size: 16px; }
+}
 @media (min-width: 900px){
   .attr-mode__head{ padding: 16px 22px 14px; }
   .attr-mode__h{ font-size: 26px; }
