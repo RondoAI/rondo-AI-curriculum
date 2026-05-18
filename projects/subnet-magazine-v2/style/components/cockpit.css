@@ -1299,8 +1299,13 @@
    ================================================================= */
 .cock-chart__canvas-wrap{ min-height: 320px; }
 
-/* Subnet picker moved here from inside the (now-removed) news
-   column. Compact row with a label + the native select. */
+/* Subnet picker base — compact row, label + select. The
+   .cock-chart__picker--head variant defined earlier in this file
+   (mac-session 8514454) handles the in-title hoisted placement
+   that closes the picker-vs-range-tabs overlap Rondo flagged in
+   his 2026-05-18 rant. Sandbox's own --solo variant was dropped
+   on rebase — mac's --head is the cleaner pattern (uses the
+   eyebrow's wasted line rather than adding a new band). */
 .cock-chart__picker{
   display: flex;
   align-items: center;
