@@ -1,0 +1,226 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Subneτ Magazine — Twitter banner renderer</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@300..800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/style/tokens.css">
+<style>
+  /* TWITTER BANNER (1500x500, 3:1).
+     Twitter overlays the profile picture on the lower-left of the
+     banner — avatar centroid roughly at (180, 460), 200px diameter.
+     The lower-left ~280x180 wedge is therefore reserved as
+     atmospheric / empty so the PFP sits cleanly on top with the big
+     NodeSphere we ship as the avatar visually rhyming with the
+     smaller NodeSphere brand mark on the right of the banner. */
+  html, body { margin: 0; padding: 0; }
+  body{
+    width: 1500px; height: 500px;
+    background: var(--c-bg-1);
+    color: var(--c-ink-1);
+    font-family: var(--f-mono);
+    position: relative;
+    overflow: hidden;
+  }
+
+  /* Subtle red atmosphere at the right anchored on the sphere — so
+     the sphere doesn't feel pasted on top of the black, it feels
+     embedded into a faint red field that bleeds back across the
+     banner toward the wordmark. Reinforces the brand without
+     competing with the typography. */
+  .banner__atmos{
+    position: absolute; inset: 0;
+    background:
+      radial-gradient(circle at 86% 50%, rgba(255,30,60,.10) 0%, rgba(255,30,60,0) 36%),
+      radial-gradient(circle at 100% 0%,   rgba(255,30,60,.04) 0%, rgba(255,30,60,0) 50%);
+    pointer-events: none;
+  }
+
+  .banner__rule{
+    position: absolute; left: 0; right: 0; height: 1px;
+    background: var(--c-rule-2);
+  }
+  .banner__rule--top    { top: 22px; }
+  .banner__rule--bottom { bottom: 36px; }
+
+  /* Magazine masthead edition strip — top mono labels. Vol/no on
+     the left, date + sector on the right, separated by · so it
+     reads as a single editorial line. */
+  .banner__meta{
+    position: absolute; left: 40px; right: 40px; top: 36px;
+    display: flex; justify-content: space-between;
+    font-family: var(--f-mono); font-size: 11px;
+    color: var(--c-ink-3);
+    letter-spacing: var(--ls-label);
+    text-transform: uppercase;
+  }
+  .banner__meta .red  { color: var(--c-red);  font-weight: 600; }
+  .banner__meta .dot  { color: var(--c-red);  margin: 0 8px; }
+  .banner__meta .sep  { color: var(--c-ink-5); margin: 0 10px; }
+
+  /* The hero block — wordmark, accent rule, deck line, menu.
+     Anchored center-vertically, offset right of the PFP overlap.
+     Wordmark sized to fit one line in the ~720px column between
+     the PFP overlap zone and the NodeSphere; menu trimmed to short
+     labels for the same reason. */
+  .banner__hero{
+    position: absolute; left: 290px; top: 125px;
+    width: 760px;
+  }
+  .banner__wordmark{
+    font-family: var(--f-serif); font-weight: 800;
+    font-size: 82px; line-height: 1;
+    letter-spacing: -.028em;
+    color: var(--c-ink-1);
+    margin: 0;
+    white-space: nowrap;
+  }
+  .banner__wordmark .tau{ color: var(--c-red); font-weight: 600; }
+
+  .banner__accent{
+    width: 72px; height: 2px;
+    background: var(--c-red);
+    margin: 26px 0 20px;
+  }
+
+  .banner__deck{
+    font-family: var(--f-serif); font-weight: 400;
+    font-size: 24px; line-height: 1.25;
+    color: var(--c-ink-2);
+    letter-spacing: -.008em;
+    margin: 0;
+    white-space: nowrap;
+  }
+  .banner__deck em{
+    font-style: normal; color: var(--c-ink-1); font-weight: 700;
+  }
+
+  .banner__menu{
+    margin-top: 22px;
+    font-family: var(--f-mono); font-size: 11.5px; font-weight: 500;
+    color: var(--c-ink-3);
+    letter-spacing: var(--ls-label);
+    text-transform: uppercase;
+    white-space: nowrap;
+  }
+  .banner__menu .sep{ color: var(--c-red); margin: 0 12px; }
+
+  /* NodeSphere brand mark on the right — the same canonical
+     visualization driving the PFP, masthead, and pfp.html, at the
+     scale that fits a 340x340 frame inside the right column without
+     crowding the top-right metadata or the bottom ticker. */
+  .banner__sphere{
+    position: absolute; right: 110px; top: 76px;
+    width: 340px; height: 340px;
+    display: block;
+  }
+  .banner__sphere-label{
+    position: absolute; right: 110px; top: 425px;
+    width: 340px; text-align: center;
+    font-family: var(--f-mono); font-size: 10px;
+    color: var(--c-ink-4);
+    letter-spacing: var(--ls-label);
+    text-transform: uppercase;
+  }
+
+  /* Live ticker tape at the bottom — real top-N subnets by mcap,
+     with chg24 color-coded green/red Bloomberg-style. Single line,
+     clipped on overflow. Starts at x=240 so the PFP overlap doesn't
+     swallow the leading tickers. */
+  .banner__ticker{
+    position: absolute; left: 240px; right: 40px; bottom: 12px;
+    font-family: var(--f-mono); font-size: 12px; font-weight: 500;
+    color: var(--c-ink-3);
+    white-space: nowrap; overflow: hidden;
+    letter-spacing: var(--ls-data);
+  }
+  .banner__ticker .sym  { color: var(--c-ink-2); }
+  .banner__ticker .code { color: var(--c-ink-1); margin: 0 6px; }
+  .banner__ticker .up   { color: var(--c-up);   font-weight: 600; }
+  .banner__ticker .dn   { color: var(--c-down); font-weight: 600; }
+  .banner__ticker .sep  { color: var(--c-ink-5); margin: 0 16px; }
+
+  /* Tiny attribution tag bottom-right under the rule */
+  .banner__tag{
+    position: absolute; right: 40px; bottom: 14px;
+    background: var(--c-bg-1);
+    padding-left: 14px;
+    font-family: var(--f-mono); font-size: 10px;
+    color: var(--c-ink-4);
+    letter-spacing: var(--ls-label);
+    text-transform: uppercase;
+  }
+  .banner__tag .x{ color: var(--c-red); }
+</style>
+</head>
+<body>
+  <div class="banner__atmos"></div>
+
+  <div class="banner__rule banner__rule--top"></div>
+
+  <div class="banner__meta">
+    <span><span class="red">SUBNEτ MAGAZINE</span><span class="sep">·</span>VOL. I<span class="sep">·</span>NO. XXIV</span>
+    <span>MAY 18 2026<span class="sep">·</span>BITTENSOR RESEARCH TERMINAL</span>
+  </div>
+
+  <div class="banner__hero">
+    <h1 class="banner__wordmark">Subne<span class="tau">τ</span> Magazine</h1>
+    <div class="banner__accent"></div>
+    <p class="banner__deck">The research terminal for <em>decentralized intelligence</em>.</p>
+    <div class="banner__menu">
+      53 SUBNETS<span class="sep">·</span>MARKETS<span class="sep">·</span>EDITORIAL<span class="sep">·</span>ANALYTICS<span class="sep">·</span>ATTRIBUTION
+    </div>
+  </div>
+
+  <canvas id="sphere" class="banner__sphere" width="380" height="380"></canvas>
+  <div class="banner__sphere-label">NODESPHERE · CONSENSUS BRAND MARK</div>
+
+  <div class="banner__rule banner__rule--bottom"></div>
+
+  <div class="banner__ticker" id="ticker"></div>
+  <div class="banner__tag"><span class="x">𝕏</span> @SUBNETMAGAZINE</div>
+
+  <script type="module">
+    import { NodeSphere } from '/src/charts/NodeSphere.js';
+    import { SUBNETS }    from '/src/data/subnets.js';
+
+    /* Sphere: same canonical NodeSphere as PFP + masthead. Dense
+       enough to read at 380px (more than the masthead's 52 nodes,
+       fewer than the PFP's 220 because we have less canvas).
+       Frozen at t=1.85 — a rotation where the densest cluster sits
+       slightly upper-front, giving the silhouette a strong top-edge
+       that catches the eye against the dark banner. */
+    const c = document.getElementById('sphere');
+    const sphere = new NodeSphere(c, {
+      nodes:   150,
+      K:       5,
+      density: 0.22,
+      edgeCap: 6000,
+      speed:   0,
+      glow:    true,
+      atmos:   true,
+    });
+    sphere.draw(c.getContext('2d'), 340, 340, 1.85);
+
+    /* Ticker tape: top-12 subnets by mcap, code shortened to 3-4
+       chars from the subnet name, chg24 color-coded green/red.
+       Pulled from the canonical SUBNETS array so it matches every
+       other surface on the magazine. */
+    const top = [...SUBNETS].sort((a,b) => b.mcap - a.mcap).slice(0, 12);
+    const fmtCode = name => (name || '').toUpperCase()
+      .replace(/[^A-Z0-9]/g, '')
+      .slice(0, 4);
+    document.getElementById('ticker').innerHTML = top.map(s => {
+      const cls   = s.chg24 >= 0 ? 'up' : 'dn';
+      const sign  = s.chg24 >= 0 ? '+' : '';
+      const code  = fmtCode(s.name);
+      const value = `${sign}${s.chg24.toFixed(1)}%`;
+      return `<span class="sym">SN${s.netuid}</span><span class="code">${code}</span><span class="${cls}">${value}</span>`;
+    }).join('<span class="sep">·</span>');
+
+    window.__BANNER_READY__ = true;
+  </script>
+</body>
+</html>
