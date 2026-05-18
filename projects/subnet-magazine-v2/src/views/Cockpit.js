@@ -545,18 +545,24 @@ export function mountCockpit(root, dataLayer = null){
       <button type="button" class="cock-range__btn ${on ? 'is-on' : ''}" data-range="${r.key}" role="tab" aria-selected="${on}" aria-label="${r.label}">${r.label}</button>`;
     }).join('');
 
-    /* INLINE ARTICLE COLUMN — per Rondo's 2026-05-17 directive
-       (blue-line annotation on the cockpit screenshot): articles
-       should live INSIDE the chart pane on the LEFT, not on a
-       separate FEED tab. Build a tight column scoped to the
-       current subnet. */
+    /* COCKPIT ARTICLE FEED — reimagined 2026-05-18 per Rondo
+       "side article is too small and short — make more use of
+       the page." Articles now render as a full-width editorial
+       grid BELOW the chart, with bigger cards carrying real
+       content (kind chip + date + serif title + dek/takeaway +
+       source + read button). Each card has breathing room +
+       the page width to itself instead of being squeezed into
+       a 33% side column.
+       Pull MORE per kind now that we have the room (6 each =
+       up to 18 total, capped at 15 for the grid). */
     const team = ARTICLES.filter(a =>
       Number(a.subnet) === s.netuid ||
       String(a.subnet) === String(s.name)
-    ).slice(0, 4).map(a => ({
+    ).slice(0, 6).map(a => ({
       kind: 'mag', date: a.date, title: a.title,
-      url: a.pdf || a.externalUrl || '#',
-      source: 'Magazine',
+      dek:  a.tagline || a.dek || '',
+      url:  a.pdf || a.externalUrl || '#',
+      source: (a.authors && a.authors[0]) || 'Subneτ Magazine',
     }));
     const oracle = recentOracleArticles(Infinity)
       .filter(a =>
@@ -564,21 +570,23 @@ export function mountCockpit(root, dataLayer = null){
         ((a.subnetName || '').toLowerCase() === s.name.toLowerCase()) ||
         ((a.title || '').toLowerCase().includes(s.name.toLowerCase()))
       )
-      .slice(0, 4)
+      .slice(0, 6)
       .map(a => ({
         kind: 'orc', date: a.date, title: a.title,
-        url: a.pdf || '#',
+        dek:  a.dek || '',
+        url:  a.pdf || '#',
         source: 'Subnet Oracle',
       }));
     let central = [];
-    try { central = newsForSubnet(s, 4).map(n => ({
+    try { central = newsForSubnet(s, 6).map(n => ({
       kind: 'cen', date: n.date, title: n.headline,
-      url: n.url || '#',
+      dek:  n.takeaway || '',
+      url:  n.url || '#',
       source: n.source,
     })); } catch (_) {}
-    const inlineArticles = [...team, ...oracle, ...central]
+    const cockpitArticles = [...team, ...oracle, ...central]
       .sort((a,b) => (b.date || '').localeCompare(a.date || ''))
-      .slice(0, 10);
+      .slice(0, 15);
     /* Each item gets a mini procedural SVG mark (12px) — a tiny
        red node-glyph that hints "this is a magazine article" /
        a small mint dot for "centralized" / an orange star for
@@ -596,19 +604,23 @@ export function mountCockpit(root, dataLayer = null){
       const MON = ['JAN','FEB','MAR','APR','MAY','JUN','JUL','AUG','SEP','OCT','NOV','DEC'];
       return `<span class="cock-chart__news-day">${dd}</span><span class="cock-chart__news-mon">${MON[parseInt(m,10)-1]}</span>`;
     };
-    const inlineArticlesHtml = inlineArticles.length
-      ? inlineArticles.map(a => `
-          <a class="cock-chart__news-item cock-chart__news-item--${a.kind}" href="${a.url}" target="_blank" rel="noopener">
-            <span class="cock-chart__news-bar" aria-hidden="true"></span>
-            <span class="cock-chart__news-row">
-              <span class="cock-chart__news-glyph cock-chart__news-glyph--${a.kind}">${miniMark(a.kind)}</span>
-              <span class="cock-chart__news-date">${dateChip(a.date)}</span>
-              <span class="cock-chart__news-kind cock-chart__news-kind--${a.kind}">${a.kind === 'mag' ? 'MAG' : a.kind === 'orc' ? 'ORC' : 'CEN'}</span>
-            </span>
-            <span class="cock-chart__news-title">${a.title || '·'}</span>
-            <span class="cock-chart__news-src">${a.source || '·'} <span class="cock-chart__news-read">↗</span></span>
+    const kindLbl = (k) => k === 'mag' ? 'MAGAZINE' : k === 'orc' ? 'ORACLE' : 'CENTRALIZED';
+    const cockpitArticlesHtml = cockpitArticles.length
+      ? cockpitArticles.map(a => `
+          <a class="cock-articles__card cock-articles__card--${a.kind}" href="${a.url}" target="_blank" rel="noopener">
+            <span class="cock-articles__bar" aria-hidden="true"></span>
+            <div class="cock-articles__card-head">
+              <span class="cock-articles__kind cock-articles__kind--${a.kind}">${kindLbl(a.kind)}</span>
+              <span class="cock-articles__date">${dateChip(a.date)}</span>
+            </div>
+            <h3 class="cock-articles__title">${a.title || '·'}</h3>
+            ${a.dek ? `<p class="cock-articles__dek">${a.dek}</p>` : ''}
+            <div class="cock-articles__foot">
+              <span class="cock-articles__src">${a.source || '·'}</span>
+              <span class="cock-articles__read">READ ↗</span>
+            </div>
           </a>`).join('')
-      : `<div class="cock-chart__news-empty">No dispatches indexed for SN${s.netuid} yet.</div>`;
+      : `<div class="cock-articles__empty">No dispatches indexed for SN${s.netuid} yet — the editorial desk rotates coverage as subnets enter the top emission tier.</div>`;
 
     return `
       <header class="cock-chart__head">
@@ -625,42 +637,30 @@ export function mountCockpit(root, dataLayer = null){
         </div>
       </header>
 
-      <!-- Chart + inline article column live side-by-side. Article
-           column on the LEFT (per Rondo's blue-line annotation),
-           chart fills the rest. Article column has its own scroll
-           bar. -->
-      <div class="cock-chart__row">
-        <aside class="cock-chart__news" aria-label="News for SN${s.netuid} ${s.name}">
-          <!-- Inline subnet picker — per Rondo's "a place to pick
-               from the rest of the subnets, expand this page"
-               directive. Native select for max touch-friendliness
-               on mobile; the OS dropdown handles the long list of
-               128 subnets without us building custom UI. -->
-          <div class="cock-chart__picker">
-            <label class="cock-chart__picker-lbl" for="cock-chart-picker">PICK SUBNET</label>
-            <select class="cock-chart__picker-sel" id="cock-chart-picker" data-chart-picker>
-              ${SUBNETS.slice().sort((a,b) => (b.mcap||0)-(a.mcap||0)).map(x =>
-                `<option value="${x.netuid}" ${x.netuid === s.netuid ? 'selected' : ''}>SN${x.netuid} · ${x.name} · $${(x.price||0).toFixed(x.price < 1 ? 4 : 2)} ${x.chg24 >= 0 ? '+' : ''}${(x.chg24||0).toFixed(1)}%</option>`
-              ).join('')}
-            </select>
-          </div>
-          <div class="cock-chart__news-head">
-            <span class="cock-chart__news-h">⊕ SIGNALS · SN${s.netuid}</span>
-            <span class="cock-chart__news-n">${inlineArticles.length}</span>
-          </div>
-          <div class="cock-chart__news-list">
-            ${inlineArticlesHtml}
-          </div>
-        </aside>
-        <div class="cock-chart__canvas-wrap">
-          <canvas class="cock-chart__canvas" data-chart-canvas
-                  role="img"
-                  aria-label="SN${s.netuid} ${s.name} price chart, ${state.range} window"></canvas>
-          <!-- Hover tooltip — reuses chart-mode.css .cm-tooltip +
-               .ct-tt__* selectors so cockpit + terminal CHART
-               speak the same visual language on hover. -->
-          <div class="cm-tooltip" data-chart-tooltip style="display:none" role="tooltip" aria-live="polite"></div>
-        </div>
+      <!-- Subnet picker — moved from inside the article column to
+           the header zone (its own row below the title+price) so
+           the chart + articles below can use the full page width.
+           Native <select> for OS-native touch on mobile, 128
+           subnets sorted by mcap desc. -->
+      <div class="cock-chart__picker">
+        <label class="cock-chart__picker-lbl" for="cock-chart-picker">PICK SUBNET</label>
+        <select class="cock-chart__picker-sel" id="cock-chart-picker" data-chart-picker>
+          ${SUBNETS.slice().sort((a,b) => (b.mcap||0)-(a.mcap||0)).map(x =>
+            `<option value="${x.netuid}" ${x.netuid === s.netuid ? 'selected' : ''}>SN${x.netuid} · ${x.name} · $${(x.price||0).toFixed(x.price < 1 ? 4 : 2)} ${x.chg24 >= 0 ? '+' : ''}${(x.chg24||0).toFixed(1)}%</option>`
+          ).join('')}
+        </select>
+      </div>
+
+      <!-- CHART — full width now. Articles moved to a dedicated
+           full-width section below. -->
+      <div class="cock-chart__canvas-wrap">
+        <canvas class="cock-chart__canvas" data-chart-canvas
+                role="img"
+                aria-label="SN${s.netuid} ${s.name} price chart, ${state.range} window"></canvas>
+        <!-- Hover tooltip — reuses chart-mode.css .cm-tooltip +
+             .ct-tt__* selectors so cockpit + terminal CHART
+             speak the same visual language on hover. -->
+        <div class="cm-tooltip" data-chart-tooltip style="display:none" role="tooltip" aria-live="polite"></div>
       </div>
 
       <div class="cock-chart__range" role="tablist" aria-label="Time range">
@@ -668,6 +668,21 @@ export function mountCockpit(root, dataLayer = null){
       </div>
 
       <div class="cock-kpis">${kpis}</div>
+
+      <!-- ARTICLES — full-width editorial grid. Reimagined
+           2026-05-18: was a cramped 33% side column; now uses the
+           whole page width with bigger cards (kind + date + serif
+           title + dek + source + read). 2-col on desktop, 1-col on
+           mobile. -->
+      <section class="cock-articles" aria-label="News for SN${s.netuid} ${s.name}">
+        <header class="cock-articles__head">
+          <span class="cock-articles__h">⊕ EDITORIAL · SN${s.netuid} ${s.name}</span>
+          <span class="cock-articles__n">${cockpitArticles.length} dispatch${cockpitArticles.length === 1 ? '' : 'es'}</span>
+        </header>
+        <div class="cock-articles__grid">
+          ${cockpitArticlesHtml}
+        </div>
+      </section>
     `;
   }
 
