@@ -510,6 +510,15 @@ export function mountCockpit(root, dataLayer = null){
     side:   'buy',
     qtyUSD: 100,
   };
+  /* CMC-style chart mode toggle 2026-05-18 — one chart canvas,
+     two data modes (subnet α price OR aggregate paper portfolio
+     value over time). Persisted across reloads so the reader
+     returns to their chosen mode. */
+  const CHART_MODE_KEY = 'sbn:cockpit:chart-mode:v1';
+  let chartMode = (() => {
+    try { return localStorage.getItem(CHART_MODE_KEY) === 'portfolio' ? 'portfolio' : 'subnet'; }
+    catch (_) { return 'subnet'; }
+  })();
 
   /* Render the whole cockpit shell once; sub-panes repaint in place
      on selection / range / pane changes without disturbing the chart
@@ -745,17 +754,42 @@ export function mountCockpit(root, dataLayer = null){
           </a>`).join('')
       : `<div class="cock-articles__empty">No dispatches indexed for SN${s.netuid} yet — the editorial desk rotates coverage as subnets enter the top emission tier.</div>`;
 
+    /* CMC-style two-mode header — SUBNET vs PORTFOLIO toggle.
+       The same chart canvas renders either subnet α price or
+       aggregate paper-portfolio value over time. Header text +
+       price block swap based on mode. */
+    const paper = loadPaperState();
+    const portfolioTotal = paper.cashUSD + paper.positions.reduce((acc, p) => {
+      const sn = subnetById(p.netuid);
+      return acc + (sn ? p.shares * (sn.price || 0) : 0);
+    }, 0);
+    const portCostBasis = paper.positions.reduce((acc, p) => acc + p.shares * p.avgCost, 0) + 0;
+    const portMarkValue = paper.positions.reduce((acc, p) => {
+      const sn = subnetById(p.netuid);
+      return acc + (sn ? p.shares * (sn.price || 0) : 0);
+    }, 0);
+    const portPnLUSD = portMarkValue - portCostBasis;
+    const portPnLPct = portCostBasis > 0 ? (portPnLUSD / portCostBasis) * 100 : 0;
+    const isPortMode = chartMode === 'portfolio';
+
     return `
       <header class="cock-chart__head">
         <div class="cock-chart__title">
-          <!-- PICK SUBNET dropdown promoted to the eyebrow position
-               2026-05-18 — the "⊕ COCKPIT · LIVE" eyebrow was
-               redundant with the cockpit nav above and consumed
-               the most discoverable line of the chart pane. The
-               native select reads as an institutional ticker
-               picker and lets the reader retarget the chart
-               from the most obvious spot. -->
-          <div class="cock-chart__picker cock-chart__picker--head">
+          <!-- CMC-style mode toggle: tap to swap the chart between
+               SUBNET α price (default) and aggregate PAPER
+               PORTFOLIO value over time. The same canvas renders
+               either data mode. Per Rondo 2026-05-18 (relayed via
+               sibling 10c861d): "the paper money chart should be
+               within the chart at the top of the page... one chart
+               that you can swap through." -->
+          <div class="cock-chart__mode" role="tablist" aria-label="Chart data mode">
+            <button type="button" class="cock-chart__mode-chip ${!isPortMode ? 'is-on' : ''}" data-chart-mode="subnet" role="tab" aria-selected="${!isPortMode}">SN${s.netuid} · ${s.name}</button>
+            <button type="button" class="cock-chart__mode-chip ${isPortMode ? 'is-on' : ''}" data-chart-mode="portfolio" role="tab" aria-selected="${isPortMode}">⊕ PORTFOLIO</button>
+          </div>
+          <!-- PICK SUBNET dropdown — drives SUBNET mode selection.
+               Hidden when reader is in PORTFOLIO mode (the picker
+               doesn't apply to aggregate view). -->
+          <div class="cock-chart__picker cock-chart__picker--head ${isPortMode ? 'is-muted' : ''}">
             <label class="cock-chart__picker-lbl" for="cock-chart-picker">PICK</label>
             <select class="cock-chart__picker-sel" id="cock-chart-picker" data-chart-picker aria-label="Pick subnet">
               ${SUBNETS.slice().sort((a,b) => (b.mcap||0)-(a.mcap||0)).map(x =>
@@ -763,15 +797,29 @@ export function mountCockpit(root, dataLayer = null){
               ).join('')}
             </select>
           </div>
-          <h1 class="cock-chart__h">SN${s.netuid} · ${s.name}<span class="cock-chart__cat">${catLabel(s.cat)}</span></h1>
-          <div class="cock-chart__sub">${s.desc || ''} · <span style="color:var(--c-ink-3)">team ${s.owner || '·'}</span></div>
+          ${isPortMode ? `
+            <h1 class="cock-chart__h">PAPER PORTFOLIO<span class="cock-chart__cat">${paper.positions.length} position${paper.positions.length === 1 ? '' : 's'}</span></h1>
+            <div class="cock-chart__sub">Paper book aggregate, cash + Σ(qty · mark). ${paper.positions.length === 0 ? 'No positions yet — buy your first α from the right rail.' : 'Tap a row in the right-rail OTHER POSITIONS to drill into a single subnet.'}</div>
+          ` : `
+            <h1 class="cock-chart__h">SN${s.netuid} · ${s.name}<span class="cock-chart__cat">${catLabel(s.cat)}</span></h1>
+            <div class="cock-chart__sub">${s.desc || ''} · <span style="color:var(--c-ink-3)">team ${s.owner || '·'}</span></div>
+          `}
         </div>
-        <div class="cock-chart__price-block">
-          <div class="cock-chart__price">${fmtPrice(s.price)}</div>
-          <div class="cock-chart__chg ${cls(s.chg24)}">${arrow(s.chg24)} ${fmtPct(s.chg24)} · 24h</div>
-          <div class="cock-chart__chg2 ${cls(s.chg7)}">${fmtPct(s.chg7)} · 7d</div>
-          <div class="cock-chart__chg2 ${cls(s.chg30)}">${fmtPct(s.chg30)} · 30d</div>
-        </div>
+        ${isPortMode ? `
+          <div class="cock-chart__price-block">
+            <div class="cock-chart__price">$${portfolioTotal.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}</div>
+            <div class="cock-chart__chg ${portPnLUSD >= 0 ? 'is-up' : 'is-down'}">${portPnLUSD >= 0 ? '▲' : '▼'} ${portPnLPct >= 0 ? '+' : ''}${portPnLPct.toFixed(2)}% · unreal</div>
+            <div class="cock-chart__chg2">$${Math.abs(portPnLUSD).toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 })} ${portPnLUSD >= 0 ? 'gain' : 'loss'}</div>
+            <div class="cock-chart__chg2" style="color:var(--c-ink-3)">cash $${paper.cashUSD.toLocaleString('en-US', { minimumFractionDigits: 0, maximumFractionDigits: 0 })}</div>
+          </div>
+        ` : `
+          <div class="cock-chart__price-block">
+            <div class="cock-chart__price">${fmtPrice(s.price)}</div>
+            <div class="cock-chart__chg ${cls(s.chg24)}">${arrow(s.chg24)} ${fmtPct(s.chg24)} · 24h</div>
+            <div class="cock-chart__chg2 ${cls(s.chg7)}">${fmtPct(s.chg7)} · 7d</div>
+            <div class="cock-chart__chg2 ${cls(s.chg30)}">${fmtPct(s.chg30)} · 30d</div>
+          </div>
+        `}
       </header>
 
       <!-- CHART + SIDE ARTICLE COLUMN — picker has moved up to
@@ -1363,6 +1411,34 @@ export function mountCockpit(root, dataLayer = null){
     if (f) f.innerHTML = renderFeed();
   }
 
+  /* Aggregate paper-portfolio value series — Σ(qty_i × subnet_i_price(t))
+     over the synthetic time window each subnet shares. Used by
+     PORTFOLIO chart mode (CMC pattern). Cash is added flat to
+     every day (it doesn't appreciate). When the book is empty,
+     returns a flat series of just cash so the chart renders a
+     baseline instead of NaN. */
+  function portfolioValueSeries(){
+    const paper = loadPaperState();
+    if (!paper.positions || paper.positions.length === 0){
+      return Array.from({ length: SERIES_DAYS }, () => paper.cashUSD);
+    }
+    /* Pre-fetch each held subnet's synthetic series. Each series
+       has SERIES_DAYS length, indexed [0]=oldest, [last]=today. */
+    const perSubnet = paper.positions.map(p => {
+      const sn = subnetById(p.netuid);
+      if (!sn) return null;
+      return {
+        shares: p.shares,
+        series: generateSeries(sn),
+      };
+    }).filter(Boolean);
+    /* Sum per-day across positions, add flat cash. */
+    return Array.from({ length: SERIES_DAYS }, (_, i) => {
+      const positionsValue = perSubnet.reduce((acc, { shares, series: s }) => acc + shares * (s[i] || 0), 0);
+      return paper.cashUSD + positionsValue;
+    });
+  }
+
   /* drawChartNow assigns to `hit` (declared at the top of
      mountCockpit). The closure-level `let hit` was hoisted up so
      this function — invoked during initial mount before its own
@@ -1371,14 +1447,22 @@ export function mountCockpit(root, dataLayer = null){
     const c = qs('[data-chart-canvas]', root);
     const range = RANGES.find(r => r.key === state.range) || RANGES[2];
     const s = subnetById(state.selectedId) || SUBNETS[0];
-    const annotations = annotationsFor(s.netuid, s.name);
-    /* Clamp the pan offset so we never read off the start of the
-       series. range.days <= series.length means max offset is
-       (series.length - range.days). */
-    const maxOffset = Math.max(0, series.length - range.days);
+    /* CMC mode swap — when in PORTFOLIO mode, render aggregate
+       paper-portfolio value over time instead of the subnet's α
+       price. Portfolio series is Σ(qty_i × subnet_i_price(t))
+       over the same time window. Empty book → flat zero line. */
+    let chartSeries = series;
+    let annotations = annotationsFor(s.netuid, s.name);
+    if (chartMode === 'portfolio'){
+      chartSeries = portfolioValueSeries();
+      /* No editorial-flag annotations on the portfolio view —
+         flags are subnet-specific. */
+      annotations = [];
+    }
+    const maxOffset = Math.max(0, chartSeries.length - range.days);
     if (chartOffset > maxOffset) chartOffset = maxOffset;
     if (chartOffset < 0)         chartOffset = 0;
-    hit = drawChart(c, series, range, annotations, chartOffset);
+    hit = drawChart(c, chartSeries, range, annotations, chartOffset);
     /* Pan-state label below the chart — the visible window's
        literal start → end dates ("01/19 → 02/18" style) plus
        the pan offset ("now" / "−30d") so the reader sees BOTH
@@ -1488,6 +1572,22 @@ export function mountCockpit(root, dataLayer = null){
   function wireChart(){
     qsa('[data-range]', root).forEach(b => {
       b.addEventListener('click', () => setRange(b.dataset.range));
+    });
+    /* CMC mode toggle — flip between SUBNET α price and PORTFOLIO
+       aggregate value. Persists in localStorage so the reader
+       returns to their preferred view. */
+    qsa('[data-chart-mode]', root).forEach(b => {
+      b.addEventListener('click', () => {
+        const next = b.dataset.chartMode;
+        if (next === chartMode) return;
+        chartMode = next === 'portfolio' ? 'portfolio' : 'subnet';
+        try { localStorage.setItem(CHART_MODE_KEY, chartMode); } catch (_) {}
+        /* Reset pan offset so the reader sees the most recent
+           window in the new mode, not whatever historic offset
+           the prior mode was parked at. */
+        chartOffset = 0;
+        repaintMain();
+      });
     });
     /* Inline subnet picker — change event switches the global
        selection across the cockpit (chart re-mounts, articles

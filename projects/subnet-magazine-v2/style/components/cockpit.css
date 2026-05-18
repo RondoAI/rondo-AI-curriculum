@@ -2250,3 +2250,42 @@
 }
 .cock-action__pos-pct.is-up{ color: #5BE599; }
 .cock-action__pos-pct.is-down{ color: var(--c-red-1); }
+
+/* =================================================================
+   CMC chart-mode toggle (2026-05-18) — SUBNET ↔ PORTFOLIO swap
+   in the chart-pane header. Sibling coordination ask 10c861d.
+   ================================================================= */
+.cock-chart__mode{
+  display: inline-flex;
+  gap: 0;
+  margin-bottom: 8px;
+  border: 1px solid var(--c-rule-2);
+}
+.cock-chart__mode-chip{
+  -webkit-appearance: none;
+  appearance: none;
+  background: transparent;
+  border: 0;
+  padding: 7px 12px;
+  font-family: var(--f-mono);
+  font-size: 11px;
+  letter-spacing: .14em;
+  font-weight: 800;
+  color: var(--c-ink-3);
+  cursor: pointer;
+  transition: background 120ms, color 120ms;
+}
+.cock-chart__mode-chip:hover{ color: #fff; }
+.cock-chart__mode-chip.is-on{
+  background: var(--c-red);
+  color: #fff;
+}
+/* When PORTFOLIO mode is active, the PICK SUBNET dropdown is
+   muted (not hidden — still discoverable for the swap-back
+   action). */
+.cock-chart__picker--head.is-muted{
+  opacity: .50;
+}
+.cock-chart__picker--head.is-muted .cock-chart__picker-sel{
+  filter: grayscale(.6);
+}
