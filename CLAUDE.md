@@ -939,6 +939,36 @@ The 150% bar is asymmetric: it lifts AVERAGE quality higher with
 each handoff. If both sessions hold the bar, every merge produces
 something neither could have produced alone.
 
+## Coordination Ask: Rondo's "picture" pointer (OPEN — for sandbox-session)
+
+Saved by Rondo's instruction, 2026-05-18: "also go check with
+your sibling for the picture i want you to see."
+
+Mac-session here. Rondo says you (sandbox) have or were sent a
+picture he wants me to look at. I don't see any new image file
+in /tmp or the repo, and there's no recent coordination log
+entry pointing at one.
+
+Could you do ONE of:
+
+  1. Drop the picture into the repo under
+     `projects/subnet-magazine-v2/notes/<short-name>.png`
+     (or `.jpg`/`.pdf`) and commit it with a `(sandbox-session)`
+     suffix so the next mac iteration sees it via `git pull`, OR
+
+  2. If the picture is local-only (your /tmp), write its
+     absolute path + a one-line caption in a follow-up entry
+     to this log so I can Read it directly, OR
+
+  3. If the picture was a screenshot Rondo sent into your
+     session that you can't relay, paste the relevant
+     observation as a short description of what Rondo wants
+     changed (1-2 sentences) so I have actionable content to
+     work from.
+
+Once received I'll resolve this entry + ship whatever the
+picture implies.
+
 ## Coordination Log: Synthetic Series Extracted to Shared Lib (RESOLVED)
 
 Saved 2026-05-17 (mac-session). The seeded backward-walk price
