@@ -3363,373 +3363,373 @@
     "1": {
       "ann_ret": 169.72,
       "ann_vol": 34.0,
-      "sharpe": 4.99,
       "max_dd": -5.08,
-      "beta": 1.72
+      "beta": 1.72,
+      "sharpe_rf0": 4.99
     },
     "2": {
       "ann_ret": -2.12,
       "ann_vol": 24.21,
-      "sharpe": -0.09,
       "max_dd": -9.52,
-      "beta": -0.05
+      "beta": -0.05,
+      "sharpe_rf0": -0.09
     },
     "4": {
       "ann_ret": 118.85,
       "ann_vol": 25.2,
-      "sharpe": 4.72,
       "max_dd": -6.57,
-      "beta": 0.4
+      "beta": 0.4,
+      "sharpe_rf0": 4.72
     },
     "5": {
       "ann_ret": 222.42,
       "ann_vol": 27.95,
-      "sharpe": 7.96,
       "max_dd": -4.7,
-      "beta": 0.81
+      "beta": 0.81,
+      "sharpe_rf0": 7.96
     },
     "6": {
       "ann_ret": 144.19,
       "ann_vol": 26.2,
-      "sharpe": 5.5,
       "max_dd": -6.98,
-      "beta": 0.1
+      "beta": 0.1,
+      "sharpe_rf0": 5.5
     },
     "7": {
       "ann_ret": 29.01,
       "ann_vol": 29.3,
-      "sharpe": 0.99,
       "max_dd": -21.27,
-      "beta": 1.15
+      "beta": 1.15,
+      "sharpe_rf0": 0.99
     },
     "8": {
       "ann_ret": 210.22,
       "ann_vol": 30.96,
-      "sharpe": 6.79,
       "max_dd": -6.92,
-      "beta": 1.62
+      "beta": 1.62,
+      "sharpe_rf0": 6.79
     },
     "9": {
       "ann_ret": 229.53,
       "ann_vol": 30.64,
-      "sharpe": 7.49,
       "max_dd": -7.37,
-      "beta": 1.54
+      "beta": 1.54,
+      "sharpe_rf0": 7.49
     },
     "10": {
       "ann_ret": 173.64,
       "ann_vol": 27.04,
-      "sharpe": 6.42,
       "max_dd": -6.22,
-      "beta": 0.6
+      "beta": 0.6,
+      "sharpe_rf0": 6.42
     },
     "11": {
       "ann_ret": -77.06,
       "ann_vol": 24.2,
-      "sharpe": -3.18,
       "max_dd": -20.71,
-      "beta": -0.53
+      "beta": -0.53,
+      "sharpe_rf0": -3.18
     },
     "12": {
       "ann_ret": 93.24,
       "ann_vol": 31.99,
-      "sharpe": 2.91,
       "max_dd": -14.03,
-      "beta": 1.72
+      "beta": 1.72,
+      "sharpe_rf0": 2.91
     },
     "13": {
       "ann_ret": 260.94,
       "ann_vol": 37.64,
-      "sharpe": 6.93,
       "max_dd": -6.38,
-      "beta": 2.15
+      "beta": 2.15,
+      "sharpe_rf0": 6.93
     },
     "14": {
       "ann_ret": 69.71,
       "ann_vol": 25.13,
-      "sharpe": 2.77,
       "max_dd": -8.85,
-      "beta": 0.51
+      "beta": 0.51,
+      "sharpe_rf0": 2.77
     },
     "15": {
       "ann_ret": 39.17,
       "ann_vol": 25.0,
-      "sharpe": 1.57,
       "max_dd": -14.97,
-      "beta": 0.46
+      "beta": 0.46,
+      "sharpe_rf0": 1.57
     },
     "17": {
       "ann_ret": 72.83,
       "ann_vol": 23.82,
-      "sharpe": 3.06,
       "max_dd": -6.78,
-      "beta": 0.51
+      "beta": 0.51,
+      "sharpe_rf0": 3.06
     },
     "18": {
       "ann_ret": 67.02,
       "ann_vol": 25.4,
-      "sharpe": 2.64,
       "max_dd": -10.32,
-      "beta": 0.7
+      "beta": 0.7,
+      "sharpe_rf0": 2.64
     },
     "19": {
       "ann_ret": 79.25,
       "ann_vol": 27.22,
-      "sharpe": 2.91,
       "max_dd": -12.48,
-      "beta": 0.86
+      "beta": 0.86,
+      "sharpe_rf0": 2.91
     },
     "20": {
       "ann_ret": -53.78,
       "ann_vol": 23.4,
-      "sharpe": -2.3,
       "max_dd": -15.28,
-      "beta": -0.39
+      "beta": -0.39,
+      "sharpe_rf0": -2.3
     },
     "21": {
       "ann_ret": 240.28,
       "ann_vol": 37.48,
-      "sharpe": 6.41,
       "max_dd": -4.85,
-      "beta": 2.06
+      "beta": 2.06,
+      "sharpe_rf0": 6.41
     },
     "23": {
       "ann_ret": 15.35,
       "ann_vol": 27.38,
-      "sharpe": 0.56,
       "max_dd": -10.27,
-      "beta": -0.93
+      "beta": -0.93,
+      "sharpe_rf0": 0.56
     },
     "24": {
       "ann_ret": 168.13,
       "ann_vol": 31.55,
-      "sharpe": 5.33,
       "max_dd": -11.41,
-      "beta": 1.61
+      "beta": 1.61,
+      "sharpe_rf0": 5.33
     },
     "25": {
       "ann_ret": 126.93,
       "ann_vol": 25.5,
-      "sharpe": 4.98,
       "max_dd": -7.2,
-      "beta": 0.53
+      "beta": 0.53,
+      "sharpe_rf0": 4.98
     },
     "27": {
       "ann_ret": 111.26,
       "ann_vol": 32.69,
-      "sharpe": 3.4,
       "max_dd": -9.41,
-      "beta": 1.5
+      "beta": 1.5,
+      "sharpe_rf0": 3.4
     },
     "28": {
       "ann_ret": -29.0,
       "ann_vol": 27.05,
-      "sharpe": -1.07,
       "max_dd": -21.65,
-      "beta": -0.65
+      "beta": -0.65,
+      "sharpe_rf0": -1.07
     },
     "29": {
       "ann_ret": 157.11,
       "ann_vol": 26.86,
-      "sharpe": 5.85,
       "max_dd": -5.81,
-      "beta": 0.57
+      "beta": 0.57,
+      "sharpe_rf0": 5.85
     },
     "30": {
       "ann_ret": 243.86,
       "ann_vol": 36.59,
-      "sharpe": 6.66,
       "max_dd": -8.6,
-      "beta": 1.82
+      "beta": 1.82,
+      "sharpe_rf0": 6.66
     },
     "34": {
       "ann_ret": 122.06,
       "ann_vol": 25.57,
-      "sharpe": 4.77,
       "max_dd": -4.92,
-      "beta": 0.8
+      "beta": 0.8,
+      "sharpe_rf0": 4.77
     },
     "36": {
       "ann_ret": 254.61,
       "ann_vol": 32.68,
-      "sharpe": 7.79,
       "max_dd": -4.77,
-      "beta": 1.54
+      "beta": 1.54,
+      "sharpe_rf0": 7.79
     },
     "39": {
       "ann_ret": 137.94,
       "ann_vol": 25.8,
-      "sharpe": 5.35,
       "max_dd": -11.19,
-      "beta": 0.61
+      "beta": 0.61,
+      "sharpe_rf0": 5.35
     },
     "42": {
       "ann_ret": 292.8,
       "ann_vol": 48.2,
-      "sharpe": 6.08,
       "max_dd": -7.71,
-      "beta": 3.21
+      "beta": 3.21,
+      "sharpe_rf0": 6.08
     },
     "47": {
       "ann_ret": 207.07,
       "ann_vol": 27.46,
-      "sharpe": 7.54,
       "max_dd": -10.74,
-      "beta": 1.0
+      "beta": 1.0,
+      "sharpe_rf0": 7.54
     },
     "48": {
       "ann_ret": 103.64,
       "ann_vol": 25.39,
-      "sharpe": 4.08,
       "max_dd": -7.26,
-      "beta": 0.27
+      "beta": 0.27,
+      "sharpe_rf0": 4.08
     },
     "50": {
       "ann_ret": 145.25,
       "ann_vol": 30.79,
-      "sharpe": 4.72,
       "max_dd": -8.36,
-      "beta": 1.44
+      "beta": 1.44,
+      "sharpe_rf0": 4.72
     },
     "52": {
       "ann_ret": 133.42,
       "ann_vol": 26.56,
-      "sharpe": 5.02,
       "max_dd": -8.97,
-      "beta": 0.83
+      "beta": 0.83,
+      "sharpe_rf0": 5.02
     },
     "55": {
       "ann_ret": 70.21,
       "ann_vol": 29.82,
-      "sharpe": 2.35,
       "max_dd": -13.65,
-      "beta": 1.28
+      "beta": 1.28,
+      "sharpe_rf0": 2.35
     },
     "56": {
       "ann_ret": 394.19,
       "ann_vol": 48.52,
-      "sharpe": 8.12,
       "max_dd": -5.69,
-      "beta": 3.2
+      "beta": 3.2,
+      "sharpe_rf0": 8.12
     },
     "57": {
       "ann_ret": 96.81,
       "ann_vol": 23.4,
-      "sharpe": 4.14,
       "max_dd": -9.67,
-      "beta": 0.3
+      "beta": 0.3,
+      "sharpe_rf0": 4.14
     },
     "58": {
       "ann_ret": 106.75,
       "ann_vol": 28.71,
-      "sharpe": 3.72,
       "max_dd": -8.65,
-      "beta": 0.77
+      "beta": 0.77,
+      "sharpe_rf0": 3.72
     },
     "59": {
       "ann_ret": 191.02,
       "ann_vol": 36.01,
-      "sharpe": 5.31,
       "max_dd": -7.08,
-      "beta": 1.98
+      "beta": 1.98,
+      "sharpe_rf0": 5.31
     },
     "60": {
       "ann_ret": 42.63,
       "ann_vol": 25.03,
-      "sharpe": 1.7,
       "max_dd": -11.61,
-      "beta": 0.21
+      "beta": 0.21,
+      "sharpe_rf0": 1.7
     },
     "61": {
       "ann_ret": 179.58,
       "ann_vol": 35.53,
-      "sharpe": 5.05,
       "max_dd": -9.6,
-      "beta": 2.05
+      "beta": 2.05,
+      "sharpe_rf0": 5.05
     },
     "64": {
       "ann_ret": 225.82,
       "ann_vol": 39.14,
-      "sharpe": 5.77,
       "max_dd": -10.18,
-      "beta": 2.33
+      "beta": 2.33,
+      "sharpe_rf0": 5.77
     },
     "67": {
       "ann_ret": 111.92,
       "ann_vol": 26.45,
-      "sharpe": 4.23,
       "max_dd": -11.38,
-      "beta": 0.53
+      "beta": 0.53,
+      "sharpe_rf0": 4.23
     },
     "69": {
       "ann_ret": 153.67,
       "ann_vol": 29.75,
-      "sharpe": 5.17,
       "max_dd": -7.07,
-      "beta": 1.3
+      "beta": 1.3,
+      "sharpe_rf0": 5.17
     },
     "73": {
       "ann_ret": 50.95,
       "ann_vol": 28.9,
-      "sharpe": 1.76,
       "max_dd": -13.61,
-      "beta": 0.95
+      "beta": 0.95,
+      "sharpe_rf0": 1.76
     },
     "75": {
       "ann_ret": 42.61,
       "ann_vol": 24.37,
-      "sharpe": 1.75,
       "max_dd": -20.67,
-      "beta": 0.64
+      "beta": 0.64,
+      "sharpe_rf0": 1.75
     },
     "77": {
       "ann_ret": 170.33,
       "ann_vol": 23.85,
-      "sharpe": 7.14,
       "max_dd": -6.69,
-      "beta": 0.66
+      "beta": 0.66,
+      "sharpe_rf0": 7.14
     },
     "79": {
       "ann_ret": 237.02,
       "ann_vol": 33.85,
-      "sharpe": 7.0,
       "max_dd": -4.32,
-      "beta": 1.74
+      "beta": 1.74,
+      "sharpe_rf0": 7.0
     },
     "81": {
       "ann_ret": 210.23,
       "ann_vol": 40.14,
-      "sharpe": 5.24,
       "max_dd": -9.96,
-      "beta": 2.58
+      "beta": 2.58,
+      "sharpe_rf0": 5.24
     },
     "83": {
       "ann_ret": 68.75,
       "ann_vol": 22.52,
-      "sharpe": 3.05,
       "max_dd": -6.72,
-      "beta": 0.25
+      "beta": 0.25,
+      "sharpe_rf0": 3.05
     },
     "86": {
       "ann_ret": 116.39,
       "ann_vol": 26.29,
-      "sharpe": 4.43,
       "max_dd": -7.02,
-      "beta": 0.71
+      "beta": 0.71,
+      "sharpe_rf0": 4.43
     },
     "88": {
       "ann_ret": 45.47,
       "ann_vol": 26.06,
-      "sharpe": 1.74,
       "max_dd": -12.39,
-      "beta": 1.07
+      "beta": 1.07,
+      "sharpe_rf0": 1.74
     },
     "92": {
       "ann_ret": 29.33,
       "ann_vol": 23.53,
-      "sharpe": 1.25,
       "max_dd": -8.28,
-      "beta": 0.39
+      "beta": 0.39,
+      "sharpe_rf0": 1.25
     }
   },
   "insights": {
@@ -3855,72 +3855,72 @@
         "name": "Gradients",
         "ann_ret": 394.19,
         "ann_vol": 48.52,
-        "sharpe": 8.12,
         "max_dd": -5.69,
-        "beta": 3.2
+        "beta": 3.2,
+        "sharpe_rf0": 8.12
       },
       {
         "netuid": 5,
         "name": "OpenKaito",
         "ann_ret": 222.42,
         "ann_vol": 27.95,
-        "sharpe": 7.96,
         "max_dd": -4.7,
-        "beta": 0.81
+        "beta": 0.81,
+        "sharpe_rf0": 7.96
       },
       {
         "netuid": 36,
         "name": "Web Genie",
         "ann_ret": 254.61,
         "ann_vol": 32.68,
-        "sharpe": 7.79,
         "max_dd": -4.77,
-        "beta": 1.54
+        "beta": 1.54,
+        "sharpe_rf0": 7.79
       },
       {
         "netuid": 47,
         "name": "Condense AI",
         "ann_ret": 207.07,
         "ann_vol": 27.46,
-        "sharpe": 7.54,
         "max_dd": -10.74,
-        "beta": 1.0
+        "beta": 1.0,
+        "sharpe_rf0": 7.54
       },
       {
         "netuid": 9,
         "name": "Pretraining",
         "ann_ret": 229.53,
         "ann_vol": 30.64,
-        "sharpe": 7.49,
         "max_dd": -7.37,
-        "beta": 1.54
+        "beta": 1.54,
+        "sharpe_rf0": 7.49
       },
       {
         "netuid": 77,
         "name": "Liquidity",
         "ann_ret": 170.33,
         "ann_vol": 23.85,
-        "sharpe": 7.14,
         "max_dd": -6.69,
-        "beta": 0.66
+        "beta": 0.66,
+        "sharpe_rf0": 7.14
       },
       {
         "netuid": 79,
         "name": "Polaris",
         "ann_ret": 237.02,
         "ann_vol": 33.85,
-        "sharpe": 7.0,
         "max_dd": -4.32,
-        "beta": 1.74
+        "beta": 1.74,
+        "sharpe_rf0": 7.0
       },
       {
         "netuid": 13,
         "name": "Dataverse",
         "ann_ret": 260.94,
         "ann_vol": 37.64,
-        "sharpe": 6.93,
         "max_dd": -6.38,
-        "beta": 2.15
+        "beta": 2.15,
+        "sharpe_rf0": 6.93
       }
     ],
     "by_vol_hi": [
@@ -3929,72 +3929,72 @@
         "name": "Gradients",
         "ann_ret": 394.19,
         "ann_vol": 48.52,
-        "sharpe": 8.12,
         "max_dd": -5.69,
-        "beta": 3.2
+        "beta": 3.2,
+        "sharpe_rf0": 8.12
       },
       {
         "netuid": 42,
         "name": "Foresight",
         "ann_ret": 292.8,
         "ann_vol": 48.2,
-        "sharpe": 6.08,
         "max_dd": -7.71,
-        "beta": 3.21
+        "beta": 3.21,
+        "sharpe_rf0": 6.08
       },
       {
         "netuid": 81,
         "name": "PatRouter",
         "ann_ret": 210.23,
         "ann_vol": 40.14,
-        "sharpe": 5.24,
         "max_dd": -9.96,
-        "beta": 2.58
+        "beta": 2.58,
+        "sharpe_rf0": 5.24
       },
       {
         "netuid": 64,
         "name": "Chutes",
         "ann_ret": 225.82,
         "ann_vol": 39.14,
-        "sharpe": 5.77,
         "max_dd": -10.18,
-        "beta": 2.33
+        "beta": 2.33,
+        "sharpe_rf0": 5.77
       },
       {
         "netuid": 13,
         "name": "Dataverse",
         "ann_ret": 260.94,
         "ann_vol": 37.64,
-        "sharpe": 6.93,
         "max_dd": -6.38,
-        "beta": 2.15
+        "beta": 2.15,
+        "sharpe_rf0": 6.93
       },
       {
         "netuid": 21,
         "name": "Omega",
         "ann_ret": 240.28,
         "ann_vol": 37.48,
-        "sharpe": 6.41,
         "max_dd": -4.85,
-        "beta": 2.06
+        "beta": 2.06,
+        "sharpe_rf0": 6.41
       },
       {
         "netuid": 30,
         "name": "Wombo",
         "ann_ret": 243.86,
         "ann_vol": 36.59,
-        "sharpe": 6.66,
         "max_dd": -8.6,
-        "beta": 1.82
+        "beta": 1.82,
+        "sharpe_rf0": 6.66
       },
       {
         "netuid": 59,
         "name": "AgentArena",
         "ann_ret": 191.02,
         "ann_vol": 36.01,
-        "sharpe": 5.31,
         "max_dd": -7.08,
-        "beta": 1.98
+        "beta": 1.98,
+        "sharpe_rf0": 5.31
       }
     ],
     "by_vol_lo": [
@@ -4003,72 +4003,72 @@
         "name": "Anchor",
         "ann_ret": 68.75,
         "ann_vol": 22.52,
-        "sharpe": 3.05,
         "max_dd": -6.72,
-        "beta": 0.25
+        "beta": 0.25,
+        "sharpe_rf0": 3.05
       },
       {
         "netuid": 20,
         "name": "BitAds",
         "ann_ret": -53.78,
         "ann_vol": 23.4,
-        "sharpe": -2.3,
         "max_dd": -15.28,
-        "beta": -0.39
+        "beta": -0.39,
+        "sharpe_rf0": -2.3
       },
       {
         "netuid": 57,
         "name": "Gaia",
         "ann_ret": 96.81,
         "ann_vol": 23.4,
-        "sharpe": 4.14,
         "max_dd": -9.67,
-        "beta": 0.3
+        "beta": 0.3,
+        "sharpe_rf0": 4.14
       },
       {
         "netuid": 92,
         "name": "Atomverse",
         "ann_ret": 29.33,
         "ann_vol": 23.53,
-        "sharpe": 1.25,
         "max_dd": -8.28,
-        "beta": 0.39
+        "beta": 0.39,
+        "sharpe_rf0": 1.25
       },
       {
         "netuid": 17,
         "name": "404-Gen",
         "ann_ret": 72.83,
         "ann_vol": 23.82,
-        "sharpe": 3.06,
         "max_dd": -6.78,
-        "beta": 0.51
+        "beta": 0.51,
+        "sharpe_rf0": 3.06
       },
       {
         "netuid": 77,
         "name": "Liquidity",
         "ann_ret": 170.33,
         "ann_vol": 23.85,
-        "sharpe": 7.14,
         "max_dd": -6.69,
-        "beta": 0.66
+        "beta": 0.66,
+        "sharpe_rf0": 7.14
       },
       {
         "netuid": 11,
         "name": "Dippy",
         "ann_ret": -77.06,
         "ann_vol": 24.2,
-        "sharpe": -3.18,
         "max_dd": -20.71,
-        "beta": -0.53
+        "beta": -0.53,
+        "sharpe_rf0": -3.18
       },
       {
         "netuid": 2,
         "name": "Omron",
         "ann_ret": -2.12,
         "ann_vol": 24.21,
-        "sharpe": -0.09,
         "max_dd": -9.52,
-        "beta": -0.05
+        "beta": -0.05,
+        "sharpe_rf0": -0.09
       }
     ],
     "by_dd": [
@@ -4077,72 +4077,72 @@
         "name": "Tensor Alchemy",
         "ann_ret": -29.0,
         "ann_vol": 27.05,
-        "sharpe": -1.07,
         "max_dd": -21.65,
-        "beta": -0.65
+        "beta": -0.65,
+        "sharpe_rf0": -1.07
       },
       {
         "netuid": 7,
         "name": "SubVortex",
         "ann_ret": 29.01,
         "ann_vol": 29.3,
-        "sharpe": 0.99,
         "max_dd": -21.27,
-        "beta": 1.15
+        "beta": 1.15,
+        "sharpe_rf0": 0.99
       },
       {
         "netuid": 11,
         "name": "Dippy",
         "ann_ret": -77.06,
         "ann_vol": 24.2,
-        "sharpe": -3.18,
         "max_dd": -20.71,
-        "beta": -0.53
+        "beta": -0.53,
+        "sharpe_rf0": -3.18
       },
       {
         "netuid": 75,
         "name": "Pollen",
         "ann_ret": 42.61,
         "ann_vol": 24.37,
-        "sharpe": 1.75,
         "max_dd": -20.67,
-        "beta": 0.64
+        "beta": 0.64,
+        "sharpe_rf0": 1.75
       },
       {
         "netuid": 20,
         "name": "BitAds",
         "ann_ret": -53.78,
         "ann_vol": 23.4,
-        "sharpe": -2.3,
         "max_dd": -15.28,
-        "beta": -0.39
+        "beta": -0.39,
+        "sharpe_rf0": -2.3
       },
       {
         "netuid": 15,
         "name": "De-Val",
         "ann_ret": 39.17,
         "ann_vol": 25.0,
-        "sharpe": 1.57,
         "max_dd": -14.97,
-        "beta": 0.46
+        "beta": 0.46,
+        "sharpe_rf0": 1.57
       },
       {
         "netuid": 12,
         "name": "ComputeHorde",
         "ann_ret": 93.24,
         "ann_vol": 31.99,
-        "sharpe": 2.91,
         "max_dd": -14.03,
-        "beta": 1.72
+        "beta": 1.72,
+        "sharpe_rf0": 2.91
       },
       {
         "netuid": 55,
         "name": "Precog",
         "ann_ret": 70.21,
         "ann_vol": 29.82,
-        "sharpe": 2.35,
         "max_dd": -13.65,
-        "beta": 1.28
+        "beta": 1.28,
+        "sharpe_rf0": 2.35
       }
     ],
     "by_beta_hi": [
@@ -4151,72 +4151,72 @@
         "name": "Foresight",
         "ann_ret": 292.8,
         "ann_vol": 48.2,
-        "sharpe": 6.08,
         "max_dd": -7.71,
-        "beta": 3.21
+        "beta": 3.21,
+        "sharpe_rf0": 6.08
       },
       {
         "netuid": 56,
         "name": "Gradients",
         "ann_ret": 394.19,
         "ann_vol": 48.52,
-        "sharpe": 8.12,
         "max_dd": -5.69,
-        "beta": 3.2
+        "beta": 3.2,
+        "sharpe_rf0": 8.12
       },
       {
         "netuid": 81,
         "name": "PatRouter",
         "ann_ret": 210.23,
         "ann_vol": 40.14,
-        "sharpe": 5.24,
         "max_dd": -9.96,
-        "beta": 2.58
+        "beta": 2.58,
+        "sharpe_rf0": 5.24
       },
       {
         "netuid": 64,
         "name": "Chutes",
         "ann_ret": 225.82,
         "ann_vol": 39.14,
-        "sharpe": 5.77,
         "max_dd": -10.18,
-        "beta": 2.33
+        "beta": 2.33,
+        "sharpe_rf0": 5.77
       },
       {
         "netuid": 13,
         "name": "Dataverse",
         "ann_ret": 260.94,
         "ann_vol": 37.64,
-        "sharpe": 6.93,
         "max_dd": -6.38,
-        "beta": 2.15
+        "beta": 2.15,
+        "sharpe_rf0": 6.93
       },
       {
         "netuid": 21,
         "name": "Omega",
         "ann_ret": 240.28,
         "ann_vol": 37.48,
-        "sharpe": 6.41,
         "max_dd": -4.85,
-        "beta": 2.06
+        "beta": 2.06,
+        "sharpe_rf0": 6.41
       },
       {
         "netuid": 61,
         "name": "Red-Team",
         "ann_ret": 179.58,
         "ann_vol": 35.53,
-        "sharpe": 5.05,
         "max_dd": -9.6,
-        "beta": 2.05
+        "beta": 2.05,
+        "sharpe_rf0": 5.05
       },
       {
         "netuid": 59,
         "name": "AgentArena",
         "ann_ret": 191.02,
         "ann_vol": 36.01,
-        "sharpe": 5.31,
         "max_dd": -7.08,
-        "beta": 1.98
+        "beta": 1.98,
+        "sharpe_rf0": 5.31
       }
     ],
     "by_beta_lo": [
@@ -4225,72 +4225,72 @@
         "name": "NicheImage",
         "ann_ret": 15.35,
         "ann_vol": 27.38,
-        "sharpe": 0.56,
         "max_dd": -10.27,
-        "beta": -0.93
+        "beta": -0.93,
+        "sharpe_rf0": 0.56
       },
       {
         "netuid": 28,
         "name": "Tensor Alchemy",
         "ann_ret": -29.0,
         "ann_vol": 27.05,
-        "sharpe": -1.07,
         "max_dd": -21.65,
-        "beta": -0.65
+        "beta": -0.65,
+        "sharpe_rf0": -1.07
       },
       {
         "netuid": 11,
         "name": "Dippy",
         "ann_ret": -77.06,
         "ann_vol": 24.2,
-        "sharpe": -3.18,
         "max_dd": -20.71,
-        "beta": -0.53
+        "beta": -0.53,
+        "sharpe_rf0": -3.18
       },
       {
         "netuid": 20,
         "name": "BitAds",
         "ann_ret": -53.78,
         "ann_vol": 23.4,
-        "sharpe": -2.3,
         "max_dd": -15.28,
-        "beta": -0.39
+        "beta": -0.39,
+        "sharpe_rf0": -2.3
       },
       {
         "netuid": 2,
         "name": "Omron",
         "ann_ret": -2.12,
         "ann_vol": 24.21,
-        "sharpe": -0.09,
         "max_dd": -9.52,
-        "beta": -0.05
+        "beta": -0.05,
+        "sharpe_rf0": -0.09
       },
       {
         "netuid": 6,
         "name": "Nous",
         "ann_ret": 144.19,
         "ann_vol": 26.2,
-        "sharpe": 5.5,
         "max_dd": -6.98,
-        "beta": 0.1
+        "beta": 0.1,
+        "sharpe_rf0": 5.5
       },
       {
         "netuid": 60,
         "name": "Snowballer",
         "ann_ret": 42.63,
         "ann_vol": 25.03,
-        "sharpe": 1.7,
         "max_dd": -11.61,
-        "beta": 0.21
+        "beta": 0.21,
+        "sharpe_rf0": 1.7
       },
       {
         "netuid": 83,
         "name": "Anchor",
         "ann_ret": 68.75,
         "ann_vol": 22.52,
-        "sharpe": 3.05,
         "max_dd": -6.72,
-        "beta": 0.25
+        "beta": 0.25,
+        "sharpe_rf0": 3.05
       }
     ],
     "emission_hhi": 0.0286,

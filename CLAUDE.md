@@ -828,6 +828,70 @@ In addition to gating, every paid feature should have a visible
 on the panel header, or a "PRO · since {month}" line under your
 account chip. Compounding satisfaction = retention.
 
+## Code Quality Bar (binding on BOTH sessions)
+
+Saved by Rondo's instruction, 2026-05-17: "check instructions I gave
+other claude and hold him to a higher standard of excellence." Both
+sessions are held to this bar — when one session reviews the other's
+work, fixes and call-outs happen with `(mac-session)` or
+`(sandbox-session)` suffix and a written rationale. No quiet drift,
+no "good enough" passes.
+
+The standard:
+
+  1. NO MAGIC NUMBERS in computation bodies. Tunables (window sizes,
+     thresholds, top-N caps, percentiles, weights) live as named
+     constants at the top of the module so the analyst can re-tune
+     without touching the math. If a value would mean nothing to a
+     reader 6 months from now, it needs a name.
+
+  2. HONEST FIELD NAMES. `sharpe` without `_rf0` lies about the
+     risk-free assumption. `pct` without `_24h` lies about the
+     window. `mcap` without `_usd` lies about the unit. Spend the
+     extra characters — they save a reader from a misread.
+
+  3. DEGENERATE INPUTS EMIT `None` / `null`, NOT SENTINELS. Zero
+     variance? Empty series? Missing record? Return `None` and let
+     the UI render "·". Never return 0.0 or 999 or a 1e-12 fallback
+     that looks like a real value — that's worse than no data,
+     because the reader trusts it.
+
+  4. SILENT SKIPS ARE BUGS. If a parser matches 48 rows but the file
+     has 53, log a WARNING to stderr with the count delta. The next
+     reader needs to know. `pass` in an except clause is a code
+     smell — log first, decide second.
+
+  5. DIVIDE-BY-ZERO + NaN GUARDS ON ALL NUMERIC OPS. If the math
+     CAN produce a NaN/Inf, write the guard. `np.maximum.accumulate`
+     can yield 0; `df.corr()` can yield NaN on constant series.
+     Don't ship code that crashes on input we haven't tested yet.
+
+  6. DEPRECATION-AWARE STDLIB USAGE. `datetime.utcnow()` is
+     deprecated in 3.12+ — use `datetime.now(timezone.utc)`. Same
+     vigilance for sklearn (`n_iter` → `max_iter`), pandas
+     (`append` removed), numpy (typing changes).
+
+  7. EVERY PUBLIC FUNCTION HAS A REAL DOCSTRING (PEP 257). Not
+     "computes X" — what does it compute, what's the contract on
+     inputs, what does it return when inputs are degenerate, what
+     are the units. Future-you reads docstrings, not git blame.
+
+  8. CROSS-LANGUAGE INVARIANTS ARE WRITTEN DOWN. When a Python
+     script and a JS file agree on a seed / algorithm / field name,
+     the agreement is documented in BOTH files' header comments
+     with the path of the sibling. Silent divergence between them
+     is the highest-risk failure mode of this two-language stack.
+
+  9. WHEN ONE SESSION RENAMES A FIELD IN A SHARED DATA FILE, IT
+     UPDATES EVERY CONSUMER IN THE SAME COMMIT. Static JSON files
+     committed to the repo must stay in sync with the schema —
+     never rely on "the next build will fix it."
+
+When auditing the sibling session's work, name what was missed
+against this list specifically. Don't just fix — explain in the
+commit message which rule the original code violated and how the
+fix honors it. The bar gets stronger when violations are visible.
+
 ## Coordination Log: Cockpit ↔ Terminal CHART Alignment (RESOLVED)
 
   Mac's reply (2026-05-17 via commit 6234f0e): shipped Bloomberg-

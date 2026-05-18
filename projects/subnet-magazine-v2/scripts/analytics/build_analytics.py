@@ -48,7 +48,7 @@ script whenever the SUBNETS seed changes substantively.
 
 import json
 import re
-import os
+import sys
 import datetime as dt
 import numpy as np
 import pandas as pd
@@ -60,6 +60,34 @@ from sklearn.manifold import TSNE
 ROOT = Path(__file__).resolve().parents[2]
 SUBNETS_JS = ROOT / 'src' / 'data' / 'subnets.js'
 OUT_JSON   = ROOT / 'src' / 'data' / 'analytics.json'
+
+# ---------- tunables (one home, no magic numbers in body) -----------
+# Window over which all analytics compute. Must match the JS chart's
+# default range for the heatmap reader to trust correlation values.
+SERIES_DAYS = 90
+
+# Cluster count for K-means + t-SNE color groups.
+N_CLUSTERS = 6
+
+# Concentration / diversifier r thresholds. Tuned for crypto where
+# r is rarely negative — diversifier cutoff is set permissively, the
+# fallback in derive_insights lifts it to "lowest r" when no negatives
+# exist. Move both here so the desk can re-tune without touching the
+# computation body.
+R_CONCENTRATION_HI = 0.6
+R_DIVERSIFIER_LO   = -0.1
+
+# How many rows each ranking + pair list returns to the UI.
+TOP_N = 8
+
+# Annualization factor for crypto (24/7 markets, no trading holidays).
+TRADING_DAYS = 365
+
+# Cluster size labels — percentile-anchored thresholds (computed from
+# the data, not hardcoded). The labels themselves stay constant; the
+# breakpoints adapt as the network mcap distribution shifts.
+SIZE_PCTL_LARGE = 0.66
+SIZE_PCTL_MID   = 0.33
 
 # ---------- parse SUBNETS from the JS source ------------------------
 # We don't want a second source of truth, so we parse the JS file
@@ -101,7 +129,22 @@ def parse_subnets_js(path):
             'chg30':      float(m.group(13)),
         })
     if not rows:
-        raise SystemExit('parse_subnets_js: no rows matched, check the regex against subnets.js')
+        raise ValueError(
+            f'parse_subnets_js: regex matched 0 rows in {path}. '
+            f'subnets.js shape probably changed — re-check the pattern.'
+        )
+    # Sanity check: count how many top-level `{ netuid:` openings the
+    # file has and warn loudly if we matched fewer. A silent skip on
+    # a row with a missing/reformatted field would otherwise quietly
+    # bias every downstream analytic.
+    rough_count = len(re.findall(r'\{\s*netuid:\s*\d+', text))
+    if rough_count > len(rows):
+        print(
+            f'WARNING: parse_subnets_js matched {len(rows)}/{rough_count} '
+            f'rows. {rough_count - len(rows)} subnet(s) silently skipped — '
+            f'the regex shape probably needs an update.',
+            file=sys.stderr,
+        )
     return rows
 
 
@@ -149,17 +192,28 @@ def correlation_matrix(subnets, prices):
 # magazine reader compares INSIDE the network; absolute Sharpe to USD
 # treasuries is a separate frame).
 def risk_metrics(subnets, prices):
+    """Per-subnet risk metrics annualized over `TRADING_DAYS` (365 for
+    crypto). All returned as a netuid -> {metric: value} dict; entries
+    are `None` for subnets that couldn't yield a clean return series.
+
+    `sharpe_rf0` is named explicitly to flag that the risk-free rate is
+    0% (we compare INSIDE the network — absolute Sharpe vs. USD T-bills
+    is a separate frame the UI can layer on later if it wants).
+
+    `beta` is None when the equal-weighted network return has zero
+    variance (a degenerate seed could produce this) — emitting None
+    instead of a 0-divided sentinel forces the UI to render "·" rather
+    than a misleading 0.00.
+    """
     df = pd.DataFrame({s['netuid']: prices[s['netuid']] for s in subnets})
     rets = df.pct_change().dropna()
 
     # Network equal-weighted index (the "market" for beta)
     market_rets = rets.mean(axis=1)
-    market_var = market_rets.var()
-    if market_var == 0:
-        market_var = 1e-12
+    market_var = float(market_rets.var())
+    market_var_ok = market_var > 1e-18
 
-    # Annualization factor for daily data ~365 trading days for crypto
-    ANN = np.sqrt(365)
+    ann = np.sqrt(TRADING_DAYS)
 
     out = {}
     for s in subnets:
@@ -170,26 +224,34 @@ def risk_metrics(subnets, prices):
             continue
         mu_d  = float(np.mean(r))
         sig_d = float(np.std(r, ddof=1))
-        ann_ret = mu_d * 365 * 100                      # %, annualized
-        ann_vol = sig_d * ANN * 100                     # %, annualized
-        sharpe  = (mu_d * 365) / (sig_d * ANN) if sig_d > 0 else 0.0
+        ann_ret    = mu_d * TRADING_DAYS * 100
+        ann_vol    = sig_d * ann * 100
+        sharpe_rf0 = (mu_d * TRADING_DAYS) / (sig_d * ann) if sig_d > 0 else 0.0
 
-        # Max drawdown over the 90-day price path
-        path = np.array(prices[nid])
+        # Max drawdown — running peak from the synthetic price path,
+        # guarded against any zero/negative peak so the divide stays
+        # finite. Synthetic paths can technically wander to zero on
+        # extreme noise sequences; defensive math here costs nothing.
+        path = np.asarray(prices[nid], dtype=float)
         peaks = np.maximum.accumulate(path)
-        dd = (path - peaks) / peaks
-        max_dd = float(np.min(dd) * 100)                # negative %, worst
+        safe_peaks = np.where(peaks <= 0, 1.0, peaks)
+        dd = (path - peaks) / safe_peaks
+        max_dd = float(np.min(dd) * 100)                # 0 = no DD, -100 = total loss
 
-        # Beta to the equal-weighted network index
-        cov = float(np.cov(r, market_rets, ddof=1)[0, 1])
-        beta = cov / float(market_var)
+        # Beta to the equal-weighted network index — None when market
+        # variance collapses (avoids misleading huge-or-zero betas).
+        if market_var_ok:
+            cov = float(np.cov(r, market_rets, ddof=1)[0, 1])
+            beta = round(cov / market_var, 2)
+        else:
+            beta = None
 
         out[str(nid)] = {
-            'ann_ret': round(ann_ret, 2),
-            'ann_vol': round(ann_vol, 2),
-            'sharpe':  round(sharpe, 2),
-            'max_dd':  round(max_dd, 2),
-            'beta':    round(beta, 2),
+            'ann_ret':    round(ann_ret, 2),
+            'ann_vol':    round(ann_vol, 2),
+            'sharpe_rf0': round(sharpe_rf0, 2),
+            'max_dd':     round(max_dd, 2),
+            'beta':       beta,
         }
     return out
 
@@ -215,30 +277,30 @@ def derive_insights(subnets, corr, risk, prices):
                 'r':  round(float(r), 3),
             })
 
-    # CONCENTRATION RISK — pairs with r > 0.6, ranked desc
     concentration = sorted(
-        [p for p in pairs if p['r'] > 0.6],
+        [p for p in pairs if p['r'] > R_CONCENTRATION_HI],
         key=lambda p: p['r'], reverse=True
-    )[:8]
+    )[:TOP_N]
 
-    # DIVERSIFIERS — pairs with r < -0.1 (rare; even r<0 is good in crypto)
     diversifiers = sorted(
-        [p for p in pairs if p['r'] < -0.1],
+        [p for p in pairs if p['r'] < R_DIVERSIFIER_LO],
         key=lambda p: p['r']
-    )[:8]
-    # If no negative correlations, fall back to lowest positive r
+    )[:TOP_N]
     if not diversifiers:
-        diversifiers = sorted(pairs, key=lambda p: p['r'])[:8]
+        diversifiers = sorted(pairs, key=lambda p: p['r'])[:TOP_N]
 
-    # RANKINGS — top/bottom by Sharpe, vol, beta, drawdown
+    # RANKINGS — Sharpe / vol / beta / drawdown. Beta sorts need to
+    # exclude None entries (subnets where market variance collapsed)
+    # so the sort key never sees None vs. float.
     valid = [{'netuid': int(nid), 'name': name_of[int(nid)], **m}
              for nid, m in risk.items() if m is not None]
-    by_sharpe   = sorted(valid, key=lambda x: x['sharpe'],  reverse=True)
-    by_vol_hi   = sorted(valid, key=lambda x: x['ann_vol'], reverse=True)
+    with_beta = [v for v in valid if v['beta'] is not None]
+    by_sharpe   = sorted(valid, key=lambda x: x['sharpe_rf0'], reverse=True)
+    by_vol_hi   = sorted(valid, key=lambda x: x['ann_vol'],    reverse=True)
     by_vol_lo   = sorted(valid, key=lambda x: x['ann_vol'])
-    by_dd       = sorted(valid, key=lambda x: x['max_dd'])  # most negative first
-    by_beta_hi  = sorted(valid, key=lambda x: x['beta'],    reverse=True)
-    by_beta_lo  = sorted(valid, key=lambda x: x['beta'])
+    by_dd       = sorted(valid, key=lambda x: x['max_dd'])
+    by_beta_hi  = sorted(with_beta, key=lambda x: x['beta'], reverse=True)
+    by_beta_lo  = sorted(with_beta, key=lambda x: x['beta'])
 
     # Herfindahl-Hirschman concentration on emission share (network-wide)
     em = np.array([max(0, s['emission']) for s in subnets], dtype=float)
@@ -246,10 +308,10 @@ def derive_insights(subnets, corr, risk, prices):
     hhi = float(np.sum(em_share ** 2))         # 1/N (perfect) -> 1 (monopoly)
     effective_n = 1 / hhi if hhi > 0 else N    # "effective number" of subnets
 
-    # Top-5 emission share (which subnets dominate the incentive flow)
+    # Top emitters by share of total emission (incentive concentration).
     em_order = np.argsort(-em)
     top_emit = []
-    for k in em_order[:8]:
+    for k in em_order[:TOP_N]:
         top_emit.append({
             'netuid': int(ids[k]),
             'name':   name_of[ids[k]],
@@ -260,12 +322,12 @@ def derive_insights(subnets, corr, risk, prices):
     return {
         'concentration': concentration,
         'diversifiers':  diversifiers,
-        'by_sharpe':     by_sharpe[:8],
-        'by_vol_hi':     by_vol_hi[:8],
-        'by_vol_lo':     by_vol_lo[:8],
-        'by_dd':         by_dd[:8],
-        'by_beta_hi':    by_beta_hi[:8],
-        'by_beta_lo':    by_beta_lo[:8],
+        'by_sharpe':     by_sharpe[:TOP_N],
+        'by_vol_hi':     by_vol_hi[:TOP_N],
+        'by_vol_lo':     by_vol_lo[:TOP_N],
+        'by_dd':         by_dd[:TOP_N],
+        'by_beta_hi':    by_beta_hi[:TOP_N],
+        'by_beta_lo':    by_beta_lo[:TOP_N],
         'emission_hhi':  round(hhi, 4),
         'effective_n':   round(effective_n, 1),
         'top_emitters':  top_emit,
@@ -303,8 +365,14 @@ def tsne_and_clusters(subnets, k=6):
     km = KMeans(n_clusters=k, n_init=10, random_state=42)
     cluster_ids = km.fit_predict(X)
 
-    # Human-readable cluster labels: pick the dominant category per cluster
-    # plus a size descriptor based on the cluster's avg log_mcap
+    # Human-readable cluster labels: dominant category + size descriptor.
+    # Size thresholds are PERCENTILE-anchored against the actual mcap
+    # distribution in this run — hardcoded $25M/$10M cutoffs would
+    # silently mislabel as the network grows. Recomputed every build.
+    all_mcaps = np.array([s['mcap'] for s in subnets], dtype=float)
+    p_large = float(np.quantile(all_mcaps, SIZE_PCTL_LARGE))
+    p_mid   = float(np.quantile(all_mcaps, SIZE_PCTL_MID))
+
     cluster_labels = {}
     for cid in range(k):
         members = [subnets[i] for i in range(n) if cluster_ids[i] == cid]
@@ -315,8 +383,10 @@ def tsne_and_clusters(subnets, k=6):
         for m in members:
             cats[m['cat']] = cats.get(m['cat'], 0) + 1
         dom_cat = max(cats.items(), key=lambda kv: kv[1])[0]
-        avg_mcap = np.mean([m['mcap'] for m in members])
-        size = 'large-cap' if avg_mcap > 25 else ('mid-cap' if avg_mcap > 10 else 'small-cap')
+        avg_mcap = float(np.mean([m['mcap'] for m in members]))
+        if   avg_mcap >= p_large: size = 'large-cap'
+        elif avg_mcap >= p_mid:   size = 'mid-cap'
+        else:                     size = 'small-cap'
         cluster_labels[str(cid)] = f'{size} {dom_cat}'
 
     tsne_dict   = {str(s['netuid']): [float(pos_n[i, 0]), float(pos_n[i, 1])] for i, s in enumerate(subnets)}
@@ -329,13 +399,13 @@ def main():
     subnets = parse_subnets_js(SUBNETS_JS)
     print(f'Parsed {len(subnets)} subnets from {SUBNETS_JS.name}')
 
-    prices = {s['netuid']: generate_series(s) for s in subnets}
-    print(f'Generated 90-day series for {len(prices)} subnets')
+    prices = {s['netuid']: generate_series(s, days=SERIES_DAYS) for s in subnets}
+    print(f'Generated {SERIES_DAYS}-day series for {len(prices)} subnets')
 
     corr = correlation_matrix(subnets, prices)
     print(f'Correlation matrix: {len(corr)}x{len(corr[0])}')
 
-    tsne, clusters, labels = tsne_and_clusters(subnets, k=6)
+    tsne, clusters, labels = tsne_and_clusters(subnets, k=N_CLUSTERS)
     print(f't-SNE + k-means clusters computed (k={len(labels)})')
 
     risk = risk_metrics(subnets, prices)
@@ -348,7 +418,19 @@ def main():
           f'(effective N={insights["effective_n"]:.1f})')
 
     out = {
-        'generated_at': dt.datetime.utcnow().isoformat() + 'Z',
+        # Timezone-aware UTC — `datetime.utcnow()` is deprecated in
+        # Python 3.12+; the explicit `now(timezone.utc)` is the
+        # forward-compatible idiom.
+        'generated_at': dt.datetime.now(dt.timezone.utc).isoformat().replace('+00:00', 'Z'),
+        'config': {
+            'series_days':    SERIES_DAYS,
+            'n_clusters':     N_CLUSTERS,
+            'top_n':          TOP_N,
+            'trading_days':   TRADING_DAYS,
+            'sharpe_rf':      0.0,
+            'concentration_r_hi': R_CONCENTRATION_HI,
+            'diversifier_r_lo':   R_DIVERSIFIER_LO,
+        },
         'subnets':      [s['netuid'] for s in subnets],
         'names':        {str(s['netuid']): s['name'] for s in subnets},
         'cats':         {str(s['netuid']): s['cat'] for s in subnets},

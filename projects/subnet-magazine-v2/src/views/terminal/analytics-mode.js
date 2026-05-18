@@ -400,7 +400,7 @@ function renderClusterInsights(analytics, ctx){
         return r ? { id, name: analytics.names[String(id)], ...r } : null;
       })
       .filter(Boolean)
-      .sort((a, b) => b.sharpe - a.sharpe)
+      .sort((a, b) => (b.sharpe_rf0 ?? 0) - (a.sharpe_rf0 ?? 0))
       .slice(0, 5);
     sharpeInClusterHtml = `
       <div class="ins-section">
@@ -410,7 +410,7 @@ function renderClusterInsights(analytics, ctx){
           <li class="ins-pair">
             <span class="ins-pair__sn">SN${m.id}</span>
             <span class="ins-pair__name">${escapeHtml(m.name)}</span>
-            <span class="ins-pair__r ${m.sharpe >= 5 ? 'is-good' : (m.sharpe >= 2 ? 'is-info' : 'is-flat')}">Sharpe ${Number.isFinite(m.sharpe) ? m.sharpe.toFixed(2) : '·'}</span>
+            <span class="ins-pair__r ${m.sharpe_rf0 >= 5 ? 'is-good' : (m.sharpe_rf0 >= 2 ? 'is-info' : 'is-flat')}">Sharpe ${Number.isFinite(m.sharpe_rf0) ? m.sharpe_rf0.toFixed(2) : '·'}</span>
           </li>`).join('')}</ul>
       </div>`;
   }
@@ -435,12 +435,12 @@ function renderRiskScreen(analytics, sortKey, sortDir){
   });
 
   const cols = [
-    { key: 'name',    lbl: 'NAME',       align: 'left'  },
-    { key: 'ann_ret', lbl: 'ANN RET %',  align: 'right' },
-    { key: 'ann_vol', lbl: 'ANN VOL %',  align: 'right' },
-    { key: 'sharpe',  lbl: 'SHARPE',     align: 'right' },
-    { key: 'max_dd',  lbl: 'MAX DD %',   align: 'right' },
-    { key: 'beta',    lbl: 'β vs NET',   align: 'right' },
+    { key: 'name',       lbl: 'NAME',       align: 'left'  },
+    { key: 'ann_ret',    lbl: 'ANN RET %',  align: 'right' },
+    { key: 'ann_vol',    lbl: 'ANN VOL %',  align: 'right' },
+    { key: 'sharpe_rf0', lbl: 'SHARPE',     align: 'right' },
+    { key: 'max_dd',     lbl: 'MAX DD %',   align: 'right' },
+    { key: 'beta',       lbl: 'β vs NET',   align: 'right' },
   ];
 
   const head = cols.map(c => `
@@ -451,7 +451,7 @@ function renderRiskScreen(analytics, sortKey, sortDir){
   const valCls = (k, v) => {
     if (k === 'ann_ret') return v >= 0 ? 'is-up' : 'is-down';
     if (k === 'max_dd')  return 'is-down';
-    if (k === 'sharpe')  return v >= 2 ? 'is-up' : (v <= 0 ? 'is-down' : '');
+    if (k === 'sharpe_rf0') return v >= 2 ? 'is-up' : (v <= 0 ? 'is-down' : '');
     if (k === 'beta')    return Math.abs(v - 1) <= 0.3 ? '' : (v > 1 ? 'is-down' : 'is-up');
     return '';
   };
@@ -473,7 +473,7 @@ function renderRiskScreen(analytics, sortKey, sortDir){
       </td>
       <td class="risk-td risk-td--num ${valCls('ann_ret', r.ann_ret)}">${Number.isFinite(r.ann_ret) ? ((r.ann_ret >= 0 ? '+' : '') + r.ann_ret.toFixed(0) + '%') : '·'}</td>
       <td class="risk-td risk-td--num">${num(r.ann_vol)}${Number.isFinite(r.ann_vol) ? '%' : ''}</td>
-      <td class="risk-td risk-td--num ${valCls('sharpe', r.sharpe)}">${num(r.sharpe, 2)}</td>
+      <td class="risk-td risk-td--num ${valCls('sharpe_rf0', r.sharpe_rf0)}">${num(r.sharpe_rf0, 2)}</td>
       <td class="risk-td risk-td--num ${valCls('max_dd', r.max_dd)}">${num(r.max_dd)}${Number.isFinite(r.max_dd) ? '%' : ''}</td>
       <td class="risk-td risk-td--num ${valCls('beta', r.beta)}">${num(r.beta, 2)}</td>
     </tr>`).join('');
