@@ -36,8 +36,16 @@ import {
   wireAttribution,
   defaultAttribState,
 } from '../dashboard/attribution.js';
+import {
+  loadPaperState, summarize, STARTING_CASH,
+} from '../../data/paper-portfolio.js';
 
 const attribState = defaultAttribState();
+
+/* Free-tier paper portfolio is capped at 5 positions per the
+   monetization plan in CLAUDE.md. Named here so the stats strip
+   can show "n / 5 free" without burying the number. */
+const FREE_POSITION_CAP = 5;
 
 export function mountDeskMode(root, ctx){
   root.innerHTML = `
@@ -55,6 +63,8 @@ export function mountDeskMode(root, ctx){
         </div>
       </header>
 
+      <div data-desk-stats>${renderDeskStats()}</div>
+
       <div class="desk-mode__paper" data-desk-paper>
         ${renderPaperPortfolio()}
       </div>
@@ -66,25 +76,82 @@ export function mountDeskMode(root, ctx){
       </div>
     </div>`;
 
-  /* When paper-portfolio mutates (buy/sell/reset), re-render BOTH:
-     - the paper panel itself, to reflect the new state
-     - the attribution panel, because its PAPER portfolio preset
-       depends on the user's actual positions */
-  function repaintBoth(){
+  /* When paper-portfolio mutates (buy/sell/reset), re-render the
+     stats strip AND both inner panels:
+       - stats strip reflects the new equity / P&L / position count
+       - paper panel reflects the new positions
+       - attribution panel re-derives PAPER preset weights from the
+         updated positions */
+  function repaintAll(){
+    const statsEl  = root.querySelector('[data-desk-stats]');
     const paperEl  = root.querySelector('[data-desk-paper]');
     const attribEl = root.querySelector('[data-desk-attrib]');
+    if (statsEl)  statsEl.innerHTML  = renderDeskStats();
     if (paperEl)  paperEl.innerHTML  = renderPaperPortfolio();
     if (attribEl) attribEl.innerHTML = renderAttribution(attribState);
-    wirePaperPortfolio(root, repaintBoth);
+    wirePaperPortfolio(root, repaintAll);
     wireAttribPanel();
   }
   function wireAttribPanel(){
     wireAttribution(root, attribState, wireAttribPanel);
   }
 
-  wirePaperPortfolio(root, repaintBoth);
+  wirePaperPortfolio(root, repaintAll);
   wireAttribPanel();
 
   return () => { /* no global teardown — handlers live with the
                     DOM and die when the shell re-mounts */ };
+}
+
+/* ---------- desk stats strip ----------------------------- */
+/* Four chips computed from summarize(loadPaperState()) — the
+   reader gets a one-line read of "what's my book worth, am I
+   up or down, what moved overnight, where am I on the free
+   cap" before scrolling into the positions table.
+   Per Signal Taxonomy: decision-grade, not decorative. Empty
+   book is honest (zeros + nudge instead of fake values).
+   Re-computed on every paper-portfolio mutation. */
+function renderDeskStats(){
+  const s = summarize(loadPaperState());
+  const fmtUSD = v => v == null ? '·' : (v >= 0 ? '$' : '-$') + Math.abs(v).toLocaleString('en-US', { maximumFractionDigits: 0 });
+  const fmtPct = v => v == null ? '·' : (v >= 0 ? '+' : '') + v.toFixed(2) + '%';
+  const sign   = v => v == null ? 'is-flat' : (v > 0.001 ? 'is-up' : (v < -0.001 ? 'is-down' : 'is-flat'));
+
+  const empty   = s.positionCount === 0;
+  const overCap = s.positionCount > FREE_POSITION_CAP;
+  const capCls  = overCap ? 'is-down' : (s.positionCount >= FREE_POSITION_CAP ? 'is-warn' : 'is-flat');
+
+  return `
+    <div class="desk-mode__stats" role="region" aria-label="Paper portfolio quick stats">
+      <div class="desk-mode__stat">
+        <span class="desk-mode__stat-lbl">TOTAL EQUITY</span>
+        <span class="desk-mode__stat-val">${fmtUSD(s.total)}</span>
+        <span class="desk-mode__stat-sub ${sign(s.totalReturnPct)}">
+          ${fmtPct(s.totalReturnPct)} <em>since $${STARTING_CASH.toLocaleString('en-US')} start</em>
+        </span>
+      </div>
+      <div class="desk-mode__stat">
+        <span class="desk-mode__stat-lbl">UNREALIZED P&amp;L</span>
+        <span class="desk-mode__stat-val ${sign(s.pnl)}">${fmtUSD(s.pnl)}</span>
+        <span class="desk-mode__stat-sub ${sign(s.pnlPct)}">
+          ${fmtPct(s.pnlPct)} <em>vs cost basis</em>
+        </span>
+      </div>
+      <div class="desk-mode__stat">
+        <span class="desk-mode__stat-lbl">24H CHANGE</span>
+        <span class="desk-mode__stat-val ${sign(s.dayChangeUSD)}">${fmtUSD(s.dayChangeUSD)}</span>
+        <span class="desk-mode__stat-sub ${sign(s.dayChangePct)}">
+          ${fmtPct(s.dayChangePct)} <em>weighted by position size</em>
+        </span>
+      </div>
+      <div class="desk-mode__stat">
+        <span class="desk-mode__stat-lbl">POSITIONS</span>
+        <span class="desk-mode__stat-val ${capCls}">${s.positionCount}<span class="desk-mode__stat-cap">/${FREE_POSITION_CAP} free</span></span>
+        <span class="desk-mode__stat-sub">
+          ${empty
+            ? '<em>add via the markets table</em>'
+            : (overCap ? '<em>over free cap — PRO unlocks unlimited</em>' : '<em>cash $' + s.cashUSD.toLocaleString('en-US') + ' available</em>')}
+        </span>
+      </div>
+    </div>`;
 }

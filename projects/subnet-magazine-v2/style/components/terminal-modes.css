@@ -1717,6 +1717,73 @@
   overflow: auto;
   -webkit-overflow-scrolling: touch;
 }
+/* Desk stats strip — 4-up chips above the paper portfolio.
+   Mirrors the markets stats pattern visually but each stat
+   carries a sub-line for context (cost basis, weighted note,
+   free-cap status). Recomputed on every buy/sell. */
+.desk-mode__stats{
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1px;
+  background: var(--c-rule);
+  flex-shrink: 0;
+  border-bottom: 1px solid var(--c-rule-2);
+}
+.desk-mode__stat{
+  background: var(--c-bg-1);
+  padding: 10px 14px 11px;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  min-width: 0;
+}
+.desk-mode__stat-lbl{
+  font-family: var(--f-mono);
+  font-size: 8.5px;
+  letter-spacing: .18em;
+  font-weight: 800;
+  color: var(--c-ink-3);
+  text-transform: uppercase;
+}
+.desk-mode__stat-val{
+  font-family: var(--f-mono);
+  font-size: 18px;
+  font-weight: 800;
+  color: #fff;
+  font-variant-numeric: tabular-nums;
+  letter-spacing: -.01em;
+  line-height: 1.1;
+}
+.desk-mode__stat-val.is-up   { color: #5BE599; }
+.desk-mode__stat-val.is-down { color: #FF4D60; }
+.desk-mode__stat-val.is-warn { color: var(--c-warn); }
+.desk-mode__stat-val.is-flat { color: var(--c-ink-2); }
+.desk-mode__stat-cap{
+  font-size: 10px;
+  letter-spacing: .06em;
+  color: var(--c-ink-3);
+  font-weight: 700;
+  margin-left: 3px;
+}
+.desk-mode__stat-sub{
+  font-family: var(--f-mono);
+  font-size: 9.5px;
+  letter-spacing: .04em;
+  color: var(--c-ink-2);
+  font-variant-numeric: tabular-nums;
+}
+.desk-mode__stat-sub.is-up   { color: #5BE599; }
+.desk-mode__stat-sub.is-down { color: #FF4D60; }
+.desk-mode__stat-sub em{
+  font-style: italic;
+  color: var(--c-ink-3);
+  margin-left: 3px;
+  font-weight: 500;
+}
+@media (max-width: 720px){
+  .desk-mode__stats{ grid-template-columns: repeat(2, 1fr); }
+  .desk-mode__stat-val{ font-size: 16px; }
+}
 @media (min-width: 900px){
   .desk-mode__head{ padding: 16px 22px 14px; }
   .desk-mode__h{ font-size: 26px; }
