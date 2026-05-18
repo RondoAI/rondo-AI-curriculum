@@ -144,6 +144,53 @@ function presentCats(){
   return [...new Set(SUBNETS.map(s => s.cat).filter(Boolean))];
 }
 
+/* ---------- market stats + heat helpers ---------------------- */
+/* Decision-grade quick stats computed over the CURRENTLY FILTERED
+   row set (not the full 53), so the stats reflect what the reader
+   is actually looking at. Filtering by cat='vision' should show
+   the avg-24h-of-vision, not the network avg.
+   Per Signal Taxonomy: "every chart must answer a decision
+   question." This strip answers: where is the network leaning
+   today, who's the strongest mover, who's dragging, how many
+   are running hot? */
+const HOT_THRESHOLD_PCT = 5;   // chg24 above this = "running hot"
+
+function marketStats(rows){
+  const ch = rows.map(s => Number(s.chg24)).filter(Number.isFinite);
+  if (!ch.length) return { mean: null, top: null, bottom: null, hotCount: 0, total: rows.length };
+  const mean = ch.reduce((a, b) => a + b, 0) / ch.length;
+  let topRow = rows[0], botRow = rows[0];
+  for (const r of rows){
+    if (Number.isFinite(r.chg24)){
+      if (!Number.isFinite(topRow.chg24) || r.chg24 > topRow.chg24) topRow = r;
+      if (!Number.isFinite(botRow.chg24) || r.chg24 < botRow.chg24) botRow = r;
+    }
+  }
+  const hotCount = rows.filter(r => Number(r.chg24) > HOT_THRESHOLD_PCT).length;
+  return { mean, top: topRow, bottom: botRow, hotCount, total: rows.length };
+}
+
+/* Percentile-rank heat wash on extreme cells. Top 10% gets a
+   faint green background, bottom 10% faint red. Computed per
+   column over the visible rows so the wash reflects the filtered
+   set, not the network. Returns the suffix CSS class to append. */
+const HEAT_HI_PCTL = 0.90;
+const HEAT_LO_PCTL = 0.10;
+
+function heatThresholds(rows, key){
+  const vs = rows.map(r => Number(r[key])).filter(Number.isFinite).sort((a, b) => a - b);
+  if (vs.length < 4) return { hi: Infinity, lo: -Infinity };
+  const hiIdx = Math.floor(vs.length * HEAT_HI_PCTL);
+  const loIdx = Math.floor(vs.length * HEAT_LO_PCTL);
+  return { hi: vs[Math.min(hiIdx, vs.length - 1)], lo: vs[loIdx] };
+}
+function heatClass(v, t){
+  if (!Number.isFinite(v)) return '';
+  if (v >= t.hi) return 'is-heat-up';
+  if (v <= t.lo) return 'is-heat-down';
+  return '';
+}
+
 function filterAndSort(state){
   const q = (state.search || '').toLowerCase().trim();
   let rows = SUBNETS.slice();
@@ -197,6 +244,8 @@ function template(state){
         ${chips}
       </nav>
 
+      ${statsStripHtml(state)}
+
       <div class="term-mkts__scroll" data-markets-scroll>
         <table class="term-mkts__table" role="grid">
           <thead>
@@ -216,6 +265,37 @@ function template(state){
   `;
 }
 
+function statsStripHtml(state){
+  const rows = filterAndSort(state);
+  const s = marketStats(rows);
+  if (!s.total) return '';
+  const meanCls   = s.mean == null ? 'is-flat' : (s.mean > 0 ? 'is-up' : (s.mean < 0 ? 'is-down' : 'is-flat'));
+  const topCls    = s.top    && s.top.chg24    > 0 ? 'is-up'   : (s.top    && s.top.chg24    < 0 ? 'is-down' : 'is-flat');
+  const botCls    = s.bottom && s.bottom.chg24 > 0 ? 'is-up'   : (s.bottom && s.bottom.chg24 < 0 ? 'is-down' : 'is-flat');
+  const meanTxt   = s.mean == null ? '·' : (s.mean >= 0 ? '+' : '') + s.mean.toFixed(2) + '%';
+  const topTxt    = s.top    ? `SN${s.top.netuid}    ${(s.top.chg24    >= 0 ? '+' : '') + s.top.chg24.toFixed(2)}%`    : '·';
+  const botTxt    = s.bottom ? `SN${s.bottom.netuid} ${(s.bottom.chg24 >= 0 ? '+' : '') + s.bottom.chg24.toFixed(2)}%` : '·';
+  return `
+    <div class="term-mkts__stats" data-markets-stats role="region" aria-label="Quick stats for filtered subnets">
+      <div class="term-mkts__stat">
+        <span class="term-mkts__stat-lbl">AVG 24H</span>
+        <span class="term-mkts__stat-val ${meanCls}">${meanTxt}</span>
+      </div>
+      <div class="term-mkts__stat">
+        <span class="term-mkts__stat-lbl">TOP MOVER</span>
+        <span class="term-mkts__stat-val ${topCls}">${escapeHtml(topTxt)}</span>
+      </div>
+      <div class="term-mkts__stat">
+        <span class="term-mkts__stat-lbl">WORST DRAG</span>
+        <span class="term-mkts__stat-val ${botCls}">${escapeHtml(botTxt)}</span>
+      </div>
+      <div class="term-mkts__stat">
+        <span class="term-mkts__stat-lbl">RUNNING HOT</span>
+        <span class="term-mkts__stat-val ${s.hotCount > 0 ? 'is-up' : 'is-flat'}">${s.hotCount}/${s.total} <em>·24h&gt;${HOT_THRESHOLD_PCT}%</em></span>
+      </div>
+    </div>`;
+}
+
 function rowCountText(state){
   const filtered = filterAndSort(state);
   const total    = SUBNETS.length;
@@ -228,15 +308,26 @@ function rowsHtml(state){
   if (!rows.length){
     return `<tr><td class="term-mkts__empty-row" colspan="${COLS.length}">No subnets match this filter.</td></tr>`;
   }
-  return rows.map(s => rowHtml(s, state)).join('');
+  /* Compute heat thresholds ONCE per render (not per row) over the
+     filtered set so each chg column gets its own per-column scale
+     — a -2% in a calm day stands out, a -2% in a -8% rout doesn't. */
+  const heat = {
+    chg24: heatThresholds(rows, 'chg24'),
+    chg7:  heatThresholds(rows, 'chg7'),
+    chg30: heatThresholds(rows, 'chg30'),
+  };
+  return rows.map(s => rowHtml(s, state, heat)).join('');
 }
 
-function rowHtml(s, state){
+function rowHtml(s, state, heat){
   const id        = s.netuid;
   const isSel     = id === state.selectedId;
   const chg24Cls  = chgClass(s.chg24);
   const chg7Cls   = chgClass(s.chg7);
   const chg30Cls  = chgClass(s.chg30);
+  const heat24    = heat ? heatClass(s.chg24, heat.chg24) : '';
+  const heat7     = heat ? heatClass(s.chg7,  heat.chg7 ) : '';
+  const heat30    = heat ? heatClass(s.chg30, heat.chg30) : '';
   const cluster   = state.analytics?.cluster?.[String(id)];
   const clusterCol = (cluster != null) ? CLUSTER_COLORS[cluster % CLUSTER_COLORS.length] : null;
   const clusterLbl = (cluster != null && state.analytics?.cluster_labels?.[String(cluster)]) || null;
@@ -252,9 +343,9 @@ function rowHtml(s, state){
       </td>
       <td class="term-mkts__td term-mkts__td--cov">${cov > 0 ? `<span class="term-mkts__cov">·${cov}</span>` : '<span class="term-mkts__cov term-mkts__cov--zero">·</span>'}</td>
       <td class="term-mkts__td term-mkts__td--num">${fmtPrice(s.price)}</td>
-      <td class="term-mkts__td term-mkts__td--num ${chg24Cls}">${fmtPct(s.chg24)}</td>
-      <td class="term-mkts__td term-mkts__td--num ${chg7Cls}">${fmtPct(s.chg7)}</td>
-      <td class="term-mkts__td term-mkts__td--num ${chg30Cls}">${fmtPct(s.chg30)}</td>
+      <td class="term-mkts__td term-mkts__td--num ${chg24Cls} ${heat24}">${fmtPct(s.chg24)}</td>
+      <td class="term-mkts__td term-mkts__td--num ${chg7Cls} ${heat7}">${fmtPct(s.chg7)}</td>
+      <td class="term-mkts__td term-mkts__td--num ${chg30Cls} ${heat30}">${fmtPct(s.chg30)}</td>
       <td class="term-mkts__td term-mkts__td--num">${fmtMcap(s.mcap)}</td>
       <td class="term-mkts__td term-mkts__td--num">${fmtInt(s.emission)}</td>
       <td class="term-mkts__td term-mkts__td--num">${fmtInt(s.miners)}</td>
@@ -367,9 +458,13 @@ function rerender(root, state){
   const tbody = qs('[data-markets-tbody]', root);
   const cards = qs('[data-markets-cards]', root);
   const meta  = qs('[data-mkts-meta]', root);
+  const stats = qs('[data-markets-stats]', root);
   if (tbody) tbody.innerHTML = rowsHtml(state);
   if (cards) cards.innerHTML = cardsHtml(state);
   if (meta)  meta.textContent = rowCountText(state);
+  /* Stats strip outerHTML swap — keep the inserted node in the same
+     DOM position so cat/search/sort all repaint a consistent set. */
+  if (stats) stats.outerHTML = statsStripHtml(state);
   /* Update sort indicators on the headers */
   qsa('[data-mkts-sort]', root).forEach(th => {
     const k = th.dataset.mktsSort;

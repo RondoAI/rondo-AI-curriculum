@@ -898,6 +898,13 @@
 .term-mkts__td--num.is-up   { color: #5BE599; }
 .term-mkts__td--num.is-down { color: #FF4D60; }
 .term-mkts__td--num.is-flat { color: var(--c-ink-3); }
+/* Heat wash on extreme chg cells — top 10% / bottom 10% of the
+   currently filtered set get a faint background tint so outliers
+   pop without overpowering the text color. Per-column percentile
+   recomputed each render; threshold lives in markets-mode.js as
+   HEAT_HI_PCTL / HEAT_LO_PCTL. */
+.term-mkts__td--num.is-heat-up  { background: rgba(91, 229, 153, .10); }
+.term-mkts__td--num.is-heat-down{ background: rgba(255, 77,  109, .10); }
 
 /* Cluster badge: tiny color chip + cluster id. Color comes from
    the inline --ct custom property the row sets. */
@@ -1505,6 +1512,60 @@
   white-space: nowrap;
   text-align: right;
   font-variant-numeric: tabular-nums;
+}
+
+/* Markets stats strip — 4-up quick-stat chips computed over the
+   FILTERED row set (avg 24h, top mover, worst drag, running-hot
+   count). Sits between the cat filters and the table so the
+   reader gets a one-line read of "where is this slice leaning"
+   before scanning the rows. */
+.term-mkts__stats{
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1px;
+  background: var(--c-rule);
+  margin: 0 0 8px;
+}
+.term-mkts__stat{
+  background: var(--c-bg-1);
+  padding: 6px 12px;
+  display: flex;
+  flex-direction: column;
+  gap: 1px;
+  min-width: 0;
+}
+.term-mkts__stat-lbl{
+  font-family: var(--f-mono);
+  font-size: 8.5px;
+  letter-spacing: .18em;
+  font-weight: 800;
+  color: var(--c-ink-3);
+  text-transform: uppercase;
+}
+.term-mkts__stat-val{
+  font-family: var(--f-mono);
+  font-size: 13px;
+  font-weight: 800;
+  color: #fff;
+  font-variant-numeric: tabular-nums;
+  letter-spacing: -.005em;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.term-mkts__stat-val em{
+  font-style: normal;
+  font-size: 9px;
+  letter-spacing: .12em;
+  color: var(--c-ink-3);
+  margin-left: 3px;
+  font-weight: 700;
+}
+.term-mkts__stat-val.is-up   { color: #5BE599; }
+.term-mkts__stat-val.is-down { color: #FF4D60; }
+.term-mkts__stat-val.is-flat { color: var(--c-ink-2); }
+@media (max-width: 720px){
+  .term-mkts__stats{ grid-template-columns: repeat(2, 1fr); }
 }
 
 /* --- editorial fill-in ----------------------------------------- */
