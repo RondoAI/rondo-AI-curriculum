@@ -974,7 +974,7 @@ export function mountCockpit(root, dataLayer = null){
         <details class="cock-holdings-fold" open>
           <summary class="cock-holdings-fold__summary">⊕ HOLDINGS · 0 POSITIONS</summary>
           <div class="cock-holdings-empty">
-            Empty paper book. Tap the green <b>+ ADD POSITION</b> button above to enter your first α holding — zero risk, just to track a thesis.
+            Empty paper book. Tap the red <b>+ ADD POSITION</b> button above to enter your first α holding — zero risk, just to track a thesis.
           </div>
         </details>
       `;

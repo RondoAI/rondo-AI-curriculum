@@ -2311,8 +2311,8 @@
 .cock-chart__addbtn{
   -webkit-appearance: none;
   appearance: none;
-  background: #5BE599;
-  color: #050203;
+  background: var(--c-red);
+  color: #fff;
   border: 0;
   padding: 8px 12px;
   font-family: var(--f-mono);
@@ -2323,12 +2323,17 @@
   flex-shrink: 0;
   align-self: flex-start;
   margin-left: 12px;
-  transition: filter 120ms, transform 120ms;
+  transition: filter 120ms, box-shadow 120ms;
+  /* Red glow keys the button to the magazine's red+black theme
+     (was green — Rondo 2026-05-18: "the add position color and
+     theme should match the rest of the website"). */
+  box-shadow: 0 0 12px rgba(255,30,60,.35);
 }
 .cock-chart__addbtn:hover{ filter: brightness(1.10); }
 .cock-chart__addbtn.is-on{
-  background: var(--c-red);
-  color: #fff;
+  background: rgba(255,30,60,.18);
+  color: var(--c-red-1);
+  box-shadow: inset 0 -2px 0 0 var(--c-red);
 }
 .cock-chart__addsheet{
   display: grid;
@@ -2409,13 +2414,14 @@
 .cock-chart__addsheet-confirm{
   -webkit-appearance: none;
   appearance: none;
-  background: #5BE599;
-  color: #050203;
+  background: var(--c-red);
+  color: #fff;
   border: 0;
   padding: 10px 20px;
   font-family: var(--f-mono);
   font-size: 12px;
   letter-spacing: .14em;
+  box-shadow: 0 0 12px rgba(255,30,60,.35);
   font-weight: 800;
   cursor: pointer;
   transition: filter 120ms;
@@ -2515,7 +2521,7 @@
   letter-spacing: .22em;
   font-weight: 800;
   color: #fff;
-  background: linear-gradient(180deg, rgba(0,229,168,.06) 0%, transparent 100%);
+  background: linear-gradient(180deg, rgba(255,30,60,.06) 0%, transparent 100%);
   border-bottom: 1px solid var(--c-rule);
   user-select: none;
   transition: background 120ms;
@@ -2523,7 +2529,7 @@
 .cock-holdings-fold__summary::-webkit-details-marker{ display: none; }
 .cock-holdings-fold__summary::marker{ display: none; content: ''; }
 .cock-holdings-fold__summary:hover{
-  background: linear-gradient(180deg, rgba(0,229,168,.12) 0%, transparent 100%);
+  background: linear-gradient(180deg, rgba(255,30,60,.12) 0%, transparent 100%);
 }
 .cock-holdings-empty{
   padding: 24px 22px;
