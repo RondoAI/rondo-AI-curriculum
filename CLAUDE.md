@@ -2129,3 +2129,228 @@ Mac, please:
 If after the audit the table is genuinely collapsible everywhere
 and defaults closed, log back here that the fold is fine and his
 report was likely a cache issue — but verify FIRST, don't assume.
+
+## Coordination Ask: ONE BEAUTIFUL INTERACTIVE CHART + freeze bug investigation (OPEN — for mac-session)
+
+Saved by Rondo's instruction, 2026-05-18, third rant of the
+afternoon refining the cockpit direction. New workflow rule
+also captured at the bottom of this entry — sandbox now hands
+COCKPIT CODE drafts to mac for 150% finishing, sandbox does
+not push cockpit code directly.
+
+### Rondo's vision (verbatim themes, paraphrased faithfully)
+
+  "This one beautiful active chart that you can not only, one,
+  look at the market, but also one where you can plug in
+  theoretically the amount of TAO you have or the amount of
+  subnet tokens you have, be able to see the price feed
+  without having to go into your wallet. You can just plug
+  it in there. So it can be sort of like a playground for
+  people to kinda watch and track their wallet wins and
+  losses."
+
+  "And we want the chart to be interactive. We want a sidebar
+  on the chart where you get data about the market in general.
+  Was it beautiful feel and a beautiful flow."
+
+  "This cockpit has too many [mini] options. The cockpit has
+  too many things going on. Scrolling is too long. So we need
+  to fix this."
+
+  "Then it also freezes. If you try to go [cuts off — likely
+  'to a different subnet' or 'across the chart']"
+
+### Decision-grade translation
+
+The cockpit is becoming a SINGLE-CHART WORKSPACE with three
+layers, no scrolling, no auxiliary clutter:
+
+  1. ONE BEAUTIFUL INTERACTIVE CHART (the centerpiece)
+     - Displays subnet α price by default
+     - Reader plugs in "I theoretically hold N α of SN${k}"
+       via a lightweight input on the chart itself (or in
+       the sidebar) — no wallet connection, no signup, no
+       persistence beyond localStorage. Pure paper-playground.
+     - When holdings are plugged in, the chart can swap to
+       PORTFOLIO mode (per the CMC pattern in the previous
+       coordination ask) and show running paper P&L over time.
+     - Interactive: hover for OHLC tooltip (already shipped),
+       click to mark an entry, tap to switch holdings, tap to
+       reset.
+
+  2. SIDEBAR ON THE CHART (NEW — refines the previous brief)
+     Per Rondo's "we want a sidebar on the chart where you
+     get data about the market in general." This is GENERAL
+     MARKET data, not per-subnet — a tight column to the right
+     of the chart with the kind of context a Bloomberg user
+     glances at while looking at any chart:
+
+       NETWORK VITALS (compact, mono):
+         TAO/USD                  $X.XX  ±Y.YY%
+         TAO MCAP                 $X.XXB
+         BLOCK HEIGHT             #X,XXX,XXX
+         STAKED %                 XX.XX%
+         EMIT τ/d (net total)     X,XXX
+         SUBNETS                  53
+
+       TODAY'S MOVERS (top 3 ↑ / bottom 3 ↓):
+         SN${k}  ${name}  +XX.X%
+         ... (clickable; tap → chart switches to that subnet)
+
+       OPTIONAL: a small cluster of market headlines from
+       the existing FRESH strip, single column, tap-to-read.
+
+     The sidebar is the answer to "what's going on in the
+     market RIGHT NOW" without leaving the chart. It REPLACES
+     the cluttered auxiliary panels (External Links, Editorial
+     Intel, GitHub Activity, Wallet Tracker, etc.) that Rondo
+     wants deleted from the cockpit.
+
+  3. EVERYTHING ELSE GETS RUTHLESSLY DELETED
+     Per Rondo's "too many options / too many things going on /
+     scrolling is too long" — third reinforcement of this point
+     in 4 hours. The cockpit page should be:
+
+       - chart pane (interactive chart + market sidebar)
+       - holdings table (per the CMC pattern coordination ask)
+       - [nothing else]
+
+     The Valuation Ladder, Desk section, Editorial Archive,
+     Deterministic LLMs, ARC, ATTR, ECOSYSTEM panels — ALL gone.
+     Mac, when restructuring, be RUTHLESS. If a panel does not
+     directly serve "look at the chart" OR "track my paper
+     portfolio" OR "show me general market context", delete it.
+     The deleted panels still exist on their own dedicated pages
+     (dashboard.html, oracle.html, editor.html) — they don't
+     need to also live in the cockpit.
+
+### Freeze bug — investigation finding (sandbox-session)
+
+Reproducer cited by Rondo: "it also freezes. If you try to go
+[somewhere]." Likely scenario: scrubbing across the chart canvas
+with a finger on mobile, or tapping the picker/range tabs in
+rapid succession.
+
+PRIMARY SUSPECT — Cockpit.js:1441-1487 onMove handler
+
+  The chart's mousemove (= touchmove on mobile) handler calls
+  drawChartNow() on EVERY pixel of movement:
+
+    line 1449  drawChartNow();   // clear prior crosshair (flag-hit branch)
+    line 1470  drawChartNow();   // when hover leaves any bar
+    line 1471  drawChartNow();   // when hovering a new bar
+
+  drawChartNow() is a FULL canvas redraw — axis labels, grid,
+  price line, MA20, MA50, news-flag markers, the works. On a
+  380px-wide phone canvas, scrubbing a finger left-to-right
+  triggers ~100+ full redraws PER SECOND. That's the freeze.
+
+  This is a classic mobile-UX bug — desktop mousemove is throttled
+  by physics (mouse moves slowly), but touchmove fires on every
+  pixel and saturates the main thread.
+
+PROPOSED FIX (mac to refine to 150%):
+
+  Option A — requestAnimationFrame coalescing:
+    let raf = 0, pendingMove = null;
+    const onMove = (ev) => {
+      pendingMove = ev;
+      if (raf) return;
+      raf = requestAnimationFrame(() => {
+        raf = 0;
+        const e = pendingMove; pendingMove = null;
+        actualOnMove(e);
+      });
+    };
+    Caps redraws at one per frame (~60Hz). Cheapest fix.
+
+  Option B — memoize hit-test, only redraw on change:
+    let lastHitIdx = -1, lastFlagId = null;
+    const onMove = (ev) => {
+      const r = canvas.getBoundingClientRect();
+      const x = ev.clientX - r.left, y = ev.clientY - r.top;
+      const flagHit = hit.hitFlag(x, y);
+      const flagId = flagHit ? flagHit.ann.url || flagHit.ann.date : null;
+      const h = !flagHit ? hit.hitTest(x, y) : null;
+      const idx = h ? h.idx : -1;
+      if (idx === lastHitIdx && flagId === lastFlagId) return;
+      lastHitIdx = idx; lastFlagId = flagId;
+      // ... do the redraw + tooltip update
+    };
+    Eliminates redundant redraws (most pixels under the same bar
+    don't need a fresh draw). Combine with Option A for full effect.
+
+  Option C — touchmove-specific throttle:
+    canvas.addEventListener('touchmove', e => {
+      if (touchThrottle) return;
+      touchThrottle = true;
+      requestAnimationFrame(() => { touchThrottle = false; });
+      onMove(e.touches[0]);
+    }, { passive: true });
+    Combined with mousemove using the rAF pattern, this gives
+    touch a hard 60Hz cap.
+
+SECONDARY SUSPECT — repaintMain() on picker change
+
+  Cockpit.js:1287-1289: setSelected → repaintMain → m.innerHTML
+  = renderMain(); wireChart(); drawChartNow();
+
+  innerHTML replacement is heavy (parses HTML, instantiates DOM,
+  detaches old listeners). Not a freeze on its own but contributes
+  to lag on rapid picker changes. Mac may consider a targeted
+  surgical update: change only the chart title + canvas data
+  attributes + redraw, instead of nuking + re-parsing the entire
+  chart pane.
+
+### Mac's pickup order (suggested)
+
+  P0 — FREEZE FIX. Apply Option A + B (rAF coalescing + hit-test
+       memoization) to the chart's onMove handler. Verify on
+       mobile @ 414x900 by scrubbing across the chart — should
+       feel smooth, not stutter. This is the urgent fix.
+
+  P1 — RUTHLESS DELETION PASS. Strip the cockpit down to:
+         chart pane (with interactive market chart)
+         holdings table below
+         (nothing else)
+       Delete the Valuation Ladder, Desk, Editorial Archive,
+       Deterministic LLMs, ARC, ATTR, ECOSYSTEM strip from the
+       cockpit page. They still exist on dashboard.html.
+
+  P2 — MARKET SIDEBAR on the chart. New right-rail component:
+         Network Vitals block (TAO price, mcap, blk, staked,
+           emit, subnets count)
+         Today's Movers block (top 3 ↑ / bottom 3 ↓, clickable)
+         Optional: 3-headline FRESH strip
+       Source data: DataLayer (already wired). Compact mono
+       column, taps switch the chart to the named subnet.
+
+  P3 — PAPER-PORTFOLIO PLUG-IN. Per the CMC pattern coordination
+       ask: chart mode toggle (SUBNET ↔ PORTFOLIO), "+" button
+       for add-position sheet, holdings table below. The
+       "playground" Rondo described.
+
+  All four screenshot-verified per Visual Self-Check rule.
+
+### WORKFLOW RULE — Rondo 2026-05-18 (new)
+
+  "Any changes you make, you go over it with your sibling.
+  Because whatever you create, you give it to him. He's gonna
+  do a hundred and fifty percent improvement on it. So don't
+  launch anything until you talk to him first. Give him your
+  code and let him do it. After you turn it in, you give it
+  to him, and he'll update."
+
+  Effective immediately for COCKPIT WORK:
+    - Sandbox investigates, drafts, proposes — sandbox does NOT
+      push cockpit code without first handing it to mac.
+    - Sandbox's outputs land here as coordination notes (this
+      entry's "PROPOSED FIX" + "Suggested pickup order" blocks
+      are the model).
+    - Mac is the implementer of record for cockpit changes,
+      applies the 150% rule on top of sandbox's drafts.
+
+  This DOES NOT change the rest of the project. Sandbox still
+  owns its own surfaces (Dashboard.js banner, Console.js dock,
+  etc.) and pushes those directly. The new rule is specifically
+  the cockpit handoff pattern Rondo just asked for.
