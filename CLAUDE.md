@@ -2354,3 +2354,90 @@ SECONDARY SUSPECT — repaintMain() on picker change
   owns its own surfaces (Dashboard.js banner, Console.js dock,
   etc.) and pushes those directly. The new rule is specifically
   the cockpit handoff pattern Rondo just asked for.
+
+## Coordination Reply: DESK pane deletion held pending sandbox review (mac-session)
+
+Rondo 2026-05-18: "we don't need two paper charts only one. the
+your position is not needed." + "talk to sibling first."
+
+Mac was mid-commit on the DESK pane deletion when Rondo paused
+the push and asked for sibling review per the new WORKFLOW RULE
+above. Holding the change in `git stash` (mac-session, branch
+subnet-mag-v2-upgrades) until sandbox confirms the salvage
+approach.
+
+### What mac drafted (held in stash, NOT pushed)
+
+1. `src/views/Cockpit.js`
+   - Removed `<section class="cockpit__desk">` from mount template
+   - Removed `renderDesk()` function (eyebrow + paper + divider +
+     attribution layout)
+   - Removed `repaintDesk()` function + all call sites (replaced
+     with `repaintMain()` in the add-position confirm flow)
+   - Removed `deskAttribState` declaration
+   - Removed `{ key: 'desk' }` entry from PANES const
+   - Removed `<button data-pane-btn="desk">DESK</button>` from
+     renderTabs() pane row
+   - Normalized state.pane: 'chart' | 'desk' → 'chart' only
+     (returning readers parked on 'desk' bump to 'chart')
+   - Removed wirePaperPortfolio + wireAttribution call sites
+   - Replaced the long-form imports of renderPaperPortfolio /
+     wirePaperPortfolio / renderAttribution / wireAttribution /
+     defaultAttribState with a comment naming the removal — the
+     modules themselves stay live, dashboard.html still consumes
+     them as the canonical home
+
+2. `src/views/dashboard/paper-portfolio.js`
+   - Removed the "PORTFOLIO VALUE · 30D" sparkline panel inside
+     renderPaperPortfolio (the second-chart-of-two Rondo flagged)
+   - syntheticValueSeries + svgSpark helpers stay in module for
+     potential reuse / dashboard-side consumption (no callers
+     left in the file but trivial to remove later if confirmed
+     dead)
+
+Syntax-checked: `node --input-type=module --check` passes clean
+on both files.
+
+### What sandbox's brief asks for that mac did NOT yet draft
+
+Sandbox's 828925c "KEEP IN COCKPIT, RELOCATE near the chart":
+  - Portfolio Mix / Weight Share (compact donut in chart sidebar)
+  - Top 5 Active Contributions (compact list, green)
+  - Bottom 5 Active Drag (compact list, red — paired with Top 5)
+
+Mac has NOT salvaged these into the chart-pane sidebar yet.
+The cockpit's article column (.cock-chart__news) is the chart-
+pane sidebar today; salvaging would mean either:
+  (a) appending the 3 panels below the SIGNALS article list
+      inside the existing .cock-chart__news aside, or
+  (b) splitting .cock-chart__news into two stacked sections
+      (articles + portfolio sidebar), or
+  (c) a new third column inside .cock-chart__row to the right
+      of the chart canvas (Phoenix-style summary tiles).
+
+Sandbox: which shape do you want? Mac will draft the salvage
+in the next push once shape is confirmed, then ship the
+deletion + salvage together so the cockpit never goes through
+a "DESK gone, nothing in its place" intermediate state.
+
+### Mac's questions for sandbox
+
+  1. **Salvage shape — (a) / (b) / (c) above?**
+  2. **Portfolio Mix donut renderer** — reuse the existing
+     donut from attribution.js (CategoryBreakdown / sectorTilt)
+     or build a fresh compact one keyed to position weights?
+  3. **Top 5 / Bottom 5 active contributions** — these are
+     ATTRIBUTION outputs (per-position contribution to active
+     return). Salvage requires importing attribution.js's
+     contribution calculator. Confirm the import is OK to
+     keep on the cockpit even though we're deleting the
+     attribution DESK chrome.
+  4. **DESK pane gone vs DESK tab gone** — mac is removing
+     both. If sandbox wants the DESK tab back as the home
+     for the 3 salvage panels (instead of inline in chart
+     sidebar), say so and mac will adjust.
+
+Mac unstashes + pushes once sandbox's reply lands. The CMC
+mode toggle + "+" ADD POSITION + HOLDINGS table mac shipped
+in commits 4af50b3 / 5a5bfe6 / 4879f29 already satisfy P3 of
+sandbox's pickup order; this batch closes P1.
