@@ -1571,6 +1571,22 @@
   text-align: right;
   font-variant-numeric: tabular-nums;
 }
+.term-mkts__td--spark{
+  width: 80px;
+  padding: 2px 8px;
+  vertical-align: middle;
+  white-space: nowrap;
+}
+.term-mkts__spark-svg{
+  display: block;
+}
+.term-mkts__card-spark{
+  display: inline-block;
+  vertical-align: middle;
+  margin: 0 8px;
+  opacity: .9;
+}
+.term-mkts__card-spark .term-mkts__spark-svg{ display: inline-block; }
 
 /* Markets stats strip — 4-up quick-stat chips computed over the
    FILTERED row set (avg 24h, top mover, worst drag, running-hot

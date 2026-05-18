@@ -26,6 +26,7 @@ import { qs, qsa, escapeHtml } from '../../lib/dom.js';
 import { SUBNETS, subnetById } from '../../data/subnets.js';
 import { ARTICLES } from '../../data/articles.js';
 import { recentOracleArticles } from '../../data/oracle-articles.js';
+import { generateSeries } from '../../lib/synthetic-series.js';
 
 const CAT_LABEL = {
   text:'TEXT', vision:'VISION', audio:'AUDIO', video:'VIDEO',
@@ -124,21 +125,70 @@ export function mountMarketsMode(root, ctx){
 
 /* ---------- template / render ----------------------------- */
 
+/* Sparkline width × height in CSS pixels. The 30-day spark sits
+   between PRESS and α PRICE — institutional pattern that turns
+   the row from data-grid into chart-in-table. Sized small enough
+   that 13 columns still fit at 1080px without horizontal scroll
+   on the desktop view. */
+const SPARK_W = 64;
+const SPARK_H = 16;
+const SPARK_DAYS = 30;
+
 const COLS = [
   { key: 'netuid',   label: 'ID',         align: 'left',  cmp: (a, b) => a.netuid - b.netuid },
   { key: 'name',     label: 'NAME',       align: 'left',  cmp: (a, b) => (a.name || '').localeCompare(b.name || '') },
   { key: 'cat',      label: 'CAT',        align: 'left',  cmp: (a, b) => (a.cat  || '').localeCompare(b.cat  || '') },
   { key: 'cluster',  label: 'CLUSTER',    align: 'left',  cmp: null },
   { key: 'cov',      label: 'PRESS',      align: 'right', cmp: (a, b) => coverageCount(a.netuid) - coverageCount(b.netuid) },
+  { key: 'spark',    label: '30D',        align: 'left',  cmp: null },
   { key: 'price',    label: 'α PRICE',    align: 'right', cmp: (a, b) => (a.price || 0) - (b.price || 0) },
   { key: 'chg24',    label: '24H',        align: 'right', cmp: (a, b) => (a.chg24 || 0) - (b.chg24 || 0) },
   { key: 'chg7',     label: '7D',         align: 'right', cmp: (a, b) => (a.chg7  || 0) - (b.chg7  || 0) },
-  { key: 'chg30',    label: '30D',        align: 'right', cmp: (a, b) => (a.chg30 || 0) - (b.chg30 || 0) },
+  { key: 'chg30',    label: '30D %',      align: 'right', cmp: (a, b) => (a.chg30 || 0) - (b.chg30 || 0) },
   { key: 'mcap',     label: 'FDV',        align: 'right', cmp: (a, b) => (a.mcap     || 0) - (b.mcap     || 0) },
   { key: 'emission', label: 'EMIT τ/d',   align: 'right', cmp: (a, b) => (a.emission || 0) - (b.emission || 0) },
   { key: 'miners',   label: 'MINERS',     align: 'right', cmp: (a, b) => (a.miners   || 0) - (b.miners   || 0) },
   { key: 'validators', label: 'VAL',      align: 'right', cmp: (a, b) => (a.validators || 0) - (b.validators || 0) },
 ];
+
+/* Pre-built SVG sparkline per netuid — last 30 closes, normalized
+   to fit SPARK_W × SPARK_H, color-keyed to the period return.
+   Built ONCE at module load via the shared synthetic-series lib;
+   53 × ~250-char SVG strings = trivial memory. Rerenders are
+   just map lookups. Real OHLC will replace generateSeries when
+   the Python pipeline lands. */
+const _SPARK_BY_NETUID = (() => {
+  const m = new Map();
+  for (const s of SUBNETS){
+    try {
+      const series = generateSeries(s);
+      const closes = series.slice(-SPARK_DAYS).map(b => b.close).filter(Number.isFinite);
+      m.set(s.netuid, sparklineSvg(closes, SPARK_W, SPARK_H));
+    } catch (_) { /* skip — row will render an empty cell */ }
+  }
+  return m;
+})();
+
+function sparklineSvg(closes, w, h){
+  if (!closes || closes.length < 2){
+    return `<svg viewBox="0 0 ${w} ${h}" width="${w}" height="${h}" aria-hidden="true"></svg>`;
+  }
+  const lo = Math.min(...closes);
+  const hi = Math.max(...closes);
+  const span = (hi - lo) || 1;
+  const stepX = w / (closes.length - 1);
+  const points = closes.map((c, i) => {
+    const x = i * stepX;
+    /* Invert Y so the path reads top-down like a chart, not bottom-up
+       like SVG-default. Inset by 1px top + bottom so the stroke
+       isn't clipped at peaks/troughs. */
+    const y = h - 1 - ((c - lo) / span) * (h - 2);
+    return x.toFixed(1) + ',' + y.toFixed(1);
+  }).join(' ');
+  const up = closes[closes.length - 1] >= closes[0];
+  const color = up ? '#5BE599' : '#FF4D60';
+  return `<svg class="term-mkts__spark-svg" viewBox="0 0 ${w} ${h}" width="${w}" height="${h}" aria-hidden="true" preserveAspectRatio="none"><polyline fill="none" stroke="${color}" stroke-width="1" stroke-linecap="round" stroke-linejoin="round" points="${points}"/></svg>`;
+}
 
 function presentCats(){
   return [...new Set(SUBNETS.map(s => s.cat).filter(Boolean))];
@@ -350,6 +400,7 @@ function rowHtml(s, state, heat){
         ${clusterCol ? `<span class="term-mkts__cluster" style="--ct:${clusterCol}" title="${escapeHtml(clusterLbl || ('cluster ' + cluster))}">${cluster}</span>` : '<span class="term-mkts__cluster term-mkts__cluster--na">·</span>'}
       </td>
       <td class="term-mkts__td term-mkts__td--cov">${cov > 0 ? `<span class="term-mkts__cov">·${cov}</span>` : '<span class="term-mkts__cov term-mkts__cov--zero">·</span>'}</td>
+      <td class="term-mkts__td term-mkts__td--spark">${_SPARK_BY_NETUID.get(id) || ''}</td>
       <td class="term-mkts__td term-mkts__td--num">${fmtPrice(s.price)}</td>
       <td class="term-mkts__td term-mkts__td--num ${chg24Cls} ${heat24}">${fmtPct(s.chg24)}</td>
       <td class="term-mkts__td term-mkts__td--num ${chg7Cls} ${heat7}">${fmtPct(s.chg7)}</td>
@@ -393,6 +444,7 @@ function cardHtml(s, state){
         </div>
         <div class="term-mkts__card-priceline">
           <span class="term-mkts__card-price">${fmtPrice(s.price)}</span>
+          <span class="term-mkts__card-spark">${_SPARK_BY_NETUID.get(id) || ''}</span>
           <span class="term-mkts__card-chg ${chg24Cls}">${fmtPct(s.chg24)} <em>24H</em></span>
         </div>
         <div class="term-mkts__card-stats">
