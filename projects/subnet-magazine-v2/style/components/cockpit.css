@@ -69,6 +69,38 @@
   color: var(--c-ink-3);
   font-style: italic;
 }
+/* MARKETS shortcut pill — sits at the right edge of the cockpit-
+   tabs row. Replaces the markets link the mobile bottom-nav used
+   to carry (the bottom-nav was removed from cockpit so the Subnet
+   Oracle dock could own that real estate). Red-bordered chip,
+   monospace caps, opens markets.html. */
+.cockpit-tabs__markets{
+  margin-left: 10px;
+  padding: 4px 10px 3px;
+  font-family: var(--f-mono);
+  font-size: 9.5px;
+  font-weight: 800;
+  letter-spacing: .16em;
+  color: var(--c-red-1);
+  border: 1px solid rgba(255, 30, 60, .45);
+  background: rgba(255, 30, 60, .06);
+  text-decoration: none;
+  text-transform: uppercase;
+  white-space: nowrap;
+  transition: color 140ms ease, background 140ms ease, border-color 140ms ease;
+}
+.cockpit-tabs__markets:hover,
+.cockpit-tabs__markets:focus-visible{
+  color: #fff;
+  background: var(--c-red);
+  border-color: var(--c-red);
+  outline: none;
+}
+/* On mobile the hint text wraps awkwardly when the markets pill
+   joins the row — hide the hint to make room. */
+@media (max-width: 720px){
+  .cockpit-tabs__hint{ display: none; }
+}
 
 /* ---------- grid (mobile default, single column) ----------- */
 .cockpit__grid{

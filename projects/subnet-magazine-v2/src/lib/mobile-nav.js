@@ -41,6 +41,12 @@ export function installMobileNav(){
   installed = true;
 
   const path = window.location.pathname;
+  /* The cockpit owns its own dedicated MARKETS pill + Subnet
+     Oracle dock at the bottom (Console.js). Per Rondo 2026-05-18
+     ("remove the bottom bar and replace it with the subnet oracle
+     bar from before"), skip the mobile nav on the cockpit page —
+     the Oracle dock IS the bottom bar there. */
+  if (/\/cockpit\.html(\?|$)/i.test(path)) return;
   const isActive = (item) => item.match.test(path);
   const anyActive = NAV_ITEMS.some(isActive);
 

@@ -504,6 +504,12 @@ export function mountCockpit(root, dataLayer = null){
           <button type="button" class="cockpit-tabs__btn" data-pane-btn="${p.key}">${p.label}</button>
         `).join('')}
         <span class="cockpit-tabs__hint">tap to swap panes on mobile</span>
+        <!-- MARKETS shortcut — the mobile bottom-nav was removed
+             from the cockpit (Subnet Oracle dock owns the bottom);
+             this pill keeps the markets jump one tap away inside
+             the cockpit chrome itself. Per Rondo 2026-05-18 "but
+             markets in the cockpit." -->
+        <a class="cockpit-tabs__markets" href="markets.html" aria-label="Open markets page">⊕ MARKETS ↗</a>
       </nav>`;
   }
 
