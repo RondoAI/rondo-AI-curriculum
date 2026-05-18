@@ -1584,3 +1584,61 @@
   border-color: var(--c-red);
   outline: none;
 }
+
+/* =================================================================
+   COCKPIT — SMALL-MULTIPLES ROW (2026-05-18)
+   -----------------------------------------------------------------
+   Three mini-sparkline panels below the KPI strip, surfacing
+   emission / miners / validators trends. Adapted from the
+   taostats inspiration (docs/inspiration/...). Each panel:
+     [label]   [value]
+     [80×26 sparkline]
+   Sparkline anchored to the panel's current value so the last
+   point matches the displayed number.
+   ================================================================= */
+.cock-micro-row{
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1px;
+  background: var(--c-rule);
+  flex-shrink: 0;
+  border-top: 1px solid var(--c-rule-2);
+}
+.cock-micro{
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  padding: 8px 12px 9px;
+  background: var(--c-bg-1);
+  min-width: 0;
+}
+.cock-micro__head{
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 8px;
+}
+.cock-micro__lbl{
+  font-family: var(--f-mono);
+  font-size: 8.5px;
+  letter-spacing: .18em;
+  font-weight: 800;
+  color: var(--c-ink-3);
+  text-transform: uppercase;
+}
+.cock-micro__val{
+  font-family: var(--f-mono);
+  font-size: 12px;
+  font-weight: 800;
+  color: #fff;
+  font-variant-numeric: tabular-nums;
+  letter-spacing: -.005em;
+}
+.cock-micro__svg{
+  display: block;
+  width: 100%;
+  height: 26px;
+}
+@media (max-width: 480px){
+  .cock-micro-row{ grid-template-columns: 1fr; }
+}

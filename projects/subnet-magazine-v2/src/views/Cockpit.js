@@ -541,6 +541,27 @@ export function mountCockpit(root, dataLayer = null){
     const gh = ghByNetuid(s.netuid) || null;
     const range = RANGES.find(r => r.key === state.range) || RANGES[2];
 
+    /* Small-multiples row — three mini-sparklines below the
+       chart matching the taostats-style institutional dashboard
+       pattern (sibling shared in docs/inspiration/...). Reuses
+       the synthetic series so what the reader sees in the
+       sparkline tracks what's in the main chart, just compressed
+       to 30 bars per panel. */
+    const microPanels = [
+      { label: 'EMISSION τ/d', value: s.emission, seed: s.netuid * 23 + 9,  unit: 'τ',  color: '#FFB85C' },
+      { label: 'MINERS',       value: s.miners,   seed: s.netuid * 31 + 11, unit: '',   color: '#9CE6CC' },
+      { label: 'VALIDATORS',   value: s.validators, seed: s.netuid * 17 + 7,  unit: '',   color: '#FF4D60' },
+    ];
+    const microHtml = microPanels.map(p => `
+      <div class="cock-micro">
+        <div class="cock-micro__head">
+          <span class="cock-micro__lbl">${p.label}</span>
+          <span class="cock-micro__val">${fmtInt(p.value)}${p.unit}</span>
+        </div>
+        ${microSparkSvg(p.value || 0, p.seed, p.color)}
+      </div>
+    `).join('');
+
     const kpis = [
       { lbl: 'α PRICE',      val: fmtPrice(s.price),         chg: s.chg24, note: '24h' },
       { lbl: 'FDV',          val: fmtMcap(s.mcap),           chg: s.chg30, note: '30d' },
@@ -712,7 +733,46 @@ export function mountCockpit(root, dataLayer = null){
       </div>
 
       <div class="cock-kpis">${kpis}</div>
+
+      <!-- Small-multiples row — institutional pattern from the
+           taostats inspiration (sibling commit 761a157). Three
+           mini-sparklines surfacing emission / miners / validators
+           trends per the active subnet. Compressed enough to fit
+           below the KPIs without scroll, dense enough to read at
+           a glance. -->
+      <div class="cock-micro-row" aria-label="Subnet activity small multiples">
+        ${microHtml}
+      </div>
     `;
+  }
+
+  /* Tiny 80×24 SVG sparkline used by the cockpit's small-multiples
+     row. Walks a seeded random pattern anchored on `current` so
+     the sparkline shape is stable per (subnet, metric) pair. Pure
+     SVG so no canvas allocation per cockpit mount. */
+  function microSparkSvg(current, seed, color){
+    const W = 90, H = 26, N = 30;
+    const lo = Math.max(0, current * 0.7);
+    const hi = Math.max(1, current * 1.3);
+    const span = hi - lo || 1;
+    let state = (seed * 1103515245 + 12345) >>> 0;
+    const rnd = () => {
+      state = (state * 1103515245 + 12345) >>> 0;
+      return ((state >>> 16) & 0x7FFF) / 0x7FFF;
+    };
+    const pts = [];
+    for (let i = 0; i < N; i++){
+      /* Anchor the LAST point to the current value so the
+         sparkline ends where the KPI reads — keeps the visual
+         coherent with the numeric. */
+      const v = i === N - 1 ? current : lo + rnd() * span;
+      const x = (i / (N - 1)) * W;
+      const y = H - 1 - ((v - lo) / span) * (H - 2);
+      pts.push(x.toFixed(1) + ',' + Math.max(0, Math.min(H, y)).toFixed(1));
+    }
+    return `<svg class="cock-micro__svg" viewBox="0 0 ${W} ${H}" width="${W}" height="${H}" aria-hidden="true" preserveAspectRatio="none">
+      <polyline fill="none" stroke="${color}" stroke-width="1" stroke-linecap="round" stroke-linejoin="round" points="${pts.join(' ')}"/>
+    </svg>`;
   }
 
   /* Procedural cover art for a news/article item. The magazine has
