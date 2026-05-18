@@ -1250,3 +1250,93 @@ The 150% ask:
 
   Sandbox will close this entry once mac's pass lands and add a
   retrospective on what changed.
+
+## Coordination Ask: Institutional Subnet Dashboard Inspiration (OPEN — for mac-session)
+
+Saved by Rondo's instruction, 2026-05-18: he sent a screenshot of a
+serious institutional Bittensor-subnet analytics dashboard (looks
+like a power-user taostats / similar tool) and said: "Give this to
+your sibling and tell it to use it for inspiration."
+
+  Image:  projects/subnet-magazine-v2/docs/inspiration/taostats-subnet-dashboard.jpg
+
+WHAT THE DASHBOARD SHOWS (single-subnet drilldown, SN38 colosseum):
+
+  Top chrome:
+    - Subnet picker (showing "colosseum (38)" — clear netuid + name pattern)
+    - News filter chips: "Registrations", "Updates" (toggleable, dismissible)
+    - Two toggles: "Major Events" + "Medium Events" (event severity gating)
+    - Date range picker, refresh button, prev/next nav arrows
+
+  Single-row data strip (~20 columns of compressed terminal-grade columns):
+    Id · Subnet · Flags & Links · Price · 30D% · 30D Price (sparkline)
+    · CBP% · Big Commit · avg Lines · Lines/Day (sparkline) · Discord
+    · Team Activity Discord (sparkline) · BPDIT · SO Deposits · SO α Tx
+    · SO τ Tx · SO α staked · SO Wallet Activity (sparkline)
+    · Liq Haircut · Age
+
+    Each numeric cell has its own MINI SPARKLINE inline — institutional
+    grid pattern, Bloomberg-tier density. The "Flags & Links" column is
+    a CLUSTER OF SMALL ICONS (web, X, Discord, GitHub, hammer, etc.) —
+    one glance shows full presence + provenance.
+
+  Small-multiples grid (4 columns × ~4 rows of compact charts):
+    Row 1:  Price · TAO FLOWS (in/out/net bars) · Owner Wallet Activity
+    Row 2:  Price with liq price · TAO Injection (emissions) · Miner Burn %
+            · Hidden Links (empty-state with "No data" honest placeholder)
+    Row 3:  Codelines / Day · Team Discord Activity · Owner X Activity
+            · News panel (date-sorted, with linked addresses + content)
+    Row 4:  Liquidation Haircut · Manual Burns · ...
+
+    Each chart ~120-160px tall, no chart "chrome" — just axis labels +
+    the data. The TAO FLOWS chart has 3 sub-series with totaled legend
+    underneath ("In Total: 1317  Out Total: -951  Net Total: 367").
+    News panel has clickable address hashes + linked content snippets.
+
+WHAT MAC SHOULD STEAL / ADAPT for the magazine:
+
+  1. PER-ROW SPARKLINE COLUMNS in MARKETS mode. Mac already shipped
+     a 30D sparkline column (afcd385) — extend to a row of multiple
+     sparkline columns (price, lines/day, wallet activity, etc.) so
+     a single row tells a complete subnet story without drilldown.
+
+  2. FLAGS & LINKS CLUSTER. Each subnet row could carry a compact
+     icon strip — web, X, Discord, GitHub, taostats — so the reader
+     can jump to the canonical surface for that subnet from inside
+     the magazine table.
+
+  3. SMALL-MULTIPLES GRID for the per-subnet DETAIL view. Cockpit's
+     CHART mode currently shows ONE chart at a time. A small-multiples
+     grid (price + emissions + flows + wallet + discord + commits)
+     gives the reader the full subnet at-a-glance.
+
+  4. EVENT SEVERITY GATING — "Major Events / Medium Events" toggles
+     are a clean pattern. Editorial mode could carry it: filter
+     articles by importance.
+
+  5. HONEST EMPTY STATES. The "Hidden Links — No data" panel is
+     respectful of the reader: doesn't synthesize fake data, doesn't
+     hide the panel, just says "no data." Matches the project's
+     Code Quality Bar rule #3 (degenerate inputs emit null, not
+     sentinels).
+
+  6. INTEGRATED NEWS PANEL within the per-subnet drilldown.
+     Date-sorted, linked addresses, content snippets. The cockpit
+     already has an article column — this dashboard's news panel is
+     a tighter, more terminal-grade version.
+
+  7. DATE-RANGE PICKER on the chart pane. Cockpit's range tabs
+     (1D / 7D / 30D / 90D / 1Y) could grow a "custom" option using
+     this pattern.
+
+  8. TIGHT NUMERIC FORMATTING. "$0.01166", "-1%", "100%", "1317",
+     "367" — all monospace, all signed where relevant, all consistent.
+     The magazine's data layer is already mono — extend the discipline
+     to consistent sign + percent + currency rendering everywhere.
+
+Mac, when you boot: please look at the JPG and consider which of
+these patterns belong in the next institutional pass. Could be a
+single high-density pull (e.g., per-row sparkline grid in MARKETS)
+or a structural addition (e.g., small-multiples per-subnet DETAIL).
+Sandbox will fold whatever mac ships into the cockpit's surface
+to keep visual language consistent across modes.
