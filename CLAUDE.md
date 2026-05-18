@@ -1388,3 +1388,100 @@ single high-density pull (e.g., per-row sparkline grid in MARKETS)
 or a structural addition (e.g., small-multiples per-subnet DETAIL).
 Sandbox will fold whatever mac ships into the cockpit's surface
 to keep visual language consistent across modes.
+
+## Coordination Ask: Subnet Oracle Dock — Implementation Pass (OPEN — for mac-session)
+
+Saved by Rondo's instruction, 2026-05-18: "Give it to your sibling
+and tell him implement it" — directly after sandbox removed
+your HOME · MARKETS · DASH · ORACLE chip bar (boot.js install
+call commented out, commit f7fb6cf) and restored the Subnet Oracle
+dock as the canonical bottom bar on every page.
+
+WHAT HAPPENED:
+
+  - boot.js no longer calls installMobileNav() (commented out per
+    Rondo). DO NOT re-add it without his green-light.
+  - mountConsole(DataLayer) (src/views/Console.js) IS the canonical
+    bottom bar on all pages including mobile. It carries:
+      * NodeSphere plexus mark on the left (the "neural network
+        floating on the side" per Rondo's directive)
+      * "Subnet Oracle" wordmark, tap-to-expand bar
+      * Tab row when expanded: ASK · MINE · LINKS · PLAY ·
+        VALIDATE · REGISTER · WALLET · DTAO · ...
+      * Each tab loads a FIELD_MANUAL entry from
+        src/data/bittensor-faq.js (~15 simplified Bittensor
+        onboarding topics)
+  - Page navigation moved to: masthead nav on desktop, command
+    palette on mobile (any [data-cmd-trigger] surface).
+
+WHAT RONDO WANTS YOU TO IMPLEMENT:
+
+  Per his repeated direction, the Oracle dock should be the
+  reader's onboarding surface for the OpenTensor Foundation
+  network — "instructions about the OpenTensor Foundation, how
+  to become a miner, the validators, what software you had to
+  install, and all that technical information simplified."
+
+  Suggested implementation pass (pick whichever you can do well in
+  one push; the bar is decision-grade, not feature-grade):
+
+  1. WELCOME / ONBOARDING STATE. The first time a reader opens
+     the dock, instead of dropping them at the ASK tab show a
+     "NEW TO BITTENSOR?" welcome card that links to the most
+     important field manual topics in reading order:
+       /whitepaper → /dtao → /mine OR /validate → /wallet → /security
+     Persist a "seen" flag in localStorage so returning readers
+     get the regular ASK landing.
+
+  2. RICHER FIELD_MANUAL CONTENT RENDERING. The current dock
+     renders each topic's body as a flat list. Mac's institutional
+     polish (decision-grade strips, semantic structure, ARIA roles
+     — see commits afcd385, b9fe549, e92bcda) belongs here too.
+     Each topic body could carry:
+       - A "TL;DR" line at the top (one-sentence summary)
+       - The structured body (existing)
+       - A "NEXT" footer linking the next topic in the reading flow
+       - Code blocks with a copy button
+       - Per-step icons / sparkline-of-effort indicators
+
+  3. SEMANTIC SEARCH ON THE ASK TAB. Currently ASK does basic
+     keyword match (or no match — verify). Upgrade to a small
+     fuzzy / token-overlap match across FIELD_MANUAL bodies +
+     oracle-articles.js + cite the matched topic IDs in the
+     response. No live Claude API call required — pure client-side
+     index suffices for v1.
+
+  4. FIELD_MANUAL COVERAGE GAP CHECK. Verify the FIELD_MANUAL
+     genuinely covers the topics Rondo named:
+       ✓ How to become a miner (/mine exists)
+       ✓ The validators (/validate exists)
+       ✓ Software / install (/security or similar)
+       ? OpenTensor Foundation specifically — does any topic name
+         the OTF as the steward? If not, add it (probably to
+         /whitepaper or /roadmap).
+     If a topic is missing or thin, write it. Field manual entries
+     follow the existing shape in src/data/bittensor-faq.js.
+
+  5. CROSS-LINK from oracle.html article cards into the dock's
+     matching field-manual tabs (so a reader of an SN4 Targon
+     research piece can tap "what's a validator?" and the dock
+     expands on /validate). Implementation: add a data-attribute
+     on field-manual links inside oracle articles, intercept the
+     click, expand dock + activate the named tab.
+
+  6. TAOSTATS-DASHBOARD INSPIRATION (the JPG Rondo already saved
+     to projects/subnet-magazine-v2/docs/inspiration/) carries a
+     "tight, single-purpose card" grammar — each metric in its
+     own bordered cell with a label + value + sparkline +
+     "(?) tooltip on hover". The Oracle dock's expanded body
+     could borrow that grammar for the per-topic page: each
+     concept in its own bordered cell with the same hairline
+     red border + mono label + body.
+
+  Pick one or two of the above and ship; flag any you defer in a
+  CLAUDE.md follow-up note. Verify mobile @ 414x900 + desktop @
+  1440x900 per the Visual Self-Check rule before reporting done.
+
+Sandbox will close this entry once your pass lands and fold any
+visual-language additions into the cockpit's surface to keep
+modes consistent.
