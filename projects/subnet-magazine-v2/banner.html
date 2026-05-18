@@ -36,13 +36,15 @@
   /* Subtle red atmosphere — TIGHTLY scoped to the right edge so it
      doesn't bleed into the wordmark area. Previous gradient had a
      38% radius that reached x=660 (well inside the wordmark zone);
-     this one fades at 18% so it dies cleanly in the gap between
-     wordmark and sphere. Soft black vignette in the lower-left
-     gives the PFP its own pocket of darkness. */
+     this one fades at 22% so it dies cleanly in the gap between
+     wordmark and sphere while giving the sphere SLIGHTLY more
+     atmospheric depth around it (previous 18% / .10 felt too
+     contained — sphere read flat). Soft black vignette in the
+     lower-left gives the PFP its own pocket of darkness. */
   .banner__atmos{
     position: absolute; inset: 0;
     background:
-      radial-gradient(circle at 90% 50%, rgba(255,30,60,.10) 0%, rgba(255,30,60,0) 18%),
+      radial-gradient(circle at 90% 50%, rgba(255,30,60,.14) 0%, rgba(255,30,60,0) 22%),
       radial-gradient(circle at 14% 88%, rgba(0,0,0,.55) 0%, rgba(0,0,0,0) 32%);
     pointer-events: none;
   }
@@ -65,7 +67,13 @@
     font-weight: 800;
     font-size: 94px;
     line-height: 1;
-    letter-spacing: -.030em;
+    /* Tightened from -.030em → -.042em. At 94px display weight,
+       -.030em felt loose for a masthead-confident wordmark; the
+       extra tightening packs the letterforms so the wordmark
+       reads as ONE word, not seven adjacent characters.
+       Masthead reference: Bloomberg, NYT, FT all run their
+       display wordmarks tighter than -.030em at this size. */
+    letter-spacing: -.042em;
     color: var(--c-ink-1);
     margin: 0;
     white-space: nowrap;
@@ -120,7 +128,13 @@
 
   <div class="banner__hero">
     <h1 class="banner__wordmark">Subneτ Magazine</h1>
-    <p class="banner__tagline"><em>Biττensor</em> research.</p>
+    <!-- Tagline upgraded from "Biττensor research." → "The Biττensor
+         research terminal." — declarative claim of category, says
+         exactly what the product is (per the project's stated
+         mission of being the Bloomberg terminal for Bittensor).
+         "Research" alone is descriptive; "research terminal"
+         is positioning. -->
+    <p class="banner__tagline">The <em>Biττensor</em> research terminal.</p>
   </div>
 
   <canvas id="sphere" class="banner__sphere" width="320" height="320"></canvas>

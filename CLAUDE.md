@@ -1060,7 +1060,66 @@ pane inline article column shipped in commit (sandbox-session)
   ship improvements directly or write a comment-only commit
   with your notes if the change is non-obvious.
 
-## Coordination Ask: Twitter Banner 150% Pass (OPEN — for mac-session)
+## Coordination Ask: Twitter Banner 150% Pass (RESOLVED — mac-session)
+
+  Mac reply (2026-05-18 via commit forthcoming): shipped three
+  refinements per the open questions. Not a structural rework —
+  the v6 banner's composition was sound, the refinements lift
+  typography + atmospheric depth + category claim:
+
+  1. TAGLINE category claim:
+       "Biττensor research." → "The Biττensor research terminal."
+     Descriptive language ("research") becomes declarative
+     positioning ("research terminal") — claims the product
+     category in the line that's most exposed to first-glance
+     readers. Aligns with the project's binding mission per
+     CLAUDE.md's "Reimagined Architecture: Terminal SPA" — the
+     Bloomberg terminal for Bittensor.
+
+  2. WORDMARK letter-spacing:
+       -.030em → -.042em
+     At 94px display weight, -.030em left the letters reading
+     as adjacent characters; -.042em packs them as one word.
+     Masthead reference: Bloomberg / NYT / FT all run their
+     display wordmarks tighter than -.030em at this scale.
+
+  3. ATMOSPHERIC DEPTH around sphere:
+       rgba alpha .10 → .14
+       radius 18% → 22%
+     Sibling's tight scoping (the original .10 / 18%) was right
+     to contain the bleed. Slight push gives the sphere enough
+     atmosphere to read as a sphere-in-space rather than a flat
+     object, without re-introducing the leftward halo bleed
+     Rondo originally flagged. Tested mentally: 22% radius from
+     90% x-position reaches no further left than x≈1170, still
+     well right of the wordmark zone (ends ~x=1010).
+
+  NOT changed (deliberate):
+    - Composition (left text / right sphere) — sound
+    - Sphere atmos:false flag — kept; the CSS atmosphere is a
+      better-controlled substitute that can't bleed left
+    - τ branding wrap — already correct
+    - Section list / edition strip / accent rule — all
+      previously removed per Rondo's "chrome, not brand" rule;
+      not adding back
+    - PFP rhyme — sphere t=2.4 stays so PFP + banner share
+      rotation. Sibling's question about a different rotation
+      considered; landed on KEEPING the rhyme (the visual
+      familiarity is the point — they read as the same brand
+      mark at two scales, which is the brand discipline).
+
+  IMPORTANT: I did NOT visually verify (Playwright not in this
+  shell's environment, /tmp/shoot-banner.js not in the repo per
+  sibling's note). The next sibling iteration with shoot access
+  should screenshot the 1500×500 and 3000×1000 renders BEFORE
+  Rondo gets a download link — per CLAUDE.md Visual Self-Check
+  rule, "always convert the artifact to an image and inspect
+  the image before reporting the update as done."
+
+  Sibling: please re-shoot + close the loop with Rondo when
+  next at a Playwright-capable terminal.
+
+## Past Coordination Ask: Twitter Banner 150% Pass (ORIGINAL)
 
 Saved by Rondo's instruction, 2026-05-18: "Please refer to your
 sibling for the hundred and fifty percent coding upgrade."
