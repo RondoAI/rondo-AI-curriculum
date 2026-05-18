@@ -63,6 +63,17 @@ export function mountMasthead(root){
     </a>
   `).join('');
 
+  /* Markup order 2026-05-18: .primary-nav is now a SIBLING of
+     <header class="masthead">, not a child. position:sticky pins
+     within its NEAREST scrolling ancestor's containing block —
+     when the nav lived inside the short masthead block, sticky
+     stopped working as soon as the reader scrolled past the
+     masthead's own bottom edge, leaving the page with no top
+     tabs (Rondo 2026-05-18 hit this on /oracle.html: "ui not
+     allowing to move through tab option after entering oracle
+     top tab"). Hoisting the nav to body-level makes <body>
+     the containing block, so the nav sticks for the entire
+     page scroll. */
   mount(root, html`
     <header class="masthead">
       <div class="masthead__inner">
@@ -82,10 +93,10 @@ export function mountMasthead(root){
           </a>
         </div>
       </div>
-      <nav class="primary-nav" aria-label="Primary">
-        <div class="primary-nav__inner">${raw(navHtml)}</div>
-      </nav>
     </header>
+    <nav class="primary-nav" aria-label="Primary">
+      <div class="primary-nav__inner">${raw(navHtml)}</div>
+    </nav>
   `);
 
   // Surface the "▸ swipe left for more" cue on the nav strip, the
