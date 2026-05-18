@@ -456,7 +456,13 @@
    like a real reading column, not a thumbnail. */
 @media (max-width: 900px){
   .cock-chart__row{
-    display: block;
+    /* Flex column with reverse so the chart canvas (DOM-second
+       child) renders FIRST visually, with the article list +
+       picker stacked below. Chart-on-top matches the Phoenix
+       shape Rondo's been pointing at + how readers expect to
+       see the workspace on a phone. */
+    display: flex;
+    flex-direction: column-reverse;
     overflow: visible;
     flex: 0 0 auto;
   }
