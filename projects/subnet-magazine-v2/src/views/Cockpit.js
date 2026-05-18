@@ -2025,12 +2025,51 @@ export function mountCockpit(root, dataLayer = null){
       .replace(/</g, '&lt;').replace(/>/g, '&gt;');
   }
 
-  /* Optional: react to live data ticks when the DataLayer wiring
-     populates real prices. Mark the current subnet's price live and
-     redraw the latest data point. */
+  /* Live data subscription (TaoMarketcap via DataLayer). When the
+     'tao:subnets' channel emits a fresh batch, mutate matching
+     SUBNETS rows in place so the per-subnet price / 24h % /
+     mcap / miners / validators / emission update immediately.
+     Repaint the chart pane to reflect the live numbers. The
+     synthetic price series is also regenerated for the active
+     subnet so the chart anchors on the latest mark.
+
+     Rondo 2026-05-18: "pull api data from tao stats and tao
+     marketcap." DataLayer.start() in boot.js already begins
+     polling both APIs; this hook is the cockpit's read side. */
+  const liveUnsubs = [];
   if (dataLayer && typeof dataLayer.subscribe === 'function'){
-    dataLayer.subscribe(() => { /* future hook for live ticks */ });
+    const onLiveSubnets = (listRaw) => {
+      if (!Array.isArray(listRaw) || !listRaw.length) return;
+      let touched = false;
+      listRaw.forEach(live => {
+        if (live == null || live.netuid == null) return;
+        const local = subnetById(live.netuid);
+        if (!local) return;
+        /* Map TMC live fields onto the SUBNETS row. Field names
+           per layer.js mapping (refreshSubnets). */
+        if (Number.isFinite(live.price))       { local.price = live.price; touched = true; }
+        if (Number.isFinite(live.chg24h))      local.chg24 = live.chg24h;
+        if (Number.isFinite(live.chg7d))       local.chg7  = live.chg7d;
+        if (Number.isFinite(live.chg30d))      local.chg30 = live.chg30d;
+        if (Number.isFinite(live.mcap_alpha))  local.mcap = live.mcap_alpha;
+        if (Number.isFinite(live.emission))    local.emission = live.emission;
+        if (Number.isFinite(live.miners))      local.miners = live.miners;
+        if (Number.isFinite(live.validators))  local.validators = live.validators;
+      });
+      if (touched){
+        const cur = subnetById(state.selectedId);
+        if (cur) series = generateSeries(cur);
+        repaintMain();
+      }
+    };
+    liveUnsubs.push(dataLayer.subscribe('tao:subnets', onLiveSubnets));
+    /* Pull cached value if present (it may have arrived before
+       this mount). */
+    const cached = dataLayer.get && dataLayer.get('tao:subnets');
+    if (cached) onLiveSubnets(cached);
   }
 
-  return () => { /* no teardown needed; listeners die with the page */ };
+  return () => {
+    liveUnsubs.splice(0).forEach(u => { try { u(); } catch (_) {} });
+  };
 }
