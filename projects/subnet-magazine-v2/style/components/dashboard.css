@@ -1838,3 +1838,39 @@
   overflow: hidden;
   text-overflow: ellipsis;
 }
+
+/* Inline magnitude bar in the MARKETS ROSTER 24H column
+   (2026-05-18, sibling pattern #2 extension). Bar scales each
+   row's |chg24| against the largest mover in the visible
+   window. Green for up, red for down — matches the movers desk
+   pattern from Markets.js. */
+.dash-master__chg24{
+  position: relative;
+  padding-bottom: 14px;
+}
+.dash-master__chg24-val{
+  display: block;
+  line-height: 1.1;
+}
+.dash-master__magbar{
+  position: absolute;
+  left: 8px; right: 8px; bottom: 4px;
+  height: 3px;
+  background: rgba(255,255,255,.04);
+  border: 1px solid rgba(255,255,255,.06);
+  overflow: hidden;
+  display: block;
+}
+.dash-master__magfill{
+  display: block;
+  height: 100%;
+  transition: width 200ms ease-out;
+}
+.dash-master__magbar.is-up .dash-master__magfill{
+  background: #5BE599;
+  box-shadow: 0 0 3px rgba(91,229,153,.5);
+}
+.dash-master__magbar.is-down .dash-master__magfill{
+  background: var(--c-red);
+  box-shadow: 0 0 3px rgba(255,30,60,.55);
+}

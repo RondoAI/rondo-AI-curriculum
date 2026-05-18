@@ -2188,10 +2188,19 @@ export function mountDashboard(root, dataLayer = null){
       const r = col.cmp(a, b);
       return masterSortDir === 'desc' ? -r : r;
     });
+    /* Magnitude reference for the inline bar in the 24H column —
+       the biggest |chg24| in the visible window scales every
+       row's bar so the eye can rank movers at a glance without
+       reading every percent. Sibling pattern #2 (status-inline
+       columns / progress bars in cells) extended from the
+       movers desk to the master roster. */
+    const max24Mag = Math.max(...sorted.map(s => Math.abs(s.chg24 || 0)), 0.0001);
     const rows = sorted.map(s => {
       const cls   = chgClass(s.chg24);
       const cls7  = chgClass(s.chg7);
       const cls30 = chgClass(s.chg30);
+      const mag24 = Math.min(100, (Math.abs(s.chg24 || 0) / max24Mag) * 100);
+      const upDown24 = (s.chg24 || 0) >= 0 ? 'is-up' : 'is-down';
       const accentCls = s.chg24 > 2 ? 'is-strong-up'
                        : s.chg24 > 0 ? 'is-up'
                        : s.chg24 < -2 ? 'is-strong-down'
@@ -2215,7 +2224,10 @@ export function mountDashboard(root, dataLayer = null){
           <td class="dash-master__name">${s.name}${covChip}</td>
           <td class="dash-master__cat">${(s.cat || '').toUpperCase()}</td>
           <td class="dash-master__num">${fmtPrice(s.price)}</td>
-          <td class="dash-master__num ${cls}">${fmtPct(s.chg24)}</td>
+          <td class="dash-master__num dash-master__chg24 ${cls}">
+            <span class="dash-master__chg24-val">${fmtPct(s.chg24)}</span>
+            <span class="dash-master__magbar ${upDown24}" aria-hidden="true"><span class="dash-master__magfill" style="width:${mag24.toFixed(1)}%"></span></span>
+          </td>
           <td class="dash-master__num ${cls7}">${fmtPct(s.chg7)}</td>
           <td class="dash-master__num ${cls30}">${fmtPct(s.chg30)}</td>
           <td class="dash-master__spark">${svgSpark(sparkSeries, 64, 22, sparkColor, true)}</td>
