@@ -441,12 +441,19 @@
    (full mobile width), article list below (full width, real
    reading surface). Picker moves into the chart pane header
    so it doesn't fight the range tabs for the same row. */
-/* Mobile re-stack at ≤900px: drop the grid entirely and let
-   children flow as plain blocks. The grid was collapsing the
-   .cock-chart__news child to ~1px height under flex constraints
-   from its grandparent (.cockpit__main flex:1), leaving the
-   picker overflowing the parent and overlapping the range tabs.
-   display:block + auto heights restores natural stacking. */
+/* Mobile re-stack at ≤900px — Rondo 2026-05-18 follow-up:
+   "please know it's 2026 and people have the newest iphone and
+   android." Modern iPhone 17 Pro Max is 440-460 logical px wide,
+   Galaxy S25/Pixel 10 Pro similar. Stop designing for a 390px
+   iPhone 13 baseline.
+
+   Display:block stacks children (chart on top, picker + article
+   list below) without flex-collapse issues. Chart canvas gets
+   real height (380px on phone, 420px on tablet); article column
+   flows naturally to its content height instead of being capped
+   at 60vh; both rendered at the FULL modern-device width so the
+   chart breathes and the article cards (17px serif titles) read
+   like a real reading column, not a thumbnail. */
 @media (max-width: 900px){
   .cock-chart__row{
     display: block;
@@ -454,31 +461,28 @@
     flex: 0 0 auto;
   }
   .cock-chart__news{
-    /* Article column below the chart, full width, capped height
-       with internal scroll. */
     display: block;
     border-right: 0;
     border-top: 1px solid var(--c-rule);
-    max-height: 60vh;
-    overflow: auto;
-    -webkit-overflow-scrolling: touch;
+    /* No max-height — let the article list flow to its natural
+       size at the device's full width. Newer phones have plenty
+       of vertical room; capping at 60vh just produced a frozen
+       scroll box halfway down the page. */
   }
   .cock-chart__canvas-wrap{
-    /* Chart canvas full mobile width, fixed reasonable height
-       so the chart is always visible (instead of collapsing to
-       zero under flex pressure). */
     display: block;
-    height: 320px;
+    height: 380px;
     border-bottom: 1px solid var(--c-rule);
   }
-  /* Picker sits at the very top of the news column — its
-     native position, but with a clear horizontal rule beneath
-     so the dropdown reads as its own band, not as a header
-     glued to the signals row. */
   .cock-chart__picker{
     border-bottom: 1px solid var(--c-rule);
-    padding: 12px 14px;
+    padding: 14px 16px;
   }
+}
+@media (min-width: 600px) and (max-width: 900px){
+  /* Tablet + large-phone landscape — give the chart even more
+     vertical room. */
+  .cock-chart__canvas-wrap{ height: 420px; }
 }
 @media (min-width: 901px){
   /* PHOENIX SHAPE — per Rondo 2026-05-18 (Phoenix portfolio
