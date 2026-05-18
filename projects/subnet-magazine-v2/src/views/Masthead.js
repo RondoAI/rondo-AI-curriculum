@@ -27,7 +27,9 @@ const NAV_ITEMS = [
   { code: '038', label: 'TERMINAL', href: 'terminal.html'  },
   { code: '050', label: 'VOICES',   href: 'voices.html'    },
   { code: '060', label: 'EDITOR',   href: 'editor.html'    },
-  { code: '999', label: 'PRO ↗',    href: 'pricing.html'   },
+  /* Pricing CTA removed 2026-05-18 per Rondo "Get rid of pay wall".
+     The pricing.html page is still in the repo but no longer
+     promoted from the masthead. */
 ];
 
 const X_URL = 'https://x.com/subnetmagazine';

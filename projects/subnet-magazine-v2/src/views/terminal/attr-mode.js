@@ -8,8 +8,8 @@
    positions — useful for "what would the network rotation have
    done to a hypothetical book?"
 
-   Tier: FREE for the default preset (top-10-emission), PRO to
-   switch presets to your own watchlist / paper portfolio.
+   Tier: all presets accessible — paywall removed per Rondo's
+   2026-05-18 directive.
    ================================================================= */
 
 import {

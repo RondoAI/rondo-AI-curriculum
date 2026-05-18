@@ -232,32 +232,9 @@
   border-color: var(--c-red);
   box-shadow: 0 0 10px rgba(255,30,60,.40);
 }
-.cm-range__pro{
-  display: inline-block;
-  margin-left: 5px;
-  padding: 1px 4px 0;
-  font-size: 7.5px;
-  letter-spacing: .14em;
-  color: var(--c-warn);
-  border: 1px solid var(--c-warn);
-  vertical-align: 1px;
-}
-.cm-range__btn.is-on .cm-range__pro{
-  color: #fff;
-  border-color: rgba(255,255,255,.7);
-}
-
-.cm-tier{
-  margin-left: auto;
-  font-family: var(--f-mono);
-  font-size: 9.5px;
-  letter-spacing: .14em;
-  font-weight: 800;
-  color: var(--c-ink-3);
-}
-.cm-tier.is-pro{
-  color: var(--c-warn);
-}
+/* .cm-range__pro and .cm-tier rules removed 2026-05-18 with the
+   paywall teardown — no more "PRO" chips on range tabs, no more
+   "PRO range / FREE · 30D window" badge. All ranges are equal. */
 
 /* ---------- KPI BLOCK --------------------------------------- */
 /* Two flavors:

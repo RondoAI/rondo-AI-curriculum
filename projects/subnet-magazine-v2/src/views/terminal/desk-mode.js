@@ -22,9 +22,11 @@
    right, which is what the reader uses to navigate while studying
    the desk.
 
-   Tier: paper portfolio is FREE for up to 5 positions; attribution
-   is PRO. Both modules render with soft paywall overlays on the
-   PRO surface when the future auth flag says tier=free.
+   Tier: paper portfolio + attribution both fully accessible —
+   paywall removed per Rondo's 2026-05-18 directive. The
+   position-count chip still shows a soft warning when the reader
+   passes 5 positions, but only as a "you're managing a meaningful
+   book now" cue — no longer a gating action.
    ================================================================= */
 
 import {
@@ -146,11 +148,11 @@ function renderDeskStats(){
       </div>
       <div class="desk-mode__stat">
         <span class="desk-mode__stat-lbl">POSITIONS</span>
-        <span class="desk-mode__stat-val ${capCls}">${s.positionCount}<span class="desk-mode__stat-cap">/${FREE_POSITION_CAP} free</span></span>
+        <span class="desk-mode__stat-val ${capCls}">${s.positionCount}</span>
         <span class="desk-mode__stat-sub">
           ${empty
             ? '<em>add via the markets table</em>'
-            : (overCap ? '<em>over free cap — PRO unlocks unlimited</em>' : '<em>cash $' + s.cashUSD.toLocaleString('en-US') + ' available</em>')}
+            : '<em>cash $' + s.cashUSD.toLocaleString('en-US') + ' available</em>'}
         </span>
       </div>
     </div>`;

@@ -22,8 +22,9 @@
    so we don't need to subscribe to a selection event — the new
    mount just gets the new subnet via ctx.
 
-   Tier: FREE for 30D window, PRO for 1D/7D/90D/1Y (soft paywall
-   overlay shows on PRO ranges for OBSERVER readers).
+   Tier: all ranges accessible — paywall removed per Rondo's
+   2026-05-18 directive. Was previously FREE for 30D / PRO for
+   the rest.
    ================================================================= */
 
 import { SUBNETS, subnetById } from '../../data/subnets.js';
@@ -62,12 +63,16 @@ const ORACLE_BY_NETUID = (() => {
    downstream string-interp templates didn't need to change. */
 const escAttr = escapeHtml;
 
+/* All ranges are accessible to every reader after the paywall
+   removal (Rondo's instruction 2026-05-18). The `pro` field is
+   gone — there's no longer a free-vs-paid distinction at the
+   range level. */
 const RANGES = [
-  { key: '1D',  days: 1,   label: '1D',  pro: true  },
-  { key: '7D',  days: 7,   label: '7D',  pro: true  },
-  { key: '30D', days: 30,  label: '30D', pro: false }, // free tier window
-  { key: '90D', days: 90,  label: '90D', pro: true  },
-  { key: '1Y',  days: 365, label: '1Y',  pro: true  },
+  { key: '1D',  days: 1,   label: '1D'  },
+  { key: '7D',  days: 7,   label: '7D'  },
+  { key: '30D', days: 30,  label: '30D' },
+  { key: '90D', days: 90,  label: '90D' },
+  { key: '1Y',  days: 365, label: '1Y'  },
 ];
 
 const CAT_LABEL = {
@@ -457,13 +462,8 @@ export function mountChartMode(root, ctx){
         o.classList.toggle('is-on', on);
         o.setAttribute('aria-selected', String(on));
       });
-      // Toggle 30D-only free badge
-      const r = RANGES.find(rr => rr.key === k);
-      const badge = root.querySelector('[data-chart-tier]');
-      if (badge){
-        badge.textContent = r.pro ? 'PRO range' : 'FREE · 30D window';
-        badge.classList.toggle('is-pro', !!r.pro);
-      }
+      /* Tier badge removed with the 2026-05-18 paywall teardown;
+         the data-chart-tier element is no longer rendered. */
       draw();
     });
   });
@@ -654,8 +654,6 @@ function renderArticleCard(a){
 }
 
 function renderHTML(s, gh, state, series){
-  const range = RANGES.find(r => r.key === state.range) || RANGES[2];
-
   /* Articles render via renderNewsSidebar(s) called inside the
      template — composeArticles + renderArticleCard helpers below
      remain available for other call sites but the chart template
@@ -685,9 +683,8 @@ function renderHTML(s, gh, state, series){
             data-range="${r.key}"
             role="tab"
             aria-selected="${on}"
-            title="${r.pro ? 'PRO · upgrade to unlock' : 'free'}"
-            aria-label="${r.label}${r.pro ? ', PRO tier' : ', free tier'}">
-      ${r.label}${r.pro ? '<span class="cm-range__pro" aria-hidden="true">PRO</span>' : ''}
+            aria-label="${r.label}">
+      ${r.label}
     </button>`;
   }).join('');
 
@@ -725,9 +722,6 @@ function renderHTML(s, gh, state, series){
           </div>
           <div class="cm-range" role="tablist" aria-label="Time range">
             ${rangeBtns}
-            <span class="cm-tier ${range.pro ? 'is-pro' : ''}" data-chart-tier aria-live="polite">
-              ${range.pro ? 'PRO range' : 'FREE · 30D window'}
-            </span>
           </div>
         </div>
       </div>

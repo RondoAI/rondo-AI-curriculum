@@ -1,54 +1,42 @@
 /* =================================================================
-   SUBNET MAGAZINE, SOFT PAYWALL PRIMITIVE
+   SUBNET MAGAZINE, PAYWALL PRIMITIVE — DISABLED (2026-05-18)
    -----------------------------------------------------------------
-   Per the "Monetization & Pricing Plan" in CLAUDE.md: PRO+ features
-   render but show a soft paywall overlay for OBSERVER-tier readers.
-   They see ENOUGH of the feature to know what they'd unlock, but
-   can't fully interact until they upgrade.
+   Per Rondo's directive ("Get rid of pay wall"), the paywall is
+   torn out of the user-facing experience. All features that were
+   previously PRO/INSTITUTIONAL-gated are now accessible to every
+   reader.
 
-   This module gives us one consistent overlay across the magazine.
-   Wrap any PRO surface with:
+   The module is KEPT (not deleted) so existing call sites
+   (paywallWrap(...) / canAccess(...)) continue to work without
+   churning every consumer file. canAccess() now returns true
+   unconditionally, which makes paywallWrap() a no-op pass-through
+   that returns the inner HTML as-is — same behavior as if the
+   reader was already on the highest tier.
 
-     <div class="paywall">
-       <div class="paywall__content">...actual feature...</div>
-       <div class="paywall__veil" data-paywall-veil>
-         (auto-injected by wirePaywalls)
-       </div>
-     </div>
-
-   Or programmatically via paywallWrap(htmlString, { tier, feature })
-   for inline use.
-
-   When auth lands (Supabase swap), getCurrentTier() reads the user
-   record. Until then, getCurrentTier() returns 'free' for everyone
-   so PRO overlays show universally — which is the right preview
-   state for a launch demo.
+   If we ever want to re-introduce tier gating, the only function
+   that needs to change is canAccess(). All call sites stay intact.
    ================================================================= */
 
 const TIER_KEY = 'sbn:tier:v1';
 
-/* Get the current viewer's tier. Until Supabase lands, this reads
-   localStorage so power users can toggle for testing.
-
-   In the browser console:
-     localStorage.setItem('sbn:tier:v1', 'pro')  // simulate PRO
-     localStorage.setItem('sbn:tier:v1', 'enterprise')
-     localStorage.removeItem('sbn:tier:v1')     // back to free
-*/
+/* Retained for compatibility — readers without a stored tier are
+   reported as 'enterprise' so any downstream logic that branches
+   on tier reads the most-permissive state. localStorage override
+   still respected for diagnostic purposes. */
 export function getCurrentTier(){
   try {
     const t = localStorage.getItem(TIER_KEY);
-    if (t === 'pro' || t === 'enterprise') return t;
+    if (t === 'pro' || t === 'enterprise' || t === 'free') return t;
   } catch (_) {}
-  return 'free';
+  return 'enterprise';
 }
 
 const TIER_LEVEL = { free: 0, pro: 1, enterprise: 2 };
 
-/** Returns true if the current viewer can access a feature
- *  gated at `requires` tier or below. */
-export function canAccess(requires){
-  return TIER_LEVEL[getCurrentTier()] >= TIER_LEVEL[requires];
+/** Always true after the 2026-05-18 paywall removal. Kept on the
+ *  public API so existing call sites compile without churn. */
+export function canAccess(_requires){
+  return true;
 }
 
 /** Wrap a feature's HTML in a paywall container. If the viewer
