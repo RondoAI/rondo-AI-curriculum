@@ -83,6 +83,29 @@
 .cm-head__chg2.is-up{ color: var(--c-up); }
 .cm-head__chg2.is-down{ color: var(--c-down); }
 
+/* Mobile (<560px) — header tightens further so the title + price
+   pair survives 320-414px viewports without wrapping cramped.
+   Sub-line clamps to one line so 'team xyz' doesn't push the
+   chart down. Price block stays inline with title because the
+   1fr / auto grid handles narrow widths better than a stack. */
+@media (max-width: 560px){
+  .cm-head{ padding: 12px 14px 8px; gap: 8px; }
+  .cm-head__eyebrow{ font-size: 8.5px; letter-spacing: .18em; margin-bottom: 3px; }
+  .cm-head__h{ font-size: 18px; letter-spacing: -.005em; }
+  .cm-head__cat{ font-size: 9px; margin-left: 6px; vertical-align: 3px; }
+  .cm-head__sub{
+    font-size: 11px;
+    margin-top: 3px;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+  .cm-head__price{ font-size: 22px; }
+  .cm-head__chg{ font-size: 11.5px; }
+  .cm-head__chg2{ font-size: 9px; }
+}
+
 /* ---------- BODY GRID (left rail: KPIs+articles | right: chart) -
    Mobile default (<900px): single column — chart first (eye lands
    on the price action), data + articles stacked below.
@@ -237,22 +260,27 @@
    "PRO range / FREE · 30D window" badge. All ranges are equal. */
 
 /* ---------- KPI BLOCK --------------------------------------- */
-/* Two flavors:
-   - default .cm-kpis: 3-col grid (mobile fallback when the rail
-     reflows below the chart, so KPIs read horizontally)
-   - .cm-kpis--stack: dense vertical column for the LEFT rail —
-     Bloomberg DES-style key/value rows. Each tile is one short
-     row: label on top, value + delta on the bottom. Saves ~40%
-     vertical vs. the old tile grid. */
+/* Responsive two-flavor block:
+   - DESKTOP (>=900px): .cm-kpis--stack is a dense vertical
+     key/value column for the LEFT rail — Bloomberg DES-style
+     rows (label on top, value + delta on the bottom). Saves
+     ~40% vertical vs. a tile grid in the narrow rail.
+   - MOBILE (<900px): the rail reflows BELOW the chart, where
+     vertical real estate is precious (Rondo's tablet has the
+     chart + KPIs + articles + footer all stacked). Override
+     --stack to a 3-col horizontal tile grid so 6 KPIs take
+     ~2 rows × 40px = 80px instead of 6 × 40px = 240px. Same
+     visual identity as desktop, just packed wider.
+
+   The override is keyed to media query, not a separate class —
+   keeps the JS template (single class string) identical at all
+   widths and the responsive behavior lives entirely in CSS. */
 .cm-kpis{
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 1px;
   background: var(--c-rule);
   flex-shrink: 0;
-}
-.cm-kpis--stack{
-  grid-template-columns: 1fr;
 }
 .cm-kpi{
   background: var(--c-bg-1);
@@ -262,25 +290,33 @@
   gap: 2px;
   min-width: 0;
 }
-.cm-kpis--stack .cm-kpi{
-  display: grid;
-  grid-template-columns: 1fr auto;
-  grid-template-rows: auto auto;
-  gap: 1px 8px;
-  padding: 8px 14px;
-  align-items: baseline;
-}
-.cm-kpis--stack .cm-kpi__lbl{
-  grid-column: 1 / -1;
-  margin-bottom: 1px;
-}
-.cm-kpis--stack .cm-kpi__val{
-  grid-column: 1 / 2;
-}
-.cm-kpis--stack .cm-kpi__note{
-  grid-column: 2 / 3;
-  text-align: right;
-  white-space: nowrap;
+@media (min-width: 900px){
+  /* Stack-style key/value rows ONLY on desktop where the rail
+     exists. Below 900px the override above keeps the 3-col tile
+     grid + flex-column tile layout. */
+  .cm-kpis--stack{
+    grid-template-columns: 1fr;
+  }
+  .cm-kpis--stack .cm-kpi{
+    display: grid;
+    grid-template-columns: 1fr auto;
+    grid-template-rows: auto auto;
+    gap: 1px 8px;
+    padding: 8px 14px;
+    align-items: baseline;
+  }
+  .cm-kpis--stack .cm-kpi__lbl{
+    grid-column: 1 / -1;
+    margin-bottom: 1px;
+  }
+  .cm-kpis--stack .cm-kpi__val{
+    grid-column: 1 / 2;
+  }
+  .cm-kpis--stack .cm-kpi__note{
+    grid-column: 2 / 3;
+    text-align: right;
+    white-space: nowrap;
+  }
 }
 .cm-kpi__lbl{
   font-size: 9px;
@@ -330,7 +366,18 @@
   background: var(--c-bg-1);
   border-top: 1px solid var(--c-rule-2);
 }
-@media (min-width: 901px){
+/* Mobile (<900px): cap the article rail's height so 10 cards
+   don't push the chart context off-screen. Reader scrolls
+   WITHIN the rail (the inner __list already has overflow:auto),
+   not past it. 60vh leaves room for the chart + KPIs above to
+   stay in view as scroll context. */
+@media (max-width: 899px){
+  .cm-articles{
+    max-height: 60vh;
+    overflow: hidden;
+  }
+}
+@media (min-width: 900px){
   .cm-articles{
     border-top: 0;
     border-left: 1px solid var(--c-rule-2);
