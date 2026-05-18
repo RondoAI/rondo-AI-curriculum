@@ -42,6 +42,18 @@ import { generateSeries, sma, SERIES_DAYS } from '../lib/synthetic-series.js';
    book live on one page. */
 import { renderPaperPortfolio, wirePaperPortfolio } from './dashboard/paper-portfolio.js';
 import { renderAttribution,    wireAttribution,    defaultAttribState } from './dashboard/attribution.js';
+/* Right-rail QUICK ACTION block per sibling's coordination ref #3
+   (institutional trading terminal — "right-rail action block with
+   big primary button"). Direct buy/sell of the currently-charted
+   subnet without leaving the cockpit. Backed by the shared paper-
+   portfolio data layer; mutations propagate to the DESK pane +
+   dashboard's MY DESK fold via the standard loadPaperState /
+   savePaperState round-trip. */
+import { buy as paperBuy, sell as paperSell } from '../data/paper-portfolio.js';
+import {
+  loadActivePortfolio as loadPaperState,
+  saveActivePortfolio as savePaperState,
+} from '../data/paper-portfolios.js';
 
 const deskAttribState = defaultAttribState();
 
@@ -510,6 +522,14 @@ export function mountCockpit(root, dataLayer = null){
         <aside class="cockpit__feed" data-pane="feed">
           ${renderFeed()}
         </aside>
+        <!-- Right-rail QUICK ACTION block — sibling coordination
+             ref #3 "right-rail action block with big primary
+             button." Always-visible buy/sell surface keyed to
+             the active subnet. Pinned right on desktop; stacks
+             below the chart on mobile. -->
+        <aside class="cockpit__action" data-cockpit-action data-pane="action">
+          ${renderAction()}
+        </aside>
       </div>
     </section>
   `);
@@ -530,6 +550,10 @@ export function mountCockpit(root, dataLayer = null){
   }
   wirePaperPortfolio(root, repaintDesk);
   wireAttribution(root, deskAttribState, () => wireAttribution(root, deskAttribState, () => {}));
+  /* Right-rail action block — wire click handlers. Mutations
+     also call repaintDesk so the full DESK pane (paper portfolio
+     + attribution) stays in sync. */
+  wireAction();
 
   setActivePane(state.pane);
   drawChartNow();
@@ -943,6 +967,144 @@ export function mountCockpit(root, dataLayer = null){
       </div>`;
   }
 
+  /* ---- right-rail QUICK ACTION block ----
+     Buy/sell the currently-charted subnet without leaving the
+     cockpit. Keyed to state.selectedId — repaints when the
+     reader swaps subnets. */
+  const ACTION_PRESETS_USD = [10, 25, 50, 100, 250, 500];
+  let actionState = {
+    side:   'buy',    // 'buy' | 'sell'
+    qtyUSD: 100,      // dollar amount (presets) — converted to shares at execute time
+  };
+  function renderAction(){
+    const s = subnetById(state.selectedId) || SUBNETS[0];
+    const paper = loadPaperState();
+    const lot = paper.positions.find(p => p.netuid === s.netuid);
+    const heldShares = lot ? lot.shares : 0;
+    const price      = s.price || 0;
+    const sharesToTrade = price > 0 ? actionState.qtyUSD / price : 0;
+    const costUSD   = sharesToTrade * price;
+    const newCashUSD = actionState.side === 'buy'
+      ? paper.cashUSD - costUSD
+      : paper.cashUSD + costUSD;
+    const invalidBuy  = actionState.side === 'buy'  && newCashUSD < 0;
+    const invalidSell = actionState.side === 'sell' && sharesToTrade > heldShares;
+    const ctaDisabled = invalidBuy || invalidSell || costUSD <= 0;
+
+    const fmtUsd  = n => '$' + (n || 0).toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 });
+    const fmtA    = n => (n || 0).toLocaleString('en-US', { minimumFractionDigits: 4, maximumFractionDigits: 4 }) + ' α';
+    const portfolioValue = paper.cashUSD + paper.positions.reduce((acc, p) => {
+      const sn = subnetById(p.netuid);
+      return acc + (sn ? p.shares * (sn.price || 0) : 0);
+    }, 0);
+
+    return `
+      <header class="cock-action__head">
+        <span class="cock-action__eyebrow">⊕ QUICK ACTION · PAPER</span>
+        <div class="cock-action__sub">Active subnet · zero risk · paper book</div>
+      </header>
+      <section class="cock-action__bal">
+        <div class="cock-action__bal-row">
+          <span class="cock-action__bal-lbl">Portfolio</span>
+          <span class="cock-action__bal-val">${fmtUsd(portfolioValue)}</span>
+        </div>
+        <div class="cock-action__bal-row">
+          <span class="cock-action__bal-lbl">Cash</span>
+          <span class="cock-action__bal-val">${fmtUsd(paper.cashUSD)}</span>
+        </div>
+        <div class="cock-action__bal-row">
+          <span class="cock-action__bal-lbl">SN${s.netuid} held</span>
+          <span class="cock-action__bal-val">${heldShares > 0 ? fmtA(heldShares) : '·'}</span>
+        </div>
+      </section>
+      <div class="cock-action__sides" role="tablist" aria-label="Trade side">
+        <button type="button" class="cock-action__side ${actionState.side === 'buy' ? 'is-on' : ''}" data-action-side="buy" role="tab" aria-selected="${actionState.side === 'buy'}">BUY α</button>
+        <button type="button" class="cock-action__side cock-action__side--sell ${actionState.side === 'sell' ? 'is-on' : ''}" data-action-side="sell" role="tab" aria-selected="${actionState.side === 'sell'}">SELL α</button>
+      </div>
+      <section class="cock-action__qty">
+        <label class="cock-action__qty-lbl" for="cock-action-qty">Amount (USD)</label>
+        <input class="cock-action__qty-inp" id="cock-action-qty" type="number" min="1" step="1" value="${actionState.qtyUSD}" inputmode="decimal" data-action-qty>
+        <div class="cock-action__chips" role="group" aria-label="Quick amounts">
+          ${ACTION_PRESETS_USD.map(v => `
+            <button type="button" class="cock-action__chip ${v === actionState.qtyUSD ? 'is-on' : ''}" data-action-preset="${v}">$${v}</button>
+          `).join('')}
+        </div>
+      </section>
+      <section class="cock-action__sum">
+        <div class="cock-action__sum-row">
+          <span class="cock-action__sum-lbl">${actionState.side === 'buy' ? 'Buying' : 'Selling'}</span>
+          <span class="cock-action__sum-val">${fmtA(sharesToTrade)}</span>
+        </div>
+        <div class="cock-action__sum-row">
+          <span class="cock-action__sum-lbl">At mark</span>
+          <span class="cock-action__sum-val">${fmtUsd(price)}</span>
+        </div>
+        <div class="cock-action__sum-row">
+          <span class="cock-action__sum-lbl">New cash</span>
+          <span class="cock-action__sum-val ${invalidBuy ? 'is-bad' : ''}">${fmtUsd(newCashUSD)}</span>
+        </div>
+      </section>
+      <button type="button" class="cock-action__cta cock-action__cta--${actionState.side}" data-action-cta ${ctaDisabled ? 'disabled' : ''}>
+        ${actionState.side === 'buy' ? '↑ BUY' : '↓ SELL'} SN${s.netuid} · ${s.name}
+      </button>
+      ${invalidBuy  ? `<div class="cock-action__err">Insufficient paper cash for ${fmtUsd(costUSD)} buy.</div>` : ''}
+      ${invalidSell ? `<div class="cock-action__err">You only hold ${fmtA(heldShares)} of SN${s.netuid}; reduce the amount.</div>` : ''}
+    `;
+  }
+  function repaintAction(){
+    const slot = qs('[data-cockpit-action]', root);
+    if (slot){
+      slot.innerHTML = renderAction();
+      wireAction();
+    }
+  }
+  function wireAction(){
+    const root2 = qs('[data-cockpit-action]', root);
+    if (!root2) return;
+    root2.querySelectorAll('[data-action-side]').forEach(b => {
+      b.addEventListener('click', () => {
+        actionState.side = b.dataset.actionSide;
+        repaintAction();
+      });
+    });
+    root2.querySelectorAll('[data-action-preset]').forEach(b => {
+      b.addEventListener('click', () => {
+        actionState.qtyUSD = parseFloat(b.dataset.actionPreset) || 0;
+        repaintAction();
+      });
+    });
+    const inp = qs('[data-action-qty]', root2);
+    if (inp){
+      inp.addEventListener('input', () => {
+        const v = parseFloat(inp.value);
+        actionState.qtyUSD = Number.isFinite(v) && v > 0 ? v : 0;
+        repaintAction();
+      });
+    }
+    const cta = qs('[data-action-cta]', root2);
+    if (cta){
+      cta.addEventListener('click', () => {
+        if (cta.hasAttribute('disabled')) return;
+        const s = subnetById(state.selectedId) || SUBNETS[0];
+        const price = s.price || 0;
+        if (price <= 0) return;
+        const shares = actionState.qtyUSD / price;
+        if (!Number.isFinite(shares) || shares <= 0) return;
+        const cur = loadPaperState();
+        const next = actionState.side === 'buy'
+          ? paperBuy(cur, s.netuid, shares, price)
+          : paperSell(cur, s.netuid, shares, price);
+        if (next === cur) return;
+        savePaperState(next);
+        repaintAction();
+        /* Mutations flow to the DESK pane + dashboard MY DESK fold
+           via the shared paper-portfolio store; trigger their
+           repaints too. */
+        if (typeof repaintDesk === 'function') repaintDesk();
+      });
+    }
+  }
+
   function renderFeed(){
     const s = subnetById(state.selectedId) || SUBNETS[0];
 
@@ -1064,6 +1226,7 @@ export function mountCockpit(root, dataLayer = null){
     chartOffset = 0;
     repaintMain();
     repaintFeed();
+    repaintAction();
     qsa('[data-row]', root).forEach(r => r.classList.toggle('is-on', parseInt(r.dataset.row, 10) === netuid));
   }
 

@@ -116,7 +116,8 @@
 .cockpit__rail,
 .cockpit__main,
 .cockpit__desk,
-.cockpit__feed{
+.cockpit__feed,
+.cockpit__action{
   display: none;
   min-width: 0;
   min-height: 0;
@@ -126,7 +127,8 @@
 .cockpit__rail.is-active,
 .cockpit__main.is-active,
 .cockpit__desk.is-active,
-.cockpit__feed.is-active{
+.cockpit__feed.is-active,
+.cockpit__action.is-active{
   display: flex;
 }
 /* DESK pane background + scroll container */
@@ -519,7 +521,16 @@
      fills the viewport edge-to-edge. */
   .cockpit__feed{ display: none !important; }
   .cockpit__rail{ display: none !important; }
-  .cockpit__grid{ grid-template-columns: 1fr !important; }
+  /* Phoenix + sibling ref #3 grid: chart pane (1fr) | right-rail
+     action block (320px). The action block is the
+     buy/sell/balance surface keyed to the active subnet — sticks
+     to the right edge of the cockpit like the trading-terminal
+     reference's right action column. */
+  .cockpit__grid{ grid-template-columns: 1fr 320px !important; }
+  .cockpit__action{ display: flex !important; }
+}
+@media (min-width: 1440px){
+  .cockpit__grid{ grid-template-columns: 1fr 360px !important; }
 }
 
 .cock-chart__news{
@@ -1858,4 +1869,231 @@
 }
 @media (max-width: 380px){
   .cock-micro-row{ grid-template-columns: 1fr; }
+}
+
+/* =================================================================
+   COCKPIT QUICK ACTION right-rail block (sibling ref #3, 2026-05-18)
+   ---------------------------------------------------------------
+   Always-visible buy/sell surface keyed to the active subnet.
+   Pinned right on desktop (320-360px column), stacks below the
+   chart pane on mobile. Mirrors the institutional trading-
+   terminal pattern: balance block at top, side toggle, qty input
+   with quick presets, summary row, big primary CTA. Paper-only
+   per project policy.
+   ================================================================= */
+.cockpit__action{
+  background:
+    radial-gradient(140% 60% at 100% 0%, rgba(0,229,168,.05), transparent 70%),
+    var(--c-bg-1);
+  border-left: 1px solid var(--c-rule-2);
+  padding: 18px 16px;
+  gap: 14px;
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
+}
+.cock-action__head{
+  border-bottom: 1px solid var(--c-rule);
+  padding-bottom: 10px;
+  margin-bottom: 4px;
+}
+.cock-action__eyebrow{
+  font-family: var(--f-mono);
+  font-size: 10px;
+  letter-spacing: .22em;
+  font-weight: 800;
+  color: var(--c-red);
+  display: block;
+  margin-bottom: 4px;
+}
+.cock-action__sub{
+  font-family: var(--f-sans);
+  font-size: 11px;
+  font-style: italic;
+  color: var(--c-ink-3);
+}
+.cock-action__bal{
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  padding: 12px;
+  background: rgba(0,0,0,.30);
+  border: 1px solid var(--c-rule);
+}
+.cock-action__bal-row{
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 8px;
+  font-family: var(--f-mono);
+  font-size: 12px;
+}
+.cock-action__bal-lbl{
+  color: var(--c-ink-3);
+  letter-spacing: .04em;
+}
+.cock-action__bal-val{
+  color: #fff;
+  font-weight: 700;
+  font-variant-numeric: tabular-nums;
+}
+.cock-action__sides{
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0;
+  border: 1px solid var(--c-rule-2);
+}
+.cock-action__side{
+  -webkit-appearance: none;
+  appearance: none;
+  background: transparent;
+  border: 0;
+  padding: 10px 12px;
+  font-family: var(--f-mono);
+  font-size: 12px;
+  letter-spacing: .16em;
+  font-weight: 800;
+  color: var(--c-ink-3);
+  cursor: pointer;
+  transition: background 120ms, color 120ms;
+}
+.cock-action__side:hover{ color: #fff; }
+.cock-action__side.is-on{
+  background: rgba(0,229,168,.16);
+  color: #5BE599;
+  box-shadow: inset 0 -2px 0 0 #5BE599;
+}
+.cock-action__side--sell.is-on{
+  background: rgba(255,30,60,.16);
+  color: var(--c-red-1);
+  box-shadow: inset 0 -2px 0 0 var(--c-red);
+}
+.cock-action__qty{
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+.cock-action__qty-lbl{
+  font-family: var(--f-mono);
+  font-size: 10px;
+  letter-spacing: .18em;
+  font-weight: 800;
+  color: var(--c-ink-3);
+}
+.cock-action__qty-inp{
+  -webkit-appearance: none;
+  appearance: none;
+  background: rgba(0,0,0,.30);
+  border: 1px solid var(--c-rule-2);
+  padding: 10px 12px;
+  font-family: var(--f-mono);
+  font-size: 16px;
+  font-weight: 700;
+  color: #fff;
+  letter-spacing: .02em;
+  font-variant-numeric: tabular-nums;
+  width: 100%;
+}
+.cock-action__qty-inp:focus{
+  outline: none;
+  border-color: var(--c-red);
+}
+.cock-action__chips{
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 4px;
+}
+.cock-action__chip{
+  -webkit-appearance: none;
+  appearance: none;
+  background: transparent;
+  border: 1px solid var(--c-rule-2);
+  padding: 7px 6px;
+  font-family: var(--f-mono);
+  font-size: 11px;
+  letter-spacing: .04em;
+  font-weight: 700;
+  color: var(--c-ink-2);
+  cursor: pointer;
+  transition: background 120ms, color 120ms, border-color 120ms;
+}
+.cock-action__chip:hover{
+  color: #fff;
+  border-color: var(--c-red-1);
+}
+.cock-action__chip.is-on{
+  background: var(--c-red);
+  color: #fff;
+  border-color: var(--c-red);
+}
+.cock-action__sum{
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  padding: 10px 12px;
+  border: 1px dashed var(--c-rule);
+  background: rgba(0,0,0,.16);
+}
+.cock-action__sum-row{
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 8px;
+  font-family: var(--f-mono);
+  font-size: 11px;
+}
+.cock-action__sum-lbl{
+  color: var(--c-ink-3);
+  letter-spacing: .04em;
+}
+.cock-action__sum-val{
+  color: var(--c-ink-1);
+  font-variant-numeric: tabular-nums;
+}
+.cock-action__sum-val.is-bad{
+  color: var(--c-red-1);
+  font-weight: 700;
+}
+.cock-action__cta{
+  -webkit-appearance: none;
+  appearance: none;
+  border: 0;
+  padding: 14px 16px;
+  font-family: var(--f-mono);
+  font-size: 13px;
+  letter-spacing: .14em;
+  font-weight: 800;
+  color: #050203;
+  background: #5BE599;
+  cursor: pointer;
+  transition: filter 120ms, transform 120ms;
+}
+.cock-action__cta:hover:not([disabled]){ filter: brightness(1.10); }
+.cock-action__cta:active:not([disabled]){ transform: translateY(1px); }
+.cock-action__cta--sell{
+  background: var(--c-red);
+  color: #fff;
+}
+.cock-action__cta[disabled]{
+  background: rgba(255,255,255,.06);
+  color: var(--c-ink-4);
+  cursor: not-allowed;
+}
+.cock-action__err{
+  font-family: var(--f-mono);
+  font-size: 10.5px;
+  color: var(--c-red-1);
+  padding: 6px 0;
+  letter-spacing: .04em;
+  font-style: italic;
+}
+/* Mobile: the action block is ALWAYS visible (stacked below
+   whichever pane is .is-active). Border on top instead of left
+   so it reads as a stacked band, not a sidebar. */
+@media (max-width: 900px){
+  .cockpit__action{
+    display: flex !important;
+    border-left: 0;
+    border-top: 1px solid var(--c-rule-2);
+    padding: 16px 14px;
+  }
 }
