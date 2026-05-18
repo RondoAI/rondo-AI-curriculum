@@ -2300,14 +2300,24 @@ export function mountDashboard(root, dataLayer = null){
         <span class="dash-cat__mcap">${'$' + c.mcap.toFixed(0)}M</span>
       </div>
     `).join('');
+    /* Wrapped in <details> 2026-05-18 — was rendering as a
+       free-floating cluster of numbered category cards below
+       the dashboard folds, which read as a bug (looked like
+       a stray briefings strip) on the cockpit page. Now a
+       proper collapsible band consistent with the rest of
+       the dashboard zones. Defaults closed under cockpit
+       (chart-dominant), open on the standalone dashboard. */
     return `
-      <section class="dash-footer">
-        <div class="dash-footer__head">
-          <div class="dash-footer__title">ECOSYSTEM · category breakdown</div>
-          <div style="font-size:9.5px;color:var(--c-ink-3);letter-spacing:.12em">subnet count and combined α-FDV per category</div>
-        </div>
-        <div class="dash-cats">${cells}</div>
-      </section>
+      <details class="dash-zone dash-zone--fold" data-fold="dash-ecosystem" ${detailOpen}>
+        <summary class="dash-zone__summary"><span class="dash-zone__eyebrow">⊕</span> ECOSYSTEM · CATEGORY BREAKDOWN</summary>
+        <section class="dash-footer">
+          <div class="dash-footer__head">
+            <div class="dash-footer__title">ECOSYSTEM · category breakdown</div>
+            <div style="font-size:9.5px;color:var(--c-ink-3);letter-spacing:.12em">subnet count and combined α-FDV per category</div>
+          </div>
+          <div class="dash-cats">${cells}</div>
+        </section>
+      </details>
     `;
   }
 
