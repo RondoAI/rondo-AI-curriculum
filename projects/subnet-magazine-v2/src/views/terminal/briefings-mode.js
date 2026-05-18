@@ -122,10 +122,10 @@ function template({ lead, priors, headerTxt, stats, todayIso }){
   }
 
   return `
-    <article class="term-briefings">
+    <article class="term-briefings" aria-labelledby="briefings-lead-title">
       <header class="term-briefings__head">
-        <span class="term-briefings__kicker"><span class="term-briefings__dot"></span>${escapeHtml(headerTxt)}</span>
-        <a class="term-briefings__arch" href="https://github.com/RondoAI/rondo-AI-curriculum/tree/main/briefings" target="_blank" rel="noopener">FULL ARCHIVE ↗</a>
+        <span class="term-briefings__kicker"><span class="term-briefings__dot" aria-hidden="true"></span>${escapeHtml(headerTxt)}</span>
+        <a class="term-briefings__arch" href="https://github.com/RondoAI/rondo-AI-curriculum/tree/main/briefings" target="_blank" rel="noopener" aria-label="Open the full briefings archive on GitHub in a new tab">FULL ARCHIVE ↗</a>
       </header>
 
       <!-- LEAD briefing — full read, not summary -->
@@ -133,10 +133,10 @@ function template({ lead, priors, headerTxt, stats, todayIso }){
 
       <!-- ARCHIVE — compact entries, newest-first -->
       ${priors.length ? `
-        <section class="term-briefings__archive">
-          <div class="term-briefings__arch-head">
+        <section class="term-briefings__archive" aria-labelledby="briefings-arch-head">
+          <div class="term-briefings__arch-head" id="briefings-arch-head">
             <span>PRIOR BRIEFINGS · ${priors.length} indexed</span>
-            <span class="term-briefings__arch-meta">
+            <span class="term-briefings__arch-meta" aria-label="Desk signal — ${stats.avgCadenceDays != null ? 'average ' + stats.avgCadenceDays.toFixed(1) + ' day cadence, ' : ''}${stats.catsCovered} categories covered, ${stats.totalHighlights} highlights total">
               ${stats.avgCadenceDays != null ? `<em>avg ${stats.avgCadenceDays.toFixed(1)}d cadence</em>` : '<em>cadence ·</em>'}
               <em>${stats.catsCovered} cats covered</em>
               <em>${stats.totalHighlights} highlights</em>
@@ -169,18 +169,18 @@ function renderLead(b){
     ? ` data-pdf-href="${escapeHtml(b.href)}" data-pdf-title="${escapeHtml(b.title)}" data-pdf-kind="oracle" data-pdf-date="${escapeHtml(b.date)}" data-pdf-kicker="Daily Briefing"`
     : '';
   return `
-    <section class="term-briefings__lead">
+    <section class="term-briefings__lead" aria-current="true">
       <div class="term-briefings__lead-date">${escapeHtml(formatLong(b.date))} · ${escapeHtml(b.kicker || 'DAILY BRIEFING')}</div>
-      <h1 class="term-briefings__lead-title">${escapeHtml(b.title)}</h1>
+      <h1 class="term-briefings__lead-title" id="briefings-lead-title">${escapeHtml(b.title)}</h1>
       <p class="term-briefings__lead-dek">${escapeHtml(b.dek)}</p>
 
-      <div class="term-briefings__rule"></div>
+      <div class="term-briefings__rule" aria-hidden="true"></div>
 
-      <ul class="term-briefings__hls">${hl}</ul>
+      <ul class="term-briefings__hls" aria-label="Briefing highlights">${hl}</ul>
 
       <div class="term-briefings__lead-foot">
-        <div class="term-briefings__cats">${cats}</div>
-        <a class="term-briefings__lead-link" href="${escapeHtml(b.href)}" target="_blank" rel="noopener"${linkAttrs}>READ THE FULL BRIEFING ↗</a>
+        <div class="term-briefings__cats" aria-label="Briefing categories">${cats}</div>
+        <a class="term-briefings__lead-link" href="${escapeHtml(b.href)}" target="_blank" rel="noopener"${linkAttrs} aria-label="Read the full ${escapeHtml(b.title)} briefing in a new tab">READ THE FULL BRIEFING ↗</a>
       </div>
     </section>
   `;
@@ -199,16 +199,20 @@ function renderPriorRow(b, todayIso){
      Hot ≤ 7d, warm ≤ 30d, cold beyond. */
   const ageDays = todayIso ? daysBetween(b.date, todayIso) : null;
   const tier    = freshnessTier(ageDays);
+  /* SR users need the freshness info too — the visual pip is
+     aria-hidden so we fold the age into the link's aria-label
+     directly. "5 days ago" beats a color cue they can't see. */
+  const ageTxt  = ageDays == null ? 'undated' : (ageDays === 0 ? 'today' : ageDays + ' days ago');
   return `
     <li class="term-briefings__row">
-      <a class="term-briefings__row-link" href="${escapeHtml(b.href)}" target="_blank" rel="noopener"${linkAttrs}>
-        <span class="term-briefings__row-pip term-briefings__row-pip--${tier}" title="${ageDays == null ? 'undated' : ageDays + 'd ago'}" aria-hidden="true"></span>
+      <a class="term-briefings__row-link" href="${escapeHtml(b.href)}" target="_blank" rel="noopener"${linkAttrs} aria-label="${escapeHtml(formatShort(b.date))}, ${ageTxt}: ${escapeHtml(b.title)}">
+        <span class="term-briefings__row-pip term-briefings__row-pip--${tier}" title="${ageTxt} (${tier})" aria-hidden="true"></span>
         <span class="term-briefings__row-date">${escapeHtml(formatShort(b.date))}</span>
         <span class="term-briefings__row-body">
           <span class="term-briefings__row-title">${escapeHtml(b.title)}</span>
           <span class="term-briefings__row-dek">${escapeHtml(b.dek)}</span>
         </span>
-        <span class="term-briefings__row-tags">${tagPreview}</span>
+        <span class="term-briefings__row-tags" aria-hidden="true">${tagPreview}</span>
       </a>
     </li>
   `;
