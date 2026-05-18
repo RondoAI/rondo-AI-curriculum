@@ -30,6 +30,13 @@
 import { qs, escapeHtml } from '../../lib/dom.js';
 import { BRIEFINGS, latestBriefing, priorBriefings, currencyHeader, daysBetween } from '../../data/briefings.js';
 
+/* Freshness tier thresholds for per-row age pips. Tunables here
+   so the desk can re-tune what counts as "fresh" vs "stale" as
+   the cadence settles. Per CLAUDE.md Code Quality Bar rule 1. */
+const FRESH_DAYS_HOT  = 7;    // <= this: green pip, "live"
+const FRESH_DAYS_WARM = 30;   // <= this: amber pip, "still in cycle"
+                              // > this: red pip, "archive"
+
 /**
  * Mount the BRIEFINGS mode into the terminal's center pane.
  * @param {HTMLElement} root  the center-pane container the
@@ -44,8 +51,9 @@ export function mountBriefingsMode(root, _ctx){
   const lead     = latestBriefing();
   const priors   = priorBriefings(Infinity);
   const headerTxt = lead ? currencyHeader(todayIso, lead.date) : 'NO BRIEFINGS INDEXED';
+  const stats     = deriveBriefingStats(BRIEFINGS, todayIso);
 
-  root.innerHTML = template({ lead, priors, headerTxt });
+  root.innerHTML = template({ lead, priors, headerTxt, stats, todayIso });
 
   /* No live timers, no event listeners — briefings.js is static
      data at module load and the mode is read-only. The destroy
@@ -54,9 +62,58 @@ export function mountBriefingsMode(root, _ctx){
   return () => {};
 }
 
+/* ---------- desk signal stats ----------------------------- */
+/* Derives lightweight signal-of-signal stats from the BRIEFINGS
+   list. Used to densify the archive section header so the reader
+   gets a one-line read of "what the desk has been covering and
+   how often" without scrolling the archive.
+   Per Signal Taxonomy: never decorative; each stat answers a
+   decision question.
+   Returns:
+     { count, avgCadenceDays, catsCovered, totalHighlights }
+   All null/0-safe — empty BRIEFINGS array returns coherent zeros. */
+function deriveBriefingStats(briefings, todayIso){
+  const total = briefings.length;
+  const cats  = new Set();
+  let hls = 0;
+  for (const b of briefings){
+    for (const c of (b.cats || [])) cats.add(c);
+    hls += (b.highlights || []).length;
+  }
+  /* Avg cadence = mean gap between consecutive briefings. n < 2
+     can't compute a gap, returns null so the UI emits "·" instead
+     of a fake 0d (rule 3: degenerate inputs emit None). */
+  let avg = null;
+  if (total >= 2){
+    const sorted = [...briefings].sort((a, b) => (a.date || '').localeCompare(b.date || ''));
+    let sumGaps = 0, gapN = 0;
+    for (let i = 1; i < sorted.length; i++){
+      const g = daysBetween(sorted[i - 1].date, sorted[i].date);
+      if (Number.isFinite(g) && g > 0){ sumGaps += g; gapN++; }
+    }
+    avg = gapN > 0 ? sumGaps / gapN : null;
+  }
+  return {
+    count:           total,
+    avgCadenceDays:  avg,
+    catsCovered:     cats.size,
+    totalHighlights: hls,
+  };
+}
+
+/* Map an age-in-days to a freshness CSS modifier. Tier breakpoints
+   in FRESH_DAYS_HOT / FRESH_DAYS_WARM. Returns 'hot' / 'warm' /
+   'cold' / 'unk'. */
+function freshnessTier(ageDays){
+  if (ageDays == null || !Number.isFinite(ageDays)) return 'unk';
+  if (ageDays <= FRESH_DAYS_HOT)  return 'hot';
+  if (ageDays <= FRESH_DAYS_WARM) return 'warm';
+  return 'cold';
+}
+
 /* ---------- template -------------------------------------- */
 
-function template({ lead, priors, headerTxt }){
+function template({ lead, priors, headerTxt, stats, todayIso }){
   if (!lead){
     return `<div class="term-briefings__empty">
       <h2>No briefings indexed yet.</h2>
@@ -77,9 +134,16 @@ function template({ lead, priors, headerTxt }){
       <!-- ARCHIVE — compact entries, newest-first -->
       ${priors.length ? `
         <section class="term-briefings__archive">
-          <div class="term-briefings__arch-head">PRIOR BRIEFINGS · ${priors.length} indexed</div>
+          <div class="term-briefings__arch-head">
+            <span>PRIOR BRIEFINGS · ${priors.length} indexed</span>
+            <span class="term-briefings__arch-meta">
+              ${stats.avgCadenceDays != null ? `<em>avg ${stats.avgCadenceDays.toFixed(1)}d cadence</em>` : '<em>cadence ·</em>'}
+              <em>${stats.catsCovered} cats covered</em>
+              <em>${stats.totalHighlights} highlights</em>
+            </span>
+          </div>
           <ul class="term-briefings__list">
-            ${priors.map(renderPriorRow).join('')}
+            ${priors.map(b => renderPriorRow(b, todayIso)).join('')}
           </ul>
         </section>
       ` : ''}
@@ -122,7 +186,7 @@ function renderLead(b){
   `;
 }
 
-function renderPriorRow(b){
+function renderPriorRow(b, todayIso){
   const isPdf = /\.pdf(\?|$|#)/i.test(b.href || '');
   const linkAttrs = isPdf
     ? ` data-pdf-href="${escapeHtml(b.href)}" data-pdf-title="${escapeHtml(b.title)}" data-pdf-kind="oracle" data-pdf-date="${escapeHtml(b.date)}" data-pdf-kicker="Daily Briefing"`
@@ -130,9 +194,15 @@ function renderPriorRow(b){
   const tagPreview = (b.highlights || []).slice(0, 3).map(h =>
     `<span class="term-briefings__row-tag">${escapeHtml(h.tag)}</span>`
   ).join(' ');
+  /* Freshness pip — visual cue for "how stale is this archive
+     row" so the eye can scan ages without reading every date.
+     Hot ≤ 7d, warm ≤ 30d, cold beyond. */
+  const ageDays = todayIso ? daysBetween(b.date, todayIso) : null;
+  const tier    = freshnessTier(ageDays);
   return `
     <li class="term-briefings__row">
       <a class="term-briefings__row-link" href="${escapeHtml(b.href)}" target="_blank" rel="noopener"${linkAttrs}>
+        <span class="term-briefings__row-pip term-briefings__row-pip--${tier}" title="${ageDays == null ? 'undated' : ageDays + 'd ago'}" aria-hidden="true"></span>
         <span class="term-briefings__row-date">${escapeHtml(formatShort(b.date))}</span>
         <span class="term-briefings__row-body">
           <span class="term-briefings__row-title">${escapeHtml(b.title)}</span>

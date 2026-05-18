@@ -215,6 +215,11 @@
   padding-top: 6px;
 }
 .term-briefings__arch-head{
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 12px;
+  flex-wrap: wrap;
   font-family: var(--f-mono);
   font-size: 9px;
   letter-spacing: .26em;
@@ -224,6 +229,26 @@
   padding-bottom: 6px;
   border-bottom: 1px solid rgba(255, 30, 60, .22);
 }
+/* Desk-signal meta on the right of the arch-head — small dim
+   chips (avg cadence, cats covered, highlights total). Each chip
+   carries a hairline border + amber em color so the eye reads
+   them as metadata not navigation. */
+.term-briefings__arch-meta{
+  display: inline-flex;
+  flex-wrap: wrap;
+  gap: 4px 6px;
+}
+.term-briefings__arch-meta em{
+  display: inline-block;
+  padding: 1px 6px;
+  font-style: normal;
+  font-size: 8.5px;
+  letter-spacing: .16em;
+  color: rgba(255, 184, 92, .82);
+  border: 1px solid rgba(255, 184, 92, .28);
+  font-weight: 700;
+  font-variant-numeric: tabular-nums;
+}
 .term-briefings__list{
   list-style: none; margin: 0; padding: 0;
   display: grid; gap: 2px;
@@ -231,8 +256,8 @@
 .term-briefings__row{ }
 .term-briefings__row-link{
   display: grid;
-  grid-template-columns: 80px 1fr auto;
-  gap: 12px;
+  grid-template-columns: 10px 80px 1fr auto;
+  gap: 10px;
   align-items: start;
   padding: 7px 6px;
   border-bottom: 1px dashed rgba(255, 30, 60, .10);
@@ -240,6 +265,22 @@
   color: inherit;
   transition: background .12s ease;
 }
+/* Freshness pip — 6px dot at row start, color-tiered by age.
+   Same hot/warm/cold pattern as the markets heat-wash but as a
+   discrete cue rather than a wash (works better for date than
+   for return). */
+.term-briefings__row-pip{
+  display: inline-block;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  margin-top: 7px;
+  background: var(--c-ink-4);
+}
+.term-briefings__row-pip--hot  { background: #5BE599; box-shadow: 0 0 4px rgba(91, 229, 153, .55); }
+.term-briefings__row-pip--warm { background: #FFB85C; }
+.term-briefings__row-pip--cold { background: rgba(255, 77, 109, .55); }
+.term-briefings__row-pip--unk  { background: var(--c-ink-4); }
 .term-briefings__row-link:hover,
 .term-briefings__row-link:focus-visible{
   background: rgba(255, 30, 60, .04);
@@ -291,8 +332,8 @@
 }
 @media (max-width: 720px){
   .term-briefings__row-link{
-    grid-template-columns: 70px 1fr;
-    gap: 10px;
+    grid-template-columns: 10px 70px 1fr;
+    gap: 8px;
   }
   .term-briefings__row-tags{ display: none; }
 }
