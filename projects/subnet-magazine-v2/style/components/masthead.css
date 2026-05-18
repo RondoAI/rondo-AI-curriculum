@@ -159,9 +159,27 @@
    Decorative; gives the terminal a heartbeat. */
 .masthead{
   position: relative;
-  overflow: hidden;
+  /* overflow MUST stay visible — the .primary-nav child uses
+     position:sticky to keep the MAGAZINE/ORACLE/COCKPIT tabs
+     pinned at top:33px as the reader scrolls. A clipping
+     ancestor (overflow:hidden | clip | scroll) breaks sticky
+     and lets the nav scroll out of view, stranding the reader
+     with no way back to the top tabs without manually scrolling
+     to page top. Rondo 2026-05-18 hit this on /oracle.html (long
+     page): "ui not allowing to move through tab option after
+     entering oracle top tab" — the tabs were scrolled off
+     screen, not visually broken. The scan-line decoration that
+     used to need overflow:hidden here now lives on the
+     .masthead__inner child, which can clip safely without
+     blocking the sticky child. */
 }
-.masthead::before{
+.masthead__inner{
+  overflow: hidden;
+  /* relative so the absolutely-positioned scan-line is contained
+     in this inner block instead of the whole masthead. */
+  position: relative;
+}
+.masthead__inner::before{
   content: "";
   position: absolute;
   left: 0; right: 0;
