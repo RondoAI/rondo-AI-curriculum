@@ -419,13 +419,34 @@ export function mountCockpit(root, dataLayer = null){
     const inlineArticles = [...team, ...oracle, ...central]
       .sort((a,b) => (b.date || '').localeCompare(a.date || ''))
       .slice(0, 10);
+    /* Each item gets a mini procedural SVG mark (12px) — a tiny
+       red node-glyph that hints "this is a magazine article" /
+       a small mint dot for "centralized" / an orange star for
+       "oracle". Plus a left-edge color bar matching the kind so
+       cards read at-a-glance and the column feels like graphic
+       design, not a list of text rows. */
+    const miniMark = (kind) => {
+      if (kind === 'mag') return `<svg viewBox="0 0 14 14" class="cock-chart__news-mark"><circle cx="7" cy="7" r="5.5" fill="none" stroke="currentColor" stroke-width="1.2"/><path d="M4 7l2.5 2 3.5-4" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/></svg>`;
+      if (kind === 'orc') return `<svg viewBox="0 0 14 14" class="cock-chart__news-mark"><path d="M7 2l1.5 3.2 3.5.4-2.6 2.4.7 3.5L7 9.8 3.9 11.5l.7-3.5L2 5.6l3.5-.4z" fill="currentColor"/></svg>`;
+      return `<svg viewBox="0 0 14 14" class="cock-chart__news-mark"><circle cx="7" cy="7" r="2.5" fill="currentColor"/><circle cx="7" cy="7" r="6" fill="none" stroke="currentColor" stroke-width="1" opacity="0.4"/></svg>`;
+    };
+    const dateChip = (d) => {
+      if (!d) return '·';
+      const [y, m, dd] = String(d).split('-');
+      const MON = ['JAN','FEB','MAR','APR','MAY','JUN','JUL','AUG','SEP','OCT','NOV','DEC'];
+      return `<span class="cock-chart__news-day">${dd}</span><span class="cock-chart__news-mon">${MON[parseInt(m,10)-1]}</span>`;
+    };
     const inlineArticlesHtml = inlineArticles.length
       ? inlineArticles.map(a => `
-          <a class="cock-chart__news-item" href="${a.url}" target="_blank" rel="noopener">
-            <span class="cock-chart__news-kind cock-chart__news-kind--${a.kind}">${a.kind.toUpperCase()}</span>
-            <span class="cock-chart__news-date">${fmtDate(a.date)}</span>
+          <a class="cock-chart__news-item cock-chart__news-item--${a.kind}" href="${a.url}" target="_blank" rel="noopener">
+            <span class="cock-chart__news-bar" aria-hidden="true"></span>
+            <span class="cock-chart__news-row">
+              <span class="cock-chart__news-glyph cock-chart__news-glyph--${a.kind}">${miniMark(a.kind)}</span>
+              <span class="cock-chart__news-date">${dateChip(a.date)}</span>
+              <span class="cock-chart__news-kind cock-chart__news-kind--${a.kind}">${a.kind === 'mag' ? 'MAG' : a.kind === 'orc' ? 'ORC' : 'CEN'}</span>
+            </span>
             <span class="cock-chart__news-title">${a.title || '·'}</span>
-            <span class="cock-chart__news-src">${a.source || '·'}</span>
+            <span class="cock-chart__news-src">${a.source || '·'} <span class="cock-chart__news-read">↗</span></span>
           </a>`).join('')
       : `<div class="cock-chart__news-empty">No dispatches indexed for SN${s.netuid} yet.</div>`;
 
