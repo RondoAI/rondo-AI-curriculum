@@ -820,15 +820,19 @@ export function mountCockpit(root, dataLayer = null){
 
       <div class="cock-kpis">${kpis}</div>
 
-      <!-- Small-multiples row — institutional pattern from the
-           taostats inspiration (sibling commit 761a157). Three
-           mini-sparklines surfacing emission / miners / validators
-           trends per the active subnet. Compressed enough to fit
-           below the KPIs without scroll, dense enough to read at
-           a glance. -->
-      <div class="cock-micro-row" aria-label="Subnet activity small multiples">
-        ${microHtml}
-      </div>
+      <!-- Small-multiples row — wrapped in <details> 2026-05-18.
+           Four mini-sparklines (emission / miners / validators /
+           gh commits) provide trend depth, but they duplicate
+           information already in the KPI strip + the dashboard's
+           MARKETS ROSTER columns. Default closed so the chart
+           pane stays focused on price + side articles; reader
+           opens for trend depth on demand. -->
+      <details class="cock-micro-fold">
+        <summary class="cock-micro-fold__summary">⊕ ACTIVITY TRENDS · 30D</summary>
+        <div class="cock-micro-row" aria-label="Subnet activity small multiples">
+          ${microHtml}
+        </div>
+      </details>
     `;
   }
 

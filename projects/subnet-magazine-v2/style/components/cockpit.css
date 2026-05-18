@@ -2127,3 +2127,34 @@
     padding: 16px 14px;
   }
 }
+
+/* Activity-trends small-multiples fold (2026-05-18). Default
+   closed under the cockpit chart pane to reduce vertical density;
+   reader opens for trend depth on demand. */
+.cock-micro-fold{
+  border-top: 1px solid var(--c-rule-2);
+  margin: 0;
+}
+.cock-micro-fold__summary{
+  list-style: none;
+  cursor: pointer;
+  padding: 10px 14px;
+  font-family: var(--f-mono);
+  font-size: 10px;
+  letter-spacing: .22em;
+  font-weight: 800;
+  color: var(--c-ink-3);
+  user-select: none;
+  background: linear-gradient(180deg, rgba(255,30,60,.04) 0%, transparent 100%);
+  transition: background 120ms, color 120ms;
+}
+.cock-micro-fold__summary::-webkit-details-marker{ display: none; }
+.cock-micro-fold__summary::marker{ display: none; content: ''; }
+.cock-micro-fold__summary:hover{
+  color: #fff;
+  background: linear-gradient(180deg, rgba(255,30,60,.10) 0%, transparent 100%);
+}
+.cock-micro-fold[open] .cock-micro-fold__summary{
+  color: #fff;
+  border-bottom: 1px solid var(--c-rule);
+}
