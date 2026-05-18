@@ -1411,11 +1411,19 @@
    now), each ~150-170px with kind chip + date + title + dek +
    source. Whole list scrolls within the side column.
    ================================================================= */
+/* v4 (2026-05-18) per Rondo "articles should be easy to read
+   next to a beautiful chart." The v3 cards were technically
+   correct but visually tiny (title 13.5px / dek 11.5px / source
+   9.5px) — the article column read as a labeled grid more than
+   a reading surface. Bumped every typographic axis so cards
+   become a calm reading column adjacent to the chart, with
+   margin-of-error breathing inside each card. The chart side
+   still gets ~62% on desktop so it stays the dominant element. */
 .cock-chart__news-list .cock-articles__card{
   display: flex;
   flex-direction: column;
-  gap: 6px;
-  padding: 11px 13px 11px 16px;
+  gap: 9px;
+  padding: 18px 18px 18px 22px;
   background: var(--c-bg-1);
   border: 0;
   border-bottom: 1px solid var(--c-rule);
@@ -1431,60 +1439,92 @@
 .cock-chart__news-list .cock-articles__card:hover,
 .cock-chart__news-list .cock-articles__card:focus-visible{
   background: var(--c-bg-2);
-  padding-left: 18px;
+  padding-left: 24px;
   outline: none;
 }
 .cock-chart__news-list .cock-articles__bar{
   position: absolute;
   left: 0; top: 0; bottom: 0;
-  width: 3px;
+  width: 4px;
   background: var(--c-ink-3);
   transition: width 140ms ease;
 }
 .cock-chart__news-list .cock-articles__card--mag .cock-articles__bar{ background: #FFB85C; }
 .cock-chart__news-list .cock-articles__card--orc .cock-articles__bar{ background: var(--c-red); }
 .cock-chart__news-list .cock-articles__card--cen .cock-articles__bar{ background: #5BE599; }
-.cock-chart__news-list .cock-articles__card:hover .cock-articles__bar{ width: 4px; }
+.cock-chart__news-list .cock-articles__card:hover .cock-articles__bar{ width: 6px; }
 .cock-chart__news-list .cock-articles__title{
   font-family: var(--f-serif);
-  font-size: 13.5px;
+  font-size: 17px;
   font-weight: 700;
-  line-height: 1.28;
+  line-height: 1.25;
   color: #fff;
   margin: 0;
-  letter-spacing: -.005em;
+  letter-spacing: -.012em;
+  /* Drop the 3-line clamp — full headline visible. Side-column
+     articles are the reading surface; a chopped headline defeats
+     the point. List length is capped upstream so we don't get
+     a 100-card scroll either way. */
+  display: block;
+  overflow: visible;
+}
+.cock-chart__news-list .cock-articles__dek{
+  font-family: var(--f-sans);
+  font-size: 13.5px;
+  line-height: 1.5;
+  color: var(--c-ink-2);
+  margin: 0;
   display: -webkit-box;
   -webkit-line-clamp: 3;
   -webkit-box-orient: vertical;
   overflow: hidden;
 }
-.cock-chart__news-list .cock-articles__dek{
-  font-family: var(--f-sans);
-  font-size: 11.5px;
-  line-height: 1.42;
-  color: var(--c-ink-2);
-  margin: 0;
-  display: -webkit-box;
-  -webkit-line-clamp: 2;
-  -webkit-box-orient: vertical;
-  overflow: hidden;
-}
 .cock-chart__news-list .cock-articles__foot{
-  border-top: 0;
-  padding-top: 4px;
-  margin-top: 0;
+  border-top: 1px solid var(--c-rule);
+  padding-top: 9px;
+  margin-top: 3px;
   display: flex;
   justify-content: space-between;
-  gap: 6px;
+  gap: 8px;
+}
+.cock-chart__news-list .cock-articles__src{
+  font-family: var(--f-mono);
+  font-size: 10.5px;
+  letter-spacing: .08em;
+  color: var(--c-ink-3);
+}
+.cock-chart__news-list .cock-articles__read{
+  font-family: var(--f-mono);
+  font-size: 10.5px;
+  letter-spacing: .16em;
+  font-weight: 800;
+  color: var(--c-red-1);
+}
+.cock-chart__news-list .cock-articles__kind{
+  font-size: 10px;
+  letter-spacing: .18em;
+  padding: 3px 8px;
+}
+.cock-chart__news-list .cock-articles__date{
+  font-size: 11px;
+  font-family: var(--f-mono);
+  color: var(--c-ink-3);
 }
 
-/* Side column gets a bit more room — the v3 cards need ~280px+
-   to read cleanly. */
+/* Side column has the article reading surface — give it real
+   width on desktop. v3 ran 300-320px minimums, which forced the
+   17-19 char headlines to wrap awkwardly. v4 reserves at least
+   340px on standard desktop and 360px on wide so a 8-10 word
+   headline lays out in 2 lines at the new 17px scale. Chart
+   still wins the remaining 62%+ for "beautiful chart" duty. */
 @media (min-width: 901px){
-  .cockpit .cock-chart__row{ grid-template-columns: minmax(300px, 38%) 1fr !important; }
+  .cockpit .cock-chart__row{ grid-template-columns: minmax(340px, 36%) 1fr !important; }
 }
 @media (min-width: 1280px){
-  .cockpit .cock-chart__row{ grid-template-columns: minmax(320px, 34%) 1fr !important; }
+  .cockpit .cock-chart__row{ grid-template-columns: minmax(360px, 32%) 1fr !important; }
+}
+@media (min-width: 1600px){
+  .cockpit .cock-chart__row{ grid-template-columns: 400px 1fr !important; }
 }
 
 /* =================================================================
