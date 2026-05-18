@@ -2496,3 +2496,131 @@
   transition: filter 120ms;
 }
 .cock-chart__more-link:hover{ filter: brightness(1.10); }
+
+/* =================================================================
+   HOLDINGS table (CMC step 4, 2026-05-18) — paper-portfolio
+   positions rendered as a tappable table inline below the chart
+   pane. Sortable in a future pass.
+   ================================================================= */
+.cock-holdings-fold{
+  border-top: 1px solid var(--c-rule-2);
+  margin: 0;
+}
+.cock-holdings-fold__summary{
+  list-style: none;
+  cursor: pointer;
+  padding: 12px 18px;
+  font-family: var(--f-mono);
+  font-size: 11px;
+  letter-spacing: .22em;
+  font-weight: 800;
+  color: #fff;
+  background: linear-gradient(180deg, rgba(0,229,168,.06) 0%, transparent 100%);
+  border-bottom: 1px solid var(--c-rule);
+  user-select: none;
+  transition: background 120ms;
+}
+.cock-holdings-fold__summary::-webkit-details-marker{ display: none; }
+.cock-holdings-fold__summary::marker{ display: none; content: ''; }
+.cock-holdings-fold__summary:hover{
+  background: linear-gradient(180deg, rgba(0,229,168,.12) 0%, transparent 100%);
+}
+.cock-holdings-empty{
+  padding: 24px 22px;
+  font-family: var(--f-sans);
+  font-size: 13px;
+  color: var(--c-ink-3);
+  font-style: italic;
+  line-height: 1.5;
+  text-align: center;
+  border: 1px dashed var(--c-rule-2);
+  margin: 12px 14px;
+}
+.cock-holdings-wrap{
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+}
+.cock-holdings{
+  width: 100%;
+  border-collapse: collapse;
+  font-family: var(--f-mono);
+  font-size: 12px;
+  color: var(--c-ink-1);
+}
+.cock-holdings thead th{
+  text-align: left;
+  font-size: 9.5px;
+  letter-spacing: .22em;
+  font-weight: 800;
+  color: var(--c-ink-3);
+  padding: 10px 14px;
+  border-bottom: 1px solid var(--c-rule-2);
+  background: rgba(0,0,0,.20);
+  text-transform: uppercase;
+}
+.cock-holdings th.cock-holdings__num,
+.cock-holdings td.cock-holdings__num{
+  text-align: right;
+  font-variant-numeric: tabular-nums;
+}
+.cock-holdings__row{
+  cursor: pointer;
+  transition: background 120ms;
+}
+.cock-holdings__row:hover,
+.cock-holdings__row:focus-visible{
+  background: rgba(255,30,60,.08);
+  outline: none;
+}
+.cock-holdings tbody td{
+  padding: 11px 14px;
+  border-bottom: 1px solid var(--c-rule);
+  vertical-align: middle;
+}
+.cock-holdings__sn{
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.cock-holdings__logo{
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 24px;
+  height: 24px;
+  background: rgba(255,30,60,.10);
+  border: 1px solid var(--c-rule-3);
+  flex-shrink: 0;
+}
+.cock-holdings__logo img{
+  width: 18px; height: 18px;
+  object-fit: contain;
+}
+.cock-holdings__sn-num{
+  color: var(--c-red-1);
+  font-weight: 800;
+  letter-spacing: .04em;
+}
+.cock-holdings__sn-name{
+  font-family: var(--f-serif);
+  font-size: 13px;
+  font-weight: 700;
+  color: #fff;
+}
+.cock-holdings .is-up{ color: #5BE599; }
+.cock-holdings .is-down{ color: var(--c-red-1); }
+.cock-holdings__totals{
+  background: rgba(0,0,0,.30);
+  font-weight: 800;
+  color: #fff;
+}
+.cock-holdings__totals td{
+  border-bottom: 0;
+  border-top: 1px solid var(--c-rule-3);
+  padding: 14px;
+}
+@media (max-width: 720px){
+  .cock-holdings{ font-size: 11px; }
+  .cock-holdings thead th, .cock-holdings tbody td{ padding: 9px 10px; }
+  .cock-holdings__sn-name{ display: none; }
+}

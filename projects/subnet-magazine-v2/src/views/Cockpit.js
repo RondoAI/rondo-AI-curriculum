@@ -939,6 +939,12 @@ export function mountCockpit(root, dataLayer = null){
           ${microHtml}
         </div>
       </details>
+      <!-- HOLDINGS table inline (CMC step 4, sibling spec
+           10c861d): Asset · Entry · Current · Value · P&L
+           columns, row-tap retargets the chart to that subnet's
+           SUBNET mode. Empty-book state surfaces a clear nudge
+           to use the "+" ADD POSITION button above. -->
+      ${renderHoldingsTable()}
       <!-- Footer pointer to the full dashboard surface — addresses
            Rondo 2026-05-18 "what happened to the rest of the data
            on the page?" The cockpit deliberately stays focused on
@@ -947,9 +953,107 @@ export function mountCockpit(root, dataLayer = null){
            ecosystem breakdown all live one click away on the
            standalone dashboard page. -->
       <div class="cock-chart__more">
-        <span class="cock-chart__more-lbl">Looking for briefings · full markets · paper portfolio · attribution · editorial archive?</span>
+        <span class="cock-chart__more-lbl">Looking for briefings · full markets · attribution · editorial archive?</span>
         <a class="cock-chart__more-link" href="dashboard.html">⊕ OPEN FULL DASHBOARD ↗</a>
       </div>
+    `;
+  }
+
+  /* HOLDINGS table — CMC pattern step 4. Renders the paper-
+     portfolio's current positions as a tappable table directly
+     below the chart pane. Replaces the dedicated paper-portfolio
+     block Rondo wanted gone ("the paper portfolio all the way
+     down at the bottom"). Each row: SN# / logo+name / Entry /
+     Current / Value / P&L (color-coded). Tapping a row retargets
+     the chart to that subnet's SUBNET mode. Empty state surfaces
+     the "+" ADD POSITION call-to-action. */
+  function renderHoldingsTable(){
+    const paper = loadPaperState();
+    if (!paper.positions || paper.positions.length === 0){
+      return `
+        <details class="cock-holdings-fold" open>
+          <summary class="cock-holdings-fold__summary">⊕ HOLDINGS · 0 POSITIONS</summary>
+          <div class="cock-holdings-empty">
+            Empty paper book. Tap the green <b>+ ADD POSITION</b> button above to enter your first α holding — zero risk, just to track a thesis.
+          </div>
+        </details>
+      `;
+    }
+    const fmtUsd = n => '$' + (n || 0).toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 });
+    const fmtA   = n => (n || 0).toLocaleString('en-US', { minimumFractionDigits: 4, maximumFractionDigits: 4 }) + ' α';
+    /* Sort by current value descending so the largest positions
+       lead — same convention as CoinMarketCap. */
+    const ranked = paper.positions.slice().sort((a, b) => {
+      const sa = subnetById(a.netuid);
+      const sb = subnetById(b.netuid);
+      const va = a.shares * ((sa && sa.price) || 0);
+      const vb = b.shares * ((sb && sb.price) || 0);
+      return vb - va;
+    });
+    const rows = ranked.map(p => {
+      const sn = subnetById(p.netuid);
+      if (!sn) return '';
+      const entry = p.avgCost;
+      const current = sn.price || 0;
+      const value = p.shares * current;
+      const cost  = p.shares * entry;
+      const pnlUsd = value - cost;
+      const pnlPct = cost > 0 ? (pnlUsd / cost) * 100 : 0;
+      const cls = pnlUsd >= 0 ? 'is-up' : 'is-down';
+      const logoSrc = SUBNET_LOGOS[(sn.name || '').toLowerCase()] || FALLBACK_LOGO;
+      return `
+        <tr class="cock-holdings__row" data-holdings-row="${p.netuid}" tabindex="0" role="button" aria-label="Open SN${p.netuid} ${sn.name} chart">
+          <td class="cock-holdings__sn">
+            <span class="cock-holdings__logo"><img src="${logoSrc}" alt="" loading="lazy" onerror="this.src='${FALLBACK_LOGO}'"></span>
+            <span class="cock-holdings__sn-num">SN${p.netuid}</span>
+            <span class="cock-holdings__sn-name">${sn.name}</span>
+          </td>
+          <td class="cock-holdings__num">${fmtA(p.shares)}</td>
+          <td class="cock-holdings__num">${fmtUsd(entry)}</td>
+          <td class="cock-holdings__num">${fmtUsd(current)}</td>
+          <td class="cock-holdings__num">${fmtUsd(value)}</td>
+          <td class="cock-holdings__num ${cls}"><b>${pnlUsd >= 0 ? '+' : ''}${fmtUsd(pnlUsd)}</b><br><span style="font-size:10px">${pnlPct >= 0 ? '+' : ''}${pnlPct.toFixed(2)}%</span></td>
+        </tr>
+      `;
+    }).join('');
+    /* Totals row — blended P&L across the book. */
+    const totalValue = ranked.reduce((acc, p) => {
+      const sn = subnetById(p.netuid);
+      return acc + p.shares * ((sn && sn.price) || 0);
+    }, 0);
+    const totalCost = ranked.reduce((acc, p) => acc + p.shares * p.avgCost, 0);
+    const totalPnL  = totalValue - totalCost;
+    const totalPct  = totalCost > 0 ? (totalPnL / totalCost) * 100 : 0;
+    const totalCls  = totalPnL >= 0 ? 'is-up' : 'is-down';
+    return `
+      <details class="cock-holdings-fold" open>
+        <summary class="cock-holdings-fold__summary">⊕ HOLDINGS · ${ranked.length} POSITION${ranked.length === 1 ? '' : 'S'}</summary>
+        <div class="cock-holdings-wrap">
+          <table class="cock-holdings">
+            <thead>
+              <tr>
+                <th>ASSET</th>
+                <th class="cock-holdings__num">QTY (α)</th>
+                <th class="cock-holdings__num">ENTRY</th>
+                <th class="cock-holdings__num">CURRENT</th>
+                <th class="cock-holdings__num">VALUE</th>
+                <th class="cock-holdings__num">P&amp;L</th>
+              </tr>
+            </thead>
+            <tbody>${rows}</tbody>
+            <tfoot>
+              <tr class="cock-holdings__totals">
+                <td>TOTAL BOOK</td>
+                <td class="cock-holdings__num">${fmtA(ranked.reduce((a, p) => a + p.shares, 0))}</td>
+                <td class="cock-holdings__num">—</td>
+                <td class="cock-holdings__num">—</td>
+                <td class="cock-holdings__num"><b>${fmtUsd(totalValue)}</b></td>
+                <td class="cock-holdings__num ${totalCls}"><b>${totalPnL >= 0 ? '+' : ''}${fmtUsd(totalPnL)}</b><br><span style="font-size:10px">${totalPct >= 0 ? '+' : ''}${totalPct.toFixed(2)}%</span></td>
+              </tr>
+            </tfoot>
+          </table>
+        </div>
+      </details>
     `;
   }
 
@@ -1269,6 +1373,25 @@ export function mountCockpit(root, dataLayer = null){
         repaintAction();
       });
     }
+    /* HOLDINGS table row-click retargets the chart. Same
+       selection path as the rail / picker / OTHER POSITIONS. */
+    qsa('[data-holdings-row]', root).forEach(r => {
+      const handler = () => {
+        const id = parseInt(r.dataset.holdingsRow, 10);
+        if (!Number.isFinite(id) || id === state.selectedId) return;
+        /* Flip mode back to SUBNET if currently in PORTFOLIO
+           mode — tapping a position should drill into it. */
+        if (chartMode !== 'subnet'){
+          chartMode = 'subnet';
+          try { localStorage.setItem(CHART_MODE_KEY, 'subnet'); } catch (_) {}
+        }
+        selectSubnet(id);
+      };
+      r.addEventListener('click', handler);
+      r.addEventListener('keydown', e => {
+        if (e.key === 'Enter' || e.key === ' '){ e.preventDefault(); handler(); }
+      });
+    });
     /* Tap an OTHER POSITION row to retarget the cockpit chart
        (and the action block) to that subnet — same pattern as
        picking a row in the rail or the markets table. */
