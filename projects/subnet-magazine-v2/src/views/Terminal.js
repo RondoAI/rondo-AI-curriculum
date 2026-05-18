@@ -55,6 +55,29 @@ import { mountAnalyticsMode } from './terminal/analytics-mode.js?v=20260520p';
 const TERMINAL_KEY  = 'sbn:terminal:v1';
 const WATCHLIST_KEY = 'sbn:dashboard:watchlist:v1';
 
+/* Per-netuid editorial-coverage count (magazine + oracle articles
+   indexed for that subnet). Pre-computed ONCE at module load so
+   the LEFT RAIL render is a Map lookup per row, not a filter
+   pass per row. Used to render a small "·N" press chip next to
+   the subnet name so the reader spots well-covered subnets at
+   a scroll-scan without clicking each one. */
+const _COVERAGE_BY_NETUID = (() => {
+  const m = new Map();
+  for (const a of ARTICLES){
+    const id = a.subnet != null ? parseInt(a.subnet, 10) : null;
+    if (!Number.isFinite(id)) continue;
+    m.set(id, (m.get(id) || 0) + 1);
+  }
+  try {
+    for (const a of recentOracleArticles(Infinity)){
+      if (a.subnetId == null) continue;
+      m.set(a.subnetId, (m.get(a.subnetId) || 0) + 1);
+    }
+  } catch (_) { /* oracle import is optional; skip silently */ }
+  return m;
+})();
+const coverageFor = (netuid) => _COVERAGE_BY_NETUID.get(netuid) || 0;
+
 /* ---------- mode registry ----------------------------------- */
 
 /* Each mode is a function returning { label, mount, destroy }.
@@ -182,15 +205,24 @@ export function mountTerminal(root, dataLayer = null){
     const rows = filteredSubnets().map(s => {
       const isOn = s.netuid === state.selectedId;
       const star = watchlist.has(s.netuid);
+      const cov  = coverageFor(s.netuid);
+      /* Coverage chip: small amber "·N" next to the name when the
+         desk has indexed editorial for this subnet. Hidden when
+         count is 0 so empty rows stay clean. SR users get the
+         count folded into the row's aria-label below. */
+      const covChip = cov > 0
+        ? `<span class="term-rail__cov" aria-hidden="true" title="${cov} editorial dispatch${cov === 1 ? '' : 'es'} indexed">·${cov}</span>`
+        : '';
+      const covPhrase = cov > 0 ? `, ${cov} press item${cov === 1 ? '' : 's'}` : '';
       /* role="option" + aria-selected makes the row part of an
          ARIA listbox (the .term-rail__list parent). Keeps native
          button semantics for click + tab discovery while telling
          SR users this is a selection list, not arbitrary buttons. */
       return `
-        <button type="button" class="term-rail__row ${isOn ? 'is-on' : ''}" data-row="${s.netuid}" role="option" aria-selected="${isOn}" aria-label="SN${s.netuid} ${s.name}, 24-hour change ${fmtPct(s.chg24)}, press Enter to load">
+        <button type="button" class="term-rail__row ${isOn ? 'is-on' : ''}" data-row="${s.netuid}" role="option" aria-selected="${isOn}" aria-label="SN${s.netuid} ${s.name}, 24-hour change ${fmtPct(s.chg24)}${covPhrase}, press Enter to load">
           <span class="term-rail__star ${star ? 'is-on' : ''}" data-star="${s.netuid}" role="button" tabindex="-1" aria-pressed="${star}" aria-label="${star ? 'Remove SN' + s.netuid + ' from watchlist' : 'Add SN' + s.netuid + ' to watchlist'}">★</span>
           <span class="term-rail__sn" aria-hidden="true">SN${s.netuid}</span>
-          <span class="term-rail__name" aria-hidden="true">${s.name}</span>
+          <span class="term-rail__name" aria-hidden="true">${s.name}${covChip}</span>
           <span class="term-rail__chg ${cls(s.chg24)}" aria-hidden="true">${fmtPct(s.chg24)}</span>
         </button>`;
     }).join('');

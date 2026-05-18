@@ -152,6 +152,24 @@
 }
 .term-rail__chg.is-up{ color: var(--c-up); }
 .term-rail__chg.is-down{ color: var(--c-down); }
+/* Per-row press-coverage chip — small amber "·N" next to the
+   subnet name, indicating how many editorial dispatches the
+   desk has indexed. Helps the reader spot well-covered subnets
+   at scroll-scan without clicking each one. Hidden on rows with
+   zero coverage so empty rows read clean. */
+.term-rail__cov{
+  display: inline-block;
+  margin-left: 6px;
+  padding: 0 4px;
+  font-family: var(--f-mono);
+  font-size: 9px;
+  font-weight: 800;
+  letter-spacing: .04em;
+  color: rgba(255, 184, 92, .82);
+  border: 1px solid rgba(255, 184, 92, .28);
+  vertical-align: 1px;
+  font-variant-numeric: tabular-nums;
+}
 
 /* ---------- CENTER ------------------------------------------- */
 .term__center{ background: var(--c-bg); }
