@@ -522,15 +522,29 @@
   .cockpit__feed{ display: none !important; }
   .cockpit__rail{ display: none !important; }
   /* Phoenix + sibling ref #3 grid: chart pane (1fr) | right-rail
-     action block (320px). The action block is the
-     buy/sell/balance surface keyed to the active subnet — sticks
-     to the right edge of the cockpit like the trading-terminal
-     reference's right action column. */
-  .cockpit__grid{ grid-template-columns: 1fr 320px !important; }
-  .cockpit__action{ display: flex !important; }
+     action block. Width 2026-05-18 reduced from 320/360 → 260/300
+     after Rondo flagged "in cockpit the chart is now cut off by
+     the $ options." The action block (Portfolio / Cash / chips /
+     CTA) was claiming too much of the row; chart canvas was
+     getting squeezed into ~500px on 1280-wide laptops.
+     New widths leave more room for the chart while still fitting
+     balance + toggle + qty + chips at compact type. */
+  .cockpit__grid{ grid-template-columns: 1fr 240px !important; }
+  .cockpit__action{ display: flex !important; padding: 14px 12px; gap: 12px; }
+  /* Compact action-block type at the narrower column so the
+     surface remains legible without bleeding into the chart. */
+  .cockpit__action .cock-action__chip{ font-size: 10.5px; padding: 6px 4px; }
+  .cockpit__action .cock-action__qty-inp{ font-size: 14px; padding: 8px 10px; }
+  .cockpit__action .cock-action__cta{ font-size: 12px; padding: 12px 12px; }
+  .cockpit__action .cock-action__bal-row{ font-size: 11.5px; }
+  .cockpit__action .cock-action__sum-row{ font-size: 10.5px; }
+  .cockpit__action .cock-action__side{ font-size: 11px; padding: 8px 10px; }
 }
-@media (min-width: 1440px){
-  .cockpit__grid{ grid-template-columns: 1fr 360px !important; }
+@media (min-width: 1280px){
+  .cockpit__grid{ grid-template-columns: 1fr 280px !important; }
+}
+@media (min-width: 1600px){
+  .cockpit__grid{ grid-template-columns: 1fr 320px !important; }
 }
 
 .cock-chart__news{
