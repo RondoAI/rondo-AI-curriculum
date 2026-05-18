@@ -108,6 +108,37 @@ function saveCockpitState(s){
    a small random walk. Seeded per netuid so the series is stable
    across renders. Real time-series ships when DataLayer / TaoStats
    wiring lands; this gives the chart a credible shape today. */
+/* ---------- chart-rendering tunables (named constants) ------
+   Per CLAUDE.md "Code Quality Bar" rule 1: no magic numbers in
+   computation bodies. Named here so an analyst can re-tune
+   without touching the math below. */
+const MA_FAST_WINDOW   = 20;          // bars in the fast moving average
+const MA_SLOW_WINDOW   = 50;          // bars in the slow moving average
+const CHART_SERIES_DAYS = 365;        // backwards-walk depth for synthesis
+
+/* ---------- simple moving average ---------------------------- */
+/* O(n) rolling-sum SMA. Returns an array the same length as `values`
+   with `null` at indices that don't have `window` preceding closes
+   (the first window-1 entries). Computed over the FULL series so
+   the MA at day 0 of a sliced visible window still uses real
+   preceding closes — not a partial-window approximation that would
+   silently mislead a trader.
+   Cross-language invariant: this MUST stay numerically identical to
+   src/views/terminal/chart-mode.js sma() (mac-session ported the
+   same algorithm there in commit 5f3995e). When tuning, edit both. */
+function sma(values, window){
+  const out = new Array(values.length).fill(null);
+  if (window <= 0 || values.length < window) return out;
+  let sum = 0;
+  for (let i = 0; i < window; i++) sum += values[i];
+  out[window - 1] = sum / window;
+  for (let i = window; i < values.length; i++){
+    sum += values[i] - values[i - window];
+    out[i] = sum / window;
+  }
+  return out;
+}
+
 function generateSeries(subnet){
   const days = 365;
   const out  = new Array(days);
@@ -205,7 +236,8 @@ function drawChart(canvas, series, range, annotations){
 
   if (!series || !series.length) return;
 
-  const slice = series.slice(Math.max(0, series.length - range.days));
+  const sliceStart = Math.max(0, series.length - range.days);
+  const slice = series.slice(sliceStart);
   if (slice.length < 2) return;
 
   const PAD_L = 50, PAD_R = 14, PAD_T = 14, PAD_B = 60;
@@ -263,6 +295,42 @@ function drawChart(canvas, series, range, annotations){
   grad.addColorStop(1, isUp ? 'rgba(0,229,168,0.02)' : 'rgba(255,77,109,0.02)');
   ctx.fillStyle = grad;
   ctx.fill();
+
+  /* Moving-average overlays — port of mac-session's terminal CHART
+     mode pattern (commit 5f3995e). MA20 fast (solid muted teal) +
+     MA50 slow (dashed amber). Computed over the FULL series then
+     sliced to the visible window so day-0 of the slice has real
+     preceding-window data, not a partial approximation that would
+     mislead a trader.
+
+     Drawn AFTER the area fill and BEFORE the price line so the
+     price stays on top visually. Skip-on-null lets the MA line
+     start mid-chart when there isn't enough history for the early
+     bars (e.g. MA50 on a 30D window). */
+  const allCloses = series.map(b => b.close);
+  const ma20Full  = sma(allCloses, MA_FAST_WINDOW);
+  const ma50Full  = sma(allCloses, MA_SLOW_WINDOW);
+  const ma20      = ma20Full.slice(sliceStart);
+  const ma50      = ma50Full.slice(sliceStart);
+  const drawMA = (arr, color, dash) => {
+    ctx.save();
+    ctx.strokeStyle = color;
+    ctx.lineWidth   = 1;
+    ctx.setLineDash(dash);
+    ctx.lineJoin    = 'round';
+    let started = false;
+    for (let i = 0; i < slice.length; i++){
+      const v = arr[i];
+      if (v == null){ started = false; continue; }
+      const x = xAt(i), y = yAt(v);
+      if (!started){ ctx.beginPath(); ctx.moveTo(x, y); started = true; }
+      else ctx.lineTo(x, y);
+    }
+    if (started) ctx.stroke();
+    ctx.restore();
+  };
+  drawMA(ma20, 'rgba(156,230,204,0.55)', []);
+  drawMA(ma50, 'rgba(232,192,103,0.45)', [4, 3]);
 
   /* Price line */
   ctx.beginPath();
@@ -359,6 +427,24 @@ function drawChart(canvas, series, range, annotations){
   ctx.font      = '8.5px "JetBrains Mono", monospace';
   ctx.textAlign = 'right';
   ctx.fillText('VOL', PAD_L - 6, volY0 + VOL_H/2);
+
+  /* MA legend — top-right corner. Mirrors mac-session's terminal
+     CHART mode legend so the reader can decode the two overlay
+     lines without hunting. MA20 swatch (solid teal hairline) +
+     MA50 swatch (dashed amber hairline). */
+  ctx.font = '9px "JetBrains Mono", monospace';
+  ctx.textAlign = 'left';
+  ctx.textBaseline = 'top';
+  const legendY = PAD_T + 4;
+  let legendX = W - PAD_R - 110;
+  ctx.fillStyle = 'rgba(156,230,204,0.85)';
+  ctx.fillRect(legendX, legendY + 4, 10, 1);
+  ctx.fillText('MA' + MA_FAST_WINDOW, legendX + 14, legendY);
+  legendX += 56;
+  ctx.fillStyle = 'rgba(232,192,103,0.85)';
+  ctx.fillRect(legendX, legendY + 4, 3, 1);
+  ctx.fillRect(legendX + 5, legendY + 4, 3, 1);
+  ctx.fillText('MA' + MA_SLOW_WINDOW, legendX + 14, legendY);
 }
 
 /* ---------- main mount -------------------------------------- */
