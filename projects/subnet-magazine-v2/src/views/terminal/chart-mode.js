@@ -654,6 +654,10 @@ function renderArticleCard(a){
 }
 
 function renderHTML(s, gh, state, series){
+  /* Active range — used for the canvas aria-label below. Defaults
+     to RANGES[2] (30D) if state carries an unknown key. */
+  const range = RANGES.find(r => r.key === state.range) || RANGES[2];
+
   /* Articles render via renderNewsSidebar(s) called inside the
      template — composeArticles + renderArticleCard helpers below
      remain available for other call sites but the chart template
