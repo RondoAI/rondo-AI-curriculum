@@ -943,7 +943,7 @@
   font-family: var(--f-mono);
   font-size: 11px;
   font-variant-numeric: tabular-nums;
-  min-width: 1080px;   /* keeps the 13 columns honest on a narrow viewport, scrolls horizontally */
+  min-width: 1180px;   /* keeps the 14 columns honest on a narrow viewport, scrolls horizontally */
 }
 .term-mkts__table thead{
   position: sticky; top: 0;
@@ -1634,6 +1634,48 @@
   vertical-align: middle;
   white-space: nowrap;
 }
+
+/* Per-row LINKS cluster — taostats-inspired icon strip. Compact
+   inline-flex row of 14px monochrome SVG glyphs; each icon is a
+   real anchor jumping to the subnet's canonical surface (GitHub,
+   taostats, magazine deep link, etc). onclick="stopPropagation"
+   on each link so tapping an icon doesn't also fire the parent
+   row's select-row handler. */
+.term-mkts__td--links{
+  width: 1%;
+  white-space: nowrap;
+  vertical-align: middle;
+  padding: 3px 6px;
+}
+.term-mkts__links{
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+}
+.term-mkts__links--empty{
+  color: var(--c-ink-4);
+  font-family: var(--f-mono);
+  font-size: 10px;
+  padding-left: 4px;
+}
+.term-mkts__link{
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 18px;
+  height: 18px;
+  color: var(--c-ink-3);
+  text-decoration: none;
+  transition: color 140ms ease, background 140ms ease;
+  border-radius: 2px;
+}
+.term-mkts__link:hover,
+.term-mkts__link:focus-visible{
+  color: var(--c-red-1);
+  background: rgba(255, 30, 60, .08);
+  outline: none;
+}
+.term-mkts__link svg{ display: block; }
 .term-mkts__spark-svg{
   display: block;
 }

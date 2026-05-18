@@ -132,10 +132,70 @@ const SPARK_W = 64;
 const SPARK_H = 16;
 const SPARK_DAYS = 30;
 
+/* ---------- per-row LINKS cluster (taostats-inspired) -------- */
+/* Single-line monochrome SVGs for the institutional dashboard
+   icon vocabulary. 14×14 viewBox, stroke=currentColor so they
+   inherit the table's link color + can hover-tint via CSS.
+   Added 2026-05-18 from the taostats inspiration image
+   (docs/inspiration/taostats-subnet-dashboard.jpg) — each
+   subnet row gains a compact cluster of jump links so the
+   reader can reach canonical sources without leaving the page. */
+const ICONS = {
+  gh:       '<svg viewBox="0 0 14 14" width="14" height="14" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 1a6 6 0 00-1.9 11.7c.3.05.4-.13.4-.3v-1c-1.7.4-2-.8-2-.8-.3-.7-.7-.9-.7-.9-.55-.4 0-.4 0-.4.6 0 .9.6.9.6.55.9 1.4.65 1.75.5.05-.4.2-.65.4-.8-1.35-.15-2.8-.7-2.8-3 0-.7.25-1.3.65-1.7-.05-.15-.3-.85.05-1.75 0 0 .55-.2 1.7.65a6 6 0 013.1 0c1.15-.85 1.7-.65 1.7-.65.35.9.1 1.6.05 1.75.4.4.65 1 .65 1.7 0 2.3-1.45 2.85-2.8 3 .25.2.45.55.45 1.1v1.6c0 .2.1.35.4.3A6 6 0 007 1z"/></svg>',
+  tao:      '<svg viewBox="0 0 14 14" width="14" height="14" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2 4h10M7 4v9"/></svg>',
+  x:        '<svg viewBox="0 0 14 14" width="14" height="14" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" aria-hidden="true"><path d="M2 2l10 10M12 2L2 12"/></svg>',
+  web:      '<svg viewBox="0 0 14 14" width="14" height="14" fill="none" stroke="currentColor" stroke-width="1.2" aria-hidden="true"><circle cx="7" cy="7" r="5.5"/><path d="M1.5 7h11M7 1.5c2 2 2 9 0 11M7 1.5c-2 2-2 9 0 11"/></svg>',
+};
+
+/* Build the per-row links list. ALL rows get taostats (deterministic
+   from netuid) + the magazine's own /terminal jump. GitHub appears
+   when s.gh is set. Twitter/web slots are placeholders for future
+   per-subnet enrichment — kept honest (omitted when not known). */
+function linksFor(s){
+  const out = [];
+  if (s.gh){
+    out.push({ key: 'gh', href: 'https://github.com/' + s.gh, label: 'GitHub repo: ' + s.gh, glyph: ICONS.gh });
+  }
+  out.push({
+    key:   'tao',
+    href:  'https://taostats.io/subnets/' + s.netuid + '/metagraph',
+    label: 'Open SN' + s.netuid + ' on taostats',
+    glyph: ICONS.tao,
+  });
+  out.push({
+    key:   'mag',
+    href:  'terminal.html?mode=chart&select=' + s.netuid,
+    label: 'Open SN' + s.netuid + ' in the magazine terminal',
+    glyph: ICONS.web,
+  });
+  return out;
+}
+function linksClusterHtml(s){
+  if (s.unindexed){
+    /* Pending-curation rows don't get the link cluster — those
+       are placeholder subnets we haven't enriched yet. Tiny "—"
+       reads as honest empty state. */
+    return '<span class="term-mkts__links term-mkts__links--empty" aria-hidden="true">—</span>';
+  }
+  const items = linksFor(s).map(l => `
+    <a class="term-mkts__link" href="${escapeHtml(l.href)}"
+       target="${l.href.startsWith('http') ? '_blank' : '_self'}"
+       rel="noopener" aria-label="${escapeHtml(l.label)}"
+       title="${escapeHtml(l.label)}"
+       onclick="event.stopPropagation()">${l.glyph}</a>`).join('');
+  return `<span class="term-mkts__links" aria-label="External links for SN${s.netuid} ${escapeHtml(s.name)}">${items}</span>`;
+}
+
 const COLS = [
   { key: 'netuid',   label: 'ID',         align: 'left',  cmp: (a, b) => a.netuid - b.netuid },
   { key: 'name',     label: 'NAME',       align: 'left',  cmp: (a, b) => (a.name || '').localeCompare(b.name || '') },
   { key: 'cat',      label: 'CAT',        align: 'left',  cmp: (a, b) => (a.cat  || '').localeCompare(b.cat  || '') },
+  /* "LINKS" column adopted from the taostats inspiration
+     (docs/inspiration/taostats-subnet-dashboard.jpg) — compact
+     icon cluster per row so the reader jumps to the subnet's
+     canonical surfaces (GitHub repo, taostats metagraph, X)
+     without leaving the magazine. */
+  { key: 'links',    label: 'LINKS',      align: 'left',  cmp: null },
   { key: 'cluster',  label: 'CLUSTER',    align: 'left',  cmp: null },
   { key: 'cov',      label: 'PRESS',      align: 'right', cmp: (a, b) => coverageCount(a.netuid) - coverageCount(b.netuid) },
   { key: 'spark',    label: '30D',        align: 'left',  cmp: null },
@@ -394,6 +454,7 @@ function rowHtml(s, state, heat){
       <td class="term-mkts__td term-mkts__td--id">SN${id}</td>
       <td class="term-mkts__td term-mkts__td--name">${escapeHtml(s.name)}${s.unindexed ? ' <span class="term-mkts__pending" title="Pending editorial curation — basic registry only">PENDING</span>' : ''}</td>
       <td class="term-mkts__td term-mkts__td--cat">${escapeHtml(CAT_LABEL[s.cat] || (s.cat || '').toUpperCase())}</td>
+      <td class="term-mkts__td term-mkts__td--links">${linksClusterHtml(s)}</td>
       <td class="term-mkts__td term-mkts__td--cluster">
         ${clusterCol ? `<span class="term-mkts__cluster" style="--ct:${clusterCol}" title="${escapeHtml(clusterLbl || ('cluster ' + cluster))}">${cluster}</span>` : '<span class="term-mkts__cluster term-mkts__cluster--na">·</span>'}
       </td>
