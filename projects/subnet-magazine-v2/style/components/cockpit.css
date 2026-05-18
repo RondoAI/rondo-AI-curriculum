@@ -1123,9 +1123,14 @@
     min-height: 620px;
     margin: 10px 18px 24px;
   }
-  /* Hide the mobile tab switcher on desktop — all three panes
-     are visible side-by-side. */
-  .cockpit-tabs{ display: none; }
+  /* Keep cockpit-tabs visible on desktop — was hidden when all
+     three panes were always-on, but now the DESK pane swaps
+     into the chart slot (Rondo 2026-05-18 "merge dashboard and
+     cockpit") so the reader needs the CHART ↔ DESK toggle on
+     desktop too. SUBNETS / FEED chips don't do much on desktop
+     (those panes are pinned anyway) but reading "CHART · DESK"
+     beside them costs nothing. */
+  .cockpit-tabs__hint{ display: none; }
   .cockpit__grid{
     grid-template-columns: 260px 1fr 340px;
   }
