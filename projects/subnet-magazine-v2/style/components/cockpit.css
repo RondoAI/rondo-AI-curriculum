@@ -2424,3 +2424,75 @@
 @media (max-width: 720px){
   .cock-chart__addsheet{ grid-template-columns: 1fr; }
 }
+
+/* Subnet logo + name treatment in chart-pane header (2026-05-18,
+   per Rondo "make sure names and logos of the subnets are in the
+   cockpit not just there number"). Logo first, then SN#, then
+   serif name, then small category chip. */
+.cock-chart__h{
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+.cock-chart__logo{
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  background: rgba(255,30,60,.10);
+  border: 1px solid var(--c-rule-3);
+  flex-shrink: 0;
+  overflow: hidden;
+}
+.cock-chart__logo img{
+  width: 24px;
+  height: 24px;
+  object-fit: contain;
+  filter: brightness(1.05);
+}
+.cock-chart__sn{
+  font-family: var(--f-mono);
+  font-size: 13px;
+  letter-spacing: .02em;
+  font-weight: 800;
+  color: var(--c-red-1);
+}
+.cock-chart__name{
+  font-family: var(--f-serif);
+  /* size set by parent cock-chart__h on the larger render */
+}
+
+/* Footer "OPEN FULL DASHBOARD" link — the path to the data
+   that lives off-cockpit. */
+.cock-chart__more{
+  border-top: 1px solid var(--c-rule-2);
+  padding: 16px 18px;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  background: rgba(0,0,0,.20);
+}
+.cock-chart__more-lbl{
+  font-family: var(--f-sans);
+  font-size: 12px;
+  color: var(--c-ink-3);
+  font-style: italic;
+  max-width: 60ch;
+}
+.cock-chart__more-link{
+  font-family: var(--f-mono);
+  font-size: 12px;
+  letter-spacing: .16em;
+  font-weight: 800;
+  color: #fff;
+  background: var(--c-red);
+  padding: 10px 16px;
+  text-decoration: none;
+  flex-shrink: 0;
+  transition: filter 120ms;
+}
+.cock-chart__more-link:hover{ filter: brightness(1.10); }

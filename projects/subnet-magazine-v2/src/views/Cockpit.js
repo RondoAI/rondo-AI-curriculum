@@ -55,6 +55,18 @@ import {
   saveActivePortfolio as savePaperState,
 } from '../data/paper-portfolios.js';
 
+/* Per-subnet logo lookup — keyed by lowercased subnet name.
+   Falls back to the Bittensor mark when no specific logo exists.
+   Module-scope so the render template can reference during
+   string-building (TDZ-safe). Mirror of the SUBNET_LOGOS map
+   in Home.js — when a new logo file lands in assets/, add it
+   here too. */
+const SUBNET_LOGOS = {
+  'hippius': 'assets/hippius-mark.png',
+  'targon':  'assets/targon-mark.svg',
+};
+const FALLBACK_LOGO = 'assets/bittensor-mark.png';
+
 const deskAttribState = defaultAttribState();
 
 const WATCHLIST_KEY = 'sbn:dashboard:watchlist:v1';
@@ -801,7 +813,14 @@ export function mountCockpit(root, dataLayer = null){
             <h1 class="cock-chart__h">PAPER PORTFOLIO<span class="cock-chart__cat">${paper.positions.length} position${paper.positions.length === 1 ? '' : 's'}</span></h1>
             <div class="cock-chart__sub">Paper book aggregate, cash + Σ(qty · mark). ${paper.positions.length === 0 ? 'No positions yet — buy your first α from the right rail.' : 'Tap a row in the right-rail OTHER POSITIONS to drill into a single subnet.'}</div>
           ` : `
-            <h1 class="cock-chart__h">SN${s.netuid} · ${s.name}<span class="cock-chart__cat">${catLabel(s.cat)}</span></h1>
+            <h1 class="cock-chart__h">
+              <span class="cock-chart__logo" aria-hidden="true">
+                <img src="${SUBNET_LOGOS[(s.name || '').toLowerCase()] || FALLBACK_LOGO}" alt="" loading="lazy" onerror="this.src='${FALLBACK_LOGO}'">
+              </span>
+              <span class="cock-chart__sn">SN${s.netuid}</span>
+              <span class="cock-chart__name">${s.name}</span>
+              <span class="cock-chart__cat">${catLabel(s.cat)}</span>
+            </h1>
             <div class="cock-chart__sub">${s.desc || ''} · <span style="color:var(--c-ink-3)">team ${s.owner || '·'}</span></div>
           `}
         </div>
@@ -867,7 +886,7 @@ export function mountCockpit(root, dataLayer = null){
       <div class="cock-chart__row">
         <aside class="cock-chart__news" aria-label="News for SN${s.netuid} ${s.name}">
           <header class="cock-chart__news-head">
-            <span class="cock-chart__news-h">⊕ SIGNALS · SN${s.netuid}</span>
+            <span class="cock-chart__news-h">⊕ SIGNALS · SN${s.netuid} · ${s.name}</span>
             <span class="cock-chart__news-n">${cockpitArticles.length}</span>
           </header>
           <div class="cock-chart__news-list">
@@ -920,6 +939,17 @@ export function mountCockpit(root, dataLayer = null){
           ${microHtml}
         </div>
       </details>
+      <!-- Footer pointer to the full dashboard surface — addresses
+           Rondo 2026-05-18 "what happened to the rest of the data
+           on the page?" The cockpit deliberately stays focused on
+           chart + selected subnet; the briefings, full markets
+           roster, paper portfolio + attribution, editorial archive,
+           ecosystem breakdown all live one click away on the
+           standalone dashboard page. -->
+      <div class="cock-chart__more">
+        <span class="cock-chart__more-lbl">Looking for briefings · full markets · paper portfolio · attribution · editorial archive?</span>
+        <a class="cock-chart__more-link" href="dashboard.html">⊕ OPEN FULL DASHBOARD ↗</a>
+      </div>
     `;
   }
 
