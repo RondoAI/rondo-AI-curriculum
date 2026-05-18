@@ -533,9 +533,11 @@ export function mountCockpit(root, dataLayer = null){
         </div>
       </div>`).join('');
 
-    const rangeBtns = RANGES.map(r => `
-      <button type="button" class="cock-range__btn ${r.key === state.range ? 'is-on' : ''}" data-range="${r.key}">${r.label}</button>
-    `).join('');
+    const rangeBtns = RANGES.map(r => {
+      const on = r.key === state.range;
+      return `
+      <button type="button" class="cock-range__btn ${on ? 'is-on' : ''}" data-range="${r.key}" role="tab" aria-selected="${on}" aria-label="${r.label}">${r.label}</button>`;
+    }).join('');
 
     /* INLINE ARTICLE COLUMN — per Rondo's 2026-05-17 directive
        (blue-line annotation on the cockpit screenshot): articles
@@ -645,7 +647,9 @@ export function mountCockpit(root, dataLayer = null){
           </div>
         </aside>
         <div class="cock-chart__canvas-wrap">
-          <canvas class="cock-chart__canvas" data-chart-canvas></canvas>
+          <canvas class="cock-chart__canvas" data-chart-canvas
+                  role="img"
+                  aria-label="SN${s.netuid} ${s.name} price chart, ${state.range} window"></canvas>
           <!-- Hover tooltip — reuses chart-mode.css .cm-tooltip +
                .ct-tt__* selectors so cockpit + terminal CHART
                speak the same visual language on hover. -->
@@ -871,7 +875,13 @@ export function mountCockpit(root, dataLayer = null){
     if (key === state.range) return;
     state.range = key;
     saveCockpitState(state);
-    qsa('[data-range]', root).forEach(b => b.classList.toggle('is-on', b.dataset.range === key));
+    /* Keep visual is-on + aria-selected in lockstep so SR users
+       hear the new range as the active tab. */
+    qsa('[data-range]', root).forEach(b => {
+      const on = b.dataset.range === key;
+      b.classList.toggle('is-on', on);
+      b.setAttribute('aria-selected', String(on));
+    });
     drawChartNow();
   }
 
@@ -913,6 +923,23 @@ export function mountCockpit(root, dataLayer = null){
     const s = subnetById(state.selectedId) || SUBNETS[0];
     const annotations = annotationsFor(s.netuid, s.name);
     hit = drawChart(c, series, range, annotations);
+    /* Refresh canvas aria-label so SR users hear the new subnet
+       + range pair on every redraw. Synthesizes the headline read
+       of the visible window (up X% / down Y% / last close $Z) from
+       the price slice — same pattern as the terminal CHART mode. */
+    if (c && series && series.length){
+      const sliceStart = Math.max(0, series.length - range.days);
+      const slice = series.slice(sliceStart);
+      if (slice.length >= 2){
+        const first = slice[0].close;
+        const last  = slice[slice.length - 1].close;
+        const ret   = first > 0 ? ((last - first) / first) * 100 : 0;
+        const dir   = ret >= 0 ? 'up' : 'down';
+        const lastPriced = last < 1 ? '$' + last.toFixed(4) : '$' + last.toFixed(2);
+        c.setAttribute('aria-label',
+          `SN${s.netuid} ${s.name || ''} price chart, ${range.label} window, ${dir} ${Math.abs(ret).toFixed(2)} percent, last close ${lastPriced}`);
+      }
+    }
   }
 
   /* ---------- wiring --------------------------------------- */
