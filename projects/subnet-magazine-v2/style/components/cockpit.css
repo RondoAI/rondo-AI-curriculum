@@ -594,6 +594,36 @@
   border-color: var(--c-red);
   background-color: var(--c-bg-3);
 }
+/* Picker variant for the chart header — inline (label + select
+   on the same line), no separate band, replaces the old
+   "⊕ COCKPIT · LIVE" eyebrow position. Compact and high-
+   discoverability: it's the FIRST thing the reader sees inside
+   the chart pane. */
+.cock-chart__picker--head{
+  flex-direction: row;
+  align-items: center;
+  gap: 8px;
+  padding: 0;
+  margin-bottom: 4px;
+  border-bottom: 0;
+  background: transparent;
+  flex-shrink: 0;
+}
+.cock-chart__picker--head .cock-chart__picker-lbl{
+  font-size: 10px;
+  letter-spacing: .22em;
+  font-weight: 800;
+  color: var(--c-red);
+  flex-shrink: 0;
+}
+.cock-chart__picker--head .cock-chart__picker-sel{
+  flex: 1 1 auto;
+  max-width: 340px;
+  font-size: 12px;
+  padding: 6px 22px 6px 10px;
+  background: rgba(0,0,0,.30);
+  border-color: var(--c-rule-3);
+}
 .cock-chart__picker-sel option{
   background: #050203;
   color: #fff;

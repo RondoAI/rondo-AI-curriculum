@@ -748,7 +748,21 @@ export function mountCockpit(root, dataLayer = null){
     return `
       <header class="cock-chart__head">
         <div class="cock-chart__title">
-          <span class="cock-chart__eyebrow">⊕ COCKPIT · LIVE</span>
+          <!-- PICK SUBNET dropdown promoted to the eyebrow position
+               2026-05-18 — the "⊕ COCKPIT · LIVE" eyebrow was
+               redundant with the cockpit nav above and consumed
+               the most discoverable line of the chart pane. The
+               native select reads as an institutional ticker
+               picker and lets the reader retarget the chart
+               from the most obvious spot. -->
+          <div class="cock-chart__picker cock-chart__picker--head">
+            <label class="cock-chart__picker-lbl" for="cock-chart-picker">PICK</label>
+            <select class="cock-chart__picker-sel" id="cock-chart-picker" data-chart-picker aria-label="Pick subnet">
+              ${SUBNETS.slice().sort((a,b) => (b.mcap||0)-(a.mcap||0)).map(x =>
+                `<option value="${x.netuid}" ${x.netuid === s.netuid ? 'selected' : ''}>SN${x.netuid} · ${x.name} · $${(x.price||0).toFixed(x.price < 1 ? 4 : 2)} ${x.chg24 >= 0 ? '+' : ''}${(x.chg24||0).toFixed(1)}%</option>`
+              ).join('')}
+            </select>
+          </div>
           <h1 class="cock-chart__h">SN${s.netuid} · ${s.name}<span class="cock-chart__cat">${catLabel(s.cat)}</span></h1>
           <div class="cock-chart__sub">${s.desc || ''} · <span style="color:var(--c-ink-3)">team ${s.owner || '·'}</span></div>
         </div>
@@ -760,23 +774,11 @@ export function mountCockpit(root, dataLayer = null){
         </div>
       </header>
 
-      <!-- CHART + SIDE ARTICLE COLUMN — restored 2026-05-18 per
-           Rondo: "keep my original idea — put the feed back inside
-           the chart." Side column on the LEFT with the picker at
-           the top + richer article cards (kind/date/title/dek/source)
-           — same kind-color spine as the chart-mode sidebar so the
-           visual language is consistent across surfaces. Chart fills
-           the remaining width on the right. -->
+      <!-- CHART + SIDE ARTICLE COLUMN — picker has moved up to
+           the chart header (cock-chart__head). Article column
+           starts directly with the SIGNALS header. -->
       <div class="cock-chart__row">
         <aside class="cock-chart__news" aria-label="News for SN${s.netuid} ${s.name}">
-          <div class="cock-chart__picker">
-            <label class="cock-chart__picker-lbl" for="cock-chart-picker">PICK SUBNET</label>
-            <select class="cock-chart__picker-sel" id="cock-chart-picker" data-chart-picker>
-              ${SUBNETS.slice().sort((a,b) => (b.mcap||0)-(a.mcap||0)).map(x =>
-                `<option value="${x.netuid}" ${x.netuid === s.netuid ? 'selected' : ''}>SN${x.netuid} · ${x.name} · $${(x.price||0).toFixed(x.price < 1 ? 4 : 2)} ${x.chg24 >= 0 ? '+' : ''}${(x.chg24||0).toFixed(1)}%</option>`
-              ).join('')}
-            </select>
-          </div>
           <header class="cock-chart__news-head">
             <span class="cock-chart__news-h">⊕ SIGNALS · SN${s.netuid}</span>
             <span class="cock-chart__news-n">${cockpitArticles.length}</span>
