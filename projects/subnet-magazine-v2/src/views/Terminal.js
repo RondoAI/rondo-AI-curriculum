@@ -158,14 +158,16 @@ export function mountTerminal(root, dataLayer = null){
           ${renderFeed()}
         </aside>
       </div>
-      <nav class="term__modes" aria-label="Terminal modes">
-        <span class="term__modes-lbl">MODE</span>
+      <nav class="term__modes" aria-label="Terminal modes" role="tablist">
+        <span class="term__modes-lbl" aria-hidden="true">MODE</span>
         <div class="term__modes-chips">
-          ${Object.entries(MODE_REGISTRY).map(([key, m]) => `
-            <button type="button" class="term-mode-chip ${key === state.mode ? 'is-on' : ''}" data-mode="${key}">${m.label}</button>
-          `).join('')}
+          ${Object.entries(MODE_REGISTRY).map(([key, m]) => {
+            const on = key === state.mode;
+            return `
+            <button type="button" class="term-mode-chip ${on ? 'is-on' : ''}" data-mode="${key}" role="tab" aria-selected="${on}" aria-label="${m.label} mode">${m.label}</button>`;
+          }).join('')}
         </div>
-        <span class="term__modes-meta">⌘K palette · / search · 1-9 jump</span>
+        <span class="term__modes-meta" aria-hidden="true">⌘K palette · / search · 1-9 jump</span>
       </nav>
     </section>
   `);
@@ -180,21 +182,25 @@ export function mountTerminal(root, dataLayer = null){
     const rows = filteredSubnets().map(s => {
       const isOn = s.netuid === state.selectedId;
       const star = watchlist.has(s.netuid);
+      /* role="option" + aria-selected makes the row part of an
+         ARIA listbox (the .term-rail__list parent). Keeps native
+         button semantics for click + tab discovery while telling
+         SR users this is a selection list, not arbitrary buttons. */
       return `
-        <button type="button" class="term-rail__row ${isOn ? 'is-on' : ''}" data-row="${s.netuid}">
-          <span class="term-rail__star ${star ? 'is-on' : ''}" data-star="${s.netuid}">★</span>
-          <span class="term-rail__sn">SN${s.netuid}</span>
-          <span class="term-rail__name">${s.name}</span>
-          <span class="term-rail__chg ${cls(s.chg24)}">${fmtPct(s.chg24)}</span>
+        <button type="button" class="term-rail__row ${isOn ? 'is-on' : ''}" data-row="${s.netuid}" role="option" aria-selected="${isOn}" aria-label="SN${s.netuid} ${s.name}, 24-hour change ${fmtPct(s.chg24)}, press Enter to load">
+          <span class="term-rail__star ${star ? 'is-on' : ''}" data-star="${s.netuid}" role="button" tabindex="-1" aria-pressed="${star}" aria-label="${star ? 'Remove SN' + s.netuid + ' from watchlist' : 'Add SN' + s.netuid + ' to watchlist'}">★</span>
+          <span class="term-rail__sn" aria-hidden="true">SN${s.netuid}</span>
+          <span class="term-rail__name" aria-hidden="true">${s.name}</span>
+          <span class="term-rail__chg ${cls(s.chg24)}" aria-hidden="true">${fmtPct(s.chg24)}</span>
         </button>`;
     }).join('');
     return `
       <header class="term-rail__head">
         <div class="term-rail__lbl">SUBNETS · ${filteredSubnets().length} of ${SUBNETS.length}</div>
-        <input class="term-rail__search" type="search" data-rail-search placeholder="search SN, name, owner…" value="${state.searchQ}"/>
-        <button type="button" class="term-rail__pill ${state.onlyWatched ? 'is-on' : ''}" data-rail-watched>★ WATCHED ${watchlist.size ? '<b>' + watchlist.size + '</b>' : ''}</button>
+        <input class="term-rail__search" type="search" data-rail-search placeholder="search SN, name, owner…" value="${state.searchQ}" aria-label="Search subnets by name, SN number, owner, or category" aria-controls="term-rail-list"/>
+        <button type="button" class="term-rail__pill ${state.onlyWatched ? 'is-on' : ''}" data-rail-watched aria-pressed="${state.onlyWatched}" aria-label="${state.onlyWatched ? 'Show all subnets (currently filtered to watched)' : 'Show only watched subnets'}">★ WATCHED ${watchlist.size ? '<b>' + watchlist.size + '</b>' : ''}</button>
       </header>
-      <div class="term-rail__list" data-rail-list>${rows}</div>`;
+      <div class="term-rail__list" data-rail-list id="term-rail-list" role="listbox" aria-label="Subnets, ${filteredSubnets().length} of ${SUBNETS.length}, use arrow keys to navigate">${rows}</div>`;
   }
 
   function renderSelectedHeader(){
@@ -261,7 +267,11 @@ export function mountTerminal(root, dataLayer = null){
     if (netuid === state.selectedId) return;
     state.selectedId = netuid;
     saveTerminalState(state);
-    qsa('[data-row]', root).forEach(r => r.classList.toggle('is-on', parseInt(r.dataset.row, 10) === netuid));
+    qsa('[data-row]', root).forEach(r => {
+      const on = parseInt(r.dataset.row, 10) === netuid;
+      r.classList.toggle('is-on', on);
+      r.setAttribute('aria-selected', String(on));
+    });
     const sub = qs('[data-center-sub]', root);
     if (sub) sub.innerHTML = renderSelectedHeader();
     const feed = qs('[data-region="feed"]', root);
@@ -273,7 +283,11 @@ export function mountTerminal(root, dataLayer = null){
     if (key === state.mode || !MODE_REGISTRY[key]) return;
     state.mode = key;
     saveTerminalState(state);
-    qsa('[data-mode]', root).forEach(b => b.classList.toggle('is-on', b.dataset.mode === key));
+    qsa('[data-mode]', root).forEach(b => {
+      const on = b.dataset.mode === key;
+      b.classList.toggle('is-on', on);
+      b.setAttribute('aria-selected', String(on));
+    });
     mountActiveMode();
   }
 
@@ -288,6 +302,49 @@ export function mountTerminal(root, dataLayer = null){
         setSelected(id);
       });
     });
+
+    /* Arrow-key nav within the 53-row list. Up/Down moves focus
+       to the prev/next row (wrapping). Home/End jump to the
+       first/last visible row. Enter activates. Skips the star
+       button when walking — the user expects the row, not the
+       star, to be the keyboard target. */
+    const list = qs('[data-rail-list]', root);
+    if (list){
+      list.addEventListener('keydown', (e) => {
+        const focused = document.activeElement;
+        if (!focused || !focused.matches('[data-row]')) return;
+        const rows = qsa('[data-row]', list);
+        const i = rows.indexOf(focused);
+        if (i < 0) return;
+        let next = -1;
+        if      (e.key === 'ArrowDown') next = (i + 1) % rows.length;
+        else if (e.key === 'ArrowUp')   next = (i - 1 + rows.length) % rows.length;
+        else if (e.key === 'Home')      next = 0;
+        else if (e.key === 'End')       next = rows.length - 1;
+        else if (e.key === 'w' || e.key === 'W'){
+          /* Power-user shortcut: pressing W on a focused row
+             toggles its watchlist star — saves a tab+click
+             dance for the most frequent rail action. */
+          const star = focused.querySelector('[data-star]');
+          if (star){
+            e.preventDefault();
+            star.click();
+            /* Re-focus the (newly-rerendered) row at the same
+               index — keep the user's place in the list. */
+            requestAnimationFrame(() => {
+              const fresh = qsa('[data-row]', list);
+              if (fresh[i]) fresh[i].focus();
+            });
+          }
+          return;
+        }
+        if (next >= 0){
+          e.preventDefault();
+          rows[next].focus();
+        }
+      });
+    }
+
     qsa('[data-star]', root).forEach(btn => {
       btn.addEventListener('click', (e) => {
         e.stopPropagation();
@@ -296,6 +353,16 @@ export function mountTerminal(root, dataLayer = null){
         saveWatchlist(watchlist);
         const rail = qs('[data-region="rail"]', root);
         if (rail){ rail.innerHTML = renderRail(); wireRail(); }
+      });
+      /* Star is a span styled as a button — give it keyboard
+         parity. Space toggles, Enter toggles, same as a real
+         <button>. */
+      btn.addEventListener('keydown', (e) => {
+        if (e.key === 'Enter' || e.key === ' '){
+          e.preventDefault();
+          e.stopPropagation();
+          btn.click();
+        }
       });
     });
     const search = qs('[data-rail-search]', root);
