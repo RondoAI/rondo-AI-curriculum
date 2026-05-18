@@ -547,20 +547,31 @@ export function mountCockpit(root, dataLayer = null){
        the synthetic series so what the reader sees in the
        sparkline tracks what's in the main chart, just compressed
        to 30 bars per panel. */
+    /* GH COMMITS 30D is real (ghByNetuid) when the subnet is
+       indexed in github-activity.js; falls back to a "·" label
+       when there's no commit data. */
+    const ghCommits = (gh && Number.isFinite(gh.commits30d)) ? gh.commits30d : null;
     const microPanels = [
-      { label: 'EMISSION τ/d', value: s.emission, seed: s.netuid * 23 + 9,  unit: 'τ',  color: '#FFB85C' },
-      { label: 'MINERS',       value: s.miners,   seed: s.netuid * 31 + 11, unit: '',   color: '#9CE6CC' },
-      { label: 'VALIDATORS',   value: s.validators, seed: s.netuid * 17 + 7,  unit: '',   color: '#FF4D60' },
+      { label: 'EMISSION τ/d', value: s.emission,   seed: s.netuid * 23 + 9,  unit: 'τ', color: '#FFB85C' },
+      { label: 'MINERS',       value: s.miners,     seed: s.netuid * 31 + 11, unit: '',  color: '#9CE6CC' },
+      { label: 'VALIDATORS',   value: s.validators, seed: s.netuid * 17 + 7,  unit: '',  color: '#FF4D60' },
+      { label: 'GH COMMITS 30D', value: ghCommits,  seed: s.netuid * 13 + 5,  unit: '',  color: '#E8C067' },
     ];
-    const microHtml = microPanels.map(p => `
-      <div class="cock-micro">
-        <div class="cock-micro__head">
-          <span class="cock-micro__lbl">${p.label}</span>
-          <span class="cock-micro__val">${fmtInt(p.value)}${p.unit}</span>
-        </div>
-        ${microSparkSvg(p.value || 0, p.seed, p.color)}
-      </div>
-    `).join('');
+    const microHtml = microPanels.map(p => {
+      const hasValue = Number.isFinite(p.value) && p.value > 0;
+      const valTxt = hasValue ? fmtInt(p.value) + p.unit : '·';
+      const sparkOrEmpty = hasValue
+        ? microSparkSvg(p.value, p.seed, p.color)
+        : `<div class="cock-micro__empty" aria-hidden="true">no data</div>`;
+      return `
+        <div class="cock-micro ${hasValue ? '' : 'cock-micro--empty'}">
+          <div class="cock-micro__head">
+            <span class="cock-micro__lbl">${p.label}</span>
+            <span class="cock-micro__val">${valTxt}</span>
+          </div>
+          ${sparkOrEmpty}
+        </div>`;
+    }).join('');
 
     const kpis = [
       { lbl: 'α PRICE',      val: fmtPrice(s.price),         chg: s.chg24, note: '24h' },
@@ -822,7 +833,7 @@ export function mountCockpit(root, dataLayer = null){
             fill="${accent}" fill-opacity="0.85"
             transform="rotate(${rotate} ${140 + offsetX} 70)">${glyph}</text>
       <line x1="12" y1="128" x2="268" y2="128" stroke="${accent}" stroke-opacity="0.4" stroke-width="0.6"/>
-      <text x="12" y="137" font-family="JetBrains Mono, monospace" font-size="6.5"
+      <text x="12" y="137" font-family="'JetBrains Mono', monospace" font-size="6.5"
             font-weight="800" letter-spacing="1.8" fill="${accent}" fill-opacity="0.7">SUBNE&#x3C4; MAGAZINE</text>
     </svg>`;
   }
