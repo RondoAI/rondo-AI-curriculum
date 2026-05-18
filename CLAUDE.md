@@ -1518,3 +1518,94 @@ rendering (TL;DR + NEXT footer + sparkline-of-effort), semantic
 search on ASK, FIELD_MANUAL coverage gap check, cross-link
 from oracle articles into dock tabs, taostats-grammar polish
 on per-topic pages.
+
+## Coordination Ask: Cockpit Phoenix-Grade Layout (OPEN — for mac-session)
+
+Saved by Rondo's instruction, 2026-05-18: sent a screenshot of
+Phoenix trading platform's portfolio page (saved at
+projects/subnet-magazine-v2/docs/inspiration/phoenix-portfolio-layout.jpg)
+and said: "this is what it should look like. Also share with
+sibling. The top is a chart. The side should be the news articles
+and updates and the bottom can be data."
+
+THE PHOENIX LAYOUT (three regions):
+
+  +------------------------------------------------+
+  |  [HERO CHART 65%]  | [SIDEBAR 35%]             |
+  |                    |                           |
+  |  Portfolio Value   | Summary / Breakdown tabs  |
+  |  range tabs        | grid of stat cards        |
+  |  big line chart    | Position Health gauges    |
+  |  current value +%  |                           |
+  +------------------------------------------------+
+  |  [DATA TABLE — full width]                     |
+  |                                                |
+  |  Positions / Open / History tabs               |
+  |  columns: Market · Size · Value · Entry · Mark │
+  |    · Liq · uPnL · Margin · Funding · TP/SL     │
+  |  rows: ZEC, SOL, HYPE, AAVE shorts             │
+  +------------------------------------------------+
+
+TRANSLATION FOR THE COCKPIT:
+
+  TOP-LEFT  →  the cockpit's existing chart pane (SN price + MAs
+               + range tabs + news flags). Already in place.
+  TOP-RIGHT →  the news / updates feed. Cockpit's .cockpit__feed
+               already does this on desktop, .cock-chart__news
+               on mobile. Refine to feel more like Phoenix's
+               sidebar (sharper card chrome, hairline rules
+               between items, more density).
+  BOTTOM    →  a SINGLE dominant terminal-grade DATA TABLE,
+               full-width. Pulls the 128-subnet master grid
+               (your afcd385 + 455eebc work). Columns to match
+               Phoenix's density: Subnet · Price · 24h% ·
+               30D-spark · MCAP · Vol24h · Validators · Miners
+               · Emission · Cluster · Coverage. Sortable headers.
+               Click-row → focuses chart pane above on that subnet.
+
+WHAT SANDBOX ALREADY DID (commit ee4d17e):
+  - cockpit.html mounts the FULL dashboard view below the cockpit
+    pane. That's currently a scroll-everything-below pattern, not
+    a Phoenix-style single data table
+
+WHAT MAC SHOULD DO:
+
+  1. EXTRACT the markets master table from Dashboard.js into its
+     own component (already may live in src/views/dashboard/...
+     or in src/views/terminal/markets-mode.js — your call). The
+     component takes (root, DataLayer) and renders the sortable
+     128-subnet grid with your existing sparkline + heat-wash
+     polish.
+
+  2. REWORK cockpit.html / Cockpit.js so the layout is:
+       - chart pane (top-left, ~65%)
+       - news sidebar (top-right, ~35%, dedicated component)
+       - markets data table (bottom, full-width, the extracted
+         component from step 1)
+     Instead of "dashboard view scrolled below", which is too
+     much content.
+
+  3. WIRE the table's row-click so selecting a subnet in the
+     master grid focuses the chart pane above. Cockpit already
+     has a subnet picker dropdown; the table click should
+     dispatch the same selection event the picker dispatches.
+
+  4. The Subnet Oracle dock stays pinned at the bottom of the
+     viewport (Console.js mount, unchanged) — it sits on top of
+     the data table when present.
+
+  5. KEEP mobile responsive: at ≤720px the chart stacks above
+     the news sidebar (already does), and the data table can
+     scroll horizontally inside its own scroll container.
+
+  6. KEEP the dashboard.html standalone page functional — don't
+     break it while extracting components.
+
+ADDITIONAL INSPIRATION: the taostats-subnet-dashboard.jpg in the
+same inspiration folder shows what the per-row sparkline + flags
+grammar looks like at maximum density. Combine Phoenix's clean
+three-region layout with taostats' column density.
+
+Sandbox will fold any cockpit grammar additions back into the
+terminal CHART mode + DETAIL mode so the visual language stays
+consistent across all chart-bearing surfaces.
