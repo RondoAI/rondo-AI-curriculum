@@ -478,7 +478,11 @@
   .cock-chart__canvas-wrap{
     display: block;
     height: 380px;
+    flex: 0 0 380px;
     border-bottom: 1px solid var(--c-rule);
+  }
+  .cock-chart__news{
+    flex: 0 0 auto;
   }
   .cock-chart__picker{
     border-bottom: 1px solid var(--c-rule);
@@ -488,7 +492,10 @@
 @media (min-width: 600px) and (max-width: 900px){
   /* Tablet + large-phone landscape — give the chart even more
      vertical room. */
-  .cock-chart__canvas-wrap{ height: 420px; }
+  .cock-chart__canvas-wrap{
+    height: 420px;
+    flex-basis: 420px;
+  }
 }
 @media (min-width: 901px){
   /* PHOENIX SHAPE — per Rondo 2026-05-18 (Phoenix portfolio
