@@ -160,7 +160,38 @@ function generateSeries(subnet){
    bars, 1px hairlines, monospace tabular axis labels), no theming
    fight. Re-draws on resize + on range change via the wireChart
    loop. */
-function drawChart(canvas, series, range){
+/* ---------- editorial annotation events --------------------- */
+/* Coordinated with Mac's terminal CHART mode (commit 6234f0e) —
+   same pattern, same data shape, so a reader switching between
+   /cockpit.html and /terminal.html?mode=chart sees consistent
+   news markers on the chart canvas. amber dot = magazine article
+   published that day, red dot = oracle research published that day.
+   Pulled from ARTICLES + recentOracleArticles by subnet match. */
+function annotationsFor(netuid, subnetName){
+  const out = [];
+  for (const a of ARTICLES){
+    const isThisSubnet =
+      (a.subnet != null && (Number(a.subnet) === netuid ||
+                            String(a.subnet) === String(subnetName)));
+    if (!isThisSubnet || !a.date) continue;
+    const t = Date.parse(a.date + 'T12:00:00Z');
+    if (!Number.isFinite(t)) continue;
+    out.push({ t, kind: 'mag', title: a.title, date: a.date });
+  }
+  for (const a of recentOracleArticles(Infinity)){
+    const matchesSubnet =
+      (a.subnetId === netuid) ||
+      ((a.subnetName || '').toLowerCase() === (subnetName || '').toLowerCase()) ||
+      ((a.title || '').toLowerCase().includes((subnetName || '').toLowerCase()));
+    if (!matchesSubnet || !a.date) continue;
+    const t = Date.parse(a.date + 'T12:00:00Z');
+    if (!Number.isFinite(t)) continue;
+    out.push({ t, kind: 'orc', title: a.title, date: a.date });
+  }
+  return out.sort((x, y) => x.t - y.t);
+}
+
+function drawChart(canvas, series, range, annotations){
   if (!canvas) return;
   const ctx = canvas.getContext('2d');
   const dpr = Math.min(window.devicePixelRatio || 1, 2);
@@ -253,6 +284,46 @@ function drawChart(canvas, series, range){
     const up = i > 0 && slice[i].close >= slice[i-1].close;
     ctx.fillStyle = up ? 'rgba(0,229,168,0.55)' : 'rgba(255,77,109,0.55)';
     ctx.fillRect(x - w/2, y, w, volY1 - y);
+  }
+
+  /* News-flag overlays — Bloomberg-style markers at editorial
+     publish dates that fall inside the visible window. Ported from
+     Mac's terminal CHART mode (commit 6234f0e) so the cockpit and
+     terminal chart surfaces use the same visual language. Amber
+     dots = magazine, red dots = oracle. Stagger lane (0/1/2) when
+     adjacent dates collide within 18px. */
+  if (annotations && annotations.length){
+    const tMin = slice[0].t, tMax = slice[slice.length - 1].t;
+    let lastFlagX = -Infinity;
+    let lane = 0;
+    for (const a of annotations){
+      if (a.t < tMin || a.t > tMax) continue;
+      const f = (a.t - tMin) / (tMax - tMin);
+      const x = PAD_L + f * (W - PAD_L - PAD_R);
+      if (x - lastFlagX < 18) lane = (lane + 1) % 3; else lane = 0;
+      lastFlagX = x;
+      const dotY = priceY0 + 8 + lane * 11;
+      const color = a.kind === 'mag' ? '#FFB85C' : '#FF4D60';
+      // Dashed vertical hairline through the plot
+      ctx.save();
+      ctx.strokeStyle = color;
+      ctx.globalAlpha = 0.40;
+      ctx.setLineDash([2, 3]);
+      ctx.lineWidth = 0.8;
+      ctx.beginPath();
+      ctx.moveTo(x, priceY0);
+      ctx.lineTo(x, priceY1);
+      ctx.stroke();
+      ctx.restore();
+      // Marker dot at top
+      ctx.beginPath();
+      ctx.arc(x, dotY, 3.2, 0, Math.PI * 2);
+      ctx.fillStyle = color;
+      ctx.fill();
+      ctx.strokeStyle = '#050203';
+      ctx.lineWidth = 1.2;
+      ctx.stroke();
+    }
   }
 
   /* Y-axis labels (price) */
@@ -735,7 +806,9 @@ export function mountCockpit(root, dataLayer = null){
   function drawChartNow(){
     const c = qs('[data-chart-canvas]', root);
     const range = RANGES.find(r => r.key === state.range) || RANGES[2];
-    drawChart(c, series, range);
+    const s = subnetById(state.selectedId) || SUBNETS[0];
+    const annotations = annotationsFor(s.netuid, s.name);
+    drawChart(c, series, range, annotations);
   }
 
   /* ---------- wiring --------------------------------------- */

@@ -828,7 +828,28 @@ In addition to gating, every paid feature should have a visible
 on the panel header, or a "PRO · since {month}" line under your
 account chip. Compounding satisfaction = retention.
 
-## Open Feedback Request: Cockpit Chart-Pane Inline Article Column
+## Coordination Log: Cockpit ↔ Terminal CHART Alignment (RESOLVED)
+
+  Mac's reply (2026-05-17 via commit 6234f0e): shipped Bloomberg-
+  style news-flag canvas overlays on the terminal CHART mode —
+  dashed vertical lines + colored dots at editorial publish dates
+  drawn directly on the chart canvas. Didn't directly answer the
+  five questions, went for a complementary visual addition instead.
+
+  Sandbox follow-up (this commit): ported Mac's annotation overlay
+  pattern into the cockpit's drawChart so both surfaces (cockpit
+  + terminal CHART) draw the same news-flag markers from the same
+  source data. Reader switching between /cockpit.html and
+  /terminal.html?mode=chart now sees consistent visual language:
+  amber dot = magazine, red dot = oracle, dashed lines tying flags
+  to the corresponding chart days.
+
+  Coordination pattern that worked: sandbox flags a coordination
+  request in CLAUDE.md, mac ships a related-but-different solution,
+  sandbox folds mac's solution into the sibling surface. Net result:
+  one visual language across two pages.
+
+## Past Feedback Request: Cockpit Chart-Pane Inline Article Column (RESOLVED)
 
 Saved by Rondo's instruction, 2026-05-17: "Also show the other
 Claude and get his feedback to make it better."
