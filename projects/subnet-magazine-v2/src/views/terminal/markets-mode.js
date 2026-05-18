@@ -362,16 +362,19 @@ function template(state){
 
       ${statsStripHtml(state)}
 
-      <div class="term-mkts__scroll" data-markets-scroll>
-        <table class="term-mkts__table">
-          <thead>
-            <tr>${ths}</tr>
-          </thead>
-          <tbody data-markets-tbody>${rowsHtml(state)}</tbody>
-        </table>
-      </div>
+      <details class="term-mkts__fold" open>
+        <summary class="term-mkts__fold-summary">⊕ MARKETS ROSTER · ${total} SUBNETS</summary>
+        <div class="term-mkts__scroll" data-markets-scroll>
+          <table class="term-mkts__table">
+            <thead>
+              <tr>${ths}</tr>
+            </thead>
+            <tbody data-markets-tbody>${rowsHtml(state)}</tbody>
+          </table>
+        </div>
 
-      <div class="term-mkts__cards" data-markets-cards>${cardsHtml(state)}</div>
+        <div class="term-mkts__cards" data-markets-cards>${cardsHtml(state)}</div>
+      </details>
 
       <footer class="term-mkts__foot">
         <span class="term-mkts__meta" data-mkts-meta aria-live="polite" aria-atomic="true">${rowCountText(state)}</span>
