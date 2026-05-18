@@ -172,6 +172,25 @@ function annotationsFor(netuid){
 }
 
 /* ---------- canvas draw (price area + volume bars) --------- */
+/* Simple moving average — O(n) rolling window. Returns an array
+   the same length as `values` with `null` at indices that don't
+   have `window` preceding closes (the first window-1 entries).
+   Computed over the FULL series so the MA at day 0 of the visible
+   slice still uses the real preceding closes — not a partial
+   window approximation that would mislead the reader. */
+function sma(values, window){
+  const out = new Array(values.length).fill(null);
+  if (window <= 0 || values.length < window) return out;
+  let sum = 0;
+  for (let i = 0; i < window; i++) sum += values[i];
+  out[window - 1] = sum / window;
+  for (let i = window; i < values.length; i++){
+    sum += values[i] - values[i - window];
+    out[i] = sum / window;
+  }
+  return out;
+}
+
 function drawChart(canvas, series, range, annotations){
   if (!canvas) return null;
   const ctx = canvas.getContext('2d');
@@ -185,8 +204,19 @@ function drawChart(canvas, series, range, annotations){
   ctx.clearRect(0, 0, W, H);
 
   if (!series || !series.length) return null;
-  const slice = series.slice(Math.max(0, series.length - range.days));
+  const sliceStart = Math.max(0, series.length - range.days);
+  const slice = series.slice(sliceStart);
   if (slice.length < 2) return null;
+
+  /* Compute SMAs over the FULL series, then slice to the visible
+     window. This way MA20 at day 0 of a 30D window still reflects
+     the real preceding 20 closes, not a partial-window approximation
+     that would silently mislead a trader. */
+  const allCloses = series.map(b => b.close);
+  const ma20Full = sma(allCloses, 20);
+  const ma50Full = sma(allCloses, 50);
+  const ma20 = ma20Full.slice(sliceStart);
+  const ma50 = ma50Full.slice(sliceStart);
 
   const PAD_L = 54, PAD_R = 14, PAD_T = 14, PAD_B = 60;
   const VOL_H = 38;
@@ -236,6 +266,34 @@ function drawChart(canvas, series, range, annotations){
   grad.addColorStop(1, isUp ? 'rgba(0,229,168,0.02)' : 'rgba(255,77,109,0.02)');
   ctx.fillStyle = grad;
   ctx.fill();
+
+  /* Moving-average overlays — draw BEFORE the price line so the
+     price stays on top visually. MA20 = solid muted teal hairline
+     (the close-in trend reader), MA50 = dashed amber hairline
+     (the structural trend). Both at 1px + dimmed alpha so they
+     read as supporting context, never overpowering the price.
+
+     drawMA skips index runs where the SMA is null (insufficient
+     history) — beginPath restarts on the first valid index. */
+  const drawMA = (arr, color, dash) => {
+    ctx.save();
+    ctx.strokeStyle = color;
+    ctx.lineWidth = 1;
+    ctx.setLineDash(dash);
+    ctx.lineJoin = 'round';
+    let started = false;
+    for (let i = 0; i < slice.length; i++){
+      const v = arr[i];
+      if (v == null){ started = false; continue; }
+      const x = xAt(i), y = yAt(v);
+      if (!started){ ctx.beginPath(); ctx.moveTo(x, y); started = true; }
+      else ctx.lineTo(x, y);
+    }
+    if (started) ctx.stroke();
+    ctx.restore();
+  };
+  drawMA(ma20, 'rgba(156,230,204,0.55)', []);
+  drawMA(ma50, 'rgba(232,192,103,0.45)', [4, 3]);
 
   // Price line
   ctx.beginPath();
@@ -295,6 +353,23 @@ function drawChart(canvas, series, range, annotations){
   ctx.textAlign = 'left';
   ctx.textBaseline = 'top';
   ctx.fillText(range.label + ' · ' + slice.length + 'd', PAD_L + 4, PAD_T + 4);
+
+  /* MA legend — top-right corner. Two compact chips with a
+     swatch in each MA's color so the reader can decode the
+     overlay without hunting for documentation. */
+  ctx.font = '9px "JetBrains Mono", monospace';
+  ctx.textAlign = 'left';
+  ctx.textBaseline = 'top';
+  const legendY = PAD_T + 4;
+  let legendX = W - PAD_R - 110;
+  ctx.fillStyle = 'rgba(156,230,204,0.85)';
+  ctx.fillRect(legendX, legendY + 4, 10, 1);
+  ctx.fillText('MA20', legendX + 14, legendY);
+  legendX += 56;
+  ctx.fillStyle = 'rgba(232,192,103,0.85)';
+  ctx.fillRect(legendX, legendY + 4, 3, 1);
+  ctx.fillRect(legendX + 5, legendY + 4, 3, 1);
+  ctx.fillText('MA50', legendX + 14, legendY);
 
   // News-flag overlays — Bloomberg-style markers at editorial
   // publish dates that fall inside the visible window. Amber for
@@ -356,7 +431,12 @@ function drawChart(canvas, series, range, annotations){
       const idx = Math.round(f * (slice.length - 1));
       const bar = slice[idx];
       if (!bar) return null;
-      return { idx, bar, x: xAt(idx), y: yAt(bar.close) };
+      return {
+        idx, bar,
+        x: xAt(idx), y: yAt(bar.close),
+        ma20: ma20[idx],
+        ma50: ma50[idx],
+      };
     },
     drawCrosshair(px, py){
       const h = this.hitTest(px, py);
@@ -463,13 +543,20 @@ export function mountChartMode(root, ctx){
     if (tooltipEl){
       const d = new Date(h.bar.t);
       const date = `${['JAN','FEB','MAR','APR','MAY','JUN','JUL','AUG','SEP','OCT','NOV','DEC'][d.getMonth()]} ${d.getDate()} ${String(d.getFullYear()).slice(2)}`;
+      /* MA rows render only when the SMA has enough history at
+         the hovered index — null skips the row so the tooltip
+         doesn't show "MA20 ·" lines that carry no signal. */
+      const maRows =
+        (h.ma20 != null ? `<span class="ct-tt__row ct-tt__row--ma20">MA20 <b>${fmtPrice(h.ma20)}</b></span>` : '') +
+        (h.ma50 != null ? `<span class="ct-tt__row ct-tt__row--ma50">MA50 <b>${fmtPrice(h.ma50)}</b></span>` : '');
       tooltipEl.innerHTML = `
         <span class="ct-tt__date">${date}</span>
         <span class="ct-tt__row">O <b>${fmtPrice(h.bar.open)}</b></span>
         <span class="ct-tt__row">H <b>${fmtPrice(h.bar.high)}</b></span>
         <span class="ct-tt__row">L <b>${fmtPrice(h.bar.low)}</b></span>
         <span class="ct-tt__row">C <b>${fmtPrice(h.bar.close)}</b></span>
-        <span class="ct-tt__row">V <b>${(h.bar.volume/1e3).toFixed(1)}K</b></span>`;
+        <span class="ct-tt__row">V <b>${(h.bar.volume/1e3).toFixed(1)}K</b></span>
+        ${maRows}`;
       tooltipEl.style.display = 'block';
       const cw = canvas.clientWidth || r.width;
       const left = Math.max(8, Math.min(cw - 160, x + 14));
