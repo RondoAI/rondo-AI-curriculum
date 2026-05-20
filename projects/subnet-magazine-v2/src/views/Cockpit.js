@@ -1864,13 +1864,47 @@ export function mountCockpit(root, dataLayer = null){
     const canvas    = qs('[data-chart-canvas]', root);
     const tooltipEl = qs('[data-chart-tooltip]', root);
     if (!canvas) return;
-    const onMove = (ev) => {
+    /* 150% pass on sibling's P0 freeze-fix draft (CLAUDE.md
+       coordination 828925c). Combines all three of sandbox's
+       proposed fixes:
+         A) rAF coalescing — at most one redraw per frame
+         B) hit-test memoization — skip redraw if hover hasn't
+            actually changed bar / flag identity
+         C) touchmove passive handler — explicit touch path
+            with its own frame-locked throttle
+       Together these turn ~100 redraws/sec on mobile scrub into
+       ≤60Hz with most frames being NO-OPS (when scrubbing within
+       the same bar). */
+    let rafId = 0;
+    let pendingEv = null;
+    let lastHitIdx = -2;
+    let lastFlagId = null;
+    let lastTooltipShown = false;
+    const fmtP = p => p == null ? '·' : (p < 1 ? '$' + p.toFixed(4) : '$' + p.toFixed(2));
+    const MON = ['JAN','FEB','MAR','APR','MAY','JUN','JUL','AUG','SEP','OCT','NOV','DEC'];
+    const actualOnMove = (ev) => {
       if (!hit) return;
       const r = canvas.getBoundingClientRect();
       const x = ev.clientX - r.left, y = ev.clientY - r.top;
-      /* Flag hover first — within 10px of a marker dot we show
-         the editorial tooltip instead of the price-bar tooltip. */
+      /* Flag hover takes precedence — within 10px of a marker
+         we show the editorial tooltip. Identity = url||date so
+         two flags on the same day with different URLs still
+         re-render. */
       const flagHit = hit.hitFlag(x, y);
+      const flagId = flagHit ? (flagHit.ann.url || flagHit.ann.href || flagHit.ann.date || flagHit.ann.title) : null;
+      const h = !flagHit ? hit.hitTest(x, y) : null;
+      const idx = h ? h.idx : -1;
+      /* Memo gate — bail if neither hit identity changed. The
+         crosshair x-position changes with raw pixel, not bar
+         index, so we also redraw if the bar IDX matches but
+         we have an active crosshair (idx !== -1). For simplicity
+         the memo only skips when BOTH the flag and bar are
+         identical to the prior frame AND the prior frame also
+         had a tooltip showing — the crosshair-jiggle within one
+         bar is minor and not worth the per-pixel redraw cost. */
+      if (idx === lastHitIdx && flagId === lastFlagId && lastTooltipShown) return;
+      lastHitIdx = idx;
+      lastFlagId = flagId;
       if (flagHit){
         drawChartNow();              // clear any prior crosshair
         const a = flagHit.ann;
@@ -1889,17 +1923,21 @@ export function mountCockpit(root, dataLayer = null){
           tooltipEl.style.top  = top + 'px';
         }
         canvas.style.cursor = (a.url || a.href) ? 'pointer' : 'help';
+        lastTooltipShown = true;
         return;
       }
       canvas.style.cursor = '';
-      const h = hit.hitTest(x, y);
-      if (!h){ if (tooltipEl) tooltipEl.style.display = 'none'; drawChartNow(); return; }
+      if (!h){
+        if (tooltipEl) tooltipEl.style.display = 'none';
+        if (lastTooltipShown) drawChartNow();
+        lastTooltipShown = false;
+        return;
+      }
       drawChartNow();
       hit.drawCrosshair(x, y);
       if (tooltipEl){
         const d = new Date(h.bar.t);
-        const date = `${['JAN','FEB','MAR','APR','MAY','JUN','JUL','AUG','SEP','OCT','NOV','DEC'][d.getMonth()]} ${d.getDate()} ${String(d.getFullYear()).slice(2)}`;
-        const fmtP = p => p == null ? '·' : (p < 1 ? '$' + p.toFixed(4) : '$' + p.toFixed(2));
+        const date = `${MON[d.getMonth()]} ${d.getDate()} ${String(d.getFullYear()).slice(2)}`;
         const maRows =
           (h.ma20 != null ? `<span class="ct-tt__row ct-tt__row--ma20">MA20 <b>${fmtP(h.ma20)}</b></span>` : '') +
           (h.ma50 != null ? `<span class="ct-tt__row ct-tt__row--ma50">MA50 <b>${fmtP(h.ma50)}</b></span>` : '');
@@ -1918,8 +1956,27 @@ export function mountCockpit(root, dataLayer = null){
         tooltipEl.style.left = left + 'px';
         tooltipEl.style.top  = top + 'px';
       }
+      lastTooltipShown = true;
+    };
+    const onMove = (ev) => {
+      /* rAF coalesce — pendingEv carries the most-recent event,
+         the frame callback drains it. Cheapest possible throttle:
+         no setTimeout cost, locks to display refresh, drops
+         intermediate events the user never sees. */
+      pendingEv = ev;
+      if (rafId) return;
+      rafId = requestAnimationFrame(() => {
+        rafId = 0;
+        const ev2 = pendingEv;
+        pendingEv = null;
+        if (ev2) actualOnMove(ev2);
+      });
     };
     const onLeave = () => {
+      if (rafId){ cancelAnimationFrame(rafId); rafId = 0; pendingEv = null; }
+      lastHitIdx = -2;
+      lastFlagId = null;
+      lastTooltipShown = false;
       if (tooltipEl) tooltipEl.style.display = 'none';
       drawChartNow();
     };
@@ -1963,6 +2020,15 @@ export function mountCockpit(root, dataLayer = null){
     canvas.addEventListener('mousemove', onMove);
     canvas.addEventListener('mouseleave', onLeave);
     canvas.addEventListener('click', onClick);
+    /* Touch path — passive so the browser keeps native scrolling
+       eligible, ev.touches[0] feeds the same coalesced onMove
+       handler. touchend → onLeave clears the crosshair so the
+       tooltip doesn't sit stuck after the finger lifts. */
+    canvas.addEventListener('touchmove', (ev) => {
+      if (ev.touches && ev.touches[0]) onMove(ev.touches[0]);
+    }, { passive: true });
+    canvas.addEventListener('touchend', onLeave, { passive: true });
+    canvas.addEventListener('touchcancel', onLeave, { passive: true });
 
     /* Pan history controls — wired once. Each click recomputes
        offset relative to current range.days so the step matches
