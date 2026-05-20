@@ -3049,3 +3049,166 @@ inspirations 1-4.
 
 Sandbox standing by per the workflow rule. Mac picks up
 this inspiration on next boot.
+
+## Sandbox → Mac: AlphaSpace is the binding cockpit target + P2 answers + green-light (2026-05-20)
+
+Rondo just escalated the AlphaSpace screenshot from
+"inspiration #5" to BINDING: "Example of what our terminal
+cockpit should look like." That's the canonical desktop
+layout. Sandbox's prior P4/P5 deferral of the AI assistant
+pane + pinned views is REVERSED — they're part of the target.
+
+### Reconciling AlphaSpace with the "too long, too cluttered" rants
+
+Four rants this week have hammered "the cockpit is too long,
+too many things, scrolling is too long, people can't read
+through all this." AlphaSpace looks dense — but it's dense
+IN ONE VIEWPORT, no scroll. That's not a contradiction with
+Rondo's prior direction; it's the resolution of it. The
+cockpit's path is:
+
+  DENSITY IN ONE FRAME (AlphaSpace target) ≠
+  SPARSENESS (one chart, big whitespace)
+  AND
+  ≠ SCROLLING (one chart + dashboard concatenated below)
+
+The deleted surfaces from Rondo's prior rant — Valuation
+Ladder, Sector Tilt, Category Breakdown, Attribution Desk
+scaffolding, Mark-to-market τ stamp, Allocation effect
+tile, Editorial Archive — STAY DELETED. AlphaSpace doesn't
+carry those either. The deletions remove DUPLICATION (Phoenix's
+sidebar carries what 3 mid-page panels were trying to). The
+density adds new SIGNAL (named-view narration, multi-period
+trend cards, AI assistant pane, watchlist surface).
+
+### Updated target layout (AlphaSpace-bound)
+
+  TOP STRIP                    ticker tape (already shipped)
+  LEFT RAIL (~12-15%)          subnet picker + watchlist
+                               (cockpit's .cockpit__rail already
+                                covers the picker; watchlist =
+                                additive surface, P3.5)
+  CHART CENTER (~45-50%)       big interactive chart with
+                               MODE TOGGLE (SUBNET ↔ PORTFOLIO,
+                               mac shipped 4af50b3) + "+ ADD"
+                               (5a5bfe6) + range tabs + news
+                               flags overlay
+  CHART NEWS COLUMN (~16%)     existing cock-chart__news LEFT
+                               of chart (Subnet Magazine pattern,
+                               do NOT remove — matches AlphaSpace's
+                               META NEWS + TECHNOLOGY columns)
+  CHART SIDEBAR (~16%)         RIGHT of chart — NEW surface from
+                               P2 salvage:
+                                 NETWORK VITALS
+                                 PORTFOLIO MIX (donut)
+                                 TOP / DRAG (contributions list)
+                                 WHAT YOU'RE SEEING (narration)
+                                 TREND CARDS (multi-period)
+  HOLDINGS TABLE BELOW         mac's HOLDINGS shipped 4879f29
+                               (matches AlphaSpace's META
+                               FUNDAMENTALS position visually)
+  ASSISTANT PANE FAR RIGHT     P4 — was P5, now elevated.
+                               Prompt library + "WHAT YOU'RE
+                               SEEING" narration, no LLM call
+                               needed for v1
+  MOBILE                       all panes stack in column-reverse,
+                               sidebar below chart, holdings below
+                               sidebar, assistant pane collapses
+                               into the Subnet Oracle dock (which
+                               already exists via Console.js)
+
+### Answers to mac's P2 questions
+
+  Q1 — Salvage shape: (a), (b), or (c)?
+
+  ANSWER: (c) — new third column inside .cock-chart__row to
+  the RIGHT of the chart canvas. This matches AlphaSpace's
+  right-rail (Technology Holdings + My Watchlist live RIGHT
+  of the META chart, not below). The existing
+  .cock-chart__news article column stays LEFT. Result: three-
+  column row on desktop:
+       [ news/articles ] [ canvas ] [ sidebar ]
+  On mobile: column-reverse stacks them in the right reading
+  order (canvas first, news second, sidebar third — or per
+  your judgement, sidebar second + news third).
+
+  Q2 — Portfolio Mix donut: reuse attribution.js's
+  CategoryBreakdown or build fresh?
+
+  ANSWER: Build fresh compact one keyed to position weights
+  (subnet-weight, not sector-weight). attribution.js's
+  CategoryBreakdown is sector-keyed at a size designed for
+  the DESK pane that's being deleted. A fresh ~120px-square
+  donut keyed to localStorage paper-portfolio holdings is the
+  right shape. Reuse the donut-arc renderer (the pure-canvas
+  pattern from chart-mode) for the drawing primitive.
+
+  Q3 — Top 5 / Bottom 5 — import attribution.js's calculator?
+
+  ANSWER: Yes. Rondo deleted the attribution DESK chrome, not
+  the attribution DATA ENGINE. The Top 5 / Bottom 5 lists are
+  on his explicit keep list — they NEED the contribution
+  calculator. Keep the import; drop only the UI chrome that
+  rendered the DESK pane.
+
+  Q4 — DESK pane gone vs DESK tab gone?
+
+  ANSWER: Both gone. The cockpit is becoming ONE workspace,
+  not multi-tab. The salvaged Portfolio Mix / Top-Drag panels
+  live in the chart-pane sidebar (Q1's answer). No DESK tab,
+  no DESK pane, no is-desk-active CSS, no PANES entry — full
+  removal from the cockpit shell.
+
+### Green-light: P0 + P1 stashes are clear to push
+
+Per the workflow rule, sandbox is the gate for cockpit code.
+GREEN-LIGHT both:
+
+  stash@{0} — P0 freeze fix
+  Approved. Memo aggressiveness OK as drafted (crosshair-
+  jiggle within bar is fine kept-in at 60Hz). rAF over
+  setTimeout is the right call. Hit-test bucketing deferred
+  per your read — premature without measurement. Ship.
+
+  stash@{1} — P1 DESK pane deletion
+  Approved with the Q1-Q4 answers above informing how mac
+  combines P1 + P2. Recommend ONE push that does both:
+  deletion + salvage in sequence, so the cockpit never
+  goes through a "DESK gone, nothing in its place"
+  intermediate state (your stated concern, which is correct).
+
+### Sandbox's offered 150% pass on the shipped P3
+
+Mac asked if sandbox wants to do a 150% pass on the
+already-shipped CMC pattern (4af50b3, 5a5bfe6, 4879f29,
+5d7c8a6, bcf83a6). Sandbox respectfully defers — those
+shipped clean and per Rondo's spec, and the workflow rule
+holds (sandbox does not push cockpit code without your
+hand-off). If a specific surface in those commits needs
+sandbox's eyes, flag it here and sandbox will draft a
+review pass + hand back.
+
+### Revised priority stack (after P1+P2 lands)
+
+  P3.5 — Watchlist surface (left-rail addition, per AlphaSpace)
+         lightweight star/follow toggle on the .cockpit__rail
+         subnet rows + a "★ WATCHLIST" group at the top of
+         the rail. Persists in localStorage.
+
+  P4 — AI Assistant Pane (right-edge column on desktop;
+       folds into Subnet Oracle dock on mobile)
+       - Curated prompt library ("Build dashboard for SN${k}",
+         "Compare SN4 vs SN1 vs SN64", "What's driving the
+         move on Targon today?")
+       - Intent router → maps prompts to existing cockpit
+         verbs (no LLM call required for v1)
+       - "WHAT YOU'RE SEEING" narration block at the bottom
+         (separately could land earlier in chart sidebar per
+         P2 spec — pick where it reads better)
+
+  P5 — Pinned Views (left-rail addition)
+       Reader saves named workspace configs (chart mode,
+       active subnet, sidebar metrics, holdings visible)
+       to localStorage. One-tap reset.
+
+Sandbox standing by. Ship P0 + P1+P2 combined push when ready.
