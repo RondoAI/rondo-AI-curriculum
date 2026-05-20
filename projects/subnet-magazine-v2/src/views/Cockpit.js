@@ -40,8 +40,13 @@ import { generateSeries, sma, SERIES_DAYS } from '../lib/synthetic-series.js';
    paper portfolio + Brinson-Fachler attribution surface the
    dashboard's DESK section shipped, so the chart + the reader's
    book live on one page. */
-import { renderPaperPortfolio, wirePaperPortfolio } from './dashboard/paper-portfolio.js';
-import { renderAttribution,    wireAttribution,    defaultAttribState } from './dashboard/attribution.js';
+/* DESK pane removed from cockpit 2026-05-18 per Rondo
+   "we don't need two paper charts only one" + sibling
+   coordination 828925c ("we shouldn't have two paper monies").
+   The renderPaperPortfolio + renderAttribution imports stay live
+   on the dashboard standalone page; the cockpit's paper-money
+   surface is now the chart-mode toggle (SUBNET ↔ PORTFOLIO) +
+   "+" ADD POSITION sheet + HOLDINGS table — one chart, not two. */
 /* Right-rail QUICK ACTION block per sibling's coordination ref #3
    (institutional trading terminal — "right-rail action block with
    big primary button"). Direct buy/sell of the currently-charted
@@ -67,8 +72,6 @@ const SUBNET_LOGOS = {
 };
 const FALLBACK_LOGO = 'assets/bittensor-mark.png';
 
-const deskAttribState = defaultAttribState();
-
 const WATCHLIST_KEY = 'sbn:dashboard:watchlist:v1';
 const COCKPIT_KEY   = 'sbn:cockpit:v1';
 
@@ -92,13 +95,9 @@ const RANGES = [
 const PANES = [
   { key: 'subnets', label: 'SUBNETS' },
   { key: 'chart',   label: 'CHART'   },
-  /* DESK pane added 2026-05-18 per Rondo "merge dashboard and
-     cockpit." Mounts the same renderPaperPortfolio +
-     renderAttribution that the dashboard surfaces. One page,
-     three workflows: pick a subnet (rail) → study its chart
-     (chart) → measure your book (desk). */
-  { key: 'desk',    label: 'DESK'    },
   { key: 'feed',    label: 'FEED'    },
+  /* DESK pane removed 2026-05-18 — paper money is the chart's
+     PORTFOLIO mode toggle now, not a separate pane. */
 ];
 
 /* ---------- formatters --------------------------------------- */
@@ -499,7 +498,9 @@ export function mountCockpit(root, dataLayer = null){
      If a returning reader has state.pane saved as one of those,
      normalize to 'chart' so they don't land on an unreachable
      pane with no toggle back. */
-  if (state.pane !== 'chart' && state.pane !== 'desk') state.pane = 'chart';
+  /* DESK pane removed 2026-05-18; chart is the only pane.
+     Returning readers parked on 'desk' get normalized to 'chart'. */
+  if (state.pane !== 'chart') state.pane = 'chart';
   let watchlist  = loadWatchlist();
   let series     = generateSeries(subnetById(state.selectedId) || SUBNETS[0]);
   let searchQ    = '';
@@ -549,9 +550,10 @@ export function mountCockpit(root, dataLayer = null){
         <section class="cockpit__main" data-pane="chart">
           ${renderMain()}
         </section>
-        <section class="cockpit__desk" data-pane="desk">
-          ${renderDesk()}
-        </section>
+        <!-- DESK pane removed 2026-05-18 — paper money is the
+             main chart's PORTFOLIO mode + the HOLDINGS table
+             below it. No more redundant DESK surface. -->
+
         <aside class="cockpit__feed" data-pane="feed">
           ${renderFeed()}
         </aside>
@@ -567,25 +569,11 @@ export function mountCockpit(root, dataLayer = null){
     </section>
   `);
 
-  /* DESK pane wiring — paper portfolio + Brinson-Fachler
-     attribution mounted directly inside the cockpit. Same pattern
-     terminal/desk-mode.js uses; here the desk lives on the same
-     page as the chart so the reader's book + the active subnet
-     can be studied together. Repaints both panes on every paper
-     mutation so attribution's PAPER preset stays consistent. */
-  function repaintDesk(){
-    const dp = qs('[data-cockpit-desk-paper]', root);
-    const da = qs('[data-cockpit-desk-attrib]', root);
-    if (dp) dp.innerHTML = renderPaperPortfolio();
-    if (da) da.innerHTML = renderAttribution(deskAttribState);
-    wirePaperPortfolio(root, repaintDesk);
-    wireAttribution(root, deskAttribState, () => wireAttribution(root, deskAttribState, () => {}));
-  }
-  wirePaperPortfolio(root, repaintDesk);
-  wireAttribution(root, deskAttribState, () => wireAttribution(root, deskAttribState, () => {}));
-  /* Right-rail action block — wire click handlers. Mutations
-     also call repaintDesk so the full DESK pane (paper portfolio
-     + attribution) stays in sync. */
+  /* DESK pane gone 2026-05-18 — repaintDesk / renderDesk /
+     deskAttribState / wirePaperPortfolio / wireAttribution all
+     removed. Paper portfolio + attribution still live on
+     dashboard.html via the same modules; cockpit's paper-money
+     surface is the chart-mode toggle. */
   wireAction();
 
   setActivePane(state.pane);
@@ -606,7 +594,6 @@ export function mountCockpit(root, dataLayer = null){
     return `
       <nav class="cockpit-tabs" aria-label="Cockpit view">
         <button type="button" class="cockpit-tabs__btn" data-pane-btn="chart">CHART</button>
-        <button type="button" class="cockpit-tabs__btn" data-pane-btn="desk">DESK</button>
         <a class="cockpit-tabs__markets" href="markets.html" aria-label="Open markets page">⊕ MARKETS ↗</a>
       </nav>`;
   }
@@ -1202,30 +1189,9 @@ export function mountCockpit(root, dataLayer = null){
      desk-mode.js uses; lifted into cockpit so the chart + the
      reader's positions live on one page. Per Rondo "merge
      dashboard and cockpit." */
-  function renderDesk(){
-    return `
-      <div class="cockpit-desk">
-        <header class="cockpit-desk__head">
-          <span class="cockpit-desk__eyebrow">⊕ DESK · positions + analytics</span>
-          <h2 class="cockpit-desk__h">Your book. Measured.</h2>
-          <p class="cockpit-desk__sub">
-            Paper portfolio above — buy any subnet α at the live mark, P&amp;L vs cost.
-            Brinson-Fachler attribution below decomposes YOUR returns into sector tilt
-            (allocation) + within-sector picking skill (selection). One workflow:
-            hold &rarr; measure.
-          </p>
-        </header>
-        <div class="cockpit-desk__paper" data-cockpit-desk-paper>
-          ${renderPaperPortfolio()}
-        </div>
-        <div class="cockpit-desk__divider" aria-hidden="true">
-          <span class="cockpit-desk__divider-lbl">↓ ANALYTICS ON YOUR BOOK</span>
-        </div>
-        <div class="cockpit-desk__attrib" data-cockpit-desk-attrib>
-          ${renderAttribution(deskAttribState)}
-        </div>
-      </div>`;
-  }
+  /* renderDesk removed 2026-05-18 — DESK pane is gone, paper
+     portfolio lives in the chart-mode PORTFOLIO toggle, full
+     attribution still on dashboard.html. */
 
   /* ---- right-rail QUICK ACTION block ----
      Buy/sell the currently-charted subnet without leaving the
@@ -1443,10 +1409,10 @@ export function mountCockpit(root, dataLayer = null){
         if (next === cur) return;
         savePaperState(next);
         repaintAction();
-        /* Mutations flow to the DESK pane + dashboard MY DESK fold
-           via the shared paper-portfolio store; trigger their
-           repaints too. */
-        if (typeof repaintDesk === 'function') repaintDesk();
+        /* Mutations propagate via the shared paper-portfolio
+           store — dashboard.html's MY DESK fold + this cockpit's
+           HOLDINGS table both re-read on next render. */
+        repaintMain();
       });
     }
   }

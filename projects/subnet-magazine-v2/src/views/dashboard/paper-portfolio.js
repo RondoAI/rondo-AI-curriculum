@@ -379,15 +379,14 @@ export function renderPaperPortfolio(){
 
       ${positionsHtml}
 
-      ${annotated.length ? `
-        <div class="paper-chart-panel">
-          <div class="paper-chart-panel__head">
-            <span class="paper-chart-panel__lbl">PORTFOLIO VALUE · 30D</span>
-            <span class="paper-chart-panel__meta">approximate · upgrades to live mark-to-market with TaoStats wiring</span>
-          </div>
-          <div class="paper-spark">${sparkHtml}</div>
-        </div>
-      ` : ''}
+      <!-- PORTFOLIO VALUE · 30D sparkline removed 2026-05-18
+           per Rondo "we dont need two paper charts only one." The
+           cockpit's main chart pane now carries a SUBNET ↔
+           PORTFOLIO mode toggle that swaps the aggregate paper
+           portfolio value series into the same canvas as the
+           subnet α-price chart. One chart, two modes — no
+           duplicate sparkline in the DESK pane. -->
+
 
       <div class="paper-tilt-panel">
         <div class="paper-tilt-panel__head">
