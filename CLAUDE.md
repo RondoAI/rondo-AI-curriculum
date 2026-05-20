@@ -2875,3 +2875,177 @@ the only block.
     no "DESK gone, nothing in its place" intermediate state).
 
 Mac standing by.
+## Coordination Ask: AlphaSpace inspiration reference #5 — AI assistant pane + named-view narration (sandbox-session, for mac)
+
+Rondo's instruction, 2026-05-20: "Show this to your brother."
+Fifth institutional inspiration alongside the Phoenix portfolio,
+taostats subnet, trading-terminal multipane, and CoinMarketCap
+portfolio-swap references already saved to docs/inspiration/.
+
+Saved to:
+  projects/subnet-magazine-v2/docs/inspiration/alphaspace-meta-analysis-terminal.jpg
+
+### What AlphaSpace shows (the Meta Analysis view, single workspace)
+
+A dense Yahoo-Finance-meets-Bloomberg terminal centered on a
+single ticker (META) with 7 functional zones in one viewport,
+no scroll. This is the next-level evolution of the patterns in
+inspirations 1-4.
+
+  TOP STRIP (full width):
+    - Multi-ticker tape (INTC, NVDA, AMD, QRGD, MSFT, AAPL,
+      HBNB, TSLA, FRMI, AAL, ASTD, IRBT, JLY, UGAR, XOM, ...)
+    - Each chip: ticker · price · ±delta — compact mono
+    - Already mirrors the subnet magazine's existing ticker tape
+
+  LEFT RAIL (~12%):
+    - VIEWS hierarchy: sector categories (Banks & Credit, Macro,
+      Crypto, Sector Relative, Earnings Season, Semiconductors,
+      AI Software, Energy, Gold & Metals, Emerging Markets,
+      Consumer Health, Consumer Staples, E-Commerce, Digital Media)
+    - Pinned views below: Meta Technical, New View, Premium News,
+      Meta Analysis, New Analysis, Meta Technical, Tech Dashboard
+    - The reader has CURATED their own dashboard set —
+      personalization as a first-class navigation primitive
+
+  MAIN GRID (~70%, multi-pane mosaic):
+    META OVERVIEW       Nasdaq listing · realtime price 677.85 ·
+                        intraday line + log toggle · previous
+                        close · open · day range
+    META NEWS           3 article cards (Insider Monkey + Motley
+                        Fool sources, dated, with publisher chips)
+    TECHNOLOGY          2 article cards (Qualcomm dispatches)
+    BIG META CHART      Center — large technical chart with
+                        candles + volume bars, takes the dominant
+                        share of the visual weight
+    META FUNDAMENTALS   Bottom — Enterprise Value, EV/EBITDA,
+                        EV/Revenue, Forward P/E, Market Cap, PEG
+                        Ratio, Price/Book, Price/Sales — column
+                        of metrics with multi-period values
+                        (CURRENT/TTM · 12/31/2024 · 12/31/2023)
+
+  RIGHT RAIL (~18%):
+    TECHNOLOGY HOLDINGS  list of names (MSFT, NFLX, AAPL, MSFT)
+                         each with sparkline + price + delta
+    MY WATCHLIST         AMZN row with sparkline + price + delta
+
+  ASK YAHOO SCOUT (~18%, far right):
+    - AI chat assistant with a curated PROMPT LIBRARY:
+        "Build me a dashboard for NVDA — I'll compose a full
+         view with chart, stats, and news"
+        "Add RSI and MACD to the chart — I'll modify the
+         existing chart panel"
+        "Compare META vs GOOGL vs SNAP — I'll set up a
+         comparison chart"
+        "What's driving the move to Tesla today? — I'll
+         pull news and give you an analytical read"
+        "Show me my portfolio — I'll surface your holdings
+         with P&L"
+        "Switch the ticker strip to crypto — done instantly"
+    - CURRENT VIEW narration block at the bottom:
+        "You're in Meta Analysis — larger, which has:
+           - equity tickers card and news feed for META in
+             the top left
+           - 6-day SPY mountain chart in the center (for
+             macro context)
+           - your portfolio panels on the right
+           - Key statistics below the chart
+           - a tech news feed in the lower left
+         What would you like to explore first?"
+    - Chat input at the bottom: "Ask Yahoo Scout..."
+
+### Patterns worth stealing for the subnet magazine
+
+  1. AI ASSISTANT PANE with curated prompt library
+     Pattern: a permanent right-edge column that gives readers
+     pre-baked prompts to drive the rest of the workspace.
+     "Build me a dashboard for SN${k}" / "Compare SN4 vs SN1 vs
+     SN64" / "What's driving the move on Targon today?" — the
+     reader doesn't have to type from scratch.
+     Implementation tip: prompts are static text + a tiny
+     intent router that maps to existing cockpit verbs (open
+     subnet, add to watchlist, swap chart mode, fetch news).
+     No LLM call required for v1 — just routing.
+     Where this lands in our cockpit: NEXT TO or BELOW the
+     "Subnet Oracle" dock (Console.js already provides the
+     onboarding-question pattern; this is the contextual
+     workspace-driver evolution).
+
+  2. NAMED-VIEW NARRATION ("You're in Meta Analysis...")
+     Pattern: at the bottom of the assistant pane, a plain-
+     language description of WHAT THE READER IS LOOKING AT.
+     Orients first-time visitors, anchors returning ones.
+     Implementation tip: trivial — a small data structure
+     keyed on view ID, rendered as a paragraph + a "What
+     would you like to explore first?" cue.
+     Where this lands in our cockpit: a small "WHAT YOU'RE
+     SEEING" block at the bottom of the chart-pane sidebar
+     (per the chart-sidebar spec already drafted), keyed to
+     the current MODE (SUBNET / PORTFOLIO / etc.).
+
+  3. PINNED VIEWS in the LEFT RAIL (personalization primitive)
+     Pattern: the reader saves CURATED dashboard configurations
+     ("Meta Analysis", "Tech Dashboard", "Premium News") in a
+     persistent left-rail list. One tap = full workspace reset
+     to that view's exact panel layout.
+     Implementation tip: per-view config in localStorage —
+     active subnet, chart range, sidebar metrics, holdings
+     visible, etc. Save/load via a "PIN THIS VIEW" affordance.
+     Where this lands in our cockpit: a future enhancement
+     once the cockpit's single-view canonical layout is
+     stable. Defer until P3 (CMC pattern) is shipped — adding
+     pinning before the canonical view exists is premature.
+
+  4. PROMINENT INTRADAY OVERVIEW CARD
+     Pattern: the leftmost-top card carries the realtime price,
+     intraday sparkline, prev close, open, range — a "vital
+     signs" surface compressed into one card.
+     Implementation tip: already largely covered by mac's
+     existing chart-pane header + price-block. Could compress
+     further into a sidebar card if the chart-pane header
+     becomes the mode toggle (per CMC pattern).
+
+  5. MULTI-PERIOD FUNDAMENTALS TABLE
+     Pattern: bottom of the main grid — a fundamentals table
+     with the same metric shown across THREE columns:
+     CURRENT/TTM · 12/31/2024 · 12/31/2023. The reader sees
+     trend without a chart.
+     Implementation tip: subnet equivalents — emission τ/d,
+     stake %, validator count, miner count — shown as
+     CURRENT · 30D-AGO · 90D-AGO. Compact, dense, one row
+     per metric.
+     Where this lands in our cockpit: could be the BOTTOM
+     of the chart sidebar (below NETWORK VITALS), OR the
+     ATTRIBUTES block of the per-subnet drilldown view (a
+     separate mode — defer).
+
+### How this lifts the existing spec
+
+  The chart-pane sidebar drafted in the "ONE BEAUTIFUL
+  INTERACTIVE CHART" coordination ask becomes ricer:
+
+    NETWORK VITALS        (existing draft)
+    PORTFOLIO MIX donut   (existing salvage)
+    TOP / DRAG list       (existing salvage)
+    + WHAT YOU'RE SEEING  (named-view narration — new from #2)
+    + TREND CARDS         (multi-period fundamentals — new from #5)
+
+  And the right-most ASSISTANT PANE becomes a future surface
+  that complements rather than competes with the chart sidebar —
+  the chart sidebar is DATA, the assistant pane is CONTROL.
+
+### Mac's order remains the same
+
+  P0 freeze fix → P1 DESK pane deletion → P2 chart sidebar
+  (now richer per the patterns above) → P3 CMC pattern.
+
+  The AI ASSISTANT PANE + PINNED VIEWS are a P4/P5 layer
+  once the canonical single-view cockpit is stable. Don't
+  add them now — adding more chrome before the deletion +
+  consolidation pass is contrary to Rondo's "too many
+  things going on, scrolling is too long" mandate. They
+  go in only AFTER the cockpit is reduced to chart + sidebar
+  + holdings table.
+
+Sandbox standing by per the workflow rule. Mac picks up
+this inspiration on next boot.
