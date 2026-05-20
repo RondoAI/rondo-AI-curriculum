@@ -3212,3 +3212,99 @@ review pass + hand back.
        to localStorage. One-tap reset.
 
 Sandbox standing by. Ship P0 + P1+P2 combined push when ready.
+
+## URGENT BUG REPORT: Cockpit chart pane blank on Rondo's phone (OPEN — for mac-session)
+
+Rondo, 2026-05-20: "Let your sibling know that this is all I see on
+the page blank." Screenshot attached and committed to:
+
+  projects/subnet-magazine-v2/docs/inspiration/2026-05-20-cockpit-blank-bug.jpg
+
+### What Rondo sees
+
+  - Top nav: 001 MAGAZINE · 010 ORACLE · 037 COCKPIT (highlighted) ✓
+  - Ticker tape (Central Desk, TSM $198.40 etc) ✓
+  - Status strip (LIVE · BLK 8,209,000 · EMIT 3,600 τ/d · STAKED 66.8%) ✓
+  - Masthead (Subneτ Magazine hero, date, @subnetmagazine) ✓
+  - cockpit-tabs row: CHART · ⊕ MARKETS ↗ (DESK button NOT visible
+    in the screenshot — either offscreen-right or removed by a
+    push mac shipped that I haven't seen) ✓
+  - LARGE BLANK AREA below cockpit-tabs (the entire chart pane
+    body is invisible) ✗ ← the bug
+  - Subnet Oracle dock at the bottom ✓
+
+So the cockpit SHELL renders (masthead + cockpit-tabs visible),
+but `cockpit__main` pane content (chart header + canvas + range
+tabs + KPIs + holdings table + dashboard footer link) is blank.
+
+### Most likely diagnosis
+
+On mobile, `.cockpit__main` is `display: none` by default
+(style/components/cockpit.css:119-127), and only flips to
+`display: flex` when it has the `is-active` class
+(cockpit.css:130). The `is-active` class is added by
+`setActivePane(state.pane)` at Cockpit.js:591.
+
+If any code between `mount()` at line 542 and `setActivePane()`
+at line 591 throws, the cockpit shell renders (cockpit-tabs
+visible from inside the mount template) but `setActivePane`
+never runs and `cockpit__main` stays `display: none` →
+exactly the blank-below-tabs symptom Rondo is seeing.
+
+The lines that could throw between mount and setActivePane:
+  line 580   if (da) da.innerHTML = renderAttribution(deskAttribState);
+  line 581   wirePaperPortfolio(root, repaintDesk);
+  line 582   wireAttribution(root, deskAttribState, () => wireAttribution(root, deskAttribState, () => {}));
+  line 584   wirePaperPortfolio(root, repaintDesk);    ← called AGAIN, second invocation
+  line 585   wireAttribution(root, deskAttribState, () => wireAttribution(root, deskAttribState, () => {}));  ← called AGAIN
+  line 589   wireAction();
+
+Lines 584-585 are duplicate invocations of lines 581-582 — the
+second invocation should be a no-op (wirePaperPortfolio guards
+`if (!sec) return;` per paper-portfolio.js:421), but if anything
+in either wire function double-binds a listener that throws on
+re-bind, the whole chain stops.
+
+ALTERNATIVELY: Rondo's persisted `state.pane` in localStorage is
+something unexpected. The normalization at line 502 covers
+'subnets' / 'feed' but if a returning reader has 'action' (from
+the right-rail action pane mac added) the normalization to
+'chart' is correct. But if it's still 'desk' from a previous
+session, setActivePane('desk') would activate the cockpit__desk
+pane, not the chart pane. Rondo would see DESK content, not
+blank. So that's NOT the diagnosis.
+
+### Proposed fix (mac to refine + push)
+
+Three things to investigate in order:
+
+  1. WRAP the wire calls (lines 581-589) in a try/catch with
+     console.error logging so a wire-side exception doesn't
+     block setActivePane. The setActivePane call should be the
+     FIRST thing after mount() succeeds, not the LAST. Move it
+     up to line 569 (immediately after mount) so it runs
+     unconditionally on every cockpit mount.
+
+  2. REMOVE the duplicate wirePaperPortfolio + wireAttribution
+     calls at lines 584-585. The pattern of calling the same
+     wire function twice with a closure-recursive callback is
+     suspicious; if it ever throws on the second call, it
+     blocks setActivePane. The repaintDesk function already
+     calls wirePaperPortfolio and wireAttribution itself —
+     so the initial double-call may be redundant.
+
+  3. ADD a defensive fallback in setActivePane: if no pane has
+     `.is-active` after the qsa toggle pass, force-add
+     `is-active` to `[data-pane="chart"]`. That way even if
+     state corruption sends `key` to an unknown value, the
+     reader always sees the chart pane.
+
+### Cache-bust note
+
+cockpit.html cache-bust is still at `?v=20260521a` (sandbox's
+8433297 commit). Mac's next push should bump it to `?v=20260521c`
+(b is used by sandbox's research.html + index.html in commit
+e624c18) so Rondo's phone fetches the fixed code on next refresh.
+
+Sandbox is NOT pushing this fix per the workflow rule (cockpit
+code goes through mac). Mac to triage + refine + ship.
