@@ -1638,20 +1638,24 @@
   color: var(--c-ink-3);
 }
 
-/* Side column has the article reading surface — give it real
-   width on desktop. v3 ran 300-320px minimums, which forced the
-   17-19 char headlines to wrap awkwardly. v4 reserves at least
-   340px on standard desktop and 360px on wide so a 8-10 word
-   headline lays out in 2 lines at the new 17px scale. Chart
-   still wins the remaining 62%+ for "beautiful chart" duty. */
+/* Chart-row column proportions for desktop sizes — UPDATED for
+   the 2026-05-20 CMC restructure (commit a43209a). The earlier
+   rules here put the article column on the LEFT (narrow, 32-36%)
+   and the chart on the RIGHT (wide, 1fr). The new cockpit layout
+   flips that: canvas on the LEFT (centerpiece, wide), market
+   sidebar on the RIGHT (narrow, fixed-ish 32-36%). Same min-
+   widths as before so the sidebar still has room for the vital
+   labels + mover names without wrapping. Higher specificity +
+   !important kept from the prior rules so any third-party / dev-
+   tools experiments don't silently fight us. */
 @media (min-width: 901px){
-  .cockpit .cock-chart__row{ grid-template-columns: minmax(340px, 36%) 1fr !important; }
+  .cockpit .cock-chart__row{ grid-template-columns: 1fr minmax(340px, 36%) !important; }
 }
 @media (min-width: 1280px){
-  .cockpit .cock-chart__row{ grid-template-columns: minmax(360px, 32%) 1fr !important; }
+  .cockpit .cock-chart__row{ grid-template-columns: 1fr minmax(360px, 32%) !important; }
 }
 @media (min-width: 1600px){
-  .cockpit .cock-chart__row{ grid-template-columns: 400px 1fr !important; }
+  .cockpit .cock-chart__row{ grid-template-columns: 1fr 400px !important; }
 }
 
 /* =================================================================
