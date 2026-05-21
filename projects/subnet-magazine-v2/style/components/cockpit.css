@@ -3963,6 +3963,119 @@
 .cock-fold-brief__read:active{ transform: scale(0.97); }
 
 /* ---- MARKETS ROSTER fold body ---------------------------- */
+/* Filter chip row above the table — ALL + per-category + the
+   watchlist toggle. Tight monospace pills, active chip is
+   filled red so the reader's current view is unmissable. */
+.cock-fold-mkt__chips{
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px;
+  margin-bottom: 8px;
+}
+.cock-fold-mkt__chip{
+  -webkit-appearance: none;
+  appearance: none;
+  background: transparent;
+  border: 1px solid var(--c-rule-2);
+  color: var(--c-ink-2);
+  font-family: var(--f-mono);
+  font-size: 9.5px;
+  letter-spacing: .14em;
+  font-weight: 800;
+  padding: 4px 9px;
+  cursor: pointer;
+  text-transform: uppercase;
+  transition: background 140ms ease, border-color 140ms ease, color 140ms ease, transform 100ms ease;
+}
+.cock-fold-mkt__chip:hover{
+  background: rgba(255,30,60,.10);
+  color: var(--c-ink-1);
+  border-color: var(--c-red-1);
+}
+.cock-fold-mkt__chip:active{ transform: scale(0.96); }
+.cock-fold-mkt__chip.is-on{
+  background: var(--c-red);
+  color: #fff;
+  border-color: var(--c-red);
+  box-shadow: 0 0 8px rgba(255,30,60,.40);
+}
+.cock-fold-mkt__chip--watch.is-on{
+  background: var(--c-warn);
+  border-color: var(--c-warn);
+  box-shadow: 0 0 8px rgba(255,140,66,.50);
+}
+
+/* Sortable column header — feels clickable with a hover bloom
+   + the active sort key bumps to red. The ▲/▼ arrow is part
+   of the header text (rendered from JS). */
+.cock-fold-mkt__th-sort{
+  cursor: pointer;
+  user-select: none;
+  transition: background 140ms ease, color 140ms ease;
+}
+.cock-fold-mkt__th-sort:hover{
+  background: rgba(255,30,60,.10);
+  color: #fff;
+}
+.cock-fold-mkt__th-sort.is-on{
+  color: var(--c-red-1);
+}
+.cock-fold-mkt__th-sort:focus-visible{
+  outline: 1px solid var(--c-red);
+  outline-offset: -2px;
+}
+
+/* Star column — narrow leftmost cell. The star button is a tap-
+   target inside the row; clicking it stops propagation so the
+   row's retarget-chart click doesn't fire. Dim default, bright
+   on hover, filled mint when starred. */
+.cock-fold-mkt__star-th{
+  width: 22px;
+  padding: 8px 4px;
+}
+.cock-fold-mkt__star-cell{
+  width: 22px;
+  padding: 4px 2px;
+  text-align: center;
+}
+.cock-fold-mkt__star{
+  -webkit-appearance: none;
+  appearance: none;
+  background: transparent;
+  border: 0;
+  padding: 0;
+  font-size: 14px;
+  font-weight: 800;
+  color: var(--c-ink-4);
+  cursor: pointer;
+  width: 18px;
+  height: 18px;
+  line-height: 18px;
+  transition: color 140ms ease, transform 120ms ease;
+}
+.cock-fold-mkt__star:hover{
+  color: var(--c-warn);
+  transform: scale(1.15);
+}
+.cock-fold-mkt__star.is-on{
+  color: var(--c-warn);
+  text-shadow: 0 0 6px rgba(255,140,66,.55);
+}
+.cock-fold-mkt__star:focus-visible{
+  outline: 1px solid var(--c-red);
+  outline-offset: 1px;
+}
+
+/* Empty state when a filter returns zero rows. */
+.cock-fold-mkt__empty{
+  text-align: center;
+  padding: 16px;
+  font-family: var(--f-sans);
+  font-size: 12px;
+  font-style: italic;
+  color: var(--c-ink-3);
+}
+
 .cock-fold-mkt__wrap{
   /* Horizontal scroll on narrow widths so the 9 columns don't
      wrap awkwardly. The fold's outer container provides the

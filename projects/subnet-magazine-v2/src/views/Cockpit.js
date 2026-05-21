@@ -622,6 +622,40 @@ export function mountCockpit(root, dataLayer = null){
      real batch, surfaces a pulsing red LIVE badge in the chart
      header. */
   let isLive = false;
+  /* MARKETS ROSTER state (Pass: 2026-05-21 sort + filter + watchlist).
+     Stored in localStorage so the reader's preferred sort + category
+     filter + watchlist persists across sessions. The fold itself
+     stays default-closed per [[feedback-cockpit-is-the-one-page]];
+     these values only matter when the reader opens it.
+       sort.key:   one of 'netuid' | 'name' | 'cat' | 'price' |
+                   'chg24' | 'mcap' | 'emission' | 'miners' | 'validators'
+       sort.dir:   'asc' | 'desc'
+       cat:        null = ALL, or one of the CategoryKey values
+       watchlist:  Set<number> of netuids the reader has starred
+       onlyWatched: boolean — show only watchlisted rows. */
+  const MARKETS_KEY = 'sbn:cockpit:markets:v1';
+  const WATCHLIST_KEY = 'sbn:cockpit:watchlist:v1';
+  let marketsView = (() => {
+    try {
+      const raw = JSON.parse(localStorage.getItem(MARKETS_KEY) || '{}');
+      return {
+        sortKey: raw.sortKey || 'mcap',
+        sortDir: raw.sortDir === 'asc' ? 'asc' : 'desc',
+        cat:     raw.cat || null,
+        onlyWatched: !!raw.onlyWatched,
+      };
+    } catch (_) { return { sortKey: 'mcap', sortDir: 'desc', cat: null, onlyWatched: false }; }
+  })();
+  function saveMarketsView(){
+    try { localStorage.setItem(MARKETS_KEY, JSON.stringify(marketsView)); } catch (_) {}
+  }
+  let watchlist = (() => {
+    try { return new Set(JSON.parse(localStorage.getItem(WATCHLIST_KEY) || '[]')); }
+    catch (_) { return new Set(); }
+  })();
+  function saveWatchlist(){
+    try { localStorage.setItem(WATCHLIST_KEY, JSON.stringify([...watchlist])); } catch (_) {}
+  }
   /* No paper-money state here — the cockpit is now a pure subnet-
      research surface per Rondo 2026-05-20 ("doht need another
      paper money chart" / "make sure it looks really cool looking
@@ -916,18 +950,102 @@ export function mountCockpit(root, dataLayer = null){
     `;
   }
 
-  /* ⊕ MARKETS ROSTER — full 128-subnet sortable table. The
-     dashboard's primary surface, now folded into the cockpit.
-     Subnet rows are clickable: tap retargets the chart to that
-     subnet (same path as the picker dropdown or a sidebar mover).
-     All τ-denominated per [[feedback-subnets-in-tao]]. */
+  /* ⊕ MARKETS ROSTER — full 128-subnet sortable table with
+     category filter + watchlist. Persistent across sessions
+     via localStorage. The dashboard's primary data surface,
+     folded into the cockpit per [[feedback-cockpit-is-the-one-
+     page]]. Subnet rows tap → chart retarget. */
   function renderMarketsFold(){
-    const ranked = SUBNETS.slice().sort((a, b) => (b.mcap || 0) - (a.mcap || 0));
-    const rows = ranked.map((x) => {
+    /* Build the unique category list ONCE so the filter chip
+       row can render every category present in SUBNETS. */
+    const cats = [...new Set(SUBNETS.map(s => s.cat).filter(Boolean))].sort();
+    /* Filter + sort apply on every render. Filter first
+       (cheaper), then sort the remaining set. */
+    const filtered = applyMarketsFilters(SUBNETS);
+    const sorted = applyMarketsSort(filtered);
+    /* Filter-chip row: ALL + one chip per category + watchlist
+       toggle. Active chip gets `.is-on`. */
+    const chipAll = `
+      <button type="button" class="cock-fold-mkt__chip ${marketsView.cat == null && !marketsView.onlyWatched ? 'is-on' : ''}" data-mkt-cat="">ALL ${SUBNETS.length}</button>
+    `;
+    const chipCats = cats.map(c => {
+      const count = SUBNETS.filter(s => s.cat === c).length;
+      const active = marketsView.cat === c && !marketsView.onlyWatched;
+      return `<button type="button" class="cock-fold-mkt__chip ${active ? 'is-on' : ''}" data-mkt-cat="${c}">${c.toUpperCase()} ${count}</button>`;
+    }).join('');
+    const chipWatched = `
+      <button type="button" class="cock-fold-mkt__chip cock-fold-mkt__chip--watch ${marketsView.onlyWatched ? 'is-on' : ''}" data-mkt-watched>★ WATCHED ${watchlist.size}</button>
+    `;
+    return `
+      <details class="cock-fold cock-fold--mkt">
+        <summary class="cock-fold__summary">
+          <span class="cock-fold__lbl">⊕ MARKETS ROSTER</span>
+          <span class="cock-fold__count" data-mkt-count>${sorted.length} of ${SUBNETS.length} subnets</span>
+          <span class="cock-fold__chev" aria-hidden="true">›</span>
+        </summary>
+        <div class="cock-fold__body cock-fold-mkt">
+          <!-- Filter chip row — ALL + per-category + watchlist
+               toggle. Tap a chip to filter the table. Persists
+               to localStorage so the reader's preferred view
+               survives session restarts. -->
+          <div class="cock-fold-mkt__chips" role="tablist" aria-label="Markets filter">
+            ${chipAll}
+            ${chipCats}
+            ${chipWatched}
+          </div>
+          <div class="cock-fold-mkt__wrap">
+            <table class="cock-fold-mkt__table">
+              <thead>${renderMarketsHead()}</thead>
+              <tbody data-roster-tbody>${renderMarketsRows(sorted)}</tbody>
+            </table>
+          </div>
+          <div class="cock-fold-mkt__foot">Tap any row to retarget the chart. Tap a column header to sort. Star a row to watchlist.</div>
+        </div>
+      </details>
+    `;
+  }
+
+  /* Sortable table head — column headers render with a sort
+     indicator (▲/▼) on the active sort key. Click toggles dir
+     (asc ↔ desc) when re-clicked, or sets new key + default desc
+     for numerics / asc for alpha. */
+  function renderMarketsHead(){
+    const cols = [
+      { key: 'star',     label: '',         numeric: false, sortable: false },
+      { key: 'netuid',   label: 'SN',       numeric: true,  sortable: true  },
+      { key: 'name',     label: 'NAME',     numeric: false, sortable: true  },
+      { key: 'cat',      label: 'CAT',      numeric: false, sortable: true  },
+      { key: 'price',    label: 'α PRICE (τ)', numeric: true, sortable: true },
+      { key: 'chg24',    label: '24H',      numeric: true,  sortable: true  },
+      { key: 'mcap',     label: 'MCAP (τ)', numeric: true,  sortable: true  },
+      { key: 'emission', label: 'EMIT τ/d', numeric: true,  sortable: true  },
+      { key: 'miners',   label: 'MIN',      numeric: true,  sortable: true  },
+      { key: 'validators', label: 'VAL',    numeric: true,  sortable: true  },
+    ];
+    return '<tr>' + cols.map(c => {
+      const onKey = c.key === marketsView.sortKey;
+      const arrow = onKey ? (marketsView.sortDir === 'asc' ? ' ▲' : ' ▼') : '';
+      const numClass = c.numeric ? 'cock-fold-mkt__num' : '';
+      if (!c.sortable){
+        return `<th class="${numClass} cock-fold-mkt__star-th">${c.label}</th>`;
+      }
+      return `<th class="${numClass} cock-fold-mkt__th-sort ${onKey ? 'is-on' : ''}" data-mkt-sort="${c.key}" role="button" tabindex="0" aria-label="Sort by ${c.label}">${c.label}${arrow}</th>`;
+    }).join('') + '</tr>';
+  }
+
+  /* Filtered + sorted rows — built fresh on every fold render.
+     Each row has a star button (left) + 9 data cells. Star tap
+     stops propagation so it doesn't fire the row-tap retarget. */
+  function renderMarketsRows(rows){
+    return rows.map((x) => {
       const cls24 = x.chg24 == null ? 'is-flat' : (x.chg24 > 0 ? 'is-up' : x.chg24 < 0 ? 'is-down' : 'is-flat');
       const arr24 = x.chg24 == null ? '·' : (x.chg24 > 0.001 ? '▲' : x.chg24 < -0.001 ? '▼' : '—');
+      const starred = watchlist.has(x.netuid);
       return `
         <tr class="cock-fold-mkt__row" data-roster-row="${x.netuid}" tabindex="0" role="button" aria-label="Open SN${x.netuid} ${x.name} chart">
+          <td class="cock-fold-mkt__star-cell">
+            <button type="button" class="cock-fold-mkt__star ${starred ? 'is-on' : ''}" data-mkt-star="${x.netuid}" aria-label="${starred ? 'Remove from watchlist' : 'Add to watchlist'}: SN${x.netuid} ${x.name}">★</button>
+          </td>
           <td class="cock-fold-mkt__sn">SN${x.netuid}</td>
           <td class="cock-fold-mkt__name">${x.name}</td>
           <td class="cock-fold-mkt__cat">${x.cat || '·'}</td>
@@ -939,37 +1057,89 @@ export function mountCockpit(root, dataLayer = null){
           <td class="cock-fold-mkt__num">${fmtInt(x.validators)}</td>
         </tr>
       `;
-    }).join('');
-    return `
-      <details class="cock-fold cock-fold--mkt">
-        <summary class="cock-fold__summary">
-          <span class="cock-fold__lbl">⊕ MARKETS ROSTER</span>
-          <span class="cock-fold__count">${SUBNETS.length} subnets</span>
-          <span class="cock-fold__chev" aria-hidden="true">›</span>
-        </summary>
-        <div class="cock-fold__body cock-fold-mkt">
-          <div class="cock-fold-mkt__wrap">
-            <table class="cock-fold-mkt__table">
-              <thead>
-                <tr>
-                  <th>SN</th>
-                  <th>NAME</th>
-                  <th>CAT</th>
-                  <th class="cock-fold-mkt__num">α PRICE (τ)</th>
-                  <th class="cock-fold-mkt__num">24H</th>
-                  <th class="cock-fold-mkt__num">MCAP (τ)</th>
-                  <th class="cock-fold-mkt__num">EMIT τ/d</th>
-                  <th class="cock-fold-mkt__num">MIN</th>
-                  <th class="cock-fold-mkt__num">VAL</th>
-                </tr>
-              </thead>
-              <tbody>${rows}</tbody>
-            </table>
-          </div>
-          <div class="cock-fold-mkt__foot">Tap any row to retarget the chart to that subnet. Sortable columns + watchlist arrive in the next pass.</div>
-        </div>
-      </details>
+    }).join('') || '<tr><td colspan="10" class="cock-fold-mkt__empty">No subnets match the current filter.</td></tr>';
+  }
+
+  /* Filter pipeline — apply category filter and/or watchlist
+     filter to the SUBNETS list. Returns a filtered copy; does
+     not mutate. */
+  function applyMarketsFilters(rows){
+    let out = rows.slice();
+    if (marketsView.onlyWatched){
+      out = out.filter(s => watchlist.has(s.netuid));
+    } else if (marketsView.cat){
+      out = out.filter(s => s.cat === marketsView.cat);
+    }
+    return out;
+  }
+
+  /* Sort pipeline — sort the filtered set by the current sort
+     key + direction. Numeric vs string compare handled inline.
+     Stable secondary sort by netuid so ties don't shuffle. */
+  function applyMarketsSort(rows){
+    const k = marketsView.sortKey;
+    const dir = marketsView.sortDir === 'asc' ? 1 : -1;
+    return rows.slice().sort((a, b) => {
+      const av = a[k]; const bv = b[k];
+      if (typeof av === 'number' || typeof bv === 'number'){
+        const an = Number.isFinite(av) ? av : -Infinity;
+        const bn = Number.isFinite(bv) ? bv : -Infinity;
+        if (an !== bn) return (an - bn) * dir;
+      } else {
+        const as = String(av || '').toLowerCase();
+        const bs = String(bv || '').toLowerCase();
+        if (as !== bs) return as.localeCompare(bs) * dir;
+      }
+      return a.netuid - b.netuid;
+    });
+  }
+
+  /* Repaint just the markets-roster fold's contents — without
+     closing the <details>. Re-renders the chip row + table head
+     + table body in place, keeps the fold's `open` state, keeps
+     the rest of the cockpit untouched. Called when the reader
+     changes sort / filter / watchlist state. */
+  function repaintMarketsRoster(){
+    const fold = qs('.cock-fold--mkt', root);
+    if (!fold) return;
+    /* Rebuild + reinsert the entire fold body innerHTML. <details>
+       remembers its open state across innerHTML swaps as long as
+       the <details> element itself isn't replaced. */
+    const body = qs('.cock-fold__body', fold);
+    if (!body) return;
+    /* Use the same renderMarketsFold output but extract just the
+       body content — wrap to avoid duplicating <details>/<summary>. */
+    const cats = [...new Set(SUBNETS.map(s => s.cat).filter(Boolean))].sort();
+    const filtered = applyMarketsFilters(SUBNETS);
+    const sorted = applyMarketsSort(filtered);
+    const chipAll = `
+      <button type="button" class="cock-fold-mkt__chip ${marketsView.cat == null && !marketsView.onlyWatched ? 'is-on' : ''}" data-mkt-cat="">ALL ${SUBNETS.length}</button>
     `;
+    const chipCats = cats.map(c => {
+      const count = SUBNETS.filter(s => s.cat === c).length;
+      const active = marketsView.cat === c && !marketsView.onlyWatched;
+      return `<button type="button" class="cock-fold-mkt__chip ${active ? 'is-on' : ''}" data-mkt-cat="${c}">${c.toUpperCase()} ${count}</button>`;
+    }).join('');
+    const chipWatched = `
+      <button type="button" class="cock-fold-mkt__chip cock-fold-mkt__chip--watch ${marketsView.onlyWatched ? 'is-on' : ''}" data-mkt-watched>★ WATCHED ${watchlist.size}</button>
+    `;
+    body.innerHTML = `
+      <div class="cock-fold-mkt__chips" role="tablist" aria-label="Markets filter">
+        ${chipAll}${chipCats}${chipWatched}
+      </div>
+      <div class="cock-fold-mkt__wrap">
+        <table class="cock-fold-mkt__table">
+          <thead>${renderMarketsHead()}</thead>
+          <tbody data-roster-tbody>${renderMarketsRows(sorted)}</tbody>
+        </table>
+      </div>
+      <div class="cock-fold-mkt__foot">Tap any row to retarget the chart. Tap a column header to sort. Star a row to watchlist.</div>
+    `;
+    /* Update the summary count chip in the closed-state header. */
+    const countEl = qs('[data-mkt-count]', root);
+    if (countEl) countEl.textContent = `${sorted.length} of ${SUBNETS.length} subnets`;
+    /* Re-wire the freshly-rendered controls. */
+    wireMarketsRoster();
   }
 
   /* ⊕ EDITORIAL ARCHIVE — flat list of all Magazine + Oracle
@@ -1572,6 +1742,104 @@ export function mountCockpit(root, dataLayer = null){
 
   /* ---------- wiring --------------------------------------- */
 
+  /* Markets-roster interactions — wire row taps (retarget chart),
+     sort headers (cycle key + dir), filter chips (category +
+     watchlist), star buttons (toggle watchlist). Re-callable from
+     repaintMarketsRoster() after an in-place body re-render so
+     fresh elements get listeners.
+
+     Wire pattern: query all matching elements + attach handlers.
+     The OLD listeners are dropped when the body innerHTML is
+     replaced (they live on detached nodes that GC reclaims). */
+  function wireMarketsRoster(){
+    /* Row taps — same retarget path as the picker / movers.
+       Smooth-scroll the chart canvas into view so the reader
+       sees the result of their pick. Star-button clicks inside
+       the row stopPropagation so they don't fire the row tap. */
+    qsa('[data-roster-row]', root).forEach(r => {
+      const handler = () => {
+        const id = parseInt(r.dataset.rosterRow, 10);
+        if (!Number.isFinite(id) || id === state.selectedId) return;
+        setSelected(id);
+        const canvas = qs('[data-chart-canvas]', root);
+        if (canvas && typeof canvas.scrollIntoView === 'function'){
+          canvas.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+      };
+      r.addEventListener('click', handler);
+      r.addEventListener('keydown', e => {
+        if (e.key === 'Enter' || e.key === ' '){ e.preventDefault(); handler(); }
+      });
+    });
+
+    /* Star toggles — clicking a star adds/removes the row's
+       subnet from the watchlist, persists, and re-renders the
+       fold so the watchlist count + star state update. */
+    qsa('[data-mkt-star]', root).forEach(btn => {
+      btn.addEventListener('click', e => {
+        e.stopPropagation();
+        const id = parseInt(btn.dataset.mktStar, 10);
+        if (!Number.isFinite(id)) return;
+        if (watchlist.has(id)) watchlist.delete(id);
+        else watchlist.add(id);
+        saveWatchlist();
+        repaintMarketsRoster();
+      });
+    });
+
+    /* Sortable column headers — clicking the active sort header
+       toggles direction (asc ↔ desc). Clicking a different
+       header sets it as the new sort key (default desc for
+       numerics so the biggest values come first; asc for alpha
+       like name/cat). */
+    qsa('[data-mkt-sort]', root).forEach(th => {
+      const fire = () => {
+        const key = th.dataset.mktSort;
+        if (!key) return;
+        if (marketsView.sortKey === key){
+          marketsView.sortDir = marketsView.sortDir === 'asc' ? 'desc' : 'asc';
+        } else {
+          marketsView.sortKey = key;
+          const alphaCols = new Set(['name', 'cat']);
+          marketsView.sortDir = alphaCols.has(key) ? 'asc' : 'desc';
+        }
+        saveMarketsView();
+        repaintMarketsRoster();
+      };
+      th.addEventListener('click', fire);
+      th.addEventListener('keydown', e => {
+        if (e.key === 'Enter' || e.key === ' '){ e.preventDefault(); fire(); }
+      });
+    });
+
+    /* Category filter chips — tap "ALL" or a category chip to
+       narrow the visible roster. The watchlist chip is mutex
+       with category (turning on watchlist clears category). */
+    qsa('[data-mkt-cat]', root).forEach(chip => {
+      chip.addEventListener('click', () => {
+        const cat = chip.dataset.mktCat || null;
+        marketsView.cat = cat || null;
+        marketsView.onlyWatched = false;
+        saveMarketsView();
+        repaintMarketsRoster();
+      });
+    });
+
+    /* Watchlist filter toggle — single button that flips between
+       "show all" and "show only starred subnets." Mutex with
+       category filter so the reader isn't trapped in an
+       intersection that returns zero rows. */
+    const watchBtn = qs('[data-mkt-watched]', root);
+    if (watchBtn){
+      watchBtn.addEventListener('click', () => {
+        marketsView.onlyWatched = !marketsView.onlyWatched;
+        if (marketsView.onlyWatched) marketsView.cat = null;
+        saveMarketsView();
+        repaintMarketsRoster();
+      });
+    }
+  }
+
   function wireEverything(){
     wireChart();
     /* Window resize triggers a chart re-draw (canvas needs to
@@ -1611,26 +1879,11 @@ export function mountCockpit(root, dataLayer = null){
       });
     });
 
-    /* MARKETS ROSTER (dashboard fold) row taps — same retarget
-       path as the picker / movers. Keyboard handlers (Enter +
-       Space) too so the table is fully accessible.
-       Scroll-to-chart on retarget so the reader sees the result
-       of their pick without manually scrolling back up. */
-    qsa('[data-roster-row]', root).forEach(r => {
-      const handler = () => {
-        const id = parseInt(r.dataset.rosterRow, 10);
-        if (!Number.isFinite(id) || id === state.selectedId) return;
-        setSelected(id);
-        const canvas = qs('[data-chart-canvas]', root);
-        if (canvas && typeof canvas.scrollIntoView === 'function'){
-          canvas.scrollIntoView({ behavior: 'smooth', block: 'start' });
-        }
-      };
-      r.addEventListener('click', handler);
-      r.addEventListener('keydown', e => {
-        if (e.key === 'Enter' || e.key === ' '){ e.preventDefault(); handler(); }
-      });
-    });
+    /* MARKETS ROSTER (dashboard fold) — wire row taps, sort
+       headers, filter chips, watchlist toggles. Factored out
+       so repaintMarketsRoster() can re-wire after an in-place
+       re-render without re-running ALL of wireChart. */
+    wireMarketsRoster();
 
     /* Chart hover — OHLC + MA tooltip on bar hover, editorial
        tooltip on news-flag marker hover. Closes the "Cockpit Chart
