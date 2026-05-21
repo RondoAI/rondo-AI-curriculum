@@ -527,6 +527,168 @@ export const COMPETITORS = [
     url: 'https://replika.com',
     why: 'AI companion app — consumer-facing dialogue rival adjacent to subnet roleplay work.',
   },
+  {
+    id: 'ai-dungeon',
+    name: 'AI Dungeon',
+    ticker: 'PRIVATE',
+    mcap: 50_000_000,
+    source: 'private',
+    sectors: ['text'],
+    url: 'https://aidungeon.com',
+    why: 'Generative text-RPG platform — pioneer of long-form roleplay AI, direct overlap with Dippy-style subnets.',
+  },
+  {
+    id: 'novelai',
+    name: 'NovelAI',
+    ticker: 'PRIVATE',
+    mcap: 80_000_000,
+    source: 'private',
+    sectors: ['text'],
+    url: 'https://novelai.net',
+    why: 'Subscription text + image creative-writing platform — roleplay-grade dialogue rival.',
+  },
+
+  /* ---------- inference + serverless GPU shops (Nous profile) ---------- */
+  {
+    id: 'replicate',
+    name: 'Replicate',
+    ticker: 'PRIVATE',
+    mcap: 350_000_000,
+    source: 'private',
+    sectors: ['text', 'multimodal', 'training'],
+    url: 'https://replicate.com',
+    why: 'Model-as-a-service + fine-tuning runs on-demand — direct rival for finetuning-competition subnets.',
+  },
+  {
+    id: 'modal-labs',
+    name: 'Modal Labs',
+    ticker: 'PRIVATE',
+    mcap: 320_000_000,
+    source: 'private',
+    sectors: ['training', 'data'],
+    url: 'https://modal.com',
+    why: 'Serverless GPU compute + fine-tuning infra — startup-favored finetuning rival.',
+    aliases: ['Modal'],
+  },
+
+  /* ---------- DeFi yield-strategy protocols (Sturdy profile) ---------- */
+  {
+    id: 'aave-labs',
+    name: 'Aave',
+    ticker: 'PRIVATE',
+    mcap: 1_900_000_000, // protocol TVL-implied governance valuation
+    source: 'private',
+    sectors: ['finance'],
+    url: 'https://aave.com',
+    why: 'Largest lending protocol by TVL — DeFi yield base layer competing with subnet-generated yield strategies.',
+    aliases: ['AAVE'],
+  },
+  {
+    id: 'compound-finance',
+    name: 'Compound',
+    ticker: 'PRIVATE',
+    mcap: 380_000_000,
+    source: 'private',
+    sectors: ['finance'],
+    url: 'https://compound.finance',
+    why: 'Algorithmic money-market protocol — original DeFi lending venue, competitor for yield-strategy subnets.',
+  },
+  {
+    id: 'yearn-finance',
+    name: 'Yearn Finance',
+    ticker: 'PRIVATE',
+    mcap: 220_000_000,
+    source: 'private',
+    sectors: ['finance'],
+    url: 'https://yearn.fi',
+    why: 'On-chain yield aggregator + vault strategies — closest direct comparable for Sturdy-style yield generation.',
+    aliases: ['YFI', 'Yearn'],
+  },
+  {
+    id: 'morpho-labs',
+    name: 'Morpho',
+    ticker: 'PRIVATE',
+    mcap: 800_000_000,
+    source: 'private',
+    sectors: ['finance'],
+    url: 'https://morpho.org',
+    why: 'Permissionless lending optimizer — peer-to-peer rates on top of Aave/Compound, leading DeFi efficiency layer.',
+  },
+
+  /* ---------- staking infra providers (SubVortex profile) ---------- */
+  {
+    id: 'allnodes',
+    name: 'Allnodes',
+    ticker: 'PRIVATE',
+    mcap: 80_000_000,
+    source: 'private',
+    sectors: ['infra'],
+    url: 'https://www.allnodes.com',
+    why: 'Hosted validator + node service for 70+ chains — direct rival for validator-as-a-service subnets.',
+  },
+  {
+    id: 'stakefish',
+    name: 'stakefish',
+    ticker: 'PRIVATE',
+    mcap: 120_000_000,
+    source: 'private',
+    sectors: ['infra'],
+    url: 'https://stake.fish',
+    why: 'Multi-chain validator infrastructure — primary centralized rival to decentralized staking subnets.',
+  },
+  {
+    id: 'chorus-one',
+    name: 'Chorus One',
+    ticker: 'PRIVATE',
+    mcap: 200_000_000,
+    source: 'private',
+    sectors: ['infra'],
+    url: 'https://chorus.one',
+    why: 'Institutional-grade staking + MEV research — premium-tier validator service.',
+  },
+  {
+    id: 'figment',
+    name: 'Figment',
+    ticker: 'PRIVATE',
+    mcap: 250_000_000,
+    source: 'private',
+    sectors: ['infra'],
+    url: 'https://figment.io',
+    why: 'Enterprise staking provider — services large institutional + treasury staking flows.',
+  },
+
+  /* ---------- zkml / zk-proof shops (Omron profile) ---------- */
+  {
+    id: 'modulus-labs',
+    name: 'Modulus Labs',
+    ticker: 'PRIVATE',
+    mcap: 60_000_000,
+    source: 'private',
+    sectors: ['training', 'science'],
+    url: 'https://www.moduluslabs.xyz',
+    why: 'zkML proving infrastructure — verifiable ML inference + training. Direct rival for proof-of-training subnets like Omron.',
+    aliases: ['Modulus'],
+  },
+  {
+    id: 'polyhedra',
+    name: 'Polyhedra Network',
+    ticker: 'PRIVATE',
+    mcap: 500_000_000,
+    source: 'private',
+    sectors: ['infra', 'training'],
+    url: 'https://polyhedra.network',
+    why: 'zkML + cross-chain ZK-proofs (expander prover) — credible competing approach for verifiable training subnets.',
+  },
+  {
+    id: 'risc-zero',
+    name: 'RISC Zero',
+    ticker: 'PRIVATE',
+    mcap: 350_000_000,
+    source: 'private',
+    sectors: ['infra', 'science'],
+    url: 'https://risczero.com',
+    why: 'General-purpose zkVM for verifiable computation — including ML inference. Foundation for zk-everything stack.',
+  },
 ];
 
 /* =================================================================
@@ -680,6 +842,52 @@ export const SUPPLY_CHAIN = [
     layer: 'cloud',
     url: 'https://www.cloudflare.com',
     why: 'Routes ~20% of web traffic. Critical edge layer for any low-latency search/retrieval product — fronts requests before they reach the index.',
+  },
+
+  /* ---------- DeFi-yield supply chain (added 2026-05-21 for SN10 Sturdy) ---------- */
+  {
+    id: 'ethereum-l1-gas',
+    name: 'Ethereum L1 gas',
+    ticker: '—',
+    mcap: null,
+    role: 'Transaction settlement',
+    layer: 'data',
+    url: 'https://ethereum.org',
+    why: 'Mainnet gas fees set the floor on yield-strategy economics. Every DeFi yield protocol pays per-transaction; the on-chain cost determines which strategies stay viable below a yield threshold.',
+  },
+  {
+    id: 'chainlink-oracles',
+    name: 'Chainlink',
+    ticker: 'PRIVATE',
+    mcap: 8_500_000_000,
+    role: 'Price oracles',
+    layer: 'data',
+    url: 'https://chain.link',
+    why: 'Dominant oracle network. Every DeFi yield strategy depends on price oracle accuracy + uptime; oracle manipulation is the canonical attack vector.',
+  },
+
+  /* ---------- staking infra substrate (added 2026-05-21 for SN7 SubVortex) ---------- */
+  {
+    id: 'bare-metal-hosts',
+    name: 'Bare-metal hosting',
+    ticker: '—',
+    mcap: null,
+    role: 'Dedicated server fleet',
+    layer: 'cloud',
+    url: 'https://www.hetzner.com',
+    why: 'Hetzner / OVH / Latitude — physical servers most staking operators rent for dedicated CPU/memory. Cheaper than hyperscaler VMs but locked to specific regions.',
+  },
+
+  /* ---------- zkml supply substrate (added 2026-05-21 for SN2 Omron) ---------- */
+  {
+    id: 'eth-verifier-gas',
+    name: 'Ethereum verifier gas',
+    ticker: '—',
+    mcap: null,
+    role: 'ZK proof verification',
+    layer: 'data',
+    url: 'https://ethereum.org',
+    why: 'On-chain verification of zk-proofs costs gas — Groth16 ~280K gas, PLONK ~400K, STARK higher. The proof-shape choice trades off prover time for verifier cost.',
   },
 ];
 
@@ -839,6 +1047,226 @@ export const BY_NETUID = {
         label: 'Regulatory capture risk',
         value: 'SEC + CFTC reporting',
         note: 'Centralized firms have compliance moats (CAT reporting, FINRA membership, sub-1ms timestamp accuracy). Decentralized trading must structure itself OUTSIDE this regime; legal ambiguity is the binding constraint.',
+      },
+    ],
+  },
+
+  /* SN2 Omron — On-chain proof-of-training (zkml) for verifiable
+     model updates. The rivals are the small set of teams building
+     zk-proof systems for ML — Modulus, Polyhedra, RISC Zero,
+     EZKL. Supply chain is mostly Ethereum verifier gas + the GPU
+     stack used during proving. */
+  2: {
+    rivals: ['modulus-labs', 'polyhedra', 'risc-zero'],
+    supplyChainIds: ['nvidia', 'eth-verifier-gas', 'aws-azure-gcp'],
+    constraints: [
+      {
+        label: 'Proving time per parameter',
+        value: 'Minutes-to-hours, 70B+ models',
+        note: 'zkML proving scales worse than inference itself. A 70B-parameter forward pass takes seconds; the matching ZK proof takes minutes to hours on the same hardware. The compute asymmetry is the binding constraint on practical verifiable inference.',
+      },
+      {
+        label: 'On-chain verifier gas',
+        value: '~280K-1M gas per proof',
+        note: 'Groth16 verifiers cost ~280K gas; PLONK ~400K; STARK higher. At 30 gwei + $3K ETH, a single proof verification = ~$25-90 — the floor on subnet economics for any verified training step.',
+      },
+      {
+        label: 'Circuit size limits',
+        value: '~2^25 constraints today',
+        note: 'Production zkML circuits cap around 32M constraints before proving cost runs away. Larger models require recursion or proof aggregation — adds latency + complexity.',
+      },
+      {
+        label: 'Trusted-setup ceremonies',
+        value: 'Per-circuit or universal',
+        note: 'Groth16 needs a per-circuit ceremony; PLONK / KZG use a universal setup. Either way, the ceremony quality determines proof integrity — a centralized failure mode subnets must coordinate around.',
+      },
+      {
+        label: 'Prover hardware demand',
+        value: 'Same H100 / A100 as training',
+        note: 'zkML provers run on the same scarce GPU stock as the training they verify. Competes with centralized training shops for chip allocation.',
+      },
+    ],
+  },
+
+  /* SN6 Nous — Finetuning competitions on rotating benchmark sets.
+     The rivals are the centralized fine-tuning APIs + the
+     serverless GPU shops that finetune-as-a-service. Supply chain
+     is the same AI-compute stack, plus dataset curation
+     dependencies. */
+  6: {
+    rivals: ['hugging-face', 'openai', 'replicate', 'modal-labs', 'together-ai'],
+    supplyChainIds: ['nvidia', 'tsmc', 'aws-azure-gcp', 'us-power-grids'],
+    constraints: [
+      {
+        label: 'Finetuning compute cost',
+        value: '~$50-500 per LoRA run',
+        note: 'LoRA / QLoRA finetuning on a 7-70B model = $50-500 of GPU time at hyperscaler rates. Full finetuning 10-100× more. Subnet emission rewards offset miner compute cost.',
+      },
+      {
+        label: 'Benchmark gaming',
+        value: 'Rotating eval sets mitigate',
+        note: 'Static benchmarks get memorized. Subnet rotates eval sets every cycle — but centralized competitors do the same internally. Quality of held-out data is the moat.',
+      },
+      {
+        label: 'Dataset curation cost',
+        value: 'Hours-to-weeks per fine-tune',
+        note: 'High-quality fine-tuning needs curated data. Scale AI / Surge / Argilla charge $5-50/label for human-rated examples. The data layer is harder to decentralize than the compute layer.',
+      },
+      {
+        label: 'Eval cost per submission',
+        value: '$10-100 per scored run',
+        note: 'Running benchmarks across a model costs compute itself. Centralized leaderboards (Open LLM, MT-Bench) absorb this; subnets must distribute it across validators.',
+      },
+      {
+        label: 'Base-model dependency',
+        value: 'Llama / Mistral / Qwen weights',
+        note: 'Nearly every finetune starts from an open base model. Meta / Mistral / Alibaba (Qwen) set the upstream pace; finetune subnets inherit their license terms + roadmap.',
+      },
+    ],
+  },
+
+  /* SN9 Pretraining — From-scratch language-model pretraining
+     with public loss leaderboards. The rivals are the FRONTIER
+     LABS doing the same work centrally. Supply chain is the
+     full AI-compute stack at its most intensive — these are
+     the runs that consume entire datacenters. */
+  9: {
+    rivals: ['openai', 'anthropic', 'meta', 'mistral', 'cohere'],
+    supplyChainIds: ['nvidia', 'tsmc', 'sk-hynix', 'aws-azure-gcp', 'us-power-grids'],
+    constraints: [
+      {
+        label: 'Training run capex',
+        value: '~$100-500M (GPT-4 class)',
+        note: 'GPT-4 reportedly ~$100M raw compute; subsequent frontier runs scale 3-10× per generation. A single 70B run = ~$3-20M. Decentralized pretraining must aggregate enough miner capacity to compete.',
+      },
+      {
+        label: 'Cluster size',
+        value: '10K-100K GPUs in one room',
+        note: 'Frontier runs need ~25K H100s networked at <1μs latency. Decentralized pretraining cannot match this physical density — must rely on different architectures (federated, async).',
+      },
+      {
+        label: 'Run duration',
+        value: 'Weeks-to-months wall clock',
+        note: 'Llama 3 405B trained ~54 days on 16K H100s. The wall-clock + hardware-failure window is a centralized strength — checkpoint + restart procedures over months are mature.',
+      },
+      {
+        label: 'Token diet',
+        value: '~15T tokens for SOTA',
+        note: 'Frontier 70B+ models train on 10-20T curated tokens. Common Crawl + curated web + code + multilingual + synthetic data. Dataset assembly is becoming the bottleneck, not compute.',
+      },
+      {
+        label: 'MFU / utilization',
+        value: '~40-50% typical',
+        note: 'Model FLOPs Utilization measures how much of theoretical GPU compute is actually used. Centralized clusters hit 40-50% with custom kernels (FlashAttention, Triton). Decentralized topology gives up some of this.',
+      },
+    ],
+  },
+
+  /* SN7 SubVortex — Decentralized validator-as-a-service
+     infrastructure. The rivals are the centralized staking
+     providers running validators on hyperscaler / bare-metal
+     fleets. */
+  7: {
+    rivals: ['allnodes', 'stakefish', 'chorus-one', 'figment'],
+    supplyChainIds: ['aws-azure-gcp', 'bare-metal-hosts', 'us-power-grids'],
+    constraints: [
+      {
+        label: 'Validator slashing risk',
+        value: 'Double-sign = capital loss',
+        note: 'A misconfigured validator can lose its stake to slashing. Centralized providers invest in monitoring + redundancy that decentralized operators must reproduce per-node.',
+      },
+      {
+        label: 'Key management',
+        value: 'HSM or air-gapped signer',
+        note: 'Production validators use HSMs (Ledger HSM, AWS CloudHSM) or air-gapped signing setups. Centralized providers amortize this cost across many customers; decentralized subnets must distribute the practice.',
+      },
+      {
+        label: 'Geographic redundancy',
+        value: '3+ regions to survive outages',
+        note: 'Top staking providers run validators across multiple cloud regions + bare metal. Decentralized subnets get this naturally via miner geography but inherit the coordination cost.',
+      },
+      {
+        label: 'Uptime SLA',
+        value: '99.9% institutional standard',
+        note: 'Allnodes, Chorus One, Figment offer 99.9-99.99% uptime. Below that, customers face missed-attestation penalties on the chains they validate.',
+      },
+      {
+        label: 'Hyperscaler concentration',
+        value: '~70% of ETH validators on AWS',
+        note: 'Industry research consistently finds ~50-70% of major-chain validators run on AWS. The centralization risk is real — and the decentralization angle subnets like SubVortex sell against.',
+      },
+    ],
+  },
+
+  /* SN10 Sturdy — Yield strategy generation graded against
+     backtests and live PnL. The rivals are the established
+     DeFi yield protocols + aggregators. Supply chain is
+     chain-native: Ethereum L1 gas + oracle providers. */
+  10: {
+    rivals: ['aave-labs', 'compound-finance', 'yearn-finance', 'morpho-labs'],
+    supplyChainIds: ['ethereum-l1-gas', 'chainlink-oracles', 'aws-azure-gcp'],
+    constraints: [
+      {
+        label: 'Gas-cost floor',
+        value: 'Strategies need yields > gas',
+        note: 'L1 gas at 30 gwei = ~$10-50 per strategy rebalance. Strategies generating <50bps yield evaporate after gas. L2 deployment (Arbitrum, Base) lowers the floor 10-100×.',
+      },
+      {
+        label: 'Smart-contract risk',
+        value: 'Audits + bounties baseline',
+        note: 'Every yield strategy that touches user funds carries exploit risk. Aave / Compound / Yearn have multi-year audit histories + bug bounties; new subnet strategies must accumulate the same trust.',
+      },
+      {
+        label: 'Oracle manipulation',
+        value: 'Chainlink dependency',
+        note: 'Strategies that rely on price oracles (most do) inherit Chainlink reliability. Past exploits (Mango Markets, Inverse) exploited oracle drift; subnet strategies must validate against multiple sources.',
+      },
+      {
+        label: 'TVL / yield tradeoff',
+        value: 'Larger TVL → lower yields',
+        note: 'Yield-strategy alpha decays as capital chases it. Yearn vaults that returned 20% APY in 2022 now return 5% as TVL scaled. Subnet strategies face the same dilution as they capture flow.',
+      },
+      {
+        label: 'Regulatory framing',
+        value: 'Yield = "security" in many jurisdictions',
+        note: 'SEC has signaled that yield-generation services may constitute securities offerings. Centralized DeFi front-ends (Yearn, Beefy) face delisting pressure; subnet alternatives operate outside front-end risk.',
+      },
+    ],
+  },
+
+  /* SN11 Dippy — Roleplay and dialogue models judged on
+     engagement and steering. The rivals are the consumer
+     persona-chat apps — Character.AI is the giant, Replika
+     the long-term player, AI Dungeon + NovelAI the creative
+     subset. */
+  11: {
+    rivals: ['character-ai', 'replika', 'ai-dungeon', 'novelai'],
+    supplyChainIds: ['nvidia', 'aws-azure-gcp', 'tsmc'],
+    constraints: [
+      {
+        label: 'Engagement-metrics gaming',
+        value: 'Reward hacking risk',
+        note: 'Models trained to maximize engagement learn manipulative tactics (sycophancy, infinite-scroll behavior). Centralized apps face same pressure; subnet design must reward TRUE engagement quality.',
+      },
+      {
+        label: 'COPPA / minor compliance',
+        value: '13+ age gates required',
+        note: 'Character.AI has faced lawsuits over minor exposure; centralized apps enforce age verification + content controls. Subnet operators inherit this regulatory surface or face delisting from app stores.',
+      },
+      {
+        label: 'Persona stability',
+        value: 'Long-context drift',
+        note: 'Character consistency over 50K+ token conversations is hard — even Claude 3.7 / GPT-4o drift. Subnet roleplay miners must score this; centralized rivals have integrated memory systems.',
+      },
+      {
+        label: 'Content moderation cost',
+        value: 'Human-review per session',
+        note: 'Centralized roleplay apps spend material % of revenue on moderation labor. Subnet alternative must distribute this — or accept lower-quality moderation as the tradeoff for openness.',
+      },
+      {
+        label: 'Consumer ARPU',
+        value: '$10-20/mo subscription',
+        note: 'Character.AI Plus + Replika Pro both ~$10-20/mo. Free tiers heavily ad-supported or rate-limited. Subnet roleplay sidesteps ARPU via emission but must justify the value to retention.',
       },
     ],
   },
