@@ -4772,3 +4772,57 @@
 .cock-side-vs__rival-summary:active{
   background: rgba(255,30,60,.10);
 }
+
+/* ============================================================
+   SEED HISTORY caption — honest synthesis flag (Pass 4)
+   ------------------------------------------------------------
+   Sits between the chart row and the range tabs. Tells the
+   reader the historical line is synthetic without screaming
+   "BROKEN" — quiet amber tag + sans italic note. Auto-fades
+   once the real tao:history channel emits (future pass) by
+   removing the element from the renderMain template.
+   ============================================================ */
+.cock-chart__synth-note{
+  display: flex;
+  align-items: baseline;
+  gap: 10px;
+  padding: 6px 18px;
+  background: rgba(255,140,66,.05);
+  border-top: 1px solid rgba(255,140,66,.18);
+  border-bottom: 1px solid rgba(255,140,66,.18);
+  font-family: var(--f-sans);
+  font-size: 11px;
+  line-height: 1.45;
+  color: var(--c-ink-3);
+}
+.cock-chart__synth-tag{
+  font-family: var(--f-mono);
+  font-size: 9px;
+  letter-spacing: .22em;
+  font-weight: 800;
+  color: var(--c-warn);
+  text-transform: uppercase;
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+.cock-chart__synth-text{
+  font-style: italic;
+  color: var(--c-ink-2);
+}
+.cock-chart__synth-text a{
+  color: var(--c-red-1);
+  text-decoration: none;
+  font-style: normal;
+  font-weight: 700;
+}
+.cock-chart__synth-text a:hover{
+  color: var(--c-red);
+  text-decoration: underline;
+}
+@media (max-width: 720px){
+  .cock-chart__synth-note{
+    flex-direction: column;
+    gap: 4px;
+    padding: 8px 14px;
+  }
+}

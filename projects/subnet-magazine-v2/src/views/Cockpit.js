@@ -779,6 +779,26 @@ export function mountCockpit(root, dataLayer = null){
         </aside>
       </div>
 
+      <!-- Honest synthesis caption — the chart's HISTORICAL line
+           comes from generateSeries() in synthetic-series.js, not
+           a real on-chain history. Current α price + 24h deltas
+           ARE live (tao:subnets channel). Until the planned
+           tao:history channel lands, this caption surfaces the
+           split inline so readers see the flag without hovering
+           the LIVE pill. Per [[feedback-high-coding-standards]]:
+           "Don't display approximate / synthetic on-chain values
+           without flagging them as such." Goes away once
+           tao:history publishes real OHLCV per subnet. -->
+      <div class="cock-chart__synth-note" role="note" aria-label="Data provenance">
+        <span class="cock-chart__synth-tag">SEED HISTORY</span>
+        <span class="cock-chart__synth-text">
+          Current α price + 24h deltas live from TaoMarketcap.
+          Historical line synthesized via deterministic seed —
+          <a href="https://github.com/RondoAI/rondo-AI-curriculum" target="_blank" rel="noopener">taostats history feed</a>
+          wires in the next pass.
+        </span>
+      </div>
+
       <!-- Chart navigation: range tabs + pan history controls.
            Range tabs pick the visible window (1D / 7D / 30D / 90D /
            1Y); pan buttons walk that window backward/forward through
