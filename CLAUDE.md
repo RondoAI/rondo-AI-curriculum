@@ -3308,3 +3308,189 @@ e624c18) so Rondo's phone fetches the fixed code on next refresh.
 
 Sandbox is NOT pushing this fix per the workflow rule (cockpit
 code goes through mac). Mac to triage + refine + ship.
+
+## Sandbox → Mac: Code hand-off for the blank-cockpit fix (2026-05-21)
+
+Per the workflow rule, sandbox drafts cockpit code + hands to
+mac for the 150% pass + push. The blank-pane bug screenshot
+is logged in the prior entry. This entry contains the precise
+patch mac can apply, refine, and ship.
+
+### The drafted patch (apply to src/views/Cockpit.js around L566-593)
+
+  CURRENT (L566-593):
+
+      `);
+
+      /* DESK pane wiring — paper portfolio + Brinson-Fachler
+         attribution mounted directly inside the cockpit. ... */
+      function repaintDesk(){
+        const dp = qs('[data-cockpit-desk-paper]', root);
+        const da = qs('[data-cockpit-desk-attrib]', root);
+        if (dp) dp.innerHTML = renderPaperPortfolio();
+        if (da) da.innerHTML = renderAttribution(deskAttribState);
+        wirePaperPortfolio(root, repaintDesk);
+        wireAttribution(root, deskAttribState, () => wireAttribution(root, deskAttribState, () => {}));
+      }
+      wirePaperPortfolio(root, repaintDesk);
+      wireAttribution(root, deskAttribState, () => wireAttribution(root, deskAttribState, () => {}));
+      wireAction();
+
+      setActivePane(state.pane);
+      drawChartNow();
+      wireEverything();
+
+  REPLACE WITH:
+
+      `);
+
+      /* CRITICAL: setActivePane runs FIRST after mount(). On
+         mobile, .cockpit__main is display:none until it has
+         .is-active. If any wire-side code below throws, the
+         pane never activates and the reader sees a blank page
+         below cockpit-tabs (the 2026-05-20 bug Rondo screenshotted).
+         Hoist + try/catch the wire-side so the chart pane is
+         GUARANTEED visible even when a wire-side error fires. */
+      setActivePane(state.pane);
+      drawChartNow();
+      wireEverything();
+
+      /* DESK pane wiring — paper portfolio + Brinson-Fachler
+         attribution mounted directly inside the cockpit. Wrapped
+         in try/catch because the cockpit shell must stay live
+         even if attribution / paper-portfolio wire-up throws on
+         a corrupt-state localStorage value (2026-05-20 regression
+         guard). Errors land in the console for post-mortem; the
+         reader still sees the chart. */
+      function repaintDesk(){
+        try {
+          const dp = qs('[data-cockpit-desk-paper]', root);
+          const da = qs('[data-cockpit-desk-attrib]', root);
+          if (dp) dp.innerHTML = renderPaperPortfolio();
+          if (da) da.innerHTML = renderAttribution(deskAttribState);
+          wirePaperPortfolio(root, repaintDesk);
+          wireAttribution(root, deskAttribState, () => repaintDesk());
+        } catch (err) {
+          console.error('[cockpit] repaintDesk failed:', err);
+        }
+      }
+      try {
+        wirePaperPortfolio(root, repaintDesk);
+        wireAttribution(root, deskAttribState, () => repaintDesk());
+        wireAction();
+      } catch (err) {
+        console.error('[cockpit] initial DESK/action wire failed:', err);
+      }
+
+### And inside setActivePane (L1596) — add defensive fallback
+
+  CURRENT (L1596-1610):
+
+      function setActivePane(key){
+        state.pane = key;
+        saveCockpitState(state);
+        qsa('[data-pane]',     root).forEach(p => p.classList.toggle('is-active', p.dataset.pane === key));
+        qsa('[data-pane-btn]', root).forEach(b => b.classList.toggle('is-on',     b.dataset.paneBtn === key));
+        const grid = qs('.cockpit__grid', root);
+        if (grid) grid.classList.toggle('is-desk-active', key === 'desk');
+        if (key === 'chart') requestAnimationFrame(drawChartNow);
+      }
+
+  REPLACE WITH:
+
+      function setActivePane(key){
+        /* Defensive normalization — if the caller passes an
+           unknown key (stale localStorage, dropped pane, etc.)
+           force-fallback to 'chart' so the reader never lands
+           on a pane that doesn't exist in the DOM. Otherwise
+           every [data-pane] toggles is-active=false and the
+           reader sees blank below cockpit-tabs. */
+        const validPanes = ['chart', 'desk', 'subnets', 'feed', 'action'];
+        if (!validPanes.includes(key)) key = 'chart';
+        state.pane = key;
+        saveCockpitState(state);
+        qsa('[data-pane]',     root).forEach(p => p.classList.toggle('is-active', p.dataset.pane === key));
+        qsa('[data-pane-btn]', root).forEach(b => b.classList.toggle('is-on',     b.dataset.paneBtn === key));
+        const grid = qs('.cockpit__grid', root);
+        if (grid) grid.classList.toggle('is-desk-active', key === 'desk');
+        /* SAFETY NET — if after the toggle pass NO pane has
+           is-active (shouldn't happen given the validPanes guard
+           above, but cheap insurance against future regressions),
+           force-activate the chart pane. */
+        if (!qs('[data-pane].is-active', root)){
+          const chartPane = qs('[data-pane="chart"]', root);
+          if (chartPane) chartPane.classList.add('is-active');
+        }
+        if (key === 'chart') requestAnimationFrame(drawChartNow);
+      }
+
+### Why these specific changes
+
+  1. HOISTING setActivePane BEFORE the wire chain is the
+     correctness fix. The wire-side could throw for any of a
+     dozen reasons (missing data-attribute on a renamed DOM
+     node, attribution.js loading a stale state shape from
+     localStorage, paper-portfolio.js parser hitting a
+     corrupted JSON blob, etc.) — and CURRENTLY any of those
+     throws blocks setActivePane → blank pane on mobile. After
+     this change, the chart pane unhides on every mount, full
+     stop. Wire failures degrade to "feature broken" not "page
+     broken."
+
+  2. REMOVING the duplicate L584-585 invocations. The pattern
+        wirePaperPortfolio(root, repaintDesk);    // outside repaintDesk
+        ... inside repaintDesk():
+        wirePaperPortfolio(root, repaintDesk);    // again, on every repaint
+     ... resulted in double-bound listeners on every paper-
+     portfolio control after the first repaint. The replacement
+     keeps ONE outside-call (initial wire) + ONE inside-repaint-call.
+     wireAttribution's closure-recursive `() => wireAttribution(...,
+     () => {})` is also collapsed to `() => repaintDesk()` so it
+     matches the wirePaperPortfolio pattern, and so callbacks
+     dispatched after a mutation actually re-render the markup
+     (not just rebind handlers on stale DOM).
+
+  3. CONSOLE.ERROR logging in the try/catch. Per CLAUDE.md
+     Code Quality Bar rule #4 ("silent skips are bugs"): if a
+     wire-side throws, we want the regression in the console
+     for post-mortem, not swallowed.
+
+  4. SETACTIVEPANE DEFENSIVE FALLBACK. Two layers — first the
+     validPanes whitelist, second the "no-pane-active" safety
+     net. Layered guards because the second one catches any
+     future regression where someone adds a new [data-pane]
+     value to the template but forgets to add it to validPanes.
+
+### 150% extension ideas mac may want to consider
+
+  - Wrap drawChartNow() in a try/catch too. The freeze fix
+    (P0 in your stash@{0}) already touches the chart's onMove
+    path; if the initial draw throws on a particular subnet's
+    synthetic series shape, the chart stays blank even after
+    setActivePane runs. Same try/catch + console.error pattern.
+
+  - Add a cockpit-wide error-boundary fallback DOM. After the
+    setActivePane + wire chain, if [data-pane="chart"] is
+    empty (no canvas child rendered), inject a "Chart failed
+    to render — refresh the page" notice so the reader sees
+    SOMETHING actionable instead of an empty viewport. Minor
+    polish, low priority.
+
+  - Add `data-cockpit-mount-state="ready"` or similar on
+    [data-cockpit-root] after the wire chain completes
+    successfully. Lets CSS surface a loading shimmer until
+    ready, and gives future e2e tests a stable hook.
+
+### Cache-bust reminder
+
+cockpit.html currently at ?v=20260521a. Mac's fix push should
+bump to ?v=20260521c (b is taken by sandbox e624c18).
+
+### Mac's call
+
+Apply as-is, refine with the 150% extensions, or push back
+in this log if any of the proposed changes conflict with
+your stash@{0} P0 freeze fix or stash@{1} P1 DESK deletion.
+The blank bug is P-1 (above P0) — Rondo's phone is currently
+unusable for the cockpit, so this needs to land before the
+freeze fix and DESK deletion. Sandbox standing by.
