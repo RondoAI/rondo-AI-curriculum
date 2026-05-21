@@ -62,6 +62,12 @@ import { generateSeries, sma, SERIES_DAYS } from '../lib/synthetic-series.js';
    seam. Per [[feedback-subnets-in-tao]]: subnet mcaps stay in TAO,
    competitor mcaps stay in $ — the row carries both. */
 import { competitorsForSubnet, fmtCompetitorMcap, newsForCompetitor, competitorSparkSvg } from '../data/centralized-competitors.js';
+/* Daily briefings + categories surface in the dashboard folds
+   below the chart row (Phase B of the 2026-05-21 cockpit/
+   dashboard consolidation — see [[feedback-cockpit-is-the-one-
+   page]]). All four folds default-closed so they don't bloat
+   the page's at-rest height. */
+import { BRIEFINGS, latestBriefing, daysBetween } from '../data/briefings.js';
 /* Paper-portfolio imports removed 2026-05-20 — the cockpit no
    longer surfaces paper-trading affordances (Rondo: "doht need
    another paper money chart" + "book measured has to be reimagined
@@ -709,15 +715,264 @@ export function mountCockpit(root, dataLayer = null){
         </div>
       </div>
 
-      <!-- Footer pointer to the full dashboard surface so the
-           reader knows where to find briefings, the full markets
-           roster, the editorial archive, attribution, paper-
-           portfolio affordances etc. The cockpit deliberately
-           stays focused on chart + market + editorial context. -->
-      <div class="cock-chart__more">
-        <span class="cock-chart__more-lbl">Looking for briefings · full markets · attribution · editorial archive · paper desk?</span>
-        <a class="cock-chart__more-link" href="dashboard.html">⊕ OPEN FULL DASHBOARD ↗</a>
+      <!-- DASHBOARD FOLDS — Phase B of the 2026-05-21 cockpit/
+           dashboard consolidation (see [[feedback-cockpit-is-the-
+           one-page]]). All four sections default-closed; expand
+           to drill into the deeper data without leaving the page.
+           Replaces the old "OPEN FULL DASHBOARD ↗" footer link —
+           the dashboard's content lives HERE now. -->
+      ${renderDashboardFolds()}
+    `;
+  }
+
+  /* ---- DASHBOARD FOLDS (Phase B, 2026-05-21) -----------------
+     Per [[feedback-cockpit-is-the-one-page]] the dashboard's
+     deeper data surfaces fold INTO the cockpit as <details>
+     blocks below the chart row. All four default-closed so the
+     at-rest page is a single viewport-height — readers expand
+     what they want to drill into. The closed-state summary
+     always communicates the key signal (today's briefing kicker,
+     count of subnets, count of articles, count of categories)
+     so the reader can scan without expanding.
+
+     What goes here (and what's deliberately NOT here):
+       ⊕ DAILY BRIEFING   — latest editorial briefing
+       ⊕ MARKETS ROSTER   — full 128-subnet table (τ-denominated)
+       ⊕ EDITORIAL ARCHIVE — all mag + oracle + cen articles
+       ⊕ ECOSYSTEM         — subnet count + emission per category
+
+     Intentionally OMITTED from cockpit (lives on dashboard.html):
+       - MY DESK / paper portfolio (Rondo stripped paper-money
+         from the cockpit on 2026-05-20)
+       - ATTRIBUTION (depends on a paper book that no longer
+         lives here)
+     ============================================================ */
+  function renderDashboardFolds(){
+    return `
+      <section class="cock-folds" aria-label="Cockpit dashboard folds">
+        ${renderBriefingFold()}
+        ${renderMarketsFold()}
+        ${renderEditorialFold()}
+        ${renderEcosystemFold()}
+      </section>
+    `;
+  }
+
+  /* ⊕ DAILY BRIEFING — surfaces the latest editorial briefing
+     with its kicker, title, dek, and a couple of highlights.
+     Closed summary shows the date + kicker so readers scan
+     briefing freshness at a glance. */
+  function renderBriefingFold(){
+    const latest = (typeof latestBriefing === 'function' ? latestBriefing() : null)
+                || (BRIEFINGS && BRIEFINGS[0])
+                || null;
+    if (!latest){
+      return `
+        <details class="cock-fold">
+          <summary class="cock-fold__summary">
+            <span class="cock-fold__lbl">⊕ DAILY BRIEFING</span>
+            <span class="cock-fold__count">no briefings indexed</span>
+            <span class="cock-fold__chev" aria-hidden="true">›</span>
+          </summary>
+          <div class="cock-fold__body">
+            <p class="cock-fold__empty">The desk hasn't published a briefing yet. Magazine + Oracle articles still surface above in the SIGNALS sidebar.</p>
+          </div>
+        </details>
+      `;
+    }
+    /* Freshness eyebrow — "TODAY · BRIEFING" when the latest
+       date matches today's, otherwise "Nd AGO · MOST RECENT".
+       Honest about staleness so the reader trusts the surface. */
+    const today = new Date().toISOString().slice(0, 10);
+    const days  = (typeof daysBetween === 'function') ? daysBetween(latest.date, today) : 0;
+    const freshness = days === 0 ? 'TODAY · BRIEFING'
+                    : days === 1 ? '1d AGO · MOST RECENT'
+                    : `${days}d AGO · MOST RECENT`;
+    const highlights = (latest.highlights || []).slice(0, 3).map(h => `
+      <li class="cock-fold-brief__hl">
+        <span class="cock-fold-brief__hl-tag">${h.tag || '·'}</span>
+        <span class="cock-fold-brief__hl-text">${h.text || ''}</span>
+      </li>
+    `).join('');
+    return `
+      <details class="cock-fold cock-fold--brief">
+        <summary class="cock-fold__summary">
+          <span class="cock-fold__lbl">⊕ DAILY BRIEFING</span>
+          <span class="cock-fold__count">${freshness}</span>
+          <span class="cock-fold__chev" aria-hidden="true">›</span>
+        </summary>
+        <div class="cock-fold__body cock-fold-brief">
+          <div class="cock-fold-brief__head">
+            <span class="cock-fold-brief__date">${latest.date || '·'}</span>
+            <span class="cock-fold-brief__kicker">${latest.kicker || 'DAILY BRIEFING'}</span>
+          </div>
+          <h3 class="cock-fold-brief__title">${latest.title || '·'}</h3>
+          ${latest.dek ? `<p class="cock-fold-brief__dek">${latest.dek}</p>` : ''}
+          ${highlights ? `<ul class="cock-fold-brief__hls">${highlights}</ul>` : ''}
+          ${latest.href ? `<a class="cock-fold-brief__read" href="${latest.href}" target="_blank" rel="noopener">READ FULL BRIEFING ↗</a>` : ''}
+        </div>
+      </details>
+    `;
+  }
+
+  /* ⊕ MARKETS ROSTER — full 128-subnet sortable table. The
+     dashboard's primary surface, now folded into the cockpit.
+     Subnet rows are clickable: tap retargets the chart to that
+     subnet (same path as the picker dropdown or a sidebar mover).
+     All τ-denominated per [[feedback-subnets-in-tao]]. */
+  function renderMarketsFold(){
+    const ranked = SUBNETS.slice().sort((a, b) => (b.mcap || 0) - (a.mcap || 0));
+    const rows = ranked.map((x) => {
+      const cls24 = x.chg24 == null ? 'is-flat' : (x.chg24 > 0 ? 'is-up' : x.chg24 < 0 ? 'is-down' : 'is-flat');
+      const arr24 = x.chg24 == null ? '·' : (x.chg24 > 0.001 ? '▲' : x.chg24 < -0.001 ? '▼' : '—');
+      return `
+        <tr class="cock-fold-mkt__row" data-roster-row="${x.netuid}" tabindex="0" role="button" aria-label="Open SN${x.netuid} ${x.name} chart">
+          <td class="cock-fold-mkt__sn">SN${x.netuid}</td>
+          <td class="cock-fold-mkt__name">${x.name}</td>
+          <td class="cock-fold-mkt__cat">${x.cat || '·'}</td>
+          <td class="cock-fold-mkt__num">${(x.price || 0).toFixed(x.price < 1 ? 4 : 2)} τ</td>
+          <td class="cock-fold-mkt__num ${cls24}">${arr24} ${x.chg24 == null ? '·' : (x.chg24 >= 0 ? '+' : '') + x.chg24.toFixed(1) + '%'}</td>
+          <td class="cock-fold-mkt__num">${fmtMcapTAO(x.mcap)}</td>
+          <td class="cock-fold-mkt__num">${fmtInt(x.emission)} τ/d</td>
+          <td class="cock-fold-mkt__num">${fmtInt(x.miners)}</td>
+          <td class="cock-fold-mkt__num">${fmtInt(x.validators)}</td>
+        </tr>
+      `;
+    }).join('');
+    return `
+      <details class="cock-fold cock-fold--mkt">
+        <summary class="cock-fold__summary">
+          <span class="cock-fold__lbl">⊕ MARKETS ROSTER</span>
+          <span class="cock-fold__count">${SUBNETS.length} subnets</span>
+          <span class="cock-fold__chev" aria-hidden="true">›</span>
+        </summary>
+        <div class="cock-fold__body cock-fold-mkt">
+          <div class="cock-fold-mkt__wrap">
+            <table class="cock-fold-mkt__table">
+              <thead>
+                <tr>
+                  <th>SN</th>
+                  <th>NAME</th>
+                  <th>CAT</th>
+                  <th class="cock-fold-mkt__num">α PRICE (τ)</th>
+                  <th class="cock-fold-mkt__num">24H</th>
+                  <th class="cock-fold-mkt__num">MCAP (τ)</th>
+                  <th class="cock-fold-mkt__num">EMIT τ/d</th>
+                  <th class="cock-fold-mkt__num">MIN</th>
+                  <th class="cock-fold-mkt__num">VAL</th>
+                </tr>
+              </thead>
+              <tbody>${rows}</tbody>
+            </table>
+          </div>
+          <div class="cock-fold-mkt__foot">Tap any row to retarget the chart to that subnet. Sortable columns + watchlist arrive in the next pass.</div>
+        </div>
+      </details>
+    `;
+  }
+
+  /* ⊕ EDITORIAL ARCHIVE — flat list of all Magazine + Oracle
+     + centralized articles, sorted newest first. The sidebar's
+     SIGNALS section pulls a compact subset; this fold carries
+     the FULL depth so readers can scan editorial coverage across
+     subnets without leaving the cockpit. Each row is a link out
+     to the article PDF or web page. */
+  function renderEditorialFold(){
+    const team = ARTICLES.map(a => ({
+      kind: 'mag', date: a.date, title: a.title,
+      url:  a.pdf || a.externalUrl || '#',
+      source: (a.authors && a.authors[0]) || 'Subneτ Magazine',
+      subnet: a.subnet || null,
+    }));
+    const oracle = recentOracleArticles(Infinity).map(a => ({
+      kind: 'orc', date: a.date, title: a.title,
+      url:  a.pdf || '#',
+      source: 'Subnet Oracle',
+      subnet: a.subnetId || null,
+    }));
+    /* The cen items aren't pre-tagged with a subnet, but they ARE
+       in the editorial archive — readers want everything in one
+       place. Cap centralized to 30 most recent so the fold doesn't
+       balloon; mag + oracle are unbounded since those are the
+       magazine's own work. */
+    const central = (() => {
+      try {
+        return CENTRALIZED_NEWS.slice(0, 30).map(n => ({
+          kind: 'cen', date: n.date, title: n.headline,
+          url:  n.url || '#',
+          source: n.source,
+          subnet: null,
+        }));
+      } catch (_) { return []; }
+    })();
+    const all = [...team, ...oracle, ...central]
+      .filter(a => a.date)
+      .sort((a, b) => (b.date || '').localeCompare(a.date || ''));
+    const kindLbl = (k) => k === 'mag' ? 'MAG' : k === 'orc' ? 'ORC' : 'CEN';
+    const rows = all.map(a => `
+      <a class="cock-fold-arch__row cock-fold-arch__row--${a.kind}" href="${a.url}" target="_blank" rel="noopener">
+        <span class="cock-fold-arch__kind cock-fold-arch__kind--${a.kind}">${kindLbl(a.kind)}</span>
+        <span class="cock-fold-arch__date">${a.date || '·'}</span>
+        <span class="cock-fold-arch__title">${a.title || '·'}</span>
+        <span class="cock-fold-arch__src">${a.source || ''}</span>
+      </a>
+    `).join('');
+    return `
+      <details class="cock-fold cock-fold--arch">
+        <summary class="cock-fold__summary">
+          <span class="cock-fold__lbl">⊕ EDITORIAL ARCHIVE</span>
+          <span class="cock-fold__count">${all.length} articles</span>
+          <span class="cock-fold__chev" aria-hidden="true">›</span>
+        </summary>
+        <div class="cock-fold__body cock-fold-arch">
+          <div class="cock-fold-arch__wrap">${rows || '<div class="cock-fold__empty">No editorial articles indexed.</div>'}</div>
+        </div>
+      </details>
+    `;
+  }
+
+  /* ⊕ ECOSYSTEM — subnet count + emission per category. Compact
+     visual register: each category gets a row with its name, the
+     count of subnets that play in it, and a bar that scales with
+     the category's aggregate emission. Readers see at a glance
+     where the network's emission flow concentrates. */
+  function renderEcosystemFold(){
+    /* Aggregate SUBNETS by category. Each row gets: count, total
+       mcap (τ), total daily emission (τ/d). */
+    const buckets = new Map();
+    for (const x of SUBNETS){
+      const key = x.cat || 'unknown';
+      const acc = buckets.get(key) || { cat: key, count: 0, mcap: 0, emission: 0 };
+      acc.count += 1;
+      acc.mcap += (x.mcap || 0);
+      acc.emission += (x.emission || 0);
+      buckets.set(key, acc);
+    }
+    const ranked = [...buckets.values()].sort((a, b) => b.emission - a.emission);
+    const maxEmit = ranked.reduce((m, r) => Math.max(m, r.emission), 1);
+    const rows = ranked.map(r => `
+      <div class="cock-fold-eco__row">
+        <span class="cock-fold-eco__cat">${r.cat}</span>
+        <span class="cock-fold-eco__count">${r.count} subnet${r.count === 1 ? '' : 's'}</span>
+        <div class="cock-fold-eco__bar-wrap">
+          <span class="cock-fold-eco__bar" style="width:${((r.emission / maxEmit) * 100).toFixed(2)}%"></span>
+        </div>
+        <span class="cock-fold-eco__emit">${fmtInt(r.emission)} τ/d</span>
+        <span class="cock-fold-eco__mcap">${fmtMcapTAO(r.mcap)}</span>
       </div>
+    `).join('');
+    return `
+      <details class="cock-fold cock-fold--eco">
+        <summary class="cock-fold__summary">
+          <span class="cock-fold__lbl">⊕ ECOSYSTEM</span>
+          <span class="cock-fold__count">${buckets.size} categories</span>
+          <span class="cock-fold__chev" aria-hidden="true">›</span>
+        </summary>
+        <div class="cock-fold__body cock-fold-eco">
+          ${rows}
+          <div class="cock-fold-eco__foot">Bars scale with daily emission. Mcap totals shown right. Tap a category in the next pass to filter the markets roster + chart.</div>
+        </div>
+      </details>
     `;
   }
 
@@ -1252,6 +1507,27 @@ export function mountCockpit(root, dataLayer = null){
         const id = parseInt(b.dataset.mover, 10);
         if (!Number.isFinite(id) || id === state.selectedId) return;
         setSelected(id);
+      });
+    });
+
+    /* MARKETS ROSTER (dashboard fold) row taps — same retarget
+       path as the picker / movers. Keyboard handlers (Enter +
+       Space) too so the table is fully accessible.
+       Scroll-to-chart on retarget so the reader sees the result
+       of their pick without manually scrolling back up. */
+    qsa('[data-roster-row]', root).forEach(r => {
+      const handler = () => {
+        const id = parseInt(r.dataset.rosterRow, 10);
+        if (!Number.isFinite(id) || id === state.selectedId) return;
+        setSelected(id);
+        const canvas = qs('[data-chart-canvas]', root);
+        if (canvas && typeof canvas.scrollIntoView === 'function'){
+          canvas.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+      };
+      r.addEventListener('click', handler);
+      r.addEventListener('keydown', e => {
+        if (e.key === 'Enter' || e.key === ' '){ e.preventDefault(); handler(); }
       });
     });
 
