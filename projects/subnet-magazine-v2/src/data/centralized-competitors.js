@@ -397,12 +397,190 @@ export const COMPETITORS = [
     url: 'https://kalshi.com',
     why: 'Regulated US event-contract exchange — competitor for prediction subnets.',
   },
+
+  /* ---------- specialized LLM-inference shops (added 2026-05-21
+     for per-subnet competitor depth — see Targon profile below) ---------- */
+  {
+    id: 'together-ai',
+    name: 'Together AI',
+    ticker: 'PRIVATE',
+    mcap: 3_300_000_000,  // ~$3.3B last Series B
+    source: 'private',
+    sectors: ['text', 'training', 'multimodal'],
+    url: 'https://www.together.ai',
+    why: 'Open-model inference at $0.20/M tokens — direct competitor for Targon-style bandwidth-priced inference subnets.',
+  },
+  {
+    id: 'fireworks-ai',
+    name: 'Fireworks AI',
+    ticker: 'PRIVATE',
+    mcap: 552_000_000,
+    source: 'private',
+    sectors: ['text', 'multimodal'],
+    url: 'https://fireworks.ai',
+    why: 'Fast inference for open models with FireAttention — startup-favored low-latency endpoint provider.',
+  },
 ];
 
-/* Build a lookup index so competitorsForSubnet doesn't re-scan
-   the full array on every call. Keyed by sector name → array
-   of competitors that play in that sector, sorted by mcap desc
-   so the highest-conviction comparables come out first. */
+/* =================================================================
+   SUPPLY CHAIN ENTITIES (2026-05-21 / [[feedback-competitor-depth]])
+   -----------------------------------------------------------------
+   The upstream layer that every centralized AI rival depends on —
+   GPU manufacturers, chip fabs, HBM memory makers, hyperscale
+   cloud providers, power utilities. Surfacing this on a subnet's
+   VS comparison block is the magazine's institutional edge: not
+   "Subnet X vs Microsoft (mcap)" but "Subnet X vs CoreWeave, plus
+   the NVIDIA + TSMC supply chain that locks CoreWeave's growth."
+
+   Some entities (NVIDIA, AMD) ALSO appear in COMPETITORS for the
+   `infra` sector — they play dual roles. Here they're the
+   upstream supplier; there they'd be the rival for a decentralized
+   GPU subnet. The role depends on which subnet is viewing them.
+
+   @typedef {Object} SupplyChainEntity
+   @prop {string} id       Stable slug
+   @prop {string} name     Display
+   @prop {string} ticker   Stock ticker / 'PRIVATE'
+   @prop {number} mcap     Mcap in USD (raw, optional)
+   @prop {string} role     One-line role description (e.g. 'GPU manufacturer')
+   @prop {string} layer    Coarse layer: 'silicon' | 'memory' | 'cloud' | 'power' | 'water'
+   @prop {string} url      Company / reference link
+   @prop {string} why      Why this matters for the AI compute stack
+   ================================================================= */
+/** @type {SupplyChainEntity[]} */
+export const SUPPLY_CHAIN = [
+  {
+    id: 'nvidia',
+    name: 'NVIDIA',
+    ticker: 'NVDA',
+    mcap: 3_000_000_000_000,
+    role: 'GPU manufacturer',
+    layer: 'silicon',
+    url: 'https://www.nvidia.com',
+    why: 'H100 / H200 / Blackwell (B100/B200) GPUs power ~95% of frontier AI training + inference. CUDA moat. The single largest upstream dependency.',
+  },
+  {
+    id: 'amd',
+    name: 'AMD',
+    ticker: 'AMD',
+    mcap: 220_000_000_000,
+    role: 'GPU manufacturer (alt)',
+    layer: 'silicon',
+    url: 'https://www.amd.com',
+    why: 'MI300X / MI325X — credible NVIDIA alternative gaining hyperscaler design wins (Microsoft, Meta). ROCm software stack still trails CUDA.',
+  },
+  {
+    id: 'tsmc',
+    name: 'TSMC',
+    ticker: 'TSM',
+    mcap: 1_050_000_000_000,
+    role: 'Chip fabrication',
+    layer: 'silicon',
+    url: 'https://www.tsmc.com',
+    why: 'Sole-source fab for NVIDIA + AMD AI silicon. N3 / N2 nodes. Geographic risk: Taiwan-strait. Capacity bottleneck is CoWoS packaging, not silicon.',
+  },
+  {
+    id: 'sk-hynix',
+    name: 'SK Hynix',
+    ticker: 'PRIVATE',  // KRX-listed, treat as private for our register
+    mcap: 130_000_000_000,
+    role: 'HBM3e memory',
+    layer: 'memory',
+    url: 'https://www.skhynix.com',
+    why: 'Dominant supplier of HBM3e high-bandwidth memory stacks for H100 / H200 / B200. Capacity has been the binding constraint on GPU output since 2024.',
+  },
+  {
+    id: 'micron',
+    name: 'Micron',
+    ticker: 'MU',
+    mcap: 145_000_000_000,
+    role: 'HBM3e memory (alt)',
+    layer: 'memory',
+    url: 'https://www.micron.com',
+    why: 'Second HBM3e supplier ramping FY26. Diversifies HBM supply away from SK Hynix concentration risk.',
+  },
+  {
+    id: 'aws-azure-gcp',
+    name: 'AWS / Azure / GCP',
+    ticker: 'AMZN / MSFT / GOOG',
+    mcap: 6_500_000_000_000,  // rough combined relevant cap
+    role: 'Hyperscale GPU hosting',
+    layer: 'cloud',
+    url: 'https://aws.amazon.com',
+    why: 'Top 3 hyperscalers reportedly hold ~80% of FY26 H100 / B200 allocations from NVIDIA. Every centralized inference shop competes for the remaining ~20%.',
+  },
+  {
+    id: 'us-power-grids',
+    name: 'US datacenter power',
+    ticker: '—',
+    mcap: null,
+    role: 'Electricity supply',
+    layer: 'power',
+    url: 'https://www.eia.gov',
+    why: 'AI datacenter load forecast +50% by 2030 (EIA estimate). US-East (Virginia) + US-Central (Texas) are the load-growth hot spots; siting + interconnect queue 2-4 years.',
+  },
+];
+
+/* =================================================================
+   BY_NETUID — per-subnet competitor profile (2026-05-21)
+   -----------------------------------------------------------------
+   Hand-curated for the subnets the editorial desk has profiled in
+   depth. Each entry maps a netuid to:
+     - rivals[]:        ids from COMPETITORS (direct rivals)
+     - supplyChainIds[]: ids from SUPPLY_CHAIN (upstream deps)
+     - constraints[]:   physical-world bottleneck rows specific to
+                        the kind of work this subnet competes for
+
+   Unprofiled subnets fall back to BY_SECTOR (mcap-sorted, generic).
+   When a subnet gets profiled, ADD an entry here and the cockpit
+   sidebar automatically picks up the deeper register.
+   ================================================================= */
+export const BY_NETUID = {
+  /* SN4 Targon — bandwidth-priced LLM inference with deterministic
+     verifiers. The flagship "decentralize the inference market"
+     subnet. Profiled 2026-05-21 as the prototype for this depth
+     pattern. */
+  4: {
+    rivals: ['coreweave', 'together-ai', 'fireworks-ai', 'lambda-labs'],
+    supplyChainIds: ['nvidia', 'tsmc', 'sk-hynix', 'aws-azure-gcp', 'us-power-grids'],
+    constraints: [
+      {
+        label: 'H100 supply lock',
+        value: '~80% to top 3 hyperscalers',
+        note: 'NVIDIA H100 / B200 allocation, leaving ~20% for specialized inference shops + everyone else.',
+      },
+      {
+        label: 'Power per H100',
+        value: '~700W sustained',
+        note: 'Plus ~1.3× PUE overhead — ~910W wall-power per GPU in a typical datacenter.',
+      },
+      {
+        label: '10K-GPU cluster capex',
+        value: '~$400M',
+        note: '~$40K per H100 × 10,000 GPUs. Excludes interconnect, power infrastructure, building.',
+      },
+      {
+        label: 'FY26 H100 wait time',
+        value: '6–12 months',
+        note: 'Non-priority customers; hyperscalers cleared by NVIDIA quarterly.',
+      },
+      {
+        label: 'Inference token economics',
+        value: '$0.50–$2.00 / M tokens',
+        note: 'Centralized premium-model pricing range. Open-model shops (Together, Fireworks) run $0.20–$0.80.',
+      },
+    ],
+  },
+};
+
+
+/* Build lookup indexes so the public helpers don't re-scan the
+   full arrays on every call.
+     BY_SECTOR — category → competitors that play in that sector,
+       sorted by mcap desc. Generic fallback for unprofiled subnets.
+     COMPETITORS_BY_ID — id → competitor entry, for fast resolution
+       of the per-netuid id lists.
+     SUPPLY_CHAIN_BY_ID — id → supply-chain entry, ditto. */
 const BY_SECTOR = (() => {
   const idx = {};
   for (const c of COMPETITORS){
@@ -415,26 +593,75 @@ const BY_SECTOR = (() => {
   }
   return idx;
 })();
+const COMPETITORS_BY_ID = (() => {
+  const idx = {};
+  for (const c of COMPETITORS) idx[c.id] = c;
+  return idx;
+})();
+const SUPPLY_CHAIN_BY_ID = (() => {
+  const idx = {};
+  for (const c of SUPPLY_CHAIN) idx[c.id] = c;
+  return idx;
+})();
 
 /**
- * Return the top centralized competitors for a given subnet.
+ * Resolve a subnet to its institutional-grade competitor profile.
  *
- * Matches by subnet.cat → competitors whose sectors include that
- * category, sorted by mcap descending. The caller's `limit` (default 3)
- * caps how many come back. Empty array if the subnet has no `cat`
- * field or no competitors are mapped to its sector.
+ * Returns three layers for the cockpit's VS block:
+ *   rivals[]:      direct competitors that produce/deliver what
+ *                  this subnet is decentralizing.
+ *   supplyChain[]: upstream entities (chips, fabs, HBM, hyperscale
+ *                  cloud, power) that the rivals all depend on.
+ *                  Surfacing this is the magazine's edge — it shows
+ *                  the physical-world stack the decentralized
+ *                  network is either circumventing or inheriting.
+ *   constraints[]: physical-world bottlenecks specific to this
+ *                  subnet's work — H100 supply lock, power per GPU,
+ *                  capex per cluster, etc.
  *
- * @param {{cat?: string}} s  Subnet object (or anything with `.cat`).
- * @param {{limit?: number}} [opts]  Caller options. `limit` defaults to 3.
- * @returns {Competitor[]} Up to `limit` competitors, sorted by mcap desc.
+ * If the subnet has a profiled BY_NETUID entry, all three layers
+ * come from there (curated). Otherwise we fall back to BY_SECTOR
+ * for rivals and return empty supplyChain + constraints — the
+ * desk hasn't profiled that subnet's stack yet.
+ *
+ * @param {{netuid?: number, cat?: string}} s  Subnet object.
+ * @param {{limit?: number}} [opts]  Caps rivals[] (default 4).
+ * @returns {{
+ *   rivals: Competitor[],
+ *   supplyChain: SupplyChainEntity[],
+ *   constraints: Array<{label: string, value: string, note?: string}>,
+ *   profiled: boolean
+ * }}
  */
 export function competitorsForSubnet(s, opts = {}){
-  const limit = Number.isFinite(opts.limit) ? opts.limit : 3;
-  if (!s || !s.cat) return [];
+  const limit = Number.isFinite(opts.limit) ? opts.limit : 4;
+  const empty = { rivals: [], supplyChain: [], constraints: [], profiled: false };
+  if (!s) return empty;
+  /* Per-netuid profile takes precedence — that's the curated
+     editorial layer with subnet-specific direct rivals + supply
+     chain + constraints. */
+  const profile = BY_NETUID[s.netuid];
+  if (profile){
+    return {
+      rivals:      (profile.rivals || []).map(id => COMPETITORS_BY_ID[id]).filter(Boolean).slice(0, Math.max(0, limit)),
+      supplyChain: (profile.supplyChainIds || []).map(id => SUPPLY_CHAIN_BY_ID[id]).filter(Boolean),
+      constraints: (profile.constraints || []).slice(),
+      profiled: true,
+    };
+  }
+  /* Fallback: per-category mcap sort. No supply chain or
+     constraints surfaced — the editorial desk hasn't profiled
+     this subnet's stack yet. The renderer can show an "expand
+     coverage" affordance pointing back to the magazine. */
+  if (!s.cat) return empty;
   const sector = String(s.cat).toLowerCase();
-  const matches = BY_SECTOR[sector];
-  if (!matches || matches.length === 0) return [];
-  return matches.slice(0, Math.max(0, limit));
+  const matches = BY_SECTOR[sector] || [];
+  return {
+    rivals: matches.slice(0, Math.max(0, limit)),
+    supplyChain: [],
+    constraints: [],
+    profiled: false,
+  };
 }
 
 /**

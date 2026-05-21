@@ -721,24 +721,35 @@ export function mountCockpit(root, dataLayer = null){
     `;
   }
 
-  /* ---- VS CENTRALIZED comparison stat row --------------------
-     Renders the subnet's mcap τ side-by-side with its top 1-3
-     centralized rivals (mcap $). Driven by the subnet's `cat`
-     field via competitorsForSubnet — text/multimodal subnets get
-     OpenAI/Anthropic/Google, vision subnets get Stability/Runway,
-     infra subnets get NVIDIA/CoreWeave, etc.
+  /* ---- VS CENTRALIZED comparison block ------------------------
+     Three-layer institutional register driven by
+     competitorsForSubnet(s).profiled:
 
-     The visual register is: subnet side (red eyebrow + name +
-     TAO mcap) → "VS" divider → competitor stack (1-3 rows, each
-     with name + ticker chip + dollar mcap). Public vs private
-     valuation is distinguished by a small chip.
+       DIRECT RIVALS (always visible) — the specific shops that
+         produce / deliver what this subnet decentralizes. For
+         Targon (inference): CoreWeave, Together AI, Fireworks AI,
+         Lambda Labs. Not Microsoft (too generic per
+         [[feedback-competitor-depth]] — the upstream platform
+         belongs in supply chain instead).
 
-     Empty state when the subnet's category isn't mapped: a thin
-     placeholder telling the reader the desk hasn't profiled
-     rivals for this sector yet. Better than an empty box.
+       SUPPLY CHAIN (collapsible) — upstream entities all rivals
+         depend on. NVIDIA, TSMC, HBM memory, hyperscale cloud,
+         power grids. Surfacing this is the magazine's edge — the
+         reader sees what physical-world constraints the
+         centralized stack inherits and what the subnet routes
+         around.
+
+       CONSTRAINTS (collapsible) — physical-world bottlenecks
+         specific to this subnet's work. H100 supply lock, power
+         per GPU, capex per cluster, FY26 wait times, inference
+         token economics. The asymmetry data a reader monetizes.
+
+     If the subnet is unprofiled (no BY_NETUID entry), only
+     rivals come back (sector-mcap fallback) and the supply chain
+     + constraints sections render with a "desk-coverage" note.
      ============================================================ */
   function renderCompetitorCompare(s){
-    const rivals = competitorsForSubnet(s, { limit: 3 });
+    const { rivals, supplyChain, constraints, profiled } = competitorsForSubnet(s, { limit: 4 });
     const subnetMcap = Number.isFinite(s.mcap) ? s.mcap : null;
     if (!rivals.length){
       return `
@@ -748,10 +759,10 @@ export function mountCockpit(root, dataLayer = null){
         </div>
       `;
     }
-    /* Build each rival row — name + ticker chip + mcap. Ticker
-       is "PRIVATE" for unlisted, an actual ticker (META, NVDA)
-       for public companies. The chip color follows the source
-       so a reader can scan public vs private at a glance. */
+    /* DIRECT RIVALS — name + ticker chip + mcap. Ticker is
+       "PRIVATE" for unlisted, an actual symbol (META, NVDA) for
+       public. Public companies get a mint left accent so the
+       reader scans public vs private at a glance. */
     const rivalRows = rivals.map(r => `
       <li class="cock-side-vs__row" data-source="${r.source}">
         <a class="cock-side-vs__co" href="${r.url}" target="_blank" rel="noopener">${r.name}</a>
@@ -759,26 +770,88 @@ export function mountCockpit(root, dataLayer = null){
         <span class="cock-side-vs__mcap">${fmtCompetitorMcap(r.mcap)}</span>
       </li>
     `).join('');
+
+    /* SUPPLY CHAIN — when profiled, show each upstream entity
+       with its role + ticker + mcap. Layer chips (silicon /
+       memory / cloud / power) give the reader a fast frame for
+       which kind of dependency it is. */
+    const supplyRows = supplyChain.map(c => `
+      <li class="cock-side-vs__supply" data-layer="${c.layer}">
+        <span class="cock-side-vs__supply-layer cock-side-vs__supply-layer--${c.layer}">${c.layer.toUpperCase()}</span>
+        <a class="cock-side-vs__co" href="${c.url}" target="_blank" rel="noopener">${c.name}</a>
+        <span class="cock-side-vs__supply-role">${c.role}</span>
+        <span class="cock-side-vs__mcap">${c.mcap == null ? '—' : fmtCompetitorMcap(c.mcap)}</span>
+      </li>
+    `).join('');
+
+    /* CONSTRAINTS — physical-world bottleneck rows. Each carries
+       a label (left), a value (right, headline number/string),
+       and a short note (italic, beneath) that gives the reader
+       the why. */
+    const constraintRows = constraints.map(c => `
+      <li class="cock-side-vs__constraint">
+        <div class="cock-side-vs__constraint-head">
+          <span class="cock-side-vs__constraint-lbl">${c.label}</span>
+          <span class="cock-side-vs__constraint-val">${c.value}</span>
+        </div>
+        ${c.note ? `<div class="cock-side-vs__constraint-note">${c.note}</div>` : ''}
+      </li>
+    `).join('');
+
     return `
-      <div class="cock-side-sig__compare" role="group" aria-label="Centralized rivals comparison">
+      <div class="cock-side-sig__compare cock-side-sig__compare--depth ${profiled ? 'is-profiled' : 'is-unprofiled'}" role="group" aria-label="Centralized rivals + supply chain + constraints">
         <div class="cock-side-sig__compare-head">
           <span class="cock-side-sig__compare-lbl">VS CENTRALIZED</span>
           <span class="cock-side-sig__compare-cat">${(s.cat || '·').toUpperCase()}</span>
         </div>
         <div class="cock-side-vs__grid">
-          <!-- Subnet side: SN# name + TAO mcap. Sits left, the
-               trader's anchor for the comparison. -->
+          <!-- Subnet side: SN# name + TAO mcap, the trader's
+               anchor for the entire comparison block. -->
           <div class="cock-side-vs__subnet">
             <span class="cock-side-vs__subnet-eyebrow">SN${s.netuid} · ${s.name}</span>
             <span class="cock-side-vs__subnet-mcap">${fmtMcapTAO(subnetMcap)}</span>
             <span class="cock-side-vs__subnet-lbl">mcap</span>
           </div>
-          <!-- Divider — a vertical hairline + "VS" glyph that
-               feels editorial, not transactional. -->
+          <!-- VS divider — vertical hairline + tick marks. -->
           <div class="cock-side-vs__divider" aria-hidden="true">VS</div>
-          <!-- Centralized side: stacked list of rivals. -->
-          <ul class="cock-side-vs__rivals">${rivalRows}</ul>
+          <!-- Rivals side — visible by default. -->
+          <div class="cock-side-vs__rivals-wrap">
+            <div class="cock-side-vs__layer-lbl">DIRECT RIVALS</div>
+            <ul class="cock-side-vs__rivals">${rivalRows}</ul>
+          </div>
         </div>
+        ${supplyChain.length ? `
+          <!-- SUPPLY CHAIN — collapsible fold per
+               [[feedback-collapsible-default]]. Defaults closed so
+               the rivals stay the headline; reader expands for the
+               deeper stack analysis. -->
+          <details class="cock-side-vs__fold cock-side-vs__fold--supply">
+            <summary class="cock-side-vs__fold-summary">
+              <span class="cock-side-vs__fold-lbl">⊕ SUPPLY CHAIN</span>
+              <span class="cock-side-vs__fold-n">${supplyChain.length}</span>
+              <span class="cock-side-vs__fold-chev" aria-hidden="true">›</span>
+            </summary>
+            <ul class="cock-side-vs__supply-list">${supplyRows}</ul>
+          </details>
+        ` : ''}
+        ${constraints.length ? `
+          <!-- CONSTRAINTS — collapsible fold of the physical-
+               world bottlenecks (H100 lock, power per GPU, capex
+               per cluster). The asymmetry the reader monetizes. -->
+          <details class="cock-side-vs__fold cock-side-vs__fold--constraints">
+            <summary class="cock-side-vs__fold-summary">
+              <span class="cock-side-vs__fold-lbl">⊕ CONSTRAINTS</span>
+              <span class="cock-side-vs__fold-n">${constraints.length}</span>
+              <span class="cock-side-vs__fold-chev" aria-hidden="true">›</span>
+            </summary>
+            <ul class="cock-side-vs__constraints-list">${constraintRows}</ul>
+          </details>
+        ` : ''}
+        ${!profiled ? `
+          <div class="cock-side-vs__unprofiled-note">
+            Editorial desk hasn't profiled the supply-chain + constraint stack for SN${s.netuid} yet. Rivals shown by mcap fallback.
+          </div>
+        ` : ''}
       </div>
     `;
   }
