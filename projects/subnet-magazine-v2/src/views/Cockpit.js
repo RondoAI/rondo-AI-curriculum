@@ -2084,7 +2084,84 @@ export function mountCockpit(root, dataLayer = null){
        allocations per move. */
     const fmtP = p => p == null ? '·' : ((p < 1 ? p.toFixed(4) : p.toFixed(2)) + ' τ');
     const MON = ['JAN','FEB','MAR','APR','MAY','JUN','JUL','AUG','SEP','OCT','NOV','DEC'];
+    /* DRAG-TO-PAN state (2026-05-21 modern chart). Mousedown +
+       touchstart record the start position and current
+       chartOffset; mousemove/touchmove while dragging adjust
+       chartOffset by a delta translated from pixels → days based
+       on the visible window's day-per-pixel ratio.
+
+       dragState shape: { startX, startOffset, totalDx } | null
+         startX:      pageX at drag start
+         startOffset: chartOffset at drag start
+         totalDx:     accumulated |dx| — used as the click-vs-drag
+                      threshold so a tap on a news-flag marker
+                      (total movement < 4px) still fires onClick.
+
+       Suppresses the hover tooltip during drag (actualOnMove
+       early-returns when dragState is non-null). */
+    let dragState = null;
+    const CLICK_VS_DRAG_PX = 4;
+    function dragDelta(clientX){
+      if (!dragState) return 0;
+      const r = canvas.getBoundingClientRect();
+      const range = RANGES.find(rr => rr.key === state.range) || RANGES[2];
+      const dayPx = r.width / Math.max(1, range.days);
+      const dx = clientX - dragState.startX;
+      dragState.totalDx = Math.max(dragState.totalDx, Math.abs(dx));
+      /* Dragging RIGHT (positive dx) reveals OLDER bars — i.e.
+         chartOffset increases. Dragging LEFT reveals NEWER. */
+      return Math.round(dx / dayPx);
+    }
+    function applyDragOffset(clientX){
+      if (!dragState) return;
+      const dDays = dragDelta(clientX);
+      const newOffset = Math.max(0, dragState.startOffset + dDays);
+      if (newOffset !== chartOffset){
+        chartOffset = newOffset;
+        drawChartNow();
+      }
+    }
+    function endDrag(){
+      if (!dragState) return;
+      canvas.style.cursor = '';
+      dragState = null;
+    }
+    /* Mouse drag-to-pan. We listen for mousemove + mouseup on
+       the WINDOW (not the canvas) so the user can drag past the
+       canvas edges and still pan smoothly. */
+    canvas.addEventListener('mousedown', (ev) => {
+      if (ev.button !== 0) return; // primary button only
+      dragState = { startX: ev.clientX, startOffset: chartOffset, totalDx: 0 };
+      canvas.style.cursor = 'grabbing';
+      /* Suppress text-selection while dragging so the drag
+         feels haptic. */
+      ev.preventDefault();
+    });
+    window.addEventListener('mousemove', (ev) => {
+      if (!dragState) return;
+      applyDragOffset(ev.clientX);
+    });
+    window.addEventListener('mouseup', endDrag);
+    /* Touch drag-to-pan — single-finger only (pinch deferred).
+       passive: true so the browser can still keep vertical page
+       scroll responsive; touch-action: pan-y on the canvas CSS
+       lets the browser route vertical gestures to the page. */
+    canvas.addEventListener('touchstart', (ev) => {
+      if (ev.touches.length !== 1) return;
+      dragState = { startX: ev.touches[0].clientX, startOffset: chartOffset, totalDx: 0 };
+    }, { passive: true });
+    canvas.addEventListener('touchend', endDrag, { passive: true });
+    canvas.addEventListener('touchcancel', endDrag, { passive: true });
     const actualOnMove = (ev) => {
+      /* Drag-to-pan takes precedence — when the user is
+         dragging we update chartOffset instead of rendering the
+         hover tooltip. Touch drag handled here too because the
+         passive touchmove listener forwards single-finger moves
+         to onMove(); we re-route to applyDragOffset and exit. */
+      if (dragState){
+        applyDragOffset(ev.clientX);
+        return;
+      }
       if (!hit) return;
       const r = canvas.getBoundingClientRect();
       const x = ev.clientX - r.left, y = ev.clientY - r.top;
@@ -2189,7 +2266,20 @@ export function mountCockpit(root, dataLayer = null){
        (the global handler in pdf-viewer.js picks up data-pdf-*
        attrs on the panel's READ button). */
     const previewEl = qs('[data-flag-preview]', root);
+    /* Track the drag's totalDx into the click handler — if the
+       click came from a drag (totalDx > CLICK_VS_DRAG_PX) we
+       ignore the click so news-flag markers don't fire when the
+       reader was just panning. Stored on a closure-local since
+       dragState is null by the time click fires. */
+    let lastDragDx = 0;
+    canvas.addEventListener('mouseup', () => { lastDragDx = dragState ? dragState.totalDx : 0; });
+    canvas.addEventListener('touchend', () => { lastDragDx = dragState ? dragState.totalDx : 0; }, { passive: true });
     const onClick = (ev) => {
+      /* Skip clicks that came from a drag — pan vs flag-tap
+         disambiguation. CLICK_VS_DRAG_PX = 4 covers natural
+         finger-jitter while keeping intentional taps responsive. */
+      if (lastDragDx > CLICK_VS_DRAG_PX){ lastDragDx = 0; return; }
+      lastDragDx = 0;
       if (!hit) return;
       const r = canvas.getBoundingClientRect();
       const f = hit.hitFlag(ev.clientX - r.left, ev.clientY - r.top);
