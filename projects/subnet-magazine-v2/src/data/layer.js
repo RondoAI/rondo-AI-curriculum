@@ -324,12 +324,48 @@ async function refreshValidators(){
   }
 }
 
+/* ---------- centralized competitors channel -------------------
+   Per [[feedback-high-coding-standards]] the architecture seam:
+   views subscribe to the channel instead of importing the static
+   data module directly. When a live equities API + private-
+   market valuation feed lands later, refreshCompetitors() swaps
+   its source without changing any view code. Until then this
+   emits the static seed once on boot.
+
+   Payload shape:
+     {
+       competitors:   COMPETITORS[]     direct rivals (full set)
+       supplyChain:   SUPPLY_CHAIN[]    upstream entities
+       byNetuid:      BY_NETUID         per-subnet curated profiles
+       source:        'static-seed'     swap to 'fmp-api' / etc. on wire-up
+       ts:            timestamp emit-time
+     }
+
+   Future fetcher contract: keep the OUTER payload shape identical;
+   replace the values from a live source. Views downstream don't
+   notice. */
+import { COMPETITORS, SUPPLY_CHAIN, BY_NETUID } from './centralized-competitors.js';
+
+function refreshCompetitors(){
+  emit('tao:competitors', {
+    competitors: COMPETITORS,
+    supplyChain: SUPPLY_CHAIN,
+    byNetuid:    BY_NETUID,
+    source:      'static-seed',
+    ts:          Date.now(),
+  });
+}
+
 /* ---------- lifecycle ---------- */
 
 export function start(){
   refreshMarket();
   refreshSubnets();
   refreshChain();
+  /* Competitors emit ONCE on boot — data is static for now, no
+     poll interval needed. When wired to a live equities source,
+     timers.push(setInterval(refreshCompetitors, CONFIG.refresh['tao:competitors'])); */
+  refreshCompetitors();
   timers.push(setInterval(refreshMarket,  CONFIG.refresh['tao:market']));
   timers.push(setInterval(refreshSubnets, CONFIG.refresh['tao:subnets']));
   timers.push(setInterval(refreshChain,   CONFIG.refresh['tao:chain']));
