@@ -728,6 +728,55 @@ export const COMPETITORS = [
   /* ---------- prediction-market platforms (Foresight profile) ----------
      polymarket + kalshi already in COMPETITORS above; nothing new here.
      ---------- */
+
+  /* ---------- adtech / attribution (BitAds profile, 2026-05-21) ---------- */
+  {
+    id: 'trade-desk',
+    name: 'The Trade Desk',
+    ticker: 'TTD',
+    mcap: 60_000_000_000,
+    source: 'public',
+    sectors: ['finance'],
+    url: 'https://www.thetradedesk.com',
+    why: 'Independent demand-side ad platform — the largest "neutral" centralized adtech, post-cookie targeting via UID2 + measurement. Closest non-walled-garden rival for decentralized attribution subnets.',
+    delta24h: 1.1,
+    aliases: ['TTD'],
+  },
+  {
+    id: 'applovin',
+    name: 'AppLovin',
+    ticker: 'APP',
+    mcap: 100_000_000_000,
+    source: 'public',
+    sectors: ['finance'],
+    url: 'https://www.applovin.com',
+    why: 'Mobile-app ad network + AXON engine — best-performing centralized adtech of 2025 by ROI. Direct rival for any subnet attribution measurement at scale.',
+    delta24h: 2.4,
+  },
+
+  /* ---------- AI-content detection / provenance (Bitmind + Bitmind FM) ---------- */
+  {
+    id: 'hive-ai',
+    name: 'Hive AI',
+    ticker: 'PRIVATE',
+    mcap: 2_000_000_000,
+    source: 'private',
+    sectors: ['vision', 'data'],
+    url: 'https://thehive.ai',
+    why: 'Centralized AI moderation + deepfake detection — enterprise customers (Reddit, NBCU, etc.). Closest rival for synthetic-content detection subnets.',
+  },
+  {
+    id: 'adobe',
+    name: 'Adobe',
+    ticker: 'ADBE',
+    mcap: 220_000_000_000,
+    source: 'public',
+    sectors: ['vision', 'video'],
+    url: 'https://www.adobe.com',
+    why: 'Creative Cloud + Firefly generative + C2PA Content Credentials provenance. Major centralized stake in image / video AI + content attribution.',
+    delta24h: -0.4,
+    aliases: ['ADBE', 'Firefly'],
+  },
 ];
 
 /* =================================================================
@@ -1478,6 +1527,180 @@ export const BY_NETUID = {
         label: 'Eval task curation',
         value: 'Real-world task design',
         note: 'Holdout task sets need careful curation to avoid memorization. Centralized labs (Anthropic SWE-bench, etc.) lead curation; decentralized validators must match.',
+      },
+    ],
+  },
+
+  /* SN13 Dataverse — Open dataset construction + curation,
+     incentivized at the row. Rivals are the centralized data
+     labeling / dataset hosting platforms. */
+  13: {
+    rivals: ['scale-ai', 'hugging-face', 'snowflake', 'databricks'],
+    supplyChainIds: ['aws-azure-gcp', 'web-crawl-infra', 'us-power-grids'],
+    constraints: [
+      {
+        label: 'Per-label cost',
+        value: '$5-50 per human-rated row',
+        note: 'Scale AI / Surge / Argilla price ranges. Decentralized data subnets pay miners via emission; the marginal cost per labeled row competes against this floor.',
+      },
+      {
+        label: 'Curation quality moat',
+        value: 'Scale + Surge enterprise contracts',
+        note: 'Frontier labs (OpenAI, Anthropic) buy curated data via long-term contracts. Decentralized data must demonstrate equivalent quality + reliability to win institutional flow.',
+      },
+      {
+        label: 'Storage cost',
+        value: '~$23/TB/mo on S3',
+        note: 'Trillion-token datasets = petabytes. Storage is non-trivial for curated open-data subnets; geographic miner sharding can route around hyperscaler concentration.',
+      },
+      {
+        label: 'IP / licensing',
+        value: 'Opt-in is narrower',
+        note: 'HuggingFace + Common Crawl carry implicit-license risk. Opt-in / CC-licensed corpora are cleaner but narrower. Decentralized subnets can structure cleaner IP from day one.',
+      },
+      {
+        label: 'Dataset eval methodology',
+        value: 'Benchmark contamination risk',
+        note: 'Curated data leaks into model evals — a centralized problem too. Decentralized subnets need rotating eval sets + holdout strategies to keep scoring honest.',
+      },
+    ],
+  },
+
+  /* SN18 Cortex.t — Real-time text inference with strict
+     latency SLAs. Closest rival is the low-latency tier of
+     centralized inference shops. */
+  18: {
+    rivals: ['fireworks-ai', 'together-ai', 'coreweave', 'openai', 'anthropic'],
+    supplyChainIds: ['nvidia', 'tsmc', 'sk-hynix', 'aws-azure-gcp', 'us-power-grids'],
+    constraints: [
+      {
+        label: 'p99 latency target',
+        value: '~200-500ms first token',
+        note: 'Centralized inference shops (Fireworks, Together) advertise sub-500ms p99 first-token latency on 70B models. Decentralized inference must match this floor to compete for real-time use cases.',
+      },
+      {
+        label: 'Throughput per GPU',
+        value: '~50-200 tok/s per H100',
+        note: 'FireAttention + vLLM achieve 50-200 tokens/sec sustained on H100 for 70B models. Decentralized miners must match throughput while routing requests across distributed nodes.',
+      },
+      {
+        label: 'Network round-trip',
+        value: '~20-100ms regional',
+        note: 'Centralized inference is fronted by Cloudflare / Fastly edge. Decentralized miner topology adds round-trip variance — subnet must structure geographic routing to compete.',
+      },
+      {
+        label: 'Cold-start penalty',
+        value: '500ms-10s on model swap',
+        note: 'Loading a new 70B model into GPU memory takes time. Centralized shops pre-warm popular models; decentralized must coordinate warm-pools across miners.',
+      },
+      {
+        label: 'SLA enforceability',
+        value: 'Enterprise contracts trail decentralized',
+        note: 'Latency-sensitive enterprise customers want SLAs with teeth. Decentralized subnets can offer slashing-backed guarantees but the legal framework around miner-as-counterparty is still forming.',
+      },
+    ],
+  },
+
+  /* SN20 BitAds — On-chain ad attribution and incentive market.
+     Rivals are the centralized ad platforms + adtech measurement. */
+  20: {
+    rivals: ['google', 'meta', 'trade-desk', 'applovin'],
+    supplyChainIds: ['aws-azure-gcp', 'cloudflare-edge', 'us-power-grids'],
+    constraints: [
+      {
+        label: 'Walled-garden data',
+        value: 'Google + Meta own ~55% of US digital ad spend',
+        note: 'Top 2 platforms see most user behavior. Decentralized attribution must build alternative tracking signal — either via opt-in users or via on-chain identity that side-steps their data moat.',
+      },
+      {
+        label: 'Privacy regulation pressure',
+        value: 'iOS ATT, GDPR, EU Digital Services Act',
+        note: 'Centralized adtech is being squeezed by privacy law. Decentralized attribution that publishes verifiable on-chain receipts can be the COMPLIANT alternative — but must structure consent flows carefully.',
+      },
+      {
+        label: 'Attribution fraud',
+        value: '~20-40% of clicks invalid',
+        note: 'Industry estimates of click fraud range 20-40% depending on category. Centralized platforms invest in detection; decentralized must match via cryptographic proof of ad delivery.',
+      },
+      {
+        label: 'Advertiser onboarding',
+        value: 'Self-serve UI table-stakes',
+        note: 'Google Ads / Meta Ads Manager / TTD Trade Desk have 20+ years of advertiser-UX investment. Decentralized adtech must invest equivalently in advertiser dashboards.',
+      },
+      {
+        label: 'Reach',
+        value: 'Walled gardens deliver scale',
+        note: 'Meta + Google reach >3B users daily. Decentralized attribution can only measure flow it can OBSERVE — limited to opt-in users until scale builds.',
+      },
+    ],
+  },
+
+  /* SN24 Bitmind — AI-generated content detection (real vs
+     synthetic media). Rivals are the centralized synthetic-
+     content detection services. */
+  24: {
+    rivals: ['hive-ai', 'adobe', 'google', 'meta'],
+    supplyChainIds: ['nvidia', 'aws-azure-gcp', 'us-power-grids'],
+    constraints: [
+      {
+        label: 'Detection vs evasion arms race',
+        value: 'Detector accuracy decays 5-15%/yr',
+        note: 'New generative models defeat last-generation detectors. Centralized shops (Hive, GPTZero) update continuously; decentralized must build incentive for miners to ship updated detectors as fast as generation models evolve.',
+      },
+      {
+        label: 'Per-asset inference cost',
+        value: '~$0.0005-0.005 per check',
+        note: 'Hive AI + Sensity charge fractions of a cent per moderation check at enterprise volume. Decentralized must hit this floor with miner compute.',
+      },
+      {
+        label: 'False-positive cost',
+        value: 'Brand-damage risk',
+        note: 'Flagging real content as synthetic = legal + PR risk. Decentralized detection must surface confidence scores + audit trails to limit liability.',
+      },
+      {
+        label: 'C2PA + Content Credentials',
+        value: 'Standards-led path',
+        note: 'Adobe + camera makers + browser vendors converging on Content Credentials (C2PA) for provenance. Decentralized detection coexists with — not replaces — this signed-at-source approach.',
+      },
+      {
+        label: 'Regulatory mandate',
+        value: 'EU AI Act + state-level laws',
+        note: 'EU AI Act + California / Texas legislation requiring AI-content labeling. Decentralized detection can serve regulated markets; centralized incumbents already have compliance teams.',
+      },
+    ],
+  },
+
+  /* SN27 Compute — Verifiable GPU compute marketplace priced
+     per FLOP. Same space as SN12 ComputeHorde but a different
+     team — rivalship is essentially the same. */
+  27: {
+    rivals: ['coreweave', 'lambda-labs', 'modal-labs', 'aws-azure-gcp'],
+    supplyChainIds: ['nvidia', 'tsmc', 'sk-hynix', 'us-power-grids'],
+    constraints: [
+      {
+        label: 'Spot capacity matching',
+        value: 'Liquidity bootstrapping',
+        note: 'Verifiable FLOP markets need both buyers and miners online concurrently. Centralized clouds achieve this via pre-warmed instance pools; decentralized must structure incentives for idle miner availability.',
+      },
+      {
+        label: 'Verification overhead',
+        value: '~1-5% per FLOP receipt',
+        note: 'Cryptographic verification of compute correctness adds overhead. ZKVM / spot-check / consensus all carry cost tradeoffs.',
+      },
+      {
+        label: 'Slashing risk for miners',
+        value: 'Bad receipts → lost stake',
+        note: 'Verifiable compute means a misbehaving miner can be slashed. Centralized providers don\'t face per-job stake risk; decentralized inherits coordination cost.',
+      },
+      {
+        label: 'Heterogeneous GPU mix',
+        value: 'H100 + A100 + 4090 + ...',
+        note: 'Centralized clouds standardize on H100s + A100s. Decentralized marketplaces inherit whatever miners own — heterogeneous fleet complicates scheduling but increases supply.',
+      },
+      {
+        label: 'Pricing transparency',
+        value: 'Public per-FLOP rate',
+        note: 'Centralized cloud pricing is somewhat opaque (committed-use discounts, region differences). Decentralized publishes a transparent per-FLOP rate — institutional buyers value this.',
       },
     ],
   },
