@@ -754,6 +754,98 @@ export const COMPETITORS = [
     delta24h: 2.4,
   },
 
+  /* ---------- entity resolution / graph data (Palaidn profile) ---------- */
+  {
+    id: 'palantir',
+    name: 'Palantir',
+    ticker: 'PLTR',
+    mcap: 250_000_000_000,
+    source: 'public',
+    sectors: ['data', 'finance'],
+    url: 'https://www.palantir.com',
+    why: 'Foundry + AIP — defense + commercial entity-resolution and analytics platform. Dominant centralized rival for graph-data subnets.',
+    delta24h: 1.8,
+    aliases: ['PLTR'],
+  },
+  {
+    id: 'quantexa',
+    name: 'Quantexa',
+    ticker: 'PRIVATE',
+    mcap: 2_600_000_000,
+    source: 'private',
+    sectors: ['data', 'finance'],
+    url: 'https://www.quantexa.com',
+    why: 'Decision-intelligence + KYC graph platform — banking + insurance customers. Direct comparable for entity-resolution data subnets.',
+  },
+
+  /* ---------- LLM evaluation / red-teaming (De-Val profile) ---------- */
+  {
+    id: 'robust-intelligence',
+    name: 'Robust Intelligence',
+    ticker: 'PRIVATE', // Cisco acquisition Aug 2024
+    mcap: 500_000_000,
+    source: 'private',
+    sectors: ['text'],
+    url: 'https://www.robustintelligence.com',
+    why: 'AI security + adversarial validation platform (acquired by Cisco 2024). Enterprise red-teaming + model testing — direct centralized rival for LLM-evaluation subnets.',
+  },
+  {
+    id: 'lakera',
+    name: 'Lakera',
+    ticker: 'PRIVATE',
+    mcap: 100_000_000,
+    source: 'private',
+    sectors: ['text'],
+    url: 'https://www.lakera.ai',
+    why: 'Prompt-injection + LLM security firm. Self-serve product (Lakera Guard) for adversarial testing — startup-favored evaluation rival.',
+  },
+  {
+    id: 'patronus-ai',
+    name: 'Patronus AI',
+    ticker: 'PRIVATE',
+    mcap: 50_000_000,
+    source: 'private',
+    sectors: ['text'],
+    url: 'https://www.patronus.ai',
+    why: 'Automated LLM evaluation + hallucination detection. Founded by Meta AI researchers — emerging rival for benchmark/eval subnets.',
+  },
+
+  /* ---------- mobile / on-device AI silicon (EdgeMaxxing profile) ---------- */
+  {
+    id: 'qualcomm',
+    name: 'Qualcomm',
+    ticker: 'QCOM',
+    mcap: 180_000_000_000,
+    source: 'public',
+    sectors: ['infra'],
+    url: 'https://www.qualcomm.com',
+    why: 'Snapdragon NPU + Hexagon AI Engine — dominant Android-side on-device AI silicon. The benchmark for mobile inference subnets.',
+    delta24h: 0.6,
+    aliases: ['QCOM', 'Snapdragon'],
+  },
+  {
+    id: 'apple-neural-engine',
+    name: 'Apple Neural Engine',
+    ticker: 'AAPL',
+    mcap: 3_500_000_000_000,
+    source: 'public',
+    sectors: ['infra'],
+    url: 'https://www.apple.com',
+    why: 'A-series + M-series Neural Engine — vertically integrated mobile + laptop AI silicon. The on-device AI moat decentralized inference subnets compete against.',
+    delta24h: 0.9,
+    aliases: ['Apple Silicon', 'AAPL', 'Neural Engine'],
+  },
+  {
+    id: 'mediatek',
+    name: 'MediaTek',
+    ticker: 'PRIVATE',
+    mcap: 80_000_000_000,
+    source: 'private',
+    sectors: ['infra'],
+    url: 'https://www.mediatek.com',
+    why: 'Dimensity APU — Android mid-range + emerging-market dominance. Volume leader in mobile AI silicon by units shipped.',
+  },
+
   /* ---------- AI-content detection / provenance (Bitmind + Bitmind FM) ---------- */
   {
     id: 'hive-ai',
@@ -1318,6 +1410,217 @@ export const BY_NETUID = {
         label: 'Regulatory framing',
         value: 'Yield = "security" in many jurisdictions',
         note: 'SEC has signaled that yield-generation services may constitute securities offerings. Centralized DeFi front-ends (Yearn, Beefy) face delisting pressure; subnet alternatives operate outside front-end risk.',
+      },
+    ],
+  },
+
+  /* SN14 Palaidn — Real-world entity resolution + KYC-graph
+     data. Rivals are the centralized identity-graph + decision-
+     intelligence platforms. */
+  14: {
+    rivals: ['palantir', 'quantexa', 'snowflake', 'databricks'],
+    supplyChainIds: ['aws-azure-gcp', 'us-power-grids'],
+    constraints: [
+      {
+        label: 'Privacy regulation',
+        value: 'GDPR + CCPA + KYC mandates',
+        note: 'Entity-resolution data is heavily regulated. Centralized providers have compliance teams; decentralized must structure consent + provenance into the data layer.',
+      },
+      {
+        label: 'Data freshness vs accuracy',
+        value: 'Daily updates baseline',
+        note: 'Identity-graph quality decays without continuous refresh. Centralized vendors employ data ops; decentralized must incentivize miner updates.',
+      },
+      {
+        label: 'Source coverage breadth',
+        value: 'Sanctions + PEP + UBO across jurisdictions',
+        note: 'KYC platforms need global source coverage — court records, sanctions lists, beneficial ownership registries. Decentralized aggregation is uniquely positioned here but must verify each source.',
+      },
+      {
+        label: 'False-match cost',
+        value: 'Brand-damage + regulatory exposure',
+        note: 'A bad match in KYC = onboarding fraud or wrongful denial. Centralized providers carry insurance + SLAs; decentralized must structure liability allocation.',
+      },
+      {
+        label: 'Enterprise sales cycle',
+        value: '6-18 months for bank deals',
+        note: 'Palantir + Quantexa close 6-18 month enterprise pilots. Decentralized subnets must structure procurement that works for risk-averse buyers.',
+      },
+    ],
+  },
+
+  /* SN15 De-Val — Adversarial validation of LLM outputs against
+     rubrics. The rival space is the rapidly-emerging LLM-security
+     + evaluation tooling sector. */
+  15: {
+    rivals: ['robust-intelligence', 'lakera', 'patronus-ai', 'hugging-face'],
+    supplyChainIds: ['nvidia', 'aws-azure-gcp'],
+    constraints: [
+      {
+        label: 'Rubric design',
+        value: 'Eval contamination risk',
+        note: 'Static rubrics get gamed. Centralized eval vendors rotate test sets weekly-monthly; decentralized validators must coordinate the same rotation cadence.',
+      },
+      {
+        label: 'Coverage vs depth tradeoff',
+        value: 'Breadth requires hand-curation',
+        note: 'Broad LLM eval coverage (hallucination + jailbreak + bias + factuality + reasoning) requires deep editorial work per category. Centralized firms specialize narrowly; decentralized can aggregate miner specialists.',
+      },
+      {
+        label: 'Adversarial attack rate',
+        value: 'New jailbreaks weekly',
+        note: 'Prompt-injection + jailbreak techniques evolve fast. Decentralized eval can route incentives to miners producing fresh attack surfaces — a structural advantage IF scoring is honest.',
+      },
+      {
+        label: 'Enterprise procurement',
+        value: 'Cisco / Splunk acquisitions',
+        note: 'Robust Intelligence got acquired by Cisco; expect more roll-ups. Decentralized eval competes against post-acquisition enterprise sales motion.',
+      },
+      {
+        label: 'Per-eval cost',
+        value: '$0.01-1.00 per test case',
+        note: 'Enterprise eval-as-a-service charges \$0.01-1 per scored case depending on depth. Decentralized must match this floor with miner compute.',
+      },
+    ],
+  },
+
+  /* SN29 Coldint — Cold-start distributed integer compute for
+     training pipelines. Rivals are the same frontier-training
+     labs but with emphasis on training-startup efficiency. */
+  29: {
+    rivals: ['openai', 'anthropic', 'meta', 'mistral'],
+    supplyChainIds: ['nvidia', 'tsmc', 'sk-hynix', 'aws-azure-gcp', 'us-power-grids'],
+    constraints: [
+      {
+        label: 'Cold-start cluster latency',
+        value: 'Minutes-to-hours to spin up',
+        note: 'Frontier labs maintain always-on clusters. Decentralized cold-start integer compute must aggregate miner capacity at job-start time — wall-clock penalty.',
+      },
+      {
+        label: 'Integer-precision training',
+        value: 'INT8 / INT4 quantization',
+        note: 'Frontier labs lean toward BF16 / FP16 mixed precision. Integer-only paths trade some model quality for memory + throughput — niche but real.',
+      },
+      {
+        label: 'Inter-node bandwidth',
+        value: 'NVLink in datacenter vs WAN in subnet',
+        note: 'Centralized clusters use NVLink at 900GB/s between GPUs. Decentralized integer compute runs over WAN at 10-100Gb/s — communication-heavy training stalls.',
+      },
+      {
+        label: 'Checkpoint sync',
+        value: 'Coordination overhead',
+        note: 'Distributed training across heterogeneous miners needs frequent checkpoint sync. Decentralized must amortize this overhead via emission rewards covering bandwidth costs.',
+      },
+      {
+        label: 'Fault tolerance',
+        value: 'Miner dropout mid-run',
+        note: 'Long-running training jobs see node failures. Centralized restart from last checkpoint; decentralized must structure handoff between miners + verify continuity.',
+      },
+    ],
+  },
+
+  /* SN34 BitMind FM — Foundation-model fingerprinting for
+     content provenance. Distinct from SN24 Bitmind (which
+     detects synthetic media); SN34 fingerprints WHICH model
+     generated which content. */
+  34: {
+    rivals: ['hive-ai', 'adobe', 'meta', 'google'],
+    supplyChainIds: ['nvidia', 'aws-azure-gcp', 'us-power-grids'],
+    constraints: [
+      {
+        label: 'Model proliferation',
+        value: 'Thousands of open models on HF',
+        note: 'HuggingFace hosts 1M+ models. Fingerprinting must scale to that catalog — decentralized miners can specialize in subsets.',
+      },
+      {
+        label: 'Fine-tune evasion',
+        value: 'LoRA breaks fingerprints',
+        note: 'A small fine-tune on a base model can defeat naive fingerprinting. Decentralized provenance needs to track lineage across fine-tunes.',
+      },
+      {
+        label: 'C2PA + watermarking standards',
+        value: 'Industry path',
+        note: 'Adobe + Microsoft + camera makers push signed-at-source provenance. Fingerprinting from output is the COMPLEMENT — both useful, both centralized today.',
+      },
+      {
+        label: 'Per-asset cost',
+        value: 'Similar to AI-content detection',
+        note: 'Same compute economics as Bitmind (SN24). Detection-vs-evasion arms race + per-check cost floor.',
+      },
+      {
+        label: 'Forensic admissibility',
+        value: 'Court-grade evidence standard',
+        note: 'Forensic AI-content claims face high evidentiary bars. Decentralized provenance with cryptographic audit trails could be UNIQUELY suited to admissible evidence — a centralized weakness.',
+      },
+    ],
+  },
+
+  /* SN39 EdgeMaxxing — On-device inference optimization with
+     verifiable latency proofs. Rivals are the mobile + edge
+     AI silicon vendors. */
+  39: {
+    rivals: ['apple-neural-engine', 'qualcomm', 'mediatek', 'nvidia'],
+    supplyChainIds: ['tsmc', 'us-power-grids'],
+    constraints: [
+      {
+        label: 'Heterogeneous device matrix',
+        value: 'Thousands of phone + edge SKUs',
+        note: 'Optimization across iPhone + Android + edge SKUs is combinatorial. Centralized silicon vendors own the toolchain; decentralized must aggregate per-device miner work.',
+      },
+      {
+        label: 'Power budget',
+        value: '~3-8W sustained for phones',
+        note: 'Phone NPUs cap at ~3-8W sustained without thermal throttle. Centralized vendors tune for this; decentralized inference optimization must respect the envelope.',
+      },
+      {
+        label: 'Latency proof verification',
+        value: 'Cryptographic timestamp',
+        note: 'Verifying that a miner ACTUALLY ran inference at the claimed latency requires cryptographic timestamping + sample audits. Centralized SDKs trust the device.',
+      },
+      {
+        label: 'OS / runtime fragmentation',
+        value: 'Core ML vs NNAPI vs vendor',
+        note: 'iOS uses Core ML; Android uses NNAPI or vendor runtimes (QNN, MediaTek\'s NeuroPilot). Centralized vendors maintain SDKs; decentralized must support each.',
+      },
+      {
+        label: 'Mobile model size ceiling',
+        value: '~1-3GB practical limit',
+        note: '7B parameter models fit on flagship phones (3GB at INT4). Decentralized edge optimization is bounded by the same device memory ceilings centralized vendors hit.',
+      },
+    ],
+  },
+
+  /* SN47 Condense AI — Long-context summarization + compression
+     scored on fidelity. Rivals are the frontier-lab large-context
+     models + dedicated summarization shops. */
+  47: {
+    rivals: ['anthropic', 'openai', 'google', 'cohere', 'mistral'],
+    supplyChainIds: ['nvidia', 'tsmc', 'sk-hynix', 'aws-azure-gcp', 'us-power-grids'],
+    constraints: [
+      {
+        label: 'Context-window ceiling',
+        value: 'Gemini 2M / Claude 1M baseline',
+        note: 'Frontier labs ship 1M-2M token context. Decentralized summarization must match or beat this on quality at lower cost per token.',
+      },
+      {
+        label: 'Quadratic attention cost',
+        value: '~O(n²) inference',
+        note: 'Vanilla attention scales O(n²) — 1M tokens = 1T attention operations. Sparse / linear-attention variants help but trade quality. Same constraint centralized + decentralized face.',
+      },
+      {
+        label: 'Fidelity scoring',
+        value: 'Hallucination + omission detection',
+        note: 'Summarization quality scoring is qualitative. Decentralized eval needs deterministic rubrics; centralized labs use human raters at scale.',
+      },
+      {
+        label: 'Use case range',
+        value: 'Document QA vs creative summarization',
+        note: 'Long-context use cases vary widely. Centralized rivals (Claude, Gemini) generalize; decentralized subnets can specialize via miner work.',
+      },
+      {
+        label: 'Per-token cost',
+        value: '$3-30 / 1M tokens (centralized)',
+        note: 'Frontier long-context inference at $3-30 per million tokens. Decentralized must match this floor while compensating for synthesized context-management overhead.',
       },
     ],
   },
