@@ -4244,8 +4244,21 @@
   gap: 4px;
 }
 .cock-fold-eco__row{
+  /* Reset button defaults — the row is a <button> now so the
+     whole strip is one tap-target that jumps to the markets
+     roster pre-filtered to this category. */
+  -webkit-appearance: none;
+  appearance: none;
+  border: 0;
+  width: 100%;
+  text-align: left;
+  cursor: pointer;
+  font: inherit;
+  color: inherit;
+  /* Visual register — same as before, plus a trailing chevron
+     column so the affordance reads "tap to jump". */
   display: grid;
-  grid-template-columns: 100px 80px 1fr 90px 100px;
+  grid-template-columns: 100px 80px 1fr 90px 100px 14px;
   align-items: center;
   gap: 12px;
   padding: 7px 10px;
@@ -4253,6 +4266,32 @@
   border-left: 2px solid var(--c-red);
   font-family: var(--f-mono);
   font-variant-numeric: tabular-nums;
+  transition: background 140ms ease, border-left-width 140ms ease, transform 100ms ease;
+}
+.cock-fold-eco__row:hover{
+  background: rgba(255,30,60,.10);
+  border-left-width: 4px;
+}
+.cock-fold-eco__row:focus-visible{
+  outline: 1px solid var(--c-red);
+  outline-offset: -2px;
+}
+.cock-fold-eco__row:active{
+  transform: scale(0.997);
+}
+/* The trailing chevron rotates toward "jump" — sits in the
+   last grid column. Brightens on hover. */
+.cock-fold-eco__jump-chev{
+  font-family: var(--f-mono);
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--c-ink-3);
+  text-align: center;
+  transition: color 140ms ease, transform 140ms ease;
+}
+.cock-fold-eco__row:hover .cock-fold-eco__jump-chev{
+  color: var(--c-red);
+  transform: translateX(2px);
 }
 .cock-fold-eco__cat{
   font-size: 10px;
@@ -4308,11 +4347,11 @@
     padding: 0 14px 14px 14px;
   }
   .cock-fold-eco__row{
-    grid-template-columns: 1fr 60px;
+    grid-template-columns: 1fr 60px 14px;
     grid-template-areas:
-      "cat    count"
-      "bar    bar"
-      "emit   mcap";
+      "cat    count chev"
+      "bar    bar   bar"
+      "emit   mcap  mcap";
     gap: 6px;
   }
   .cock-fold-eco__cat{ grid-area: cat; }
@@ -4320,6 +4359,7 @@
   .cock-fold-eco__bar-wrap{ grid-area: bar; }
   .cock-fold-eco__emit{ grid-area: emit; text-align: left; }
   .cock-fold-eco__mcap{ grid-area: mcap; text-align: right; }
+  .cock-fold-eco__jump-chev{ grid-area: chev; }
   .cock-fold-arch__row{
     grid-template-columns: 40px 70px 1fr;
     grid-template-rows: auto auto;

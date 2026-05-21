@@ -1221,8 +1221,12 @@ export function mountCockpit(root, dataLayer = null){
     }
     const ranked = [...buckets.values()].sort((a, b) => b.emission - a.emission);
     const maxEmit = ranked.reduce((m, r) => Math.max(m, r.emission), 1);
+    /* Each row is a <button> so the whole thing is one tap-target
+       — clicking jumps the reader to the MARKETS ROSTER fold
+       pre-filtered to that category. The data-eco-jump attribute
+       carries the category key wireEcosystemFold reads on click. */
     const rows = ranked.map(r => `
-      <div class="cock-fold-eco__row">
+      <button type="button" class="cock-fold-eco__row" data-eco-jump="${r.cat}" aria-label="Filter markets roster to ${r.cat} category">
         <span class="cock-fold-eco__cat">${r.cat}</span>
         <span class="cock-fold-eco__count">${r.count} subnet${r.count === 1 ? '' : 's'}</span>
         <div class="cock-fold-eco__bar-wrap">
@@ -1230,7 +1234,8 @@ export function mountCockpit(root, dataLayer = null){
         </div>
         <span class="cock-fold-eco__emit">${fmtInt(r.emission)} τ/d</span>
         <span class="cock-fold-eco__mcap">${fmtMcapTAO(r.mcap)}</span>
-      </div>
+        <span class="cock-fold-eco__jump-chev" aria-hidden="true">›</span>
+      </button>
     `).join('');
     return `
       <details class="cock-fold cock-fold--eco">
@@ -1241,7 +1246,7 @@ export function mountCockpit(root, dataLayer = null){
         </summary>
         <div class="cock-fold__body cock-fold-eco">
           ${rows}
-          <div class="cock-fold-eco__foot">Bars scale with daily emission. Mcap totals shown right. Tap a category in the next pass to filter the markets roster + chart.</div>
+          <div class="cock-fold-eco__foot">Bars scale with daily emission. Tap any category to jump to the MARKETS ROSTER pre-filtered to those subnets.</div>
         </div>
       </details>
     `;
@@ -1840,6 +1845,39 @@ export function mountCockpit(root, dataLayer = null){
     }
   }
 
+  /* Ecosystem fold — clicking a category row jumps the reader to
+     the MARKETS ROSTER fold pre-filtered to that category. The
+     handler:
+       1. Sets marketsView.cat + clears onlyWatched
+       2. Saves the new state to localStorage
+       3. Opens the MARKETS ROSTER <details>
+       4. Closes the ECOSYSTEM <details> so the reader's eye
+          follows the action toward the table
+       5. Repaints the markets roster (chips/headers/body)
+       6. Smooth-scrolls the markets roster into view
+     This is the through-line per [[feedback-high-coding-
+     standards]] — every data view connects to actionable next
+     surface, not a dead-end list. */
+  function wireEcosystemFold(){
+    qsa('[data-eco-jump]', root).forEach(btn => {
+      btn.addEventListener('click', () => {
+        const cat = btn.dataset.ecoJump;
+        if (!cat) return;
+        marketsView.cat = cat;
+        marketsView.onlyWatched = false;
+        saveMarketsView();
+        const mktFold = qs('.cock-fold--mkt', root);
+        const ecoFold = qs('.cock-fold--eco', root);
+        if (mktFold) mktFold.setAttribute('open', '');
+        if (ecoFold) ecoFold.removeAttribute('open');
+        repaintMarketsRoster();
+        if (mktFold && typeof mktFold.scrollIntoView === 'function'){
+          mktFold.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+      });
+    });
+  }
+
   function wireEverything(){
     wireChart();
     /* Window resize triggers a chart re-draw (canvas needs to
@@ -1884,6 +1922,9 @@ export function mountCockpit(root, dataLayer = null){
        so repaintMarketsRoster() can re-wire after an in-place
        re-render without re-running ALL of wireChart. */
     wireMarketsRoster();
+    /* ECOSYSTEM fold — tap a category row to jump to the
+       MARKETS ROSTER pre-filtered to that category. */
+    wireEcosystemFold();
 
     /* Chart hover — OHLC + MA tooltip on bar hover, editorial
        tooltip on news-flag marker hover. Closes the "Cockpit Chart
