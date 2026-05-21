@@ -421,10 +421,12 @@
      while a drag is active (set inline via JS during drag). */
   cursor: grab;
   /* Touch behavior: claim HORIZONTAL touch gestures for the
-     chart (drag-to-pan) and route VERTICAL gestures to the
-     page (so the reader can still scroll past the chart on
-     mobile). Pinch-zoom kept for the browser. */
-  touch-action: pan-y pinch-zoom;
+     chart (drag-to-pan, two-finger pinch-zoom) and route
+     VERTICAL gestures to the page so the reader can still
+     scroll past the chart. `pan-y` lets vertical scroll
+     through; horizontal pans + pinches are OURS (handled in
+     the canvas's touchstart/touchmove/touchend in Cockpit.js). */
+  touch-action: pan-y;
   /* Prevent text-selection during a drag — looks like dragging
      ghost text otherwise. */
   -webkit-user-select: none;

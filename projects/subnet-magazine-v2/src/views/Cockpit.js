@@ -2142,16 +2142,72 @@ export function mountCockpit(root, dataLayer = null){
       applyDragOffset(ev.clientX);
     });
     window.addEventListener('mouseup', endDrag);
-    /* Touch drag-to-pan — single-finger only (pinch deferred).
-       passive: true so the browser can still keep vertical page
-       scroll responsive; touch-action: pan-y on the canvas CSS
-       lets the browser route vertical gestures to the page. */
+    /* Touch interactions — branch by touch count:
+         1 finger  → drag-to-pan (state: dragState)
+         2 fingers → pinch-zoom (state: pinchState)
+       The two state slots are mutex; transitioning between them
+       (e.g. lifting a second finger while still touching with
+       one) ends the old state and starts the new.
+
+       passive: true on every listener so the browser can keep
+       vertical page scroll responsive. The canvas's touch-action
+       is `pan-y` (no `pinch-zoom`) — pinch is OUR gesture, not
+       the browser's. */
+    let pinchState = null;
+    /* Pinch step thresholds — pinch-out past 1.30× starting
+       distance = zoom IN one step (shorter range). Pinch-in
+       past 0.77× = zoom OUT one step. Past 1.69× / 0.59× the
+       gesture maps to TWO steps so an aggressive pinch can
+       cross multiple ranges in one motion. lastApplied tracks
+       what's already been committed so a slow pinch doesn't
+       fire repeatedly within the same step. */
+    function pinchStepsForScale(scale){
+      if (scale >= 1.69) return -2; // zoom IN 2 steps
+      if (scale >= 1.30) return -1; // zoom IN 1 step
+      if (scale <= 0.59) return  2; // zoom OUT 2 steps
+      if (scale <= 0.77) return  1; // zoom OUT 1 step
+      return 0;
+    }
+    function touchDistance(a, b){
+      return Math.hypot(b.clientX - a.clientX, b.clientY - a.clientY);
+    }
     canvas.addEventListener('touchstart', (ev) => {
-      if (ev.touches.length !== 1) return;
-      dragState = { startX: ev.touches[0].clientX, startOffset: chartOffset, totalDx: 0 };
+      if (ev.touches.length === 2){
+        /* Two-finger gesture trumps drag — cancel any drag in
+           progress + initialize pinch. */
+        if (dragState){ canvas.style.cursor = ''; dragState = null; }
+        pinchState = {
+          startDist: touchDistance(ev.touches[0], ev.touches[1]),
+          startRangeIdx: RANGES.findIndex(r => r.key === state.range),
+          lastApplied: 0,
+        };
+      } else if (ev.touches.length === 1){
+        dragState = { startX: ev.touches[0].clientX, startOffset: chartOffset, totalDx: 0 };
+      }
     }, { passive: true });
-    canvas.addEventListener('touchend', endDrag, { passive: true });
-    canvas.addEventListener('touchcancel', endDrag, { passive: true });
+    canvas.addEventListener('touchmove', (ev) => {
+      if (pinchState && ev.touches.length === 2){
+        const dist = touchDistance(ev.touches[0], ev.touches[1]);
+        const scale = pinchState.startDist > 0 ? dist / pinchState.startDist : 1;
+        const steps = pinchStepsForScale(scale);
+        if (steps !== pinchState.lastApplied){
+          const newIdx = Math.max(0, Math.min(RANGES.length - 1, pinchState.startRangeIdx + steps));
+          const curIdx = RANGES.findIndex(r => r.key === state.range);
+          if (newIdx !== curIdx) setRange(RANGES[newIdx].key);
+          pinchState.lastApplied = steps;
+        }
+      }
+    }, { passive: true });
+    canvas.addEventListener('touchend', (ev) => {
+      /* End pinch when we drop below 2 active touches. Drag
+         endDrag fires when ALL touches lift. */
+      if (pinchState && ev.touches.length < 2) pinchState = null;
+      if (ev.touches.length === 0) endDrag();
+    }, { passive: true });
+    canvas.addEventListener('touchcancel', () => {
+      pinchState = null;
+      endDrag();
+    }, { passive: true });
     /* WHEEL ZOOM — mousewheel on the canvas cycles through the
        range tabs (1D → 7D → 30D → 90D → 1Y and back). Wheel UP
        (deltaY < 0) = zoom IN (shorter range, denser bars); wheel
