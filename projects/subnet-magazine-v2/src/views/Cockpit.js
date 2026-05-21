@@ -53,30 +53,14 @@ import { recentOracleArticles } from '../data/oracle-articles.js';
 import { ARTICLES } from '../data/articles.js';
 import { GH_ACTIVITY, ghByNetuid } from '../data/github-activity.js';
 import { generateSeries, sma, SERIES_DAYS } from '../lib/synthetic-series.js';
-/* Dashboard ↔ cockpit merge (2026-05-18). Per Rondo "merge
-   dashboard and cockpit," the cockpit page now mounts the same
-   paper portfolio + Brinson-Fachler attribution surface the
-   dashboard's DESK section shipped, so the chart + the reader's
-   book live on one page. */
-/* DESK pane removed from cockpit 2026-05-18 per Rondo
-   "we don't need two paper charts only one" + sibling
-   coordination 828925c ("we shouldn't have two paper monies").
-   The renderPaperPortfolio + renderAttribution imports stay live
-   on the dashboard standalone page; the cockpit's paper-money
-   surface is now the chart-mode toggle (SUBNET ↔ PORTFOLIO) +
-   "+" ADD POSITION sheet + HOLDINGS table — one chart, not two. */
-/* Right-rail QUICK ACTION block per sibling's coordination ref #3
-   (institutional trading terminal — "right-rail action block with
-   big primary button"). Direct buy/sell of the currently-charted
-   subnet without leaving the cockpit. Backed by the shared paper-
-   portfolio data layer; mutations propagate to the DESK pane +
-   dashboard's MY DESK fold via the standard loadPaperState /
-   savePaperState round-trip. */
-import { buy as paperBuy } from '../data/paper-portfolio.js';
-import {
-  loadActivePortfolio as loadPaperState,
-  saveActivePortfolio as savePaperState,
-} from '../data/paper-portfolios.js';
+/* Paper-portfolio imports removed 2026-05-20 — the cockpit no
+   longer surfaces paper-trading affordances (Rondo: "doht need
+   another paper money chart" + "book measured has to be reimagined
+   and may not be necessary at all" + "make sure it looks really
+   cool looking for top traders"). The paper book + buy/sell flow
+   still lives on dashboard.html's MY DESK fold for readers who
+   want it; the cockpit is a pure research surface — chart +
+   editorial signals + live market context. */
 
 /* Per-subnet logo lookup — keyed by lowercased subnet name.
    Falls back to the Bittensor mark when no specific logo exists.
@@ -523,28 +507,13 @@ export function mountCockpit(root, dataLayer = null){
      real batch, surfaces a pulsing red LIVE badge in the chart
      header. */
   let isLive = false;
-  /* QUICK ACTION block state — must be hoisted ABOVE the mount()
-     template because renderAction() runs at template-eval time
-     and reads actionState. TDZ bug otherwise. */
-  const ACTION_PRESETS_USD = [10, 25, 50, 100, 250, 500];
-  let actionState = {
-    side:   'buy',
-    qtyUSD: 100,
-  };
-  /* CMC chart-mode toggle — one canvas, two data modes (subnet α
-     price OR aggregate paper-portfolio value). Persisted so the
-     reader returns to their chosen mode. */
-  const CHART_MODE_KEY = 'sbn:cockpit:chart-mode:v1';
-  let chartMode = (() => {
-    try { return localStorage.getItem(CHART_MODE_KEY) === 'portfolio' ? 'portfolio' : 'subnet'; }
-    catch (_) { return 'subnet'; }
-  })();
-  /* Holdings / Allocation tab state below the chart. Allocation is
-     a future-pass placeholder; the default is 'holdings' so the
-     useful surface leads. Stored in-memory only — the tab choice
-     is a per-session affordance, not worth a localStorage round-
-     trip. */
-  let holdingsTab = 'holdings';
+  /* No paper-money state here — the cockpit is now a pure subnet-
+     research surface per Rondo 2026-05-20 ("doht need another
+     paper money chart" / "make sure it looks really cool looking
+     for top traders"). Earlier the cockpit had chartMode toggle
+     + holdings table + add-position sheet — all stripped. The
+     dashboard's MY DESK fold still owns paper-trade affordances
+     for readers who want them. */
 
   /* Render the cockpit shell once; the chart pane repaints in
      place on subnet / range / mode changes. Everything inside
@@ -595,39 +564,17 @@ export function mountCockpit(root, dataLayer = null){
       <button type="button" class="cock-range__btn ${on ? 'is-on' : ''}" data-range="${r.key}" role="tab" aria-selected="${on}" aria-label="${r.label}">${r.label}</button>`;
     }).join('');
 
-    /* Paper book + portfolio aggregates — used by the PORTFOLIO
-       mode chip + price block + Holdings tab. Cost basis vs mark
-       value vs cash, so we can label the chip "PORTFOLIO $TOTAL
-       ±%%" inline (CMC pattern) and show unrealized P&L below. */
-    const paper = loadPaperState();
-    const portMarkValue = paper.positions.reduce((acc, p) => {
-      const sn = subnetById(p.netuid);
-      return acc + (sn ? p.shares * (sn.price || 0) : 0);
-    }, 0);
-    const portfolioTotal = paper.cashUSD + portMarkValue;
-    const portCostBasis = paper.positions.reduce((acc, p) => acc + p.shares * p.avgCost, 0);
-    const portPnLUSD = portMarkValue - portCostBasis;
-    const portPnLPct = portCostBasis > 0 ? (portPnLUSD / portCostBasis) * 100 : 0;
-    const isPortMode = chartMode === 'portfolio';
-
     return `
-      <header class="cock-chart__head">
+      <!-- CHART HEADER — institutional register, no paper-money
+           UI. Left side carries the picker, subnet identity, and
+           the live/seed status pill. Right side carries the price
+           block (big white display number + colored 24h delta +
+           7d / 30d deltas + a compact MCAP / EMISSION readout). -->
+      <header class="cock-chart__head cock-chart__head--trader">
         <div class="cock-chart__title">
-          <!-- CMC mode chips — SUBNET shows "SN<n> · name", PORTFOLIO
-               shows the book's total dollar value inline so the
-               two registers (single subnet vs whole book) read at
-               a glance. When the paper book is empty (total = 0
-               on first visit) the dollar suffix is hidden — a bare
-               "PORTFOLIO" label reads as a call-to-action, "$0"
-               read as a broken field on the first preview pass. -->
-          <div class="cock-chart__mode" role="tablist" aria-label="Chart data mode">
-            <button type="button" class="cock-chart__mode-chip ${!isPortMode ? 'is-on' : ''}" data-chart-mode="subnet" role="tab" aria-selected="${!isPortMode}">SN${s.netuid} · ${s.name}</button>
-            <button type="button" class="cock-chart__mode-chip cock-chart__mode-chip--port ${isPortMode ? 'is-on' : ''}" data-chart-mode="portfolio" role="tab" aria-selected="${isPortMode}">PORTFOLIO${portfolioTotal > 0 ? ' $' + portfolioTotal.toLocaleString('en-US', { minimumFractionDigits: 0, maximumFractionDigits: 0 }) : ''}</button>
-          </div>
-          <!-- PICK SUBNET dropdown drives SUBNET-mode selection.
-               Muted when reader is in PORTFOLIO mode (it doesn't
-               apply to the aggregate view). -->
-          <div class="cock-chart__picker cock-chart__picker--head ${isPortMode ? 'is-muted' : ''}">
+          <!-- PICK SUBNET dropdown — the only navigation in the
+               chart header. Wired to setSelected() via wireChart. -->
+          <div class="cock-chart__picker cock-chart__picker--head">
             <label class="cock-chart__picker-lbl" for="cock-chart-picker">PICK</label>
             <select class="cock-chart__picker-sel" id="cock-chart-picker" data-chart-picker aria-label="Pick subnet">
               ${SUBNETS.slice().sort((a,b) => (b.mcap||0)-(a.mcap||0)).map(x =>
@@ -635,79 +582,51 @@ export function mountCockpit(root, dataLayer = null){
               ).join('')}
             </select>
           </div>
-          ${isPortMode ? `
-            <h1 class="cock-chart__h">PAPER PORTFOLIO<span class="cock-chart__cat">${paper.positions.length} position${paper.positions.length === 1 ? '' : 's'}</span></h1>
-            <div class="cock-chart__sub">Paper book aggregate, cash + Σ(qty · mark). ${paper.positions.length === 0 ? 'No positions yet — tap "+" above to start your first paper trade.' : 'Tap a row in the HOLDINGS table below to drill into a single subnet.'}</div>
-          ` : `
-            <h1 class="cock-chart__h">
-              <span class="cock-chart__logo" aria-hidden="true">
-                <img src="${SUBNET_LOGOS[(s.name || '').toLowerCase()] || FALLBACK_LOGO}" alt="" loading="lazy" onerror="this.src='${FALLBACK_LOGO}'">
-              </span>
-              <span class="cock-chart__sn">SN${s.netuid}</span>
-              <span class="cock-chart__name">${s.name}</span>
-              <span class="cock-chart__cat">${catLabel(s.cat)}</span>
-              <span class="cock-chart__live ${isLive ? 'is-live' : ''}" data-live-pill title="${isLive ? 'Pulling live data from TaoMarketcap' : 'Seed data, waiting on live feed'}">
-                <span class="cock-chart__live-dot"></span>${isLive ? 'LIVE · TMC' : 'SEED'}
-              </span>
-            </h1>
-            <div class="cock-chart__sub">${s.desc || ''} · <span style="color:var(--c-ink-3)">team ${s.owner || '·'}</span></div>
-          `}
+          <!-- Subnet identity row: logo + SN# + name + category +
+               live pill. The LIVE pill pulses red when tao:subnets
+               has emitted a real payload; SEED while we're showing
+               synthetic data. -->
+          <h1 class="cock-chart__h">
+            <span class="cock-chart__logo" aria-hidden="true">
+              <img src="${SUBNET_LOGOS[(s.name || '').toLowerCase()] || FALLBACK_LOGO}" alt="" loading="lazy" onerror="this.src='${FALLBACK_LOGO}'">
+            </span>
+            <span class="cock-chart__sn">SN${s.netuid}</span>
+            <span class="cock-chart__name">${s.name}</span>
+            <span class="cock-chart__cat">${catLabel(s.cat)}</span>
+            <span class="cock-chart__live ${isLive ? 'is-live' : ''}" data-live-pill title="${isLive ? 'Pulling live data from TaoMarketcap' : 'Seed data, waiting on live feed'}">
+              <span class="cock-chart__live-dot"></span>${isLive ? 'LIVE · TMC' : 'SEED'}
+            </span>
+          </h1>
+          <div class="cock-chart__sub">${s.desc || ''} · <span style="color:var(--c-ink-3)">team ${s.owner || '·'}</span></div>
         </div>
-        ${isPortMode ? `
-          <div class="cock-chart__price-block">
-            <div class="cock-chart__price">$${portfolioTotal.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}</div>
-            <div class="cock-chart__chg ${portPnLUSD >= 0 ? 'is-up' : 'is-down'}">${portPnLUSD >= 0 ? '▲' : '▼'} ${portPnLPct >= 0 ? '+' : ''}${portPnLPct.toFixed(2)}% · unreal</div>
-            <div class="cock-chart__chg2">$${Math.abs(portPnLUSD).toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 })} ${portPnLUSD >= 0 ? 'gain' : 'loss'}</div>
-            <div class="cock-chart__chg2" style="color:var(--c-ink-3)">cash $${paper.cashUSD.toLocaleString('en-US', { minimumFractionDigits: 0, maximumFractionDigits: 0 })}</div>
+        <!-- Price block — the institutional register. Big white
+             price (28px JetBrains Mono, tabular-nums so it doesn't
+             jitter on updates), then the 24h delta in mint/red,
+             then the 7d and 30d deltas dimmer below. A trader-
+             grade meta row sits beneath: MCAP and 24h EMISSION.
+             Each value carries a data-vital attribute so the
+             tao:subnets live feed can flash it via setLive. -->
+        <div class="cock-chart__price-block">
+          <div class="cock-chart__price" data-vital="sn-price">${fmtPrice(s.price)}</div>
+          <div class="cock-chart__chg ${cls(s.chg24)}">${arrow(s.chg24)} ${fmtPct(s.chg24)} · 24h</div>
+          <div class="cock-chart__chg2 ${cls(s.chg7)}">${fmtPct(s.chg7)} · 7d</div>
+          <div class="cock-chart__chg2 ${cls(s.chg30)}">${fmtPct(s.chg30)} · 30d</div>
+          <div class="cock-chart__meta">
+            <span class="cock-chart__meta-row"><span class="cock-chart__meta-lbl">MCAP</span><span class="cock-chart__meta-val">${fmtMcap(s.mcap)}</span></span>
+            <span class="cock-chart__meta-row"><span class="cock-chart__meta-lbl">EMIT τ/d</span><span class="cock-chart__meta-val">${fmtInt(s.emission)}</span></span>
           </div>
-        ` : `
-          <div class="cock-chart__price-block">
-            <div class="cock-chart__price">${fmtPrice(s.price)}</div>
-            <div class="cock-chart__chg ${cls(s.chg24)}">${arrow(s.chg24)} ${fmtPct(s.chg24)} · 24h</div>
-            <div class="cock-chart__chg2 ${cls(s.chg7)}">${fmtPct(s.chg7)} · 7d</div>
-            <div class="cock-chart__chg2 ${cls(s.chg30)}">${fmtPct(s.chg30)} · 30d</div>
-          </div>
-        `}
-        <!-- CMC "+" add-position button — pinned top-right of the
-             chart header. Square icon, tap toggles the inline add-
-             position sheet below. -->
-        <button type="button" class="cock-chart__addbtn cock-chart__addbtn--icon" data-add-toggle aria-label="Add position to paper portfolio" aria-expanded="false" title="Add position">+</button>
+        </div>
       </header>
-      <!-- Inline ADD POSITION sheet — collapsed by default, slides
-           down from the chart header on "+" tap. Confirm appends
-           to paper-portfolio + redraws chart so PORTFOLIO mode
-           reflects the new position immediately. -->
-      <div class="cock-chart__addsheet" data-add-sheet hidden>
-        <div class="cock-chart__addsheet-row">
-          <label class="cock-chart__addsheet-lbl">Subnet</label>
-          <select class="cock-chart__addsheet-sel" data-add-subnet>
-            ${SUBNETS.slice().sort((a,b) => (b.mcap||0)-(a.mcap||0)).map(x =>
-              `<option value="${x.netuid}" ${x.netuid === s.netuid ? 'selected' : ''}>SN${x.netuid} · ${x.name} · $${(x.price||0).toFixed(x.price < 1 ? 4 : 2)}</option>`
-            ).join('')}
-          </select>
-        </div>
-        <div class="cock-chart__addsheet-row">
-          <label class="cock-chart__addsheet-lbl">Quantity (α)</label>
-          <input type="number" class="cock-chart__addsheet-inp" data-add-qty min="0.0001" step="0.0001" value="1" inputmode="decimal">
-        </div>
-        <div class="cock-chart__addsheet-row">
-          <label class="cock-chart__addsheet-lbl">Entry price (USD)</label>
-          <input type="number" class="cock-chart__addsheet-inp" data-add-price min="0" step="0.0001" value="${(s.price || 0).toFixed(s.price < 1 ? 4 : 2)}" inputmode="decimal">
-        </div>
-        <div class="cock-chart__addsheet-cost" data-add-cost>Total: $${((s.price || 0) * 1).toFixed(2)}</div>
-        <div class="cock-chart__addsheet-actions">
-          <button type="button" class="cock-chart__addsheet-cancel" data-add-cancel>CANCEL</button>
-          <button type="button" class="cock-chart__addsheet-confirm" data-add-confirm>↑ ADD POSITION</button>
-        </div>
-      </div>
 
       <!-- CHART ROW — canvas LEFT, sidebar RIGHT.
-           Sidebar carries (top to bottom):
+           The chart canvas is the centerpiece. The sidebar
+           carries three stacked sections, top to bottom:
              SIGNALS    Magazine + Oracle + centralized cards
                         filtered to the active subnet.
              VITALS     Live network context (TAO/USD, MCAP, BLK,
                         STAKED %, EMIT τ/d, SUBNETS count).
-             MOVERS     Top 3 ↑ / Bottom 3 ↓ by 24h, clickable.
+             MOVERS     Top 3 ↑ / Bottom 3 ↓ by 24h, clickable
+                        rows that retarget the chart.
            On mobile the row stacks: chart top, sidebar below. -->
       <div class="cock-chart__row">
         <div class="cock-chart__canvas-wrap">
@@ -722,7 +641,11 @@ export function mountCockpit(root, dataLayer = null){
         </aside>
       </div>
 
-      <!-- Chart navigation: range tabs + pan history controls. -->
+      <!-- Chart navigation: range tabs + pan history controls.
+           Range tabs pick the visible window (1D / 7D / 30D / 90D /
+           1Y); pan buttons walk that window backward/forward through
+           history a window-at-a-time, with ⏵ TODAY snapping back to
+           the most recent window. -->
       <div class="cock-chart__nav">
         <div class="cock-chart__range" role="tablist" aria-label="Time range">
           ${rangeBtns}
@@ -735,19 +658,13 @@ export function mountCockpit(root, dataLayer = null){
         </div>
       </div>
 
-      <!-- HOLDINGS / ALLOCATION tabs above the table — CMC pattern.
-           Allocation is a future-pass placeholder per the spec; tap
-           shows a "Coming soon" sector-donut placeholder so the tab
-           row is honest about what's there. -->
-      ${renderHoldingsTabs()}
-      ${renderHoldingsTable()}
       <!-- Footer pointer to the full dashboard surface so the
            reader knows where to find briefings, the full markets
-           roster, the editorial archive, attribution etc. The
-           cockpit stays focused on chart + portfolio + market
-           context + editorial signals. -->
+           roster, the editorial archive, attribution, paper-
+           portfolio affordances etc. The cockpit deliberately
+           stays focused on chart + market + editorial context. -->
       <div class="cock-chart__more">
-        <span class="cock-chart__more-lbl">Looking for briefings · full markets · attribution · editorial archive?</span>
+        <span class="cock-chart__more-lbl">Looking for briefings · full markets · attribution · editorial archive · paper desk?</span>
         <a class="cock-chart__more-link" href="dashboard.html">⊕ OPEN FULL DASHBOARD ↗</a>
       </div>
     `;
@@ -888,134 +805,6 @@ export function mountCockpit(root, dataLayer = null){
     `;
   }
 
-  /* HOLDINGS / ALLOCATION tabs above the holdings table. The
-     Allocation tab is a future-pass placeholder (sector-donut +
-     cluster breakdown per the CMC spec) — clicking it surfaces a
-     "Coming soon" note so the tab row is honest about what's
-     wired vs not. */
-  function renderHoldingsTabs(){
-    const tab = holdingsTab || 'holdings';
-    return `
-      <div class="cock-hold-tabs" role="tablist" aria-label="Holdings view">
-        <button type="button" class="cock-hold-tabs__btn ${tab === 'holdings' ? 'is-on' : ''}" data-holdings-tab="holdings" role="tab" aria-selected="${tab === 'holdings'}">HOLDINGS</button>
-        <button type="button" class="cock-hold-tabs__btn ${tab === 'allocation' ? 'is-on' : ''}" data-holdings-tab="allocation" role="tab" aria-selected="${tab === 'allocation'}">ALLOCATION</button>
-      </div>
-    `;
-  }
-
-  /* HOLDINGS / ALLOCATION panel below the chart (CMC pattern).
-     HOLDINGS — full per-position table with row-tap retargeting.
-     ALLOCATION — sector-donut placeholder (future pass). */
-  function renderHoldingsTable(){
-    const paper = loadPaperState();
-    if (holdingsTab === 'allocation'){
-      return `
-        <div class="cock-holdings-wrap cock-holdings-wrap--allocation">
-          <div class="cock-allocation-soon">
-            <div class="cock-allocation-soon__lbl">⊕ ALLOCATION · sector breakdown</div>
-            <div class="cock-allocation-soon__sub">Sector-donut + cluster breakdown ships in the next pass. For now the per-position table under <b>HOLDINGS</b> carries the % OF BOOK column for each position.</div>
-          </div>
-        </div>
-      `;
-    }
-    if (!paper.positions || paper.positions.length === 0){
-      return `
-        <div class="cock-holdings-wrap">
-          <div class="cock-holdings-empty">
-            Empty paper book. Tap the <b>+</b> button above the chart to enter your first α holding — zero risk, just to track a thesis.
-          </div>
-        </div>
-      `;
-    }
-    const fmtUsd = n => '$' + (n || 0).toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 });
-    const fmtA   = n => (n || 0).toLocaleString('en-US', { minimumFractionDigits: 4, maximumFractionDigits: 4 }) + ' α';
-    /* Sort by current value descending so the largest positions
-       lead — same convention as CoinMarketCap. */
-    const ranked = paper.positions.slice().sort((a, b) => {
-      const sa = subnetById(a.netuid);
-      const sb = subnetById(b.netuid);
-      const va = a.shares * ((sa && sa.price) || 0);
-      const vb = b.shares * ((sb && sb.price) || 0);
-      return vb - va;
-    });
-    const totalPositionsValue = ranked.reduce((acc, p) => {
-      const sn = subnetById(p.netuid);
-      return acc + p.shares * ((sn && sn.price) || 0);
-    }, 0);
-    const rows = ranked.map(p => {
-      const sn = subnetById(p.netuid);
-      if (!sn) return '';
-      const entry = p.avgCost;
-      const current = sn.price || 0;
-      const value = p.shares * current;
-      const cost  = p.shares * entry;
-      const pnlUsd = value - cost;
-      const pnlPct = cost > 0 ? (pnlUsd / cost) * 100 : 0;
-      const cls = pnlUsd >= 0 ? 'is-up' : 'is-down';
-      const allocPct = totalPositionsValue > 0 ? (value / totalPositionsValue) * 100 : 0;
-      const logoSrc = SUBNET_LOGOS[(sn.name || '').toLowerCase()] || FALLBACK_LOGO;
-      return `
-        <tr class="cock-holdings__row" data-holdings-row="${p.netuid}" tabindex="0" role="button" aria-label="Open SN${p.netuid} ${sn.name} chart">
-          <td class="cock-holdings__sn">
-            <span class="cock-holdings__logo"><img src="${logoSrc}" alt="" loading="lazy" onerror="this.src='${FALLBACK_LOGO}'"></span>
-            <span class="cock-holdings__sn-num">SN${p.netuid}</span>
-            <span class="cock-holdings__sn-name">${sn.name}</span>
-          </td>
-          <td class="cock-holdings__num">${fmtA(p.shares)}</td>
-          <td class="cock-holdings__num">${fmtUsd(entry)}</td>
-          <td class="cock-holdings__num">${fmtUsd(current)}</td>
-          <td class="cock-holdings__num">${fmtUsd(value)}</td>
-          <td class="cock-holdings__alloc">
-            <div class="cock-holdings__alloc-row">
-              <span class="cock-holdings__alloc-pct">${allocPct.toFixed(1)}%</span>
-              <span class="cock-holdings__alloc-bar" aria-hidden="true"><span class="cock-holdings__alloc-fill" style="width:${Math.min(100, allocPct).toFixed(2)}%"></span></span>
-            </div>
-          </td>
-          <td class="cock-holdings__num ${cls}"><b>${pnlUsd >= 0 ? '+' : ''}${fmtUsd(pnlUsd)}</b><br><span style="font-size:10px">${pnlPct >= 0 ? '+' : ''}${pnlPct.toFixed(2)}%</span></td>
-        </tr>
-      `;
-    }).join('');
-    /* Totals row — blended P&L across the book. */
-    const totalValue = ranked.reduce((acc, p) => {
-      const sn = subnetById(p.netuid);
-      return acc + p.shares * ((sn && sn.price) || 0);
-    }, 0);
-    const totalCost = ranked.reduce((acc, p) => acc + p.shares * p.avgCost, 0);
-    const totalPnL  = totalValue - totalCost;
-    const totalPct  = totalCost > 0 ? (totalPnL / totalCost) * 100 : 0;
-    const totalCls  = totalPnL >= 0 ? 'is-up' : 'is-down';
-    return `
-      <div class="cock-holdings-wrap">
-        <table class="cock-holdings">
-          <thead>
-            <tr>
-              <th>ASSET</th>
-              <th class="cock-holdings__num">QTY (α)</th>
-              <th class="cock-holdings__num">ENTRY</th>
-              <th class="cock-holdings__num">CURRENT</th>
-              <th class="cock-holdings__num">VALUE</th>
-              <th>% OF BOOK</th>
-              <th class="cock-holdings__num">P&amp;L</th>
-            </tr>
-          </thead>
-          <tbody>${rows}</tbody>
-          <tfoot>
-            <tr class="cock-holdings__totals">
-              <td>TOTAL BOOK</td>
-              <td class="cock-holdings__num">${fmtA(ranked.reduce((a, p) => a + p.shares, 0))}</td>
-              <td class="cock-holdings__num">—</td>
-              <td class="cock-holdings__num">—</td>
-              <td class="cock-holdings__num"><b>${fmtUsd(totalValue)}</b></td>
-              <td class="cock-holdings__num">100%</td>
-              <td class="cock-holdings__num ${totalCls}"><b>${totalPnL >= 0 ? '+' : ''}${fmtUsd(totalPnL)}</b><br><span style="font-size:10px">${totalPct >= 0 ? '+' : ''}${totalPct.toFixed(2)}%</span></td>
-            </tr>
-          </tfoot>
-        </table>
-      </div>
-    `;
-  }
-
-
   /* ---------- selection helpers ------------------------------- */
 
   function setSelected(netuid){
@@ -1063,34 +852,6 @@ export function mountCockpit(root, dataLayer = null){
     if (m){ m.innerHTML = renderMain(); wireChart(); drawChartNow(); }
   }
 
-  /* Aggregate paper-portfolio value series — Σ(qty_i × subnet_i_price(t))
-     over the synthetic time window each subnet shares. Used by
-     PORTFOLIO chart mode (CMC pattern). Cash is added flat to
-     every day (it doesn't appreciate). When the book is empty,
-     returns a flat series of just cash so the chart renders a
-     baseline instead of NaN. */
-  function portfolioValueSeries(){
-    const paper = loadPaperState();
-    if (!paper.positions || paper.positions.length === 0){
-      return Array.from({ length: SERIES_DAYS }, () => paper.cashUSD);
-    }
-    /* Pre-fetch each held subnet's synthetic series. Each series
-       has SERIES_DAYS length, indexed [0]=oldest, [last]=today. */
-    const perSubnet = paper.positions.map(p => {
-      const sn = subnetById(p.netuid);
-      if (!sn) return null;
-      return {
-        shares: p.shares,
-        series: generateSeries(sn),
-      };
-    }).filter(Boolean);
-    /* Sum per-day across positions, add flat cash. */
-    return Array.from({ length: SERIES_DAYS }, (_, i) => {
-      const positionsValue = perSubnet.reduce((acc, { shares, series: s }) => acc + shares * (s[i] || 0), 0);
-      return paper.cashUSD + positionsValue;
-    });
-  }
-
   /* drawChartNow assigns to `hit` (declared at the top of
      mountCockpit). The closure-level `let hit` was hoisted up so
      this function — invoked during initial mount before its own
@@ -1099,18 +860,13 @@ export function mountCockpit(root, dataLayer = null){
     const c = qs('[data-chart-canvas]', root);
     const range = RANGES.find(r => r.key === state.range) || RANGES[2];
     const s = subnetById(state.selectedId) || SUBNETS[0];
-    /* CMC mode swap — when in PORTFOLIO mode, render aggregate
-       paper-portfolio value over time instead of the subnet's α
-       price. Portfolio series is Σ(qty_i × subnet_i_price(t))
-       over the same time window. Empty book → flat zero line. */
-    let chartSeries = series;
-    let annotations = annotationsFor(s.netuid, s.name);
-    if (chartMode === 'portfolio'){
-      chartSeries = portfolioValueSeries();
-      /* No editorial-flag annotations on the portfolio view —
-         flags are subnet-specific. */
-      annotations = [];
-    }
+    /* The cockpit chart renders one thing only: the active
+       subnet's α price over `range.days` (Rondo 2026-05-20: no
+       second paper-money chart). Annotations are editorial flags
+       — magazine + oracle articles tied to this subnet, rendered
+       as red/amber dots on the price line. */
+    const chartSeries = series;
+    const annotations = annotationsFor(s.netuid, s.name);
     const maxOffset = Math.max(0, chartSeries.length - range.days);
     if (chartOffset > maxOffset) chartOffset = maxOffset;
     if (chartOffset < 0)         chartOffset = 0;
@@ -1174,28 +930,16 @@ export function mountCockpit(root, dataLayer = null){
   }
 
   function wireChart(){
+    /* Range tabs (1D / 7D / 30D / 90D / 1Y) below the chart. Tap
+       to swap the visible window; setRange re-clamps the pan
+       offset + redraws the canvas. */
     qsa('[data-range]', root).forEach(b => {
       b.addEventListener('click', () => setRange(b.dataset.range));
     });
-    /* CMC mode toggle — flip between SUBNET α price and PORTFOLIO
-       aggregate value. Persists in localStorage so the reader
-       returns to their preferred view. */
-    qsa('[data-chart-mode]', root).forEach(b => {
-      b.addEventListener('click', () => {
-        const next = b.dataset.chartMode;
-        if (next === chartMode) return;
-        chartMode = next === 'portfolio' ? 'portfolio' : 'subnet';
-        try { localStorage.setItem(CHART_MODE_KEY, chartMode); } catch (_) {}
-        /* Reset pan offset so the reader sees the most recent
-           window in the new mode, not whatever historic offset
-           the prior mode was parked at. */
-        chartOffset = 0;
-        repaintMain();
-      });
-    });
-    /* Inline subnet picker — change event switches the global
-       selection across the cockpit (chart re-mounts, articles
-       re-list, KPIs reload). */
+    /* Subnet picker dropdown in the chart header — change event
+       switches the whole cockpit's active subnet. Repaints chart
+       + sidebar (signals filter to the new subnet, vitals stay
+       network-wide). */
     const picker = qs('[data-chart-picker]', root);
     if (picker){
       picker.addEventListener('change', () => {
@@ -1203,124 +947,13 @@ export function mountCockpit(root, dataLayer = null){
         if (Number.isFinite(id)) setSelected(id);
       });
     }
-    /* CMC "+" ADD POSITION sheet — toggle visibility on header
-       button tap, refresh the cost summary on qty/price input,
-       confirm appends to paper-portfolio and triggers a chart
-       repaint so PORTFOLIO mode reflects the new position. */
-    const addToggle = qs('[data-add-toggle]', root);
-    const addSheet  = qs('[data-add-sheet]', root);
-    if (addToggle && addSheet){
-      addToggle.addEventListener('click', () => {
-        const open = !addSheet.hasAttribute('hidden');
-        if (open){
-          addSheet.setAttribute('hidden', '');
-          addToggle.setAttribute('aria-expanded', 'false');
-          addToggle.classList.remove('is-on');
-        } else {
-          addSheet.removeAttribute('hidden');
-          addToggle.setAttribute('aria-expanded', 'true');
-          addToggle.classList.add('is-on');
-        }
-      });
-    }
-    const addQty   = qs('[data-add-qty]', root);
-    const addPrice = qs('[data-add-price]', root);
-    const addCost  = qs('[data-add-cost]', root);
-    const refreshAddCost = () => {
-      if (!addQty || !addPrice || !addCost) return;
-      const q = parseFloat(addQty.value);
-      const p = parseFloat(addPrice.value);
-      const cost = (Number.isFinite(q) && Number.isFinite(p) && q > 0 && p > 0) ? q * p : 0;
-      const paper = loadPaperState();
-      const after = paper.cashUSD - cost;
-      const bad = after < 0;
-      addCost.innerHTML = `Total: <b>$${cost.toLocaleString('en-US', {minimumFractionDigits:2, maximumFractionDigits:2})}</b> · Cash after: <b${bad ? ' class="is-bad"' : ''}>$${after.toLocaleString('en-US', {minimumFractionDigits:2, maximumFractionDigits:2})}</b>`;
-    };
-    if (addQty)   addQty.addEventListener('input', refreshAddCost);
-    if (addPrice) addPrice.addEventListener('input', refreshAddCost);
-    refreshAddCost();
-    const addCancel = qs('[data-add-cancel]', root);
-    if (addCancel){
-      addCancel.addEventListener('click', () => {
-        if (addSheet) addSheet.setAttribute('hidden', '');
-        if (addToggle){
-          addToggle.setAttribute('aria-expanded', 'false');
-          addToggle.classList.remove('is-on');
-        }
-      });
-    }
-    const addConfirm = qs('[data-add-confirm]', root);
-    if (addConfirm){
-      addConfirm.addEventListener('click', () => {
-        const sel  = qs('[data-add-subnet]', root);
-        if (!sel || !addQty || !addPrice) return;
-        const netuid = parseInt(sel.value, 10);
-        const q = parseFloat(addQty.value);
-        const p = parseFloat(addPrice.value);
-        if (!Number.isFinite(netuid) || !Number.isFinite(q) || !Number.isFinite(p) || q <= 0 || p <= 0){
-          if (addCost) addCost.innerHTML = '<span class="is-bad">Invalid input — set a positive quantity + entry price.</span>';
-          return;
-        }
-        const cur = loadPaperState();
-        const next = paperBuy(cur, netuid, q, p);
-        if (next === cur){
-          if (addCost) addCost.innerHTML = '<span class="is-bad">Insufficient paper cash.</span>';
-          return;
-        }
-        savePaperState(next);
-        /* Close the sheet, redraw chart (PORTFOLIO mode reflects
-           the new position immediately), and propagate to the
-           DESK pane via the shared repaint. */
-        if (addSheet) addSheet.setAttribute('hidden', '');
-        if (addToggle){
-          addToggle.setAttribute('aria-expanded', 'false');
-          addToggle.classList.remove('is-on');
-        }
-        repaintMain();
-      });
-    }
-
     /* Sidebar mover rows — tap → switch chart to that subnet
        (same selection path as the picker dropdown). */
     qsa('[data-mover]', root).forEach(b => {
       b.addEventListener('click', () => {
         const id = parseInt(b.dataset.mover, 10);
         if (!Number.isFinite(id) || id === state.selectedId) return;
-        if (chartMode !== 'subnet'){
-          chartMode = 'subnet';
-          try { localStorage.setItem(CHART_MODE_KEY, 'subnet'); } catch (_) {}
-        }
         setSelected(id);
-      });
-    });
-
-    /* Holdings / Allocation tabs above the table — tap swaps the
-       holdings panel between the per-position table and the
-       allocation placeholder. */
-    qsa('[data-holdings-tab]', root).forEach(b => {
-      b.addEventListener('click', () => {
-        const next = b.dataset.holdingsTab === 'allocation' ? 'allocation' : 'holdings';
-        if (next === holdingsTab) return;
-        holdingsTab = next;
-        repaintMain();
-      });
-    });
-
-    /* Holdings table row taps retarget the chart to the row's
-       subnet + flip mode back to SUBNET so the reader drills in. */
-    qsa('[data-holdings-row]', root).forEach(r => {
-      const handler = () => {
-        const id = parseInt(r.dataset.holdingsRow, 10);
-        if (!Number.isFinite(id) || id === state.selectedId) return;
-        if (chartMode !== 'subnet'){
-          chartMode = 'subnet';
-          try { localStorage.setItem(CHART_MODE_KEY, 'subnet'); } catch (_) {}
-        }
-        setSelected(id);
-      };
-      r.addEventListener('click', handler);
-      r.addEventListener('keydown', e => {
-        if (e.key === 'Enter' || e.key === ' '){ e.preventDefault(); handler(); }
       });
     });
 

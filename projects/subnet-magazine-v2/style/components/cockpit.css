@@ -3164,6 +3164,58 @@
 }
 
 /* ============================================================
+   CHART HEADER — trader-grade register (2026-05-20)
+   ------------------------------------------------------------
+   With the paper-money UI stripped (no mode chips, no "+"
+   button, no add sheet) the chart header is just two columns:
+   the title block (picker + identity + sub) on the left, and
+   the price block (big price + deltas + MCAP/EMIT meta row)
+   on the right. We override the older 3-column grid to use
+   only 2 columns so nothing sits in a dead third cell.
+   ============================================================ */
+.cock-chart__head--trader{
+  grid-template-columns: 1fr auto;
+}
+@media (max-width: 720px){
+  .cock-chart__head--trader{
+    grid-template-columns: 1fr auto;
+  }
+}
+
+/* Trader-grade meta row under the price deltas — compact mono
+   register showing MCAP and 24h EMISSION inline. Sits under
+   the price + delta stack on the right. Bloomberg-style: tight
+   key/value pairs with a hairline divider between them. */
+.cock-chart__meta{
+  margin-top: 6px;
+  padding-top: 6px;
+  border-top: 1px solid var(--c-rule);
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  text-align: right;
+}
+.cock-chart__meta-row{
+  display: flex;
+  justify-content: flex-end;
+  gap: 8px;
+  font-family: var(--f-mono);
+  font-variant-numeric: tabular-nums;
+  font-size: 10px;
+  letter-spacing: .02em;
+}
+.cock-chart__meta-lbl{
+  color: var(--c-ink-3);
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: .14em;
+}
+.cock-chart__meta-val{
+  color: var(--c-ink-1);
+  font-weight: 800;
+}
+
+/* ============================================================
    "+" BUTTON — icon variant (CMC pattern, square)
    ------------------------------------------------------------
    The standard .cock-chart__addbtn is a wide red pill ("+
