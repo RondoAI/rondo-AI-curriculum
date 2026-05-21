@@ -1,11 +1,12 @@
 # SemiAnalysis Archive Index
 
-_289 posts captured. Generated 2026-05-21T17:55:25.593806+00:00._
+_290 posts captured. Generated 2026-05-21T21:25:49.206775+00:00._
 
 Editorial policy: SemiAnalysis is the macro reference. The Oracle cites it for any claim about hyperscaler compute, GPU economics, datacenter power, foundry capacity, memory pricing, lab unit economics. The Oracle does NOT cite SemiAnalysis for any Bittensor-specific claim. SemiAnalysis does not cover Bittensor; treat that absence as itself information.
 
 | Date | Title | Audience | Authors | File |
 | --- | --- | --- | --- | --- |
+| 2026-05-21 | [EDA Market Primer](https://newsletter.semianalysis.com/p/eda-market-primer) | only_paid | ["Sravan Kundojjala", "Dylan Patel", "Gerald Wong"] | `2026-05-21-eda-market-primer.md` |
 | 2026-05-13 | [Cerebras — Faster Tokens Please](https://newsletter.semianalysis.com/p/cerebras-faster-tokens-please) | only_paid | ["Myron Xie", "Jordan Nanos", "Max Kan", "Cam Quilici", "Tan | `2026-05-13-cerebras-faster-tokens-please.md` |
 | 2026-05-12 | [The EDA Primer: From RTL to Silicon](https://newsletter.semianalysis.com/p/the-eda-primer-from-rtl-to-silicon) | only_paid | ["Gerald Wong", "Dylan Patel", "Sravan Kundojjala"] | `2026-05-12-the-eda-primer-from-rtl-to-silicon.md` |
 | 2026-05-01 | [AI Value Capture - The Shift To Model Labs](https://newsletter.semianalysis.com/p/ai-value-capture-the-shift-to-model) | only_paid | ["Daniel Nishball", "Dylan Patel", "Cheang Kang Wen", "Cryst | `2026-05-01-ai-value-capture-the-shift-to-model.md` |

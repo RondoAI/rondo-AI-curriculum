@@ -1577,6 +1577,16 @@ rotate cold keys cleanly today.
 
 _SemiAnalysis is the most-cited semiconductor and AI infrastructure publication in the industry. They do NOT cover Bittensor. The Oracle uses this corpus for any claim about hyperscaler compute, GPU economics, datacenter power, foundry capacity, memory pricing, lab unit economics. DO NOT cite SemiAnalysis for any Bittensor-specific claim. Full archive (289 posts, May 2020 onwards) lives at `intelligence/_external_sources/semianalysis/` with an `INDEX.md` table of contents. Paywalled posts show only subtitle + free preview; free posts have the full body extracted._
 
+### 2026-05-21 · EDA Market Primer
+_EDA Market size, Share, Business Models, Drivers, Changing Customer Base, Competitive Dynamics Across Synopsys, Cadence, and Siemens, China EDA, IP, Hardware, CoT, Lock-In Economics, Disruptive Forces_
+
+- **Authors:** ["Sravan Kundojjala", "Dylan Patel", "Gerald Wong"]
+- **Access:** paid-preview
+- **URL:** https://newsletter.semianalysis.com/p/eda-market-primer
+- **Corpus file:** `intelligence/_external_sources/semianalysis/2026-05-21-eda-market-primer.md`
+
+> Every advanced chip on earth is designed using Electronic Design Automation (EDA) software from three companies. Synopsys, Cadence, and Siemens EDA bridge the gap between what a chip needs to do and what a foundry can manufacture, translating billions of transistors into manufacturable silicon.  The Big-3 hold over 85% combined market share (Ansys now part of Synopsys), and the industry has posted positive revenue growth every single year for over a decade. Synopsys generated $8B in CY2025 (incl
+
 ### 2026-05-13 · Cerebras — Faster Tokens Please
 _OpenAI and AWS Partnerships, Tokenomics Explainer, Architecture Deep Dive, Datacenter Ramp, Technical Roadmap_
 
@@ -1687,16 +1697,6 @@ _Power prices misconception, PJM's poor market design, Capacity prices 9.3x grow
 
 > # Are AI Datacenters Increasing Electric Bills for American Households?  SemiAnalysis x Fluidstack is launching GTC with a 48-hour, full-stack AI infrastructure hackathon on March 15th from Power to Prefill, Dirt to Decode. With speakers from OpenAI, GPU MODE, and Thinking Machines, plus compute grants and GPU cluster access, come build with the best: [APPLY HERE](https://luma.com/SAxFSHack).  The topic of datacenter load growth and impact on power prices remains broadly misunderstood, akin to t
 
-### 2026-02-25 · Vera Rubin – Extreme Co-Design: An Evolution from Grace Blackwell Oberon
-_Vera, Rubin, NVLink 6 Switch, ConnectX-9, BlueField-4, Spectrum-6, Seamless Cableless Compute Tray Design, Power Rack, VR NVL72 TCO and BoM_
-
-- **Authors:** ["Wega Chu", "Dylan Patel", "Daniel Nishball", "Clara Ee", "Gerald Wong", "Myron Xie", "Cheang Kang Wen", "Ray Wang", "N
-- **Access:** paid-preview
-- **URL:** https://newsletter.semianalysis.com/p/vera-rubin-extreme-co-design-an-evolution
-- **Corpus file:** `intelligence/_external_sources/semianalysis/2026-02-25-vera-rubin-extreme-co-design-an-evolution.md`
-
-> [![](https://substackcdn.com/image/fetch/$s_!NB4l!,w_1456,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F7257cc0c-a57b-4aa2-b03b-1ead3d930e8c_4800x2700.png)](https://substackcdn.com/image/fetch/$s_!NB4l!,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F7257cc0c-a57b-4aa2-b03b-1ead3d930e8c_4800x2700.png)  At CES 2026, Nvidia officially announced in detail all 6 Rub
-
 
 ## ⊕ GITHUB COMMITS + RELEASES, last 24h
 
@@ -1712,4 +1712,4 @@ _no posts retrieved · all Nitter instances may be down_
 
 
 ---
-_Generated at 2026-05-21T17:55:25.793241+00:00 by scripts/intel/aggregate.py. Treat this digest as input context, not as ground truth. Verify before quoting._
+_Generated at 2026-05-21T21:25:49.331818+00:00 by scripts/intel/aggregate.py. Treat this digest as input context, not as ground truth. Verify before quoting._
