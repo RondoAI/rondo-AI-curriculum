@@ -61,7 +61,7 @@ import { generateSeries, sma, SERIES_DAYS } from '../lib/synthetic-series.js';
    header for data-source provenance + future API integration
    seam. Per [[feedback-subnets-in-tao]]: subnet mcaps stay in TAO,
    competitor mcaps stay in $ — the row carries both. */
-import { competitorsForSubnet, fmtCompetitorMcap } from '../data/centralized-competitors.js';
+import { competitorsForSubnet, fmtCompetitorMcap, newsForCompetitor, competitorSparkSvg } from '../data/centralized-competitors.js';
 /* Paper-portfolio imports removed 2026-05-20 — the cockpit no
    longer surfaces paper-trading affordances (Rondo: "doht need
    another paper money chart" + "book measured has to be reimagined
@@ -759,17 +759,67 @@ export function mountCockpit(root, dataLayer = null){
         </div>
       `;
     }
-    /* DIRECT RIVALS — name + ticker chip + mcap. Ticker is
-       "PRIVATE" for unlisted, an actual symbol (META, NVDA) for
-       public. Public companies get a mint left accent so the
-       reader scans public vs private at a glance. */
-    const rivalRows = rivals.map(r => `
-      <li class="cock-side-vs__row" data-source="${r.source}">
-        <a class="cock-side-vs__co" href="${r.url}" target="_blank" rel="noopener">${r.name}</a>
-        <span class="cock-side-vs__ticker cock-side-vs__ticker--${r.source}">${r.ticker}</span>
-        <span class="cock-side-vs__mcap">${fmtCompetitorMcap(r.mcap)}</span>
-      </li>
-    `).join('');
+    /* DIRECT RIVALS — each rival becomes its OWN collapsible
+       card (Rondo 2026-05-21: "when I pull up Targon, next to the
+       chart it should be all CoreWeave information, all the other
+       competitor's information and articles with their ticker,
+       price up or down").
+
+       The card is a native <details name="cock-side-rivals">.
+       Sharing the `name` makes them mutually-exclusive accordion-
+       style — opening one auto-closes the others. Saves vertical
+       space + matches [[feedback-dense-visualization]] (the
+       sidebar can never explode into 4 simultaneously-open cards).
+
+       Closed state (one tight row):
+         [name] [ticker chip] [spark] [mcap] [Δ24h] [›]
+       Open state (accordion body):
+         - why-line (institutional rationale)
+         - 2-3 articles about that specific company
+         - tiny note: 'static snapshot, live feed pending'
+            for the 24h delta on public companies; private
+            companies show nothing (no daily delta source).
+
+       Public companies get a mint left accent + mint ticker chip;
+       private companies get red. Tap-and-hold a row name to open
+       the company URL in a new tab (anchor inside the body, not
+       the summary, so summary-click only toggles the fold). */
+    const rivalRows = rivals.map(r => {
+      const articles = newsForCompetitor(r, 3);
+      const articleHtml = articles.length
+        ? articles.map(a => `
+            <a class="cock-side-vs__rival-art" href="${a.url || '#'}" target="_blank" rel="noopener">
+              <span class="cock-side-vs__rival-art-date">${a.date || '·'}</span>
+              <span class="cock-side-vs__rival-art-src">${a.source || ''}</span>
+              <span class="cock-side-vs__rival-art-title">${a.headline || '·'}</span>
+            </a>
+          `).join('')
+        : `<div class="cock-side-vs__rival-art-empty">No indexed centralized news mentions ${r.name} yet. The desk surfaces coverage as the feed scores it.</div>`;
+      const sparkColor = Number.isFinite(r.delta24h)
+        ? (r.delta24h >= 0 ? 'var(--c-up)' : 'var(--c-down)')
+        : 'var(--c-ink-3)';
+      const deltaHtml = Number.isFinite(r.delta24h)
+        ? `<span class="cock-side-vs__rival-delta ${r.delta24h >= 0 ? 'is-up' : 'is-down'}">${r.delta24h >= 0 ? '+' : ''}${r.delta24h.toFixed(1)}%</span>`
+        : `<span class="cock-side-vs__rival-delta is-flat" title="No daily delta — private company / live feed pending">—</span>`;
+      return `
+        <details class="cock-side-vs__rival" name="cock-side-rivals" data-source="${r.source}">
+          <summary class="cock-side-vs__rival-summary">
+            <span class="cock-side-vs__rival-name">${r.name}</span>
+            <span class="cock-side-vs__ticker cock-side-vs__ticker--${r.source}">${r.ticker}</span>
+            ${competitorSparkSvg(r, sparkColor)}
+            <span class="cock-side-vs__rival-mcap">${fmtCompetitorMcap(r.mcap)}</span>
+            ${deltaHtml}
+            <span class="cock-side-vs__rival-chev" aria-hidden="true">›</span>
+          </summary>
+          <div class="cock-side-vs__rival-body">
+            <p class="cock-side-vs__rival-why">${r.why || ''}</p>
+            <a class="cock-side-vs__rival-link" href="${r.url}" target="_blank" rel="noopener">${r.url.replace(/^https?:\/\//, '').replace(/\/$/, '')} ↗</a>
+            <div class="cock-side-vs__rival-news">${articleHtml}</div>
+            ${Number.isFinite(r.delta24h) ? `<div class="cock-side-vs__rival-snapshot-note">Static snapshot — live equities feed pending.</div>` : ''}
+          </div>
+        </details>
+      `;
+    }).join('');
 
     /* SUPPLY CHAIN — when profiled, show each upstream entity
        with its role + ticker + mcap. Layer chips (silicon /
@@ -817,7 +867,11 @@ export function mountCockpit(root, dataLayer = null){
           <!-- Rivals side — visible by default. -->
           <div class="cock-side-vs__rivals-wrap">
             <div class="cock-side-vs__layer-lbl">DIRECT RIVALS</div>
-            <ul class="cock-side-vs__rivals">${rivalRows}</ul>
+            <!-- Each rival is a <details name="cock-side-rivals">
+                 — sharing the name attribute makes them accordion-
+                 style (opening one auto-closes the others) per
+                 [[feedback-dense-visualization]]. -->
+            <div class="cock-side-vs__rivals">${rivalRows}</div>
           </div>
         </div>
         ${supplyChain.length ? `

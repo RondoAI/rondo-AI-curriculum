@@ -76,6 +76,11 @@
  * @prop {string[]} sectors   CategoryKey values this competitor plays in.
  * @prop {string}   url       Link to the company / news search.
  * @prop {string}   why       Short reason this is a competitor in those sectors.
+ * @prop {number=}  delta24h  Last-known 24h price/mcap delta (%). Public companies only.
+ *                              STATIC SNAPSHOT — live equities API not yet wired.
+ *                              Private companies omit this field (rendered as "—").
+ * @prop {string[]=} aliases  Optional alternate names / common short forms used
+ *                              when matching centralized-news subjects → competitor.
  */
 
 /** @type {Competitor[]} */
@@ -110,6 +115,8 @@ export const COMPETITORS = [
     sectors: ['text', 'multimodal', 'search', 'training', 'vision', 'video', 'agents', 'science', 'infra'],
     url: 'https://abc.xyz',
     why: 'Gemini, AlphaFold, Search, Cloud TPU, DeepMind — the broadest centralized competitor across nearly every subnet space.',
+    delta24h: 0.8,
+    aliases: ['Alphabet', 'GOOGL', 'DeepMind'],
   },
   {
     id: 'meta',
@@ -120,6 +127,8 @@ export const COMPETITORS = [
     sectors: ['text', 'multimodal', 'training', 'vision', 'video', 'agents'],
     url: 'https://about.meta.com',
     why: 'Llama 3/4 open weights, FAIR research, AI Studio, Reality Labs — direct competitor for open-source training + multimodal subnets.',
+    delta24h: 1.4,
+    aliases: ['Facebook', 'FAIR', 'Llama'],
   },
   {
     id: 'microsoft',
@@ -130,6 +139,8 @@ export const COMPETITORS = [
     sectors: ['text', 'multimodal', 'infra', 'agents', 'training'],
     url: 'https://www.microsoft.com',
     why: 'Azure compute, Copilot, deep OpenAI partnership — main centralized rival in infra + reasoning.',
+    delta24h: 0.5,
+    aliases: ['Azure', 'Copilot'],
   },
   {
     id: 'mistral',
@@ -216,6 +227,7 @@ export const COMPETITORS = [
     sectors: ['infra', 'training'],
     url: 'https://www.nvidia.com',
     why: 'GPU monopoly + CUDA — the centralized compute giant every decentralized compute subnet is unbundling.',
+    delta24h: 2.1,
   },
   {
     id: 'amd',
@@ -226,6 +238,7 @@ export const COMPETITORS = [
     sectors: ['infra', 'training'],
     url: 'https://www.amd.com',
     why: "MI300X + ROCm, NVIDIA's closest centralized rival — relevant for compute subnets.",
+    delta24h: -0.6,
   },
   {
     id: 'coreweave',
@@ -235,7 +248,8 @@ export const COMPETITORS = [
     source: 'public',
     sectors: ['infra'],
     url: 'https://www.coreweave.com',
-    why: 'GPU cloud unicorn IPO\'d 2025 — direct comparable for decentralized GPU subnets.',
+    why: "GPU cloud unicorn IPO'd 2025 — direct comparable for decentralized GPU subnets.",
+    delta24h: 3.2,
   },
   {
     id: 'lambda-labs',
@@ -679,4 +693,96 @@ export function fmtCompetitorMcap(m){
   if (m >= 1e9)  return '$' + (m / 1e9).toFixed(2)  + 'B';
   if (m >= 1e6)  return '$' + (m / 1e6).toFixed(1)  + 'M';
   return '$' + Math.round(m).toLocaleString('en-US');
+}
+
+/* CENTRALIZED_NEWS lives in src/data/centralized-news.js — it's
+   the same dataset newsForSubnet() reads. We import it here so
+   newsForCompetitor can filter the same feed by company match.
+   This module owns the COMPETITOR side of that join; the news
+   module owns the FEED side. */
+import { CENTRALIZED_NEWS } from './centralized-news.js';
+
+/**
+ * Filter the centralized news feed to items that mention a given
+ * competitor by name, ticker, or alias.
+ *
+ * Match logic (case-insensitive):
+ *   1. Exact match in item.subjects[] (the curated subjects tag)
+ *   2. Fallback substring match in item.headline + item.source
+ *
+ * This dual-pass lets us pick up both items explicitly tagged
+ * (the cleanest signal) and items where the company is named in
+ * the headline body (broader coverage). Use sparingly — the
+ * cockpit pulls 2-3 per rival to keep the expanded card tight.
+ *
+ * @param {{id: string, name: string, ticker?: string, aliases?: string[]}} c
+ * @param {number} [limit=3]  Max items returned.
+ * @returns {Array} Sorted newest-first, capped at `limit`.
+ */
+export function newsForCompetitor(c, limit = 3){
+  if (!c) return [];
+  /* Build the set of alias strings we'll try matching against
+     the news subjects + headlines. Drop the placeholder tokens
+     ('PRIVATE', '—') and lowercase everything once up front. */
+  const tokens = [c.name, c.ticker, ...(c.aliases || [])]
+    .filter(t => t && t !== 'PRIVATE' && t !== '—')
+    .map(t => String(t).toLowerCase());
+  if (!tokens.length) return [];
+  /* Pass 1: exact subject tag match. */
+  const tagged = CENTRALIZED_NEWS.filter(item => {
+    const subjectsLower = (item.subjects || []).map(s => String(s).toLowerCase());
+    return tokens.some(tok => subjectsLower.includes(tok));
+  });
+  /* Pass 2: headline / source substring match for items not
+     already picked up by the tag pass. Avoids double-counting
+     and keeps the curated-tag items at the front of the result. */
+  const taggedIds = new Set(tagged.map(i => i.id));
+  const substringHits = CENTRALIZED_NEWS.filter(item => {
+    if (taggedIds.has(item.id)) return false;
+    const hay = ((item.headline || '') + ' ' + (item.source || '')).toLowerCase();
+    return tokens.some(tok => hay.includes(tok));
+  });
+  return [...tagged, ...substringHits]
+    .sort((a, b) => (b.date || '').localeCompare(a.date || ''))
+    .slice(0, Math.max(0, limit));
+}
+
+/**
+ * Procedural mini-sparkline SVG, deterministic per competitor id.
+ * Renders a 40×14px hairline path showing a synthetic 30-bar
+ * recent-trend shape — drawn from a seeded random walk weighted
+ * toward the competitor's known delta24h direction (so the spark
+ * VISUALLY agrees with the headline ±% the reader sees beside
+ * it). For private companies (no delta24h) the walk is neutral.
+ *
+ * This is a PLACEHOLDER until real historical equity series are
+ * wired into a live feed (next pass). Same compact register
+ * taostats / Bloomberg terminals use for inline tickers.
+ *
+ * @param {{id: string, delta24h?: number}} c
+ * @param {string} [color='currentColor']
+ * @returns {string} Inline SVG ready to drop in a template.
+ */
+export function competitorSparkSvg(c, color = 'currentColor'){
+  /* Seed the RNG from the competitor id so the spark is stable
+     across renders. Same hash trick the dashboard's micro-sparks
+     use elsewhere in the codebase. */
+  let seed = 0;
+  const idStr = String((c && c.id) || 'x');
+  for (let i = 0; i < idStr.length; i++) seed = ((seed << 5) - seed + idStr.charCodeAt(i)) | 0;
+  let state = (Math.abs(seed) * 1103515245 + 12345) >>> 0;
+  const rnd = () => { state = (state * 1103515245 + 12345) >>> 0; return ((state >>> 16) & 0x7FFF) / 0x7FFF; };
+  /* Bias the walk slightly in the direction of delta24h so the
+     spark's last leg matches the headline ±% next to it. */
+  const bias = c && Number.isFinite(c.delta24h) ? Math.sign(c.delta24h) * 0.04 : 0;
+  const N = 30, W = 40, H = 14;
+  let v = H / 2;
+  const pts = [];
+  for (let i = 0; i < N; i++){
+    v += (rnd() - 0.5) * 1.6 - bias * (i / N);
+    if (v < 1) v = 1; if (v > H - 1) v = H - 1;
+    const x = (i / (N - 1)) * W;
+    pts.push(x.toFixed(1) + ',' + v.toFixed(1));
+  }
+  return `<svg class="cock-side-vs__spark" viewBox="0 0 ${W} ${H}" width="${W}" height="${H}" aria-hidden="true" preserveAspectRatio="none"><polyline fill="none" stroke="${color}" stroke-width="1" stroke-linecap="round" stroke-linejoin="round" points="${pts.join(' ')}"/></svg>`;
 }
