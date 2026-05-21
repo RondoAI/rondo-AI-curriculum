@@ -656,6 +656,22 @@ export function mountCockpit(root, dataLayer = null){
   function saveWatchlist(){
     try { localStorage.setItem(WATCHLIST_KEY, JSON.stringify([...watchlist])); } catch (_) {}
   }
+  /* EDITORIAL ARCHIVE state — search query + kind filter, both
+     persisted so the reader's view survives across sessions. */
+  const ARCHIVE_KEY = 'sbn:cockpit:archive:v1';
+  let archiveView = (() => {
+    try {
+      const raw = JSON.parse(localStorage.getItem(ARCHIVE_KEY) || '{}');
+      const kind = raw.kind;
+      return {
+        search: typeof raw.search === 'string' ? raw.search : '',
+        kind: (kind === 'mag' || kind === 'orc' || kind === 'cen') ? kind : 'all',
+      };
+    } catch (_) { return { search: '', kind: 'all' }; }
+  })();
+  function saveArchiveView(){
+    try { localStorage.setItem(ARCHIVE_KEY, JSON.stringify(archiveView)); } catch (_) {}
+  }
   /* No paper-money state here — the cockpit is now a pure subnet-
      research surface per Rondo 2026-05-20 ("doht need another
      paper money chart" / "make sure it looks really cool looking
@@ -1148,7 +1164,12 @@ export function mountCockpit(root, dataLayer = null){
      the FULL depth so readers can scan editorial coverage across
      subnets without leaving the cockpit. Each row is a link out
      to the article PDF or web page. */
-  function renderEditorialFold(){
+  /* Build the unified archive feed — Magazine + Oracle articles
+     (unbounded) + the 30 most recent centralized news items, all
+     normalized to one shape and sorted newest-first. Called from
+     renderEditorialFold + repaintEditorialArchive so filter/search
+     re-renders work against the same canonical list. */
+  function archiveAllItems(){
     const team = ARTICLES.map(a => ({
       kind: 'mag', date: a.date, title: a.title,
       url:  a.pdf || a.externalUrl || '#',
@@ -1161,11 +1182,6 @@ export function mountCockpit(root, dataLayer = null){
       source: 'Subnet Oracle',
       subnet: a.subnetId || null,
     }));
-    /* The cen items aren't pre-tagged with a subnet, but they ARE
-       in the editorial archive — readers want everything in one
-       place. Cap centralized to 30 most recent so the fold doesn't
-       balloon; mag + oracle are unbounded since those are the
-       magazine's own work. */
     const central = (() => {
       try {
         return CENTRALIZED_NEWS.slice(0, 30).map(n => ({
@@ -1176,11 +1192,35 @@ export function mountCockpit(root, dataLayer = null){
         }));
       } catch (_) { return []; }
     })();
-    const all = [...team, ...oracle, ...central]
+    return [...team, ...oracle, ...central]
       .filter(a => a.date)
       .sort((a, b) => (b.date || '').localeCompare(a.date || ''));
+  }
+
+  /* Apply the active filter (kind chip) + search query to the
+     archive's full item list. Search is case-insensitive
+     substring match against title + source. */
+  function applyArchiveFilters(items){
+    const k = archiveView.kind;
+    const q = (archiveView.search || '').trim().toLowerCase();
+    let out = items.slice();
+    if (k !== 'all') out = out.filter(a => a.kind === k);
+    if (q) out = out.filter(a => {
+      const hay = ((a.title || '') + ' ' + (a.source || '')).toLowerCase();
+      return hay.includes(q);
+    });
+    return out;
+  }
+
+  /* Render the visible archive rows from a (pre-filtered) item
+     list. Used by both the initial fold render + the in-place
+     repaint after filter/search changes. */
+  function renderArchiveRows(items){
     const kindLbl = (k) => k === 'mag' ? 'MAG' : k === 'orc' ? 'ORC' : 'CEN';
-    const rows = all.map(a => `
+    if (!items.length){
+      return '<div class="cock-fold-arch__empty">No articles match the current filter.</div>';
+    }
+    return items.map(a => `
       <a class="cock-fold-arch__row cock-fold-arch__row--${a.kind}" href="${a.url}" target="_blank" rel="noopener">
         <span class="cock-fold-arch__kind cock-fold-arch__kind--${a.kind}">${kindLbl(a.kind)}</span>
         <span class="cock-fold-arch__date">${a.date || '·'}</span>
@@ -1188,18 +1228,75 @@ export function mountCockpit(root, dataLayer = null){
         <span class="cock-fold-arch__src">${a.source || ''}</span>
       </a>
     `).join('');
+  }
+
+  /* Editorial archive fold — searchable + kind-filterable list
+     of every Magazine + Oracle article + the 30 most-recent
+     centralized news items. Search + kind filter persist via
+     localStorage; the fold itself defaults closed per
+     [[feedback-cockpit-is-the-one-page]]. */
+  function renderEditorialFold(){
+    const all = archiveAllItems();
+    const totalCounts = {
+      all: all.length,
+      mag: all.filter(a => a.kind === 'mag').length,
+      orc: all.filter(a => a.kind === 'orc').length,
+      cen: all.filter(a => a.kind === 'cen').length,
+    };
+    const filtered = applyArchiveFilters(all);
+    const k = archiveView.kind;
+    const q = archiveView.search || '';
+    /* Kind chips — ALL + MAG + ORC + CEN. Active chip filled
+       in the kind's accent color (mag = warn/amber, orc = red,
+       cen = up/mint). */
+    const chip = (id, label, count) => `
+      <button type="button" class="cock-fold-arch__chip cock-fold-arch__chip--${id} ${k === id ? 'is-on' : ''}" data-arch-kind="${id}">${label} ${count}</button>
+    `;
     return `
       <details class="cock-fold cock-fold--arch">
         <summary class="cock-fold__summary">
           <span class="cock-fold__lbl">⊕ EDITORIAL ARCHIVE</span>
-          <span class="cock-fold__count">${all.length} articles</span>
+          <span class="cock-fold__count" data-arch-count>${filtered.length} of ${all.length} articles</span>
           <span class="cock-fold__chev" aria-hidden="true">›</span>
         </summary>
         <div class="cock-fold__body cock-fold-arch">
-          <div class="cock-fold-arch__wrap">${rows || '<div class="cock-fold__empty">No editorial articles indexed.</div>'}</div>
+          <!-- Toolbar — search input on the left, kind chips on
+               the right. Both write directly to archiveView +
+               trigger a partial re-render via
+               repaintEditorialArchive(). -->
+          <div class="cock-fold-arch__toolbar">
+            <label class="cock-fold-arch__search-wrap">
+              <span class="cock-fold-arch__search-lbl">SEARCH</span>
+              <input type="search" class="cock-fold-arch__search" data-arch-search placeholder="title, source…" value="${q.replace(/"/g, '&quot;')}" aria-label="Search articles">
+            </label>
+            <div class="cock-fold-arch__chips" role="tablist" aria-label="Article kind">
+              ${chip('all', 'ALL', totalCounts.all)}
+              ${chip('mag', 'MAG', totalCounts.mag)}
+              ${chip('orc', 'ORC', totalCounts.orc)}
+              ${chip('cen', 'CEN', totalCounts.cen)}
+            </div>
+          </div>
+          <div class="cock-fold-arch__wrap" data-arch-list>${renderArchiveRows(filtered)}</div>
         </div>
       </details>
     `;
+  }
+
+  /* In-place re-render of the archive list + summary count when
+     the reader changes search query or kind chip. Keeps the
+     <details> open + the rest of the cockpit untouched. */
+  function repaintEditorialArchive(){
+    const all = archiveAllItems();
+    const filtered = applyArchiveFilters(all);
+    const listEl = qs('[data-arch-list]', root);
+    if (listEl) listEl.innerHTML = renderArchiveRows(filtered);
+    const countEl = qs('[data-arch-count]', root);
+    if (countEl) countEl.textContent = `${filtered.length} of ${all.length} articles`;
+    /* Re-toggle the active chip class without rebuilding the
+       chip row (preserves focus + input value). */
+    qsa('[data-arch-kind]', root).forEach(c => {
+      c.classList.toggle('is-on', c.dataset.archKind === archiveView.kind);
+    });
   }
 
   /* ⊕ ECOSYSTEM — subnet count + emission per category. Compact
@@ -1845,6 +1942,34 @@ export function mountCockpit(root, dataLayer = null){
     }
   }
 
+  /* Editorial archive fold — search input + kind chips. Both
+     write to archiveView + trigger a partial re-render. Search
+     debounces ~120ms so each keystroke doesn't repaint. */
+  function wireEditorialFold(){
+    const searchEl = qs('[data-arch-search]', root);
+    if (searchEl){
+      let st = 0;
+      searchEl.addEventListener('input', e => {
+        const v = e.target.value || '';
+        clearTimeout(st);
+        st = setTimeout(() => {
+          archiveView.search = v;
+          saveArchiveView();
+          repaintEditorialArchive();
+        }, 120);
+      });
+    }
+    qsa('[data-arch-kind]', root).forEach(chip => {
+      chip.addEventListener('click', () => {
+        const k = chip.dataset.archKind;
+        if (!k || k === archiveView.kind) return;
+        archiveView.kind = k;
+        saveArchiveView();
+        repaintEditorialArchive();
+      });
+    });
+  }
+
   /* Ecosystem fold — clicking a category row jumps the reader to
      the MARKETS ROSTER fold pre-filtered to that category. The
      handler:
@@ -1925,6 +2050,8 @@ export function mountCockpit(root, dataLayer = null){
     /* ECOSYSTEM fold — tap a category row to jump to the
        MARKETS ROSTER pre-filtered to that category. */
     wireEcosystemFold();
+    /* EDITORIAL ARCHIVE fold — search input + kind chips. */
+    wireEditorialFold();
 
     /* Chart hover — OHLC + MA tooltip on bar hover, editorial
        tooltip on news-flag marker hover. Closes the "Cockpit Chart
