@@ -35,15 +35,83 @@
           (row-tap retargets chart + flips mode back to SUBNET).
           TOTAL BOOK row at the foot.
 
-   Data:
-     SUBNETS           src/data/subnets.js          128-subnet roster
-     ORACLE_ARTICLES   src/data/oracle-articles.js  Oracle research
-     ARTICLES          src/data/articles.js         Magazine articles
-     CENTRALIZED_NEWS  src/data/centralized-news.js scored news feed
-     paper-portfolios  src/data/paper-portfolios.js localStorage book
-     DataLayer         src/data/layer.js            tao:market /
-                                                    tao:subnets /
-                                                    tao:chain feeds
+   Data sources by surface (Pass 4 audit, 2026-05-21):
+
+     CHART HEADER PRICE BLOCK
+       α price, 24h/7d/30d deltas, mcap, emission
+         → SUBNETS row, MERGED LIVE via `tao:subnets` subscription
+           (see onLiveSubnets in this file). Static seed in
+           src/data/subnets.js is the floor.
+       LIVE / SEED pill
+         → `isLive` flag, flips TRUE when tao:subnets first emits.
+
+     CHART CANVAS
+       price line + volume bars + MA20/MA50
+         → generateSeries(subnet) in src/lib/synthetic-series.js.
+           SYNTHETIC random walk anchored on the live current
+           price. Real historical data needs the planned
+           `tao:history` channel (stub documented in layer.js).
+           A "SEED HISTORY" disclaimer renders below the chart
+           until that channel emits per [[feedback-high-coding-
+           standards]].
+       editorial flag dots (news markers on the price line)
+         → annotationsFor() pulls from ARTICLES +
+           recentOracleArticles. Static.
+
+     CHART SIDEBAR — COMPETITORS section
+       Subnet mcap τ in the VS anchor
+         → SUBNETS.mcap (live via tao:subnets)
+       Direct rivals (CoreWeave, Together AI, ...)
+         → COMPETITORS + BY_NETUID in centralized-competitors.js.
+           STATIC curated seed; future `tao:competitors` channel
+           stubbed in layer.js will publish the same shape with
+           live equities + private valuation feeds.
+       Rival sparklines
+         → competitorSparkSvg() — procedural seeded random walk
+           biased toward delta24h. SYNTHETIC placeholder until
+           tao:competitors carries real historical series.
+       Rival 24h delta
+         → delta24h field on each public competitor. STATIC
+           SNAPSHOT, surfaced honestly with a "static snapshot,
+           live feed pending" warn-tag inside each card.
+       Per-rival articles
+         → newsForCompetitor(c) filters CENTRALIZED_NEWS by
+           subjects[] tag + headline/source substring. Static
+           seed feed.
+       Supply chain + constraints
+         → BY_NETUID curated. Static.
+
+     CHART SIDEBAR — NETWORK VITALS section
+       TAO/USD, 24h chg, MCAP, BLOCK, STAKED %
+         → tao:market channel (WIRED via onLiveMarket).
+           Updates via setLive so cells flash on change.
+       EMIT τ/d
+         → tao:chain.totalIssuance (WIRED via onLiveChain).
+       SUBNETS count
+         → SUBNETS.length (static — accurate at chain level).
+
+     CHART SIDEBAR — TODAY'S MOVERS section
+       Top 3 / Bottom 3 by 24h
+         → derived from SUBNETS array (live merge via tao:subnets).
+
+     CHART SIDEBAR — SIGNALS section
+       Magazine + Oracle + centralized cards
+         → ARTICLES + recentOracleArticles + newsForSubnet.
+           Static seed feeds; future RSS / curated fetcher
+           merges live items by id (see briefings.js header for
+           the same pattern).
+
+     DASHBOARD FOLDS (below the chart)
+       ⊕ DAILY BRIEFING       BRIEFINGS (static)
+       ⊕ MARKETS ROSTER       SUBNETS (live merge via tao:subnets)
+       ⊕ EDITORIAL ARCHIVE    ARTICLES + recentOracleArticles +
+                              CENTRALIZED_NEWS (static)
+       ⊕ ECOSYSTEM            derived from SUBNETS
+
+   Future-pass plug-in seams: see layer.js's "PLANNED CHANNELS"
+   block — tao:history (per-subnet OHLCV) + tao:competitors
+   (live rival mcaps) are reserved. When each channel ships,
+   views drop their static imports + subscribe to the channel.
    ================================================================= */
 
 import { html, mount, qs, qsa, setLive } from '../lib/dom.js';
@@ -644,7 +712,20 @@ export function mountCockpit(root, dataLayer = null){
             <span class="cock-chart__sn">SN${s.netuid}</span>
             <span class="cock-chart__name">${s.name}</span>
             <span class="cock-chart__cat">${catLabel(s.cat)}</span>
-            <span class="cock-chart__live ${isLive ? 'is-live' : ''}" data-live-pill title="${isLive ? 'Pulling live data from TaoMarketcap' : 'Seed data, waiting on live feed'}">
+            <!-- LIVE / SEED pill — three honest states:
+                   LIVE · TMC      current price + 24h deltas live
+                                    from TaoMarketcap (tao:subnets
+                                    has emitted); historical line
+                                    on the chart canvas remains
+                                    synthetic until tao:history
+                                    channel wires up.
+                   SEED            tao:subnets hasn't emitted yet;
+                                    everything is from the static
+                                    SUBNETS seed.
+                 The tooltip on hover spells out the partial-live
+                 condition so readers don't infer that the whole
+                 chart is live when only the current price is. -->
+            <span class="cock-chart__live ${isLive ? 'is-live' : ''}" data-live-pill title="${isLive ? 'Current α price + 24h deltas live from TaoMarketcap. Historical chart series remains synthetic (taostats history feed pending).' : 'Seed data — tao:subnets channel has not emitted yet. Chart shows the static SUBNETS seed values.'}">
               <span class="cock-chart__live-dot"></span>${isLive ? 'LIVE · TMC' : 'SEED'}
             </span>
           </h1>

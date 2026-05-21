@@ -37,9 +37,39 @@
                       pendingEmission }>   (taostats, key required)
      'tao:block'    { height, source }   (derived from market data)
 
+   PLANNED CHANNELS (stubbed below — emit nothing yet, but the
+   channel names are reserved so views can subscribe via the same
+   pattern when the real source lands):
+
+     'tao:history'  per-subnet historical α-price + volume.
+                    Shape: { netuid, range: '30D'|'90D'|'1Y',
+                             series: [{ t, open, high, low, close,
+                                        volume }, ...] }
+                    Source: taostats key-gated historical endpoint
+                    (or our own indexer once we run one). REPLACES
+                    the synthetic series in src/lib/synthetic-
+                    series.js that the cockpit chart currently
+                    paints. Until this channel emits, views show
+                    a "SEED HISTORY" affordance per
+                    [[feedback-high-coding-standards]].
+
+     'tao:competitors'  centralized rival data (mcap, daily delta,
+                    supply-chain entities) currently sourced from
+                    src/data/centralized-competitors.js as static
+                    seed. Shape mirrors the COMPETITORS array.
+                    Source: equities API (FMP / Polygon / Alpaca
+                    for public tickers) + a curated quarterly
+                    refresh of private-company valuations. When
+                    this channel emits, the cockpit's VS row
+                    rivals get LIVE deltas instead of static
+                    snapshots.
+
    Every channel falls back gracefully: a failed refresh keeps the
    last good value, and views render their seed data until the
-   first real payload lands.
+   first real payload lands. The stubbed channels above behave
+   the same way — views can subscribe without waiting for the
+   wire, and `dataLayer.get('tao:history')` returns null until
+   real data shows up.
    ================================================================= */
 
 const USER_CFG = (typeof window !== 'undefined' && window.__SUBNET_CONFIG__) || {};
