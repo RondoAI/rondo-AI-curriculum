@@ -613,14 +613,16 @@ export function mountCockpit(root, dataLayer = null){
     return `
       <header class="cock-chart__head">
         <div class="cock-chart__title">
-          <!-- CMC mode chips — SUBNET shows "SN<n> name", PORTFOLIO
+          <!-- CMC mode chips — SUBNET shows "SN<n> · name", PORTFOLIO
                shows the book's total dollar value inline so the
                two registers (single subnet vs whole book) read at
-               a glance. Tap to swap the chart between α-price and
-               aggregate paper-book value. -->
+               a glance. When the paper book is empty (total = 0
+               on first visit) the dollar suffix is hidden — a bare
+               "PORTFOLIO" label reads as a call-to-action, "$0"
+               read as a broken field on the first preview pass. -->
           <div class="cock-chart__mode" role="tablist" aria-label="Chart data mode">
             <button type="button" class="cock-chart__mode-chip ${!isPortMode ? 'is-on' : ''}" data-chart-mode="subnet" role="tab" aria-selected="${!isPortMode}">SN${s.netuid} · ${s.name}</button>
-            <button type="button" class="cock-chart__mode-chip cock-chart__mode-chip--port ${isPortMode ? 'is-on' : ''}" data-chart-mode="portfolio" role="tab" aria-selected="${isPortMode}">PORTFOLIO $${portfolioTotal.toLocaleString('en-US', { minimumFractionDigits: 0, maximumFractionDigits: 0 })}</button>
+            <button type="button" class="cock-chart__mode-chip cock-chart__mode-chip--port ${isPortMode ? 'is-on' : ''}" data-chart-mode="portfolio" role="tab" aria-selected="${isPortMode}">PORTFOLIO${portfolioTotal > 0 ? ' $' + portfolioTotal.toLocaleString('en-US', { minimumFractionDigits: 0, maximumFractionDigits: 0 }) : ''}</button>
           </div>
           <!-- PICK SUBNET dropdown drives SUBNET-mode selection.
                Muted when reader is in PORTFOLIO mode (it doesn't
