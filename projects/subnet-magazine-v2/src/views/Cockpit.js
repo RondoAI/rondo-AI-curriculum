@@ -2152,6 +2152,30 @@ export function mountCockpit(root, dataLayer = null){
     }, { passive: true });
     canvas.addEventListener('touchend', endDrag, { passive: true });
     canvas.addEventListener('touchcancel', endDrag, { passive: true });
+    /* WHEEL ZOOM — mousewheel on the canvas cycles through the
+       range tabs (1D → 7D → 30D → 90D → 1Y and back). Wheel UP
+       (deltaY < 0) = zoom IN (shorter range, denser bars); wheel
+       DOWN = zoom OUT (longer range).
+
+       passive: false so we can preventDefault and the page
+       doesn't scroll while the reader zooms. Throttled so a
+       trackpad scroll inertia doesn't run away — one step per
+       ~250ms even if the wheel events fire continuously. */
+    let wheelLockUntil = 0;
+    canvas.addEventListener('wheel', (ev) => {
+      ev.preventDefault();
+      const now = performance.now();
+      if (now < wheelLockUntil) return;
+      if (ev.deltaY === 0) return;
+      const idx = RANGES.findIndex(r => r.key === state.range);
+      if (idx < 0) return;
+      const next = ev.deltaY < 0
+        ? Math.max(0, idx - 1)              // wheel up: zoom in
+        : Math.min(RANGES.length - 1, idx + 1); // wheel down: zoom out
+      if (next === idx) return;
+      wheelLockUntil = now + 250;
+      setRange(RANGES[next].key);
+    }, { passive: false });
     const actualOnMove = (ev) => {
       /* Drag-to-pan takes precedence — when the user is
          dragging we update chartOffset instead of rendering the
