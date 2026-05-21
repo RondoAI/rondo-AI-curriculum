@@ -2802,19 +2802,39 @@
    override the older `column-reverse` rule from the
    pre-restructure layout so the chart is now the FIRST
    element vertically (which matches the DOM order
-   already in renderMain). */
+   already in renderMain).
+
+   Scroll containment fix 2026-05-20: the desktop sidebar
+   has `overflow-y: auto` (internal scroll) so the chart
+   pane stays a fixed footprint while the long signals
+   list scrolls inside the column. On mobile that internal
+   scroll TRAPS the user's finger — touching the sidebar
+   captures the vertical gesture and the rest of the page
+   (range tabs, footer link) can't be reached. Override
+   to `overflow: visible` + un-stick the section headers
+   so mobile is a single page-level scroll surface. */
 @media (max-width: 900px){
   .cock-chart__row{
     flex-direction: column;
+    overflow: visible;
+    flex: 0 0 auto;
   }
   .cock-chart__side{
-    /* Sidebar takes natural height on phone — we let it
-       flow with the page rather than scroll inside a
-       fixed-height box. Phones have plenty of vertical
-       room to read all three sections inline. */
     flex: 0 0 auto;
+    overflow: visible;
     border-top: 1px solid var(--c-rule);
     border-left: 0;
+  }
+  /* Un-stick the SIGNALS / VITALS / MOVERS section headers
+     on mobile. Position:sticky inside .cock-chart__side on
+     desktop pins them to the sidebar's scroll context; on
+     mobile there's no scroll context (the sidebar flows in
+     page) and the sticky pins them to the viewport — which
+     piles all three headers on top of each other as the
+     user scrolls past them. Static is the right behavior
+     on mobile. */
+  .cock-side__head{
+    position: static;
   }
 }
 
