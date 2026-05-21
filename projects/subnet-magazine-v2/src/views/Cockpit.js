@@ -53,6 +53,15 @@ import { recentOracleArticles } from '../data/oracle-articles.js';
 import { ARTICLES } from '../data/articles.js';
 import { GH_ACTIVITY, ghByNetuid } from '../data/github-activity.js';
 import { generateSeries, sma, SERIES_DAYS } from '../lib/synthetic-series.js';
+/* Centralized competitor dataset — maps a subnet to its closest
+   rivals in the non-decentralized world (OpenAI, Anthropic, Meta,
+   NVIDIA, etc.). Drives the sidebar's VS CENTRALIZED comparison
+   stat row so a reader sees their subnet's mcap τ side-by-side
+   with the centralized competitor's mcap $. See the module's
+   header for data-source provenance + future API integration
+   seam. Per [[feedback-subnets-in-tao]]: subnet mcaps stay in TAO,
+   competitor mcaps stay in $ — the row carries both. */
+import { competitorsForSubnet, fmtCompetitorMcap } from '../data/centralized-competitors.js';
 /* Paper-portfolio imports removed 2026-05-20 — the cockpit no
    longer surfaces paper-trading affordances (Rondo: "doht need
    another paper money chart" + "book measured has to be reimagined
@@ -712,6 +721,68 @@ export function mountCockpit(root, dataLayer = null){
     `;
   }
 
+  /* ---- VS CENTRALIZED comparison stat row --------------------
+     Renders the subnet's mcap τ side-by-side with its top 1-3
+     centralized rivals (mcap $). Driven by the subnet's `cat`
+     field via competitorsForSubnet — text/multimodal subnets get
+     OpenAI/Anthropic/Google, vision subnets get Stability/Runway,
+     infra subnets get NVIDIA/CoreWeave, etc.
+
+     The visual register is: subnet side (red eyebrow + name +
+     TAO mcap) → "VS" divider → competitor stack (1-3 rows, each
+     with name + ticker chip + dollar mcap). Public vs private
+     valuation is distinguished by a small chip.
+
+     Empty state when the subnet's category isn't mapped: a thin
+     placeholder telling the reader the desk hasn't profiled
+     rivals for this sector yet. Better than an empty box.
+     ============================================================ */
+  function renderCompetitorCompare(s){
+    const rivals = competitorsForSubnet(s, { limit: 3 });
+    const subnetMcap = Number.isFinite(s.mcap) ? s.mcap : null;
+    if (!rivals.length){
+      return `
+        <div class="cock-side-sig__compare cock-side-sig__compare--empty" role="note">
+          <span class="cock-side-sig__compare-lbl">VS CENTRALIZED</span>
+          <span class="cock-side-sig__compare-note">No centralized rivals indexed for the <b>${s.cat || '·'}</b> category yet. The desk profiles new sectors as subnets enter the top tier.</span>
+        </div>
+      `;
+    }
+    /* Build each rival row — name + ticker chip + mcap. Ticker
+       is "PRIVATE" for unlisted, an actual ticker (META, NVDA)
+       for public companies. The chip color follows the source
+       so a reader can scan public vs private at a glance. */
+    const rivalRows = rivals.map(r => `
+      <li class="cock-side-vs__row" data-source="${r.source}">
+        <a class="cock-side-vs__co" href="${r.url}" target="_blank" rel="noopener">${r.name}</a>
+        <span class="cock-side-vs__ticker cock-side-vs__ticker--${r.source}">${r.ticker}</span>
+        <span class="cock-side-vs__mcap">${fmtCompetitorMcap(r.mcap)}</span>
+      </li>
+    `).join('');
+    return `
+      <div class="cock-side-sig__compare" role="group" aria-label="Centralized rivals comparison">
+        <div class="cock-side-sig__compare-head">
+          <span class="cock-side-sig__compare-lbl">VS CENTRALIZED</span>
+          <span class="cock-side-sig__compare-cat">${(s.cat || '·').toUpperCase()}</span>
+        </div>
+        <div class="cock-side-vs__grid">
+          <!-- Subnet side: SN# name + TAO mcap. Sits left, the
+               trader's anchor for the comparison. -->
+          <div class="cock-side-vs__subnet">
+            <span class="cock-side-vs__subnet-eyebrow">SN${s.netuid} · ${s.name}</span>
+            <span class="cock-side-vs__subnet-mcap">${fmtMcapTAO(subnetMcap)}</span>
+            <span class="cock-side-vs__subnet-lbl">mcap</span>
+          </div>
+          <!-- Divider — a vertical hairline + "VS" glyph that
+               feels editorial, not transactional. -->
+          <div class="cock-side-vs__divider" aria-hidden="true">VS</div>
+          <!-- Centralized side: stacked list of rivals. -->
+          <ul class="cock-side-vs__rivals">${rivalRows}</ul>
+        </div>
+      </div>
+    `;
+  }
+
   /* ---- chart sidebar (right rail) -----------------------------
      Three stacked sections — SIGNALS first (editorial leads),
      then NETWORK VITALS, then TODAY'S MOVERS. Re-renders fully
@@ -850,18 +921,7 @@ export function mountCockpit(root, dataLayer = null){
           <span class="cock-side__h">⊕ COMPETITORS · SN${s.netuid} · ${s.name}</span>
           <span class="cock-side__n">${signals.length}</span>
         </header>
-        <!-- COMPARISON STAT ROW — placeholder while the subnet ↔
-             centralized-rival mapping is being built. Once a
-             centralized-competitors data source + a tao:competitors
-             DataLayer channel publish the rival company's mcap +
-             24h delta, this row will read e.g.:
-                SN4 12.4M τ  vs  OpenAI $80B  +1.2%
-             For now it surfaces the gap so the reader knows the
-             feature is on deck rather than missing. -->
-        <div class="cock-side-sig__compare cock-side-sig__compare--soon">
-          <span class="cock-side-sig__compare-lbl">VS CENTRALIZED</span>
-          <span class="cock-side-sig__compare-note">comparison data plug-in arriving — see <a href="dashboard.html">⊕ DASHBOARD</a> for full editorial archive in the meantime</span>
-        </div>
+        ${renderCompetitorCompare(s)}
         <div class="cock-side-sig__list">${signalsHtml}</div>
       </section>
 
