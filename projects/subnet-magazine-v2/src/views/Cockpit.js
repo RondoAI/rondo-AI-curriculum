@@ -723,6 +723,31 @@ export function mountCockpit(root, dataLayer = null){
        to the active subnet. Compact rows: small kind chip + date
        + serif title + source. All three editorial kinds carry
        through (Rondo flagged article-kind protection 2026-05-20). */
+    /* SIGNALS data — sidebar now leads with CENTRALIZED COMPETITOR
+       content per Rondo 2026-05-21: "when a person chooses a
+       particular subnet chart to look at the articles in the side
+       panels should be the centralized competitor articles or
+       subjects. comparison data etc."
+
+       Centralized news (cen kind, from newsForSubnet) scores
+       third-party AI / hardware / capital news to the subnet's
+       category — that's the competitor context. We pull up to 6
+       of those, then 1 Magazine and 1 Oracle card as secondary
+       (per [[feedback-articles-protected]] — all three kinds
+       still need a home; competitor leads but the magazine voice
+       still gets a foot in). 8 total.
+
+       FUTURE PASS — proper "competitor data" needs a
+         subnet ↔ centralized-rival mapping (e.g. SN4 Targon =
+         vision space → OpenAI CLIP, Google Vision, Anthropic
+         image API; SN1 = chat → ChatGPT, Claude, Gemini, ...).
+       That mapping doesn't exist yet. When it lands, the
+       sidebar can show a "VS" comparison stat row (subnet
+       mcap τ vs competitor mcap $, subnet emission revenue
+       vs competitor revenue, etc.) above the cards. Wiring
+       seam: extend src/data/ with `centralized-competitors.js`
+       that exports `competitorsForSubnet(s)` and surface its
+       values on a tao:competitors DataLayer channel. */
     const team = ARTICLES.filter(a =>
       Number(a.subnet) === s.netuid ||
       String(a.subnet) === String(s.name)
@@ -730,6 +755,7 @@ export function mountCockpit(root, dataLayer = null){
       kind: 'mag', date: a.date, title: a.title,
       url:  a.pdf || a.externalUrl || '#',
       source: (a.authors && a.authors[0]) || 'Subneτ Magazine',
+      dek:  a.tagline || a.dek || '',
     }));
     const oracle = recentOracleArticles(Infinity)
       .filter(a =>
@@ -741,32 +767,62 @@ export function mountCockpit(root, dataLayer = null){
         kind: 'orc', date: a.date, title: a.title,
         url:  a.pdf || '#',
         source: 'Subnet Oracle',
+        dek:  a.dek || '',
       }));
     let central = [];
     try {
-      central = newsForSubnet(s, 6).map(n => ({
+      central = newsForSubnet(s, 8).map(n => ({
         kind: 'cen', date: n.date, title: n.headline,
         url:  n.url || '#',
         source: n.source,
+        dek:  n.takeaway || '',
       }));
     } catch (_) {}
-    /* Sidebar is narrow — cap at 8 total items, newest first.
-       The dashboard's editorial archive carries the full depth
-       for readers who want more. */
-    const signals = [...team, ...oracle, ...central]
-      .sort((a,b) => (b.date || '').localeCompare(a.date || ''))
-      .slice(0, 8);
+    /* Order: cen first (competitor context, up to 6), then 1
+       freshest mag + 1 freshest orc so the magazine voice stays
+       on the surface. The dashboard's editorial archive carries
+       the full mag/orc depth for readers who want more. */
+    const cenLeading = central
+      .slice()
+      .sort((a, b) => (b.date || '').localeCompare(a.date || ''))
+      .slice(0, 6);
+    const magOne = team
+      .slice()
+      .sort((a, b) => (b.date || '').localeCompare(a.date || ''))
+      .slice(0, 1);
+    const orcOne = oracle
+      .slice()
+      .sort((a, b) => (b.date || '').localeCompare(a.date || ''))
+      .slice(0, 1);
+    const signals = [...cenLeading, ...magOne, ...orcOne].slice(0, 8);
     const kindLbl = (k) => k === 'mag' ? 'MAG' : k === 'orc' ? 'ORC' : 'CEN';
+    /* Each signal renders as a native <details> element — the
+       summary IS the closed state (kind chip + date + title +
+       chevron). Expanding reveals the dek paragraph + source +
+       a READ link out to the article. Native <details> gives
+       us free keyboard support, accessibility, and graceful
+       no-JS behavior. The chevron rotates on open via CSS.
+       Per [[feedback-collapsible-default]]: this is the
+       magazine's preferred pattern for editorial surfaces. */
     const signalsHtml = signals.length
       ? signals.map(a => `
-          <a class="cock-side-sig__card cock-side-sig__card--${a.kind}" href="${a.url}" target="_blank" rel="noopener">
-            <div class="cock-side-sig__head">
-              <span class="cock-side-sig__kind cock-side-sig__kind--${a.kind}">${kindLbl(a.kind)}</span>
-              <span class="cock-side-sig__date">${a.date || '·'}</span>
+          <details class="cock-side-sig__card cock-side-sig__card--${a.kind}">
+            <summary class="cock-side-sig__summary">
+              <span class="cock-side-sig__head">
+                <span class="cock-side-sig__kind cock-side-sig__kind--${a.kind}">${kindLbl(a.kind)}</span>
+                <span class="cock-side-sig__date">${a.date || '·'}</span>
+                <span class="cock-side-sig__chev" aria-hidden="true">›</span>
+              </span>
+              <span class="cock-side-sig__title">${a.title || '·'}</span>
+            </summary>
+            <div class="cock-side-sig__body">
+              ${a.dek ? `<p class="cock-side-sig__dek">${a.dek}</p>` : ''}
+              <div class="cock-side-sig__foot">
+                <span class="cock-side-sig__src">${a.source || '·'}</span>
+                <a class="cock-side-sig__read" href="${a.url}" target="_blank" rel="noopener" aria-label="Read full article: ${(a.title || '').replace(/"/g, '&quot;')}">READ ↗</a>
+              </div>
             </div>
-            <div class="cock-side-sig__title">${a.title || '·'}</div>
-            <div class="cock-side-sig__src">${a.source || '·'}</div>
-          </a>`).join('')
+          </details>`).join('')
       : `<div class="cock-side-sig__empty">No dispatches indexed for SN${s.netuid} yet. The editorial desk rotates coverage as subnets enter the top emission tier.</div>`;
 
     /* NETWORK VITALS — live values are populated via the data-vital
@@ -789,11 +845,23 @@ export function mountCockpit(root, dataLayer = null){
       </button>`;
 
     return `
-      <section class="cock-side-sig" aria-label="Editorial signals for SN${s.netuid} ${s.name}">
+      <section class="cock-side-sig" aria-label="Centralized competitor signals for SN${s.netuid} ${s.name}">
         <header class="cock-side__head">
-          <span class="cock-side__h">⊕ SIGNALS · SN${s.netuid} · ${s.name}</span>
+          <span class="cock-side__h">⊕ COMPETITORS · SN${s.netuid} · ${s.name}</span>
           <span class="cock-side__n">${signals.length}</span>
         </header>
+        <!-- COMPARISON STAT ROW — placeholder while the subnet ↔
+             centralized-rival mapping is being built. Once a
+             centralized-competitors data source + a tao:competitors
+             DataLayer channel publish the rival company's mcap +
+             24h delta, this row will read e.g.:
+                SN4 12.4M τ  vs  OpenAI $80B  +1.2%
+             For now it surfaces the gap so the reader knows the
+             feature is on deck rather than missing. -->
+        <div class="cock-side-sig__compare cock-side-sig__compare--soon">
+          <span class="cock-side-sig__compare-lbl">VS CENTRALIZED</span>
+          <span class="cock-side-sig__compare-note">comparison data plug-in arriving — see <a href="dashboard.html">⊕ DASHBOARD</a> for full editorial archive in the meantime</span>
+        </div>
         <div class="cock-side-sig__list">${signalsHtml}</div>
       </section>
 
