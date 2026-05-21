@@ -434,6 +434,99 @@ export const COMPETITORS = [
     url: 'https://fireworks.ai',
     why: 'Fast inference for open models with FireAttention — startup-favored low-latency endpoint provider.',
   },
+
+  /* ---------- HFT / proprietary trading firms (added 2026-05-21
+     for SN8 PTN profile — proprietary trading network) ---------- */
+  {
+    id: 'jane-street',
+    name: 'Jane Street',
+    ticker: 'PRIVATE',
+    mcap: 60_000_000_000,    // private firm, NAV / public-data estimate
+    source: 'private',
+    sectors: ['finance'],
+    url: 'https://www.janestreet.com',
+    why: "Quant prop firm specializing in ETF arbitrage + crypto market-making — closest centralized comparable for PnL-scored trading subnets.",
+    aliases: ['JaneStreet'],
+  },
+  {
+    id: 'jump-trading',
+    name: 'Jump Trading',
+    ticker: 'PRIVATE',
+    mcap: 40_000_000_000,
+    source: 'private',
+    sectors: ['finance'],
+    url: 'https://www.jumptrading.com',
+    why: 'Quant prop trading + crypto market-maker (Jump Crypto subsidiary) — alpha-generation rival to decentralized trading subnets.',
+    aliases: ['Jump Crypto'],
+  },
+  {
+    id: 'renaissance-tech',
+    name: 'Renaissance Technologies',
+    ticker: 'PRIVATE',
+    mcap: 130_000_000_000,   // est. AUM-implied
+    source: 'private',
+    sectors: ['finance'],
+    url: 'https://www.rentec.com',
+    why: 'Medallion Fund — the canonical model-driven hedge fund. The brand decentralized trading subnets are unbundling.',
+    aliases: ['RenTec', 'Medallion'],
+  },
+  {
+    id: 'citadel-securities',
+    name: 'Citadel Securities',
+    ticker: 'PRIVATE',
+    mcap: 30_000_000_000,    // distinct from Citadel HF
+    source: 'private',
+    sectors: ['finance'],
+    url: 'https://www.citadelsecurities.com',
+    why: 'Largest US equity market maker — distinct from Citadel hedge fund. Routes ~25% of US retail flow; the "structure" of centralized trading.',
+    aliases: ['Citadel Securities'],
+  },
+
+  /* ---------- search engines (added 2026-05-21 for SN5 OpenKaito) ---------- */
+  {
+    id: 'you-com',
+    name: 'You.com',
+    ticker: 'PRIVATE',
+    mcap: 900_000_000,
+    source: 'private',
+    sectors: ['search', 'text'],
+    url: 'https://you.com',
+    why: 'AI-first search engine with multimodal agents — direct rival for decentralized search + retrieval subnets.',
+  },
+  {
+    id: 'brave-search',
+    name: 'Brave Search',
+    ticker: 'PRIVATE',
+    mcap: 700_000_000,
+    source: 'private',
+    sectors: ['search'],
+    url: 'https://search.brave.com',
+    why: "Independent search index (not whitelabel Bing) with privacy positioning — closest non-Google rival for retrieval subnets.",
+    aliases: ['Brave'],
+  },
+
+  /* ---------- consumer chat / roleplay (Apex + Dippy profiles) ---------- */
+  {
+    id: 'character-ai',
+    name: 'Character.AI',
+    ticker: 'PRIVATE',
+    mcap: 5_000_000_000,
+    source: 'private',
+    sectors: ['text'],
+    url: 'https://character.ai',
+    why: 'Consumer persona + roleplay chat — main rival for engagement-scored dialogue subnets like SN11 Dippy.',
+    aliases: ['CharacterAI'],
+  },
+  {
+    id: 'replika',
+    name: 'Replika',
+    ticker: 'PRIVATE',
+    mcap: 400_000_000,
+    source: 'private',
+    sectors: ['text'],
+    url: 'https://replika.com',
+    why: 'AI companion app — consumer-facing dialogue rival adjacent to subnet roleplay work.',
+  },
 ];
 
 /* =================================================================
@@ -533,6 +626,61 @@ export const SUPPLY_CHAIN = [
     url: 'https://www.eia.gov',
     why: 'AI datacenter load forecast +50% by 2030 (EIA estimate). US-East (Virginia) + US-Central (Texas) are the load-growth hot spots; siting + interconnect queue 2-4 years.',
   },
+
+  /* ---------- financial-market supply chain (added 2026-05-21
+     for SN8 PTN profile) ---------- */
+  {
+    id: 'bloomberg-feed',
+    name: 'Bloomberg Terminal',
+    ticker: '—',
+    mcap: 60_000_000_000,    // Bloomberg LP est. valuation
+    role: 'Market data feed',
+    layer: 'data',
+    url: 'https://www.bloomberg.com/professional',
+    why: '~$30K/terminal/year for institutional data + IB messaging. ~325K terminals deployed. The data substrate every centralized prop shop depends on.',
+  },
+  {
+    id: 'colo-nj4-ld4',
+    name: 'NJ4 / LD4 colocation',
+    ticker: '—',
+    mcap: null,
+    role: 'HFT colocation',
+    layer: 'cloud',
+    url: 'https://www.equinix.com',
+    why: 'Equinix NY4/NJ2/NJ4 (Secaucus) + LD4 (London) — the rack space within microseconds of the NYSE/NASDAQ/CME match engines. Multi-year waitlist; the binding constraint on HFT capacity.',
+  },
+  {
+    id: 'cme-nyse-access',
+    name: 'CME / NYSE / NASDAQ',
+    ticker: '—',
+    mcap: null,
+    role: 'Exchange match engines',
+    layer: 'data',
+    url: 'https://www.cmegroup.com',
+    why: 'Direct market access for matched-trade execution. Co-listing fees + data licensing + microwave-link bandwidth are the gating costs no centralized prop firm can opt out of.',
+  },
+
+  /* ---------- search supply chain (added 2026-05-21 for OpenKaito) ---------- */
+  {
+    id: 'web-crawl-infra',
+    name: 'Web crawl infra',
+    ticker: '—',
+    mcap: null,
+    role: 'Petabyte crawl + index',
+    layer: 'cloud',
+    url: 'https://commoncrawl.org',
+    why: 'Common Crawl + custom S3 / GCS petabyte indexes. Google built theirs over 25 years; new entrants either rebuild (multi-year capex) or rent indexing slots.',
+  },
+  {
+    id: 'cloudflare-edge',
+    name: 'Cloudflare',
+    ticker: 'NET',
+    mcap: 50_000_000_000,
+    role: 'Edge + CDN + DNS',
+    layer: 'cloud',
+    url: 'https://www.cloudflare.com',
+    why: 'Routes ~20% of web traffic. Critical edge layer for any low-latency search/retrieval product — fronts requests before they reach the index.',
+  },
 ];
 
 /* =================================================================
@@ -550,6 +698,41 @@ export const SUPPLY_CHAIN = [
    sidebar automatically picks up the deeper register.
    ================================================================= */
 export const BY_NETUID = {
+  /* SN1 Apex — open-domain text prompting and inference. The
+     consumer-chat register: a reader picking this subnet is
+     comparing against ChatGPT, Claude, Gemini, Perplexity. */
+  1: {
+    rivals: ['openai', 'anthropic', 'google', 'perplexity', 'cohere'],
+    supplyChainIds: ['nvidia', 'tsmc', 'sk-hynix', 'aws-azure-gcp', 'us-power-grids'],
+    constraints: [
+      {
+        label: 'Frontier-model training cost',
+        value: '~$100–500M per run',
+        note: 'GPT-4 class run = ~$100M reported. Anthropic+OAI+Google each running multiple per year. Decentralized open-prompting subnets cannot match this raw capex; they compete on routing + RLHF cost asymmetry.',
+      },
+      {
+        label: 'Consumer ARPU',
+        value: '$20/mo (Plus tier)',
+        note: 'ChatGPT Plus / Claude Pro / Gemini Advanced all at ~$20/mo. High churn (~40% trial-to-paid). Open-prompting subnets sidestep ARPU entirely by emission rewards.',
+      },
+      {
+        label: 'Inference token economics',
+        value: '$0.50–$2.00 / M tokens',
+        note: 'GPT-4o + Claude 4 premium-tier ranges. Decentralized prompting at the same quality competes on per-token cost ratio.',
+      },
+      {
+        label: 'RLHF data dependency',
+        value: 'Scale AI / Surge concentration',
+        note: 'Frontier labs source human RLHF data from a small set of vendors. A bottleneck centralized rivals cannot fully unbundle; subnet alternative is open-weights + community evals.',
+      },
+      {
+        label: 'Brand recognition moat',
+        value: 'GPT / Claude / Gemini',
+        note: 'Top-tier consumer brand recognition. The decentralized prompting subnet competes on developer / institutional read, not consumer name.',
+      },
+    ],
+  },
+
   /* SN4 Targon — bandwidth-priced LLM inference with deterministic
      verifiers. The flagship "decentralize the inference market"
      subnet. Profiled 2026-05-21 as the prototype for this depth
@@ -582,6 +765,80 @@ export const BY_NETUID = {
         label: 'Inference token economics',
         value: '$0.50–$2.00 / M tokens',
         note: 'Centralized premium-model pricing range. Open-model shops (Together, Fireworks) run $0.20–$0.80.',
+      },
+    ],
+  },
+
+  /* SN5 OpenKaito — decentralized web search + retrieval, scored
+     against ground-truth queries. The rival landscape here is
+     SEARCH ENGINES — Google's dominance plus the AI-native
+     newcomers (Perplexity, You.com) and the privacy-positioned
+     alternatives (Brave). */
+  5: {
+    rivals: ['google', 'perplexity', 'you-com', 'brave-search'],
+    supplyChainIds: ['nvidia', 'aws-azure-gcp', 'web-crawl-infra', 'cloudflare-edge', 'us-power-grids'],
+    constraints: [
+      {
+        label: "Google's index moat",
+        value: '~25 years of crawl',
+        note: 'Google has been indexing the web since 1998. New entrants either rebuild from scratch (multi-year capex) or rent indexing slots via Bing API (which Microsoft just hiked 9× in 2024).',
+      },
+      {
+        label: 'Crawl budget vs freshness',
+        value: 'Sites get ~hourly to ~weekly visits',
+        note: "A site's perceived freshness depends on how often the crawler returns. Crawl-budget allocation is a perpetual fairness problem; decentralized retrieval can in theory parallelize it across miners.",
+      },
+      {
+        label: 'Search ad ARPU',
+        value: '~$300/year per US user',
+        note: 'Google captures most of search ad revenue. Non-Google search depends on display ads or subscription — both materially smaller. Decentralized search sidesteps ARPU entirely via emission rewards.',
+      },
+      {
+        label: 'AI overview cannibalization',
+        value: '~15% blue-link CTR drop',
+        note: "Google's AI Overviews compress clicks-to-source — publishers are seeing measurable traffic drops. Subnet alternative could route value back to source pages via direct payments.",
+      },
+      {
+        label: 'Index hosting capex',
+        value: 'Petabyte-class storage',
+        note: 'Common Crawl alone is ~10PB. A live search index 10–100× that. AWS S3 + Cloudflare R2 at scale are the only realistic centralized hosts; subnet miners can shard.',
+      },
+    ],
+  },
+
+  /* SN8 PTN — Proprietary Trading Network: miners submit trades,
+     scored on realized P&L. The rivals here are CENTRALIZED PROP
+     SHOPS (Jane Street, Jump, Citadel Securities, Renaissance) +
+     a supply chain that's specifically financial — colo space,
+     market-data feeds, exchange access. NOT the AI-compute stack. */
+  8: {
+    rivals: ['jane-street', 'jump-trading', 'citadel-securities', 'renaissance-tech', 'citadel'],
+    supplyChainIds: ['bloomberg-feed', 'colo-nj4-ld4', 'cme-nyse-access', 'aws-azure-gcp'],
+    constraints: [
+      {
+        label: 'Colo rack scarcity',
+        value: 'Multi-year waitlist at NJ4 / LD4',
+        note: 'Racks within microseconds of NYSE/NASDAQ/CME match engines. Centralized prop firms own theirs outright; new entrants wait years or pay premium for sublease.',
+      },
+      {
+        label: 'Bloomberg feed cost',
+        value: '~$30K/year per terminal',
+        note: 'Standard institutional data + IB messaging price. ~325K terminals deployed. Decentralized trading subnets bootstrap with public market data feeds (coarser, slower) — a structural cost asymmetry the subnet inherits.',
+      },
+      {
+        label: 'Microwave-link bandwidth',
+        value: 'Chicago-NYC lane saturated',
+        note: 'McKay / Anova / Vigilant control the line-of-sight microwave links between CME (Chicago) and NJ4 (NYC) — the fastest market-data path between the two. New entrants buy capacity in the secondary market.',
+      },
+      {
+        label: 'Alpha decay',
+        value: 'Edge halves every ~6 months',
+        note: 'Centralized prop firms run hundreds of strategies in parallel because each one decays. A subnet aggregates miner strategies — different inheritance of the same problem.',
+      },
+      {
+        label: 'Regulatory capture risk',
+        value: 'SEC + CFTC reporting',
+        note: 'Centralized firms have compliance moats (CAT reporting, FINRA membership, sub-1ms timestamp accuracy). Decentralized trading must structure itself OUTSIDE this regime; legal ambiguity is the binding constraint.',
       },
     ],
   },
