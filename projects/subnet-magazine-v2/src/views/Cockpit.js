@@ -256,9 +256,14 @@ function saveCockpitState(s){
    and stays here. Same RGB lives in terminal/chart-mode.js. */
 const MA_FAST_WINDOW      = 20;
 const MA_SLOW_WINDOW      = 50;
-const MA_FAST_LINE_RGBA   = 'rgba(156,230,204,0.55)';
+/* MA overlay opacities bumped per Rondo 2026-05-21 chart review
+   priority #4 ("MA20/MA50 overlays are nearly invisible"). MA20
+   55% → 75%, MA50 45% → 70% so the overlays read as supporting
+   register without dominating the price line. Line width
+   bumped from 1 → 1.3 inside drawMA() for the same reason. */
+const MA_FAST_LINE_RGBA   = 'rgba(156,230,204,0.75)';
 const MA_FAST_SWATCH_RGBA = 'rgba(156,230,204,0.85)';
-const MA_SLOW_LINE_RGBA   = 'rgba(232,192,103,0.45)';
+const MA_SLOW_LINE_RGBA   = 'rgba(232,192,103,0.70)';
 const MA_SLOW_SWATCH_RGBA = 'rgba(232,192,103,0.85)';
 const MA_SLOW_DASH        = [4, 3];
 
@@ -324,8 +329,13 @@ function drawChart(canvas, series, range, annotations, offset = 0){
   const slice = series.slice(sliceStart, sliceEnd);
   if (slice.length < 2) return null;
 
-  const PAD_L = 50, PAD_R = 14, PAD_T = 14, PAD_B = 60;
-  const VOL_H = 38;
+  const PAD_L = 50, PAD_R = 14, PAD_T = 14, PAD_B = 50;
+  /* VOL_H tightened from 38 → 26 per Rondo's chart review:
+     volume bars were eating ~35-40% of chart height and
+     competing with the price line. ~26px = ~15-18% of chart
+     height at typical 400px canvas — supporting context, not
+     headline. PAD_B reduced 60 → 50 to keep label spacing tight. */
+  const VOL_H = 26;
   const priceH = H - PAD_T - PAD_B;
   const priceY0 = PAD_T;
   const priceY1 = PAD_T + priceH;
@@ -408,7 +418,10 @@ function drawChart(canvas, series, range, annotations, offset = 0){
   const drawMA = (arr, color, dash) => {
     ctx.save();
     ctx.strokeStyle = color;
-    ctx.lineWidth   = 1;
+    /* Line width 1.3 per Rondo 2026-05-21 chart review #4 —
+       was 1px which read as visual noise; 1.3 gives the overlay
+       presence without dominating the 1.8px price line above. */
+    ctx.lineWidth   = 1.3;
     ctx.setLineDash(dash);
     ctx.lineJoin    = 'round';
     let started = false;
@@ -511,7 +524,11 @@ function drawChart(canvas, series, range, annotations, offset = 0){
     const y = vyAt(slice[i].volume);
     const w = Math.max(1, (W - PAD_L - PAD_R) / slice.length - 1);
     const up = i > 0 && slice[i].close >= slice[i-1].close;
-    ctx.fillStyle = up ? 'rgba(0,229,168,0.55)' : 'rgba(255,77,109,0.55)';
+    /* Volume bar opacity dropped 0.55 → 0.40 per Rondo's chart
+       review #2 — volume is supporting context, not headline.
+       Lower alpha lets the price line + gradient fill above
+       hold visual primacy. */
+    ctx.fillStyle = up ? 'rgba(0,229,168,0.40)' : 'rgba(255,77,109,0.40)';
     ctx.fillRect(x - w/2, y, w, volY1 - y);
   }
 
