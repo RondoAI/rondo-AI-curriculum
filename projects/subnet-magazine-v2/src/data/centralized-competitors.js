@@ -689,6 +689,45 @@ export const COMPETITORS = [
     url: 'https://risczero.com',
     why: 'General-purpose zkVM for verifiable computation — including ML inference. Foundation for zk-everything stack.',
   },
+
+  /* ---------- image generation (Vision + Omega profiles, 2026-05-21) ---------- */
+  {
+    id: 'midjourney',
+    name: 'Midjourney',
+    ticker: 'PRIVATE',
+    mcap: 8_000_000_000,
+    source: 'private',
+    sectors: ['vision'],
+    url: 'https://www.midjourney.com',
+    why: 'Frontier text-to-image with strongest brand recognition. Subscription-only, no API — closed-platform rival to open generative subnets.',
+  },
+  {
+    id: 'openai-sora',
+    name: 'OpenAI Sora',
+    ticker: 'PRIVATE',
+    mcap: 157_000_000_000, // rolled up under OpenAI parent
+    source: 'private',
+    sectors: ['video'],
+    url: 'https://openai.com/sora',
+    why: "Sora 2 frontier text-to-video. Built on OpenAI's compute. The benchmark a decentralized video subnet competes against on quality.",
+    aliases: ['Sora'],
+  },
+
+  /* ---------- agent / browser automation (Web Genie profile) ---------- */
+  {
+    id: 'adept-ai',
+    name: 'Adept AI',
+    ticker: 'PRIVATE',
+    mcap: 1_000_000_000,
+    source: 'private',
+    sectors: ['agents'],
+    url: 'https://www.adept.ai',
+    why: 'ACT-1 + Fuyu browser agents — original pure-play agent lab (acquired-hired by Amazon 2024 but team continues). The benchmark for browser-using agent subnets.',
+  },
+
+  /* ---------- prediction-market platforms (Foresight profile) ----------
+     polymarket + kalshi already in COMPETITORS above; nothing new here.
+     ---------- */
 ];
 
 /* =================================================================
@@ -1230,6 +1269,250 @@ export const BY_NETUID = {
         label: 'Regulatory framing',
         value: 'Yield = "security" in many jurisdictions',
         note: 'SEC has signaled that yield-generation services may constitute securities offerings. Centralized DeFi front-ends (Yearn, Beefy) face delisting pressure; subnet alternatives operate outside front-end risk.',
+      },
+    ],
+  },
+
+  /* SN12 ComputeHorde — GPU compute spot market priced per
+     FLOP-hour with verifiable receipts. Closest rival to
+     centralized GPU clouds + spot-instance providers. */
+  12: {
+    rivals: ['coreweave', 'lambda-labs', 'modal-labs', 'aws-azure-gcp'],
+    supplyChainIds: ['nvidia', 'tsmc', 'sk-hynix', 'us-power-grids'],
+    constraints: [
+      {
+        label: 'Spot vs on-demand pricing',
+        value: '~30-70% discount typical',
+        note: 'Hyperscaler spot instances run 30-70% cheaper than on-demand but can be reclaimed mid-job. Decentralized spot must match the discount while avoiding the reclaim risk via verifiable receipts.',
+      },
+      {
+        label: 'H100 hourly rate floor',
+        value: '~$2.50-4.50/hr',
+        note: 'Lambda + CoreWeave list H100s at $2.50-3 (8-month commit) to $4.50 (on-demand). Decentralized miners must price below to capture price-sensitive flow.',
+      },
+      {
+        label: 'Verifiable FLOP receipt cost',
+        value: '~1-3% perf overhead',
+        note: 'Verifiable computation (proof of work done) adds overhead. Cheaper than zkML proving but non-zero — narrows the price advantage decentralized providers can offer.',
+      },
+      {
+        label: 'Cold-start latency',
+        value: 'Minutes-to-hours',
+        note: 'Spot capacity must be MATCHED before a job runs. Decentralized markets see longer cold-starts than hyperscalers running pools of pre-warmed instances.',
+      },
+      {
+        label: 'Sustainable utilization',
+        value: '~40-60% across the network',
+        note: 'Centralized GPU clouds aim for ~70-80% utilization. Decentralized spot will run lower until liquidity matches demand; the gap shows up in price.',
+      },
+    ],
+  },
+
+  /* SN19 Vision — Image classification, embedding, synthesis
+     under public scoring. Direct rivals are the frontier
+     vision labs + the image-gen platforms. */
+  19: {
+    rivals: ['stability-ai', 'midjourney', 'openai', 'google', 'runway'],
+    supplyChainIds: ['nvidia', 'tsmc', 'aws-azure-gcp', 'us-power-grids'],
+    constraints: [
+      {
+        label: 'Training run cost',
+        value: '~$10-50M frontier image',
+        note: 'SDXL / Stable Diffusion 3 / DALL·E 3 class training runs land in $10-50M range. Decentralized vision subnets sidestep via emission rewards but inherit the data + curation cost.',
+      },
+      {
+        label: 'Generation cost per image',
+        value: '$0.01-0.10 (centralized)',
+        note: 'Stability + Midjourney charge $0.01-0.10 per generated image at scale. Decentralized vision must match this price floor with miner compute.',
+      },
+      {
+        label: 'Curated training-image licensing',
+        value: 'Lawsuit-prone',
+        note: 'Stability, Midjourney facing ongoing copyright suits (Getty, NYT). Decentralized vision can use only opt-in or CC-licensed data — narrower training corpus but cleaner IP.',
+      },
+      {
+        label: 'Brand + UX moat',
+        value: 'Midjourney Discord workflow',
+        note: 'Midjourney built UX on Discord + sustained iteration. Decentralized vision must surface a similar polish to capture creator workflow.',
+      },
+      {
+        label: 'Adversarial validator scoring',
+        value: 'Reward-hack risk',
+        note: 'Public scoring against adversarial validators creates incentive to game the metric. Centralized rivals tune internally; subnet design must keep evals robust.',
+      },
+    ],
+  },
+
+  /* SN21 Omega — Any-to-any multimodal generation with
+     adversarial validators. The rivals are the frontier
+     multimodal labs (OpenAI GPT-4V, Anthropic Claude vision,
+     Google Gemini multimodal). */
+  21: {
+    rivals: ['openai', 'anthropic', 'google', 'meta', 'runway'],
+    supplyChainIds: ['nvidia', 'tsmc', 'sk-hynix', 'aws-azure-gcp', 'us-power-grids'],
+    constraints: [
+      {
+        label: 'Frontier multimodal training cost',
+        value: '~$100-500M',
+        note: 'GPT-4V / Gemini Ultra / Claude 3.5 Sonnet multimodal training in the $100-500M range. Same compute mountain pretraining subnets face.',
+      },
+      {
+        label: 'Modality coverage',
+        value: 'Text + image + audio + video',
+        note: 'Frontier any-to-any models target ALL four modalities. Decentralized any-to-any must approximate via specialist miner submissions composed across boundary.',
+      },
+      {
+        label: 'Adversarial validator alignment',
+        value: 'Multimodal eval is hard',
+        note: 'Evaluating a video → text + image → audio composition is qualitative. Centralized labs use human raters at scale; decentralized must use deterministic-enough rubrics.',
+      },
+      {
+        label: 'Inference latency',
+        value: '~5-30s per generation',
+        note: 'Frontier multimodal models run 5-30 seconds per output at scale. Decentralized must match at miner level or accept latency tradeoff.',
+      },
+      {
+        label: 'GPU memory ceiling',
+        value: '80GB H100 / 192GB B200',
+        note: 'Multimodal models stretch GPU memory ceilings. Smaller distributed miners struggle to host the full 70B+ class models centralized labs use.',
+      },
+    ],
+  },
+
+  /* SN25 Folding — Distributed protein folding + molecular
+     simulation. The rival is AlphaFold (Google DeepMind) +
+     the specialized drug-discovery AI labs. */
+  25: {
+    rivals: ['deepmind-science', 'atomwise', 'google'],
+    supplyChainIds: ['nvidia', 'tsmc', 'aws-azure-gcp', 'us-power-grids'],
+    constraints: [
+      {
+        label: 'AlphaFold structural ceiling',
+        value: '~95% protein universe',
+        note: 'AlphaFold 3 has predicted structures for ~200M proteins (most of UniProt). Decentralized folding must add value on top — novel proteins, dynamics, drug interactions.',
+      },
+      {
+        label: 'GPU-hours per folded protein',
+        value: '~1-10 H100-hours',
+        note: 'Frontier folding takes 1-10 GPU-hours per long protein. Decentralized scales horizontally via miners but each one still needs the same compute.',
+      },
+      {
+        label: 'Validation against ground truth',
+        value: 'PDB + lab assays',
+        note: 'Protein Data Bank + wet-lab experimental structures are the validators. Decentralized subnet needs access to these datasets to score miners.',
+      },
+      {
+        label: 'Drug-discovery monetization',
+        value: '~$2B / approved drug',
+        note: 'Centralized labs (Atomwise, Insilico, Recursion) monetize via pharma partnerships. Decentralized folding must structure similar monetization or stay purely science-rewarded.',
+      },
+      {
+        label: 'Compute carbon footprint',
+        value: '~5-50kWh per structure',
+        note: 'GPU-intensive workloads have non-trivial carbon cost. Decentralized geographic diversity can route to lower-carbon regions.',
+      },
+    ],
+  },
+
+  /* SN30 Wombo — Text-to-video generation judged on quality
+     and prompt fidelity. Rivals are the frontier video labs. */
+  30: {
+    rivals: ['openai-sora', 'google', 'runway', 'meta', 'stability-ai'],
+    supplyChainIds: ['nvidia', 'tsmc', 'sk-hynix', 'aws-azure-gcp', 'us-power-grids'],
+    constraints: [
+      {
+        label: 'Training compute',
+        value: '~$50-200M per frontier model',
+        note: 'Sora / Veo / Gen-3 class video models train at $50-200M compute cost. Decentralized video must aggregate distributed pretraining or accept smaller backbone.',
+      },
+      {
+        label: 'Generation cost per clip',
+        value: '$0.50-5.00 per 5-10s clip',
+        note: 'Centralized video generation costs $0.50-5 per short clip at API rates. Decentralized must match the floor on miner-side.',
+      },
+      {
+        label: 'Temporal coherence',
+        value: 'Hard problem',
+        note: 'Frame-to-frame consistency over 5-30s is the hard part. Centralized labs solve via massive scale + RLHF; decentralized has fewer rater hours.',
+      },
+      {
+        label: 'Storage + bandwidth',
+        value: 'Video = 100× image',
+        note: 'A generated 10s clip = 10-50MB. Video subnet pipeline needs storage + delivery infrastructure that single-image subnets don\'t.',
+      },
+      {
+        label: 'Brand recognition',
+        value: 'Sora / Veo dominate awareness',
+        note: 'Consumer + creative-pro awareness sits with OpenAI Sora + Google Veo. Decentralized video must build the same brand register or stay institutional-only.',
+      },
+    ],
+  },
+
+  /* SN36 Web Genie — Browser-using agents graded on real-world
+     task completion. Rivals are the centralized agent labs. */
+  36: {
+    rivals: ['openai', 'anthropic', 'google', 'adept-ai'],
+    supplyChainIds: ['nvidia', 'aws-azure-gcp', 'cloudflare-edge'],
+    constraints: [
+      {
+        label: 'OS / browser API access',
+        value: 'Operator / Computer Use limited',
+        note: 'OpenAI Operator + Anthropic Computer Use rely on platform-controlled browser windows. Decentralized agents can run on miner-controlled environments — different security tradeoff.',
+      },
+      {
+        label: 'Task completion accuracy',
+        value: '~50-70% on benchmarks',
+        note: 'Top centralized agents land 50-70% on AgentBench / WebArena. Decentralized must match while not having access to RLHF data the frontier labs use.',
+      },
+      {
+        label: 'Latency per browser action',
+        value: '2-5s per click/scroll',
+        note: 'Vision + LLM + browser execution pipeline = 2-5 seconds between agent actions. Decentralized must compete on this latency floor.',
+      },
+      {
+        label: 'Anti-bot / CAPTCHA',
+        value: 'Cloudflare bot scoring',
+        note: 'Sites use Cloudflare + reCAPTCHA + behavioral biometrics to block automated agents. Centralized labs invest in detection bypass; decentralized inherits the same arms race.',
+      },
+      {
+        label: 'Eval task curation',
+        value: 'Real-world task design',
+        note: 'Holdout task sets need careful curation to avoid memorization. Centralized labs (Anthropic SWE-bench, etc.) lead curation; decentralized validators must match.',
+      },
+    ],
+  },
+
+  /* SN42 Foresight — On-chain prediction markets validated
+     against real outcomes. Rivals are the centralized prediction
+     market platforms. */
+  42: {
+    rivals: ['polymarket', 'kalshi'],
+    supplyChainIds: ['ethereum-l1-gas', 'chainlink-oracles', 'aws-azure-gcp'],
+    constraints: [
+      {
+        label: 'Liquidity for binary outcomes',
+        value: 'Top platforms ~$50-100M/mo',
+        note: 'Polymarket alone moves $50-100M/month in active markets. Decentralized prediction subnets need to either capture or aggregate this liquidity to be useful for price discovery.',
+      },
+      {
+        label: 'Outcome verification',
+        value: 'Trusted oracle resolution',
+        note: 'Every prediction market resolves via an oracle. Polymarket uses UMA optimistic oracle; Kalshi resolves internally. Subnet must pick a resolution mechanism that scales without trusted intermediary.',
+      },
+      {
+        label: 'Regulatory framing',
+        value: 'CFTC + SEC scrutiny',
+        note: 'Kalshi operates under CFTC DCM license; Polymarket is offshore due to US restrictions. Subnet prediction markets face the same regulatory map but can structure outside both.',
+      },
+      {
+        label: 'Market liquidity per question',
+        value: '90% of volume in 10% of markets',
+        note: 'Liquidity concentrates in election + sports + econ. Long-tail markets stay thin. Decentralized subnets must either match the concentration or accept lower long-tail liquidity.',
+      },
+      {
+        label: 'Time-to-resolution',
+        value: 'Hours-to-months',
+        note: 'Election markets resolve in months. Sports / events in hours. Decentralized must handle both timescales for capital lock-up and oracle finality.',
       },
     ],
   },
