@@ -362,7 +362,19 @@ function drawChart(canvas, series, range, annotations, offset = 0){
     ctx.stroke();
   }
 
-  /* Price area fill */
+  /* Price area fill — modern register per Rondo 2026-05-21 chart
+     review ("price line is thin and flat — needs gradient fill").
+     Bumped the top stop from 32% to 55% so the chart reads as a
+     SHAPE (the way Bloomberg + TradingView + CMC charts do) not
+     a wireframe. Bottom stop pulled to 6% so the fill stays
+     visible above the volume bars below.
+
+     Color follows the direction: mint for up, red-pink for down —
+     same semantic the price line carries. */
+  const lastClose = slice[slice.length - 1].close;
+  const firstClose = slice[0].close;
+  const isUp = lastClose >= firstClose;
+  const lineColor = isUp ? '#00E5A8' : '#FF4D60';
   ctx.beginPath();
   ctx.moveTo(xAt(0), priceY1);
   for (let i = 0; i < slice.length; i++){
@@ -371,12 +383,9 @@ function drawChart(canvas, series, range, annotations, offset = 0){
   ctx.lineTo(xAt(slice.length - 1), priceY1);
   ctx.closePath();
   const grad = ctx.createLinearGradient(0, priceY0, 0, priceY1);
-  const lastClose = slice[slice.length - 1].close;
-  const firstClose = slice[0].close;
-  const isUp = lastClose >= firstClose;
-  const lineColor = isUp ? '#00E5A8' : '#FF4D60';
-  grad.addColorStop(0, isUp ? 'rgba(0,229,168,0.32)' : 'rgba(255,77,109,0.30)');
-  grad.addColorStop(1, isUp ? 'rgba(0,229,168,0.02)' : 'rgba(255,77,109,0.02)');
+  grad.addColorStop(0, isUp ? 'rgba(0,229,168,0.55)' : 'rgba(255,77,109,0.55)');
+  grad.addColorStop(0.55, isUp ? 'rgba(0,229,168,0.20)' : 'rgba(255,77,109,0.20)');
+  grad.addColorStop(1, isUp ? 'rgba(0,229,168,0.06)' : 'rgba(255,77,109,0.06)');
   ctx.fillStyle = grad;
   ctx.fill();
 
@@ -427,6 +436,74 @@ function drawChart(canvas, series, range, annotations, offset = 0){
   ctx.lineCap     = 'round';
   ctx.lineJoin    = 'round';
   ctx.stroke();
+
+  /* CURRENT-PRICE RIGHT-EDGE BADGE (Rondo 2026-05-21 chart review).
+     A small colored chip pinned to the right edge at the last
+     bar's y-position, displaying the current price in τ. Modern
+     chart pattern (TradingView, Bloomberg, Coinbase Advanced) —
+     reader's eye lands on the chart and immediately knows where
+     "now" is. Includes a thin hairline dot at the price-line
+     terminus + a leader line tracking from chart to badge so the
+     badge feels anchored to the data, not floating. */
+  {
+    const lastX = xAt(slice.length - 1);
+    const lastY = yAt(lastClose);
+    /* Hairline horizontal leader from last point to the right edge. */
+    ctx.save();
+    ctx.strokeStyle = lineColor;
+    ctx.globalAlpha = 0.45;
+    ctx.setLineDash([2, 3]);
+    ctx.lineWidth = 0.8;
+    ctx.beginPath();
+    ctx.moveTo(lastX, lastY);
+    ctx.lineTo(W - PAD_R, lastY);
+    ctx.stroke();
+    ctx.restore();
+    /* Pulsing dot at the price-line terminus — same color as the
+       line, slight glow. Reader's eye lands on it as "current". */
+    ctx.save();
+    ctx.fillStyle = lineColor;
+    ctx.shadowColor = lineColor;
+    ctx.shadowBlur = 6;
+    ctx.beginPath();
+    ctx.arc(lastX, lastY, 3.2, 0, Math.PI * 2);
+    ctx.fill();
+    /* Outer ring for emphasis — same color, lower opacity. */
+    ctx.shadowBlur = 0;
+    ctx.globalAlpha = 0.30;
+    ctx.beginPath();
+    ctx.arc(lastX, lastY, 6, 0, Math.PI * 2);
+    ctx.fill();
+    ctx.restore();
+    /* Right-edge price badge — filled rectangle with the current
+       price text. Sits flush against the right edge (PAD_R), at
+       the lastY level. Width adapts to text. */
+    ctx.save();
+    ctx.font = '700 10.5px "JetBrains Mono", monospace';
+    const priceTxt = (lastClose < 1 ? lastClose.toFixed(4) : lastClose.toFixed(2)) + ' τ';
+    const txtW = ctx.measureText(priceTxt).width;
+    const badgeW = Math.ceil(txtW) + 12;
+    const badgeH = 18;
+    const badgeX = W - PAD_R - badgeW + 2; // overshoot slightly so it kisses the right edge
+    const badgeY = Math.max(priceY0 + 2, Math.min(priceY1 - badgeH - 2, lastY - badgeH / 2));
+    ctx.fillStyle = lineColor;
+    ctx.fillRect(badgeX, badgeY, badgeW, badgeH);
+    /* Tiny pointer triangle on the LEFT side of the badge pointing
+       toward the price line — completes the "anchor" feel. */
+    ctx.beginPath();
+    ctx.moveTo(badgeX, badgeY + badgeH / 2 - 4);
+    ctx.lineTo(badgeX - 5, badgeY + badgeH / 2);
+    ctx.lineTo(badgeX, badgeY + badgeH / 2 + 4);
+    ctx.closePath();
+    ctx.fill();
+    /* Text — dark on the colored badge for contrast (the line
+       colors are both bright enough that black reads cleanly). */
+    ctx.fillStyle = '#050203';
+    ctx.textAlign = 'center';
+    ctx.textBaseline = 'middle';
+    ctx.fillText(priceTxt, badgeX + badgeW / 2, badgeY + badgeH / 2 + 0.5);
+    ctx.restore();
+  }
 
   /* Volume bars */
   for (let i = 0; i < slice.length; i++){
