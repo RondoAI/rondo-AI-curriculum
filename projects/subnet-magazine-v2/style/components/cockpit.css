@@ -2720,6 +2720,27 @@
 }
 
 /* ============================================================
+   CMC RESTRUCTURE — single-pane workspace visibility (2026-05-20)
+   ------------------------------------------------------------
+   In the pre-restructure cockpit, .cockpit__main was hidden by
+   default (display:none) and a JS hook added the `.is-active`
+   class to flip it visible — needed because mobile used to
+   pane-switch between SUBNETS / CHART / DESK / FEED.
+
+   The new cockpit is single-pane (chart + sidebar + holdings
+   all live in .cockpit__main), so we want it ALWAYS visible.
+   This rule overrides the older `display: none` base from way
+   up around line 117 so the workspace renders without needing
+   the JS-side `is-active` toggle that used to wire mobile pane
+   swaps. The !important is to beat that older base rule's
+   specificity inside the @media (mobile) context.
+   ============================================================ */
+.cockpit__main{
+  display: flex !important;
+  flex-direction: column;
+}
+
+/* ============================================================
    CMC RESTRUCTURE — 2026-05-20
    ============================================================
    Everything below is the new cockpit shape Rondo asked for on

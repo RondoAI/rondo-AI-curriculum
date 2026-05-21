@@ -123,7 +123,14 @@ export function mark(name, opts = {}){
        + `stroke="#FF1E3C" stroke-opacity="0.36"/>`
        + chords + dots
        + `<text x="50" y="50" text-anchor="middle" dominant-baseline="central" `
-       + `font-family="'JetBrains Mono', ui-monospace, monospace" font-weight="600" `
+       /* Unquoted "JetBrains Mono, ui-monospace, monospace" so that when this
+          SVG gets interpolated into an inline onerror="this.outerHTML='...'"
+          attribute (Codex.js, Tickers.js, Home.js all do that fallback
+          pattern), the single quotes don't close the outer JS string and
+          turn `JetBrains` into an unexpected bare identifier. CSS allows
+          space-separated identifiers in font-family unquoted, so this
+          parses identically as a CSS value. */
+       + `font-family="JetBrains Mono, ui-monospace, monospace" font-weight="600" `
        + `font-size="${fs}" fill="#F5E5E8">${escapeAttr(label)}</text>`
        + `</svg>`;
 }
