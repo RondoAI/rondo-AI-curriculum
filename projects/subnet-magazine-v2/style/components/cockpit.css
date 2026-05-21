@@ -4594,10 +4594,12 @@
 .cock-side-mov__group-lbl--up{   color: var(--c-up);   }
 .cock-side-mov__group-lbl--down{ color: var(--c-down); }
 /* Mover row — a button styled to look like a flat list row.
-   Grid columns: SN# (fixed) · name (flex) · 24h pct (fixed). */
+   Grid columns: SN# (fixed) · name (flex) · spark (32px) · pct (auto).
+   The spark gives the row visual context without bulk — same
+   procedural seeded walk the rival cards use. */
 .cock-side-mov__row{
   display: grid;
-  grid-template-columns: 44px 1fr auto;
+  grid-template-columns: 44px 1fr 32px auto;
   align-items: center;
   gap: 8px;
   width: 100%;
@@ -4610,6 +4612,19 @@
   color: inherit;
   font-family: inherit;
   transition: background 140ms;
+}
+.cock-side-mov__spark{
+  /* Container for the inline SVG spark. The SVG itself is
+     40px wide; we let it scale down to 32px via max-width. */
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  opacity: .85;
+}
+.cock-side-mov__spark svg{
+  max-width: 32px;
+  width: 32px;
+  height: 12px;
 }
 .cock-side-mov__row:hover{
   background: rgba(255,30,60,.07);

@@ -1663,12 +1663,24 @@ export function mountCockpit(root, dataLayer = null){
     const movers = SUBNETS.filter(x => Number.isFinite(x.chg24));
     const top = movers.slice().sort((a,b) => (b.chg24 || 0) - (a.chg24 || 0)).slice(0, 3);
     const bot = movers.slice().sort((a,b) => (a.chg24 || 0) - (b.chg24 || 0)).slice(0, 3);
-    const moverRow = (x, dir) => `
+    /* Each mover row gets a tiny procedural sparkline so the
+       reader sees trend direction at a glance — same trader-
+       grade density as the rival cards. The spark is colored
+       to match the delta sign (mint for up, red for down) and
+       biased toward that direction so the visual agrees with
+       the headline ±%. Reuses competitorSparkSvg via the generic
+       { id, delta24h } shape. */
+    const moverRow = (x, dir) => {
+      const sparkColor = dir === 'up' ? 'var(--c-up)' : 'var(--c-down)';
+      const spark = competitorSparkSvg({ id: 'sn-' + x.netuid, delta24h: x.chg24 }, sparkColor);
+      return `
       <button type="button" class="cock-side-mov__row cock-side-mov__row--${dir}" data-mover="${x.netuid}" aria-label="Switch chart to SN${x.netuid} ${x.name}">
         <span class="cock-side-mov__sn">SN${x.netuid}</span>
         <span class="cock-side-mov__name">${x.name}</span>
+        <span class="cock-side-mov__spark">${spark}</span>
         <span class="cock-side-mov__pct ${cls(x.chg24)}">${arrow(x.chg24)} ${fmtPct(x.chg24)}</span>
       </button>`;
+    };
 
     return `
       <section class="cock-side-sig" aria-label="Centralized competitor signals for SN${s.netuid} ${s.name}">
