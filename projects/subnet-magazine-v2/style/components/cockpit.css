@@ -4564,3 +4564,211 @@
   color: var(--c-ink-2);
   line-height: 1.5;
 }
+
+/* ============================================================
+   MODERN BUTTON POLISH — Pass 3 (2026-05-21)
+   ============================================================
+   Per Rondo 2026-05-21 "the graphic design isn't modern enough.
+   Buttons need a more contemporary feel" + [[feedback-modern-
+   visual-language]].
+
+   The cockpit's interactive controls all get the same 2026-modern
+   vocabulary:
+     - Smoother transitions (180-220ms eased on all state changes)
+     - Outline-with-glow at rest, background bloom on hover,
+       scale(0.96) on press, filled-with-glow when active
+     - All within the locked palette (--c-red family, --c-ink-*,
+       JetBrains Mono numerals)
+
+   These rules OVERRIDE earlier-in-file definitions where helpful
+   (Source-order winning on equal-specificity selectors). When the
+   underlying rule was already most of the way there we just add
+   the missing transitions + :active feedback.
+   ============================================================ */
+
+/* RANGE TABS (1D / 7D / 30D / 90D / 1Y) — chart-window picker
+   below the canvas. Most-tapped control on the page.
+   - Resting:   transparent outline, ink-2 text
+   - Hover:     red bloom background, ink-1 text, brighter border
+   - Active:    filled red + white text + soft glow
+   - Pressed:   scale(0.96) for haptic-feeling response */
+.cock-range__btn{
+  transition: background 180ms ease, border-color 180ms ease, color 180ms ease, transform 100ms ease, box-shadow 180ms ease;
+}
+.cock-range__btn:hover{
+  background: rgba(255,30,60,.10);
+}
+.cock-range__btn:focus-visible{
+  outline: 1px solid var(--c-red);
+  outline-offset: 1px;
+}
+.cock-range__btn:active{
+  transform: scale(0.96);
+}
+.cock-range__btn.is-on{
+  /* Strengthen the active state's glow — modern emphasis. */
+  box-shadow: 0 0 12px rgba(255,30,60,.45), inset 0 0 0 1px rgba(255,255,255,.05);
+}
+
+/* PAN CONTROLS (◀ EARLIER / NOW / LATER ▶ / ⏵ TODAY) — chart
+   history navigation. Same modernization as range tabs. */
+.cock-pan__btn{
+  transition: background 180ms ease, border-color 180ms ease, color 180ms ease, transform 100ms ease;
+}
+.cock-pan__btn:active{
+  transform: scale(0.96);
+}
+.cock-pan__btn--today:hover{
+  background: rgba(255,30,60,.14);
+  border-color: var(--c-red);
+}
+
+/* COCKPIT TABS (CHART / MARKETS pill) — the very top of the
+   workspace. Smaller, but gets the same treatment so the design
+   reads as one vocabulary. */
+.cockpit-tabs__btn{
+  transition: background 180ms ease, border-color 180ms ease, color 180ms ease, transform 100ms ease;
+}
+.cockpit-tabs__btn:active{
+  transform: scale(0.96);
+}
+.cockpit-tabs__btn.is-on{
+  box-shadow: 0 0 8px rgba(255,30,60,.35);
+}
+
+/* PICK SUBNET dropdown — modernize the select's resting + focus
+   + hover states. The OS-native dropdown panel can't be styled
+   beyond background/color (browsers won't let us re-skin the
+   open list), but the closed surface can read as a real
+   trader-grade control. */
+.cock-chart__picker-sel{
+  transition: background 180ms ease, border-color 180ms ease, color 140ms ease, box-shadow 180ms ease;
+}
+.cock-chart__picker-sel:hover{
+  border-color: var(--c-red);
+  background: rgba(0,0,0,.50);
+  box-shadow: 0 0 0 1px rgba(255,30,60,.18);
+}
+.cock-chart__picker-sel:focus-visible{
+  border-color: var(--c-red);
+  outline: 1px solid var(--c-red);
+  outline-offset: 1px;
+  background: rgba(0,0,0,.60);
+}
+
+/* "+" add-position icon button (kept for future paper-trading
+   reintroduction — currently not rendered but the rule is here
+   so the style doesn't drift). Press-feel matches the rest. */
+.cock-chart__addbtn--icon{
+  transition: background 140ms ease, transform 100ms ease, box-shadow 180ms ease;
+}
+.cock-chart__addbtn--icon:hover{
+  box-shadow: 0 0 14px rgba(255,30,60,.50);
+}
+.cock-chart__addbtn--icon:active{
+  transform: scale(0.92);
+}
+
+/* CHART CANVAS — subtle entrance treatment on first paint.
+   Per [[feedback-modern-visual-language]] the chart needs to
+   feel alive on arrival. The canvas itself draws via JS so we
+   can't animate the line directly without re-architecting
+   drawChart. Instead we put a soft red-pulse on the canvas wrap
+   that fades in over the first 600ms of the mount — reader's
+   eye lands on the chart already framed by the magazine's
+   color signature, then the pulse decays to a flat hairline. */
+.cock-chart__canvas-wrap{
+  position: relative;
+  /* Soft inner glow that frames the chart at rest. */
+  box-shadow: inset 0 0 30px rgba(255,30,60,.05);
+}
+.cock-chart__canvas-wrap::after{
+  content: '';
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  /* The pulse is a radial gradient that fades from soft red at
+     center to transparent at the edges. Keyframed to fade IN
+     during the first 200ms then OUT for the next 600ms, so the
+     reader sees the chart "wake up" then settle. */
+  background: radial-gradient(ellipse at 50% 50%, rgba(255,30,60,.20), transparent 65%);
+  opacity: 0;
+  animation: cockChartWake 1200ms ease-out forwards;
+}
+@keyframes cockChartWake {
+  0%   { opacity: 0; }
+  18%  { opacity: 0.7; }
+  100% { opacity: 0; }
+}
+@media (prefers-reduced-motion: reduce){
+  .cock-chart__canvas-wrap::after{ animation: none; opacity: 0; }
+}
+
+/* LIVE pill enhancement — bring more glow to the active state
+   so the "live data" affordance reads as truly live. The existing
+   `cockLivePulse` keyframes stay; we just bump the box-shadow
+   spread on the dot when active. */
+.cock-chart__live.is-live{
+  background: rgba(255,30,60,.18);
+  border-color: rgba(255,30,60,.55);
+}
+.cock-chart__live.is-live .cock-chart__live-dot{
+  box-shadow: 0 0 10px rgba(255,30,60,.85), 0 0 18px rgba(255,30,60,.45);
+}
+
+/* HOLDINGS rows (in case paper trading returns) — keep the
+   modern hover/press for future-proofing. */
+.cock-holdings__row{
+  transition: background 140ms ease, transform 100ms ease;
+}
+.cock-holdings__row:hover{
+  background: rgba(255,30,60,.06);
+}
+.cock-holdings__row:active{
+  transform: scale(0.99);
+}
+
+/* MOVER rows in the sidebar — they're clickable buttons, give
+   them the same scale-on-press feel. */
+.cock-side-mov__row{
+  transition: background 140ms ease, transform 80ms ease;
+}
+.cock-side-mov__row:active{
+  transform: scale(0.98);
+}
+
+/* MARKETS ROSTER rows (dashboard fold) — full table rows act
+   like buttons; modern feedback on tap. */
+.cock-fold-mkt__row{
+  transition: background 140ms ease, transform 80ms ease;
+}
+.cock-fold-mkt__row:active{
+  transform: scale(0.997);
+}
+
+/* DASHBOARD FOLD summaries — slight hover lift via background
+   bloom + glow at the chevron. The chevron rotation is already
+   wired; we add a slight color brighten on hover. */
+.cock-fold__summary{
+  transition: background 180ms ease;
+}
+.cock-fold__summary:hover .cock-fold__chev{
+  color: var(--c-red-1);
+}
+
+/* SIGNAL CARDS (sidebar SIGNALS) — verify the press-feel matches
+   the rest of the cockpit. The chevron rotation is already there. */
+.cock-side-sig__summary{
+  transition: background 140ms ease;
+}
+.cock-side-sig__summary:active{
+  background: rgba(255,30,60,.10);
+}
+
+/* RIVAL CARDS (sidebar DIRECT RIVALS) — same press feel. */
+.cock-side-vs__rival-summary{
+  transition: background 140ms ease;
+}
+.cock-side-vs__rival-summary:active{
+  background: rgba(255,30,60,.10);
+}
