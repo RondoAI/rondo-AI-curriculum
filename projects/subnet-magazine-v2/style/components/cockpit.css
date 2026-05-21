@@ -2731,17 +2731,28 @@
    class to flip it visible — needed because mobile used to
    pane-switch between SUBNETS / CHART / DESK / FEED.
 
-   The new cockpit is single-pane (chart + sidebar + holdings
-   all live in .cockpit__main), so we want it ALWAYS visible.
-   This rule overrides the older `display: none` base from way
-   up around line 117 so the workspace renders without needing
-   the JS-side `is-active` toggle that used to wire mobile pane
-   swaps. The !important is to beat that older base rule's
-   specificity inside the @media (mobile) context.
+   The new cockpit is single-pane (chart + sidebar all live in
+   .cockpit__main), so we want it ALWAYS visible. We also need
+   to undo the older base rules that set overflow:hidden across
+   the grid + main containers — those were designed for the
+   fixed-height pane frame and now CLIP page-scroll context.
+   Rondo 2026-05-20: "once you scroll to the bottom of the page
+   scrolling locks. can't scroll up again." The clip + the
+   `overscroll-behavior: contain` on the sidebar combined to
+   trap the user's finger inside an inner scroll context with
+   no path back out. Override to visible so the cockpit
+   participates in normal page scroll like any other block.
    ============================================================ */
 .cockpit__main{
   display: flex !important;
   flex-direction: column;
+  overflow: visible !important;
+}
+.cockpit__grid{
+  overflow: visible !important;
+}
+.cock-chart__row{
+  overflow: visible !important;
 }
 
 /* ============================================================
@@ -2854,11 +2865,15 @@
      Same color as every other inter-pane border in the cockpit
      so the seam disappears into the design language. */
   border-left: 1px solid var(--c-rule);
-  /* Inner scroll — when the SIGNALS list has many items the
-     sidebar scrolls instead of growing the chart row. */
-  overflow-y: auto;
-  overscroll-behavior: contain;
-  -webkit-overflow-scrolling: touch;
+  /* Sidebar participates in PAGE scroll, not its own scroll
+     container. Earlier we used `overflow-y: auto` +
+     `overscroll-behavior: contain` so the sidebar could scroll
+     internally on desktop. That trapped scroll on mobile — and
+     even on desktop it broke the page-level scroll chain at
+     the bottom of the SIGNALS list. Letting the sidebar grow
+     with its content + scroll the page is the simpler, more
+     trader-grade behavior. */
+  overflow: visible;
   scrollbar-width: thin;
   scrollbar-color: var(--c-red) transparent;
 }
@@ -2882,12 +2897,12 @@
   padding: 9px 12px 8px;
   border-bottom: 1px solid var(--c-rule-2);
   background: linear-gradient(180deg, rgba(255,30,60,.08), rgba(20,5,9,.4));
-  /* Sticky so each section's label stays visible while the
-     reader scrolls within the sidebar — helps anchor where
-     they are in a long SIGNALS list. */
-  position: sticky;
-  top: 0;
-  z-index: 1;
+  /* position:static — no more sticky. Sticky was scoped to the
+     sidebar's internal scroll, which we just removed (the
+     sidebar participates in page scroll now). Without a scroll
+     container, sticky pins to the viewport and causes the three
+     headers to stack on top of each other on the way down the
+     page. Static keeps each header where its section lives. */
 }
 .cock-side__h{
   font-family: var(--f-mono);

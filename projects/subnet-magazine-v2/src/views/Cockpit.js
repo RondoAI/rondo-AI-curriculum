@@ -106,6 +106,34 @@ const fmtPrice = p => p == null ? '·' : (p < 1 ? '$' + p.toFixed(4) : '$' + p.t
 const fmtPct   = v => v == null ? '·' : (v >= 0 ? '+' : '') + v.toFixed(2) + '%';
 const fmtInt   = n => n == null ? '·' : Math.round(n).toLocaleString('en-US');
 const fmtMcap  = m => m == null ? '·' : '$' + (m >= 1000 ? (m/1000).toFixed(2) + 'B' : m.toFixed(1) + 'M');
+/* Subnets price in TAO, not dollars — per Rondo 2026-05-21
+   ("Every subnet should be priced in TAO first, not dollars.
+   Only centralized companies should be denominated in $. Subnets
+   should be priced in TAO, the way taostats.io does it.") The
+   dollar formatters above stay for centralized companies + the
+   TAO/USD bridge pair itself; the TAO formatters below are for
+   anything subnet-scoped.
+     fmtTAO(0.0124)              → "0.0124 τ"
+     fmtTAO(2.4, { compact:1 })  → "τ2.40"  (chart-axis-tight)
+     fmtMcapTAO(12400000)        → "12.4M τ"
+     fmtMcapTAO(12400)           → "12,400 τ"  */
+const fmtTAO = (p, opts = {}) => {
+  if (p == null) return '·';
+  /* 4 decimals when sub-1, 2 decimals when ≥1 — same precision
+     register taostats uses so traders read the same shape across
+     surfaces. */
+  const n = p < 1 ? p.toFixed(4) : p.toFixed(2);
+  return opts.compact ? 'τ' + n : n + ' τ';
+};
+const fmtMcapTAO = m => {
+  if (m == null) return '·';
+  /* TAO mcap registers: M for millions, K for thousands. No B
+     because subnet mcaps don't hit billion-TAO territory at
+     current supply ceilings. */
+  if (m >= 1_000_000) return (m / 1_000_000).toFixed(2) + 'M τ';
+  if (m >= 1_000)     return (m / 1_000).toFixed(1) + 'K τ';
+  return Math.round(m).toLocaleString('en-US') + ' τ';
+};
 const fmtDate  = d => {
   if (!d) return '·';
   const [y,m,dd] = String(d).split('-');
@@ -379,7 +407,11 @@ function drawChart(canvas, series, range, annotations, offset = 0){
   for (let i = 0; i <= yGridSteps; i++){
     const v = lo + ((yGridSteps - i) / yGridSteps) * range_p;
     const y = priceY0 + (i / yGridSteps) * priceH;
-    ctx.fillText(v < 1 ? '$' + v.toFixed(4) : '$' + v.toFixed(2), PAD_L - 6, y);
+    /* Y-axis labels carry the τ unit — this is a SUBNET price
+       chart and subnets denominate in TAO per [[feedback-subnets-
+       in-tao]]. The τ glyph trails the number (taostats pattern)
+       so the eye reads the magnitude first, then the unit. */
+    ctx.fillText(v < 1 ? v.toFixed(4) + ' τ' : v.toFixed(2) + ' τ', PAD_L - 6, y);
   }
 
   /* X-axis labels (dates) */
@@ -578,7 +610,11 @@ export function mountCockpit(root, dataLayer = null){
             <label class="cock-chart__picker-lbl" for="cock-chart-picker">PICK</label>
             <select class="cock-chart__picker-sel" id="cock-chart-picker" data-chart-picker aria-label="Pick subnet">
               ${SUBNETS.slice().sort((a,b) => (b.mcap||0)-(a.mcap||0)).map(x =>
-                `<option value="${x.netuid}" ${x.netuid === s.netuid ? 'selected' : ''}>SN${x.netuid} · ${x.name} · $${(x.price||0).toFixed(x.price < 1 ? 4 : 2)} ${x.chg24 >= 0 ? '+' : ''}${(x.chg24||0).toFixed(1)}%</option>`
+                /* Each option carries the subnet number, name, α
+                   price (in TAO per [[feedback-subnets-in-tao]]),
+                   and its 24h delta — the trader scrolls the
+                   dropdown reading τ values, never $. */
+                `<option value="${x.netuid}" ${x.netuid === s.netuid ? 'selected' : ''}>SN${x.netuid} · ${x.name} · ${(x.price||0).toFixed(x.price < 1 ? 4 : 2)} τ · ${x.chg24 >= 0 ? '+' : ''}${(x.chg24||0).toFixed(1)}%</option>`
               ).join('')}
             </select>
           </div>
@@ -606,13 +642,19 @@ export function mountCockpit(root, dataLayer = null){
              grade meta row sits beneath: MCAP and 24h EMISSION.
              Each value carries a data-vital attribute so the
              tao:subnets live feed can flash it via setLive. -->
+        <!-- Price block — subnets are priced in TAO (Rondo
+             2026-05-21 / [[feedback-subnets-in-tao]]). The big
+             headline number is α-in-TAO, deltas are %, and the
+             meta row below shows TAO mcap + 24h emission so a
+             trader can read the size + flow at a glance without
+             leaving the chart. -->
         <div class="cock-chart__price-block">
-          <div class="cock-chart__price" data-vital="sn-price">${fmtPrice(s.price)}</div>
+          <div class="cock-chart__price" data-vital="sn-price">${fmtTAO(s.price)}</div>
           <div class="cock-chart__chg ${cls(s.chg24)}">${arrow(s.chg24)} ${fmtPct(s.chg24)} · 24h</div>
           <div class="cock-chart__chg2 ${cls(s.chg7)}">${fmtPct(s.chg7)} · 7d</div>
           <div class="cock-chart__chg2 ${cls(s.chg30)}">${fmtPct(s.chg30)} · 30d</div>
           <div class="cock-chart__meta">
-            <span class="cock-chart__meta-row"><span class="cock-chart__meta-lbl">MCAP</span><span class="cock-chart__meta-val">${fmtMcap(s.mcap)}</span></span>
+            <span class="cock-chart__meta-row"><span class="cock-chart__meta-lbl">MCAP</span><span class="cock-chart__meta-val">${fmtMcapTAO(s.mcap)}</span></span>
             <span class="cock-chart__meta-row"><span class="cock-chart__meta-lbl">EMIT τ/d</span><span class="cock-chart__meta-val">${fmtInt(s.emission)}</span></span>
           </div>
         </div>
@@ -897,8 +939,9 @@ export function mountCockpit(root, dataLayer = null){
     }
     /* Refresh canvas aria-label so SR users hear the new subnet
        + range pair on every redraw. Synthesizes the headline read
-       of the visible window (up X% / down Y% / last close $Z) from
-       the price slice — same pattern as the terminal CHART mode. */
+       of the visible window (up X% / down Y% / last close N τ)
+       from the price slice — last-close is in TAO per
+       [[feedback-subnets-in-tao]], matching the visual axis. */
     if (c && series && series.length){
       const sliceStart = Math.max(0, series.length - range.days - chartOffset);
       const sliceEnd   = Math.min(series.length, sliceStart + range.days);
@@ -908,7 +951,7 @@ export function mountCockpit(root, dataLayer = null){
         const last  = slice[slice.length - 1].close;
         const ret   = first > 0 ? ((last - first) / first) * 100 : 0;
         const dir   = ret >= 0 ? 'up' : 'down';
-        const lastPriced = last < 1 ? '$' + last.toFixed(4) : '$' + last.toFixed(2);
+        const lastPriced = (last < 1 ? last.toFixed(4) : last.toFixed(2)) + ' tao';
         const histTag = chartOffset === 0 ? '' : `, ${chartOffset} days back`;
         c.setAttribute('aria-label',
           `SN${s.netuid} ${s.name || ''} price chart, ${range.label} window${histTag}, ${dir} ${Math.abs(ret).toFixed(2)} percent, last close ${lastPriced}`);
@@ -981,7 +1024,12 @@ export function mountCockpit(root, dataLayer = null){
     let lastHitIdx = -2;
     let lastFlagId = null;
     let lastTooltipShown = false;
-    const fmtP = p => p == null ? '·' : (p < 1 ? '$' + p.toFixed(4) : '$' + p.toFixed(2));
+    /* Hover-tooltip price formatter — same TAO register as the
+       chart axis labels (subnet prices in τ per
+       [[feedback-subnets-in-tao]]). Kept inline to the hover
+       handler so the tooltip render stays one frame, no extra
+       allocations per move. */
+    const fmtP = p => p == null ? '·' : ((p < 1 ? p.toFixed(4) : p.toFixed(2)) + ' τ');
     const MON = ['JAN','FEB','MAR','APR','MAY','JUN','JUL','AUG','SEP','OCT','NOV','DEC'];
     const actualOnMove = (ev) => {
       if (!hit) return;
