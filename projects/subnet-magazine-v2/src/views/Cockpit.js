@@ -1140,7 +1140,15 @@ export function mountCockpit(root, dataLayer = null){
        private companies get red. Tap-and-hold a row name to open
        the company URL in a new tab (anchor inside the body, not
        the summary, so summary-click only toggles the fold). */
-    const rivalRows = rivals.map(r => {
+    /* First rival auto-opens on initial render so the reader
+       immediately sees a profile (why-line + articles + link).
+       Subsequent rivals are closed — tapping any rival in the
+       same accordion-group ("name=cock-side-rivals") auto-
+       closes the previously-open one. Without the default-
+       open the entire VS panel reads as a passive list with no
+       point of entry. Per [[feedback-dense-visualization]]:
+       intentional placement, no overlap. */
+    const rivalRows = rivals.map((r, idx) => {
       const articles = newsForCompetitor(r, 3);
       const articleHtml = articles.length
         ? articles.map(a => `
@@ -1158,7 +1166,7 @@ export function mountCockpit(root, dataLayer = null){
         ? `<span class="cock-side-vs__rival-delta ${r.delta24h >= 0 ? 'is-up' : 'is-down'}">${r.delta24h >= 0 ? '+' : ''}${r.delta24h.toFixed(1)}%</span>`
         : `<span class="cock-side-vs__rival-delta is-flat" title="No daily delta — private company / live feed pending">—</span>`;
       return `
-        <details class="cock-side-vs__rival" name="cock-side-rivals" data-source="${r.source}">
+        <details class="cock-side-vs__rival" name="cock-side-rivals" data-source="${r.source}"${idx === 0 ? ' open' : ''}>
           <summary class="cock-side-vs__rival-summary">
             <span class="cock-side-vs__rival-name">${r.name}</span>
             <span class="cock-side-vs__ticker cock-side-vs__ticker--${r.source}">${r.ticker}</span>
