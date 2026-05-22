@@ -1024,6 +1024,84 @@ export const COMPETITORS = [
     why: 'Tokyo lab pioneering evolutionary + RL methods for agent + model training — the "AI Scientist" agent that runs ML research end-to-end. Direct rival for any subnet training agent policies via RL on trajectories; Sakana publishes weights + papers, raising the public bar.',
   },
 
+  /* ---------- Camera intelligence + autonomous driving + surveillance
+     (SN44 Score, SN72 StreetVision, SN87 Luminar, SN85 Vidaio) ---------- */
+  {
+    id: 'mobileye',
+    name: 'Mobileye',
+    ticker: 'MBLY',
+    mcap: 13_000_000_000,
+    source: 'public',
+    sectors: ['vision'],
+    url: 'https://www.mobileye.com',
+    why: 'Intel-spinoff (NASDAQ:MBLY) — leader in vision-based ADAS / autonomous driving. EyeQ chips ship in 100M+ vehicles. Direct rival for any subnet pitching "camera intelligence" or AV perception; Mobileye\'s OEM relationships (BMW, Audi, Ford) are the moat.',
+    delta24h: 0.3,
+    aliases: ['MBLY'],
+  },
+  {
+    id: 'wayve',
+    name: 'Wayve',
+    ticker: 'PRIVATE',
+    mcap: 2_800_000_000,
+    source: 'private',
+    sectors: ['vision'],
+    url: 'https://wayve.ai',
+    why: 'UK-based end-to-end AV — learns driving via embodied AI on production fleet data. ~$1.05B Series C (SoftBank + NVIDIA + Microsoft). The data-flywheel model for camera intelligence; subnet "Internet of Cameras" claims compete with Wayve\'s fleet data moat.',
+  },
+  {
+    id: 'comma-ai',
+    name: 'Comma.ai',
+    ticker: 'PRIVATE',
+    mcap: 200_000_000,
+    source: 'private',
+    sectors: ['vision'],
+    url: 'https://comma.ai',
+    why: 'Open-source autonomous driving (openpilot) — runs on consumer hardware ($1,500 retrofit). Strong rival for any decentralized AV claim because Comma already ships AV at consumer price.',
+    aliases: ['openpilot'],
+  },
+  {
+    id: 'verkada',
+    name: 'Verkada',
+    ticker: 'PRIVATE',
+    mcap: 4_500_000_000,
+    source: 'private',
+    sectors: ['vision'],
+    url: 'https://www.verkada.com',
+    why: 'Enterprise cloud-based security cameras with on-device AI — 25K+ customers. Direct rival for any "video surveillance agents" subnet; Verkada owns the camera + the cloud, subnet has to differentiate on something else (cost, privacy, decentralization).',
+  },
+  {
+    id: 'avigilon-motorola',
+    name: 'Avigilon (Motorola)',
+    ticker: 'MSI',
+    mcap: 80_000_000_000, // Motorola Solutions
+    source: 'public',
+    sectors: ['vision'],
+    url: 'https://www.avigilon.com',
+    why: 'Motorola Solutions\' enterprise video security platform — owns large parts of the government / municipal surveillance market. Subnet video-surveillance agents compete with the public-safety procurement moat Avigilon has built.',
+    aliases: ['Motorola Solutions', 'MSI'],
+  },
+  {
+    id: 'topaz-labs',
+    name: 'Topaz Labs',
+    ticker: 'PRIVATE',
+    mcap: 90_000_000,
+    source: 'private',
+    sectors: ['video', 'vision'],
+    url: 'https://www.topazlabs.com',
+    why: 'Pro-grade AI video + image enhancement — upscaling, denoise, deinterlace, frame interpolation. Used heavily in film + broadcast post-production. Direct rival for video-processing subnets pitching enhancement / restoration use cases.',
+    aliases: ['Topaz Video AI', 'Topaz Gigapixel'],
+  },
+  {
+    id: 'eagle-eye-networks',
+    name: 'Eagle Eye Networks',
+    ticker: 'PRIVATE',
+    mcap: 800_000_000,
+    source: 'private',
+    sectors: ['vision'],
+    url: 'https://www.een.com',
+    why: 'Cloud video surveillance + analytics — works with 100+ camera vendors. ~$140M Series F. Mid-market rival for any subnet pitching open camera-AI infrastructure.',
+  },
+
   /* ---------- 3D content generation (SN17 404-GEN profile) ----------
      The 3D-from-text space is the next frontier after 2D image
      generation — 2024-2025 saw the first commercially usable
@@ -1828,6 +1906,153 @@ export const BY_NETUID = {
         label: 'Distilled-agent safety surface',
         value: 'Loses RLHF alignment fidelity',
         note: 'Distilling a teacher\'s outputs loses the RLHF + constitutional fine-tuning that made the teacher safe. Distilled agents act with less safety conditioning unless the subnet adds explicit safety distillation. Anthropic publishes constitutional-AI methods — subnet can adopt, but the eval burden grows.',
+      },
+    ],
+  },
+
+  /* SN44 Score — "Making every camera intelligent" (live
+     identity per taostats 2026-05-22, wearescore.com). Adds
+     AI inference to existing camera infrastructure. Rival pool
+     is the camera-edge-AI stack — Mobileye for automotive,
+     Hive AI for content moderation, Verkada for enterprise. */
+  44: {
+    rivals: ['mobileye', 'verkada', 'hive-ai', 'eagle-eye-networks', 'avigilon-motorola', 'qualcomm'],
+    supplyChainIds: ['nvidia', 'qualcomm', 'tsmc', 'aws-azure-gcp'],
+    constraints: [
+      {
+        label: 'On-device inference budget',
+        value: '<5W TDP, sub-30ms latency',
+        note: 'Camera SoCs (Qualcomm RB5, NVIDIA Jetson Orin Nano) cap at ~5W with sub-30ms inference budgets. Subnet miners running inference off-device add network round-trip (50-200ms) — competing on latency means committing to edge deployment, not cloud aggregation.',
+      },
+      {
+        label: 'Camera SDK fragmentation',
+        value: 'Hikvision, Axis, Dahua, Hanwha all proprietary',
+        note: 'Real installed-camera fleets run on Hikvision (38% share), Axis, Dahua, Hanwha hardware. Each has its own SDK + RTSP variants. Subnet adding intelligence to "every camera" needs adapters per vendor — Verkada owns its own hardware to sidestep this entirely.',
+      },
+      {
+        label: 'Privacy / GDPR + biometric law',
+        value: 'EU AI Act bans real-time face recognition',
+        note: 'Camera-AI applications hit GDPR, Illinois BIPA, EU AI Act, China PIPL. Centralized rivals run dedicated compliance teams. Subnet "open camera intelligence" inherits the regulatory surface but without a single compliance officer to take responsibility.',
+      },
+      {
+        label: 'False-positive cost',
+        value: 'One false alert per day kills enterprise trust',
+        note: 'Camera-AI customers (retail loss prevention, perimeter security) abandon systems that produce more than ~one false alert per day. Centralized rivals tune per-customer thresholds; subnet miners with diverse model versions struggle to maintain consistent per-customer accuracy.',
+      },
+      {
+        label: 'Storage + bandwidth tax',
+        value: '24/7 1080p stream = 0.5-1 GB/hour per camera',
+        note: 'Continuous camera footage is expensive to store + transmit. Verkada / Eagle Eye charge per camera per month covering storage. Subnet has to either co-locate storage with miners (defeats decentralization) or pass storage cost to user (worse UX).',
+      },
+    ],
+  },
+
+  /* SN72 StreetVision by NATIX — "Powered by NATIX's Internet
+     of Cameras, StreetVision is advancing autonomous driving,
+     Physical AI, and map-making" (live identity per taostats
+     2026-05-22, natix.network). Crowdsources camera data for
+     AV training. Rival pool is the AV-data + map-making space. */
+  72: {
+    rivals: ['mobileye', 'wayve', 'tesla', 'comma-ai', 'google', 'nvidia-omniverse'],
+    supplyChainIds: ['nvidia', 'qualcomm', 'tsmc', 'aws-azure-gcp', 'us-power-grids'],
+    constraints: [
+      {
+        label: 'Data quality vs. fleet scale',
+        value: 'Tesla: 100M+ vehicle-miles/day vs. crowdsourced gap',
+        note: 'Tesla\'s production fleet generates 100M+ AV-relevant miles per day. Mobileye + Wayve have hundreds of OEM vehicles + safety drivers. Subnet crowdsources smartphone-mounted cameras — orders of magnitude lower data quality per mile, but higher diversity if scaled.',
+      },
+      {
+        label: 'HD-map freshness',
+        value: 'Maps stale after ~6 months in fast-changing cities',
+        note: 'HD maps for AV must reflect current lane lines, signs, construction. Google + TomTom + HERE rebuild via dedicated mapping fleets. Subnet crowdsourced map updates from driver phones can be fresher in coverage areas but inconsistent in quality.',
+      },
+      {
+        label: 'Privacy on captured footage',
+        value: 'Face + plate blur + GDPR pseudonymization',
+        note: 'Crowdsourced camera footage captures bystanders, license plates, residences. Centralized rivals (Google Street View, Apple Look Around) blur on capture. Subnet miners must blur on-device before upload or face GDPR / state-level breach.',
+      },
+      {
+        label: 'AV-grade safety case',
+        value: 'Mobileye + Waymo file thousands of safety-case docs',
+        note: 'Real AV deployment requires safety-case documentation — Waymo, Mobileye, Wayve invest engineering decades in this. Subnet data feeding AV stacks ultimately bottoms out on safety-case ownership, which has to live with a centralized AV company partner.',
+      },
+      {
+        label: 'Tokenized data marketplaces are pre-revenue',
+        value: 'Streamr / Filecoin AV-data pilots all <$10M ARR',
+        note: 'Multiple Web3 + decentralized data marketplaces (Streamr, Ocean Protocol, Filecoin) have tried tokenizing sensor data. None have crossed material revenue ($10M+ ARR). Subnet inherits the structural challenge: AV companies prefer dedicated data pipelines, not open marketplaces.',
+      },
+    ],
+  },
+
+  /* SN85 Vidaio — "Next-Generation Video Processing Powered By
+     AI" (live identity per taostats 2026-05-22, vidaio.io).
+     Video processing pipeline (upscaling, restoration,
+     compression, post-production). Rival pool is the centralized
+     video-processing stack + generative video tools. */
+  85: {
+    rivals: ['adobe', 'runway', 'openai-sora-v2', 'google-veo', 'topaz-labs', 'nvidia'],
+    supplyChainIds: ['nvidia', 'tsmc', 'sk-hynix', 'aws-azure-gcp'],
+    constraints: [
+      {
+        label: 'Video processing compute scale',
+        value: '4K 1-hour upscale: 8-24 GPU-hours',
+        note: 'Real video processing (upscale, restoration) burns hours of GPU per finished hour. Adobe + Topaz Labs ship dedicated GPU-accelerated tools; subnet miners on commodity hardware run 2-3x slower per finished hour. Capture batch / overnight workflows, not real-time.',
+      },
+      {
+        label: 'Format + codec breadth',
+        value: 'H.264, H.265, AV1, ProRes, VP9 all in production',
+        note: 'Real video pipelines touch H.264, HEVC, AV1, ProRes, VP9, DNxHR depending on customer. Adobe + Avid + DaVinci Resolve support all of them. Subnet has to ship FFmpeg-grade format coverage or stay in the consumer-MP4 tier.',
+      },
+      {
+        label: 'Color science + HDR',
+        value: 'P3 / Rec.2020 / Dolby Vision all proprietary',
+        note: 'Pro video workflows need accurate color spaces (sRGB / P3 / Rec.709 / Rec.2020) and HDR formats (HDR10, Dolby Vision, HLG). Adobe + Resolve handle this natively. Subnet processing that loses color metadata produces output pros can\'t use.',
+      },
+      {
+        label: 'Generative vs. restorative split',
+        value: 'Sora generates new; subnets restore existing',
+        note: 'Video gen (Sora, Veo) and video processing (Vidaio, Topaz) are different problems. Sora can\'t restore your wedding video; Vidaio can\'t generate a sci-fi clip. Subnet positioning has to be clear or readers map it to the wrong rival.',
+      },
+      {
+        label: 'Asset transfer cost',
+        value: 'Source + output: 100MB-100GB per job',
+        note: 'Video assets are huge — uploading a 4K master to a miner, processing, downloading the result burns hours over commodity bandwidth. Adobe Creative Cloud ships local processing; subnet WAN-based processing is bandwidth-bound for the entire workflow.',
+      },
+    ],
+  },
+
+  /* SN87 Luminar Network — "Video Surveillance Agents" (live
+     identity per taostats 2026-05-22, luminar.network). LLM-
+     driven video analytics for surveillance. Rival pool is the
+     enterprise video-surveillance + on-prem AI stack. */
+  87: {
+    rivals: ['verkada', 'avigilon-motorola', 'eagle-eye-networks', 'hive-ai', 'palantir', 'anthropic'],
+    supplyChainIds: ['nvidia', 'qualcomm', 'tsmc', 'aws-azure-gcp'],
+    constraints: [
+      {
+        label: 'False-positive cost (surveillance grade)',
+        value: 'False alarm: $50-500 per incident',
+        note: 'Surveillance customers (retail, transit, municipal) pay $50-500 per false alarm in dispatched response. Verkada + Avigilon tune precision aggressively; subnet "agent" output without that calibration burns customer money fast — visible in churn.',
+      },
+      {
+        label: 'Civil liberties + bias surface',
+        value: 'Face recognition banned in 20+ US cities + EU',
+        note: 'Cities (SF, Boston, Portland) + countries (EU AI Act) ban municipal face recognition. Race + gender bias in surveillance AI is documented (NIST FRVT). Subnet "open" surveillance agents must either avoid biometrics entirely or risk regulatory shutdown.',
+      },
+      {
+        label: 'Real-time event detection latency',
+        value: '<2s p95 for actionable alerts',
+        note: 'Surveillance value depends on alerting before the event ends (theft in progress, fall in progress). Centralized rivals run inference at the camera. Subnet routing video to off-device miners adds 0.5-3s latency — for slow events OK, for fast events miss-rate increases.',
+      },
+      {
+        label: 'Operator-team SLA',
+        value: 'Verkada: 24/7 monitored response',
+        note: 'Surveillance buyers want a 24/7 SOC — human operator reviews AI alerts and dispatches. Verkada + Avigilon ship this as a service. Subnet "agents" alone don\'t replace human review; integration with security operators is necessary or the product is half-baked.',
+      },
+      {
+        label: 'Storage compliance windows',
+        value: 'GDPR 30d / HIPAA 6yr / DoD 7yr',
+        note: 'Different verticals have different retention requirements (GDPR forces purge, HIPAA + DoD force retention). Subnet decentralized storage has to honor BOTH delete + retain depending on customer — that\'s an operations problem centralized rivals solve with per-tenant policies.',
       },
     ],
   },
