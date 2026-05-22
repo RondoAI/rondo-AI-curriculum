@@ -3498,6 +3498,35 @@ export const BY_NETUID = {
     ],
   },
 
+  /* SN89 InfiniteHash — BTC Pool + Lightning Network. Rivals:
+     Foundry, Antpool, ViaBTC, F2Pool, Lightning Labs. */
+  89: {
+    rivals: ['foundry-digital', 'antpool', 'binance', 'coinbase', 'lightning-network', 'circle-usdc'],
+    supplyChainIds: ['us-power-grids', 'tsmc'],
+    constraints: [
+      {
+        label: 'BTC pool market concentration',
+        value: 'Foundry + Antpool: 50%+ network hashrate',
+        note: 'BTC mining pool market is winner-take-most. Foundry + Antpool dominate. Subnet "BTC Pool" has to convince hashrate to switch — usually via better economics (lower fee) or unique features (Lightning integration here).',
+      },
+      {
+        label: 'Lightning integration value',
+        value: 'Instant payouts vs daily settlement',
+        note: 'Standard BTC pools settle daily/weekly. Lightning Network enables instant payouts at sub-cent cost. Subnet "BTC Pool + Lightning" claim has to ship working Lightning payouts — and Lightning capacity management is its own engineering burden.',
+      },
+      {
+        label: 'Hashrate volatility',
+        value: 'Halving cycles cut revenue 50% overnight',
+        note: 'BTC halvings (every ~4 years) cut mining revenue 50%. Pool operators handle this via diversification. Subnet must price α emission against the halving math.',
+      },
+      {
+        label: 'Energy + jurisdiction politics',
+        value: 'NY + EU + China have BTC-mining bans',
+        note: 'BTC mining attracts regulatory + political opposition (NY moratorium, EU energy-disclosure, China outright ban). Pool operators avoid jurisdictions. Subnet pool inherits the same map.',
+      },
+    ],
+  },
+
   /* SN92 TensorClaw — "decentralized Large Language Model (LLM)
      inference subnet built on the Bittensor network. Its core
      purpose is to aggregate high-quality LLM API nodes (e.g.,
@@ -3775,6 +3804,36 @@ export const BY_NETUID = {
     ],
   },
 
+  /* SN80 dogelayer — Scrypt mining pool integrated into
+     Bittensor. Rivals: Litecoin pools (Litecoinpool, Antpool),
+     Foundry. */
+  80: {
+    rivals: ['foundry-digital', 'antpool', 'binance', 'coinbase', 'tether', 'lightning-network'],
+    supplyChainIds: ['us-power-grids', 'tsmc'],
+    constraints: [
+      {
+        label: 'Scrypt mining economics',
+        value: 'LTC/DOGE merged mining: thin margins',
+        note: 'Scrypt mining is ASIC-dominated (Bitmain L9, Antminer L7). Pool operators take 1-3% fee. Subnet "merged mining" has to add value beyond standard pool to attract hashrate.',
+      },
+      {
+        label: 'Pool-operator centralization',
+        value: 'Top 3 LTC pools control ~70% hashrate',
+        note: 'Centralized rivals (LitecoinPool, ViaBTC, F2Pool) own the LTC/DOGE pool market. Subnet has to either bootstrap competitive hashrate (network-effect uphill) or specialize on miner monetization features.',
+      },
+      {
+        label: 'Alpha-reward + Scrypt-reward double payout',
+        value: 'Miners earn LTC/DOGE AND α',
+        note: 'The pitch is double monetization — Scrypt block rewards plus Bittensor α emission. This works as long as α value justifies the integration friction; if α drops, miners walk back to vanilla pools.',
+      },
+      {
+        label: 'Regulatory perimeter for mining pools',
+        value: 'Pool operators face money-transmitter scrutiny',
+        note: 'Mining pool operators face MSB / KYC requirements in multiple jurisdictions. Subnet pool operations inherit this; anonymous miners selling Scrypt hashrate may not be able to operate legally in regulated markets.',
+      },
+    ],
+  },
+
   /* SN82 Compelle — "AIs debate until they are AGI" (live
      identity per taostats 2026-05-22, compelle.com). Multi-
      agent debate / argumentation as a path to capability. Rival
@@ -3838,6 +3897,35 @@ export const BY_NETUID = {
         label: 'Language coverage',
         value: 'ElevenLabs: 32 langs · OpenAI Voice: 50+',
         note: 'Centralized rivals cover 30-50 languages with native-speaker quality. Subnet has to either match coverage breadth (engineering burden) or specialize on languages the centralized rivals neglect (lower demand).',
+      },
+    ],
+  },
+
+  /* SN96 Verathos — Verified AI inference and training. Rivals:
+     Together AI, Anthropic, RISC Zero (ZKML), Modulus Labs. */
+  96: {
+    rivals: ['risc-zero', 'together-ai', 'modal-labs', 'anyscale', 'protect-ai', 'anthropic'],
+    supplyChainIds: ['nvidia', 'aws-azure-gcp', 'tsmc'],
+    constraints: [
+      {
+        label: 'ZKML proof generation cost',
+        value: 'zk-proof: 10-1000x inference cost',
+        note: 'Verified inference via ZKML adds proof-generation overhead — 10-1000x the underlying inference cost. RISC Zero + Modulus + EzKL ship this. Subnet "verified" claim has to specify proof method or the overhead kills economics.',
+      },
+      {
+        label: 'Verification scope',
+        value: 'Verified WHAT — model, weights, inputs, or output?',
+        note: 'Different verification claims (model integrity, weight integrity, input authenticity, output correctness) require different cryptographic primitives. Subnet has to be precise or claim more than it can deliver.',
+      },
+      {
+        label: 'Customer demand for verification',
+        value: 'High-stakes verticals only (legal, medical, finance)',
+        note: 'Mainstream customers don\'t pay for proof-of-inference — they trust the provider. Only high-stakes use cases (legal, medical, regulated finance) justify verification overhead. Subnet has to target these or eat the cost-without-revenue gap.',
+      },
+      {
+        label: 'Proof-system maturity',
+        value: 'ZKML libraries still pre-production',
+        note: 'EzKL, Risc Zero, Giza all in beta. Subnet "verified AI" pitch lands when proof systems mature; until then, claims are forward-looking rather than productized.',
       },
     ],
   },
@@ -3910,6 +3998,35 @@ export const BY_NETUID = {
         label: 'Enterprise integration depth',
         value: 'Synthesia: SCORM / LMS export + brand kits',
         note: 'Synthesia + HeyGen ship SCORM exports for corporate LMS (Cornerstone, Workday), brand-kit color/font enforcement, multi-stakeholder review workflows. Subnet talking-head output without these features is the "raw video" tier; enterprise customers stay with centralized rivals for the platform.',
+      },
+    ],
+  },
+
+  /* SN48 Quantum Compute (qbittensorlabs.com). Rivals: IBM
+     Quantum, D-Wave, Google Quantum AI, Rigetti, IonQ. */
+  48: {
+    rivals: ['ibm', 'd-wave', 'google', 'nvidia', 'aws-azure-gcp', 'gurobi'],
+    supplyChainIds: ['nvidia', 'tsmc', 'us-power-grids'],
+    constraints: [
+      {
+        label: 'Qubit-fidelity ceiling',
+        value: 'IBM Heron: ~99.7% 2Q gate fidelity',
+        note: 'Real quantum advantage requires error rates that allow fault-tolerance. IBM + Google + IonQ are spending billions on error correction. Subnet "quantum compute" claim has to either commit to specific hardware partner or accept that quantum benchmarks have no commodity backend.',
+      },
+      {
+        label: 'NISQ-era utility window',
+        value: 'Useful quantum algorithms still narrow',
+        note: 'Near-term quantum advantage is bounded to specific problems (combinatorial optimization, chemistry simulation). Subnet has to identify which problem class it targets — otherwise pitch reads as buzzword-heavy.',
+      },
+      {
+        label: 'Decoherence times + uptime',
+        value: 'Superconducting qubits: ~100μs coherence',
+        note: 'Quantum machines need stable cooling + isolation. Cloud quantum (IBM Quantum, Amazon Braket) abstract this. Subnet has to specify quantum-as-a-service backend or accept the operational complexity.',
+      },
+      {
+        label: 'Classical-simulator competition',
+        value: 'Cuda-Q + Qiskit Aer simulate ~40 qubits classically',
+        note: 'NVIDIA cuQuantum + Qiskit Aer simulate moderate quantum circuits classically. Many "quantum advantage" claims dissolve under good simulation. Subnet pitch has to land on problems where classical simulation breaks down.',
       },
     ],
   },
@@ -4025,6 +4142,36 @@ export const BY_NETUID = {
     ],
   },
 
+  /* SN115 HashiChain — Public blockchain designed for AI agents.
+     Rivals: Ethereum L2s (Arbitrum, Base), Solana, Sui, AO/
+     Arweave compute, Story Protocol. */
+  115: {
+    rivals: ['ethereum-l1', 'solana', 'cosmos-network', 'arweave', 'layerzero', 'akash-network'],
+    supplyChainIds: ['ethereum-l1-gas', 'chainlink-oracles', 'aws-azure-gcp'],
+    constraints: [
+      {
+        label: 'Agent-chain TAM',
+        value: 'Sub-$10M total agent on-chain activity in 2026',
+        note: 'On-chain agent activity is small. Most agent dev runs off-chain (centralized APIs). A purpose-built L1 for agents has a tiny addressable market currently — bets on agent activity growing on-chain.',
+      },
+      {
+        label: 'Network-effect cold start',
+        value: 'Ethereum + Solana own developer mindshare',
+        note: 'New L1s with cold-start tooling lose to Ethereum/Solana even with technical advantages. Subnet "first blockchain for agents" has to either capture niche use case or accept that agent activity defaults to Ethereum L2.',
+      },
+      {
+        label: 'MEV in agent transactions',
+        value: 'Agent txs are uniquely game-able',
+        note: 'Agents transacting on-chain produce predictable patterns front-runners exploit. Subnet has to ship MEV-protection by default or agents lose alpha to searchers — visible in agent profitability.',
+      },
+      {
+        label: 'Smart-contract language fragmentation',
+        value: 'Solidity vs Move vs Rust',
+        note: 'New L1 chains require new contract languages. Sui (Move), Solana (Rust), Aptos (Move) all fragment developer pool. Subnet has to either reuse EVM (easier adoption) or commit to new tooling (longer ramp).',
+      },
+    ],
+  },
+
   /* SN116 TaoLend — "decentralized lending protocol for the
      Bittensor ($TAO) ecosystem. It allows users to lend TAO
      with confidence while borrowers secure their loans using
@@ -4059,6 +4206,36 @@ export const BY_NETUID = {
         label: 'Regulatory framing',
         value: 'TAO + α securities classification unclear',
         note: 'US securities law on TAO + α tokens is ambiguous (Bittensor Foundation has filed positions but no SEC ruling). Lending against tokens that could be classified as unregistered securities exposes the protocol to enforcement. Aave moved Aave Arc to address this; TaoLend operates outside US until clarity.',
+      },
+    ],
+  },
+
+  /* SN49 Nepher Robotics — Simulation-first robotics. Rivals:
+     NVIDIA Omniverse, Boston Dynamics, Figure AI, Tesla Optimus,
+     1X, Wayve. */
+  49: {
+    rivals: ['nvidia-omniverse', 'boston-dynamics', 'figure-ai', 'tesla', 'wayve', 'nvidia'],
+    supplyChainIds: ['nvidia', 'tsmc', 'us-power-grids'],
+    constraints: [
+      {
+        label: 'Sim-to-real gap',
+        value: 'Photoreal sim doesn\'t transfer 1:1',
+        note: 'Sim-trained policies degrade on real hardware (lighting, friction, latency). NVIDIA Isaac + DeepMind use domain randomization; subnet has to ship comparable methods or accept that sim-only training is pre-deployment work.',
+      },
+      {
+        label: 'Hardware partnerships',
+        value: 'Real robotics deployments need OEM partner',
+        note: 'Sim-first policies need real hardware to validate (Figure, 1X, Agility). Subnet "simulation-first" without OEM partner ships untested policies. Has to either partner or accept research-only positioning.',
+      },
+      {
+        label: 'Compute scale for embodied AI',
+        value: 'GR00T training: 10K+ GPU-hours per policy',
+        note: 'Real embodied-AI training (NVIDIA Project GR00T, Tesla Optimus) burns tens of thousands of GPU-hours. Subnet has to crowdsource compute at this scale or focus on policy distillation.',
+      },
+      {
+        label: 'Safety + liability framework',
+        value: 'Embodied AI failure = physical injury risk',
+        note: 'A robotics policy that fails physically injures someone. Centralized rivals (Figure, Boston Dynamics) carry product-liability insurance + safety review. Subnet has to either gate deployment paths or accept research-only.',
       },
     ],
   },
@@ -4394,6 +4571,36 @@ export const BY_NETUID = {
     ],
   },
 
+  /* SN97 distil — Distillation. Same problem space as SN66
+     ninja but distinct project — distillation as the primary
+     pitch. Rivals: Hugging Face, Together AI, DeepSeek, Modal. */
+  97: {
+    rivals: ['hugging-face', 'together-ai', 'replicate', 'modal-labs', 'anthropic', 'openai'],
+    supplyChainIds: ['nvidia', 'tsmc', 'sk-hynix', 'aws-azure-gcp'],
+    constraints: [
+      {
+        label: 'Same-niche subnet competition',
+        value: 'SN66 ninja already targets distillation',
+        note: 'Bittensor has both SN66 ninja + SN97 distil pursuing distillation. Splitting α emission dilutes both. Differentiation has to be sharp or α flows to whichever ships first.',
+      },
+      {
+        label: 'Teacher-model licensing',
+        value: 'GPT/Claude ToS forbid output distillation',
+        note: 'See SN66 constraints — frontier-model ToS gate teacher access. Subnet has to either work with open teachers (Llama, Mistral, Qwen) or accept legal risk.',
+      },
+      {
+        label: 'Quantization-vs-distillation',
+        value: 'INT4 quant: 80% of distillation benefit at 0 effort',
+        note: 'Off-the-shelf quantization captures most distillation gains for free. Subnet has to justify why distillation beats quantization on specific tasks.',
+      },
+      {
+        label: 'Distilled-model safety drift',
+        value: 'Distillation loses RLHF alignment',
+        note: 'Student models lose teacher\'s safety conditioning. Subnet has to add explicit safety distillation or ship less-aligned models — visible in deployment.',
+      },
+    ],
+  },
+
   /* SN100 Plaτform — "An auto-research subnet where miners
      compete in multiple challenges to achieve top scores against
      a synthetic benchmark, driving continuous performance
@@ -4498,6 +4705,36 @@ export const BY_NETUID = {
     ],
   },
 
+  /* SN102 ConnitoAI — Modular AI experts aggregated without
+     massive central compute. Rivals: Hugging Face MoE,
+     DeepSeek Mixture-of-Experts, Mistral, Together AI. */
+  102: {
+    rivals: ['hugging-face', 'together-ai', 'mistral', 'meta', 'anthropic', 'openai'],
+    supplyChainIds: ['nvidia', 'aws-azure-gcp', 'tsmc', 'sk-hynix'],
+    constraints: [
+      {
+        label: 'MoE-routing overhead',
+        value: 'Each token: ~2-3 expert calls + router',
+        note: 'Mixture-of-Experts adds router + per-expert overhead. DeepSeek V3 + Mixtral ship this efficiently. Subnet has to either match the engineering or accept that MoE is structural overhead, not pure win.',
+      },
+      {
+        label: 'Expert-quality coordination',
+        value: 'Independent training → incompatible weights',
+        note: 'Miners independently training "expert modules" produce weights with different scales, activations, vocabulary. Aggregation requires alignment passes — non-trivial engineering. Subnet has to ship the coordination layer.',
+      },
+      {
+        label: 'Cold-start expert routing',
+        value: 'Router needs trained routing data',
+        note: 'Effective routing across experts requires routing data. Centralized rivals train routers + experts jointly. Subnet aggregating community-trained experts has cold-router-start problem.',
+      },
+      {
+        label: 'Eval vs monolithic model',
+        value: 'Mixtral 8x22B competitive with much smaller monoliths',
+        note: 'MoE doesn\'t always beat dense models. Llama 3 70B competes with Mixtral 8x22B (effective ~140B). Subnet has to prove MoE-with-decentralized-experts beats the same-size monolith, not just match.',
+      },
+    ],
+  },
+
   /* SN105 Beam — "Decentralized bandwidth. A global network.
      Powering the open internet." (live identity per taostats
      2026-05-22, b1m.ai). Decentralized bandwidth marketplace.
@@ -4568,6 +4805,36 @@ export const BY_NETUID = {
         label: 'Web3-app deployment surface',
         value: 'Frontend on Netlify + API on AWS + chain on L2',
         note: 'Most "Web3 apps" run frontends on Netlify/Vercel, backends on AWS/GCP, smart contracts on L2s. Subnet "blockchain cloud" pitch competes with this status quo — has to either consolidate (one platform for all 3) or specialize on chain-native compute.',
+      },
+    ],
+  },
+
+  /* SN103 Djinn — Information X Execution. Sparse description.
+     Likely targets agent execution + intelligence. Rivals:
+     Cognition, Cursor, OpenAI agents, Anthropic agents. */
+  103: {
+    rivals: ['openai', 'anthropic', 'cognition-devin', 'cursor', 'composio', 'langchain'],
+    supplyChainIds: ['nvidia', 'aws-azure-gcp', 'cloudflare-edge'],
+    constraints: [
+      {
+        label: 'Sparse-identity penalty',
+        value: '4 words of description on chain',
+        note: 'Subnet identity ("Information X Execution") is thin. Without clearer positioning, readers can\'t map to a customer use case. Subnet has to flesh out positioning on-chain or accept low discoverability.',
+      },
+      {
+        label: 'Same-niche subnet density',
+        value: 'Many agent + execution subnets compete',
+        note: 'Bittensor has 5+ subnets pitching agent execution (SN11, 15, 36, 62, 121, etc.). Subnet 103 has to differentiate or split α with adjacent plays.',
+      },
+      {
+        label: 'Reliability ceiling',
+        value: '~30-50% real-task completion industry-wide',
+        note: 'See SN121 — autonomous-agent reliability caps ~30-50% on real tasks. Subnet faces same ceiling unless it ships a specific reliability improvement.',
+      },
+      {
+        label: 'Customer go-to-market',
+        value: 'Crypto-native vs enterprise SaaS split',
+        note: 'Agent products either land enterprise SaaS (high friction, big budgets) or crypto-native (smaller market, easier adoption). Subnet has to pick.',
       },
     ],
   },
@@ -4713,6 +4980,35 @@ export const BY_NETUID = {
     ],
   },
 
+  /* SN118 Ditto — Open-Source Claude Cowork. Rivals: Claude
+     Code, Cursor, Cognition Devin, Replit, GitHub Copilot. */
+  118: {
+    rivals: ['claude-code', 'cursor', 'cognition-devin', 'replit-agent', 'github-copilot', 'anthropic'],
+    supplyChainIds: ['nvidia', 'aws-azure-gcp', 'cloudflare-edge'],
+    constraints: [
+      {
+        label: 'Open-source coding-agent space crowded',
+        value: 'OpenDevin, SWE-agent, CodeAct all open-source',
+        note: 'Open-source autonomous coding agents already exist (OpenDevin, SWE-agent, Aider). Subnet "open-source Claude Cowork" has to specify what it adds beyond these — distillation? token rewards? specific framework integration?',
+      },
+      {
+        label: 'Anthropic Claude trademark',
+        value: '"Claude" name use needs care',
+        note: 'Using Anthropic\'s Claude brand in product naming has trademark surface. Subnet may need to position as "Claude-compatible" or "powered by open weights" rather than "Claude Cowork" — depending on how the product actually uses Claude.',
+      },
+      {
+        label: 'CLI vs editor surface',
+        value: 'Claude Code is CLI · Cursor is editor',
+        note: 'Different developer workflows. Subnet has to choose CLI-resident (Claude Code style) or editor-resident (Cursor style) — each captures a different developer slice.',
+      },
+      {
+        label: 'Reliability vs verbosity tradeoff',
+        value: 'Autonomous mode = more tokens = more cost',
+        note: 'Autonomous coding agents burn 10-100x more tokens than autocomplete. Subnet has to either ship cheaper inference or accept that "open-source autonomous" is a small market vs hosted autonomous.',
+      },
+    ],
+  },
+
   /* SN119 Satori — Persistent AI companion + Japan Digital
      Residency. Rivals: Character.AI, Replika, NovelAI. */
   119: {
@@ -4768,6 +5064,35 @@ export const BY_NETUID = {
         label: 'Specialist-agent fragmentation',
         value: 'Devin for code · Operator for browse · subnet ?',
         note: 'Specialist agents (code, browsing, sales) outperform generalists on their domains. Subnet "generalist" pitch competes with specialist depth — readers default to specialists for high-stakes tasks, leaving subnet with low-stakes general work.',
+      },
+    ],
+  },
+
+  /* SN126 Poker44 — Decentralized Poker Platform with Bot
+     Detection. Rivals: PokerStars, GGPoker, WPT Global, ACR. */
+  126: {
+    rivals: ['pokerstars', 'wpt-global', 'binance', 'coinbase', 'hive-ai', 'lakera'],
+    supplyChainIds: ['aws-azure-gcp', 'cloudflare-edge'],
+    constraints: [
+      {
+        label: 'Bot-detection sophistication',
+        value: 'PokerStars: dedicated security team with ban authority',
+        note: 'Online poker bots have evolved 20+ years against centralized detection. PokerStars + GGPoker employ teams with player-bans + fund-confiscation. Subnet "bot detection" claim has to match this enforcement depth or bots take over.',
+      },
+      {
+        label: 'Liquidity for game-availability',
+        value: 'PokerStars peak: ~100K cash players · subnet: ?',
+        note: 'Poker depends on player density — empty tables don\'t play. Subnet has to bootstrap player count before games become playable. α emission can subsidize but the cold-start UX problem is real.',
+      },
+      {
+        label: 'Real-money + regulatory',
+        value: 'Real-money poker banned/restricted in US, China, India',
+        note: 'Online poker is regulated; PokerStars left US for years. Decentralized subnet inherits the same regulatory map; "decentralized" doesn\'t bypass UIGEA, IGRA, etc.',
+      },
+      {
+        label: 'Rake-vs-α-emission economics',
+        value: 'Rake: 3-5% of pot · subnet: ?',
+        note: 'Centralized poker rooms take 3-5% rake. Subnet has to either match (revenue covers operation) or subsidize via α (long-term sustainable only if α holds value).',
       },
     ],
   },
