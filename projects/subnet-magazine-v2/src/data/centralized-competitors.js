@@ -2650,6 +2650,35 @@ export const BY_NETUID = {
     ],
   },
 
+  /* SN38 colosseum — Strategic games on bittensor. Rivals:
+     DeepMind (AlphaGo / Gemini), OpenAI Five, Steam, Roblox. */
+  38: {
+    rivals: ['google', 'meta', 'openai', 'sakana-ai', 'anthropic', 'pokerstars'],
+    supplyChainIds: ['nvidia', 'aws-azure-gcp'],
+    constraints: [
+      {
+        label: 'Eval-game contamination',
+        value: 'Chess + Go solved · novel games needed',
+        note: 'Strategic games as AI benchmarks need fresh games — chess/Go are solved (Stockfish, AlphaGo Zero). Subnet has to constantly invent new games or accept that miners overfit known ones. ARC-AGI-style novelty rotation is a curation team in itself.',
+      },
+      {
+        label: 'Reward-shaping for games',
+        value: 'OpenAI Dota 2 RL: $millions in compute',
+        note: 'Training game-playing AI via RL costs tens of millions for non-trivial games. OpenAI Five for Dota 2: ~$10M+ compute. Subnet competition format has to specify compute budgets clearly or only well-funded miners can compete.',
+      },
+      {
+        label: 'Community + meta',
+        value: 'Game communities reward narrative, not optimality',
+        note: 'Strategic games attract players for narrative, social play, status. Pure AI play (no humans) loses community. Subnet has to either build human players into the loop or accept that "games on chain" is research-only.',
+      },
+      {
+        label: 'Tournament-prize comparison',
+        value: 'Top Dota 2 prize: $40M · TFT ~$1M',
+        note: 'Real esports has multi-million-dollar prize pools. Subnet α emission has to compete or attract players who value AI-vs-AI competition for its own sake (smaller market).',
+      },
+    ],
+  },
+
   /* SN44 Score — "Making every camera intelligent" (live
      identity per taostats 2026-05-22, wearescore.com). Adds
      AI inference to existing camera infrastructure. Rival pool
@@ -2793,6 +2822,36 @@ export const BY_NETUID = {
         label: 'Storage compliance windows',
         value: 'GDPR 30d / HIPAA 6yr / DoD 7yr',
         note: 'Different verticals have different retention requirements (GDPR forces purge, HIPAA + DoD force retention). Subnet decentralized storage has to honor BOTH delete + retain depending on customer — that\'s an operations problem centralized rivals solve with per-tenant policies.',
+      },
+    ],
+  },
+
+  /* SN16 BitAds (bitads.ai) — Decentralized proof-of-sale
+     marketing. Rivals: Trade Desk, AppLovin, Google Ads, Meta
+     Ads, Impact (affiliate). */
+  16: {
+    rivals: ['trade-desk', 'applovin', 'google', 'meta', 'adobe', 'cloudflare-edge'],
+    supplyChainIds: ['aws-azure-gcp', 'cloudflare-edge'],
+    constraints: [
+      {
+        label: 'Sale-attribution truth chain',
+        value: 'Cookie + pixel + device-graph all broken',
+        note: 'Proving a marketing impression caused a sale requires reliable attribution. iOS ATT, Chrome cookie deprecation, GDPR all eroded the standard tracking infrastructure. Subnet "proof of sale" must spec a verifiable chain (postback URLs, on-chain settlement) or share the broken-attribution problem.',
+      },
+      {
+        label: 'Merchant integration depth',
+        value: 'Shopify + WooCommerce gate the SMB tier',
+        note: 'Affiliate / proof-of-sale networks require merchant integration (pixels, postbacks, conversion tracking). Impact + Awin own SMB channels. Subnet has to ship Shopify / WooCommerce plugins or stay academic.',
+      },
+      {
+        label: 'Bandwidth-rental economics',
+        value: 'CPM rates compressing across all ad networks',
+        note: 'Display ad CPM rates compress; programmatic premium gone post-cookies. Subnet "marketing bandwidth" alpha-rental floor has to compete with $0.50-$2 CPM market rates or merchants don\'t move.',
+      },
+      {
+        label: 'Fraud + invalid-traffic surface',
+        value: 'IVT: 10-25% of digital ad volume',
+        note: 'Bot traffic + click farms inflate impression counts. DoubleVerify + IAS audit centralized networks. Subnet has to either ship comparable IVT detection or face inflated metrics that brands won\'t pay for.',
       },
     ],
   },
@@ -3260,6 +3319,36 @@ export const BY_NETUID = {
     ],
   },
 
+  /* SN22 Desearch (desearch.ai) — Decentralized search engine.
+     Rivals: Google, Bing, Perplexity, You.com, Brave Search,
+     Kagi. */
+  22: {
+    rivals: ['google', 'perplexity', 'you-com', 'brave-search', 'openai', 'anthropic'],
+    supplyChainIds: ['aws-azure-gcp', 'cloudflare-edge', 'us-power-grids'],
+    constraints: [
+      {
+        label: 'Index-build cost',
+        value: 'Common Crawl: ~10PB · live web: 100PB+',
+        note: 'A serious search index requires petabytes of storage + ongoing crawl bandwidth. Google + Bing have multi-decade head starts. Subnet decentralized search has to either federate (use existing indexes) or focus on niches where general search underdelivers.',
+      },
+      {
+        label: 'AI-overview cannibalization',
+        value: 'Google AI Overviews capture ~15% of click intent',
+        note: 'Google + Bing now answer queries inline with AI. The "search → click → site" model is shrinking. Subnet has to anticipate the post-link search world; pure-link search may be a declining surface.',
+      },
+      {
+        label: 'Ranking-signal scarcity',
+        value: 'PageRank + behavioral signals built over decades',
+        note: 'Real search quality depends on ranking signals (click data, dwell time, behavioral). Google has 25+ years of training data. Subnet "decentralized search" can\'t bootstrap behavioral signals quickly; quality lags incumbents.',
+      },
+      {
+        label: 'Spam + SEO arms race',
+        value: 'Search spam evolves faster than open detection',
+        note: 'Search-spam farms produce industrial-scale low-quality content. Google\'s Search Quality team is large. Subnet open-ranking algorithm becomes spam-game-able the moment it ships; must rotate weights faster than spammers iterate.',
+      },
+    ],
+  },
+
   /* SN23 Trishool — "Trishool is the AI alignment protocol
      built on Bittensor" (live identity per taostats 2026-05-22,
      trishool.ai). Decentralized AI alignment / safety. Rival
@@ -3561,6 +3650,35 @@ export const BY_NETUID = {
     ],
   },
 
+  /* SN46 Zipcode — Real Estate Intelligence Network. Rivals:
+     Zillow, Redfin, CoStar, Realtor.com, Compass. */
+  46: {
+    rivals: ['zillow', 'redfin', 'palantir', 'snowflake', 'salesforce', 'numerai'],
+    supplyChainIds: ['aws-azure-gcp', 'cloudflare-edge'],
+    constraints: [
+      {
+        label: 'MLS data licensing',
+        value: 'Multiple Listing Service: ~600 regional MLSes in US',
+        note: 'Real-estate listings live in regional MLSes with per-region licensing. Zillow + Redfin spent years negotiating access. Subnet "real estate intelligence" without MLS data is academic — listings + historicals are the asset.',
+      },
+      {
+        label: 'Valuation-model trust',
+        value: 'Zestimate: ~2% median error · agents demand 1%',
+        note: 'AVMs (automated valuation models) have to be defensible for transactions. Zillow Offers shut down because Zestimate accuracy wasn\'t enough at scale. Subnet has to either match Zestimate accuracy or accept advisory-only use.',
+      },
+      {
+        label: 'Agent + broker integration',
+        value: 'NAR 2024 settlement reshaped buyer-agent commissions',
+        note: 'US real-estate transactions changed materially post-NAR settlement. Centralized rivals adapted; subnet has to track regulatory + commercial realignment to stay relevant.',
+      },
+      {
+        label: 'Demand-cyclicality',
+        value: 'Real estate transactions: 30-50% YoY swings',
+        note: 'Real-estate transaction volume swings hard with rates + macro. Centralized rivals weather cycles via diversification. Subnet "real estate intelligence" demand follows the cycle — α emission has to bridge slow periods.',
+      },
+    ],
+  },
+
   /* SN47 EvolAI — "A subnet focused on the research,
      development, and evaluation of evolving AI systems" (live
      identity per taostats 2026-05-22). Evolutionary methods +
@@ -3623,6 +3741,36 @@ export const BY_NETUID = {
         label: 'CRM-integration depth',
         value: 'Salesforce: 78% of B2B CRM market',
         note: 'Real adoption requires Salesforce / HubSpot integration. Centralized AI sales tools ship deep integrations. Subnet AI outputs need to be Salesforce-record-grade or sit outside the actual sales workflow.',
+      },
+    ],
+  },
+
+  /* SN79 MVTRX (taos.im) — "Building a SOTA Exchange for dTAO
+     and Beyond." dTAO trading / sandbox. Rivals: Hyperliquid,
+     dYdX, GMX, Binance, Coinbase, taostats.io. */
+  79: {
+    rivals: ['hyperliquid', 'dydx', 'gmx', 'binance', 'coinbase', 'uniswap'],
+    supplyChainIds: ['ethereum-l1-gas', 'chainlink-oracles', 'aws-azure-gcp'],
+    constraints: [
+      {
+        label: 'dTAO ecosystem TAM ceiling',
+        value: 'Bittensor TVL: <$1B as of 2026',
+        note: 'A "SOTA exchange for dTAO" is bounded by Bittensor\'s on-chain liquidity. Sub-$1B TVL means even capturing 100% market share is small. "And Beyond" suggests expansion, but cross-chain liquidity has the SN106 VoidAI constraints.',
+      },
+      {
+        label: 'Sandbox vs production split',
+        value: 'Matrix of Simulations: research vs live',
+        note: 'TAOS Matrix of Simulations Sandbox suggests R&D + trade-strategy testing. Different product than a live exchange. Subnet has to decide which audience (researchers, prop traders, retail) and price accordingly.',
+      },
+      {
+        label: 'Liquidity bootstrap',
+        value: 'Hyperliquid took years to reach $500B cumulative',
+        note: 'Exchange liquidity is winner-take-most. Subnet competing with Hyperliquid + dYdX needs subsidies (α emission as liquidity bribe) lasting years. Math has to work or capital walks.',
+      },
+      {
+        label: 'Regulatory perimeter',
+        value: 'CFTC + SEC + EU MiCA all apply to exchanges',
+        note: 'Operating an exchange (even decentralized) attracts regulator interest. Hyperliquid operates from offshore; dYdX moved Cosmos. Subnet has to pick regulatory posture explicitly.',
       },
     ],
   },
@@ -4321,6 +4469,35 @@ export const BY_NETUID = {
     ],
   },
 
+  /* SN93 Bitcast — The Decentralized Creators Economy. Rivals:
+     Patreon, Substack, OnlyFans, Twitch, YouTube, TikTok. */
+  93: {
+    rivals: ['patreon', 'substack', 'onlyfans', 'meta', 'google', 'tether'],
+    supplyChainIds: ['aws-azure-gcp', 'cloudflare-edge'],
+    constraints: [
+      {
+        label: 'Creator-distribution moat',
+        value: 'YouTube: 2B+ users · TikTok: 1.5B+',
+        note: 'Real creator economy depends on audience. YouTube + TikTok own distribution. Subnet "decentralized creator economy" has to either build audience (hard) or anchor to a creator-discovery layer that doesn\'t exist yet.',
+      },
+      {
+        label: 'Payout latency + currency',
+        value: 'Patreon: 1-2 day · subnet: α emission',
+        note: 'Creators monetize for living expenses — need fast, fiat-denominated payouts. Centralized rivals ship Stripe/Visa rails. Subnet α-emission requires α→fiat path with friction.',
+      },
+      {
+        label: 'Content-moderation surface',
+        value: 'OnlyFans + Patreon spend on moderation labor',
+        note: 'Creator platforms inherit content-moderation cost (CSAM, copyright, dispute resolution). Decentralized has weaker moderation infrastructure; the App Store + Play Store may not list a fully open creator platform.',
+      },
+      {
+        label: 'Creator-platform fee compression',
+        value: 'YouTube takes 45% · Patreon 5-12% · OnlyFans 20%',
+        note: 'Platform fees compress over time. Subnet "decentralized" wins on fees but loses on distribution + payments + moderation. Net economics for the creator depend on whether subnet matches centralized reach.',
+      },
+    ],
+  },
+
   /* SN105 Beam — "Decentralized bandwidth. A global network.
      Powering the open internet." (live identity per taostats
      2026-05-22, b1m.ai). Decentralized bandwidth marketplace.
@@ -4433,6 +4610,35 @@ export const BY_NETUID = {
     ],
   },
 
+  /* SN74 Gittensor — Autonomous software development. Rivals:
+     same SWE-agent cluster as SN62 Ridges + SN66 ninja. */
+  74: {
+    rivals: ['cognition-devin', 'cursor', 'github-copilot', 'claude-code', 'replit-agent', 'codeium-windsurf'],
+    supplyChainIds: ['nvidia', 'aws-azure-gcp', 'tsmc'],
+    constraints: [
+      {
+        label: 'Same-niche subnet density',
+        value: 'SN62 Ridges + SN66 ninja + SN121 sundae_bar all SWE-agent',
+        note: 'Bittensor has 4 SWE-agent subnets competing for the same talent + customer pool. Subnet differentiation has to be sharp (autonomous PR-shipping vs distillation vs general workflow vs Gittensor\'s specialty) or α emission gets fragmented.',
+      },
+      {
+        label: 'Git-integration depth',
+        value: 'Devin: GitHub PR-shipping native',
+        note: 'Real autonomous SWE work ships PRs to actual repos. Devin + Copilot Workspace integrate at the PR level. Subnet has to either match GitHub API integration or stay as a code-suggestion tool.',
+      },
+      {
+        label: 'Test-pass verification',
+        value: 'PR CI-pass rate < 50% for autonomous agents',
+        note: 'See SN62 — autonomous PRs fail CI ~50%+ of the time. Validator scoring must include test-pass requirement or readers see broken PRs.',
+      },
+      {
+        label: 'Repo-context cost',
+        value: '$0.50-$5/issue at frontier inference rates',
+        note: 'Real SWE work needs 200K+ token context per issue. Subnet miner inference costs add up; pricing has to clear at unit-economics or hit α-emission subsidy ceiling.',
+      },
+    ],
+  },
+
   /* SN75 Hippius — "Blockchain-backed cloud: storage, VMs, and
      apps with unmatched transparency, trust, and power" (live
      identity per taostats 2026-05-22, hippius.com). Blockchain
@@ -4503,6 +4709,35 @@ export const BY_NETUID = {
         label: 'Hardware-efficiency tradeoff',
         value: 'H100: 700W · Graviton4: 250W · TPU v5p: ~400W',
         note: 'Different chips have different perf/watt. AWS Graviton (ARM) wins on inference workloads. Subnet "green" might use less efficient chips on green power — the net carbon math has to work out. Validator has to score perf-per-CO2, not just energy source.',
+      },
+    ],
+  },
+
+  /* SN119 Satori — Persistent AI companion + Japan Digital
+     Residency. Rivals: Character.AI, Replika, NovelAI. */
+  119: {
+    rivals: ['character-ai-v2', 'replika', 'novelai', 'character-ai', 'ai-dungeon', 'openai'],
+    supplyChainIds: ['nvidia', 'aws-azure-gcp', 'cloudflare-edge'],
+    constraints: [
+      {
+        label: 'Engagement-metrics gaming',
+        value: 'Character.AI: ~2hr daily session times',
+        note: 'AI companion engagement → infinite-scroll patterns. Centralized rivals face lawsuits over minor exposure + parasocial dependencies. Subnet "persistent companionship" inherits the design responsibility — emergency-mode opt-outs and well-being checkins needed.',
+      },
+      {
+        label: 'Persona-stability over time',
+        value: 'Long-context drift kills 50K+ token relationships',
+        note: 'Persistent AI companions need character consistency over months. Centralized rivals built memory systems. Subnet has to either ship comparable memory infrastructure or accept that "persistent" is just a marketing word.',
+      },
+      {
+        label: 'Cross-cultural localization',
+        value: 'Japan companionship market: $3B+ (Replika, Vroid)',
+        note: 'Japan-specific AI companion market exists (Vtubers, Vroid, dating sims). Subnet "Second Life in Japan" needs localization depth — language nuance, cultural references, Vtuber-style aesthetics. Pure LLM doesn\'t capture this without curation.',
+      },
+      {
+        label: 'Regulatory + age-gate surface',
+        value: 'COPPA + EU minor-protection rules apply',
+        note: 'Companion apps face minor-protection lawsuits + EU AI Act manipulation provisions. Centralized rivals enforce age-gates + content controls. Subnet has to either gate access (defeats decentralization) or face platform-level bans.',
       },
     ],
   },
