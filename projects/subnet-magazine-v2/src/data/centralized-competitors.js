@@ -2236,6 +2236,43 @@ export const BY_NETUID = {
     ],
   },
 
+  /* SN35 OxMarkets — "Liquidity-as-a-Service subnet powering
+     0xMarkets - a permissionless perp DEX for FX, crypto, and
+     commodities" (live identity per taostats 2026-05-22,
+     0xmarkets.io). Provides LP liquidity to a perp DEX. Rival
+     pool is the dominant perp DEX leaders. */
+  35: {
+    rivals: ['hyperliquid', 'dydx', 'gmx', 'aave-labs', 'uniswap', 'jane-street'],
+    supplyChainIds: ['ethereum-l1-gas', 'chainlink-oracles', 'aws-azure-gcp'],
+    constraints: [
+      {
+        label: 'Liquidity-cold-start',
+        value: 'Hyperliquid ~$500B cumulative volume',
+        note: 'Perp DEX traders need deep books. Hyperliquid + dYdX have multi-year liquidity flywheels. Subnet LP-as-a-Service has to subsidize depth via α emission until organic volume covers fees — bootstrap math is brutal.',
+      },
+      {
+        label: 'MEV / sandwich risk',
+        value: 'Up to 5% of perp volume captured by MEV',
+        note: 'Public-mempool perp DEXes leak alpha to MEV searchers — Hyperliquid built private order matching to address this. Subnet LaaS perp\'s settlement layer (which chain, which mempool) determines MEV surface; passes through to LP returns.',
+      },
+      {
+        label: 'USDC custody chain',
+        value: '"Deposit USDC" — who holds the keys?',
+        note: 'The product invites users to "Deposit USDC. Earn Spread + Fees + Alpha." That custody flow has to be either smart-contract-non-custodial OR a bank-trust setup. Either way the subnet has user funds at risk — security audit + insurance posture matters to TVL.',
+      },
+      {
+        label: 'Regulatory framing',
+        value: 'CFTC + offshore exchange line',
+        note: 'Perp DEX trading is regulated in the US (CFTC) but permissive offshore. dYdX moved Cosmos to sidestep; Hyperliquid runs on its own L1. SN35 LaaS subnet plays into 0xMarkets — the front-end\'s regulatory posture is what determines US-trader access.',
+      },
+      {
+        label: 'Funding-rate volatility',
+        value: 'BTC perp funding swings ±0.05%/8hr',
+        note: 'Perp funding rates oscillate aggressively in regime changes. LPs absorb the imbalance. Subnet LaaS providers get exposed to funding-rate volatility — capital efficient at low vol, painful at high vol. Worse in non-BTC markets (FX, commodities) where regime changes are deeper.',
+      },
+    ],
+  },
+
   /* SN15 ORO — "AI commerce agents" (live identity per taostats
      2026-05-22, oroagents.com). Agents that complete commerce
      tasks — product discovery, comparison, checkout. Rival pool
@@ -2605,6 +2642,155 @@ export const BY_NETUID = {
         label: 'Enterprise integration depth',
         value: 'Synthesia: SCORM / LMS export + brand kits',
         note: 'Synthesia + HeyGen ship SCORM exports for corporate LMS (Cornerstone, Workday), brand-kit color/font enforcement, multi-stakeholder review workflows. Subnet talking-head output without these features is the "raw video" tier; enterprise customers stay with centralized rivals for the platform.',
+      },
+    ],
+  },
+
+  /* SN50 Synth — "Predictive intelligence for financial markets
+     and beyond" (live identity per taostats 2026-05-22,
+     synthdata.co). Crowdsourced ML predictions for trading.
+     The closest centralized analog is Numerai\'s tournament
+     model; the closest institutional rivals are the quant
+     funds (Renaissance, Citadel, Jane Street, Jump Trading). */
+  50: {
+    rivals: ['numerai', 'renaissance-tech', 'citadel-securities', 'jane-street', 'jump-trading', 'bloomberg-feed'],
+    supplyChainIds: ['bloomberg-feed', 'cme-nyse-access', 'aws-azure-gcp', 'us-power-grids'],
+    constraints: [
+      {
+        label: 'Alpha-decay half-life',
+        value: 'Edge halves every ~6 months',
+        note: 'Public crowd-sourced predictions decay fast — once a signal works, it gets crowded into. Numerai handles this via meta-model + staking (only confident predictions count). Subnet must build the same staked-confidence machinery or watch the leaderboard converge on yesterday\'s ideas.',
+      },
+      {
+        label: 'Data licensing',
+        value: 'Bloomberg terminal: $30K/yr · Refinitiv: $22K',
+        note: 'Real-time market data is gated. Renaissance + Citadel pay $millions/yr for tick data. Subnet miners on free APIs (Yahoo, CoinGecko) work with delayed + lower-quality data — the structural disadvantage at the institutional edge.',
+      },
+      {
+        label: 'Eval-metric gaming',
+        value: 'Sharpe / Information Coefficient hackable',
+        note: 'Validators scoring on Sharpe or IC reward miners who time variance peaks rather than capture true alpha. Numerai uses meta-model + payout staking; subnet validator design has to inherit these defenses or pay out to noise.',
+      },
+      {
+        label: 'Regime-change blindness',
+        value: '2020 / 2022 / 2024 drawdowns broke top quants',
+        note: 'Historic ML predictions fail when market regime changes (rate cycles, crypto winters, geopolitical shocks). Quant funds use macro overlays. Subnet purely-data-driven predictions inherit the regime-change exposure without the human judgment overlay.',
+      },
+      {
+        label: 'Trading-cost amortization',
+        value: 'Edge < 50 bps disappears at retail commissions',
+        note: 'A prediction edge of 50bps gets eaten by spreads + commissions for retail-size trading. Hedge funds amortize on size. Subnet predictions monetized by retail readers lose most edge to friction unless paired with low-cost execution.',
+      },
+    ],
+  },
+
+  /* SN77 Liquidity — "Supply liquidity on external chains via
+     uniswap, incentivize any project" (live identity per
+     taostats 2026-05-22, sn77.xyz). Provides LP liquidity to
+     Uniswap pools, incentivized by α emission. Rival pool is
+     the on-chain LP / yield space. */
+  77: {
+    rivals: ['uniswap', 'aave-labs', 'compound-finance', 'yearn-finance', 'morpho-labs', 'gmx'],
+    supplyChainIds: ['ethereum-l1-gas', 'chainlink-oracles', 'aws-azure-gcp'],
+    constraints: [
+      {
+        label: 'Impermanent loss',
+        value: 'Standard 50/50 LP: ~20-30% IL on 2x move',
+        note: 'Uniswap V2-style LPs eat IL on volatile pairs. V3/V4 concentrated liquidity partially fixes but adds management overhead. Subnet LP-as-a-Service amplifies IL exposure across miners — α emission has to compensate or LPs withdraw.',
+      },
+      {
+        label: 'Fee tier compression',
+        value: 'V3 fees: 0.05% / 0.3% / 1% — race to 0.05%',
+        note: 'Uniswap V3 fee tiers compress as competing AMMs (Curve, Balancer, PancakeSwap) undercut. SN77 subsidies + miner-routed liquidity have to clear declining fee economics — the moat is in directing emission to pools centralized AMMs can\'t reach.',
+      },
+      {
+        label: 'Cross-chain LP coordination',
+        value: 'Ethereum, Arbitrum, Base, Solana fragmented',
+        note: 'Liquidity is split across Ethereum L1, L2s (Arbitrum, Base, Optimism), Solana, etc. Coordinating subnet-managed LP across chains requires bridges (security risk) or per-chain miner pools (capital fragmentation).',
+      },
+      {
+        label: 'Smart-contract risk',
+        value: '~$2B lost to DeFi hacks in 2024',
+        note: 'LP capital sits in contracts that get hacked routinely. Aave + Uniswap have multi-year audit + bug-bounty track records. New subnet contracts inherit higher exploit risk; LP capital is one bug away from going to zero.',
+      },
+      {
+        label: 'Capital efficiency vs PoS staking',
+        value: 'ETH staking: 3-4% APR (lower risk)',
+        note: 'LP returns have to beat baseline staking (ETH ~3-4% APR) plus IL premium. If subnet LP yields drift below this benchmark, capital walks. The α emission has to consistently outpace the opportunity cost.',
+      },
+    ],
+  },
+
+  /* SN112 minotaur — "Distributed DEX aggregator and swap intent
+     solver engine" (live identity per taostats 2026-05-22,
+     minotaursubnet.com). DEX aggregator + intent solver — the
+     same architecture pattern CoW Protocol + 1inch Fusion ship. */
+  112: {
+    rivals: ['1inch', 'cowswap', 'uniswap', 'hyperliquid', 'openrouter'],
+    supplyChainIds: ['ethereum-l1-gas', 'chainlink-oracles', 'aws-azure-gcp'],
+    constraints: [
+      {
+        label: 'Solver-set sophistication',
+        value: 'CoW: ~20 active solvers competing per batch',
+        note: 'Intent-based DEX architecture is solver-quality-bound. CoW runs ~20 sophisticated solvers (Naive, Quasimodo, Seasolver, etc) competing per batch. Subnet miner-as-solver needs the same sophistication or routes get worse fills than CoW.',
+      },
+      {
+        label: 'MEV-protection guarantee',
+        value: 'Batch auctions vs. sandwich attacks',
+        note: 'Intent-based DEXes promise MEV protection via batch settlement. CoW + Aori publish auction proofs. Subnet aggregator has to provide on-chain proof of best execution or readers compare unfavorably to CoW.',
+      },
+      {
+        label: 'Latency vs route quality',
+        value: 'Best route: 200-500ms search time',
+        note: 'Real aggregators search across 100+ DEXes; routing decisions add 200-500ms. 1inch Fusion uses pre-computed paths. Subnet miners with diverse routing strategies trade latency for diversity — capture batch / async swaps, lose interactive trading.',
+      },
+      {
+        label: 'Solver bond / honesty mechanism',
+        value: 'CoW bonds solvers at $50K+ to deter cheating',
+        note: 'Solvers can be malicious — submitting fake quotes or settling worse than promised. CoW + UniswapX bond solvers with $50K-$500K stakes. Subnet must replicate this stake-based honesty enforcement or accept lower trust.',
+      },
+      {
+        label: 'Cross-chain routing complexity',
+        value: '~30 chains × 5+ aggregators each',
+        note: 'Cross-chain intent solving requires bridges + per-chain liquidity. Across, Squid, Socket already specialize. Subnet has to either focus on single-chain aggregation (limited TAM) or pay the cross-chain complexity tax that established cross-chain DEXes already eat.',
+      },
+    ],
+  },
+
+  /* SN116 TaoLend — "decentralized lending protocol for the
+     Bittensor ($TAO) ecosystem. It allows users to lend TAO
+     with confidence while borrowers secure their loans using
+     subnet ALPHA as [collateral]" (live identity per taostats
+     2026-05-22, taolend.io). TAO lending + α collateral. Rival
+     pool is the established lending protocols. */
+  116: {
+    rivals: ['aave-labs', 'compound-finance', 'spark-protocol', 'morpho-labs', 'makerdao-sky'],
+    supplyChainIds: ['ethereum-l1-gas', 'chainlink-oracles', 'aws-azure-gcp'],
+    constraints: [
+      {
+        label: 'Collateral volatility (α tokens)',
+        value: 'Subnet α prices can drop 50% in a week',
+        note: 'Subnet α prices are 5-10x more volatile than blue-chip crypto. Lending against α as collateral demands aggressive haircuts (typically 20-40% LTV vs 70-80% for ETH on Aave). Capital efficiency suffers — borrowers locked into low LTV.',
+      },
+      {
+        label: 'Liquidation infrastructure',
+        value: 'α/TAO pair must be liquid 24/7',
+        note: 'Lending protocols liquidate undercollateralized positions automatically. Aave + Compound use Chainlink price feeds + on-chain liquidator competition. TaoLend needs deep α/TAO pools 24/7 — concentrated liquidity periods kill liquidation speed, growing bad-debt risk.',
+      },
+      {
+        label: 'Oracle reliability',
+        value: 'α price → on-chain feed gap',
+        note: 'Lending requires real-time price feeds for collateral. Aave uses Chainlink for blue-chip pairs. Subnet α prices have no Chainlink feed yet — TaoLend either runs its own oracle (manipulation risk) or relies on subnet-internal DEX prices (smaller liquidity, easier to spoof).',
+      },
+      {
+        label: 'Subnet deregistration risk',
+        value: 'Collateral can go to zero if subnet dies',
+        note: 'A subnet that deregisters takes its α to ~$0. Aave\'s collateral assets are blue-chip with low de-listing risk. TaoLend has to either price subnet survival probability into LTV per-subnet or accept correlated default risk (one bad subnet = cascade).',
+      },
+      {
+        label: 'Regulatory framing',
+        value: 'TAO + α securities classification unclear',
+        note: 'US securities law on TAO + α tokens is ambiguous (Bittensor Foundation has filed positions but no SEC ruling). Lending against tokens that could be classified as unregistered securities exposes the protocol to enforcement. Aave moved Aave Arc to address this; TaoLend operates outside US until clarity.',
       },
     ],
   },
