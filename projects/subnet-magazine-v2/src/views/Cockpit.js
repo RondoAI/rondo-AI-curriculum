@@ -1827,19 +1827,53 @@ export function mountCockpit(root, dataLayer = null){
       });
     }
 
-    /* Editorial flag markers on the price line — magazine = amber,
-       oracle = red, centralized = mint. setMarkers replaces the
-       prior marker set in one call. */
+    /* Editorial flag markers on the price line. Each article-kind
+       gets a distinct visual register so a glance at the chart
+       reads as "what kind of editorial touched this bar":
+         magazine    → amber circle aboveBar      (the house voice)
+         oracle      → red square belowBar        (deep research)
+         centralized → mint arrowUp aboveBar      (competitor news)
+       Bumped from size:1 → size:2 (Rondo 2026-05-21 chart review
+       #6: editorial flag marker treatment) so flags ACTUALLY READ
+       at chart scale instead of disappearing into the price line.
+       Most-recent marker (per kind) also carries a short text
+       label so the reader sees what just dropped without hovering.
+       setMarkers replaces the prior marker set in one call. */
     const annotations = annotationsFor(s.netuid, s.name);
+    /* Find the freshest annotation per kind so we know which ones
+       to label inline — labels-on-everything turns the chart into
+       a wall of text; labels-only-on-freshest is the trader-grade
+       compromise. */
+    const freshestByKind = {};
+    for (const a of annotations){
+      if (!Number.isFinite(a.t)) continue;
+      const cur = freshestByKind[a.kind];
+      if (!cur || a.t > cur.t) freshestByKind[a.kind] = a;
+    }
     const markers = annotations
       .filter(a => Number.isFinite(a.t))
-      .map(a => ({
-        time: Math.floor(a.t / 1000),
-        position: 'aboveBar',
-        color: a.kind === 'mag' ? '#FFB85C' : a.kind === 'orc' ? '#FF4D60' : '#00E5A8',
-        shape: 'circle',
-        size: 1,
-      }))
+      .map(a => {
+        const isFreshest = freshestByKind[a.kind] === a;
+        const base = {
+          time: Math.floor(a.t / 1000),
+          color: a.kind === 'mag' ? '#FFB85C' : a.kind === 'orc' ? '#FF4D60' : '#00E5A8',
+          size: 2,
+        };
+        if (a.kind === 'orc'){
+          base.position = 'belowBar';
+          base.shape = 'square';
+        } else if (a.kind === 'cen'){
+          base.position = 'aboveBar';
+          base.shape = 'arrowUp';
+        } else {
+          base.position = 'aboveBar';
+          base.shape = 'circle';
+        }
+        if (isFreshest){
+          base.text = a.kind === 'mag' ? 'MAG' : a.kind === 'orc' ? 'ORC' : 'CEN';
+        }
+        return base;
+      })
       .sort((a, b) => a.time - b.time);
     tvAreaSeries.setMarkers(markers);
 
