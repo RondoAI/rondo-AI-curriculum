@@ -169,6 +169,20 @@ def build_row(netuid, live_row, overrides):
         gh = ''
     contact = pick('subnetContact').strip()
     is_active = bool(live_row.get('is_active'))
+    # logoUrl from chain — only honor HTTP-fetchable URLs; SS58
+    # hash-only references (Bittensor on-chain file storage)
+    # need a resolver we don\'t have yet, so they\'re dropped.
+    logo = pick('logoUrl').strip()
+    if logo and not logo.startswith('http'):
+        logo = ''
+
+    # Timeline anchors — used by the cockpit chart\'s event-marker
+    # layer (Rondo 2026-05-22: "timeline on every chart signaling
+    # major events on that project"). registered_at = subnet
+    # genesis; first_emission_block = the block where emission
+    # actually started flowing.
+    registered_at = (live_row.get('registered_at') or '').strip()
+    first_emission_block = (snap.get('first_emission_block_number') or '').strip() if snap else ''
 
     # Market snapshot — only available in raw API form; default 0 for cached
     def to_float(v, scale=1e9):
@@ -205,7 +219,10 @@ def build_row(netuid, live_row, overrides):
         'url': url,
         'gh': gh,
         'contact': contact,
+        'logo': logo,
         'is_active': is_active,
+        'registered_at': registered_at,
+        'first_emission_block': first_emission_block,
         'price': round(price, 6),
         # Legacy field-name aliases so Cockpit.js + Dashboard.js don't
         # need a rewrite (s.mcap / s.emission / s.chg24 etc still work).
@@ -288,10 +305,11 @@ export const SUBNETS = Object.freeze(['''
         # Inline the row as a one-line object
         kv = []
         for k in ('netuid', 'name', 'cat', 'desc', 'owner', 'url', 'gh',
-                  'contact', 'is_active', 'price', 'mcap', 'emission',
+                  'contact', 'logo', 'is_active', 'price', 'mcap', 'emission',
                   'miners', 'validators', 'stake', 'chg24', 'chg7', 'chg30',
                   'mcap_alpha_tao', 'alpha_in', 'alpha_out', 'subnetwork_n',
-                  'max_validators', 'tags', 'deprecated', 'status', 'unindexed'):
+                  'max_validators', 'tags', 'deprecated', 'status',
+                  'registered_at', 'first_emission_block', 'unindexed'):
             if k not in r:
                 continue
             v = r[k]

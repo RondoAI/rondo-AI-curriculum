@@ -2486,6 +2486,99 @@
   object-fit: contain;
   filter: brightness(1.05);
 }
+
+/* Chart-header action chips — taostats EXPLORER + STAKE +
+   SITE + GITHUB. Per Rondo 2026-05-22 "best hub for Bittensor"
+   + "people should see block explorer + staking information."
+   The chips sit under the subnet description, share the eDEX
+   red-on-black palette, and glow on hover so they read as
+   web3-native CTAs without breaking the institutional register. */
+.cock-chart__actions{
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-top: 8px;
+}
+.cock-chart__action{
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  padding: 4px 8px;
+  border: 1px solid var(--c-rule-3);
+  background: linear-gradient(180deg, rgba(255,30,60,.08), rgba(20,5,9,.4));
+  font-family: var(--f-mono);
+  font-size: 9px;
+  letter-spacing: .14em;
+  font-weight: 800;
+  color: var(--c-ink-2);
+  text-decoration: none;
+  text-transform: uppercase;
+  transition: color .12s ease, background .12s ease, border-color .12s ease, box-shadow .12s ease;
+}
+.cock-chart__action:hover{
+  color: var(--c-red);
+  border-color: var(--c-red);
+  background: linear-gradient(180deg, rgba(255,30,60,.14), rgba(20,5,9,.6));
+  box-shadow: 0 0 12px rgba(255,30,60,.25);
+}
+.cock-chart__action:focus-visible{
+  outline: 1px solid var(--c-red);
+  outline-offset: 1px;
+}
+.cock-chart__action--explorer{
+  border-color: rgba(0,229,168,0.35);
+  color: var(--c-up, #00E5A8);
+}
+.cock-chart__action--explorer:hover{
+  color: var(--c-up, #00E5A8);
+  border-color: var(--c-up, #00E5A8);
+  box-shadow: 0 0 12px rgba(0,229,168,.30);
+}
+.cock-chart__action--stake{
+  border-color: rgba(255,184,92,0.35);
+  color: #FFB85C;
+}
+.cock-chart__action--stake:hover{
+  color: #FFD089;
+  border-color: #FFB85C;
+  box-shadow: 0 0 12px rgba(255,184,92,.30);
+}
+.cock-chart__action-icon{
+  font-size: 11px;
+  line-height: 1;
+}
+.cock-chart__action-lbl{
+  /* mono caps already styled by parent */
+}
+@media (max-width: 600px){
+  .cock-chart__action-lbl{ font-size: 8px; }
+  .cock-chart__action{ padding: 3px 6px; }
+}
+
+/* Markets-roster row logo — smaller variant sitting inline with
+   the subnet name. Per Rondo 2026-05-22 "subnet logos" — visual
+   continuity from chart title → market table row using the same
+   identity glyph. Empty src / 404 falls back to a neutral mark
+   so the layout stays consistent. */
+.cock-fold-mkt__logo{
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 18px;
+  height: 18px;
+  margin-right: 8px;
+  vertical-align: middle;
+  background: rgba(255,30,60,.08);
+  border: 1px solid var(--c-rule-3);
+  overflow: hidden;
+  flex-shrink: 0;
+}
+.cock-fold-mkt__logo img{
+  width: 14px;
+  height: 14px;
+  object-fit: contain;
+  filter: brightness(1.05);
+}
 .cock-chart__sn{
   font-family: var(--f-mono);
   font-size: 13px;

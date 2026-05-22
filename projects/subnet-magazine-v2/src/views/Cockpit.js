@@ -321,6 +321,49 @@ function annotationsFor(subnet){
       out.push({ t, kind: 'cen', title: n.headline, date: n.date, url: n.url });
     }
   } catch (_) { /* newsForSubnet missing or threw — fall through */ }
+
+  /* On-chain timeline events (Rondo 2026-05-22: "timeline on
+     every chart signaling major events on that project"):
+       genesis  → registered_at, the moment the chain accepted
+                  this netuid for the current owner
+       boot     → first_emission_block_number, when α emission
+                  actually started flowing to miners
+     These render in a distinct kind ('chain') so the marker
+     layer can color them differently from editorial flags.
+     Both are guarded — many older subnets don't expose
+     first_emission_block_number in identity_v3. */
+  if (subnet && subnet.registered_at){
+    const t = Date.parse(subnet.registered_at);
+    if (Number.isFinite(t)){
+      out.push({
+        t, kind: 'chain', subkind: 'genesis',
+        title: `Genesis · SN${netuid} registered on chain`,
+        date: subnet.registered_at.slice(0, 10),
+      });
+    }
+  }
+  /* first_emission_block is a Bittensor block number (~12s blocks).
+     Convert to an approximate timestamp by anchoring to a known
+     block→time pair (block 5228683 ≈ 2025-08 mainnet milestone).
+     Approximation — the chart marker is "around this date" not
+     "exactly this date" — but good enough for a timeline pin. */
+  if (subnet && subnet.first_emission_block){
+    const blockN = parseInt(subnet.first_emission_block, 10);
+    if (Number.isFinite(blockN) && blockN > 0){
+      // Anchor: block 8200000 ≈ 2026-05-15 (observed in live data)
+      const ANCHOR_BLOCK = 8200000;
+      const ANCHOR_TIME  = Date.parse('2026-05-15T00:00:00Z');
+      const SEC_PER_BLOCK = 12;
+      const t = ANCHOR_TIME + (blockN - ANCHOR_BLOCK) * SEC_PER_BLOCK * 1000;
+      if (Number.isFinite(t)){
+        out.push({
+          t, kind: 'chain', subkind: 'boot',
+          title: `First emission · block #${blockN.toLocaleString('en-US')}`,
+          date: new Date(t).toISOString().slice(0, 10),
+        });
+      }
+    }
+  }
   return out.sort((x, y) => x.t - y.t);
 }
 
@@ -499,7 +542,7 @@ export function mountCockpit(root, dataLayer = null){
                synthetic data. -->
           <h1 class="cock-chart__h">
             <span class="cock-chart__logo" aria-hidden="true">
-              <img src="${SUBNET_LOGOS[(s.name || '').toLowerCase()] || FALLBACK_LOGO}" alt="" loading="lazy" onerror="this.src='${FALLBACK_LOGO}'">
+              <img src="${s.logo || SUBNET_LOGOS[(s.name || '').toLowerCase()] || FALLBACK_LOGO}" alt="" loading="lazy" onerror="this.src='${FALLBACK_LOGO}'">
             </span>
             <span class="cock-chart__sn">SN${s.netuid}</span>
             <span class="cock-chart__name">${s.name}</span>
@@ -522,6 +565,31 @@ export function mountCockpit(root, dataLayer = null){
             </span>
           </h1>
           <div class="cock-chart__sub">${s.desc || ''} · <span style="color:var(--c-ink-3)">team ${s.owner || '·'}</span></div>
+          <!-- External-action chips: chain explorer + stake CTA +
+               subnet site + github. Per Rondo 2026-05-22 "people
+               should also be able to see the bittensor block
+               explorer and staking information for those who have
+               questions about who to stake with." Every chip opens
+               in a new tab to a canonical surface so the cockpit
+               stays the hub but readers can follow up at any time. -->
+          <div class="cock-chart__actions" role="group" aria-label="External links for SN${s.netuid} ${s.name}">
+            <a class="cock-chart__action cock-chart__action--explorer" href="https://taostats.io/subnets/${s.netuid}/chart" target="_blank" rel="noopener" title="View SN${s.netuid} on taostats.io block explorer">
+              <span class="cock-chart__action-icon" aria-hidden="true">⛓</span>
+              <span class="cock-chart__action-lbl">EXPLORER</span>
+            </a>
+            <a class="cock-chart__action cock-chart__action--stake" href="https://taostats.io/subnets/${s.netuid}/validation" target="_blank" rel="noopener" title="See validators + delegate TAO to SN${s.netuid}">
+              <span class="cock-chart__action-icon" aria-hidden="true">⊕</span>
+              <span class="cock-chart__action-lbl">STAKE / VALIDATORS</span>
+            </a>
+            ${s.url ? `<a class="cock-chart__action" href="${s.url.startsWith('http') ? s.url : 'https://' + s.url}" target="_blank" rel="noopener" title="Open ${s.name} project site">
+              <span class="cock-chart__action-icon" aria-hidden="true">↗</span>
+              <span class="cock-chart__action-lbl">SITE</span>
+            </a>` : ''}
+            ${s.gh ? `<a class="cock-chart__action" href="${s.gh}" target="_blank" rel="noopener" title="Open ${s.name} on GitHub">
+              <span class="cock-chart__action-icon" aria-hidden="true">⌥</span>
+              <span class="cock-chart__action-lbl">GITHUB</span>
+            </a>` : ''}
+          </div>
         </div>
         <!-- Price block — the institutional register. Big white
              price (28px JetBrains Mono, tabular-nums so it doesn't
@@ -811,7 +879,12 @@ export function mountCockpit(root, dataLayer = null){
             <button type="button" class="cock-fold-mkt__star ${starred ? 'is-on' : ''}" data-mkt-star="${x.netuid}" aria-label="${starred ? 'Remove from watchlist' : 'Add to watchlist'}: SN${x.netuid} ${x.name}">★</button>
           </td>
           <td class="cock-fold-mkt__sn">SN${x.netuid}</td>
-          <td class="cock-fold-mkt__name">${x.name}</td>
+          <td class="cock-fold-mkt__name">
+            <span class="cock-fold-mkt__logo" aria-hidden="true">
+              <img src="${x.logo || SUBNET_LOGOS[(x.name || '').toLowerCase()] || FALLBACK_LOGO}" alt="" loading="lazy" onerror="this.src='${FALLBACK_LOGO}'">
+            </span>
+            ${x.name}
+          </td>
           <td class="cock-fold-mkt__cat">${x.cat || '·'}</td>
           <td class="cock-fold-mkt__num">${(x.price || 0).toFixed(x.price < 1 ? 4 : 2)} τ</td>
           <td class="cock-fold-mkt__num ${cls24}">${arr24} ${x.chg24 == null ? '·' : (x.chg24 >= 0 ? '+' : '') + x.chg24.toFixed(1) + '%'}</td>
@@ -1882,25 +1955,30 @@ export function mountCockpit(root, dataLayer = null){
       .filter(a => Number.isFinite(a.t))
       .map(a => {
         const isFreshest = freshestByKind[a.kind] === a;
-        const base = {
-          time: Math.floor(a.t / 1000),
-          color: a.kind === 'mag' ? '#FFB85C' : a.kind === 'orc' ? '#FF4D60' : '#00E5A8',
-          size: 2,
-        };
-        if (a.kind === 'orc'){
-          base.position = 'belowBar';
-          base.shape = 'square';
+        let color, position, shape, text;
+        if (a.kind === 'mag'){
+          color = '#FFB85C'; position = 'aboveBar'; shape = 'circle';
+          if (isFreshest) text = 'MAG';
+        } else if (a.kind === 'orc'){
+          color = '#FF4D60'; position = 'belowBar'; shape = 'square';
+          if (isFreshest) text = 'ORC';
         } else if (a.kind === 'cen'){
-          base.position = 'aboveBar';
-          base.shape = 'arrowUp';
+          color = '#00E5A8'; position = 'aboveBar'; shape = 'arrowUp';
+          if (isFreshest) text = 'CEN';
+        } else if (a.kind === 'chain'){
+          /* Chain events (genesis, first emission) sit BELOW the
+             bar in a distinct mint-cyan so the reader can tell
+             them apart from editorial flags at a glance. */
+          color = '#9CE6CC'; position = 'belowBar';
+          shape = a.subkind === 'genesis' ? 'arrowDown' : 'square';
+          text = a.subkind === 'genesis' ? 'GENESIS' : 'BOOT';
         } else {
-          base.position = 'aboveBar';
-          base.shape = 'circle';
+          color = '#9CA3AF'; position = 'aboveBar'; shape = 'circle';
         }
-        if (isFreshest){
-          base.text = a.kind === 'mag' ? 'MAG' : a.kind === 'orc' ? 'ORC' : 'CEN';
-        }
-        return base;
+        return {
+          time: Math.floor(a.t / 1000),
+          color, position, shape, text, size: 2,
+        };
       })
       .sort((a, b) => a.time - b.time);
     tvAreaSeries.setMarkers(markers);
