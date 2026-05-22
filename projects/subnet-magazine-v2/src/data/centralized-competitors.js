@@ -1124,6 +1124,72 @@ export const COMPETITORS = [
     aliases: ['AKAM'],
   },
   {
+    id: 'akash-network',
+    name: 'Akash Network',
+    ticker: 'AKT',
+    mcap: 400_000_000,
+    source: 'private',
+    sectors: ['infra'],
+    url: 'https://akash.network',
+    why: 'Decentralized cloud computing on Cosmos — supercloud for GPUs + general compute. Direct rival for any subnet pitching blockchain-backed cloud; Akash has 3+ years of GPU marketplace track record + multiple AI customers.',
+    aliases: ['AKT'],
+  },
+  {
+    id: 'sentinel-dvpn',
+    name: 'Sentinel',
+    ticker: 'DVPN',
+    mcap: 40_000_000,
+    source: 'private',
+    sectors: ['infra'],
+    url: 'https://sentinel.co',
+    why: 'Decentralized VPN protocol on Cosmos — incentivized bandwidth nodes worldwide. Direct rival for subnet decentralized-VPN plays; Sentinel proves the dVPN tokenomics pattern works (and where it struggles).',
+    aliases: ['DVPN', 'dVPN'],
+  },
+  {
+    id: 'mysterium-network',
+    name: 'Mysterium Network',
+    ticker: 'MYST',
+    mcap: 25_000_000,
+    source: 'private',
+    sectors: ['infra'],
+    url: 'https://www.mysterium.network',
+    why: 'Decentralized VPN protocol — node operators rent residential bandwidth. Strong rival for subnet "developer-friendly decentralized VPN" pitch; Mysterium has SDK + Android app + 7+ years of operation.',
+    aliases: ['MYST'],
+  },
+  {
+    id: 'ethereum-l1',
+    name: 'Ethereum',
+    ticker: 'ETH',
+    mcap: 350_000_000_000,
+    source: 'private',
+    sectors: ['finance', 'infra'],
+    url: 'https://ethereum.org',
+    why: 'Dominant smart-contract platform — $300B+ TVL across DeFi, NFT, RWA. Direct rival for any "universal transaction layer" pitch; Ethereum + L2s own the smart-contract execution layer the subnet would compete with.',
+    aliases: ['ETH', 'Ethereum L1'],
+  },
+  {
+    id: 'solana',
+    name: 'Solana',
+    ticker: 'SOL',
+    mcap: 70_000_000_000,
+    source: 'private',
+    sectors: ['finance', 'infra'],
+    url: 'https://solana.com',
+    why: 'High-throughput L1 — ~50K TPS theoretical, dominant for memecoin + retail trading. Subnet "transaction layer" plays compete with Solana\'s high-throughput claim + DEX volume.',
+    aliases: ['SOL'],
+  },
+  {
+    id: 'cosmos-network',
+    name: 'Cosmos (ATOM)',
+    ticker: 'ATOM',
+    mcap: 1_800_000_000,
+    source: 'private',
+    sectors: ['infra'],
+    url: 'https://cosmos.network',
+    why: 'Internet of Blockchains — IBC protocol connects 100+ app-chains. Cosmos SDK is the framework many subnet-adjacent infra projects use. Direct rival for "universal transaction layer" subnet plays.',
+    aliases: ['ATOM', 'IBC'],
+  },
+  {
     id: 'helium-network',
     name: 'Helium',
     ticker: 'HNT',
@@ -2678,6 +2744,42 @@ export const BY_NETUID = {
     ],
   },
 
+  /* SN7 Allways — "universal transaction layer" (live identity
+     per taostats 2026-05-22, all-ways.io). Likely targets the
+     cross-chain / universal-execution-layer category. Rival pool:
+     Ethereum + L2s, Solana, Cosmos IBC, LayerZero. */
+  7: {
+    rivals: ['ethereum-l1', 'solana', 'cosmos-network', 'layerzero', 'wormhole', 'chainlink-ccip'],
+    supplyChainIds: ['ethereum-l1-gas', 'chainlink-oracles', 'aws-azure-gcp'],
+    constraints: [
+      {
+        label: 'L1 network-effect lock-in',
+        value: 'Ethereum: $300B+ TVL · Solana: ~$10B',
+        note: 'Smart-contract networks accumulate developer + liquidity flywheels over years. Subnet "universal transaction layer" has to either bootstrap independent network effect (rare) or anchor to existing chains as overlay. Either path is expensive in time + capital.',
+      },
+      {
+        label: 'Transaction-finality SLA',
+        value: 'Solana: ~400ms · Ethereum L1: ~12s · L2s: variable',
+        note: 'Universal transaction layer competing on speed needs sub-second finality. Solana + L2 rollups have engineered to this. Subnet has to either match Solana-grade throughput (hard) or differentiate on cost / interoperability features rather than raw speed.',
+      },
+      {
+        label: 'Validator-set security',
+        value: 'Ethereum: 1M+ validators · Cosmos hubs: ~150',
+        note: 'Network security scales with validator count + stake distribution. Subnet "transaction layer" must explicitly state its security model — running atop Bittensor inherits TAO\'s security, which is significant but smaller than ETH.',
+      },
+      {
+        label: 'Developer tooling depth',
+        value: 'Foundry + Hardhat + Anchor have years of polish',
+        note: 'Real adoption follows developer tools. Ethereum has Foundry, Hardhat, ethers.js; Solana has Anchor; Cosmos has CosmWasm. Subnet new "universal" layer has to ship comparable tooling or accept developer friction kills adoption.',
+      },
+      {
+        label: 'Existing-asset migration cost',
+        value: 'Bridge security still has $2.8B+ in losses',
+        note: 'Convincing users + assets to migrate to a new transaction layer requires bridges with strong security track records. Wormhole, LayerZero have track records (good + bad). New "universal layer" inherits user skepticism.',
+      },
+    ],
+  },
+
   /* SN27 Nodexo — "Decentralized AI compute platform" (live
      identity per taostats 2026-05-22, nodexo.ai). General
      decentralized GPU compute marketplace. Rival pool overlaps
@@ -3679,6 +3781,43 @@ export const BY_NETUID = {
     ],
   },
 
+  /* SN65 TAO Private Network — "Developer-friendly Decentralised
+     VPN infrastructure" (live identity per taostats 2026-05-22,
+     tpn.taofu.xyz). Decentralized VPN for developers + apps.
+     Rival pool: dVPN projects (Sentinel, Mysterium) +
+     centralized privacy VPN incumbents (Mullvad, ProtonVPN). */
+  65: {
+    rivals: ['mullvad', 'proton-vpn', 'nordvpn', 'sentinel-dvpn', 'mysterium-network', 'cloudflare-edge'],
+    supplyChainIds: ['us-power-grids', 'aws-azure-gcp', 'cloudflare-edge'],
+    constraints: [
+      {
+        label: 'dVPN tokenomics history',
+        value: 'DVPN -90% · MYST -85% from peaks',
+        note: 'Both Sentinel + Mysterium token prices collapsed as supply outpaced demand. Subnet TPN inherits the same incentive design tension: α emission creates supply, but consumer demand for VPN is brand-driven not protocol-driven.',
+      },
+      {
+        label: 'No-logs claim verification',
+        value: 'Mullvad audited by Assured AB · ProtonVPN by Securitum',
+        note: 'Privacy VPN trust comes from third-party audits. Mullvad + ProtonVPN publish them; subnet TPN miners running on commodity hardware have weaker no-logs guarantees (any miner could log). Cryptographic attestation needed but raises usability cost.',
+      },
+      {
+        label: 'Streaming-service blocking',
+        value: 'Netflix blocks ~60-80% of VPN IPs',
+        note: 'Consumer VPN demand is largely "watch geo-blocked Netflix." Streaming services blacklist VPN IPs aggressively. Subnet TPN miners on residential IPs may bypass blocks initially but get added to blacklists as scale grows — same problem dVPN ahead.',
+      },
+      {
+        label: 'Mobile-app distribution',
+        value: 'NordVPN + Proton ship native iOS/Android apps',
+        note: 'Consumer VPN is mobile-first. Apple + Google app store policies gate VPN apps tightly. Subnet "developer-friendly" pitch trades off consumer reach — capture developer / app-VPN use cases, not the consumer mass-market.',
+      },
+      {
+        label: 'Bandwidth-per-node economics',
+        value: 'Residential bandwidth: ~$50-100/mo per node',
+        note: 'A VPN node needs upstream bandwidth. Centralized rivals lease hosting bandwidth at scale ($/Mbps). Subnet miners on residential connections have lower upload caps + ISP TOS surface. Capture privacy-sensitive use cases where centralized rivals can\'t serve.',
+      },
+    ],
+  },
+
   /* SN105 Beam — "Decentralized bandwidth. A global network.
      Powering the open internet." (live identity per taostats
      2026-05-22, b1m.ai). Decentralized bandwidth marketplace.
@@ -3712,6 +3851,43 @@ export const BY_NETUID = {
         label: 'Compliance + DDoS mitigation',
         value: 'Cloudflare: ~250 Tbps DDoS capacity',
         note: 'Enterprise customers buy CDN partly for DDoS protection. Cloudflare absorbs multi-Tbps attacks. Subnet decentralized network can absorb in theory via distribution but lacks the centralized incident-response team customers can call during attack.',
+      },
+    ],
+  },
+
+  /* SN128 ByteLeap — "Pioneering the Future of Cloud & Blockchain"
+     (live identity per taostats 2026-05-22, byteleap.ai).
+     Cloud + blockchain integration. Rival pool overlaps SN75
+     Hippius (also blockchain cloud) + the broader L1 / dCloud
+     space. */
+  128: {
+    rivals: ['akash-network', 'filecoin', 'aws-azure-gcp', 'cloudflare-edge', 'amazon-aws-graviton', 'arweave'],
+    supplyChainIds: ['nvidia', 'tsmc', 'sk-hynix', 'aws-azure-gcp', 'us-power-grids'],
+    constraints: [
+      {
+        label: 'Same-niche subnet competition',
+        value: 'SN75 Hippius targets identical category',
+        note: 'Bittensor has both SN75 Hippius + SN128 ByteLeap pursuing "blockchain cloud." Splitting α emission across two similar plays dilutes both. ByteLeap has to differentiate clearly or accept market share splits with Hippius.',
+      },
+      {
+        label: 'Brand recognition gap',
+        value: 'AWS / GCP / Azure dominate cloud-purchasing decisions',
+        note: 'Cloud purchasing decisions are made by CTOs / Heads of Infra who default to hyperscalers. Decentralized cloud (Akash, Filecoin) struggles to break into RFPs. Subnet ByteLeap inherits the same brand-recognition gap; capture crypto-native customers first.',
+      },
+      {
+        label: 'Multi-cloud strategy fit',
+        value: 'Enterprises typically use 2-4 clouds (AWS + GCP + on-prem)',
+        note: 'Real enterprises use multiple clouds. Adding a fourth ("blockchain cloud") increases operational complexity. Subnet has to integrate with existing CI/CD + observability stacks (Datadog, New Relic) or stay as the periphery cloud.',
+      },
+      {
+        label: 'Crypto-native vs enterprise customer demand',
+        value: 'Crypto-native: ~$50M/yr TAM · Enterprise: $300B/yr',
+        note: 'The crypto-native cloud market is small. Subnet has to either dominate the small market (capture Akash + Filecoin share) or break into the enterprise market (huge but requires SOC 2 + compliance posture).',
+      },
+      {
+        label: 'Web3-app deployment surface',
+        value: 'Frontend on Netlify + API on AWS + chain on L2',
+        note: 'Most "Web3 apps" run frontends on Netlify/Vercel, backends on AWS/GCP, smart contracts on L2s. Subnet "blockchain cloud" pitch competes with this status quo — has to either consolidate (one platform for all 3) or specialize on chain-native compute.',
       },
     ],
   },
@@ -3750,6 +3926,43 @@ export const BY_NETUID = {
         label: 'Diversity in training data',
         value: '~80% of public genomic data is European-ancestry',
         note: 'Public genomic datasets skew European ancestry. Models trained on them perform worse on under-represented populations. Centralized rivals (Tempus, Personalis) invest in diversity programs. Subnet "foundational" without explicit diversity programs ships biased models — readers in pharma + public health care.',
+      },
+    ],
+  },
+
+  /* SN75 Hippius — "Blockchain-backed cloud: storage, VMs, and
+     apps with unmatched transparency, trust, and power" (live
+     identity per taostats 2026-05-22, hippius.com). Blockchain
+     cloud (storage + compute + apps). Rival pool: dCloud
+     incumbents (Akash, Filecoin) + traditional hyperscalers. */
+  75: {
+    rivals: ['akash-network', 'filecoin', 'arweave', 'storj', 'aws-azure-gcp', 'amazon-aws-graviton'],
+    supplyChainIds: ['nvidia', 'tsmc', 'sk-hynix', 'aws-azure-gcp', 'us-power-grids'],
+    constraints: [
+      {
+        label: 'Multi-product integration depth',
+        value: 'AWS: 200+ services · subnet: storage + VM + apps',
+        note: 'Real "blockchain cloud" pitches require multiple primitives (storage, compute, networking) integrated tightly. AWS ships 200+ services with deep integrations. Akash has compute; Filecoin has storage. Subnet doing all three has to either ship surface that beats individual specialists or accept a thin product.',
+      },
+      {
+        label: 'On-chain VM economics',
+        value: 'Akash GPU rental: 70-80% cheaper than AWS',
+        note: 'Decentralized cloud wins on price. Akash GPU rentals are 70-80% cheaper than AWS. Subnet has to either match this price advantage (via large miner pool) or differentiate on a feature (privacy, censorship-resistance) that justifies the premium.',
+      },
+      {
+        label: 'Persistent-state durability',
+        value: 'AWS S3: 11 nines of durability · subnet: variable',
+        note: 'Persistent storage requires multi-region replication + decay-resistant encoding. AWS S3 has 99.999999999% durability. Filecoin uses cryptographic proofs of replication. Subnet "transparency" claim has to translate to durability math customers can verify.',
+      },
+      {
+        label: 'Developer-onboarding friction',
+        value: 'AWS CLI + Terraform vs subnet-native tooling',
+        note: 'Real cloud customers use Terraform, Pulumi, AWS CDK. Subnet "blockchain cloud" needs either Terraform providers or native SDKs that match the centralized depth — building this is expensive engineering.',
+      },
+      {
+        label: 'SLA + uptime guarantees',
+        value: 'AWS: 99.99% uptime SLA · subnet: best-effort',
+        note: 'Production customers buy SLAs with credits. Centralized hyperscalers commit + pay. Subnet decentralized infrastructure can\'t commit individual miners to SLAs — capture batch / non-critical workloads or build a centralized SLA wrapper (which weakens decentralization).',
       },
     ],
   },
