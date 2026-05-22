@@ -1768,7 +1768,7 @@ export function mountCockpit(root, dataLayer = null){
       const a = ann;
       const href = a.url || a.href || '';
       const isPdf = /\.pdf(\?|$|#)/i.test(href);
-      const kindLbl = a.kind === 'mag' ? 'MAGAZINE' : a.kind === 'orc' ? 'ORACLE' : 'EDITORIAL';
+      const kindLbl = a.kind === 'mag' ? 'MAGAZINE' : a.kind === 'orc' ? 'ORACLE' : 'COMPETITOR NEWS';
       const kindCls = a.kind === 'mag' ? 'is-mag' : (a.kind === 'orc' ? 'is-orc' : 'is-cen');
       const pdfAttrs = isPdf ? ` data-pdf-url="${escapeAttr(href)}"` : '';
       previewEl.innerHTML = `
