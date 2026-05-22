@@ -1688,6 +1688,44 @@ export const BY_NETUID = {
     ],
   },
 
+  /* SN15 ORO — "AI commerce agents" (live identity per taostats
+     2026-05-22, oroagents.com). Agents that complete commerce
+     tasks — product discovery, comparison, checkout. Rival pool
+     is the centralized AI-commerce stack: Amazon Rufus (in-
+     marketplace agent), Shopify Sidekick, Walmart Sparky,
+     Klarna AI Assistant, plus emerging payments-aware agents. */
+  15: {
+    rivals: ['openai', 'anthropic', 'google', 'meta', 'perplexity', 'replit-agent'],
+    supplyChainIds: ['nvidia', 'aws-azure-gcp', 'cloudflare-edge', 'eth-verifier-gas'],
+    constraints: [
+      {
+        label: 'Marketplace API-gating',
+        value: 'Amazon / Shopify rate-limit non-partner agents',
+        note: 'Amazon Product API + Shopify API both gate by partner tier — third-party agents hit aggressive rate limits unless registered. AI commerce subnets that scrape get blocked or banned. Centralized rivals (Rufus, Sidekick) get unfiltered first-party data.',
+      },
+      {
+        label: 'Checkout fraud surface',
+        value: 'Agent-driven purchases = card-not-present risk',
+        note: 'A commerce agent placing orders with user payment is a card-not-present transaction. Issuers flag autonomous spending; chargeback exposure is the buyer\'s. Centralized rivals integrate with Stripe / PayPal agent SDKs for tokenized purchase intents — subnet has to either match this or accept friction.',
+      },
+      {
+        label: 'Affiliate-attribution capture',
+        value: 'Amazon Associates: 1-10% take-rate',
+        note: 'Comparison agents traditionally monetize via affiliate links (Honey, Capital One Shopping). Amazon caps Associates take at 1-10% by category. Subnet α-emission supplements this but customer-facing economics depend on the same affiliate gates centralized rivals already hold.',
+      },
+      {
+        label: 'Trust + return liability',
+        value: '"Agent bought wrong item" → who eats the return?',
+        note: 'When an agent picks the wrong SKU, the user wants the merchant to take it back. Merchants will start refusing returns on agent-placed orders. Centralized rivals (Rufus) sit inside the marketplace and absorb this — subnet agents living outside have to negotiate it case by case.',
+      },
+      {
+        label: 'Recommendation quality eval',
+        value: 'No ground-truth "best product"',
+        note: 'Unlike code (tests) or translation (BLEU), "best product for this user" has no objective. Subnet validators scoring agent recommendations have to either crowdsource user reviews (slow, expensive) or trust click-through (gameable). Centralized rivals have actual purchase + return data the subnet can\'t access.',
+      },
+    ],
+  },
+
   /* SN24 Quasar — "Bittensor subnet built to crush the long-
      context barrier" (live identity per taostats 2026-05-22,
      silxinc.com). Long-context LLM serving. Rival pool is the
@@ -1835,6 +1873,118 @@ export const BY_NETUID = {
         label: 'Auth/credential surface',
         value: 'Per-user OAuth flows for 100+ services',
         note: 'Tools need user credentials (GitHub, Slack, Notion tokens). Composio handles OAuth + token refresh + rotation. Decentralized MCP subnet either trusts miners with user creds (security regress) or builds an oracle for credential proxying (added latency + complexity).',
+      },
+    ],
+  },
+
+  /* SN36 Eirel — "The execution layer for multimodal AI
+     workflows" (live identity per taostats 2026-05-22,
+     eirel.ai). Workflow orchestration for multimodal pipelines
+     (text + image + audio + video). Rival pool overlaps SN114
+     SOMA (agent infra) but lower-level — closer to LangChain /
+     LlamaIndex / Pipedream territory. */
+  36: {
+    rivals: ['langchain', 'composio', 'anthropic', 'openai', 'replicate', 'modal-labs'],
+    supplyChainIds: ['nvidia', 'aws-azure-gcp', 'cloudflare-edge'],
+    constraints: [
+      {
+        label: 'Cross-modal latency budget',
+        value: 'TTS + STT + image-gen chain: 2-10s',
+        note: 'A multimodal workflow (e.g., voice-to-text → LLM → image-gen → narration) chains 3-5 model calls. Centralized providers (Pipedream, n8n) co-locate; decentralized miners across multiple subnets / regions add 100-500ms per hop. Capture batch / async use cases, not interactive.',
+      },
+      {
+        label: 'Modality-coverage matrix',
+        value: '~12 distinct modal endpoints to support',
+        note: 'Real multimodal workflows touch text, embeddings, images, video, audio (TTS+STT), 3D, code, and PDF/document. Each is a different model + API. LangChain has integration adapters for all 12. Subnet has to either ship adapters per modality or accept that workflows break at the unsupported step.',
+      },
+      {
+        label: 'Output-quality verification',
+        value: 'Multi-stage = compounding error',
+        note: 'A 5-step workflow with 95% per-step success drops to 77% end-to-end. Centralized rivals expose retry / branching policies; subnet workflow validators have to score not just final output but stage-by-stage correctness — that\'s 5x the eval cost.',
+      },
+      {
+        label: 'Workflow-state persistence',
+        value: 'Mid-workflow crashes need durable state',
+        note: 'A workflow that crashes mid-execution needs to resume from the last checkpoint. Centralized rivals run state in Postgres / Redis. Subnet workflow miners running on commodity hardware have to either own the state machine or hand off to a centralized state store, which weakens the decentralization claim.',
+      },
+      {
+        label: 'Asset-handling cost',
+        value: 'Video assets at 100MB-10GB per workflow',
+        note: 'Multimodal workflows pass video / image assets between steps — at scale this is gigabytes of object storage + bandwidth. Cloudflare R2 / AWS S3 win on egress pricing. Subnet workflow nodes running on commodity bandwidth pay 5-20x more per GB; visible in price/workflow.',
+      },
+    ],
+  },
+
+  /* SN47 EvolAI — "A subnet focused on the research,
+     development, and evaluation of evolving AI systems" (live
+     identity per taostats 2026-05-22). Evolutionary methods +
+     research-loop automation. Rival pool overlaps with Sakana
+     AI (evolutionary methods) + the auto-research labs. */
+  47: {
+    rivals: ['sakana-ai', 'openai', 'anthropic', 'google', 'meta', 'hugging-face'],
+    supplyChainIds: ['nvidia', 'tsmc', 'sk-hynix', 'aws-azure-gcp', 'us-power-grids'],
+    constraints: [
+      {
+        label: 'Evolutionary compute scale',
+        value: '1K-100K candidate evaluations per generation',
+        note: 'Evolutionary methods need thousands of candidate model evals to converge. Sakana published "Evolutionary Model Merge" at this scale. Subnet has to either crowdsource the eval compute or differentiate on novel fitness functions that need fewer evaluations.',
+      },
+      {
+        label: 'Research-loop reproducibility',
+        value: 'Same seed, different hardware → different results',
+        note: 'GPU non-determinism (atomic ops, kernel selection) means same seed produces different results across miners. Centralized labs run single-cluster reproducibility; decentralized subnet has to either accept the variance or ship a deterministic kernel suite — both have costs.',
+      },
+      {
+        label: 'Population diversity collapse',
+        value: 'Top-k selection kills diversity at gen ~10-50',
+        note: 'Classical evolutionary algorithms collapse to one strain after 10-50 generations of top-k selection. Sakana addresses via diversity-preservation + island models. Subnet validator scoring has to make diversity a first-class metric or watch all miners converge on one solution.',
+      },
+      {
+        label: 'Result-verification burden',
+        value: 'Centralized labs hold the reference benchmarks',
+        note: 'Frontier labs (Anthropic, OpenAI, Google) publish their own results on benchmarks they themselves curate. Independent verification is hard. Subnet "evolving AI" claims need to land on independently-reproducible benchmarks or readers can\'t trust the leaderboard.',
+      },
+      {
+        label: 'IP / publication norms',
+        value: 'Anonymous miners can\'t publish papers',
+        note: 'Academic + industry-research norms expect named authors + institutional affiliation. Decentralized miners producing real research can\'t take credit without doxxing. Sakana publishes openly; subnet authorship convention is unclear — affects which talent will mine vs publish.',
+      },
+    ],
+  },
+
+  /* SN82 Compelle — "AIs debate until they are AGI" (live
+     identity per taostats 2026-05-22, compelle.com). Multi-
+     agent debate / argumentation as a path to capability. Rival
+     pool is constitutional-AI labs + multi-agent research labs +
+     debate-format competitors. */
+  82: {
+    rivals: ['anthropic', 'openai', 'google', 'meta', 'sakana-ai', 'mistral'],
+    supplyChainIds: ['nvidia', 'tsmc', 'sk-hynix', 'aws-azure-gcp'],
+    constraints: [
+      {
+        label: 'Debate-as-alignment evidence',
+        value: 'Anthropic + DeepMind have mixed results',
+        note: 'DeepMind\'s "AI safety via debate" + Anthropic\'s constitutional-AI both lean on multi-agent argumentation. Published results show modest gains over single-model RLHF — not a path to AGI on its own. Subnet "AGI via debate" claim has to either reproduce known gains or differentiate on new mechanism.',
+      },
+      {
+        label: 'Judge-LLM dependency',
+        value: 'Outcome depends on the judge model',
+        note: 'Debate quality is measured by a judge LLM picking the winner. The judge\'s biases (self-preference, refusal patterns) dominate the metric. Centralized rivals (Anthropic) rotate judges + use human eval; subnet must either crowdsource judges (expensive) or accept judge-bias confound.',
+      },
+      {
+        label: 'Compute per debate round',
+        value: '2-N LLM calls per turn × 10-100 turns',
+        note: 'A multi-turn N-agent debate burns N×turns LLM calls plus judge calls per round. At 10 turns × 2 agents × 1 judge = 30 LLM calls per debate. Subnet validator scoring has to amortize this somehow or only the largest miners can afford participation.',
+      },
+      {
+        label: 'Argumentation vs reasoning',
+        value: 'Persuasive ≠ correct',
+        note: 'A model trained to win debates learns persuasion, not correctness — known result from OpenAI\'s "debate" experiments. Subnet has to score truth + soundness, not just rhetoric. That requires a ground-truth oracle for the debate topic, which doesn\'t exist for open-ended AGI claims.',
+      },
+      {
+        label: 'AGI claim verification',
+        value: 'No accepted benchmark for "AGI"',
+        note: 'There is no industry-standard "AGI test." ARC-AGI, MMLU, GPQA, Humanity\'s Last Exam each capture slices. Subnet "until they are AGI" framing has no terminating condition — the magazine\'s editorial register has to treat this as ambitious framing rather than a deliverable.',
       },
     ],
   },
