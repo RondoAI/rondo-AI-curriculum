@@ -2119,78 +2119,84 @@ export const BY_NETUID = {
     ],
   },
 
-  /* SN59 AgentArena — Agent-vs-agent benchmark arena for tool
-     use and planning. Rivals are the centralized agent
-     evaluation platforms. LMSYS Chatbot Arena is the gold
-     standard for human-vote ranking; Scale AI + Patronus +
-     Lakera + Robust Intelligence run the enterprise eval
-     stack; Evidently is the open-source offline-eval anchor. */
+  /* SN59 Babelbit — Decentralized translation LLMs (live
+     identity per taostats subnet_identities_v3 2026-05-22;
+     local subnets.js still carried the stale "AgentArena"
+     name and is queued for correction). Rivals are the
+     translation-grade LLMs + the long-tail translation
+     services that enterprise readers benchmark against.
+     DeepL still leads on European-pair quality + privacy;
+     Google Translate is the consumer floor; OpenAI/Anthropic
+     dominate code-switched / cultural-context translation;
+     Meta No Language Left Behind (NLLB-200) is the low-resource
+     language anchor. */
   59: {
-    rivals: ['lmsys-chatbot-arena', 'scale-ai', 'patronus-ai', 'lakera', 'robust-intelligence', 'evidently-ai'],
-    supplyChainIds: ['nvidia', 'aws-azure-gcp'],
+    rivals: ['openai', 'anthropic', 'google', 'meta', 'cohere'],
+    supplyChainIds: ['nvidia', 'aws-azure-gcp', 'tsmc', 'sk-hynix'],
     constraints: [
       {
-        label: 'Eval cost per agent run',
-        value: '$0.10-$1+ per matchup',
-        note: 'Each agent vs. agent matchup burns tokens on both sides plus a judge LLM. Centralized rivals (LMSYS) crowdsource human votes — effectively free judging. Subnet validators paying judge-token costs need a defensible reward structure to stay solvent.',
+        label: 'Low-resource language gap',
+        value: '50+ languages with <1M training tokens',
+        note: 'Meta NLLB-200 covers 200 languages but quality below the top 30 falls off a cliff. Frontier LLMs (GPT-4o, Claude 3.7) cover ~50 well. Subnet has to either match the frontier on the common pairs or chase the long tail where centralized rivals don\'t care enough to invest.',
       },
       {
-        label: 'Benchmark contamination',
-        value: '6-12 month leak cycle',
-        note: 'Published agent benchmarks (SWE-bench, GAIA, AgentBench) leak into training data within 6-12 months of release. Frontier labs train against them, scores inflate, ranking becomes meaningless. Subnet must rotate held-out test sets faster than centralized rivals refresh.',
+        label: 'BLEU / COMET score gaming',
+        value: 'Reward hacks the reference text',
+        note: 'Translation scoring uses BLEU (n-gram overlap with reference) or COMET (learned metric). Both can be hacked — miners learn to produce reference-like output rather than meaning-faithful translation. Subnet validator design has to mix automated scoring with human / LLM-as-judge eval.',
       },
       {
-        label: 'Task realism vs. reproducibility',
-        value: 'Real-world tasks are stochastic',
-        note: 'Synthetic agent tasks (calculator chains, function calls) are reproducible but feel toy. Real tasks (book a flight, refactor a repo) carry external state — different runs hit different prices / repo states. Subnet ranking has to control for this or readers won\'t trust the leaderboard.',
+        label: 'Privacy & data residency',
+        value: 'GDPR / China data laws bite hard',
+        note: 'Enterprise translation customers (legal, medical, finance) can\'t send documents to OpenAI / Google due to data-residency rules. DeepL Pro markets exactly this gap. Subnet has the SAME compliance surface — miner-side data leaks kill enterprise revenue.',
       },
       {
-        label: 'Judge-LLM bias',
-        value: 'Self-preferencing measured at 5-15%',
-        note: 'GPT-4 judging GPT-4 outputs vs Claude: documented self-preference bias. Subnet arenas using a single judge LLM inherit its biases; using a panel of judges multiplies eval cost. LMSYS sidesteps via human vote — subnet must either crowdsource humans or rotate judges.',
+        label: 'Latency for real-time translation',
+        value: '200-400ms p95 for chat / video',
+        note: 'Live translation (subtitling, chat, calls) needs sub-400ms p95 latency. Frontier API providers hit this; subnet inference adds miner-validator round trips. Cuts subnet out of the highest-margin live-translation segment unless inference is co-located.',
       },
       {
-        label: 'Tool-use surface coverage',
-        value: '100+ distinct tools in production agents',
-        note: 'Real agents use search, code-exec, file-read, browsers, APIs, vector DBs, payment rails. A benchmark covering 5 tools is a toy; covering 100 needs an environment harness as complex as the agents themselves. Centralized rivals (Scale AI) charge enterprise prices for these harnesses.',
+        label: 'Cultural-context evaluation',
+        value: 'No standard metric for cultural fidelity',
+        note: 'Translation isn\'t just word-mapping — idiom, register, cultural reference, gender systems all matter. No automated metric catches this. Centralized rivals invest in human eval at scale; subnet has to crowdsource native-speaker validators or accept that BLEU misses the hard part.',
       },
     ],
   },
 
-  /* SN81 PatRouter — Routing agent, picks best model+price
-     per prompt across all subnets. Rivals are the LLM
-     aggregators / routers that READERS would compare against:
-     OpenRouter is THE direct rival, Together / Replicate /
-     Cohere all run model marketplaces, Perplexity has
-     internal routing for its search products. */
-  81: {
-    rivals: ['openrouter', 'together-ai', 'replicate', 'cohere', 'perplexity'],
+  /* SN61 RedTeam by Innerworks — Cybersecurity competitive
+     programming (live identity per taostats 2026-05-22;
+     local subnets.js had the stale "Red-Team Labs" + science
+     cat). The platform incentivizes miners to develop and
+     submit security solutions to technical challenges.
+     Rivals are the security AI + bug-bounty platforms +
+     red-team-as-a-service shops the customer comes from. */
+  61: {
+    rivals: ['robust-intelligence', 'lakera', 'patronus-ai', 'scale-ai', 'hive-ai'],
     supplyChainIds: ['nvidia', 'aws-azure-gcp', 'cloudflare-edge'],
     constraints: [
       {
-        label: 'Routing latency budget',
-        value: 'Adds 50-200ms per prompt',
-        note: 'OpenRouter measures own routing overhead at ~80ms p50. A subnet router does miner-discovery + price-discovery + model-call — easily 150-250ms before the model even sees the prompt. For chat UIs (200-400ms total budget) that\'s a meaningful tax.',
+        label: 'Vuln-disclosure ethics',
+        value: 'CVE coordination + 90-day windows',
+        note: 'Bug-bounty programs run coordinated disclosure — find a vuln, file with vendor, public CVE after fix. Subnet incentivizes finding + submitting — but premature on-chain publication of an unpatched vuln is a real-world legal + ethical surface. Validator scoring has to gate disclosure.',
       },
       {
-        label: 'Cost-arbitrage half-life',
-        value: 'Provider price spreads compress monthly',
-        note: 'OpenRouter\'s margin survived because providers (Together, Fireworks, Anyscale) maintained pricing spreads. As they competed those spreads compressed to <10% on commodity models. Subnet router has the same exposure: arbitrage value drops as Bittensor inference subnets converge on a price.',
+        label: 'Bug-bounty $ vs subnet emission',
+        value: 'HackerOne payouts: $500-$50K per crit',
+        note: 'Top white-hats earn six figures from HackerOne / Bugcrowd / Immunefi. Subnet emission has to either match cash rates for top-tier vulns or accept second-tier hunters. The talent-attraction math is brutal at the top end of the security stack.',
       },
       {
-        label: 'Quality-routing scoring',
-        value: 'No standard "best model" metric',
-        note: 'Cheapest is easy. Fastest is easy. "Best quality for this prompt" requires per-task scoring — and prompts vary wildly. PatRouter has to either ship a quality predictor (more LLM cost) or default to cheapest-that-works, in which case it\'s an OpenRouter clone.',
+        label: 'Code-execution sandbox cost',
+        value: 'Isolated VM per submitted challenge',
+        note: 'Running miner-submitted security code against test challenges needs proper isolation — escape-proof sandboxes, ephemeral compute. Centralized rivals (Robust Intelligence) own this infra. Subnet validators have to either run sandboxes themselves (cost) or trust miner-attested execution (security regress).',
       },
       {
-        label: 'Provider lock-in / rate limits',
-        value: 'Sudden API changes break routing',
-        note: 'Anthropic, OpenAI, Together publish rate limits + pricing — all can change with 30-day notice. Subnet router decisions cached on old prices route badly when prices flip. Real-time price discovery costs an API call per route — adds latency.',
+        label: 'AI-generated exploit risk',
+        value: 'Dual-use weaponization concern',
+        note: 'A subnet that competitively trains models to find exploits ALSO trains them to write exploits at scale. Centralized rivals navigate this via internal-use policies + employee NDAs. Decentralized subnet — by definition open — has to address the dual-use surface in validator rules or face regulatory pressure.',
       },
       {
-        label: 'Meta-position vs other subnets',
-        value: 'Routes ACROSS Apex/Targon/Cortex.t/etc',
-        note: 'PatRouter is meta-layered on the same chain — its mining incentive depends on the underlying subnets it routes to staying healthy. If Apex or Targon deregister, PatRouter\'s routing pool shrinks. Centralized rivals don\'t carry this intra-ecosystem dependency.',
+        label: 'Challenge-set freshness',
+        value: 'Public CVE feed staleness',
+        note: 'Training on yesterday\'s CVEs teaches yesterday\'s patterns. Real attackers find tomorrow\'s. Subnet must rotate challenge sets faster than the public CVE feed — which means a curation team that\'s itself a security org, with its own talent cost.',
       },
     ],
   },
