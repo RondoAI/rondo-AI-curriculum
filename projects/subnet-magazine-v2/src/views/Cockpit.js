@@ -1655,15 +1655,15 @@ export function mountCockpit(root, dataLayer = null){
       priceFormat: { type: 'price', precision: 4, minMove: 0.0001 },
     });
     tvMa20Series = tvChart.addLineSeries({
-      color: 'rgba(156,230,204,0.75)',
-      lineWidth: 1,
+      color: 'rgba(156,230,204,0.85)',
+      lineWidth: 2,
       priceLineVisible: false,
       lastValueVisible: false,
       crosshairMarkerVisible: false,
     });
     tvMa50Series = tvChart.addLineSeries({
-      color: 'rgba(232,192,103,0.70)',
-      lineWidth: 1,
+      color: 'rgba(232,192,103,0.85)',
+      lineWidth: 2,
       lineStyle: LWC.LineStyle.Dashed,
       priceLineVisible: false,
       lastValueVisible: false,
@@ -1821,7 +1821,7 @@ export function mountCockpit(root, dataLayer = null){
       return {
         time: Math.floor(b.t / 1000),
         value: b.volume || 0,
-        color: up ? 'rgba(0,229,168,0.40)' : 'rgba(255,77,109,0.40)',
+        color: up ? 'rgba(0,229,168,0.55)' : 'rgba(255,77,109,0.55)',
       };
     });
     const allCloses = chartSeries.map(b => b.close);
