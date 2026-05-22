@@ -883,6 +883,91 @@ export const COMPETITORS = [
     aliases: ['OpenRouter.ai'],
   },
 
+  /* ---------- Software engineering agents (SN62 Ridges / SN66 ninja / SN11 TrajectoryRL) ----------
+     The 2026 SWE-agent space is consolidating fast. Three
+     buckets the readers will compare against:
+       1. Editor-resident copilots (Cursor, Codeium, GitHub
+          Copilot, Claude Code) — agent runs inside the IDE/CLI.
+       2. Autonomous SWE agents (Cognition Devin, Replit Agent)
+          — agent given a task, returns a PR or running app.
+       3. RL-trained agent foundries (Sakana AI) — labs
+          producing agent-policy weights via evolutionary / RL
+          methods. */
+  {
+    id: 'cursor',
+    name: 'Cursor (Anysphere)',
+    ticker: 'PRIVATE',
+    mcap: 10_000_000_000,
+    source: 'private',
+    sectors: ['agents', 'text'],
+    url: 'https://www.cursor.com',
+    why: 'Editor-resident AI pair programmer — fastest-growing dev tool of 2024-2025, ~$10B valuation by mid-2025. Default rival for any subnet shipping coding agents; readers comparing decentralized SWE agents have to clear the Cursor benchmark (latency, accuracy, repo-context handling).',
+    aliases: ['Anysphere'],
+  },
+  {
+    id: 'cognition-devin',
+    name: 'Cognition (Devin)',
+    ticker: 'PRIVATE',
+    mcap: 2_000_000_000,
+    source: 'private',
+    sectors: ['agents'],
+    url: 'https://devin.ai',
+    why: 'Autonomous software engineer that turns tickets into PRs end-to-end — Devin agent runs in cloud VM, edits code, runs tests, opens reviews. The "agent does the whole job" benchmark — what subnet SWE agents are explicitly building toward.',
+    aliases: ['Devin'],
+  },
+  {
+    id: 'github-copilot',
+    name: 'GitHub Copilot',
+    ticker: 'MSFT',
+    mcap: 3_400_000_000_000,
+    source: 'public',
+    sectors: ['agents', 'text'],
+    url: 'https://github.com/features/copilot',
+    why: 'Microsoft-owned, deepest install base — ~2M paid seats, ships Workspace + Autofix + Agent modes. Distribution moat (every GitHub PR can opt in) is the hardest centralized advantage decentralized SWE subnets have to overcome.',
+    aliases: ['Copilot'],
+  },
+  {
+    id: 'claude-code',
+    name: 'Claude Code',
+    ticker: 'PRIVATE',
+    mcap: null,
+    source: 'private',
+    sectors: ['agents', 'text'],
+    url: 'https://www.anthropic.com/claude-code',
+    why: 'Anthropic\'s terminal-native coding agent — sits in the user\'s shell with full FS + bash + git access, executes multi-step code tasks. Strong rival for SWE-agent subnets because the integration surface is shell-level, not editor-extension-level.',
+  },
+  {
+    id: 'replit-agent',
+    name: 'Replit Agent',
+    ticker: 'PRIVATE',
+    mcap: 1_200_000_000,
+    source: 'private',
+    sectors: ['agents'],
+    url: 'https://replit.com/site/agent',
+    why: 'Browser-resident autonomous agent — describes app idea in plain English, agent builds + deploys it. The "anyone can ship" tier of agent tooling. Decentralized agents have to either match the zero-setup UX or differentiate on cost/customization.',
+  },
+  {
+    id: 'codeium-windsurf',
+    name: 'Codeium / Windsurf',
+    ticker: 'PRIVATE',
+    mcap: 1_500_000_000,
+    source: 'private',
+    sectors: ['agents', 'text'],
+    url: 'https://codeium.com',
+    why: 'Free-tier-aggressive AI code editor — captured the "Cursor is too expensive" tier of dev tools. Windsurf launched the "Cascade" agent mode in 2024. Subnet SWE agents need to clear the free-tier Codeium baseline to attract individual devs.',
+    aliases: ['Codeium', 'Windsurf'],
+  },
+  {
+    id: 'sakana-ai',
+    name: 'Sakana AI',
+    ticker: 'PRIVATE',
+    mcap: 1_500_000_000,
+    source: 'private',
+    sectors: ['agents', 'training'],
+    url: 'https://sakana.ai',
+    why: 'Tokyo lab pioneering evolutionary + RL methods for agent + model training — the "AI Scientist" agent that runs ML research end-to-end. Direct rival for any subnet training agent policies via RL on trajectories; Sakana publishes weights + papers, raising the public bar.',
+  },
+
   /* ---------- AI cybersecurity / model security (RedTeam + Bitsec profiles) ----------
      The centralized AI-security stack that decentralized red-team
      + exploit-finding subnets compete with. Three sub-segments:
@@ -1424,6 +1509,125 @@ export const BY_NETUID = {
         label: 'Time-to-first-checkpoint',
         value: 'Centralized: minutes · Subnet: hours-days',
         note: 'AutoTrain / Together return a checkpoint in 10-60 minutes for typical LoRA jobs. Subnet finetune competitions run for 12-48 hours by design (multi-miner training rounds). That latency gap is the centralized rival\'s primary moat.',
+      },
+    ],
+  },
+
+  /* SN11 TrajectoryRL — "Agentic RL as a Service, Optimize
+     agent trajectories to make agents cheaper, safer, and more
+     reliable" (live identity per taostats 2026-05-22, trajrl.com;
+     local subnets.js had stale "Dippy roleplay" row). Trains
+     agent policies via RL on trajectories. Direct rivals are
+     the labs that produce agent weights through similar methods
+     (Sakana, OpenAI o-series, DeepMind) plus the autonomous
+     SWE-agent shops (Cognition Devin) the customer would pay
+     instead. */
+  11: {
+    rivals: ['sakana-ai', 'openai', 'anthropic', 'google', 'cognition-devin', 'meta'],
+    supplyChainIds: ['nvidia', 'aws-azure-gcp', 'tsmc', 'sk-hynix'],
+    constraints: [
+      {
+        label: 'RL compute scaling',
+        value: '~$1M-$10M per policy run',
+        note: 'OpenAI o1 + DeepSeek-R1 training runs cost millions in GPU-hours. Sakana publishes papers showing comparable results via population-based methods at lower cost. Subnet has to either crowd-source the compute to match or differentiate on trajectory diversity that closed labs lack.',
+      },
+      {
+        label: 'Trajectory diversity reward',
+        value: 'Mode collapse at 10K-100K samples',
+        note: 'RL on a single objective collapses to the local optimum. Centralized rivals address this with sampled diverse environments; subnet validators have to score trajectory diversity as a first-class metric or watch miners converge on one strategy.',
+      },
+      {
+        label: 'Safety eval cost',
+        value: 'Per-trajectory red-team passes',
+        note: 'Anthropic + OpenAI run constitutional-AI + red-team eval on every checkpoint. Subnet "make agents safer" claim requires the same overhead — either every miner runs safety eval (expensive) or validators randomly sample (cheaper, but coverage drops).',
+      },
+      {
+        label: 'Environment realism',
+        value: 'Sim-to-real gap kills deployment',
+        note: 'Toy environments (CartPole, BabyAI) don\'t transfer to real agent tasks (browsing, code, customer support). Centralized labs use proprietary internal benchmarks. Subnet has to either ship a public environment harness with real-task coverage or accept that trained policies don\'t generalize.',
+      },
+      {
+        label: 'Reward-hacking surface',
+        value: '50%+ of RL agents find specification gaps',
+        note: 'Per DeepMind/Anthropic safety research: most RL agents discover unintended reward-hacks. Subnet "make agents safer" claim requires validator scoring that catches this — but specifying reward-hack-resistance is itself an open research problem.',
+      },
+    ],
+  },
+
+  /* SN62 Ridges — "Software Engineering Agents" (live identity
+     per taostats 2026-05-22, ridges.ai). Builds + trains agents
+     that complete software engineering tasks end-to-end. The
+     rival pool is the consolidated 2026 SWE-agent stack — Cursor
+     leading editor-resident, Cognition Devin leading autonomous,
+     GitHub Copilot leading distribution, Claude Code leading
+     terminal-native. */
+  62: {
+    rivals: ['cognition-devin', 'cursor', 'github-copilot', 'claude-code', 'replit-agent', 'codeium-windsurf'],
+    supplyChainIds: ['nvidia', 'aws-azure-gcp', 'tsmc', 'sk-hynix'],
+    constraints: [
+      {
+        label: 'SWE-bench accuracy bar',
+        value: 'Top closed agents at 70%+',
+        note: 'OpenAI + Anthropic + Cognition all report 70%+ on SWE-bench Verified. Subnet SWE agents have to either match this or differentiate on a benchmark the closed shops haven\'t saturated. Public scores compress fast — by mid-2026 70%+ is table stakes.',
+      },
+      {
+        label: 'Repo-context cost',
+        value: '$0.50-$5 per resolved issue',
+        note: 'Devin\'s cost-per-task is ~$2-5 (200K context + multi-turn + tests). Cursor / Copilot subsidize via subscriptions. Subnet miners earn α-emission, but the customer-facing cost has to undercut the centralized agents to capture the long-tail of devs who can\'t justify $20/mo.',
+      },
+      {
+        label: 'PR-quality gates',
+        value: 'CI-pass rate < 50% for autonomous PRs',
+        note: 'Devin + GitHub Copilot Workspace ship PRs that pass CI ~30-50% on first try. Higher rates require human review. Subnet validator scoring has to enforce CI-pass (and ideally tests-added) before crediting a miner, or the readers chase metrics that don\'t translate to merged PRs.',
+      },
+      {
+        label: 'Tool-use surface',
+        value: 'shell + git + browser + APIs',
+        note: 'Real SWE agents need shell (run tests, install deps), git (branches, rebases), browser (docs lookup), and 3rd-party APIs (CI, code review). Building + maintaining this harness is real engineering — Cognition\'s VM stack took ~18 months. Subnet miners running locally need a portable equivalent.',
+      },
+      {
+        label: 'Security surface of autonomous code-exec',
+        value: 'Prompt-injection in user repos',
+        note: 'A SWE agent reading a malicious README can be tricked into exfiltrating secrets, opening RCE PRs, or breaking CI. Cognition + Anthropic gate via sandboxing + human review. Decentralized subnet agents on commodity miner hardware have a weaker sandbox story; readers care.',
+      },
+    ],
+  },
+
+  /* SN66 ninja — "Distilling software agents" (live identity
+     per taostats 2026-05-22, ninja.arbos.life). Compresses
+     large agent policies into smaller, cheaper, faster models
+     via distillation. Rival pool is the model-distillation
+     space (Together / HuggingFace / DeepSeek for distillation
+     infra) plus the SWE-agent shops whose closed-source
+     teacher models are what customers want distilled. */
+  66: {
+    rivals: ['together-ai', 'hugging-face', 'replicate', 'modal-labs', 'cognition-devin', 'cursor'],
+    supplyChainIds: ['nvidia', 'aws-azure-gcp', 'tsmc', 'sk-hynix'],
+    constraints: [
+      {
+        label: 'Teacher-model access licensing',
+        value: 'GPT-4 / Claude ToS forbids distillation',
+        note: 'OpenAI + Anthropic ToS explicitly prohibit using their outputs to train competing models. Distillation subnets that scrape teacher outputs face legal risk; Together AI + HuggingFace distill only from open-license models (Llama, Mistral) and ship within those licenses.',
+      },
+      {
+        label: 'Distillation-loss eval cost',
+        value: 'Need teacher + student inference per sample',
+        note: 'Knowledge-distillation training runs teacher inference on every batch — doubles GPU cost. Centralized shops amortize via internal pricing; subnet miners pay full inference cost on miner hardware. Eval-loss-gaming surface (rule #2 from SN56 Gradients) applies double here.',
+      },
+      {
+        label: 'Capability gap retention',
+        value: 'Small students lose long-tail',
+        note: 'A 7B student of a 70B teacher matches median tasks but loses long-tail (reasoning, multi-step planning). For agent tasks specifically, long-tail is where the value sits. Distilled subnet agents need explicit eval on the agent-specific long-tail to communicate the trade-off honestly.',
+      },
+      {
+        label: 'Quantization vs distillation',
+        value: 'INT4 quant captures 80% of distillation gains',
+        note: 'Llama.cpp + GGUF quantization deliver most of the small-model speedup with less engineering. Subnet must either justify why distillation beats off-the-shelf quantization on the specific task family or accept that the customer takes the cheaper quant path.',
+      },
+      {
+        label: 'Distilled-agent safety surface',
+        value: 'Loses RLHF alignment fidelity',
+        note: 'Distilling a teacher\'s outputs loses the RLHF + constitutional fine-tuning that made the teacher safe. Distilled agents act with less safety conditioning unless the subnet adds explicit safety distillation. Anthropic publishes constitutional-AI methods — subnet can adopt, but the eval burden grows.',
       },
     ],
   },
