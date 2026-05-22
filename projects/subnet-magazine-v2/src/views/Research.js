@@ -529,6 +529,127 @@ const CSS = `
   transition: border-color .12s ease-out;
 }
 .rsh-art__src a:hover{ border-bottom-color: var(--c-red-1, #FF4D60); }
+
+/* ===== Article hero scorecard + inline infographics ============
+   Added 2026-05-22 for the Glasswing piece. Both fields are
+   purely OPTIONAL on the OracleArticle schema; an article without
+   hero or infographics renders exactly as before. */
+.rsh-art__hero{
+  margin: 14px 0 22px;
+  padding: 18px clamp(14px, 3vw, 22px);
+  border: 1px solid rgba(255,30,60,.32);
+  background: linear-gradient(180deg, rgba(255,30,60,.07) 0%, rgba(0,0,0,0) 100%);
+  border-radius: 2px;
+}
+.rsh-art__hero-head{
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-bottom: 14px;
+  font-family: var(--f-mono, monospace);
+  font-size: 10.5px;
+  letter-spacing: .08em;
+}
+.rsh-art__hero-eyebrow{ color: var(--c-red-1, #FF4D60); font-weight: 600; }
+.rsh-art__hero-cohort{ color: var(--c-ink-4, #9C7A82); }
+.rsh-art__hero-attrib{
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 3px 8px;
+  border: 1px solid rgba(217,119,87,.5);
+  border-radius: 2px;
+  color: #E89A7A;
+  background: rgba(217,119,87,.08);
+  font-family: var(--f-mono, monospace);
+  font-size: 9.5px;
+  letter-spacing: .1em;
+  font-weight: 600;
+}
+.rsh-art__hero-attrib::before{
+  content: "";
+  display: inline-block;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: #D97757;
+}
+.rsh-art__hero-stats{
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 10px;
+}
+@media (max-width: 820px){
+  .rsh-art__hero-stats{ grid-template-columns: repeat(2, 1fr); }
+}
+.rsh-art__hero-stat{
+  padding: 12px 10px;
+  background: rgba(0,0,0,.42);
+  border: 1px solid rgba(255,30,60,.18);
+  border-radius: 2px;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+.rsh-art__hero-stat--em{
+  border-color: rgba(255,30,60,.5);
+  background: rgba(255,30,60,.06);
+}
+.rsh-art__hero-stat--anth{
+  border-color: rgba(217,119,87,.55);
+  background: rgba(217,119,87,.06);
+}
+.rsh-art__hero-stat--anth .rsh-art__hero-stat-lbl{ color: #E89A7A; }
+.rsh-art__hero-stat-num{
+  font-family: var(--f-mono, monospace);
+  font-size: clamp(20px, 3.4vw, 26px);
+  font-weight: 600;
+  color: #fff;
+  letter-spacing: -.02em;
+  line-height: 1;
+  word-break: break-word;
+}
+.rsh-art__hero-stat-unit{
+  font-size: .65em;
+  color: var(--c-ink-4, #9C7A82);
+  margin-left: 1px;
+}
+.rsh-art__hero-stat-lbl{
+  font-family: var(--f-mono, monospace);
+  font-size: 9.5px;
+  color: var(--c-red-1, #FF4D60);
+  letter-spacing: .08em;
+  font-weight: 600;
+}
+.rsh-art__hero-stat-sub{
+  font-family: var(--f-mono, monospace);
+  font-size: 10px;
+  color: var(--c-ink-4, #9C7A82);
+  line-height: 1.35;
+}
+.rsh-art__infographic{
+  margin: 24px 0 8px;
+  border: 1px solid rgba(255,30,60,.25);
+  border-radius: 2px;
+  background: #0a0306;
+  overflow: hidden;
+}
+.rsh-art__infographic-svg{ line-height: 0; }
+.rsh-art__infographic-svg svg{
+  display: block;
+  width: 100%;
+  height: auto;
+}
+.rsh-art__infographic-cap{
+  padding: 10px 14px;
+  font-family: var(--f-mono, monospace);
+  font-size: 11px;
+  line-height: 1.45;
+  color: var(--c-ink-3, #C7B5BA);
+  background: rgba(255,30,60,.04);
+  border-top: 1px solid rgba(255,30,60,.12);
+}
 `;
 
 function injectStyle(){
@@ -585,12 +706,44 @@ function articleHtml(a){
     : 'Ecosystem State';
   const kindCls = a.kind === 'ecosystem-state' ? ' rsh-art__kind--ecosystem' : '';
 
-  const sectionsHtml = (a.sections || []).map(s => `
-    <section class="rsh-art__sec">
-      <h3 class="rsh-art__sec-h">${escapeHtml(s.h)}</h3>
-      <p class="rsh-art__sec-body">${escapeHtml(s.body)}</p>
-    </section>
-  `).join('');
+  /* Build optional infographic injection map. The OracleArticle
+     schema supports an `infographics` array, each entry of which
+     specifies an `afterSection` index (0-based) and a `svg` string.
+     The renderer inserts the infographic block after the matching
+     section. Sections without a matching infographic render exactly
+     as before. */
+  const igByAfter = new Map();
+  if (Array.isArray(a.infographics)){
+    for (const ig of a.infographics){
+      if (typeof ig.afterSection !== 'number') continue;
+      const arr = igByAfter.get(ig.afterSection) || [];
+      arr.push(ig);
+      igByAfter.set(ig.afterSection, arr);
+    }
+  }
+
+  const sectionsHtml = (a.sections || []).map((s, idx) => {
+    const igs = igByAfter.get(idx) || [];
+    const igHtml = igs.map(ig => `
+      <figure class="rsh-art__infographic">
+        <div class="rsh-art__infographic-svg">${ig.svg || ''}</div>
+        ${ig.caption ? `<figcaption class="rsh-art__infographic-cap">${escapeHtml(ig.caption)}</figcaption>` : ''}
+      </figure>
+    `).join('');
+    return `
+      <section class="rsh-art__sec">
+        <h3 class="rsh-art__sec-h">${escapeHtml(s.h)}</h3>
+        <p class="rsh-art__sec-body">${escapeHtml(s.body)}</p>
+      </section>${igHtml}
+    `;
+  }).join('');
+
+  /* Optional hero block — top-of-article scorecard panel. Trusted
+     HTML from the data file (no user input ever reaches here).
+     Articles without `hero` render exactly as before. */
+  const heroHtml = a.hero
+    ? `<div class="rsh-art__hero-wrap">${a.hero}</div>`
+    : '';
 
   const sourcesHtml = (a.sources && a.sources.length) ? `
     <div class="rsh-art__src">
@@ -639,6 +792,7 @@ function articleHtml(a){
         <div class="rsh-art__attr">
           <span class="rsh-art__attr-by">⊕ filed by ${filer}</span>
         </div>
+        ${heroHtml}
         ${sectionsHtml}
         ${sourcesHtml}
         ${pdfHtml}
