@@ -542,7 +542,7 @@ export function mountCockpit(root, dataLayer = null){
                synthetic data. -->
           <h1 class="cock-chart__h">
             <span class="cock-chart__logo" aria-hidden="true">
-              <img src="${s.logo || SUBNET_LOGOS[(s.name || '').toLowerCase()] || FALLBACK_LOGO}" alt="" loading="lazy" onerror="this.src='${FALLBACK_LOGO}'">
+              <img src="${SUBNET_LOGOS[(s.name || '').toLowerCase()] || FALLBACK_LOGO}" alt="" loading="lazy" onerror="this.src='${FALLBACK_LOGO}'">
             </span>
             <span class="cock-chart__sn">SN${s.netuid}</span>
             <span class="cock-chart__name">${s.name}</span>
@@ -881,7 +881,7 @@ export function mountCockpit(root, dataLayer = null){
           <td class="cock-fold-mkt__sn">SN${x.netuid}</td>
           <td class="cock-fold-mkt__name">
             <span class="cock-fold-mkt__logo" aria-hidden="true">
-              <img src="${x.logo || SUBNET_LOGOS[(x.name || '').toLowerCase()] || FALLBACK_LOGO}" alt="" loading="lazy" onerror="this.src='${FALLBACK_LOGO}'">
+              <img src="${SUBNET_LOGOS[(x.name || '').toLowerCase()] || FALLBACK_LOGO}" alt="" loading="lazy" onerror="this.src='${FALLBACK_LOGO}'">
             </span>
             ${x.name}
           </td>
