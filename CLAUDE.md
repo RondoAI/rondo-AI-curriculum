@@ -3494,3 +3494,163 @@ your stash@{0} P0 freeze fix or stash@{1} P1 DESK deletion.
 The blank bug is P-1 (above P0) — Rondo's phone is currently
 unusable for the cockpit, so this needs to land before the
 freeze fix and DESK deletion. Sandbox standing by.
+
+## CONST Founder Feedback — Direct from the founder of Bittensor (2026-05-22) ⭐ BINDING
+
+Saved by Rondo's instruction, 2026-05-22. Rondo showed the site to
+**const (Jacob Robert Steeves, founder of Bittensor / OpenTensor
+Foundation)** and got direct feedback. This is the most consequential
+piece of user research the project has received — the verdict from
+the literal target reader.
+
+Screenshot:
+  projects/subnet-magazine-v2/docs/inspiration/2026-05-22-const-founder-feedback.jpg
+
+### What const said (verbatim, faithful)
+
+  POSITIVE:
+    "This is sweet"
+    "Im actually really impressed" ❤️
+    "Looks dope"
+    "Never seen anyone properly code the E8 object before" ❤️
+    [responded with 💯 reaction]
+
+  NEGATIVE:
+    "Negative feedback: it's a bit overwhelming i couldn't figure
+     out what i was supposed to do on the website"
+
+### Why this matters
+
+1. **E8 VALIDATION.** const recognized the NodeSphere brand mark
+   as a properly-coded E8 polytope root-system projection. This is
+   not generic praise — it is the founder of the platform
+   acknowledging mathematical rigor in our brand. Keep the
+   NodeSphere. It is now a documented signature. Touch it only with
+   extreme care; the E8 lattice math (240-vertex Coxeter-plane
+   projection) is now a binding visual brand asset, not just a
+   pretty graphic.
+
+2. **THE NEGATIVE IS THE FOUNDATIONAL UX FINDING.** const said
+   exactly what Rondo has said four times in two days — "too many
+   options / too many things going on / scrolling is too long /
+   people cannot read through all this." The founder of Bittensor
+   independently confirmed Rondo's read. This is no longer a
+   stylistic preference; it is the binding UX direction.
+
+3. **THE QUESTION IS NOT "WHAT IS THIS" — IT IS "WHAT DO I DO."**
+   const understood what the magazine IS (he liked the E8, the
+   research-terminal positioning, the look). What he could not
+   determine was the NEXT ACTION. That is a classic landing-page
+   diagnostic: the value prop landed, the call to action did not.
+
+### What const SAW (what's visible in the screenshot)
+
+The screenshot shows the homepage above-the-fold viewport on his
+phone:
+  - STATUS STRIP (LIVE · BLK · EMIT · STAKED)
+  - MASTHEAD (Subneτ Magazine · subnet markets · validator
+    analytics · editorial coverage · FRI 22 MAY 2026 ·
+    @subnetmagazine)
+  - HERO with E8 NodeSphere + kicker + headline + philosophy quote
+  - SUBNET ORACLE dock (Console.js) docked at the bottom
+
+What he DIDN'T see (or didn't process as a CTA):
+  - The hero's "OPEN TERMINAL <GO>" and "ORACLE RESEARCH" CTAs
+    (Hero.js:67-70) — they live BELOW the philosophy quote, which
+    on a 414×900-ish phone viewport is below the fold AND directly
+    above the visually-dominant Subnet Oracle dock. Two competing
+    surfaces neutralize each other.
+  - Everything in Home.js below the hero (Featured Research grid,
+    Subnets index, Briefings list, etc.)
+
+### The decision-grade fix (the binding response)
+
+The cure is NOT "polish what's there." It is to commit to ONE
+CLEAR NEXT ACTION above the fold on every phone.
+
+  1. HOMEPAGE — single dominant CTA, above the fold, with a
+     clear payoff line. Options to consider:
+       (a) "OPEN TERMINAL →" + sub-label "Live markets · 53 subnets
+           · daily briefings"
+       (b) "START WITH SUBNET 4" + a guided tour of one subnet
+       (c) "30-SECOND TOUR" auto-play walkthrough
+     Recommended (a) — it matches the Bloomberg/Phoenix register
+     we're modeling and routes the reader to the actual product.
+     The ghost ORACLE RESEARCH CTA can stay but should be visually
+     subordinate (smaller, no border, just a text link).
+
+  2. KILL THE PHILOSOPHY QUOTE FROM THE HERO (or shrink it
+     dramatically). It's beautiful copy but it pushes the CTA
+     below the fold on phones. Move it BELOW the CTA, or move it
+     to an /about page entirely. The hero's job is "what is this +
+     what do I do," not "here is our editorial position."
+
+  3. ADD A "NEW HERE?" ribbon at the very top of the hero with a
+     guided 3-step path:
+       1. Pick a subnet  →  2. Read its market  →  3. See research
+     Each step is a clickable hand-off to the actual surface. The
+     ribbon dismisses + persists in localStorage so returning
+     readers don't see it.
+
+  4. THE COCKPIT (mac's lane) needs the same treatment from the
+     other end — the deletions Rondo already named (Valuation
+     Ladder, Sector Tilt, Mark-to-market τ, Category Breakdown,
+     etc.) are part of this same fix. The "overwhelming" feedback
+     is one continuous problem from homepage to cockpit; both ends
+     need the cure.
+
+  5. SUBNET ORACLE DOCK (sandbox's lane) — the dock currently
+     dominates the bottom of the viewport on first load. Consider
+     starting it MINIMIZED (chevron only, no expanded tab row)
+     until the reader has either tapped it OR completed the
+     3-step homepage path. The dock is value when the reader
+     wants help; it's noise when they're trying to orient.
+
+### Sandbox is now drafting the homepage CTA + payoff fix
+
+Per workflow rule, sandbox owns Hero.js / Home.js / Console.js
+and can push directly. Sandbox will ship in a follow-up commit:
+  - Hero rebuild with dominant CTA above the fold
+  - Philosophy quote relocated below the CTA (still on page,
+    just not blocking the next action)
+  - "NEW HERE?" 3-step onboarding ribbon
+  - Console dock starts collapsed-by-default on first visit
+
+Mac picks up the cockpit end (already in flight via the
+deletion + chart sidebar work). Both ends converge on the
+"one clear next action" cure.
+
+### What stays sacred
+
+The NodeSphere E8 graphic. const recognized + praised it. It is
+now BINDING brand asset, not a decorative element. Any future
+push that touches NodeSphere.js or the E8 root-system math must
+preserve the math exactly — node count, edge density, and the
+Coxeter-plane projection. The visual signature that landed with
+the founder of Bittensor stays.
+
+### Sandbox → Mac coordination ask
+
+Mac: the const feedback above is binding context for every
+remaining cockpit decision. When you ship the blank-bug fix +
+DESK deletion + chart-pane sidebar, ALL of those serve the
+single goal const named: "make it clear what the reader should
+do." Specifically:
+
+  - The DESK pane deletion isn't just decluttering — it's removing
+    a tab that competed with CHART for the reader's attention.
+    Single-pane workspace = singular next action.
+  - The chart-pane sidebar (NETWORK VITALS / PORTFOLIO MIX /
+    TOP-DRAG / WHAT YOU'RE SEEING) needs the "WHAT YOU'RE SEEING"
+    narration block prioritized. That block answers the exact
+    question const asked. Mac may want to ship that block FIRST
+    in the P2 salvage push, even if the other two panels come
+    later. Narration is the answer.
+  - The CMC pattern (chart mode toggle + holdings table) means
+    the cockpit becomes a SINGLE workspace, not a multi-tab
+    flytrap. Stay the course.
+
+Sandbox ships homepage CTA pass next. Mac confirms receipt of
+this binding context + continues the cockpit cleanup. Both
+sessions can credit const's feedback in their next commit body
+so the validation moment is in the git record.
