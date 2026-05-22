@@ -1024,6 +1024,150 @@ export const COMPETITORS = [
     why: 'Tokyo lab pioneering evolutionary + RL methods for agent + model training — the "AI Scientist" agent that runs ML research end-to-end. Direct rival for any subnet training agent policies via RL on trajectories; Sakana publishes weights + papers, raising the public bar.',
   },
 
+  /* ---------- 3D content generation (SN17 404-GEN profile) ----------
+     The 3D-from-text space is the next frontier after 2D image
+     generation — 2024-2025 saw the first commercially usable
+     models. Three centralized leaders set the bar. */
+  {
+    id: 'luma-ai',
+    name: 'Luma AI',
+    ticker: 'PRIVATE',
+    mcap: 800_000_000,
+    source: 'private',
+    sectors: ['vision', 'video'],
+    url: 'https://lumalabs.ai',
+    why: 'Genie (text-to-3D) + Dream Machine (text-to-video) — the highest-quality consumer 3D + video generation as of 2026. ~$70M Series B. Direct rival for 3D-generation subnets; readers comparing decentralized 3D should know Luma is the quality bar.',
+    aliases: ['Luma', 'Genie', 'Dream Machine'],
+  },
+  {
+    id: 'tripo3d',
+    name: 'Tripo3D / VAST AI',
+    ticker: 'PRIVATE',
+    mcap: 150_000_000,
+    source: 'private',
+    sectors: ['vision'],
+    url: 'https://www.tripo3d.ai',
+    why: 'Open-source-friendly text-to-3D from VAST AI, with usable mesh output for game engines. Hugging Face TripoSR available free. Subnet 3D-gen has to compete with this baseline for asset-creation customers.',
+    aliases: ['Tripo', 'VAST AI', 'TripoSR'],
+  },
+  {
+    id: 'meshy',
+    name: 'Meshy',
+    ticker: 'PRIVATE',
+    mcap: 200_000_000,
+    source: 'private',
+    sectors: ['vision'],
+    url: 'https://www.meshy.ai',
+    why: 'Text-to-3D + texture generation for game / film production. Tight Blender integration. ~$20M Series A. Closest enterprise rival for any subnet pitching 3D assets to game studios.',
+  },
+  {
+    id: 'nvidia-omniverse',
+    name: 'NVIDIA Omniverse',
+    ticker: 'NVDA',
+    mcap: 3_500_000_000_000,
+    source: 'public',
+    sectors: ['vision'],
+    url: 'https://www.nvidia.com/en-us/omniverse',
+    why: 'NVIDIA\'s industrial 3D + simulation platform — USD-based scenes with AI-driven generation. Powers digital twins for BMW, Siemens, etc. Subnet 3D-gen routes to game / consumer; Omniverse owns the industrial tier and increasingly the generative pipeline.',
+    aliases: ['Omniverse'],
+  },
+
+  /* ---------- Video generation + talking-head (SN99 Leoma, SN108 TalkHead) ---------- */
+  {
+    id: 'openai-sora-v2',
+    name: 'OpenAI Sora',
+    ticker: 'PRIVATE',
+    mcap: 350_000_000_000, // valuation context — OpenAI broader
+    source: 'private',
+    sectors: ['video'],
+    url: 'https://openai.com/sora',
+    why: 'OpenAI\'s text-to-video model — Sora generates minute-long 1080p clips with strong physics coherence. The quality + integration moat (ChatGPT Plus access) sets the consumer bar for video-generation subnets.',
+    aliases: ['Sora'],
+  },
+  {
+    id: 'google-veo',
+    name: 'Google Veo',
+    ticker: 'GOOGL',
+    mcap: 2_500_000_000_000,
+    source: 'public',
+    sectors: ['video'],
+    url: 'https://deepmind.google/technologies/veo',
+    why: 'Google DeepMind\'s text-to-video — Veo 3 ships 4K 60fps with audio. Distribution through YouTube Studio. Decentralized video-gen subnets compete with the YouTube creator-tools install base.',
+    aliases: ['Veo', 'Veo 3'],
+  },
+  {
+    id: 'kling-ai',
+    name: 'Kling AI (Kuaishou)',
+    ticker: 'PRIVATE',
+    mcap: 23_000_000_000, // Kuaishou parent
+    source: 'public',
+    sectors: ['video'],
+    url: 'https://klingai.com',
+    why: 'Kuaishou\'s text-to-video model — strongest video-gen quality outside US labs as of 2026, with 10s+ generation and strong motion physics. Subnet has to either match Kling on quality or differentiate on integration / cost.',
+    aliases: ['Kling'],
+  },
+  {
+    id: 'hailuo-ai',
+    name: 'Hailuo AI (MiniMax)',
+    ticker: 'PRIVATE',
+    mcap: 2_500_000_000,
+    source: 'private',
+    sectors: ['video'],
+    url: 'https://hailuoai.com',
+    why: 'MiniMax\'s text-to-video — fast-shipping Chinese AI lab. T2V-01-Director model in 2025 with camera-motion controls. Decentralized video-gen subnets compete with MiniMax\'s rapid iteration cadence.',
+    aliases: ['MiniMax', 'Hailuo'],
+  },
+  {
+    id: 'pika-labs',
+    name: 'Pika Labs',
+    ticker: 'PRIVATE',
+    mcap: 700_000_000,
+    source: 'private',
+    sectors: ['video'],
+    url: 'https://pika.art',
+    why: 'Consumer-grade video generation — image-to-video + lip-sync + scene-control. ~$135M raised. The "TikTok creator who wants to ship a video" tier. Subnet has to clear the Pika UX bar to capture creator volume.',
+  },
+  {
+    id: 'heygen',
+    name: 'HeyGen',
+    ticker: 'PRIVATE',
+    mcap: 500_000_000,
+    source: 'private',
+    sectors: ['video'],
+    url: 'https://www.heygen.com',
+    why: 'AI avatar + talking-head video platform — 300+ avatars, 100+ languages, lip-sync from arbitrary script. Default rival for any subnet generating presenter-style video. ~$60M Series A.',
+  },
+  {
+    id: 'synthesia',
+    name: 'Synthesia',
+    ticker: 'PRIVATE',
+    mcap: 2_100_000_000,
+    source: 'private',
+    sectors: ['video'],
+    url: 'https://www.synthesia.io',
+    why: 'Enterprise AI avatar platform — 230+ avatars, used by Fortune 500 for training / comms videos. ~$180M Series D. The enterprise talking-head incumbent; subnet has to either match production quality or differentiate on cost-per-minute.',
+  },
+  {
+    id: 'd-id',
+    name: 'D-ID',
+    ticker: 'PRIVATE',
+    mcap: 200_000_000,
+    source: 'private',
+    sectors: ['video'],
+    url: 'https://www.d-id.com',
+    why: 'Real-time talking-head generation from a single photo — strong API offering for chat / customer-service avatars. Direct rival for any subnet shipping live-talking-head generation.',
+  },
+  {
+    id: 'tavus',
+    name: 'Tavus',
+    ticker: 'PRIVATE',
+    mcap: 220_000_000,
+    source: 'private',
+    sectors: ['video'],
+    url: 'https://www.tavus.io',
+    why: 'Personalized AI video at scale — Phoenix-3 (real-time conversational video), Hummingbird (lip-sync). YC backed, ~$18M Series A. Strong rival for talking-head subnets pitching personalization.',
+  },
+
   /* ---------- AI cybersecurity / model security (RedTeam + Bitsec profiles) ----------
      The centralized AI-security stack that decentralized red-team
      + exploit-finding subnets compete with. Three sub-segments:
@@ -1688,6 +1832,43 @@ export const BY_NETUID = {
     ],
   },
 
+  /* SN17 404—GEN — "a decentralized 3D content generation
+     competition" (live identity per taostats 2026-05-22,
+     404.xyz). Text-to-3D model competition. Rival pool is the
+     2024-2026 consumer 3D-gen leaders (Luma, Tripo, Meshy)
+     plus the industrial-3D incumbent (NVIDIA Omniverse). */
+  17: {
+    rivals: ['luma-ai', 'tripo3d', 'meshy', 'nvidia-omniverse', 'stability-ai', 'adobe'],
+    supplyChainIds: ['nvidia', 'tsmc', 'sk-hynix', 'aws-azure-gcp'],
+    constraints: [
+      {
+        label: 'Mesh-quality vs. token-cost',
+        value: 'Luma Genie: $0.10-$0.50 per gen',
+        note: 'Luma + Tripo charge per generation. The quality bar (clean topology, UV unwrap, mesh resolution) is what game studios pay for. Subnet 3D-gen miners on commodity hardware have to either match topology cleanliness or ship faster + cheaper for prototyping use cases.',
+      },
+      {
+        label: 'Generation latency',
+        value: 'Luma: 1-3 min · Subnet target: <5 min',
+        note: 'Text-to-3D inference takes 1-10 minutes for usable assets. Centralized providers run on H100/H200 clusters. Subnet miners on consumer GPUs (4090, A100) typically run 3-10x slower per gen — visible in the producer\'s wait time.',
+      },
+      {
+        label: 'Game-engine integration',
+        value: 'USD / glTF / FBX export expected',
+        note: 'Real customers (game studios, AR/VR shops) want assets ready for Unity / Unreal / Blender / Spline. NVIDIA Omniverse owns USD-native pipelines. Subnet 3D-gen has to ship format adapters or stay in the "concept art" tier of use cases.',
+      },
+      {
+        label: 'IP / training-data licensing',
+        value: 'Sketchfab / TurboSquid data is restricted',
+        note: 'Commercial-grade 3D model training data is locked behind license (Sketchfab paid, TurboSquid royalty-free). Subnet miners scraping for training data face IP risk. Luma trains on properly licensed corpora; subnet competing on quality has to source data the same way.',
+      },
+      {
+        label: 'Eval beyond visual quality',
+        value: 'Topology / animation-ready / physics needs',
+        note: 'A pretty render doesn\'t make a usable asset — game studios need clean topology, rigged skeletons, physics-friendly meshes. Subnet validators scoring visual quality only ship pretty thumbnails; scoring TOPOLOGY needs a Blender-style mesh-quality metric the team has to author.',
+      },
+    ],
+  },
+
   /* SN15 ORO — "AI commerce agents" (live identity per taostats
      2026-05-22, oroagents.com). Agents that complete commerce
      tasks — product discovery, comparison, checkout. Rival pool
@@ -1985,6 +2166,78 @@ export const BY_NETUID = {
         label: 'AGI claim verification',
         value: 'No accepted benchmark for "AGI"',
         note: 'There is no industry-standard "AGI test." ARC-AGI, MMLU, GPQA, Humanity\'s Last Exam each capture slices. Subnet "until they are AGI" framing has no terminating condition — the magazine\'s editorial register has to treat this as ambitious framing rather than a deliverable.',
+      },
+    ],
+  },
+
+  /* SN99 Leoma — "Decentralized Video Generation Platform"
+     (live identity per taostats 2026-05-22, leoma.ai). Text-to-
+     video generation. Rival pool is the 2025-2026 video-gen
+     leaderboard: Sora, Veo, Kling, Hailuo, Pika, Runway. */
+  99: {
+    rivals: ['openai-sora-v2', 'google-veo', 'kling-ai', 'hailuo-ai', 'pika-labs', 'runway'],
+    supplyChainIds: ['nvidia', 'tsmc', 'sk-hynix', 'aws-azure-gcp', 'us-power-grids'],
+    constraints: [
+      {
+        label: 'Generation cost',
+        value: 'Sora: ~$0.20-$2 per minute · Veo: comparable',
+        note: 'Frontier video gen runs $0.20-$2 per generated minute on consumer tiers. Subnet miners on commodity GPUs pay more (smaller batch, less optimized kernels) — capture the cost-sensitive long-tail or accept margin compression.',
+      },
+      {
+        label: 'Motion-physics coherence',
+        value: 'Sora + Veo 3 lead; long-tail collapses',
+        note: 'The hard problem in 2026 isn\'t image quality but multi-second motion coherence (objects persist, physics behaves). Sora + Veo + Kling lead; open-source alternatives (Mochi, CogVideoX) drop measurably at 5s+. Subnet has to either match leader coherence or accept short-clip-only positioning.',
+      },
+      {
+        label: 'Audio + lip-sync integration',
+        value: 'Veo 3 ships audio; Sora doesn\'t (yet)',
+        note: 'Video-gen quality bar moved past silent clips — Veo 3 + Hailuo ship native audio + sound effects. Subnet video-gen without audio integration produces less-usable output; readers feel the gap.',
+      },
+      {
+        label: 'Safety / deepfake guardrails',
+        value: 'Centralized rivals refuse celeb / minor likeness',
+        note: 'Sora + Veo + Kling reject celebrity / political / minor face prompts. Subnet "open" generation inherits the deepfake / CSAM / election-misuse surface. Validator design has to gate this or face platform-level bans (App Store, Play Store, EU AI Act).',
+      },
+      {
+        label: 'Watermarking + provenance',
+        value: 'C2PA Content Credentials becoming default',
+        note: 'OpenAI, Google, Adobe, Microsoft all signed onto C2PA Content Credentials for generative provenance. Subnet output without C2PA metadata gets flagged downstream (social platforms strip / hide) — capture this in spec or readers ship un-shareable content.',
+      },
+    ],
+  },
+
+  /* SN108 TalkHead — "Talking Head Generation" (live identity
+     per taostats 2026-05-22). Lip-sync talking-head video
+     generation. Rival pool is dominated by HeyGen / Synthesia /
+     D-ID / Tavus — these own the enterprise + consumer surfaces. */
+  108: {
+    rivals: ['heygen', 'synthesia', 'd-id', 'tavus', 'openai-sora-v2', 'google-veo'],
+    supplyChainIds: ['nvidia', 'aws-azure-gcp', 'tsmc'],
+    constraints: [
+      {
+        label: 'Avatar-library breadth',
+        value: 'Synthesia 230 · HeyGen 300+ avatars',
+        note: 'Enterprise customers expect a curated avatar library — different ethnicities, ages, business attire, casual, multilingual lip-sync. Centralized rivals invest in licensed-actor capture. Subnet has to either crowdsource avatars (legal + quality risk) or focus on user-supplied photos.',
+      },
+      {
+        label: 'Real-time vs. async generation',
+        value: 'Tavus Phoenix-3 + D-ID stream live; subnet typically async',
+        note: 'Real-time talking-head (conversational AI avatars) requires <300ms per frame. Tavus + D-ID run this on dedicated GPU clusters. Subnet inference miners with variable latency can\'t guarantee real-time — capture pre-generated video market, not live-call avatars.',
+      },
+      {
+        label: 'Voice-cloning licensing',
+        value: 'Voice IP rights getting tightened (SAG-AFTRA, EU)',
+        note: 'Cloning a voice without consent is now regulatory (SAG-AFTRA contracts, EU AI Act, Tennessee ELVIS Act). HeyGen + ElevenLabs require voice-owner verification. Subnet without strong consent verification ships into a regulatory headwind.',
+      },
+      {
+        label: 'Deepfake-misuse surface',
+        value: 'Identity-theft + non-consensual content',
+        note: 'Talking-head generation enables identity-theft scams + non-consensual intimate imagery. Centralized rivals run watchlists + face-similarity bans against public figures. Subnet "open" generation inherits this — validator scoring has to gate or readers face the same App Store / EU bans as image-gen.',
+      },
+      {
+        label: 'Enterprise integration depth',
+        value: 'Synthesia: SCORM / LMS export + brand kits',
+        note: 'Synthesia + HeyGen ship SCORM exports for corporate LMS (Cornerstone, Workday), brand-kit color/font enforcement, multi-stakeholder review workflows. Subnet talking-head output without these features is the "raw video" tier; enterprise customers stay with centralized rivals for the platform.',
       },
     ],
   },
