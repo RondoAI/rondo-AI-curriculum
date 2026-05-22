@@ -1308,6 +1308,62 @@ export const COMPETITORS = [
     aliases: ['LINK', 'CCIP'],
   },
   {
+    id: 'benevolent-ai',
+    name: 'BenevolentAI',
+    ticker: 'BAI',
+    mcap: 60_000_000,
+    source: 'public',
+    sectors: ['science'],
+    url: 'https://www.benevolent.com',
+    why: 'AI drug discovery — knowledge graph + ML approach. London-listed (AMS:BAI). Multiple Phase 2 programs (BEN-2293 for atopic dermatitis). Direct rival for subnet drug-discovery plays in the small-molecule space.',
+    aliases: ['BAI'],
+  },
+  {
+    id: 'ibm',
+    name: 'IBM',
+    ticker: 'IBM',
+    mcap: 230_000_000_000,
+    source: 'public',
+    sectors: ['infra', 'science'],
+    url: 'https://www.ibm.com',
+    why: 'Big Blue — quantum (IBM Quantum 1,121-qubit Condor), enterprise AI (Granite + watsonx), classical optimization (CPLEX). Subnet plays touching enterprise AI / quantum / optimization compete with IBM\'s decades of customer relationships.',
+    delta24h: 0.3,
+    aliases: ['IBM Quantum', 'watsonx'],
+  },
+  {
+    id: 'd-wave',
+    name: 'D-Wave Quantum',
+    ticker: 'QBTS',
+    mcap: 3_500_000_000,
+    source: 'public',
+    sectors: ['infra', 'science'],
+    url: 'https://www.dwavequantum.com',
+    why: 'Quantum annealing pioneer — Advantage system at 5000+ qubits. Specializes in optimization (max-clique, TSP). Direct rival for subnet "max clique solver" plays; D-Wave already ships max-clique benchmarks on real hardware.',
+    delta24h: 1.2,
+    aliases: ['QBTS'],
+  },
+  {
+    id: 'gurobi',
+    name: 'Gurobi Optimization',
+    ticker: 'PRIVATE',
+    mcap: 500_000_000,
+    source: 'private',
+    sectors: ['science', 'data'],
+    url: 'https://www.gurobi.com',
+    why: 'Industry-standard mathematical optimization solver — MILP, MIQP, MIQCP. Used by 80%+ of Fortune 500 for supply-chain + scheduling problems. Subnet "clique solver" pitches face Gurobi\'s decades of solver engineering as the baseline.',
+  },
+  {
+    id: 'personalis',
+    name: 'Personalis',
+    ticker: 'PSNL',
+    mcap: 350_000_000,
+    source: 'public',
+    sectors: ['science', 'data'],
+    url: 'https://www.personalis.com',
+    why: 'Precision-oncology genomics — NeXT Personal MRD assay, ImmunoID NeXT. Direct rival for "foundational layer of genomics" subnet plays in the clinical-trial + cancer-monitoring market.',
+    aliases: ['PSNL'],
+  },
+  {
     id: 'numerai',
     name: 'Numerai',
     ticker: 'NMR',
@@ -2389,6 +2445,44 @@ export const BY_NETUID = {
     ],
   },
 
+  /* SN26 Perturb — "Decentralized adversarial robustness
+     network" (live identity per taostats 2026-05-22,
+     perturbai.io). Adversarial-robustness testing for ML
+     models. Rival pool overlaps SN61 RedTeam but the cut is
+     different: Perturb targets robustness specifically (model
+     resilience to adversarial inputs), not general security. */
+  26: {
+    rivals: ['robust-intelligence', 'lakera', 'patronus-ai', 'hiddenlayer', 'adversa-ai', 'protect-ai'],
+    supplyChainIds: ['nvidia', 'aws-azure-gcp'],
+    constraints: [
+      {
+        label: 'Attack-method generation cost',
+        value: 'CW / PGD / FGSM attacks require gradients',
+        note: 'Strong adversarial attacks (Carlini-Wagner, PGD, FGSM) require model-gradient access. Black-box attacks need query budgets. Subnet miners producing novel attacks need either model weights (license risk) or thousands of queries (compute cost) — both gate participation.',
+      },
+      {
+        label: 'Defense-attack arms race',
+        value: 'Each defense paper triggers new attack within ~3 months',
+        note: 'The adversarial ML field is an arms race — defenses (adversarial training, randomized smoothing) get broken by new attacks in weeks-to-months. Subnet "robustness network" has to ship continuously or land in the historic-knowledge tier.',
+      },
+      {
+        label: 'Eval-benchmark consistency',
+        value: 'ImageNet-A / RobustBench / OOD-bench all measure differently',
+        note: 'Adversarial robustness is benchmark-dependent. RobustBench, ImageNet-C, OOD-bench all measure different things. Subnet validator scoring has to either commit to one benchmark (limits coverage) or ship a multi-bench suite (more eval cost).',
+      },
+      {
+        label: 'Model-licensing for robustness testing',
+        value: 'Open weights ≠ open evaluation',
+        note: 'Frontier models (GPT-4, Claude 3.7) ship via API only — robustness testing requires API queries, not weights. ToS often forbids "competitive evaluation." Subnet robustness testing has to either test open-weights models only (limits relevance) or risk ToS violations.',
+      },
+      {
+        label: 'Real-world attack surface',
+        value: 'Academic attacks don\'t always transfer',
+        note: 'Most academic adversarial attacks (Lp-bounded perturbations) don\'t reflect real-world attacks (typo / paraphrasing / image filters). Robust Intelligence + Lakera focus on real-world threats. Subnet has to either match real-world attack catalog or accept academic-only relevance.',
+      },
+    ],
+  },
+
   /* SN25 Mainframe — "Powering decentralized science on
      Bittensor" (live identity per taostats 2026-05-22,
      macrocosmos.ai/sn25). Macrocosmos\' general decentralized
@@ -3058,6 +3152,44 @@ export const BY_NETUID = {
     ],
   },
 
+  /* SN55 NIOME — "decentralized AI subnet that enables privacy-
+     safe genomic intelligence by replacing real human genomes
+     with high-fidelity synthetic genomic profiles" (live identity
+     per taostats 2026-05-22, niome.genomes.io). Synthetic genomics
+     for privacy-preserving research. Rival pool is the clinical-
+     genomics + synthetic-data space. */
+  55: {
+    rivals: ['tempus-ai', 'illumina', 'personalis', '23andme', 'atomwise', 'recursion-pharma'],
+    supplyChainIds: ['nvidia', 'aws-azure-gcp', 'us-power-grids'],
+    constraints: [
+      {
+        label: 'Synthetic-genome fidelity',
+        value: 'Real genomes: 3B base pairs · synthetic: must match population statistics',
+        note: 'Generating useful synthetic genomes requires matching real population structure (LD patterns, allele frequencies, structural variants). Easy at low fidelity, hard at the clinical-trial bar. Subnet validator scoring on "high-fidelity" has to specify the population-statistics tests.',
+      },
+      {
+        label: 'Privacy-utility tradeoff',
+        value: 'k-anonymity vs. statistical power',
+        note: 'Privacy-preserving genomics must obscure individual identity while preserving statistical signal. K-anonymity / differential privacy degrade research utility. Centralized rivals (Tempus, Personalis) keep real data internal + share aggregates; subnet has to navigate the same tradeoff transparently.',
+      },
+      {
+        label: 'HIPAA / GDPR / GINA compliance',
+        value: 'Genomic data has special-category status',
+        note: 'US (GINA, HIPAA), EU (GDPR Art. 9 special category), UK Bio bank policies all treat genomic data as ultra-sensitive. Subnet generating synthetic data doesn\'t solve this — derived synthetic data still inherits the source\'s privacy framework. Legal opinion + DPIA needed.',
+      },
+      {
+        label: 'Source-data licensing',
+        value: 'UK Biobank: ~£24K access fee + DUA',
+        note: 'Real reference genomes for training (UK Biobank, All of Us, gnomAD) require formal data-use agreements + access fees. Subnet miners need licensed access or face IP risk. Centralized rivals build dedicated procurement teams.',
+      },
+      {
+        label: 'Clinical-utility validation',
+        value: 'Synthetic genome → real trial replication needed',
+        note: 'Synthetic data is valid for research only if results replicate on real data. Centralized rivals run validation studies. Subnet "synthetic for privacy" needs published validation that synthetic-trained models work on real patients or pharma customers stay with real data.',
+      },
+    ],
+  },
+
   /* SN67 Harnyx — "Deep research as a commodity. Faster, cheaper,
      traceable research — produced by a competitive swarm of
      miners on Bittensor SN67." (live identity per taostats
@@ -3170,6 +3302,41 @@ export const BY_NETUID = {
     ],
   },
 
+  /* SN68 NOVA — "Accelerating drug discovery" (live identity
+     per taostats 2026-05-22, metanova-labs.ai). AI-driven drug
+     discovery. Rival pool is the AI-pharma incumbent stack. */
+  68: {
+    rivals: ['recursion-pharma', 'insilico-medicine', 'schrodinger', 'benevolent-ai', 'atomwise', 'deepmind-science'],
+    supplyChainIds: ['nvidia', 'aws-azure-gcp', 'us-power-grids', 'tsmc'],
+    constraints: [
+      {
+        label: 'Wet-lab feedback loop',
+        value: 'In silico → in vitro: 3-6 month cycle',
+        note: 'Real drug discovery requires wet-lab confirmation of AI predictions. Recursion runs in-house automated labs; Schrödinger partners with pharma wet labs. Subnet pure-compute miners produce predictions but lack wet-lab validation — predictions stay theoretical until paired with a lab.',
+      },
+      {
+        label: 'Target-validation cost',
+        value: '$5M-$50M to validate a single target',
+        note: 'Confirming a drug target is real (cell + animal + early human) costs millions per target. Pharma incumbents have validation teams. Subnet miners producing target predictions need a partner who can validate, or the work stops at hypothesis.',
+      },
+      {
+        label: 'Clinical-trial graduation rate',
+        value: '~10% of preclinical → approved drug',
+        note: 'Most AI-discovered drugs never reach market. Insilico, Recursion all have multiple failures alongside their successes. Subnet drug-discovery output success rate is bounded by industry-wide pharma economics, not just compute.',
+      },
+      {
+        label: 'Patent landscape navigation',
+        value: '~50K active drug-target patents',
+        note: 'Most attractive drug targets are patent-encumbered. Pharma incumbents have patent-litigation teams. Subnet miners landing on patented targets either license (revenue split) or risk infringement. Open-target work has to navigate freedom-to-operate explicitly.',
+      },
+      {
+        label: 'Regulatory submission depth',
+        value: 'IND filing: ~5K-50K pages',
+        note: 'Getting an AI-discovered drug into trial requires IND (Investigational New Drug) submission to FDA. Centralized rivals have regulatory affairs teams. Subnet output without IND-package-ready documentation stops at the lab bench.',
+      },
+    ],
+  },
+
   /* SN94 Bitsota — "Decentralized SoTA Research" (live identity
      per taostats 2026-05-22). State-of-the-art research-as-a-
      swarm. Rivals: the labs that currently produce most SoTA
@@ -3243,6 +3410,43 @@ export const BY_NETUID = {
     ],
   },
 
+  /* SN83 CliqueAI — "CliqueAI - AI-Powered Maximum Clique Solver
+     Network" (live identity per taostats 2026-05-22,
+     cliqueai.toptensor.ai). Max-clique solver — a classic
+     NP-hard graph problem. Rival pool is the optimization-solver
+     + quantum-computing space. */
+  83: {
+    rivals: ['gurobi', 'd-wave', 'ibm', 'nvidia', 'aws-azure-gcp', 'google'],
+    supplyChainIds: ['nvidia', 'tsmc', 'sk-hynix', 'aws-azure-gcp'],
+    constraints: [
+      {
+        label: 'Solver-quality gap',
+        value: 'Gurobi closes 99% of feasible MILPs <60s',
+        note: 'Industry-standard solvers (Gurobi, CPLEX) have decades of engineering on classical optimization. Subnet AI-driven solver needs to either beat them on specific problem classes (NP-hard graph problems where heuristics shine) or specialize on instances where general solvers struggle.',
+      },
+      {
+        label: 'Real-world graph scale',
+        value: 'Social/biological graphs at 10^6-10^9 nodes',
+        note: 'Real graphs (social networks, protein-interaction networks) are huge. Max-clique on full graphs is infeasible — solvers work on subgraphs or approximations. Subnet has to specify which problem scale it targets; clarity here separates trader-grade tool from academic toy.',
+      },
+      {
+        label: 'AI-vs-classical tradeoff',
+        value: 'GNN-based solvers competitive only at specific instances',
+        note: 'Recent research (Graph Neural Networks for max-clique, e.g., neural-MaxClique 2024) shows AI can compete with classical solvers on specific instance types but loses on others. Subnet validator scoring has to be transparent about instance-type coverage.',
+      },
+      {
+        label: 'Quantum-annealing competition',
+        value: 'D-Wave: 5K+ qubits, max-clique benchmark customer',
+        note: 'D-Wave\'s quantum annealer ships max-clique benchmarks on real hardware. As qubit counts scale, quantum approaches threaten classical + AI solvers on this specific problem. Subnet has to plan for the quantum trajectory or risk being out-scaled.',
+      },
+      {
+        label: 'Commercial use-case',
+        value: 'Max-clique = social-net communities, drug-target overlap, etc',
+        note: 'The pitch needs a specific commercial use-case — most real customers don\'t buy "max clique solver." They buy "find communities in this graph" or "find overlapping drug targets." Subnet packaging has to translate solver capability into vertical product or stay academic.',
+      },
+    ],
+  },
+
   /* SN100 Plaτform — "An auto-research subnet where miners
      compete in multiple challenges to achieve top scores against
      a synthetic benchmark, driving continuous performance
@@ -3277,6 +3481,44 @@ export const BY_NETUID = {
         label: 'Result-portability',
         value: 'Tournament winner artifact = research paper?',
         note: 'Kaggle competition winners produce models. Real research produces papers + claims + replication. Subnet auto-research output needs a clear translation from "won the challenge" to "advanced the field." Without that translation it\'s a leaderboard, not research.',
+      },
+    ],
+  },
+
+  /* SN107 Minos — "The Foundational Layer of Genomics" (live
+     identity per taostats 2026-05-22, theminos.ai). Foundation-
+     model approach to genomics. Rival pool overlaps SN55 NIOME
+     but distinct: NIOME generates synthetic privacy-safe data;
+     Minos pitches as the foundational MODEL layer for the
+     genomics space. */
+  107: {
+    rivals: ['illumina', 'tempus-ai', 'personalis', 'recursion-pharma', 'deepmind-science', '23andme'],
+    supplyChainIds: ['nvidia', 'tsmc', 'sk-hynix', 'aws-azure-gcp', 'us-power-grids'],
+    constraints: [
+      {
+        label: 'Foundation-model training cost',
+        value: 'Genomic foundation models: $5M-$50M per training run',
+        note: 'Training a genomic foundation model (e.g., Evo, Nucleotide Transformer, DNABERT) needs massive compute. DeepMind\'s Evo + Recursion\'s Phenom models cost tens of millions per generation. Subnet crowdsourced compute can theoretically match but requires coordinating thousands of miners on a single training run.',
+      },
+      {
+        label: 'Reference-genome licensing',
+        value: 'UK Biobank + All of Us + gnomAD = millions in access',
+        note: 'Training data lives in licensed databases. UK Biobank: ~£24K/project. All of Us: NIH approval + DUA. gnomAD: relatively open but covers limited populations. Subnet has to negotiate licensed access or train on lower-quality public datasets — visible in eval.',
+      },
+      {
+        label: 'Foundation-model eval gap',
+        value: 'No standard "genomic SoTA" benchmark',
+        note: 'Unlike LLMs (MMLU, GPQA) or vision (ImageNet), genomic foundation models lack a single dominant benchmark. Variant calling, structural prediction, disease prediction all measure differently. Subnet "foundational layer" positioning requires shipping a benchmark or accepting fragmented eval.',
+      },
+      {
+        label: 'Clinical-deployment gap',
+        value: 'Foundation model → clinical use: ~5-10 year cycle',
+        note: 'Genomic foundation models take 5-10 years to translate into clinical impact (Recursion, DeepMind\'s Isomorphic, Insilico timelines). Subnet "foundational" positioning has to either accept long horizons or pivot to research-tool monetization in the meantime.',
+      },
+      {
+        label: 'Diversity in training data',
+        value: '~80% of public genomic data is European-ancestry',
+        note: 'Public genomic datasets skew European ancestry. Models trained on them perform worse on under-represented populations. Centralized rivals (Tempus, Personalis) invest in diversity programs. Subnet "foundational" without explicit diversity programs ships biased models — readers in pharma + public health care.',
       },
     ],
   },
