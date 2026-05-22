@@ -71,35 +71,38 @@ export const ORACLE_ARTICLES = Object.freeze([
     id: 'oracle-2026-05-22-anthropic-glasswing-decentralized-cyber',
     date: '2026-05-22',
     kind: 'ecosystem-state',
-    title: 'Anthropic Project Glasswing finds over 10,000 vulnerabilities in 30 days, the centralized cyber-defense capability is now measurable in public and the structural opening for a decentralized Bittensor security subnet just got concrete',
-    dek: 'Anthropic published the initial Project Glasswing update on May 22 2026, disclosing over 10,000 high-or-critical-severity vulnerabilities found by Claude Mythos Preview across approximately 50 partners in the first month, including 6,202 high-or-critical bugs in 1,000-plus open source projects and a 90.6 percent validation rate from independent security firms. The Oracle desk reads the announcement as the cleanest available measurement of the find-versus-patch asymmetry the next 24 months of AI security will be shaped by, and walks the mechanism, the centralization vector, and the structural shape a Bittensor security subnet would have to take to match the throughput.',
+    title: 'An AI just found 10,000 security bugs in 30 days, 6,202 of them in open source, and the Bittensor network suddenly has a new product category to ship',
+    dek: 'Anthropic published the first scorecard for Project Glasswing on May 22 2026. The numbers: over 10,000 software vulnerabilities found by an AI model in 30 days, 6,202 of them inside open source projects. The find side just got an order of magnitude faster. The patch side did not. The Oracle desk walks what happened, why most of the bugs are in open source, what it means for the maintainer teams who carry the dependency stack the rest of the internet runs on, and what the Bittensor network would have to ship to be the decentralized counterparty to a centralized cyber-defense program at this throughput.',
     sections: [
-      { h: 'The announcement, mechanically',
-        body: 'Anthropic published the initial Project Glasswing update on May 22 2026, the first public scorecard from the cybersecurity coalition the company stood up earlier in the year. The program runs Claude Mythos Preview, a frontier model with enhanced cybersecurity capabilities, against the codebases of approximately 50 partners (Cloudflare, Mozilla, the Open Source Security Foundation Alpha-Omega project, Cisco, and others not all named individually in the post) to identify high-or-critical-severity vulnerabilities before adversarial models can exploit them. The first-month aggregate is the headline. Mythos Preview found over 10,000 high-or-critical-severity vulnerabilities across the partner cohort, out of 23,019 total findings across all severity levels.\n\nThe distribution inside the 10,000 is the line worth holding before any other reading. 6,202 of the high-or-critical findings, roughly 62 percent of the first-month aggregate, live inside 1,000-plus open source projects. The dominance of the open source share is mechanical, not editorial; closed source partner code is reviewed against the partners own threat model with their security team at the disclosure table from day one, while open source code is reviewed against an aggregate threat model the maintainer cohort cannot fully define, and the maintainer at the disclosure table may be a single individual on a volunteer cadence. The Glasswing scorecard is the first widely-published measurement of how much of the AI-accelerated find-rate the open source long tail will absorb.\n\nThe partner-by-partner disclosure is the second-order signal. Cloudflare reported 2,000 bugs (400 high-or-critical) with false-positive rates Anthropic describes as better than human testers. Mozilla reported 271 vulnerabilities in Firefox 150. Multiple partners report a ten-times-or-better increase in bug-finding throughput against their prior baselines. Anthropic also disclosed that Claude Security, the tooling layer that automates patching, has now closed 2,100-plus vulnerabilities in three weeks using Claude Opus 4.7. The patching cadence the post specifies for the program as a whole is approximately two weeks average time from disclosure to patch on the high-or-critical tier, with 530 high-or-critical bugs reported to maintainers, 75 patches deployed, and 65 with public advisories at time of writing.' },
+      { h: 'Anthropic AI just found 10,000 security bugs in 30 days',
+        body: 'Anthropic published the first scorecard for Project Glasswing on May 22 2026. Glasswing is a cybersecurity coalition the company runs with about 50 partners, including Cloudflare, Mozilla, Cisco, and the Open Source Security Foundation Alpha-Omega project. The program turns a frontier AI model called Claude Mythos Preview loose on the source code those partners ship, and asks it to find security bugs before bad actors can.\n\nThe first month of results landed in one paragraph of the post. Over 10,000 high-or-critical-severity vulnerabilities found. 23,019 total findings across all severity levels. The model scans codebases at a speed no human security team can match, and that speed is the part of this story everything else hangs on.\n\nThe model also wrote patches. Anthropic disclosed that Claude Security, the patching layer that pairs with the scanner, has now closed 2,100-plus vulnerabilities in three weeks using Claude Opus 4.7. Average time from disclosure to patch on the high-or-critical tier is roughly two weeks. 530 high-or-critical bugs have been formally reported to maintainers, 75 patches are deployed, and 65 carry public advisories at the time of writing.' },
 
-      { h: 'The asymmetry, the load-bearing quote',
-        body: 'The single quote in the post the Oracle desk treats as load-bearing for the next 24 months of AI security analysis: "Progress on software security used to be limited by how quickly we could find new vulnerabilities. Now it is limited by how quickly we can verify, disclose, and patch them." Anthropic restates the same point a paragraph later in operational language: "Even at our relatively slow pace of disclosures, Mythos Preview is adding to an already-overloaded security ecosystem."\n\nThe mechanical implication is the part worth holding. AI capability at the frontier compresses the cost-to-find of a critical software vulnerability from human-months down to model-minutes. The patch side does not compress at the same rate; maintainer review, regression testing, dependency rebuild, and downstream deployment are still bottlenecked by humans, build systems, and rollout caution. The result is a structural asymmetry the post is the first widely-published measurement of: a frontier model can produce more disclosure-ready vulnerability reports per week than the upstream security ecosystem can verify, patch, and ship per week. The slow disclosure pace Anthropic engineers deliberately is the artifact of that asymmetry, not the absence of it.\n\nThe asymmetry is one-sided only until the same capability becomes broadly available. Anthropic flags this in the post explicitly, framing the program as a race against the window where similar models become broadly available. Once they do, the same find-fast capability the lab is using defensively will be available to any attacker who can clear the API spend. The disclosure-and-patch lead time the program is currently spending to stay ahead of that crossover is the resource the security ecosystem now budgets against the clock.' },
+      { h: 'Most of those bugs are in open source software',
+        body: 'The split is the news. Of the 10,000-plus serious findings, roughly 62 percent (6,202 bugs) sit inside more than 1,000 open source projects. The remaining 38 percent are inside the closed-source code of the partner companies (Cloudflare, Mozilla, Cisco, and others).\n\nHere is why that lopsided distribution matters. When the AI finds a bug at Cloudflare, Cloudflare has a security team waiting to triage it, patch it, ship the fix to production, and tell its customers. When the AI finds a bug in an open source library that fifty thousand other companies depend on, the person on the receiving end of that report might be one volunteer, working in their spare time, on a project they started ten years ago. The find-rate is the same. The catch-rate is not.\n\nOpen source has always carried the dependency stack the rest of the internet runs on. Until now, the labor mismatch between corporate consumers and volunteer producers was a slow-burn problem: people knew it, nobody had to solve it this week. Anthropic just put a number on the burn. 6,202 bugs in the long tail in a month. The slow-burn is now the actual problem on the actual calendar, and the industry has to face it at a scale it has not had to face before.' },
 
-      { h: 'The validation evidence, 90.6 percent and the calibrating residual',
-        body: 'The headline vulnerability counts would mean less without an independent calibration of how real they are. The post supplies one. Anthropic sent 1,752 of the open source findings to independent security firms for blind evaluation. 90.6 percent (1,587 of 1,752) were confirmed valid; 62.4 percent (1,094 of 1,752) were confirmed valid at high-or-critical-severity. The 9.4 percent false-positive residual is the calibrating number; human security teams routinely operate with materially higher false-positive rates at this throughput, and the post cites Cloudflare reporting model false-positive rates lower than human testers on the same codebase.\n\nThe extrapolation Anthropic publishes from the validation rate is the part the desk would mark with the standard upper-bound caveat. The post estimates roughly 3,900 high-or-critical-severity vulnerabilities exist in the open source code Mythos Preview has scanned so far. The extrapolation is reasonable on its face given the sampling design, but the desk treats it as the upper bound the validation rate supports rather than the modal estimate, since which 1,752 to send for independent assessment is itself a selection variable that biases the validation rate slightly upward. The relevant unit of analysis for the reader is not the headline 10,000 number, it is the 1,094-confirmed-high-or-critical figure, which is the floor the independent evaluation has actually established.\n\nThe UK AI Security Institute calibration in the post is the highest-bar external evidence. AISI is quoted describing Mythos Preview as the first model to solve both cyber ranges end to end. The XBOW evaluation references the model as a significant step up over all existing models with unprecedented precision. ExploitBench and ExploitGym, the two academic benchmarks the post cites, position Mythos Preview as the strongest performer on exploit development. The reader should treat the academic-benchmark framing as more calibrating than the partner-disclosed totals; benchmarks are designed for blind comparison across models, while partner totals are produced inside a structured engagement with a single lab.' },
+      { h: 'AI finds in minutes. Humans patch in weeks.',
+        body: 'The line from the Anthropic post the desk thinks every reader should hold in their head: "Progress on software security used to be limited by how quickly we could find new vulnerabilities. Now it is limited by how quickly we can verify, disclose, and patch them."\n\nFor decades, the bottleneck on the defense side was finding bugs. That bottleneck just broke. The new bottleneck is everything that comes after the find. Maintainer review. Test suite runs. Patch deployment. Downstream propagation to every device that uses the library. None of those steps have gotten faster, because none of them were ever the bottleneck.\n\nSo you get a one-sided race. AI compresses the find side from human-months to model-minutes. The patch side still takes human-weeks. And once the same find-fast capability becomes broadly available, which Anthropic expects to happen within 12 to 24 months, the same speedup that helps defenders today will be available to any attacker who can clear the API spend. The disclosure-and-patch lead time the program is currently spending to stay ahead of that crossover is the resource the security ecosystem is now burning against the clock.\n\nAnthropic is candid about the asymmetry: "Even at our relatively slow pace of disclosures, Mythos Preview is adding to an already-overloaded security ecosystem." The slow disclosure pace the lab maintains is not the absence of the asymmetry, it is the artifact of trying to live inside it responsibly.' },
 
-      { h: 'The open source share, what maintainer teams must do now',
-        body: 'The 6,202-high-or-critical figure inside 1,000-plus open source projects is the part of the Glasswing scorecard the desk reads as the most consequential for the long-term shape of the AI security economy. The reason is not the count itself but the distribution of patch capacity behind it. Cloudflare can absorb 2,000 reports and ship patches at corporate cadence. Mozilla can absorb 271 reports against Firefox 150 and run the regression suite at the project full engineering velocity. An open source maintainer running a security-critical library on personal time cannot absorb 50 high-or-critical reports against their codebase in 30 days. The asymmetry the Anthropic post frames at the system level lands hardest on the long tail of OSS maintainers who carry the dependency stack the rest of the internet runs on, and the Glasswing scorecard makes that distribution legible for the first time.\n\nWhat changes for open source teams now is what the desk would frame as the operational mandate of the next 12 months. Five practices move from optional to load-bearing. First, a published security policy with a coordinated-disclosure contact (SECURITY.md, security advisory inbox, GitHub Security Advisories opt-in) becomes table stakes; AI-scanning programs need an inbox to send to and a verifiable contact on the other end. Second, a CVE numbering authority relationship or a documented path to a CNA through GitHub Security Advisories or the MITRE Top-Level Root has to be in place before the first finding lands, not after. Third, the team needs at least one member with the time and authority to triage incoming reports during the disclosure window, even if that role is volunteer-funded or grant-funded; an unanswered disclosure inbox is the worst single failure mode in the new threat environment.\n\nFourth, dependency-pinning and reproducible-build discipline become the precondition for any meaningful patch propagation; a patched library that downstream consumers never pull in is a worse failure than an undisclosed bug, because the public advisory has now informed the attacker population while the deploy population is still vulnerable. Fifth, the team needs to participate in at least one ecosystem-level coordination forum (OSSF, ISRG, the language-specific security working groups) so the cohort can share triage capacity across the maintainer population and the patch cadence can pool across projects with shared dependencies. None of these practices are novel; what is novel is that the AI-acceleration of the find side has just made the practice gap measurable in disclosures per maintainer-week. The teams that have these in place absorb the find-rate; the teams that do not accumulate the patch backlog, and the backlog accumulates the exploitation window.' },
+      { h: 'Are these bugs even real? Yes, 90.6 percent of them.',
+        body: 'It is reasonable to ask whether an AI model finding 10,000 bugs in 30 days is actually finding bugs or just making things up. Anthropic answered the question by submitting 1,752 of the open source findings to independent security firms for blind evaluation. The firms confirmed 90.6 percent of them as real. About 62 percent of those were rated high-or-critical-severity by the independent reviewers, which works out to 1,094 of the 1,752 sampled.\n\nThe 9.4 percent false-positive rate is the calibrating number, and it lands lower than what human security teams typically run at this throughput. Cloudflare specifically reported their own AI false-positive rate as better than their human testers on the same codebase.\n\nThe verdict the desk would publish: the findings hold up. The AI is not hallucinating. The bugs are there. Anthropic is being conservative when it extrapolates a roughly 3,900-bug high-or-critical population from the validation sample, and the 1,094 confirmed by independent assessment is the floor the public evidence has actually established.' },
 
-      { h: 'wolfSSL CVE-2026-5194, what one disclosure looks like in the wild',
-        body: 'The single named vulnerability the post discloses by CVE is wolfSSL CVE-2026-5194, a certificate-forgery vulnerability that, per the Anthropic post, would enable fake banking and email domains. wolfSSL is a widely deployed embedded TLS library; it ships inside automotive control units, point-of-sale systems, industrial controllers, IoT endpoints, and small-footprint server stacks where the OpenSSL footprint is too large. A certificate-forgery vulnerability in a library at this deployment surface is not a single-vendor patch. It is a patch that has to propagate through every shipped device that bundles the library, on the firmware release cycles those devices run, which range from weekly (cloud-hosted services) to never (orphaned embedded hardware).\n\nThe wolfSSL example demonstrates the asymmetry concretely. The Mythos Preview model found the bug; the upstream wolfSSL maintainer patched the bug; the patch was issued under CVE-2026-5194; the public advisory is now visible. The downstream device population that still ships the vulnerable library version is the patch-latency tail the find-fast capability has nothing to say about. This is the asymmetry shaped end to end: the find side has been accelerated by an order of magnitude, the patch side has not, and the deploy side has not. The desk reads the wolfSSL example as Anthropic deliberately picking the most concrete case in the post to make the asymmetry legible to a general reader. The more honest version of the picture would include the long tail of other CVEs disclosed in the same first-month window that have not yet propagated to downstream firmware.' },
+      { h: 'One bug, thousands of downstream devices',
+        body: 'The one CVE Anthropic named in the post is wolfSSL CVE-2026-5194, a certificate-forgery bug in a small, widely-deployed TLS library. wolfSSL is the kind of code that ships inside point-of-sale terminals at banks, electronic control units in cars, controllers in factories, and the endless population of embedded devices that quietly run the physical economy.\n\nThe patch was issued, the CVE went public, and the upstream library is now fixed. Every device downstream that still ships the vulnerable version is still vulnerable. The fix has to propagate through automotive firmware update cycles, factory plant maintenance windows, banking-software certification, and a long tail of devices whose firmware will never get updated again. The Anthropic AI found the bug in minutes. The world will spend years closing the deployment gap.\n\nThis is what the find-versus-patch asymmetry looks like at the level of one disclosure. Multiply by the other 6,201 open source findings and the picture becomes structural.' },
 
-      { h: 'The centralization vector, who else is allowed to scan',
-        body: 'The structural question the post does not fully answer is which other parties get to run a scanner of this capability against systemically important software. The Anthropic program is a coalition of approximately 50 partners, named individually for the largest disclosures (Cloudflare, Mozilla) and aggregated under banner organizations (the Open Source Security Foundation Alpha-Omega project, Cisco). The Frontier Red Team blog the post cross-links is the academic-facing arm. The Claude Security product (enterprise beta) and the Cyber Verification Program are the commercial-access pathways. None of the four pathways is public-permissionless. A reader operating their own software stack, even one that participates in the open source supply chain, has no documented self-serve path into Mythos-Preview-grade scanning today.\n\nThis is the centralization vector the desk would flag for any reader thinking about systemic risk in AI-accelerated cybersecurity. The capability sits inside a single frontier lab, behind a deliberately throttled disclosure pace, with access governed by either enterprise-tier commercial contracts or partnership memoranda. The post is candid about this; it names adopting publicly-available AI models for defensive scanning through Claude Security (enterprise beta) and the Cyber Verification Program as the recommended mitigation for defenders. The structural read is that the defender-side AI capability is, today, a permissioned good distributed by a single lab.\n\nThe compounding question for the next 24 months is whether that distribution structure can scale to the full population of vulnerable systems on the internet. The Anthropic program covers approximately 50 partners and roughly 1,000 open source projects. The OSV (Open Source Vulnerabilities) database tracks an order of magnitude more active projects than that. The systemically important embedded software population (industrial control systems, medical devices, automotive control units) is another order of magnitude further out. A single lab, even at Anthropic scale, cannot host a Cyber Verification Program for every codebase that needs one. The supply-and-demand mismatch is the structural condition the next entrant in this category will have to address.' },
+      { h: 'What open source maintainer teams should do now',
+        body: 'If you run an open source project, the next 12 months are about getting in front of the wave. The desk reads five practices as moving from good hygiene to mandatory.\n\nFirst, a published security policy. Add a SECURITY.md file to your repository, name a contact, name a disclosure window, and name what kind of report you want. AI scanning programs need an inbox to send findings to, and a project without one is a project the next find-fast pass will route around.\n\nSecond, a path to a CVE. Set up GitHub Security Advisories on your repository, or get sponsored by a CVE Numbering Authority through the MITRE Top-Level Root. When the report lands you need to be able to issue a public advisory inside the disclosure window. The CVE workflow takes weeks to set up cold; it takes hours when the infrastructure already exists.\n\nThird, at least one triage-capable maintainer. Someone with the time and authority to read incoming reports during the response window. Volunteer-funded is fine. Grant-funded is fine. The role has to exist on a calendar somebody owns.\n\nFourth, reproducible builds and pinned dependencies. A patched library that downstream consumers never pull in is worse than an undisclosed bug, because the public advisory has now told the attackers but the deploy population is still vulnerable. Build hygiene is patch hygiene.\n\nFifth, ecosystem coordination. Join the OSSF Alpha-Omega project, the Internet Security Research Group, or the language-specific security working group for your stack. Triage capacity pools across projects with shared dependencies, and finding the next wave of cross-project bugs faster requires that pool to exist.\n\nNone of these practices are new. What is new is that the AI has just made the practice gap measurable in disclosures per maintainer-week. The projects with these practices in place will absorb the find-rate. The projects without will accumulate the backlog, and the backlog accumulates the exploitation window.' },
 
-      { h: 'The Bittensor structural read, what a decentralized security subnet looks like',
-        body: 'The shape of the next entrant is the question the Oracle desk has been watching the Bittensor network for. The properties a decentralized security subnet would need to match the Glasswing capability are knowable from the Anthropic disclosure. The subnet would need to incentivize five workflows: vulnerability discovery (the model-minutes scanning side), false-positive triage (the validator function that filters out the 9.4 percent invalid findings), responsible disclosure (the coordination layer that gets a CVE issued without leaking the vulnerability prematurely), patch generation (the Claude Security analog), and patch validation (an independent assessment that the patch fixes the bug without introducing a regression).\n\nEach of these five workflows maps onto Bittensor incentive primitives that already exist on other subnets. Vulnerability discovery is a miner workload; find-rate becomes the throughput-weighted metric. Validation is a validator workload, and the Bittensor validator set is, by construction, the right shape for the false-positive-triage role. Responsible disclosure requires off-chain coordination with maintainers, but the on-chain receipts (which finder reported what, when, against which commit hash) are exactly the kind of provenance ledger Bittensor subnets are already keeping for other content categories. Patch generation is the same find-fast capability turned inward (model output as code), and patch validation has the same structural shape as the inference-validation work shipped on subnets such as SN4 Targon at the compute layer and SN18 Cortex at the inference layer.\n\nThe structural advantages a Bittensor security subnet would have over a centralized program: permissionless miner entry (any security researcher contributes, not only the partner cohort), distributed validation across an independent validator set (no single lab signs off on whether the bug is real), and cryptographic provenance receipts downstream defenders can verify without trusting the lab. The structural disadvantages: the disclosure workflow has to be carefully engineered to prevent miners from publishing exploits before maintainers can patch, the validator set has to be paid enough to keep the false-positive rate competitive with the Anthropic-reported 9.4 percent, and the patch-generation throughput has to clear the cost-per-patch threshold Claude Security has already set with the 2,100-patches-in-three-weeks figure.\n\nNone of these are insurmountable; none are solved today. The closest current Bittensor work in the adjacent category is the inference-validation subnets that have been hardening the proof-of-work-style staking-and-slashing primitives over the last two years. The structural translation from inference-validation to vulnerability-validation is real but not trivial. The Oracle desk would treat any Bittensor subnet that ships even a v0 of the five-workflow shape in the next four quarters as a real piece of evidence that the find-side asymmetry can be addressed by a non-corporate operator. None has been disclosed today.' },
+      { h: 'How open source can close the speed gap',
+        body: 'There is one line in the Anthropic post the desk wants to put in front of every open source maintainer reading this article. Explaining why patching inside Claude Security (the enterprise tool) runs faster than patching inside the broader open source ecosystem, the post writes: "This is faster than the open-source patching described above in large part because enterprises are fixing their own code, whereas open-source fixes usually require volunteer maintainers who work through coordinated disclosure."\n\nIt is true. And it is also a framing that quietly accepts the gap as the permanent condition of open source security. The desk would push back. The volunteer maintainers working through coordinated disclosure are doing exactly what the threat environment requires of them. The Anthropic sentence puts the burden of the speed gap on the open source side. The structural reading puts the burden on the resource distribution.\n\nHere is what open source CAN do, today, to close the gap on its own terms.\n\nTake the funding. The Open Source Security Foundation Alpha-Omega project, the Sovereign Tech Fund, the Internet Security Research Group, and a growing list of corporate sponsors are actively funding security work on critical open source libraries. The desk would treat any project on the OSV critical-infrastructure list that is NOT currently applying for at least one of these grants as leaving funded triage capacity on the table.\n\nRun the same AI on your own code. Claude Security is currently enterprise-only. Open-weight models that approach the same capability (DeepSeek, Llama, Qwen, and the open variants of GPT-OSS) are already shipping. An open source project that wants to scan its own codebase at comparable throughput can already do so locally, today, with weights any decent GPU can run. The capability gap with the enterprise tool is real, but it is not 24 months wide; it is closer to 90 days. Open source teams that run their own scans against their own code, on their own hardware, can absorb the find-rate without waiting for a vendor to license them a tool.\n\nPool triage capacity across projects. A single maintainer cannot absorb 50 high-or-critical reports in 30 days. Ten maintainers working a shared on-call rotation can. This already exists in narrow form (the Rust Security Working Group, the Node.js Security WG, the Python Security Response Team) but most language ecosystems do not have it. The Glasswing scorecard is the case for funding it broadly. Every language ecosystem with more than 1,000 published packages needs a coordinated security response capability that is funded, on call, and known to the AI scanning programs by name.\n\nPush for AI security parity as policy. When the EU Cyber Resilience Act, the US National Cyber Director, the UK NCSC, and similar bodies write rules for software supply chain security, they should require the same defender-side AI capability to be made available to the open source ecosystem the rules cover. Glasswing is the proof point that the capability exists. The policy gap is whether anyone has the will to make it available equitably to the projects whose code the rest of the stack depends on.\n\nInsist on cryptographic provenance. Every AI-found, AI-validated, AI-patched disclosure should carry a verifiable receipt that a downstream defender can check without trusting any single lab. This is the part of the Bittensor security subnet thesis (next section) that is portable to non-Bittensor contexts. Even a non-network-based provenance ledger, such as signed Sigstore receipts, gives open source consumers a verifiable chain of custody for the security work being done on their dependencies.\n\nNone of these moves makes the speed gap disappear overnight. Each of them shaves time off it. Together, over a 12-month horizon, they are the difference between accepting the framing of fast enterprises and slow open source as a permanent condition, and refusing it as a structural choice the community has the agency to change. The Anthropic post is correct about the cause. It is incomplete about the cure.' },
 
-      { h: 'The defender-offender asymmetry over 24 months',
-        body: 'The two-year shape of the cybersecurity ecosystem the Anthropic post implicitly sketches: a window of approximately 12 to 24 months in which Mythos-class scanning capability is concentrated inside Anthropic and a small number of comparable-frontier labs, after which similar capability becomes broadly available through model-weights releases, third-party model providers, or open-weight finetunes that approach the frontier. Anthropic is using the current concentration window to push as many high-or-critical disclosures into the patched-and-deployed column as it can, on the theory that the post-crossover threat surface will be materially smaller per package once the most critical pre-existing bugs have been remediated.\n\nThe desk treats the 12-to-24-month window as the planning horizon any defender should be operating against. The two failure modes are symmetric and the reader should hold both. If the defender side does not scale fast enough, the post-crossover period sees attackers wielding the same find-fast capability against an under-patched software population, which is the high-impact tail scenario. If the defender side scales by expanding the number of frontier-lab-mediated programs, the systemic risk concentrates into the same small number of labs that hold the scanning capability today, which is a different failure mode: capability concentration without distributed accountability. A decentralized security subnet that ships in the next 12 to 18 months is the only architectural posture the desk can identify that addresses both failure modes at once.\n\nThe Anthropic post frames its recommended defender mitigations as: accelerated patch cycles, improved update mechanisms, hardened network configurations, multi-factor authentication, comprehensive logging, and adoption of publicly-available AI models for defensive scanning. The first five are the standard defender hygiene playbook restated for an AI-accelerated threat environment. The sixth, publicly-available AI models for defensive scanning, is the load-bearing one. The load it bears is whether the phrase publicly available expands beyond Claude Security enterprise beta and the Cyber Verification Program before the broader-availability crossover lands. The Oracle desk would track this as the single most consequential read for the security side of the AI economy in 2026.' },
+      { h: 'What this means for Bittensor',
+        body: 'A centralized AI lab just found 10,000 bugs in 30 days. The capability is real. The question for the Bittensor network is whether the decentralized counterparty to that capability can be built, and what it looks like if it can.\n\nAnthropic Project Glasswing runs through 50 partners, one lab API, and one set of disclosure rules. A Bittensor-native version would distribute the same work across miners and validators on an open network, with on-chain provenance for who found what and when. Five workflows have to compose.\n\nDISCOVERY. Miners scan codebases the same way Claude Mythos Preview does. The chain pays them per high-or-critical finding.\n\nTRIAGE. Validators verify each finding is real and rate its severity. Target a false-positive rate at or below the 9.4 percent benchmark Anthropic just set.\n\nDISCLOSURE. Verified findings get filed as CVEs, the upstream maintainer is notified, and the receipt is recorded on chain. Crucially, the on-chain receipt does not contain the exploit; it commits to the finding without leaking it.\n\nPATCH GENERATION. Miners (the same model-minutes capability turned inward) propose a fix, with tests. The chain pays them per patch accepted by the upstream maintainer.\n\nPATCH VALIDATION. Validators confirm the patch fixes the bug and does not regress anything else. Stake-weighted consensus signs off.\n\nIf a Bittensor subnet ships even a v0 of this shape in the next 12 to 18 months, the centralization risk the Anthropic program embodies stops being structural and starts being a design choice. Open source maintainers get a permissionless, distributed defender. Downstream defenders get cryptographic provenance for every disclosure. The network gets an entirely new product category sitting alongside compute (SN4 Targon) and inference: security as a stake-weighted on-chain workflow.\n\nThis is not hypothetical. The five workflows above map cleanly onto Bittensor primitives that already work on other subnets. Discovery looks like the proof-of-work shape miners run elsewhere. Validation looks like the inference-validation work SN4 and SN18 already ship. The chain is the chain. The only piece that is genuinely new is the responsible-disclosure pattern, and that has been a solved problem in non-AI security for 25 years.' },
 
-      { h: 'What to watch over the next 30 to 60 days',
-        body: 'Three datapoints, in priority order. First, the disclosure dashboard Anthropic links to is the first machine-readable trace of an AI security pipeline at this throughput operating in public. The desk would watch the dashboard for the cumulative-patch-versus-cumulative-disclosure curve. If the patches-deployed line stays meaningfully below the disclosures-issued line over the next 30 days, the asymmetry the post names is being measured in real time and the find-fast capability is outpacing the patch-fast capability inside the program itself. If the patch curve catches up, the program is hitting the disclosure-discipline target the lab has set publicly.\n\nSecond, any second frontier lab announcing a comparable defensive scanning program. The Anthropic naming of approximately 50 partners suggests Glasswing is, today, the largest of its kind. The next consequential disclosure for the centralization question is whether OpenAI, Google DeepMind, Meta, or a top-tier centralized AI lab outside the United States ships a peer program with comparable findings throughput and comparable disclosure discipline. The desk treats a second-lab program as the inflection that converts the find-fast capability from a single-lab advantage into a cohort-of-labs advantage; the centralization risk concentrates differently depending on whether one or several labs hold this capability through the crossover window.\n\nThird, any Bittensor subnet (existing or newly registered) that ships a workflow recognizably modeled on the five Glasswing components. The Oracle desk has been writing about the structural opportunity for a decentralized security subnet since the Manifold Labs Intel TDX paper raised the trust-property question at the compute layer; the Glasswing disclosure raises the same question at the vulnerability-discovery layer. The first subnet to ship a v0 of vulnerability discovery plus validation plus disclosure plus patch generation plus patch validation, with the five workflows incentivized on chain, is the structural counterparty to the centralized program. The desk would treat the first such disclosure as the highest-information signal in the security-side reading of the Bittensor network thesis for the rest of 2026.\n\nThe read of the day: Project Glasswing is the cleanest available measurement of the find-versus-patch asymmetry the next 24 months of AI security will be shaped by. The centralized program has set the throughput, the validation rate, and the discipline standard, all in public, all in a single post. The structural opening for a decentralized peer with comparable throughput, validated by an independent validator set, and incentivized through Bittensor-native primitives, is now measurable for the first time. Whether the network has the operator and the technical maturity to ship that peer in the next 12 to 18 months is the open question the Oracle desk would frame the rest of 2026 around.' },
+      { h: 'The 12-to-24-month window',
+        body: 'Here is the bigger picture the desk would have every reader hold. AI security finds are now compressing in time. Patches are not. That asymmetry has a window: roughly 12 to 24 months while frontier-grade scanning is concentrated inside a handful of labs. Anthropic is using that window to push as many bugs into the patched-and-deployed column as possible, on the bet that the post-crossover threat surface will be materially smaller per package once the most critical pre-existing bugs are gone.\n\nWhen the crossover lands, two things happen at once. Adversaries get the same scanning capability the labs have today. The defender side either has scaled to match (through more lab-led programs OR through decentralized peers) or it has not.\n\nIf only the labs scale, we end up with a small number of organizations holding the most consequential defensive capability on the internet. That is a different failure mode than the one we have today, but it is still a failure mode. Concentration of defensive capability is concentration of trust, and trust concentration is what decentralized networks were built to address.\n\nA decentralized peer to the lab-led programs is the only architectural posture the desk can identify that addresses both failure modes at once. It scales without concentrating. It audits without permissioning. And it pays the workforce that runs it in a unit (the network token) that is not controlled by any single lab.' },
+
+      { h: 'What we are watching',
+        body: 'Three things, in priority order.\n\nFirst, the Glasswing dashboard. Anthropic links to a live disclosure ledger. If the patch curve stays meaningfully below the disclosure curve over the next 30 days, the asymmetry is being measured in real time, and the find-fast capability is outpacing the patch-fast capability inside the program itself. If the patch curve catches up, the program is hitting its disclosure-discipline target.\n\nSecond, a second frontier lab. Whether OpenAI, Google DeepMind, Meta, or a top-tier non-US lab ships a peer program with comparable throughput. A second lab program changes whether this is a single-lab capability or a cohort capability, and the centralization risk concentrates differently in each case.\n\nThird, a Bittensor security subnet. Any subnet (existing or newly registered) that ships even a v0 of the five-workflow shape above. The Oracle desk would treat the first such launch as the single most consequential signal for the security-side reading of the Bittensor thesis this year, and the first cryptographically-provenanced disclosure from such a subnet as the moment the decentralized peer becomes architecturally real rather than theoretically available.\n\nThe read of the day. AI just changed the math on software security. It did not solve security. It compressed one side of the equation and left the other untouched. The next 12 to 18 months decide whether the second side catches up by lab-led programs scaling, by decentralized peers emerging, or by neither. The Bittensor network has the primitives to be the answer. Whether it ships them is the open question.' },
     ],
     hero: `
       <div class="rsh-art__hero">
@@ -137,125 +140,179 @@ export const ORACLE_ARTICLES = Object.freeze([
       </div>
     `,
     infographics: [
-      { afterSection: 2,
-        caption: 'Anthropic Project Glasswing, end of month 1. The find side compresses to model-minutes; the verify-disclose-patch side stays bottlenecked at the maintainer-week. Peach bar marks the input stage from Anthropic; red marks the downstream stages the surrounding security ecosystem absorbs.',
-        svg: `<svg viewBox="0 0 800 340" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Project Glasswing disclosure funnel, month 1">
+      { afterSection: 0,
+        caption: 'All of them high-or-critical-severity. All found in the first 30 days. By one AI model called Claude Mythos Preview, scanning the code of about 50 partner organizations. May 2026.',
+        svg: `<svg viewBox="0 0 800 320" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="10,000 vulnerabilities found">
   <defs>
-    <linearGradient id="gwFunnelAnth" x1="0" x2="1" y1="0" y2="0">
-      <stop offset="0%" stop-color="#D97757" stop-opacity=".92"/>
-      <stop offset="100%" stop-color="#D97757" stop-opacity=".35"/>
-    </linearGradient>
-    <linearGradient id="gwFunnelRed" x1="0" x2="1" y1="0" y2="0">
-      <stop offset="0%" stop-color="#FF1E3C" stop-opacity=".88"/>
-      <stop offset="100%" stop-color="#FF1E3C" stop-opacity=".25"/>
-    </linearGradient>
-    <pattern id="gwFunnelGrid" x="0" y="0" width="40" height="40" patternUnits="userSpaceOnUse">
-      <path d="M 40 0 L 0 0 0 40" fill="none" stroke="#3a1419" stroke-width=".5"/>
+    <pattern id="bnG" x="0" y="0" width="40" height="40" patternUnits="userSpaceOnUse">
+      <path d="M 40 0 L 0 0 0 40" fill="none" stroke="#3a1419" stroke-width=".6"/>
     </pattern>
   </defs>
-  <rect width="800" height="340" fill="#0a0306"/>
-  <rect width="800" height="340" fill="url(#gwFunnelGrid)" opacity=".4"/>
-  <text x="20" y="30" fill="#FF1E3C" font-family="JetBrains Mono, monospace" font-size="11" font-weight="700" letter-spacing=".08em">THE DISCLOSURE FUNNEL · MONTH 1 · ANTHROPIC PROJECT GLASSWING</text>
-  <g font-family="JetBrains Mono, monospace" fill="#E4DDE0">
-    <rect x="20" y="60" width="760" height="40" fill="url(#gwFunnelAnth)" stroke="#D97757" stroke-width="1.6"/>
-    <text x="32" y="86" font-size="14" font-weight="700">10,000+</text>
-    <text x="140" y="86" font-size="13">FOUND</text>
-    <text x="770" y="86" text-anchor="end" font-size="10" fill="#E89A7A" letter-spacing=".06em">CLAUDE MYTHOS PREVIEW · HIGH/CRITICAL</text>
-
-    <rect x="20" y="112" width="500" height="40" fill="url(#gwFunnelRed)" stroke="#FF1E3C" stroke-width="1.3"/>
-    <text x="32" y="138" font-size="14" font-weight="700">1,752</text>
-    <text x="140" y="138" font-size="13">SAMPLED</text>
-    <text x="530" y="138" font-size="10" fill="#9C7A82" letter-spacing=".06em">SENT TO INDEP. SECURITY FIRMS, BLIND</text>
-
-    <rect x="20" y="164" width="420" height="40" fill="url(#gwFunnelRed)" opacity=".88" stroke="#FF1E3C" stroke-width="1.1"/>
-    <text x="32" y="190" font-size="14" font-weight="700">1,587</text>
-    <text x="140" y="190" font-size="13">VALIDATED · 90.6%</text>
-    <text x="450" y="190" font-size="10" fill="#9C7A82" letter-spacing=".06em">(1,094 HIGH/CRITICAL · 62.4%)</text>
-
-    <rect x="20" y="216" width="160" height="40" fill="url(#gwFunnelRed)" opacity=".7" stroke="#FF1E3C" stroke-width="1"/>
-    <text x="32" y="242" font-size="14" font-weight="700">530</text>
-    <text x="140" y="242" font-size="13">DISCLOSED</text>
-    <text x="200" y="242" font-size="10" fill="#9C7A82" letter-spacing=".06em">REPORTED TO MAINTAINERS</text>
-
-    <rect x="20" y="268" width="60" height="40" fill="url(#gwFunnelRed)" opacity=".5" stroke="#FF1E3C" stroke-width="1"/>
-    <text x="32" y="294" font-size="14" font-weight="700">75</text>
-    <text x="140" y="294" font-size="13">PATCHED</text>
-    <text x="200" y="294" font-size="10" fill="#9C7A82" letter-spacing=".06em">65 PUBLIC ADVISORIES PUBLISHED</text>
-  </g>
-  <text x="780" y="328" text-anchor="end" font-family="JetBrains Mono, monospace" font-size="9" fill="#6B4D52" letter-spacing=".06em">SUBNEτ MAGAZINE · ORACLE DESK · DATA: ANTHROPIC RESEARCH</text>
+  <rect width="800" height="320" fill="#0a0306"/>
+  <rect width="800" height="320" fill="url(#bnG)" opacity=".5"/>
+  <text x="40" y="50" fill="#FF4D60" font-family="JetBrains Mono, monospace" font-size="16" font-weight="700" letter-spacing=".08em">THE HEADLINE NUMBER · PROJECT GLASSWING · MONTH 1</text>
+  <text x="400" y="200" text-anchor="middle" fill="#fff" font-family="Archivo, sans-serif" font-size="140" font-weight="800" letter-spacing="-.04em">10,000+</text>
+  <text x="400" y="250" text-anchor="middle" fill="#FF4D60" font-family="JetBrains Mono, monospace" font-size="22" font-weight="700" letter-spacing=".1em">VULNERABILITIES FOUND IN 30 DAYS</text>
+  <text x="400" y="282" text-anchor="middle" fill="#C8A8AD" font-family="JetBrains Mono, monospace" font-size="15" letter-spacing=".04em">All high-or-critical-severity · 23,019 across all severities</text>
 </svg>`
       },
-      { afterSection: 6,
-        caption: 'If a Bittensor subnet ships a v0 of this five-workflow shape in the next 12 to 18 months, the centralized capability concentration the Glasswing program names becomes architecturally answerable. Miners do the model-minutes work (scan + patch); validators do the verification work (triage + validate); the chain carries the provenance ledger.',
-        svg: `<svg viewBox="0 0 920 300" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Decentralized security subnet, five-workflow shape">
+      { afterSection: 1,
+        caption: 'Six out of every ten serious bugs the AI found in month 1 sit inside open source libraries. The partner companies have security teams. The open source side often has one volunteer maintainer working on the side.',
+        svg: `<svg viewBox="0 0 800 360" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Open source share of vulnerabilities">
   <defs>
-    <pattern id="ssNetGrid" x="0" y="0" width="30" height="30" patternUnits="userSpaceOnUse">
-      <path d="M 30 0 L 0 0 0 30" fill="none" stroke="#3a1419" stroke-width=".4"/>
+    <linearGradient id="osR" x1="0" x2="1" y1="0" y2="0">
+      <stop offset="0%" stop-color="#FF1E3C" stop-opacity="1"/>
+      <stop offset="100%" stop-color="#FF1E3C" stop-opacity=".55"/>
+    </linearGradient>
+    <linearGradient id="osD" x1="0" x2="1" y1="0" y2="0">
+      <stop offset="0%" stop-color="#8B6B70" stop-opacity=".95"/>
+      <stop offset="100%" stop-color="#8B6B70" stop-opacity=".45"/>
+    </linearGradient>
+    <pattern id="osG" x="0" y="0" width="40" height="40" patternUnits="userSpaceOnUse">
+      <path d="M 40 0 L 0 0 0 40" fill="none" stroke="#3a1419" stroke-width=".6"/>
     </pattern>
-    <marker id="ssNetArr" markerWidth="10" markerHeight="10" refX="9" refY="5" orient="auto">
+  </defs>
+  <rect width="800" height="360" fill="#0a0306"/>
+  <rect width="800" height="360" fill="url(#osG)" opacity=".5"/>
+  <text x="40" y="50" fill="#FF4D60" font-family="JetBrains Mono, monospace" font-size="16" font-weight="700" letter-spacing=".08em">WHERE THE 10,000 BUGS LIVE</text>
+  <text x="40" y="124" fill="#fff" font-family="Archivo, sans-serif" font-size="60" font-weight="800">62%</text>
+  <text x="200" y="124" fill="#fff" font-family="Archivo, sans-serif" font-size="32" font-weight="700">6,202 bugs</text>
+  <text x="40" y="156" fill="#FF4D60" font-family="JetBrains Mono, monospace" font-size="17" letter-spacing=".06em" font-weight="700">OPEN SOURCE PROJECTS</text>
+  <rect x="40" y="172" width="470" height="48" fill="url(#osR)" stroke="#FF1E3C" stroke-width="2.5"/>
+  <text x="40" y="242" fill="#C8A8AD" font-family="JetBrains Mono, monospace" font-size="16">Across 1,000+ projects. Maintainers often unpaid volunteers.</text>
+  <text x="40" y="290" fill="#C8A8AD" font-family="Archivo, sans-serif" font-size="60" font-weight="800">38%</text>
+  <text x="200" y="290" fill="#C8A8AD" font-family="Archivo, sans-serif" font-size="32" font-weight="700">~3,800 bugs</text>
+  <text x="40" y="322" fill="#C8A8AD" font-family="JetBrains Mono, monospace" font-size="17" letter-spacing=".06em" font-weight="700">PARTNER CLOSED-SOURCE CODE</text>
+  <rect x="40" y="335" width="285" height="20" fill="url(#osD)" stroke="#8B6B70" stroke-width="2"/>
+</svg>`
+      },
+      { afterSection: 2,
+        caption: 'AI compresses the find side from human-months to model-minutes. The patch side still takes human-weeks. The whole story is the gap between those two clocks.',
+        svg: `<svg viewBox="0 0 800 280" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Find versus patch asymmetry">
+  <defs>
+    <pattern id="fpG" x="0" y="0" width="40" height="40" patternUnits="userSpaceOnUse">
+      <path d="M 40 0 L 0 0 0 40" fill="none" stroke="#3a1419" stroke-width=".6"/>
+    </pattern>
+  </defs>
+  <rect width="800" height="280" fill="#0a0306"/>
+  <rect width="800" height="280" fill="url(#fpG)" opacity=".5"/>
+  <text x="40" y="50" fill="#FF4D60" font-family="JetBrains Mono, monospace" font-size="16" font-weight="700" letter-spacing=".08em">THE ASYMMETRY · FIND IS FAST, PATCH IS NOT</text>
+  <text x="200" y="120" text-anchor="middle" fill="#E89A7A" font-family="JetBrains Mono, monospace" font-size="18" font-weight="700" letter-spacing=".1em">FIND</text>
+  <text x="200" y="200" text-anchor="middle" fill="#fff" font-family="Archivo, sans-serif" font-size="74" font-weight="800">minutes</text>
+  <text x="200" y="234" text-anchor="middle" fill="#C8A8AD" font-family="JetBrains Mono, monospace" font-size="15">AI model scans</text>
+  <text x="200" y="254" text-anchor="middle" fill="#C8A8AD" font-family="JetBrains Mono, monospace" font-size="15">a codebase</text>
+  <line x1="400" y1="80" x2="400" y2="250" stroke="#FF1E3C" stroke-width="1.5" stroke-dasharray="5,5" opacity=".6"/>
+  <text x="400" y="170" text-anchor="middle" fill="#FF1E3C" font-family="Archivo, sans-serif" font-size="46" font-weight="800">≠</text>
+  <text x="600" y="120" text-anchor="middle" fill="#FF4D60" font-family="JetBrains Mono, monospace" font-size="18" font-weight="700" letter-spacing=".1em">PATCH</text>
+  <text x="600" y="200" text-anchor="middle" fill="#fff" font-family="Archivo, sans-serif" font-size="74" font-weight="800">weeks</text>
+  <text x="600" y="234" text-anchor="middle" fill="#C8A8AD" font-family="JetBrains Mono, monospace" font-size="15">maintainer reviews,</text>
+  <text x="600" y="254" text-anchor="middle" fill="#C8A8AD" font-family="JetBrains Mono, monospace" font-size="15">tests, deploys</text>
+</svg>`
+      },
+      { afterSection: 3,
+        caption: 'Anthropic sent 1,752 of the open source findings to independent security firms for blind evaluation. The firms confirmed 90.6 percent as real. The AI is not hallucinating; the bugs are there.',
+        svg: `<svg viewBox="0 0 800 280" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="90.6 percent validation rate">
+  <defs>
+    <pattern id="vG" x="0" y="0" width="40" height="40" patternUnits="userSpaceOnUse">
+      <path d="M 40 0 L 0 0 0 40" fill="none" stroke="#3a1419" stroke-width=".6"/>
+    </pattern>
+  </defs>
+  <rect width="800" height="280" fill="#0a0306"/>
+  <rect width="800" height="280" fill="url(#vG)" opacity=".5"/>
+  <text x="40" y="50" fill="#FF4D60" font-family="JetBrains Mono, monospace" font-size="16" font-weight="700" letter-spacing=".08em">VALIDATION RATE · INDEPENDENT FIRMS · BLIND TEST</text>
+  <text x="280" y="195" text-anchor="middle" fill="#fff" font-family="Archivo, sans-serif" font-size="120" font-weight="800" letter-spacing="-.04em">90.6%</text>
+  <text x="280" y="232" text-anchor="middle" fill="#FF4D60" font-family="JetBrains Mono, monospace" font-size="18" font-weight="700" letter-spacing=".08em">CONFIRMED VALID FINDINGS</text>
+  <text x="280" y="258" text-anchor="middle" fill="#C8A8AD" font-family="JetBrains Mono, monospace" font-size="14">1,587 of 1,752 sampled</text>
+  <line x1="540" y1="80" x2="540" y2="240" stroke="#3a1419" stroke-width="1.5" stroke-dasharray="5,5" opacity=".6"/>
+  <text x="670" y="135" text-anchor="middle" fill="#fff" font-family="Archivo, sans-serif" font-size="56" font-weight="800">9.4%</text>
+  <text x="670" y="162" text-anchor="middle" fill="#C8A8AD" font-family="JetBrains Mono, monospace" font-size="14" font-weight="700" letter-spacing=".06em">FALSE POSITIVES</text>
+  <text x="670" y="194" text-anchor="middle" fill="#F5E5E8" font-family="JetBrains Mono, monospace" font-size="14">Lower than human</text>
+  <text x="670" y="212" text-anchor="middle" fill="#F5E5E8" font-family="JetBrains Mono, monospace" font-size="14">testers, per Anthropic</text>
+  <text x="670" y="230" text-anchor="middle" fill="#F5E5E8" font-family="JetBrains Mono, monospace" font-size="14">(Cloudflare data)</text>
+</svg>`
+      },
+      { afterSection: 4,
+        caption: 'wolfSSL is the kind of TLS library that ships inside ATMs, automobiles, factory controllers, and millions of embedded devices. One patch upstream. A patch-deployment window measured in years downstream.',
+        svg: `<svg viewBox="0 0 800 380" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="One CVE propagating through downstream devices">
+  <defs>
+    <pattern id="cveG" x="0" y="0" width="40" height="40" patternUnits="userSpaceOnUse">
+      <path d="M 40 0 L 0 0 0 40" fill="none" stroke="#3a1419" stroke-width=".6"/>
+    </pattern>
+    <marker id="cveA" markerWidth="10" markerHeight="10" refX="9" refY="5" orient="auto">
       <path d="M0,0 L10,5 L0,10 z" fill="#FF1E3C"/>
     </marker>
   </defs>
-  <rect width="920" height="300" fill="#0a0306"/>
-  <rect width="920" height="300" fill="url(#ssNetGrid)" opacity=".4"/>
-  <text x="20" y="30" fill="#FF1E3C" font-family="JetBrains Mono, monospace" font-size="11" font-weight="700" letter-spacing=".08em">DECENTRALIZED SECURITY SUBNET · FIVE-WORKFLOW SHAPE</text>
-  <text x="20" y="48" fill="#9C7A82" font-family="JetBrains Mono, monospace" font-size="10" letter-spacing=".04em">Structural counterparty to a centralized Glasswing-style program, mapped onto Bittensor primitives.</text>
-  <g font-family="JetBrains Mono, monospace" fill="#E4DDE0">
-    <rect x="20" y="90" width="160" height="130" fill="rgba(255,30,60,.08)" stroke="#FF1E3C" stroke-width="1.5"/>
-    <text x="32" y="112" font-size="9" fill="#FF4D60" letter-spacing=".1em">STEP 01</text>
-    <text x="32" y="135" font-size="15" font-weight="700" fill="#fff">DISCOVERY</text>
-    <text x="32" y="156" font-size="10" fill="#C7B5BA">model-minutes</text>
-    <text x="32" y="170" font-size="10" fill="#C7B5BA">scanning</text>
-    <text x="32" y="184" font-size="10" fill="#C7B5BA">codebase to finds</text>
-    <text x="32" y="208" font-size="9" fill="#FF4D60" letter-spacing=".08em" font-weight="700">MINERS</text>
-
-    <line x1="180" y1="155" x2="205" y2="155" stroke="#FF1E3C" stroke-width="1.5" marker-end="url(#ssNetArr)"/>
-    <text x="186" y="146" font-size="8" fill="#9C7A82" letter-spacing=".06em">finds</text>
-
-    <rect x="210" y="90" width="160" height="130" fill="rgba(255,30,60,.08)" stroke="#FF1E3C" stroke-width="1.5"/>
-    <text x="222" y="112" font-size="9" fill="#FF4D60" letter-spacing=".1em">STEP 02</text>
-    <text x="222" y="135" font-size="15" font-weight="700" fill="#fff">TRIAGE</text>
-    <text x="222" y="156" font-size="10" fill="#C7B5BA">filter false +</text>
-    <text x="222" y="170" font-size="10" fill="#C7B5BA">verify severity</text>
-    <text x="222" y="184" font-size="10" fill="#C7B5BA">target FP &lt; 9.4%</text>
-    <text x="222" y="208" font-size="9" fill="#FF4D60" letter-spacing=".08em" font-weight="700">VALIDATORS</text>
-
-    <line x1="370" y1="155" x2="395" y2="155" stroke="#FF1E3C" stroke-width="1.5" marker-end="url(#ssNetArr)"/>
-    <text x="376" y="146" font-size="8" fill="#9C7A82" letter-spacing=".06em">verified</text>
-
-    <rect x="400" y="90" width="160" height="130" fill="rgba(255,30,60,.08)" stroke="#FF1E3C" stroke-width="1.5"/>
-    <text x="412" y="112" font-size="9" fill="#FF4D60" letter-spacing=".1em">STEP 03</text>
-    <text x="412" y="135" font-size="15" font-weight="700" fill="#fff">DISCLOSURE</text>
-    <text x="412" y="156" font-size="10" fill="#C7B5BA">CVE issued</text>
-    <text x="412" y="170" font-size="10" fill="#C7B5BA">on-chain receipt</text>
-    <text x="412" y="184" font-size="10" fill="#C7B5BA">no early leak</text>
-    <text x="412" y="208" font-size="9" fill="#FF4D60" letter-spacing=".08em" font-weight="700">PROVENANCE</text>
-
-    <line x1="560" y1="155" x2="585" y2="155" stroke="#FF1E3C" stroke-width="1.5" marker-end="url(#ssNetArr)"/>
-    <text x="566" y="146" font-size="8" fill="#9C7A82" letter-spacing=".06em">CVE</text>
-
-    <rect x="590" y="90" width="160" height="130" fill="rgba(255,30,60,.08)" stroke="#FF1E3C" stroke-width="1.5"/>
-    <text x="602" y="112" font-size="9" fill="#FF4D60" letter-spacing=".1em">STEP 04</text>
-    <text x="602" y="135" font-size="15" font-weight="700" fill="#fff">PATCH GEN</text>
-    <text x="602" y="156" font-size="10" fill="#C7B5BA">model output</text>
-    <text x="602" y="170" font-size="10" fill="#C7B5BA">= code diff</text>
-    <text x="602" y="184" font-size="10" fill="#C7B5BA">+ test cases</text>
-    <text x="602" y="208" font-size="9" fill="#FF4D60" letter-spacing=".08em" font-weight="700">MINERS</text>
-
-    <line x1="750" y1="155" x2="775" y2="155" stroke="#FF1E3C" stroke-width="1.5" marker-end="url(#ssNetArr)"/>
-    <text x="756" y="146" font-size="8" fill="#9C7A82" letter-spacing=".06em">diff</text>
-
-    <rect x="780" y="90" width="120" height="130" fill="rgba(255,30,60,.08)" stroke="#FF1E3C" stroke-width="1.5"/>
-    <text x="792" y="112" font-size="9" fill="#FF4D60" letter-spacing=".1em">STEP 05</text>
-    <text x="792" y="135" font-size="15" font-weight="700" fill="#fff">VALIDATE</text>
-    <text x="792" y="156" font-size="10" fill="#C7B5BA">patch fixes</text>
-    <text x="792" y="170" font-size="10" fill="#C7B5BA">no regression</text>
-    <text x="792" y="184" font-size="10" fill="#C7B5BA">stake-weighted</text>
-    <text x="792" y="208" font-size="9" fill="#FF4D60" letter-spacing=".08em" font-weight="700">VALIDATORS</text>
-
-    <text x="20" y="252" font-size="10" fill="#C7B5BA" letter-spacing=".03em">Each step maps to an existing Bittensor incentive primitive. Miners run the model-minutes work (scan, patch).</text>
-    <text x="20" y="266" font-size="10" fill="#C7B5BA" letter-spacing=".03em">Validators run the verification work (triage, validate). The chain carries the provenance ledger.</text>
-    <text x="900" y="288" text-anchor="end" font-size="9" fill="#6B4D52" letter-spacing=".06em">SUBNEτ MAGAZINE · ORACLE DESK</text>
+  <rect width="800" height="380" fill="#0a0306"/>
+  <rect width="800" height="380" fill="url(#cveG)" opacity=".5"/>
+  <text x="40" y="50" fill="#FF4D60" font-family="JetBrains Mono, monospace" font-size="16" font-weight="700" letter-spacing=".08em">ONE BUG, MANY DOWNSTREAM DEVICES · wolfSSL CVE-2026-5194</text>
+  <rect x="260" y="80" width="280" height="80" fill="rgba(255,30,60,.18)" stroke="#FF1E3C" stroke-width="2.5"/>
+  <text x="400" y="116" text-anchor="middle" fill="#fff" font-family="Archivo, sans-serif" font-size="26" font-weight="700">wolfSSL library</text>
+  <text x="400" y="142" text-anchor="middle" fill="#FF4D60" font-family="JetBrains Mono, monospace" font-size="13" letter-spacing=".06em" font-weight="700">CERTIFICATE FORGERY · ONE PATCH UPSTREAM</text>
+  <line x1="320" y1="166" x2="120" y2="232" stroke="#FF1E3C" stroke-width="2" marker-end="url(#cveA)"/>
+  <line x1="370" y1="166" x2="290" y2="232" stroke="#FF1E3C" stroke-width="2" marker-end="url(#cveA)"/>
+  <line x1="430" y1="166" x2="510" y2="232" stroke="#FF1E3C" stroke-width="2" marker-end="url(#cveA)"/>
+  <line x1="480" y1="166" x2="680" y2="232" stroke="#FF1E3C" stroke-width="2" marker-end="url(#cveA)"/>
+  <g font-family="JetBrains Mono, monospace" fill="#F5E5E8">
+    <rect x="40" y="240" width="160" height="80" fill="rgba(0,0,0,.5)" stroke="#FF1E3C" stroke-width="2"/>
+    <text x="120" y="270" text-anchor="middle" font-weight="700" font-size="18">BANKING</text>
+    <text x="120" y="296" text-anchor="middle" font-size="14" fill="#C8A8AD">POS terminals</text>
+    <rect x="220" y="240" width="160" height="80" fill="rgba(0,0,0,.5)" stroke="#FF1E3C" stroke-width="2"/>
+    <text x="300" y="270" text-anchor="middle" font-weight="700" font-size="18">AUTOMOTIVE</text>
+    <text x="300" y="296" text-anchor="middle" font-size="14" fill="#C8A8AD">control units</text>
+    <rect x="400" y="240" width="160" height="80" fill="rgba(0,0,0,.5)" stroke="#FF1E3C" stroke-width="2"/>
+    <text x="480" y="270" text-anchor="middle" font-weight="700" font-size="18">INDUSTRIAL</text>
+    <text x="480" y="296" text-anchor="middle" font-size="14" fill="#C8A8AD">PLCs &amp; SCADA</text>
+    <rect x="580" y="240" width="180" height="80" fill="rgba(0,0,0,.5)" stroke="#FF1E3C" stroke-width="2"/>
+    <text x="670" y="270" text-anchor="middle" font-weight="700" font-size="17">IOT &amp; EMBEDDED</text>
+    <text x="670" y="296" text-anchor="middle" font-size="14" fill="#C8A8AD">orphaned firmware</text>
+  </g>
+  <text x="40" y="352" fill="#C8A8AD" font-family="JetBrains Mono, monospace" font-size="14">One patch upstream. Thousands of vulnerable devices downstream, on firmware</text>
+  <text x="40" y="372" fill="#C8A8AD" font-family="JetBrains Mono, monospace" font-size="14">cycles ranging from weekly (cloud services) to never (orphaned hardware).</text>
+</svg>`
+      },
+      { afterSection: 7,
+        caption: 'Each step maps to a Bittensor primitive that already works on other subnets. Miners run the model-minutes work (scan + patch). Validators run the verification work (triage + validate). The chain carries the provenance ledger that downstream defenders can verify without trusting any single lab.',
+        svg: `<svg viewBox="0 0 800 560" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Five-workflow decentralized security subnet">
+  <defs>
+    <pattern id="wfG" x="0" y="0" width="40" height="40" patternUnits="userSpaceOnUse">
+      <path d="M 40 0 L 0 0 0 40" fill="none" stroke="#3a1419" stroke-width=".6"/>
+    </pattern>
+  </defs>
+  <rect width="800" height="560" fill="#0a0306"/>
+  <rect width="800" height="560" fill="url(#wfG)" opacity=".5"/>
+  <text x="40" y="48" fill="#FF4D60" font-family="JetBrains Mono, monospace" font-size="16" font-weight="700" letter-spacing=".08em">A BITTENSOR SECURITY SUBNET · FIVE WORKFLOWS</text>
+  <text x="40" y="72" fill="#C8A8AD" font-family="JetBrains Mono, monospace" font-size="14">What a decentralized counterparty to a centralized Glasswing-style program would look like.</text>
+  <g font-family="JetBrains Mono, monospace" fill="#F5E5E8">
+    <rect x="40" y="96" width="720" height="80" fill="rgba(255,30,60,.08)" stroke="#FF1E3C" stroke-width="2"/>
+    <text x="60" y="126" font-size="14" fill="#FF4D60" letter-spacing=".1em" font-weight="700">STEP 01</text>
+    <text x="60" y="156" font-size="26" font-weight="700" fill="#fff">DISCOVERY</text>
+    <text x="270" y="134" font-size="16" fill="#F5E5E8">AI scans codebases at model speed</text>
+    <text x="270" y="158" font-size="14" fill="#C8A8AD">paid: per high-or-critical finding</text>
+    <text x="740" y="156" text-anchor="end" font-size="16" fill="#FF4D60" font-weight="700" letter-spacing=".08em">MINERS</text>
+    <rect x="40" y="188" width="720" height="80" fill="rgba(255,30,60,.08)" stroke="#FF1E3C" stroke-width="2"/>
+    <text x="60" y="218" font-size="14" fill="#FF4D60" letter-spacing=".1em" font-weight="700">STEP 02</text>
+    <text x="60" y="248" font-size="26" font-weight="700" fill="#fff">TRIAGE</text>
+    <text x="270" y="226" font-size="16" fill="#F5E5E8">Validators filter false positives</text>
+    <text x="270" y="250" font-size="14" fill="#C8A8AD">target: 9.4% FP rate (Anthropic benchmark)</text>
+    <text x="740" y="248" text-anchor="end" font-size="16" fill="#FF4D60" font-weight="700" letter-spacing=".08em">VALIDATORS</text>
+    <rect x="40" y="280" width="720" height="80" fill="rgba(255,30,60,.08)" stroke="#FF1E3C" stroke-width="2"/>
+    <text x="60" y="310" font-size="14" fill="#FF4D60" letter-spacing=".1em" font-weight="700">STEP 03</text>
+    <text x="60" y="340" font-size="26" font-weight="700" fill="#fff">DISCLOSURE</text>
+    <text x="270" y="318" font-size="16" fill="#F5E5E8">CVE filed, maintainer notified</text>
+    <text x="270" y="342" font-size="14" fill="#C8A8AD">on-chain receipt commits without leaking exploit</text>
+    <text x="740" y="340" text-anchor="end" font-size="16" fill="#FF4D60" font-weight="700" letter-spacing=".08em">CHAIN</text>
+    <rect x="40" y="372" width="720" height="80" fill="rgba(255,30,60,.08)" stroke="#FF1E3C" stroke-width="2"/>
+    <text x="60" y="402" font-size="14" fill="#FF4D60" letter-spacing=".1em" font-weight="700">STEP 04</text>
+    <text x="60" y="432" font-size="26" font-weight="700" fill="#fff">PATCH GEN</text>
+    <text x="270" y="410" font-size="16" fill="#F5E5E8">AI proposes the fix, with test cases</text>
+    <text x="270" y="434" font-size="14" fill="#C8A8AD">paid: per patch accepted upstream</text>
+    <text x="740" y="432" text-anchor="end" font-size="16" fill="#FF4D60" font-weight="700" letter-spacing=".08em">MINERS</text>
+    <rect x="40" y="464" width="720" height="80" fill="rgba(255,30,60,.08)" stroke="#FF1E3C" stroke-width="2"/>
+    <text x="60" y="494" font-size="14" fill="#FF4D60" letter-spacing=".1em" font-weight="700">STEP 05</text>
+    <text x="60" y="524" font-size="26" font-weight="700" fill="#fff">VALIDATE</text>
+    <text x="270" y="502" font-size="16" fill="#F5E5E8">Patch fixes the bug, no regressions</text>
+    <text x="270" y="526" font-size="14" fill="#C8A8AD">stake-weighted consensus signs off</text>
+    <text x="740" y="524" text-anchor="end" font-size="16" fill="#FF4D60" font-weight="700" letter-spacing=".08em">VALIDATORS</text>
   </g>
 </svg>`
       },
