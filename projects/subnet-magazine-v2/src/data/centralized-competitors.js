@@ -1027,6 +1027,27 @@ export const COMPETITORS = [
   /* ---------- Remaining catalog rivals: data/ads/real estate/creator economy/
      mining pools/quantum (final 31-subnet curation batch) ---------- */
   {
+    id: 'stripe',
+    name: 'Stripe',
+    ticker: 'PRIVATE',
+    mcap: 91_500_000_000,
+    source: 'private',
+    sectors: ['finance'],
+    url: 'https://stripe.com',
+    why: 'Dominant payment infrastructure ($1T+ TPV/yr). Stripe Agent SDK launched 2024 for autonomous-AI payments. Direct rival for any subnet pitching agent-to-agent payment rails; Stripe\'s developer-experience moat is decade-long.',
+  },
+  {
+    id: 'lightning-network',
+    name: 'Lightning Network',
+    ticker: 'NONPROFIT',
+    mcap: null,
+    source: 'private',
+    sectors: ['finance'],
+    url: 'https://lightning.network',
+    why: 'Bitcoin L2 for instant + sub-cent BTC payments. Lightning Labs + Blockstream + ACINQ are the implementation leaders. Direct rival for any subnet "trustless micropayments" pitch — Lightning ships sub-cent finality today.',
+    aliases: ['Lightning'],
+  },
+  {
     id: 'bright-data',
     name: 'Bright Data',
     ticker: 'PRIVATE',
@@ -3209,6 +3230,36 @@ export const BY_NETUID = {
     ],
   },
 
+  /* SN21 AdTAO (ppcrebel.com) — Counterfactual impact prediction
+     for advertising. Rivals: Trade Desk, AppLovin, Adobe, Meta,
+     Palantir, Snowflake. */
+  21: {
+    rivals: ['trade-desk', 'applovin', 'adobe', 'meta', 'palantir', 'snowflake'],
+    supplyChainIds: ['aws-azure-gcp', 'cloudflare-edge'],
+    constraints: [
+      {
+        label: 'Conversion-attribution truth gap',
+        value: 'iOS ATT killed 70%+ of attribution signals',
+        note: 'Counterfactual ad-impact prediction depends on conversion data. Apple ATT broke this; Trade Desk + AppLovin scrambled toward MMM (Media Mix Modeling). Subnet has to either work with sparse signal or partner with publishers for first-party data.',
+      },
+      {
+        label: 'Methodology defensibility',
+        value: 'A/B test gold standard · counterfactual is inference',
+        note: 'Real ad-impact testing uses RCTs (split-cell experiments). Counterfactual estimation requires strong assumptions. Subnet has to defend methodology rigor or skeptical CMOs default to A/B-tested platforms.',
+      },
+      {
+        label: 'Brand-customer data integration',
+        value: 'CDP integration is the wedge',
+        note: 'Real ad impact needs customer-data-platform integration (Segment, Snowflake, mParticle). Subnet has to ship adapters or accept that impact predictions stay theoretical without integrating into the brand\'s actual customer data.',
+      },
+      {
+        label: 'Latency-of-decision',
+        value: 'Bid decisions: <100ms p95',
+        note: 'Real-time bidding decisions resolve in milliseconds. Subnet counterfactual prediction is too slow for RTB; capture campaign-planning + post-hoc attribution, not in-flight bid decisions.',
+      },
+    ],
+  },
+
   /* SN23 Trishool — "Trishool is the AI alignment protocol
      built on Bittensor" (live identity per taostats 2026-05-22,
      trishool.ai). Decentralized AI alignment / safety. Rival
@@ -3547,6 +3598,35 @@ export const BY_NETUID = {
     ],
   },
 
+  /* SN71 Leadpoet — Intent-driven AI for sales teams.
+     Rivals: Salesforce, Apollo.io, ZoomInfo, HubSpot, Outreach. */
+  71: {
+    rivals: ['salesforce', 'apollo-io', 'snowflake', 'openai', 'anthropic', 'cohere'],
+    supplyChainIds: ['aws-azure-gcp', 'cloudflare-edge'],
+    constraints: [
+      {
+        label: 'B2B contact-data licensing',
+        value: 'Apollo: ~250M contacts · ZoomInfo: 150M',
+        note: 'Sales AI runs on contact databases. Apollo + ZoomInfo built theirs over years via scraping + co-licensing. Subnet sales AI without comparable contact data offers AI on no foundation — readers using it generate fewer leads.',
+      },
+      {
+        label: 'Email-deliverability moat',
+        value: 'Outreach.io owns sender-reputation infra',
+        note: 'Sending sales emails at scale requires deliverability infra (warm-up, domain reputation, bounce handling). Outreach + Salesloft own this. Subnet AI generating emails has to either integrate with these tools or accept low deliverability.',
+      },
+      {
+        label: 'Intent-signal sources',
+        value: 'Bombora + 6sense lock the intent-data market',
+        note: 'Intent-driven sales means using buyer-signals (job changes, news, web visits). Bombora + 6sense + Demandbase aggregate these. Subnet has to either license these signals (expensive) or scrape (legal risk).',
+      },
+      {
+        label: 'CRM-integration depth',
+        value: 'Salesforce: 78% of B2B CRM market',
+        note: 'Real adoption requires Salesforce / HubSpot integration. Centralized AI sales tools ship deep integrations. Subnet AI outputs need to be Salesforce-record-grade or sit outside the actual sales workflow.',
+      },
+    ],
+  },
+
   /* SN82 Compelle — "AIs debate until they are AGI" (live
      identity per taostats 2026-05-22, compelle.com). Multi-
      agent debate / argumentation as a path to capability. Rival
@@ -3580,6 +3660,36 @@ export const BY_NETUID = {
         label: 'AGI claim verification',
         value: 'No accepted benchmark for "AGI"',
         note: 'There is no industry-standard "AGI test." ARC-AGI, MMLU, GPQA, Humanity\'s Last Exam each capture slices. Subnet "until they are AGI" framing has no terminating condition — the magazine\'s editorial register has to treat this as ambitious framing rather than a deliverable.',
+      },
+    ],
+  },
+
+  /* SN78 Vocence — The voice layer for decentralized
+     intelligence. Rivals: ElevenLabs, OpenAI (Voice Engine),
+     Suno, Tavus, D-ID, Anthropic. */
+  78: {
+    rivals: ['eleven-labs', 'elevenlabs', 'openai', 'suno', 'tavus', 'd-id'],
+    supplyChainIds: ['nvidia', 'aws-azure-gcp', 'tsmc'],
+    constraints: [
+      {
+        label: 'Voice-quality bar',
+        value: 'ElevenLabs MOS scores at ~4.5/5',
+        note: 'TTS quality is measured by Mean Opinion Score. ElevenLabs ships near-human MOS; open-source alternatives (Bark, XTTS) lag at ~3.5-4.0. Subnet voice has to either match the frontier or specialize on language coverage / cost.',
+      },
+      {
+        label: 'Voice-cloning consent surface',
+        value: 'SAG-AFTRA + EU AI Act + Tennessee ELVIS Act',
+        note: 'Voice cloning is now regulated (SAG-AFTRA contracts, EU AI Act real-time speech, Tennessee ELVIS Act). ElevenLabs requires voice-owner verification. Subnet has to ship comparable consent verification or face takedowns + legal action.',
+      },
+      {
+        label: 'Latency for real-time voice',
+        value: 'Voice-call use: <250ms p95',
+        note: 'Real-time voice (calls, live narration) needs sub-250ms TTS latency. ElevenLabs Turbo + Cartesia Sonic ship this. Subnet inference miners on commodity hardware can\'t guarantee real-time SLA; capture batch / async voice use cases.',
+      },
+      {
+        label: 'Language coverage',
+        value: 'ElevenLabs: 32 langs · OpenAI Voice: 50+',
+        note: 'Centralized rivals cover 30-50 languages with native-speaker quality. Subnet has to either match coverage breadth (engineering burden) or specialize on languages the centralized rivals neglect (lower demand).',
       },
     ],
   },
@@ -4397,6 +4507,36 @@ export const BY_NETUID = {
     ],
   },
 
+  /* SN121 sundae_bar — Generalist AI agent for business
+     workflows. Rivals: Cognition Devin (for code), Cursor,
+     Replit Agent, Anthropic Claude Code, OpenAI Operator. */
+  121: {
+    rivals: ['cognition-devin', 'replit-agent', 'cursor', 'claude-code', 'openai', 'anthropic'],
+    supplyChainIds: ['nvidia', 'aws-azure-gcp', 'cloudflare-edge'],
+    constraints: [
+      {
+        label: 'Generalist-agent reliability tax',
+        value: 'Agents reliably complete ~30% of real tasks',
+        note: 'OpenAI Operator + Anthropic Computer Use + Devin all report ~30-50% task-completion rates on real business workflows. Subnet generalist agent inherits the reliability ceiling — readers shouldn\'t expect end-to-end automation without human-in-the-loop.',
+      },
+      {
+        label: 'Tool-permission surface',
+        value: 'CRM + email + payment access = high-risk',
+        note: 'Real business workflows touch CRMs, email, payments. Granting agent broad permission to these is high-risk (Anthropic Computer Use ships with strong sandboxing). Subnet agent execution model must address permission boundaries or readers fear giving it real access.',
+      },
+      {
+        label: 'Audit trail + correctness',
+        value: 'Business workflows need pre-execution review',
+        note: 'Sales teams + ops teams need to audit + override agent decisions before they execute. Centralized rivals ship review UIs. Subnet agent outputs without review surface stay in pilot mode — never reach production.',
+      },
+      {
+        label: 'Specialist-agent fragmentation',
+        value: 'Devin for code · Operator for browse · subnet ?',
+        note: 'Specialist agents (code, browsing, sales) outperform generalists on their domains. Subnet "generalist" pitch competes with specialist depth — readers default to specialists for high-stakes tasks, leaving subnet with low-stakes general work.',
+      },
+    ],
+  },
+
   /* SN127 Astrid — "The capital axis for Bittensor" (live
      identity per taostats 2026-05-22, astrid.global). Capital-
      infrastructure / asset-tokenization for Bittensor. Rival
@@ -4505,6 +4645,36 @@ export const BY_NETUID = {
         label: 'Coordination with frontier labs',
         value: 'Lab safety teams won\'t adopt outside methods',
         note: 'Frontier labs trust their internal safety teams. Adopting an outside (especially decentralized + anonymous) alignment method requires institutional trust labs don\'t extend lightly. Subnet alignment outputs need a path INTO Anthropic/OpenAI/DeepMind workflows or readers can\'t see them deployed.',
+      },
+    ],
+  },
+
+  /* SN58 Handshake (handshake58.com) — Trustless micropayments
+     for autonomous AI agents. Rivals: Stripe agent SDK, x402
+     (Coinbase), Lightning Network, AggLayer. */
+  58: {
+    rivals: ['stripe', 'lightning-network', 'coinbase', 'circle-usdc', 'tether', 'ethereum-l1'],
+    supplyChainIds: ['ethereum-l1-gas', 'chainlink-oracles', 'aws-azure-gcp'],
+    constraints: [
+      {
+        label: 'Micropayment economics',
+        value: 'Visa: 30¢ min · Lightning: sub-cent · subnet: ?',
+        note: 'Credit-card minimums kill <$1 transactions. Lightning Network does sub-cent at L1+L2 layered cost. Subnet has to match Lightning floor OR specialize on agent-to-agent rails where Lightning has weak tooling.',
+      },
+      {
+        label: 'Agent-payment KYC surface',
+        value: 'Anonymous agents can\'t pass FinCEN KYC',
+        note: 'US FinCEN + EU 6AMLD require KYC on financial transactions over thresholds. Agents transacting without KYC face regulatory risk. Subnet has to either restrict use cases or rely on user-attached KYC (which limits agent autonomy).',
+      },
+      {
+        label: 'Settlement guarantee chain',
+        value: 'Buyer-seller-dispute mechanics in autonomous flow',
+        note: 'When two agents transact and the product fails, who arbitrates? Stripe + Visa have chargeback systems. Subnet "trustless micropayments" has to spec dispute mechanism or expose users to autonomous-payment-with-no-recourse risk.',
+      },
+      {
+        label: 'Stripe Agent SDK competition',
+        value: 'Coinbase x402 + Stripe agent rails launched 2024',
+        note: 'Centralized rivals (Stripe Agent SDK, Coinbase x402) ship agent-payment rails. Subnet has to either compete on protocol-level openness (no platform fees) or accept that mainstream agents will use Stripe.',
       },
     ],
   },
