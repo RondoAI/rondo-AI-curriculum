@@ -883,6 +883,62 @@ export const COMPETITORS = [
     aliases: ['OpenRouter.ai'],
   },
 
+  /* ---------- LLM serving / long-context / reasoning / agent infra
+     (Quasar SN24, TensorClaw SN92, Affine SN120, SOMA SN114, etc) ---------- */
+  {
+    id: 'ai21-labs',
+    name: 'AI21 Labs',
+    ticker: 'PRIVATE',
+    mcap: 1_400_000_000,
+    source: 'private',
+    sectors: ['text'],
+    url: 'https://www.ai21.com',
+    why: 'Tel Aviv lab behind Jurassic + Jamba models — pioneered Mamba/Transformer hybrid for long-context (256K+) efficiency. Direct rival for long-context subnets; their architecture choices set the bar for "serve longer context at lower cost than Claude/Gemini."',
+    aliases: ['AI21', 'Jamba'],
+  },
+  {
+    id: 'aws-bedrock',
+    name: 'AWS Bedrock',
+    ticker: 'AMZN',
+    mcap: 2_300_000_000_000,
+    source: 'public',
+    sectors: ['text', 'infra'],
+    url: 'https://aws.amazon.com/bedrock',
+    why: 'Amazon\'s managed LLM endpoint — hosts Anthropic, Meta, Mistral, AI21, Cohere, Amazon Nova behind a single API + IAM gating. The enterprise default for AI inference; decentralized inference subnets compete with the AWS distribution moat + compliance story.',
+    aliases: ['Bedrock'],
+  },
+  {
+    id: 'anyscale',
+    name: 'Anyscale',
+    ticker: 'PRIVATE',
+    mcap: 1_000_000_000,
+    source: 'private',
+    sectors: ['infra', 'training'],
+    url: 'https://www.anyscale.com',
+    why: 'Ray-based distributed compute platform — runs LLM serving + training at scale, founded by Ray creators. Direct rival for decentralized inference subnets pitching "GPU cluster as a service"; Anyscale\'s Ray Serve is the dominant pattern in the centralized world.',
+  },
+  {
+    id: 'composio',
+    name: 'Composio',
+    ticker: 'PRIVATE',
+    mcap: 70_000_000,
+    source: 'private',
+    sectors: ['agents'],
+    url: 'https://composio.dev',
+    why: 'Tools-as-API platform for AI agents — 250+ integrations (GitHub, Slack, Linear, Notion, etc) packaged as auth-handled, retry-safe agent tools. Rival for any subnet pitching MCP / tool-use infrastructure; Composio\'s integration depth is the centralized standard.',
+  },
+  {
+    id: 'langchain',
+    name: 'LangChain',
+    ticker: 'PRIVATE',
+    mcap: 1_100_000_000,
+    source: 'private',
+    sectors: ['agents'],
+    url: 'https://www.langchain.com',
+    why: 'Dominant agent-orchestration framework + LangSmith eval platform — every enterprise pilot using agents touches LangChain. Centralized rival for any subnet shipping agent infra; the LangGraph state-machine pattern is the de facto orchestration standard.',
+    aliases: ['LangSmith', 'LangGraph'],
+  },
+
   /* ---------- Software engineering agents (SN62 Ridges / SN66 ninja / SN11 TrajectoryRL) ----------
      The 2026 SWE-agent space is consolidating fast. Three
      buckets the readers will compare against:
