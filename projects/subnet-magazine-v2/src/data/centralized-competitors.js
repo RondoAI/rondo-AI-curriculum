@@ -1688,6 +1688,157 @@ export const BY_NETUID = {
     ],
   },
 
+  /* SN24 Quasar — "Bittensor subnet built to crush the long-
+     context barrier" (live identity per taostats 2026-05-22,
+     silxinc.com). Long-context LLM serving. Rival pool is the
+     centralized labs that already ship 200K-2M context windows
+     plus the dedicated long-context efficiency shops. */
+  24: {
+    rivals: ['anthropic', 'google', 'openai', 'ai21-labs', 'together-ai', 'mistral'],
+    supplyChainIds: ['nvidia', 'tsmc', 'sk-hynix', 'aws-azure-gcp'],
+    constraints: [
+      {
+        label: 'Context-window arms race',
+        value: 'Gemini 2M · Claude 1M · GPT-4o 200K',
+        note: 'Frontier labs ship 200K-2M context windows. AI21 Jamba uses Mamba/Transformer hybrid for 256K+ at lower memory cost. Subnet has to either match the frontier window or differentiate on cost-per-token at long context (where attention scaling bites hardest).',
+      },
+      {
+        label: 'KV-cache memory tax',
+        value: '~2GB per 100K tokens (FP16)',
+        note: 'Long-context inference\'s real cost is the KV cache, not the model weights. Holding 1M tokens of state at FP16 needs ~20GB VRAM per request. Centralized rivals use PagedAttention / radix-attention tricks; subnet miners on commodity hardware have to ship the same optimizations or run smaller windows.',
+      },
+      {
+        label: 'Long-context eval validity',
+        value: 'Needle-in-haystack hits ceiling fast',
+        note: 'Synthetic needle-in-haystack benchmarks (RULER, NIAH) saturate near 100% on frontier models — they don\'t differentiate real reasoning over long context. Real eval needs multi-fact / multi-hop tasks. Subnet validators have to pick the right benchmark or score what doesn\'t matter.',
+      },
+      {
+        label: 'Token-cost arbitrage window',
+        value: 'Long-context API runs $3-15/M tokens',
+        note: 'Claude 200K context costs ~$3-15/M tokens depending on tier. Together / Fireworks undercut at ~$1-3/M on open models. Subnet alpha-economics need to undercut Together/Fireworks (not Anthropic) to capture cost-sensitive volume — Anthropic owns the quality bar.',
+      },
+      {
+        label: 'Latency at large context',
+        value: 'TTFT scales O(n²) without tricks',
+        note: 'Time-to-first-token at 1M context: ~10-60s on a single GPU without optimization. Frontier providers use speculative decoding + prefix caching. Decentralized miners running commodity inference have a structural latency disadvantage; capture price-sensitive batch jobs, not chat.',
+      },
+    ],
+  },
+
+  /* SN92 TensorClaw — "decentralized Large Language Model (LLM)
+     inference subnet built on the Bittensor network. Its core
+     purpose is to aggregate high-quality LLM API nodes (e.g.,
+     OpenAI, DeepSeek, Claude, ...)" (live identity per taostats
+     2026-05-22, tensorclaw.ai). Aggregator + meta-router on top
+     of frontier LLM APIs. Rival pool overlaps SN4 Targon
+     (commodity inference) + SN81-era PatRouter (model routing). */
+  92: {
+    rivals: ['openrouter', 'together-ai', 'fireworks-ai', 'aws-bedrock', 'replicate', 'modal-labs', 'anyscale'],
+    supplyChainIds: ['nvidia', 'tsmc', 'sk-hynix', 'aws-azure-gcp'],
+    constraints: [
+      {
+        label: 'API-key dependency',
+        value: 'OpenAI/Anthropic ToS gate aggregator usage',
+        note: 'Aggregating frontier APIs (OpenAI, Anthropic) at scale requires miners holding API keys with sufficient quota. Both providers can throttle or terminate keys used for "competing aggregation" — the ToS is broad enough to cover meta-aggregator behavior.',
+      },
+      {
+        label: 'Cost-pass-through margin',
+        value: 'OpenRouter takes ~5% above provider cost',
+        note: 'The aggregator margin compresses fast — OpenRouter runs ~5% above raw provider cost. Subnet miners reward via α emission, but the customer-facing cost has to undercut OpenRouter or match it with reliability features (multi-key failover, regional routing) the centralized aggregator can\'t match.',
+      },
+      {
+        label: 'Latency-of-discovery',
+        value: 'Routing add adds 50-150ms per prompt',
+        note: 'Miner discovery + price quote + provider selection adds latency over a direct API call. Frontier providers like Bedrock have edge-located endpoints; subnet aggregator nodes don\'t. Capture batch / async traffic where latency tax is invisible.',
+      },
+      {
+        label: 'Quality scoring across providers',
+        value: 'Same prompt, different answers',
+        note: 'GPT-4o vs Claude vs DeepSeek give different answers to the same prompt. A meta-aggregator routing "to the best provider" requires a quality predictor — adding another LLM inference cost. Subnet either ships a quality model or defaults to cheapest, in which case it\'s an OpenRouter clone.',
+      },
+      {
+        label: 'Provider rate-limit surface',
+        value: 'TPM caps + outages drift weekly',
+        note: 'OpenAI / Anthropic publish per-org token-per-minute caps; both have had multi-hour outages. Aggregator routing decisions cached on stale rate-limit info send traffic into 429 walls. Subnet has to maintain near-real-time provider health — adds infra cost.',
+      },
+    ],
+  },
+
+  /* SN120 Affine — "Reason Mining" (live identity per taostats
+     2026-05-22, affine.io). Mines reasoning trajectories /
+     reasoning models. Rival pool is the reasoning-LLM space —
+     OpenAI o-series, DeepSeek-R1, Anthropic Claude extended
+     thinking, Google Gemini Deep Think, xAI Grok reasoning. */
+  120: {
+    rivals: ['openai', 'anthropic', 'google', 'mistral', 'sakana-ai', 'meta'],
+    supplyChainIds: ['nvidia', 'tsmc', 'sk-hynix', 'aws-azure-gcp', 'us-power-grids'],
+    constraints: [
+      {
+        label: 'Reasoning RL compute floor',
+        value: 'o1-style training: $10M-$100M+',
+        note: 'OpenAI o1 training reportedly required 10-100x more inference compute than GPT-4 base model training. DeepSeek-R1 hit comparable quality at ~$5-10M (per public reports). Subnet must crowdsource compute or differentiate on diversity of reasoning trajectories vs sheer model size.',
+      },
+      {
+        label: 'Reasoning trace quality',
+        value: 'Verifier-as-judge bias',
+        note: 'Training reasoning models requires scoring reasoning traces. Centralized labs use process-reward models trained on human-annotated traces — expensive but defensible. Subnet validators need either crowdsourced human eval or model-as-judge, which inherits judge bias (sycophancy, self-preference).',
+      },
+      {
+        label: 'Inference-time scaling cost',
+        value: '10-100x base inference per query',
+        note: 'Reasoning models burn extra inference at query time (chain-of-thought + self-correction). OpenAI charges 4x for o1 over GPT-4o. Subnet has to ship the same reasoning-tax pricing or its α-emission economics get overwhelmed by inference cost.',
+      },
+      {
+        label: 'Verifiable correctness',
+        value: 'Math / code: yes · open-ended: no',
+        note: 'Reasoning on math / code can be verified (does the proof check? do the tests pass?). Reasoning on policy / ethics / strategy has no ground-truth. Subnet validator scoring works for verifiable domains; for the rest, miners game whatever proxy is used.',
+      },
+      {
+        label: 'Trajectory length explosion',
+        value: 'o1-pro emits 10K-50K reasoning tokens',
+        note: 'High-end reasoning traces run tens of thousands of tokens. KV-cache cost compounds (rule from SN24 Quasar). Subnet inference miners running smaller models have either to compress trajectories or accept worse reasoning depth — both visible in evals.',
+      },
+    ],
+  },
+
+  /* SN114 SOMA — "AI solutions delivered through MCP infrastructure"
+     (live identity per taostats 2026-05-22, thesoma.ai). Builds
+     on top of Anthropic\'s Model Context Protocol — a standard
+     for connecting LLMs to tools + data sources. Rival pool is
+     the agent-infra layer: Composio (250+ tool integrations),
+     LangChain (orchestration), Anthropic itself (MCP creators). */
+  114: {
+    rivals: ['anthropic', 'composio', 'langchain', 'openai', 'cursor', 'cognition-devin'],
+    supplyChainIds: ['nvidia', 'aws-azure-gcp', 'cloudflare-edge'],
+    constraints: [
+      {
+        label: 'MCP spec velocity',
+        value: 'Anthropic updates protocol every ~6 weeks',
+        note: 'MCP is Anthropic\'s open standard but Anthropic controls the spec velocity. Each spec revision (transport layer, tool-result schema, resource subscriptions) ships updates to clients (Claude Desktop, Cursor) before community implementations catch up. Decentralized MCP infra has a perpetual catch-up tax.',
+      },
+      {
+        label: 'Tool-integration depth',
+        value: 'Composio: 250+ · LangChain: 600+',
+        note: 'The tool-integration moat is built by maintaining individual integrations against changing third-party APIs. Composio + LangChain employ dedicated integration engineers. Subnet aggregating community-contributed MCP servers gets breadth without the depth.',
+      },
+      {
+        label: 'Trust model for tool calls',
+        value: 'Tool exec = remote-code-exec equivalent',
+        note: 'MCP servers expose APIs that LLMs call with model-generated arguments — prompt injection in a doc can trigger arbitrary tool calls. Centralized rivals gate via per-tool allowlists + user confirmation prompts. Decentralized subnet must specify the same security model or readers don\'t trust deployment.',
+      },
+      {
+        label: 'Latency budget for tool chains',
+        value: '5-15 tool calls per agent task',
+        note: 'A real agent task chains 5-15 tool calls. Each hop adds 100-500ms. Subnet MCP nodes adding miner-routing overhead inflate the chain. Composio runs the tool-server cluster in-region; subnet decentralizes that and pays the trade-off in latency.',
+      },
+      {
+        label: 'Auth/credential surface',
+        value: 'Per-user OAuth flows for 100+ services',
+        note: 'Tools need user credentials (GitHub, Slack, Notion tokens). Composio handles OAuth + token refresh + rotation. Decentralized MCP subnet either trusts miners with user creds (security regress) or builds an oracle for credential proxying (added latency + complexity).',
+      },
+    ],
+  },
+
   /* SN59 Babelbit — Decentralized translation LLMs (live
      identity per taostats subnet_identities_v3 2026-05-22;
      local subnets.js still carried the stale "AgentArena"
