@@ -1024,6 +1024,126 @@ export const COMPETITORS = [
     why: 'Tokyo lab pioneering evolutionary + RL methods for agent + model training — the "AI Scientist" agent that runs ML research end-to-end. Direct rival for any subnet training agent policies via RL on trajectories; Sakana publishes weights + papers, raising the public bar.',
   },
 
+  /* ---------- Science / research / genomics / drug discovery
+     (SN23/25/26/37/55/67/68/83/94/100/107 profiles) ---------- */
+  {
+    id: 'illumina',
+    name: 'Illumina',
+    ticker: 'ILMN',
+    mcap: 22_000_000_000,
+    source: 'public',
+    sectors: ['science', 'data'],
+    url: 'https://www.illumina.com',
+    why: 'Dominant DNA sequencing platform — NovaSeq + iSeq + MiSeq instruments are the global lab standard. Subnet "genomics" plays depend on Illumina-generated reads; the sequencing instrument moat is multi-decade.',
+    delta24h: 0.1,
+    aliases: ['ILMN'],
+  },
+  {
+    id: 'tempus-ai',
+    name: 'Tempus AI',
+    ticker: 'TEM',
+    mcap: 12_000_000_000,
+    source: 'public',
+    sectors: ['science', 'data'],
+    url: 'https://www.tempus.com',
+    why: 'AI-driven precision medicine — combines clinical + molecular + imaging data. Largest clinical-genomic database (~10M+ records). Direct rival for any subnet pitching genomic intelligence to oncology / pharma customers.',
+    aliases: ['TEM'],
+  },
+  {
+    id: '23andme',
+    name: '23andMe',
+    ticker: 'PRIVATE',
+    mcap: 50_000_000,
+    source: 'private',
+    sectors: ['science'],
+    url: 'https://www.23andme.com',
+    why: 'Consumer DNA testing pioneer — went private 2024 after public-market collapse. Still holds the largest consumer genetic database (~15M kits). Subnet "privacy-safe genomics" plays direct rival; readers care about the database trust question 23andMe failed publicly.',
+  },
+  {
+    id: 'insilico-medicine',
+    name: 'Insilico Medicine',
+    ticker: 'PRIVATE',
+    mcap: 1_000_000_000,
+    source: 'private',
+    sectors: ['science'],
+    url: 'https://insilico.com',
+    why: 'AI drug discovery — first AI-designed drug to enter Phase 2 clinical trials (ISM001-055 for IPF). $400M+ raised. Direct rival for subnet drug-discovery; Insilico\'s end-to-end platform (target → drug → trial) is the bar.',
+  },
+  {
+    id: 'recursion-pharma',
+    name: 'Recursion Pharmaceuticals',
+    ticker: 'RXRX',
+    mcap: 2_200_000_000,
+    source: 'public',
+    sectors: ['science'],
+    url: 'https://www.recursion.com',
+    why: 'NASDAQ-listed AI drug discovery — image-based phenomics + ML across millions of cellular images. Multiple oncology + rare-disease programs in clinic. Direct rival for any subnet pitching ML-driven drug discovery to pharma.',
+    delta24h: 0.6,
+    aliases: ['RXRX'],
+  },
+  {
+    id: 'schrodinger',
+    name: 'Schrödinger',
+    ticker: 'SDGR',
+    mcap: 1_500_000_000,
+    source: 'public',
+    sectors: ['science'],
+    url: 'https://www.schrodinger.com',
+    why: 'Computational chemistry + drug discovery — physics-based simulation + ML hybrid. Software licensed to most major pharmas. Subnet drug-discovery plays compete with Schrödinger\'s physics-grade simulation moat.',
+    aliases: ['SDGR'],
+  },
+  {
+    id: 'elicit',
+    name: 'Elicit',
+    ticker: 'PRIVATE',
+    mcap: 80_000_000,
+    source: 'private',
+    sectors: ['agents', 'data'],
+    url: 'https://elicit.com',
+    why: 'AI research assistant — extracts findings from 125M+ papers, automates literature review. Direct rival for any subnet pitching "deep research as a commodity" (SN67 Harnyx); Elicit owns the academic-research-tool niche.',
+  },
+  {
+    id: 'consensus-ai',
+    name: 'Consensus',
+    ticker: 'PRIVATE',
+    mcap: 50_000_000,
+    source: 'private',
+    sectors: ['agents', 'data'],
+    url: 'https://consensus.app',
+    why: 'AI-powered academic search — answers research questions with citations from 200M+ papers. ~$11M Series A. Rival for subnet research-as-a-service plays; Consensus\' direct-citation UX is the truth-anchored research bar.',
+  },
+  {
+    id: 'futurehouse',
+    name: 'FutureHouse',
+    ticker: 'NONPROFIT',
+    mcap: null,
+    source: 'private',
+    sectors: ['agents', 'science'],
+    url: 'https://www.futurehouse.org',
+    why: 'AI scientist agents (PaperQA, Aviary, Wikicrow) — Schmidt Futures-backed nonprofit. Direct rival for auto-research subnet plays (SN100 Plaτform); FutureHouse\'s scientific-agent track record sets the bar.',
+  },
+  {
+    id: 'arc-prize',
+    name: 'ARC Prize / METR',
+    ticker: 'NONPROFIT',
+    mcap: null,
+    source: 'private',
+    sectors: ['agents', 'science'],
+    url: 'https://arcprize.org',
+    why: 'ARC Prize (Chollet) + METR — leading independent AI eval orgs. ARC-AGI benchmark is the dominant capability-evaluation reference. Subnet "AI alignment" / "evaluation" plays measure against ARC + METR\'s methodology bar.',
+    aliases: ['ARC', 'METR'],
+  },
+  {
+    id: 'apollo-research',
+    name: 'Apollo Research',
+    ticker: 'NONPROFIT',
+    mcap: null,
+    source: 'private',
+    sectors: ['agents'],
+    url: 'https://www.apolloresearch.ai',
+    why: 'AI safety + alignment research org — focuses on deception + evaluation. Influential papers on AI scheming + sandbagging. Subnet alignment plays measure against Apollo\'s evaluation methodology + published findings.',
+  },
+
   /* ---------- DeFi / on-chain markets (SN35/77/106/112/113/116/127 profiles) ----------
      The on-chain finance stack the subnet rivals compete with:
      perp DEX leaders, AMM giants, cross-chain liquidity, stablecoin
@@ -2269,6 +2389,43 @@ export const BY_NETUID = {
     ],
   },
 
+  /* SN25 Mainframe — "Powering decentralized science on
+     Bittensor" (live identity per taostats 2026-05-22,
+     macrocosmos.ai/sn25). Macrocosmos\' general decentralized
+     science subnet. Rival pool spans the open-science movement
+     + tokenized-research platforms + traditional academia. */
+  25: {
+    rivals: ['futurehouse', 'elicit', 'consensus-ai', 'arc-prize', 'sakana-ai', 'openai'],
+    supplyChainIds: ['nvidia', 'aws-azure-gcp', 'us-power-grids'],
+    constraints: [
+      {
+        label: 'Replication crisis exposure',
+        value: '60-70% of psychology + 50% medicine studies fail to replicate',
+        note: 'Open science movements (ResearchHub, OpenReview, Replication Markets) struggle with this. Subnet "decentralized science" inherits the replication problem — validator scoring has to either reward replication studies (currently low-status) or accept the same crisis traditional academia has.',
+      },
+      {
+        label: 'Authorship + credit on-chain',
+        value: 'Anonymous miners can\'t sit on tenure committees',
+        note: 'Academic career incentives reward named first-author publications. Subnet anonymous miners produce work that can\'t be claimed in grant applications + faculty hires. Either subnet ships an identity layer (defeats decentralization) or stays disconnected from academic career rails.',
+      },
+      {
+        label: 'Funding-source dependence',
+        value: 'NIH + NSF + foundations gate $50B+/year',
+        note: 'Centralized science funding is gated by NIH, NSF, ERC, foundations. Subnet "decentralized science" emits α but doesn\'t replace grant money. Researchers in expensive domains (wet lab, particle physics) need both — subnet positions as supplemental.',
+      },
+      {
+        label: 'Domain-coverage breadth',
+        value: 'Open science spans 30+ disciplines',
+        note: 'Decentralized science must address physics, biology, chemistry, economics, sociology, math etc. Each has different evaluation methodology. Subnet validator design either ships per-domain modules (engineering burden) or one-size-fits-all (poor signal per domain).',
+      },
+      {
+        label: 'Tool-chain integration',
+        value: 'Lab notebooks, citations, Jupyter, R, MATLAB',
+        note: 'Real science workflows touch ELN (LabArchives, Benchling), citation managers (Zotero, Mendeley), Jupyter, R, MATLAB. Centralized rivals integrate into these stacks. Subnet must either ship adapters or stay disconnected from the actual researcher\'s desk.',
+      },
+    ],
+  },
+
   /* SN88 Investing — "Decentralized AUM" (live identity per
      taostats 2026-05-22, investing88.ai). On-chain asset
      management. Rival pool is the centralized asset-manager
@@ -2301,6 +2458,43 @@ export const BY_NETUID = {
         label: 'AUM-fee economics',
         value: 'ETF: 0.15-0.50% / yr · subnet emission as proxy',
         note: 'Centralized fund fees compressed to 15-50 bps. Subnet AUM products fund operations via α emission — but if α price drops, validator + miner economics break. Long-term sustainability needs either AUM fees on top of emission or much more efficient operations.',
+      },
+    ],
+  },
+
+  /* SN23 Trishool — "Trishool is the AI alignment protocol
+     built on Bittensor" (live identity per taostats 2026-05-22,
+     trishool.ai). Decentralized AI alignment / safety. Rival
+     pool is the AI-safety org stack — frontier labs\' safety
+     teams plus independent eval / alignment shops. */
+  23: {
+    rivals: ['anthropic', 'openai', 'google', 'arc-prize', 'apollo-research', 'patronus-ai'],
+    supplyChainIds: ['nvidia', 'aws-azure-gcp', 'us-power-grids'],
+    constraints: [
+      {
+        label: 'Alignment-eval ground truth',
+        value: 'No agreed test of "aligned"',
+        note: 'Anthropic\'s constitutional-AI, OpenAI\'s Preparedness, DeepMind\'s Frontier Safety — each uses its own framework. No industry-standard "aligned" benchmark. Subnet "alignment protocol" needs to pick a methodology + defend it; readers can\'t agree on the outcome.',
+      },
+      {
+        label: 'Safety-research talent concentration',
+        value: '~500 AI safety researchers globally',
+        note: 'AI safety as a field is small — most top researchers concentrated at Anthropic, DeepMind, OpenAI Safety, Apollo, MIRI. Subnet attracting safety talent has to either compete with $1M+ comp packages or accept long-tail contributors.',
+      },
+      {
+        label: 'Capability vs safety tradeoff',
+        value: 'Frontier labs ship capability faster than safety',
+        note: 'Anthropic\'s Responsible Scaling Policy + OpenAI\'s safety thresholds get pushed when capability outpaces safety work. Decentralized alignment subnet faces the same pressure: miners get rewarded for technique production, not for slowing capability.',
+      },
+      {
+        label: 'Disclosure of safety findings',
+        value: 'Constitutional + dangerous-capability evals stay private',
+        note: 'Frontier labs publish safety research selectively (Anthropic\'s "Sleeper Agents," OpenAI\'s o1 system card). Dangerous-capability findings stay private. Subnet "open alignment" claims have to navigate the same disclosure tension — full openness may produce uplift for misuse.',
+      },
+      {
+        label: 'Regulator-readable safety claims',
+        value: 'EU AI Act + Biden EO 14110 demand specific evals',
+        note: 'Regulatory frameworks (EU AI Act, UK AISI, US AISI) demand specific evaluations (CBRN, autonomous replication, etc). Subnet alignment work has to map to regulator-readable categories or it\'s academically interesting but not commercially actionable.',
       },
     ],
   },
@@ -2864,6 +3058,44 @@ export const BY_NETUID = {
     ],
   },
 
+  /* SN67 Harnyx — "Deep research as a commodity. Faster, cheaper,
+     traceable research — produced by a competitive swarm of
+     miners on Bittensor SN67." (live identity per taostats
+     2026-05-22, harnyx.ai). Multi-source research synthesis.
+     Rivals: Elicit, Consensus, Perplexity Pro Deep Research,
+     OpenAI Deep Research, FutureHouse PaperQA. */
+  67: {
+    rivals: ['elicit', 'consensus-ai', 'perplexity', 'openai', 'futurehouse', 'anthropic'],
+    supplyChainIds: ['nvidia', 'aws-azure-gcp', 'cloudflare-edge'],
+    constraints: [
+      {
+        label: 'Citation-accuracy bar',
+        value: 'Hallucinated citations kill enterprise use',
+        note: 'Real research products live or die on citation accuracy. OpenAI Deep Research + Anthropic\'s research mode + Consensus all built citation-verification layers. Subnet competing in "deep research as commodity" has to match this or readers find phantom citations and stop trusting the output.',
+      },
+      {
+        label: 'Source-paywall coverage',
+        value: 'Nature / Cell / Lancet behind $5K+/year paywalls',
+        note: 'High-value research lives in subscription journals. Centralized rivals partner with publishers (Elicit + Springer, Consensus + Elsevier). Subnet miners scraping paywalled content face IP risk; legal sources require subscription costs that eat α emission economics.',
+      },
+      {
+        label: 'Research depth vs latency',
+        value: 'OpenAI Deep Research: 5-30min per query',
+        note: 'Real deep-research queries take 5-30 minutes (multi-pass search, synthesis, verification). Subnet miners running shorter inference produce shallower reports. Readers comparing get to choose between thorough (centralized) or fast + cheap (subnet) — that\'s OK positioning but has to be communicated honestly.',
+      },
+      {
+        label: 'Multi-modal source coverage',
+        value: 'Papers + patents + filings + news + datasets',
+        note: 'Real research touches academic papers, patents, regulatory filings, news, datasets, code repos. Elicit + Consensus mainly do papers. Subnet "deep research" has to cover wider surface or fail at the institutional bar (legal, finance, pharma use cases).',
+      },
+      {
+        label: 'Verifiability claim',
+        value: '"Traceable" requires per-claim source attribution',
+        note: 'The "traceable research" pitch requires every claim mapping to specific source passage. Centralized rivals (OpenAI Deep Research) show citation links inline. Subnet validator scoring has to enforce claim-to-source mapping or the "traceable" claim fails on inspection.',
+      },
+    ],
+  },
+
   /* SN98 ForeverMoney — "Decentralized intelligence for advanced
      liquidity management" (live identity per taostats 2026-05-22,
      forevermoney.ai). AI-driven liquidity management — bot
@@ -2938,6 +3170,42 @@ export const BY_NETUID = {
     ],
   },
 
+  /* SN94 Bitsota — "Decentralized SoTA Research" (live identity
+     per taostats 2026-05-22). State-of-the-art research-as-a-
+     swarm. Rivals: the labs that currently produce most SoTA
+     papers (frontier labs + Sakana + FutureHouse). */
+  94: {
+    rivals: ['openai', 'anthropic', 'google', 'meta', 'sakana-ai', 'futurehouse'],
+    supplyChainIds: ['nvidia', 'tsmc', 'sk-hynix', 'aws-azure-gcp', 'us-power-grids'],
+    constraints: [
+      {
+        label: 'SoTA-bench leak cycle',
+        value: 'Once published, every lab trains against it',
+        note: 'A new SoTA benchmark gets trained against by every frontier lab within ~6 months. Subnet "SoTA research" leaderboards become race-to-overfit. Constant benchmark rotation needed, which is a research org itself + curation cost.',
+      },
+      {
+        label: 'Compute-floor for frontier work',
+        value: 'GPT-5 training: ~$500M+ in compute',
+        note: 'Real SoTA AI work runs $10M-$500M+ per major experiment. Centralized labs raise multi-billion to fund this. Subnet alpha emission can\'t cover compute at this scale; SoTA contributions stay at the architectural-refinement / efficient-method tier (Sakana niche).',
+      },
+      {
+        label: 'Research-paper authorship norms',
+        value: 'Anonymous miners can\'t publish at NeurIPS',
+        note: 'Top conferences (NeurIPS, ICML, ICLR) require named authors + institutional affiliation. Subnet anonymous miners producing genuinely SoTA work need a re-publication path through a named entity — adds friction or risk.',
+      },
+      {
+        label: 'Reviewer trust + reproducibility',
+        value: 'Centralized labs share weights via partnerships',
+        note: 'SoTA work needs peer reproduction. Centralized labs publish weights to trusted partners (Anthropic + university collabs). Subnet swarm output requires a different reproducibility chain — open weights + open infrastructure can compensate but the institutional trust gap is real.',
+      },
+      {
+        label: 'Domain breadth vs depth',
+        value: 'Frontier labs hire 100+ PhDs per research area',
+        note: 'OpenAI / Anthropic / DeepMind run 30+ research teams each (RL, alignment, vision, biology, theorem-proving). Subnet swarm depth in any single area depends on miner concentration. Spread thin = no SoTA in any domain.',
+      },
+    ],
+  },
+
   /* SN113 TensorUSD — "A reserve-backed stablecoin designed to
      support 1:1 redeemability for US Dollar within the Bittensor
      ecosystem" (live identity per taostats 2026-05-22,
@@ -2975,6 +3243,44 @@ export const BY_NETUID = {
     ],
   },
 
+  /* SN100 Plaτform — "An auto-research subnet where miners
+     compete in multiple challenges to achieve top scores against
+     a synthetic benchmark, driving continuous performance
+     optimization" (live identity per taostats 2026-05-22,
+     platform.network). Tournament-style auto-research. Rival
+     pool: FutureHouse, Sakana, Kaggle (competition platform). */
+  100: {
+    rivals: ['futurehouse', 'sakana-ai', 'hugging-face', 'arc-prize', 'openai', 'meta'],
+    supplyChainIds: ['nvidia', 'aws-azure-gcp', 'us-power-grids'],
+    constraints: [
+      {
+        label: 'Benchmark-validity decay',
+        value: 'Synthetic benchmarks saturate at ~12-18 months',
+        note: 'Single-benchmark tournament structures hit ceiling fast — once miners crack the benchmark, scores compress. Kaggle rotates competitions monthly. Subnet running continuous challenges needs benchmark-creation infrastructure with the same cadence.',
+      },
+      {
+        label: 'Kaggle-style talent overlap',
+        value: 'Top Kaggle grandmasters number ~300 globally',
+        note: 'Kaggle competition winning relies on a small grandmaster pool that moves between platforms. Subnet competition-style auto-research has to attract this talent or accept second-tier participation. Cash prizes ($25K-$100K typical Kaggle) compete with subnet α emission.',
+      },
+      {
+        label: 'Optimization-target gaming',
+        value: 'Reward-hacking on synthetic benchmarks',
+        note: 'Subnet miners optimize the synthetic benchmark, not the underlying problem. Famous Kaggle examples: leaderboard probing, overfitting test set. Subnet validator scoring has to penalize these — multi-stage holdout sets, late-rebinding, etc.',
+      },
+      {
+        label: 'Auto-research vs human-judged research',
+        value: 'Synthetic eval scores ≠ science quality',
+        note: 'Automated benchmarks capture measurable properties; they miss creativity, novelty, real-world utility. FutureHouse + Sakana publish papers that get human review. Subnet auto-research has to either trust the synthetic benchmark or layer in human eval — both have tradeoffs.',
+      },
+      {
+        label: 'Result-portability',
+        value: 'Tournament winner artifact = research paper?',
+        note: 'Kaggle competition winners produce models. Real research produces papers + claims + replication. Subnet auto-research output needs a clear translation from "won the challenge" to "advanced the field." Without that translation it\'s a leaderboard, not research.',
+      },
+    ],
+  },
+
   /* SN127 Astrid — "The capital axis for Bittensor" (live
      identity per taostats 2026-05-22, astrid.global). Capital-
      infrastructure / asset-tokenization for Bittensor. Rival
@@ -3008,6 +3314,44 @@ export const BY_NETUID = {
         label: 'Bittensor-specific TAM ceiling',
         value: 'Single-ecosystem capital-infra has bounded demand',
         note: 'Tokenized RWAs scale with the demand for on-chain treasury / yield products. Bittensor TVL is sub-$1B; "capital axis for Bittensor" alone is a small pie. Multi-chain expansion is necessary for material scale but adds the cross-chain infrastructure surface (per SN106 constraints).',
+      },
+    ],
+  },
+
+  /* SN37 Aurelius — "Decentralized Alignment of Artificial
+     Intelligence" (live identity per taostats 2026-05-22,
+     aureliusaligned.ai). Second alignment-focused subnet (with
+     SN23). Differentiation TBD — both target the same rival
+     pool but the magazine surfaces both because they\'re both
+     active editorial subjects. */
+  37: {
+    rivals: ['anthropic', 'openai', 'google', 'apollo-research', 'arc-prize', 'meta'],
+    supplyChainIds: ['nvidia', 'aws-azure-gcp', 'us-power-grids'],
+    constraints: [
+      {
+        label: 'Differentiation from SN23 Trishool',
+        value: 'Two alignment subnets in same ecosystem',
+        note: 'Bittensor has both SN23 Trishool + SN37 Aurelius pursuing AI alignment. They compete for the same talent + customer pool. Each subnet validator design has to either differentiate (Trishool focuses on X, Aurelius on Y) or accept the second-mover penalty.',
+      },
+      {
+        label: 'Constitutional-AI patent surface',
+        value: 'Anthropic has patents on RLHF / Constitutional AI methods',
+        note: 'Anthropic + OpenAI hold patents on key alignment techniques (Constitutional AI, RLHF variants). Decentralized alignment work that uses identical methods has patent exposure when commercialized. Subnet has to either invent new methods or rely on open-source variants.',
+      },
+      {
+        label: 'Eval pollution from training',
+        value: 'Alignment evals leak into post-training data',
+        note: 'Once an eval is published (Anthropic\'s MACHIAVELLI, MetaTruthfulQA), frontier labs train against it. Scores inflate, signal collapses. Subnet alignment validator scores must rotate held-out evals — and rotating evals faster than centralized labs refresh is hard.',
+      },
+      {
+        label: 'AGI capability window',
+        value: 'Most labs project transformative AI within 5 years',
+        note: 'OpenAI, Anthropic, Google all forecast transformative AI capability in 3-7 years. If alignment work doesn\'t land before then, the work becomes academically interesting but operationally late. Subnet has to ship in a urgent timeline or risk irrelevance.',
+      },
+      {
+        label: 'Coordination with frontier labs',
+        value: 'Lab safety teams won\'t adopt outside methods',
+        note: 'Frontier labs trust their internal safety teams. Adopting an outside (especially decentralized + anonymous) alignment method requires institutional trust labs don\'t extend lightly. Subnet alignment outputs need a path INTO Anthropic/OpenAI/DeepMind workflows or readers can\'t see them deployed.',
       },
     ],
   },
