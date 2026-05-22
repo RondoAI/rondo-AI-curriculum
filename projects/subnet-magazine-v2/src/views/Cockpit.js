@@ -146,16 +146,89 @@ import { BRIEFINGS, latestBriefing, daysBetween } from '../data/briefings.js';
    editorial signals + live market context. */
 
 /* Per-subnet logo lookup — keyed by lowercased subnet name.
-   Falls back to the Bittensor mark when no specific logo exists.
-   Module-scope so the render template can reference during
-   string-building (TDZ-safe). Mirror of the SUBNET_LOGOS map
-   in Home.js — when a new logo file lands in assets/, add it
-   here too. */
+   Hand-illustrated marks ship in /assets and the lookup wins
+   over the procedural mark generator below. Mirror of the
+   SUBNET_LOGOS map in Home.js — when a new logo file lands in
+   assets/, add it here too. */
 const SUBNET_LOGOS = {
   'hippius': 'assets/hippius-mark.png',
   'targon':  'assets/targon-mark.svg',
 };
 const FALLBACK_LOGO = 'assets/bittensor-mark.png';
+
+/* Procedural per-subnet mark generator (Rondo 2026-05-22: "the
+   logo style we did for hippius do for every subnet"). The
+   Hippius mark is a red-wireframe glyph on midnight bg with a
+   red rounded-square border. We mirror that style for every
+   subnet: same red border, same midnight bg, same red linework,
+   but the inner geometry is seeded by the subnet name so each
+   netuid gets a unique-but-on-brand mark.
+
+   Output: a data:image/svg+xml URI that drops into <img src=...>
+   like a normal asset. No external file IO; renders instantly. */
+function subnetMarkSvg(subnet){
+  if (!subnet) return FALLBACK_LOGO;
+  const n = subnet.netuid != null ? subnet.netuid : 0;
+  const name = subnet.name || '';
+  // Deterministic hash from the subnet name — same name always
+  // produces the same geometry (so the mark stays stable as the
+  // chain identity feed jitters). FNV-1a-ish, good enough.
+  let h = 2166136261 >>> 0;
+  const seed = name + ':' + n;
+  for (let i = 0; i < seed.length; i++){
+    h ^= seed.charCodeAt(i);
+    h = Math.imul(h, 16777619) >>> 0;
+  }
+  const rng = () => {
+    h ^= h << 13; h ^= h >>> 17; h ^= h << 5;
+    return ((h >>> 0) % 10000) / 10000;
+  };
+  // SVG canvas: 720×720 to match the Hippius file's native size.
+  // Red rounded-square border (matches --c-red token visually,
+  // hard-coded here because we ship a data URI). Inner glyph:
+  //   - SN number in big red mono digits, top-left
+  //   - seeded polygon mesh in red lines, bottom-right
+  //   - first 2 chars of the subnet name in red caps, bottom-left
+  const BG = '#0A0617';        // midnight navy, hippius palette
+  const RED = '#FF1E3C';       // --c-red equivalent
+  const RED_DIM = '#B00026';   // dimmer red for secondary lines
+  // Build a small mesh of 5-8 polygons in the bottom-right quadrant
+  const meshCount = 5 + Math.floor(rng() * 4);
+  const polys = [];
+  for (let i = 0; i < meshCount; i++){
+    const pts = [];
+    const cx = 380 + rng() * 240;
+    const cy = 320 + rng() * 280;
+    const radius = 40 + rng() * 80;
+    const sides = 3 + Math.floor(rng() * 4);
+    const rot = rng() * Math.PI * 2;
+    for (let p = 0; p < sides; p++){
+      const a = rot + (p / sides) * Math.PI * 2;
+      pts.push(`${(cx + Math.cos(a) * radius).toFixed(1)},${(cy + Math.sin(a) * radius).toFixed(1)}`);
+    }
+    polys.push(`<polygon points="${pts.join(' ')}" fill="none" stroke="${RED_DIM}" stroke-width="3" stroke-linejoin="round"/>`);
+  }
+  // Edges connecting polygon centers to form a "neural net"-style web
+  const edges = [];
+  for (let i = 0; i < meshCount - 1; i++){
+    // already in polys above; skip
+  }
+  // First two chars of the subnet name (uppercase), centered on the left
+  const tag = (name.replace(/[^A-Za-z0-9]/g, '').slice(0, 2) || ('S' + n)).toUpperCase();
+  const sn = `SN${n}`;
+  // Assemble the SVG. The viewBox keeps it sharp at any render size.
+  // Per [[feedback-likes-motion]] we don't add any transform animations
+  // — the chart-tile context is busy enough.
+  const svg = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 720">` +
+    `<rect x="0" y="0" width="720" height="720" fill="${BG}"/>` +
+    `<rect x="36" y="36" width="648" height="648" rx="64" ry="64" fill="none" stroke="${RED}" stroke-width="14"/>` +
+    polys.join('') +
+    `<text x="80" y="180" font-family="JetBrains Mono, Menlo, monospace" font-size="92" font-weight="800" fill="${RED}" letter-spacing="-4">${sn}</text>` +
+    `<text x="80" y="640" font-family="JetBrains Mono, Menlo, monospace" font-size="180" font-weight="900" fill="${RED}" letter-spacing="-8">${tag}</text>` +
+    `</svg>`;
+  // Use encodeURIComponent so # and < survive the data: round trip.
+  return 'data:image/svg+xml;charset=utf-8,' + encodeURIComponent(svg);
+}
 
 const COCKPIT_KEY   = 'sbn:cockpit:v1';
 
@@ -542,7 +615,7 @@ export function mountCockpit(root, dataLayer = null){
                synthetic data. -->
           <h1 class="cock-chart__h">
             <span class="cock-chart__logo" aria-hidden="true">
-              <img src="${SUBNET_LOGOS[(s.name || '').toLowerCase()] || FALLBACK_LOGO}" alt="" loading="lazy" onerror="this.src='${FALLBACK_LOGO}'">
+              <img src="${SUBNET_LOGOS[(s.name || '').toLowerCase()] || subnetMarkSvg(s)}" alt="" loading="lazy" onerror="this.src='${FALLBACK_LOGO}'">
             </span>
             <span class="cock-chart__sn">SN${s.netuid}</span>
             <span class="cock-chart__name">${s.name}</span>
@@ -881,7 +954,7 @@ export function mountCockpit(root, dataLayer = null){
           <td class="cock-fold-mkt__sn">SN${x.netuid}</td>
           <td class="cock-fold-mkt__name">
             <span class="cock-fold-mkt__logo" aria-hidden="true">
-              <img src="${SUBNET_LOGOS[(x.name || '').toLowerCase()] || FALLBACK_LOGO}" alt="" loading="lazy" onerror="this.src='${FALLBACK_LOGO}'">
+              <img src="${SUBNET_LOGOS[(x.name || '').toLowerCase()] || subnetMarkSvg(x)}" alt="" loading="lazy" onerror="this.src='${FALLBACK_LOGO}'">
             </span>
             ${x.name}
           </td>

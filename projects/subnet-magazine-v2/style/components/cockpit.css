@@ -2475,16 +2475,19 @@
   justify-content: center;
   width: 32px;
   height: 32px;
-  background: rgba(255,30,60,.10);
-  border: 1px solid var(--c-rule-3);
+  /* Tile bg is now invisible — the procedural mark + curated
+     PNG/SVG both ship their own midnight-navy background +
+     red border, so the wrapper just sizes/clips. */
+  background: transparent;
+  border: 0;
   flex-shrink: 0;
   overflow: hidden;
 }
 .cock-chart__logo img{
-  width: 24px;
-  height: 24px;
+  width: 32px;
+  height: 32px;
   object-fit: contain;
-  filter: brightness(1.05);
+  display: block;
 }
 
 /* Chart-header action chips — taostats EXPLORER + STAKE +
@@ -2564,20 +2567,20 @@
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  width: 18px;
-  height: 18px;
+  width: 20px;
+  height: 20px;
   margin-right: 8px;
   vertical-align: middle;
-  background: rgba(255,30,60,.08);
-  border: 1px solid var(--c-rule-3);
+  background: transparent;
+  border: 0;
   overflow: hidden;
   flex-shrink: 0;
 }
 .cock-fold-mkt__logo img{
-  width: 14px;
-  height: 14px;
+  width: 20px;
+  height: 20px;
   object-fit: contain;
-  filter: brightness(1.05);
+  display: block;
 }
 .cock-chart__sn{
   font-family: var(--f-mono);
