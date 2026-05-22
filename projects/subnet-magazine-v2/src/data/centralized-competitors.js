@@ -1024,6 +1024,128 @@ export const COMPETITORS = [
     why: 'Tokyo lab pioneering evolutionary + RL methods for agent + model training — the "AI Scientist" agent that runs ML research end-to-end. Direct rival for any subnet training agent policies via RL on trajectories; Sakana publishes weights + papers, raising the public bar.',
   },
 
+  /* ---------- Infra / compute / VPN / storage / bandwidth / txn-layer
+     (SN7/27/51/64/65/75/105/110/128 profiles) ---------- */
+  {
+    id: 'filecoin',
+    name: 'Filecoin',
+    ticker: 'FIL',
+    mcap: 2_400_000_000,
+    source: 'private',
+    sectors: ['infra', 'data'],
+    url: 'https://filecoin.io',
+    why: 'Decentralized storage protocol — ~20 EiB of provider-attested storage capacity. The default rival for any subnet pitching blockchain-backed cloud storage; Filecoin\'s storage providers + retrieval markets are the multi-year baseline.',
+    aliases: ['FIL'],
+  },
+  {
+    id: 'arweave',
+    name: 'Arweave',
+    ticker: 'AR',
+    mcap: 800_000_000,
+    source: 'private',
+    sectors: ['infra', 'data'],
+    url: 'https://arweave.org',
+    why: 'Permanent storage protocol — pay once, store forever (or ~200 years per economic model). Powers AO (Arweave\'s compute layer). Direct rival for any subnet "permanent on-chain content" pitch.',
+    aliases: ['AR'],
+  },
+  {
+    id: 'storj',
+    name: 'Storj',
+    ticker: 'STORJ',
+    mcap: 200_000_000,
+    source: 'private',
+    sectors: ['infra'],
+    url: 'https://www.storj.io',
+    why: 'Decentralized cloud object storage — S3-compatible API, ~$0.004/GB pricing. Direct rival for subnet decentralized-cloud plays at the consumer-storage tier.',
+  },
+  {
+    id: 'ipfs-protocol',
+    name: 'IPFS / Protocol Labs',
+    ticker: 'NONPROFIT',
+    mcap: null,
+    source: 'private',
+    sectors: ['infra'],
+    url: 'https://ipfs.tech',
+    why: 'Distributed file system — the protocol layer Filecoin + most decentralized-storage projects build on. Direct rival pattern for any subnet pitching content-addressed distribution.',
+    aliases: ['IPFS'],
+  },
+  {
+    id: 'mullvad',
+    name: 'Mullvad VPN',
+    ticker: 'PRIVATE',
+    mcap: 100_000_000,
+    source: 'private',
+    sectors: ['infra'],
+    url: 'https://mullvad.net',
+    why: 'Privacy-first VPN — no-logs, anonymous account numbers, monero/cash payment. The gold-standard rival for any subnet pitching decentralized VPN; Mullvad\'s threat model + audits set the privacy bar.',
+  },
+  {
+    id: 'proton-vpn',
+    name: 'Proton VPN',
+    ticker: 'PRIVATE',
+    mcap: 800_000_000, // Proton AG broader
+    source: 'private',
+    sectors: ['infra'],
+    url: 'https://protonvpn.com',
+    why: 'Swiss-based VPN + Proton mail/drive ecosystem. Open-source clients, audited. Most-mainstream privacy VPN. Direct rival for subnet VPN plays in the consumer + small-business tier.',
+  },
+  {
+    id: 'nordvpn',
+    name: 'NordVPN (Nord Security)',
+    ticker: 'PRIVATE',
+    mcap: 1_600_000_000,
+    source: 'private',
+    sectors: ['infra'],
+    url: 'https://nordvpn.com',
+    why: 'Largest consumer VPN by users (~15M paid). Spend-heavy distribution moat (YouTube sponsorships + ads). Decentralized VPN subnets compete with the distribution + brand-trust moat NordVPN built over a decade.',
+  },
+  {
+    id: 'fastly',
+    name: 'Fastly',
+    ticker: 'FSLY',
+    mcap: 1_000_000_000,
+    source: 'public',
+    sectors: ['infra'],
+    url: 'https://www.fastly.com',
+    why: 'Edge cloud + CDN — Compute@Edge for serverless. Customers include Stripe, Shopify, NYT. Direct rival for subnet bandwidth / edge-compute plays.',
+    delta24h: -0.5,
+    aliases: ['FSLY'],
+  },
+  {
+    id: 'akamai',
+    name: 'Akamai Technologies',
+    ticker: 'AKAM',
+    mcap: 14_000_000_000,
+    source: 'public',
+    sectors: ['infra'],
+    url: 'https://www.akamai.com',
+    why: 'Largest enterprise CDN + cloud computing — Connected Cloud (Linode acquisition). Subnet bandwidth/CDN pitches face Akamai\'s 30+ years of enterprise relationships.',
+    delta24h: 0.2,
+    aliases: ['AKAM'],
+  },
+  {
+    id: 'helium-network',
+    name: 'Helium',
+    ticker: 'HNT',
+    mcap: 600_000_000,
+    source: 'private',
+    sectors: ['infra'],
+    url: 'https://www.helium.com',
+    why: 'Decentralized wireless network — IoT + 5G hotspot deployment. ~600K hotspots globally. Direct rival for subnet "decentralized bandwidth" plays; Helium proved (then struggled with) the tokenomics-for-infrastructure pattern.',
+    aliases: ['HNT'],
+  },
+  {
+    id: 'amazon-aws-graviton',
+    name: 'AWS Graviton',
+    ticker: 'AMZN',
+    mcap: 2_300_000_000_000,
+    source: 'public',
+    sectors: ['infra'],
+    url: 'https://aws.amazon.com/ec2/graviton',
+    why: 'AWS\' custom ARM-based silicon — best $/perf for many AI inference workloads. Graviton4 ships 2025. Direct rival for subnet "green compute" / efficient-inference plays; AWS owns the regulated-customer + carbon-accounting story.',
+    aliases: ['Graviton'],
+  },
+
   /* ---------- Science / research / genomics / drug discovery
      (SN23/25/26/37/55/67/68/83/94/100/107 profiles) ---------- */
   {
@@ -2556,6 +2678,42 @@ export const BY_NETUID = {
     ],
   },
 
+  /* SN27 Nodexo — "Decentralized AI compute platform" (live
+     identity per taostats 2026-05-22, nodexo.ai). General
+     decentralized GPU compute marketplace. Rival pool overlaps
+     SN51 lium + SN64 Chutes but the cut is broader compute. */
+  27: {
+    rivals: ['coreweave', 'lambda-labs', 'aws-azure-gcp', 'amazon-aws-graviton', 'modal-labs', 'anyscale'],
+    supplyChainIds: ['nvidia', 'tsmc', 'sk-hynix', 'us-power-grids'],
+    constraints: [
+      {
+        label: 'GPU spot-price floor',
+        value: 'AWS H100 spot: $2-4/hr · CoreWeave: $2.50',
+        note: 'Hyperscaler + neocloud spot pricing sets the compute floor. Subnet decentralized compute miners on consumer GPUs (4090, 3090) can\'t match H100 throughput/$. Capture customer use cases where commodity GPUs work (inference, fine-tuning small models) and accept H100-grade workloads stay centralized.',
+      },
+      {
+        label: 'Reliability + SLA',
+        value: 'AWS: 99.99% · subnet miners: variable',
+        note: 'Enterprise customers expect 99.95%+ uptime SLAs with credits for breach. Subnet miners running on home internet + consumer hardware can\'t commit to this. Capture batch / non-critical workloads; mission-critical stays with hyperscalers.',
+      },
+      {
+        label: 'Compute-verification gaming',
+        value: 'How to prove a miner actually ran the GPU job?',
+        note: 'Decentralized compute miners can claim work they didn\'t do. Centralized rivals trust their own hardware. Subnet validator design needs cryptographic compute-attestation (zkML, redundant execution, sampled-audit) or accept that some α emission pays for fake work.',
+      },
+      {
+        label: 'Data-residency + compliance',
+        value: 'EU AI Act + HIPAA + SOC 2 demand specific regions',
+        note: 'Enterprise customers need to know where their data is processed. AWS lets you pin to us-east-1. Subnet routing to anonymous miners can\'t guarantee region-of-origin without dedicated miner pools, which weakens decentralization.',
+      },
+      {
+        label: 'Software-stack maintenance',
+        value: 'CUDA + drivers + ML libs update monthly',
+        note: 'Real GPU compute requires maintained CUDA + PyTorch + Triton + driver stacks. AWS + CoreWeave ship images. Subnet miners maintaining their own stacks drift; jobs designed against one miner\'s stack fail on another. Standardization is a real operational cost.',
+      },
+    ],
+  },
+
   /* SN23 Trishool — "Trishool is the AI alignment protocol
      built on Bittensor" (live identity per taostats 2026-05-22,
      trishool.ai). Decentralized AI alignment / safety. Rival
@@ -3190,6 +3348,42 @@ export const BY_NETUID = {
     ],
   },
 
+  /* SN64 Chutes — "Breakthrough Serverless Compute for AI, At
+     Scale" (live identity per taostats 2026-05-22, chutes.ai).
+     Rayon Labs\' serverless AI inference. Rival pool: Modal,
+     Replicate, AWS Lambda/Bedrock, Together AI, Anyscale. */
+  64: {
+    rivals: ['modal-labs', 'replicate', 'together-ai', 'fireworks-ai', 'aws-bedrock', 'anyscale'],
+    supplyChainIds: ['nvidia', 'tsmc', 'sk-hynix', 'aws-azure-gcp', 'us-power-grids'],
+    constraints: [
+      {
+        label: 'Cold-start latency',
+        value: 'Modal: 0.5-5s · Lambda: ~5-30s for GPU',
+        note: 'Serverless cold starts on GPU are slow — Modal optimized to 0.5-5s via image caching, AWS Lambda GPU runs 5-30s. Subnet serverless inference has to either ship comparable image-caching infra or accept worse cold-start UX.',
+      },
+      {
+        label: 'Pay-per-request economics',
+        value: 'Modal: ~$0.0001 per 1K tokens equivalent',
+        note: 'Real serverless economics need ~50ms billing granularity + multi-tenant GPU packing. Modal + Replicate ship multi-tenancy via custom CUDA orchestration. Subnet has to match this or pay miner-idle costs that destroy unit economics.',
+      },
+      {
+        label: 'Container ecosystem support',
+        value: 'Modal: Python-first · Replicate: Docker',
+        note: 'Serverless customers expect easy deploy paths. Modal\'s Python decorators win developer mindshare. Subnet has to ship either a CLI/SDK with comparable ergonomics or accept lower developer adoption.',
+      },
+      {
+        label: 'Auto-scaling responsiveness',
+        value: '0 → 100 GPUs in <30s for traffic spikes',
+        note: 'Real workloads spike. Modal + Lambda scale GPU instances within seconds. Subnet miner-pool scale-up depends on miner availability + onboarding latency — slower than centralized rivals. Capture steady-state workloads, not bursty.',
+      },
+      {
+        label: 'Same-ecosystem coupling',
+        value: 'Rayon Labs also owns SN56 Gradients',
+        note: 'Rayon Labs (Chutes + Gradients) operates two adjacent subnets. Cross-promotion + shared infrastructure is an advantage but readers comparing decentralization see the concentration. Other subnets / labs may not route to Chutes for fear of vendor lock-in.',
+      },
+    ],
+  },
+
   /* SN67 Harnyx — "Deep research as a commodity. Faster, cheaper,
      traceable research — produced by a competitive swarm of
      miners on Bittensor SN67." (live identity per taostats
@@ -3485,6 +3679,43 @@ export const BY_NETUID = {
     ],
   },
 
+  /* SN105 Beam — "Decentralized bandwidth. A global network.
+     Powering the open internet." (live identity per taostats
+     2026-05-22, b1m.ai). Decentralized bandwidth marketplace.
+     Rival pool: Helium (decentralized wireless), Cloudflare,
+     Fastly, Akamai (CDN/bandwidth incumbents). */
+  105: {
+    rivals: ['helium-network', 'cloudflare-edge', 'fastly', 'akamai', 'aws-azure-gcp', 'filecoin'],
+    supplyChainIds: ['us-power-grids', 'aws-azure-gcp', 'cloudflare-edge'],
+    constraints: [
+      {
+        label: 'Helium tokenomics lesson',
+        value: 'HNT 95% drawdown 2021→2024',
+        note: 'Helium proved decentralized wireless can deploy hardware via tokens but then HNT collapsed 95% as supply outpaced demand. Subnet "decentralized bandwidth" plays inherit the cautionary tale: token incentives create supply, but matching demand requires real customer integration.',
+      },
+      {
+        label: 'Last-mile vs. middle-mile',
+        value: 'CDN edge nodes need <30ms to user',
+        note: 'Real CDN performance depends on point-of-presence proximity. Cloudflare + Akamai operate POPs in 300+ cities. Subnet miners on home internet sit behind ISP NAT + variable routes — can\'t match POP-grade latency.',
+      },
+      {
+        label: 'Carrier-grade peering',
+        value: 'Cloudflare peers with 12K+ networks',
+        note: 'CDN reach depends on BGP peering relationships. Cloudflare + Akamai have decades of carrier agreements. Subnet "open internet" can\'t replicate these — capture last-mile or specialized backhaul use cases, not enterprise CDN.',
+      },
+      {
+        label: 'Customer integration depth',
+        value: 'Cloudflare ships SDKs for every framework',
+        note: 'Real bandwidth/CDN customers (Stripe, Shopify, NYT) use vendor SDKs deeply. Subnet has to either match this integration depth or accept that the routing layer is replaceable by customers when bigger budgets show up.',
+      },
+      {
+        label: 'Compliance + DDoS mitigation',
+        value: 'Cloudflare: ~250 Tbps DDoS capacity',
+        note: 'Enterprise customers buy CDN partly for DDoS protection. Cloudflare absorbs multi-Tbps attacks. Subnet decentralized network can absorb in theory via distribution but lacks the centralized incident-response team customers can call during attack.',
+      },
+    ],
+  },
+
   /* SN107 Minos — "The Foundational Layer of Genomics" (live
      identity per taostats 2026-05-22, theminos.ai). Foundation-
      model approach to genomics. Rival pool overlaps SN55 NIOME
@@ -3523,6 +3754,43 @@ export const BY_NETUID = {
     ],
   },
 
+  /* SN110 Green Compute — "Enterprise Inference Hardware, 100%
+     Green Energy" (live identity per taostats 2026-05-22,
+     green-compute.com). Carbon-conscious AI inference. Rival
+     pool: hyperscalers running on green PPAs + niche green-compute
+     shops. */
+  110: {
+    rivals: ['amazon-aws-graviton', 'aws-azure-gcp', 'coreweave', 'modal-labs', 'anyscale', 'fastly'],
+    supplyChainIds: ['nvidia', 'tsmc', 'sk-hynix', 'us-power-grids'],
+    constraints: [
+      {
+        label: 'Hyperscaler carbon claim',
+        value: 'AWS / Azure / Google all claim 100% renewable',
+        note: 'All three hyperscalers report 100% renewable-energy match via PPAs + RECs. Subnet "100% green energy" claim has to either differentiate on additionality (new renewable, not just RECs) or accept that buyers don\'t pay a premium for parity claims.',
+      },
+      {
+        label: 'Carbon accounting standards',
+        value: 'Scope 2 reporting still allows offset-based claims',
+        note: 'GHG Protocol Scope 2 lets companies claim renewable via market-based accounting (offsets / RECs). The location-based method is stricter. Subnet "green" claim must specify methodology or it\'s comparable to greenwashing. Buyers in regulated industries care.',
+      },
+      {
+        label: 'Power-grid carbon intensity variance',
+        value: 'WA: 80g CO2/kWh · WV: 750g CO2/kWh',
+        note: 'Same GPU on Washington state hydro (low-carbon) vs West Virginia coal (high-carbon) differs 10x in emissions. Subnet routing inference to "green" miners requires miner-location attestation + grid-data integration. Hyperscalers have this; subnet has to build it.',
+      },
+      {
+        label: 'Premium pricing capture',
+        value: '~10-30% green premium for verified renewable',
+        note: 'Enterprise buyers pay 10-30% more for verified green compute (per CDP/RE100 surveys). Subnet has to justify that premium with transparent attestation — or compete only on price (where hyperscalers have economies of scale).',
+      },
+      {
+        label: 'Hardware-efficiency tradeoff',
+        value: 'H100: 700W · Graviton4: 250W · TPU v5p: ~400W',
+        note: 'Different chips have different perf/watt. AWS Graviton (ARM) wins on inference workloads. Subnet "green" might use less efficient chips on green power — the net carbon math has to work out. Validator has to score perf-per-CO2, not just energy source.',
+      },
+    ],
+  },
+
   /* SN127 Astrid — "The capital axis for Bittensor" (live
      identity per taostats 2026-05-22, astrid.global). Capital-
      infrastructure / asset-tokenization for Bittensor. Rival
@@ -3556,6 +3824,43 @@ export const BY_NETUID = {
         label: 'Bittensor-specific TAM ceiling',
         value: 'Single-ecosystem capital-infra has bounded demand',
         note: 'Tokenized RWAs scale with the demand for on-chain treasury / yield products. Bittensor TVL is sub-$1B; "capital axis for Bittensor" alone is a small pie. Multi-chain expansion is necessary for material scale but adds the cross-chain infrastructure surface (per SN106 constraints).',
+      },
+    ],
+  },
+
+  /* SN51 lium.io — "revolutionizing the democratization of
+     compute" (live identity per taostats 2026-05-22). Compute
+     marketplace pitching access for non-enterprise users.
+     Rival pool overlaps SN27 but the cut is more consumer
+     compute democratization (vast.ai, Salad, Banana). */
+  51: {
+    rivals: ['coreweave', 'lambda-labs', 'modal-labs', 'replicate', 'together-ai', 'amazon-aws-graviton'],
+    supplyChainIds: ['nvidia', 'tsmc', 'sk-hynix', 'us-power-grids'],
+    constraints: [
+      {
+        label: 'Consumer-GPU demand cycle',
+        value: 'Crypto cycles drive GPU rental demand',
+        note: 'GPU rental demand spikes during AI hype + crypto bull. vast.ai + Salad surged in 2023 then compressed. Subnet rental marketplaces inherit the cycle — α emission has to backstop miners during slow periods or supply collapses.',
+      },
+      {
+        label: 'KYC + payment-rail gating',
+        value: 'AWS: credit card · subnet: crypto-native',
+        note: 'Mainstream compute customers pay with credit cards. Subnet "democratization" likely requires crypto payment (or a fiat on-ramp partner), narrowing the addressable market. Trade-off between crypto-native UX and reach into Stripe/Visa rails.',
+      },
+      {
+        label: 'Performance per dollar floor',
+        value: 'A100 PCIe: $0.50/hr (cheap) vs $2/hr (premium)',
+        note: 'Vast.ai marketplace prices vary 4-10x for same GPU model based on host reliability + bandwidth. Subnet has to clearly communicate the speed/cost tradeoff or readers compare unfavorably to known marketplaces.',
+      },
+      {
+        label: 'Container-image distribution',
+        value: 'Docker Hub: ~5GB pull per ML container',
+        note: 'Real GPU jobs ship as Docker images. Pulling 5-20GB images on consumer bandwidth adds minutes-to-hours per job start. Modal + Banana bake popular images. Subnet has to ship image-distribution layer or accept slow cold starts.',
+      },
+      {
+        label: 'Multi-GPU coordination',
+        value: 'AllReduce / NCCL needs low-latency networking',
+        note: 'Training jobs needing 8+ GPUs require NVLink + InfiniBand. Distributed across home internet, latency kills throughput. Subnet "democratized" compute is for SINGLE-GPU inference + small fine-tune; large-model training stays with hyperscalers.',
       },
     ],
   },
