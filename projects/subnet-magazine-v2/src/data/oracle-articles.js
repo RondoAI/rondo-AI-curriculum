@@ -68,58 +68,6 @@
 /** @type {readonly OracleArticle[]} */
 export const ORACLE_ARTICLES = Object.freeze([
   {
-    id: 'oracle-2026-05-22-glasswing-unfunded-internet',
-    date: '2026-05-22',
-    kind: 'ecosystem-state',
-    title: 'Project Glasswing and the Unfunded Internet',
-    dek: 'Project Glasswing has found tens of thousands of vulnerabilities in open source code. The results are being read as a gift to maintainers. They are closer to an invoice, and Bittensor is one of the few places anyone is trying to pay it.',
-    sections: [
-      { h: 'The headline numbers',
-        body: 'On May 22, Anthropic published its first progress report on Project Glasswing, the cyberdefense initiative it launched a month earlier. The headline figures are large enough to command attention. Working with roughly fifty partners and a withheld frontier model called Claude Mythos Preview, Anthropic reports more than ten thousand high or critical severity vulnerabilities found across the world\'s most systemically important software. Cloudflare alone surfaced two thousand bugs across its critical-path systems. Mozilla found and fixed 271 in Firefox, more than ten times what the previous release cycle produced. Microsoft has said the volume of patches it ships will keep trending larger for some time. The UK\'s AI Security Institute reports that Mythos Preview is the first model to solve both of its cyber ranges end to end.' },
-
-      { h: 'The quieter number',
-        body: 'The number that deserves the most scrutiny is quieter. For several months, Anthropic has been scanning open source projects, more than a thousand of them, the libraries that underpin much of the internet and much of Anthropic\'s own infrastructure. Mythos Preview estimates it has found 6,202 high or critical severity vulnerabilities in that code, out of 23,019 in total. One of them, a certificate-forgery flaw in the cryptography library wolfSSL, is now patched and catalogued as CVE-2026-5194. wolfSSL is not neglected code. It is a security-conscious library trusted by billions of devices, and a frontier model still walked through it and constructed a working exploit that would let an attacker forge the certificates a browser relies on to tell a real bank from a fake one.' },
-
-      { h: 'An invoice, not a gift',
-        body: 'Anthropic presents this open source work as defensive labor performed on the ecosystem\'s behalf, and the intent is not in question. But the framing deserves examination, because the report\'s own details quietly contradict it. Anthropic is candid that the constraint is no longer discovery. The constraint is the human capacity to verify, disclose, and patch. Of roughly 530 high or critical severity bugs disclosed to maintainers so far, 75 have been patched. A single high-severity bug takes about two weeks to fix. Maintainers, Anthropic writes, are already absorbing a deluge of low-quality AI-generated bug reports, and several have asked Anthropic directly to slow down its disclosures because they cannot design patches fast enough.\n\nRead plainly, Glasswing did not uncover a security problem in open source. It uncovered a labor problem, and made it impossible to ignore. The vulnerabilities were always there. What changed is that a capability now exists that can enumerate them far faster than the people responsible for the code can repair them, and those people never agreed to that pace.' },
-
-      { h: 'The unfunded internet, again',
-        body: 'This is the quiet refutation of the founding security promise of open source. The movement\'s working assumption, Eric Raymond\'s much-quoted line that given enough eyeballs all bugs are shallow, has always rested on the premise that enough eyeballs exist. Glasswing is the empirical answer. They do not. The wolfSSL exploit is the proof at the high end, and the broader twenty-three thousand is the proof at scale.\n\nThe lesson is not new. Heartbleed taught it in 2014, when the internet discovered that OpenSSL, a dependency for a vast share of global web traffic, was maintained on a near-zero budget by a handful of people. The Core Infrastructure Initiative formed in response, and the funding it raised never came close to matching the dependency surface it was meant to protect. Open source absorbed the world\'s infrastructure without ever absorbing the world\'s security budget. Glasswing is the industrialized confirmation of a bill that has been outstanding for a decade.' },
-
-      { h: 'Who gets to set the tempo',
-        body: 'There is a further asymmetry worth naming. A single closed lab is now setting the disclosure tempo for code it does not own and does not maintain, and the obligation to keep up with that tempo falls on people who are not paid to keep up with anything. Anthropic has handled this more carefully than it had to. It has partnered with the Open Source Security Foundation\'s Alpha-Omega project, it throttles disclosures on request, and it has not released Mythos at all, citing the absence of adequate safeguards. But the structural shape remains. The capability to find vulnerabilities at industrial scale is concentrated inside one company. The strongest remediation tooling, Claude Security, sits behind an Enterprise license. The defenders with the greatest exposure, the volunteer maintainers of the libraries everyone depends on, are precisely the ones handed the weakest tools and the longest queue. This is the same gravitational pattern that governs the rest of the field. Frontier capability accretes inside a small number of labs, and everyone downstream adapts to a tempo they did not set.' },
-
-      { h: 'A different answer, from a different shape of network',
-        body: 'None of this argues for finding fewer vulnerabilities. It argues for asking a different question. What does a security model look like when the people doing the work are actually paid to do it? That question is being answered, partially and imperfectly, in a corner of the ecosystem that Anthropic\'s report does not mention: the Bittensor subnet economy.\n\nBittensor is a permissionless network on which independent subnets compete to produce machine intelligence, each running its own incentive market and paying contributors in the network\'s token, TAO. It was built by the Opentensor Foundation, which over the past year has been deliberately divesting its own authority, migrating governance onto the chain in pursuit of what its founders call a headless protocol. The contrast with the closed-lab model is not incidental. One structure concentrates capability and the right to set the terms of disclosure. The other, at least in stated intent, is trying to give that right away.\n\nA handful of subnets are already doing the kind of work Glasswing measures, or work directly adjacent to it. Bitsec.ai, on subnet 60, runs an AI bug-finding market for both conventional code and smart contracts, which is, in mechanism if not yet in raw capability, the direct counterpart to what Mythos Preview is doing inside Anthropic. RedTeam, on subnet 61, treats offensive research as a continuously incentivized adversarial loop in which miners construct attacks and validators verify the breaks, and ships the strongest results into the production stack of its commercial arm Innerworks, whose paying customers include the decentralized exchange aggregator 1inch and a major global messaging platform the team has not yet named. BitMind, on subnet 24, addresses an adjacent failure mode, synthetic-media detection, on the premise that the same model capability now flooding the vulnerability disclosure queue is also flooding the verification queue for everything visual. Targon, on subnet 4, operates one layer down, providing the confidential compute substrate that lets a workload run on commodity hardware without exposing its contents, which is the privacy half of the security problem rather than the bug-finding half.\n\nThese are not large efforts compared to a frontier lab, and that is not the comparison being drawn. The point is structural. On each of these subnets, the work and the people who do it carry a continuous price, set by an emission mechanism, rather than being extracted from volunteers or sequestered inside one company. Anthropic\'s own report frames its bottleneck as human capacity. That is, precisely, an economics statement. Open source never priced security labor. It ran on goodwill, intermittent corporate charity, and the occasional foundation grant. A token-incentivized network is, whatever else it is, an attempt to attach a standing price signal to exactly the work Glasswing has now proven is both scarce and indispensable. That is the correct diagnosis, even where the implementation is still unproven.' },
-
-      { h: 'What the subnet model has not solved',
-        body: 'The subnet model does not escape the hard part of the problem. None of the subnets named above patches wolfSSL. A permissionless network that produces attack agents carries its own disclosure-ethics exposure, contested in some jurisdictions and unmapped in others. When both sides of an adversarial loop evolve through the same incentive, the equilibrium can drift toward mutual neutralization rather than durable defensive advantage, a failure mode none of the teams has yet publicly addressed. The commercial bases are still thin. Honest reporting requires saying that the decentralized answer is early, small, and a long way from validated.' },
-
-      { h: 'After Glasswing',
-        body: 'The comparison still holds where it matters. Glasswing demonstrates, with something close to finality, that vulnerability discovery is now cheap. Twenty-three thousand findings from a thousand projects, one model, a few months of work. What the report also demonstrates, less deliberately, is that fixing remains expensive, slow, and unpaid. The closed-lab response is to concentrate the discovery capability, withhold its strongest form, and ask a volunteer ecosystem to keep pace. The decentralized response, immature as it is, is to treat security work as a market that pays continuously rather than a charity that depletes.\n\nBittensor has not closed that gap. But it is one of the few places where the gap is being treated as a pricing problem rather than a goodwill problem. After Glasswing, that is the only framing that survives contact with the numbers.' },
-    ],
-    sources: [
-      { label: 'Anthropic, Project Glasswing: An initial update (May 22 2026)',
-        url: 'https://www.anthropic.com/research/glasswing-initial-update' },
-      { label: 'NVD entry, wolfSSL CVE-2026-5194 (certificate-forgery vulnerability)',
-        url: 'https://nvd.nist.gov/vuln/detail/CVE-2026-5194' },
-      { label: 'Open Source Security Foundation, Alpha-Omega Project',
-        url: 'https://openssf.org/projects/alpha-omega/' },
-      { label: 'Linux Foundation, Core Infrastructure Initiative (post-Heartbleed funding response, 2014)',
-        url: 'https://www.coreinfrastructure.org/' },
-      { label: 'Bitsec.ai (Bittensor SN60), AI bug-finding for code and smart contracts',
-        url: 'https://bitsec.ai/' },
-      { label: 'RedTeam Labs / Innerworks (Bittensor SN61), adversarial security loop, commercial integrations',
-        url: 'https://theredteam.io/' },
-      { label: 'BitMind (Bittensor SN24), AI-generated content detection',
-        url: 'https://www.bitmind.ai/' },
-      { label: 'Oracle desk, prior coverage, SN4 Targon and the Intel TDX paper (May 16 2026)',
-        url: 'oracle.html#oracle-2026-05-16-sn4-targon' },
-    ],
-    generatedBy: 'editorial-seed',
-  },
-
-  {
     id: 'oracle-2026-05-20-dell-powerstore-elite',
     date: '2026-05-20',
     kind: 'ecosystem-state',
