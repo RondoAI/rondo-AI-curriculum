@@ -417,18 +417,12 @@
   width: 100%;
   height: 100%;
   display: block;
-  /* Drag-to-pan affordance — grab cursor on hover, grabbing
-     while a drag is active (set inline via JS during drag). */
-  cursor: grab;
-  /* Touch behavior: claim HORIZONTAL touch gestures for the
-     chart (drag-to-pan, two-finger pinch-zoom) and route
-     VERTICAL gestures to the page so the reader can still
-     scroll past the chart. `pan-y` lets vertical scroll
-     through; horizontal pans + pinches are OURS (handled in
-     the canvas's touchstart/touchmove/touchend in Cockpit.js). */
-  touch-action: pan-y;
-  /* Prevent text-selection during a drag — looks like dragging
-     ghost text otherwise. */
+  /* TradingView Lightweight Charts mounts its own canvases inside
+     this container (Rondo 2026-05-21 swap from custom drawChart).
+     The library handles drag-to-pan / wheel-zoom / pinch-zoom
+     internally — no JS-side touch-action / cursor management
+     needed. Library's own touch handling respects vertical page
+     scroll. */
   -webkit-user-select: none;
   user-select: none;
 }

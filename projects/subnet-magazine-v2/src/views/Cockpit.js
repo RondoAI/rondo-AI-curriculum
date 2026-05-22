@@ -309,382 +309,6 @@ function annotationsFor(netuid, subnetName){
    "window ending today"; offset=range.days shifts back one full
    window; etc. Clamped so slice never reads off the start of the
    synthesized series. */
-function drawChart(canvas, series, range, annotations, offset = 0){
-  if (!canvas) return null;
-  const ctx = canvas.getContext('2d');
-  const dpr = Math.min(window.devicePixelRatio || 1, 2);
-  const rect = canvas.getBoundingClientRect();
-  const W = Math.max(200, rect.width);
-  const H = Math.max(160, rect.height);
-  canvas.width  = Math.round(W * dpr);
-  canvas.height = Math.round(H * dpr);
-  ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
-  ctx.clearRect(0, 0, W, H);
-
-  if (!series || !series.length) return null;
-
-  const safeOffset = Math.max(0, Math.min(offset, series.length - range.days));
-  const sliceStart = Math.max(0, series.length - range.days - safeOffset);
-  const sliceEnd   = Math.min(series.length, sliceStart + range.days);
-  const slice = series.slice(sliceStart, sliceEnd);
-  if (slice.length < 2) return null;
-
-  const PAD_L = 50, PAD_R = 14, PAD_T = 14, PAD_B = 50;
-  /* VOL_H tightened from 38 → 26 per Rondo's chart review:
-     volume bars were eating ~35-40% of chart height and
-     competing with the price line. ~26px = ~15-18% of chart
-     height at typical 400px canvas — supporting context, not
-     headline. PAD_B reduced 60 → 50 to keep label spacing tight. */
-  const VOL_H = 26;
-  const priceH = H - PAD_T - PAD_B;
-  const priceY0 = PAD_T;
-  const priceY1 = PAD_T + priceH;
-  const volY0   = priceY1 + 8;
-  const volY1   = volY0 + VOL_H;
-
-  const minP = Math.min(...slice.map(s => s.low));
-  const maxP = Math.max(...slice.map(s => s.high));
-  const padP = (maxP - minP) * 0.08 || maxP * 0.04 || 1;
-  const lo = Math.max(0, minP - padP);
-  const hi = maxP + padP;
-  const range_p = hi - lo || 1;
-  const maxV = Math.max(...slice.map(s => s.volume), 1);
-
-  const xAt = i => PAD_L + (i / (slice.length - 1)) * (W - PAD_L - PAD_R);
-  const yAt = p => priceY1 - ((p - lo) / range_p) * priceH;
-  const vyAt = v => volY1 - (v / maxV) * VOL_H;
-
-  /* Background grid */
-  ctx.strokeStyle = 'rgba(255,30,60,0.06)';
-  ctx.lineWidth   = 1;
-  const yGridSteps = 4;
-  for (let i = 0; i <= yGridSteps; i++){
-    const y = priceY0 + (i / yGridSteps) * priceH;
-    ctx.beginPath();
-    ctx.moveTo(PAD_L, y); ctx.lineTo(W - PAD_R, y);
-    ctx.stroke();
-  }
-  const xGridSteps = Math.min(6, slice.length - 1);
-  for (let i = 0; i <= xGridSteps; i++){
-    const x = PAD_L + (i / xGridSteps) * (W - PAD_L - PAD_R);
-    ctx.beginPath();
-    ctx.moveTo(x, priceY0); ctx.lineTo(x, priceY1);
-    ctx.stroke();
-  }
-
-  /* Price area fill — modern register per Rondo 2026-05-21 chart
-     review ("price line is thin and flat — needs gradient fill").
-     Bumped the top stop from 32% to 55% so the chart reads as a
-     SHAPE (the way Bloomberg + TradingView + CMC charts do) not
-     a wireframe. Bottom stop pulled to 6% so the fill stays
-     visible above the volume bars below.
-
-     Color follows the direction: mint for up, red-pink for down —
-     same semantic the price line carries. */
-  const lastClose = slice[slice.length - 1].close;
-  const firstClose = slice[0].close;
-  const isUp = lastClose >= firstClose;
-  const lineColor = isUp ? '#00E5A8' : '#FF4D60';
-  ctx.beginPath();
-  ctx.moveTo(xAt(0), priceY1);
-  for (let i = 0; i < slice.length; i++){
-    ctx.lineTo(xAt(i), yAt(slice[i].close));
-  }
-  ctx.lineTo(xAt(slice.length - 1), priceY1);
-  ctx.closePath();
-  const grad = ctx.createLinearGradient(0, priceY0, 0, priceY1);
-  grad.addColorStop(0, isUp ? 'rgba(0,229,168,0.55)' : 'rgba(255,77,109,0.55)');
-  grad.addColorStop(0.55, isUp ? 'rgba(0,229,168,0.20)' : 'rgba(255,77,109,0.20)');
-  grad.addColorStop(1, isUp ? 'rgba(0,229,168,0.06)' : 'rgba(255,77,109,0.06)');
-  ctx.fillStyle = grad;
-  ctx.fill();
-
-  /* Moving-average overlays — port of mac-session's terminal CHART
-     mode pattern (commit 5f3995e). MA20 fast (solid muted teal) +
-     MA50 slow (dashed amber). Computed over the FULL series then
-     sliced to the visible window so day-0 of the slice has real
-     preceding-window data, not a partial approximation that would
-     mislead a trader.
-
-     Drawn AFTER the area fill and BEFORE the price line so the
-     price stays on top visually. Skip-on-null lets the MA line
-     start mid-chart when there isn't enough history for the early
-     bars (e.g. MA50 on a 30D window). */
-  const allCloses = series.map(b => b.close);
-  const ma20Full  = sma(allCloses, MA_FAST_WINDOW);
-  const ma50Full  = sma(allCloses, MA_SLOW_WINDOW);
-  const ma20      = ma20Full.slice(sliceStart);
-  const ma50      = ma50Full.slice(sliceStart);
-  const drawMA = (arr, color, dash) => {
-    ctx.save();
-    ctx.strokeStyle = color;
-    /* Line width 1.3 per Rondo 2026-05-21 chart review #4 —
-       was 1px which read as visual noise; 1.3 gives the overlay
-       presence without dominating the 1.8px price line above. */
-    ctx.lineWidth   = 1.3;
-    ctx.setLineDash(dash);
-    ctx.lineJoin    = 'round';
-    let started = false;
-    for (let i = 0; i < slice.length; i++){
-      const v = arr[i];
-      if (v == null){ started = false; continue; }
-      const x = xAt(i), y = yAt(v);
-      if (!started){ ctx.beginPath(); ctx.moveTo(x, y); started = true; }
-      else ctx.lineTo(x, y);
-    }
-    if (started) ctx.stroke();
-    ctx.restore();
-  };
-  drawMA(ma20, MA_FAST_LINE_RGBA, []);
-  drawMA(ma50, MA_SLOW_LINE_RGBA, MA_SLOW_DASH);
-
-  /* Price line */
-  ctx.beginPath();
-  ctx.moveTo(xAt(0), yAt(slice[0].close));
-  for (let i = 1; i < slice.length; i++){
-    ctx.lineTo(xAt(i), yAt(slice[i].close));
-  }
-  ctx.strokeStyle = lineColor;
-  ctx.lineWidth   = 1.8;
-  ctx.lineCap     = 'round';
-  ctx.lineJoin    = 'round';
-  ctx.stroke();
-
-  /* CURRENT-PRICE RIGHT-EDGE BADGE (Rondo 2026-05-21 chart review).
-     A small colored chip pinned to the right edge at the last
-     bar's y-position, displaying the current price in τ. Modern
-     chart pattern (TradingView, Bloomberg, Coinbase Advanced) —
-     reader's eye lands on the chart and immediately knows where
-     "now" is. Includes a thin hairline dot at the price-line
-     terminus + a leader line tracking from chart to badge so the
-     badge feels anchored to the data, not floating. */
-  {
-    const lastX = xAt(slice.length - 1);
-    const lastY = yAt(lastClose);
-    /* Hairline horizontal leader from last point to the right edge. */
-    ctx.save();
-    ctx.strokeStyle = lineColor;
-    ctx.globalAlpha = 0.45;
-    ctx.setLineDash([2, 3]);
-    ctx.lineWidth = 0.8;
-    ctx.beginPath();
-    ctx.moveTo(lastX, lastY);
-    ctx.lineTo(W - PAD_R, lastY);
-    ctx.stroke();
-    ctx.restore();
-    /* Pulsing dot at the price-line terminus — same color as the
-       line, slight glow. Reader's eye lands on it as "current". */
-    ctx.save();
-    ctx.fillStyle = lineColor;
-    ctx.shadowColor = lineColor;
-    ctx.shadowBlur = 6;
-    ctx.beginPath();
-    ctx.arc(lastX, lastY, 3.2, 0, Math.PI * 2);
-    ctx.fill();
-    /* Outer ring for emphasis — same color, lower opacity. */
-    ctx.shadowBlur = 0;
-    ctx.globalAlpha = 0.30;
-    ctx.beginPath();
-    ctx.arc(lastX, lastY, 6, 0, Math.PI * 2);
-    ctx.fill();
-    ctx.restore();
-    /* Right-edge price badge — filled rectangle with the current
-       price text. Sits flush against the right edge (PAD_R), at
-       the lastY level. Width adapts to text. */
-    ctx.save();
-    ctx.font = '700 10.5px "JetBrains Mono", monospace';
-    const priceTxt = (lastClose < 1 ? lastClose.toFixed(4) : lastClose.toFixed(2)) + ' τ';
-    const txtW = ctx.measureText(priceTxt).width;
-    const badgeW = Math.ceil(txtW) + 12;
-    const badgeH = 18;
-    const badgeX = W - PAD_R - badgeW + 2; // overshoot slightly so it kisses the right edge
-    const badgeY = Math.max(priceY0 + 2, Math.min(priceY1 - badgeH - 2, lastY - badgeH / 2));
-    ctx.fillStyle = lineColor;
-    ctx.fillRect(badgeX, badgeY, badgeW, badgeH);
-    /* Tiny pointer triangle on the LEFT side of the badge pointing
-       toward the price line — completes the "anchor" feel. */
-    ctx.beginPath();
-    ctx.moveTo(badgeX, badgeY + badgeH / 2 - 4);
-    ctx.lineTo(badgeX - 5, badgeY + badgeH / 2);
-    ctx.lineTo(badgeX, badgeY + badgeH / 2 + 4);
-    ctx.closePath();
-    ctx.fill();
-    /* Text — dark on the colored badge for contrast (the line
-       colors are both bright enough that black reads cleanly). */
-    ctx.fillStyle = '#050203';
-    ctx.textAlign = 'center';
-    ctx.textBaseline = 'middle';
-    ctx.fillText(priceTxt, badgeX + badgeW / 2, badgeY + badgeH / 2 + 0.5);
-    ctx.restore();
-  }
-
-  /* Volume bars */
-  for (let i = 0; i < slice.length; i++){
-    const x = xAt(i);
-    const y = vyAt(slice[i].volume);
-    const w = Math.max(1, (W - PAD_L - PAD_R) / slice.length - 1);
-    const up = i > 0 && slice[i].close >= slice[i-1].close;
-    /* Volume bar opacity dropped 0.55 → 0.40 per Rondo's chart
-       review #2 — volume is supporting context, not headline.
-       Lower alpha lets the price line + gradient fill above
-       hold visual primacy. */
-    ctx.fillStyle = up ? 'rgba(0,229,168,0.40)' : 'rgba(255,77,109,0.40)';
-    ctx.fillRect(x - w/2, y, w, volY1 - y);
-  }
-
-  /* News-flag overlays — Bloomberg-style markers at editorial
-     publish dates that fall inside the visible window. Ported from
-     Mac's terminal CHART mode (commit 6234f0e) so the cockpit and
-     terminal chart surfaces use the same visual language. Amber
-     dots = magazine, red dots = oracle. Stagger lane (0/1/2) when
-     adjacent dates collide within 18px.
-     Flags collected into an array so the returned hit-tester can
-     resolve cursor-over-flag → article click/hover. */
-  const flags = [];
-  if (annotations && annotations.length){
-    const tMin = slice[0].t, tMax = slice[slice.length - 1].t;
-    let lastFlagX = -Infinity;
-    let lane = 0;
-    for (const a of annotations){
-      if (a.t < tMin || a.t > tMax) continue;
-      const f = (a.t - tMin) / (tMax - tMin);
-      const x = PAD_L + f * (W - PAD_L - PAD_R);
-      if (x - lastFlagX < 18) lane = (lane + 1) % 3; else lane = 0;
-      lastFlagX = x;
-      const dotY = priceY0 + 8 + lane * 11;
-      const color = a.kind === 'mag' ? '#FFB85C' : '#FF4D60';
-      // Dashed vertical hairline through the plot
-      ctx.save();
-      ctx.strokeStyle = color;
-      ctx.globalAlpha = 0.40;
-      ctx.setLineDash([2, 3]);
-      ctx.lineWidth = 0.8;
-      ctx.beginPath();
-      ctx.moveTo(x, priceY0);
-      ctx.lineTo(x, priceY1);
-      ctx.stroke();
-      ctx.restore();
-      // Marker dot at top
-      ctx.beginPath();
-      ctx.arc(x, dotY, 3.2, 0, Math.PI * 2);
-      ctx.fillStyle = color;
-      ctx.fill();
-      ctx.strokeStyle = '#050203';
-      ctx.lineWidth = 1.2;
-      ctx.stroke();
-      flags.push({ x, y: dotY, ann: a });
-    }
-  }
-
-  /* Y-axis labels (price) */
-  ctx.fillStyle    = 'rgba(139,107,112,0.85)';
-  ctx.font         = '10px "JetBrains Mono", monospace';
-  ctx.textAlign    = 'right';
-  ctx.textBaseline = 'middle';
-  for (let i = 0; i <= yGridSteps; i++){
-    const v = lo + ((yGridSteps - i) / yGridSteps) * range_p;
-    const y = priceY0 + (i / yGridSteps) * priceH;
-    /* Y-axis labels carry the τ unit — this is a SUBNET price
-       chart and subnets denominate in TAO per [[feedback-subnets-
-       in-tao]]. The τ glyph trails the number (taostats pattern)
-       so the eye reads the magnitude first, then the unit. */
-    ctx.fillText(v < 1 ? v.toFixed(4) + ' τ' : v.toFixed(2) + ' τ', PAD_L - 6, y);
-  }
-
-  /* X-axis labels (dates) */
-  ctx.textAlign    = 'center';
-  ctx.textBaseline = 'top';
-  const dayMs = 86400000;
-  for (let i = 0; i <= xGridSteps; i++){
-    const idx = Math.round((i / xGridSteps) * (slice.length - 1));
-    const t = slice[idx].t;
-    const d = new Date(t);
-    const label = range.days <= 7
-      ? `${d.getMonth()+1}/${d.getDate()}`
-      : range.days <= 90
-        ? `${d.getMonth()+1}/${d.getDate()}`
-        : `${['JAN','FEB','MAR','APR','MAY','JUN','JUL','AUG','SEP','OCT','NOV','DEC'][d.getMonth()]} ${String(d.getFullYear()).slice(2)}`;
-    const x = PAD_L + (i / xGridSteps) * (W - PAD_L - PAD_R);
-    ctx.fillText(label, x, volY1 + 8);
-  }
-
-  /* VOL label on the left */
-  ctx.fillStyle = 'rgba(255,30,60,0.55)';
-  ctx.font      = '8.5px "JetBrains Mono", monospace';
-  ctx.textAlign = 'right';
-  ctx.fillText('VOL', PAD_L - 6, volY0 + VOL_H/2);
-
-  /* MA legend — top-right corner. Mirrors mac-session's terminal
-     CHART mode legend so the reader can decode the two overlay
-     lines without hunting. MA20 swatch (solid teal hairline) +
-     MA50 swatch (dashed amber hairline). */
-  ctx.font = '9px "JetBrains Mono", monospace';
-  ctx.textAlign = 'left';
-  ctx.textBaseline = 'top';
-  const legendY = PAD_T + 4;
-  let legendX = W - PAD_R - 110;
-  ctx.fillStyle = MA_FAST_SWATCH_RGBA;
-  ctx.fillRect(legendX, legendY + 4, 10, 1);
-  ctx.fillText('MA' + MA_FAST_WINDOW, legendX + 14, legendY);
-  legendX += 56;
-  ctx.fillStyle = MA_SLOW_SWATCH_RGBA;
-  ctx.fillRect(legendX, legendY + 4, 3, 1);
-  ctx.fillRect(legendX + 5, legendY + 4, 3, 1);
-  ctx.fillText('MA' + MA_SLOW_WINDOW, legendX + 14, legendY);
-
-  /* Hit-test controller — closes Cockpit Chart Tooltip Parity gap
-     logged in CLAUDE.md by mac-session. Mirrors the pattern in
-     src/views/terminal/chart-mode.js drawChart so cockpit + terminal
-     CHART expose the SAME hover interaction — OHLC + MA values on
-     bar hover, editorial-flag tooltip on marker hover.
-     Returns null if drawChart bailed early; the caller null-checks. */
-  return {
-    flags,
-    hitFlag(px, py){
-      let best = null, bestD = Infinity;
-      for (const f of flags){
-        const dx = px - f.x, dy = py - f.y;
-        const d = Math.sqrt(dx*dx + dy*dy);
-        if (d < 10 && d < bestD){ bestD = d; best = f; }
-      }
-      return best;
-    },
-    hitTest(px, py){
-      if (px < PAD_L || px > W - PAD_R) return null;
-      const f = (px - PAD_L) / (W - PAD_L - PAD_R);
-      const idx = Math.round(f * (slice.length - 1));
-      const bar = slice[idx];
-      if (!bar) return null;
-      return {
-        idx, bar,
-        x: xAt(idx), y: yAt(bar.close),
-        ma20: ma20[idx],
-        ma50: ma50[idx],
-      };
-    },
-    drawCrosshair(px, py){
-      const h = this.hitTest(px, py);
-      if (!h) return;
-      ctx.save();
-      ctx.strokeStyle = 'rgba(255,30,60,0.55)';
-      ctx.lineWidth = 1;
-      ctx.setLineDash([3, 3]);
-      ctx.beginPath();
-      ctx.moveTo(h.x, priceY0); ctx.lineTo(h.x, priceY1);
-      ctx.moveTo(PAD_L, h.y);    ctx.lineTo(W - PAD_R, h.y);
-      ctx.stroke();
-      ctx.setLineDash([]);
-      ctx.fillStyle = lineColor;
-      ctx.beginPath();
-      ctx.arc(h.x, h.y, 4, 0, Math.PI * 2);
-      ctx.fill();
-      ctx.strokeStyle = '#050203';
-      ctx.lineWidth = 1.2;
-      ctx.stroke();
-      ctx.restore();
-    },
-  };
-}
 
 /* ---------- main mount -------------------------------------- */
 /**
@@ -701,12 +325,16 @@ export function mountCockpit(root, dataLayer = null){
      Returning readers parked on 'desk' get normalized to 'chart'. */
   if (state.pane !== 'chart') state.pane = 'chart';
   let series     = generateSeries(subnetById(state.selectedId) || SUBNETS[0]);
-  /* `hit` is the drawChart-returned hit-test controller. Declared
-     at the top of the closure so drawChartNow() (called during
-     initial mount, before its own internal definition site)
-     doesn't hit a temporal-dead-zone ReferenceError when assigning
-     to it. */
-  let hit        = null;
+  /* TradingView chart instance + series handles — declared at the
+     top of the closure (TDZ-safe) so drawChartNow() (invoked
+     during initial mount before mountTVChart's definition site)
+     doesn't trip the temporal dead zone when reading them. */
+  let tvChart = null;
+  let tvAreaSeries = null;
+  let tvMa20Series = null;
+  let tvMa50Series = null;
+  let tvVolumeSeries = null;
+  let tvResizeObserver = null;
   /* Chart pan offset in DAYS BACK FROM TODAY. 0 = window ends today,
      positive shifts the window into history. Reset on subnet
      change + range change so the reader doesn't get stuck deep in
@@ -912,9 +540,15 @@ export function mountCockpit(root, dataLayer = null){
            On mobile the row stacks: chart top, sidebar below. -->
       <div class="cock-chart__row">
         <div class="cock-chart__canvas-wrap">
-          <canvas class="cock-chart__canvas" data-chart-canvas
-                  role="img"
-                  aria-label="SN${s.netuid} ${s.name} price chart, ${state.range} window"></canvas>
+          <!-- TradingView Lightweight Charts mounts inside this
+               <div> (Rondo 2026-05-21 swap from custom canvas).
+               The library creates its own canvases internally;
+               this div is just the container. The custom OHLC
+               tooltip + flag-preview slide-up overlay on top
+               via absolute positioning per the existing CSS. -->
+          <div class="cock-chart__canvas" data-chart-canvas
+               role="img"
+               aria-label="SN${s.netuid} ${s.name} price chart, ${state.range} window"></div>
           <div class="cm-tooltip" data-chart-tooltip style="display:none" role="tooltip" aria-live="polite"></div>
           <div class="cock-chart__flag-preview" data-flag-preview hidden></div>
         </div>
@@ -1880,28 +1514,329 @@ export function mountCockpit(root, dataLayer = null){
 
   function repaintMain(){
     const m = qs('[data-pane="chart"]', root);
-    if (m){ m.innerHTML = renderMain(); wireChart(); drawChartNow(); }
+    if (!m) return;
+    /* m.innerHTML wipes the [data-chart-canvas] div TradingView
+       attached children to — leaving tvChart pointing at orphaned
+       DOM. Tear down the chart instance + series refs FIRST so the
+       drawChartNow() call below remounts cleanly into the fresh
+       container. Without this teardown, setData runs on a dead
+       chart and the new container stays visually empty. */
+    if (tvResizeObserver){ try { tvResizeObserver.disconnect(); } catch (_) {} tvResizeObserver = null; }
+    if (tvChart){ try { tvChart.remove(); } catch (_) {} tvChart = null; }
+    tvAreaSeries = null;
+    tvMa20Series = null;
+    tvMa50Series = null;
+    tvVolumeSeries = null;
+    m.innerHTML = renderMain();
+    wireChart();
+    drawChartNow();
   }
 
-  /* drawChartNow assigns to `hit` (declared at the top of
-     mountCockpit). The closure-level `let hit` was hoisted up so
-     this function — invoked during initial mount before its own
-     definition site — doesn't trip the temporal dead zone. */
+  /* The tvChart / tvAreaSeries / tv*Series / tvResizeObserver
+     variables are declared near the top of mountCockpit (TDZ-
+     safe). mountTVChart initializes them on first call; updates
+     reuse the same chart instance. */
+
+  /* Initialize TradingView Lightweight Charts inside the
+     [data-chart-canvas] container. Applies the magazine's
+     locked theme (--c-bg / --c-ink-* / --c-red-grid). Creates
+     four series:
+       - Area (the headline price + gradient fill, color flips
+         mint/red-pink based on direction)
+       - MA20 + MA50 line series (overlay context)
+       - Volume histogram on its own price scale
+     Subscribes to crosshair-move (drives the custom OHLC
+     tooltip) + click (opens flag-preview when a marker is hit).
+     Returns silently if window.LightweightCharts hasn't loaded
+     (degrades gracefully — chart just doesn't render). */
+  function mountTVChart(){
+    const container = qs('[data-chart-canvas]', root);
+    if (!container) return;
+    if (!window.LightweightCharts) return;
+    try {
+    if (tvChart){
+      tvChart.remove();
+      tvChart = null;
+    }
+    const LWC = window.LightweightCharts;
+    tvChart = LWC.createChart(container, {
+      width: container.clientWidth,
+      height: container.clientHeight,
+      layout: {
+        background: { type: 'solid', color: '#050203' },
+        textColor: 'rgba(200, 168, 173, 0.85)',
+        fontFamily: '"JetBrains Mono", monospace',
+        fontSize: 10,
+      },
+      grid: {
+        vertLines: { color: 'rgba(255,30,60,0.06)' },
+        horzLines: { color: 'rgba(255,30,60,0.06)' },
+      },
+      timeScale: {
+        timeVisible: false,
+        secondsVisible: false,
+        borderColor: 'rgba(255,30,60,0.22)',
+        rightOffset: 4,
+      },
+      rightPriceScale: {
+        borderColor: 'rgba(255,30,60,0.22)',
+        scaleMargins: { top: 0.08, bottom: 0.25 },
+      },
+      crosshair: {
+        mode: LWC.CrosshairMode.Magnet,
+        vertLine: { color: 'rgba(255,30,60,0.55)', style: LWC.LineStyle.Solid, width: 1, labelBackgroundColor: '#FF1E3C' },
+        horzLine: { color: 'rgba(255,30,60,0.55)', style: LWC.LineStyle.Solid, width: 1, labelBackgroundColor: '#FF1E3C' },
+      },
+      handleScale: { axisPressedMouseMove: true, mouseWheel: true, pinch: true },
+      handleScroll: { mouseWheel: false, pressedMouseMove: true, horzTouchDrag: true, vertTouchDrag: false },
+      kineticScroll: { touch: true, mouse: false },
+    });
+
+    tvAreaSeries = tvChart.addAreaSeries({
+      lineColor: '#00E5A8',
+      topColor: 'rgba(0,229,168,0.55)',
+      bottomColor: 'rgba(0,229,168,0.06)',
+      lineWidth: 2,
+      priceLineColor: '#00E5A8',
+      priceLineWidth: 1,
+      priceLineStyle: LWC.LineStyle.Dashed,
+      crosshairMarkerVisible: true,
+      crosshairMarkerRadius: 4,
+      crosshairMarkerBorderColor: '#050203',
+      crosshairMarkerBackgroundColor: '#00E5A8',
+      lastValueVisible: true,
+      priceFormat: { type: 'price', precision: 4, minMove: 0.0001 },
+    });
+    tvMa20Series = tvChart.addLineSeries({
+      color: 'rgba(156,230,204,0.75)',
+      lineWidth: 1,
+      priceLineVisible: false,
+      lastValueVisible: false,
+      crosshairMarkerVisible: false,
+    });
+    tvMa50Series = tvChart.addLineSeries({
+      color: 'rgba(232,192,103,0.70)',
+      lineWidth: 1,
+      lineStyle: LWC.LineStyle.Dashed,
+      priceLineVisible: false,
+      lastValueVisible: false,
+      crosshairMarkerVisible: false,
+    });
+    tvVolumeSeries = tvChart.addHistogramSeries({
+      color: 'rgba(0,229,168,0.40)',
+      priceFormat: { type: 'volume' },
+      priceScaleId: 'volume',
+      priceLineVisible: false,
+      lastValueVisible: false,
+    });
+    tvChart.priceScale('volume').applyOptions({
+      scaleMargins: { top: 0.82, bottom: 0 },
+    });
+
+    /* Resize handling — container can change size on viewport
+       resize or sidebar collapse. ResizeObserver fires whenever
+       the container's content box changes. */
+    if (tvResizeObserver) tvResizeObserver.disconnect();
+    tvResizeObserver = new ResizeObserver(entries => {
+      const rect = entries[0].contentRect;
+      if (tvChart) tvChart.applyOptions({ width: rect.width, height: rect.height });
+    });
+    tvResizeObserver.observe(container);
+
+    /* Crosshair move → custom OHLC tooltip. The library has its
+       own minimal tooltip but the magazine wants the editorial
+       register (serif headlines, kind chips). */
+    tvChart.subscribeCrosshairMove(param => {
+      const tooltipEl = qs('[data-chart-tooltip]', root);
+      if (!tooltipEl) return;
+      if (!param || !param.time || !param.point || !tvAreaSeries){
+        tooltipEl.style.display = 'none';
+        return;
+      }
+      const ts = (typeof param.time === 'number' ? param.time * 1000 : null);
+      if (!Number.isFinite(ts)){
+        tooltipEl.style.display = 'none';
+        return;
+      }
+      /* Find the bar whose t matches param.time (with a 1-day
+         tolerance — series is daily granularity). */
+      const bar = series.find(b => Math.abs(b.t - ts) < 86400 * 500);
+      if (!bar){
+        tooltipEl.style.display = 'none';
+        return;
+      }
+      const ma20Val = param.seriesData.get(tvMa20Series);
+      const ma50Val = param.seriesData.get(tvMa50Series);
+      const ma20Txt = (ma20Val && Number.isFinite(ma20Val.value)) ? (ma20Val.value < 1 ? '$' + ma20Val.value.toFixed(4) : '$' + ma20Val.value.toFixed(2)) : null;
+      const ma50Txt = (ma50Val && Number.isFinite(ma50Val.value)) ? (ma50Val.value < 1 ? '$' + ma50Val.value.toFixed(4) : '$' + ma50Val.value.toFixed(2)) : null;
+      const d = new Date(bar.t);
+      const MON = ['JAN','FEB','MAR','APR','MAY','JUN','JUL','AUG','SEP','OCT','NOV','DEC'];
+      const date = `${MON[d.getMonth()]} ${d.getDate()} ${String(d.getFullYear()).slice(2)}`;
+      const fmtP = p => p == null ? '·' : ((p < 1 ? p.toFixed(4) : p.toFixed(2)) + ' τ');
+      const ohlcDelta = bar.close - bar.open;
+      const ohlcCls = ohlcDelta >= 0 ? 'is-up' : 'is-down';
+      tooltipEl.innerHTML = `
+        <div class="ct-tt__head">
+          <span class="ct-tt__date">${date}</span>
+          <span class="ct-tt__sign ${ohlcCls}">${ohlcDelta >= 0 ? '▲' : '▼'}</span>
+        </div>
+        <div class="ct-tt__rows">
+          <span class="ct-tt__row">O <b>${fmtP(bar.open)}</b></span>
+          <span class="ct-tt__row">H <b>${fmtP(bar.high)}</b></span>
+          <span class="ct-tt__row">L <b>${fmtP(bar.low)}</b></span>
+          <span class="ct-tt__row">C <b>${fmtP(bar.close)}</b></span>
+          ${ma20Txt ? `<span class="ct-tt__row ct-tt__row--ma20">MA20 <b>${ma20Txt}</b></span>` : ''}
+          ${ma50Txt ? `<span class="ct-tt__row ct-tt__row--ma50">MA50 <b>${ma50Txt}</b></span>` : ''}
+        </div>
+      `;
+      tooltipEl.style.display = 'block';
+      const rect = container.getBoundingClientRect();
+      const w = tooltipEl.offsetWidth || 180;
+      const h = tooltipEl.offsetHeight || 100;
+      let left = param.point.x + 14;
+      let top  = param.point.y - h - 6;
+      if (left + w > rect.width)  left = param.point.x - w - 14;
+      if (top < 0)                top  = param.point.y + 14;
+      tooltipEl.style.left = left + 'px';
+      tooltipEl.style.top  = top + 'px';
+    });
+
+    /* Click → check if a marker was clicked (annotation flag).
+       If so, open the flag-preview slide-up with the article. */
+    tvChart.subscribeClick(param => {
+      if (!param || !param.time) return;
+      const ts = (typeof param.time === 'number' ? param.time * 1000 : null);
+      if (!Number.isFinite(ts)) return;
+      const s = subnetById(state.selectedId) || SUBNETS[0];
+      const anns = annotationsFor(s.netuid, s.name);
+      /* Find marker at this time (one-day tolerance). */
+      const ann = anns.find(a => Math.abs(a.t - ts) < 86400 * 600);
+      const previewEl = qs('[data-flag-preview]', root);
+      if (!previewEl) return;
+      if (!ann){
+        previewEl.hidden = true;
+        previewEl.innerHTML = '';
+        return;
+      }
+      const a = ann;
+      const href = a.url || a.href || '';
+      const isPdf = /\.pdf(\?|$|#)/i.test(href);
+      const kindLbl = a.kind === 'mag' ? 'MAGAZINE' : a.kind === 'orc' ? 'ORACLE' : 'EDITORIAL';
+      const kindCls = a.kind === 'mag' ? 'is-mag' : (a.kind === 'orc' ? 'is-orc' : 'is-cen');
+      const pdfAttrs = isPdf ? ` data-pdf-url="${escapeAttr(href)}"` : '';
+      previewEl.innerHTML = `
+        <div class="cock-chart__flag-preview-inner">
+          <div class="cock-chart__flag-preview-head">
+            <span class="cock-chart__flag-preview-kind ${kindCls}">${kindLbl}</span>
+            <span class="cock-chart__flag-preview-date">${escapeAttr(a.date || '·')}</span>
+            <button type="button" class="cock-chart__flag-preview-x" data-flag-close aria-label="Close article preview">×</button>
+          </div>
+          <h4 class="cock-chart__flag-preview-title">${escapeAttr(a.title || '·')}</h4>
+          ${href ? `<a class="cock-chart__flag-preview-cta" href="${escapeAttr(href)}" target="_blank" rel="noopener"${pdfAttrs}>READ ${isPdf ? 'PDF' : 'ARTICLE'} ↗</a>` : ''}
+        </div>`;
+      previewEl.hidden = false;
+    });
+    } catch (_) {
+      /* Library API mismatch or detached container — fail silent,
+         the chart just doesn't render. drawChartNow's container-
+         absent guard already covers the visible state. */
+    }
+  }
+
   function drawChartNow(){
     const c = qs('[data-chart-canvas]', root);
+    if (!c) return;
+    if (!tvChart) mountTVChart();
+    if (!tvChart) return; // library not loaded
     const range = RANGES.find(r => r.key === state.range) || RANGES[2];
     const s = subnetById(state.selectedId) || SUBNETS[0];
     /* The cockpit chart renders one thing only: the active
        subnet's α price over `range.days` (Rondo 2026-05-20: no
        second paper-money chart). Annotations are editorial flags
        — magazine + oracle articles tied to this subnet, rendered
-       as red/amber dots on the price line. */
+       as red/amber dots above the price line via TradingView's
+       setMarkers API. */
     const chartSeries = series;
-    const annotations = annotationsFor(s.netuid, s.name);
     const maxOffset = Math.max(0, chartSeries.length - range.days);
     if (chartOffset > maxOffset) chartOffset = maxOffset;
     if (chartOffset < 0)         chartOffset = 0;
-    hit = drawChart(c, chartSeries, range, annotations, chartOffset);
+
+    /* Translate our internal series shape to TradingView's:
+       price bars → area series points {time, value}
+       volume bars → histogram with up/down color per point
+       MA arrays → line series points after sma() computes them. */
+    const areaData = chartSeries.map(b => ({
+      time: Math.floor(b.t / 1000),
+      value: b.close,
+    }));
+    const volData = chartSeries.map((b, i) => {
+      const up = i > 0 && b.close >= chartSeries[i - 1].close;
+      return {
+        time: Math.floor(b.t / 1000),
+        value: b.volume || 0,
+        color: up ? 'rgba(0,229,168,0.40)' : 'rgba(255,77,109,0.40)',
+      };
+    });
+    const allCloses = chartSeries.map(b => b.close);
+    const ma20Full = sma(allCloses, MA_FAST_WINDOW);
+    const ma50Full = sma(allCloses, MA_SLOW_WINDOW);
+    const ma20Data = chartSeries
+      .map((b, i) => ({ time: Math.floor(b.t / 1000), value: ma20Full[i] }))
+      .filter(d => Number.isFinite(d.value));
+    const ma50Data = chartSeries
+      .map((b, i) => ({ time: Math.floor(b.t / 1000), value: ma50Full[i] }))
+      .filter(d => Number.isFinite(d.value));
+
+    tvAreaSeries.setData(areaData);
+    tvMa20Series.setData(ma20Data);
+    tvMa50Series.setData(ma50Data);
+    tvVolumeSeries.setData(volData);
+
+    /* Flip area + price-line color based on overall direction
+       (first close vs last close in the FULL series). */
+    if (areaData.length > 1){
+      const first = areaData[0].value;
+      const last  = areaData[areaData.length - 1].value;
+      const isUp  = last >= first;
+      const lineColor = isUp ? '#00E5A8' : '#FF4D60';
+      tvAreaSeries.applyOptions({
+        lineColor,
+        topColor: isUp ? 'rgba(0,229,168,0.55)' : 'rgba(255,77,109,0.55)',
+        bottomColor: isUp ? 'rgba(0,229,168,0.06)' : 'rgba(255,77,109,0.06)',
+        priceLineColor: lineColor,
+        crosshairMarkerBackgroundColor: lineColor,
+      });
+    }
+
+    /* Editorial flag markers on the price line — magazine = amber,
+       oracle = red, centralized = mint. setMarkers replaces the
+       prior marker set in one call. */
+    const annotations = annotationsFor(s.netuid, s.name);
+    const markers = annotations
+      .filter(a => Number.isFinite(a.t))
+      .map(a => ({
+        time: Math.floor(a.t / 1000),
+        position: 'aboveBar',
+        color: a.kind === 'mag' ? '#FFB85C' : a.kind === 'orc' ? '#FF4D60' : '#00E5A8',
+        shape: 'circle',
+        size: 1,
+      }))
+      .sort((a, b) => a.time - b.time);
+    tvAreaSeries.setMarkers(markers);
+
+    /* Set the VISIBLE range based on range.days + chartOffset.
+       lastT = today's timestamp; visible window ends at
+       lastT - chartOffset days, spans range.days backward. */
+    if (areaData.length){
+      const lastT = areaData[areaData.length - 1].time;
+      const dayS = 86400;
+      const to   = lastT - chartOffset * dayS;
+      const from = to - range.days * dayS;
+      try {
+        tvChart.timeScale().setVisibleRange({ from, to });
+      } catch (_) {}
+    }
+
     /* Pan-state label below the chart — the visible window's
        literal start → end dates ("01/19 → 02/18" style) plus
        the pan offset ("now" / "−30d") so the reader sees BOTH
@@ -2159,354 +2094,6 @@ export function mountCockpit(root, dataLayer = null){
     /* EDITORIAL ARCHIVE fold — search input + kind chips. */
     wireEditorialFold();
 
-    /* Chart hover — OHLC + MA tooltip on bar hover, editorial
-       tooltip on news-flag marker hover. Closes the "Cockpit Chart
-       Tooltip Parity" coordination ask logged in CLAUDE.md
-       (commit 2cb3f75) — cockpit + terminal CHART now expose the
-       same hover interaction. */
-    const canvas    = qs('[data-chart-canvas]', root);
-    const tooltipEl = qs('[data-chart-tooltip]', root);
-    if (!canvas) return;
-    /* 150% pass on sibling's P0 freeze-fix draft (CLAUDE.md
-       coordination 828925c). Combines all three of sandbox's
-       proposed fixes:
-         A) rAF coalescing — at most one redraw per frame
-         B) hit-test memoization — skip redraw if hover hasn't
-            actually changed bar / flag identity
-         C) touchmove passive handler — explicit touch path
-            with its own frame-locked throttle
-       Together these turn ~100 redraws/sec on mobile scrub into
-       ≤60Hz with most frames being NO-OPS (when scrubbing within
-       the same bar). */
-    let rafId = 0;
-    let pendingEv = null;
-    let lastHitIdx = -2;
-    let lastFlagId = null;
-    let lastTooltipShown = false;
-    /* Hover-tooltip price formatter — same TAO register as the
-       chart axis labels (subnet prices in τ per
-       [[feedback-subnets-in-tao]]). Kept inline to the hover
-       handler so the tooltip render stays one frame, no extra
-       allocations per move. */
-    const fmtP = p => p == null ? '·' : ((p < 1 ? p.toFixed(4) : p.toFixed(2)) + ' τ');
-    const MON = ['JAN','FEB','MAR','APR','MAY','JUN','JUL','AUG','SEP','OCT','NOV','DEC'];
-    /* DRAG-TO-PAN state (2026-05-21 modern chart). Mousedown +
-       touchstart record the start position and current
-       chartOffset; mousemove/touchmove while dragging adjust
-       chartOffset by a delta translated from pixels → days based
-       on the visible window's day-per-pixel ratio.
-
-       dragState shape: { startX, startOffset, totalDx } | null
-         startX:      pageX at drag start
-         startOffset: chartOffset at drag start
-         totalDx:     accumulated |dx| — used as the click-vs-drag
-                      threshold so a tap on a news-flag marker
-                      (total movement < 4px) still fires onClick.
-
-       Suppresses the hover tooltip during drag (actualOnMove
-       early-returns when dragState is non-null). */
-    let dragState = null;
-    const CLICK_VS_DRAG_PX = 4;
-    function dragDelta(clientX){
-      if (!dragState) return 0;
-      const r = canvas.getBoundingClientRect();
-      const range = RANGES.find(rr => rr.key === state.range) || RANGES[2];
-      const dayPx = r.width / Math.max(1, range.days);
-      const dx = clientX - dragState.startX;
-      dragState.totalDx = Math.max(dragState.totalDx, Math.abs(dx));
-      /* Dragging RIGHT (positive dx) reveals OLDER bars — i.e.
-         chartOffset increases. Dragging LEFT reveals NEWER. */
-      return Math.round(dx / dayPx);
-    }
-    function applyDragOffset(clientX){
-      if (!dragState) return;
-      const dDays = dragDelta(clientX);
-      const newOffset = Math.max(0, dragState.startOffset + dDays);
-      if (newOffset !== chartOffset){
-        chartOffset = newOffset;
-        drawChartNow();
-      }
-    }
-    function endDrag(){
-      if (!dragState) return;
-      canvas.style.cursor = '';
-      dragState = null;
-    }
-    /* Mouse drag-to-pan. We listen for mousemove + mouseup on
-       the WINDOW (not the canvas) so the user can drag past the
-       canvas edges and still pan smoothly. */
-    canvas.addEventListener('mousedown', (ev) => {
-      if (ev.button !== 0) return; // primary button only
-      dragState = { startX: ev.clientX, startOffset: chartOffset, totalDx: 0 };
-      canvas.style.cursor = 'grabbing';
-      /* Suppress text-selection while dragging so the drag
-         feels haptic. */
-      ev.preventDefault();
-    });
-    window.addEventListener('mousemove', (ev) => {
-      if (!dragState) return;
-      applyDragOffset(ev.clientX);
-    });
-    window.addEventListener('mouseup', endDrag);
-    /* Touch interactions — branch by touch count:
-         1 finger  → drag-to-pan (state: dragState)
-         2 fingers → pinch-zoom (state: pinchState)
-       The two state slots are mutex; transitioning between them
-       (e.g. lifting a second finger while still touching with
-       one) ends the old state and starts the new.
-
-       passive: true on every listener so the browser can keep
-       vertical page scroll responsive. The canvas's touch-action
-       is `pan-y` (no `pinch-zoom`) — pinch is OUR gesture, not
-       the browser's. */
-    let pinchState = null;
-    /* Pinch step thresholds — pinch-out past 1.30× starting
-       distance = zoom IN one step (shorter range). Pinch-in
-       past 0.77× = zoom OUT one step. Past 1.69× / 0.59× the
-       gesture maps to TWO steps so an aggressive pinch can
-       cross multiple ranges in one motion. lastApplied tracks
-       what's already been committed so a slow pinch doesn't
-       fire repeatedly within the same step. */
-    function pinchStepsForScale(scale){
-      if (scale >= 1.69) return -2; // zoom IN 2 steps
-      if (scale >= 1.30) return -1; // zoom IN 1 step
-      if (scale <= 0.59) return  2; // zoom OUT 2 steps
-      if (scale <= 0.77) return  1; // zoom OUT 1 step
-      return 0;
-    }
-    function touchDistance(a, b){
-      return Math.hypot(b.clientX - a.clientX, b.clientY - a.clientY);
-    }
-    canvas.addEventListener('touchstart', (ev) => {
-      if (ev.touches.length === 2){
-        /* Two-finger gesture trumps drag — cancel any drag in
-           progress + initialize pinch. */
-        if (dragState){ canvas.style.cursor = ''; dragState = null; }
-        pinchState = {
-          startDist: touchDistance(ev.touches[0], ev.touches[1]),
-          startRangeIdx: RANGES.findIndex(r => r.key === state.range),
-          lastApplied: 0,
-        };
-      } else if (ev.touches.length === 1){
-        dragState = { startX: ev.touches[0].clientX, startOffset: chartOffset, totalDx: 0 };
-      }
-    }, { passive: true });
-    canvas.addEventListener('touchmove', (ev) => {
-      if (pinchState && ev.touches.length === 2){
-        const dist = touchDistance(ev.touches[0], ev.touches[1]);
-        const scale = pinchState.startDist > 0 ? dist / pinchState.startDist : 1;
-        const steps = pinchStepsForScale(scale);
-        if (steps !== pinchState.lastApplied){
-          const newIdx = Math.max(0, Math.min(RANGES.length - 1, pinchState.startRangeIdx + steps));
-          const curIdx = RANGES.findIndex(r => r.key === state.range);
-          if (newIdx !== curIdx) setRange(RANGES[newIdx].key);
-          pinchState.lastApplied = steps;
-        }
-      }
-    }, { passive: true });
-    canvas.addEventListener('touchend', (ev) => {
-      /* End pinch when we drop below 2 active touches. Drag
-         endDrag fires when ALL touches lift. */
-      if (pinchState && ev.touches.length < 2) pinchState = null;
-      if (ev.touches.length === 0) endDrag();
-    }, { passive: true });
-    canvas.addEventListener('touchcancel', () => {
-      pinchState = null;
-      endDrag();
-    }, { passive: true });
-    /* WHEEL ZOOM — mousewheel on the canvas cycles through the
-       range tabs (1D → 7D → 30D → 90D → 1Y and back). Wheel UP
-       (deltaY < 0) = zoom IN (shorter range, denser bars); wheel
-       DOWN = zoom OUT (longer range).
-
-       passive: false so we can preventDefault and the page
-       doesn't scroll while the reader zooms. Throttled so a
-       trackpad scroll inertia doesn't run away — one step per
-       ~250ms even if the wheel events fire continuously. */
-    let wheelLockUntil = 0;
-    canvas.addEventListener('wheel', (ev) => {
-      ev.preventDefault();
-      const now = performance.now();
-      if (now < wheelLockUntil) return;
-      if (ev.deltaY === 0) return;
-      const idx = RANGES.findIndex(r => r.key === state.range);
-      if (idx < 0) return;
-      const next = ev.deltaY < 0
-        ? Math.max(0, idx - 1)              // wheel up: zoom in
-        : Math.min(RANGES.length - 1, idx + 1); // wheel down: zoom out
-      if (next === idx) return;
-      wheelLockUntil = now + 250;
-      setRange(RANGES[next].key);
-    }, { passive: false });
-    const actualOnMove = (ev) => {
-      /* Drag-to-pan takes precedence — when the user is
-         dragging we update chartOffset instead of rendering the
-         hover tooltip. Touch drag handled here too because the
-         passive touchmove listener forwards single-finger moves
-         to onMove(); we re-route to applyDragOffset and exit. */
-      if (dragState){
-        applyDragOffset(ev.clientX);
-        return;
-      }
-      if (!hit) return;
-      const r = canvas.getBoundingClientRect();
-      const x = ev.clientX - r.left, y = ev.clientY - r.top;
-      /* Flag hover takes precedence — within 10px of a marker
-         we show the editorial tooltip. Identity = url||date so
-         two flags on the same day with different URLs still
-         re-render. */
-      const flagHit = hit.hitFlag(x, y);
-      const flagId = flagHit ? (flagHit.ann.url || flagHit.ann.href || flagHit.ann.date || flagHit.ann.title) : null;
-      const h = !flagHit ? hit.hitTest(x, y) : null;
-      const idx = h ? h.idx : -1;
-      /* Memo gate — bail if neither hit identity changed. The
-         crosshair x-position changes with raw pixel, not bar
-         index, so we also redraw if the bar IDX matches but
-         we have an active crosshair (idx !== -1). For simplicity
-         the memo only skips when BOTH the flag and bar are
-         identical to the prior frame AND the prior frame also
-         had a tooltip showing — the crosshair-jiggle within one
-         bar is minor and not worth the per-pixel redraw cost. */
-      if (idx === lastHitIdx && flagId === lastFlagId && lastTooltipShown) return;
-      lastHitIdx = idx;
-      lastFlagId = flagId;
-      if (flagHit){
-        drawChartNow();              // clear any prior crosshair
-        const a = flagHit.ann;
-        const kindCls   = a.kind === 'mag' ? 'is-mag' : 'is-orc';
-        const kindLabel = a.kind === 'mag' ? 'MAGAZINE' : 'ORACLE';
-        if (tooltipEl){
-          tooltipEl.innerHTML = `
-            <span class="ct-tt__date ct-tt__flag ${kindCls}">${escapeAttr(a.date)} · ${kindLabel}</span>
-            <span class="ct-tt__title">${escapeAttr(a.title)}</span>
-            ${a.url || a.href ? `<span class="ct-tt__cta">↗ click marker to open</span>` : ''}`;
-          tooltipEl.style.display = 'block';
-          const cw = canvas.clientWidth || r.width;
-          const left = Math.max(8, Math.min(cw - 240, x + 14));
-          const top  = Math.max(8, y - 10);
-          tooltipEl.style.left = left + 'px';
-          tooltipEl.style.top  = top + 'px';
-        }
-        canvas.style.cursor = (a.url || a.href) ? 'pointer' : 'help';
-        lastTooltipShown = true;
-        return;
-      }
-      canvas.style.cursor = '';
-      if (!h){
-        if (tooltipEl) tooltipEl.style.display = 'none';
-        if (lastTooltipShown) drawChartNow();
-        lastTooltipShown = false;
-        return;
-      }
-      drawChartNow();
-      hit.drawCrosshair(x, y);
-      if (tooltipEl){
-        const d = new Date(h.bar.t);
-        const date = `${MON[d.getMonth()]} ${d.getDate()} ${String(d.getFullYear()).slice(2)}`;
-        const maRows =
-          (h.ma20 != null ? `<span class="ct-tt__row ct-tt__row--ma20">MA20 <b>${fmtP(h.ma20)}</b></span>` : '') +
-          (h.ma50 != null ? `<span class="ct-tt__row ct-tt__row--ma50">MA50 <b>${fmtP(h.ma50)}</b></span>` : '');
-        tooltipEl.innerHTML = `
-          <span class="ct-tt__date">${date}</span>
-          <span class="ct-tt__row">O <b>${fmtP(h.bar.open)}</b></span>
-          <span class="ct-tt__row">H <b>${fmtP(h.bar.high)}</b></span>
-          <span class="ct-tt__row">L <b>${fmtP(h.bar.low)}</b></span>
-          <span class="ct-tt__row">C <b>${fmtP(h.bar.close)}</b></span>
-          <span class="ct-tt__row">V <b>${(h.bar.volume/1e3).toFixed(1)}K</b></span>
-          ${maRows}`;
-        tooltipEl.style.display = 'block';
-        const cw = canvas.clientWidth || r.width;
-        const left = Math.max(8, Math.min(cw - 160, x + 14));
-        const top  = Math.max(8, y - 10);
-        tooltipEl.style.left = left + 'px';
-        tooltipEl.style.top  = top + 'px';
-      }
-      lastTooltipShown = true;
-    };
-    const onMove = (ev) => {
-      /* rAF coalesce — pendingEv carries the most-recent event,
-         the frame callback drains it. Cheapest possible throttle:
-         no setTimeout cost, locks to display refresh, drops
-         intermediate events the user never sees. */
-      pendingEv = ev;
-      if (rafId) return;
-      rafId = requestAnimationFrame(() => {
-        rafId = 0;
-        const ev2 = pendingEv;
-        pendingEv = null;
-        if (ev2) actualOnMove(ev2);
-      });
-    };
-    const onLeave = () => {
-      if (rafId){ cancelAnimationFrame(rafId); rafId = 0; pendingEv = null; }
-      lastHitIdx = -2;
-      lastFlagId = null;
-      lastTooltipShown = false;
-      if (tooltipEl) tooltipEl.style.display = 'none';
-      drawChartNow();
-    };
-    /* News-flag click → inline article preview slides up INSIDE
-       the chart pane (per Rondo's "add in article" direction —
-       article appears in the chart context, not in a new tab).
-       PDF hrefs additionally open in the inline PDF viewer drawer
-       (the global handler in pdf-viewer.js picks up data-pdf-*
-       attrs on the panel's READ button). */
-    const previewEl = qs('[data-flag-preview]', root);
-    /* Track the drag's totalDx into the click handler — if the
-       click came from a drag (totalDx > CLICK_VS_DRAG_PX) we
-       ignore the click so news-flag markers don't fire when the
-       reader was just panning. Stored on a closure-local since
-       dragState is null by the time click fires. */
-    let lastDragDx = 0;
-    canvas.addEventListener('mouseup', () => { lastDragDx = dragState ? dragState.totalDx : 0; });
-    canvas.addEventListener('touchend', () => { lastDragDx = dragState ? dragState.totalDx : 0; }, { passive: true });
-    const onClick = (ev) => {
-      /* Skip clicks that came from a drag — pan vs flag-tap
-         disambiguation. CLICK_VS_DRAG_PX = 4 covers natural
-         finger-jitter while keeping intentional taps responsive. */
-      if (lastDragDx > CLICK_VS_DRAG_PX){ lastDragDx = 0; return; }
-      lastDragDx = 0;
-      if (!hit) return;
-      const r = canvas.getBoundingClientRect();
-      const f = hit.hitFlag(ev.clientX - r.left, ev.clientY - r.top);
-      if (!f) {
-        if (previewEl){ previewEl.hidden = true; previewEl.innerHTML = ''; }
-        return;
-      }
-      const a = f.ann;
-      const href = a.url || a.href || '';
-      const isPdf = /\.pdf(\?|$|#)/i.test(href);
-      const kindLbl = a.kind === 'mag' ? 'MAGAZINE' : a.kind === 'orc' ? 'ORACLE' : 'EDITORIAL';
-      const kindCls = a.kind === 'mag' ? 'is-mag' : (a.kind === 'orc' ? 'is-orc' : 'is-cen');
-      const pdfAttrs = isPdf
-        ? ` data-pdf-href="${escapeAttr(href)}" data-pdf-title="${escapeAttr(a.title || '')}" data-pdf-kind="${escapeAttr(a.kind || '')}" data-pdf-date="${escapeAttr(a.date || '')}" data-pdf-kicker="${kindLbl}"`
-        : '';
-      if (previewEl){
-        previewEl.innerHTML = `
-          <div class="cock-chart__flag-preview-inner">
-            <div class="cock-chart__flag-preview-head">
-              <span class="cock-chart__flag-preview-kind ${kindCls}">${kindLbl}</span>
-              <span class="cock-chart__flag-preview-date">${escapeAttr(a.date || '·')}</span>
-              <button type="button" class="cock-chart__flag-preview-x" data-flag-close aria-label="Close article preview">×</button>
-            </div>
-            <h4 class="cock-chart__flag-preview-title">${escapeAttr(a.title || '·')}</h4>
-            ${href ? `<a class="cock-chart__flag-preview-cta" href="${escapeAttr(href)}" target="_blank" rel="noopener"${pdfAttrs}>READ ${isPdf ? 'PDF' : 'ARTICLE'} ↗</a>` : ''}
-          </div>`;
-        previewEl.hidden = false;
-      }
-    };
-    canvas.addEventListener('mousemove', onMove);
-    canvas.addEventListener('mouseleave', onLeave);
-    canvas.addEventListener('click', onClick);
-    /* Touch path — passive so the browser keeps native scrolling
-       eligible, ev.touches[0] feeds the same coalesced onMove
-       handler. touchend → onLeave clears the crosshair so the
-       tooltip doesn't sit stuck after the finger lifts. */
-    canvas.addEventListener('touchmove', (ev) => {
-      if (ev.touches && ev.touches[0]) onMove(ev.touches[0]);
-    }, { passive: true });
-    canvas.addEventListener('touchend', onLeave, { passive: true });
-    canvas.addEventListener('touchcancel', onLeave, { passive: true });
 
     /* Pan history controls — wired once. Each click recomputes
        offset relative to current range.days so the step matches
@@ -2516,6 +2103,7 @@ export function mountCockpit(root, dataLayer = null){
     root.addEventListener('click', (ev) => {
       const closeBtn = ev.target.closest('[data-flag-close]');
       if (closeBtn){
+        const previewEl = qs('[data-flag-preview]', root);
         if (previewEl){ previewEl.hidden = true; previewEl.innerHTML = ''; }
         ev.preventDefault();
         return;
@@ -2630,5 +2218,13 @@ export function mountCockpit(root, dataLayer = null){
 
   return () => {
     liveUnsubs.splice(0).forEach(u => { try { u(); } catch (_) {} });
+    /* Tear down the TradingView chart instance + its ResizeObserver
+       so a remount doesn't leak the prior chart. */
+    if (tvResizeObserver) { try { tvResizeObserver.disconnect(); } catch (_) {} tvResizeObserver = null; }
+    if (tvChart) { try { tvChart.remove(); } catch (_) {} tvChart = null; }
+    tvAreaSeries = null;
+    tvMa20Series = null;
+    tvMa50Series = null;
+    tvVolumeSeries = null;
   };
 }

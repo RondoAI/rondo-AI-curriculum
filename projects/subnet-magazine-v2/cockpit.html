@@ -54,6 +54,15 @@
     <div data-mount="cockpit"></div>
   </main>
   <script src="config.js"></script>
-  <script type="module" src="src/boot.js?v=20260521ad"></script>
+  <!-- TradingView Lightweight Charts — the chart engine under
+       the cockpit canvas (Rondo 2026-05-21 swap from custom
+       drawChart). Apache 2.0, ~45KB gzipped, loaded as UMD so
+       window.LightweightCharts is available before our ES-module
+       boot.js runs. Pinned to v5 for reproducibility. We layer
+       our magazine identity (theme tokens, editorial flag
+       markers, news-flag preview slide-up, sidebar) on top via
+       the library's options API + setMarkers + subscribeCrosshairMove. -->
+  <script src="https://unpkg.com/lightweight-charts@4.2.3/dist/lightweight-charts.standalone.production.js" crossorigin="anonymous"></script>
+  <script type="module" src="src/boot.js?v=20260521ag"></script>
 </body>
 </html>
