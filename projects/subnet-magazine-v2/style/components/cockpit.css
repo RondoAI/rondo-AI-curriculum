@@ -1321,7 +1321,21 @@
    / TODAY / LATER ▶) and an inline article preview that slides
    into the chart pane when a news-flag marker is clicked.
    ================================================================= */
-.cock-chart__canvas-wrap{ min-height: 320px; }
+/* Desktop chart height: 540px gives the canvas the Bloomberg-
+   terminal presence Rondo asked for (2026-05-21 "chart needs alot
+   of work"). The earlier 320px floor squeezed the chart into a
+   slice while the sidebar's competitor-VS / supply-chain content
+   trailed down 800px+ alongside it, producing a chart-shaped
+   sliver next to a vertical wall of text. 540px is the sweet
+   spot — enough to read price action across a full visible window
+   without dominating viewport-2 once folds + status strip pile on.
+   Scoped to min-width:901px so it DOESN'T override the explicit
+   height:380/420px on mobile/tablet (Rondo 2026-05-21: "it should
+   look smooth on mobile as well" — a taller mobile chart pushed
+   the page into endless-scroll territory). */
+@media (min-width: 901px){
+  .cock-chart__canvas-wrap{ min-height: 540px; }
+}
 
 /* Subnet picker base — compact row, label + select. The
    .cock-chart__picker--head variant defined earlier in this file
@@ -3149,6 +3163,45 @@
   font-style: italic;
   color: var(--c-ink-3);
   line-height: 1.4;
+}
+
+/* "+ N MORE IN EDITORIAL ARCHIVE" jump link — closes the gap
+   between the trimmed sidebar feed (4 cards max) and the full
+   backlog (which lives in the EDITORIAL ARCHIVE fold below the
+   chart row). Tapped, scrolls to + opens the archive fold so the
+   reader stays on the same page. Visual register: mono caps, ↓
+   arrow on the right, hairline top border separates from the
+   last article card. */
+.cock-side-sig__more{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 14px;
+  border-top: 1px solid var(--c-rule-3);
+  font-family: var(--f-mono);
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: .14em;
+  color: var(--c-ink-2);
+  text-decoration: none;
+  background: linear-gradient(180deg, rgba(255,30,60,.04), transparent);
+  transition: color .12s ease, background .12s ease;
+}
+.cock-side-sig__more:hover{
+  color: var(--c-red);
+  background: rgba(255,30,60,.08);
+}
+.cock-side-sig__more:focus-visible{
+  outline: 1px solid var(--c-red);
+  outline-offset: -1px;
+}
+.cock-side-sig__more-lbl{
+  color: var(--c-ink-3);
+  text-transform: uppercase;
+}
+.cock-side-sig__more-target{
+  color: var(--c-red);
+  text-transform: uppercase;
 }
 
 /* ============================================================

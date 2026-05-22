@@ -1348,7 +1348,15 @@ export function mountCockpit(root, dataLayer = null){
       .slice()
       .sort((a, b) => (b.date || '').localeCompare(a.date || ''))
       .slice(0, 1);
-    const signals = [...cenLeading, ...magOne, ...orcOne].slice(0, 8);
+    /* Sidebar signal cap dropped 8 → 4 (Rondo 2026-05-21: "it
+       should look smooth on mobile as well"). Eight cards at 72px
+       each piled 500+px under the chart-pane sidebar, pushing the
+       mobile page past 2700px. The four freshest are enough for
+       "what just happened" context; the EDITORIAL ARCHIVE fold
+       below the chart row carries the full backlog so readers
+       who want depth tap and stay on this page. */
+    const signals = [...cenLeading, ...magOne, ...orcOne].slice(0, 4);
+    const overflowCount = (cenLeading.length + magOne.length + orcOne.length) - signals.length;
     const kindLbl = (k) => k === 'mag' ? 'MAG' : k === 'orc' ? 'ORC' : 'CEN';
     /* Each signal renders as a native <details> element — the
        summary IS the closed state (kind chip + date + title +
@@ -1418,6 +1426,17 @@ export function mountCockpit(root, dataLayer = null){
         </header>
         ${renderCompetitorCompare(s)}
         <div class="cock-side-sig__list">${signalsHtml}</div>
+        ${overflowCount > 0 ? `
+          <!-- Overflow link to the EDITORIAL ARCHIVE fold below the
+               chart row — the canonical home for the full backlog.
+               Tap scrolls to + opens the fold so the reader stays
+               on this page (no nested pages per
+               [[feedback-no-nested-pages]]). -->
+          <a class="cock-side-sig__more" href="#editorial" data-jump-archive aria-label="Open editorial archive fold for ${overflowCount} more dispatches">
+            <span class="cock-side-sig__more-lbl">+ ${overflowCount} more in</span>
+            <span class="cock-side-sig__more-target">EDITORIAL ARCHIVE ↓</span>
+          </a>
+        ` : ''}
       </section>
 
       <section class="cock-side-vit" aria-label="Bittensor network vitals">
@@ -2080,6 +2099,20 @@ export function mountCockpit(root, dataLayer = null){
         const id = parseInt(b.dataset.mover, 10);
         if (!Number.isFinite(id) || id === state.selectedId) return;
         setSelected(id);
+      });
+    });
+
+    /* Sidebar "+ N more in EDITORIAL ARCHIVE" jump — scrolls
+       down to the archive fold + opens it, so the trimmed
+       4-card sidebar still hands off to the full backlog
+       without leaving the page. */
+    qsa('[data-jump-archive]', root).forEach(b => {
+      b.addEventListener('click', (ev) => {
+        ev.preventDefault();
+        const arch = qs('details.cock-fold--arch', root);
+        if (!arch) return;
+        arch.open = true;
+        arch.scrollIntoView({ behavior: 'smooth', block: 'start' });
       });
     });
 
