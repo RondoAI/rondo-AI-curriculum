@@ -883,6 +883,75 @@ export const COMPETITORS = [
     aliases: ['OpenRouter.ai'],
   },
 
+  /* ---------- AI cybersecurity / model security (RedTeam + Bitsec profiles) ----------
+     The centralized AI-security stack that decentralized red-team
+     + exploit-finding subnets compete with. Three sub-segments:
+       1. Model-security platforms (HiddenLayer, Protect AI) —
+          detect adversarial inputs, model theft, training-data
+          poisoning at the MLOps layer.
+       2. AI red-team-as-a-service (Adversa AI) — paid pen-test
+          for LLMs + computer-vision systems.
+       3. Autonomous vuln-discovery models (XBOW Mythos2) — AI
+          agents that find software exploits the way a security
+          researcher would. The 2026 benchmark moved here:
+          "surpassing all but the most skilled humans" per the
+          desk's daily briefing.
+     Frontier labs (Anthropic, OpenAI, Google DeepMind) also run
+     internal red-team practices — those entries already exist in
+     the catalog and surface alongside these for security subnets. */
+  {
+    id: 'hiddenlayer',
+    name: 'HiddenLayer',
+    ticker: 'PRIVATE',
+    mcap: 750_000_000,
+    source: 'private',
+    sectors: ['agents', 'data'],
+    url: 'https://hiddenlayer.com',
+    why: 'Self-styled "first AI security company" — detects model theft, adversarial inputs, prompt injection at the MLOps layer. ~$70M raised across A + B. Direct centralized rival for any subnet validating model integrity or surfacing AI attack surface.',
+    aliases: ['Hidden Layer'],
+  },
+  {
+    id: 'adversa-ai',
+    name: 'Adversa AI',
+    ticker: 'PRIVATE',
+    mcap: 60_000_000,
+    source: 'private',
+    sectors: ['agents'],
+    url: 'https://adversa.ai',
+    why: 'AI red-team-as-a-service — Tel Aviv shop running paid pen-tests against LLMs, vision systems, biometrics. Authors of the "LLM Security Top 10" reference. Decentralized red-team subnets have to either match the depth of their attack catalog or accept second-tier engagements.',
+  },
+  {
+    id: 'xbow',
+    name: 'XBOW',
+    ticker: 'PRIVATE',
+    mcap: 200_000_000,
+    source: 'private',
+    sectors: ['agents'],
+    url: 'https://xbow.com',
+    why: 'Autonomous vulnerability-discovery AI — the Mythos2 model "surpassing all but the most skilled humans" at exploit-finding per the desk\'s daily briefing. THE direct rival for any subnet incentivizing AI-driven security research; readers comparing decentralized vuln-discovery should know XBOW is the benchmark to beat.',
+    aliases: ['Mythos', 'Mythos2'],
+  },
+  {
+    id: 'protect-ai',
+    name: 'Protect AI',
+    ticker: 'PRIVATE',
+    mcap: 350_000_000,
+    source: 'private',
+    sectors: ['agents', 'data'],
+    url: 'https://protectai.com',
+    why: 'MLSecOps platform — scans model artifacts (HuggingFace, OCI, ONNX) for embedded backdoors + license violations + vulnerable dependencies. Closes the supply-chain attack surface for enterprise AI deployments. Decentralized model-distribution subnets carry the same attack surface without Protect AI\'s static-analysis depth.',
+  },
+  {
+    id: 'mithril-security',
+    name: 'Mithril Security',
+    ticker: 'PRIVATE',
+    mcap: 35_000_000,
+    source: 'private',
+    sectors: ['agents', 'data'],
+    url: 'https://mithrilsecurity.io',
+    why: 'Confidential AI inference — runs LLMs inside Intel TDX / NVIDIA H100 confidential-compute enclaves so prompts + model weights stay sealed from the operator. Rival for any decentralized inference subnet making privacy claims; trusts a different chain of custody than miner-attested compute.',
+  },
+
   /* ---------- LLM-driven agent benchmarks / arenas (AgentArena profile) ---------- */
   {
     id: 'lmsys-chatbot-arena',
@@ -1407,10 +1476,17 @@ export const BY_NETUID = {
      local subnets.js had the stale "Red-Team Labs" + science
      cat). The platform incentivizes miners to develop and
      submit security solutions to technical challenges.
-     Rivals are the security AI + bug-bounty platforms +
-     red-team-as-a-service shops the customer comes from. */
+     Rival pool spans three layers: (1) the dedicated AI-security
+     companies (XBOW Mythos2, HiddenLayer, Adversa AI, Protect
+     AI, Mithril, Robust Intelligence, Lakera) that customers
+     would otherwise pay for an audit; (2) the frontier labs
+     (Anthropic, OpenAI, Google) that run internal red-team
+     practices and publish safety research; (3) the broader
+     eval / data shops (Patronus, Scale) that ship adjacent
+     security evals. XBOW leads — its Mythos2 surpasses
+     skilled humans at vuln discovery per the desk's briefing. */
   61: {
-    rivals: ['robust-intelligence', 'lakera', 'patronus-ai', 'scale-ai', 'hive-ai'],
+    rivals: ['xbow', 'hiddenlayer', 'adversa-ai', 'protect-ai', 'mithril-security', 'anthropic', 'openai', 'robust-intelligence', 'lakera', 'patronus-ai'],
     supplyChainIds: ['nvidia', 'aws-azure-gcp', 'cloudflare-edge'],
     constraints: [
       {
