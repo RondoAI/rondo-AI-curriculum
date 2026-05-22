@@ -2145,14 +2145,37 @@ export function mountCockpit(root, dataLayer = null){
     });
 
     /* Sidebar "+ N more in EDITORIAL ARCHIVE" jump — scrolls
-       down to the archive fold + opens it, so the trimmed
-       4-card sidebar still hands off to the full backlog
-       without leaving the page. */
+       to + opens the archive fold. Tries to pre-filter the
+       archive to the active subnet name so the reader lands
+       on relevant articles; falls back to "no filter" if the
+       subnet name has zero hits (rather than dropping the
+       reader on an empty list). Reader can clear the search
+       any time. */
     qsa('[data-jump-archive]', root).forEach(b => {
       b.addEventListener('click', (ev) => {
         ev.preventDefault();
         const arch = qs('details.cock-fold--arch', root);
         if (!arch) return;
+        const cur = subnetById(state.selectedId) || SUBNETS[0];
+        if (cur && cur.name){
+          /* Probe whether a search by subnet name would yield
+             any rows — if not, leave the archive unfiltered so
+             the reader sees the full backlog instead of an
+             "no articles match" dead end. */
+          const all = archiveAllItems();
+          const probe = cur.name.toLowerCase();
+          const hits = all.filter(a => {
+            const hay = ((a.title || '') + ' ' + (a.source || '')).toLowerCase();
+            return hay.includes(probe);
+          });
+          if (hits.length){
+            archiveView.search = cur.name;
+            saveArchiveView();
+            const searchEl = qs('[data-arch-search]', root);
+            if (searchEl) searchEl.value = cur.name;
+            repaintEditorialArchive();
+          }
+        }
         arch.open = true;
         arch.scrollIntoView({ behavior: 'smooth', block: 'start' });
       });
