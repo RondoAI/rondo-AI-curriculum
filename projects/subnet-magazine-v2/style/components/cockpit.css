@@ -2475,7 +2475,11 @@
   justify-content: center;
   width: 32px;
   height: 32px;
-  background: rgba(255,30,60,.10);
+  /* Light off-white background so dark logos (e.g.
+     Macrocosmos\' mc_logo_black.png) pop against the dark
+     cockpit. Adds a hairline red border to keep it tied to
+     the eDEX palette. */
+  background: rgba(245, 229, 232, 0.92);
   border: 1px solid var(--c-rule-3);
   flex-shrink: 0;
   overflow: hidden;
@@ -2484,7 +2488,6 @@
   width: 24px;
   height: 24px;
   object-fit: contain;
-  filter: brightness(1.05);
 }
 
 /* Chart-header action chips — taostats EXPLORER + STAKE +
@@ -2568,7 +2571,9 @@
   height: 18px;
   margin-right: 8px;
   vertical-align: middle;
-  background: rgba(255,30,60,.08);
+  /* Off-white tile so dark logos render visibly (same trick as
+     the chart-pane title logo). */
+  background: rgba(245, 229, 232, 0.92);
   border: 1px solid var(--c-rule-3);
   overflow: hidden;
   flex-shrink: 0;
@@ -2577,7 +2582,6 @@
   width: 14px;
   height: 14px;
   object-fit: contain;
-  filter: brightness(1.05);
 }
 .cock-chart__sn{
   font-family: var(--f-mono);
