@@ -1027,6 +1027,16 @@ export const COMPETITORS = [
   /* ---------- Remaining catalog rivals: data/ads/real estate/creator economy/
      mining pools/quantum (final 31-subnet curation batch) ---------- */
   {
+    id: 'metamask',
+    name: 'MetaMask (ConsenSys)',
+    ticker: 'PRIVATE',
+    mcap: 7_000_000_000, // ConsenSys parent
+    source: 'private',
+    sectors: ['finance', 'infra'],
+    url: 'https://metamask.io',
+    why: 'Dominant Web3 wallet — ~30M MAU. Direct rival for any subnet pitching crypto onboarding or wallet infrastructure; MetaMask owns the EVM-wallet UX install base.',
+  },
+  {
     id: 'stripe',
     name: 'Stripe',
     ticker: 'PRIVATE',
@@ -2345,6 +2355,186 @@ export const BY_NETUID = {
     ],
   },
 
+  /* SN2 DSperse (subnet2.inferencelabs.com) — Verifiable +
+     distributed inference. Inference Labs project. Same space
+     as SN96 Verathos. */
+  2: {
+    rivals: ['risc-zero', 'together-ai', 'modal-labs', 'anyscale', 'protect-ai', 'anthropic'],
+    supplyChainIds: ['nvidia', 'aws-azure-gcp', 'tsmc'],
+    constraints: [
+      {
+        label: 'ZKML proof overhead',
+        value: '10-1000x inference cost',
+        note: 'Verified inference via ZKML requires proof generation that dwarfs the underlying inference cost. RISC Zero ships this productionally. Subnet has to commit to a specific proof system + accept the cost penalty.',
+      },
+      {
+        label: 'Same-niche density',
+        value: 'SN96 Verathos pursues identical category',
+        note: 'Two Bittensor subnets in verified-inference compete for talent + customer pool. Differentiation has to be sharp — distributed-inference focus (DSperse) vs general verified work (Verathos).',
+      },
+      {
+        label: 'Distributed-inference latency',
+        value: 'Cross-miner partial-inference adds round trips',
+        note: 'Splitting a model across miners adds network latency at every layer boundary. Pipeline depth tradeoff: smaller miners + more hops vs larger miners + fewer hops.',
+      },
+      {
+        label: 'Customer demand',
+        value: 'Verification only valued in regulated verticals',
+        note: 'Mainstream AI customers don\'t pay extra for proofs. Subnet has to target legal/medical/finance or accept narrow demand.',
+      },
+    ],
+  },
+
+  /* SN5 Hone (hone.training) — Hone training. Sparse identity.
+     Likely training-related. Rivals: Hugging Face AutoTrain,
+     Together AI, Modal, Gradients (SN56). */
+  5: {
+    rivals: ['hugging-face', 'together-ai', 'replicate', 'modal-labs', 'databricks', 'anyscale'],
+    supplyChainIds: ['nvidia', 'aws-azure-gcp', 'tsmc', 'sk-hynix'],
+    constraints: [
+      {
+        label: 'Sparse-identity penalty',
+        value: '"Hone training" — 2 words on chain',
+        note: 'Subnet identity is minimal. Without specific positioning, readers can\'t map to a customer use case. Subnet needs to flesh out the value-proposition on chain.',
+      },
+      {
+        label: 'Same-niche density',
+        value: 'SN56 Gradients owns the training niche',
+        note: 'Bittensor has Gradients (SN56) shipping AutoML + finetune service. Subnet "Hone" has to differentiate or split α.',
+      },
+      {
+        label: 'GPU economics',
+        value: 'Training markets are GPU-cost-bound (per SN56)',
+        note: 'See SN56 constraints — finetune economics depend on GPU price floor.',
+      },
+      {
+        label: 'Eval-loss gaming',
+        value: 'Miners overfit validator metric',
+        note: 'Training subnets reward eval-loss; miners overfit it. Same defense pattern required as SN56.',
+      },
+    ],
+  },
+
+  /* SN6 Numinous (numinouslabs.io) — Forecasting protocol
+     aggregating agents into superhuman LLM forecasters.
+     Rivals: Numerai, Manifold Markets, Polymarket, Kalshi. */
+  6: {
+    rivals: ['numerai', 'polymarket', 'kalshi', 'palantir', 'jane-street', 'sakana-ai'],
+    supplyChainIds: ['aws-azure-gcp', 'us-power-grids'],
+    constraints: [
+      {
+        label: 'Calibration vs accuracy',
+        value: 'Superforecasters get ~80% Brier scores',
+        note: 'Real forecasting work is graded by calibration (Brier score), not just hit rate. Centralized rivals (Good Judgment Project) have decades of calibration training. Subnet aggregating LLM forecasts has to calibrate, not just emit predictions.',
+      },
+      {
+        label: 'Question-generation cost',
+        value: 'Manifold + Polymarket curate ~thousands of markets',
+        note: 'Good forecasting markets need well-specified questions. Centralized rivals employ curators. Subnet "aggregate agents" needs question infrastructure — usually shared with a host platform.',
+      },
+      {
+        label: 'Eval-horizon latency',
+        value: 'Resolutions take weeks-to-years',
+        note: 'Forecasts resolve over long horizons. Validator scoring has to either reward predictions on short-horizon questions (limited TAM) or wait for long-horizon resolutions (slow miner reward).',
+      },
+      {
+        label: 'Information leakage',
+        value: 'LLMs trained after question-creation = unfair edge',
+        note: 'LLMs trained on data past the forecast cutoff have unfair advantage. Subnet has to gate models by training-cutoff or accept measurement bias.',
+      },
+    ],
+  },
+
+  /* SN8 Vanta (vantanetwork.io) — First decentralized + trustless
+     liquidity + execution engine for prop firms and traders.
+     Taoshi project. Rival pool similar to SN35 OxMarkets. */
+  8: {
+    rivals: ['hyperliquid', 'dydx', 'gmx', 'jane-street', 'jump-trading', 'citadel-securities'],
+    supplyChainIds: ['ethereum-l1-gas', 'chainlink-oracles', 'aws-azure-gcp'],
+    constraints: [
+      {
+        label: 'Prop-firm trust requirements',
+        value: 'Prop firms need clearing + custody guarantees',
+        note: 'Real prop firms (FTMO, Topstep) need trade-clearing + balance custody guarantees. Subnet decentralized execution must spec the trust model — pure on-chain is hard for hedged strategies that need cross-asset margining.',
+      },
+      {
+        label: 'Liquidity-cold-start',
+        value: 'Hyperliquid: $500B+ cumulative volume',
+        note: 'Trustless execution depends on deep liquidity. Subnet has to subsidize liquidity via α emission for years.',
+      },
+      {
+        label: 'Latency vs decentralization',
+        value: 'HFT: sub-100μs · subnet: ms-scale',
+        note: 'Prop traders + HFT shops need microsecond latency. Centralized matching engines deliver this. Subnet "trustless execution" trades speed for trust — capture slower strategies, not HFT.',
+      },
+      {
+        label: 'Regulatory perimeter',
+        value: 'Prop trading = securities/derivatives oversight',
+        note: 'Real prop-trading exposure attracts SEC/CFTC oversight. Subnet has to either operate offshore or accept compliance burden.',
+      },
+    ],
+  },
+
+  /* SN9 iota (iota.macrocosmos.ai) — Permissionless pipeline
+     parallel training architecture. Macrocosmos project. Closely
+     related to SN56 Gradients + SN5 Hone. */
+  9: {
+    rivals: ['together-ai', 'anyscale', 'modal-labs', 'meta', 'openai', 'anthropic'],
+    supplyChainIds: ['nvidia', 'tsmc', 'sk-hynix', 'aws-azure-gcp', 'us-power-grids'],
+    constraints: [
+      {
+        label: 'Pipeline-parallel coordination',
+        value: 'GPU latency budgets break across WAN',
+        note: 'Pipeline parallel training assumes low inter-GPU latency (NVLink 600GB/s, InfiniBand). Across miners on commodity internet, latency kills throughput. Subnet has to engineer for high-latency tolerance or limit to small models.',
+      },
+      {
+        label: 'Frontier-model compute scale',
+        value: 'GPT-5 training: ~$500M compute',
+        note: 'Real frontier training runs cost $100M-$500M in compute. Subnet permissionless pipeline can\'t coordinate this scale across thousands of miners — focus on smaller models or research-scale experiments.',
+      },
+      {
+        label: 'Fault tolerance',
+        value: 'Centralized: dedicated SREs · subnet: random miners drop',
+        note: 'Long training runs need fault tolerance — miners dropping kills the run. Centralized rivals engineer checkpoint + restart. Subnet has to ship comparable infrastructure or accept low completion rate.',
+      },
+      {
+        label: 'Open-weights publication',
+        value: 'Decentralized training enables open-weights at scale',
+        note: 'The pitch is structural — only decentralized training can produce truly open frontier models (no single corporate gatekeeper). Subnet has to lean into this differentiator vs commodity training rentals.',
+      },
+    ],
+  },
+
+  /* SN10 Swap (taofi.com/pool) — Onboarding users to Bittensor.
+     Onboarding-focused project. Rivals: TaoFi, taostats.io,
+     centralized exchanges. */
+  10: {
+    rivals: ['coinbase', 'binance', 'uniswap', 'circle-usdc', 'tether', 'metamask'],
+    supplyChainIds: ['ethereum-l1-gas', 'chainlink-oracles', 'aws-azure-gcp'],
+    constraints: [
+      {
+        label: 'Onboarding-UX bar',
+        value: 'Coinbase: 3-tap signup · subnet: ?',
+        note: 'Real onboarding is UX-driven. Coinbase + Robinhood ship 3-tap signup. Subnet onboarding has to either match this or accept a smaller crypto-native audience.',
+      },
+      {
+        label: 'KYC + payment-rail dependence',
+        value: 'Fiat ramps require KYC',
+        note: 'Bringing fiat users to Bittensor needs fiat-on-ramp. Subnet has to either partner with regulated on-ramps or accept crypto-native customers only.',
+      },
+      {
+        label: 'Education vs friction tradeoff',
+        value: 'Bittensor is complex; onboarding must simplify',
+        note: 'Bittensor concepts (TAO, α, subnets, validators) are dense. Onboarding subnet has to abstract these or accept that only crypto-native users can navigate.',
+      },
+      {
+        label: 'Customer-retention metric',
+        value: '7-day retention is the standard',
+        note: 'Onboarding success = retention, not signup count. Subnet has to track + reward retention or attract one-time signups that immediately leave.',
+      },
+    ],
+  },
+
   /* SN4 Targon — bandwidth-priced LLM inference with deterministic
      verifiers. The flagship "decentralize the inference market"
      subnet. Profiled 2026-05-21 as the prototype for this depth
@@ -2852,6 +3042,96 @@ export const BY_NETUID = {
         label: 'Fraud + invalid-traffic surface',
         value: 'IVT: 10-25% of digital ad volume',
         note: 'Bot traffic + click farms inflate impression counts. DoubleVerify + IAS audit centralized networks. Subnet has to either ship comparable IVT detection or face inflated metrics that brands won\'t pay for.',
+      },
+    ],
+  },
+
+  /* SN18 Zeus (zeussubnet.com) — Pushing weather forecasts
+     beyond state-of-the-art. Rivals: Google GraphCast,
+     DeepMind GenCast, ECMWF, Tomorrow.io, NVIDIA Earth-2. */
+  18: {
+    rivals: ['google', 'nvidia', 'palantir', 'snowflake', 'sakana-ai', 'meta'],
+    supplyChainIds: ['nvidia', 'tsmc', 'aws-azure-gcp', 'us-power-grids'],
+    constraints: [
+      {
+        label: 'Forecasting SoTA benchmark',
+        value: 'GraphCast + GenCast lead ECMWF on most measures',
+        note: 'Google\'s GraphCast (2023) + GenCast (2024) outperform ECMWF\'s HRES on most weather variables at 10-day horizon. Subnet "beyond state-of-the-art" claim has to actually clear this bar — backed by independent eval.',
+      },
+      {
+        label: 'Training-data licensing',
+        value: 'ERA5 reanalysis: ECMWF-licensed',
+        note: 'High-quality weather training data (ERA5 reanalysis) requires ECMWF licensing. Subnet has to negotiate access or use lower-quality public data — visible in forecast skill.',
+      },
+      {
+        label: 'Compute-floor for global models',
+        value: 'GraphCast training: ~1M GPU-hours',
+        note: 'Global weather models burn hundreds of thousands to millions of GPU-hours. Subnet decentralized training has to either crowdsource at this scale or focus on regional / niche forecasts.',
+      },
+      {
+        label: 'Customer concentration',
+        value: 'Big-3 weather companies (Tomorrow.io, AccuWeather) dominate',
+        note: 'Commercial weather forecasts go to airlines, agriculture, insurance — already wired into Tomorrow.io + AccuWeather. Subnet has to either match enterprise SLAs or accept research-tier customers.',
+      },
+    ],
+  },
+
+  /* SN19 blockmachine (blockmachine.io) — Self-optimizing
+     infrastructure. Sparse identity, likely infra-automation.
+     Rivals: Datadog, AWS Auto Scaling, Kubernetes operators. */
+  19: {
+    rivals: ['snowflake', 'palantir', 'aws-azure-gcp', 'cloudflare-edge', 'anyscale', 'modal-labs'],
+    supplyChainIds: ['nvidia', 'aws-azure-gcp'],
+    constraints: [
+      {
+        label: 'Sparse-identity penalty',
+        value: '"Self-optimizing infrastructure" — vague positioning',
+        note: 'Subnet identity is broad. Without specific positioning (cost optimization? autoscaling? RUM-driven optimization?), readers can\'t map to a use case.',
+      },
+      {
+        label: 'Centralized infra-AI tools mature',
+        value: 'Datadog Watchdog + AWS DevOps Guru ship today',
+        note: 'AI-driven infra optimization already exists in centralized form (Datadog, AWS Compute Optimizer, Granulate). Subnet has to either match the customer-data integration or differentiate sharply.',
+      },
+      {
+        label: 'Customer-data sensitivity',
+        value: 'Infra telemetry = security data',
+        note: 'Optimizing infrastructure needs access to telemetry — performance metrics, traffic patterns, scaling decisions. This data is security-sensitive. Subnet has to encrypt + audit access or enterprises won\'t share.',
+      },
+      {
+        label: 'Action-on-recommendation',
+        value: 'Closed-loop optimization needs execution permission',
+        note: 'Recommending scaling decisions is easy; executing them in production is hard. Customers grant action permission slowly. Subnet AI giving advice without execution captures less value than centralized tools that close the loop.',
+      },
+    ],
+  },
+
+  /* SN20 GroundLayer (groundlayer.xyz) — Structured OTC deals
+     for subnet tokens. Rivals: Wintermute, Cumberland, Genesis
+     Trading, OTC desks. */
+  20: {
+    rivals: ['coinbase', 'binance', 'circle-usdc', 'jane-street', 'jump-trading', 'tether'],
+    supplyChainIds: ['ethereum-l1-gas', 'chainlink-oracles', 'aws-azure-gcp'],
+    constraints: [
+      {
+        label: 'OTC trust + settlement',
+        value: 'Cumberland + Wintermute use escrow + KYC',
+        note: 'Real OTC trading requires counterparty verification + settlement guarantees. Centralized rivals (Wintermute, B2C2) carry counterparty risk + run AML. Subnet "structured OTC" has to specify trust model or face counterparty risk.',
+      },
+      {
+        label: 'Subnet-token liquidity ceiling',
+        value: 'Most α tokens have <$10M depth',
+        note: 'OTC deals require deep order books or willing market makers. Subnet α tokens (sub-$10M depth most) have thin OTC potential. Larger trades will continue to use centralized desks where liquidity exists.',
+      },
+      {
+        label: 'Price discovery',
+        value: 'OTC deals price at oracle + spread',
+        note: 'OTC requires reliable price oracles. Chainlink + on-chain DEX prices for α tokens are limited. Subnet has to either build oracle infrastructure or rely on imperfect on-chain prices.',
+      },
+      {
+        label: 'Regulatory framing',
+        value: 'Token OTC = securities transactions in US',
+        note: 'OTC deals on tokens classified as securities trigger SEC oversight. Subnet "structured OTC" has to either operate offshore or limit to non-US accredited investors.',
       },
     ],
   },
@@ -3599,6 +3879,36 @@ export const BY_NETUID = {
         label: 'Trajectory length explosion',
         value: 'o1-pro emits 10K-50K reasoning tokens',
         note: 'High-end reasoning traces run tens of thousands of tokens. KV-cache cost compounds (rule from SN24 Quasar). Subnet inference miners running smaller models have either to compress trajectories or accept worse reasoning depth — both visible in evals.',
+      },
+    ],
+  },
+
+  /* SN109 Academia — "where builders become subnet owners."
+     Likely a builder-onboarding / subnet-incubation play.
+     Rivals: a16z crypto, Coinbase Ventures, ecosystem funds. */
+  109: {
+    rivals: ['coinbase', 'binance', 'circle-usdc', 'tether', 'snowflake', 'salesforce'],
+    supplyChainIds: ['ethereum-l1-gas', 'aws-azure-gcp'],
+    constraints: [
+      {
+        label: 'Builder-acquisition cost',
+        value: 'a16z crypto: $4B+ deployed in incentive grants',
+        note: 'Real builder-recruitment programs spend heavily on grants + ecosystem incentives. a16z crypto, Solana Foundation, Avalanche Foundation all run large grant programs. Subnet Academia\'s α emission has to compete with cash grants.',
+      },
+      {
+        label: 'Education-to-deployment funnel',
+        value: 'Most learners drop before shipping',
+        note: 'Educational programs see 90%+ dropout before practical deployment. Centralized rivals (Bittensor Academy, web3 bootcamps) have curriculum + cohort accountability. Subnet has to design retention mechanics or accept low conversion.',
+      },
+      {
+        label: 'Subnet-creation cost-bar',
+        value: 'Registering a new subnet: significant TAO burn',
+        note: 'Real subnet creation requires substantial TAO commitment. Academia\'s "become subnet owners" pitch needs to either subsidize registration or accept that only well-funded learners convert.',
+      },
+      {
+        label: 'Quality vs quantity',
+        value: '128 active subnets, ~75 unindexed',
+        note: 'The subnet ecosystem has ~75 unindexed / placeholder subnets — quantity is already there, quality is the constraint. Subnet has to focus on producing GOOD subnet owners, not just MORE.',
       },
     ],
   },
