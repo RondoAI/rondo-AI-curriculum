@@ -280,7 +280,13 @@ const MA_SLOW_DASH        = [4, 3];
    news markers on the chart canvas. amber dot = magazine article
    published that day, red dot = oracle research published that day.
    Pulled from ARTICLES + recentOracleArticles by subnet match. */
-function annotationsFor(netuid, subnetName){
+function annotationsFor(subnet){
+  /* Subnet can be passed as a full subnet object (preferred — gives
+     newsForSubnet enough context to score centralized news against
+     the subnet's category) or {netuid, name} for callers that don't
+     have the full object handy. The function destructures defensively. */
+  const netuid = subnet && (subnet.netuid != null ? subnet.netuid : null);
+  const subnetName = subnet && (subnet.name || '');
   const out = [];
   for (const a of ARTICLES){
     const isThisSubnet =
@@ -289,7 +295,7 @@ function annotationsFor(netuid, subnetName){
     if (!isThisSubnet || !a.date) continue;
     const t = Date.parse(a.date + 'T12:00:00Z');
     if (!Number.isFinite(t)) continue;
-    out.push({ t, kind: 'mag', title: a.title, date: a.date });
+    out.push({ t, kind: 'mag', title: a.title, date: a.date, url: a.pdf || a.externalUrl });
   }
   for (const a of recentOracleArticles(Infinity)){
     const matchesSubnet =
@@ -299,8 +305,22 @@ function annotationsFor(netuid, subnetName){
     if (!matchesSubnet || !a.date) continue;
     const t = Date.parse(a.date + 'T12:00:00Z');
     if (!Number.isFinite(t)) continue;
-    out.push({ t, kind: 'orc', title: a.title, date: a.date });
+    out.push({ t, kind: 'orc', title: a.title, date: a.date, url: a.pdf });
   }
+  /* Centralized-competitor news scoped to this subnet's category
+     via newsForSubnet() — passes through the full subnet so the
+     player-match scoring fires (needs subnet.cat). Cap at 6 so the
+     chart's marker layer doesn't clutter when a hot subnet has
+     heavy competitor news flow. */
+  try {
+    const central = newsForSubnet(subnet, 6);
+    for (const n of (central || [])){
+      if (!n.date) continue;
+      const t = Date.parse(n.date + 'T12:00:00Z');
+      if (!Number.isFinite(t)) continue;
+      out.push({ t, kind: 'cen', title: n.headline, date: n.date, url: n.url });
+    }
+  } catch (_) { /* newsForSubnet missing or threw — fall through */ }
   return out.sort((x, y) => x.t - y.t);
 }
 
@@ -1735,7 +1755,7 @@ export function mountCockpit(root, dataLayer = null){
       const ts = (typeof param.time === 'number' ? param.time * 1000 : null);
       if (!Number.isFinite(ts)) return;
       const s = subnetById(state.selectedId) || SUBNETS[0];
-      const anns = annotationsFor(s.netuid, s.name);
+      const anns = annotationsFor(s);
       /* Find marker at this time (one-day tolerance). */
       const ann = anns.find(a => Math.abs(a.t - ts) < 86400 * 600);
       const previewEl = qs('[data-flag-preview]', root);
@@ -1847,7 +1867,7 @@ export function mountCockpit(root, dataLayer = null){
        Most-recent marker (per kind) also carries a short text
        label so the reader sees what just dropped without hovering.
        setMarkers replaces the prior marker set in one call. */
-    const annotations = annotationsFor(s.netuid, s.name);
+    const annotations = annotationsFor(s);
     /* Find the freshest annotation per kind so we know which ones
        to label inline — labels-on-everything turns the chart into
        a wall of text; labels-only-on-freshest is the trader-grade
