@@ -3654,3 +3654,132 @@ Sandbox ships homepage CTA pass next. Mac confirms receipt of
 this binding context + continues the cockpit cleanup. Both
 sessions can credit const's feedback in their next commit body
 so the validation moment is in the git record.
+
+## NodeSphere / E8 Neural Network — DO NOT TAMPER (binding, 2026-05-22)
+
+Saved by Rondo's direct instruction, 2026-05-22, right after the
+const founder feedback above: "I don't want my neural network
+tampered with."
+
+The NodeSphere is the E8 root-system projection the founder of
+Bittensor recognized and praised. It is now a documented brand
+asset, not a graphic that gets "improved." Both sessions are
+hard-locked from changing it.
+
+### What is protected
+
+  - src/charts/NodeSphere.js — every line, including:
+      * node count (the 240-vertex E8 lattice / 78 sphere render)
+      * edge density / K-nearest neighbor count
+      * the Coxeter-plane projection math
+      * rotation speed, traversal cadence, packet animation
+      * color tones, line widths, atmosphere flag
+  - Every CALL SITE that mounts a NodeSphere:
+      * Hero.js (homepage hero canvas)
+      * banner.html (Twitter banner render)
+      * pfp.html (profile photo render)
+      * Console.js (oracle dock plexus mark, if present)
+      * Any future call site
+
+### What is forbidden without explicit Rondo greenlight
+
+  - "Tightening" the projection
+  - Changing the node count
+  - Swapping the algorithm (no replacement with a different
+    polytope, no fallback to a generic plexus, no LLM-suggested
+    refactor)
+  - Cleaning up the math "for performance"
+  - Adjusting rotation, density, K, speed parameters in a call
+    site for "visual fit"
+  - Wrapping the canvas in any container that clips, scales, or
+    distorts the render beyond CSS width/height
+  - ANY edit to NodeSphere.js, full stop, unless Rondo says so
+    by name in the same session
+
+### What IS allowed
+
+  - Moving the canvas in the DOM (changing where it mounts —
+    different parent element, different page) without changing
+    the canvas dimensions or the call-site config
+  - Adjusting CSS that ONLY affects layout/sizing of the
+    canvas container — width, height, position, max-width.
+    Anything that changes appearance (filter, opacity, blend
+    mode, transform other than uniform scale) requires
+    greenlight
+  - Bug fixes to surrounding code that touch the canvas only
+    incidentally (e.g., fixing a memory leak in a parent
+    component that calls sphere.destroy())
+
+### If a fix REQUIRES touching NodeSphere
+
+  Stop. Write a coordination log entry naming exactly what
+  needs to change and why. Wait for Rondo to greenlight by
+  name in the conversation. Do not proceed without it.
+
+### Why this is binding
+
+  1. The founder of the platform (const) recognized + praised
+     this specific render. The brand value of that validation
+     compounds every time an investor / builder / journalist
+     opens the site and sees the same mathematically-correct
+     E8 graphic.
+  2. The E8 root system is one of the most beautiful objects
+     in mathematics; getting it right took real work. "Improving"
+     it almost always means breaking it.
+  3. Rondo has now flagged this twice — once during the banner
+     pass ("the neural network should not be merging into the
+     words") and once today ("I don't want my neural network
+     tampered with"). Two flags from the operator = binding rule.
+
+### Carve-out for the in-flight homepage CTA work
+
+Sandbox's planned homepage cleanup (per the const feedback
+above) involves Hero.js layout changes — relocating the
+philosophy quote, raising the primary CTA above the fold,
+adding a "NEW HERE?" onboarding ribbon. NONE of these touch
+the NodeSphere canvas, the new NodeSphere() instantiation,
+or the canvas mounting parent's geometry. The hero's CTA
+work is DOM/CSS around the canvas, never to the canvas
+itself.
+
+## "Just don't mess up anything" — operating posture (2026-05-22)
+
+Saved by Rondo's instruction, 2026-05-22, immediately after
+the NodeSphere protection rule above. The directive is broader
+than NodeSphere — it is a posture toward EVERY change today.
+
+  Rule, applied to every push from this point forward:
+
+  Don't touch what isn't broken. Don't "improve" what's
+  working. Don't refactor adjacent code while fixing a bug.
+  Don't add helpers or abstractions that the task doesn't
+  literally require. Don't ship a change that even MIGHT
+  regress a surface the reader already trusts.
+
+  Before any push, do a final pre-flight pass:
+    1. Name everything the change touches (files, selectors,
+       data shapes, mounted components).
+    2. Name everything within one hop of those touches that
+       could regress (sibling components in the same parent,
+       CSS that cascades, JS that imports the changed module).
+    3. If any item in (2) is in scope of the change, justify
+       it in the commit body. If it's NOT in scope, do not
+       touch it — even if it "looks dirty."
+
+  When in doubt: don't push, ask. The cost of a "should I
+  also..." question is 30 seconds. The cost of an unwanted
+  change is hours of debugging trust.
+
+### Carve-out from the const-feedback push plan
+
+Sandbox was poised to ship the homepage CTA + onboarding
+ribbon next. Per this rule + the "just don't mess up
+anything" directive, sandbox is now HOLDING that push
+until Rondo greenlights it by name. The CLAUDE.md
+"CONST Founder Feedback" entry already documents the plan;
+the code stays undrafted until Rondo says ship.
+
+Mac's queued work (blank-cockpit fix, DESK deletion,
+chart sidebar) is unchanged in priority — those address
+bugs Rondo flagged directly. But mac should also apply
+this rule's pre-flight pass before unstashing.
