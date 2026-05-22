@@ -15,8 +15,13 @@ operator precedence and possibly augmented assignment (`x += 1`).
 
 Current Python sources:
 - Deitel (primary): Chapter 1 in progress.
-- Severance "Python for Everyone" (second book): recently
-  acquired, not yet started.
+- Severance "Python for Everyone" / py4e Coursera (second source):
+  first contact 2026-05-22 via the Coursera autograder. "Welcome
+  Message" (Ch.2 — `input()` + variable + `print()` with variable)
+  and "Pay Calculator" (Ch.2 — `float(input(...))` + arithmetic)
+  both passed on the web autograder. Concepts are at *Introduced*
+  in CONCEPTS.md, not *Taught* — they need a clean predict-run-
+  verify pass in the REPL once Termius is back.
 
 ## Mastered
 - [None yet — too early to claim mastery on anything.]

@@ -92,6 +92,35 @@ cleanly.
 - Python is case-sensitive — `x` and `X` are different names.
   Flagged 2026-05-11 after Rondo typed `X=7` in a prediction; not
   separately drilled.
+- `input(prompt)` — pauses the program, displays the `prompt`
+  string to the user, returns whatever the user typed as a `str`.
+  Key trap surfaced: the string inside the parens is the QUESTION
+  shown to the user, not the answer (`input("Sarah")` displays
+  "Sarah" as a label, not the value Sarah). First contact 2026-05-22
+  via py4e Severance "Welcome Message" assignment (Coursera
+  autograder, not own REPL).
+- Variable assignment from `input()` — `name = input(...)` catches
+  the user's typed response into a labeled box for later use.
+  Hardcoding the test value (`print("Hello", "Sarah")`) defeats
+  the exercise and is caught by the autograder's source-code check;
+  the variable form (`print("Hello", name)`) is the point.
+  First contact 2026-05-22.
+- `print("text", variable)` — comma-separator already *Taught*, but
+  first usage with a variable mixed in (literal + stored value,
+  space-separated). 2026-05-22.
+- `float(s)` — converts a numeric string to a `float`.
+  `float("35")` → `35.0`. Required because `input()` always
+  returns a `str`; you cannot do useful math on strings. First
+  contact 2026-05-22 via py4e Severance "Pay Calculator" assignment.
+- Nested function calls — `float(input("..."))`. The inner call
+  runs first and returns a value; the outer call uses that value
+  as its argument. Read inside-out. First contact 2026-05-22.
+- py4e Coursera autograder mechanics — code box + Check Code button;
+  `input()` triggers a browser-level dialog popup; autograder runs
+  both an output match AND a source-code pattern check, which is
+  why hardcoded test values fail even when the output is right.
+  Worth re-teaching cleanly when Termius is back; current
+  understanding is built only on web autograder, not own REPL.
 
 ---
 
