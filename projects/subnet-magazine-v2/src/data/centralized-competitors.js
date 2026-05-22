@@ -1591,40 +1591,12 @@ export const BY_NETUID = {
     ],
   },
 
-  /* SN39 EdgeMaxxing — On-device inference optimization with
-     verifiable latency proofs. Rivals are the mobile + edge
-     AI silicon vendors. */
-  39: {
-    rivals: ['apple-neural-engine', 'qualcomm', 'mediatek', 'nvidia'],
-    supplyChainIds: ['tsmc', 'us-power-grids'],
-    constraints: [
-      {
-        label: 'Heterogeneous device matrix',
-        value: 'Thousands of phone + edge SKUs',
-        note: 'Optimization across iPhone + Android + edge SKUs is combinatorial. Centralized silicon vendors own the toolchain; decentralized must aggregate per-device miner work.',
-      },
-      {
-        label: 'Power budget',
-        value: '~3-8W sustained for phones',
-        note: 'Phone NPUs cap at ~3-8W sustained without thermal throttle. Centralized vendors tune for this; decentralized inference optimization must respect the envelope.',
-      },
-      {
-        label: 'Latency proof verification',
-        value: 'Cryptographic timestamp',
-        note: 'Verifying that a miner ACTUALLY ran inference at the claimed latency requires cryptographic timestamping + sample audits. Centralized SDKs trust the device.',
-      },
-      {
-        label: 'OS / runtime fragmentation',
-        value: 'Core ML vs NNAPI vs vendor',
-        note: 'iOS uses Core ML; Android uses NNAPI or vendor runtimes (QNN, MediaTek\'s NeuroPilot). Centralized vendors maintain SDKs; decentralized must support each.',
-      },
-      {
-        label: 'Mobile model size ceiling',
-        value: '~1-3GB practical limit',
-        note: '7B parameter models fit on flagship phones (3GB at INT4). Decentralized edge optimization is bounded by the same device memory ceilings centralized vendors hit.',
-      },
-    ],
-  },
+  /* SN39 — DEPRECATED on chain as of 2026-05-22 (subnetName +
+     description both "deprecated"). Profile removed per the
+     editorial rule: never surface rival comparisons for a
+     subnet that no longer exists. The local subnets.js still
+     carries the stale "EdgeMaxxing" identity and is queued for
+     correction. */
 
   /* SN47 Condense AI — Long-context summarization + compression
      scored on fidelity. Rivals are the frontier-lab large-context
