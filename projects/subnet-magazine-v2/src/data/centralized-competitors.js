@@ -1024,6 +1024,186 @@ export const COMPETITORS = [
     why: 'Tokyo lab pioneering evolutionary + RL methods for agent + model training — the "AI Scientist" agent that runs ML research end-to-end. Direct rival for any subnet training agent policies via RL on trajectories; Sakana publishes weights + papers, raising the public bar.',
   },
 
+  /* ---------- Remaining catalog rivals: data/ads/real estate/creator economy/
+     mining pools/quantum (final 31-subnet curation batch) ---------- */
+  {
+    id: 'bright-data',
+    name: 'Bright Data',
+    ticker: 'PRIVATE',
+    mcap: 1_400_000_000,
+    source: 'private',
+    sectors: ['data'],
+    url: 'https://brightdata.com',
+    why: 'Largest commercial web-scraping platform — proxy infrastructure + structured data feeds. ~$160M revenue. Default rival for any subnet pitching social-media scraping or web-data extraction at scale.',
+  },
+  {
+    id: 'apify',
+    name: 'Apify',
+    ticker: 'PRIVATE',
+    mcap: 200_000_000,
+    source: 'private',
+    sectors: ['data'],
+    url: 'https://apify.com',
+    why: 'Web scraping + automation platform — marketplace of ~1500 scrapers (Twitter, Instagram, TikTok). Rival for subnet "scraping the world\'s social media data" plays.',
+  },
+  {
+    id: 'salesforce',
+    name: 'Salesforce',
+    ticker: 'CRM',
+    mcap: 280_000_000_000,
+    source: 'public',
+    sectors: ['agents', 'data'],
+    url: 'https://www.salesforce.com',
+    why: 'Dominant CRM + Einstein AI / Agentforce. Direct rival for any subnet pitching AI sales agents; Salesforce owns the workflow + customer data the agents would operate on.',
+    delta24h: 0.1,
+    aliases: ['CRM', 'Agentforce', 'Einstein'],
+  },
+  {
+    id: 'apollo-io',
+    name: 'Apollo.io',
+    ticker: 'PRIVATE',
+    mcap: 1_600_000_000,
+    source: 'private',
+    sectors: ['agents', 'data'],
+    url: 'https://www.apollo.io',
+    why: 'B2B sales intelligence platform — ~250M+ contact database + AI outreach. ~$100M ARR. Direct rival for subnet "intent-driven AI sales" plays; Apollo\'s data moat is its main asset.',
+  },
+  {
+    id: 'zillow',
+    name: 'Zillow Group',
+    ticker: 'ZG',
+    mcap: 14_000_000_000,
+    source: 'public',
+    sectors: ['data'],
+    url: 'https://www.zillow.com',
+    why: 'Dominant US real-estate data + listings — Zestimate AI valuation. Direct rival for any "real estate intelligence" subnet; Zillow\'s data + traffic moat is multi-decade.',
+    delta24h: 0.4,
+    aliases: ['Zestimate', 'ZG'],
+  },
+  {
+    id: 'redfin',
+    name: 'Redfin',
+    ticker: 'RDFN',
+    mcap: 1_500_000_000,
+    source: 'public',
+    sectors: ['data'],
+    url: 'https://www.redfin.com',
+    why: 'Real-estate brokerage + data — AI-driven home valuations + market analytics. Rival for "real estate intelligence" subnet plays in the US market.',
+    aliases: ['RDFN'],
+  },
+  {
+    id: 'foundry-digital',
+    name: 'Foundry Digital',
+    ticker: 'PRIVATE',
+    mcap: 2_500_000_000, // DCG-owned, estimated
+    source: 'private',
+    sectors: ['finance', 'infra'],
+    url: 'https://foundrydigital.com',
+    why: 'Largest BTC mining pool by hashrate (~30% of network) — owned by DCG. Direct rival for any subnet pitching BTC mining-pool integration; Foundry\'s scale + institutional customers set the bar.',
+    aliases: ['FoundryUSA'],
+  },
+  {
+    id: 'antpool',
+    name: 'Antpool',
+    ticker: 'PRIVATE',
+    mcap: null,
+    source: 'private',
+    sectors: ['finance'],
+    url: 'https://www.antpool.com',
+    why: 'Bitmain-affiliated mining pool — second-largest BTC hashrate. Direct rival for BTC mining-pool subnet plays at the operator tier.',
+  },
+  {
+    id: 'patreon',
+    name: 'Patreon',
+    ticker: 'PRIVATE',
+    mcap: 4_000_000_000,
+    source: 'private',
+    sectors: ['data'],
+    url: 'https://www.patreon.com',
+    why: 'Creator economy subscription platform — ~250K paid creators. Direct rival for any subnet pitching "decentralized creator economy" with subscription monetization.',
+  },
+  {
+    id: 'substack',
+    name: 'Substack',
+    ticker: 'PRIVATE',
+    mcap: 650_000_000,
+    source: 'private',
+    sectors: ['data'],
+    url: 'https://substack.com',
+    why: 'Newsletter + monetized writing platform. Substack Notes for social + Live for podcasts/video. Rival for decentralized creator economy at the writer/publication tier.',
+  },
+  {
+    id: 'onlyfans',
+    name: 'OnlyFans (Fenix Intl)',
+    ticker: 'PRIVATE',
+    mcap: 6_000_000_000,
+    source: 'private',
+    sectors: ['data'],
+    url: 'https://onlyfans.com',
+    why: 'Largest creator monetization platform by revenue (~$6.6B GMV, 2.1M creators). Demonstrates creator-pays-creator economics at scale. Decentralized creator economy subnets compete with the creator earnings + payout infrastructure.',
+  },
+  {
+    id: 'character-ai-v2',
+    name: 'Character.AI',
+    ticker: 'PRIVATE',
+    mcap: 2_500_000_000,
+    source: 'private',
+    sectors: ['agents'],
+    url: 'https://character.ai',
+    why: 'Persona-chat platform — ~20M+ MAU. Strong rival for any AI-companion subnet pitch (SN119 Satori); Character.AI proved the consumer demand + the engagement-metric gaming problem.',
+  },
+  {
+    id: 'replika',
+    name: 'Replika',
+    ticker: 'PRIVATE',
+    mcap: 100_000_000,
+    source: 'private',
+    sectors: ['agents'],
+    url: 'https://replika.com',
+    why: 'AI companion app — pioneer in the space, ~10M+ users. Subscription-monetized. Direct rival for AI-companion subnet plays; Replika navigated NSFW + Italy-ban surface that decentralized rivals would inherit.',
+  },
+  {
+    id: 'pokerstars',
+    name: 'PokerStars',
+    ticker: 'PRIVATE',
+    mcap: 21_000_000_000, // Flutter Entertainment parent
+    source: 'public',
+    sectors: ['finance'],
+    url: 'https://www.pokerstars.com',
+    why: 'Largest online poker platform — Flutter Entertainment-owned. Default rival for any "decentralized poker" subnet (SN126); PokerStars\' regulatory + liquidity moat is the bar.',
+  },
+  {
+    id: 'wpt-global',
+    name: 'WPT Global',
+    ticker: 'PRIVATE',
+    mcap: 200_000_000,
+    source: 'private',
+    sectors: ['finance'],
+    url: 'https://www.wptglobal.com',
+    why: 'World Poker Tour\'s online platform — competitive with PokerStars + GGPoker for crypto-accepting poker. Rival for decentralized poker subnets.',
+  },
+  {
+    id: 'duolingo',
+    name: 'Duolingo',
+    ticker: 'DUOL',
+    mcap: 13_000_000_000,
+    source: 'public',
+    sectors: ['agents'],
+    url: 'https://www.duolingo.com',
+    why: 'AI-driven language + skill learning — Duolingo Max ships GPT-4-powered tutoring. Direct rival for any subnet pitching AI tutoring or skill-acquisition agents.',
+    aliases: ['DUOL'],
+  },
+  {
+    id: 'eleven-labs',
+    name: 'ElevenLabs (voice)',
+    ticker: 'PRIVATE',
+    mcap: 3_300_000_000,
+    source: 'private',
+    sectors: ['audio'],
+    url: 'https://elevenlabs.io',
+    why: 'Voice cloning + TTS leader — ~10B characters generated monthly. Direct rival for any "voice layer" subnet (SN78 Vocence); ElevenLabs\' quality + ecosystem is the bar to clear.',
+  },
+
   /* ---------- Infra / compute / VPN / storage / bandwidth / txn-layer
      (SN7/27/51/64/65/75/105/110/128 profiles) ---------- */
   {
@@ -2740,6 +2920,219 @@ export const BY_NETUID = {
         label: 'AUM-fee economics',
         value: 'ETF: 0.15-0.50% / yr · subnet emission as proxy',
         note: 'Centralized fund fees compressed to 15-50 bps. Subnet AUM products fund operations via α emission — but if α price drops, validator + miner economics break. Long-term sustainability needs either AUM fees on top of emission or much more efficient operations.',
+      },
+    ],
+  },
+
+  /* SN13 Data Universe (macrocosmos.ai/gravity) — Scraping the
+     world's social media data. Rivals: Bright Data, Apify,
+     Scale AI, Hugging Face datasets, Snowflake, Databricks. */
+  13: {
+    rivals: ['bright-data', 'apify', 'scale-ai', 'hugging-face', 'snowflake', 'databricks'],
+    supplyChainIds: ['aws-azure-gcp', 'cloudflare-edge', 'us-power-grids'],
+    constraints: [
+      {
+        label: 'Platform ToS + rate-limit war',
+        value: 'X, Reddit, Meta all hostile to scraping',
+        note: 'Twitter/X charges $42K/mo for enterprise API; Reddit charges $20K+. Bright Data + Apify maintain rotating proxies + bot detection bypass. Subnet miners scraping at scale face account bans + IP blocks; capture data the platforms haven\'t yet shut down.',
+      },
+      {
+        label: 'GDPR / CCPA data-deletion compliance',
+        value: 'User right to be forgotten applies to scraped data',
+        note: 'EU GDPR Art 17 + CA CCPA give users deletion rights. Centralized rivals (Bright Data) honor takedown notices. Subnet decentralized scraped data has miners holding shards — compliance requires coordinated deletion across all miners.',
+      },
+      {
+        label: 'Data freshness vs scale tradeoff',
+        value: 'Twitter firehose: ~6K tweets/sec',
+        note: 'Real-time social media data requires firehose-grade infrastructure. Bright Data + Twitter API premium ship this. Subnet miners can\'t maintain firehose ingestion individually — capture batch/historical scrapes, not real-time.',
+      },
+      {
+        label: 'Schema + entity-resolution',
+        value: 'Scraped data is dirty by default',
+        note: 'Raw scrapes have schema drift, duplicate accounts, deleted-and-republished posts. Centralized rivals clean + normalize. Subnet miners producing raw scrapes shift cleanup to consumer — readers comparing get raw vs clean data on the same price.',
+      },
+      {
+        label: 'Buyer concentration',
+        value: 'AI labs are 80% of data-purchase TAM',
+        note: 'Most commercial scraped-data buyers are AI labs (training data). Hugging Face datasets + Common Crawl are free. Subnet selling to AI labs has to either match free or differentiate on freshness + licensing clarity.',
+      },
+    ],
+  },
+
+  /* SN14 Cacheon (cacheon.ai) — Containerized inference
+     competition. Rivals: Together AI, Fireworks, Replicate,
+     Modal, Anyscale, AWS Bedrock. */
+  14: {
+    rivals: ['together-ai', 'fireworks-ai', 'replicate', 'modal-labs', 'anyscale', 'aws-bedrock'],
+    supplyChainIds: ['nvidia', 'tsmc', 'sk-hynix', 'aws-azure-gcp'],
+    constraints: [
+      {
+        label: 'Container-image attestation',
+        value: 'How to prove the deployed binary matches the claim',
+        note: 'Miners submit containers; validators must verify the container actually runs the claimed model + configuration. Centralized rivals trust their own deployments. Subnet needs container-hash attestation + sample-inference audits or risks miners shipping cheaper-but-different models.',
+      },
+      {
+        label: 'Throughput-vs-quality scoring',
+        value: 'Validators must score BOTH speed + correctness',
+        note: 'A miner could ship a fast quantized model and lose quality. Validators need a multi-metric score (tokens/sec + accuracy on held-out prompts). Centralized rivals expose tokens/sec + standard benchmarks; subnet score must be similarly defensible.',
+      },
+      {
+        label: 'Open-source-model coverage',
+        value: 'Llama 4 / Mistral / Qwen all in play',
+        note: 'Customers care about model-specific endpoints. Together + Fireworks support 100+ open models. Subnet has to either cover the same breadth or focus on a niche where centralized rivals don\'t care.',
+      },
+      {
+        label: 'Cold-start vs steady-state',
+        value: 'Fireworks: <500ms cold start',
+        note: 'Real serverless economics depend on cold-start latency. Fireworks + Modal optimized aggressively. Subnet container deployment + spin-up adds miner-discovery latency on top of container startup — capture steady-state workloads, not bursty.',
+      },
+    ],
+  },
+
+  /* SN31 Halftime — Decentralized multimodal intelligence for
+     media + advertising. Rivals: Adobe, Trade Desk, AppLovin,
+     Palantir, Snowflake, Meta. */
+  31: {
+    rivals: ['adobe', 'trade-desk', 'applovin', 'palantir', 'snowflake', 'meta'],
+    supplyChainIds: ['nvidia', 'aws-azure-gcp', 'cloudflare-edge'],
+    constraints: [
+      {
+        label: 'Ad-tech identity graph erosion',
+        value: 'iOS ATT + cookie deprecation killed 3rd-party tracking',
+        note: 'Apple ATT + Chrome cookie deprecation broke the ad-tech tracking infrastructure 2021-2024. Trade Desk + AppLovin pivoted to contextual + first-party data. Subnet "context-aware analysis" plays into this rebuilding moment but needs first-party data integrations to be relevant.',
+      },
+      {
+        label: 'Brand-safety scoring',
+        value: 'Hive AI + IAS audit every impression',
+        note: 'Brand-safety scoring requires real-time content classification at impression-time. Hive AI + IAS process billions of ad impressions/day. Subnet has to match this latency + scale or stay in batch-analysis tier.',
+      },
+      {
+        label: 'Q3 2026 go-live latency',
+        value: 'Subnet ships when ad-tech moves quarterly',
+        note: 'Halftime\'s "planned go-live Q3 2026" is months out. Ad-tech evolves quarterly (new platform policies, Chrome Privacy Sandbox phases). Subnet ships into a moving target — has to choose between launching shipping-ready or shipping perfect.',
+      },
+      {
+        label: 'Adobe Creative Cloud integration',
+        value: 'Creative pipeline runs on Adobe',
+        note: 'Real creative workflows use Photoshop + Premiere + After Effects. Adobe Firefly + Sensei AI integrate natively. Subnet multimodal-intelligence outputs without Adobe plugin support stay disconnected from the creative bench.',
+      },
+    ],
+  },
+
+  /* SN32 ItsAI (its-ai.org) — High-quality AI text detection.
+     Rivals: Hive AI, GPTZero, Turnitin, Originality.ai. */
+  32: {
+    rivals: ['hive-ai', 'patronus-ai', 'lakera', 'hugging-face', 'anthropic', 'openai'],
+    supplyChainIds: ['nvidia', 'aws-azure-gcp'],
+    constraints: [
+      {
+        label: 'False-positive rate on human text',
+        value: 'GPTZero: ~15% FP rate on academic writing',
+        note: 'AI-text detectors flag human writers regularly — especially ESL + formal academic prose. Centralized rivals manage this; subnet validator scoring must penalize FP heavily or the product damages innocent humans (students, journalists).',
+      },
+      {
+        label: 'Model-version arms race',
+        value: 'Each new frontier model breaks old detectors',
+        note: 'GPT-5, Claude 4 outputs are harder to detect than GPT-3.5. Detector training has to keep pace. Subnet retrain cadence has to match frontier-model release cycle (~quarterly) or accuracy decays.',
+      },
+      {
+        label: 'Adversarial-paraphrasing surface',
+        value: 'Quillbot + DeepL break most detectors',
+        note: 'Users paraphrase AI output through Quillbot to bypass detectors. Robustness against paraphrasing is the active research front. Subnet detector must benchmark against paraphrase attacks or readers find easy bypasses.',
+      },
+      {
+        label: 'Legal-evidence admissibility',
+        value: 'No US court has accepted AI-detector output yet',
+        note: 'Academic disciplinary use + employment screening generate lawsuits. Centralized rivals position carefully ("indicative, not conclusive"). Subnet has to make same legal-positioning explicit or face the same litigation surface.',
+      },
+    ],
+  },
+
+  /* SN41 Almanac — Incentivized market intelligence. Rivals:
+     Bloomberg, Palantir, Quantexa, Snowflake, AlphaSense. */
+  41: {
+    rivals: ['palantir', 'quantexa', 'snowflake', 'bloomberg-feed', 'jane-street', 'numerai'],
+    supplyChainIds: ['bloomberg-feed', 'cme-nyse-access', 'aws-azure-gcp'],
+    constraints: [
+      {
+        label: 'Source-coverage breadth',
+        value: 'Bloomberg covers ~40K data points/security',
+        note: 'Bloomberg Terminal aggregates filings, news, earnings, alt-data on every public security. Replicating breadth at decentralized scale needs multi-source ingest + entity resolution. Subnet has to either narrow to a niche or accept incomplete coverage.',
+      },
+      {
+        label: 'Insider-trading + MNPI surface',
+        value: 'Market intelligence touches material non-public info',
+        note: 'Real market-intel work brushes against MNPI rules (SEC, MAR). Centralized rivals have compliance officers. Subnet miners contributing data face the same surface without the legal infrastructure.',
+      },
+      {
+        label: 'Real-time vs research depth',
+        value: 'Bloomberg: real-time · Almanac: research-grade',
+        note: 'Different customers want different latencies. HFT shops want millisecond ticks; long-only funds want monthly research. Subnet has to commit to a tier — covering both means losing focus.',
+      },
+      {
+        label: 'Miner-incentive vs signal-quality',
+        value: 'Pay-per-data attracts noise',
+        note: 'Incentivizing market intel pays for contribution. Without strong validator scoring, miners flood low-quality signals. Numerai\'s staked-prediction model addresses this; subnet validator design must adopt or face data-quality erosion.',
+      },
+    ],
+  },
+
+  /* SN54 Yanez MIID — Synthetic identities for financial-crime
+     prevention. Rivals: Hawk:AI, ComplyAdvantage, Chainalysis,
+     Quantexa, Palantir, SAS. */
+  54: {
+    rivals: ['quantexa', 'palantir', 'chainlink-oracles', 'snowflake', 'patronus-ai', 'hive-ai'],
+    supplyChainIds: ['nvidia', 'aws-azure-gcp', 'cloudflare-edge'],
+    constraints: [
+      {
+        label: 'Adversarial-realism bar',
+        value: 'Bank fraud teams catch test-identities in <1hr',
+        note: 'High-quality synthetic identities for AML testing have to fool real fraud-detection systems. Quantexa + Palantir spend years tuning detectors. Subnet synthetic identities have to pass adversarial bar or the testing value collapses.',
+      },
+      {
+        label: 'Privacy laundering risk',
+        value: 'Same tech enables real-world fraud',
+        note: 'Synthetic identities tested defensively can be repurposed offensively (synthetic-identity fraud is a $20B+/yr problem). Subnet has to either gate access (KYC for users — defeats decentralization) or accept the dual-use surface.',
+      },
+      {
+        label: 'Population-statistics fidelity',
+        value: 'Names + addresses + SSN patterns + behaviors',
+        note: 'Useful synthetic identities reproduce real population statistics (Bayesian priors on name × demographics × geography × behavior). Centralized rivals invest in this. Subnet has to commit similar effort or produce identities that don\'t replicate real-world fraud patterns.',
+      },
+      {
+        label: 'Regulatory acceptance',
+        value: 'Banks need regulator-approved test data',
+        note: 'Bank AML systems are regulator-tested. Synthetic data used for AML testing has to be regulator-approved (or at least defensible). Subnet anonymous-miner synthetic data without provenance trail can\'t be used in regulated tests.',
+      },
+    ],
+  },
+
+  /* SN70 NexisGen — The dataset engine of decentralized AI.
+     Rivals: Scale AI, Hugging Face datasets, Snowflake,
+     Databricks, Bright Data. */
+  70: {
+    rivals: ['scale-ai', 'hugging-face', 'snowflake', 'databricks', 'bright-data', 'apify'],
+    supplyChainIds: ['aws-azure-gcp', 'cloudflare-edge', 'us-power-grids'],
+    constraints: [
+      {
+        label: 'Annotation-quality gap',
+        value: 'Scale AI: 20K+ annotators with QA',
+        note: 'Real training-dataset quality depends on annotation quality. Scale AI runs dedicated annotator workforces. Subnet crowd-sourced annotations need validator-scored quality checks or labels are noisy enough to hurt downstream training.',
+      },
+      {
+        label: 'Domain-specialized data licensing',
+        value: 'Medical + legal data behind walls',
+        note: 'High-value training data (medical records, legal filings, finance data) lives in licensed silos. Subnet "dataset engine" has to navigate domain-specific licensing or focus on commons-available data where it competes with free Hugging Face datasets.',
+      },
+      {
+        label: 'AI-lab demand specificity',
+        value: 'Frontier labs want specific data, not generic',
+        note: 'OpenAI + Anthropic want specific reasoning traces, code, math. Generic scraped data has saturated. Subnet has to ship targeted-collection capability or accept commodity-data pricing.',
+      },
+      {
+        label: 'Synthetic-data substitution',
+        value: 'Frontier labs increasingly synthesize',
+        note: 'OpenAI o1 + Anthropic increasingly train on synthetic data + RL trajectories rather than human-labeled. Demand for human-labeled data may stagnate. Subnet has to anticipate this shift or focus on data types synthetic can\'t replace.',
       },
     ],
   },
