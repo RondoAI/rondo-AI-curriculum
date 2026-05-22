@@ -1155,6 +1155,39 @@ export const COMPETITORS = [
     why: 'Cross-chain messaging + Portal Bridge — connects 30+ chains. Massively hacked in 2022 ($320M) but recovered + scaled. Rival for cross-chain liquidity subnets; Wormhole\'s scale is the security floor any new bridge has to clear.',
   },
   {
+    id: 'blackrock',
+    name: 'BlackRock',
+    ticker: 'BLK',
+    mcap: 175_000_000_000,
+    source: 'public',
+    sectors: ['finance'],
+    url: 'https://www.blackrock.com',
+    why: 'World\'s largest asset manager ($11.5T AUM). IBIT (Bitcoin spot ETF) accumulated $50B+ since 2024 launch; BUIDL tokenized treasury fund is the institutional on-chain anchor. Subnet "decentralized AUM" pitches compete with the BlackRock distribution + trust moat.',
+    delta24h: 0.2,
+    aliases: ['BLK', 'IBIT', 'BUIDL'],
+  },
+  {
+    id: 'anchorage-digital',
+    name: 'Anchorage Digital',
+    ticker: 'PRIVATE',
+    mcap: 3_000_000_000,
+    source: 'private',
+    sectors: ['finance'],
+    url: 'https://anchorage.com',
+    why: 'OCC-chartered crypto bank — institutional custody + staking + lending. ~$50B AUC. Direct rival for any subnet pitching tokenized investment products to institutional readers; Anchorage owns the regulated-custody moat.',
+  },
+  {
+    id: 'chainlink-ccip',
+    name: 'Chainlink CCIP',
+    ticker: 'LINK',
+    mcap: 12_000_000_000,
+    source: 'private',
+    sectors: ['finance', 'infra'],
+    url: 'https://chain.link/cross-chain',
+    why: 'Chainlink\'s Cross-Chain Interoperability Protocol — institutional-grade cross-chain messaging + token transfer. Risk-management framework. Direct rival for cross-chain liquidity subnets; SN106 explicitly uses CCIP as a building block.',
+    aliases: ['LINK', 'CCIP'],
+  },
+  {
     id: 'numerai',
     name: 'Numerai',
     ticker: 'NMR',
@@ -2236,6 +2269,42 @@ export const BY_NETUID = {
     ],
   },
 
+  /* SN88 Investing — "Decentralized AUM" (live identity per
+     taostats 2026-05-22, investing88.ai). On-chain asset
+     management. Rival pool is the centralized asset-manager
+     stack plus tokenized-fund pioneers. */
+  88: {
+    rivals: ['blackrock', 'anchorage-digital', 'coinbase', 'binance', 'yearn-finance', 'aave-labs'],
+    supplyChainIds: ['ethereum-l1-gas', 'chainlink-oracles', 'aws-azure-gcp'],
+    constraints: [
+      {
+        label: 'Distribution moat',
+        value: 'BlackRock IBIT: $50B+ AUM in 18 months',
+        note: 'Centralized AUM is distribution-bound — BlackRock + Fidelity + Vanguard own retirement-account + advisor-channel access. Subnet "decentralized AUM" has α emission as the recruiting tool but no direct path into IRA / 401k accounts where most US savings live.',
+      },
+      {
+        label: 'Fiduciary liability surface',
+        value: 'RIA fiduciary duty = personal liability',
+        note: 'Asset managers in the US carry fiduciary duty (SEC RIA + state regs). Subnet miners executing trades on behalf of users either need RIA registration (kills decentralization) or accept that the product can\'t serve US accredited / retail without restructuring.',
+      },
+      {
+        label: 'Tax-lot accounting',
+        value: 'Each trade triggers a 1099-B in the US',
+        note: 'On-chain trade activity creates tax events users have to report. Centralized rivals (Robinhood, Coinbase) ship cost-basis tracking + 1099 forms. Subnet AUM products need an integration with a tax-tracking partner (Koinly, TokenTax) or readers can\'t comply.',
+      },
+      {
+        label: 'Strategy verification',
+        value: 'Closed-source quant funds vs open-source subnet',
+        note: 'Centralized funds publish marketing materials but not strategies. Subnet AUM strategies are on-chain visible — front-running, copying, and gaming are easier. Validators have to obscure strategies via zero-knowledge proofs or accept structural alpha leak.',
+      },
+      {
+        label: 'AUM-fee economics',
+        value: 'ETF: 0.15-0.50% / yr · subnet emission as proxy',
+        note: 'Centralized fund fees compressed to 15-50 bps. Subnet AUM products fund operations via α emission — but if α price drops, validator + miner economics break. Long-term sustainability needs either AUM fees on top of emission or much more efficient operations.',
+      },
+    ],
+  },
+
   /* SN35 OxMarkets — "Liquidity-as-a-Service subnet powering
      0xMarkets - a permissionless perp DEX for FX, crypto, and
      commodities" (live identity per taostats 2026-05-22,
@@ -2791,6 +2860,154 @@ export const BY_NETUID = {
         label: 'Regulatory framing',
         value: 'TAO + α securities classification unclear',
         note: 'US securities law on TAO + α tokens is ambiguous (Bittensor Foundation has filed positions but no SEC ruling). Lending against tokens that could be classified as unregistered securities exposes the protocol to enforcement. Aave moved Aave Arc to address this; TaoLend operates outside US until clarity.',
+      },
+    ],
+  },
+
+  /* SN98 ForeverMoney — "Decentralized intelligence for advanced
+     liquidity management" (live identity per taostats 2026-05-22,
+     forevermoney.ai). AI-driven liquidity management — bot
+     strategies that optimize LP positioning. Rival pool is the
+     LP-management + active-DeFi space. */
+  98: {
+    rivals: ['yearn-finance', 'morpho-labs', 'uniswap', 'aave-labs', 'gmx', 'hyperliquid'],
+    supplyChainIds: ['ethereum-l1-gas', 'chainlink-oracles', 'aws-azure-gcp'],
+    constraints: [
+      {
+        label: 'Strategy frontrunning',
+        value: 'On-chain moves visible 1 block before settlement',
+        note: 'AI-driven LP management strategies are on-chain visible — front-runners can sandwich the rebalance. Centralized rivals (CitadelBank, Galaxy Digital) operate in private order flow. Subnet strategies need MEV-protected execution (Flashbots / private mempools) or accept structural alpha leak.',
+      },
+      {
+        label: 'Rebalancing gas cost',
+        value: 'L1: $5-50 per rebalance · L2: $0.05-0.50',
+        note: 'Active LP management requires frequent rebalancing. L1 Ethereum gas at $5-50 per rebalance eats yield. Subnet must operate primarily on L2s (Arbitrum, Base, Polygon) or accept that L1 strategies only work at large position sizes.',
+      },
+      {
+        label: 'Backtest-overfit risk',
+        value: 'In-sample 200% APR → live 20%',
+        note: 'AI strategies tested on historical data overfit. Centralized quant funds use out-of-sample / walk-forward eval rigorously. Subnet validator scoring on backtest performance ships overfit strategies live — losses compound until validators add live-performance weighting.',
+      },
+      {
+        label: 'Multi-protocol risk surface',
+        value: 'Each protocol = independent exploit risk',
+        note: 'Active LP management spans Aave, Uniswap, Curve, Pendle, Morpho. Each is one exploit away from zeroing the strategy. Centralized risk-managed funds limit per-protocol exposure. Subnet strategies aggregate the risk; one protocol hack cascades to subnet TVL.',
+      },
+      {
+        label: 'Yield-stripping vs whales',
+        value: 'Whales eat LP yield first',
+        note: 'Whale LPs (Curve veCRV, Aave aTokens) capture disproportionate yield. Subnet small-LP miners get the residual. Active management can squeeze marginal yield but the structural advantage stays with concentrated capital.',
+      },
+    ],
+  },
+
+  /* SN106 VoidAI — "Multi-chain liquidity protocol enabling
+     interoperability for Bittensor by leveraging Chainlink CCIP"
+     (live identity per taostats 2026-05-22, voidai.com). Cross-
+     chain liquidity for Bittensor. Rivals are the cross-chain
+     infrastructure leaders. */
+  106: {
+    rivals: ['chainlink-ccip', 'layerzero', 'wormhole', 'uniswap', 'aave-labs'],
+    supplyChainIds: ['ethereum-l1-gas', 'chainlink-oracles', 'aws-azure-gcp'],
+    constraints: [
+      {
+        label: 'Bridge exploit history',
+        value: '~$2.8B lost to cross-chain bridge hacks 2021-2024',
+        note: 'Cross-chain bridges are the highest-loss attack surface in DeFi (Ronin $625M, Wormhole $320M, Nomad $190M). Any subnet pitching cross-chain liquidity inherits the historical security skepticism — auditing posture has to be visibly stronger than the centralized rivals.',
+      },
+      {
+        label: 'Chainlink CCIP dependency',
+        value: 'Subnet ride-along on Chainlink validators',
+        note: 'CCIP is Chainlink-validator-secured. VoidAI explicitly leverages CCIP — the subnet\'s security is bounded by Chainlink\'s. That\'s a strong dependency: if Chainlink validators collude or get exploited, VoidAI inherits the loss.',
+      },
+      {
+        label: 'Liquidity fragmentation across chains',
+        value: 'Same asset deeper on origin than destination',
+        note: 'Tokens trade with deeper liquidity on their origin chain. Cross-chain LPs amplify the fragmentation by adding wrapped-asset variants. Subnet has to either incentivize concentrated liquidity on key chains or accept worse fills than native pools.',
+      },
+      {
+        label: 'Settlement latency',
+        value: 'CCIP: 20min-2hr finality vs L2 instant',
+        note: 'Cross-chain settlement via CCIP / LayerZero takes minutes to hours for finality (depends on chain). L2 bridges (Across, Stargate) optimize for speed at higher fees. Subnet has to pick the latency/cost tradeoff per use case.',
+      },
+      {
+        label: 'Bittensor-specific demand',
+        value: 'Sub-$1B Bittensor TVL = small TAM',
+        note: 'Bittensor ecosystem TVL is well below $1B as of 2026. Cross-chain liquidity demand into / out of Bittensor is limited compared to Ethereum / Solana. Subnet captures small percentage of small pie — viability depends on Bittensor TVL growth.',
+      },
+    ],
+  },
+
+  /* SN113 TensorUSD — "A reserve-backed stablecoin designed to
+     support 1:1 redeemability for US Dollar within the Bittensor
+     ecosystem" (live identity per taostats 2026-05-22,
+     tensorusd.com). USD-pegged stablecoin for Bittensor. Rival
+     pool is the established stablecoin issuers. */
+  113: {
+    rivals: ['tether', 'circle-usdc', 'makerdao-sky', 'aave-labs', 'spark-protocol'],
+    supplyChainIds: ['ethereum-l1-gas', 'chainlink-oracles', 'aws-azure-gcp', 'us-power-grids'],
+    constraints: [
+      {
+        label: 'Reserve audit & attestation',
+        value: 'USDC: monthly Deloitte · USDT: quarterly BDO',
+        note: 'Stablecoin trust depends on visible reserves. USDC publishes monthly Deloitte attestations; USDT quarterly BDO. TensorUSD has to commit to comparable audit cadence + reserve composition disclosure or readers default to Tether / USDC for non-Bittensor surfaces.',
+      },
+      {
+        label: 'Redeemability surface',
+        value: 'USDC: 24hr ACH · USDT: KYC-required redemption',
+        note: '1:1 redeemability requires actual fiat rails. Circle ships 24hr ACH for verified accounts; Tether requires KYC + minimum redemption ($100K). TensorUSD has to ship a redemption stack — banks, KYC vendor, treasury operations. None of that is a smart contract.',
+      },
+      {
+        label: 'Bittensor-only adoption ceiling',
+        value: 'CEXes won\'t list a single-ecosystem stablecoin',
+        note: 'Centralized exchanges list stablecoins with cross-ecosystem usage. A stablecoin only usable inside Bittensor will not get Binance / Coinbase / Kraken listings — capping the path to the deep liquidity USDC + USDT have.',
+      },
+      {
+        label: 'Regulatory clarity',
+        value: 'STABLE Act + EU MiCA stablecoin rules tightening',
+        note: 'US (STABLE Act path) + EU (MiCA Title III stablecoin rules) are tightening. Issuers need capital, regulated entity status, and reserve segregation. Decentralized issuance (MakerDAO model) survives but with friction. TensorUSD has to pick a regulatory posture or accept jurisdictional limits.',
+      },
+      {
+        label: 'Peg-defense mechanism',
+        value: 'DAI broke peg to $0.87 in March 2023 (SVB)',
+        note: 'Even reserve-backed stablecoins break peg under stress (USDC dropped to $0.87 during SVB collapse). Centralized issuers had Fed backstop via deposit insurance. TensorUSD reserves\' jurisdiction + counterparty risk determines peg resilience.',
+      },
+    ],
+  },
+
+  /* SN127 Astrid — "The capital axis for Bittensor" (live
+     identity per taostats 2026-05-22, astrid.global). Capital-
+     infrastructure / asset-tokenization for Bittensor. Rival
+     pool is the institutional crypto-finance stack + tokenized-
+     RWA leaders. */
+  127: {
+    rivals: ['blackrock', 'anchorage-digital', 'aave-labs', 'makerdao-sky', 'coinbase'],
+    supplyChainIds: ['ethereum-l1-gas', 'chainlink-oracles', 'aws-azure-gcp'],
+    constraints: [
+      {
+        label: 'Tokenization regulatory framework',
+        value: 'RWA tokens fall under securities law',
+        note: 'Tokenizing real-world assets (T-bills, treasury bonds, equities) triggers securities registration. BlackRock BUIDL + Ondo Finance use Reg D + Reg S exemptions for accredited investors only. Subnet "capital axis" needs the same legal structure or accepts a limited user base.',
+      },
+      {
+        label: 'Custody bifurcation',
+        value: 'On-chain token + off-chain RWA = 2 trust chains',
+        note: 'Tokenized RWAs require off-chain custody (T-bill held by BNY Mellon, etc) AND on-chain token issuance. Centralized rivals own both ends. Decentralized subnet has to either partner with a regulated custodian (centralization regress) or accept that the tokens lack institutional credibility.',
+      },
+      {
+        label: 'Yield-distribution mechanics',
+        value: 'On-chain yield needs off-chain payment rails',
+        note: 'A tokenized T-bill paying 4.5% needs the issuer to actually pay yield on-chain. That requires fiat rails + token-mint operations. BlackRock + Ondo run this; subnet capital-axis has to build similar infrastructure or accept yield-token shortcuts (rebasing tokens, etc).',
+      },
+      {
+        label: 'Institutional onboarding pace',
+        value: 'KYC + accredited-investor verification = weeks',
+        note: 'Institutional capital onboards slowly. Centralized custodians (Anchorage, Coinbase Institutional) have weeks-long onboarding processes. Subnet that wants institutional capital inherits the same friction — and α emission can\'t accelerate compliance work.',
+      },
+      {
+        label: 'Bittensor-specific TAM ceiling',
+        value: 'Single-ecosystem capital-infra has bounded demand',
+        note: 'Tokenized RWAs scale with the demand for on-chain treasury / yield products. Bittensor TVL is sub-$1B; "capital axis for Bittensor" alone is a small pie. Multi-chain expansion is necessary for material scale but adds the cross-chain infrastructure surface (per SN106 constraints).',
       },
     ],
   },
