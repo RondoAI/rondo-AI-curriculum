@@ -2826,6 +2826,15 @@
        fills remaining space), sidebar second cell (right,
        clamped between 280px and 32% of the row). */
     grid-template-columns: 1fr minmax(280px, 32%);
+    /* The base rule sets `flex: 1` + `min-height: 0` (flex-blow-
+       out guard). Together that collapsed the row to 177px while
+       the canvas-wrap (min-height:540) overflowed past it,
+       letting the pan-history nav float ON TOP OF the sidebar's
+       rival profile body. Switch to `flex: 0 0 540px` so the row
+       takes EXACTLY 540 in the cockpit__main column-flex; the
+       chart canvas + sidebar both anchor to that, and the nav
+       sits cleanly below. */
+    flex: 0 0 540px !important;
   }
 }
 
