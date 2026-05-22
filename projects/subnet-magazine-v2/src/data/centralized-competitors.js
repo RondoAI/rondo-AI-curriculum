@@ -1471,6 +1471,47 @@ export const BY_NETUID = {
     ],
   },
 
+  /* SN60 Bitsec.ai — "find and fix exploits in codebases" (live
+     identity per taostats 2026-05-22; local subnets.js still
+     carries stale "Snowballer / data" row). Direct adjacent to
+     SN61 RedTeam but the cut is different: RedTeam runs
+     competitive challenges around security solutions; Bitsec
+     scans existing codebases for vulns + ships patches. The
+     rival pool mirrors GitHub Copilot Autofix + Semgrep + Snyk
+     + the autonomous-vuln-discovery shops (XBOW Mythos2) more
+     than the audit firms. */
+  60: {
+    rivals: ['xbow', 'protect-ai', 'hiddenlayer', 'adversa-ai', 'anthropic', 'openai'],
+    supplyChainIds: ['nvidia', 'aws-azure-gcp', 'cloudflare-edge'],
+    constraints: [
+      {
+        label: 'Repo-scale context window',
+        value: '~100K-1M LOC per scan',
+        note: 'Real codebases run 100K+ lines. Frontier LLMs (Claude 3.7 200K context, Gemini 2M) can ingest most repos in one shot — XBOW + GitHub Copilot Workspace leverage this. Subnet miners running smaller models have to chunk + summarize, which loses cross-file vulnerability patterns.',
+      },
+      {
+        label: 'False-positive rate',
+        value: 'Static analyzers run 30-70% FP',
+        note: 'Semgrep, CodeQL, Snyk all flag noise; security teams ignore most alerts. Decentralized scanning has the same surface — miners optimizing for "found a vuln" will produce more FPs unless validator scoring penalizes them harder than rewarding finds.',
+      },
+      {
+        label: 'Patch correctness verification',
+        value: 'Generated fixes break tests at 20-40%',
+        note: 'Auto-generated patches frequently break existing tests or introduce regressions. GitHub Copilot Autofix ships gated by CI; subnet must enforce test-pass verification before crediting a fix or readers see broken PRs land.',
+      },
+      {
+        label: 'Vuln-disclosure timing',
+        value: 'Patch-then-disclose, 90-day windows',
+        note: 'Industry norm: fix lands, then public disclosure 90 days later. On-chain subnet activity is public by default — submitting unpatched vulns to miners burns the responsible-disclosure norm. Validator workflow has to gate this or face vendor lockout.',
+      },
+      {
+        label: 'Dual-use weaponization',
+        value: 'Vuln-finding ≈ exploit-writing',
+        note: 'A model trained to find exploits can be coaxed to write them. XBOW + Anthropic + OpenAI have internal-use policies + customer agreements gating this. Decentralized subnet — by design open — has to address dual-use surface in validator rules.',
+      },
+    ],
+  },
+
   /* SN61 RedTeam by Innerworks — Cybersecurity competitive
      programming (live identity per taostats 2026-05-22;
      local subnets.js had the stale "Red-Team Labs" + science
