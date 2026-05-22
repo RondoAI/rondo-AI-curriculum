@@ -2896,17 +2896,30 @@
      Same color as every other inter-pane border in the cockpit
      so the seam disappears into the design language. */
   border-left: 1px solid var(--c-rule);
-  /* Sidebar participates in PAGE scroll, not its own scroll
-     container. Earlier we used `overflow-y: auto` +
-     `overscroll-behavior: contain` so the sidebar could scroll
-     internally on desktop. That trapped scroll on mobile — and
-     even on desktop it broke the page-level scroll chain at
-     the bottom of the SIGNALS list. Letting the sidebar grow
-     with its content + scroll the page is the simpler, more
-     trader-grade behavior. */
+  /* Sidebar participates in PAGE scroll (no internal scroll
+     container) by default to avoid the mobile scroll-trap Rondo
+     hit on 2026-05-20. The desktop block below restores a tight
+     internal scroll once the row is fixed-height — without it the
+     sidebar's natural content height (~1400px from competitor
+     profiles + signals + vitals + movers) overflows past the row
+     end and visually stacks ON TOP OF the cock-folds below the
+     chart row. On desktop where touch isn't the input model, an
+     internal scroll inside a fixed-height sidebar is the right
+     pattern; mobile keeps overflow:visible because the sidebar
+     stacks below the chart and scroll-trap is real on touch. */
   overflow: visible;
   scrollbar-width: thin;
   scrollbar-color: var(--c-red) transparent;
+}
+/* Desktop: cap sidebar height to the chart-row's 540px floor +
+   give it its own scrollable axis. Mobile (≤900px) keeps the
+   natural-height + page-scroll behavior. */
+@media (min-width: 901px){
+  .cock-chart__side{
+    max-height: 540px;
+    overflow-y: auto;
+    overscroll-behavior: contain;
+  }
 }
 .cock-chart__side::-webkit-scrollbar{ width: 4px; }
 .cock-chart__side::-webkit-scrollbar-thumb{
