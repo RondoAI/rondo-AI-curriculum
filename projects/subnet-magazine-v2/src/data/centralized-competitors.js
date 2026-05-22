@@ -869,6 +869,42 @@ export const COMPETITORS = [
     delta24h: -0.4,
     aliases: ['ADBE', 'Firefly'],
   },
+
+  /* ---------- LLM routing / aggregator (PatRouter profile) ---------- */
+  {
+    id: 'openrouter',
+    name: 'OpenRouter',
+    ticker: 'PRIVATE',
+    mcap: 180_000_000,
+    source: 'private',
+    sectors: ['agents', 'text'],
+    url: 'https://openrouter.ai',
+    why: 'The dominant LLM routing layer — picks model + price per prompt across 300+ models from every major provider. THE direct centralized rival for any subnet routing across model marketplaces; readers comparing decentralized routers should know OpenRouter is the price-floor they have to beat.',
+    aliases: ['OpenRouter.ai'],
+  },
+
+  /* ---------- LLM-driven agent benchmarks / arenas (AgentArena profile) ---------- */
+  {
+    id: 'lmsys-chatbot-arena',
+    name: 'LMSYS Chatbot Arena',
+    ticker: 'NONPROFIT',
+    mcap: null,
+    source: 'private',
+    sectors: ['agents', 'text'],
+    url: 'https://chat.lmsys.org',
+    why: 'Human-vote LLM ranking arena from UC Berkeley LMSYS — the de facto industry leaderboard most labs cite. Decentralized agent-vs-agent benchmarks have to either match its sample size (~1M votes) or differentiate on task realism / tool-use depth.',
+    aliases: ['LMSYS', 'Chatbot Arena'],
+  },
+  {
+    id: 'evidently-ai',
+    name: 'Evidently AI',
+    ticker: 'PRIVATE',
+    mcap: 90_000_000,
+    source: 'private',
+    sectors: ['agents'],
+    url: 'https://evidentlyai.com',
+    why: 'Open-source LLM observability + eval toolkit, ~25K GitHub stars. Strong rival in the offline-eval space — subnet benchmark arenas have to surface signal Evidently can\'t (live competitive matchups, head-to-head ranking).',
+  },
 ];
 
 /* =================================================================
@@ -2039,6 +2075,122 @@ export const BY_NETUID = {
         label: 'Time-to-resolution',
         value: 'Hours-to-months',
         note: 'Election markets resolve in months. Sports / events in hours. Decentralized must handle both timescales for capital lock-up and oracle finality.',
+      },
+    ],
+  },
+
+  /* SN56 Gradients — No-code finetuning service, miners auto-
+     train, validators score eval loss. The Rayon Labs "G.O.D"
+     codebase. Rivals are the hosted finetuning markets where
+     a customer pastes a dataset + clicks "finetune" and a
+     model URL comes back. Hugging Face AutoTrain is the free
+     anchor; Together AI + Replicate + Modal are the paid
+     finetune-as-a-service tier; Databricks (post-Mosaic
+     acquisition) is the enterprise tier. */
+  56: {
+    rivals: ['hugging-face', 'together-ai', 'replicate', 'modal-labs', 'databricks'],
+    supplyChainIds: ['nvidia', 'tsmc', 'sk-hynix', 'aws-azure-gcp'],
+    constraints: [
+      {
+        label: 'GPU $/finetune-hour',
+        value: 'H100 ≈ $2-4/hr · A100 ≈ $1-2/hr',
+        note: 'Finetuning markets are GPU-cost-bound — every $0.10 spread between providers compresses the subnet\'s reward margin. CoreWeave + Lambda set the floor; subnet miners have to undercut it on amortized cost or beat on eval-loss quality.',
+      },
+      {
+        label: 'Eval-loss objective gaming',
+        value: 'Reward-hacking surface',
+        note: 'Miners optimize what validators score. If the eval metric is loss on a held-out set, miners overfit to that set\'s distribution; if it\'s MMLU/HELM, contamination during pretraining hides the cheat. Validator score function design IS the subnet\'s defense.',
+      },
+      {
+        label: 'Customer dataset privacy',
+        value: 'Tenant-isolation hard on shared GPUs',
+        note: 'Centralized rivals run dedicated tenancy + signed BAAs for HIPAA / finance customers. A decentralized subnet has miners on commodity hardware — proving dataset doesn\'t leak between finetune jobs is an unsolved trust problem.',
+      },
+      {
+        label: 'Base-model licensing',
+        value: 'Llama / Mistral / Qwen ToS',
+        note: 'Most finetune jobs start from a base model with a license (Llama 3 forbids competitive use against Meta; Mistral has commercial gates). Subnet miners inherit these licenses — and customers using the output do too.',
+      },
+      {
+        label: 'Time-to-first-checkpoint',
+        value: 'Centralized: minutes · Subnet: hours-days',
+        note: 'AutoTrain / Together return a checkpoint in 10-60 minutes for typical LoRA jobs. Subnet finetune competitions run for 12-48 hours by design (multi-miner training rounds). That latency gap is the centralized rival\'s primary moat.',
+      },
+    ],
+  },
+
+  /* SN59 AgentArena — Agent-vs-agent benchmark arena for tool
+     use and planning. Rivals are the centralized agent
+     evaluation platforms. LMSYS Chatbot Arena is the gold
+     standard for human-vote ranking; Scale AI + Patronus +
+     Lakera + Robust Intelligence run the enterprise eval
+     stack; Evidently is the open-source offline-eval anchor. */
+  59: {
+    rivals: ['lmsys-chatbot-arena', 'scale-ai', 'patronus-ai', 'lakera', 'robust-intelligence', 'evidently-ai'],
+    supplyChainIds: ['nvidia', 'aws-azure-gcp'],
+    constraints: [
+      {
+        label: 'Eval cost per agent run',
+        value: '$0.10-$1+ per matchup',
+        note: 'Each agent vs. agent matchup burns tokens on both sides plus a judge LLM. Centralized rivals (LMSYS) crowdsource human votes — effectively free judging. Subnet validators paying judge-token costs need a defensible reward structure to stay solvent.',
+      },
+      {
+        label: 'Benchmark contamination',
+        value: '6-12 month leak cycle',
+        note: 'Published agent benchmarks (SWE-bench, GAIA, AgentBench) leak into training data within 6-12 months of release. Frontier labs train against them, scores inflate, ranking becomes meaningless. Subnet must rotate held-out test sets faster than centralized rivals refresh.',
+      },
+      {
+        label: 'Task realism vs. reproducibility',
+        value: 'Real-world tasks are stochastic',
+        note: 'Synthetic agent tasks (calculator chains, function calls) are reproducible but feel toy. Real tasks (book a flight, refactor a repo) carry external state — different runs hit different prices / repo states. Subnet ranking has to control for this or readers won\'t trust the leaderboard.',
+      },
+      {
+        label: 'Judge-LLM bias',
+        value: 'Self-preferencing measured at 5-15%',
+        note: 'GPT-4 judging GPT-4 outputs vs Claude: documented self-preference bias. Subnet arenas using a single judge LLM inherit its biases; using a panel of judges multiplies eval cost. LMSYS sidesteps via human vote — subnet must either crowdsource humans or rotate judges.',
+      },
+      {
+        label: 'Tool-use surface coverage',
+        value: '100+ distinct tools in production agents',
+        note: 'Real agents use search, code-exec, file-read, browsers, APIs, vector DBs, payment rails. A benchmark covering 5 tools is a toy; covering 100 needs an environment harness as complex as the agents themselves. Centralized rivals (Scale AI) charge enterprise prices for these harnesses.',
+      },
+    ],
+  },
+
+  /* SN81 PatRouter — Routing agent, picks best model+price
+     per prompt across all subnets. Rivals are the LLM
+     aggregators / routers that READERS would compare against:
+     OpenRouter is THE direct rival, Together / Replicate /
+     Cohere all run model marketplaces, Perplexity has
+     internal routing for its search products. */
+  81: {
+    rivals: ['openrouter', 'together-ai', 'replicate', 'cohere', 'perplexity'],
+    supplyChainIds: ['nvidia', 'aws-azure-gcp', 'cloudflare-edge'],
+    constraints: [
+      {
+        label: 'Routing latency budget',
+        value: 'Adds 50-200ms per prompt',
+        note: 'OpenRouter measures own routing overhead at ~80ms p50. A subnet router does miner-discovery + price-discovery + model-call — easily 150-250ms before the model even sees the prompt. For chat UIs (200-400ms total budget) that\'s a meaningful tax.',
+      },
+      {
+        label: 'Cost-arbitrage half-life',
+        value: 'Provider price spreads compress monthly',
+        note: 'OpenRouter\'s margin survived because providers (Together, Fireworks, Anyscale) maintained pricing spreads. As they competed those spreads compressed to <10% on commodity models. Subnet router has the same exposure: arbitrage value drops as Bittensor inference subnets converge on a price.',
+      },
+      {
+        label: 'Quality-routing scoring',
+        value: 'No standard "best model" metric',
+        note: 'Cheapest is easy. Fastest is easy. "Best quality for this prompt" requires per-task scoring — and prompts vary wildly. PatRouter has to either ship a quality predictor (more LLM cost) or default to cheapest-that-works, in which case it\'s an OpenRouter clone.',
+      },
+      {
+        label: 'Provider lock-in / rate limits',
+        value: 'Sudden API changes break routing',
+        note: 'Anthropic, OpenAI, Together publish rate limits + pricing — all can change with 30-day notice. Subnet router decisions cached on old prices route badly when prices flip. Real-time price discovery costs an API call per route — adds latency.',
+      },
+      {
+        label: 'Meta-position vs other subnets',
+        value: 'Routes ACROSS Apex/Targon/Cortex.t/etc',
+        note: 'PatRouter is meta-layered on the same chain — its mining incentive depends on the underlying subnets it routes to staying healthy. If Apex or Targon deregister, PatRouter\'s routing pool shrinks. Centralized rivals don\'t carry this intra-ecosystem dependency.',
       },
     ],
   },
