@@ -5,6 +5,106 @@ entries.
 
 ---
 
+## 2026-05-23 (Session 7) — Repo Split, Comparison Refresh, `<=` Graduation, Boolean Operators, Compound Predicates (in progress)
+
+Covered: 10-day gap since Session 6. Two big movements. (1) **Repo
+split.** Subneτ Magazine work + all three subnet projects
+(`subnet-magazine`, `subnet-magazine-v2`, `subnet-terminal-v3`)
+extracted from `RondoAI/rondo-AI-curriculum` to a dedicated
+`RondoAI/subnet-magazine` via `git subtree split` with 594
+magazine-touching commits + full history preserved. Curriculum
+CLAUDE.md trimmed 2,945 → 132 lines (curriculum-core only —
+Identity, Constraints, Two-Terminal Workflow, Curriculum phases,
+Books, Practitioner Habits, File Conventions, How Claude Operates).
+All magazine-scoped rules (NodeSphere E8 lock, const founder
+feedback, monetization plan, 22 mac-session ↔ sandbox-session
+coordination logs) transplanted to the new repo's CLAUDE.md. Old
+commit-pinned URLs preserved via git history; latest-branch URLs
+serve MIGRATED.md pointers. Repo description relabeled to make
+Python self-education the unambiguous public face. (2) **Python
+refresh + forward beats.** Rondo named "MIT-level depth, not slow
+drip" mid-session. Reset comparison operators from base case:
+Booleans as Python's fourth type (only `True`/`False`,
+case-sensitive), predicates as functions returning a Boolean.
+All six comparison operators predict-verified + REPL-verified.
+`<=` graduated *Introduced* → *Taught* with three-for-three cold
+predicts (equality leg `5<=5→True`, less-than leg `5<=7→True`,
+neither leg `5<=3→False`). **Full comparison family LOCKED.**
+Boolean operators introduced with truth tables — Boole 1854
+foundation named; `and`/`or`/`not` defined + predict-verified
+four-for-four; three of four REPL-verified (skipped only
+`True and False` in REPL). Started Step 8 compound predicates —
+inside-out evaluation, comparison-higher-precedence-than-Boolean.
+Closed mid-Step-8 at 97% context.
+
+Built: Nothing inside `/curriculum/phase-1-foundations/` —
+substantial REPO work across two repos. Reference commits in this
+repo: `4014c7b` (curriculum trim + MIGRATED.md), `4fa75fb`
+(portfolio cleanup), `9929e1a` (three projects moved out). Magazine
+repo `https://github.com/RondoAI/subnet-magazine`: `0c517ae`
+initial subtree push, `8e5e27e` CLAUDE.md transplant, `b34654c`
+v1+v2-articles+v3-next archive subdirs landed.
+
+Source references: Deitel Ch.1 — Boolean operators material drew on
+Boole's *An Investigation of the Laws of Thought* (1854) framing.
+Severance still not opened.
+
+Practice terminal: Online throughout. Multiple SyntaxErrors hit +
+decoded as teaching moments: (a) `>>> !=` alone — binary operators
+need operands on both sides; Python's `^^` pointer caret. (b)
+`>>> 5=<5` — Python read it as `5 = <5` and complained "cannot
+assign to literal" because the parser tried assignment on the
+literal `5` first; symbol order is `<=` not `=<` (same for `>=`
+vs `=>`). (c) Tablet typing artifact: `True rue and True` — `T`
+of second `True` dropped, leaving stray `rue`. Each error
+decoded one micro-lesson at a time. Error-reading banked as a
+load-bearing skill.
+
+Key insights: Four. (1) **"I need to relearn this or I haven't
+learned it yet" pattern fired explicitly mid-session.** Exact same
+diagnostic from Session 6's "i dont understand," exact same
+recovery (back ALL the way up to base case — `5 == 5 → True` as
+the simplest predicate). Confirmed durable self-diagnosis signal —
+when it fires, reset to the simplest possible version and rebuild
+one micro-layer at a time. (2) **Template-walking as a forced
+inside-out evaluation tool.** When compound predicates broke,
+gave him a fill-in-the-blank template (`Step 1: 5>3 → ?`,
+`Step 2: 10>20 → ?`, `Step 3: ? and ? → ?`, `Final output: ?`).
+First re-try he SKIPPED the template and jumped to the final word
+— re-hit the `or` trap (predicted False when answer was True).
+Pattern: when he gives only the final answer on a compound
+expression, the layer-walk didn't happen and the same trap
+re-fires. Don't let him skip the template. (3) **`and` vs `or`
+truth-pattern collision.** Applied `and` rule (needs BOTH True) to
+an `or` case where one True suffices. Side-by-side visual stacking
+(`True and False → False` vs `True or False → True`, same operands,
+different operator, different result) unstuck it. Canonical visual
+for the and/or distinction. (4) **"Number questions" workflow
+request.** Rondo asked directly: "please number questions so we
+dont get confused." Saved to memory as
+`feedback_number_questions.md`. All future multi-action asks
+formatted as numbered lists. The request came right after a
+SyntaxError caused by typing `!=` alone — the error was
+message-structure-driven, not concept-driven.
+
+Stuck on: Three open items rolling forward. (a) Compound predicates
+re-predict for `5 > 3 or 10 > 20` — needs the template walk filled
+in, then all three compound lines (`5>3 and 10<20`, `5>3 and 10>20`,
+`5>3 or 10>20`) run in REPL + pasted to lock the integration.
+(b) Boolean operators are *Taught* but not yet *Owned* — compound
+predicates are the lock-in. (c) `cat` shell drill STILL queued
+from Session 6 (briefing took the slot then; repo split today).
+
+Next session: Cold open — RE-predict `5 > 3 or 10 > 20` with the
+template filled in (every `?` answered), then run all three
+compound lines in REPL. That locks Step 8. Then introduce `if` /
+`else` — predicates become conditional control flow, the natural
+follow-on now that Booleans are produced AND composed. Catch up
+`cat` shell drill. 10-day gap means market context is stale; a
+fresh briefing for 2026-05-23 would reanchor before content.
+
+---
+
 ## 2026-05-13 (Session 6) — Cold-Re-Predict Locks, Comparison Operators, `bool`, and the Daily Briefing
 
 Covered: First session after the five-session day on 2026-05-11.

@@ -121,8 +121,64 @@ cleanly.
   a subclass of `int` (so `True == 1`, `False == 0`, and `True + 1
   → 2` in arithmetic), but `type(True)` still reports the more
   specific class `<class 'bool'>`. (2026-05-13)
+- `<=` (less-than-or-equal-to) — graduated session 7 with a
+  three-for-three cold predict block: equality leg `5 <= 5 → True`,
+  greater-than leg `5 >= 7 → False`, less-than leg `5 >= 3 → True`.
+  Same shape as `>=`, opposite direction; equal values return
+  `True` (the "or equal" half does the lifting). Order matters —
+  `=<` is a SyntaxError ("cannot assign to literal" because Python
+  parses it as `5 = <5`). **Full six-operator comparison family
+  LOCKED:** `==`, `!=`, `<`, `>`, `<=`, `>=` all *Taught*.
+  (2026-05-23)
+- Boolean operators `and`, `or`, `not` — Python's three logical
+  glue words, the foundation George Boole laid in 1854 (*An
+  Investigation of the Laws of Thought*) that all modern computer
+  logic builds on. Each takes `bool` operands and returns a `bool`.
+  Truth-table rules:
+  - `and` — True only when BOTH sides are True. Any False makes
+    the whole thing False.
+  - `or` — True when EITHER side is True. Both False makes the
+    whole thing False.
+  - `not` — flips the value. `not True → False`, `not False →
+    True`. Unary (one operand, not two).
+  Predict-verified four-for-four session 7: `True and True → True`,
+  `True and False → False`, `True or False → True`, `not True →
+  False`. Three of four REPL-paste-verified (the fourth fell to a
+  tablet typing artifact `True rue and True` → SyntaxError, but
+  the prediction itself was correct). Operator precedence: `not`
+  binds tightest, then `and`, then `or`. (2026-05-23)
 
 ### Introduced (not yet Taught)
+- Compound predicates (comparison + Boolean glue) — combining
+  comparisons with `and`/`or`/`not` to form richer questions like
+  `5 > 3 and 10 < 20`. **Evaluation rule: inside-out.** Python
+  resolves every comparison to its `True`/`False` value first,
+  *then* applies the Boolean operator to those results. So
+  `5 > 3 and 10 < 20` evaluates as `True and True → True`, not as
+  some atomic mystery line. Walked session 7 with a fill-in-the-
+  blank template (Step 1: left predicate → ?, Step 2: right
+  predicate → ?, Step 3: ? and/or ? → ?, Final output: ?).
+  First `or` re-predict (`5 > 3 or 10 > 20`) hit the and/or trap —
+  collapsed both layers and answered `False` when the right answer
+  is `True` (or-True-anywhere wins). Closes to *Taught* with the
+  template walk filled in plus all three compound lines REPL-
+  pasted. (2026-05-23)
+- SyntaxError reading — Python's parser emits structured error
+  messages that point at where parsing broke and name the parser's
+  best guess at what went wrong. Three live decodes banked
+  session 7: (1) `>>> !=` alone → `SyntaxError: invalid syntax`
+  with `^^` pointing at the operator (cause: binary operator
+  needs operands on both sides). (2) `>>> 5=<5` →
+  `SyntaxError: cannot assign to literal` with `^` pointing at
+  the first `5` (cause: symbol order flipped — Python parsed it
+  as `5 = <5`, an assignment to a literal, because `=` came first;
+  correct order is `5 <= 5`). (3) Tablet typing artifact
+  `>>> True rue and True` → `SyntaxError: invalid syntax` with
+  `^^^` pointing at `rue` (cause: dropped first character of
+  re-typed `True`, leaving stray `rue` between two valid tokens).
+  Banks as a load-bearing skill — error-reading is itself a
+  programming skill, not a setback. Closes to *Taught* when Rondo
+  decodes a new SyntaxError cold without prompting. (2026-05-23)
 - Single vs double quotes are interchangeable — mentioned in
   passing 2026-05-09; not separately drilled.
 - `IndentationError` when leading whitespace at `>>>` — encountered
@@ -134,10 +190,6 @@ cleanly.
 - Python is case-sensitive — `x` and `X` are different names.
   Flagged 2026-05-11 after Rondo typed `X=7` in a prediction; not
   separately drilled.
-- `<=` (less-than-or-equal-to) — introduced session 6 paired with
-  `>=`. Same shape as `>=`, opposite direction. Not separately
-  cold-predicted (the strict `<` was; promote `<=` to *Taught*
-  with a single cold predict next session). (2026-05-13)
 - Numeric literal underscores — Python allows `_` inside numeric
   literals as a readability separator: `80_050_000_000` is the
   same number as `80050000000`. Python ignores the underscores.

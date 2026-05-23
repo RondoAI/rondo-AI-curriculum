@@ -1,19 +1,24 @@
 # Progress
 
-Last updated: 2026-05-13 (Session 6)
+Last updated: 2026-05-23 (Session 7)
 Current phase: Phase 1 — Python Foundations
-Current topic: Phase 1, Deitel Ch.1 — Python is primary. All seven
-arithmetic operators are *Taught*. Operator precedence and
-augmented assignment cold-re-predict-locked session 6 (the
-session-5 lock test). Five of the six comparison operators
-(`==`, `!=`, `>`, `>=`, `<`) graduated to *Taught* session 6
-with six-for-six cold predicts; `<=` introduced as the mirror of
-`>=` but not separately cold-predicted (single predict next
-session graduates it). `bool` introduced as Python's fourth type,
-including the bool-is-a-subclass-of-int wrinkle. Next-up beats:
-single cold predict on `<=` to close the comparison set, then
-Boolean operators (`and`, `or`, `not`) — the natural follow-on
-now that `bool` stands as its own type.
+Current topic: Phase 1, Deitel Ch.1 — Python is primary. **Full
+six-operator comparison family LOCKED**: `==`, `!=`, `<`, `>`,
+`<=`, `>=` all *Taught* (`<=` graduated session 7 with
+three-for-three cold predicts on equality leg, less-than leg, and
+neither leg). **Boolean operators `and`, `or`, `not` are
+*Taught***: truth tables introduced (Boole 1854 foundation),
+predict-verified four-for-four, three of four REPL-verified
+(`True and False` predicted correctly but not REPL-paste-confirmed).
+**Compound predicates (Step 8) are *Introduced***: started during
+session 7, closed mid-walk at 97% context. Inside-out evaluation
+template given; first `or` re-predict hit the and/or trap and
+needs the template walk filled in to close. Next-up beats:
+(1) re-predict `5 > 3 or 10 > 20` with the template walk filled
+in, then run all three compound lines in REPL — locks Step 8;
+(2) then `if` / `else` — predicates become conditional control
+flow, the natural follow-on now that Booleans are produced AND
+composed.
 
 Current Python sources:
 - Deitel (primary): Chapter 1 in progress.
@@ -41,9 +46,19 @@ CONCEPTS.md `//` entry the same session. Operator precedence
 *Taught* (2026-05-11, session 5; cold-re-predict locked
 2026-05-13). Comparison operators `==`, `!=`, `>`, `>=`, `<` and
 the `bool` type — all *Taught* (2026-05-13, session 6). `<=`
-introduced as the mirror of `>=`; promotes to *Taught* with one
-cold predict next session. Boolean operators (`and`, `or`, `not`)
-likely next per Deitel Ch.1 sequence.
+graduated *Taught* session 7 (2026-05-23, three-for-three on
+equality leg, less-than leg, neither leg). **Full comparison
+family LOCKED.** Boolean operators `and`, `or`, `not` — all
+*Taught* session 7 (truth-table introduced from Boole 1854
+foundation; predict-verified four-for-four; three of four
+REPL-verified). Compound predicates (comparison + Boolean glue,
+inside-out evaluation) — *Introduced* session 7 mid-walk; closes
+with the re-predict on `5 > 3 or 10 > 20` plus all three compound
+lines REPL-pasted. SyntaxError reading as a load-bearing skill —
+*Introduced* session 7 with three live error decodes (`!=` alone,
+`5=<5` symbol order, tablet typing artifact). `if` / `else`
+conditional control flow likely next per Deitel Ch.1 sequence —
+the natural follow-on now that compound Booleans are composed.
 - Shell: `wc -l`, the REPL-vs-shell prompt distinction, and `ls`
 all *Taught* (last two through 2026-05-11 session 5). One drill
 per session continues on `cat`, `>`, `>>`, `<`, `|` — still
@@ -52,6 +67,13 @@ per session continues on `cat`, `>`, `>>`, `<`, `|` — still
 of full add/commit/push cycle still pending.
 
 ## Practice terminal sync status
+- 2026-05-23 (session 7): ONLINE throughout. Multiple SyntaxErrors
+hit + decoded as teaching moments: `>>> !=` alone (binary operator
+needs operands), `>>> 5=<5` ("cannot assign to literal" — Python
+parsed as `5 = <5` because symbol order was flipped), tablet
+typing artifact (`True rue and True` — dropped `T` left stray
+`rue`). All recovered cleanly with retype. Error-reading banked
+as a load-bearing skill, not a setback.
 - 2026-05-13 (session 6): ONLINE throughout. Every line predicted
 before running and paste-verified. Two cosmetic display artifacts
 recurred (leading-space IndentationError on `20 // 6` paste,
@@ -73,13 +95,22 @@ Five Python concepts landed; `ls` shell drill held over.
 `ls | cat` with predictions and verified outputs.
 
 ## Next session plan
-- Single cold predict on `<=` to close the comparison-operator
-set (e.g., `3 <= 3` or `5 <= 4`). Should be a layup given the
-strict `<` and `>=` predicts both locked clean.
-- Python next beats (Deitel Ch.1): Boolean operators (`and`, `or`,
-`not`) — natural follow-on now that `bool` is its own type and
-comparisons are returning bool reliably. One line at a time per
-the Python-pacing rule.
+- **COLD OPEN: resume Step 8 compound predicates.** Re-predict
+`>>> 5 > 3 or 10 > 20` using the inside-out template:
+   Step 1: `5 > 3 → ?`
+   Step 2: `10 > 20 → ?`
+   Step 3: `? or ? → ?`
+   Final output: `?`
+Every `?` must be filled in — when only the final word comes
+back, the layer-walk didn't happen and the and/or trap re-fires.
+Then run all three compound lines (`5>3 and 10<20`,
+`5>3 and 10>20`, `5>3 or 10>20`) in the REPL and paste the
+output block. That LOCKS Step 8 and graduates compound predicates
+*Introduced* → *Taught*.
+- Python next beats (Deitel Ch.1): `if` / `else` conditional
+control flow — predicates become decisions. Natural follow-on now
+that Booleans are produced (comparison) AND composed (Boolean
+operators). One line at a time per Python-pacing.
 - Shell drill: `cat` next per the queued unit (`ls → cat → > →
 >> → < → |`). One drill per session.
 - Daily briefing if cycle has moved (NVIDIA prints May 20 — now

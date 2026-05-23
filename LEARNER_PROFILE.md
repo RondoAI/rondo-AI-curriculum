@@ -87,6 +87,39 @@ all in one move. Adjacent observation: when Rondo writes
 "i dont understand" explicitly (he did mid-`//=` recovery), the
 right response is to back up to the simplest non-layered version
 and rebuild from there.
+- Template-walking is non-optional for layered expressions —
+2026-05-23 (session 7). Refinement on the session 6 "peel
+layers" pattern. When a compound expression breaks (the and/or
+trap, layer-stacking, etc.), giving a fill-in-the-blank
+template that forces inside-out evaluation is what closes the
+gap:
+```
+Step 1: 5 > 3 → ?
+Step 2: 10 > 20 → ?
+Step 3: ? or ? → ?
+Final output: ?
+```
+Session 7 evidence: first cold predict on
+`>>> 5 > 3 or 10 > 20` came back as `False` (and/or trap —
+collapsed both layers, applied the "and"-shape rule to an "or"-
+shape expression). Issued the template; Rondo's first reply
+was the final word only ("1. False 2. False") — the layer-walk
+didn't happen, so the same trap was about to re-fire. Rule:
+when the template comes back without every `?` filled in, re-
+issue the template, don't accept the shortcut. The template
+forces the inside-out order; jumping to the final answer is
+what re-stages the trap. Adjacent: this is the graduation path
+for compound predicates — Step 8 closes only when the template
+walks clean AND all three compound lines REPL-paste-verified.
+- Number multi-action requests — 2026-05-23 (session 7), saved
+as [[feedback-number-questions]]. When a single response asks
+Rondo to do more than one thing (predict X, run Y, paste Z),
+number each action. Plain-prose lists collapse into ambiguity.
+Trigger event: a `!=` predict block framed as "predict both,
+then run, then paste" got compressed into Rondo typing just
+`!=` into the REPL → SyntaxError. The error wasn't a concept
+gap; it was the message structure. Applies broadly to any
+teaching session with stacked predict/run/paste beats.
 - Cue operator-mode when numbers carry real-world meaning —
 2026-05-13 (session 6). The same comparison-operator predicts
 that went six-for-six clean on abstract operands earlier in the
