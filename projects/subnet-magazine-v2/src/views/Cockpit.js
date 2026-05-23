@@ -392,6 +392,57 @@ export function mountCockpit(root, dataLayer = null){
      Returning readers parked on 'desk' get normalized to 'chart'. */
   if (state.pane !== 'chart') state.pane = 'chart';
   let series     = generateSeries(subnetById(state.selectedId) || SUBNETS[0]);
+  /* Track whether the current `series` came from live chain data
+     (TMC /subnets/N/line-chart/) vs the synthetic seed. drawChartNow
+     uses this to suppress the SEED-HISTORY synth-note when we have
+     real history, and to keep the chart honest about provenance. */
+  let seriesIsLive = false;
+
+  /* Pull real historical α-price + volume from TMC's line-chart
+     endpoint (Rondo 2026-05-22: "we just need a live working
+     chart"). Endpoint returns an array of snapshots at ~5K-block
+     intervals: [{block_number, price, timestamp, volume,
+     tao_price_usd}]. We map to the internal series shape
+     {t, open, high, low, close, volume} so drawChartNow can
+     consume it identically to the synthetic generateSeries
+     output. Fails gracefully — if the fetch errors or returns
+     empty, series stays synthetic and the chart still renders. */
+  async function loadLiveSeries(netuid){
+    if (!dataLayer || typeof dataLayer.fetchSubnetLineChart !== 'function') return;
+    try {
+      const raw = await dataLayer.fetchSubnetLineChart(netuid);
+      if (!Array.isArray(raw) || !raw.length) return;
+      const next = raw
+        .map(r => {
+          const t = Number(r.timestamp);
+          const price = parseFloat(r.price);
+          const vol = parseFloat(r.volume) || 0;
+          if (!Number.isFinite(t) || !Number.isFinite(price)) return null;
+          return {
+            t,
+            // Single-price-per-row endpoint — open/high/low/close all
+            // equal the price; the area series only reads .close.
+            open:  price,
+            high:  price,
+            low:   price,
+            close: price,
+            volume: vol,
+          };
+        })
+        .filter(Boolean)
+        .sort((a, b) => a.t - b.t);
+      if (!next.length) return;
+      // Only replace if this is still the active subnet — the
+      // user may have switched between async fetch + resolve.
+      const cur = subnetById(state.selectedId);
+      if (!cur || cur.netuid !== netuid) return;
+      series = next;
+      seriesIsLive = true;
+      drawChartNow();
+    } catch (_) {
+      // fetch failed — keep synthetic series, no UI signal
+    }
+  }
   /* TradingView chart instance + series handles — declared at the
      top of the closure (TDZ-safe) so drawChartNow() (invoked
      during initial mount before mountTVChart's definition site)
@@ -489,6 +540,10 @@ export function mountCockpit(root, dataLayer = null){
   setActivePane(state.pane);
   drawChartNow();
   wireEverything();
+  /* Kick off the initial live-history fetch for the default
+     subnet. Async — the chart renders immediately with synthetic
+     data, then redraws when the real history lands. */
+  loadLiveSeries(state.selectedId);
 
   /* ---------- sub-renders ----------------------------------- */
 
@@ -1616,12 +1671,16 @@ export function mountCockpit(root, dataLayer = null){
     if (netuid === state.selectedId) return;
     state.selectedId = netuid;
     saveCockpitState(state);
+    // Start with synthetic so the chart renders immediately; the
+    // async live fetch replaces it when the response lands.
     series = generateSeries(subnetById(netuid) || SUBNETS[0]);
+    seriesIsLive = false;
     /* Subnet change resets pan so the reader lands on the new
        subnet's CURRENT window, not whatever historic offset the
        prior subnet was parked at. */
     chartOffset = 0;
     repaintMain();
+    loadLiveSeries(netuid);
   }
 
   function setRange(key){
@@ -1732,46 +1791,32 @@ export function mountCockpit(root, dataLayer = null){
       kineticScroll: { touch: true, mouse: false },
     });
 
+    /* Robinhood-style single area line. No MA overlays, no
+       volume histogram (Rondo 2026-05-22: "I want a live chart
+       like robinhood trading app"). Just the price + gradient
+       fill + the right-edge current-price badge. The chart is
+       the unambiguous centerpiece — overlays were adding
+       clutter that competed with the price story. */
     tvAreaSeries = tvChart.addAreaSeries({
       lineColor: '#00E5A8',
       topColor: 'rgba(0,229,168,0.55)',
-      bottomColor: 'rgba(0,229,168,0.06)',
+      bottomColor: 'rgba(0,229,168,0.03)',
       lineWidth: 2,
       priceLineColor: '#00E5A8',
       priceLineWidth: 1,
       priceLineStyle: LWC.LineStyle.Dashed,
       crosshairMarkerVisible: true,
-      crosshairMarkerRadius: 4,
+      crosshairMarkerRadius: 5,
+      crosshairMarkerBorderWidth: 2,
       crosshairMarkerBorderColor: '#050203',
       crosshairMarkerBackgroundColor: '#00E5A8',
       lastValueVisible: true,
       priceFormat: { type: 'price', precision: 4, minMove: 0.0001 },
+      lineType: LWC.LineType.Curved, // smoother Robinhood-style curve
     });
-    tvMa20Series = tvChart.addLineSeries({
-      color: 'rgba(156,230,204,0.85)',
-      lineWidth: 2,
-      priceLineVisible: false,
-      lastValueVisible: false,
-      crosshairMarkerVisible: false,
-    });
-    tvMa50Series = tvChart.addLineSeries({
-      color: 'rgba(232,192,103,0.85)',
-      lineWidth: 2,
-      lineStyle: LWC.LineStyle.Dashed,
-      priceLineVisible: false,
-      lastValueVisible: false,
-      crosshairMarkerVisible: false,
-    });
-    tvVolumeSeries = tvChart.addHistogramSeries({
-      color: 'rgba(0,229,168,0.40)',
-      priceFormat: { type: 'volume' },
-      priceScaleId: 'volume',
-      priceLineVisible: false,
-      lastValueVisible: false,
-    });
-    tvChart.priceScale('volume').applyOptions({
-      scaleMargins: { top: 0.82, bottom: 0 },
-    });
+    /* MA + volume series intentionally NOT created — tvMa20Series,
+       tvMa50Series, tvVolumeSeries stay null. drawChartNow has
+       null-guards so calling .setData on them is skipped. */
 
     /* Resize handling — container can change size on viewport
        resize or sidebar collapse. ResizeObserver fires whenever
@@ -1805,10 +1850,9 @@ export function mountCockpit(root, dataLayer = null){
         tooltipEl.style.display = 'none';
         return;
       }
-      const ma20Val = param.seriesData.get(tvMa20Series);
-      const ma50Val = param.seriesData.get(tvMa50Series);
-      const ma20Txt = (ma20Val && Number.isFinite(ma20Val.value)) ? (ma20Val.value < 1 ? '$' + ma20Val.value.toFixed(4) : '$' + ma20Val.value.toFixed(2)) : null;
-      const ma50Txt = (ma50Val && Number.isFinite(ma50Val.value)) ? (ma50Val.value < 1 ? '$' + ma50Val.value.toFixed(4) : '$' + ma50Val.value.toFixed(2)) : null;
+      /* MA refs removed — Robinhood-clean chart shows price only. */
+      const ma20Txt = null;
+      const ma50Txt = null;
       const d = new Date(bar.t);
       const MON = ['JAN','FEB','MAR','APR','MAY','JUN','JUL','AUG','SEP','OCT','NOV','DEC'];
       const date = `${MON[d.getMonth()]} ${d.getDate()} ${String(d.getFullYear()).slice(2)}`;
@@ -1901,36 +1945,16 @@ export function mountCockpit(root, dataLayer = null){
     if (chartOffset > maxOffset) chartOffset = maxOffset;
     if (chartOffset < 0)         chartOffset = 0;
 
-    /* Translate our internal series shape to TradingView's:
-       price bars → area series points {time, value}
-       volume bars → histogram with up/down color per point
-       MA arrays → line series points after sma() computes them. */
+    /* Translate series to TradingView's area-points shape.
+       Robinhood-style: just price + time, no volume or MAs. */
     const areaData = chartSeries.map(b => ({
       time: Math.floor(b.t / 1000),
       value: b.close,
     }));
-    const volData = chartSeries.map((b, i) => {
-      const up = i > 0 && b.close >= chartSeries[i - 1].close;
-      return {
-        time: Math.floor(b.t / 1000),
-        value: b.volume || 0,
-        color: up ? 'rgba(0,229,168,0.55)' : 'rgba(255,77,109,0.55)',
-      };
-    });
-    const allCloses = chartSeries.map(b => b.close);
-    const ma20Full = sma(allCloses, MA_FAST_WINDOW);
-    const ma50Full = sma(allCloses, MA_SLOW_WINDOW);
-    const ma20Data = chartSeries
-      .map((b, i) => ({ time: Math.floor(b.t / 1000), value: ma20Full[i] }))
-      .filter(d => Number.isFinite(d.value));
-    const ma50Data = chartSeries
-      .map((b, i) => ({ time: Math.floor(b.t / 1000), value: ma50Full[i] }))
-      .filter(d => Number.isFinite(d.value));
 
     tvAreaSeries.setData(areaData);
-    tvMa20Series.setData(ma20Data);
-    tvMa50Series.setData(ma50Data);
-    tvVolumeSeries.setData(volData);
+    /* tvMa20Series / tvMa50Series / tvVolumeSeries are
+       intentionally null — Robinhood-clean chart. */
 
     /* Flip area + price-line color based on overall direction
        (first close vs last close in the FULL series). */
