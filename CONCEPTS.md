@@ -147,22 +147,34 @@ cleanly.
   tablet typing artifact `True rue and True` → SyntaxError, but
   the prediction itself was correct). Operator precedence: `not`
   binds tightest, then `and`, then `or`. (2026-05-23)
-
-### Introduced (not yet Taught)
 - Compound predicates (comparison + Boolean glue) — combining
   comparisons with `and`/`or`/`not` to form richer questions like
   `5 > 3 and 10 < 20`. **Evaluation rule: inside-out.** Python
   resolves every comparison to its `True`/`False` value first,
   *then* applies the Boolean operator to those results. So
   `5 > 3 and 10 < 20` evaluates as `True and True → True`, not as
-  some atomic mystery line. Walked session 7 with a fill-in-the-
-  blank template (Step 1: left predicate → ?, Step 2: right
-  predicate → ?, Step 3: ? and/or ? → ?, Final output: ?).
-  First `or` re-predict (`5 > 3 or 10 > 20`) hit the and/or trap —
-  collapsed both layers and answered `False` when the right answer
-  is `True` (or-True-anywhere wins). Closes to *Taught* with the
-  template walk filled in plus all three compound lines REPL-
-  pasted. (2026-05-23)
+  some atomic mystery line. **Lock test (session 7 close):**
+  three cold predicts + REPL-paste-verified, three-for-three:
+  `5 > 3 and 10 < 20 → True`, `5 > 3 and 10 > 20 → False`,
+  `5 > 3 or 10 > 20 → True`. The template that finally landed:
+  Step 1 left leg → True/False, Step 2 right leg → True/False,
+  Step 3 plug them into the operator, Final = Step 3's value.
+  Skipping the template re-fires the and/or trap (collapses both
+  legs and applies the wrong operator rule); when the reply is
+  only the final word, re-issue the template, don't accept the
+  shortcut. Path to *Owned*: walk a fresh three-leg or
+  `not`-included compound without the template scaffold.
+  (2026-05-23)
+
+### Introduced (not yet Taught)
+- Chained comparison (`a > b > c`) — flagged session 7 close as a
+  for-later curiosity. Surfaced when a tablet typing artifact
+  produced `>>> 5 >200 > 20` instead of `5 > 3 and 10 > 20`;
+  Python returned `False` without erroring because it has a
+  special parsing rule for chained comparisons: `5 > 200 > 20` is
+  evaluated as `5 > 200 AND 200 > 20`, then short-circuits.
+  Useful idiom (`0 < x < 100`); decode-only for now, will be
+  taught explicitly after `if`/`else`. (2026-05-23)
 - SyntaxError reading — Python's parser emits structured error
   messages that point at where parsing broke and name the parser's
   best guess at what went wrong. Three live decodes banked

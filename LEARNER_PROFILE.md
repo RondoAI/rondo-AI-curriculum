@@ -65,7 +65,16 @@ that divide-by-self is arithmetic he's done since elementary
 school, so the new rule lands on top of a fact already owned.
 Suggests: when one walk doesn't take, try a different walk
 anchored in older-than-the-rule arithmetic, not just a different
-visual presentation of the same idea.
+visual presentation of the same idea. **Session 7 close
+(2026-05-24) refinement:** when the friction is at the *symbol
+layer itself* (the `>` symbol re-quieted across a 10-day gap;
+`5 > 3` predicted as `False`), a mnemonic that asks him to look
+AT the symbol — "wide end faces the bigger number" — doubles the
+load because the symbol is the broken layer. Dropping the symbol
+entirely and re-anchoring in the English phrase ("is greater
+than" → yes/no → True/False) landed immediately. Generalizes:
+at the symbol layer, *older language* > *older arithmetic* >
+*newer visual mnemonic*.
 - Peel layers, don't walk them all at once — 2026-05-13
 (session 6). When concepts stack into a single predict, Rondo
 gets pulled to the wrong layer rather than walking inside-out.
@@ -161,7 +170,18 @@ move CS-degree quoters often skip; (3) the reminder that the
 "world-class" bar in CLAUDE.md is years-long for anyone and the
 clock doesn't reset because someone starts late. Watch for
 recurrence — if this thread returns, the unlock is concrete-pace
-evidence first, then the reframe.
+evidence first, then the reframe. **Recurred 2026-05-24 (Session 7
+close):** mid-close reflection, verbatim with spelling cleaned at
+his request — "Sometimes the symbols confuse me. Much repetition
+is needed and a long way to go in python. I will continue to take
+it one day at a time." Applied the same unlock: concrete pace
+(3/3 cold on compound predicates that day after a `>` symbol re-
+anchor; Step 8 isn't a trivial concept and it locked in one
+chunk), then the reframe (the repetition IS the lock
+infrastructure — predict-verify-paste loop, CONCEPTS.md ledger,
+SESSION_LOG record — not a deficit; the behavior IS the method).
+"One day at a time" is the right posture for the years-long bar
+in CLAUDE.md.
 - `**` zero rule (`anything ** 0 = 1`) — took two sessions and two
 different walks. Session 2 used the descending-powers-of-10 walk
 (`10 ** 4 = 10000`, ÷10 each step down). Did not stick — session
@@ -232,3 +252,16 @@ remove if disconfirmed.]
   Three confirming sessions on numeric content — the pattern is
   confirmed for numeric work — but no non-numeric test yet.
   Watch operator precedence and truthy/falsy when they come up.]
+- [Open: long gaps re-quiet *Taught* symbol-level concepts; the
+  inversion is sometimes diagnostic-only-from-the-outside. One
+  data point — 2026-05-24 (Session 7 close): the `>` symbol re-
+  quieted across the 10-day gap from Session 6, `5 > 3` first-
+  predicted as `False` AND `10 > 20` first-predicted as `True`
+  (clean same-direction inversion). Rondo did not declare the "I
+  need to relearn this" signal — I had to read the inversion
+  pattern myself and back up. Watching for second occurrence on
+  any symbol-level *Taught* concept that goes more than a week
+  unused. If confirmed: rule becomes "two same-direction
+  inversions on a previously-*Taught* symbol = suspect drift,
+  back to base case immediately, don't wait for the
+  self-declared signal."]

@@ -5,6 +5,113 @@ entries.
 
 ---
 
+## 2026-05-24 (Session 7 close) — Step 8 LOCKED: `>` Symbol Re-Anchor, Compound Predicates Graduate *Introduced* → *Taught*
+
+Covered: Resume of Session 7's open thread per Rondo's "lets work
+on session 7 again" — single chunk, four moves. (1) Cold open on
+`>>> 5 > 3 or 10 > 20` with the inside-out template. First reply
+was just "True" (right final answer but the layer-walk skipped —
+same shortcut shape as Session 7's mid-walk break). Re-issued
+template, forced fill on every `?`. Reply came back with Steps 1
+and 2 both inverted: `5 > 3 → False`, `10 > 20 → True`. Both
+flipped in the same direction — diagnostic: the `>` symbol itself
+had drifted across the 10-day gap, not a thinking gap. (2) Base-
+case re-anchor on `>`. First tried the "wide end / narrow end"
+visual mnemonic — did not stick (`5 > 3 → False` again on the
+next predict). Switched walks to the English-phrase anchor: `>`
+is just shorthand for "is greater than"; Python's question is
+"is 5 greater than 3?" — yes/no → True/False. Landed immediately.
+`5 > 3 → True` clean cold, then `10 > 20 → False` clean cold.
+(3) Re-anchored `and` vs `or` via the side-by-side visual from
+Session 7 (`True and False → False` vs `True or False → True`).
+Issued template with Steps 1 & 2 pre-filled; Rondo filled Step 3
+(`True or False → True`) and Final (`True`) clean. (4) Beat-2
+REPL run. Three cold predicts A/B/C three-for-three:
+`5 > 3 and 10 < 20 → True`, `5 > 3 and 10 > 20 → False`,
+`5 > 3 or 10 > 20 → True`. REPL paste verified all three.
+Step 8 LOCKED. Compound predicates graduate *Introduced* →
+*Taught*. Tablet typing artifact during the REPL run produced
+`5 >200 > 20` (not the intended `5 > 3 and 10 > 20`); Python
+returned `False` without erroring — chained comparison `a > b > c`
+is a real Python feature, evaluated as `(a > b) AND (b > c)`,
+banked as *Introduced* in CONCEPTS for explicit teaching after
+`if`/`else`.
+
+Built: Nothing inside `/curriculum/`. Close updates: CONCEPTS.md
+(compound predicates *Introduced* → *Taught*, chained comparison
+added to *Introduced*), PROGRESS.md (status + next plan + sync
+log), SESSION_LOG.md (this entry), LEARNER_PROFILE.md (walk-
+selection refinement, comparison-anxiety recurrence note, one
+new open hypothesis).
+
+Source references: Deitel Ch.1 — compound predicate evaluation
+and operator precedence (`not` > `and` > `or`) drawn from the
+chapter's logic-operators section. Severance still not opened.
+
+Practice terminal: Online. REPL paste of all three compound
+lines verified. One artifact — `5 >200 > 20` mistyped in place
+of `5 > 3 and 10 > 20`, but Python's chained-comparison parsing
+returned a coherent `False` rather than a SyntaxError; treated
+as an unexpected-but-valuable surface of a real feature.
+
+Key insights: Three.
+
+(1) **"Taught" concepts can re-quiet across long gaps; the
+inversion pattern is sometimes diagnostic-only-from-the-outside.**
+The full six-operator comparison family was LOCKED on 2026-05-13
+and 2026-05-23 — but `>` came back as a clean inversion ten days
+later. Rondo did not declare the "I need to relearn this" signal
+this time — the diagnostic had to come from me, recognizing that
+Steps 1 AND 2 were both flipped in the same direction. Rule: when
+a layer-walk produces two same-direction inversions on a
+previously-*Taught* symbol, suspect symbol drift across a gap and
+back to base case immediately. The self-diagnosis signal isn't
+always self-declared.
+
+(2) **Visual symbol mnemonic vs English-word anchor — when the
+symbol itself is the friction, drop the symbol.** Refinement of
+the existing "walk anchored in older-than-the-rule arithmetic"
+pattern from Session 4. The "wide end / narrow end" mnemonic is
+*about* the symbol — it asks Rondo to look at the symbol that's
+the broken layer, which doubles the load. The English phrase
+("is greater than") bypasses the symbol entirely — anchors the
+meaning in language he owned decades before any Python. Same
+shape as the divide-by-base walk for `**` zero rule (older
+arithmetic carried the new rule). Generalizes: when the friction
+is at the symbol layer itself, *older language* > *older
+arithmetic* > *newer visual mnemonic*.
+
+(3) **Comparison-anxiety thread recurred, as Session 2 predicted.**
+Rondo's mid-close reflection (verbatim, spelling cleaned at his
+request): "Sometimes the symbols confuse me. Much repetition is
+needed and a long way to go in python. I will continue to take
+it one day at a time." Echoes the Session 2 closing reflection
+(CS-degree Twitter / age / "takes me a long time"). The Session
+2 LEARNER_PROFILE entry predicted recurrence and named the
+unlock: concrete-pace evidence first, then the reframe. Today's
+concrete pace: 3/3 cold predicts on compound predicates after a
+symbol re-anchor — Step 8 is not a trivial concept and it locked
+in one chunk. "One day at a time" is the right posture; the
+repetition IS the lock infrastructure (the predict-verify-paste
+loop, the CONCEPTS.md ledger, the SESSION_LOG record) — not a
+sign of inadequacy. The behavior IS the method.
+
+Stuck on: Nothing. Step 8 closed cleanly. Two persistent items
+roll forward: `cat` shell drill (queued three sessions now);
+chained comparison `a > b > c` needs an explicit teach after
+`if`/`else` lands.
+
+Next session: Cold open on `if` / `else` — predicates become
+conditional control flow, the natural follow-on now that Booleans
+are produced AND composed AND combined into compound predicates.
+One line at a time per Python-pacing. Watch for `>`/`<` symbol-
+drift on the cold open — if the inversion shows again, drop the
+symbol and use the English phrase first. Catch up `cat` shell
+drill. Fresh briefing if cycle's moved (NVIDIA prints in 3 days,
+May 20).
+
+---
+
 ## 2026-05-23 (Session 7) — Repo Split, Comparison Refresh, `<=` Graduation, Boolean Operators, Compound Predicates (in progress)
 
 Covered: 10-day gap since Session 6. Two big movements. (1) **Repo

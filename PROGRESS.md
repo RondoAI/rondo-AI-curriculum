@@ -1,24 +1,26 @@
 # Progress
 
-Last updated: 2026-05-23 (Session 7)
+Last updated: 2026-05-24 (Session 7 close)
 Current phase: Phase 1 — Python Foundations
 Current topic: Phase 1, Deitel Ch.1 — Python is primary. **Full
 six-operator comparison family LOCKED**: `==`, `!=`, `<`, `>`,
-`<=`, `>=` all *Taught* (`<=` graduated session 7 with
-three-for-three cold predicts on equality leg, less-than leg, and
-neither leg). **Boolean operators `and`, `or`, `not` are
-*Taught***: truth tables introduced (Boole 1854 foundation),
-predict-verified four-for-four, three of four REPL-verified
-(`True and False` predicted correctly but not REPL-paste-confirmed).
-**Compound predicates (Step 8) are *Introduced***: started during
-session 7, closed mid-walk at 97% context. Inside-out evaluation
-template given; first `or` re-predict hit the and/or trap and
-needs the template walk filled in to close. Next-up beats:
-(1) re-predict `5 > 3 or 10 > 20` with the template walk filled
-in, then run all three compound lines in REPL — locks Step 8;
-(2) then `if` / `else` — predicates become conditional control
-flow, the natural follow-on now that Booleans are produced AND
-composed.
+`<=`, `>=` all *Taught* (`<=` graduated session 7). **Boolean
+operators `and`, `or`, `not` are *Taught***. **Compound predicates
+(Step 8) LOCKED at *Taught***: session-7-close 3/3 cold predicts
++ REPL-paste-verified — `5 > 3 and 10 < 20 → True`,
+`5 > 3 and 10 > 20 → False`, `5 > 3 or 10 > 20 → True`. Reached
+via a back-up to base case mid-walk when the `>` symbol re-quieted
+after the 10-day gap (`5 > 3` first predicted as `False`); the
+"wide end / narrow end" visual didn't take, the English-phrase
+walk ("is greater than" → yes/no → True/False) did. **Chained
+comparison `a > b > c`** flagged *Introduced* — tablet artifact
+`5 >200 > 20` exposed Python's special parsing rule (`5 > 200 AND
+200 > 20`); decode-only for now, taught explicitly after
+`if`/`else`. Next-up beats: (1) `if` / `else` — predicates become
+conditional control flow, the natural follow-on now that Booleans
+are produced AND composed; (2) `cat` shell drill (queued two
+sessions); (3) a fresh briefing — 10 days stale, NVIDIA prints
+May 20 is now three days out.
 
 Current Python sources:
 - Deitel (primary): Chapter 1 in progress.
@@ -52,13 +54,21 @@ family LOCKED.** Boolean operators `and`, `or`, `not` — all
 *Taught* session 7 (truth-table introduced from Boole 1854
 foundation; predict-verified four-for-four; three of four
 REPL-verified). Compound predicates (comparison + Boolean glue,
-inside-out evaluation) — *Introduced* session 7 mid-walk; closes
-with the re-predict on `5 > 3 or 10 > 20` plus all three compound
-lines REPL-pasted. SyntaxError reading as a load-bearing skill —
-*Introduced* session 7 with three live error decodes (`!=` alone,
-`5=<5` symbol order, tablet typing artifact). `if` / `else`
-conditional control flow likely next per Deitel Ch.1 sequence —
-the natural follow-on now that compound Booleans are composed.
+inside-out evaluation) — **graduated *Taught* session 7 close
+(2026-05-23)** with 3/3 cold predicts + REPL-paste-verified
+(`5>3 and 10<20→True`, `5>3 and 10>20→False`, `5>3 or 10>20→True`).
+Reached via a `>` symbol re-anchor mid-walk when the 10-day gap
+re-quieted the symbol direction; English-phrase walk
+("is greater than" → yes/no → True/False) carried where the
+visual mnemonic didn't. SyntaxError reading as a load-bearing
+skill — *Introduced* session 7 with three live error decodes
+(`!=` alone, `5=<5` symbol order, tablet typing artifact).
+Chained comparison `a > b > c` — *Introduced* session 7 close,
+surfaced by a tablet artifact (`5 >200 > 20` returned `False`
+without erroring); decode-only for now, taught explicitly after
+`if`/`else`. `if` / `else` conditional control flow next per
+Deitel Ch.1 sequence — the natural follow-on now that compound
+Booleans are composed.
 - Shell: `wc -l`, the REPL-vs-shell prompt distinction, and `ls`
 all *Taught* (last two through 2026-05-11 session 5). One drill
 per session continues on `cat`, `>`, `>>`, `<`, `|` — still
@@ -67,6 +77,13 @@ per session continues on `cat`, `>`, `>>`, `<`, `|` — still
 of full add/commit/push cycle still pending.
 
 ## Practice terminal sync status
+- 2026-05-24 (session 7 close): ONLINE. REPL paste of all three
+compound predicate lines verified (`5 > 3 and 10 < 20 → True`,
+`5 > 3 and 10 > 20 → False`, `5 > 3 or 10 > 20 → True`). One
+tablet artifact during the run — `5 >200 > 20` mistyped in
+place of `5 > 3 and 10 > 20`; Python returned `False` without
+erroring because of chained-comparison parsing (`5 > 200 AND
+200 > 20`). Surfaced a real feature, not a setback. Step 8 LOCKED.
 - 2026-05-23 (session 7): ONLINE throughout. Multiple SyntaxErrors
 hit + decoded as teaching moments: `>>> !=` alone (binary operator
 needs operands), `>>> 5=<5` ("cannot assign to literal" — Python
@@ -95,22 +112,24 @@ Five Python concepts landed; `ls` shell drill held over.
 `ls | cat` with predictions and verified outputs.
 
 ## Next session plan
-- **COLD OPEN: resume Step 8 compound predicates.** Re-predict
-`>>> 5 > 3 or 10 > 20` using the inside-out template:
-   Step 1: `5 > 3 → ?`
-   Step 2: `10 > 20 → ?`
-   Step 3: `? or ? → ?`
-   Final output: `?`
-Every `?` must be filled in — when only the final word comes
-back, the layer-walk didn't happen and the and/or trap re-fires.
-Then run all three compound lines (`5>3 and 10<20`,
-`5>3 and 10>20`, `5>3 or 10>20`) in the REPL and paste the
-output block. That LOCKS Step 8 and graduates compound predicates
-*Introduced* → *Taught*.
-- Python next beats (Deitel Ch.1): `if` / `else` conditional
-control flow — predicates become decisions. Natural follow-on now
-that Booleans are produced (comparison) AND composed (Boolean
-operators). One line at a time per Python-pacing.
+- **COLD OPEN: `if` / `else` — predicates become decisions.**
+Natural follow-on now that Booleans are produced (comparison)
+AND composed (Boolean operators) AND combined into compound
+predicates (Step 8 LOCKED). One line at a time per Python-
+pacing. First beat is a single `if condition: action` line with
+a pre-set comparison whose output Rondo has already cold-
+predicted that session.
+- **Symbol-drift watch on `>` and `<`.** Session 7 close
+re-quieted across the 10-day gap — `5 > 3 → False` on first
+predict. English-phrase anchor ("is greater than" → yes/no →
+True/False) is the working walk now; the visual mnemonic
+("wide end / narrow end") did not stick. If the inversion shows
+again on the cold open, drop the symbol and use the English
+phrase first.
+- Chained comparison `a > b > c` — *Introduced* via tablet
+artifact, decode-only for now. Teach explicitly after `if`/`else`
+lands so the conditional context makes the idiom (`0 < x < 100`)
+land cleanly.
 - Shell drill: `cat` next per the queued unit (`ls → cat → > →
 >> → < → |`). One drill per session.
 - Daily briefing if cycle has moved (NVIDIA prints May 20 — now
