@@ -848,164 +848,100 @@
 
   <script type="module">
     /* =================================================================
-       VIRTUAL AQUARIUM, 3D NEURAL NETWORK PLAYGROUND
+       NEURAL AQUARIUM, PAGE GLUE
        -----------------------------------------------------------------
-       Hand-rolled perspective projection on 2D canvas. No Three.js.
-       Camera: orbit (theta/phi/distance) around the network center.
-       Mouse picking: project every alive neuron to screen, click hits
-       the nearest within a pixel threshold.
+       The simulation lives in src/charts/NeuralAquarium.js. This script
+       does three things:
+
+         1. Boot — read the URL for a saved architecture, fall back to
+            defaults, instantiate the chart, wire its lifecycle.
+         2. UI wiring — build the editable layer cards in the side
+            panel (and bottom drawer on mobile), wire sliders /
+            dropdowns / + button / × buttons / preset chips.
+         3. HUD updates — listen to the chart's onChange / onKill
+            hooks and update score / streak / best in the top bar,
+            push the architecture to the URL.
+
+       No simulation state lives here; that's the chart's job. This
+       script only owns DOM.
        ================================================================= */
 
-    const RED       = '#FF1E3C';
-    const RED_BR    = '#FF4D60';
-    const RED_HOT   = '#FF8094';
-    const INK_1     = '#F5E5E8';
-    const INK_DIM   = '#4A2A30';
+    import {
+      NeuralAquarium,
+      DEFAULT_LAYERS,
+      MOBILE_DEFAULT_LAYERS,
+      PRESETS,
+    } from './src/charts/NeuralAquarium.js';
+    import {
+      readFromURL,
+      writeToURL,
+      describeLayers,
+    } from './src/lib/aquarium-state.js';
+    import { qs, on } from './src/lib/dom.js';
 
-    /* The network shape — mutable, the reader edits it from the left panel.
-       Each entry: { name, n, act }. The IN and OUT layers cannot be removed;
-       hidden layers can be added or removed freely. */
+    /* ---------- DOM refs ------------------------------------------- */
+    const canvas        = qs('[data-canvas]');
+    const elScoreAlive  = qs('[data-score-alive]');
+    const elScoreTotal  = qs('[data-score-total]');
+    const elStreak      = qs('[data-streak]');
+    const elBest        = qs('[data-best]');
+    const elKillToggle  = qs('[data-kill-toggle]');
+    const elReset       = qs('[data-reset]');
+    const elSideLeft    = qs('[data-side-left]');
+
     const ACTIVATIONS = ['linear', 'ReLU', 'Sigmoid', 'Tanh', 'Softmax'];
 
-    let LAYERS = [
-      { name: 'IN',  n: 16, act: 'linear'  },
-      { name: 'H1',  n: 28, act: 'ReLU'    },
-      { name: 'H2',  n: 32, act: 'ReLU'    },
-      { name: 'H3',  n: 28, act: 'ReLU'    },
-      { name: 'H4',  n: 14, act: 'ReLU'    },
-      { name: 'OUT', n: 6,  act: 'softmax' },
-    ];
-
-    const PRESETS = {
-      'Perceptron': [
-        { name: 'IN',  n: 8,  act: 'linear' },
-        { name: 'OUT', n: 2,  act: 'softmax' },
-      ],
-      'Simple MLP': [
-        { name: 'IN',  n: 12, act: 'linear' },
-        { name: 'H1',  n: 16, act: 'ReLU'   },
-        { name: 'OUT', n: 4,  act: 'softmax' },
-      ],
-      'Deep Net': [
-        { name: 'IN',  n: 16, act: 'linear' },
-        { name: 'H1',  n: 28, act: 'ReLU'   },
-        { name: 'H2',  n: 32, act: 'ReLU'   },
-        { name: 'H3',  n: 28, act: 'ReLU'   },
-        { name: 'H4',  n: 14, act: 'ReLU'   },
-        { name: 'OUT', n: 6,  act: 'softmax' },
-      ],
+    /* ---------- session state ------------------------------------- */
+    /* Game-shaped state kept here (not in the chart) because it has
+       no rendering contract — pure counters. */
+    const sessionState = {
+      killStreak: 0,
+      bestStreak: parseInt(localStorage.getItem('aq-best') || '0', 10) || 0,
     };
+    elBest.textContent = sessionState.bestStreak;
 
-    /* Camera state. theta = yaw (radians), phi = pitch, dist = orbit radius. */
-    const cam = {
-      theta: -0.45,
-      phi:   0.20,
-      dist:  9.2,
-      fov:   860,                 // focal length in px-equivalent
-      target:{ x:0, y:0, z:0 },
-    };
+    /* ---------- boot ---------------------------------------------- */
+    const isMobile = window.matchMedia && window.matchMedia('(max-width: 720px)').matches;
+    const initialLayers = readFromURL()
+      || (isMobile ? [...MOBILE_DEFAULT_LAYERS] : [...DEFAULT_LAYERS]);
 
-    /* Build neuron list with model-space positions. Rebuilt on every
-       architecture change (slider, activation swap, layer add/remove,
-       preset load). */
-    const LAYER_SPACING_X = 1.6;
-    const NEURON_SPACING_Y = 0.30;
-
-    /** @typedef {{ x:number, y:number, z:number, alive:boolean, layer:number, idx:number, sx:number, sy:number, depth:number }} Neuron */
-    /** @type {Neuron[]} */
-    let neurons = [];
-    /** @type {{ layer:number, neurons:Neuron[], info:{name:string, n:number, act:string} }[]} */
-    let layerGroups = [];
-    /** @type {{a:Neuron, b:Neuron, w:number}[]} */
-    let connections = [];
-    let totalNeurons = 0;
-    let totalConnections = 0;
-
-    function rebuildNetwork(){
-      neurons = [];
-      layerGroups = [];
-      connections = [];
-      const layerXOffset = -((LAYERS.length - 1) * LAYER_SPACING_X) / 2;
-
-      LAYERS.forEach((layer, li) => {
-        const x = layerXOffset + li * LAYER_SPACING_X;
-        const half = (layer.n - 1) / 2;
-        const group = { layer: li, neurons: [], info: layer };
-        for (let i = 0; i < layer.n; i++){
-          const n = {
-            x,
-            y: (i - half) * NEURON_SPACING_Y,
-            z: (Math.sin(i * 1.7 + li * 0.9) * 0.04),
-            alive: true,
-            layer: li,
-            idx:   i,
-            sx: 0, sy: 0, depth: 0,
-          };
-          neurons.push(n);
-          group.neurons.push(n);
-        }
-        layerGroups.push(group);
-      });
-
-      for (let li = 0; li < LAYERS.length - 1; li++){
-        const a = layerGroups[li].neurons;
-        const b = layerGroups[li + 1].neurons;
-        for (const na of a){
-          for (const nb of b){
-            /* w is a stable per-pair pseudo-weight that drives both
-               the base connection alpha AND the packet animation
-               (heavier weights → faster packet flow + brighter pulse,
-               since stronger connections in a real network would
-               propagate more "signal"). */
-            const seed = na.layer * 31 + na.idx * 7.13 + nb.idx * 3.47;
-            const w = 0.35 + 0.65 * Math.abs(Math.sin(seed));
-            connections.push({
-              a: na,
-              b: nb,
-              w,
-              /* Packet of light traveling along the connection. Each
-                 connection has one packet at a time; speed and phase
-                 vary per connection so the whole network shimmers
-                 instead of pulsing in lockstep. Speed in units of
-                 0→1 progress per second. Heavier weights → faster
-                 packets, makes the dense connections feel like
-                 traffic. Phase offset (initial pkt) randomized via
-                 the seed so packets are not all spawned together. */
-              pktSpeed: 0.18 + 0.55 * w,
-              pktPhase: (Math.abs(Math.sin(seed * 1.7)) * 1) % 1,
-            });
+    const aq = new NeuralAquarium(canvas, {
+      initialLayers,
+      onChange: (model) => {
+        renderEditor(model);
+        updateScore(model);
+        writeToURL(model.layers, /* killCount */ 0);
+      },
+      onKill: (model, miss) => {
+        if (miss){
+          if (sessionState.killStreak > 0){
+            sessionState.killStreak = 0;
+            elStreak.textContent = '0';
           }
+          return;
         }
-      }
-      totalNeurons = neurons.length;
-      totalConnections = connections.length;
+        sessionState.killStreak += 1;
+        if (sessionState.killStreak > sessionState.bestStreak){
+          sessionState.bestStreak = sessionState.killStreak;
+          localStorage.setItem('aq-best', String(sessionState.bestStreak));
+          elBest.textContent = sessionState.bestStreak;
+        }
+        elStreak.textContent = sessionState.killStreak;
+        renderEditor(model);
+        updateScore(model);
+      },
+    });
+
+    /* ---------- HUD refresh --------------------------------------- */
+    function updateScore(model){
+      const alive = model.aliveCount();
+      const total = model.neurons.length;
+      elScoreAlive.textContent = String(alive);
+      elScoreTotal.textContent = String(total);
     }
 
-    rebuildNetwork();
-    console.log(`Aquarium: ${totalNeurons} neurons, ${totalConnections} connections`);
-
-    /* ===== Canvas + DOM refs ===== */
-    const canvas = document.querySelector('[data-canvas]');
-    const ctx    = canvas.getContext('2d');
-    const qs     = (s) => document.querySelector(s);
-    const elScoreAlive = qs('[data-score-alive]');
-    const elScoreTotal = qs('[data-score-total]');
-    const elStreak     = qs('[data-streak]');
-    const elBest       = qs('[data-best]');
-    const elKillToggle = qs('[data-kill-toggle]');
-    const elReset      = qs('[data-reset]');
-    const elSideLeft   = qs('[data-side-left]');
-
-    /* ===== Architecture editor (left panel) =====
-       Renders the current LAYERS config as editable cards:
-         - neuron-count slider per layer (1-32)
-         - activation dropdown per layer
-         - remove button (hidden layers only, IN and OUT can't be removed)
-       Below the cards:
-         - + ADD HIDDEN LAYER button
-         - preset chips (Perceptron / Simple MLP / Deep Net)
-       Editing any control rebuilds the network and redraws. */
-    function buildSideCards(){
+    /* ---------- editor: layer cards + presets + add --------------- */
+    function renderEditor(model){
       elSideLeft.innerHTML = '';
 
       const head = document.createElement('div');
@@ -1013,15 +949,17 @@
       head.textContent = '▾ YOUR NETWORK';
       elSideLeft.appendChild(head);
 
-      LAYERS.forEach((layer, li) => {
-        const alive = layerGroups[li] ? layerGroups[li].neurons.filter(n => n.alive).length : layer.n;
-        const isFixed = (li === 0) || (li === LAYERS.length - 1);
+      model.layers.forEach((layer, li) => {
+        const alive = model.groups[li]
+          ? model.groups[li].neurons.filter(n => n.alive).length
+          : layer.n;
+        const isFixed = (li === 0) || (li === model.layers.length - 1);
         const card = document.createElement('div');
         card.className = 'aq-card' + (alive === 0 ? ' is-dead' : '');
         card.dataset.layer = li;
 
-        const actOptions = ACTIVATIONS
-          .map(a => `<option value="${a}" ${a === layer.act ? 'selected' : ''}>${a}</option>`)
+        const opts = ACTIVATIONS
+          .map(a => `<option value="${a}"${a === layer.act ? ' selected' : ''}>${a}</option>`)
           .join('');
 
         card.innerHTML = `
@@ -1033,665 +971,129 @@
             <span class="lbl">NEURONS</span>
             <span class="v" data-count>${alive}/${layer.n}</span>
           </div>
-          <input class="aq-card__slider" type="range" min="1" max="32" value="${layer.n}" data-slider>
+          <input class="aq-card__slider" type="range" min="1" max="32" value="${layer.n}" data-slider aria-label="${layer.name} neuron count">
           <div class="aq-card__row" style="margin-top:6px;">
             <span class="lbl">ACTIVATION</span>
           </div>
-          <select class="aq-card__act" data-act>${actOptions}</select>
+          <select class="aq-card__act" data-act aria-label="${layer.name} activation function">${opts}</select>
         `;
         elSideLeft.appendChild(card);
 
-        // Wire slider
+        // Slider — debounce a touch so dragging fast doesn't thrash
+        // the rebuild spring with every input event
         const slider = card.querySelector('[data-slider]');
+        let pendingValue = null;
         slider.addEventListener('input', (e) => {
           const v = parseInt(e.target.value, 10);
-          LAYERS[li].n = v;
+          pendingValue = v;
           card.querySelector('[data-count]').textContent = `${v}/${v}`;
-          rebuildNetwork();
-          updateScore();
+        });
+        slider.addEventListener('change', () => {
+          if (pendingValue !== null) aq.setLayerSize(li, pendingValue);
+          pendingValue = null;
+        });
+        // Also commit on pointerup for touch devices that don't fire
+        // 'change' until much later (some Android browsers)
+        slider.addEventListener('pointerup', () => {
+          if (pendingValue !== null) aq.setLayerSize(li, pendingValue);
+          pendingValue = null;
         });
 
-        // Wire activation dropdown
-        const actSel = card.querySelector('[data-act]');
-        actSel.addEventListener('change', (e) => {
-          LAYERS[li].act = e.target.value;
+        // Activation
+        card.querySelector('[data-act]').addEventListener('change', (e) => {
+          aq.setLayerActivation(li, e.target.value);
         });
 
-        // Wire remove button (hidden layers only)
-        const removeBtn = card.querySelector('[data-remove]');
-        if (removeBtn){
-          removeBtn.addEventListener('click', () => {
-            LAYERS.splice(li, 1);
-            renameHiddenLayers();
-            rebuildNetwork();
-            buildSideCards();
-            updateScore();
-          });
-        }
+        // × remove
+        const rm = card.querySelector('[data-remove]');
+        if (rm) rm.addEventListener('click', () => aq.removeHiddenLayer(li));
       });
 
-      // + ADD HIDDEN LAYER button (inserted before OUT)
+      // + ADD HIDDEN LAYER
       const addBtn = document.createElement('button');
       addBtn.className = 'aq-add';
       addBtn.textContent = '+ ADD HIDDEN LAYER';
-      addBtn.disabled = LAYERS.length >= 9;       // soft cap
-      addBtn.addEventListener('click', () => {
-        const newLayer = { name: '', n: 16, act: 'ReLU' };
-        LAYERS.splice(LAYERS.length - 1, 0, newLayer);
-        renameHiddenLayers();
-        rebuildNetwork();
-        buildSideCards();
-        updateScore();
-      });
+      addBtn.disabled = model.layers.length >= 9;
+      addBtn.addEventListener('click', () => aq.addHiddenLayer());
       elSideLeft.appendChild(addBtn);
 
       // Preset chips
-      const presets = document.createElement('div');
-      presets.className = 'aq-presets';
+      const presetRow = document.createElement('div');
+      presetRow.className = 'aq-presets';
       for (const [name, config] of Object.entries(PRESETS)){
         const btn = document.createElement('button');
         btn.className = 'aq-preset';
         btn.textContent = name.toUpperCase();
         btn.addEventListener('click', () => {
-          LAYERS = config.map(l => ({ ...l }));
-          renameHiddenLayers();
-          rebuildNetwork();
-          buildSideCards();
-          updateScore();
-          state.killStreak = 0;
+          aq.loadLayers(config);
+          sessionState.killStreak = 0;
           elStreak.textContent = '0';
         });
-        presets.appendChild(btn);
+        presetRow.appendChild(btn);
       }
-      elSideLeft.appendChild(presets);
+      elSideLeft.appendChild(presetRow);
     }
 
-    /* After a layer is added or removed, rename hidden layers H1, H2, H3... */
-    function renameHiddenLayers(){
-      let hiddenCount = 0;
-      LAYERS.forEach((layer, li) => {
-        if (li === 0){ layer.name = 'IN'; return; }
-        if (li === LAYERS.length - 1){ layer.name = 'OUT'; return; }
-        hiddenCount += 1;
-        layer.name = `H${hiddenCount}`;
-      });
-    }
-
-    /* ===== Game state ===== */
-    const state = {
-      killStreak: 0,
-      bestStreak: parseInt(localStorage.getItem('aq-best') || '0', 10) || 0,
-      killMode:   true,
-    };
-    elBest.textContent = state.bestStreak;
+    /* ---------- bottom HUD buttons -------------------------------- */
     elKillToggle.addEventListener('click', () => {
-      state.killMode = !state.killMode;
-      elKillToggle.classList.toggle('is-on', state.killMode);
-      elKillToggle.textContent = state.killMode ? 'KILL: ON' : 'KILL: OFF';
-      canvas.classList.toggle('is-killing', state.killMode && !dragging);
+      const on = !aq.isKilling();
+      aq.setKillMode(on);
+      elKillToggle.classList.toggle('is-on', on);
+      elKillToggle.textContent = on ? 'KILL: ON' : 'KILL: OFF';
+      canvas.classList.toggle('is-killing', on);
     });
+
     elReset.addEventListener('click', () => {
-      neurons.forEach(n => { n.alive = true; });
-      state.killStreak = 0;
+      aq.resetNetwork();
+      sessionState.killStreak = 0;
       elStreak.textContent = '0';
-      buildSideCards();
-      updateScore();
+      renderEditor(aq.model);
+      updateScore(aq.model);
     });
 
-    function updateScore(){
-      const alive = neurons.filter(n => n.alive).length;
-      elScoreAlive.textContent = String(alive);
-      elScoreTotal.textContent = String(totalNeurons);
-    }
-
-    /* ===== Camera math ===== */
-    function project(p){
-      // Translate by -target (center the scene)
-      const tx = p.x - cam.target.x;
-      const ty = p.y - cam.target.y;
-      const tz = p.z - cam.target.z;
-
-      // Rotate world by -theta around Y, then by -phi around X
-      const cy = Math.cos(-cam.theta), sy = Math.sin(-cam.theta);
-      const cx = Math.cos(-cam.phi),   sx = Math.sin(-cam.phi);
-
-      // Y axis rotation
-      const x1 = cy * tx + sy * tz;
-      const y1 = ty;
-      const z1 = -sy * tx + cy * tz;
-
-      // X axis rotation
-      const x2 = x1;
-      const y2 = cx * y1 - sx * z1;
-      const z2 = sx * y1 + cx * z1;
-
-      // Translate camera back along Z by -dist (camera sits at +z looking down -z)
-      const zc = z2 + cam.dist;
-      if (zc <= 0.05) return { sx: 0, sy: 0, depth: zc, visible: false };
-
-      // Perspective project
-      const sx2 = (x2 / zc) * cam.fov;
-      const sy2 = -(y2 / zc) * cam.fov;
-      return { sx: sx2, sy: sy2, depth: zc, visible: true };
-    }
-
-    /* ===== Resize handling, hi-DPI =====
-       Canvas already fills the viewport via CSS (.aq-canvas inset:0).
-       We only need to set the canvas buffer dimensions to match the
-       displayed size times the device pixel ratio. */
-    let width = 0, height = 0, dpr = 1;
-    function resize(){
-      dpr = Math.min(window.devicePixelRatio || 1, 2);
-      width  = window.innerWidth;
-      height = window.innerHeight;
-      canvas.width  = Math.round(width  * dpr);
-      canvas.height = Math.round(height * dpr);
-      ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
-    }
-    window.addEventListener('resize', resize, { passive: true });
-    resize();
-
-    /* ===== Render loop =====
-       Now drives four time-based behaviors layered on the static
-       3D projection:
-         1. Packet pulses traveling source→target on every connection
-         2. Neuron breathing (alive neurons gently throb in brightness
-            and scale, with per-neuron phase so the network shimmers
-            instead of pulsing in lockstep)
-         3. Kill bursts (when a neuron dies, ~600ms expanding ring +
-            spark particles at its position)
-         4. Auto-orbit (if the user hasn't interacted for 3s, the
-            camera slowly rotates so the 3D depth is visible without
-            requiring touch)
-       All time-based math uses `now` (DOMHighResTimeStamp ms) so
-       animations are framerate-independent. */
-    let rafId = 0;
-    let prevFrameTime = 0;
-    let lastInteractionTime = performance.now();
-
-    /* Mark any user interaction so auto-orbit pauses. Called from
-       pointer handlers + drawer toggle + slider/dropdown changes. */
-    function markInteraction(){
-      lastInteractionTime = performance.now();
-    }
-
-    /* Kill-burst queue — populated when a neuron dies, drained over
-       the burst's lifetime by the render loop. */
-    /** @type {{ sx:number, sy:number, startTime:number, depth:number }[]} */
-    const killBursts = [];
-
-    function spawnKillBurst(n){
-      killBursts.push({
-        sx: n.sx,
-        sy: n.sy,
-        startTime: performance.now(),
-        depth: n.depth,
-      });
-    }
-
-    function render(){
-      rafId = requestAnimationFrame(render);
-
-      const now = performance.now();
-      const dt  = prevFrameTime === 0 ? 16.7 : (now - prevFrameTime);
-      prevFrameTime = now;
-      const timeS = now / 1000;                     // time in seconds, for sin() phase
-
-      /* Auto-orbit: after 3s of no interaction, slowly rotate the
-         camera. Speed is in radians per millisecond — 0.00012 →
-         one full orbit per ~87 seconds, slow enough to feel
-         contemplative not dizzying. */
-      const idleMs = now - lastInteractionTime;
-      if (!dragging && idleMs > 3000){
-        cam.theta += 0.00012 * dt;
-      }
-
-      // Project every neuron
-      for (const n of neurons){
-        const p = project(n);
-        n.sx = p.sx + width / 2;
-        n.sy = p.sy + height / 2;
-        n.depth = p.depth;
-      }
-
-      // Clear (true black, no smear)
-      ctx.fillStyle = '#000';
-      ctx.fillRect(0, 0, width, height);
-
-      // Background grid floor for spatial reference (subtle)
-      drawGridFloor();
-
-      // Layer planes (faint hairline outline around each layer's bounding column)
-      drawLayerPlanes();
-
-      // Sort connections by midpoint depth, far first
-      connections.sort((a, b) => {
-        const da = (a.a.depth + a.b.depth) / 2;
-        const db = (b.a.depth + b.b.depth) / 2;
-        return db - da;
-      });
-
-      /* Draw connections in two passes per connection:
-         (1) the persistent base line (dim, depth-keyed)
-         (2) a packet — a short bright segment riding along the
-             connection at the current time-phase. The packet brings
-             the line "alive" — it's the difference between a static
-             plexus and a network that looks like data is flowing. */
-      for (const c of connections){
-        const aAlive = c.a.alive, bAlive = c.b.alive;
-        if (!aAlive && !bAlive) continue;
-
-        const depthMid = (c.a.depth + c.b.depth) / 2;
-        const depthAlpha = clamp(1.5 - depthMid * 0.08, 0.05, 1.0);
-        const nearness   = clamp(1.0 - depthMid * 0.06, 0, 1);
-
-        // Base line — dim, persistent, structure-revealing
-        let baseAlpha = c.w * 0.35 * depthAlpha;
-        if (!aAlive || !bAlive) baseAlpha *= 0.10;
-        const baseG = Math.round(30 + 50 * nearness);
-        const baseB = Math.round(60 + 25 * nearness);
-        ctx.strokeStyle = `rgba(255,${baseG},${baseB},${baseAlpha.toFixed(3)})`;
-        ctx.lineWidth = 0.6 + 0.3 * nearness;
-        ctx.beginPath();
-        ctx.moveTo(c.a.sx, c.a.sy);
-        ctx.lineTo(c.b.sx, c.b.sy);
-        ctx.stroke();
-
-        // Packet — only on alive-to-alive connections (dead paths
-        // are dim and motionless, which is the right visual signal)
-        if (!aAlive || !bAlive) continue;
-
-        // Cycle is 1.25s of travel + 0.25s of gap → total ~1.5s
-        // per cycle, scaled by pktSpeed and offset by pktPhase.
-        const cycle = ((timeS * c.pktSpeed + c.pktPhase) % 1.25);
-        if (cycle > 1.0) continue;   // gap period — packet "off-screen"
-
-        const tHead = cycle;
-        const tTail = Math.max(0, cycle - 0.14);
-        // Interpolate endpoints
-        const hx = c.a.sx + (c.b.sx - c.a.sx) * tHead;
-        const hy = c.a.sy + (c.b.sy - c.a.sy) * tHead;
-        const tx = c.a.sx + (c.b.sx - c.a.sx) * tTail;
-        const ty = c.a.sy + (c.b.sy - c.a.sy) * tTail;
-
-        // Packet brightness — bright white-hot core with red bias,
-        // amplified by weight (heavier connections carry brighter
-        // packets) and nearness (near-camera packets are sharpest).
-        const pktAlpha = clamp((0.55 + 0.45 * c.w) * depthAlpha, 0.1, 1.0);
-        ctx.strokeStyle = `rgba(255,${Math.round(120 + 80 * nearness)},${Math.round(130 + 60 * nearness)},${pktAlpha.toFixed(3)})`;
-        ctx.lineWidth = 1.4 + 1.6 * nearness;
-        ctx.lineCap = 'round';
-        ctx.beginPath();
-        ctx.moveTo(tx, ty);
-        ctx.lineTo(hx, hy);
-        ctx.stroke();
-        ctx.lineCap = 'butt';
-      }
-
-      // Kill bursts — drawn over connections, under neurons.
-      drawKillBursts(now);
-
-      // Sort neurons by depth, far first
-      const sortedN = neurons.slice().sort((a, b) => b.depth - a.depth);
-      for (const n of sortedN){
-        drawNeuron(n, timeS);
-      }
-
-      // Hovered neuron crosshair + tooltip
-      if (hoveredNeuron && hoveredNeuron.alive){
-        drawNeuronHighlight(hoveredNeuron);
-      }
-    }
-
-    /* Render any active kill bursts. Each burst lives for KILL_LIFE
-       milliseconds, expanding from the kill point outward as a
-       red ring + 6 outward-flung spark particles. Removed from the
-       queue when expired. */
-    const KILL_LIFE = 700;
-    function drawKillBursts(now){
-      for (let i = killBursts.length - 1; i >= 0; i--){
-        const b = killBursts[i];
-        const age = (now - b.startTime) / KILL_LIFE;
-        if (age >= 1){
-          killBursts.splice(i, 1);
-          continue;
-        }
-        // Expanding ring — radius scales out, alpha fades
-        const easeOut = 1 - Math.pow(1 - age, 3);
-        const radius  = 4 + 38 * easeOut;
-        const ringAlpha = (1 - age) * 0.85;
-        const depthScale = clamp(2.0 - b.depth * 0.15, 0.5, 1.4);
-
-        ctx.strokeStyle = `rgba(255,80,100,${ringAlpha.toFixed(3)})`;
-        ctx.lineWidth = (2.4 - age * 1.6) * depthScale;
-        ctx.beginPath();
-        ctx.arc(b.sx, b.sy, radius * depthScale, 0, Math.PI * 2);
-        ctx.stroke();
-
-        // Inner bright flash — quickly fades
-        if (age < 0.35){
-          const flashAlpha = (0.35 - age) / 0.35;
-          ctx.fillStyle = `rgba(255,200,210,${(flashAlpha * 0.7).toFixed(3)})`;
-          ctx.beginPath();
-          ctx.arc(b.sx, b.sy, 8 * depthScale * (1 - age * 0.5), 0, Math.PI * 2);
-          ctx.fill();
-        }
-
-        // Six spark particles flying outward at fixed angles
-        for (let k = 0; k < 6; k++){
-          const ang = (k / 6) * Math.PI * 2 + age * 0.4;
-          const dist = easeOut * 36;
-          const px = b.sx + Math.cos(ang) * dist * depthScale;
-          const py = b.sy + Math.sin(ang) * dist * depthScale;
-          const sparkAlpha = (1 - age) * 0.9;
-          ctx.fillStyle = `rgba(255,140,160,${sparkAlpha.toFixed(3)})`;
-          ctx.beginPath();
-          ctx.arc(px, py, (2.2 - age * 1.8) * depthScale, 0, Math.PI * 2);
-          ctx.fill();
-        }
-      }
-    }
-
-    function drawNeuron(n, timeS){
-      const depthScale = clamp(2.4 - n.depth * 0.18, 0.55, 1.6);
-      /* Breathing — each alive neuron has its own phase so the
-         network shimmers rather than pulses in lockstep. The phase
-         is derived from layer + index, stable across renders. The
-         breath modulates radius (subtle, ~15% amplitude) and
-         brightness (more pronounced, so even tiny neurons feel
-         alive). Dead neurons don't breathe. */
-      const breathPhase  = n.layer * 0.83 + n.idx * 0.41;
-      const breath       = n.alive ? (1 + 0.15 * Math.sin(timeS * 1.4 + breathPhase)) : 1;
-      const breathBright = n.alive ? (1 + 0.30 * Math.sin(timeS * 1.4 + breathPhase)) : 1;
-      const radius = (n.alive ? 3.0 : 2.2) * depthScale * breath;
-      const brightness = clamp((1.4 - n.depth * 0.08) * breathBright, 0.25, 1.2);
-
-      if (n.alive){
-        // Glow halo
-        const g = ctx.createRadialGradient(n.sx, n.sy, 0, n.sx, n.sy, radius * 5.5);
-        g.addColorStop(0,   `rgba(255,30,60,${(0.40 * brightness).toFixed(3)})`);
-        g.addColorStop(0.4, `rgba(255,30,60,${(0.18 * brightness).toFixed(3)})`);
-        g.addColorStop(1,   'rgba(255,30,60,0)');
-        ctx.fillStyle = g;
-        ctx.beginPath();
-        ctx.arc(n.sx, n.sy, radius * 5.5, 0, Math.PI * 2);
-        ctx.fill();
-
-        // Core
-        ctx.fillStyle = `rgba(255,255,255,${Math.min(1, brightness).toFixed(3)})`;
-        ctx.beginPath();
-        ctx.arc(n.sx, n.sy, radius, 0, Math.PI * 2);
-        ctx.fill();
-
-        // Inner red ring
-        ctx.strokeStyle = `rgba(255,30,60,${(0.7 * brightness).toFixed(3)})`;
-        ctx.lineWidth = 1;
-        ctx.beginPath();
-        ctx.arc(n.sx, n.sy, radius + 0.6, 0, Math.PI * 2);
-        ctx.stroke();
-      } else {
-        // Dead neuron, dim outline only
-        ctx.strokeStyle = 'rgba(120,80,90,0.45)';
-        ctx.lineWidth = 1;
-        ctx.beginPath();
-        ctx.arc(n.sx, n.sy, radius, 0, Math.PI * 2);
-        ctx.stroke();
-        // Tiny dim core
-        ctx.fillStyle = 'rgba(80,60,68,0.55)';
-        ctx.beginPath();
-        ctx.arc(n.sx, n.sy, radius * 0.55, 0, Math.PI * 2);
-        ctx.fill();
-      }
-    }
-
-    function drawNeuronHighlight(n){
-      ctx.save();
-      ctx.strokeStyle = RED_HOT;
-      ctx.lineWidth = 1.5;
-      ctx.beginPath();
-      ctx.arc(n.sx, n.sy, 10, 0, Math.PI * 2);
-      ctx.stroke();
-      // tooltip
-      const label = `${LAYERS[n.layer].name}.${n.idx + 1}`;
-      ctx.font = '11px JetBrains Mono, monospace';
-      const w = ctx.measureText(label).width + 14;
-      const x = n.sx + 14, y = n.sy - 22;
-      ctx.fillStyle = 'rgba(0,0,0,.85)';
-      ctx.strokeStyle = 'rgba(255,30,60,.55)';
-      ctx.lineWidth = 1;
-      ctx.beginPath();
-      ctx.rect(x, y, w, 20);
-      ctx.fill();
-      ctx.stroke();
-      ctx.fillStyle = '#fff';
-      ctx.textBaseline = 'middle';
-      ctx.fillText(label, x + 7, y + 10);
-      ctx.restore();
-    }
-
-    function drawGridFloor(){
-      // A subtle grid in the y = -3.6 plane, just for spatial reference
-      const Y = -3.6;
-      const SIZE = 6;
-      const STEP = 0.6;
-      ctx.save();
-      ctx.strokeStyle = 'rgba(255,30,60,0.06)';
-      ctx.lineWidth = 0.6;
-      for (let i = -SIZE; i <= SIZE; i += STEP){
-        const a = project({ x: -SIZE, y: Y, z: i });
-        const b = project({ x:  SIZE, y: Y, z: i });
-        if (!a.visible || !b.visible) continue;
-        ctx.beginPath();
-        ctx.moveTo(a.sx + width/2, a.sy + height/2);
-        ctx.lineTo(b.sx + width/2, b.sy + height/2);
-        ctx.stroke();
-
-        const c = project({ x: i, y: Y, z: -SIZE });
-        const d = project({ x: i, y: Y, z:  SIZE });
-        if (!c.visible || !d.visible) continue;
-        ctx.beginPath();
-        ctx.moveTo(c.sx + width/2, c.sy + height/2);
-        ctx.lineTo(d.sx + width/2, d.sy + height/2);
-        ctx.stroke();
-      }
-      ctx.restore();
-    }
-
-    function drawLayerPlanes(){
-      ctx.save();
-      ctx.strokeStyle = 'rgba(255,30,60,0.10)';
-      ctx.lineWidth = 0.8;
-      for (const g of layerGroups){
-        const top = g.neurons[0];
-        const bot = g.neurons[g.neurons.length - 1];
-        if (!top || !bot) continue;
-        ctx.beginPath();
-        ctx.moveTo(top.sx, top.sy);
-        ctx.lineTo(bot.sx, bot.sy);
-        ctx.stroke();
-      }
-      ctx.restore();
-    }
-
-    function clamp(v, lo, hi){ return v < lo ? lo : v > hi ? hi : v; }
-
-    /* ===== Interactions ===== */
-    let dragging = false;
-    let dragStart = null;
-    let camStart = null;
-    let pressStart = null;          // pointer-down position, for click vs drag distinction
-    let hoveredNeuron = null;
-
-    function onPointerDown(ev){
-      const r = canvas.getBoundingClientRect();
-      const x = ev.clientX - r.left;
-      const y = ev.clientY - r.top;
-      pressStart = { x, y, t: performance.now() };
-      dragging = false;
-      dragStart = { x, y };
-      camStart = { theta: cam.theta, phi: cam.phi };
-      canvas.setPointerCapture?.(ev.pointerId);
-      markInteraction();
-    }
-
-    function onPointerMove(ev){
-      const r = canvas.getBoundingClientRect();
-      const x = ev.clientX - r.left;
-      const y = ev.clientY - r.top;
-
-      if (pressStart){
-        const dx = x - pressStart.x;
-        const dy = y - pressStart.y;
-        if (!dragging && (dx * dx + dy * dy) > 16){
-          dragging = true;
-          canvas.classList.add('is-grabbing');
-        }
-        if (dragging){
-          cam.theta = camStart.theta - dx * 0.006;
-          cam.phi   = clamp(camStart.phi - dy * 0.005, -1.2, 1.2);
-        }
-      }
-      // Hover for tooltip
-      hoveredNeuron = pickNeuron(x, y);
-    }
-
-    function onPointerUp(ev){
-      const r = canvas.getBoundingClientRect();
-      const x = ev.clientX - r.left;
-      const y = ev.clientY - r.top;
-      if (pressStart && !dragging){
-        // It is a click, not a drag
-        if (state.killMode){
-          const target = pickNeuron(x, y);
-          if (target && target.alive){
-            target.alive = false;
-            spawnKillBurst(target);          // visceral feedback at the kill site
-            state.killStreak += 1;
-            if (state.killStreak > state.bestStreak){
-              state.bestStreak = state.killStreak;
-              localStorage.setItem('aq-best', String(state.bestStreak));
-              elBest.textContent = state.bestStreak;
-            }
-            elStreak.textContent = state.killStreak;
-            buildSideCards();
-            updateScore();
-          } else {
-            // Miss resets streak
-            if (state.killStreak > 0){
-              state.killStreak = 0;
-              elStreak.textContent = '0';
-            }
-          }
-        }
-      }
-      dragging = false;
-      pressStart = null;
-      canvas.classList.remove('is-grabbing');
-    }
-
-    function pickNeuron(mx, my){
-      let best = null;
-      let bestDist = 18 * 18;     // 18px threshold (squared)
-      for (const n of neurons){
-        if (!n.alive) continue;
-        const dx = n.sx - mx;
-        const dy = n.sy - my;
-        const d = dx * dx + dy * dy;
-        if (d < bestDist){
-          bestDist = d;
-          best = n;
-        }
-      }
-      return best;
-    }
-
-    canvas.addEventListener('pointerdown', onPointerDown);
-    canvas.addEventListener('pointermove', onPointerMove);
-    canvas.addEventListener('pointerup',   onPointerUp);
-    canvas.addEventListener('pointercancel', onPointerUp);
-    canvas.addEventListener('wheel', (ev) => {
-      ev.preventDefault();
-      const f = Math.exp(ev.deltaY * 0.001);
-      cam.dist = clamp(cam.dist * f, 3, 30);
-      markInteraction();
-    }, { passive: false });
-
-    // Pinch-to-zoom on touch (two-finger pinch via Touch event fallback)
-    let pinchStart = null;
-    canvas.addEventListener('touchstart', (ev) => {
-      if (ev.touches.length === 2){
-        const a = ev.touches[0], b = ev.touches[1];
-        pinchStart = { d: Math.hypot(a.clientX - b.clientX, a.clientY - b.clientY), dist: cam.dist };
-      }
-    }, { passive: true });
-    canvas.addEventListener('touchmove', (ev) => {
-      if (ev.touches.length === 2 && pinchStart){
-        const a = ev.touches[0], b = ev.touches[1];
-        const d = Math.hypot(a.clientX - b.clientX, a.clientY - b.clientY);
-        const ratio = pinchStart.d / d;
-        cam.dist = clamp(pinchStart.dist * ratio, 3, 30);
-      }
-    }, { passive: true });
-    canvas.addEventListener('touchend', () => { pinchStart = null; }, { passive: true });
-
-    /* ===== Jellyfish ripple effect =====
-       Catch clicks on any button with a ripple class, set the CSS
-       custom properties for the ripple origin, then toggle
-       .is-pressed for one animation cycle. */
-    function wireJellyButtons(){
-      document.addEventListener('click', (ev) => {
-        const btn = ev.target.closest('.aq-toggle, .aq-btn, .aq-preset, .aq-add');
-        if (!btn) return;
-        const r = btn.getBoundingClientRect();
-        const px = ((ev.clientX - r.left) / r.width)  * 100;
-        const py = ((ev.clientY - r.top)  / r.height) * 100;
-        btn.style.setProperty('--px', `${px}%`);
-        btn.style.setProperty('--py', `${py}%`);
-        btn.classList.remove('is-pressed');
-        // Force reflow so re-adding triggers the animation again
-        void btn.offsetWidth;
-        btn.classList.add('is-pressed');
-        setTimeout(() => btn.classList.remove('is-pressed'), 600);
-      }, true);
-    }
-
-    /* ===== Mobile drawer toggle =====
-       The side panel becomes a bottom sheet on phones (CSS handles
-       the transform). JS just toggles .is-open. */
-    function wireDrawer(){
-      const sideEl = document.querySelector('.aq-side--left');
-      const open = document.querySelector('[data-drawer-open]');
-      const close = document.querySelector('[data-drawer-close]');
-      open && open.addEventListener('click', () => {
-        sideEl.classList.add('is-open');
-      });
-      close && close.addEventListener('click', () => {
+    /* ---------- mobile drawer ------------------------------------- */
+    const sideEl = document.querySelector('.aq-side--left');
+    const drawerOpen = document.querySelector('[data-drawer-open]');
+    const drawerClose = document.querySelector('[data-drawer-close]');
+    if (drawerOpen) drawerOpen.addEventListener('click', (ev) => {
+      ev.stopPropagation();
+      sideEl.classList.add('is-open');
+    });
+    if (drawerClose) drawerClose.addEventListener('click', () => {
+      sideEl.classList.remove('is-open');
+    });
+    // Tap outside the drawer (on the canvas) closes it
+    canvas.addEventListener('pointerdown', () => {
+      if (sideEl.classList.contains('is-open')){
         sideEl.classList.remove('is-open');
-      });
-      // Tap outside the drawer (on the canvas) closes it
-      canvas.addEventListener('pointerdown', () => {
-        if (sideEl.classList.contains('is-open')){
-          sideEl.classList.remove('is-open');
-        }
-      }, true);
-    }
+      }
+    }, true);
 
-    /* ===== Mobile: default to a smaller, cleaner network =====
-       The deep net (124 neurons) is visually dense on a phone column.
-       Mobile users see Simple MLP by default so the layer structure
-       is legible. They can switch to Deep Net via the preset chip. */
-    if (window.matchMedia && window.matchMedia('(max-width: 720px)').matches){
-      LAYERS = PRESETS['Simple MLP'].map(l => ({ ...l }));
-      rebuildNetwork();
-    }
+    /* ---------- jellyfish ripple effect --------------------------- */
+    document.addEventListener('click', (ev) => {
+      const btn = ev.target.closest('.aq-toggle, .aq-btn, .aq-preset, .aq-add');
+      if (!btn) return;
+      const r = btn.getBoundingClientRect();
+      const px = ((ev.clientX - r.left) / r.width)  * 100;
+      const py = ((ev.clientY - r.top)  / r.height) * 100;
+      btn.style.setProperty('--px', `${px}%`);
+      btn.style.setProperty('--py', `${py}%`);
+      btn.classList.remove('is-pressed');
+      void btn.offsetWidth;
+      btn.classList.add('is-pressed');
+      setTimeout(() => btn.classList.remove('is-pressed'), 600);
+    }, true);
 
-    /* ===== Boot ===== */
-    buildSideCards();
-    updateScore();
-    canvas.classList.toggle('is-killing', state.killMode);
-    wireJellyButtons();
-    wireDrawer();
-    render();
+    /* ---------- boot the editor + score on first paint ------------ */
+    renderEditor(aq.model);
+    updateScore(aq.model);
+    canvas.classList.toggle('is-killing', aq.isKilling());
+
+    /* ---------- expose for debugging only (non-enumerable) -------- */
+    Object.defineProperty(window, '__aq', { value: aq, configurable: true });
+
+    /* ---------- clean up on navigation away ----------------------- */
+    window.addEventListener('beforeunload', () => aq.destroy());
   </script>
 </body>
 </html>
