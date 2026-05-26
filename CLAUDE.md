@@ -3783,3 +3783,185 @@ Mac's queued work (blank-cockpit fix, DESK deletion,
 chart sidebar) is unchanged in priority — those address
 bugs Rondo flagged directly. But mac should also apply
 this rule's pre-flight pass before unstashing.
+
+## Coordination Ask: Subnet Lab — TF-Playground × Bittensor × missions (OPEN — for mac-session)
+
+Saved by Rondo's instruction, 2026-05-26, in response to the const
+founder feedback ("I couldn't figure out what I was supposed to do
+on the website") and a separate prompt about a 3D neural network
+visualization tool ("Virtual Aquarium") he wanted recreated in
+magazine red.
+
+The direction has expanded: not just a visualization, a real
+educational + experimental + gamified playground for neural networks,
+**framed through Bittensor** (subnets, miners, validators, open
+weights). Standalone page, its own thing, not replacing any
+existing surface.
+
+Rondo's exact words (paraphrased faithfully):
+
+  "I want people to be able to experiment with neural networks
+   on the page and it be gamified and educational. It needs to
+   relate to bittensor, subnet and open weights. This should be
+   it's own thing we are not replacing anything. The page in
+   general needs more direction. As the bittensor founder said
+   that it's hard to know what to do on the site. This neural
+   network should have instructions for regular people to begin
+   to understand how these systems work."
+
+### The proposed shape (sandbox draft, awaiting mac 150%)
+
+**Filename:** /lab.html (working name "Subnet Lab" — open to alt)
+
+**Layout (three columns on desktop, stacks on mobile):**
+
+  LEFT (~25%)   Architecture editor
+                  - Layer list (Input, Hidden 1..N, Output)
+                  - Neuron count slider per layer (1-32)
+                  - Activation dropdown per layer (ReLU / Sigmoid /
+                    Tanh / Linear / Softmax)
+                  - + ADD LAYER / - REMOVE LAYER per row
+                  - Task picker (XOR, Circles, Spiral, "Subnet
+                    Classifier")
+                  - Speed slider, learning rate slider
+
+  CENTER (~50%) 3D network canvas
+                  - Hand-rolled perspective projection on 2D canvas
+                    (matches NodeSphere.js + v1 aquarium pattern,
+                    no Three.js dependency)
+                  - Connection thickness + color reflects weight
+                    magnitude — watching it train looks like a
+                    circuit lighting up
+                  - Drag to orbit, wheel/pinch to zoom
+
+  RIGHT (~25%)  Performance + missions
+                  - Decision boundary heatmap (~200x200)
+                  - Live accuracy + epoch counter
+                  - Mission ladder (7 missions, persisted via
+                    localStorage)
+
+  BOTTOM        Action buttons: TRAIN / RESET WEIGHTS / PAUSE,
+                short usage hint
+
+**Real forward pass + backprop in JS** — when you press TRAIN, the
+network actually learns. Weights change, accuracy climbs. No mock
+training; the math is real. ~200 LOC of pure-JS gradient descent.
+
+**Tasks** (priority order):
+  1. XOR — the classic, smallest network can demo non-linearity
+  2. Concentric Circles — needs at least 1 hidden layer
+  3. Spiral — needs depth, motivates multi-layer architectures
+  4. "Subnet Classifier" — mock dataset of subnet features → category
+                            classification (compute / training / inference
+                            etc.) — the Bittensor-native task
+
+### The mission ladder (7 missions, Bittensor-framed throughout)
+
+  1. **Welcome, miner.** Train for 100 epochs.
+       Teaches: forward pass, training is real-time iteration.
+  2. **Cross the line.** Hit 90% on Circles.
+       Teaches: linear separability, why we need hidden layers.
+  3. **Make it deeper.** Hit 85% on Spiral.
+       Teaches: depth solves more complex patterns.
+  4. **The ReLU revolution.** Compare two activations.
+       Teaches: activation function choice matters; ReLU dominates.
+  5. **Pruning, the network's deregistration.** Remove ≥ 20% of
+     neurons, keep ≥ 80% accuracy.
+       Teaches: redundancy + interpretability; ties directly to
+       Bittensor subnet deregistration.
+  6. **Why open weights matter.** Inspect 10 weights.
+       Teaches: open vs closed model transparency; the magazine's
+       editorial position on the AI economy.
+  7. **Build a subnet.** Hit 90% on Subnet Classifier.
+       Teaches: applied design; full-loop competency.
+
+### Welcome overlay (first-visit only, localStorage flag)
+
+Four steps walking a complete beginner from "what is this" to "press
+the button." Plain English. No jargon in the overlay. The const
+feedback is the direct cure here — the first thing a visitor reads
+explains exactly what to do.
+
+### MVP scope (proposed for v1 push)
+
+  - Three-column layout, mobile stacks
+  - Architecture editor with live preview
+  - XOR + Circles tasks
+  - Real forward pass + backprop in JS
+  - Decision boundary panel + accuracy display
+  - TRAIN / RESET / PAUSE buttons
+  - Missions 1-3 implemented
+  - Welcome overlay
+  - Bittensor framing throughout
+
+  Defer to v2:
+  - Spiral + Subnet Classifier tasks
+  - Missions 4-7
+  - Loss curve graph
+  - Animated weight-flow pulses during training
+
+  Estimated MVP: ~1,500 LOC, one focused session.
+
+### Mac, your 150% pass — what sandbox is asking for
+
+Specific things sandbox wants mac's eyes on before any code lands:
+
+  1. **Bittensor framing accuracy.** Sandbox is mapping NN concepts
+     onto Bittensor language: miners as the entities producing
+     weights, validators scoring outputs, deregistration as
+     pruning, open weights as the protocol property. Mac knows
+     the Bittensor mechanics deeper than sandbox does — flag any
+     analogy that's wrong or could mislead a reader. Specifically:
+       - Is "subnet miners contribute neural network weights" the
+         right framing? Or are miners on most subnets contributing
+         outputs / predictions / completions, with the weights
+         being a private model on the miner's side?
+       - Is "deregistration as pruning" a clean analogy or a
+         stretch?
+       - Is there a more native Bittensor mechanic (e.g., Yuma
+         consensus weight setting) that maps onto NN training
+         better than the miner-validator framing?
+
+  2. **The Bittensor-native task.** "Subnet Classifier" — given
+     mock features about a subnet, predict its category — is
+     sandbox's best attempt at a Bittensor-flavored ML task small
+     enough to train in a browser. Mac may have a sharper idea:
+       - Predict emission given subnet vitals?
+       - Rank subnet outputs against a ground truth?
+       - Map miner outputs to validator scores?
+     The task should feel native to the network, not a generic
+     toy problem with Bittensor stickers on it.
+
+  3. **The mission copy.** Sandbox drafted seven mission texts in
+     a Bloomberg-meets-Atlantic register. Mac may want to push
+     them toward something more vivid / more "Subnet Magazine
+     editorial voice" (per the Laron Campbell op-ed register
+     established in /articles/inaccessibility-problem-bittensor.pdf).
+
+  4. **The welcome overlay copy.** Four steps. Sandbox tried to
+     write them for a complete beginner. Mac should mark any line
+     that still reads as too technical or that a non-developer
+     would bounce off of.
+
+  5. **The page name.** "Subnet Lab" is sandbox's working title.
+     Alternatives sandbox considered: Subnet Aquarium, Open
+     Weights Lab, Neural Lab, Subnet Forge, The Tank. Mac's
+     instinct on naming might be sharper.
+
+  6. **Integration with the rest of the site.** Where does Subnet
+     Lab live in the masthead nav? Standalone link at the end?
+     Promoted to first nav slot as the on-ramp? Cross-linked from
+     the Glasswing article ("Want to see what neurons do
+     yourself? Open Subnet Lab.")? Mac's call on placement.
+
+### Workflow
+
+Sandbox is HOLDING all code work until mac has weighed in and
+Rondo has greenlighted. Mac, when you boot next: read this entry,
+reply with your 150% notes (here in this log or in chat), then
+Rondo decides the final shape. Sandbox then builds the MVP in
+one focused session and shows Rondo the working result for
+approval before committing to subnet-mag-v2.
+
+Sandbox is not building anything until both mac and Rondo have
+signed off on the shape.
