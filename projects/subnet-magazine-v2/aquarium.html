@@ -952,8 +952,28 @@
         const b = layerGroups[li + 1].neurons;
         for (const na of a){
           for (const nb of b){
-            const w = 0.35 + 0.65 * Math.abs(Math.sin(na.layer * 31 + na.idx * 7.13 + nb.idx * 3.47));
-            connections.push({ a: na, b: nb, w });
+            /* w is a stable per-pair pseudo-weight that drives both
+               the base connection alpha AND the packet animation
+               (heavier weights → faster packet flow + brighter pulse,
+               since stronger connections in a real network would
+               propagate more "signal"). */
+            const seed = na.layer * 31 + na.idx * 7.13 + nb.idx * 3.47;
+            const w = 0.35 + 0.65 * Math.abs(Math.sin(seed));
+            connections.push({
+              a: na,
+              b: nb,
+              w,
+              /* Packet of light traveling along the connection. Each
+                 connection has one packet at a time; speed and phase
+                 vary per connection so the whole network shimmers
+                 instead of pulsing in lockstep. Speed in units of
+                 0→1 progress per second. Heavier weights → faster
+                 packets, makes the dense connections feel like
+                 traffic. Phase offset (initial pkt) randomized via
+                 the seed so packets are not all spawned together. */
+              pktSpeed: 0.18 + 0.55 * w,
+              pktPhase: (Math.abs(Math.sin(seed * 1.7)) * 1) % 1,
+            });
           }
         }
       }
@@ -1171,10 +1191,60 @@
     window.addEventListener('resize', resize, { passive: true });
     resize();
 
-    /* ===== Render loop ===== */
+    /* ===== Render loop =====
+       Now drives four time-based behaviors layered on the static
+       3D projection:
+         1. Packet pulses traveling source→target on every connection
+         2. Neuron breathing (alive neurons gently throb in brightness
+            and scale, with per-neuron phase so the network shimmers
+            instead of pulsing in lockstep)
+         3. Kill bursts (when a neuron dies, ~600ms expanding ring +
+            spark particles at its position)
+         4. Auto-orbit (if the user hasn't interacted for 3s, the
+            camera slowly rotates so the 3D depth is visible without
+            requiring touch)
+       All time-based math uses `now` (DOMHighResTimeStamp ms) so
+       animations are framerate-independent. */
     let rafId = 0;
+    let prevFrameTime = 0;
+    let lastInteractionTime = performance.now();
+
+    /* Mark any user interaction so auto-orbit pauses. Called from
+       pointer handlers + drawer toggle + slider/dropdown changes. */
+    function markInteraction(){
+      lastInteractionTime = performance.now();
+    }
+
+    /* Kill-burst queue — populated when a neuron dies, drained over
+       the burst's lifetime by the render loop. */
+    /** @type {{ sx:number, sy:number, startTime:number, depth:number }[]} */
+    const killBursts = [];
+
+    function spawnKillBurst(n){
+      killBursts.push({
+        sx: n.sx,
+        sy: n.sy,
+        startTime: performance.now(),
+        depth: n.depth,
+      });
+    }
+
     function render(){
       rafId = requestAnimationFrame(render);
+
+      const now = performance.now();
+      const dt  = prevFrameTime === 0 ? 16.7 : (now - prevFrameTime);
+      prevFrameTime = now;
+      const timeS = now / 1000;                     // time in seconds, for sin() phase
+
+      /* Auto-orbit: after 3s of no interaction, slowly rotate the
+         camera. Speed is in radians per millisecond — 0.00012 →
+         one full orbit per ~87 seconds, slow enough to feel
+         contemplative not dizzying. */
+      const idleMs = now - lastInteractionTime;
+      if (!dragging && idleMs > 3000){
+        cam.theta += 0.00012 * dt;
+      }
 
       // Project every neuron
       for (const n of neurons){
@@ -1201,34 +1271,70 @@
         return db - da;
       });
 
-      // Draw connections
+      /* Draw connections in two passes per connection:
+         (1) the persistent base line (dim, depth-keyed)
+         (2) a packet — a short bright segment riding along the
+             connection at the current time-phase. The packet brings
+             the line "alive" — it's the difference between a static
+             plexus and a network that looks like data is flowing. */
       for (const c of connections){
         const aAlive = c.a.alive, bAlive = c.b.alive;
         if (!aAlive && !bAlive) continue;
-        // Alpha falls off with depth; strong if both alive, very dim if either dead
+
         const depthMid = (c.a.depth + c.b.depth) / 2;
         const depthAlpha = clamp(1.5 - depthMid * 0.08, 0.05, 1.0);
-        let baseAlpha = c.w * 0.55 * depthAlpha;
-        if (!aAlive || !bAlive) baseAlpha *= 0.12;
+        const nearness   = clamp(1.0 - depthMid * 0.06, 0, 1);
 
-        // Color shift on alive: red/orange-red on near, dim red on far
-        const t = clamp(1.0 - depthMid * 0.06, 0, 1);
-        const r = 255;
-        const g = Math.round(30 + 80 * t);
-        const b = Math.round(60 + 30 * t);
-
-        ctx.strokeStyle = `rgba(${r},${g},${b},${baseAlpha.toFixed(3)})`;
-        ctx.lineWidth = 0.6 + 0.4 * t;
+        // Base line — dim, persistent, structure-revealing
+        let baseAlpha = c.w * 0.35 * depthAlpha;
+        if (!aAlive || !bAlive) baseAlpha *= 0.10;
+        const baseG = Math.round(30 + 50 * nearness);
+        const baseB = Math.round(60 + 25 * nearness);
+        ctx.strokeStyle = `rgba(255,${baseG},${baseB},${baseAlpha.toFixed(3)})`;
+        ctx.lineWidth = 0.6 + 0.3 * nearness;
         ctx.beginPath();
         ctx.moveTo(c.a.sx, c.a.sy);
         ctx.lineTo(c.b.sx, c.b.sy);
         ctx.stroke();
+
+        // Packet — only on alive-to-alive connections (dead paths
+        // are dim and motionless, which is the right visual signal)
+        if (!aAlive || !bAlive) continue;
+
+        // Cycle is 1.25s of travel + 0.25s of gap → total ~1.5s
+        // per cycle, scaled by pktSpeed and offset by pktPhase.
+        const cycle = ((timeS * c.pktSpeed + c.pktPhase) % 1.25);
+        if (cycle > 1.0) continue;   // gap period — packet "off-screen"
+
+        const tHead = cycle;
+        const tTail = Math.max(0, cycle - 0.14);
+        // Interpolate endpoints
+        const hx = c.a.sx + (c.b.sx - c.a.sx) * tHead;
+        const hy = c.a.sy + (c.b.sy - c.a.sy) * tHead;
+        const tx = c.a.sx + (c.b.sx - c.a.sx) * tTail;
+        const ty = c.a.sy + (c.b.sy - c.a.sy) * tTail;
+
+        // Packet brightness — bright white-hot core with red bias,
+        // amplified by weight (heavier connections carry brighter
+        // packets) and nearness (near-camera packets are sharpest).
+        const pktAlpha = clamp((0.55 + 0.45 * c.w) * depthAlpha, 0.1, 1.0);
+        ctx.strokeStyle = `rgba(255,${Math.round(120 + 80 * nearness)},${Math.round(130 + 60 * nearness)},${pktAlpha.toFixed(3)})`;
+        ctx.lineWidth = 1.4 + 1.6 * nearness;
+        ctx.lineCap = 'round';
+        ctx.beginPath();
+        ctx.moveTo(tx, ty);
+        ctx.lineTo(hx, hy);
+        ctx.stroke();
+        ctx.lineCap = 'butt';
       }
+
+      // Kill bursts — drawn over connections, under neurons.
+      drawKillBursts(now);
 
       // Sort neurons by depth, far first
       const sortedN = neurons.slice().sort((a, b) => b.depth - a.depth);
       for (const n of sortedN){
-        drawNeuron(n);
+        drawNeuron(n, timeS);
       }
 
       // Hovered neuron crosshair + tooltip
@@ -1237,10 +1343,68 @@
       }
     }
 
-    function drawNeuron(n){
+    /* Render any active kill bursts. Each burst lives for KILL_LIFE
+       milliseconds, expanding from the kill point outward as a
+       red ring + 6 outward-flung spark particles. Removed from the
+       queue when expired. */
+    const KILL_LIFE = 700;
+    function drawKillBursts(now){
+      for (let i = killBursts.length - 1; i >= 0; i--){
+        const b = killBursts[i];
+        const age = (now - b.startTime) / KILL_LIFE;
+        if (age >= 1){
+          killBursts.splice(i, 1);
+          continue;
+        }
+        // Expanding ring — radius scales out, alpha fades
+        const easeOut = 1 - Math.pow(1 - age, 3);
+        const radius  = 4 + 38 * easeOut;
+        const ringAlpha = (1 - age) * 0.85;
+        const depthScale = clamp(2.0 - b.depth * 0.15, 0.5, 1.4);
+
+        ctx.strokeStyle = `rgba(255,80,100,${ringAlpha.toFixed(3)})`;
+        ctx.lineWidth = (2.4 - age * 1.6) * depthScale;
+        ctx.beginPath();
+        ctx.arc(b.sx, b.sy, radius * depthScale, 0, Math.PI * 2);
+        ctx.stroke();
+
+        // Inner bright flash — quickly fades
+        if (age < 0.35){
+          const flashAlpha = (0.35 - age) / 0.35;
+          ctx.fillStyle = `rgba(255,200,210,${(flashAlpha * 0.7).toFixed(3)})`;
+          ctx.beginPath();
+          ctx.arc(b.sx, b.sy, 8 * depthScale * (1 - age * 0.5), 0, Math.PI * 2);
+          ctx.fill();
+        }
+
+        // Six spark particles flying outward at fixed angles
+        for (let k = 0; k < 6; k++){
+          const ang = (k / 6) * Math.PI * 2 + age * 0.4;
+          const dist = easeOut * 36;
+          const px = b.sx + Math.cos(ang) * dist * depthScale;
+          const py = b.sy + Math.sin(ang) * dist * depthScale;
+          const sparkAlpha = (1 - age) * 0.9;
+          ctx.fillStyle = `rgba(255,140,160,${sparkAlpha.toFixed(3)})`;
+          ctx.beginPath();
+          ctx.arc(px, py, (2.2 - age * 1.8) * depthScale, 0, Math.PI * 2);
+          ctx.fill();
+        }
+      }
+    }
+
+    function drawNeuron(n, timeS){
       const depthScale = clamp(2.4 - n.depth * 0.18, 0.55, 1.6);
-      const radius = (n.alive ? 3.0 : 2.2) * depthScale;
-      const brightness = clamp(1.4 - n.depth * 0.08, 0.25, 1.0);
+      /* Breathing — each alive neuron has its own phase so the
+         network shimmers rather than pulses in lockstep. The phase
+         is derived from layer + index, stable across renders. The
+         breath modulates radius (subtle, ~15% amplitude) and
+         brightness (more pronounced, so even tiny neurons feel
+         alive). Dead neurons don't breathe. */
+      const breathPhase  = n.layer * 0.83 + n.idx * 0.41;
+      const breath       = n.alive ? (1 + 0.15 * Math.sin(timeS * 1.4 + breathPhase)) : 1;
+      const breathBright = n.alive ? (1 + 0.30 * Math.sin(timeS * 1.4 + breathPhase)) : 1;
+      const radius = (n.alive ? 3.0 : 2.2) * depthScale * breath;
+      const brightness = clamp((1.4 - n.depth * 0.08) * breathBright, 0.25, 1.2);
 
       if (n.alive){
         // Glow halo
@@ -1254,7 +1418,7 @@
         ctx.fill();
 
         // Core
-        ctx.fillStyle = `rgba(255,255,255,${brightness.toFixed(3)})`;
+        ctx.fillStyle = `rgba(255,255,255,${Math.min(1, brightness).toFixed(3)})`;
         ctx.beginPath();
         ctx.arc(n.sx, n.sy, radius, 0, Math.PI * 2);
         ctx.fill();
@@ -1367,6 +1531,7 @@
       dragStart = { x, y };
       camStart = { theta: cam.theta, phi: cam.phi };
       canvas.setPointerCapture?.(ev.pointerId);
+      markInteraction();
     }
 
     function onPointerMove(ev){
@@ -1400,6 +1565,7 @@
           const target = pickNeuron(x, y);
           if (target && target.alive){
             target.alive = false;
+            spawnKillBurst(target);          // visceral feedback at the kill site
             state.killStreak += 1;
             if (state.killStreak > state.bestStreak){
               state.bestStreak = state.killStreak;
@@ -1447,6 +1613,7 @@
       ev.preventDefault();
       const f = Math.exp(ev.deltaY * 0.001);
       cam.dist = clamp(cam.dist * f, 3, 30);
+      markInteraction();
     }, { passive: false });
 
     // Pinch-to-zoom on touch (two-finger pinch via Touch event fallback)
