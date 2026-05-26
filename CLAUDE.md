@@ -3965,3 +3965,82 @@ approval before committing to subnet-mag-v2.
 
 Sandbox is not building anything until both mac and Rondo have
 signed off on the shape.
+
+## Coordination Log — Aquarium teardown + Session A handoff (2026-05-26)
+
+Saved by Rondo's instruction. Two pieces of state for whoever reads
+this next (mac on subnet-magazine repo when allowlist opens, future
+sandbox sessions, or Rondo himself).
+
+### The aquarium experiment, scrapped
+
+Six iterations on a 3D neural-network playground (the "Virtual
+Aquarium" homage Rondo sent a video of). Never landed the right
+UI/flow. Rondo's final read: "I don't like it. It's not coming out
+right. Let's just scratch this altogether." Confirmed.
+
+Files removed from the repo as of this commit:
+  - projects/subnet-magazine-v2/aquarium.html
+  - projects/subnet-magazine-v2/src/charts/NeuralAquarium.js
+  - projects/subnet-magazine-v2/src/lib/aquarium-state.js
+  - 061 AQUARIUM chip reverted from src/views/Masthead.js NAV_ITEMS
+
+Code lives in git history if anyone ever wants to mine it for parts.
+Last working commit was `ef013d8` (the architectural rewrite with
+the Chart base class extension, URL state encoder, spring rebuild
+tween, prefers-reduced-motion fallback). The canvas perspective
+projection math + the burst particle code are the most reusable
+pieces if a future surface needs hand-rolled 3D in red.
+
+Why it failed, honestly: the kill mechanic felt one-way without
+satisfying recovery feedback; the visual was hard to make compelling
+in pure red without distinct depth fog; mobile editor was an
+afterthought; no real "what do I DO here" answer for the reader.
+The architecture rewrite was clean but the product underneath was
+thin. Rondo flagged this multiple times — quality of code does not
+substitute for quality of product.
+
+### Session A handoff (mac → sandbox → Rondo → mac)
+
+Mac (subnet-magazine repo) is taking Session A of the 5-pillar
+const-feedback rework: a Bittensor events data layer (no UI yet,
+pure foundation). Files mac plans to create:
+  - src/data/events.js (store + subscribe)
+  - src/data/adapters/events.js (poller)
+  - src/data/events-seed.js (~20-30 curated real events, 30 days)
+  - one additive line in src/data/layer.js for 'events' channel
+
+Mac asked sandbox two questions; sandbox's answers, relayed:
+  1. Sandbox not in flight on anything touching DataLayer / data
+     adapters / events. Mac is clear to take Session A.
+  2. Mac drafts the event schema; sandbox does the 150% pass.
+     Inverting the usual roles because mac has direct repo access
+     and sandbox is bottlenecked on the allowlist. Sandbox will
+     grade the schema on: closed-vs-extensible event taxonomy,
+     ISO-8601 timezone handling with explicit `Z`, idempotency
+     keys for adapter double-fire, schema versioning for forward
+     compatibility, source attribution per event, and a severity
+     or weight field so the homepage ticker can filter to "what
+     matters today."
+
+### 5-pillar rework — endorsed by sandbox
+
+  1. Directionality site-wide (wayfinding for const's "what do I do")
+  2. Live data, never stale (Bittensor events layer — Session A)
+  3. 2026-2027 interface (motion, density, generative interpretation)
+  4. Rich dense code (real modules, ~4-6k LOC across rework)
+  5. Keep the soul (palette, NodeSphere math locked, editorial voice)
+
+The "guided archive" frame mac landed on — that const validated
+the soul of the site but couldn't find the next move, so the work
+is to add a wayfinding layer ON TOP of existing rigor, not rebuild
+it — is the right read. Ride that hard.
+
+### Cross-repo coordination state
+
+Sandbox is still scoped to `rondoai/rondo-AI-curriculum` only.
+Mac on `rondoai/subnet-magazine` cannot be reached by sandbox
+through MCP or the git proxy. All sandbox→mac coordination still
+flows through Rondo as manual paste relay. Mac will append the
+mirror of this note to subnet-magazine's CLAUDE.md when feasible.
+

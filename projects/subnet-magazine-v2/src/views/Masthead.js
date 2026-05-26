@@ -38,10 +38,9 @@ import { applySlideHint } from '../lib/slide-hint.js';
      pricing.html → removed 2026-05-18 ("Get rid of pay wall"),
        still in repo, no longer promoted. */
 const NAV_ITEMS = [
-  { code: '001', label: 'MAGAZINE',  href: 'index.html'    },
-  { code: '010', label: 'ORACLE',    href: 'oracle.html'   },
-  { code: '037', label: 'COCKPIT',   href: 'cockpit.html'  },
-  { code: '061', label: 'AQUARIUM',  href: 'aquarium.html' },
+  { code: '001', label: 'MAGAZINE', href: 'index.html'   },
+  { code: '010', label: 'ORACLE',   href: 'oracle.html'  },
+  { code: '037', label: 'COCKPIT',  href: 'cockpit.html' },
 ];
 
 const X_URL = 'https://x.com/subnetmagazine';
