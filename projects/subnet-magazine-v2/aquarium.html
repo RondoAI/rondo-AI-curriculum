@@ -1,0 +1,1360 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#000000">
+  <title>Virtual Aquarium · Subneτ Magazine</title>
+  <meta name="description" content="A 3D neural network playground. Each neuron is a dot, each connection a weighted strand. Click to kill, watch the kill-streak rise. After the open source Virtual Aquarium concept, in Subnet Magazine red.">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@300..800&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="style/tokens.css">
+  <link rel="stylesheet" href="style/base.css">
+
+  <style>
+    /* =================================================================
+       VIRTUAL AQUARIUM
+       -----------------------------------------------------------------
+       Self-contained 3D neural network playground. Layered MLP rendered
+       with hand-rolled perspective projection on a 2D canvas (matches
+       NodeSphere.js pattern, no Three.js dependency). Drag to orbit.
+       Wheel to zoom. Click a neuron to kill it; track kill-streak.
+       ================================================================= */
+
+    html, body{
+      margin: 0;
+      padding: 0;
+      background: #000;
+      color: var(--c-ink-1, #F5E5E8);
+      font-family: var(--f-mono, 'JetBrains Mono', monospace);
+      overflow: hidden;
+      height: 100vh;
+      width: 100vw;
+    }
+
+    /* ====== Top status strip (matches the magazine's status-strip register) */
+    .aq-top{
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 30;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      padding: 10px clamp(12px, 3vw, 24px);
+      background: linear-gradient(180deg, rgba(255,30,60,.08) 0%, rgba(0,0,0,.78) 100%);
+      border-bottom: 1px solid rgba(255,30,60,.18);
+      backdrop-filter: blur(6px);
+      -webkit-backdrop-filter: blur(6px);
+      font-size: 11px;
+      letter-spacing: .08em;
+    }
+    .aq-top__left{
+      display: flex; align-items: center; gap: 14px;
+    }
+    .aq-top__brand{
+      color: var(--c-red-1, #FF4D60);
+      font-weight: 700;
+      letter-spacing: .14em;
+      font-size: 12px;
+    }
+    .aq-top__brand::before{
+      content: "⊕ ";
+      color: var(--c-red, #FF1E3C);
+    }
+    .aq-top__title{
+      color: var(--c-ink-1, #F5E5E8);
+      font-weight: 600;
+      letter-spacing: .12em;
+    }
+    .aq-top__center{
+      display: flex; align-items: center; gap: 10px;
+    }
+    .aq-top__score{
+      display: inline-flex;
+      align-items: baseline;
+      gap: 6px;
+      padding: 6px 14px;
+      border: 1px solid rgba(255,30,60,.35);
+      background: rgba(255,30,60,.05);
+      border-radius: 2px;
+      font-variant-numeric: tabular-nums;
+    }
+    .aq-top__score-num{
+      color: #fff;
+      font-weight: 700;
+      font-size: 18px;
+      letter-spacing: 0;
+    }
+    .aq-top__score-of{
+      color: var(--c-ink-3, #8B6B70);
+      font-size: 13px;
+    }
+    .aq-top__right{
+      display: flex; align-items: center; gap: 14px;
+      color: var(--c-ink-2, #C8A8AD);
+    }
+    .aq-top__right .accent{ color: var(--c-red-1, #FF4D60); font-weight: 600; }
+    .aq-top__streak{
+      font-variant-numeric: tabular-nums;
+      color: #fff;
+      font-weight: 700;
+    }
+
+    /* ====== Layer info panels (left and right of the main canvas)
+       LEFT is the editable architecture editor.
+       RIGHT is hidden in v2 (the layer info is now in the editable cards). */
+    .aq-side{
+      position: fixed;
+      z-index: 20;
+      top: 70px;
+      bottom: 70px;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      padding: 10px;
+      pointer-events: none;
+      max-width: 220px;
+    }
+    .aq-side--left{ left: 10px; overflow-y: auto; pointer-events: auto; }
+    .aq-side--right{ display: none; }
+    .aq-side__head{
+      pointer-events: auto;
+      color: var(--c-red-1, #FF4D60);
+      font-weight: 700;
+      font-size: 10.5px;
+      letter-spacing: .12em;
+      padding: 4px 2px 8px;
+      border-bottom: 1px solid rgba(255,30,60,.18);
+      margin-bottom: 4px;
+    }
+    .aq-card{
+      pointer-events: auto;
+      min-width: 180px;
+      padding: 8px 10px;
+      background: rgba(0,0,0,.72);
+      border: 1px solid rgba(255,30,60,.22);
+      border-radius: 2px;
+      font-size: 10.5px;
+      line-height: 1.45;
+      color: var(--c-ink-2, #C8A8AD);
+      backdrop-filter: blur(4px);
+      -webkit-backdrop-filter: blur(4px);
+    }
+    .aq-card__head{
+      display: flex; align-items: center; justify-content: space-between;
+      gap: 8px;
+      margin-bottom: 6px;
+    }
+    .aq-card__name{
+      color: var(--c-red-1, #FF4D60);
+      font-weight: 700;
+      letter-spacing: .12em;
+      font-size: 11.5px;
+    }
+    .aq-card__remove{
+      cursor: pointer;
+      border: none;
+      background: transparent;
+      color: var(--c-ink-3, #8B6B70);
+      font-family: inherit;
+      font-size: 12px;
+      padding: 0 4px;
+      transition: color .15s;
+    }
+    .aq-card__remove:hover{ color: var(--c-red, #FF1E3C); }
+    .aq-card__row{
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 8px;
+      color: var(--c-ink-2, #C8A8AD);
+      margin: 4px 0;
+    }
+    .aq-card__row .lbl{ color: var(--c-ink-3, #8B6B70); font-size: 9.5px; letter-spacing: .08em; }
+    .aq-card__row .v{ color: #fff; font-weight: 600; font-variant-numeric: tabular-nums; }
+    .aq-card__slider{
+      width: 100%;
+      appearance: none;
+      -webkit-appearance: none;
+      height: 4px;
+      background: rgba(255,30,60,.18);
+      border-radius: 2px;
+      outline: none;
+      cursor: pointer;
+    }
+    .aq-card__slider::-webkit-slider-thumb{
+      -webkit-appearance: none;
+      appearance: none;
+      width: 12px; height: 12px;
+      border-radius: 50%;
+      background: var(--c-red, #FF1E3C);
+      cursor: grab;
+      box-shadow: 0 0 0 1px rgba(0,0,0,.6), 0 0 6px rgba(255,30,60,.55);
+    }
+    .aq-card__slider::-moz-range-thumb{
+      width: 12px; height: 12px;
+      border-radius: 50%;
+      background: var(--c-red, #FF1E3C);
+      cursor: grab;
+      border: none;
+      box-shadow: 0 0 0 1px rgba(0,0,0,.6), 0 0 6px rgba(255,30,60,.55);
+    }
+    .aq-card__act{
+      width: 100%;
+      padding: 3px 6px;
+      background: rgba(0,0,0,.6);
+      color: #fff;
+      border: 1px solid rgba(255,30,60,.25);
+      border-radius: 2px;
+      font-family: inherit;
+      font-size: 10.5px;
+      cursor: pointer;
+    }
+    .aq-card.is-dead .aq-card__name{ color: var(--c-ink-3, #8B6B70); }
+
+    .aq-add{
+      pointer-events: auto;
+      cursor: pointer;
+      padding: 8px 10px;
+      background: transparent;
+      border: 1px dashed rgba(255,30,60,.45);
+      color: var(--c-red-1, #FF4D60);
+      font-family: inherit;
+      font-size: 10.5px;
+      font-weight: 700;
+      letter-spacing: .12em;
+      border-radius: 2px;
+      transition: background .15s, border-color .15s;
+    }
+    .aq-add:hover{
+      background: rgba(255,30,60,.08);
+      border-color: var(--c-red, #FF1E3C);
+      border-style: solid;
+    }
+    .aq-add:disabled{
+      opacity: .3;
+      cursor: not-allowed;
+    }
+
+    .aq-presets{
+      pointer-events: auto;
+      display: flex;
+      gap: 6px;
+      margin-top: 6px;
+      flex-wrap: wrap;
+    }
+    .aq-preset{
+      cursor: pointer;
+      padding: 5px 9px;
+      background: rgba(255,30,60,.05);
+      border: 1px solid rgba(255,30,60,.22);
+      color: var(--c-ink-2, #C8A8AD);
+      font-family: inherit;
+      font-size: 9.5px;
+      letter-spacing: .1em;
+      font-weight: 700;
+      border-radius: 2px;
+      transition: background .15s, color .15s;
+    }
+    .aq-preset:hover{
+      background: rgba(255,30,60,.18);
+      color: #fff;
+    }
+
+    /* ====== Main canvas */
+    .aq-canvas{
+      position: fixed;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      display: block;
+      cursor: grab;
+      touch-action: none;
+    }
+    .aq-canvas.is-grabbing{ cursor: grabbing; }
+    .aq-canvas.is-killing{ cursor: crosshair; }
+
+    /* ====== Bottom HUD */
+    .aq-bottom{
+      position: fixed;
+      bottom: 0; left: 0; right: 0;
+      z-index: 30;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      padding: 10px clamp(12px, 3vw, 24px);
+      background: linear-gradient(0deg, rgba(255,30,60,.08) 0%, rgba(0,0,0,.78) 100%);
+      border-top: 1px solid rgba(255,30,60,.18);
+      backdrop-filter: blur(6px);
+      -webkit-backdrop-filter: blur(6px);
+      font-size: 11px;
+      letter-spacing: .08em;
+      color: var(--c-ink-2, #C8A8AD);
+    }
+    .aq-bottom__group{
+      display: flex; align-items: center; gap: 14px;
+      flex-wrap: wrap;
+    }
+    .aq-bottom__lbl{ color: var(--c-ink-3, #8B6B70); }
+    .aq-bottom__val{
+      color: #fff;
+      font-weight: 600;
+    }
+    /* ====== Jellyfish button system ============================
+       Soft pill shapes with breathing glows, spring-loaded press,
+       bouncy hovers, ripple on click. Magazine red, but alive. */
+
+    @keyframes aq-breathe {
+      0%, 100% { box-shadow: 0 0 14px rgba(255,30,60,.35), inset 0 0 8px rgba(255,30,60,.25); }
+      50%      { box-shadow: 0 0 22px rgba(255,30,60,.55), inset 0 0 14px rgba(255,30,60,.45); }
+    }
+    @keyframes aq-bloom {
+      0%   { transform: scale(.92); opacity: 0; }
+      60%  { transform: scale(1.08); opacity: .8; }
+      100% { transform: scale(1.0);  opacity: 0; }
+    }
+    @keyframes aq-pulse-once {
+      0%   { transform: scale(1); }
+      40%  { transform: scale(1.12); }
+      100% { transform: scale(1); }
+    }
+    @keyframes aq-shimmer {
+      0%   { background-position: -100% 0; }
+      100% { background-position: 200% 0; }
+    }
+
+    /* The KILL toggle is the most prominent button — give it the
+       full jellyfish treatment when ON. */
+    .aq-toggle{
+      position: relative;
+      overflow: hidden;
+      cursor: pointer;
+      padding: 8px 18px;
+      border: 1px solid rgba(255,30,60,.45);
+      border-radius: 24px;
+      background:
+        radial-gradient(ellipse at center, rgba(255,30,60,.08) 0%, rgba(0,0,0,.6) 70%);
+      color: var(--c-red-1, #FF4D60);
+      font-family: inherit;
+      font-size: 11.5px;
+      font-weight: 700;
+      letter-spacing: .16em;
+      transition:
+        background .4s cubic-bezier(.34, 1.56, .64, 1),
+        color .25s ease,
+        border-color .25s ease,
+        transform .25s cubic-bezier(.34, 1.56, .64, 1);
+      will-change: transform, box-shadow;
+    }
+    .aq-toggle:hover{
+      background:
+        radial-gradient(ellipse at center, rgba(255,30,60,.18) 0%, rgba(0,0,0,.5) 80%);
+      transform: scale(1.05);
+    }
+    .aq-toggle:active{
+      transform: scale(.96);
+    }
+    .aq-toggle.is-on{
+      background:
+        radial-gradient(ellipse at center, #FF1E3C 0%, #C11128 70%, #8B0F20 100%);
+      color: #fff;
+      border-color: #FF4D60;
+      animation: aq-breathe 2.4s ease-in-out infinite;
+      text-shadow: 0 0 6px rgba(255,255,255,.4);
+    }
+    .aq-toggle.is-on:hover{
+      background:
+        radial-gradient(ellipse at center, #FF4D60 0%, #FF1E3C 70%, #C11128 100%);
+      transform: scale(1.06);
+    }
+    /* Inner glow bubble that swells on press */
+    .aq-toggle::after{
+      content: '';
+      position: absolute;
+      inset: 0;
+      border-radius: inherit;
+      background: radial-gradient(circle at var(--px, 50%) var(--py, 50%), rgba(255,255,255,.5) 0%, transparent 60%);
+      opacity: 0;
+      pointer-events: none;
+    }
+    .aq-toggle.is-pressed::after{
+      animation: aq-bloom .55s cubic-bezier(.34, 1.56, .64, 1);
+    }
+
+    /* The RESET / secondary buttons — calmer than KILL but still alive. */
+    .aq-btn{
+      position: relative;
+      overflow: hidden;
+      cursor: pointer;
+      padding: 8px 18px;
+      border: 1px solid rgba(255,255,255,.16);
+      border-radius: 24px;
+      background: linear-gradient(180deg, rgba(255,255,255,.04) 0%, rgba(0,0,0,.4) 100%);
+      color: var(--c-ink-2, #C8A8AD);
+      font-family: inherit;
+      font-size: 11.5px;
+      font-weight: 600;
+      letter-spacing: .14em;
+      transition:
+        border-color .25s ease,
+        color .25s ease,
+        transform .25s cubic-bezier(.34, 1.56, .64, 1),
+        background .3s ease;
+    }
+    .aq-btn:hover{
+      border-color: rgba(255,30,60,.6);
+      color: #fff;
+      background: linear-gradient(180deg, rgba(255,30,60,.08) 0%, rgba(0,0,0,.4) 100%);
+      transform: scale(1.05);
+      box-shadow: 0 0 12px rgba(255,30,60,.28);
+    }
+    .aq-btn:active{ transform: scale(.96); }
+    .aq-btn::after{
+      content: '';
+      position: absolute;
+      inset: 0;
+      border-radius: inherit;
+      background: radial-gradient(circle at var(--px, 50%) var(--py, 50%), rgba(255,77,96,.6) 0%, transparent 50%);
+      opacity: 0;
+      pointer-events: none;
+    }
+    .aq-btn.is-pressed::after{
+      animation: aq-bloom .5s cubic-bezier(.34, 1.56, .64, 1);
+    }
+
+    /* Preset chips — softer, smaller, bouncy hover. */
+    .aq-preset{
+      position: relative;
+      overflow: hidden;
+      cursor: pointer;
+      padding: 7px 11px;
+      background: linear-gradient(180deg, rgba(255,30,60,.06) 0%, rgba(255,30,60,.02) 100%);
+      border: 1px solid rgba(255,30,60,.24);
+      border-radius: 18px;
+      color: var(--c-ink-2, #C8A8AD);
+      font-family: inherit;
+      font-size: 9.5px;
+      letter-spacing: .12em;
+      font-weight: 700;
+      transition:
+        background .25s ease,
+        color .25s ease,
+        border-color .25s ease,
+        transform .25s cubic-bezier(.34, 1.56, .64, 1);
+    }
+    .aq-preset:hover{
+      background: linear-gradient(180deg, rgba(255,30,60,.22) 0%, rgba(255,30,60,.08) 100%);
+      color: #fff;
+      border-color: var(--c-red, #FF1E3C);
+      transform: scale(1.08) translateY(-1px);
+      box-shadow: 0 4px 12px rgba(255,30,60,.32);
+    }
+    .aq-preset:active{ transform: scale(.96); }
+
+    /* + ADD HIDDEN LAYER — dashed by default, fills in on hover with a soft breathing pulse. */
+    .aq-add{
+      position: relative;
+      overflow: hidden;
+      pointer-events: auto;
+      cursor: pointer;
+      padding: 10px 12px;
+      background: transparent;
+      border: 1px dashed rgba(255,30,60,.45);
+      color: var(--c-red-1, #FF4D60);
+      font-family: inherit;
+      font-size: 10.5px;
+      font-weight: 700;
+      letter-spacing: .14em;
+      border-radius: 6px;
+      transition:
+        background .3s ease,
+        border-color .25s ease,
+        color .2s ease,
+        transform .25s cubic-bezier(.34, 1.56, .64, 1);
+    }
+    .aq-add:hover{
+      background: linear-gradient(135deg, rgba(255,30,60,.18) 0%, rgba(255,30,60,.06) 100%);
+      border-color: var(--c-red, #FF1E3C);
+      border-style: solid;
+      color: #fff;
+      transform: scale(1.02);
+      box-shadow: 0 0 16px rgba(255,30,60,.35), inset 0 0 12px rgba(255,30,60,.18);
+    }
+    .aq-add:active{ transform: scale(.98); }
+    .aq-add:disabled{
+      opacity: .3;
+      cursor: not-allowed;
+      pointer-events: none;
+    }
+
+    /* Remove (×) button on layer cards — small, but with a bounce too. */
+    .aq-card__remove{
+      cursor: pointer;
+      border: 1px solid transparent;
+      background: transparent;
+      color: var(--c-ink-3, #8B6B70);
+      font-family: inherit;
+      font-size: 14px;
+      line-height: 1;
+      width: 22px;
+      height: 22px;
+      border-radius: 50%;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      transition:
+        background .2s ease,
+        color .2s ease,
+        border-color .2s ease,
+        transform .2s cubic-bezier(.34, 1.56, .64, 1);
+    }
+    .aq-card__remove:hover{
+      background: rgba(255,30,60,.18);
+      color: var(--c-red, #FF1E3C);
+      border-color: rgba(255,30,60,.6);
+      transform: scale(1.15) rotate(90deg);
+      box-shadow: 0 0 10px rgba(255,30,60,.45);
+    }
+    .aq-card__remove:active{ transform: scale(.85) rotate(90deg); }
+
+    /* Activation dropdown — give it a soft red focus state. */
+    .aq-card__act{
+      width: 100%;
+      padding: 5px 8px;
+      background: rgba(0,0,0,.6);
+      color: #fff;
+      border: 1px solid rgba(255,30,60,.25);
+      border-radius: 4px;
+      font-family: inherit;
+      font-size: 10.5px;
+      cursor: pointer;
+      transition: border-color .2s ease, background .2s ease, box-shadow .2s ease;
+    }
+    .aq-card__act:hover, .aq-card__act:focus{
+      border-color: var(--c-red-1, #FF4D60);
+      background: rgba(0,0,0,.75);
+      box-shadow: 0 0 8px rgba(255,30,60,.32);
+      outline: none;
+    }
+
+    /* Slider thumb — more pronounced glow + bouncier press. */
+    .aq-card__slider{
+      width: 100%;
+      appearance: none;
+      -webkit-appearance: none;
+      height: 5px;
+      background: linear-gradient(90deg, rgba(255,30,60,.4) 0%, rgba(255,30,60,.12) 100%);
+      border-radius: 3px;
+      outline: none;
+      cursor: pointer;
+    }
+    .aq-card__slider::-webkit-slider-thumb{
+      -webkit-appearance: none;
+      appearance: none;
+      width: 16px; height: 16px;
+      border-radius: 50%;
+      background: radial-gradient(circle, #FF4D60 0%, #FF1E3C 60%, #C11128 100%);
+      cursor: grab;
+      border: 1px solid rgba(255,255,255,.25);
+      box-shadow: 0 0 0 2px rgba(0,0,0,.6), 0 0 12px rgba(255,30,60,.7);
+      transition: transform .15s cubic-bezier(.34, 1.56, .64, 1);
+    }
+    .aq-card__slider::-webkit-slider-thumb:hover{ transform: scale(1.2); }
+    .aq-card__slider::-webkit-slider-thumb:active{ cursor: grabbing; transform: scale(1.1); }
+    .aq-card__slider::-moz-range-thumb{
+      width: 16px; height: 16px;
+      border-radius: 50%;
+      background: radial-gradient(circle, #FF4D60 0%, #FF1E3C 60%, #C11128 100%);
+      cursor: grab;
+      border: 1px solid rgba(255,255,255,.25);
+      box-shadow: 0 0 0 2px rgba(0,0,0,.6), 0 0 12px rgba(255,30,60,.7);
+    }
+
+    /* Nav chips — soft red glow on the active tab, hover swell on others */
+    .aq-nav__tab{
+      transition: color .25s ease, background .25s ease, transform .25s cubic-bezier(.34, 1.56, .64, 1);
+    }
+    .aq-nav__tab:hover{
+      transform: scale(1.06);
+    }
+    .aq-nav__tab.is-active{
+      animation: aq-breathe 3s ease-in-out infinite;
+    }
+    .aq-bottom__hint{
+      color: var(--c-ink-3, #8B6B70);
+      font-size: 10px;
+    }
+
+    /* ====== Top nav strip — mirrors the magazine masthead chips
+       so the reader can navigate back to the rest of the site without
+       loading the full Masthead.js machinery. */
+    .aq-nav{
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 40;
+      display: flex;
+      align-items: center;
+      gap: 4px;
+      padding: 6px clamp(10px, 3vw, 20px);
+      background: #000;
+      border-bottom: 1px solid rgba(255,30,60,.18);
+      font-size: 10px;
+      letter-spacing: .14em;
+    }
+    .aq-nav__tab{
+      display: inline-flex;
+      align-items: baseline;
+      gap: 6px;
+      padding: 5px 10px;
+      color: var(--c-ink-3, #8B6B70);
+      text-decoration: none;
+      font-family: var(--f-mono, monospace);
+      transition: color .15s, background .15s;
+      border-radius: 2px;
+    }
+    .aq-nav__tab:hover{
+      color: var(--c-red-1, #FF4D60);
+      background: rgba(255,30,60,.05);
+    }
+    .aq-nav__tab.is-active{
+      color: var(--c-red, #FF1E3C);
+      background: rgba(255,30,60,.08);
+    }
+    .aq-nav__code{
+      color: var(--c-ink-4, #4A2A30);
+      font-size: 9px;
+      font-weight: 700;
+    }
+    .aq-nav__tab.is-active .aq-nav__code,
+    .aq-nav__tab:hover .aq-nav__code{
+      color: var(--c-red, #FF1E3C);
+    }
+    .aq-nav__label{
+      font-weight: 700;
+    }
+
+    /* The top status strip needs to shift down to make room for the nav */
+    .aq-top{ top: 30px !important; }
+    .aq-side{ top: 100px !important; }
+
+    /* ====== Mobile compaction */
+    @media (max-width: 720px){
+      .aq-top, .aq-bottom{ font-size: 10px; padding: 8px 10px; }
+      .aq-top__brand{ font-size: 11px; }
+      .aq-top__title{ font-size: 11px; }
+      .aq-top__score-num{ font-size: 15px; }
+      .aq-side{ display: none; }
+      .aq-bottom__group:nth-child(2){ display: none; }
+      .aq-bottom__hint{ display: none; }
+      .aq-nav{ font-size: 9px; padding: 5px 8px; gap: 0; }
+      .aq-nav__tab{ padding: 3px 7px; gap: 4px; }
+      .aq-nav__code{ display: none; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Top nav strip (matches magazine masthead chips, this page is AQUARIUM 061) -->
+  <nav class="aq-nav" aria-label="Magazine navigation">
+    <a class="aq-nav__tab" href="index.html"><span class="aq-nav__code">001</span><span class="aq-nav__label">MAGAZINE</span></a>
+    <a class="aq-nav__tab" href="oracle.html"><span class="aq-nav__code">010</span><span class="aq-nav__label">ORACLE</span></a>
+    <a class="aq-nav__tab" href="cockpit.html"><span class="aq-nav__code">037</span><span class="aq-nav__label">COCKPIT</span></a>
+    <a class="aq-nav__tab is-active" href="aquarium.html"><span class="aq-nav__code">061</span><span class="aq-nav__label">AQUARIUM</span></a>
+  </nav>
+
+  <!-- Top status strip: brand, title, score, kill-streak -->
+  <div class="aq-top">
+    <div class="aq-top__left">
+      <span class="aq-top__brand">SUBNEτ MAGAZINE</span>
+      <span class="aq-top__title">VIRTUAL AQUARIUM</span>
+    </div>
+    <div class="aq-top__center">
+      <span class="aq-top__score">
+        <span class="aq-top__score-num" data-score-alive>0</span>
+        <span class="aq-top__score-of">/</span>
+        <span class="aq-top__score-num" data-score-total>0</span>
+      </span>
+    </div>
+    <div class="aq-top__right">
+      <span><span class="aq-top__lbl">kill-streak:</span> <span class="aq-top__streak" data-streak>0</span></span>
+      <span><span class="aq-top__lbl">best:</span> <span class="aq-top__streak" data-best>0</span></span>
+    </div>
+  </div>
+
+  <!-- Editable architecture panel (left side, populated by JS) -->
+  <aside class="aq-side aq-side--left" data-side-left></aside>
+
+  <!-- Main 3D canvas -->
+  <canvas class="aq-canvas" data-canvas></canvas>
+
+  <!-- Bottom HUD: camera mode, theme, kill toggle, reset, hint -->
+  <div class="aq-bottom">
+    <div class="aq-bottom__group">
+      <span><span class="aq-bottom__lbl">camera:</span> <span class="aq-bottom__val">Free (3D)</span></span>
+      <span><span class="aq-bottom__lbl">theme:</span> <span class="aq-bottom__val" data-theme>RedTide</span></span>
+    </div>
+    <div class="aq-bottom__group">
+      <span class="aq-bottom__hint">drag to orbit · wheel to zoom · click a neuron to kill</span>
+    </div>
+    <div class="aq-bottom__group">
+      <button class="aq-toggle is-on" data-kill-toggle>KILL: ON</button>
+      <button class="aq-btn" data-reset>RESET</button>
+    </div>
+  </div>
+
+  <script type="module">
+    /* =================================================================
+       VIRTUAL AQUARIUM, 3D NEURAL NETWORK PLAYGROUND
+       -----------------------------------------------------------------
+       Hand-rolled perspective projection on 2D canvas. No Three.js.
+       Camera: orbit (theta/phi/distance) around the network center.
+       Mouse picking: project every alive neuron to screen, click hits
+       the nearest within a pixel threshold.
+       ================================================================= */
+
+    const RED       = '#FF1E3C';
+    const RED_BR    = '#FF4D60';
+    const RED_HOT   = '#FF8094';
+    const INK_1     = '#F5E5E8';
+    const INK_DIM   = '#4A2A30';
+
+    /* The network shape — mutable, the reader edits it from the left panel.
+       Each entry: { name, n, act }. The IN and OUT layers cannot be removed;
+       hidden layers can be added or removed freely. */
+    const ACTIVATIONS = ['linear', 'ReLU', 'Sigmoid', 'Tanh', 'Softmax'];
+
+    let LAYERS = [
+      { name: 'IN',  n: 16, act: 'linear'  },
+      { name: 'H1',  n: 28, act: 'ReLU'    },
+      { name: 'H2',  n: 32, act: 'ReLU'    },
+      { name: 'H3',  n: 28, act: 'ReLU'    },
+      { name: 'H4',  n: 14, act: 'ReLU'    },
+      { name: 'OUT', n: 6,  act: 'softmax' },
+    ];
+
+    const PRESETS = {
+      'Perceptron': [
+        { name: 'IN',  n: 8,  act: 'linear' },
+        { name: 'OUT', n: 2,  act: 'softmax' },
+      ],
+      'Simple MLP': [
+        { name: 'IN',  n: 12, act: 'linear' },
+        { name: 'H1',  n: 16, act: 'ReLU'   },
+        { name: 'OUT', n: 4,  act: 'softmax' },
+      ],
+      'Deep Net': [
+        { name: 'IN',  n: 16, act: 'linear' },
+        { name: 'H1',  n: 28, act: 'ReLU'   },
+        { name: 'H2',  n: 32, act: 'ReLU'   },
+        { name: 'H3',  n: 28, act: 'ReLU'   },
+        { name: 'H4',  n: 14, act: 'ReLU'   },
+        { name: 'OUT', n: 6,  act: 'softmax' },
+      ],
+    };
+
+    /* Camera state. theta = yaw (radians), phi = pitch, dist = orbit radius. */
+    const cam = {
+      theta: -0.45,
+      phi:   0.20,
+      dist:  9.2,
+      fov:   860,                 // focal length in px-equivalent
+      target:{ x:0, y:0, z:0 },
+    };
+
+    /* Build neuron list with model-space positions. Rebuilt on every
+       architecture change (slider, activation swap, layer add/remove,
+       preset load). */
+    const LAYER_SPACING_X = 1.6;
+    const NEURON_SPACING_Y = 0.30;
+
+    /** @typedef {{ x:number, y:number, z:number, alive:boolean, layer:number, idx:number, sx:number, sy:number, depth:number }} Neuron */
+    /** @type {Neuron[]} */
+    let neurons = [];
+    /** @type {{ layer:number, neurons:Neuron[], info:{name:string, n:number, act:string} }[]} */
+    let layerGroups = [];
+    /** @type {{a:Neuron, b:Neuron, w:number}[]} */
+    let connections = [];
+    let totalNeurons = 0;
+    let totalConnections = 0;
+
+    function rebuildNetwork(){
+      neurons = [];
+      layerGroups = [];
+      connections = [];
+      const layerXOffset = -((LAYERS.length - 1) * LAYER_SPACING_X) / 2;
+
+      LAYERS.forEach((layer, li) => {
+        const x = layerXOffset + li * LAYER_SPACING_X;
+        const half = (layer.n - 1) / 2;
+        const group = { layer: li, neurons: [], info: layer };
+        for (let i = 0; i < layer.n; i++){
+          const n = {
+            x,
+            y: (i - half) * NEURON_SPACING_Y,
+            z: (Math.sin(i * 1.7 + li * 0.9) * 0.04),
+            alive: true,
+            layer: li,
+            idx:   i,
+            sx: 0, sy: 0, depth: 0,
+          };
+          neurons.push(n);
+          group.neurons.push(n);
+        }
+        layerGroups.push(group);
+      });
+
+      for (let li = 0; li < LAYERS.length - 1; li++){
+        const a = layerGroups[li].neurons;
+        const b = layerGroups[li + 1].neurons;
+        for (const na of a){
+          for (const nb of b){
+            const w = 0.35 + 0.65 * Math.abs(Math.sin(na.layer * 31 + na.idx * 7.13 + nb.idx * 3.47));
+            connections.push({ a: na, b: nb, w });
+          }
+        }
+      }
+      totalNeurons = neurons.length;
+      totalConnections = connections.length;
+    }
+
+    rebuildNetwork();
+    console.log(`Aquarium: ${totalNeurons} neurons, ${totalConnections} connections`);
+
+    /* ===== Canvas + DOM refs ===== */
+    const canvas = document.querySelector('[data-canvas]');
+    const ctx    = canvas.getContext('2d');
+    const qs     = (s) => document.querySelector(s);
+    const elScoreAlive = qs('[data-score-alive]');
+    const elScoreTotal = qs('[data-score-total]');
+    const elStreak     = qs('[data-streak]');
+    const elBest       = qs('[data-best]');
+    const elKillToggle = qs('[data-kill-toggle]');
+    const elReset      = qs('[data-reset]');
+    const elSideLeft   = qs('[data-side-left]');
+
+    /* ===== Architecture editor (left panel) =====
+       Renders the current LAYERS config as editable cards:
+         - neuron-count slider per layer (1-32)
+         - activation dropdown per layer
+         - remove button (hidden layers only, IN and OUT can't be removed)
+       Below the cards:
+         - + ADD HIDDEN LAYER button
+         - preset chips (Perceptron / Simple MLP / Deep Net)
+       Editing any control rebuilds the network and redraws. */
+    function buildSideCards(){
+      elSideLeft.innerHTML = '';
+
+      const head = document.createElement('div');
+      head.className = 'aq-side__head';
+      head.textContent = '▾ YOUR NETWORK';
+      elSideLeft.appendChild(head);
+
+      LAYERS.forEach((layer, li) => {
+        const alive = layerGroups[li] ? layerGroups[li].neurons.filter(n => n.alive).length : layer.n;
+        const isFixed = (li === 0) || (li === LAYERS.length - 1);
+        const card = document.createElement('div');
+        card.className = 'aq-card' + (alive === 0 ? ' is-dead' : '');
+        card.dataset.layer = li;
+
+        const actOptions = ACTIVATIONS
+          .map(a => `<option value="${a}" ${a === layer.act ? 'selected' : ''}>${a}</option>`)
+          .join('');
+
+        card.innerHTML = `
+          <div class="aq-card__head">
+            <span class="aq-card__name">${layer.name}</span>
+            ${isFixed ? '' : '<button class="aq-card__remove" data-remove aria-label="Remove layer">×</button>'}
+          </div>
+          <div class="aq-card__row">
+            <span class="lbl">NEURONS</span>
+            <span class="v" data-count>${alive}/${layer.n}</span>
+          </div>
+          <input class="aq-card__slider" type="range" min="1" max="32" value="${layer.n}" data-slider>
+          <div class="aq-card__row" style="margin-top:6px;">
+            <span class="lbl">ACTIVATION</span>
+          </div>
+          <select class="aq-card__act" data-act>${actOptions}</select>
+        `;
+        elSideLeft.appendChild(card);
+
+        // Wire slider
+        const slider = card.querySelector('[data-slider]');
+        slider.addEventListener('input', (e) => {
+          const v = parseInt(e.target.value, 10);
+          LAYERS[li].n = v;
+          card.querySelector('[data-count]').textContent = `${v}/${v}`;
+          rebuildNetwork();
+          updateScore();
+        });
+
+        // Wire activation dropdown
+        const actSel = card.querySelector('[data-act]');
+        actSel.addEventListener('change', (e) => {
+          LAYERS[li].act = e.target.value;
+        });
+
+        // Wire remove button (hidden layers only)
+        const removeBtn = card.querySelector('[data-remove]');
+        if (removeBtn){
+          removeBtn.addEventListener('click', () => {
+            LAYERS.splice(li, 1);
+            renameHiddenLayers();
+            rebuildNetwork();
+            buildSideCards();
+            updateScore();
+          });
+        }
+      });
+
+      // + ADD HIDDEN LAYER button (inserted before OUT)
+      const addBtn = document.createElement('button');
+      addBtn.className = 'aq-add';
+      addBtn.textContent = '+ ADD HIDDEN LAYER';
+      addBtn.disabled = LAYERS.length >= 9;       // soft cap
+      addBtn.addEventListener('click', () => {
+        const newLayer = { name: '', n: 16, act: 'ReLU' };
+        LAYERS.splice(LAYERS.length - 1, 0, newLayer);
+        renameHiddenLayers();
+        rebuildNetwork();
+        buildSideCards();
+        updateScore();
+      });
+      elSideLeft.appendChild(addBtn);
+
+      // Preset chips
+      const presets = document.createElement('div');
+      presets.className = 'aq-presets';
+      for (const [name, config] of Object.entries(PRESETS)){
+        const btn = document.createElement('button');
+        btn.className = 'aq-preset';
+        btn.textContent = name.toUpperCase();
+        btn.addEventListener('click', () => {
+          LAYERS = config.map(l => ({ ...l }));
+          renameHiddenLayers();
+          rebuildNetwork();
+          buildSideCards();
+          updateScore();
+          state.killStreak = 0;
+          elStreak.textContent = '0';
+        });
+        presets.appendChild(btn);
+      }
+      elSideLeft.appendChild(presets);
+    }
+
+    /* After a layer is added or removed, rename hidden layers H1, H2, H3... */
+    function renameHiddenLayers(){
+      let hiddenCount = 0;
+      LAYERS.forEach((layer, li) => {
+        if (li === 0){ layer.name = 'IN'; return; }
+        if (li === LAYERS.length - 1){ layer.name = 'OUT'; return; }
+        hiddenCount += 1;
+        layer.name = `H${hiddenCount}`;
+      });
+    }
+
+    /* ===== Game state ===== */
+    const state = {
+      killStreak: 0,
+      bestStreak: parseInt(localStorage.getItem('aq-best') || '0', 10) || 0,
+      killMode:   true,
+    };
+    elBest.textContent = state.bestStreak;
+    elKillToggle.addEventListener('click', () => {
+      state.killMode = !state.killMode;
+      elKillToggle.classList.toggle('is-on', state.killMode);
+      elKillToggle.textContent = state.killMode ? 'KILL: ON' : 'KILL: OFF';
+      canvas.classList.toggle('is-killing', state.killMode && !dragging);
+    });
+    elReset.addEventListener('click', () => {
+      neurons.forEach(n => { n.alive = true; });
+      state.killStreak = 0;
+      elStreak.textContent = '0';
+      buildSideCards();
+      updateScore();
+    });
+
+    function updateScore(){
+      const alive = neurons.filter(n => n.alive).length;
+      elScoreAlive.textContent = String(alive);
+      elScoreTotal.textContent = String(totalNeurons);
+    }
+
+    /* ===== Camera math ===== */
+    function project(p){
+      // Translate by -target (center the scene)
+      const tx = p.x - cam.target.x;
+      const ty = p.y - cam.target.y;
+      const tz = p.z - cam.target.z;
+
+      // Rotate world by -theta around Y, then by -phi around X
+      const cy = Math.cos(-cam.theta), sy = Math.sin(-cam.theta);
+      const cx = Math.cos(-cam.phi),   sx = Math.sin(-cam.phi);
+
+      // Y axis rotation
+      const x1 = cy * tx + sy * tz;
+      const y1 = ty;
+      const z1 = -sy * tx + cy * tz;
+
+      // X axis rotation
+      const x2 = x1;
+      const y2 = cx * y1 - sx * z1;
+      const z2 = sx * y1 + cx * z1;
+
+      // Translate camera back along Z by -dist (camera sits at +z looking down -z)
+      const zc = z2 + cam.dist;
+      if (zc <= 0.05) return { sx: 0, sy: 0, depth: zc, visible: false };
+
+      // Perspective project
+      const sx2 = (x2 / zc) * cam.fov;
+      const sy2 = -(y2 / zc) * cam.fov;
+      return { sx: sx2, sy: sy2, depth: zc, visible: true };
+    }
+
+    /* ===== Resize handling, hi-DPI =====
+       Canvas already fills the viewport via CSS (.aq-canvas inset:0).
+       We only need to set the canvas buffer dimensions to match the
+       displayed size times the device pixel ratio. */
+    let width = 0, height = 0, dpr = 1;
+    function resize(){
+      dpr = Math.min(window.devicePixelRatio || 1, 2);
+      width  = window.innerWidth;
+      height = window.innerHeight;
+      canvas.width  = Math.round(width  * dpr);
+      canvas.height = Math.round(height * dpr);
+      ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+    }
+    window.addEventListener('resize', resize, { passive: true });
+    resize();
+
+    /* ===== Render loop ===== */
+    let rafId = 0;
+    function render(){
+      rafId = requestAnimationFrame(render);
+
+      // Project every neuron
+      for (const n of neurons){
+        const p = project(n);
+        n.sx = p.sx + width / 2;
+        n.sy = p.sy + height / 2;
+        n.depth = p.depth;
+      }
+
+      // Clear (true black, no smear)
+      ctx.fillStyle = '#000';
+      ctx.fillRect(0, 0, width, height);
+
+      // Background grid floor for spatial reference (subtle)
+      drawGridFloor();
+
+      // Layer planes (faint hairline outline around each layer's bounding column)
+      drawLayerPlanes();
+
+      // Sort connections by midpoint depth, far first
+      connections.sort((a, b) => {
+        const da = (a.a.depth + a.b.depth) / 2;
+        const db = (b.a.depth + b.b.depth) / 2;
+        return db - da;
+      });
+
+      // Draw connections
+      for (const c of connections){
+        const aAlive = c.a.alive, bAlive = c.b.alive;
+        if (!aAlive && !bAlive) continue;
+        // Alpha falls off with depth; strong if both alive, very dim if either dead
+        const depthMid = (c.a.depth + c.b.depth) / 2;
+        const depthAlpha = clamp(1.5 - depthMid * 0.08, 0.05, 1.0);
+        let baseAlpha = c.w * 0.55 * depthAlpha;
+        if (!aAlive || !bAlive) baseAlpha *= 0.12;
+
+        // Color shift on alive: red/orange-red on near, dim red on far
+        const t = clamp(1.0 - depthMid * 0.06, 0, 1);
+        const r = 255;
+        const g = Math.round(30 + 80 * t);
+        const b = Math.round(60 + 30 * t);
+
+        ctx.strokeStyle = `rgba(${r},${g},${b},${baseAlpha.toFixed(3)})`;
+        ctx.lineWidth = 0.6 + 0.4 * t;
+        ctx.beginPath();
+        ctx.moveTo(c.a.sx, c.a.sy);
+        ctx.lineTo(c.b.sx, c.b.sy);
+        ctx.stroke();
+      }
+
+      // Sort neurons by depth, far first
+      const sortedN = neurons.slice().sort((a, b) => b.depth - a.depth);
+      for (const n of sortedN){
+        drawNeuron(n);
+      }
+
+      // Hovered neuron crosshair + tooltip
+      if (hoveredNeuron && hoveredNeuron.alive){
+        drawNeuronHighlight(hoveredNeuron);
+      }
+    }
+
+    function drawNeuron(n){
+      const depthScale = clamp(2.4 - n.depth * 0.18, 0.55, 1.6);
+      const radius = (n.alive ? 3.0 : 2.2) * depthScale;
+      const brightness = clamp(1.4 - n.depth * 0.08, 0.25, 1.0);
+
+      if (n.alive){
+        // Glow halo
+        const g = ctx.createRadialGradient(n.sx, n.sy, 0, n.sx, n.sy, radius * 5.5);
+        g.addColorStop(0,   `rgba(255,30,60,${(0.40 * brightness).toFixed(3)})`);
+        g.addColorStop(0.4, `rgba(255,30,60,${(0.18 * brightness).toFixed(3)})`);
+        g.addColorStop(1,   'rgba(255,30,60,0)');
+        ctx.fillStyle = g;
+        ctx.beginPath();
+        ctx.arc(n.sx, n.sy, radius * 5.5, 0, Math.PI * 2);
+        ctx.fill();
+
+        // Core
+        ctx.fillStyle = `rgba(255,255,255,${brightness.toFixed(3)})`;
+        ctx.beginPath();
+        ctx.arc(n.sx, n.sy, radius, 0, Math.PI * 2);
+        ctx.fill();
+
+        // Inner red ring
+        ctx.strokeStyle = `rgba(255,30,60,${(0.7 * brightness).toFixed(3)})`;
+        ctx.lineWidth = 1;
+        ctx.beginPath();
+        ctx.arc(n.sx, n.sy, radius + 0.6, 0, Math.PI * 2);
+        ctx.stroke();
+      } else {
+        // Dead neuron, dim outline only
+        ctx.strokeStyle = 'rgba(120,80,90,0.45)';
+        ctx.lineWidth = 1;
+        ctx.beginPath();
+        ctx.arc(n.sx, n.sy, radius, 0, Math.PI * 2);
+        ctx.stroke();
+        // Tiny dim core
+        ctx.fillStyle = 'rgba(80,60,68,0.55)';
+        ctx.beginPath();
+        ctx.arc(n.sx, n.sy, radius * 0.55, 0, Math.PI * 2);
+        ctx.fill();
+      }
+    }
+
+    function drawNeuronHighlight(n){
+      ctx.save();
+      ctx.strokeStyle = RED_HOT;
+      ctx.lineWidth = 1.5;
+      ctx.beginPath();
+      ctx.arc(n.sx, n.sy, 10, 0, Math.PI * 2);
+      ctx.stroke();
+      // tooltip
+      const label = `${LAYERS[n.layer].name}.${n.idx + 1}`;
+      ctx.font = '11px JetBrains Mono, monospace';
+      const w = ctx.measureText(label).width + 14;
+      const x = n.sx + 14, y = n.sy - 22;
+      ctx.fillStyle = 'rgba(0,0,0,.85)';
+      ctx.strokeStyle = 'rgba(255,30,60,.55)';
+      ctx.lineWidth = 1;
+      ctx.beginPath();
+      ctx.rect(x, y, w, 20);
+      ctx.fill();
+      ctx.stroke();
+      ctx.fillStyle = '#fff';
+      ctx.textBaseline = 'middle';
+      ctx.fillText(label, x + 7, y + 10);
+      ctx.restore();
+    }
+
+    function drawGridFloor(){
+      // A subtle grid in the y = -3.6 plane, just for spatial reference
+      const Y = -3.6;
+      const SIZE = 6;
+      const STEP = 0.6;
+      ctx.save();
+      ctx.strokeStyle = 'rgba(255,30,60,0.06)';
+      ctx.lineWidth = 0.6;
+      for (let i = -SIZE; i <= SIZE; i += STEP){
+        const a = project({ x: -SIZE, y: Y, z: i });
+        const b = project({ x:  SIZE, y: Y, z: i });
+        if (!a.visible || !b.visible) continue;
+        ctx.beginPath();
+        ctx.moveTo(a.sx + width/2, a.sy + height/2);
+        ctx.lineTo(b.sx + width/2, b.sy + height/2);
+        ctx.stroke();
+
+        const c = project({ x: i, y: Y, z: -SIZE });
+        const d = project({ x: i, y: Y, z:  SIZE });
+        if (!c.visible || !d.visible) continue;
+        ctx.beginPath();
+        ctx.moveTo(c.sx + width/2, c.sy + height/2);
+        ctx.lineTo(d.sx + width/2, d.sy + height/2);
+        ctx.stroke();
+      }
+      ctx.restore();
+    }
+
+    function drawLayerPlanes(){
+      ctx.save();
+      ctx.strokeStyle = 'rgba(255,30,60,0.10)';
+      ctx.lineWidth = 0.8;
+      for (const g of layerGroups){
+        const top = g.neurons[0];
+        const bot = g.neurons[g.neurons.length - 1];
+        if (!top || !bot) continue;
+        ctx.beginPath();
+        ctx.moveTo(top.sx, top.sy);
+        ctx.lineTo(bot.sx, bot.sy);
+        ctx.stroke();
+      }
+      ctx.restore();
+    }
+
+    function clamp(v, lo, hi){ return v < lo ? lo : v > hi ? hi : v; }
+
+    /* ===== Interactions ===== */
+    let dragging = false;
+    let dragStart = null;
+    let camStart = null;
+    let pressStart = null;          // pointer-down position, for click vs drag distinction
+    let hoveredNeuron = null;
+
+    function onPointerDown(ev){
+      const r = canvas.getBoundingClientRect();
+      const x = ev.clientX - r.left;
+      const y = ev.clientY - r.top;
+      pressStart = { x, y, t: performance.now() };
+      dragging = false;
+      dragStart = { x, y };
+      camStart = { theta: cam.theta, phi: cam.phi };
+      canvas.setPointerCapture?.(ev.pointerId);
+    }
+
+    function onPointerMove(ev){
+      const r = canvas.getBoundingClientRect();
+      const x = ev.clientX - r.left;
+      const y = ev.clientY - r.top;
+
+      if (pressStart){
+        const dx = x - pressStart.x;
+        const dy = y - pressStart.y;
+        if (!dragging && (dx * dx + dy * dy) > 16){
+          dragging = true;
+          canvas.classList.add('is-grabbing');
+        }
+        if (dragging){
+          cam.theta = camStart.theta - dx * 0.006;
+          cam.phi   = clamp(camStart.phi - dy * 0.005, -1.2, 1.2);
+        }
+      }
+      // Hover for tooltip
+      hoveredNeuron = pickNeuron(x, y);
+    }
+
+    function onPointerUp(ev){
+      const r = canvas.getBoundingClientRect();
+      const x = ev.clientX - r.left;
+      const y = ev.clientY - r.top;
+      if (pressStart && !dragging){
+        // It is a click, not a drag
+        if (state.killMode){
+          const target = pickNeuron(x, y);
+          if (target && target.alive){
+            target.alive = false;
+            state.killStreak += 1;
+            if (state.killStreak > state.bestStreak){
+              state.bestStreak = state.killStreak;
+              localStorage.setItem('aq-best', String(state.bestStreak));
+              elBest.textContent = state.bestStreak;
+            }
+            elStreak.textContent = state.killStreak;
+            buildSideCards();
+            updateScore();
+          } else {
+            // Miss resets streak
+            if (state.killStreak > 0){
+              state.killStreak = 0;
+              elStreak.textContent = '0';
+            }
+          }
+        }
+      }
+      dragging = false;
+      pressStart = null;
+      canvas.classList.remove('is-grabbing');
+    }
+
+    function pickNeuron(mx, my){
+      let best = null;
+      let bestDist = 18 * 18;     // 18px threshold (squared)
+      for (const n of neurons){
+        if (!n.alive) continue;
+        const dx = n.sx - mx;
+        const dy = n.sy - my;
+        const d = dx * dx + dy * dy;
+        if (d < bestDist){
+          bestDist = d;
+          best = n;
+        }
+      }
+      return best;
+    }
+
+    canvas.addEventListener('pointerdown', onPointerDown);
+    canvas.addEventListener('pointermove', onPointerMove);
+    canvas.addEventListener('pointerup',   onPointerUp);
+    canvas.addEventListener('pointercancel', onPointerUp);
+    canvas.addEventListener('wheel', (ev) => {
+      ev.preventDefault();
+      const f = Math.exp(ev.deltaY * 0.001);
+      cam.dist = clamp(cam.dist * f, 3, 30);
+    }, { passive: false });
+
+    // Pinch-to-zoom on touch (two-finger pinch via Touch event fallback)
+    let pinchStart = null;
+    canvas.addEventListener('touchstart', (ev) => {
+      if (ev.touches.length === 2){
+        const a = ev.touches[0], b = ev.touches[1];
+        pinchStart = { d: Math.hypot(a.clientX - b.clientX, a.clientY - b.clientY), dist: cam.dist };
+      }
+    }, { passive: true });
+    canvas.addEventListener('touchmove', (ev) => {
+      if (ev.touches.length === 2 && pinchStart){
+        const a = ev.touches[0], b = ev.touches[1];
+        const d = Math.hypot(a.clientX - b.clientX, a.clientY - b.clientY);
+        const ratio = pinchStart.d / d;
+        cam.dist = clamp(pinchStart.dist * ratio, 3, 30);
+      }
+    }, { passive: true });
+    canvas.addEventListener('touchend', () => { pinchStart = null; }, { passive: true });
+
+    /* ===== Jellyfish ripple effect =====
+       Catch clicks on any button with a ripple class, set the CSS
+       custom properties for the ripple origin, then toggle
+       .is-pressed for one animation cycle. */
+    function wireJellyButtons(){
+      document.addEventListener('click', (ev) => {
+        const btn = ev.target.closest('.aq-toggle, .aq-btn, .aq-preset, .aq-add');
+        if (!btn) return;
+        const r = btn.getBoundingClientRect();
+        const px = ((ev.clientX - r.left) / r.width)  * 100;
+        const py = ((ev.clientY - r.top)  / r.height) * 100;
+        btn.style.setProperty('--px', `${px}%`);
+        btn.style.setProperty('--py', `${py}%`);
+        btn.classList.remove('is-pressed');
+        // Force reflow so re-adding triggers the animation again
+        void btn.offsetWidth;
+        btn.classList.add('is-pressed');
+        setTimeout(() => btn.classList.remove('is-pressed'), 600);
+      }, true);
+    }
+
+    /* ===== Boot ===== */
+    buildSideCards();
+    updateScore();
+    canvas.classList.toggle('is-killing', state.killMode);
+    wireJellyButtons();
+    render();
+  </script>
+</body>
+</html>
