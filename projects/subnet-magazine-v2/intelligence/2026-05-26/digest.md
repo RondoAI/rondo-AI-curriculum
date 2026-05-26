@@ -11,6 +11,16 @@ _no human notes in the window_
 
 _SemiAnalysis is the most-cited semiconductor and AI infrastructure publication in the industry. They do NOT cover Bittensor. The Oracle uses this corpus for any claim about hyperscaler compute, GPU economics, datacenter power, foundry capacity, memory pricing, lab unit economics. DO NOT cite SemiAnalysis for any Bittensor-specific claim. Full archive (289 posts, May 2020 onwards) lives at `intelligence/_external_sources/semianalysis/` with an `INDEX.md` table of contents. Paywalled posts show only subtitle + free preview; free posts have the full body extracted._
 
+### 2026-05-26 · Inside the 800VDC Revolution – Part 1
+_Four-Phase 800VDC Transition, Power Rack Economics, SST, Equipment Content/MW Build, Supplier Implications_
+
+- **Authors:** ["Nicolas Bontigui", "Jeremie Eliahou Ontiveros", "Konrad Wang", "Aran Industries", "Derek Yin", "Dylan Patel"]
+- **Access:** paid-preview
+- **URL:** https://newsletter.semianalysis.com/p/inside-the-800vdc-revolution-part
+- **Corpus file:** `intelligence/_external_sources/semianalysis/2026-05-26-inside-the-800vdc-revolution-part.md`
+
+> [![](https://substackcdn.com/image/fetch/$s_!rZmH!,w_1456,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2Fafd57882-4edd-4d08-9ee9-923b94c43063_1672x941.png)](https://substackcdn.com/image/fetch/$s_!rZmH!,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2Fafd57882-4edd-4d08-9ee9-923b94c43063_1672x941.png)  We’d like to thank [DG Matrix](https://www.dgmatrix.com/), [No
+
 ### 2026-05-21 · EDA Market Primer
 _EDA Market size, Share, Business Models, Drivers, Changing Customer Base, Competitive Dynamics Across Synopsys, Cadence, and Siemens, China EDA, IP, Hardware, CoT, Lock-In Economics, Disruptive Forces_
 
@@ -121,16 +131,6 @@ _TSMC N3 Wafer Shortages, Memory Constraints, Datacenter Bottlenecks, Supply Cha
 
 > [![](https://substackcdn.com/image/fetch/$s_!xoJj!,w_1456,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2Fbc74983e-edab-47a0-801c-fffe0839a20e_4000x4000.png)](https://substackcdn.com/image/fetch/$s_!xoJj!,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2Fbc74983e-edab-47a0-801c-fffe0839a20e_4000x4000.png)  ---  ## The Compute Shortage  Token demand is skyrocketing a
 
-### 2026-03-03 · Are AI Datacenters Increasing Electric Bills for American Households?
-_Power prices misconception, PJM's poor market design, Capacity prices 9.3x growth, ERCOT vs PJM grid reliability and expansion_
-
-- **Authors:** ["Aishwarya Mahesh", "Jeremie Eliahou Ontiveros", "Ajey Pandey", "Dylan Patel", "Reyk Knuhtsen"]
-- **Access:** paid-preview
-- **URL:** https://newsletter.semianalysis.com/p/are-ai-datacenters-increasing-electric
-- **Corpus file:** `intelligence/_external_sources/semianalysis/2026-03-03-are-ai-datacenters-increasing-electric.md`
-
-> # Are AI Datacenters Increasing Electric Bills for American Households?  SemiAnalysis x Fluidstack is launching GTC with a 48-hour, full-stack AI infrastructure hackathon on March 15th from Power to Prefill, Dirt to Decode. With speakers from OpenAI, GPU MODE, and Thinking Machines, plus compute grants and GPU cluster access, come build with the best: [APPLY HERE](https://luma.com/SAxFSHack).  The topic of datacenter load growth and impact on power prices remains broadly misunderstood, akin to t
-
 
 ## ⊕ GITHUB COMMITS + RELEASES, last 24h
 
@@ -146,4 +146,4 @@ _no posts retrieved · all Nitter instances may be down_
 
 
 ---
-_Generated at 2026-05-26T02:39:17.337694+00:00 by scripts/intel/aggregate.py. Treat this digest as input context, not as ground truth. Verify before quoting._
+_Generated at 2026-05-26T07:42:25.730946+00:00 by scripts/intel/aggregate.py. Treat this digest as input context, not as ground truth. Verify before quoting._
