@@ -1,11 +1,12 @@
 # SemiAnalysis Archive Index
 
-_291 posts captured. Generated 2026-05-27T15:25:36.125717+00:00._
+_292 posts captured. Generated 2026-05-27T18:24:24.002070+00:00._
 
 Editorial policy: SemiAnalysis is the macro reference. The Oracle cites it for any claim about hyperscaler compute, GPU economics, datacenter power, foundry capacity, memory pricing, lab unit economics. The Oracle does NOT cite SemiAnalysis for any Bittensor-specific claim. SemiAnalysis does not cover Bittensor; treat that absence as itself information.
 
 | Date | Title | Audience | Authors | File |
 | --- | --- | --- | --- | --- |
+| 2026-05-27 | [Anthropic Growth and Bedrock Mix Drive AWS Margins Higher While Peers Lag](https://newsletter.semianalysis.com/p/anthropic-growth-and-bedrock-mix) | only_paid | ["Jeremie Eliahou Ontiveros", "Joey Brookhart", "Crystal Hua | `2026-05-27-anthropic-growth-and-bedrock-mix.md` |
 | 2026-05-26 | [Inside the 800VDC Revolution – Part 1](https://newsletter.semianalysis.com/p/inside-the-800vdc-revolution-part) | only_paid | ["Nicolas Bontigui", "Jeremie Eliahou Ontiveros", "Konrad Wa | `2026-05-26-inside-the-800vdc-revolution-part.md` |
 | 2026-05-21 | [EDA Market Primer](https://newsletter.semianalysis.com/p/eda-market-primer) | only_paid | ["Sravan Kundojjala", "Dylan Patel", "Gerald Wong"] | `2026-05-21-eda-market-primer.md` |
 | 2026-05-13 | [Cerebras — Faster Tokens Please](https://newsletter.semianalysis.com/p/cerebras-faster-tokens-please) | only_paid | ["Myron Xie", "Jordan Nanos", "Max Kan", "Cam Quilici", "Tan | `2026-05-13-cerebras-faster-tokens-please.md` |

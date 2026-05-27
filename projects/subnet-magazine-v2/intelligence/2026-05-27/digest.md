@@ -11,6 +11,16 @@ _no human notes in the window_
 
 _SemiAnalysis is the most-cited semiconductor and AI infrastructure publication in the industry. They do NOT cover Bittensor. The Oracle uses this corpus for any claim about hyperscaler compute, GPU economics, datacenter power, foundry capacity, memory pricing, lab unit economics. DO NOT cite SemiAnalysis for any Bittensor-specific claim. Full archive (289 posts, May 2020 onwards) lives at `intelligence/_external_sources/semianalysis/` with an `INDEX.md` table of contents. Paywalled posts show only subtitle + free preview; free posts have the full body extracted._
 
+### 2026-05-27 · Anthropic Growth and Bedrock Mix Drive AWS Margins Higher While Peers Lag
+_Amazon’s Bedrock Mix and Anthropic Deal Terms Combine to Show Greater Operating Leverage_
+
+- **Authors:** ["Jeremie Eliahou Ontiveros", "Joey Brookhart", "Crystal Huang", "Dylan Patel"]
+- **Access:** paid-preview
+- **URL:** https://newsletter.semianalysis.com/p/anthropic-growth-and-bedrock-mix
+- **Corpus file:** `intelligence/_external_sources/semianalysis/2026-05-27-anthropic-growth-and-bedrock-mix.md`
+
+> While other CSPs have seen declining-to-flat operating margins over the last several quarters, Amazon’s AWS margins inflected this past quarter driven primarily by customer spending growth on Claude through Bedrock. AWS’ higher share of 3P model API spend, Anthropic/Bedrock deal structure, and Anthropic’s ARR outperformance in 1Q26 all contributed to EBIT margins increasing 213bp Q/Q while other CSPs lagged. SemiAnalysis’ work in the new [Tokenomics 2.0 model](https://semianalysis.com/tokenomics
+
 ### 2026-05-26 · Inside the 800VDC Revolution – Part 1
 _Four-Phase 800VDC Transition, Power Rack Economics, SST, Equipment Content/MW Build, Supplier Implications_
 
@@ -121,16 +131,6 @@ _Groq LP30, LPX Rack, Attention FFN Disaggregation, Oberon & Kyber Updates, Nvid
 
 > [![](https://substackcdn.com/image/fetch/$s_!dC_X!,w_1456,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2Ff5522a45-77c1-40f8-94c0-395f272b8db1_2709x1815.png)](https://substackcdn.com/image/fetch/$s_!dC_X!,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2Ff5522a45-77c1-40f8-94c0-395f272b8db1_2709x1815.png)  _caption:_ Source: Nvidia  At GTC 2026, Nvidia delivered an
 
-### 2026-03-12 · The Great AI Silicon Shortage
-_TSMC N3 Wafer Shortages, Memory Constraints, Datacenter Bottlenecks, Supply Chain Wars Winner_
-
-- **Authors:** ["Ivan Chiam", "Myron Xie", "Ray Wang", "Sravan Kundojjala", "Gerald Wong", "Dylan Patel"]
-- **Access:** paid-preview
-- **URL:** https://newsletter.semianalysis.com/p/the-great-ai-silicon-shortage
-- **Corpus file:** `intelligence/_external_sources/semianalysis/2026-03-12-the-great-ai-silicon-shortage.md`
-
-> [![](https://substackcdn.com/image/fetch/$s_!xoJj!,w_1456,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2Fbc74983e-edab-47a0-801c-fffe0839a20e_4000x4000.png)](https://substackcdn.com/image/fetch/$s_!xoJj!,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2Fbc74983e-edab-47a0-801c-fffe0839a20e_4000x4000.png)  ---  ## The Compute Shortage  Token demand is skyrocketing a
-
 
 ## ⊕ GITHUB COMMITS + RELEASES, last 24h
 
@@ -146,4 +146,4 @@ _no posts retrieved · all Nitter instances may be down_
 
 
 ---
-_Generated at 2026-05-27T15:25:36.332109+00:00 by scripts/intel/aggregate.py. Treat this digest as input context, not as ground truth. Verify before quoting._
+_Generated at 2026-05-27T18:24:24.161185+00:00 by scripts/intel/aggregate.py. Treat this digest as input context, not as ground truth. Verify before quoting._
