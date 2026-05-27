@@ -134,7 +134,26 @@ _Groq LP30, LPX Rack, Attention FFN Disaggregation, Oberon & Kyber Updates, Nvid
 
 ## ⊕ GITHUB COMMITS + RELEASES, last 24h
 
-_no commits or releases in the lookback window_
+- **Subtensor (chain)** (COMMIT `486037b`, 2026-05-27 20:49) Merge pull request #2643 from opentensor/testnet  
+  https://github.com/opentensor/subtensor/commit/486037ba45b87a453b1d660177cc1b105d0298c6
+- **Subtensor (chain)** (COMMIT `bfa2cb8`, 2026-05-27 18:55) Merge remote-tracking branch 'origin/devnet-ready' into devnet  
+  https://github.com/opentensor/subtensor/commit/bfa2cb8b3c56d1f46b09987ab29e2f4813e56e78
+- **Subtensor (chain)** (COMMIT `a535b29`, 2026-05-27 18:49) Merge pull request #2698 from opentensor/feat/unlock-rate-90-days  
+  https://github.com/opentensor/subtensor/commit/a535b290f737938bdb53d2d2bccbd57825018d2a
+- **Subtensor (chain)** (COMMIT `74c9f8f`, 2026-05-27 17:47) spec bump  
+  https://github.com/opentensor/subtensor/commit/74c9f8f7c04afcea843ec10a3928a4ac139df163
+- **Subtensor (chain)** (COMMIT `5bb2002`, 2026-05-27 16:55) Merge pull request #2695 from opentensor/feat/no-auto-lock-by-default  
+  https://github.com/opentensor/subtensor/commit/5bb20027ff87ea4729165f8c672fb7ae26ac6445
+- **Subtensor (chain)** (COMMIT `dcc96ba`, 2026-05-27 16:11) Merge pull request #2669 from opentensor/atomic-extension-check  
+  https://github.com/opentensor/subtensor/commit/dcc96ba1f1131e613f487da0ef93015d86e0eeca
+- **Subtensor (chain)** (COMMIT `98b8620`, 2026-05-27 16:03) Change unlock and maturity rates to 90 day half life  
+  https://github.com/opentensor/subtensor/commit/98b8620691ead26956b2e83ce43d8656888f56fb
+- **Subtensor (chain)** (COMMIT `2e95cd3`, 2026-05-26 21:51) Merge remote-tracking branch 'origin/devnet-ready' into devnet  
+  https://github.com/opentensor/subtensor/commit/2e95cd365598ec03a8119314d07fdbe3f22a6279
+- **Subtensor (chain)** (COMMIT `cee0eda`, 2026-05-26 21:12) Merge pull request #2696 from opentensor/feat/unlock-rate-60-days  
+  https://github.com/opentensor/subtensor/commit/cee0edab0970f3e8218cdad4bd1fae454015207a
+- **Subtensor (chain)** (COMMIT `6ab4e90`, 2026-05-26 20:08) spec bump  
+  https://github.com/opentensor/subtensor/commit/6ab4e9050a37aefbdf9a80f46f3d0c56a97e905c
 
 ## ⊕ ECOSYSTEM BLOGS via RSS
 
@@ -146,4 +165,4 @@ _no posts retrieved · all Nitter instances may be down_
 
 
 ---
-_Generated at 2026-05-27T18:24:24.161185+00:00 by scripts/intel/aggregate.py. Treat this digest as input context, not as ground truth. Verify before quoting._
+_Generated at 2026-05-27T21:49:55.098824+00:00 by scripts/intel/aggregate.py. Treat this digest as input context, not as ground truth. Verify before quoting._
