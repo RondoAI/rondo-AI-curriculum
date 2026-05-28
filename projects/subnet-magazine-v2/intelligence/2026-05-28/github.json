@@ -1,0 +1,79 @@
+[
+  {
+    "repo": "opentensor/subtensor",
+    "name": "Subtensor (chain)",
+    "kind": "commit",
+    "sha": "486037b",
+    "message": "Merge pull request #2643 from opentensor/testnet",
+    "author": "sam0x17",
+    "posted_at": "2026-05-27T20:49:34Z",
+    "url": "https://github.com/opentensor/subtensor/commit/486037ba45b87a453b1d660177cc1b105d0298c6",
+    "fetched_at": "2026-05-28T02:36:24.391861+00:00"
+  },
+  {
+    "repo": "opentensor/subtensor",
+    "name": "Subtensor (chain)",
+    "kind": "commit",
+    "sha": "bfa2cb8",
+    "message": "Merge remote-tracking branch 'origin/devnet-ready' into devnet",
+    "author": "Sam Johnson",
+    "posted_at": "2026-05-27T18:55:42Z",
+    "url": "https://github.com/opentensor/subtensor/commit/bfa2cb8b3c56d1f46b09987ab29e2f4813e56e78",
+    "fetched_at": "2026-05-28T02:36:24.391861+00:00"
+  },
+  {
+    "repo": "opentensor/subtensor",
+    "name": "Subtensor (chain)",
+    "kind": "commit",
+    "sha": "a535b29",
+    "message": "Merge pull request #2698 from opentensor/feat/unlock-rate-90-days",
+    "author": "sam0x17",
+    "posted_at": "2026-05-27T18:49:03Z",
+    "url": "https://github.com/opentensor/subtensor/commit/a535b290f737938bdb53d2d2bccbd57825018d2a",
+    "fetched_at": "2026-05-28T02:36:24.391861+00:00"
+  },
+  {
+    "repo": "opentensor/subtensor",
+    "name": "Subtensor (chain)",
+    "kind": "commit",
+    "sha": "74c9f8f",
+    "message": "spec bump",
+    "author": "Greg Zaitsev",
+    "posted_at": "2026-05-27T17:47:07Z",
+    "url": "https://github.com/opentensor/subtensor/commit/74c9f8f7c04afcea843ec10a3928a4ac139df163",
+    "fetched_at": "2026-05-28T02:36:24.391861+00:00"
+  },
+  {
+    "repo": "opentensor/subtensor",
+    "name": "Subtensor (chain)",
+    "kind": "commit",
+    "sha": "5bb2002",
+    "message": "Merge pull request #2695 from opentensor/feat/no-auto-lock-by-default",
+    "author": "sam0x17",
+    "posted_at": "2026-05-27T16:55:22Z",
+    "url": "https://github.com/opentensor/subtensor/commit/5bb20027ff87ea4729165f8c672fb7ae26ac6445",
+    "fetched_at": "2026-05-28T02:36:24.391861+00:00"
+  },
+  {
+    "repo": "opentensor/subtensor",
+    "name": "Subtensor (chain)",
+    "kind": "commit",
+    "sha": "dcc96ba",
+    "message": "Merge pull request #2669 from opentensor/atomic-extension-check",
+    "author": "open-junius",
+    "posted_at": "2026-05-27T16:11:35Z",
+    "url": "https://github.com/opentensor/subtensor/commit/dcc96ba1f1131e613f487da0ef93015d86e0eeca",
+    "fetched_at": "2026-05-28T02:36:24.391861+00:00"
+  },
+  {
+    "repo": "opentensor/subtensor",
+    "name": "Subtensor (chain)",
+    "kind": "commit",
+    "sha": "98b8620",
+    "message": "Change unlock and maturity rates to 90 day half life",
+    "author": "Greg Zaitsev",
+    "posted_at": "2026-05-27T16:03:28Z",
+    "url": "https://github.com/opentensor/subtensor/commit/98b8620691ead26956b2e83ce43d8656888f56fb",
+    "fetched_at": "2026-05-28T02:36:24.391861+00:00"
+  }
+]
