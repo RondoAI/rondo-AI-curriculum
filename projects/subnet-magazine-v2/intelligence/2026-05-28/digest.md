@@ -134,6 +134,8 @@ _Microbenchmarking, tcgen05, 2SM MMA, UMMA, TMA, LDGSTS, UBLKCP, Speed of Light,
 
 ## ⊕ GITHUB COMMITS + RELEASES, last 24h
 
+- **Subtensor (chain)** (RELEASE `v3.4.0-`, 2026-05-28 15:48) v3.4.0-411  
+  https://github.com/opentensor/subtensor/releases/tag/v3.4.0-411
 - **Subtensor (chain)** (COMMIT `486037b`, 2026-05-27 20:49) Merge pull request #2643 from opentensor/testnet  
   https://github.com/opentensor/subtensor/commit/486037ba45b87a453b1d660177cc1b105d0298c6
 - **Subtensor (chain)** (COMMIT `bfa2cb8`, 2026-05-27 18:55) Merge remote-tracking branch 'origin/devnet-ready' into devnet  
@@ -159,4 +161,4 @@ _no posts retrieved · all Nitter instances may be down_
 
 
 ---
-_Generated at 2026-05-28T15:38:29.825954+00:00 by scripts/intel/aggregate.py. Treat this digest as input context, not as ground truth. Verify before quoting._
+_Generated at 2026-05-28T18:34:19.324408+00:00 by scripts/intel/aggregate.py. Treat this digest as input context, not as ground truth. Verify before quoting._
