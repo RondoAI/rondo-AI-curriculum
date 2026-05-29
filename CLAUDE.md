@@ -4055,6 +4055,15 @@ work measures against this image and nothing else.
 Reference image:
   projects/subnet-magazine-v2/docs/inspiration/2026-05-28-cockpit-locked-canonical.jpg
 
+Canonical source file (full HTML + CSS + JS, inlined Lightweight
+Charts so the file is self-contained and renders in any browser
+including offline file-preview viewers; md5 5f037695c0da5850c9d858b95665b86e):
+  projects/subnet-magazine-v2/docs/canonical/cockpit-rev-2026-05-28.html
+
+When any future cockpit work is questioned, diff against this file
+and the screenshot above. Re-create from this file before adding
+any named change on top — do not rebuild from memory.
+
 What the locked layout shows:
 
   - MASTHEAD: "Subneτ Magazine" (red τ) on the left, nav chips
