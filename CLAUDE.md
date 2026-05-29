@@ -4044,3 +4044,74 @@ through MCP or the git proxy. All sandbox→mac coordination still
 flows through Rondo as manual paste relay. Mac will append the
 mirror of this note to subnet-magazine's CLAUDE.md when feasible.
 
+
+## Cockpit Locked Canonical Layout (BINDING — 2026-05-28)
+
+Saved by Rondo's instruction, 2026-05-28, after a long iteration
+cycle on the cockpit layout where every other variation was rejected.
+This screenshot is THE locked-in canonical layout. Any future cockpit
+work measures against this image and nothing else.
+
+Reference image:
+  projects/subnet-magazine-v2/docs/inspiration/2026-05-28-cockpit-locked-canonical.jpg
+
+What the locked layout shows:
+
+  - MASTHEAD: "Subneτ Magazine" (red τ) on the left, nav chips
+    "001 Magazine · 010 Oracle · 037 Cockpit" (Cockpit active),
+    clock + "Bittensor Desk" on the right.
+  - TICKER TAPE: horizontal scrolling subnet ticks
+    (SN120 Affine · SN56 Gradients · SN64 Chutes · SN4 Targon · SN19
+    Nineteen · SN8 PTN ...).
+  - EYEBROW: "SUBNET REPORT · SN120 · AFFINE" in red mono caps.
+  - HEADLINE: serif display "Affine α Climbs 7.7% over 1Y".
+  - DEK: italic serif "SN120 · Infra · emission 142 τ/d · τ129.5K
+    market cap · team affine-labs".
+  - BYLINE: mono caps "SUBNET MAGAZINE DESK · THU, 8:00 PM UTC ·
+    [● LIVE · TMC]" pill.
+  - THE CARD (ONE hairline-bordered editorial unit):
+    LEFT inside card: news rail (280px wide) with "WHAT'S NEW ·
+      DECENTRALIZED AI · THE WIRE, WHILE YOU WATCH" header and
+      collapse « toggle. Article cards stack vertically: BITTENSOR
+      / COMPUTE / INFRA / CAPITAL / MODELS each with red tag, date,
+      serif headline, serif dek, mono source line.
+    RIGHT inside card: chart pane with price block "τ0.0625 ▲ +7.7%
+      1Y WINDOW", mode toggle "CANDLES / AREA / LINE", MA 20/50 +
+      Story flags checkboxes, the Lightweight Charts canvas with
+      live candles + red squiggle annotation overlay showing the
+      reader-expected price line, range tabs 1D 1W 1M 3M 6M 1Y ALL.
+  - VITALS COLUMN (page-level sibling of the card, NOT inside):
+    "SUBNET VITALS · WHAT A REVIEWER CHECKS" header,
+    "SN120 affine-labs / Affine / [INFRA]" identity block,
+    Valuation tile (α price, Market cap, 24h/7d/30d/1Y deltas),
+    Emission & Network tile (Emission, Emission share, Reg cost,
+      Validators, Total stake),
+    Activity & Standing tile (Active UIDs, Miners, Network rank,
+      Consensus, Age),
+    Liquidity & Flow tile (24h Volume, Liquidity pool, Turnover,
+      Vol/Liq ratio),
+    Block Explorer link, Validators / Stake link.
+
+Binding rules going forward:
+
+  1. The CARD contains NEWS (left) + CHART (right). News and chart
+     are bound by ONE hairline border.
+  2. VITALS is OUTSIDE the card as the right page-level column.
+     It is NOT a third column inside the card.
+  3. The story headline + dek + byline sit ABOVE the card, not
+     inside.
+  4. Caption + key levels sit BELOW the card, inside the stage
+     column.
+  5. NO article body, NO additional sections, NO restructuring
+     unless Rondo names the specific change.
+  6. The locked-1100 viewport strategy is the layout strategy on
+     every device. Scroll is enabled via body min-height:
+     calc(100vh + 600px). News rail extends naturally on touch
+     (via @media hover:none) so it doesn't capture page scroll.
+     Chart canvas pointer-events:none on touchscreens so it
+     doesn't block page scroll.
+
+If a future change deviates from this screenshot in any
+structural way, the deviation is wrong by default. Match the
+image, then make the named change on top.
+
