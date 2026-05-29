@@ -11,6 +11,16 @@ _no human notes in the window_
 
 _SemiAnalysis is the most-cited semiconductor and AI infrastructure publication in the industry. They do NOT cover Bittensor. The Oracle uses this corpus for any claim about hyperscaler compute, GPU economics, datacenter power, foundry capacity, memory pricing, lab unit economics. DO NOT cite SemiAnalysis for any Bittensor-specific claim. Full archive (289 posts, May 2020 onwards) lives at `intelligence/_external_sources/semianalysis/` with an `INDEX.md` table of contents. Paywalled posts show only subtitle + free preview; free posts have the full body extracted._
 
+### 2026-05-29 · AI Dark Output: The Visible Cost of Invisible Output
+_Why AI's increasing output is going to be one of the hardest economic measurement problems in history. AI 'Dark Output' could end up being the majority of economic activity, but a challenge to measure_
+
+- **Authors:** ["Malcolm Spittler", "Dylan Patel"]
+- **Access:** FREE-FULL-BODY
+- **URL:** https://newsletter.semianalysis.com/p/ai-dark-output-the-visible-cost-of
+- **Corpus file:** `intelligence/_external_sources/semianalysis/2026-05-29-ai-dark-output-the-visible-cost-of.md`
+
+> During the 1980s and 90s, macroeconomic data could not detect the contribution of the emerging computer revolution. Famously, Robert Solow quipped “You can see the computer age everywhere, but in the productivity statistics.” And yet, despite the dot com boom and bust the Magnificent 7 now have a market cap 1.8x that of Europe. A similar issue is arising with AI where the macroeconomic data is not yet equipped to capture the value produced by AI while the headlines, public sentiment, and governm
+
 ### 2026-05-28 · Finding Miscompiles for Fun, Not Profit
 _Or: You don’t need access to Claude Mythos to spend $10,000 in an afternoon._
 
@@ -121,16 +131,6 @@ _H100 Rental Prices up 40%, GPU Rental Pricing Dashboard Launch, Compute Rental 
 
 > Anthropic’s Claude 4.6 Opus and Claude Code have soared in demand. Anthropic’s ARR has more than tripled in just a single quarter from $9B at the end of last year to over $30 today. Open models such as GLM and Kimi K2.5 caused open model use cases to soar. Capital raises by firms like Anthropic, OpenAI, and various Neolabs also demand GPUs.  [![Claude Code is the Inflection Point](https://substackcdn.com/image/fetch/$s_!D9-B!,w_140,h_140,c_fill,f_auto,q_auto:good,fl_progressive:steep,g_auto/http
 
-### 2026-03-31 · Dissecting Nvidia Blackwell - Tensor Cores, PTX Instructions, SASS, Floorsweep, Yield
-_Microbenchmarking, tcgen05, 2SM MMA, UMMA, TMA, LDGSTS, UBLKCP, Speed of Light, Distributed Shared Memory, GPC Floorsweeps, SM Yield_
-
-- **Authors:** ["Kimbo Chen", "Dylan Patel"]
-- **Access:** paid-preview
-- **URL:** https://newsletter.semianalysis.com/p/dissecting-nvidia-blackwell-tensor
-- **Corpus file:** `intelligence/_external_sources/semianalysis/2026-03-31-dissecting-nvidia-blackwell-tensor.md`
-
-> Nvidia’s Datacenter Blackwell GPU (SM100) represents one of the largest GPU microarchitecture change in a generation, yet no detailed whitepaper exists. Until today, there is no public datacenter Blackwell architecture microbenchmarking study on PTX and SASS instructions, such as UMMA and TMA, with a focus on AI workloads.  After our in-depth [Nvidia Tensor Core Evolution: From Volta To Blackwell article](https://newsletter.semianalysis.com/p/nvidia-tensor-core-evolution-from-volta-to-blackwell)
-
 
 ## ⊕ GITHUB COMMITS + RELEASES, last 24h
 
@@ -191,4 +191,4 @@ _no posts retrieved · all Nitter instances may be down_
 
 
 ---
-_Generated at 2026-05-29T18:31:11.058143+00:00 by scripts/intel/aggregate.py. Treat this digest as input context, not as ground truth. Verify before quoting._
+_Generated at 2026-05-29T21:51:16.989569+00:00 by scripts/intel/aggregate.py. Treat this digest as input context, not as ground truth. Verify before quoting._
