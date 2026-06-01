@@ -5,3 +5,6 @@ __pycache__/
 
 # Site-local config (never commit secrets)
 projects/subnet-magazine-v2/config.js
+
+# Twitter scaffold — never commit real API credentials
+projects/subnet-magazine-v2/scripts/twitter/.env

@@ -1,0 +1,85 @@
+# =============================================================================
+# Subneτ Magazine — Twitter draft-queue runner
+# -----------------------------------------------------------------------------
+# Move this file to the magazine repo's .github/workflows/ directory:
+#     mkdir -p .github/workflows
+#     cp projects/subnet-magazine-v2/scripts/twitter/twitter-post.workflow.yml \
+#        .github/workflows/twitter-post.yml
+#
+# Then add these four secrets in the repo's
+# Settings → Secrets and variables → Actions:
+#     TWITTER_API_KEY
+#     TWITTER_API_SECRET
+#     TWITTER_ACCESS_TOKEN
+#     TWITTER_ACCESS_TOKEN_SECRET
+#
+# The workflow runs every 15 minutes, finds any draft files in
+# drafts/twitter/ready/ whose ISO timestamp is <= now, posts them via the
+# Twitter API, and moves the posted files into drafts/twitter/posted/ with
+# the tweet id appended. Auto-commits the queue state back to the branch
+# so the audit trail is in git.
+# =============================================================================
+name: Twitter post-queue
+
+on:
+  schedule:
+    - cron: "*/15 * * * *"      # every 15 minutes
+  workflow_dispatch:             # manual trigger from the Actions tab
+    inputs:
+      dry_run:
+        description: "Dry-run only (list what would be posted, do not POST)"
+        type: boolean
+        default: false
+
+permissions:
+  contents: write                # needs write to commit the queue state
+
+concurrency:
+  group: twitter-post-queue      # never run two instances of the queue at once
+  cancel-in-progress: false
+
+jobs:
+  drain:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 1
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+          cache: pip
+
+      - name: Install deps
+        working-directory: projects/subnet-magazine-v2/scripts/twitter
+        run: pip install -r requirements.txt
+
+      - name: Drain the queue
+        working-directory: projects/subnet-magazine-v2/scripts/twitter
+        env:
+          TWITTER_API_KEY:             ${{ secrets.TWITTER_API_KEY }}
+          TWITTER_API_SECRET:          ${{ secrets.TWITTER_API_SECRET }}
+          TWITTER_ACCESS_TOKEN:        ${{ secrets.TWITTER_ACCESS_TOKEN }}
+          TWITTER_ACCESS_TOKEN_SECRET: ${{ secrets.TWITTER_ACCESS_TOKEN_SECRET }}
+        run: |
+          if [ "${{ inputs.dry_run }}" = "true" ]; then
+            python3 run_queue.py --dry-run
+          else
+            python3 run_queue.py
+          fi
+
+      - name: Commit queue moves
+        if: ${{ inputs.dry_run != true }}
+        run: |
+          if [[ -z "$(git status --porcelain)" ]]; then
+            echo "queue unchanged, nothing to commit"
+            exit 0
+          fi
+          git config user.name  "subnet-magazine-bot"
+          git config user.email "bot@subnetmagazine.local"
+          git add projects/subnet-magazine-v2/drafts/twitter/
+          git commit -m "twitter: post queue drained $(date -u +%FT%TZ)"
+          git push
