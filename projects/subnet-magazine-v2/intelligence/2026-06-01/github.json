@@ -1,1 +1,112 @@
-[]
+[
+  {
+    "repo": "opentensor/subtensor",
+    "name": "Subtensor (chain)",
+    "kind": "commit",
+    "sha": "ec2212c",
+    "message": "Merge pull request #2705 from opentensor/testnet",
+    "author": "sam0x17",
+    "posted_at": "2026-06-01T16:15:53Z",
+    "url": "https://github.com/opentensor/subtensor/commit/ec2212c53fc7c0252af80c28e50a959cce2f9890",
+    "fetched_at": "2026-06-01T17:26:43.035637+00:00"
+  },
+  {
+    "repo": "opentensor/subtensor",
+    "name": "Subtensor (chain)",
+    "kind": "commit",
+    "sha": "e3aed62",
+    "message": "Merge remote-tracking branch 'origin/devnet-ready' into devnet",
+    "author": "Sam Johnson",
+    "posted_at": "2026-06-01T10:21:12Z",
+    "url": "https://github.com/opentensor/subtensor/commit/e3aed6244085b84d787f2fb2afb346bd993dc812",
+    "fetched_at": "2026-06-01T17:26:43.035637+00:00"
+  },
+  {
+    "repo": "opentensor/subtensor",
+    "name": "Subtensor (chain)",
+    "kind": "commit",
+    "sha": "11ad813",
+    "message": "bump spec version",
+    "author": "Sam Johnson",
+    "posted_at": "2026-06-01T10:20:15Z",
+    "url": "https://github.com/opentensor/subtensor/commit/11ad813e5275194f648e777d2b247513982477ad",
+    "fetched_at": "2026-06-01T17:26:43.035637+00:00"
+  },
+  {
+    "repo": "opentensor/subtensor",
+    "name": "Subtensor (chain)",
+    "kind": "commit",
+    "sha": "26585d7",
+    "message": "Merge pull request #2645 from opentensor/chain-buy-cache",
+    "author": "sam0x17",
+    "posted_at": "2026-06-01T10:19:24Z",
+    "url": "https://github.com/opentensor/subtensor/commit/26585d71344e1d97501d6cf83e4168ddbf8124d8",
+    "fetched_at": "2026-06-01T17:26:43.035637+00:00"
+  },
+  {
+    "repo": "opentensor/subtensor",
+    "name": "Subtensor (chain)",
+    "kind": "commit",
+    "sha": "075bafc",
+    "message": "Merge remote-tracking branch 'origin/devnet-ready' into devnet",
+    "author": "Sam Johnson",
+    "posted_at": "2026-06-01T09:40:03Z",
+    "url": "https://github.com/opentensor/subtensor/commit/075bafc299b265a1321d8ae294dc37170ecfd51b",
+    "fetched_at": "2026-06-01T17:26:43.035637+00:00"
+  },
+  {
+    "repo": "opentensor/subtensor",
+    "name": "Subtensor (chain)",
+    "kind": "commit",
+    "sha": "66cee25",
+    "message": "trigger CI",
+    "author": "John Reed",
+    "posted_at": "2026-05-31T16:46:44Z",
+    "url": "https://github.com/opentensor/subtensor/commit/66cee25ab1fab1995290244b92cfe8d7ad675e5c",
+    "fetched_at": "2026-06-01T17:26:43.035637+00:00"
+  },
+  {
+    "repo": "opentensor/subtensor",
+    "name": "Subtensor (chain)",
+    "kind": "commit",
+    "sha": "255390f",
+    "message": "auto-update benchmark weights",
+    "author": "github-actions[bot]",
+    "posted_at": "2026-05-31T16:42:38Z",
+    "url": "https://github.com/opentensor/subtensor/commit/255390f77ff11bdaf1b2350a2078a6d450beeaf2",
+    "fetched_at": "2026-06-01T17:26:43.035637+00:00"
+  },
+  {
+    "repo": "opentensor/subtensor",
+    "name": "Subtensor (chain)",
+    "kind": "commit",
+    "sha": "32df63c",
+    "message": "fix wieghts",
+    "author": "John Reed",
+    "posted_at": "2026-05-31T16:15:52Z",
+    "url": "https://github.com/opentensor/subtensor/commit/32df63cf5290eced84eedb818d06cbb550984f26",
+    "fetched_at": "2026-06-01T17:26:43.035637+00:00"
+  },
+  {
+    "repo": "opentensor/subtensor",
+    "name": "Subtensor (chain)",
+    "kind": "commit",
+    "sha": "646b742",
+    "message": "conflict",
+    "author": "John Reed",
+    "posted_at": "2026-05-31T15:40:41Z",
+    "url": "https://github.com/opentensor/subtensor/commit/646b742c08afa33574794c9cc5d5341736033aee",
+    "fetched_at": "2026-06-01T17:26:43.035637+00:00"
+  },
+  {
+    "repo": "opentensor/subtensor",
+    "name": "Subtensor (chain)",
+    "kind": "commit",
+    "sha": "c4f9623",
+    "message": "Merge branch 'devnet-ready' into chain-buy-cache",
+    "author": "John Reed",
+    "posted_at": "2026-05-31T15:39:46Z",
+    "url": "https://github.com/opentensor/subtensor/commit/c4f9623537260b6334d048a22954c1ce81373226",
+    "fetched_at": "2026-06-01T17:26:43.035637+00:00"
+  }
+]

@@ -134,7 +134,26 @@ _H100 Rental Prices up 40%, GPU Rental Pricing Dashboard Launch, Compute Rental 
 
 ## ⊕ GITHUB COMMITS + RELEASES, last 24h
 
-_no commits or releases in the lookback window_
+- **Subtensor (chain)** (COMMIT `ec2212c`, 2026-06-01 16:15) Merge pull request #2705 from opentensor/testnet  
+  https://github.com/opentensor/subtensor/commit/ec2212c53fc7c0252af80c28e50a959cce2f9890
+- **Subtensor (chain)** (COMMIT `e3aed62`, 2026-06-01 10:21) Merge remote-tracking branch 'origin/devnet-ready' into devnet  
+  https://github.com/opentensor/subtensor/commit/e3aed6244085b84d787f2fb2afb346bd993dc812
+- **Subtensor (chain)** (COMMIT `11ad813`, 2026-06-01 10:20) bump spec version  
+  https://github.com/opentensor/subtensor/commit/11ad813e5275194f648e777d2b247513982477ad
+- **Subtensor (chain)** (COMMIT `26585d7`, 2026-06-01 10:19) Merge pull request #2645 from opentensor/chain-buy-cache  
+  https://github.com/opentensor/subtensor/commit/26585d71344e1d97501d6cf83e4168ddbf8124d8
+- **Subtensor (chain)** (COMMIT `075bafc`, 2026-06-01 09:40) Merge remote-tracking branch 'origin/devnet-ready' into devnet  
+  https://github.com/opentensor/subtensor/commit/075bafc299b265a1321d8ae294dc37170ecfd51b
+- **Subtensor (chain)** (COMMIT `66cee25`, 2026-05-31 16:46) trigger CI  
+  https://github.com/opentensor/subtensor/commit/66cee25ab1fab1995290244b92cfe8d7ad675e5c
+- **Subtensor (chain)** (COMMIT `255390f`, 2026-05-31 16:42) auto-update benchmark weights  
+  https://github.com/opentensor/subtensor/commit/255390f77ff11bdaf1b2350a2078a6d450beeaf2
+- **Subtensor (chain)** (COMMIT `32df63c`, 2026-05-31 16:15) fix wieghts  
+  https://github.com/opentensor/subtensor/commit/32df63cf5290eced84eedb818d06cbb550984f26
+- **Subtensor (chain)** (COMMIT `646b742`, 2026-05-31 15:40) conflict  
+  https://github.com/opentensor/subtensor/commit/646b742c08afa33574794c9cc5d5341736033aee
+- **Subtensor (chain)** (COMMIT `c4f9623`, 2026-05-31 15:39) Merge branch 'devnet-ready' into chain-buy-cache  
+  https://github.com/opentensor/subtensor/commit/c4f9623537260b6334d048a22954c1ce81373226
 
 ## ⊕ ECOSYSTEM BLOGS via RSS
 
@@ -146,4 +165,4 @@ _no posts retrieved · all Nitter instances may be down_
 
 
 ---
-_Generated at 2026-06-01T09:21:18.940977+00:00 by scripts/intel/aggregate.py. Treat this digest as input context, not as ground truth. Verify before quoting._
+_Generated at 2026-06-01T17:26:47.815941+00:00 by scripts/intel/aggregate.py. Treat this digest as input context, not as ground truth. Verify before quoting._
