@@ -134,6 +134,8 @@ _H100 Rental Prices up 40%, GPU Rental Pricing Dashboard Launch, Compute Rental 
 
 ## ⊕ GITHUB COMMITS + RELEASES, last 24h
 
+- **Subtensor (chain)** (RELEASE `v3.4.1-`, 2026-06-01 19:52) v3.4.1-413  
+  https://github.com/opentensor/subtensor/releases/tag/v3.4.1-413
 - **Subtensor (chain)** (COMMIT `ec2212c`, 2026-06-01 16:15) Merge pull request #2705 from opentensor/testnet  
   https://github.com/opentensor/subtensor/commit/ec2212c53fc7c0252af80c28e50a959cce2f9890
 - **Subtensor (chain)** (COMMIT `e3aed62`, 2026-06-01 10:21) Merge remote-tracking branch 'origin/devnet-ready' into devnet  
@@ -165,4 +167,4 @@ _no posts retrieved · all Nitter instances may be down_
 
 
 ---
-_Generated at 2026-06-01T17:26:47.815941+00:00 by scripts/intel/aggregate.py. Treat this digest as input context, not as ground truth. Verify before quoting._
+_Generated at 2026-06-01T22:33:28.527186+00:00 by scripts/intel/aggregate.py. Treat this digest as input context, not as ground truth. Verify before quoting._

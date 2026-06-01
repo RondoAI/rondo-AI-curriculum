@@ -2,6 +2,17 @@
   {
     "repo": "opentensor/subtensor",
     "name": "Subtensor (chain)",
+    "kind": "release",
+    "sha": "v3.4.1-413",
+    "message": "v3.4.1-413",
+    "author": "sam0x17",
+    "posted_at": "2026-06-01T19:52:28Z",
+    "url": "https://github.com/opentensor/subtensor/releases/tag/v3.4.1-413",
+    "fetched_at": "2026-06-01T22:33:24.974701+00:00"
+  },
+  {
+    "repo": "opentensor/subtensor",
+    "name": "Subtensor (chain)",
     "kind": "commit",
     "sha": "ec2212c",
     "message": "Merge pull request #2705 from opentensor/testnet",
