@@ -1,0 +1,68 @@
+[
+  {
+    "repo": "opentensor/subtensor",
+    "name": "Subtensor (chain)",
+    "kind": "release",
+    "sha": "v3.4.1-413",
+    "message": "v3.4.1-413",
+    "author": "sam0x17",
+    "posted_at": "2026-06-01T19:52:28Z",
+    "url": "https://github.com/opentensor/subtensor/releases/tag/v3.4.1-413",
+    "fetched_at": "2026-06-02T02:57:05.639187+00:00"
+  },
+  {
+    "repo": "opentensor/subtensor",
+    "name": "Subtensor (chain)",
+    "kind": "commit",
+    "sha": "ec2212c",
+    "message": "Merge pull request #2705 from opentensor/testnet",
+    "author": "sam0x17",
+    "posted_at": "2026-06-01T16:15:53Z",
+    "url": "https://github.com/opentensor/subtensor/commit/ec2212c53fc7c0252af80c28e50a959cce2f9890",
+    "fetched_at": "2026-06-02T02:57:05.438278+00:00"
+  },
+  {
+    "repo": "opentensor/subtensor",
+    "name": "Subtensor (chain)",
+    "kind": "commit",
+    "sha": "e3aed62",
+    "message": "Merge remote-tracking branch 'origin/devnet-ready' into devnet",
+    "author": "Sam Johnson",
+    "posted_at": "2026-06-01T10:21:12Z",
+    "url": "https://github.com/opentensor/subtensor/commit/e3aed6244085b84d787f2fb2afb346bd993dc812",
+    "fetched_at": "2026-06-02T02:57:05.438278+00:00"
+  },
+  {
+    "repo": "opentensor/subtensor",
+    "name": "Subtensor (chain)",
+    "kind": "commit",
+    "sha": "11ad813",
+    "message": "bump spec version",
+    "author": "Sam Johnson",
+    "posted_at": "2026-06-01T10:20:15Z",
+    "url": "https://github.com/opentensor/subtensor/commit/11ad813e5275194f648e777d2b247513982477ad",
+    "fetched_at": "2026-06-02T02:57:05.438278+00:00"
+  },
+  {
+    "repo": "opentensor/subtensor",
+    "name": "Subtensor (chain)",
+    "kind": "commit",
+    "sha": "26585d7",
+    "message": "Merge pull request #2645 from opentensor/chain-buy-cache",
+    "author": "sam0x17",
+    "posted_at": "2026-06-01T10:19:24Z",
+    "url": "https://github.com/opentensor/subtensor/commit/26585d71344e1d97501d6cf83e4168ddbf8124d8",
+    "fetched_at": "2026-06-02T02:57:05.438278+00:00"
+  },
+  {
+    "repo": "opentensor/subtensor",
+    "name": "Subtensor (chain)",
+    "kind": "commit",
+    "sha": "075bafc",
+    "message": "Merge remote-tracking branch 'origin/devnet-ready' into devnet",
+    "author": "Sam Johnson",
+    "posted_at": "2026-06-01T09:40:03Z",
+    "url": "https://github.com/opentensor/subtensor/commit/075bafc299b265a1321d8ae294dc37170ecfd51b",
+    "fetched_at": "2026-06-02T02:57:05.438278+00:00"
+  }
+]
