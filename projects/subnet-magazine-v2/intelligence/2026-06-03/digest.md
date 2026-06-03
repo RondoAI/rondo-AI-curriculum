@@ -134,6 +134,26 @@ _ISSCC 2026 Roundup_
 
 ## ⊕ GITHUB COMMITS + RELEASES, last 24h
 
+- **btcli** (RELEASE `v9.22.1`, 2026-06-03 17:49) v9.22.1  
+  https://github.com/latent-to/btcli/releases/tag/v9.22.1
+- **btcli** (COMMIT `1035a10`, 2026-06-03 17:49) Merge pull request #988 from latent-to/release/9.22.1  
+  https://github.com/latent-to/btcli/commit/1035a1045f2b67ccb5946a1e31889d994484eadc
+- **btcli** (COMMIT `ada22f0`, 2026-06-03 17:30) Merge pull request #986 from latent-to/changelog/9.22.1  
+  https://github.com/latent-to/btcli/commit/ada22f05a825b691ed32a6902375aaaa265f53b5
+- **btcli** (COMMIT `fbd3c0b`, 2026-06-03 17:28) Update changelog  
+  https://github.com/latent-to/btcli/commit/fbd3c0b99d7f93f2a429514bd039f6f8122f9cfa
+- **btcli** (COMMIT `d899730`, 2026-06-03 17:28) Merge branch 'staging' into changelog/9.22.1  
+  https://github.com/latent-to/btcli/commit/d899730f4db0ba7f7fa2dbd7bcc9f6363286df0c
+- **btcli** (COMMIT `c014a59`, 2026-06-03 17:27) Merge pull request #987 from latent-to/fix/thewhaleking/normalize-burn-half-life  
+  https://github.com/latent-to/btcli/commit/c014a5900d5f87c444aebb4afcf3f96769e7360e
+- **btcli** (COMMIT `27b8e51`, 2026-06-03 17:22) Fixes burn half life normalization  
+  https://github.com/latent-to/btcli/commit/27b8e51405cd1b525d9aa45aa8622a801d6bae5d
+- **btcli** (COMMIT `d4cd71e`, 2026-06-03 17:19) Version  + changelog  
+  https://github.com/latent-to/btcli/commit/d4cd71ec5941138a399a26926785c2cb03a8bb49
+- **btcli** (COMMIT `b60406d`, 2026-06-03 14:26) Merge pull request #984 from latent-to/dera/update-docstring  
+  https://github.com/latent-to/btcli/commit/b60406d91f608546e597386593227d995124d190
+- **btcli** (COMMIT `6340ef9`, 2026-06-03 13:34) update btcli lock show description  
+  https://github.com/latent-to/btcli/commit/6340ef9001824671362c850d2de8cd9e38777835
 - **Subtensor (chain)** (COMMIT `1104f2a`, 2026-06-03 00:40) Merge pull request #2711 from opentensor/testnet  
   https://github.com/opentensor/subtensor/commit/1104f2aab5acdf69fe967a787c7ae1cc5fdf170c
 - **Subtensor (chain)** (COMMIT `f0ff6ba`, 2026-06-02 22:43) Merge remote-tracking branch 'origin/devnet-ready' into devnet  
@@ -161,4 +181,4 @@ _no posts retrieved · all Nitter instances may be down_
 
 
 ---
-_Generated at 2026-06-03T16:26:52.107929+00:00 by scripts/intel/aggregate.py. Treat this digest as input context, not as ground truth. Verify before quoting._
+_Generated at 2026-06-03T22:28:01.640604+00:00 by scripts/intel/aggregate.py. Treat this digest as input context, not as ground truth. Verify before quoting._
