@@ -1,0 +1,90 @@
+[
+  {
+    "repo": "opentensor/subtensor",
+    "name": "Subtensor (chain)",
+    "kind": "commit",
+    "sha": "1104f2a",
+    "message": "Merge pull request #2711 from opentensor/testnet",
+    "author": "sam0x17",
+    "posted_at": "2026-06-03T00:40:04Z",
+    "url": "https://github.com/opentensor/subtensor/commit/1104f2aab5acdf69fe967a787c7ae1cc5fdf170c",
+    "fetched_at": "2026-06-03T03:31:52.483873+00:00"
+  },
+  {
+    "repo": "opentensor/subtensor",
+    "name": "Subtensor (chain)",
+    "kind": "commit",
+    "sha": "f0ff6ba",
+    "message": "Merge remote-tracking branch 'origin/devnet-ready' into devnet",
+    "author": "Sam Johnson",
+    "posted_at": "2026-06-02T22:43:59Z",
+    "url": "https://github.com/opentensor/subtensor/commit/f0ff6ba10fbae8543a3dc184129286571720f2e6",
+    "fetched_at": "2026-06-03T03:31:52.483873+00:00"
+  },
+  {
+    "repo": "opentensor/subtensor",
+    "name": "Subtensor (chain)",
+    "kind": "commit",
+    "sha": "2919706",
+    "message": "Merge pull request #2706 from opentensor/fix-chain-buys-accounting",
+    "author": "sam0x17",
+    "posted_at": "2026-06-02T22:43:18Z",
+    "url": "https://github.com/opentensor/subtensor/commit/29197068e69f4cd6c55c2043102a8246f1356194",
+    "fetched_at": "2026-06-03T03:31:52.483873+00:00"
+  },
+  {
+    "repo": "opentensor/subtensor",
+    "name": "Subtensor (chain)",
+    "kind": "commit",
+    "sha": "b85d13f",
+    "message": "fix formatting",
+    "author": "John Reed",
+    "posted_at": "2026-06-02T20:12:55Z",
+    "url": "https://github.com/opentensor/subtensor/commit/b85d13fa9c36b4a32698a69c6adc4753f7ee397e",
+    "fetched_at": "2026-06-03T03:31:52.483873+00:00"
+  },
+  {
+    "repo": "opentensor/subtensor",
+    "name": "Subtensor (chain)",
+    "kind": "commit",
+    "sha": "9568052",
+    "message": "update comment",
+    "author": "John Reed",
+    "posted_at": "2026-06-02T20:02:00Z",
+    "url": "https://github.com/opentensor/subtensor/commit/9568052337499e6bfcc1283d0fb7af14e879d26b",
+    "fetched_at": "2026-06-03T03:31:52.483873+00:00"
+  },
+  {
+    "repo": "opentensor/subtensor",
+    "name": "Subtensor (chain)",
+    "kind": "commit",
+    "sha": "d1de056",
+    "message": "TaoInRefundDeploymentBlock",
+    "author": "John Reed",
+    "posted_at": "2026-06-02T19:37:16Z",
+    "url": "https://github.com/opentensor/subtensor/commit/d1de056156185573202747ca4cbdabf1d4f3c7b9",
+    "fetched_at": "2026-06-03T03:31:52.483873+00:00"
+  },
+  {
+    "repo": "opentensor/subtensor",
+    "name": "Subtensor (chain)",
+    "kind": "commit",
+    "sha": "276f50e",
+    "message": "cargo fmt",
+    "author": "Sam Johnson",
+    "posted_at": "2026-06-02T12:33:15Z",
+    "url": "https://github.com/opentensor/subtensor/commit/276f50e9b3c94c8710c664b385544548d5a96307",
+    "fetched_at": "2026-06-03T03:31:52.483873+00:00"
+  },
+  {
+    "repo": "opentensor/subtensor",
+    "name": "Subtensor (chain)",
+    "kind": "commit",
+    "sha": "f40f4ae",
+    "message": "fix: recycle only chain-bought alpha on dereg, not pool reserve",
+    "author": "Sam Johnson",
+    "posted_at": "2026-06-02T12:30:46Z",
+    "url": "https://github.com/opentensor/subtensor/commit/f40f4ae6fdcd1335e214cb3e27b190f1ab086f27",
+    "fetched_at": "2026-06-03T03:31:52.483873+00:00"
+  }
+]
