@@ -11,6 +11,16 @@ _no human notes in the window_
 
 _SemiAnalysis is the most-cited semiconductor and AI infrastructure publication in the industry. They do NOT cover Bittensor. The Oracle uses this corpus for any claim about hyperscaler compute, GPU economics, datacenter power, foundry capacity, memory pricing, lab unit economics. DO NOT cite SemiAnalysis for any Bittensor-specific claim. Full archive (289 posts, May 2020 onwards) lives at `intelligence/_external_sources/semianalysis/` with an `INDEX.md` table of contents. Paywalled posts show only subtitle + free preview; free posts have the full body extracted._
 
+### 2026-06-03 · To Boldly Go: The Case for Space Datacenters
+_Space DC Total Cost of Ownership Explained. Unpacking constraints from Terrestrial DCs and Chip Production. Space-Earth Parity in the late 2030s, Space DCs could start to be viable even sooner._
+
+- **Authors:** ["Daniel Nishball", "Pranav Myana", "Ellie Holbrook", "Harley Blackard", "Zane Fong", "Cheang Kang Wen", "Sravan Kundojj
+- **Access:** paid-preview
+- **URL:** https://newsletter.semianalysis.com/p/to-boldly-go-the-case-for-space-datacenters
+- **Corpus file:** `intelligence/_external_sources/semianalysis/2026-06-03-to-boldly-go-the-case-for-space-datacenters.md`
+
+> Everyone has been talking about datacenters in space. Interviews given by Elon Musk in the past few months have spent lots of time on orbital compute:  “Five years from now, my prediction is we will launch and be operating every year more AI in space than the cumulative total on Earth... I would expect to be at least, sort of five years from now, a few hundred gigawatts per year of AI in space and rising.”- Elon Musk on [Dwarkesh Podcast](https://youtu.be/BYXbuik3dgA?t=953), February 2026  Furth
+
 ### 2026-05-29 · AI Dark Output: The Visible Cost of Invisible Output
 _Why AI's increasing output is going to be one of the hardest economic measurement problems in history. AI 'Dark Output' could end up being the majority of economic activity, but a challenge to measure_
 
@@ -121,16 +131,6 @@ _ISSCC 2026 Roundup_
 
 > There are three major semiconductor conferences each year, [IEDM](https://newsletter.semianalysis.com/p/interconnects-beyond-copper-1000), [VLSI](https://newsletter.semianalysis.com/p/vlsi2025) and finally ISSCC. We have covered the former two in great detail over the past few years. Today, we finally complete the trinity with our roundup on ISSCC 2026.  Compared to IEDM and VLSI, ISSCC has a much bigger focus on integration and circuits. Almost every paper comes with some form of circuit diagra
 
-### 2026-04-02 · The Great GPU Shortage – Rental Capacity – Launching our H100 1 Year Rental Price Index
-_H100 Rental Prices up 40%, GPU Rental Pricing Dashboard Launch, Compute Rental Market Structure, Will Rental Prices keep going up?_
-
-- **Authors:** ["Daniel Nishball", "Jordan Nanos", "Cheang Kang Wen", "Nigel Chiang", "Dylan Patel"]
-- **Access:** FREE-FULL-BODY
-- **URL:** https://newsletter.semianalysis.com/p/the-great-gpu-shortage-rental-capacity
-- **Corpus file:** `intelligence/_external_sources/semianalysis/2026-04-02-the-great-gpu-shortage-rental-capacity.md`
-
-> Anthropic’s Claude 4.6 Opus and Claude Code have soared in demand. Anthropic’s ARR has more than tripled in just a single quarter from $9B at the end of last year to over $30 today. Open models such as GLM and Kimi K2.5 caused open model use cases to soar. Capital raises by firms like Anthropic, OpenAI, and various Neolabs also demand GPUs.  [![Claude Code is the Inflection Point](https://substackcdn.com/image/fetch/$s_!D9-B!,w_140,h_140,c_fill,f_auto,q_auto:good,fl_progressive:steep,g_auto/http
-
 
 ## ⊕ GITHUB COMMITS + RELEASES, last 24h
 
@@ -161,4 +161,4 @@ _no posts retrieved · all Nitter instances may be down_
 
 
 ---
-_Generated at 2026-06-03T08:52:25.397646+00:00 by scripts/intel/aggregate.py. Treat this digest as input context, not as ground truth. Verify before quoting._
+_Generated at 2026-06-03T16:26:52.107929+00:00 by scripts/intel/aggregate.py. Treat this digest as input context, not as ground truth. Verify before quoting._

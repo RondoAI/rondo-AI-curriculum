@@ -1,11 +1,12 @@
 # SemiAnalysis Archive Index
 
-_294 posts captured. Generated 2026-06-03T08:52:25.249987+00:00._
+_295 posts captured. Generated 2026-06-03T16:26:51.929269+00:00._
 
 Editorial policy: SemiAnalysis is the macro reference. The Oracle cites it for any claim about hyperscaler compute, GPU economics, datacenter power, foundry capacity, memory pricing, lab unit economics. The Oracle does NOT cite SemiAnalysis for any Bittensor-specific claim. SemiAnalysis does not cover Bittensor; treat that absence as itself information.
 
 | Date | Title | Audience | Authors | File |
 | --- | --- | --- | --- | --- |
+| 2026-06-03 | [To Boldly Go: The Case for Space Datacenters](https://newsletter.semianalysis.com/p/to-boldly-go-the-case-for-space-datacenters) | only_paid | ["Daniel Nishball", "Pranav Myana", "Ellie Holbrook", "Harle | `2026-06-03-to-boldly-go-the-case-for-space-datacenters.md` |
 | 2026-05-29 | [AI Dark Output: The Visible Cost of Invisible Output](https://newsletter.semianalysis.com/p/ai-dark-output-the-visible-cost-of) | everyone | ["Malcolm Spittler", "Dylan Patel"] | `2026-05-29-ai-dark-output-the-visible-cost-of.md` |
 | 2026-05-28 | [Finding Miscompiles for Fun, Not Profit](https://newsletter.semianalysis.com/p/finding-miscompiles-for-fun-not-profit) | only_paid | ["Justin Lebar"] | `2026-05-28-finding-miscompiles-for-fun-not-profit.md` |
 | 2026-05-27 | [Anthropic Growth and Bedrock Mix Drive AWS Margins Higher While Peers Lag](https://newsletter.semianalysis.com/p/anthropic-growth-and-bedrock-mix) | only_paid | ["Jeremie Eliahou Ontiveros", "Joey Brookhart", "Crystal Hua | `2026-05-27-anthropic-growth-and-bedrock-mix.md` |
