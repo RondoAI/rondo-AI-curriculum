@@ -1,0 +1,112 @@
+[
+  {
+    "repo": "opentensor/btcli",
+    "name": "btcli",
+    "kind": "release",
+    "sha": "v9.22.1",
+    "message": "v9.22.1",
+    "author": "thewhaleking",
+    "posted_at": "2026-06-03T17:49:49Z",
+    "url": "https://github.com/latent-to/btcli/releases/tag/v9.22.1",
+    "fetched_at": "2026-06-04T03:00:41.781168+00:00"
+  },
+  {
+    "repo": "opentensor/btcli",
+    "name": "btcli",
+    "kind": "commit",
+    "sha": "1035a10",
+    "message": "Merge pull request #988 from latent-to/release/9.22.1",
+    "author": "BD Himes",
+    "posted_at": "2026-06-03T17:49:40Z",
+    "url": "https://github.com/latent-to/btcli/commit/1035a1045f2b67ccb5946a1e31889d994484eadc",
+    "fetched_at": "2026-06-04T03:00:41.416111+00:00"
+  },
+  {
+    "repo": "opentensor/btcli",
+    "name": "btcli",
+    "kind": "commit",
+    "sha": "ada22f0",
+    "message": "Merge pull request #986 from latent-to/changelog/9.22.1",
+    "author": "BD Himes",
+    "posted_at": "2026-06-03T17:30:08Z",
+    "url": "https://github.com/latent-to/btcli/commit/ada22f05a825b691ed32a6902375aaaa265f53b5",
+    "fetched_at": "2026-06-04T03:00:41.416111+00:00"
+  },
+  {
+    "repo": "opentensor/btcli",
+    "name": "btcli",
+    "kind": "commit",
+    "sha": "fbd3c0b",
+    "message": "Update changelog",
+    "author": "BD Himes",
+    "posted_at": "2026-06-03T17:28:35Z",
+    "url": "https://github.com/latent-to/btcli/commit/fbd3c0b99d7f93f2a429514bd039f6f8122f9cfa",
+    "fetched_at": "2026-06-04T03:00:41.416111+00:00"
+  },
+  {
+    "repo": "opentensor/btcli",
+    "name": "btcli",
+    "kind": "commit",
+    "sha": "d899730",
+    "message": "Merge branch 'staging' into changelog/9.22.1",
+    "author": "BD Himes",
+    "posted_at": "2026-06-03T17:28:20Z",
+    "url": "https://github.com/latent-to/btcli/commit/d899730f4db0ba7f7fa2dbd7bcc9f6363286df0c",
+    "fetched_at": "2026-06-04T03:00:41.416111+00:00"
+  },
+  {
+    "repo": "opentensor/btcli",
+    "name": "btcli",
+    "kind": "commit",
+    "sha": "c014a59",
+    "message": "Merge pull request #987 from latent-to/fix/thewhaleking/normalize-burn-half-life",
+    "author": "BD Himes",
+    "posted_at": "2026-06-03T17:27:33Z",
+    "url": "https://github.com/latent-to/btcli/commit/c014a5900d5f87c444aebb4afcf3f96769e7360e",
+    "fetched_at": "2026-06-04T03:00:41.416111+00:00"
+  },
+  {
+    "repo": "opentensor/btcli",
+    "name": "btcli",
+    "kind": "commit",
+    "sha": "27b8e51",
+    "message": "Fixes burn half life normalization",
+    "author": "BD Himes",
+    "posted_at": "2026-06-03T17:22:31Z",
+    "url": "https://github.com/latent-to/btcli/commit/27b8e51405cd1b525d9aa45aa8622a801d6bae5d",
+    "fetched_at": "2026-06-04T03:00:41.416111+00:00"
+  },
+  {
+    "repo": "opentensor/btcli",
+    "name": "btcli",
+    "kind": "commit",
+    "sha": "d4cd71e",
+    "message": "Version  + changelog",
+    "author": "BD Himes",
+    "posted_at": "2026-06-03T17:19:12Z",
+    "url": "https://github.com/latent-to/btcli/commit/d4cd71ec5941138a399a26926785c2cb03a8bb49",
+    "fetched_at": "2026-06-04T03:00:41.416111+00:00"
+  },
+  {
+    "repo": "opentensor/btcli",
+    "name": "btcli",
+    "kind": "commit",
+    "sha": "b60406d",
+    "message": "Merge pull request #984 from latent-to/dera/update-docstring",
+    "author": "BD Himes",
+    "posted_at": "2026-06-03T14:26:20Z",
+    "url": "https://github.com/latent-to/btcli/commit/b60406d91f608546e597386593227d995124d190",
+    "fetched_at": "2026-06-04T03:00:41.416111+00:00"
+  },
+  {
+    "repo": "opentensor/btcli",
+    "name": "btcli",
+    "kind": "commit",
+    "sha": "6340ef9",
+    "message": "update btcli lock show description",
+    "author": "Dera Okeke",
+    "posted_at": "2026-06-03T13:34:19Z",
+    "url": "https://github.com/latent-to/btcli/commit/6340ef9001824671362c850d2de8cd9e38777835",
+    "fetched_at": "2026-06-04T03:00:41.416111+00:00"
+  }
+]
