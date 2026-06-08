@@ -134,7 +134,18 @@ _Calculating Cluster TCO, The Real Impact of Downtime, The Grand Unifying Theory
 
 ## ⊕ GITHUB COMMITS + RELEASES, last 24h
 
-_no commits or releases in the lookback window_
+- **Subtensor (chain)** (RELEASE `v3.4.3-`, 2026-06-08 21:19) v3.4.3-416  
+  https://github.com/opentensor/subtensor/releases/tag/v3.4.3-416
+- **Subtensor (chain)** (COMMIT `3c5aff0`, 2026-06-08 19:05) Merge pull request #2731 from opentensor/hotfix/hotkey-swap-conviction  
+  https://github.com/opentensor/subtensor/commit/3c5aff01d9508a31a01fca2231ee7c6d0b14905a
+- **Subtensor (chain)** (COMMIT `c2e8cd8`, 2026-06-08 18:41) spec bump  
+  https://github.com/opentensor/subtensor/commit/c2e8cd8d97a9d049d8201566683acc5ac85c41f6
+- **Subtensor (chain)** (COMMIT `aa9f6bc`, 2026-06-08 17:03) Use saturating weight accounting in lock swap migration  
+  https://github.com/opentensor/subtensor/commit/aa9f6bc337f6117fc8849049b5fe80c25abcc53b
+- **Subtensor (chain)** (COMMIT `7d49c4e`, 2026-06-08 17:00) Scope hotkey lock swaps to subnet  
+  https://github.com/opentensor/subtensor/commit/7d49c4e6300205ca3c0e47c5f0d6a91e5e3fc951
+- **Subtensor (chain)** (COMMIT `1c0fa6d`, 2026-06-08 16:53) Fix hotkey swap conviction locks  
+  https://github.com/opentensor/subtensor/commit/1c0fa6db5f2afe585024480e76aae1e05b031558
 
 ## ⊕ ECOSYSTEM BLOGS via RSS
 
@@ -146,4 +157,4 @@ _no posts retrieved · all Nitter instances may be down_
 
 
 ---
-_Generated at 2026-06-08T18:24:03.607507+00:00 by scripts/intel/aggregate.py. Treat this digest as input context, not as ground truth. Verify before quoting._
+_Generated at 2026-06-08T21:48:29.643279+00:00 by scripts/intel/aggregate.py. Treat this digest as input context, not as ground truth. Verify before quoting._

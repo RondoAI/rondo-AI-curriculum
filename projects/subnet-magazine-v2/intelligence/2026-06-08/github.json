@@ -1,1 +1,68 @@
-[]
+[
+  {
+    "repo": "opentensor/subtensor",
+    "name": "Subtensor (chain)",
+    "kind": "release",
+    "sha": "v3.4.3-416",
+    "message": "v3.4.3-416",
+    "author": "sam0x17",
+    "posted_at": "2026-06-08T21:19:01Z",
+    "url": "https://github.com/opentensor/subtensor/releases/tag/v3.4.3-416",
+    "fetched_at": "2026-06-08T21:48:23.998038+00:00"
+  },
+  {
+    "repo": "opentensor/subtensor",
+    "name": "Subtensor (chain)",
+    "kind": "commit",
+    "sha": "3c5aff0",
+    "message": "Merge pull request #2731 from opentensor/hotfix/hotkey-swap-conviction",
+    "author": "sam0x17",
+    "posted_at": "2026-06-08T19:05:18Z",
+    "url": "https://github.com/opentensor/subtensor/commit/3c5aff01d9508a31a01fca2231ee7c6d0b14905a",
+    "fetched_at": "2026-06-08T21:48:23.681527+00:00"
+  },
+  {
+    "repo": "opentensor/subtensor",
+    "name": "Subtensor (chain)",
+    "kind": "commit",
+    "sha": "c2e8cd8",
+    "message": "spec bump",
+    "author": "Greg Zaitsev",
+    "posted_at": "2026-06-08T18:41:48Z",
+    "url": "https://github.com/opentensor/subtensor/commit/c2e8cd8d97a9d049d8201566683acc5ac85c41f6",
+    "fetched_at": "2026-06-08T21:48:23.681527+00:00"
+  },
+  {
+    "repo": "opentensor/subtensor",
+    "name": "Subtensor (chain)",
+    "kind": "commit",
+    "sha": "aa9f6bc",
+    "message": "Use saturating weight accounting in lock swap migration",
+    "author": "Greg Zaitsev",
+    "posted_at": "2026-06-08T17:03:16Z",
+    "url": "https://github.com/opentensor/subtensor/commit/aa9f6bc337f6117fc8849049b5fe80c25abcc53b",
+    "fetched_at": "2026-06-08T21:48:23.681527+00:00"
+  },
+  {
+    "repo": "opentensor/subtensor",
+    "name": "Subtensor (chain)",
+    "kind": "commit",
+    "sha": "7d49c4e",
+    "message": "Scope hotkey lock swaps to subnet",
+    "author": "Greg Zaitsev",
+    "posted_at": "2026-06-08T17:00:45Z",
+    "url": "https://github.com/opentensor/subtensor/commit/7d49c4e6300205ca3c0e47c5f0d6a91e5e3fc951",
+    "fetched_at": "2026-06-08T21:48:23.681527+00:00"
+  },
+  {
+    "repo": "opentensor/subtensor",
+    "name": "Subtensor (chain)",
+    "kind": "commit",
+    "sha": "1c0fa6d",
+    "message": "Fix hotkey swap conviction locks",
+    "author": "Greg Zaitsev",
+    "posted_at": "2026-06-08T16:53:41Z",
+    "url": "https://github.com/opentensor/subtensor/commit/1c0fa6db5f2afe585024480e76aae1e05b031558",
+    "fetched_at": "2026-06-08T21:48:23.681527+00:00"
+  }
+]
