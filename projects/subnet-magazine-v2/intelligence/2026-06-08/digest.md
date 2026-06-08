@@ -11,6 +11,16 @@ _no human notes in the window_
 
 _SemiAnalysis is the most-cited semiconductor and AI infrastructure publication in the industry. They do NOT cover Bittensor. The Oracle uses this corpus for any claim about hyperscaler compute, GPU economics, datacenter power, foundry capacity, memory pricing, lab unit economics. DO NOT cite SemiAnalysis for any Bittensor-specific claim. Full archive (289 posts, May 2020 onwards) lives at `intelligence/_external_sources/semianalysis/` with an `INDEX.md` table of contents. Paywalled posts show only subtitle + free preview; free posts have the full body extracted._
 
+### 2026-06-08 · China's Unitree Will Dominate Global Robotics
+_The Fastest Iteration Cycle In Next-Gen Robotics Should See Unprecedented Acceleration_
+
+- **Authors:** ["Reyk Knuhtsen", "Niko Ciminelli", "Jacob Rintamaki", "Robert Ghilduta", "Joe Ryu", "Jeremie Eliahou Ontiveros", "Dylan
+- **Access:** paid-preview
+- **URL:** https://newsletter.semianalysis.com/p/chinas-unitree-will-dominate-global
+- **Corpus file:** `intelligence/_external_sources/semianalysis/2026-06-08-chinas-unitree-will-dominate-global.md`
+
+> We are witnessing the birth of another Chinese hardware giant. Three years ago, Unitree was a quadruped company. By last year, they parlayed quadruped dominance into creating and leading the humanoid market. This year, their G1 humanoids are finally entering into viable deployments, and three new designs are on the way, including their most-direct [Western humanoid competitor](https://www.unitree.com/H2).  [![Quadruped State of The Market - Unitree, Boston Dynamics, ANYbotics, DEEP Robotics, and
+
 ### 2026-06-03 · To Boldly Go: The Case for Space Datacenters
 _Space DC Total Cost of Ownership Explained. Unpacking constraints from Terrestrial DCs and Chip Production. Space-Earth Parity in the late 2030s, Space DCs could start to be viable even sooner._
 
@@ -121,16 +131,6 @@ _Calculating Cluster TCO, The Real Impact of Downtime, The Grand Unifying Theory
 
 > # Introduction: Rethinking the Total Cost of a GPU Cluster  Modern GPUs are unbelievably expensive. A single Blackwell GPU costs more than the average car, and uses more energy than a single family home. It is now common for unicorn startups to have thousands of these GPUs working for them, day and night. Many foundation model companies now spend an order of magnitude more money on GPUs than they do on employees. We know multiple companies spending over 80% of their initial funding on GPUs. Star
 
-### 2026-04-15 · ISSCC 2026: NVIDIA & Broadcom CPO, HBM4 & LPDDR6, TSMC Active LSI, Logic-Based SRAM, UCIe-S and More
-_ISSCC 2026 Roundup_
-
-- **Authors:** ["Afzal Ahmad", "Gerald Wong", "Daniel Nishball", "Ray Wang", "Clara Ee", "DC", "Dylan Patel"]
-- **Access:** paid-preview
-- **URL:** https://newsletter.semianalysis.com/p/isscc-2026-nvidia-and-broadcom-cpo
-- **Corpus file:** `intelligence/_external_sources/semianalysis/2026-04-15-isscc-2026-nvidia-and-broadcom-cpo.md`
-
-> There are three major semiconductor conferences each year, [IEDM](https://newsletter.semianalysis.com/p/interconnects-beyond-copper-1000), [VLSI](https://newsletter.semianalysis.com/p/vlsi2025) and finally ISSCC. We have covered the former two in great detail over the past few years. Today, we finally complete the trinity with our roundup on ISSCC 2026.  Compared to IEDM and VLSI, ISSCC has a much bigger focus on integration and circuits. Almost every paper comes with some form of circuit diagra
-
 
 ## ⊕ GITHUB COMMITS + RELEASES, last 24h
 
@@ -146,4 +146,4 @@ _no posts retrieved · all Nitter instances may be down_
 
 
 ---
-_Generated at 2026-06-08T15:39:01.998069+00:00 by scripts/intel/aggregate.py. Treat this digest as input context, not as ground truth. Verify before quoting._
+_Generated at 2026-06-08T18:24:03.607507+00:00 by scripts/intel/aggregate.py. Treat this digest as input context, not as ground truth. Verify before quoting._

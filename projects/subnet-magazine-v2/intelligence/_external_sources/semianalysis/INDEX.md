@@ -1,11 +1,12 @@
 # SemiAnalysis Archive Index
 
-_295 posts captured. Generated 2026-06-08T15:39:01.832774+00:00._
+_296 posts captured. Generated 2026-06-08T18:24:03.419800+00:00._
 
 Editorial policy: SemiAnalysis is the macro reference. The Oracle cites it for any claim about hyperscaler compute, GPU economics, datacenter power, foundry capacity, memory pricing, lab unit economics. The Oracle does NOT cite SemiAnalysis for any Bittensor-specific claim. SemiAnalysis does not cover Bittensor; treat that absence as itself information.
 
 | Date | Title | Audience | Authors | File |
 | --- | --- | --- | --- | --- |
+| 2026-06-08 | [China's Unitree Will Dominate Global Robotics](https://newsletter.semianalysis.com/p/chinas-unitree-will-dominate-global) | only_paid | ["Reyk Knuhtsen", "Niko Ciminelli", "Jacob Rintamaki", "Robe | `2026-06-08-chinas-unitree-will-dominate-global.md` |
 | 2026-06-03 | [To Boldly Go: The Case for Space Datacenters](https://newsletter.semianalysis.com/p/to-boldly-go-the-case-for-space-datacenters) | only_paid | ["Daniel Nishball", "Pranav Myana", "Ellie Holbrook", "Harle | `2026-06-03-to-boldly-go-the-case-for-space-datacenters.md` |
 | 2026-05-29 | [AI Dark Output: The Visible Cost of Invisible Output](https://newsletter.semianalysis.com/p/ai-dark-output-the-visible-cost-of) | everyone | ["Malcolm Spittler", "Dylan Patel"] | `2026-05-29-ai-dark-output-the-visible-cost-of.md` |
 | 2026-05-28 | [Finding Miscompiles for Fun, Not Profit](https://newsletter.semianalysis.com/p/finding-miscompiles-for-fun-not-profit) | only_paid | ["Justin Lebar"] | `2026-05-28-finding-miscompiles-for-fun-not-profit.md` |
