@@ -11,6 +11,16 @@ _no human notes in the window_
 
 _SemiAnalysis is the most-cited semiconductor and AI infrastructure publication in the industry. They do NOT cover Bittensor. The Oracle uses this corpus for any claim about hyperscaler compute, GPU economics, datacenter power, foundry capacity, memory pricing, lab unit economics. DO NOT cite SemiAnalysis for any Bittensor-specific claim. Full archive (289 posts, May 2020 onwards) lives at `intelligence/_external_sources/semianalysis/` with an `INDEX.md` table of contents. Paywalled posts show only subtitle + free preview; free posts have the full body extracted._
 
+### 2026-06-09 · DeepSeekV4 1.6T Day 0 to Day 43 Performance Over Time - Huawei, GB300 NVL72, MI355X, B200
+_Day 0 Inference Performance, InferenceX, 100x performance improvement in 26 Days, Cost per Million Tokens, Huawei 950DT Inference Trace Analysis_
+
+- **Authors:** ["Bryan Shan", "Cam Quilici", "Kimbo Chen", "Alec Ibarra", "Dylan Patel", "Daniel Nishball", "Cheang Kang Wen"]
+- **Access:** paid-preview
+- **URL:** https://newsletter.semianalysis.com/p/deepseekv4-16t-day-0-to-day-43-performance
+- **Corpus file:** `intelligence/_external_sources/semianalysis/2026-06-09-deepseekv4-16t-day-0-to-day-43-performance.md`
+
+> The release of DeepSeek v4 marks another step forward for the open model community - unsurprisingly, it is the product of a Chinese lab. The evolution of its performance over time is of paramount importance to the AI Ecosystem. [The open-source InferenceX engineering team has pulled multiple all-nighters to measure performance results for this model on Day 0, Day 1, Day 2, and beyond and bring these results to the world.](https://inferencex.semianalysis.com/) In this article, we will highlight D
+
 ### 2026-06-08 · China's Unitree Will Dominate Global Robotics
 _The Fastest Iteration Cycle In Next-Gen Robotics Should See Unprecedented Acceleration_
 
@@ -121,16 +131,6 @@ _Hands On With GPT 5.5, Opus 4.7, DeepSeek V4, Why Benchmarks Are Bad, and Who�
 
 > Since we called out the [Claude Code inflection point](https://newsletter.semianalysis.com/p/claude-code-is-the-inflection-point) on February 5th, we have seen a flurry of model releases. Opus, Mythos, Codex, Gemini, DeepSeek, Kimi, Qwen, GLM, MiniMax, Composer, Muse Spark, and more. Today we will break down all of these major model releases, explain when you can vs can’t trust the benchmarks, and give our predictions for the future of the agentic coding market.  First we have to highlight GPT-5
 
-### 2026-04-20 · How Much Do GPU Clusters Really Cost?
-_Calculating Cluster TCO, The Real Impact of Downtime, The Grand Unifying Theory Of Goodput, and a ClusterMAX 2.1 Update_
-
-- **Authors:** ["Jordan Nanos", "Bryan Shan", "Cheang Kang Wen", "Daniel Nishball", "Dylan Patel"]
-- **Access:** paid-preview
-- **URL:** https://newsletter.semianalysis.com/p/how-much-do-gpu-clusters-really-cost
-- **Corpus file:** `intelligence/_external_sources/semianalysis/2026-04-20-how-much-do-gpu-clusters-really-cost.md`
-
-> # Introduction: Rethinking the Total Cost of a GPU Cluster  Modern GPUs are unbelievably expensive. A single Blackwell GPU costs more than the average car, and uses more energy than a single family home. It is now common for unicorn startups to have thousands of these GPUs working for them, day and night. Many foundation model companies now spend an order of magnitude more money on GPUs than they do on employees. We know multiple companies spending over 80% of their initial funding on GPUs. Star
-
 
 ## ⊕ GITHUB COMMITS + RELEASES, last 24h
 
@@ -157,4 +157,4 @@ _no posts retrieved · all Nitter instances may be down_
 
 
 ---
-_Generated at 2026-06-09T10:57:58.629945+00:00 by scripts/intel/aggregate.py. Treat this digest as input context, not as ground truth. Verify before quoting._
+_Generated at 2026-06-09T14:36:55.905279+00:00 by scripts/intel/aggregate.py. Treat this digest as input context, not as ground truth. Verify before quoting._
