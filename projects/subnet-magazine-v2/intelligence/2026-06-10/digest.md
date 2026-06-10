@@ -134,7 +134,14 @@ _Hands On With GPT 5.5, Opus 4.7, DeepSeek V4, Why Benchmarks Are Bad, and Who�
 
 ## ⊕ GITHUB COMMITS + RELEASES, last 24h
 
-_no commits or releases in the lookback window_
+- **Subtensor (chain)** (RELEASE `v3.4.4-`, 2026-06-10 21:34) v3.4.4-417  
+  https://github.com/opentensor/subtensor/releases/tag/v3.4.4-417
+- **Subtensor (chain)** (COMMIT `49164bd`, 2026-06-10 18:18) bump spec  
+  https://github.com/opentensor/subtensor/commit/49164bd68afd71e48e3c80d268ed80f22b98a2b1
+- **Subtensor (chain)** (COMMIT `34a2847`, 2026-06-10 02:52) Merge pull request #4 from opentensor/hotkey-swap-new-hotkey-check  
+  https://github.com/opentensor/subtensor/commit/34a284751cc3151ae8017451919101f59e39744d
+- **Subtensor (chain)** (COMMIT `1112fe9`, 2026-06-10 01:43) check `new_hotkey`  
+  https://github.com/opentensor/subtensor/commit/1112fe9eb63ac7046a306d909ef1b3eb73659ce1
 
 ## ⊕ ECOSYSTEM BLOGS via RSS
 
@@ -146,4 +153,4 @@ _no posts retrieved · all Nitter instances may be down_
 
 
 ---
-_Generated at 2026-06-10T18:28:42.356671+00:00 by scripts/intel/aggregate.py. Treat this digest as input context, not as ground truth. Verify before quoting._
+_Generated at 2026-06-10T21:55:33.634071+00:00 by scripts/intel/aggregate.py. Treat this digest as input context, not as ground truth. Verify before quoting._
