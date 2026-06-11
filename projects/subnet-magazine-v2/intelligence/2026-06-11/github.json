@@ -1,0 +1,24 @@
+[
+  {
+    "repo": "opentensor/subtensor",
+    "name": "Subtensor (chain)",
+    "kind": "release",
+    "sha": "v3.4.4-417",
+    "message": "v3.4.4-417",
+    "author": "sam0x17",
+    "posted_at": "2026-06-10T21:34:58Z",
+    "url": "https://github.com/opentensor/subtensor/releases/tag/v3.4.4-417",
+    "fetched_at": "2026-06-11T02:58:09.278517+00:00"
+  },
+  {
+    "repo": "opentensor/subtensor",
+    "name": "Subtensor (chain)",
+    "kind": "commit",
+    "sha": "49164bd",
+    "message": "bump spec",
+    "author": "Sam Johnson",
+    "posted_at": "2026-06-10T18:18:25Z",
+    "url": "https://github.com/opentensor/subtensor/commit/49164bd68afd71e48e3c80d268ed80f22b98a2b1",
+    "fetched_at": "2026-06-11T02:58:09.065428+00:00"
+  }
+]
