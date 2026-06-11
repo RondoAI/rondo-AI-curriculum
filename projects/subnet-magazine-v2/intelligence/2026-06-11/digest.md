@@ -11,6 +11,16 @@ _no human notes in the window_
 
 _SemiAnalysis is the most-cited semiconductor and AI infrastructure publication in the industry. They do NOT cover Bittensor. The Oracle uses this corpus for any claim about hyperscaler compute, GPU economics, datacenter power, foundry capacity, memory pricing, lab unit economics. DO NOT cite SemiAnalysis for any Bittensor-specific claim. Full archive (289 posts, May 2020 onwards) lives at `intelligence/_external_sources/semianalysis/` with an `INDEX.md` table of contents. Paywalled posts show only subtitle + free preview; free posts have the full body extracted._
 
+### 2026-06-11 · Intel Should Raise Capital
+_Intel's woes are behind them. The heavy spending is ahead of them. Why an equity issuance in a hot equity market could make Intel so much better sooner._
+
+- **Authors:** ["Doug", "Sravan Kundojjala", "Dylan Patel"]
+- **Access:** paid-preview
+- **URL:** https://newsletter.semianalysis.com/p/intel-should-raise-capital
+- **Corpus file:** `intelligence/_external_sources/semianalysis/2026-06-11-intel-should-raise-capital.md`
+
+> We have written a lot about Intel. It’s a firm near and dear to our heart, and is the birth of the semiconductor industry. To say we love Intel and their role in the world is an understatement. We also have been very vocally right during their initial product mishaps, as well as supportive and excited for the turnaround. The thing we have believed the most is that Intel’s board is one of the biggest parties to blame for Intel’s death, and we recently got what we want.  [Intel on the Brink of Dea
+
 ### 2026-06-09 · DeepSeekV4 1.6T Day 0 to Day 43 Performance Over Time - Huawei, GB300 NVL72, MI355X, B200
 _Day 0 Inference Performance, InferenceX, 100x performance improvement in 26 Days, Cost per Million Tokens, Huawei 950DT Inference Trace Analysis_
 
@@ -121,16 +131,6 @@ _Vera Rubin VR NVL72: V for Value - Rubin delivers a step jump in performance pe
 
 > A day in AI now feels like a year in any other industry. Model releases, software breakthroughs, and hardware improvements are compressing multi-year cycles for any other industry into weeks. Over just the past few months, agentic AI has crossed a real inflection point, driving a step-change in the value of tokens while software and hardware improvements have sharply reduced the cost of generating them.  This flood of demand is driven by end users enjoying a huge return on investment (ROI) from
 
-### 2026-04-24 · The Coding Assistant Breakdown: More Tokens Please
-_Hands On With GPT 5.5, Opus 4.7, DeepSeek V4, Why Benchmarks Are Bad, and Who’s Going To Win_
-
-- **Authors:** ["Max Kan", "Jordan Nanos", "Samuel Kruse", "Crystal Huang", "Sam Harshe", "Dylan Patel", "Doug"]
-- **Access:** paid-preview
-- **URL:** https://newsletter.semianalysis.com/p/the-coding-assistant-breakdown-more
-- **Corpus file:** `intelligence/_external_sources/semianalysis/2026-04-24-the-coding-assistant-breakdown-more.md`
-
-> Since we called out the [Claude Code inflection point](https://newsletter.semianalysis.com/p/claude-code-is-the-inflection-point) on February 5th, we have seen a flurry of model releases. Opus, Mythos, Codex, Gemini, DeepSeek, Kimi, Qwen, GLM, MiniMax, Composer, Muse Spark, and more. Today we will break down all of these major model releases, explain when you can vs can’t trust the benchmarks, and give our predictions for the future of the agentic coding market.  First we have to highlight GPT-5
-
 
 ## ⊕ GITHUB COMMITS + RELEASES, last 24h
 
@@ -149,4 +149,4 @@ _no posts retrieved · all Nitter instances may be down_
 
 
 ---
-_Generated at 2026-06-11T08:32:27.165651+00:00 by scripts/intel/aggregate.py. Treat this digest as input context, not as ground truth. Verify before quoting._
+_Generated at 2026-06-11T15:45:24.563466+00:00 by scripts/intel/aggregate.py. Treat this digest as input context, not as ground truth. Verify before quoting._
