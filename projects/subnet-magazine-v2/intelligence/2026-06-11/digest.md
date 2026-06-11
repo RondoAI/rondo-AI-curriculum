@@ -134,6 +134,26 @@ _Vera Rubin VR NVL72: V for Value - Rubin delivers a step jump in performance pe
 
 ## ⊕ GITHUB COMMITS + RELEASES, last 24h
 
+- **Bittensor SDK** (RELEASE `v10.4.1`, 2026-06-11 19:37) v10.4.1  
+  https://github.com/latent-to/bittensor/releases/tag/v10.4.1
+- **Bittensor SDK** (COMMIT `5cceeb8`, 2026-06-11 19:36) Merge pull request #3381 from latent-to/release/10.4.1  
+  https://github.com/latent-to/bittensor/commit/5cceeb80a5e5d2846eddd86e9767aef2a2f108fb
+- **btcli** (RELEASE `v9.22.2`, 2026-06-11 19:32) v9.22.2  
+  https://github.com/latent-to/btcli/releases/tag/v9.22.2
+- **btcli** (COMMIT `76070b7`, 2026-06-11 19:32) Merge pull request #1001 from latent-to/release/9.22.2  
+  https://github.com/latent-to/btcli/commit/76070b77d7957926be0353de8bddff79436bf7f4
+- **Bittensor SDK** (COMMIT `6536631`, 2026-06-11 19:25) Update changelog  
+  https://github.com/latent-to/bittensor/commit/6536631711d76a37db7b373018fb0be514121f5c
+- **Bittensor SDK** (COMMIT `7e64590`, 2026-06-11 19:23) Merge remote-tracking branch 'origin/fix/roman/fix-after-aiohttp-latest-release' into release/10.4.1  
+  https://github.com/latent-to/bittensor/commit/7e645902af253e345ab06bbf2b4b2e2f678350b6
+- **btcli** (COMMIT `1da3bdc`, 2026-06-11 19:11) pin cyscale to 0.4.0  
+  https://github.com/latent-to/btcli/commit/1da3bdc806c04cbbb0fb61b192885e93c7e0a0ee
+- **Bittensor SDK** (COMMIT `51de09b`, 2026-06-11 19:05) Merge remote-tracking branch 'origin/hotfix/10.4.1-pin-cyscale-0.4.0' into release/10.4.1  
+  https://github.com/latent-to/bittensor/commit/51de09b5861c6839ff7b25eff39f1ca8b6c5d648
+- **Bittensor SDK** (COMMIT `b6a1b99`, 2026-06-11 19:04) Pins cyscale to 0.4.0, update changelog+version  
+  https://github.com/latent-to/bittensor/commit/b6a1b99524651f3ab45712674b30ec68f0474b7b
+- **Bittensor SDK** (COMMIT `e2b024d`, 2026-06-11 19:01) Pins cyscale to 0.4.0, update changelog+version  
+  https://github.com/latent-to/bittensor/commit/e2b024d7d02ddd9fd1bd121ab146a474757f1eab
 - **Subtensor (chain)** (RELEASE `v3.4.4-`, 2026-06-10 21:34) v3.4.4-417  
   https://github.com/opentensor/subtensor/releases/tag/v3.4.4-417
 - **Subtensor (chain)** (COMMIT `49164bd`, 2026-06-10 18:18) bump spec  
@@ -149,4 +169,4 @@ _no posts retrieved · all Nitter instances may be down_
 
 
 ---
-_Generated at 2026-06-11T18:45:10.909418+00:00 by scripts/intel/aggregate.py. Treat this digest as input context, not as ground truth. Verify before quoting._
+_Generated at 2026-06-11T21:57:32.320809+00:00 by scripts/intel/aggregate.py. Treat this digest as input context, not as ground truth. Verify before quoting._
