@@ -1,5 +1,16 @@
 [
   {
+    "repo": "opentensor/subtensor",
+    "name": "Subtensor (chain)",
+    "kind": "commit",
+    "sha": "ec1d75e",
+    "message": "Merge pull request #2748 from opentensor/fireactions-ci-runners",
+    "author": "sam0x17",
+    "posted_at": "2026-06-12T13:18:36Z",
+    "url": "https://github.com/opentensor/subtensor/commit/ec1d75ed58701422eb95a1d0dfb32c907c6c8a41",
+    "fetched_at": "2026-06-12T14:46:12.736540+00:00"
+  },
+  {
     "repo": "opentensor/bittensor",
     "name": "Bittensor SDK",
     "kind": "release",
@@ -108,5 +119,16 @@
     "posted_at": "2026-06-11T19:01:19Z",
     "url": "https://github.com/latent-to/bittensor/commit/e2b024d7d02ddd9fd1bd121ab146a474757f1eab",
     "fetched_at": "2026-06-12T02:55:32.037464+00:00"
+  },
+  {
+    "repo": "opentensor/subtensor",
+    "name": "Subtensor (chain)",
+    "kind": "commit",
+    "sha": "da26f4f",
+    "message": "Use Fireactions runners for self-hosted CI jobs",
+    "author": "GitHub Actions",
+    "posted_at": "2026-06-11T16:02:59Z",
+    "url": "https://github.com/opentensor/subtensor/commit/da26f4fc293ead042aa30c62259e4c6118f1abe5",
+    "fetched_at": "2026-06-12T14:46:12.736540+00:00"
   }
 ]

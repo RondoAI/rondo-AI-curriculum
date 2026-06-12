@@ -134,6 +134,8 @@ _Vera Rubin VR NVL72: V for Value - Rubin delivers a step jump in performance pe
 
 ## ⊕ GITHUB COMMITS + RELEASES, last 24h
 
+- **Subtensor (chain)** (COMMIT `ec1d75e`, 2026-06-12 13:18) Merge pull request #2748 from opentensor/fireactions-ci-runners  
+  https://github.com/opentensor/subtensor/commit/ec1d75ed58701422eb95a1d0dfb32c907c6c8a41
 - **Bittensor SDK** (RELEASE `v10.4.1`, 2026-06-11 19:37) v10.4.1  
   https://github.com/latent-to/bittensor/releases/tag/v10.4.1
 - **Bittensor SDK** (COMMIT `5cceeb8`, 2026-06-11 19:36) Merge pull request #3381 from latent-to/release/10.4.1  
@@ -154,6 +156,8 @@ _Vera Rubin VR NVL72: V for Value - Rubin delivers a step jump in performance pe
   https://github.com/latent-to/bittensor/commit/b6a1b99524651f3ab45712674b30ec68f0474b7b
 - **Bittensor SDK** (COMMIT `e2b024d`, 2026-06-11 19:01) Pins cyscale to 0.4.0, update changelog+version  
   https://github.com/latent-to/bittensor/commit/e2b024d7d02ddd9fd1bd121ab146a474757f1eab
+- **Subtensor (chain)** (COMMIT `da26f4f`, 2026-06-11 16:02) Use Fireactions runners for self-hosted CI jobs  
+  https://github.com/opentensor/subtensor/commit/da26f4fc293ead042aa30c62259e4c6118f1abe5
 
 ## ⊕ ECOSYSTEM BLOGS via RSS
 
@@ -165,4 +169,4 @@ _no posts retrieved · all Nitter instances may be down_
 
 
 ---
-_Generated at 2026-06-12T08:20:49.843161+00:00 by scripts/intel/aggregate.py. Treat this digest as input context, not as ground truth. Verify before quoting._
+_Generated at 2026-06-12T14:46:18.309705+00:00 by scripts/intel/aggregate.py. Treat this digest as input context, not as ground truth. Verify before quoting._
