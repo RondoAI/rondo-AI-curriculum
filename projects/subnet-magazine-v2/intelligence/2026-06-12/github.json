@@ -1,0 +1,112 @@
+[
+  {
+    "repo": "opentensor/bittensor",
+    "name": "Bittensor SDK",
+    "kind": "release",
+    "sha": "v10.4.1",
+    "message": "v10.4.1",
+    "author": "thewhaleking",
+    "posted_at": "2026-06-11T19:37:57Z",
+    "url": "https://github.com/latent-to/bittensor/releases/tag/v10.4.1",
+    "fetched_at": "2026-06-12T02:55:32.542091+00:00"
+  },
+  {
+    "repo": "opentensor/bittensor",
+    "name": "Bittensor SDK",
+    "kind": "commit",
+    "sha": "5cceeb8",
+    "message": "Merge pull request #3381 from latent-to/release/10.4.1",
+    "author": "BD Himes",
+    "posted_at": "2026-06-11T19:36:32Z",
+    "url": "https://github.com/latent-to/bittensor/commit/5cceeb80a5e5d2846eddd86e9767aef2a2f108fb",
+    "fetched_at": "2026-06-12T02:55:32.037464+00:00"
+  },
+  {
+    "repo": "opentensor/btcli",
+    "name": "btcli",
+    "kind": "release",
+    "sha": "v9.22.2",
+    "message": "v9.22.2",
+    "author": "thewhaleking",
+    "posted_at": "2026-06-11T19:32:43Z",
+    "url": "https://github.com/latent-to/btcli/releases/tag/v9.22.2",
+    "fetched_at": "2026-06-12T02:55:33.597501+00:00"
+  },
+  {
+    "repo": "opentensor/btcli",
+    "name": "btcli",
+    "kind": "commit",
+    "sha": "76070b7",
+    "message": "Merge pull request #1001 from latent-to/release/9.22.2",
+    "author": "BD Himes",
+    "posted_at": "2026-06-11T19:32:01Z",
+    "url": "https://github.com/latent-to/btcli/commit/76070b77d7957926be0353de8bddff79436bf7f4",
+    "fetched_at": "2026-06-12T02:55:33.119964+00:00"
+  },
+  {
+    "repo": "opentensor/bittensor",
+    "name": "Bittensor SDK",
+    "kind": "commit",
+    "sha": "6536631",
+    "message": "Update changelog",
+    "author": "BD Himes",
+    "posted_at": "2026-06-11T19:25:23Z",
+    "url": "https://github.com/latent-to/bittensor/commit/6536631711d76a37db7b373018fb0be514121f5c",
+    "fetched_at": "2026-06-12T02:55:32.037464+00:00"
+  },
+  {
+    "repo": "opentensor/bittensor",
+    "name": "Bittensor SDK",
+    "kind": "commit",
+    "sha": "7e64590",
+    "message": "Merge remote-tracking branch 'origin/fix/roman/fix-after-aiohttp-latest-release' into release/10.4.1",
+    "author": "BD Himes",
+    "posted_at": "2026-06-11T19:23:39Z",
+    "url": "https://github.com/latent-to/bittensor/commit/7e645902af253e345ab06bbf2b4b2e2f678350b6",
+    "fetched_at": "2026-06-12T02:55:32.037464+00:00"
+  },
+  {
+    "repo": "opentensor/btcli",
+    "name": "btcli",
+    "kind": "commit",
+    "sha": "1da3bdc",
+    "message": "pin cyscale to 0.4.0",
+    "author": "BD Himes",
+    "posted_at": "2026-06-11T19:11:18Z",
+    "url": "https://github.com/latent-to/btcli/commit/1da3bdc806c04cbbb0fb61b192885e93c7e0a0ee",
+    "fetched_at": "2026-06-12T02:55:33.119964+00:00"
+  },
+  {
+    "repo": "opentensor/bittensor",
+    "name": "Bittensor SDK",
+    "kind": "commit",
+    "sha": "51de09b",
+    "message": "Merge remote-tracking branch 'origin/hotfix/10.4.1-pin-cyscale-0.4.0' into release/10.4.1",
+    "author": "BD Himes",
+    "posted_at": "2026-06-11T19:05:20Z",
+    "url": "https://github.com/latent-to/bittensor/commit/51de09b5861c6839ff7b25eff39f1ca8b6c5d648",
+    "fetched_at": "2026-06-12T02:55:32.037464+00:00"
+  },
+  {
+    "repo": "opentensor/bittensor",
+    "name": "Bittensor SDK",
+    "kind": "commit",
+    "sha": "b6a1b99",
+    "message": "Pins cyscale to 0.4.0, update changelog+version",
+    "author": "BD Himes",
+    "posted_at": "2026-06-11T19:04:23Z",
+    "url": "https://github.com/latent-to/bittensor/commit/b6a1b99524651f3ab45712674b30ec68f0474b7b",
+    "fetched_at": "2026-06-12T02:55:32.037464+00:00"
+  },
+  {
+    "repo": "opentensor/bittensor",
+    "name": "Bittensor SDK",
+    "kind": "commit",
+    "sha": "e2b024d",
+    "message": "Pins cyscale to 0.4.0, update changelog+version",
+    "author": "BD Himes",
+    "posted_at": "2026-06-11T19:01:19Z",
+    "url": "https://github.com/latent-to/bittensor/commit/e2b024d7d02ddd9fd1bd121ab146a474757f1eab",
+    "fetched_at": "2026-06-12T02:55:32.037464+00:00"
+  }
+]
