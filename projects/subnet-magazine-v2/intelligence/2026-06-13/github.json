@@ -1,0 +1,13 @@
+[
+  {
+    "repo": "opentensor/subtensor",
+    "name": "Subtensor (chain)",
+    "kind": "commit",
+    "sha": "ec1d75e",
+    "message": "Merge pull request #2748 from opentensor/fireactions-ci-runners",
+    "author": "sam0x17",
+    "posted_at": "2026-06-12T13:18:36Z",
+    "url": "https://github.com/opentensor/subtensor/commit/ec1d75ed58701422eb95a1d0dfb32c907c6c8a41",
+    "fetched_at": "2026-06-13T02:48:18.112543+00:00"
+  }
+]
