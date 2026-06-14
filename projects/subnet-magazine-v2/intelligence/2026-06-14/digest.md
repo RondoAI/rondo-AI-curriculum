@@ -11,6 +11,16 @@ _no human notes in the window_
 
 _SemiAnalysis is the most-cited semiconductor and AI infrastructure publication in the industry. They do NOT cover Bittensor. The Oracle uses this corpus for any claim about hyperscaler compute, GPU economics, datacenter power, foundry capacity, memory pricing, lab unit economics. DO NOT cite SemiAnalysis for any Bittensor-specific claim. Full archive (289 posts, May 2020 onwards) lives at `intelligence/_external_sources/semianalysis/` with an `INDEX.md` table of contents. Paywalled posts show only subtitle + free preview; free posts have the full body extracted._
 
+### 2026-06-14 · Is SMIC N+3’s Metal Pitch Smaller than Intel 18A’s?
+_SMIC N+3 Node Deep Dive vs TSMC N6, TechInsights Private Equity Sale, SemiAnalysis Teardown Engineering & Evaluation Lab, HiSilicon Kirin 9030, Process Technology, Pattering, Cell Architecture_
+
+- **Authors:** ["STEEL Team", "Afzal Ahmad", "Andrew Wagner", "Gerald Wong", "Wayne Ma", "Dylan Patel", "Daniel Sanchez"]
+- **Access:** paid-preview
+- **URL:** https://newsletter.semianalysis.com/p/steel-smic-n3-teardown
+- **Corpus file:** `intelligence/_external_sources/semianalysis/2026-06-14-steel-smic-n3-teardown.md`
+
+> Almost four years ago, we published that [SMIC had started shipping 7 nm (N+1) chips](https://newsletter.semianalysis.com/p/chinas-smic-is-shipping-7nm-foundry). Now, SMIC is shipping its third-generation 7 nm (N+3) process in Huawei’s Kirin 9030, with a minimum metal pitch of 32.5 nm, about 10% tighter than the 36 nm minimum metal pitch shipping in Intel’s latest Panther Lake CPUs on 18A.  The headline is true, but incomplete cherry picked metric. N+3 reaches the density of TSMC N6 through aggr
+
 ### 2026-06-11 · Intel Should Raise Capital
 _Intel's woes are behind them. The heavy spending is ahead of them. Why an equity issuance in a hot equity market could make Intel so much better sooner._
 
@@ -121,16 +131,6 @@ _Laying the Groundwork of the Current Chip Design Paradigm_
 
 > AI demand has been driving the explosion in compute over the past few years, resulting in chip designs getting ever more complex, with silicon area and power per package seeing continued growth as designs push for even greater performance. With each successive generation, new process nodes with more design rules and restrictions further increase chip design costs.  At the same time, the rush to bring compute into the market as quickly as possible has put design teams under immense pressure to co
 
-### 2026-05-01 · AI Value Capture - The Shift To Model Labs
-_Vera Rubin VR NVL72: V for Value - Rubin delivers a step jump in performance per TCO. ROI accruing to users, Neoclouds, Hyperscalers, AI Labs, Memory Vendors or GPU Manufacturers?_
-
-- **Authors:** ["Daniel Nishball", "Dylan Patel", "Cheang Kang Wen", "Crystal Huang", "Max Kan", "Ray Wang", "Myron Xie", "Zane Fong", 
-- **Access:** paid-preview
-- **URL:** https://newsletter.semianalysis.com/p/ai-value-capture-the-shift-to-model
-- **Corpus file:** `intelligence/_external_sources/semianalysis/2026-05-01-ai-value-capture-the-shift-to-model.md`
-
-> A day in AI now feels like a year in any other industry. Model releases, software breakthroughs, and hardware improvements are compressing multi-year cycles for any other industry into weeks. Over just the past few months, agentic AI has crossed a real inflection point, driving a step-change in the value of tokens while software and hardware improvements have sharply reduced the cost of generating them.  This flood of demand is driven by end users enjoying a huge return on investment (ROI) from
-
 
 ## ⊕ GITHUB COMMITS + RELEASES, last 24h
 
@@ -146,4 +146,4 @@ _no posts retrieved · all Nitter instances may be down_
 
 
 ---
-_Generated at 2026-06-14T17:15:35.854383+00:00 by scripts/intel/aggregate.py. Treat this digest as input context, not as ground truth. Verify before quoting._
+_Generated at 2026-06-14T21:06:10.242922+00:00 by scripts/intel/aggregate.py. Treat this digest as input context, not as ground truth. Verify before quoting._
