@@ -11,6 +11,16 @@ _no human notes in the window_
 
 _SemiAnalysis is the most-cited semiconductor and AI infrastructure publication in the industry. They do NOT cover Bittensor. The Oracle uses this corpus for any claim about hyperscaler compute, GPU economics, datacenter power, foundry capacity, memory pricing, lab unit economics. DO NOT cite SemiAnalysis for any Bittensor-specific claim. Full archive (289 posts, May 2020 onwards) lives at `intelligence/_external_sources/semianalysis/` with an `INDEX.md` table of contents. Paywalled posts show only subtitle + free preview; free posts have the full body extracted._
 
+### 2026-06-16 · RL Systems Mind the Gap: Matching Trainer and Generator Throughput
+_RL Training Infrastructure, GRPO, PipelineRL, Async RL, Policy Staleness, RL Sandbox Infra, CPU Requirements, TCO Analysis, Thinking Machines Tinker_
+
+- **Authors:** ["Kimbo Chen", "Cheang Kang Wen", "Dylan Patel"]
+- **Access:** paid-preview
+- **URL:** https://newsletter.semianalysis.com/p/rl-systems-mind-the-gap-matching
+- **Corpus file:** `intelligence/_external_sources/semianalysis/2026-06-16-rl-systems-mind-the-gap-matching.md`
+
+> # The Cost of Capability  Coding assistants are the greatest B2B SaaS application the world has ever seen: a $30B+ ARR market across the six largest players today, on track to clear $100B by year end, per our [tokenomics model](http://semianalysis.com/tokenomics-model).  [![](https://substackcdn.com/image/fetch/$s_!wfM6!,w_1456,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F54113290-ca32-4a32-a202-64d43abf4c57_1780x1031.heic
+
 ### 2026-06-14 · Is SMIC N+3’s Metal Pitch Smaller than Intel 18A’s?
 _SMIC N+3 Node Deep Dive vs TSMC N6, TechInsights Private Equity Sale, SemiAnalysis Teardown Engineering & Evaluation Lab, HiSilicon Kirin 9030, Process Technology, Pattering, Cell Architecture_
 
@@ -121,16 +131,6 @@ _OpenAI and AWS Partnerships, Tokenomics Explainer, Architecture Deep Dive, Data
 
 > It’s been nearly 5 years since Dylan [wrote a dedicated article about Cerebras in June of 2021](https://newsletter.semianalysis.com/p/cerebras-wafer-scale-hardware-crushes) for the newsletter. He shipped 4 articles in 2 days! How times have changed.  One of the other things that has changed is Cerebras’s fortunes. With the arrival of fast tokens on the mainstage and a 750MW compute deal with OpenAI notched, Cerebras is feeling ready for the scrutiny of public markets. Up until just 6 months ago,
 
-### 2026-05-12 · The EDA Primer: From RTL to Silicon
-_Laying the Groundwork of the Current Chip Design Paradigm_
-
-- **Authors:** ["Gerald Wong", "Dylan Patel", "Sravan Kundojjala"]
-- **Access:** paid-preview
-- **URL:** https://newsletter.semianalysis.com/p/the-eda-primer-from-rtl-to-silicon
-- **Corpus file:** `intelligence/_external_sources/semianalysis/2026-05-12-the-eda-primer-from-rtl-to-silicon.md`
-
-> AI demand has been driving the explosion in compute over the past few years, resulting in chip designs getting ever more complex, with silicon area and power per package seeing continued growth as designs push for even greater performance. With each successive generation, new process nodes with more design rules and restrictions further increase chip design costs.  At the same time, the rush to bring compute into the market as quickly as possible has put design teams under immense pressure to co
-
 
 ## ⊕ GITHUB COMMITS + RELEASES, last 24h
 
@@ -146,4 +146,4 @@ _no posts retrieved · all Nitter instances may be down_
 
 
 ---
-_Generated at 2026-06-16T16:32:50.249414+00:00 by scripts/intel/aggregate.py. Treat this digest as input context, not as ground truth. Verify before quoting._
+_Generated at 2026-06-16T22:09:28.597283+00:00 by scripts/intel/aggregate.py. Treat this digest as input context, not as ground truth. Verify before quoting._
