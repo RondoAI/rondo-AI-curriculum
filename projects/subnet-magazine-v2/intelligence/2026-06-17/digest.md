@@ -134,7 +134,16 @@ _OpenAI and AWS Partnerships, Tokenomics Explainer, Architecture Deep Dive, Data
 
 ## ⊕ GITHUB COMMITS + RELEASES, last 24h
 
-_no commits or releases in the lookback window_
+- **Subtensor (chain)** (RELEASE `v3.4.5-`, 2026-06-17 14:34) v3.4.5-419  
+  https://github.com/opentensor/subtensor/releases/tag/v3.4.5-419
+- **Subtensor (chain)** (COMMIT `fa83646`, 2026-06-17 01:37) Merge pull request #22 from opentensor/fix/ghsa-010-011-review-followups  
+  https://github.com/opentensor/subtensor/commit/fa83646297f45a1a8108f70ba2ebf32d4f35b5c2
+- **Subtensor (chain)** (COMMIT `7543a92`, 2026-06-16 19:32) GHSA-2026-011: drop child-side (ParentKeys) cooldown gating  
+  https://github.com/opentensor/subtensor/commit/7543a925f54f0290bba89fe9ef6e4b9b3905a371
+- **Subtensor (chain)** (COMMIT `563e311`, 2026-06-16 19:13) bump spec_version to 419 for the GHSA-2026-010/-011 runtime logic changes  
+  https://github.com/opentensor/subtensor/commit/563e3114c4bc06ce68efee7cece6fe8d731e26b9
+- **Subtensor (chain)** (COMMIT `18e0ecb`, 2026-06-16 17:45) security: review follow-ups for GHSA-2026-010 and -011  
+  https://github.com/opentensor/subtensor/commit/18e0ecb009914d24b1e41f6e199e5fe9abeca5c4
 
 ## ⊕ ECOSYSTEM BLOGS via RSS
 
@@ -146,4 +155,4 @@ _no posts retrieved · all Nitter instances may be down_
 
 
 ---
-_Generated at 2026-06-17T08:58:25.399317+00:00 by scripts/intel/aggregate.py. Treat this digest as input context, not as ground truth. Verify before quoting._
+_Generated at 2026-06-17T15:00:28.812141+00:00 by scripts/intel/aggregate.py. Treat this digest as input context, not as ground truth. Verify before quoting._
