@@ -1,0 +1,13 @@
+[
+  {
+    "repo": "opentensor/subtensor",
+    "name": "Subtensor (chain)",
+    "kind": "release",
+    "sha": "v3.4.5-419",
+    "message": "v3.4.5-419",
+    "author": "sam0x17",
+    "posted_at": "2026-06-17T14:34:01Z",
+    "url": "https://github.com/opentensor/subtensor/releases/tag/v3.4.5-419",
+    "fetched_at": "2026-06-18T02:55:54.032687+00:00"
+  }
+]
