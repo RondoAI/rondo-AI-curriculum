@@ -1,5 +1,38 @@
 [
   {
+    "repo": "opentensor/btcli",
+    "name": "btcli",
+    "kind": "release",
+    "sha": "v9.22.3",
+    "message": "v9.22.3",
+    "author": "ibraheem-abe",
+    "posted_at": "2026-06-18T17:46:45Z",
+    "url": "https://github.com/latent-to/btcli/releases/tag/v9.22.3",
+    "fetched_at": "2026-06-18T18:25:38.748166+00:00"
+  },
+  {
+    "repo": "opentensor/btcli",
+    "name": "btcli",
+    "kind": "commit",
+    "sha": "ad747e7",
+    "message": "Merge pull request #1006 from latent-to/release/9.22.3",
+    "author": "Ibraheem",
+    "posted_at": "2026-06-18T17:46:20Z",
+    "url": "https://github.com/latent-to/btcli/commit/ad747e7170422d7d2494c4ac4f0130b7c38a4933",
+    "fetched_at": "2026-06-18T18:25:38.415095+00:00"
+  },
+  {
+    "repo": "opentensor/btcli",
+    "name": "btcli",
+    "kind": "commit",
+    "sha": "7ad5465",
+    "message": "restrict drand version",
+    "author": "ibraheem-latent",
+    "posted_at": "2026-06-18T17:28:51Z",
+    "url": "https://github.com/latent-to/btcli/commit/7ad54654d902d300ea5555b4efb6310ce3a0adce",
+    "fetched_at": "2026-06-18T18:25:38.415095+00:00"
+  },
+  {
     "repo": "opentensor/subtensor",
     "name": "Subtensor (chain)",
     "kind": "release",

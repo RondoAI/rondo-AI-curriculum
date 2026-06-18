@@ -11,6 +11,16 @@ _no human notes in the window_
 
 _SemiAnalysis is the most-cited semiconductor and AI infrastructure publication in the industry. They do NOT cover Bittensor. The Oracle uses this corpus for any claim about hyperscaler compute, GPU economics, datacenter power, foundry capacity, memory pricing, lab unit economics. DO NOT cite SemiAnalysis for any Bittensor-specific claim. Full archive (289 posts, May 2020 onwards) lives at `intelligence/_external_sources/semianalysis/` with an `INDEX.md` table of contents. Paywalled posts show only subtitle + free preview; free posts have the full body extracted._
 
+### 2026-06-18 · Stop Saying Half of 2026 US Datacenter Capacity Is Canceled
+_Don't Believe The Vibecoded Estimates, Go Through Every Individual Filing Instead_
+
+- **Authors:** ["Reyk Knuhtsen", "Maya Barkin", "Jeremie Eliahou Ontiveros", "Nicolas Bontigui", "Dylan Patel"]
+- **Access:** paid-preview
+- **URL:** https://newsletter.semianalysis.com/p/stop-saying-half-of-2026-us-datacenter
+- **Corpus file:** `intelligence/_external_sources/semianalysis/2026-06-18-stop-saying-half-of-2026-us-datacenter.md`
+
+> The claim that half of 2026 US datacenter capacity will be delayed or canceled has been circulating widely across financial and social media. This traces back to Bloomberg’s April 1, 2026 [piece](https://www.bloomberg.com/news/features/2026-04-01/us-ai-data-center-expansion-relies-on-chinese-electrical-equipment-imports), America’s AI Build-Out Hinges on Chinese Electrical Parts, which framed the 2026 capacity slowdown as a consequence of a fragile, China-dependent equipment supply chain. Bloomb
+
 ### 2026-06-16 · RL Systems Mind the Gap: Matching Trainer and Generator Throughput
 _RL Training Infrastructure, GRPO, PipelineRL, Async RL, Policy Staleness, RL Sandbox Infra, CPU Requirements, TCO Analysis, Thinking Machines Tinker_
 
@@ -121,19 +131,15 @@ _EDA Market size, Share, Business Models, Drivers, Changing Customer Base, Compe
 
 > Every advanced chip on earth is designed using Electronic Design Automation (EDA) software from three companies. Synopsys, Cadence, and Siemens EDA bridge the gap between what a chip needs to do and what a foundry can manufacture, translating billions of transistors into manufacturable silicon.  The Big-3 hold over 85% combined market share (Ansys now part of Synopsys), and the industry has posted positive revenue growth every single year for over a decade. Synopsys generated $8B in CY2025 (incl
 
-### 2026-05-13 · Cerebras — Faster Tokens Please
-_OpenAI and AWS Partnerships, Tokenomics Explainer, Architecture Deep Dive, Datacenter Ramp, Technical Roadmap_
-
-- **Authors:** ["Myron Xie", "Jordan Nanos", "Max Kan", "Cam Quilici", "Tanj Bennett", "Ivan Chiam", "Louis Lu", "Zane Fong", "Gerald W
-- **Access:** paid-preview
-- **URL:** https://newsletter.semianalysis.com/p/cerebras-faster-tokens-please
-- **Corpus file:** `intelligence/_external_sources/semianalysis/2026-05-13-cerebras-faster-tokens-please.md`
-
-> It’s been nearly 5 years since Dylan [wrote a dedicated article about Cerebras in June of 2021](https://newsletter.semianalysis.com/p/cerebras-wafer-scale-hardware-crushes) for the newsletter. He shipped 4 articles in 2 days! How times have changed.  One of the other things that has changed is Cerebras’s fortunes. With the arrival of fast tokens on the mainstage and a 750MW compute deal with OpenAI notched, Cerebras is feeling ready for the scrutiny of public markets. Up until just 6 months ago,
-
 
 ## ⊕ GITHUB COMMITS + RELEASES, last 24h
 
+- **btcli** (RELEASE `v9.22.3`, 2026-06-18 17:46) v9.22.3  
+  https://github.com/latent-to/btcli/releases/tag/v9.22.3
+- **btcli** (COMMIT `ad747e7`, 2026-06-18 17:46) Merge pull request #1006 from latent-to/release/9.22.3  
+  https://github.com/latent-to/btcli/commit/ad747e7170422d7d2494c4ac4f0130b7c38a4933
+- **btcli** (COMMIT `7ad5465`, 2026-06-18 17:28) restrict drand version  
+  https://github.com/latent-to/btcli/commit/7ad54654d902d300ea5555b4efb6310ce3a0adce
 - **Subtensor (chain)** (RELEASE `v3.4.5-`, 2026-06-17 14:34) v3.4.5-419  
   https://github.com/opentensor/subtensor/releases/tag/v3.4.5-419
 
@@ -147,4 +153,4 @@ _no posts retrieved · all Nitter instances may be down_
 
 
 ---
-_Generated at 2026-06-18T14:56:00.884987+00:00 by scripts/intel/aggregate.py. Treat this digest as input context, not as ground truth. Verify before quoting._
+_Generated at 2026-06-18T18:25:42.233997+00:00 by scripts/intel/aggregate.py. Treat this digest as input context, not as ground truth. Verify before quoting._
