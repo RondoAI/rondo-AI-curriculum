@@ -134,7 +134,20 @@ _EDA Market size, Share, Business Models, Drivers, Changing Customer Base, Compe
 
 ## ⊕ GITHUB COMMITS + RELEASES, last 24h
 
-_no commits or releases in the lookback window_
+- **Subtensor (chain)** (COMMIT `6016381`, 2026-06-22 21:53) Merge pull request #2781 from opentensor/pr-2780  
+  https://github.com/opentensor/subtensor/commit/6016381e4fb230d17643cca948afe296eb06faac
+- **Subtensor (chain)** (COMMIT `dc2d06c`, 2026-06-22 21:10) spec bump  
+  https://github.com/opentensor/subtensor/commit/dc2d06c5054e1d3ef107bf8b5731d9f8e517f71b
+- **Subtensor (chain)** (COMMIT `38c9e76`, 2026-06-22 20:55) address ai review  
+  https://github.com/opentensor/subtensor/commit/38c9e763f7c50dfbdc645995e783c9b744e75289
+- **Subtensor (chain)** (COMMIT `eaadb74`, 2026-06-22 20:46) Weight emission shares by root_proportion (favor newer subnets)  
+  https://github.com/opentensor/subtensor/commit/eaadb745a0c007b8fc1db534d2318dca0452da53
+- **Subtensor (chain)** (COMMIT `a068db5`, 2026-06-22 20:13) Address review of miner-burn emission scaling  
+  https://github.com/opentensor/subtensor/commit/a068db561fdd1293b19b0a78308a3ce551557bff
+- **Subtensor (chain)** (COMMIT `5c1b380`, 2026-06-22 20:02) Scale chain emission away from subnets burning miner emission  
+  https://github.com/opentensor/subtensor/commit/5c1b38081b5fba15adb43da283a54aef30ba2a00
+- **Subtensor (chain)** (COMMIT `061559c`, 2026-06-22 19:02) Trim account flags PR to main changes  
+  https://github.com/opentensor/subtensor/commit/061559c23cd391e3db1be0cf19e4c441c04692f6
 
 ## ⊕ ECOSYSTEM BLOGS via RSS
 
@@ -146,4 +159,4 @@ _no posts retrieved · all Nitter instances may be down_
 
 
 ---
-_Generated at 2026-06-22T16:45:30.297345+00:00 by scripts/intel/aggregate.py. Treat this digest as input context, not as ground truth. Verify before quoting._
+_Generated at 2026-06-22T22:00:03.322614+00:00 by scripts/intel/aggregate.py. Treat this digest as input context, not as ground truth. Verify before quoting._
