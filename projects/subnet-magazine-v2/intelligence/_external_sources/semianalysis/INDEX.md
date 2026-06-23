@@ -1,11 +1,12 @@
 # SemiAnalysis Archive Index
 
-_301 posts captured. Generated 2026-06-23T14:37:11.126320+00:00._
+_302 posts captured. Generated 2026-06-23T17:49:21.177671+00:00._
 
 Editorial policy: SemiAnalysis is the macro reference. The Oracle cites it for any claim about hyperscaler compute, GPU economics, datacenter power, foundry capacity, memory pricing, lab unit economics. The Oracle does NOT cite SemiAnalysis for any Bittensor-specific claim. SemiAnalysis does not cover Bittensor; treat that absence as itself information.
 
 | Date | Title | Audience | Authors | File |
 | --- | --- | --- | --- | --- |
+| 2026-06-23 | [China’s CXMT Is Set to Challenge DRAM Incumbents](https://newsletter.semianalysis.com/p/chinas-cxmt-is-set-to-challenge-dram) | only_paid | ["Ray Wang", "Myron Xie", "Dylan Patel", "Junsung Kim", "Sra | `2026-06-23-chinas-cxmt-is-set-to-challenge-dram.md` |
 | 2026-06-18 | [Stop Saying Half of 2026 US Datacenter Capacity Is Canceled](https://newsletter.semianalysis.com/p/stop-saying-half-of-2026-us-datacenter) | only_paid | ["Reyk Knuhtsen", "Maya Barkin", "Jeremie Eliahou Ontiveros" | `2026-06-18-stop-saying-half-of-2026-us-datacenter.md` |
 | 2026-06-16 | [RL Systems Mind the Gap: Matching Trainer and Generator Throughput](https://newsletter.semianalysis.com/p/rl-systems-mind-the-gap-matching) | only_paid | ["Kimbo Chen", "Cheang Kang Wen", "Dylan Patel"] | `2026-06-16-rl-systems-mind-the-gap-matching.md` |
 | 2026-06-14 | [Is SMIC N+3’s Metal Pitch Smaller than Intel 18A’s?](https://newsletter.semianalysis.com/p/steel-smic-n3-teardown) | only_paid | ["STEEL Team", "Afzal Ahmad", "Andrew Wagner", "Gerald Wong" | `2026-06-14-steel-smic-n3-teardown.md` |

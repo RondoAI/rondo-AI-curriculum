@@ -11,6 +11,16 @@ _no human notes in the window_
 
 _SemiAnalysis is the most-cited semiconductor and AI infrastructure publication in the industry. They do NOT cover Bittensor. The Oracle uses this corpus for any claim about hyperscaler compute, GPU economics, datacenter power, foundry capacity, memory pricing, lab unit economics. DO NOT cite SemiAnalysis for any Bittensor-specific claim. Full archive (289 posts, May 2020 onwards) lives at `intelligence/_external_sources/semianalysis/` with an `INDEX.md` table of contents. Paywalled posts show only subtitle + free preview; free posts have the full body extracted._
 
+### 2026-06-23 · China’s CXMT Is Set to Challenge DRAM Incumbents
+_CXMT IPO, SK Hynix, Micron, Samsung Competition, Process Node Deficit, China HBM, Wafer Adds, Memory LTAs_
+
+- **Authors:** ["Ray Wang", "Myron Xie", "Dylan Patel", "Junsung Kim", "Sravan Kundojjala", "Louis Lu"]
+- **Access:** paid-preview
+- **URL:** https://newsletter.semianalysis.com/p/chinas-cxmt-is-set-to-challenge-dram
+- **Corpus file:** `intelligence/_external_sources/semianalysis/2026-06-23-chinas-cxmt-is-set-to-challenge-dram.md`
+
+> We were the first to describe the memory shortage coming from AI’s insatiable usage in reasoning and agentic flows in late 2024 on the newsletter. We have since previously published multiple in-depth pieces on memory, as well as detailed coverage of CXMT and China’s compute. With CXMT set to IPO in the coming months, we believe a dedicated deep dive on them specifically is warranted. The company is likely to become the largest semiconductor IPO in China and mark a major milestone for the country
+
 ### 2026-06-18 · Stop Saying Half of 2026 US Datacenter Capacity Is Canceled
 _Don't Believe The Vibecoded Estimates, Go Through Every Individual Filing Instead_
 
@@ -121,19 +131,15 @@ _Four-Phase 800VDC Transition, Power Rack Economics, SST, Equipment Content/MW B
 
 > [![](https://substackcdn.com/image/fetch/$s_!rZmH!,w_1456,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2Fafd57882-4edd-4d08-9ee9-923b94c43063_1672x941.png)](https://substackcdn.com/image/fetch/$s_!rZmH!,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2Fafd57882-4edd-4d08-9ee9-923b94c43063_1672x941.png)  We’d like to thank [DG Matrix](https://www.dgmatrix.com/), [No
 
-### 2026-05-21 · EDA Market Primer
-_EDA Market size, Share, Business Models, Drivers, Changing Customer Base, Competitive Dynamics Across Synopsys, Cadence, and Siemens, China EDA, IP, Hardware, CoT, Lock-In Economics, Disruptive Forces_
-
-- **Authors:** ["Sravan Kundojjala", "Dylan Patel", "Gerald Wong"]
-- **Access:** paid-preview
-- **URL:** https://newsletter.semianalysis.com/p/eda-market-primer
-- **Corpus file:** `intelligence/_external_sources/semianalysis/2026-05-21-eda-market-primer.md`
-
-> Every advanced chip on earth is designed using Electronic Design Automation (EDA) software from three companies. Synopsys, Cadence, and Siemens EDA bridge the gap between what a chip needs to do and what a foundry can manufacture, translating billions of transistors into manufacturable silicon.  The Big-3 hold over 85% combined market share (Ansys now part of Synopsys), and the industry has posted positive revenue growth every single year for over a decade. Synopsys generated $8B in CY2025 (incl
-
 
 ## ⊕ GITHUB COMMITS + RELEASES, last 24h
 
+- **Subtensor (chain)** (COMMIT `e367ae6`, 2026-06-23 17:13) Merge pull request #2787 from opentensor/feat/default-subnet-emission-off  
+  https://github.com/opentensor/subtensor/commit/e367ae64709a22cfeb7ec114814a14f0db137a83
+- **Subtensor (chain)** (COMMIT `2756271`, 2026-06-23 17:06) spec bump  
+  https://github.com/opentensor/subtensor/commit/2756271d628a47dbf59502bf79c0823bbaa68f2b
+- **Subtensor (chain)** (COMMIT `242dc74`, 2026-06-23 15:52) Default subnet emission off on registration  
+  https://github.com/opentensor/subtensor/commit/242dc7426a750012a4bff0ef85a2f9c48d8bc6ef
 - **Subtensor (chain)** (RELEASE `v3.4.6-`, 2026-06-23 00:31) v3.4.6-421  
   https://github.com/opentensor/subtensor/releases/tag/v3.4.6-421
 - **Subtensor (chain)** (COMMIT `6016381`, 2026-06-22 21:53) Merge pull request #2781 from opentensor/pr-2780  
@@ -161,4 +167,4 @@ _no posts retrieved · all Nitter instances may be down_
 
 
 ---
-_Generated at 2026-06-23T14:37:11.250819+00:00 by scripts/intel/aggregate.py. Treat this digest as input context, not as ground truth. Verify before quoting._
+_Generated at 2026-06-23T17:49:21.369174+00:00 by scripts/intel/aggregate.py. Treat this digest as input context, not as ground truth. Verify before quoting._

@@ -2,6 +2,39 @@
   {
     "repo": "opentensor/subtensor",
     "name": "Subtensor (chain)",
+    "kind": "commit",
+    "sha": "e367ae6",
+    "message": "Merge pull request #2787 from opentensor/feat/default-subnet-emission-off",
+    "author": "sam0x17",
+    "posted_at": "2026-06-23T17:13:13Z",
+    "url": "https://github.com/opentensor/subtensor/commit/e367ae64709a22cfeb7ec114814a14f0db137a83",
+    "fetched_at": "2026-06-23T17:49:16.139914+00:00"
+  },
+  {
+    "repo": "opentensor/subtensor",
+    "name": "Subtensor (chain)",
+    "kind": "commit",
+    "sha": "2756271",
+    "message": "spec bump",
+    "author": "Greg Zaitsev",
+    "posted_at": "2026-06-23T17:06:12Z",
+    "url": "https://github.com/opentensor/subtensor/commit/2756271d628a47dbf59502bf79c0823bbaa68f2b",
+    "fetched_at": "2026-06-23T17:49:16.139914+00:00"
+  },
+  {
+    "repo": "opentensor/subtensor",
+    "name": "Subtensor (chain)",
+    "kind": "commit",
+    "sha": "242dc74",
+    "message": "Default subnet emission off on registration",
+    "author": "unconst",
+    "posted_at": "2026-06-23T15:52:00Z",
+    "url": "https://github.com/opentensor/subtensor/commit/242dc7426a750012a4bff0ef85a2f9c48d8bc6ef",
+    "fetched_at": "2026-06-23T17:49:16.139914+00:00"
+  },
+  {
+    "repo": "opentensor/subtensor",
+    "name": "Subtensor (chain)",
     "kind": "release",
     "sha": "v3.4.6-421",
     "message": "v3.4.6-421",
