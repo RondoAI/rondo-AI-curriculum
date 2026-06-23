@@ -134,6 +134,8 @@ _Four-Phase 800VDC Transition, Power Rack Economics, SST, Equipment Content/MW B
 
 ## ⊕ GITHUB COMMITS + RELEASES, last 24h
 
+- **Subtensor (chain)** (RELEASE `v3.4.7-`, 2026-06-23 20:46) v3.4.7-422  
+  https://github.com/opentensor/subtensor/releases/tag/v3.4.7-422
 - **Subtensor (chain)** (COMMIT `e367ae6`, 2026-06-23 17:13) Merge pull request #2787 from opentensor/feat/default-subnet-emission-off  
   https://github.com/opentensor/subtensor/commit/e367ae64709a22cfeb7ec114814a14f0db137a83
 - **Subtensor (chain)** (COMMIT `2756271`, 2026-06-23 17:06) spec bump  
@@ -167,4 +169,4 @@ _no posts retrieved · all Nitter instances may be down_
 
 
 ---
-_Generated at 2026-06-23T17:49:21.369174+00:00 by scripts/intel/aggregate.py. Treat this digest as input context, not as ground truth. Verify before quoting._
+_Generated at 2026-06-23T21:30:09.647288+00:00 by scripts/intel/aggregate.py. Treat this digest as input context, not as ground truth. Verify before quoting._

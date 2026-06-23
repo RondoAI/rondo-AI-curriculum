@@ -2,6 +2,17 @@
   {
     "repo": "opentensor/subtensor",
     "name": "Subtensor (chain)",
+    "kind": "release",
+    "sha": "v3.4.7-422",
+    "message": "v3.4.7-422",
+    "author": "sam0x17",
+    "posted_at": "2026-06-23T20:46:22Z",
+    "url": "https://github.com/opentensor/subtensor/releases/tag/v3.4.7-422",
+    "fetched_at": "2026-06-23T21:30:05.343819+00:00"
+  },
+  {
+    "repo": "opentensor/subtensor",
+    "name": "Subtensor (chain)",
     "kind": "commit",
     "sha": "e367ae6",
     "message": "Merge pull request #2787 from opentensor/feat/default-subnet-emission-off",
