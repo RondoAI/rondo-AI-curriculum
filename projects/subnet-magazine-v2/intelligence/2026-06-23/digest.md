@@ -134,6 +134,8 @@ _EDA Market size, Share, Business Models, Drivers, Changing Customer Base, Compe
 
 ## ⊕ GITHUB COMMITS + RELEASES, last 24h
 
+- **Subtensor (chain)** (RELEASE `v3.4.6-`, 2026-06-23 00:31) v3.4.6-421  
+  https://github.com/opentensor/subtensor/releases/tag/v3.4.6-421
 - **Subtensor (chain)** (COMMIT `6016381`, 2026-06-22 21:53) Merge pull request #2781 from opentensor/pr-2780  
   https://github.com/opentensor/subtensor/commit/6016381e4fb230d17643cca948afe296eb06faac
 - **Subtensor (chain)** (COMMIT `dc2d06c`, 2026-06-22 21:10) spec bump  
@@ -159,4 +161,4 @@ _no posts retrieved · all Nitter instances may be down_
 
 
 ---
-_Generated at 2026-06-23T02:40:27.380401+00:00 by scripts/intel/aggregate.py. Treat this digest as input context, not as ground truth. Verify before quoting._
+_Generated at 2026-06-23T07:45:01.284041+00:00 by scripts/intel/aggregate.py. Treat this digest as input context, not as ground truth. Verify before quoting._

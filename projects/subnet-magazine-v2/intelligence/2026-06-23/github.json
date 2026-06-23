@@ -2,6 +2,17 @@
   {
     "repo": "opentensor/subtensor",
     "name": "Subtensor (chain)",
+    "kind": "release",
+    "sha": "v3.4.6-421",
+    "message": "v3.4.6-421",
+    "author": "sam0x17",
+    "posted_at": "2026-06-23T00:31:41Z",
+    "url": "https://github.com/opentensor/subtensor/releases/tag/v3.4.6-421",
+    "fetched_at": "2026-06-23T07:44:56.158566+00:00"
+  },
+  {
+    "repo": "opentensor/subtensor",
+    "name": "Subtensor (chain)",
     "kind": "commit",
     "sha": "6016381",
     "message": "Merge pull request #2781 from opentensor/pr-2780",
