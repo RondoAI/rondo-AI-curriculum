@@ -1,0 +1,285 @@
+/* =================================================================
+   SUBNET MAGAZINE, COMPARE MODAL
+   -----------------------------------------------------------------
+   Side-by-side comparison sheet for subnets and centralized AI
+   players. Full-screen on phones, large centered card on desktop.
+   Color coding: best cell per comparable row glows green, worst
+   glows red. The "kind" pill in each column header tells the reader
+   instantly which side of the decentralized / centralized line a
+   column represents.
+
+   Same black-and-red register as the rest of the magazine. Hairline
+   borders, JetBrains Mono numerics, archivo headers.
+   ================================================================= */
+
+.cmpm{
+  position: fixed; inset: 0;
+  z-index: 210;
+  display: flex; align-items: center; justify-content: center;
+  padding: 40px 16px;
+  font-family: var(--f-mono);
+}
+.cmpm__backdrop{
+  position: absolute; inset: 0;
+  background: rgba(0, 0, 0, .82);
+  backdrop-filter: blur(2px);
+  -webkit-backdrop-filter: blur(2px);
+}
+.cmpm__panel{
+  position: relative;
+  width: min(1280px, 96vw);
+  max-height: 92vh;
+  display: flex; flex-direction: column;
+  background: #050203;
+  border: 1px solid rgba(255, 30, 60, .42);
+  box-shadow:
+    0 30px 80px rgba(0, 0, 0, .78),
+    inset 0 0 0 1px rgba(255, 30, 60, .18),
+    0 0 30px rgba(255, 30, 60, .14);
+  animation: cmpmIn .16s cubic-bezier(.2, .7, .2, 1) both;
+  overflow: hidden;
+}
+@keyframes cmpmIn{
+  from { opacity: 0; transform: scale(.97); }
+  to   { opacity: 1; transform: none; }
+}
+
+/* ---------- header ------------------------------------------ */
+.cmpm__head{
+  position: relative;
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  align-items: center;
+  gap: 12px;
+  padding: 14px 18px;
+  border-bottom: 1px solid rgba(255, 30, 60, .26);
+  background: linear-gradient(180deg, rgba(255, 30, 60, .08), transparent);
+}
+.cmpm__title{
+  font-family: var(--f-mono);
+  font-size: 11.5px;
+  letter-spacing: .18em;
+  text-transform: uppercase;
+  font-weight: 800;
+  color: #fff;
+  display: inline-flex; align-items: baseline; gap: 10px;
+  white-space: nowrap;
+}
+.cmpm__fcode{
+  color: var(--c-red);
+  letter-spacing: .12em;
+  font-weight: 800;
+}
+.cmpm__sub{
+  font-family: var(--f-sans);
+  font-style: italic;
+  font-size: 11.5px;
+  color: var(--c-ink-3);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.cmpm__close{
+  appearance: none;
+  background: transparent;
+  border: 1px solid rgba(255, 30, 60, .36);
+  color: var(--c-red-1);
+  font-family: var(--f-mono);
+  font-size: 14px;
+  font-weight: 800;
+  width: 30px; height: 30px;
+  cursor: pointer;
+  transition: color .15s ease, border-color .15s ease, background .15s ease;
+}
+.cmpm__close:hover,
+.cmpm__close:focus-visible{
+  color: #fff;
+  border-color: var(--c-red);
+  background: rgba(255, 30, 60, .18);
+  outline: none;
+}
+
+/* ---------- scroll wrapper + table -------------------------- */
+.cmpm__scroll{
+  flex: 1;
+  overflow: auto;
+  overscroll-behavior: contain;
+  scrollbar-width: thin;
+  scrollbar-color: rgba(255, 30, 60, .3) transparent;
+}
+.cmpm__scroll::-webkit-scrollbar       { width: 6px; height: 6px; }
+.cmpm__scroll::-webkit-scrollbar-thumb { background: rgba(255, 30, 60, .3); }
+
+.cmpm__table{
+  width: 100%;
+  border-collapse: collapse;
+  font-variant-numeric: tabular-nums;
+  font-family: var(--f-mono);
+  font-size: 12px;
+}
+
+/* ---------- column headers (items) -------------------------- */
+.cmpm__col{
+  text-align: left;
+  vertical-align: top;
+  padding: 14px 14px 12px;
+  border-bottom: 1px solid rgba(255, 30, 60, .22);
+  border-left: 1px solid rgba(255, 30, 60, .08);
+  background: #050203;
+  position: sticky;
+  top: 0;
+  z-index: 1;
+}
+.cmpm__col--sub  { box-shadow: inset 0 3px 0 var(--c-red); }
+.cmpm__col--play { box-shadow: inset 0 3px 0 #5BE599; }   /* green seam = centralized */
+.cmpm__col-kind{
+  font-family: var(--f-mono);
+  font-size: 8.5px;
+  letter-spacing: .22em;
+  font-weight: 800;
+  text-transform: uppercase;
+  color: var(--c-red-1);
+  margin-bottom: 4px;
+}
+.cmpm__col--play .cmpm__col-kind{ color: #5BE599; }
+.cmpm__col-name{
+  font-family: var(--f-serif);
+  font-size: 17px;
+  font-weight: 700;
+  color: #fff;
+  letter-spacing: -.005em;
+  line-height: 1.2;
+  margin-bottom: 4px;
+}
+.cmpm__col-cat{
+  font-family: var(--f-mono);
+  font-size: 9.5px;
+  letter-spacing: .16em;
+  color: var(--c-ink-3);
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+/* ---------- row label cells (left "FACET" column) ----------- */
+.cmpm__lbl{
+  text-align: left;
+  vertical-align: middle;
+  padding: 10px 14px;
+  font-family: var(--f-mono);
+  font-size: 9px;
+  letter-spacing: .22em;
+  font-weight: 800;
+  text-transform: uppercase;
+  color: rgba(255, 30, 60, .78);
+  background: #050203;
+  position: sticky; left: 0;
+  z-index: 2;
+  border-right: 1px solid rgba(255, 30, 60, .22);
+  white-space: nowrap;
+  width: 140px;
+}
+.cmpm__lbl--head{
+  border-bottom: 1px solid rgba(255, 30, 60, .22);
+  background: #050203;
+  z-index: 3;
+}
+
+/* ---------- body cells -------------------------------------- */
+.cmpm__row{ border-bottom: 1px solid rgba(255, 30, 60, .06); }
+.cmpm__row:hover { background: rgba(255, 30, 60, .03); }
+.cmpm__cell{
+  padding: 10px 14px;
+  border-left: 1px solid rgba(255, 30, 60, .08);
+  font-family: var(--f-mono);
+  font-size: 12.5px;
+  color: var(--c-ink-1);
+  vertical-align: middle;
+  white-space: nowrap;
+}
+.cmpm__cell.is-best{
+  color: #5BE599;
+  background: rgba(91, 229, 153, .08);
+  font-weight: 700;
+  box-shadow: inset 2px 0 0 #5BE599;
+}
+.cmpm__cell.is-worst{
+  color: #FF4D60;
+  background: rgba(255, 77, 96, .08);
+  font-weight: 700;
+  box-shadow: inset 2px 0 0 #FF4D60;
+}
+
+/* ---------- links row --------------------------------------- */
+.cmpm__row--links{ background: rgba(20, 5, 9, .35); }
+.cmpm__links{
+  padding: 10px 14px;
+  border-left: 1px solid rgba(255, 30, 60, .08);
+  font-family: var(--f-mono);
+  font-size: 10px;
+  display: flex; flex-wrap: wrap; gap: 6px;
+}
+.cmpm__links a{
+  display: inline-block;
+  border: 1px solid rgba(255, 30, 60, .32);
+  padding: 3px 7px 2px;
+  font-size: 9px;
+  letter-spacing: .18em;
+  font-weight: 700;
+  text-transform: uppercase;
+  color: var(--c-ink-2);
+  text-decoration: none;
+  background: rgba(255, 30, 60, .04);
+  transition: color .15s ease, border-color .15s ease, background .15s ease;
+}
+.cmpm__links a:hover{
+  color: #fff;
+  border-color: var(--c-red);
+  background: rgba(255, 30, 60, .18);
+}
+
+/* ---------- footer ------------------------------------------ */
+.cmpm__foot{
+  display: flex; align-items: center; justify-content: space-between;
+  gap: 10px;
+  padding: 8px 14px;
+  border-top: 1px solid rgba(255, 30, 60, .22);
+  background: rgba(20, 5, 9, .55);
+  font-size: 9.5px;
+  color: var(--c-ink-3);
+  letter-spacing: .08em;
+  font-weight: 700;
+}
+.cmpm__brand{
+  color: var(--c-red-1);
+  letter-spacing: .18em;
+  font-weight: 800;
+}
+
+/* ---------- mobile / small viewports ------------------------ */
+@media (max-width: 720px){
+  .cmpm{ padding: 0; }
+  .cmpm__panel{
+    width: 100vw;
+    height: 100vh;
+    height: 100dvh;
+    max-height: none;
+    border: 0;
+    box-shadow: none;
+  }
+  .cmpm__head{
+    grid-template-columns: 1fr auto;
+    gap: 6px;
+    padding: 12px 12px 10px;
+  }
+  .cmpm__sub{ grid-column: 1 / -1; white-space: normal; font-size: 11px; }
+  .cmpm__title{ font-size: 10.5px; }
+  /* Tighter cell padding so 2+ columns fit on a narrow phone. The
+     table itself already horizontally scrolls if needed. */
+  .cmpm__lbl       { width: 110px; padding: 8px 10px; font-size: 8.5px; }
+  .cmpm__cell      { padding: 8px 10px; font-size: 12px; }
+  .cmpm__col       { padding: 12px 10px; }
+  .cmpm__col-name  { font-size: 15px; }
+  .cmpm__col-kind  { font-size: 8px; }
+  .cmpm__col-cat   { font-size: 9px; }
+  .cmpm__links     { padding: 8px 10px; gap: 4px; }
+}

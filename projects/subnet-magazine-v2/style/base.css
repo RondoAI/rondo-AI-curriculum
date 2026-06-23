@@ -1,0 +1,172 @@
+/* =================================================================
+   SUBNET MAGAZINE, BASE
+   -----------------------------------------------------------------
+   Reset, body, root typography, and the global grid texture.
+   Anything that touches the entire document goes here. Components
+   live in their own files under style/components/.
+   ================================================================= */
+
+*, *::before, *::after { box-sizing: border-box; }
+
+html { -webkit-text-size-adjust: 100%; scroll-behavior: smooth; }
+
+html, body {
+  margin: 0; padding: 0;
+  min-height: 100%;
+}
+
+body {
+  background: var(--c-bg);
+  color: var(--c-ink-1);
+  font-family: var(--f-sans);
+  font-size: var(--t-md);
+  line-height: var(--lh-base);
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  overflow-x: hidden;
+
+  /* Terminal texture: a fine red grid, a coarse red grid over it, a
+     top-anchored red bloom, an edge vignette, and faint CRT
+     scanlines, all fixed-attachment so it stays put as you scroll. */
+  background-image:
+    radial-gradient(110% 70% at 50% -10%, rgba(255,30,60,.10), transparent 60%),
+    radial-gradient(140% 120% at 50% 50%, transparent 55%, rgba(0,0,0,.85)),
+    linear-gradient(rgba(255,30,60,.10) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255,30,60,.10) 1px, transparent 1px),
+    linear-gradient(var(--c-red-grid) 1px, transparent 1px),
+    linear-gradient(90deg, var(--c-red-grid) 1px, transparent 1px),
+    repeating-linear-gradient(0deg, rgba(255, 30, 60, .025) 0 1px, transparent 1px 3px);
+  background-size:
+    100% 100%, 100% 100%,
+    192px 192px, 192px 192px,
+    48px 48px, 48px 48px,
+    100% 3px;
+  background-attachment: fixed;
+}
+
+img, svg, canvas, video { display: block; max-width: 100%; }
+
+button { font: inherit; color: inherit; background: none; border: 0; padding: 0; cursor: pointer; }
+
+a { color: inherit; text-decoration: none; }
+
+::selection { background: var(--c-red); color: var(--c-black); }
+
+/* A focus ring that fits the terminal mood */
+:focus-visible {
+  outline: 2px solid var(--c-red);
+  outline-offset: 2px;
+}
+
+/* Tabular numerals everywhere by default for data UI, opt out where
+   running text needs proportional figures (.prose). */
+body { font-variant-numeric: tabular-nums; }
+.prose { font-variant-numeric: normal; }
+
+/* Honor motion preferences */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* Utility helpers used across components, keep this list tiny. */
+.mono { font-family: var(--f-mono); }
+/* The Bittensor tau, set as a typographic character. Always preserve
+   its case, many surrounding labels are uppercased, which would
+   otherwise convert τ to Τ (visually identical to a Latin T). The
+   !important is intentional: any text-transform on an ancestor would
+   otherwise eat the glyph. */
+.tau {
+  text-transform: none !important;
+  font-variant-caps: normal;
+  font-style: normal;
+  font-feature-settings: normal;
+  color: inherit;
+}
+
+/* The Bittensor alpha, the per-subnet token glyph. Same rationale
+   as .tau: opt out of any inherited uppercase, set as a deliberate
+   typographic character. Rendered in serif italic so it reads as a
+   brand glyph rather than an inline Greek letter; ever-so-slightly
+   bolder so it stands out next to the surrounding mono. */
+.alpha {
+  font-family: var(--f-serif), 'Times New Roman', serif;
+  font-style: italic;
+  font-weight: 600;
+  text-transform: none !important;
+  font-variant-caps: normal;
+  font-feature-settings: normal;
+  color: inherit;
+  letter-spacing: 0;
+}
+.kbd {
+  font-family: var(--f-mono); font-size: var(--t-xs);
+  border: 1px solid var(--c-rule-2);
+  padding: 1px 5px; border-radius: var(--r-1);
+  color: var(--c-ink-2); background: var(--c-bg-1);
+}
+.sr-only {
+  position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px;
+  overflow: hidden; clip: rect(0,0,0,0); white-space: nowrap; border: 0;
+}
+
+/* AI-2026 data-flow thread, a thin gradient rail down the left
+   edge of the viewport with a glowing red pulse traveling top-to-
+   bottom. Sits above the page background, pointer-events off so it
+   never intercepts touch / clicks. Decorative; the page works fine
+   without it (prefers-reduced-motion stops the animation). */
+.flow-thread{
+  position: fixed;
+  left: 4px;
+  top: 0; bottom: 0;
+  width: 2px;
+  z-index: 4;
+  pointer-events: none;
+  background: linear-gradient(180deg,
+    transparent 0,
+    var(--c-rule-2) 80px,
+    var(--c-rule-2) calc(100% - 80px),
+    transparent 100%);
+}
+.flow-thread__pulse{
+  position: absolute;
+  left: -3px;
+  width: 8px; height: 60px;
+  border-radius: 999px;
+  background: linear-gradient(180deg,
+    transparent 0%,
+    var(--c-red-pulse) 40%,
+    var(--c-red) 50%,
+    var(--c-red-pulse) 60%,
+    transparent 100%);
+  filter: blur(2px);
+  animation: flowThreadDown 7.5s linear infinite;
+}
+@keyframes flowThreadDown {
+  0%   { top: -60px;  opacity: 0; }
+  6%   { opacity: 1; }
+  94%  { opacity: 1; }
+  100% { top: 100%;  opacity: 0; }
+}
+@media (max-width: 560px){
+  .flow-thread{ left: 2px; width: 1px; }
+  .flow-thread__pulse{ width: 5px; left: -2px; }
+}
+
+/* Terminal-style feedback: a quick highlight pulse when a live
+   value changes on screen. Applied via flash() from lib/dom.js. */
+@keyframes sbnt-flash {
+  0%   { background-color: var(--c-red-glow); }
+  100% { background-color: transparent; }
+}
+.is-flash {
+  animation: sbnt-flash .65s var(--e-out);
+  border-radius: var(--r-1);
+}
+@media (prefers-reduced-motion: reduce) {
+  .is-flash { animation: none; }
+}

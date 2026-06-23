@@ -1,0 +1,277 @@
+/* =================================================================
+   SUBNET MAGAZINE, DASHBOARD SECTION NAV + DESK WRAPPER
+   -----------------------------------------------------------------
+   Two small organizational primitives that turn a 21,000px-tall
+   strip-mall of panels into a navigable workspace:
+
+   1. .dash-jump — sticky in-page section nav directly below the
+      status bar. Five chips (BRIEFINGS · DETAIL · MY DESK · MARKET
+      · ARCHIVE). Tap = smooth scroll. Active chip = which zone owns
+      the viewport midline. Solves "I scrolled 24 screens and lost
+      where I am."
+
+   2. .dash-desk — unifying wrapper around paper-portfolio +
+      attribution panels. They're not two unrelated products, they're
+      positions + analytics-on-those-positions. The wrapper gives
+      them ONE eyebrow + headline + sub so the reader sees one zone.
+   ================================================================= */
+
+/* ---------- in-page jump nav -------------------------------- */
+.dash-jump{
+  position: sticky;
+  /* Sticks just below the status bar. The status bar sticks at
+     top:0 with z-index:50; we sit beneath it. The actual offset
+     varies because the status bar's height changes between mobile
+     (2-row, ~240px) and desktop (1-row, ~80px). Use scroll-padding
+     on the html element instead of a hard pixel offset so anchor
+     jumps land correctly regardless. */
+  top: 0;
+  z-index: 45;
+  background-color: #050203;
+  background-image: linear-gradient(180deg, rgba(255,30,60,.04) 0%, transparent 100%);
+  border-bottom: 1px solid var(--c-rule-2);
+  border-top: 1px solid var(--c-rule-2);
+  padding: 8px 14px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  /* GPU layer so it doesn't drag the page underneath into repaint */
+  transform: translateZ(0);
+  will-change: transform;
+}
+.dash-jump__lbl{
+  font-family: var(--f-mono);
+  font-size: 9px;
+  letter-spacing: .22em;
+  font-weight: 800;
+  color: var(--c-ink-3);
+  flex-shrink: 0;
+}
+.dash-jump__chips{
+  display: flex;
+  gap: 4px;
+  overflow-x: auto;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+  /* horizontal scroll if chips overflow at narrow widths */
+}
+.dash-jump__chips::-webkit-scrollbar{ display: none; }
+.dash-jump__chip{
+  -webkit-appearance: none;
+  appearance: none;
+  background: transparent;
+  border: 1px solid var(--c-rule-2);
+  color: var(--c-ink-2);
+  font-family: var(--f-mono);
+  font-size: 10px;
+  letter-spacing: .14em;
+  font-weight: 800;
+  padding: 6px 10px;
+  cursor: pointer;
+  white-space: nowrap;
+  transition: background 120ms, color 120ms, border-color 120ms;
+}
+.dash-jump__chip:hover{
+  background: var(--c-bg-3);
+  color: #fff;
+  border-color: var(--c-red-1);
+}
+.dash-jump__chip.is-on{
+  background: var(--c-red);
+  color: #fff;
+  border-color: var(--c-red);
+  box-shadow: 0 0 12px rgba(255,30,60,.45);
+}
+
+/* Anchor scroll-padding is set dynamically in JS (wireJumpNav)
+   because the status bar's height varies between mobile (2-row
+   KPI grid) and desktop (1-row), and a hardcoded value here
+   leaves anchor jumps either under the chrome (too small) or
+   well below it (too large). JS measures and writes
+   scroll-padding-top on <html>. */
+
+/* ---------- zones as INDEPENDENT COLLAPSIBLES ---------------
+   Per Rondo 2026-05-18 "my desk, brief, market, detail, bar is
+   confusing": the JUMP tab nav is gone. Each zone now renders as
+   <details class="dash-zone dash-zone--fold"> with a <summary>
+   header the reader taps to expand/collapse independently. State
+   persists via wireFolds (sbn:fold:v1). The dash-jump rules above
+   are kept for the time being because the markup is no longer
+   emitted; future cleanup can drop them. */
+.dash-zone{
+  display: block;
+}
+.dash-zone--fold{
+  /* Each fold reads as its own SEPARATED band — Rondo 2026-05-18
+     "the folds are running into each other": the first version
+     had no inter-fold breathing room (49px summary kissing the
+     next 49px summary). Margin-top opens the gap and a stronger
+     top rule turns the summary cluster into a clear list of
+     distinct cells rather than one merged stripe. */
+  border-top: 1px solid var(--c-rule-3);
+  margin: 14px 0 0;
+  padding: 0;
+}
+.dash-zone--fold:first-of-type{
+  /* The first fold sits directly under the cockpit pane (or
+     the dashboard status bar on the standalone page); give it
+     a stronger separator margin so the dashboard band reads
+     as a distinct section from the chart above. */
+  margin-top: 28px;
+  border-top-width: 1px;
+  border-top-color: var(--c-red);
+  border-top-style: solid;
+  /* A thin red accent stroke instead of a 2px rule keeps the
+     hairline discipline of the rest of the magazine. */
+}
+.dash-zone--fold[open]{
+  padding-bottom: 28px;
+  /* Open folds get a soft inner divider beneath their content
+     so the closed fold that follows sits on a clean baseline,
+     not against the last sentence of the open one. */
+  border-bottom: 1px solid var(--c-rule-2);
+}
+.dash-zone__summary{
+  list-style: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  /* Taller summary row gives a clear tap target on phones
+     (was 14px vertical, now 18px) and lets the chip-bar
+     breathe even when several closed folds stack. */
+  padding: 18px 18px;
+  font-family: var(--f-mono);
+  font-size: 11px;
+  letter-spacing: .22em;
+  font-weight: 800;
+  color: #fff;
+  background:
+    linear-gradient(180deg, rgba(255,30,60,.05) 0%, transparent 100%);
+  user-select: none;
+  /* The summary row reads as a chip-bar — clear affordance to
+     tap, no extra UI chrome. */
+  transition: background 120ms;
+}
+.dash-zone__summary::-webkit-details-marker{ display: none; }
+.dash-zone__summary::marker{ display: none; content: ''; }
+.dash-zone__summary:hover{
+  background: linear-gradient(180deg, rgba(255,30,60,.10) 0%, transparent 100%);
+}
+.dash-zone__eyebrow{
+  color: var(--c-red);
+  font-size: 14px;
+  letter-spacing: 0;
+  /* Rotates on open so the ⊕ becomes an open-indicator without
+     having to swap the glyph itself. */
+  transition: transform 180ms ease-out;
+  display: inline-block;
+}
+.dash-zone[open] > .dash-zone__summary > .dash-zone__eyebrow{
+  transform: rotate(45deg);
+}
+/* Default-open zones (BRIEFINGS, DETAIL) get a slightly stronger
+   top edge so the page hierarchy stays legible even when every
+   zone is expanded. */
+.dash-zone[open]{
+  border-top-color: var(--c-rule-3);
+}
+
+/* ---------- MY DESK wrapper -------------------------------- */
+.dash-desk{
+  /* The wrapper provides one unifying eyebrow + headline + sub
+     above the paper portfolio and attribution panels. The two
+     inner panels keep their own sub-headers, but visually the
+     reader sees one zone. */
+}
+.dash-desk__head{
+  margin: 32px 12px 0;
+  padding: 24px 0 8px;
+  border-top: 1px solid var(--c-rule-3);
+}
+.dash-desk__title{ min-width: 0; }
+.dash-desk__eyebrow{
+  font-size: 11px;
+  letter-spacing: .26em;
+  font-weight: 800;
+  color: var(--c-red);
+  display: block;
+  margin-bottom: 6px;
+}
+.dash-desk__h{
+  font-family: var(--f-serif);
+  font-size: 24px;
+  line-height: 1.1;
+  letter-spacing: -.01em;
+  font-weight: 800;
+  margin: 0;
+  color: #fff;
+}
+.dash-desk__sub{
+  margin-top: 6px;
+  font-family: var(--f-sans);
+  font-size: 13px;
+  color: var(--c-ink-3);
+  max-width: 620px;
+  font-style: italic;
+}
+
+/* Inside the desk wrapper, the inner panels (paper, attribution) no
+   longer need their own top-border separator since the wrapper owns
+   the section boundary. Tighten their top margins and drop their
+   own top-rule so the desk reads as one continuous zone. */
+.dash-desk .paper,
+.dash-desk .attrib{
+  border-top: 0;
+  padding-top: 8px;
+  margin-top: 14px;
+}
+
+/* Subtle internal divider between paper and attribution inside the
+   desk, so they're still visually distinct sub-panels. */
+.dash-desk .attrib{
+  margin-top: 30px;
+  position: relative;
+}
+.dash-desk .attrib::before{
+  content: '';
+  display: block;
+  position: absolute;
+  top: -16px;
+  left: 12px;
+  right: 12px;
+  height: 1px;
+  background: linear-gradient(90deg, transparent 0%, var(--c-rule-2) 30%, var(--c-rule-2) 70%, transparent 100%);
+}
+
+@media (min-width: 1080px){
+  .dash-desk__head{
+    margin: 40px 18px 0;
+    padding: 32px 0 10px;
+  }
+  .dash-desk__h{ font-size: 32px; }
+}
+
+/* ---------- OPEN IN COCKPIT CTA ----------------------------- */
+/* On the dashboard's per-subnet DETAIL header, this CTA points
+   the reader to the cockpit for deep analysis without scrolling.
+   "Things within things" — the dashboard's tab system surfaces the
+   data; the cockpit is the bounded workspace for studying it. */
+.dash-detail__cockpit-cta{
+  display: inline-block;
+  margin-top: 10px;
+  padding: 6px 12px;
+  font-family: var(--f-mono);
+  font-size: 10px;
+  letter-spacing: .18em;
+  font-weight: 800;
+  color: var(--c-up);
+  border: 1px solid var(--c-up);
+  background: transparent;
+  text-decoration: none;
+  transition: background 120ms, color 120ms;
+}
+.dash-detail__cockpit-cta:hover{
+  background: var(--c-up);
+  color: #050203;
+}

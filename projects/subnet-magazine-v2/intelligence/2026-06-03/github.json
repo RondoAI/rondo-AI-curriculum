@@ -1,0 +1,200 @@
+[
+  {
+    "repo": "opentensor/btcli",
+    "name": "btcli",
+    "kind": "release",
+    "sha": "v9.22.1",
+    "message": "v9.22.1",
+    "author": "thewhaleking",
+    "posted_at": "2026-06-03T17:49:49Z",
+    "url": "https://github.com/latent-to/btcli/releases/tag/v9.22.1",
+    "fetched_at": "2026-06-03T22:27:59.376987+00:00"
+  },
+  {
+    "repo": "opentensor/btcli",
+    "name": "btcli",
+    "kind": "commit",
+    "sha": "1035a10",
+    "message": "Merge pull request #988 from latent-to/release/9.22.1",
+    "author": "BD Himes",
+    "posted_at": "2026-06-03T17:49:40Z",
+    "url": "https://github.com/latent-to/btcli/commit/1035a1045f2b67ccb5946a1e31889d994484eadc",
+    "fetched_at": "2026-06-03T22:27:58.946698+00:00"
+  },
+  {
+    "repo": "opentensor/btcli",
+    "name": "btcli",
+    "kind": "commit",
+    "sha": "ada22f0",
+    "message": "Merge pull request #986 from latent-to/changelog/9.22.1",
+    "author": "BD Himes",
+    "posted_at": "2026-06-03T17:30:08Z",
+    "url": "https://github.com/latent-to/btcli/commit/ada22f05a825b691ed32a6902375aaaa265f53b5",
+    "fetched_at": "2026-06-03T22:27:58.946698+00:00"
+  },
+  {
+    "repo": "opentensor/btcli",
+    "name": "btcli",
+    "kind": "commit",
+    "sha": "fbd3c0b",
+    "message": "Update changelog",
+    "author": "BD Himes",
+    "posted_at": "2026-06-03T17:28:35Z",
+    "url": "https://github.com/latent-to/btcli/commit/fbd3c0b99d7f93f2a429514bd039f6f8122f9cfa",
+    "fetched_at": "2026-06-03T22:27:58.946698+00:00"
+  },
+  {
+    "repo": "opentensor/btcli",
+    "name": "btcli",
+    "kind": "commit",
+    "sha": "d899730",
+    "message": "Merge branch 'staging' into changelog/9.22.1",
+    "author": "BD Himes",
+    "posted_at": "2026-06-03T17:28:20Z",
+    "url": "https://github.com/latent-to/btcli/commit/d899730f4db0ba7f7fa2dbd7bcc9f6363286df0c",
+    "fetched_at": "2026-06-03T22:27:58.946698+00:00"
+  },
+  {
+    "repo": "opentensor/btcli",
+    "name": "btcli",
+    "kind": "commit",
+    "sha": "c014a59",
+    "message": "Merge pull request #987 from latent-to/fix/thewhaleking/normalize-burn-half-life",
+    "author": "BD Himes",
+    "posted_at": "2026-06-03T17:27:33Z",
+    "url": "https://github.com/latent-to/btcli/commit/c014a5900d5f87c444aebb4afcf3f96769e7360e",
+    "fetched_at": "2026-06-03T22:27:58.946698+00:00"
+  },
+  {
+    "repo": "opentensor/btcli",
+    "name": "btcli",
+    "kind": "commit",
+    "sha": "27b8e51",
+    "message": "Fixes burn half life normalization",
+    "author": "BD Himes",
+    "posted_at": "2026-06-03T17:22:31Z",
+    "url": "https://github.com/latent-to/btcli/commit/27b8e51405cd1b525d9aa45aa8622a801d6bae5d",
+    "fetched_at": "2026-06-03T22:27:58.946698+00:00"
+  },
+  {
+    "repo": "opentensor/btcli",
+    "name": "btcli",
+    "kind": "commit",
+    "sha": "d4cd71e",
+    "message": "Version  + changelog",
+    "author": "BD Himes",
+    "posted_at": "2026-06-03T17:19:12Z",
+    "url": "https://github.com/latent-to/btcli/commit/d4cd71ec5941138a399a26926785c2cb03a8bb49",
+    "fetched_at": "2026-06-03T22:27:58.946698+00:00"
+  },
+  {
+    "repo": "opentensor/btcli",
+    "name": "btcli",
+    "kind": "commit",
+    "sha": "b60406d",
+    "message": "Merge pull request #984 from latent-to/dera/update-docstring",
+    "author": "BD Himes",
+    "posted_at": "2026-06-03T14:26:20Z",
+    "url": "https://github.com/latent-to/btcli/commit/b60406d91f608546e597386593227d995124d190",
+    "fetched_at": "2026-06-03T22:27:58.946698+00:00"
+  },
+  {
+    "repo": "opentensor/btcli",
+    "name": "btcli",
+    "kind": "commit",
+    "sha": "6340ef9",
+    "message": "update btcli lock show description",
+    "author": "Dera Okeke",
+    "posted_at": "2026-06-03T13:34:19Z",
+    "url": "https://github.com/latent-to/btcli/commit/6340ef9001824671362c850d2de8cd9e38777835",
+    "fetched_at": "2026-06-03T22:27:58.946698+00:00"
+  },
+  {
+    "repo": "opentensor/subtensor",
+    "name": "Subtensor (chain)",
+    "kind": "commit",
+    "sha": "1104f2a",
+    "message": "Merge pull request #2711 from opentensor/testnet",
+    "author": "sam0x17",
+    "posted_at": "2026-06-03T00:40:04Z",
+    "url": "https://github.com/opentensor/subtensor/commit/1104f2aab5acdf69fe967a787c7ae1cc5fdf170c",
+    "fetched_at": "2026-06-03T03:31:52.483873+00:00"
+  },
+  {
+    "repo": "opentensor/subtensor",
+    "name": "Subtensor (chain)",
+    "kind": "commit",
+    "sha": "f0ff6ba",
+    "message": "Merge remote-tracking branch 'origin/devnet-ready' into devnet",
+    "author": "Sam Johnson",
+    "posted_at": "2026-06-02T22:43:59Z",
+    "url": "https://github.com/opentensor/subtensor/commit/f0ff6ba10fbae8543a3dc184129286571720f2e6",
+    "fetched_at": "2026-06-03T03:31:52.483873+00:00"
+  },
+  {
+    "repo": "opentensor/subtensor",
+    "name": "Subtensor (chain)",
+    "kind": "commit",
+    "sha": "2919706",
+    "message": "Merge pull request #2706 from opentensor/fix-chain-buys-accounting",
+    "author": "sam0x17",
+    "posted_at": "2026-06-02T22:43:18Z",
+    "url": "https://github.com/opentensor/subtensor/commit/29197068e69f4cd6c55c2043102a8246f1356194",
+    "fetched_at": "2026-06-03T03:31:52.483873+00:00"
+  },
+  {
+    "repo": "opentensor/subtensor",
+    "name": "Subtensor (chain)",
+    "kind": "commit",
+    "sha": "b85d13f",
+    "message": "fix formatting",
+    "author": "John Reed",
+    "posted_at": "2026-06-02T20:12:55Z",
+    "url": "https://github.com/opentensor/subtensor/commit/b85d13fa9c36b4a32698a69c6adc4753f7ee397e",
+    "fetched_at": "2026-06-03T03:31:52.483873+00:00"
+  },
+  {
+    "repo": "opentensor/subtensor",
+    "name": "Subtensor (chain)",
+    "kind": "commit",
+    "sha": "9568052",
+    "message": "update comment",
+    "author": "John Reed",
+    "posted_at": "2026-06-02T20:02:00Z",
+    "url": "https://github.com/opentensor/subtensor/commit/9568052337499e6bfcc1283d0fb7af14e879d26b",
+    "fetched_at": "2026-06-03T03:31:52.483873+00:00"
+  },
+  {
+    "repo": "opentensor/subtensor",
+    "name": "Subtensor (chain)",
+    "kind": "commit",
+    "sha": "d1de056",
+    "message": "TaoInRefundDeploymentBlock",
+    "author": "John Reed",
+    "posted_at": "2026-06-02T19:37:16Z",
+    "url": "https://github.com/opentensor/subtensor/commit/d1de056156185573202747ca4cbdabf1d4f3c7b9",
+    "fetched_at": "2026-06-03T03:31:52.483873+00:00"
+  },
+  {
+    "repo": "opentensor/subtensor",
+    "name": "Subtensor (chain)",
+    "kind": "commit",
+    "sha": "276f50e",
+    "message": "cargo fmt",
+    "author": "Sam Johnson",
+    "posted_at": "2026-06-02T12:33:15Z",
+    "url": "https://github.com/opentensor/subtensor/commit/276f50e9b3c94c8710c664b385544548d5a96307",
+    "fetched_at": "2026-06-03T03:31:52.483873+00:00"
+  },
+  {
+    "repo": "opentensor/subtensor",
+    "name": "Subtensor (chain)",
+    "kind": "commit",
+    "sha": "f40f4ae",
+    "message": "fix: recycle only chain-bought alpha on dereg, not pool reserve",
+    "author": "Sam Johnson",
+    "posted_at": "2026-06-02T12:30:46Z",
+    "url": "https://github.com/opentensor/subtensor/commit/f40f4ae6fdcd1335e214cb3e27b190f1ab086f27",
+    "fetched_at": "2026-06-03T03:31:52.483873+00:00"
+  }
+]

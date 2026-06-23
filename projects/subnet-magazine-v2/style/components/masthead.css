@@ -1,0 +1,327 @@
+/* =================================================================
+   MASTHEAD, the brand band
+   -----------------------------------------------------------------
+   "Subneτ Magazine" wordmark in white, rotating red node sphere
+   mark, function-code primary nav underneath.
+   ================================================================= */
+
+.masthead{
+  border-bottom: 1px solid var(--c-rule);
+  /* slight transparency so the hero plexus shows through the
+     masthead block (was opaque var(--c-bg)). Pure black with
+     .55 alpha keeps headlines crisp while the icosphere still
+     reads behind. */
+  background: rgba(0, 0, 0, .55);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  position: relative;
+}
+.masthead__inner{
+  max-width: var(--max-w);
+  margin: 0 auto;
+  padding: var(--s-8) var(--gutter) var(--s-6);
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  align-items: center;
+  gap: var(--s-6);
+  min-width: 0;
+}
+
+.brand{
+  display: inline-flex; align-items: center; gap: var(--s-6);
+  color: var(--c-ink-1);
+  text-decoration: none;
+}
+.brand__word{
+  font-family: var(--f-serif);
+  font-weight: 800;
+  font-size: clamp(28px, 5vw, 48px);
+  letter-spacing: -.015em;
+  color: var(--c-ink-1);
+  line-height: 1;
+}
+/* the tau is a typographic character set in the wordmark's own
+   font, same size, same weight, just the letter */
+.brand__word .tau{ color: var(--c-ink-1) !important; }
+.brand__sub{
+  display: block;
+  font-family: var(--f-mono);
+  font-size: var(--t-xs);
+  color: var(--c-ink-3);
+  letter-spacing: var(--ls-label);
+  text-transform: uppercase;
+  margin-top: var(--s-2);
+}
+
+.brand__mark{
+  width: clamp(96px, 11vw, 144px);
+  aspect-ratio: 1 / 1;
+  position: relative;
+}
+.brand__mark canvas{
+  position: absolute; inset: 0;
+  width: 100%; height: 100%;
+}
+
+/* The right-side diag column. Slim, just the date (top) and the
+   X handle (bottom). Block-height + countdown moved into the
+   status-strip pulse bar to eliminate the duplicate. */
+.masthead__diag{
+  font-family: var(--f-mono);
+  font-size: var(--t-xs);
+  color: var(--c-ink-3);
+  letter-spacing: var(--ls-data);
+  text-align: right;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: var(--s-2);
+}
+.masthead__diag .val{ color: var(--c-ink-2); }
+.masthead__x{
+  display: inline-flex; align-items: center; gap: 5px;
+  justify-self: end;
+  margin-top: 2px;
+  color: var(--c-red-1);
+  text-decoration: none;
+  border: 1px solid var(--c-rule-2);
+  padding: 2px 7px;
+  border-radius: var(--r-1);
+  transition: border-color var(--d-fast) var(--e-out),
+              background var(--d-fast) var(--e-out);
+}
+.masthead__x:hover{
+  border-color: var(--c-rule-3);
+  background: var(--c-bg-3);
+}
+.masthead__x-glyph{
+  font-size: 12px;
+  color: var(--c-ink-1);
+}
+
+/* AI-2026: the live-block chip in the diag strip.
+   Pill with a pulsing green live-dot, the block height, and a
+   T-Xs countdown to the next finalised block (12s cadence). */
+.masthead__block{
+  display: inline-flex; align-items: center; gap: 6px;
+  padding: 2px 8px;
+  background: rgba(255, 30, 60, .06);
+  border: 1px solid var(--c-rule-2);
+  border-radius: 999px;
+  justify-self: end;
+  white-space: nowrap;
+}
+.masthead__live{
+  display: inline-flex; align-items: center; gap: 4px;
+  color: var(--c-up); font-weight: 700;
+  letter-spacing: var(--ls-label);
+}
+.masthead__block-label{
+  color: var(--c-ink-4);
+  font-weight: 700;
+  letter-spacing: var(--ls-label);
+}
+.masthead__block-num{
+  color: var(--c-ink-1);
+  font-weight: 700;
+  font-variant-numeric: tabular-nums;
+  transition: color .25s ease-out, text-shadow .25s ease-out;
+}
+.masthead__block-num.is-flash{
+  color: var(--c-red);
+  text-shadow: 0 0 8px var(--c-red-pulse);
+}
+.masthead__block-tick{
+  color: var(--c-red-1);
+  font-weight: 600;
+  font-variant-numeric: tabular-nums;
+  min-width: 28px;
+  text-align: right;
+}
+
+/* the thin chain ribbon strip, packets traveling left-to-right
+   across the masthead at block cadence. */
+.masthead__chain{
+  grid-column: 1 / -1;
+  height: 8px;
+  margin-top: 6px;
+  color: var(--c-red);
+  overflow: hidden;
+  border-top: 1px solid var(--c-rule);
+}
+.masthead__chain svg{
+  display: block;
+  width: 100%; height: 100%;
+}
+
+/* AI-2026: a periodic scan-line sweep over the whole masthead.
+   A single bright 1px line moves top→bottom once every ~9 seconds.
+   Decorative; gives the terminal a heartbeat. */
+.masthead{
+  position: relative;
+  /* overflow MUST stay visible — the .primary-nav child uses
+     position:sticky to keep the MAGAZINE/ORACLE/COCKPIT tabs
+     pinned at top:33px as the reader scrolls. A clipping
+     ancestor (overflow:hidden | clip | scroll) breaks sticky
+     and lets the nav scroll out of view, stranding the reader
+     with no way back to the top tabs without manually scrolling
+     to page top. Rondo 2026-05-18 hit this on /oracle.html (long
+     page): "ui not allowing to move through tab option after
+     entering oracle top tab" — the tabs were scrolled off
+     screen, not visually broken. The scan-line decoration that
+     used to need overflow:hidden here now lives on the
+     .masthead__inner child, which can clip safely without
+     blocking the sticky child. */
+}
+.masthead__inner{
+  overflow: hidden;
+  /* relative so the absolutely-positioned scan-line is contained
+     in this inner block instead of the whole masthead. */
+  position: relative;
+}
+.masthead__inner::before{
+  content: "";
+  position: absolute;
+  left: 0; right: 0;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--c-red-pulse) 30%, var(--c-red) 50%, var(--c-red-pulse) 70%, transparent);
+  pointer-events: none;
+  z-index: 1;
+  animation: mastheadScan 9s ease-in-out infinite;
+}
+@keyframes mastheadScan {
+  0%, 100% { top: -2px;  opacity: 0; }
+  10%      { opacity: .85; }
+  85%      { opacity: .85; }
+  90%      { top: 100%; opacity: 0; }
+  100%     { top: -2px;  opacity: 0; }
+}
+
+/* Mobile · stack the masthead grid so the live-block chip + X
+   handle wrap below the brand instead of overflowing the viewport. */
+@media (max-width: 720px){
+  .masthead__inner{
+    grid-template-columns: minmax(0, 1fr);
+    padding: var(--s-5) var(--gutter) var(--s-4);
+    gap: var(--s-3);
+  }
+  .masthead__diag{
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 4px 8px;
+    text-align: left;
+  }
+  .masthead__diag > *{
+    justify-self: auto;
+  }
+  .masthead__block{
+    flex-wrap: wrap;
+    max-width: 100%;
+  }
+  .masthead__x{
+    margin-top: 0;
+  }
+  .brand{
+    gap: var(--s-4);
+  }
+}
+
+/* Primary nav: function-code style, FIXED at top.
+   2026-05-18 — switched from `position:sticky` to `position:fixed`
+   because sticky inside the data-mount="masthead" div was bound
+   to that div's containing-block height and lost its pin as soon
+   as the reader scrolled past the masthead block. Fixed avoids
+   the containing-block trap entirely (Rondo: "ui not allowing to
+   move through tab option after entering oracle top tab" — the
+   tabs were scrolled off, not visually broken).
+
+   left:0/right:0 spans the viewport. top:33px clears the global
+   status bar (also fixed at top:0 height ~33px). Body gets
+   padding-top below to reserve space for both fixed strips. */
+.primary-nav{
+  position: fixed;
+  top: 33px; left: 0; right: 0;
+  z-index: calc(var(--z-nav) - 1);
+  background: rgba(0,0,0,.55);
+  backdrop-filter: saturate(140%) blur(12px);
+  -webkit-backdrop-filter: saturate(140%) blur(12px);
+  border-top: 1px solid var(--c-rule);
+  border-bottom: 1px solid var(--c-rule);
+}
+/* Body padding-top reserves space for the two fixed strips
+   above (status bar at top:0 + primary nav at top:33px). Without
+   this the first paragraph of every page renders BEHIND the nav
+   on initial load. The 80px clears status (~33px) + nav (~45px). */
+body{
+  padding-top: 80px;
+}
+.primary-nav__inner{
+  max-width: var(--max-w);
+  margin: 0 auto;
+  padding: 0 var(--gutter);
+  display: flex; gap: 0;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none;
+}
+.primary-nav__inner::-webkit-scrollbar{ display: none; }
+/* 2028-grade nav-tab. Drop the angle-bracket <001> code prefix
+   for a modern editorial look: just a tiny mono ordinal, a
+   thin separator dot, and the section name in serif. Active
+   tab gets a glowing red underline + brighter name. */
+.nav-tab{
+  flex: 0 0 auto;
+  display: inline-flex; align-items: center; gap: 6px;
+  padding: 10px 14px;
+  font-family: var(--f-serif, 'Archivo', system-ui, sans-serif);
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: -.005em;
+  text-transform: none;
+  color: var(--c-ink-3);
+  border-bottom: 2px solid transparent;
+  transition: color var(--d-fast), border-color var(--d-fast);
+  white-space: nowrap;
+  position: relative;
+}
+.nav-tab:hover{ color: var(--c-ink-1); }
+.nav-tab.active{
+  color: var(--c-ink-1);
+  border-bottom-color: var(--c-red);
+  box-shadow: 0 1px 0 0 var(--c-red), 0 6px 18px -8px rgba(255,30,60,.6);
+}
+.nav-tab__code{
+  font-family: var(--f-mono);
+  font-size: 9px;
+  font-weight: 600;
+  letter-spacing: var(--ls-label);
+  color: var(--c-ink-4);
+  background: rgba(255,30,60,.08);
+  border: 1px solid var(--c-rule-2);
+  border-radius: 3px;
+  padding: 2px 5px;
+  line-height: 1;
+}
+.nav-tab.active .nav-tab__code{
+  color: #fff;
+  background: var(--c-red);
+  border-color: var(--c-red);
+}
+/* Mobile clip fix 2026-05-18 — at 390px (iPhone 13) the 3
+   consolidated nav items (MAGAZINE/ORACLE/COCKPIT) totalled 399px
+   wide with the desktop padding, so the rightmost "COCKPIT" tab
+   clipped past the viewport edge. Tighten the padding and the
+   code chip on small screens so all three fit comfortably on a
+   single line at 360px+. */
+@media (max-width: 480px){
+  .nav-tab{
+    padding: 9px 9px;
+    font-size: 12px;
+    gap: 5px;
+  }
+  .nav-tab__code{
+    font-size: 8px;
+    padding: 2px 4px;
+  }
+}

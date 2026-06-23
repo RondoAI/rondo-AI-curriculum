@@ -1,0 +1,57 @@
+[
+  {
+    "repo": "opentensor/subtensor",
+    "name": "Subtensor (chain)",
+    "kind": "release",
+    "sha": "v3.4.5-419",
+    "message": "v3.4.5-419",
+    "author": "sam0x17",
+    "posted_at": "2026-06-17T14:34:01Z",
+    "url": "https://github.com/opentensor/subtensor/releases/tag/v3.4.5-419",
+    "fetched_at": "2026-06-17T15:00:23.804758+00:00"
+  },
+  {
+    "repo": "opentensor/subtensor",
+    "name": "Subtensor (chain)",
+    "kind": "commit",
+    "sha": "fa83646",
+    "message": "Merge pull request #22 from opentensor/fix/ghsa-010-011-review-followups",
+    "author": "sam0x17",
+    "posted_at": "2026-06-17T01:37:52Z",
+    "url": "https://github.com/opentensor/subtensor/commit/fa83646297f45a1a8108f70ba2ebf32d4f35b5c2",
+    "fetched_at": "2026-06-17T15:00:23.524855+00:00"
+  },
+  {
+    "repo": "opentensor/subtensor",
+    "name": "Subtensor (chain)",
+    "kind": "commit",
+    "sha": "7543a92",
+    "message": "GHSA-2026-011: drop child-side (ParentKeys) cooldown gating",
+    "author": "Sam Johnson",
+    "posted_at": "2026-06-16T19:32:33Z",
+    "url": "https://github.com/opentensor/subtensor/commit/7543a925f54f0290bba89fe9ef6e4b9b3905a371",
+    "fetched_at": "2026-06-17T15:00:23.524855+00:00"
+  },
+  {
+    "repo": "opentensor/subtensor",
+    "name": "Subtensor (chain)",
+    "kind": "commit",
+    "sha": "563e311",
+    "message": "bump spec_version to 419 for the GHSA-2026-010/-011 runtime logic changes",
+    "author": "Sam Johnson",
+    "posted_at": "2026-06-16T19:13:02Z",
+    "url": "https://github.com/opentensor/subtensor/commit/563e3114c4bc06ce68efee7cece6fe8d731e26b9",
+    "fetched_at": "2026-06-17T15:00:23.524855+00:00"
+  },
+  {
+    "repo": "opentensor/subtensor",
+    "name": "Subtensor (chain)",
+    "kind": "commit",
+    "sha": "18e0ecb",
+    "message": "security: review follow-ups for GHSA-2026-010 and -011",
+    "author": "Sam Johnson",
+    "posted_at": "2026-06-16T17:45:05Z",
+    "url": "https://github.com/opentensor/subtensor/commit/18e0ecb009914d24b1e41f6e199e5fe9abeca5c4",
+    "fetched_at": "2026-06-17T15:00:23.524855+00:00"
+  }
+]

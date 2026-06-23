@@ -1,0 +1,255 @@
+/* =================================================================
+   VOICES PAGE, the Bittensor who's-who
+   -----------------------------------------------------------------
+   Editorial card grid grouped by role. Each card carries a brand
+   logo, the person's name + role, a short bio, the subnets they
+   run (deep-linked), and live links to X / GitHub / their site.
+   ================================================================= */
+
+.voices-page{
+  max-width: var(--max-w);
+  margin: 0 auto;
+  padding: clamp(40px, 7vw, 80px) var(--gutter) clamp(56px, 9vw, 112px);
+}
+
+/* ---------- page head ---------- */
+.voices-page__head{
+  display: flex;
+  flex-direction: column;
+  gap: var(--s-3);
+  margin-bottom: clamp(32px, 6vw, 64px);
+  padding-bottom: var(--s-5);
+  border-bottom: 1px solid var(--c-rule-2);
+}
+.voices-page__kicker{
+  font-family: var(--f-mono);
+  font-size: var(--t-xs);
+  font-weight: 700;
+  letter-spacing: var(--ls-label);
+  text-transform: uppercase;
+  color: var(--c-red);
+}
+.voices-page__title{
+  margin: 0;
+  font-family: var(--f-serif);
+  font-size: clamp(40px, 7vw, 80px);
+  font-weight: 800;
+  letter-spacing: -.02em;
+  line-height: 1;
+  color: var(--c-ink-1);
+}
+.voices-page__dek{
+  margin: 0;
+  max-width: 64ch;
+  font-family: var(--f-sans);
+  font-size: var(--t-md);
+  line-height: 1.55;
+  color: var(--c-ink-2);
+}
+
+/* in-page anchors to each group */
+.voices-page__nav{
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-top: var(--s-3);
+}
+.voices-page__nav a{
+  display: inline-flex; align-items: center; gap: 5px;
+  padding: 5px 10px;
+  border: 1px solid var(--c-rule-2);
+  border-radius: 999px;
+  background: rgba(255,30,60,.04);
+  font-family: var(--f-mono);
+  font-size: 10.5px;
+  font-weight: 700;
+  letter-spacing: var(--ls-label);
+  text-transform: uppercase;
+  color: var(--c-ink-2);
+  text-decoration: none;
+  transition: background var(--d-fast) var(--e-out), border-color var(--d-fast) var(--e-out), color var(--d-fast) var(--e-out);
+}
+.voices-page__nav a span{ color: var(--c-ink-4); font-weight: 600; }
+.voices-page__nav a:hover{
+  background: rgba(255,30,60,.14);
+  border-color: var(--c-red);
+  color: var(--c-ink-1);
+}
+
+/* ---------- group block ---------- */
+.voices-group{
+  margin-top: clamp(32px, 5vw, 64px);
+  scroll-margin-top: 120px;
+}
+.voices-group__head{
+  display: flex;
+  align-items: baseline;
+  gap: var(--s-3);
+  margin-bottom: var(--s-4);
+  padding-bottom: var(--s-2);
+  border-bottom: 1px dashed var(--c-rule);
+}
+.voices-group__count{
+  font-family: var(--f-mono);
+  font-size: var(--t-xs);
+  font-weight: 700;
+  letter-spacing: var(--ls-label);
+  color: var(--c-red);
+}
+.voices-group__title{
+  margin: 0;
+  font-family: var(--f-serif);
+  font-size: clamp(20px, 2.6vw, 28px);
+  font-weight: 700;
+  letter-spacing: -.01em;
+  color: var(--c-ink-1);
+}
+
+.voices-group__grid{
+  list-style: none;
+  margin: 0; padding: 0;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 14px;
+}
+@media (min-width: 720px){
+  .voices-group__grid{ grid-template-columns: repeat(2, 1fr); }
+}
+@media (min-width: 1100px){
+  .voices-group__grid{ grid-template-columns: repeat(3, 1fr); }
+}
+
+/* ---------- voice card ---------- */
+.voice{
+  display: flex;
+  flex-direction: column;
+  gap: var(--s-2);
+  padding: var(--s-4);
+  border: 1px solid var(--c-rule-2);
+  background: linear-gradient(180deg, rgba(255,30,60,.04), rgba(10,3,6,.5));
+  border-radius: 4px;
+  min-width: 0;
+  contain: layout style;
+  transition: border-color var(--d-fast) var(--e-out), transform var(--d-fast) var(--e-out);
+}
+.voice:hover{
+  border-color: var(--c-red);
+}
+.voice__head{
+  display: flex;
+  align-items: center;
+  gap: var(--s-3);
+  min-width: 0;
+}
+.voice__logo{
+  flex: 0 0 64px;
+  width: 64px; height: 64px;
+  display: inline-grid; place-items: center;
+  border-radius: 50%;
+  overflow: hidden;
+  background: var(--c-bg-2);
+  border: 1px solid var(--c-rule-2);
+  box-shadow: 0 0 12px rgba(255, 30, 60, .15);
+  line-height: 0;
+}
+.voice__pfp{
+  display: block;
+  width: 100%; height: 100%;
+  object-fit: cover;
+  filter: contrast(1.02) saturate(.97);
+}
+.voice__mark svg{ width: 100%; height: 100%; border-radius: 50%; }
+.voice__id{
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+.voice__name{
+  margin: 0;
+  font-family: var(--f-serif);
+  font-size: clamp(17px, 1.8vw, 19px);
+  font-weight: 700;
+  letter-spacing: -.005em;
+  line-height: 1.15;
+  color: var(--c-ink-1);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.voice__role{
+  margin: 0;
+  font-family: var(--f-mono);
+  font-size: 10.5px;
+  font-weight: 600;
+  letter-spacing: var(--ls-label);
+  text-transform: uppercase;
+  color: var(--c-red-1);
+}
+.voice__bio{
+  margin: 0;
+  font-family: var(--f-sans);
+  font-size: var(--t-sm);
+  line-height: 1.5;
+  color: var(--c-ink-2);
+}
+
+/* subnet pills, deep-link to subnet.html?id=N */
+.voice__subnets{
+  display: flex; flex-wrap: wrap; gap: 5px;
+  margin-top: 2px;
+}
+.voice__sn{
+  display: inline-flex; align-items: center;
+  padding: 2px 8px;
+  border: 1px solid var(--c-rule-2);
+  border-radius: 999px;
+  background: rgba(255,30,60,.06);
+  color: var(--c-red);
+  font-family: var(--f-mono);
+  font-size: 9.5px;
+  font-weight: 700;
+  letter-spacing: var(--ls-data);
+  text-decoration: none;
+  transition: background var(--d-fast) var(--e-out), border-color var(--d-fast) var(--e-out);
+}
+.voice__sn:hover{
+  background: rgba(255,30,60,.18);
+  border-color: var(--c-red);
+}
+
+/* link pills, X / GitHub / site */
+.voice__links{
+  display: flex; flex-wrap: wrap;
+  gap: 6px;
+  margin-top: auto;
+  padding-top: var(--s-2);
+  border-top: 1px dashed var(--c-rule);
+}
+.voice__link{
+  display: inline-flex; align-items: center; gap: 5px;
+  padding: 4px 10px;
+  border: 1px solid var(--c-rule-2);
+  border-radius: 999px;
+  background: rgba(255,30,60,.04);
+  color: var(--c-ink-1);
+  font-family: var(--f-mono);
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: var(--ls-label);
+  text-transform: uppercase;
+  text-decoration: none;
+  transition: background var(--d-fast) var(--e-out), border-color var(--d-fast) var(--e-out);
+}
+.voice__link:hover{ background: rgba(255,30,60,.14); border-color: var(--c-red); }
+.voice__link--gh,
+.voice__link--site{
+  background: transparent;
+  color: var(--c-ink-2);
+}
+.voice__x{
+  font-family: var(--f-serif);
+  font-size: 12px;
+  font-weight: 800;
+  color: var(--c-red);
+}

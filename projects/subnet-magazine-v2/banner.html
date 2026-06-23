@@ -1,0 +1,202 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Subneτ Magazine — Twitter banner renderer</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@300..800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/style/tokens.css">
+<style>
+  /* TWITTER BANNER (1500x500, 3:1).
+
+     COMPOSITION (combined: mac-session's typography polish +
+     sandbox-session's compositional redesign per Rondo's "refer
+     to your sibling and redo" directive):
+       - TOP-RIGHT:    NodeSphere as small brand logomark
+                       (sandbox structural — pulls sphere off the
+                        wordmark horizontal axis, solves the
+                        recurring "sphere merging into wordmark")
+       - CENTER-LEFT:  wordmark (108px, 17% bigger than mac's 94)
+                       + editorial tagline directly below
+       - BOTTOM-LEFT:  Twitter PFP overlay zone (atmospheric)
+
+     Mac's typography refinements kept verbatim:
+       - Letter-spacing -.042em on the wordmark (masthead reference
+         to Bloomberg/NYT/FT display wordmarks)
+       - "The Biττensor research terminal." tagline (declarative
+         category claim — says exactly what the product is)
+       - Slightly more atmospheric depth around the sphere (.14
+         opacity / 22% radius — sphere reads with presence, not flat)
+
+     Three-corner balance: sphere top-right, wordmark center-left,
+     PFP bottom-left. Bottom-right intentional negative space. */
+
+  html, body { margin: 0; padding: 0; }
+  body{
+    width: 1500px; height: 500px;
+    background: var(--c-bg-1);
+    color: var(--c-ink-1);
+    font-family: var(--f-serif);
+    position: relative;
+    overflow: hidden;
+  }
+
+  /* Atmosphere anchored on the top-right sphere — its glow bleeds
+     toward the banner center, framing the wordmark in a subtle
+     brand field. Mac's stronger .14 opacity (vs prior .10) gives
+     the corner sphere atmospheric depth so it doesn't read flat.
+     Soft black vignette in the lower-left deepens contrast for
+     the PFP landing pocket. */
+  .banner__atmos{
+    position: absolute; inset: 0;
+    background:
+      /* anchored on the new sphere position (right=130, top=140 →
+         center ~(1270, 240) → ~85% x, 48% y in 1500x500) */
+      radial-gradient(circle at 81% 48%, rgba(255,30,60,.14) 0%, rgba(255,30,60,0) 22%),
+      radial-gradient(circle at 14% 88%, rgba(0,0,0,.55) 0%, rgba(0,0,0,0) 30%);
+    pointer-events: none;
+  }
+
+  /* HERO — wordmark + tagline, anchored left of the PFP overlap
+     zone, vertically centered. The wordmark's center line sits at
+     the banner midpoint (with a small upward translate so the
+     wordmark + tagline visual mass reads centered as a UNIT).
+     Tagline drops as a secondary line directly below. */
+  .banner__wordmark{
+    position: absolute;
+    left: 180px;            /* pulled back right from v9's left=120
+                               per Rondo — gives the wordmark more
+                               breathing room from the left edge
+                               and from the PFP avatar zone below */
+    top: 50%;
+    transform: translateY(-58%);
+    font-family: var(--f-serif);   /* Archivo — magazine display family */
+    font-weight: 800;
+    font-size: 110px;       /* dialed 124 → 110 so the wordmark fits
+                               cleanly alongside the repositioned
+                               (now non-corner) sphere */
+    line-height: 1;
+    letter-spacing: -.042em;  /* mac's masthead-tight tracking */
+    color: var(--c-ink-1);
+    margin: 0;
+    white-space: nowrap;
+  }
+  .banner__tagline{
+    position: absolute;
+    left: 180px;
+    top: 50%;
+    transform: translateY(48px);
+    font-family: var(--f-serif);
+    font-weight: 400;
+    font-size: 26px; line-height: 1.2;
+    color: var(--c-ink-2);
+    letter-spacing: -.005em;
+    margin: 0;
+  }
+  .banner__tagline em{
+    font-style: normal;
+    color: var(--c-ink-1);
+    font-weight: 600;
+  }
+
+  /* NodeSphere as UPPER-RIGHT BRAND MARK — moved AWAY from the
+     pure corner so Twitter's UI overlay (edit-profile / grok /
+     share buttons, which sit in the top-right ~150x80 corner of
+     the banner viewport) doesn't bisect the sphere. Now at
+     top=140 / right=130 — still anchored to the upper-right
+     quadrant for the three-corner composition, but inset enough
+     that the chrome buttons have their own clear space above. */
+  .banner__sphere{
+    position: absolute; right: 190px; top: 140px;
+    width: 200px; height: 200px;
+    display: block;
+  }
+
+  /* Every τ across the banner uses the canonical Archivo glyph —
+     the exact treatment the user approved on the original Subneτ
+     wordmark. Auto-wrapped by the JS below. */
+  .tau-brand{
+    font-family: 'Archivo', 'Inter', system-ui, sans-serif;
+    font-style: normal;
+    font-weight: inherit;
+    font-size: 1em;
+    color: inherit;
+    display: inline;
+    line-height: 1;
+  }
+</style>
+</head>
+<body>
+  <div class="banner__atmos"></div>
+
+  <h1 class="banner__wordmark">Subneτ Magazine</h1>
+  <!-- Mac's tagline: "The Biττensor research terminal." Declarative
+       claim of category — says exactly what the product IS, not
+       what it does. "Research" alone is descriptive; "research
+       terminal" is positioning (per the project's stated mission
+       of being the Bloomberg terminal for Bittensor). -->
+  <p class="banner__tagline">The <em>Biττensor</em> research terminal.</p>
+
+  <canvas id="sphere" class="banner__sphere" width="200" height="200"></canvas>
+
+  <script type="module">
+    import { NodeSphere } from '/src/charts/NodeSphere.js';
+
+    /* Logomark NodeSphere — fewer nodes + heavier strokes than the
+       PFP so it reads cleanly at 160px (same principle as a favicon
+       needing heavier strokes than a hero illustration). Same red
+       palette and pipeline; frozen at t=2.4 to rhyme with the PFP.
+       atmos:false so the logomark stays a contained silhouette
+       in the corner — no halo bleed toward the wordmark. */
+    const c = document.getElementById('sphere');
+    const sphere = new NodeSphere(c, {
+      nodes:   110,
+      K:       5,
+      density: 0.24,
+      edgeCap: 4500,
+      speed:   0,
+      glow:    true,
+      atmos:   false,
+    });
+    sphere.draw(c.getContext('2d'), 200, 200, 2.4);
+
+    /* Promote every τ to .tau-brand so the canonical Archivo glyph
+       is explicit even when the surrounding context inherits a
+       different family later. */
+    (function wrapTaus(root){
+      const SKIP = new Set(['SCRIPT','STYLE','CANVAS','SVG']);
+      const walker = document.createTreeWalker(root, NodeFilter.SHOW_TEXT, {
+        acceptNode(node){
+          if (SKIP.has(node.parentNode?.tagName)) return NodeFilter.FILTER_REJECT;
+          let p = node.parentNode;
+          while (p){
+            if (p.classList && p.classList.contains('tau-brand')) return NodeFilter.FILTER_REJECT;
+            p = p.parentNode;
+          }
+          return node.nodeValue.includes('τ') ? NodeFilter.FILTER_ACCEPT : NodeFilter.FILTER_REJECT;
+        }
+      });
+      const targets = [];
+      let n;
+      while ((n = walker.nextNode())) targets.push(n);
+      targets.forEach(textNode => {
+        const frag = document.createDocumentFragment();
+        textNode.nodeValue.split(/(τ)/).forEach(part => {
+          if (part === 'τ'){
+            const s = document.createElement('span');
+            s.className = 'tau-brand';
+            s.textContent = 'τ';
+            frag.appendChild(s);
+          } else if (part){
+            frag.appendChild(document.createTextNode(part));
+          }
+        });
+        textNode.parentNode.replaceChild(frag, textNode);
+      });
+    })(document.body);
+
+    window.__BANNER_READY__ = true;
+  </script>
+</body>
+</html>

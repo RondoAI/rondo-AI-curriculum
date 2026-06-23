@@ -1,0 +1,66 @@
+/* =================================================================
+   SLIDE HINT, reusable "more →" overlay
+   -----------------------------------------------------------------
+   Drop on any horizontally scrolling strip to surface that more
+   content exists off the right edge. Two layered cues:
+     1. a red-tinted gradient fade on the right edge that bleeds
+        the magazine background back over the content, the eye
+        reads "the content continues but is fading off-screen"
+     2. a small pulsing red ▸ chevron at the right edge, the
+        explicit "swipe left" signal
+   The whole overlay fades out when the strip is scrolled to its
+   right end, so it stops nagging once the user has slid through
+   everything.
+
+   To use:
+     1. give the scrolling container the class .slide-hint AND
+        the inline JS lib will toggle .slide-hint--at-end
+     2. nothing else, the overlay is generated via ::after
+   ================================================================= */
+
+[data-slide-hint]{
+  position: relative;
+}
+[data-slide-hint]::after{
+  content: "▸";
+  position: absolute;
+  top: 0; bottom: 0; right: 0;
+  width: 64px;
+  pointer-events: none;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  padding-right: 12px;
+  font-family: var(--f-mono, ui-monospace, monospace);
+  font-size: 16px;
+  font-weight: 800;
+  color: var(--c-red, #FF1E3C);
+  background: linear-gradient(90deg,
+    transparent 0%,
+    rgba(10, 3, 6, .35) 35%,
+    rgba(10, 3, 6, .88) 75%,
+    rgba(10, 3, 6, .98) 100%);
+  text-shadow:
+    0 0 6px var(--c-red, #FF1E3C),
+    0 0 12px rgba(255, 30, 60, .6);
+  animation: slideHintPulse 1.4s ease-in-out infinite;
+  transition: opacity .25s var(--e-out, ease-out);
+  z-index: 3;
+}
+
+/* JS-toggled when the user has scrolled to the right end,    hint hides so it stops asking the user to do something they
+   have already done */
+[data-slide-hint].slide-hint--at-end::after{
+  opacity: 0;
+}
+
+/* Pulse the chevron: slight horizontal nudge + opacity wave so
+   it reads as a directional cue, not a static decoration */
+@keyframes slideHintPulse{
+  0%, 100% { transform: translateX(-2px); opacity: .55; }
+  50%      { transform: translateX(2px);  opacity: 1;   }
+}
+
+@media (prefers-reduced-motion: reduce){
+  [data-slide-hint]::after{ animation: none; }
+}

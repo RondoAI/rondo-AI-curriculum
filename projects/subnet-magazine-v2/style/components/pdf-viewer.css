@@ -1,0 +1,224 @@
+/* =================================================================
+   SUBNET MAGAZINE, INLINE PDF VIEWER (research drawer)
+   -----------------------------------------------------------------
+   Slide-in drawer that opens when a news card is tapped, embedding
+   the article PDF inline. Reader stays in context — dashboard
+   visible behind on desktop, full-screen overlay on mobile.
+
+   Bloomberg's research-panel feel: dark chrome, monospace meta,
+   serif title in the header. The PDF embed takes the full body
+   height; chrome is intentionally minimal so the PDF reads as the
+   primary surface.
+
+   Anti-pattern guarded against: opacity bleed on the chrome.
+   Header + footer are solid #050203 so PDF page scrolling doesn't
+   bleed through.
+   ================================================================= */
+
+.pdfv{
+  position: fixed; inset: 0;
+  z-index: 220;
+  font-family: var(--f-mono);
+  /* Pointer-events on container; backdrop + panel handle their own */
+  pointer-events: none;
+}
+.pdfv__backdrop{
+  position: absolute; inset: 0;
+  background: rgba(0, 0, 0, .68);
+  backdrop-filter: blur(2px);
+  -webkit-backdrop-filter: blur(2px);
+  opacity: 0;
+  transition: opacity .24s cubic-bezier(.2, .7, .2, 1);
+  pointer-events: auto;
+}
+.pdfv__panel{
+  position: absolute;
+  top: 0; right: 0;
+  height: 100vh; height: 100dvh;
+  width: min(720px, 42vw);
+  background: #050203;
+  border-left: 1px solid rgba(255, 30, 60, .42);
+  box-shadow: -30px 0 80px rgba(0, 0, 0, .55);
+  display: flex; flex-direction: column;
+  transform: translateX(100%);
+  transition: transform .26s cubic-bezier(.2, .7, .2, 1);
+  pointer-events: auto;
+}
+.pdfv.is-open .pdfv__backdrop{ opacity: 1; }
+.pdfv.is-open .pdfv__panel   { transform: none; }
+
+/* ---------- header --------------------------------------- */
+.pdfv__head{
+  display: grid;
+  grid-template-areas:
+    "meta close"
+    "title title"
+    "actions actions";
+  gap: 4px 12px;
+  padding: 14px 16px 12px;
+  border-bottom: 1px solid rgba(255, 30, 60, .26);
+  background: linear-gradient(180deg, rgba(255, 30, 60, .08), transparent);
+}
+.pdfv__head-meta{
+  grid-area: meta;
+  display: inline-flex; align-items: baseline; gap: 8px;
+  flex-wrap: wrap;
+}
+.pdfv__kind{
+  font-family: var(--f-mono);
+  font-size: 8.5px;
+  font-weight: 800;
+  letter-spacing: .22em;
+  text-transform: uppercase;
+  padding: 3px 6px 2px;
+  border: 1px solid currentColor;
+  line-height: 1;
+}
+.pdfv__kind--mag    { color: #FFB85C; }
+.pdfv__kind--oracle { color: var(--c-red-1); }
+.pdfv__kind--ext    { color: var(--c-ink-2); }
+.pdfv__date{
+  font-family: var(--f-mono);
+  font-size: 9.5px;
+  letter-spacing: .14em;
+  font-weight: 800;
+  color: rgba(255, 30, 60, .7);
+}
+.pdfv__kicker{
+  font-family: var(--f-mono);
+  font-size: 9px;
+  letter-spacing: .14em;
+  text-transform: uppercase;
+  color: var(--c-ink-3);
+  font-weight: 700;
+}
+.pdfv__title{
+  grid-area: title;
+  font-family: var(--f-serif);
+  font-size: 19px;
+  font-weight: 700;
+  color: #fff;
+  letter-spacing: -.005em;
+  line-height: 1.25;
+  margin: 0;
+  /* Two-line clamp keeps the header height predictable across
+     titles of widely varying length. */
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+.pdfv__actions{
+  grid-area: actions;
+  display: inline-flex; gap: 8px; align-items: center;
+  justify-self: start;
+  margin-top: 2px;
+}
+.pdfv__newtab{
+  font-family: var(--f-mono);
+  font-size: 9px;
+  font-weight: 800;
+  letter-spacing: .18em;
+  text-transform: uppercase;
+  color: var(--c-red-1);
+  text-decoration: none;
+  padding: 4px 9px 3px;
+  border: 1px solid rgba(255, 30, 60, .36);
+  background: rgba(255, 30, 60, .04);
+  transition: color .12s ease, border-color .12s ease, background .12s ease;
+}
+.pdfv__newtab:hover,
+.pdfv__newtab:focus-visible{
+  color: #fff;
+  border-color: var(--c-red);
+  background: rgba(255, 30, 60, .18);
+  outline: none;
+}
+.pdfv__close{
+  grid-area: close;
+  justify-self: end;
+  appearance: none;
+  background: transparent;
+  border: 1px solid rgba(255, 30, 60, .36);
+  color: var(--c-red-1);
+  font-family: var(--f-mono);
+  font-size: 14px;
+  font-weight: 800;
+  width: 30px; height: 30px;
+  cursor: pointer;
+  transition: color .12s ease, border-color .12s ease, background .12s ease;
+}
+.pdfv__close:hover,
+.pdfv__close:focus-visible{
+  color: #fff;
+  border-color: var(--c-red);
+  background: rgba(255, 30, 60, .18);
+  outline: none;
+}
+
+/* ---------- body (PDF embed) ----------------------------- */
+.pdfv__body{
+  position: relative;
+  flex: 1;
+  min-height: 0;
+  background: #0a0306;
+}
+.pdfv__embed{
+  position: absolute; inset: 0;
+  width: 100%;
+  height: 100%;
+  border: 0;
+  background: #1a1416;
+}
+.pdfv__fallback{
+  position: absolute; inset: 0;
+  display: flex; align-items: center; justify-content: center;
+  flex-direction: column; gap: 10px;
+  padding: 20px;
+  text-align: center;
+  color: var(--c-ink-3);
+  font-family: var(--f-sans);
+  font-style: italic;
+  font-size: 13px;
+  /* Hidden under the embed by default; surfaces only when the
+     embed fails to render (browsers without PDF support put a
+     0-height/no-content embed). Naive heuristic: show only on
+     touch-class user-agents that we know struggle. Keeping
+     it as a permanent fallback below the embed in z-stack
+     means a "give up" reader can still click through. */
+  z-index: -1;
+}
+.pdfv__fallback a{ color: var(--c-red-1); }
+
+/* ---------- footer --------------------------------------- */
+.pdfv__foot{
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 8px 14px;
+  border-top: 1px solid rgba(255, 30, 60, .22);
+  background: rgba(20, 5, 9, .65);
+  font-family: var(--f-mono);
+  font-size: 9.5px;
+  letter-spacing: .08em;
+  font-weight: 700;
+  color: var(--c-ink-3);
+}
+.pdfv__brand{
+  color: var(--c-red-1);
+  letter-spacing: .18em;
+  font-weight: 800;
+}
+
+/* ---------- mobile --------------------------------------- */
+@media (max-width: 720px){
+  .pdfv__panel{
+    width: 100vw;
+    border-left: 0;
+    box-shadow: none;
+  }
+  .pdfv__head{
+    padding: 12px 12px 10px;
+  }
+  .pdfv__title{
+    font-size: 16px;
+  }
+}

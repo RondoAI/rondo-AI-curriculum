@@ -1,0 +1,2720 @@
+/* =================================================================
+   SUBNET MAGAZINE, COCKPIT
+   -----------------------------------------------------------------
+   The research cockpit is one screen, no scrolling required on
+   desktop. Three panes side-by-side (RAIL · CHART · FEED), each
+   with its own internal scroll if needed. On mobile (≤900px) the
+   three panes collapse into a tab switcher; whichever pane is
+   active fills the cockpit area.
+
+   Layout: fixed-height grid that fills the viewport minus the
+   page chrome (tickers + masthead + status strip). Internal
+   scrolling lives INSIDE each pane so the cockpit frame stays put.
+   ================================================================= */
+
+.cockpit{
+  display: flex;
+  flex-direction: column;
+  /* 2026-05-18 Rondo "why can't i scroll down past the chart in
+     cockpit?" — height was calc(100dvh - 280px), a fixed
+     viewport-sized box. Content below the chart (HOLDINGS table,
+     dashboard footer link, activity-trends fold when open) got
+     CLIPPED instead of pushing the cockpit down. Switched to
+     auto-height so the cockpit grows to fit its content and the
+     page scrolls naturally past the chart. */
+  min-height: calc(100dvh - 280px);
+  margin: 8px 12px 16px;
+  border: 1px solid var(--c-rule-2);
+  background: var(--c-bg);
+  font-family: var(--f-mono);
+  color: var(--c-ink-1);
+}
+
+/* ---------- tabs (mobile pane switcher) -------------------- */
+.cockpit-tabs{
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  padding: 8px 10px;
+  border-bottom: 1px solid var(--c-rule-2);
+  background: var(--c-bg-1);
+  flex-shrink: 0;
+}
+.cockpit-tabs__btn{
+  -webkit-appearance: none;
+  appearance: none;
+  background: transparent;
+  border: 1px solid var(--c-rule-2);
+  color: var(--c-ink-2);
+  font-family: var(--f-mono);
+  font-size: 10px;
+  letter-spacing: .14em;
+  font-weight: 800;
+  padding: 6px 12px;
+  cursor: pointer;
+  white-space: nowrap;
+}
+.cockpit-tabs__btn:hover{
+  border-color: var(--c-red-1);
+  color: #fff;
+}
+.cockpit-tabs__btn.is-on{
+  background: var(--c-red);
+  color: #fff;
+  border-color: var(--c-red);
+  box-shadow: 0 0 12px rgba(255,30,60,.45);
+}
+.cockpit-tabs__hint{
+  margin-left: auto;
+  font-family: var(--f-sans);
+  font-size: 10px;
+  color: var(--c-ink-3);
+  font-style: italic;
+}
+/* MARKETS shortcut pill — sits at the right edge of the cockpit-
+   tabs row. Replaces the markets link the mobile bottom-nav used
+   to carry (the bottom-nav was removed from cockpit so the Subnet
+   Oracle dock could own that real estate). Red-bordered chip,
+   monospace caps, opens markets.html. */
+.cockpit-tabs__markets{
+  margin-left: 10px;
+  padding: 4px 10px 3px;
+  font-family: var(--f-mono);
+  font-size: 9.5px;
+  font-weight: 800;
+  letter-spacing: .16em;
+  color: var(--c-red-1);
+  border: 1px solid rgba(255, 30, 60, .45);
+  background: rgba(255, 30, 60, .06);
+  text-decoration: none;
+  text-transform: uppercase;
+  white-space: nowrap;
+  transition: color 140ms ease, background 140ms ease, border-color 140ms ease;
+}
+.cockpit-tabs__markets:hover,
+.cockpit-tabs__markets:focus-visible{
+  color: #fff;
+  background: var(--c-red);
+  border-color: var(--c-red);
+  outline: none;
+}
+/* On mobile the hint text wraps awkwardly when the markets pill
+   joins the row — hide the hint to make room. */
+@media (max-width: 720px){
+  .cockpit-tabs__hint{ display: none; }
+}
+
+/* ---------- grid (mobile default, single column) ----------- */
+.cockpit__grid{
+  flex: 1;
+  display: grid;
+  grid-template-columns: 1fr;
+  min-height: 0;
+  overflow: hidden;
+}
+
+/* On mobile, only the active pane is visible; the others are
+   display:none so they don't take up scroll space. */
+.cockpit__rail,
+.cockpit__main,
+.cockpit__desk,
+.cockpit__feed,
+.cockpit__action{
+  display: none;
+  min-width: 0;
+  min-height: 0;
+  overflow: hidden;
+  flex-direction: column;
+}
+.cockpit__rail.is-active,
+.cockpit__main.is-active,
+.cockpit__desk.is-active,
+.cockpit__feed.is-active,
+.cockpit__action.is-active{
+  display: flex;
+}
+/* DESK pane background + scroll container */
+.cockpit__desk{
+  background: var(--c-bg);
+  overflow: auto;
+  -webkit-overflow-scrolling: touch;
+}
+.cockpit-desk{
+  padding: clamp(16px, 2.5vw, 28px);
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+.cockpit-desk__head{ display: flex; flex-direction: column; gap: 6px; }
+.cockpit-desk__eyebrow{
+  font-family: var(--f-mono);
+  font-size: 9px;
+  letter-spacing: .22em;
+  font-weight: 800;
+  color: var(--c-red);
+  text-transform: uppercase;
+}
+.cockpit-desk__h{
+  font-family: var(--f-serif);
+  font-size: 22px;
+  line-height: 1.15;
+  font-weight: 800;
+  color: #fff;
+  letter-spacing: -.01em;
+  margin: 0;
+}
+.cockpit-desk__sub{
+  font-family: var(--f-sans);
+  font-size: 12.5px;
+  line-height: 1.5;
+  color: var(--c-ink-2);
+  font-style: italic;
+  max-width: 720px;
+  margin: 0;
+}
+.cockpit-desk__divider{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 6px 12px;
+  border-top: 1px solid var(--c-rule-2);
+  border-bottom: 1px solid var(--c-rule-2);
+  background: var(--c-bg-2);
+}
+.cockpit-desk__divider-lbl{
+  font-family: var(--f-mono);
+  font-size: 10px;
+  letter-spacing: .22em;
+  font-weight: 800;
+  color: var(--c-red-1);
+}
+
+/* ---------- RAIL (subnet list) ----------------------------- */
+.cockpit__rail{
+  background: var(--c-bg-1);
+  border-right: 1px solid var(--c-rule-2);
+}
+.cock-rail__head{
+  padding: 10px 12px;
+  border-bottom: 1px solid var(--c-rule-2);
+  background: var(--c-bg-2);
+  flex-shrink: 0;
+}
+.cock-rail__lbl{
+  font-size: 10px;
+  letter-spacing: .18em;
+  font-weight: 800;
+  color: var(--c-red-1);
+  margin-bottom: 6px;
+}
+.cock-rail__search{
+  -webkit-appearance: none;
+  appearance: none;
+  width: 100%;
+  background: var(--c-bg);
+  color: var(--c-ink-1);
+  border: 1px solid var(--c-rule-2);
+  font-family: var(--f-mono);
+  font-size: 11px;
+  padding: 6px 8px;
+  margin-bottom: 6px;
+}
+.cock-rail__search:focus{
+  outline: none;
+  border-color: var(--c-red);
+  background: var(--c-bg-3);
+}
+.cock-rail__toolbar{
+  display: flex;
+  gap: 4px;
+}
+.cock-rail__pill{
+  -webkit-appearance: none;
+  appearance: none;
+  background: transparent;
+  color: var(--c-ink-2);
+  border: 1px solid var(--c-rule-2);
+  font-family: var(--f-mono);
+  font-size: 9px;
+  letter-spacing: .14em;
+  font-weight: 800;
+  padding: 4px 8px;
+  cursor: pointer;
+}
+.cock-rail__pill.is-on{
+  background: var(--c-red);
+  color: #fff;
+  border-color: var(--c-red);
+}
+.cock-rail__pill b{
+  margin-left: 4px;
+  color: inherit;
+}
+.cock-rail__list{
+  flex: 1;
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
+}
+.cock-rail__row{
+  -webkit-appearance: none;
+  appearance: none;
+  background: transparent;
+  border: 0;
+  border-bottom: 1px solid var(--c-rule);
+  width: 100%;
+  display: grid;
+  grid-template-columns: 18px 38px 1fr auto;
+  gap: 6px;
+  align-items: center;
+  padding: 8px 12px;
+  cursor: pointer;
+  font-family: var(--f-mono);
+  font-size: 11px;
+  color: var(--c-ink-1);
+  text-align: left;
+  transition: background 100ms;
+}
+.cock-rail__row:hover{
+  background: rgba(255,30,60,.05);
+}
+.cock-rail__row.is-on{
+  background: rgba(255,30,60,.12);
+  border-left: 2px solid var(--c-red);
+  padding-left: 10px;
+}
+.cock-rail__star{
+  color: var(--c-ink-4);
+  font-size: 13px;
+  line-height: 1;
+}
+.cock-rail__star.is-on{
+  color: var(--c-warn);
+  text-shadow: 0 0 6px rgba(255,184,92,.4);
+}
+.cock-rail__sn{
+  color: var(--c-red);
+  font-weight: 800;
+  font-size: 10px;
+  letter-spacing: .04em;
+}
+.cock-rail__name{
+  color: #fff;
+  font-weight: 700;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.cock-rail__chg{
+  font-variant-numeric: tabular-nums;
+  font-weight: 800;
+  text-align: right;
+  font-size: 10.5px;
+}
+.cock-rail__chg.is-up{ color: var(--c-up); }
+.cock-rail__chg.is-down{ color: var(--c-down); }
+
+/* ---------- MAIN (chart + KPIs) ---------------------------- */
+.cockpit__main{
+  background: var(--c-bg);
+}
+.cock-chart__head{
+  display: grid;
+  grid-template-columns: 1fr auto auto;
+  align-items: start;
+  gap: 14px;
+  padding: 14px 16px 10px;
+  border-bottom: 1px solid var(--c-rule);
+  flex-shrink: 0;
+}
+@media (max-width: 720px){
+  /* On mobile, wrap the "+" button below the price block so the
+     title block still has full width. */
+  .cock-chart__head{
+    grid-template-columns: 1fr auto;
+  }
+  .cock-chart__addbtn{
+    grid-column: 1 / -1;
+    width: 100%;
+    margin-left: 0;
+  }
+}
+.cock-chart__title{
+  min-width: 0;
+}
+.cock-chart__eyebrow{
+  display: block;
+  font-size: 9px;
+  letter-spacing: .22em;
+  font-weight: 800;
+  color: var(--c-red);
+  margin-bottom: 4px;
+}
+.cock-chart__h{
+  font-family: var(--f-serif);
+  font-size: 22px;
+  line-height: 1.1;
+  font-weight: 800;
+  margin: 0;
+  color: #fff;
+  letter-spacing: -.01em;
+}
+.cock-chart__cat{
+  display: inline-block;
+  margin-left: 10px;
+  font-family: var(--f-mono);
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: .18em;
+  color: var(--c-red-1);
+  vertical-align: 4px;
+}
+.cock-chart__sub{
+  margin-top: 4px;
+  font-family: var(--f-sans);
+  font-size: 12px;
+  color: var(--c-ink-2);
+  font-style: italic;
+  max-width: 560px;
+}
+.cock-chart__price-block{
+  text-align: right;
+  font-family: var(--f-mono);
+  font-variant-numeric: tabular-nums;
+}
+.cock-chart__price{
+  font-size: 28px;
+  font-weight: 800;
+  color: #fff;
+  letter-spacing: -.02em;
+}
+.cock-chart__chg{
+  font-size: 13px;
+  font-weight: 800;
+}
+.cock-chart__chg.is-up{ color: var(--c-up); }
+.cock-chart__chg.is-down{ color: var(--c-down); }
+.cock-chart__chg2{
+  font-size: 10px;
+  color: var(--c-ink-3);
+}
+.cock-chart__chg2.is-up{ color: var(--c-up); }
+.cock-chart__chg2.is-down{ color: var(--c-down); }
+
+.cock-chart__canvas-wrap{
+  /* Fills its grid cell inside .cock-chart__row. Also remains
+     flex:1-friendly for callers that nest it in a flex column. */
+  flex: 1;
+  position: relative;
+  min-width: 0;
+  min-height: 240px;
+  background:
+    linear-gradient(90deg, rgba(255,30,60,.02) 0%, transparent 100%),
+    radial-gradient(ellipse at center top, rgba(255,30,60,.025) 0%, transparent 65%);
+}
+.cock-chart__canvas{
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+
+/* ---------- inline ARTICLE COLUMN + chart row ------------- */
+/* Per Rondo's 2026-05-17 directive (blue-line annotation on the
+   cockpit screenshot): articles live INSIDE the chart pane on the
+   LEFT, next to the chart, with their own scroll. Not under, not
+   on a separate FEED tab. The column has graphic-design weight:
+   left-edge color bar per kind, monogram glyph, dated chip, serif
+   title, source + read arrow. Custom red-themed scrollbar matches
+   the chart palette. */
+.cock-chart__row{
+  flex: 1;
+  display: grid;
+  /* Rondo's 2026-05-17 directive (red-line annotation): article
+     column should be much wider — about ⅓ of the viewport. Using
+     minmax + fr so the column scales with viewport: at least 240px,
+     at most ~33% of the chart row. Chart fills the remaining ⅔. */
+  grid-template-columns: minmax(240px, 33%) 1fr;
+  gap: 0;
+  min-height: 0;
+  min-width: 0;
+  /* overflow:hidden forces children to respect the row's flex:1
+     height and scroll internally — without it, the article list
+     overflows over the range tabs + KPIs below. */
+  overflow: hidden;
+}
+/* Mobile re-stack — at narrow widths the side-by-side row
+   produces a 170-200px article column NEXT TO a 200-220px chart
+   slice, which is too cramped for either to render usefully.
+   Worse, the chart canvas often collapsed to zero-height under
+   the article column's full content height, leaving only the
+   range tabs + pan bar visible, and the PICK SUBNET dropdown
+   inside the article column overlapped the range tabs that
+   span across both columns (Rondo 2026-05-18: "the pick a
+   subnet section is cut off by the 90 day moving average
+   button").
+
+   Solution: STACK on mobile. Single column, chart on top
+   (full mobile width), article list below (full width, real
+   reading surface). Picker moves into the chart pane header
+   so it doesn't fight the range tabs for the same row. */
+/* Mobile re-stack at ≤900px — Rondo 2026-05-18 follow-up:
+   "please know it's 2026 and people have the newest iphone and
+   android." Modern iPhone 17 Pro Max is 440-460 logical px wide,
+   Galaxy S25/Pixel 10 Pro similar. Stop designing for a 390px
+   iPhone 13 baseline.
+
+   Display:block stacks children (chart on top, picker + article
+   list below) without flex-collapse issues. Chart canvas gets
+   real height (380px on phone, 420px on tablet); article column
+   flows naturally to its content height instead of being capped
+   at 60vh; both rendered at the FULL modern-device width so the
+   chart breathes and the article cards (17px serif titles) read
+   like a real reading column, not a thumbnail. */
+@media (max-width: 900px){
+  .cock-chart__row{
+    /* Flex column with reverse so the chart canvas (DOM-second
+       child) renders FIRST visually, with the article list +
+       picker stacked below. Chart-on-top matches the Phoenix
+       shape Rondo's been pointing at + how readers expect to
+       see the workspace on a phone. */
+    display: flex;
+    flex-direction: column-reverse;
+    overflow: visible;
+    flex: 0 0 auto;
+  }
+  .cock-chart__news{
+    display: block;
+    border-right: 0;
+    border-top: 1px solid var(--c-rule);
+    /* No max-height — let the article list flow to its natural
+       size at the device's full width. Newer phones have plenty
+       of vertical room; capping at 60vh just produced a frozen
+       scroll box halfway down the page. */
+  }
+  .cock-chart__canvas-wrap{
+    display: block;
+    height: 380px;
+    flex: 0 0 380px;
+    border-bottom: 1px solid var(--c-rule);
+  }
+  .cock-chart__news{
+    flex: 0 0 auto;
+  }
+  .cock-chart__picker{
+    border-bottom: 1px solid var(--c-rule);
+    padding: 14px 16px;
+  }
+}
+@media (min-width: 600px) and (max-width: 900px){
+  /* Tablet + large-phone landscape — give the chart even more
+     vertical room. */
+  .cock-chart__canvas-wrap{
+    height: 420px;
+    flex-basis: 420px;
+  }
+}
+@media (min-width: 901px){
+  /* PHOENIX SHAPE — per Rondo 2026-05-18 (Phoenix portfolio
+     screenshot from sibling): "this is what dashboard should
+     look like." Big chart top-left, articles/news in the side
+     column (here: inline LEFT inside the chart pane), full-
+     width markets table BELOW (the dashboard's MARKETS ROSTER
+     fold defaults open under cockpit per Dashboard.js).
+
+     The LEFT subnet rail (.cockpit__rail) is hidden on desktop
+     — subnet selection happens via the chart pane's PICK SUBNET
+     dropdown and via row-click on the markets table below. The
+     rail keeps rendering inside the DOM so mobile (the pane-
+     swap layout) is unaffected, but it doesn't consume any
+     desktop real estate. The redundant right-pane .cockpit__feed
+     is still hidden for the same reason it was before — the
+     inline article column inside the chart IS the canonical
+     article surface.
+
+     Grid collapses to ONE column (the chart pane). Chart pane
+     fills the viewport edge-to-edge. */
+  .cockpit__feed{ display: none !important; }
+  .cockpit__rail{ display: none !important; }
+  /* Right-rail QUICK ACTION block REMOVED on desktop 2026-05-18:
+     Rondo "quick action is blocking the whole chart." Even at
+     240-280px the buy/sell rail was eating into chart width and
+     reading as a wall next to the chart. The CMC pattern (sibling
+     coordination 10c861d) is the right end-state: a "+" add-
+     position button INSIDE the chart-pane header (deferred), with
+     buy/sell + holdings table below the chart. Until those land,
+     keep the chart-pane full-width and reach the existing DESK
+     pane for paper trades. */
+  .cockpit__action{ display: none !important; }
+  .cockpit__grid{ grid-template-columns: 1fr !important; }
+}
+
+.cock-chart__news{
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+  min-height: 0;
+  /* Don't let children push us taller than our grid cell — the
+     .cock-chart__news-list scrolls instead. */
+  overflow: hidden;
+  background:
+    radial-gradient(140% 60% at 0% 0%, rgba(255,30,60,.05), transparent 70%),
+    var(--c-bg-1);
+  border-right: 1px solid var(--c-rule-3);
+}
+
+/* ---------- INLINE SUBNET PICKER ------------------------- */
+/* Per Rondo's 2026-05-17 directive ("a place to pick from the
+   rest of the subnets, expand this page"): native select dropdown
+   at the top of the article column. Tap → OS dropdown with all
+   53 subnets, change → switch the cockpit's global selection. */
+.cock-chart__picker{
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+  padding: 8px 10px 7px;
+  border-bottom: 1px solid var(--c-rule-3);
+  background:
+    linear-gradient(180deg, rgba(255,30,60,.10), rgba(20,5,9,.45));
+  flex-shrink: 0;
+}
+.cock-chart__picker-lbl{
+  font-family: var(--f-mono);
+  font-size: 8px;
+  letter-spacing: .22em;
+  font-weight: 800;
+  color: var(--c-red);
+}
+.cock-chart__picker-sel{
+  -webkit-appearance: none;
+  appearance: none;
+  background: var(--c-bg);
+  color: #fff;
+  border: 1px solid var(--c-rule-3);
+  font-family: var(--f-mono);
+  font-size: 11px;
+  letter-spacing: .02em;
+  font-weight: 600;
+  padding: 7px 22px 7px 8px;
+  cursor: pointer;
+  width: 100%;
+  /* Custom red caret on the right */
+  background-image: linear-gradient(45deg, transparent 50%, var(--c-red) 50%),
+                    linear-gradient(135deg, var(--c-red) 50%, transparent 50%);
+  background-position: calc(100% - 12px) 50%, calc(100% - 7px) 50%;
+  background-size: 5px 5px;
+  background-repeat: no-repeat;
+}
+.cock-chart__picker-sel:focus{
+  outline: none;
+  border-color: var(--c-red);
+  background-color: var(--c-bg-3);
+}
+/* Picker variant for the chart header — inline (label + select
+   on the same line), no separate band, replaces the old
+   "⊕ COCKPIT · LIVE" eyebrow position. Compact and high-
+   discoverability: it's the FIRST thing the reader sees inside
+   the chart pane. */
+.cock-chart__picker--head{
+  flex-direction: row;
+  align-items: center;
+  gap: 8px;
+  padding: 0;
+  margin-bottom: 4px;
+  border-bottom: 0;
+  background: transparent;
+  flex-shrink: 0;
+}
+.cock-chart__picker--head .cock-chart__picker-lbl{
+  font-size: 10px;
+  letter-spacing: .22em;
+  font-weight: 800;
+  color: var(--c-red);
+  flex-shrink: 0;
+}
+.cock-chart__picker--head .cock-chart__picker-sel{
+  flex: 1 1 auto;
+  max-width: 340px;
+  font-size: 12px;
+  padding: 6px 22px 6px 10px;
+  background: rgba(0,0,0,.30);
+  border-color: var(--c-rule-3);
+}
+.cock-chart__picker-sel option{
+  background: #050203;
+  color: #fff;
+}
+
+/* ---------- HEADER --------------------------------------- */
+.cock-chart__news-head{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 8px 10px 7px;
+  border-bottom: 1px solid var(--c-rule-3);
+  background: linear-gradient(180deg, rgba(255,30,60,.08), rgba(20,5,9,.4));
+}
+.cock-chart__news-h{
+  font-family: var(--f-mono);
+  font-size: 9px;
+  letter-spacing: .20em;
+  font-weight: 800;
+  color: var(--c-red);
+  text-transform: uppercase;
+}
+.cock-chart__news-n{
+  font-family: var(--f-mono);
+  font-size: 9px;
+  font-weight: 800;
+  color: #fff;
+  background: var(--c-red);
+  padding: 1px 6px;
+  min-width: 14px;
+  text-align: center;
+}
+
+/* ---------- SCROLL LIST + CUSTOM SCROLLBAR --------------- */
+.cock-chart__news-list{
+  flex: 1;
+  min-height: 0;       /* allow shrink inside flex column */
+  overflow-y: auto;
+  overscroll-behavior: contain;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: thin;
+  scrollbar-color: var(--c-red) transparent;
+}
+.cock-chart__news-list::-webkit-scrollbar{ width: 4px; }
+.cock-chart__news-list::-webkit-scrollbar-thumb{
+  background: linear-gradient(180deg, var(--c-red), var(--c-red-deep));
+  border-radius: 0;
+}
+.cock-chart__news-list::-webkit-scrollbar-track{
+  background: rgba(255,30,60,.05);
+}
+
+/* ---------- ITEM CARD (graphic-design treatment) -------- */
+.cock-chart__news-item{
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  padding: 9px 10px 9px 13px;
+  border-bottom: 1px solid rgba(255,30,60,.10);
+  text-decoration: none;
+  color: inherit;
+  transition: background 140ms, transform 140ms;
+  overflow: hidden;
+}
+.cock-chart__news-item::after{
+  /* Subtle bottom-right gradient bloom keyed to kind, so each
+     card has a hint of color without being a flat rectangle. */
+  content: '';
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  opacity: 0.5;
+}
+.cock-chart__news-item--mag::after{
+  background: radial-gradient(180% 100% at 100% 100%, rgba(255,184,92,.10), transparent 55%);
+}
+.cock-chart__news-item--orc::after{
+  background: radial-gradient(180% 100% at 100% 100%, rgba(255,30,60,.12), transparent 55%);
+}
+.cock-chart__news-item--cen::after{
+  background: radial-gradient(180% 100% at 100% 100%, rgba(0,229,168,.08), transparent 55%);
+}
+.cock-chart__news-item:hover{
+  background: rgba(255,30,60,.07);
+}
+.cock-chart__news-item:hover .cock-chart__news-bar{ width: 5px; }
+
+/* Left-edge color bar — the strong visual signal per kind */
+.cock-chart__news-bar{
+  position: absolute;
+  left: 0; top: 0; bottom: 0;
+  width: 3px;
+  transition: width 140ms;
+}
+.cock-chart__news-item--mag .cock-chart__news-bar{ background: var(--c-warn); }
+.cock-chart__news-item--orc .cock-chart__news-bar{ background: var(--c-red);  }
+.cock-chart__news-item--cen .cock-chart__news-bar{ background: var(--c-up);   }
+
+/* Per-item head row: glyph + date + kind chip.
+   (Distinct class from .cock-chart__news-head which is the
+   column header at the very top.) */
+.cock-chart__news-row{
+  display: grid;
+  grid-template-columns: 14px 1fr auto;
+  align-items: center;
+  gap: 5px;
+  position: relative;
+  z-index: 1;
+}
+.cock-chart__news-glyph{
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 14px; height: 14px;
+}
+.cock-chart__news-glyph--mag{ color: var(--c-warn); }
+.cock-chart__news-glyph--orc{ color: var(--c-red);  }
+.cock-chart__news-glyph--cen{ color: var(--c-up);   }
+.cock-chart__news-mark{
+  width: 12px;
+  height: 12px;
+  display: block;
+}
+.cock-chart__news-date{
+  display: inline-flex;
+  align-items: baseline;
+  gap: 2px;
+  font-family: var(--f-mono);
+}
+.cock-chart__news-day{
+  font-size: 11px;
+  font-weight: 800;
+  color: #fff;
+  letter-spacing: -.02em;
+  font-variant-numeric: tabular-nums;
+}
+.cock-chart__news-mon{
+  font-size: 7.5px;
+  letter-spacing: .14em;
+  color: var(--c-ink-3);
+  font-weight: 800;
+}
+.cock-chart__news-kind{
+  font-family: var(--f-mono);
+  font-size: 7px;
+  letter-spacing: .14em;
+  font-weight: 800;
+  padding: 1px 4px;
+  border: 1px solid;
+  color: var(--c-ink-3);
+}
+.cock-chart__news-kind--mag{ color: var(--c-warn); border-color: var(--c-warn); }
+.cock-chart__news-kind--orc{ color: var(--c-red);  border-color: var(--c-red);  }
+.cock-chart__news-kind--cen{ color: var(--c-up);   border-color: var(--c-up);   }
+
+/* Title — serif, multi-line clamp, the real content */
+.cock-chart__news-title{
+  font-family: var(--f-serif);
+  font-size: 11px;
+  line-height: 1.3;
+  font-weight: 700;
+  color: #fff;
+  letter-spacing: -.005em;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  position: relative;
+  z-index: 1;
+}
+.cock-chart__news-src{
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 4px;
+  font-family: var(--f-mono);
+  font-size: 8px;
+  letter-spacing: .08em;
+  color: var(--c-ink-3);
+  font-style: italic;
+  position: relative;
+  z-index: 1;
+}
+.cock-chart__news-read{
+  font-style: normal;
+  font-weight: 800;
+  color: var(--c-red-1);
+  letter-spacing: .12em;
+  font-size: 9px;
+}
+.cock-chart__news-empty{
+  padding: 14px 10px;
+  font-family: var(--f-sans);
+  font-size: 10px;
+  color: var(--c-ink-3);
+  font-style: italic;
+  line-height: 1.4;
+}
+
+.cock-chart__range{
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  padding: 10px 16px;
+  border-top: 1px solid var(--c-rule);
+  border-bottom: 1px solid var(--c-rule);
+  flex-shrink: 0;
+}
+.cock-range__btn{
+  -webkit-appearance: none;
+  appearance: none;
+  background: transparent;
+  border: 1px solid var(--c-rule-2);
+  color: var(--c-ink-2);
+  font-family: var(--f-mono);
+  font-size: 10px;
+  letter-spacing: .12em;
+  font-weight: 800;
+  padding: 6px 12px;
+  cursor: pointer;
+}
+.cock-range__btn:hover{
+  background: var(--c-bg-3);
+  color: #fff;
+  border-color: var(--c-red-1);
+}
+.cock-range__btn.is-on{
+  background: var(--c-red);
+  color: #fff;
+  border-color: var(--c-red);
+  box-shadow: 0 0 10px rgba(255,30,60,.40);
+}
+
+.cock-kpis{
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1px;
+  background: var(--c-rule);
+  flex-shrink: 0;
+}
+.cock-kpi{
+  background: var(--c-bg-1);
+  padding: 10px 12px;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  min-width: 0;
+}
+.cock-kpi__lbl{
+  font-size: 9px;
+  letter-spacing: .16em;
+  font-weight: 800;
+  color: var(--c-ink-3);
+}
+.cock-kpi__val{
+  font-size: 15px;
+  font-weight: 800;
+  color: #fff;
+  font-variant-numeric: tabular-nums;
+}
+.cock-kpi__note{
+  font-family: var(--f-sans);
+  font-size: 10px;
+  color: var(--c-ink-3);
+  font-style: italic;
+}
+.cock-kpi__note.is-up{ color: var(--c-up); font-style: normal; }
+.cock-kpi__note.is-down{ color: var(--c-down); font-style: normal; }
+
+/* ---------- FEED (signals) -------------------------------- */
+.cockpit__feed{
+  background: var(--c-bg-1);
+  border-left: 1px solid var(--c-rule-2);
+}
+.cock-feed__head{
+  padding: 10px 14px;
+  border-bottom: 1px solid var(--c-rule-2);
+  background: var(--c-bg-2);
+  flex-shrink: 0;
+}
+.cock-feed__lbl{
+  font-size: 10px;
+  letter-spacing: .18em;
+  font-weight: 800;
+  color: var(--c-red-1);
+}
+.cock-feed__sub{
+  margin-top: 3px;
+  font-family: var(--f-sans);
+  font-size: 11px;
+  color: var(--c-ink-3);
+  font-style: italic;
+}
+.cockpit__feed > .cock-feed__group:first-of-type{
+  flex: 1;
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
+}
+.cockpit__feed > .cock-feed__group:last-of-type{
+  flex: 1;
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
+  border-top: 1px solid var(--c-rule-2);
+}
+.cock-feed__group-h{
+  position: sticky;
+  top: 0;
+  background: var(--c-bg-1);
+  border-bottom: 1px solid var(--c-rule);
+  margin: 0;
+  padding: 8px 14px;
+  font-family: var(--f-mono);
+  font-size: 9.5px;
+  letter-spacing: .18em;
+  font-weight: 800;
+  color: var(--c-red);
+  z-index: 1;
+}
+.cock-feed__list{ padding: 0; }
+.cock-feed__item{
+  display: grid;
+  grid-template-columns: auto auto;
+  grid-template-rows: auto auto auto auto;
+  gap: 3px 8px;
+  padding: 10px 14px;
+  border-bottom: 1px dashed var(--c-rule);
+  text-decoration: none;
+  color: inherit;
+  transition: background 100ms;
+}
+.cock-feed__item:hover{
+  background: rgba(255,30,60,.04);
+}
+.cock-feed__kind{
+  grid-row: 1;
+  grid-column: 1;
+  font-size: 8.5px;
+  letter-spacing: .16em;
+  font-weight: 800;
+  color: var(--c-ink-3);
+  padding: 1px 5px;
+  border: 1px solid var(--c-rule-2);
+  align-self: start;
+  justify-self: start;
+}
+.cock-feed__kind--magazine{ color: var(--c-warn); border-color: var(--c-warn); }
+.cock-feed__kind--oracle  { color: var(--c-red); border-color: var(--c-red); }
+.cock-feed__kind--lab     { color: var(--c-red-1); border-color: var(--c-red-1); }
+.cock-feed__kind--chip    { color: var(--c-warn); border-color: var(--c-warn); }
+.cock-feed__kind--capex   { color: var(--c-up); border-color: var(--c-up); }
+.cock-feed__kind--capital { color: var(--c-up); border-color: var(--c-up); }
+.cock-feed__kind--policy  { color: var(--c-red); border-color: var(--c-red); }
+.cock-feed__kind--research{ color: var(--c-red-1); border-color: var(--c-red-1); }
+.cock-feed__kind--infra   { color: var(--c-ink-2); border-color: var(--c-ink-2); }
+.cock-feed__date{
+  grid-row: 1;
+  grid-column: 2;
+  font-family: var(--f-mono);
+  font-size: 9.5px;
+  letter-spacing: .12em;
+  color: var(--c-ink-3);
+  text-align: right;
+  align-self: center;
+}
+.cock-feed__title{
+  grid-row: 2;
+  grid-column: 1 / -1;
+  font-family: var(--f-serif);
+  font-size: 13px;
+  line-height: 1.3;
+  color: #fff;
+  font-weight: 700;
+  margin-top: 4px;
+}
+.cock-feed__meta{
+  grid-row: 3;
+  grid-column: 1 / -1;
+  font-family: var(--f-mono);
+  font-size: 9px;
+  letter-spacing: .08em;
+  color: var(--c-ink-3);
+}
+.cock-feed__take{
+  grid-row: 4;
+  grid-column: 1 / -1;
+  font-family: var(--f-sans);
+  font-size: 11px;
+  color: var(--c-ink-2);
+  font-style: italic;
+  margin-top: 4px;
+}
+.cock-feed__empty{
+  padding: 14px;
+  font-family: var(--f-sans);
+  font-size: 11px;
+  color: var(--c-ink-3);
+  font-style: italic;
+}
+
+/* ---------- FRESH side-scroll strip (Bloomberg-style) ----- */
+/* Horizontal scroll of the freshest 5-6 items, snap-aligned, so the
+   reader can scrub through headlines at-a-glance without losing
+   the cockpit's bounded layout. Lives at the top of the FEED pane,
+   above the deeper editorial / centralized stacks. */
+.cock-feed__strip-wrap{
+  border-bottom: 1px solid var(--c-rule-2);
+  flex-shrink: 0;
+}
+.cock-feed__strip-head{
+  display: flex; justify-content: space-between; align-items: baseline;
+  padding: 8px 14px 4px;
+  font-family: var(--f-mono);
+  font-size: 9.5px;
+  letter-spacing: .18em;
+  font-weight: 800;
+  color: var(--c-red);
+}
+.cock-feed__strip-meta{
+  color: var(--c-ink-3);
+  font-style: italic;
+  font-family: var(--f-sans);
+  text-transform: none;
+  letter-spacing: .04em;
+  font-size: 10px;
+}
+.cock-feed__strip{
+  display: flex;
+  gap: 8px;
+  padding: 8px 14px 14px;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  -webkit-overflow-scrolling: touch;
+}
+.cock-feed__strip::-webkit-scrollbar{ height: 4px; }
+.cock-feed__strip::-webkit-scrollbar-thumb{ background: var(--c-rule-3); }
+
+/* ---------- rich news card ------------------------------- */
+/* 16:9 cover with procedural SVG art, kind chip top-right, SN tag
+   bottom-left, monospace date, serif title (clamped 2 lines), sans
+   takeaway (clamped 2 lines), and a meta + READ ↗ foot. Reads as
+   a research card, not a list row. */
+.cock-news{
+  display: flex;
+  flex-direction: column;
+  background: var(--c-bg-2);
+  border: 1px solid var(--c-rule-2);
+  text-decoration: none;
+  color: inherit;
+  transition: border-color 120ms, transform 120ms;
+  min-width: 0;
+}
+.cock-news:hover{
+  border-color: var(--c-red);
+}
+.cock-news__cover{
+  position: relative;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  background: #050203;
+  border-bottom: 1px solid var(--c-rule);
+  overflow: hidden;
+}
+.cock-news__cover-svg{
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+.cock-news__kind{
+  position: absolute;
+  top: 6px;
+  right: 6px;
+  font-family: var(--f-mono);
+  font-size: 8.5px;
+  font-weight: 800;
+  letter-spacing: .16em;
+  padding: 2px 6px;
+  background: rgba(5,2,3,.85);
+  border: 1px solid var(--c-ink-3);
+  color: var(--c-ink-2);
+}
+.cock-news__kind--magazine{ border-color: var(--c-warn); color: var(--c-warn); }
+.cock-news__kind--oracle  { border-color: var(--c-red);  color: var(--c-red);  }
+.cock-news__kind--lab     { border-color: #FF8094;       color: #FF8094;       }
+.cock-news__kind--chip    { border-color: var(--c-warn); color: var(--c-warn); }
+.cock-news__kind--capex   { border-color: var(--c-up);   color: var(--c-up);   }
+.cock-news__kind--capital { border-color: var(--c-up);   color: var(--c-up);   }
+.cock-news__kind--policy  { border-color: var(--c-down); color: var(--c-down); }
+.cock-news__kind--research{ border-color: var(--c-red);  color: var(--c-red);  }
+.cock-news__kind--infra   { border-color: var(--c-ink-2); color: var(--c-ink-2); }
+.cock-news__sn{
+  position: absolute;
+  bottom: 6px;
+  left: 6px;
+  font-family: var(--f-mono);
+  font-size: 9px;
+  font-weight: 800;
+  letter-spacing: .04em;
+  padding: 2px 6px;
+  background: var(--c-red);
+  color: #fff;
+}
+.cock-news__body{
+  padding: 10px 12px 12px;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  min-width: 0;
+}
+.cock-news__date{
+  font-family: var(--f-mono);
+  font-size: 9px;
+  letter-spacing: .14em;
+  color: var(--c-ink-3);
+  font-weight: 800;
+}
+.cock-news__title{
+  font-family: var(--f-serif);
+  font-size: 14px;
+  line-height: 1.25;
+  color: #fff;
+  font-weight: 700;
+  margin: 2px 0 0;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+.cock-news__dek{
+  margin: 4px 0 0;
+  font-family: var(--f-sans);
+  font-size: 11.5px;
+  line-height: 1.4;
+  color: var(--c-ink-2);
+  font-style: italic;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+.cock-news__foot{
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 8px;
+  margin-top: 6px;
+  padding-top: 6px;
+  border-top: 1px dashed var(--c-rule);
+}
+.cock-news__meta{
+  font-family: var(--f-mono);
+  font-size: 9px;
+  letter-spacing: .08em;
+  color: var(--c-ink-3);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  min-width: 0;
+}
+.cock-news__read{
+  font-family: var(--f-mono);
+  font-size: 9px;
+  letter-spacing: .14em;
+  font-weight: 800;
+  color: var(--c-red-1);
+  white-space: nowrap;
+}
+
+/* COMPACT variant for the FRESH side-scroll strip — fixed width,
+   snap-aligned, no dek clamp. */
+.cock-news--compact{
+  width: 220px;
+  flex-shrink: 0;
+  scroll-snap-align: start;
+}
+.cock-news--compact .cock-news__dek{
+  -webkit-line-clamp: 1;
+}
+
+/* Cards-list under each group: vertical stack with thin separators,
+   on desktop becomes a 2-col grid where space allows. */
+.cock-news-list{
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 10px;
+  padding: 10px 14px 16px;
+}
+.cock-feed__group{
+  flex: 1;
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
+}
+.cockpit__feed > .cock-feed__group + .cock-feed__group{
+  border-top: 1px solid var(--c-rule-2);
+}
+.cock-feed__group-n{
+  display: inline-block;
+  margin-left: 6px;
+  padding: 0 5px;
+  font-size: 9px;
+  font-family: var(--f-mono);
+  font-weight: 800;
+  color: var(--c-ink-3);
+  border: 1px solid var(--c-rule-2);
+}
+
+/* ---------- DESKTOP (>=901px) ----------------------------- */
+@media (min-width: 901px){
+  .cockpit{
+    /* Desktop chrome is shorter so we can give the cockpit more
+       breathing room. */
+    height: calc(100dvh - 220px);
+    min-height: 620px;
+    margin: 10px 18px 24px;
+  }
+  /* Keep cockpit-tabs visible on desktop — was hidden when all
+     three panes were always-on, but now the DESK pane swaps
+     into the chart slot (Rondo 2026-05-18 "merge dashboard and
+     cockpit") so the reader needs the CHART ↔ DESK toggle on
+     desktop too. SUBNETS / FEED chips don't do much on desktop
+     (those panes are pinned anyway) but reading "CHART · DESK"
+     beside them costs nothing. */
+  .cockpit-tabs__hint{ display: none; }
+  .cockpit__grid{
+    grid-template-columns: 260px 1fr 340px;
+  }
+  /* Rail + main always visible on desktop; feed forced hidden
+     in the @901+ block above. DESK pane shares the MAIN grid
+     column — tap DESK in cockpit-tabs and the grid's
+     is-desk-active class flips which one shows. */
+  .cockpit__rail,
+  .cockpit__main{
+    display: flex;
+  }
+  .cockpit__desk{ display: none; grid-column: 2; }
+  .cockpit__grid.is-desk-active .cockpit__main{ display: none; }
+  .cockpit__grid.is-desk-active .cockpit__desk{ display: flex; }
+  .cock-chart__h{ font-size: 26px; }
+  .cock-chart__price{ font-size: 32px; }
+  .cock-kpis{
+    grid-template-columns: repeat(6, 1fr);
+  }
+}
+
+@media (min-width: 1440px){
+  .cockpit{
+    height: calc(100dvh - 240px);
+    min-height: 680px;
+  }
+  .cockpit__grid{
+    grid-template-columns: 280px 1fr 360px;
+  }
+  .cock-chart__h{ font-size: 30px; }
+  .cock-chart__price{ font-size: 38px; }
+}
+
+/* =================================================================
+   COCKPIT — RESTORED + EXPANDED side article column (2026-05-18 v2)
+   -----------------------------------------------------------------
+   Rondo's directive: "cockpit tab feed is cluttered and bad. keep
+   my original idea and expand on it — put the feed back inside
+   the chart. add chart navigation so people can see chart history.
+   Also add in article."
+
+   The full-width grid below the chart (shipped 2026-05-18 v1)
+   was reverted to a side column INSIDE the chart pane — but the
+   cards are richer than the original (kind chip + date + serif
+   title + dek + source). Plus a chart-history pan bar (◀ EARLIER
+   / TODAY / LATER ▶) and an inline article preview that slides
+   into the chart pane when a news-flag marker is clicked.
+   ================================================================= */
+.cock-chart__canvas-wrap{ min-height: 320px; }
+
+/* Subnet picker base — compact row, label + select. The
+   .cock-chart__picker--head variant defined earlier in this file
+   (mac-session 8514454) handles the in-title hoisted placement
+   that closes the picker-vs-range-tabs overlap Rondo flagged in
+   his 2026-05-18 rant. Sandbox's own --solo variant was dropped
+   on rebase — mac's --head is the cleaner pattern (uses the
+   eyebrow's wasted line rather than adding a new band). */
+.cock-chart__picker{
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 8px 14px;
+  border-top: 1px solid var(--c-rule-3);
+  border-bottom: 1px solid var(--c-rule-3);
+  background: linear-gradient(180deg, rgba(255,30,60,.06), rgba(20,5,9,.30));
+  flex-shrink: 0;
+}
+.cock-chart__picker-lbl{
+  font-family: var(--f-mono);
+  font-size: 9px;
+  letter-spacing: .18em;
+  font-weight: 800;
+  color: var(--c-red-1);
+  text-transform: uppercase;
+  flex-shrink: 0;
+}
+.cock-chart__picker-sel{
+  flex: 1;
+  min-width: 0;
+  -webkit-appearance: none;
+  appearance: none;
+  background: rgba(8, 3, 5, .8);
+  border: 1px solid var(--c-rule-3);
+  color: #fff;
+  font-family: var(--f-mono);
+  font-size: 12px;
+  padding: 6px 24px 6px 10px;
+  cursor: pointer;
+  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='10' height='6' viewBox='0 0 10 6'><path fill='%23FF4D60' d='M0 0 L10 0 L5 6 Z'/></svg>");
+  background-repeat: no-repeat;
+  background-position: right 10px center;
+}
+.cock-chart__picker-sel:focus-visible{
+  outline: 2px solid var(--c-red);
+  outline-offset: 2px;
+}
+
+/* ---------- ARTICLES SECTION ---------------------------- */
+.cock-articles{
+  padding: 18px clamp(12px, 2.5vw, 24px) clamp(24px, 4vw, 40px);
+  border-top: 1px solid var(--c-rule-3);
+}
+.cock-articles__head{
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 12px;
+  padding-bottom: 10px;
+  margin-bottom: 12px;
+  border-bottom: 1px solid var(--c-rule-2);
+}
+.cock-articles__h{
+  font-family: var(--f-mono);
+  font-size: 11px;
+  letter-spacing: .22em;
+  font-weight: 800;
+  color: var(--c-red-1);
+  text-transform: uppercase;
+}
+.cock-articles__n{
+  font-family: var(--f-mono);
+  font-size: 10px;
+  letter-spacing: .14em;
+  color: var(--c-ink-3);
+  font-variant-numeric: tabular-nums;
+}
+.cock-articles__grid{
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 10px;
+}
+@media (min-width: 720px){
+  .cock-articles__grid{ grid-template-columns: repeat(2, 1fr); gap: 12px; }
+}
+@media (min-width: 1280px){
+  .cock-articles__grid{ grid-template-columns: repeat(3, 1fr); gap: 14px; }
+}
+.cock-articles__card{
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  padding: 14px 16px 14px 20px;
+  background: var(--c-bg-1);
+  border: 1px solid var(--c-rule-2);
+  text-decoration: none;
+  color: inherit;
+  transition: background 140ms ease, border-color 140ms ease, transform 140ms ease;
+  min-height: 160px;
+}
+.cock-articles__card:hover,
+.cock-articles__card:focus-visible{
+  background: var(--c-bg-2);
+  border-color: var(--c-rule-3);
+  outline: none;
+  transform: translateY(-1px);
+}
+.cock-articles__bar{
+  position: absolute;
+  left: 0; top: 0; bottom: 0;
+  width: 3px;
+  background: var(--c-ink-3);
+  transition: width 140ms ease;
+}
+.cock-articles__card--mag .cock-articles__bar{ background: #FFB85C; }
+.cock-articles__card--orc .cock-articles__bar{ background: var(--c-red); }
+.cock-articles__card--cen .cock-articles__bar{ background: #5BE599; }
+.cock-articles__card:hover .cock-articles__bar{ width: 4px; }
+
+.cock-articles__card-head{
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 8px;
+}
+.cock-articles__kind{
+  font-family: var(--f-mono);
+  font-size: 9px;
+  letter-spacing: .16em;
+  font-weight: 800;
+  padding: 2px 6px;
+  border: 1px solid var(--c-ink-3);
+  color: var(--c-ink-3);
+}
+.cock-articles__kind--mag{ color: #FFB85C; border-color: rgba(255, 184, 92, .55); }
+.cock-articles__kind--orc{ color: var(--c-red-1); border-color: rgba(255, 30, 60, .55); }
+.cock-articles__kind--cen{ color: #5BE599; border-color: rgba(91, 229, 153, .55); }
+.cock-articles__date{
+  font-family: var(--f-mono);
+  font-size: 9.5px;
+  letter-spacing: .10em;
+  color: var(--c-ink-3);
+  font-weight: 700;
+  font-variant-numeric: tabular-nums;
+  white-space: nowrap;
+}
+.cock-articles__date .cock-chart__news-day,
+.cock-articles__date .cock-chart__news-mon{
+  display: inline-block;
+}
+.cock-articles__date .cock-chart__news-day{ margin-right: 3px; }
+.cock-articles__title{
+  font-family: var(--f-serif);
+  font-size: 16px;
+  font-weight: 700;
+  line-height: 1.30;
+  color: #fff;
+  margin: 0;
+  letter-spacing: -.005em;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+.cock-articles__dek{
+  font-family: var(--f-sans);
+  font-size: 12.5px;
+  line-height: 1.45;
+  color: var(--c-ink-2);
+  margin: 0;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  flex: 1 1 auto;
+}
+.cock-articles__foot{
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 8px;
+  padding-top: 8px;
+  border-top: 1px solid var(--c-rule);
+  margin-top: auto;
+}
+.cock-articles__src{
+  font-family: var(--f-mono);
+  font-size: 9.5px;
+  letter-spacing: .06em;
+  color: var(--c-ink-3);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  min-width: 0;
+}
+.cock-articles__read{
+  font-family: var(--f-mono);
+  font-size: 9.5px;
+  letter-spacing: .14em;
+  font-weight: 800;
+  color: var(--c-red-1);
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+.cock-articles__empty{
+  padding: 24px 16px;
+  font-family: var(--f-sans);
+  font-style: italic;
+  font-size: 13px;
+  color: var(--c-ink-3);
+  line-height: 1.5;
+  border: 1px dashed var(--c-rule-2);
+  text-align: center;
+}
+
+/* =================================================================
+   COCKPIT v3 (2026-05-18) — bigger side-column article cards
+   replace the cramped tight-list rows from the v1 design. Same
+   kind-color spine + amber/red/green vocabulary as the chart-mode
+   sidebar. Cards are 1-per-row in the side column (which is wider
+   now), each ~150-170px with kind chip + date + title + dek +
+   source. Whole list scrolls within the side column.
+   ================================================================= */
+/* v4 (2026-05-18) per Rondo "articles should be easy to read
+   next to a beautiful chart." The v3 cards were technically
+   correct but visually tiny (title 13.5px / dek 11.5px / source
+   9.5px) — the article column read as a labeled grid more than
+   a reading surface. Bumped every typographic axis so cards
+   become a calm reading column adjacent to the chart, with
+   margin-of-error breathing inside each card. The chart side
+   still gets ~62% on desktop so it stays the dominant element. */
+.cock-chart__news-list .cock-articles__card{
+  display: flex;
+  flex-direction: column;
+  gap: 9px;
+  padding: 18px 18px 18px 22px;
+  background: var(--c-bg-1);
+  border: 0;
+  border-bottom: 1px solid var(--c-rule);
+  text-decoration: none;
+  color: inherit;
+  transition: background 140ms ease, padding-left 140ms ease;
+  position: relative;
+  min-height: 0;
+}
+.cock-chart__news-list .cock-articles__card:last-child{
+  border-bottom: 0;
+}
+.cock-chart__news-list .cock-articles__card:hover,
+.cock-chart__news-list .cock-articles__card:focus-visible{
+  background: var(--c-bg-2);
+  padding-left: 24px;
+  outline: none;
+}
+.cock-chart__news-list .cock-articles__bar{
+  position: absolute;
+  left: 0; top: 0; bottom: 0;
+  width: 4px;
+  background: var(--c-ink-3);
+  transition: width 140ms ease;
+}
+.cock-chart__news-list .cock-articles__card--mag .cock-articles__bar{ background: #FFB85C; }
+.cock-chart__news-list .cock-articles__card--orc .cock-articles__bar{ background: var(--c-red); }
+.cock-chart__news-list .cock-articles__card--cen .cock-articles__bar{ background: #5BE599; }
+.cock-chart__news-list .cock-articles__card:hover .cock-articles__bar{ width: 6px; }
+.cock-chart__news-list .cock-articles__title{
+  font-family: var(--f-serif);
+  font-size: 17px;
+  font-weight: 700;
+  line-height: 1.25;
+  color: #fff;
+  margin: 0;
+  letter-spacing: -.012em;
+  /* Drop the 3-line clamp — full headline visible. Side-column
+     articles are the reading surface; a chopped headline defeats
+     the point. List length is capped upstream so we don't get
+     a 100-card scroll either way. */
+  display: block;
+  overflow: visible;
+}
+.cock-chart__news-list .cock-articles__dek{
+  font-family: var(--f-sans);
+  font-size: 13.5px;
+  line-height: 1.5;
+  color: var(--c-ink-2);
+  margin: 0;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+.cock-chart__news-list .cock-articles__foot{
+  border-top: 1px solid var(--c-rule);
+  padding-top: 9px;
+  margin-top: 3px;
+  display: flex;
+  justify-content: space-between;
+  gap: 8px;
+}
+.cock-chart__news-list .cock-articles__src{
+  font-family: var(--f-mono);
+  font-size: 10.5px;
+  letter-spacing: .08em;
+  color: var(--c-ink-3);
+}
+.cock-chart__news-list .cock-articles__read{
+  font-family: var(--f-mono);
+  font-size: 10.5px;
+  letter-spacing: .16em;
+  font-weight: 800;
+  color: var(--c-red-1);
+}
+.cock-chart__news-list .cock-articles__kind{
+  font-size: 10px;
+  letter-spacing: .18em;
+  padding: 3px 8px;
+}
+.cock-chart__news-list .cock-articles__date{
+  font-size: 11px;
+  font-family: var(--f-mono);
+  color: var(--c-ink-3);
+}
+
+/* Side column has the article reading surface — give it real
+   width on desktop. v3 ran 300-320px minimums, which forced the
+   17-19 char headlines to wrap awkwardly. v4 reserves at least
+   340px on standard desktop and 360px on wide so a 8-10 word
+   headline lays out in 2 lines at the new 17px scale. Chart
+   still wins the remaining 62%+ for "beautiful chart" duty. */
+@media (min-width: 901px){
+  .cockpit .cock-chart__row{ grid-template-columns: minmax(340px, 36%) 1fr !important; }
+}
+@media (min-width: 1280px){
+  .cockpit .cock-chart__row{ grid-template-columns: minmax(360px, 32%) 1fr !important; }
+}
+@media (min-width: 1600px){
+  .cockpit .cock-chart__row{ grid-template-columns: 400px 1fr !important; }
+}
+
+/* =================================================================
+   CHART HISTORY PAN BAR — sits below the chart, beside the range
+   tabs. Per Rondo's "add chart navigation so people can see chart
+   history" directive. ◀ EARLIER pans back one window, LATER ▶ pans
+   forward, ⏵ TODAY snaps to current. State label shows "now" or
+   "−30d" so the reader always knows where they are.
+   ================================================================= */
+.cock-chart__nav{
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 10px;
+  padding: 8px 14px;
+  border-top: 1px solid var(--c-rule-3);
+  border-bottom: 1px solid var(--c-rule-3);
+  background: linear-gradient(180deg, rgba(255,30,60,.04), rgba(20,5,9,.30));
+}
+.cock-chart__nav .cock-chart__range{
+  flex: 1 1 auto;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px;
+  padding: 0;
+  border: 0;
+  background: transparent;
+}
+.cock-chart__pan{
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  flex-shrink: 0;
+}
+.cock-pan__btn{
+  -webkit-appearance: none;
+  appearance: none;
+  background: transparent;
+  border: 1px solid var(--c-rule-2);
+  color: var(--c-ink-2);
+  font-family: var(--f-mono);
+  font-size: 9.5px;
+  letter-spacing: .12em;
+  font-weight: 800;
+  padding: 5px 10px 4px;
+  cursor: pointer;
+  text-transform: uppercase;
+  transition: color 140ms ease, border-color 140ms ease, background 140ms ease;
+}
+.cock-pan__btn:hover,
+.cock-pan__btn:focus-visible{
+  color: #fff;
+  border-color: var(--c-red);
+  background: rgba(255, 30, 60, .08);
+  outline: none;
+}
+.cock-pan__btn--today{
+  color: var(--c-red-1);
+  border-color: rgba(255, 30, 60, .35);
+}
+.cock-pan__lbl{
+  display: inline-flex;
+  flex-direction: column;
+  align-items: center;
+  font-family: var(--f-mono);
+  font-size: 10px;
+  letter-spacing: .12em;
+  font-weight: 800;
+  color: var(--c-ink-3);
+  padding: 0 6px;
+  font-variant-numeric: tabular-nums;
+  line-height: 1.15;
+  text-align: center;
+}
+.cock-pan__dates{
+  display: block;
+  font-size: 10.5px;
+  color: var(--c-ink-2);
+  letter-spacing: .08em;
+}
+.cock-pan__offset{
+  display: block;
+  font-size: 8.5px;
+  letter-spacing: .16em;
+  color: var(--c-ink-3);
+  margin-top: 2px;
+}
+.cock-pan__lbl.is-back .cock-pan__dates{ color: var(--c-warn); }
+.cock-pan__lbl.is-back .cock-pan__offset{ color: var(--c-warn); }
+
+/* =================================================================
+   INLINE FLAG ARTICLE PREVIEW — slides up from the bottom of the
+   chart pane when the reader clicks a news-flag marker on the
+   canvas. Article appears INSIDE the chart context, not in a new
+   tab. Close X dismisses it; READ button opens the article (PDFs
+   land in the inline PDF viewer drawer via data-pdf-* attrs).
+   ================================================================= */
+.cock-chart__flag-preview{
+  position: absolute;
+  left: 0; right: 0; bottom: 0;
+  padding: 0;
+  background: rgba(8, 3, 5, .96);
+  border-top: 2px solid var(--c-red);
+  z-index: 8;
+  box-shadow: 0 -8px 24px rgba(0, 0, 0, .55);
+  animation: cock-flag-slide 220ms ease-out;
+}
+@keyframes cock-flag-slide {
+  from { transform: translateY(100%); opacity: 0; }
+  to   { transform: translateY(0);    opacity: 1; }
+}
+@media (prefers-reduced-motion: reduce){
+  .cock-chart__flag-preview{ animation: none; }
+}
+.cock-chart__flag-preview[hidden]{ display: none; }
+.cock-chart__flag-preview-inner{
+  padding: 10px 14px 12px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  min-width: 0;
+}
+.cock-chart__flag-preview-head{
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.cock-chart__flag-preview-kind{
+  font-family: var(--f-mono);
+  font-size: 9px;
+  letter-spacing: .16em;
+  font-weight: 800;
+  padding: 2px 6px;
+  border: 1px solid currentColor;
+  text-transform: uppercase;
+}
+.cock-chart__flag-preview-kind.is-mag{ color: #FFB85C; }
+.cock-chart__flag-preview-kind.is-orc{ color: var(--c-red-1); }
+.cock-chart__flag-preview-kind.is-cen{ color: #5BE599; }
+.cock-chart__flag-preview-date{
+  font-family: var(--f-mono);
+  font-size: 10px;
+  letter-spacing: .12em;
+  color: var(--c-ink-3);
+  font-variant-numeric: tabular-nums;
+}
+.cock-chart__flag-preview-x{
+  -webkit-appearance: none;
+  appearance: none;
+  background: transparent;
+  border: 0;
+  margin-left: auto;
+  font-size: 18px;
+  line-height: 1;
+  color: var(--c-ink-3);
+  cursor: pointer;
+  padding: 2px 8px;
+  font-family: inherit;
+}
+.cock-chart__flag-preview-x:hover{ color: var(--c-red); }
+.cock-chart__flag-preview-title{
+  font-family: var(--f-serif);
+  font-size: 15px;
+  font-weight: 700;
+  line-height: 1.32;
+  color: #fff;
+  margin: 0;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+.cock-chart__flag-preview-cta{
+  display: inline-block;
+  align-self: flex-start;
+  margin-top: 2px;
+  padding: 6px 12px 5px;
+  font-family: var(--f-mono);
+  font-size: 10px;
+  letter-spacing: .14em;
+  font-weight: 800;
+  color: var(--c-red-1);
+  border: 1px solid rgba(255, 30, 60, .45);
+  background: rgba(255, 30, 60, .08);
+  text-decoration: none;
+  text-transform: uppercase;
+  transition: color 120ms ease, background 120ms ease, border-color 120ms ease;
+}
+.cock-chart__flag-preview-cta:hover,
+.cock-chart__flag-preview-cta:focus-visible{
+  color: #fff;
+  background: var(--c-red);
+  border-color: var(--c-red);
+  outline: none;
+}
+
+/* =================================================================
+   COCKPIT — SMALL-MULTIPLES ROW (2026-05-18)
+   -----------------------------------------------------------------
+   Three mini-sparkline panels below the KPI strip, surfacing
+   emission / miners / validators trends. Adapted from the
+   taostats inspiration (docs/inspiration/...). Each panel:
+     [label]   [value]
+     [80×26 sparkline]
+   Sparkline anchored to the panel's current value so the last
+   point matches the displayed number.
+   ================================================================= */
+.cock-micro-row{
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1px;
+  background: var(--c-rule);
+  flex-shrink: 0;
+  border-top: 1px solid var(--c-rule-2);
+}
+.cock-micro{
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  padding: 8px 12px 9px;
+  background: var(--c-bg-1);
+  min-width: 0;
+}
+.cock-micro__head{
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 8px;
+}
+.cock-micro__lbl{
+  font-family: var(--f-mono);
+  font-size: 8.5px;
+  letter-spacing: .18em;
+  font-weight: 800;
+  color: var(--c-ink-3);
+  text-transform: uppercase;
+}
+.cock-micro__val{
+  font-family: var(--f-mono);
+  font-size: 12px;
+  font-weight: 800;
+  color: #fff;
+  font-variant-numeric: tabular-nums;
+  letter-spacing: -.005em;
+}
+.cock-micro__svg{
+  display: block;
+  width: 100%;
+  height: 26px;
+}
+/* Honest empty-state for the GH commits panel (or any future
+   metric) when the subnet isn't indexed in github-activity.js.
+   "no data" italic on a dim ink instead of a fake sparkline. */
+.cock-micro--empty .cock-micro__val{ color: var(--c-ink-3); }
+.cock-micro__empty{
+  height: 26px;
+  display: flex;
+  align-items: center;
+  font-family: var(--f-sans);
+  font-size: 10px;
+  font-style: italic;
+  color: var(--c-ink-4);
+}
+@media (max-width: 720px){
+  .cock-micro-row{ grid-template-columns: repeat(2, 1fr); }
+}
+@media (max-width: 380px){
+  .cock-micro-row{ grid-template-columns: 1fr; }
+}
+
+/* =================================================================
+   COCKPIT QUICK ACTION right-rail block (sibling ref #3, 2026-05-18)
+   ---------------------------------------------------------------
+   Always-visible buy/sell surface keyed to the active subnet.
+   Pinned right on desktop (320-360px column), stacks below the
+   chart pane on mobile. Mirrors the institutional trading-
+   terminal pattern: balance block at top, side toggle, qty input
+   with quick presets, summary row, big primary CTA. Paper-only
+   per project policy.
+   ================================================================= */
+.cockpit__action{
+  background:
+    radial-gradient(140% 60% at 100% 0%, rgba(0,229,168,.05), transparent 70%),
+    var(--c-bg-1);
+  border-left: 1px solid var(--c-rule-2);
+  padding: 18px 16px;
+  gap: 14px;
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
+}
+.cock-action__head{
+  border-bottom: 1px solid var(--c-rule);
+  padding-bottom: 10px;
+  margin-bottom: 4px;
+}
+.cock-action__eyebrow{
+  font-family: var(--f-mono);
+  font-size: 10px;
+  letter-spacing: .22em;
+  font-weight: 800;
+  color: var(--c-red);
+  display: block;
+  margin-bottom: 4px;
+}
+.cock-action__sub{
+  font-family: var(--f-sans);
+  font-size: 11px;
+  font-style: italic;
+  color: var(--c-ink-3);
+}
+.cock-action__bal{
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  padding: 12px;
+  background: rgba(0,0,0,.30);
+  border: 1px solid var(--c-rule);
+}
+.cock-action__bal-row{
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 8px;
+  font-family: var(--f-mono);
+  font-size: 12px;
+}
+.cock-action__bal-lbl{
+  color: var(--c-ink-3);
+  letter-spacing: .04em;
+}
+.cock-action__bal-val{
+  color: #fff;
+  font-weight: 700;
+  font-variant-numeric: tabular-nums;
+}
+.cock-action__sides{
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0;
+  border: 1px solid var(--c-rule-2);
+}
+.cock-action__side{
+  -webkit-appearance: none;
+  appearance: none;
+  background: transparent;
+  border: 0;
+  padding: 10px 12px;
+  font-family: var(--f-mono);
+  font-size: 12px;
+  letter-spacing: .16em;
+  font-weight: 800;
+  color: var(--c-ink-3);
+  cursor: pointer;
+  transition: background 120ms, color 120ms;
+}
+.cock-action__side:hover{ color: #fff; }
+.cock-action__side.is-on{
+  background: rgba(0,229,168,.16);
+  color: #5BE599;
+  box-shadow: inset 0 -2px 0 0 #5BE599;
+}
+.cock-action__side--sell.is-on{
+  background: rgba(255,30,60,.16);
+  color: var(--c-red-1);
+  box-shadow: inset 0 -2px 0 0 var(--c-red);
+}
+.cock-action__qty{
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+.cock-action__qty-lbl{
+  font-family: var(--f-mono);
+  font-size: 10px;
+  letter-spacing: .18em;
+  font-weight: 800;
+  color: var(--c-ink-3);
+}
+.cock-action__qty-inp{
+  -webkit-appearance: none;
+  appearance: none;
+  background: rgba(0,0,0,.30);
+  border: 1px solid var(--c-rule-2);
+  padding: 10px 12px;
+  font-family: var(--f-mono);
+  font-size: 16px;
+  font-weight: 700;
+  color: #fff;
+  letter-spacing: .02em;
+  font-variant-numeric: tabular-nums;
+  width: 100%;
+}
+.cock-action__qty-inp:focus{
+  outline: none;
+  border-color: var(--c-red);
+}
+.cock-action__chips{
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 4px;
+}
+.cock-action__chip{
+  -webkit-appearance: none;
+  appearance: none;
+  background: transparent;
+  border: 1px solid var(--c-rule-2);
+  padding: 7px 6px;
+  font-family: var(--f-mono);
+  font-size: 11px;
+  letter-spacing: .04em;
+  font-weight: 700;
+  color: var(--c-ink-2);
+  cursor: pointer;
+  transition: background 120ms, color 120ms, border-color 120ms;
+}
+.cock-action__chip:hover{
+  color: #fff;
+  border-color: var(--c-red-1);
+}
+.cock-action__chip.is-on{
+  background: var(--c-red);
+  color: #fff;
+  border-color: var(--c-red);
+}
+.cock-action__sum{
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  padding: 10px 12px;
+  border: 1px dashed var(--c-rule);
+  background: rgba(0,0,0,.16);
+}
+.cock-action__sum-row{
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 8px;
+  font-family: var(--f-mono);
+  font-size: 11px;
+}
+.cock-action__sum-lbl{
+  color: var(--c-ink-3);
+  letter-spacing: .04em;
+}
+.cock-action__sum-val{
+  color: var(--c-ink-1);
+  font-variant-numeric: tabular-nums;
+}
+.cock-action__sum-val.is-bad{
+  color: var(--c-red-1);
+  font-weight: 700;
+}
+.cock-action__cta{
+  -webkit-appearance: none;
+  appearance: none;
+  border: 0;
+  padding: 14px 16px;
+  font-family: var(--f-mono);
+  font-size: 13px;
+  letter-spacing: .14em;
+  font-weight: 800;
+  color: #050203;
+  background: #5BE599;
+  cursor: pointer;
+  transition: filter 120ms, transform 120ms;
+}
+.cock-action__cta:hover:not([disabled]){ filter: brightness(1.10); }
+.cock-action__cta:active:not([disabled]){ transform: translateY(1px); }
+.cock-action__cta--sell{
+  background: var(--c-red);
+  color: #fff;
+}
+.cock-action__cta[disabled]{
+  background: rgba(255,255,255,.06);
+  color: var(--c-ink-4);
+  cursor: not-allowed;
+}
+.cock-action__err{
+  font-family: var(--f-mono);
+  font-size: 10.5px;
+  color: var(--c-red-1);
+  padding: 6px 0;
+  letter-spacing: .04em;
+  font-style: italic;
+}
+/* Mobile: action block also hidden — the chart was being blocked
+   on every screen size. Buy/sell stays reachable via the DESK
+   pane (the existing tab swap). The CMC inline "+" pattern
+   will replace this surface end-to-end in a follow-up. */
+@media (max-width: 900px){
+  .cockpit__action{
+    display: none !important;
+  }
+}
+
+/* Activity-trends small-multiples fold (2026-05-18). Default
+   closed under the cockpit chart pane to reduce vertical density;
+   reader opens for trend depth on demand. */
+.cock-micro-fold{
+  border-top: 1px solid var(--c-rule-2);
+  margin: 0;
+}
+.cock-micro-fold__summary{
+  list-style: none;
+  cursor: pointer;
+  padding: 10px 14px;
+  font-family: var(--f-mono);
+  font-size: 10px;
+  letter-spacing: .22em;
+  font-weight: 800;
+  color: var(--c-ink-3);
+  user-select: none;
+  background: linear-gradient(180deg, rgba(255,30,60,.04) 0%, transparent 100%);
+  transition: background 120ms, color 120ms;
+}
+.cock-micro-fold__summary::-webkit-details-marker{ display: none; }
+.cock-micro-fold__summary::marker{ display: none; content: ''; }
+.cock-micro-fold__summary:hover{
+  color: #fff;
+  background: linear-gradient(180deg, rgba(255,30,60,.10) 0%, transparent 100%);
+}
+.cock-micro-fold[open] .cock-micro-fold__summary{
+  color: #fff;
+  border-bottom: 1px solid var(--c-rule);
+}
+
+/* P&L block — active subnet position summary inside the right-
+   rail action block. Renders only when reader holds the
+   charted subnet (otherwise hidden by JS). */
+.cock-action__pnl,
+.cock-action__book{
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  padding: 12px;
+  background: rgba(0,0,0,.30);
+  border: 1px solid var(--c-rule);
+}
+.cock-action__pnl-lbl{
+  font-family: var(--f-mono);
+  font-size: 10px;
+  letter-spacing: .22em;
+  font-weight: 800;
+  color: var(--c-red);
+  display: block;
+  margin-bottom: 4px;
+}
+.cock-action__pnl-rows{
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+.cock-action__pnl-val{
+  font-weight: 800;
+}
+.cock-action__pnl-val.is-up{ color: #5BE599; }
+.cock-action__pnl-val.is-down{ color: var(--c-red-1); }
+
+/* OTHER POSITIONS strip — compact tappable rows that retarget
+   the chart to another held subnet. Each row is a button. */
+.cock-action__pos-list{
+  display: flex;
+  flex-direction: column;
+  gap: 1px;
+  background: var(--c-rule);
+}
+.cock-action__pos{
+  -webkit-appearance: none;
+  appearance: none;
+  background: rgba(0,0,0,.40);
+  border: 0;
+  display: grid;
+  grid-template-columns: auto 1fr auto auto;
+  gap: 8px;
+  align-items: baseline;
+  padding: 8px 10px;
+  font-family: var(--f-mono);
+  font-size: 11px;
+  color: var(--c-ink-2);
+  cursor: pointer;
+  text-align: left;
+  transition: background 120ms, color 120ms;
+}
+.cock-action__pos:hover{
+  background: rgba(255,30,60,.10);
+  color: #fff;
+}
+.cock-action__pos-sn{
+  font-weight: 800;
+  color: var(--c-red-1);
+  letter-spacing: .04em;
+}
+.cock-action__pos-name{
+  font-family: var(--f-serif);
+  font-size: 12px;
+  font-weight: 700;
+  color: #fff;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  min-width: 0;
+}
+.cock-action__pos-val{
+  font-variant-numeric: tabular-nums;
+  color: var(--c-ink-2);
+}
+.cock-action__pos-pct{
+  font-weight: 700;
+  font-variant-numeric: tabular-nums;
+}
+.cock-action__pos-pct.is-up{ color: #5BE599; }
+.cock-action__pos-pct.is-down{ color: var(--c-red-1); }
+
+/* =================================================================
+   CMC chart-mode toggle (2026-05-18) — SUBNET ↔ PORTFOLIO swap
+   in the chart-pane header. Sibling coordination ask 10c861d.
+   ================================================================= */
+.cock-chart__mode{
+  display: inline-flex;
+  gap: 0;
+  margin-bottom: 8px;
+  border: 1px solid var(--c-rule-2);
+}
+.cock-chart__mode-chip{
+  -webkit-appearance: none;
+  appearance: none;
+  background: transparent;
+  border: 0;
+  padding: 7px 12px;
+  font-family: var(--f-mono);
+  font-size: 11px;
+  letter-spacing: .14em;
+  font-weight: 800;
+  color: var(--c-ink-3);
+  cursor: pointer;
+  transition: background 120ms, color 120ms;
+}
+.cock-chart__mode-chip:hover{ color: #fff; }
+.cock-chart__mode-chip.is-on{
+  background: var(--c-red);
+  color: #fff;
+}
+/* When PORTFOLIO mode is active, the PICK SUBNET dropdown is
+   muted (not hidden — still discoverable for the swap-back
+   action). */
+.cock-chart__picker--head.is-muted{
+  opacity: .50;
+}
+.cock-chart__picker--head.is-muted .cock-chart__picker-sel{
+  filter: grayscale(.6);
+}
+
+/* =================================================================
+   CMC ADD POSITION sheet (2026-05-18) — "+" button in chart-pane
+   header opens an inline drop-down sheet for adding paper-book
+   positions without leaving the cockpit. Sibling coordination
+   10c861d step 3.
+   ================================================================= */
+.cock-chart__addbtn{
+  -webkit-appearance: none;
+  appearance: none;
+  background: var(--c-red);
+  color: #fff;
+  border: 0;
+  padding: 8px 12px;
+  font-family: var(--f-mono);
+  font-size: 11px;
+  letter-spacing: .14em;
+  font-weight: 800;
+  cursor: pointer;
+  flex-shrink: 0;
+  align-self: flex-start;
+  margin-left: 12px;
+  transition: filter 120ms, box-shadow 120ms;
+  /* Red glow keys the button to the magazine's red+black theme
+     (was green — Rondo 2026-05-18: "the add position color and
+     theme should match the rest of the website"). */
+  box-shadow: 0 0 12px rgba(255,30,60,.35);
+}
+.cock-chart__addbtn:hover{ filter: brightness(1.10); }
+.cock-chart__addbtn.is-on{
+  background: rgba(255,30,60,.18);
+  color: var(--c-red-1);
+  box-shadow: inset 0 -2px 0 0 var(--c-red);
+}
+.cock-chart__addsheet{
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10px;
+  padding: 16px;
+  background: rgba(0,0,0,.45);
+  border-top: 1px solid var(--c-rule-3);
+  border-bottom: 1px solid var(--c-rule-3);
+  animation: cockSheetSlide 180ms ease-out;
+}
+@keyframes cockSheetSlide {
+  from { opacity: 0; transform: translateY(-6px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+@media (prefers-reduced-motion: reduce){
+  .cock-chart__addsheet{ animation: none; }
+}
+.cock-chart__addsheet[hidden]{ display: none; }
+.cock-chart__addsheet-row{
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+.cock-chart__addsheet-lbl{
+  font-family: var(--f-mono);
+  font-size: 9px;
+  letter-spacing: .22em;
+  font-weight: 800;
+  color: var(--c-ink-3);
+  text-transform: uppercase;
+}
+.cock-chart__addsheet-sel,
+.cock-chart__addsheet-inp{
+  -webkit-appearance: none;
+  appearance: none;
+  background: rgba(0,0,0,.40);
+  border: 1px solid var(--c-rule-2);
+  padding: 8px 10px;
+  font-family: var(--f-mono);
+  font-size: 12px;
+  color: #fff;
+  font-variant-numeric: tabular-nums;
+}
+.cock-chart__addsheet-sel:focus,
+.cock-chart__addsheet-inp:focus{
+  outline: none;
+  border-color: var(--c-red);
+}
+.cock-chart__addsheet-cost{
+  grid-column: 1 / -1;
+  font-family: var(--f-mono);
+  font-size: 12px;
+  color: var(--c-ink-2);
+  padding: 4px 0;
+}
+.cock-chart__addsheet-cost .is-bad{ color: var(--c-red-1); font-weight: 700; }
+.cock-chart__addsheet-actions{
+  grid-column: 1 / -1;
+  display: flex;
+  gap: 8px;
+  justify-content: flex-end;
+}
+.cock-chart__addsheet-cancel{
+  -webkit-appearance: none;
+  appearance: none;
+  background: transparent;
+  border: 1px solid var(--c-rule-2);
+  color: var(--c-ink-2);
+  padding: 10px 16px;
+  font-family: var(--f-mono);
+  font-size: 11px;
+  letter-spacing: .14em;
+  font-weight: 800;
+  cursor: pointer;
+}
+.cock-chart__addsheet-cancel:hover{ color: #fff; border-color: var(--c-red-1); }
+.cock-chart__addsheet-confirm{
+  -webkit-appearance: none;
+  appearance: none;
+  background: var(--c-red);
+  color: #fff;
+  border: 0;
+  padding: 10px 20px;
+  font-family: var(--f-mono);
+  font-size: 12px;
+  letter-spacing: .14em;
+  box-shadow: 0 0 12px rgba(255,30,60,.35);
+  font-weight: 800;
+  cursor: pointer;
+  transition: filter 120ms;
+}
+.cock-chart__addsheet-confirm:hover{ filter: brightness(1.10); }
+@media (max-width: 720px){
+  .cock-chart__addsheet{ grid-template-columns: 1fr; }
+}
+
+/* Subnet logo + name treatment in chart-pane header (2026-05-18,
+   per Rondo "make sure names and logos of the subnets are in the
+   cockpit not just there number"). Logo first, then SN#, then
+   serif name, then small category chip. */
+.cock-chart__h{
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+.cock-chart__logo{
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  background: rgba(255,30,60,.10);
+  border: 1px solid var(--c-rule-3);
+  flex-shrink: 0;
+  overflow: hidden;
+}
+.cock-chart__logo img{
+  width: 24px;
+  height: 24px;
+  object-fit: contain;
+  filter: brightness(1.05);
+}
+.cock-chart__sn{
+  font-family: var(--f-mono);
+  font-size: 13px;
+  letter-spacing: .02em;
+  font-weight: 800;
+  color: var(--c-red-1);
+}
+.cock-chart__name{
+  font-family: var(--f-serif);
+  /* size set by parent cock-chart__h on the larger render */
+}
+
+/* Footer "OPEN FULL DASHBOARD" link — the path to the data
+   that lives off-cockpit. */
+.cock-chart__more{
+  border-top: 1px solid var(--c-rule-2);
+  padding: 16px 18px;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  background: rgba(0,0,0,.20);
+}
+.cock-chart__more-lbl{
+  font-family: var(--f-sans);
+  font-size: 12px;
+  color: var(--c-ink-3);
+  font-style: italic;
+  max-width: 60ch;
+}
+.cock-chart__more-link{
+  font-family: var(--f-mono);
+  font-size: 12px;
+  letter-spacing: .16em;
+  font-weight: 800;
+  color: #fff;
+  background: var(--c-red);
+  padding: 10px 16px;
+  text-decoration: none;
+  flex-shrink: 0;
+  transition: filter 120ms;
+}
+.cock-chart__more-link:hover{ filter: brightness(1.10); }
+
+/* =================================================================
+   HOLDINGS table (CMC step 4, 2026-05-18) — paper-portfolio
+   positions rendered as a tappable table inline below the chart
+   pane. Sortable in a future pass.
+   ================================================================= */
+.cock-holdings-fold{
+  border-top: 1px solid var(--c-rule-2);
+  margin: 0;
+}
+.cock-holdings-fold__summary{
+  list-style: none;
+  cursor: pointer;
+  padding: 12px 18px;
+  font-family: var(--f-mono);
+  font-size: 11px;
+  letter-spacing: .22em;
+  font-weight: 800;
+  color: #fff;
+  background: linear-gradient(180deg, rgba(255,30,60,.06) 0%, transparent 100%);
+  border-bottom: 1px solid var(--c-rule);
+  user-select: none;
+  transition: background 120ms;
+}
+.cock-holdings-fold__summary::-webkit-details-marker{ display: none; }
+.cock-holdings-fold__summary::marker{ display: none; content: ''; }
+.cock-holdings-fold__summary:hover{
+  background: linear-gradient(180deg, rgba(255,30,60,.12) 0%, transparent 100%);
+}
+.cock-holdings-empty{
+  padding: 24px 22px;
+  font-family: var(--f-sans);
+  font-size: 13px;
+  color: var(--c-ink-3);
+  font-style: italic;
+  line-height: 1.5;
+  text-align: center;
+  border: 1px dashed var(--c-rule-2);
+  margin: 12px 14px;
+}
+.cock-holdings-wrap{
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+}
+.cock-holdings{
+  width: 100%;
+  border-collapse: collapse;
+  font-family: var(--f-mono);
+  font-size: 12px;
+  color: var(--c-ink-1);
+}
+.cock-holdings thead th{
+  text-align: left;
+  font-size: 9.5px;
+  letter-spacing: .22em;
+  font-weight: 800;
+  color: var(--c-ink-3);
+  padding: 10px 14px;
+  border-bottom: 1px solid var(--c-rule-2);
+  background: rgba(0,0,0,.20);
+  text-transform: uppercase;
+}
+.cock-holdings th.cock-holdings__num,
+.cock-holdings td.cock-holdings__num{
+  text-align: right;
+  font-variant-numeric: tabular-nums;
+}
+.cock-holdings__row{
+  cursor: pointer;
+  transition: background 120ms;
+}
+.cock-holdings__row:hover,
+.cock-holdings__row:focus-visible{
+  background: rgba(255,30,60,.08);
+  outline: none;
+}
+.cock-holdings tbody td{
+  padding: 11px 14px;
+  border-bottom: 1px solid var(--c-rule);
+  vertical-align: middle;
+}
+.cock-holdings__sn{
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.cock-holdings__logo{
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 24px;
+  height: 24px;
+  background: rgba(255,30,60,.10);
+  border: 1px solid var(--c-rule-3);
+  flex-shrink: 0;
+}
+.cock-holdings__logo img{
+  width: 18px; height: 18px;
+  object-fit: contain;
+}
+.cock-holdings__sn-num{
+  color: var(--c-red-1);
+  font-weight: 800;
+  letter-spacing: .04em;
+}
+.cock-holdings__sn-name{
+  font-family: var(--f-serif);
+  font-size: 13px;
+  font-weight: 700;
+  color: #fff;
+}
+.cock-holdings .is-up{ color: #5BE599; }
+.cock-holdings .is-down{ color: var(--c-red-1); }
+.cock-holdings__totals{
+  background: rgba(0,0,0,.30);
+  font-weight: 800;
+  color: #fff;
+}
+.cock-holdings__totals td{
+  border-bottom: 0;
+  border-top: 1px solid var(--c-rule-3);
+  padding: 14px;
+}
+@media (max-width: 720px){
+  .cock-holdings{ font-size: 11px; }
+  .cock-holdings thead th, .cock-holdings tbody td{ padding: 9px 10px; }
+  .cock-holdings__sn-name{ display: none; }
+}
+
+/* Allocation column with inline bar — sibling pattern #2
+   "status-inline columns" applied to the HOLDINGS table.
+   Each row shows the position's share of the total book
+   alongside a thin horizontal bar that visualizes the
+   distribution at a glance. */
+.cock-holdings__alloc{
+  padding: 11px 14px;
+  min-width: 110px;
+}
+.cock-holdings__alloc-row{
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-family: var(--f-mono);
+  font-size: 11px;
+}
+.cock-holdings__alloc-pct{
+  flex-shrink: 0;
+  color: #fff;
+  font-weight: 700;
+  font-variant-numeric: tabular-nums;
+  min-width: 36px;
+}
+.cock-holdings__alloc-bar{
+  flex: 1;
+  height: 6px;
+  background: rgba(255,255,255,.06);
+  border: 1px solid var(--c-rule-2);
+  overflow: hidden;
+  position: relative;
+}
+.cock-holdings__alloc-fill{
+  display: block;
+  height: 100%;
+  background: var(--c-red);
+  box-shadow: 0 0 4px rgba(255,30,60,.45);
+  transition: width 180ms ease-out;
+}
+@media (max-width: 720px){
+  .cock-holdings__alloc{ min-width: 80px; padding: 9px 8px; }
+  .cock-holdings__alloc-pct{ min-width: 30px; }
+  .cock-holdings__alloc-bar{ height: 4px; }
+}
+
+/* LIVE / SEED data pill in chart header — shows "LIVE · TMC"
+   pulsing red when subscribed to a live tao:subnets feed, or
+   "SEED" muted gray when no live payload has arrived yet. */
+.cock-chart__live{
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  padding: 3px 8px;
+  font-family: var(--f-mono);
+  font-size: 9px;
+  letter-spacing: .22em;
+  font-weight: 800;
+  text-transform: uppercase;
+  color: var(--c-ink-4);
+  border: 1px solid var(--c-rule-2);
+  margin-left: 6px;
+  white-space: nowrap;
+}
+.cock-chart__live.is-live{
+  color: #fff;
+  border-color: var(--c-red);
+  background: rgba(255,30,60,.10);
+}
+.cock-chart__live-dot{
+  width: 6px;
+  height: 6px;
+  background: var(--c-ink-4);
+  display: inline-block;
+}
+.cock-chart__live.is-live .cock-chart__live-dot{
+  background: var(--c-red);
+  box-shadow: 0 0 6px rgba(255,30,60,.7);
+  animation: cockLivePulse 1.6s ease-in-out infinite;
+}
+@keyframes cockLivePulse {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50%      { opacity: .6; transform: scale(1.25); }
+}
+@media (prefers-reduced-motion: reduce){
+  .cock-chart__live.is-live .cock-chart__live-dot{ animation: none; }
+}

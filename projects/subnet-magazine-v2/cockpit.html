@@ -1,0 +1,59 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#000000">
+  <title>Cockpit · Subneτ Magazine</title>
+  <meta name="description" content="The unified cockpit — a big live price chart for any Bittensor subnet, with magazine articles + research scrolling in a side panel beside the chart. No scrolling under the chart, no scattered pages: the whole workspace is one frame.">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@300..800&family=Inter:wght@300..800&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="style/tokens.css">
+  <link rel="stylesheet" href="style/base.css">
+  <link rel="stylesheet" href="style/components/slide-hint.css">
+  <link rel="stylesheet" href="style/components/tickers.css">
+  <link rel="stylesheet" href="style/components/status-strip.css">
+  <link rel="stylesheet" href="style/components/masthead.css">
+  <link rel="stylesheet" href="style/components/panel.css">
+  <link rel="stylesheet" href="style/components/command-palette.css">
+  <link rel="stylesheet" href="style/components/pdf-viewer.css">
+  <link rel="stylesheet" href="style/components/compare-modal.css">
+  <link rel="stylesheet" href="style/components/mobile-nav.css">
+  <link rel="stylesheet" href="style/components/hist-modal.css">
+  <link rel="stylesheet" href="style/components/cockpit.css">
+  <!-- chart-mode.css carries the shared .cm-tooltip + .ct-tt__*
+       selectors the cockpit chart's hover tooltip reuses (closes
+       the Cockpit Chart Tooltip Parity ask). Unused chart-mode
+       layout/header rules silently no-op here. -->
+  <link rel="stylesheet" href="style/components/chart-mode.css">
+  <link rel="stylesheet" href="style/components/paywall.css">
+</head>
+<body>
+  <div data-mount="tickers"></div>
+  <div data-mount="statusbar"></div>
+  <div data-mount="masthead"></div>
+  <aside class="flow-thread" aria-hidden="true">
+    <span class="flow-thread__pulse"></span>
+  </aside>
+  <main id="main">
+    <!-- Cockpit is now a SELF-CONTAINED workspace per Rondo
+         2026-05-18 follow-up rant: "this page is too long, and
+         people cannot read through all this." The dashboard-
+         mounted-below pattern (sandbox ee4d17e) is reverted —
+         the auxiliary panels Rondo named (External Links /
+         Editorial Intel / GitHub Activity / Wallet Tracker /
+         Validator-Miner Heat / Valuation Ladder / Editorial
+         Archive / Deterministic LLMs) belong in side panels or
+         in the dashboard's own page, not concatenated below
+         the cockpit chart. Mac's Phoenix-grade rebuild (see
+         CLAUDE.md coordination ask) handles the three-panel
+         restructure; this revert leaves a clean slate. -->
+    <div data-mount="cockpit"></div>
+  </main>
+  <script src="config.js"></script>
+  <script type="module" src="src/boot.js?v=20260521a"></script>
+</body>
+</html>

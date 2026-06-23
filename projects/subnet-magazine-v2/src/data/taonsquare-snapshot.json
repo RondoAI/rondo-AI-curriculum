@@ -1,0 +1,2503 @@
+{
+  "count": 102,
+  "fetched_at": "2026-05-15",
+  "source": "https://taonsquare.com/api",
+  "subnets": {
+    "sn03_teutonic": {
+      "netuid": 3,
+      "name": "Teutonic",
+      "category": "Decentralized Training",
+      "subcategory": "Large Scale Pretraining",
+      "tagline": "Collaborative large-scale language model pretraining",
+      "status": "live",
+      "links": {
+        "website": "www.deprecated.com",
+        "github": "https://github.com/unarbos/Teutonic",
+        "docs": null,
+        "discord": "https://discord.com/channels/799672011265015819/1222226314824777853"
+      },
+      "market_data": {
+        "mcap_tao": 140218.3,
+        "rank": 7
+      },
+      "logo": null,
+      "researched_at": "2026-05-01T20:50:00Z",
+      "confidence": "medium",
+      "data_gaps": [
+        "Exact model size of current Teutonic-VIII training runs",
+        "Whether governance transition has completed"
+      ]
+    },
+    "sn04_targon": {
+      "netuid": 4,
+      "name": "Targon",
+      "category": "Compute & Infrastructure",
+      "subcategory": "Confidential Cloud Compute",
+      "tagline": "Confidential cloud compute, GPU and CPU rentals with hardware-level security",
+      "status": "live",
+      "links": {
+        "website": "https://targon.com",
+        "github": "https://github.com/manifold-inc/targon",
+        "docs": "https://docs.targon.com",
+        "discord": "https://discord.gg/manifold"
+      },
+      "market_data": {
+        "mcap_tao": 296116.6,
+        "rank": 2
+      },
+      "logo": null,
+      "researched_at": "2026-05-06T17:00:00Z",
+      "confidence": "high",
+      "data_gaps": [
+        "Exact serverless per-request/per-token pricing not published, only 'pay for what you use' with idle time free",
+        "1000+ GPUs claim, not independently verified",
+        "99% uptime claim, no public status page found"
+      ]
+    },
+    "sn05_hone": {
+      "netuid": 5,
+      "name": "Hone",
+      "category": "Decentralized Training",
+      "subcategory": "Peer-to-Peer LLM Training",
+      "tagline": "Distributed AI model training, train together, build what's next",
+      "status": "live",
+      "links": {
+        "website": "https://www.hone.training/",
+        "github": "https://github.com/manifold-inc/hone",
+        "docs": null,
+        "discord": "https://discord.com/channels/799672011265015819/1368959417936252998"
+      },
+      "market_data": {
+        "mcap_tao": 101734.6,
+        "rank": 11
+      },
+      "logo": null,
+      "researched_at": "2026-05-01T20:55:00Z",
+      "confidence": "medium",
+      "data_gaps": [
+        "Whether distributed training code is deployed (vs still ARC-AGI)",
+        "Timeline for first training run",
+        "Exact model architecture planned"
+      ]
+    },
+    "sn08_vanta": {
+      "netuid": 8,
+      "name": "Vanta",
+      "category": "Finance",
+      "subcategory": "Prop Trading Network",
+      "tagline": "Prop trading platform powered by global strategy crowdsourcing",
+      "status": "live",
+      "links": {
+        "website": "https://www.vantanetwork.io",
+        "github": "https://github.com/taoshidev/vanta-network",
+        "docs": "https://github.com/taoshidev/vanta-network",
+        "discord": "https://discord.gg/2XSw62p9Fj"
+      },
+      "market_data": {
+        "mcap_tao": 170804.3,
+        "rank": 6
+      },
+      "logo": null,
+      "researched_at": "2026-05-06T17:00:00Z",
+      "confidence": "medium",
+      "data_gaps": [
+        "Vanta Trading evaluation fee and funding amounts, not publicly listed",
+        "Hyperscaled pricing, not publicly listed",
+        "API subscription pricing at request.taoshi.io (currently 404)"
+      ]
+    },
+    "sn09_iota": {
+      "netuid": 9,
+      "name": "iota",
+      "category": "Decentralized Training",
+      "subcategory": "Small Scale Training",
+      "tagline": "Distributed pipeline-parallel LLM pretraining",
+      "status": "live",
+      "links": {
+        "website": "https://macrocosmos.ai",
+        "github": "https://github.com/macrocosm-os/iota",
+        "docs": "https://docs.macrocosmos.ai",
+        "discord": "https://discord.com/channels/799672011265015819/1162768567821930597"
+      },
+      "market_data": {
+        "mcap_tao": 114744.6,
+        "rank": 8
+      },
+      "logo": null,
+      "researched_at": "2026-05-01T20:55:00Z",
+      "confidence": "medium",
+      "data_gaps": [
+        "Current model being trained and its size",
+        "Whether TAH app has been fixed since download issues"
+      ]
+    },
+    "sn100_platform": {
+      "netuid": 100,
+      "name": "Platform",
+      "category": "Model & Agent Development",
+      "subcategory": "Collaborative AI Agents",
+      "tagline": "Build AI agents. Compete. Ship products.",
+      "status": "live",
+      "links": {
+        "website": "https://platform.network",
+        "github": "https://github.com/PlatformNetwork/platform",
+        "docs": "https://platform.network/docs",
+        "discord": "https://discord.platform.network"
+      },
+      "market_data": {
+        "mcap_tao": 16305.5,
+        "rank": 83
+      },
+      "logo": null,
+      "researched_at": "2026-04-29T15:45:00Z",
+      "confidence": 0.82,
+      "data_gaps": [
+        "end-user product pricing",
+        "Fabric CLI availability details"
+      ]
+    },
+    "sn101_unknown": {
+      "netuid": 101,
+      "name": "Unknown",
+      "category": "Misc",
+      "subcategory": "Unknown",
+      "tagline": "This slot is inactive",
+      "status": "development",
+      "links": {
+        "website": null,
+        "github": null,
+        "docs": null,
+        "discord": null
+      },
+      "market_data": {
+        "mcap_tao": 10011.8,
+        "rank": 102
+      },
+      "logo": null,
+      "researched_at": "2026-05-01T22:30:00Z",
+      "confidence": "low",
+      "data_gaps": []
+    },
+    "sn103_djinn": {
+      "netuid": 103,
+      "name": "Djinn",
+      "category": "Predictive Systems",
+      "subcategory": "Predictions",
+      "tagline": "Sports betting signal marketplace with cryptographic proof of track records",
+      "status": "live",
+      "links": {
+        "website": "https://djinn.gg",
+        "github": "https://github.com/Djinn-Inc/djinn/",
+        "docs": null,
+        "discord": null
+      },
+      "market_data": {
+        "mcap_tao": 19270.4,
+        "rank": 70
+      },
+      "logo": null,
+      "researched_at": "2026-04-28T20:10:00Z",
+      "confidence": "medium",
+      "data_gaps": [
+        "Signal pricing from individual analysts"
+      ]
+    },
+    "sn104_forsale": {
+      "netuid": 104,
+      "name": "For sale (burn to uid1)",
+      "category": "Misc",
+      "subcategory": "Inactive",
+      "tagline": "This slot is inactive",
+      "status": "deprecated",
+      "links": {
+        "website": null,
+        "github": null,
+        "docs": null,
+        "discord": null
+      },
+      "market_data": {
+        "mcap_tao": 20197.7,
+        "rank": 62
+      },
+      "logo": null,
+      "researched_at": "2026-04-29T15:49:00.000Z",
+      "confidence": "high",
+      "data_gaps": [
+        "Whether subnet was ever a legitimate project",
+        "Original intent of 'sovereign' name"
+      ]
+    },
+    "sn105_beam": {
+      "netuid": 105,
+      "name": "Beam",
+      "category": "Compute & Infrastructure",
+      "subcategory": "Bandwidth Infrastructure",
+      "tagline": "Verifiable bandwidth coordination for data transfer",
+      "status": "live",
+      "links": {
+        "website": "https://b1m.ai",
+        "github": "https://github.com/orgs/Beam-Network/repositories",
+        "docs": null,
+        "discord": "https://discord.com/channels/799672011265015819/1437473346026475702"
+      },
+      "market_data": {
+        "mcap_tao": 18797.6,
+        "rank": 72
+      },
+      "logo": null,
+      "researched_at": "2026-04-29T15:45:00Z",
+      "confidence": 0.65,
+      "data_gaps": [
+        "API endpoint details",
+        "pricing structure"
+      ]
+    },
+    "sn106_voidai": {
+      "netuid": 106,
+      "name": "VoidAI",
+      "category": "Finance",
+      "subcategory": "Cross-Chain Bridge",
+      "tagline": "Cross-chain bridge for TAO and ALPHA tokens",
+      "status": "live",
+      "links": {
+        "website": "https://voidai.com",
+        "github": null,
+        "docs": "https://docs.voidai.com",
+        "discord": null
+      },
+      "market_data": {
+        "mcap_tao": 15734.2,
+        "rank": 87
+      },
+      "logo": null,
+      "researched_at": "2026-04-29T15:49:00.000Z",
+      "confidence": "high",
+      "data_gaps": [
+        "Lending platform launch timeline",
+        "SDK completeness"
+      ]
+    },
+    "sn107_minos": {
+      "netuid": 107,
+      "name": "Minos",
+      "category": "Science",
+      "subcategory": "Genomics",
+      "tagline": "Genomic variant calling and benchmarking platform",
+      "status": "live",
+      "links": {
+        "website": "https://theminos.ai",
+        "github": "https://github.com/minos-protocol/minos_subnet",
+        "docs": "https://docs.theminos.ai",
+        "discord": "https://discord.com/channels/799672011265015819/1467949024769478793"
+      },
+      "market_data": {
+        "mcap_tao": 20908.8,
+        "rank": 61
+      },
+      "logo": null,
+      "researched_at": "2026-04-29T15:50:00.000Z",
+      "confidence": "high",
+      "data_gaps": [
+        "price_tao estimated from SubnetRadar USD price ($5.96) / TAO price ($251), approximate",
+        "tao_locked and alpha_in_pool not fetched from bittensor.ai/subnets/107"
+      ]
+    },
+    "sn10_swap": {
+      "netuid": 10,
+      "name": "Swap",
+      "category": "Finance",
+      "subcategory": "Decentralized Exchange",
+      "tagline": "TAO/USDC liquidity on TaoFi",
+      "status": "beta",
+      "links": {
+        "website": "https://taofi.com",
+        "github": "https://github.com/Swap-Subnet/swap-subnet",
+        "docs": "https://github.com/Swap-Subnet/swap-subnet",
+        "discord": "https://discord.gg/H8wfB92gUA"
+      },
+      "market_data": {
+        "mcap_tao": 26877.9,
+        "rank": 46
+      },
+      "logo": null,
+      "researched_at": "2026-05-06T17:00:00Z",
+      "confidence": "medium",
+      "data_gaps": [
+        "New Astrid platform status and whether TAO<>USDC pool is still active"
+      ]
+    },
+    "sn110_green_compute": {
+      "netuid": 110,
+      "name": "Green Compute",
+      "category": "Compute & Infrastructure",
+      "subcategory": "Green GPU Compute",
+      "tagline": "Clean AI inference, GPU compute powered by renewable energy",
+      "status": "live",
+      "links": {
+        "website": "https://www.green-compute.com",
+        "github": null,
+        "docs": null,
+        "discord": null
+      },
+      "market_data": {
+        "mcap_tao": 12806.9,
+        "rank": 97
+      },
+      "logo": null,
+      "researched_at": "2026-05-02T21:10:35Z",
+      "confidence": "high",
+      "data_gaps": []
+    },
+    "sn111_oneoneone": {
+      "netuid": 111,
+      "name": "Oneoneone",
+      "category": "Data Pipeline",
+      "subcategory": "User-Generated Content",
+      "tagline": "Authentic human content datasets, Google Maps reviews and X posts",
+      "status": "live",
+      "links": {
+        "website": "https://oneoneone.io",
+        "github": "https://github.com/oneoneone-io/subnet-111",
+        "docs": null,
+        "discord": null
+      },
+      "market_data": {
+        "mcap_tao": 14468.2,
+        "rank": 91
+      },
+      "logo": null,
+      "researched_at": "2026-05-02T21:10:35Z",
+      "confidence": "medium",
+      "data_gaps": [
+        "GitHub repository URL",
+        "whitepaper draft location",
+        "data buyer API details"
+      ]
+    },
+    "sn112_minotaur": {
+      "netuid": 112,
+      "name": "Minotaur",
+      "category": "Finance",
+      "subcategory": "DEX Aggregator",
+      "tagline": "DEX aggregator and swap intent solver (in development)",
+      "status": "development",
+      "links": {
+        "website": "https://minotaursubnet.com",
+        "github": null,
+        "docs": null,
+        "discord": "https://discord.gg/8Uevghx5Qx"
+      },
+      "market_data": {
+        "mcap_tao": 14636.5,
+        "rank": 89
+      },
+      "logo": null,
+      "researched_at": "2026-05-02T21:10:35Z",
+      "confidence": "medium",
+      "data_gaps": [
+        "technology stack",
+        "DeFi protocols targeted",
+        "ecosystem partners"
+      ]
+    },
+    "sn115_hashichain": {
+      "netuid": 115,
+      "name": "SoulX",
+      "category": "Data Pipeline",
+      "subcategory": "Blockchain Analytics",
+      "tagline": "AI-powered blockchain analytics (in development)",
+      "status": "development",
+      "links": {
+        "website": null,
+        "github": "https://github.com/hashi115/hashichain",
+        "docs": null,
+        "discord": null
+      },
+      "market_data": {
+        "mcap_tao": 16232.3,
+        "rank": 84
+      },
+      "logo": null,
+      "researched_at": "2026-05-01T22:30:00Z",
+      "confidence": "low",
+      "data_gaps": [
+        "Whether SoulX and HashiChain are the same project or different occupants of netuid 115",
+        "Whether miners/validators are actually running"
+      ]
+    },
+    "sn118_hodl": {
+      "netuid": 118,
+      "name": "HODL",
+      "category": "Finance",
+      "subcategory": "Crypto ETF Index",
+      "tagline": "Crypto ETF indices, curated baskets of tokens",
+      "status": "live",
+      "links": {
+        "website": "https://trustedstake.gitbook.io/trustedstake/",
+        "github": "https://github.com/mobiusfund/etf",
+        "docs": "https://trustedstake.gitbook.io/trustedstake/",
+        "discord": null
+      },
+      "market_data": {
+        "mcap_tao": 16885.4,
+        "rank": 82
+      },
+      "logo": null,
+      "researched_at": "2026-04-29T15:50:00.000Z",
+      "confidence": "high",
+      "data_gaps": [
+        "exact index compositions (TSBCSI, Top 10, Full Stack assets)",
+        "emission scoring formula details"
+      ]
+    },
+    "sn119_satori": {
+      "netuid": 119,
+      "name": "Satori",
+      "category": "Model & Agent Development",
+      "subcategory": "Task Validation",
+      "tagline": "AI task validation (controversial, use with caution)",
+      "status": "beta",
+      "links": {
+        "website": null,
+        "github": null,
+        "docs": null,
+        "discord": null
+      },
+      "market_data": {
+        "mcap_tao": 13014.3,
+        "rank": 96
+      },
+      "logo": null,
+      "researched_at": "2026-05-01T22:30:00Z",
+      "confidence": "low",
+      "data_gaps": [
+        "Security of wallet management code",
+        "Whether centralized task center issues were fully resolved"
+      ]
+    },
+    "sn11_trajectoryrl": {
+      "netuid": 11,
+      "name": "TrajectoryRL",
+      "category": "Model & Agent Development",
+      "subcategory": "AI Agent Benchmarking",
+      "tagline": "Open factory for AI agent skills",
+      "status": "live",
+      "links": {
+        "website": "https://trajrl.com",
+        "github": "https://github.com/trajectoryRL/trajectoryRL",
+        "docs": "https://trajrl.com",
+        "discord": null
+      },
+      "market_data": {
+        "mcap_tao": 48764.2,
+        "rank": 26
+      },
+      "logo": null,
+      "researched_at": "2026-05-06T17:00:00Z",
+      "confidence": "medium",
+      "data_gaps": [
+        "389.2K LLM calls and 1.5B tokens processed stat from homepage, unverified date range",
+        "ClawHub skill leaderboard details"
+      ]
+    },
+    "sn120_affine": {
+      "netuid": 120,
+      "name": "Affine",
+      "category": "Decentralized Training",
+      "subcategory": "Reinforcement Learning",
+      "tagline": "Open reinforcement learning for reasoning models",
+      "status": "live",
+      "links": {
+        "website": "https://www.affine.io",
+        "github": "https://github.com/AffineFoundation/affine",
+        "docs": null,
+        "discord": "https://discord.com/invite/3T9X4Yn23e"
+      },
+      "market_data": {
+        "mcap_tao": 212638.5,
+        "rank": 5
+      },
+      "logo": null,
+      "researched_at": "2026-04-27T20:24:41.207Z",
+      "confidence": "high",
+      "data_gaps": [
+        "Chutes inference token pricing for Affine-I champion model"
+      ]
+    },
+    "sn121_sundae_bar": {
+      "netuid": 121,
+      "name": "Sundae Bar",
+      "category": "Model & Agent Development",
+      "subcategory": "AI Agent Marketplace",
+      "tagline": "Generalist AI agent built for real business workflows",
+      "status": "live",
+      "links": {
+        "website": "https://www.sundaebar.ai",
+        "github": "https://github.com/sundae-bar/bittensor-subnet",
+        "docs": null,
+        "discord": null
+      },
+      "market_data": {
+        "mcap_tao": 21390.9,
+        "rank": 60
+      },
+      "logo": null,
+      "researched_at": "2026-05-01T22:30:00Z",
+      "confidence": "medium",
+      "data_gaps": [
+        "Commercial deployment status and revenue generation"
+      ]
+    },
+    "sn122_bitrecs": {
+      "netuid": 122,
+      "name": "Bitrecs",
+      "category": "Model & Agent Development",
+      "subcategory": "Recommendation Engine",
+      "tagline": "AI-powered product recommendations for Shopify and WooCommerce",
+      "status": "live",
+      "links": {
+        "website": "https://www.bitrecs.ai",
+        "github": null,
+        "docs": "https://www.bitrecs.ai/docs/overview",
+        "discord": null
+      },
+      "market_data": {
+        "mcap_tao": 14095.7,
+        "rank": 92
+      },
+      "logo": null,
+      "researched_at": "2026-05-02T21:10:35Z",
+      "confidence": "high",
+      "data_gaps": [
+        "CHUTES integration details",
+        "benchmark dataset composition",
+        "customer identities"
+      ]
+    },
+    "sn123_mantis": {
+      "netuid": 123,
+      "name": "MANTIS",
+      "category": "Predictive Systems",
+      "subcategory": "Multi-Asset Predictions",
+      "tagline": "Prediction and model iteration platform",
+      "status": "beta",
+      "links": {
+        "website": null,
+        "github": null,
+        "docs": null,
+        "discord": null
+      },
+      "market_data": {
+        "mcap_tao": 13586.3,
+        "rank": 94
+      },
+      "logo": null,
+      "researched_at": "2026-05-01T23:00:00Z",
+      "confidence": "low",
+      "data_gaps": [
+        "Exact prediction domain (financial? scientific?)",
+        "Model iteration tool specifics",
+        "Scoring mechanism"
+      ]
+    },
+    "sn124_swarm": {
+      "netuid": 124,
+      "name": "Swarm",
+      "category": "Robotics",
+      "subcategory": "Robot-to-Robot Autonomous Swarm Testing",
+      "tagline": "Open benchmark for autonomous drone navigation",
+      "status": "live",
+      "links": {
+        "website": "https://swarm124.com",
+        "github": "https://github.com/swarm-subnet/swarm",
+        "docs": null,
+        "discord": null
+      },
+      "market_data": {
+        "mcap_tao": 29935,
+        "rank": 38
+      },
+      "logo": null,
+      "researched_at": "2026-04-28T20:05:00Z",
+      "confidence": "medium",
+      "data_gaps": [
+        "Website URL listed as '#' on bittensor.ai, swarm124.com domain from contact email"
+      ]
+    },
+    "sn125_8_ball": {
+      "netuid": 125,
+      "name": "8 Ball",
+      "category": "Predictive Systems",
+      "subcategory": "Prediction Markets",
+      "tagline": "Prediction markets, trade on crypto, politics, sports, and more",
+      "status": "live",
+      "links": {
+        "website": "https://8ball125.com",
+        "github": "https://github.com/Barbariandev",
+        "docs": null,
+        "discord": null
+      },
+      "market_data": {
+        "mcap_tao": 18791.5,
+        "rank": 73
+      },
+      "logo": null,
+      "researched_at": "2026-04-29T15:50:00.000Z",
+      "confidence": "high",
+      "data_gaps": [
+        "alpha_staked estimated from total supply minus pool",
+        "GitHub org may have public repos under Barbariandev, not verified further"
+      ]
+    },
+    "sn127_astrid": {
+      "netuid": 127,
+      "name": "Astrid",
+      "category": "Finance",
+      "subcategory": "Trading Agent Competition",
+      "tagline": "Trading agent arena, compete for cash prizes",
+      "status": "live",
+      "links": {
+        "website": "https://www.astrid.global",
+        "github": null,
+        "docs": null,
+        "discord": null
+      },
+      "market_data": {
+        "mcap_tao": 14530,
+        "rank": 90
+      },
+      "logo": null,
+      "researched_at": "2026-05-02T21:10:35Z",
+      "confidence": "high",
+      "data_gaps": [
+        "Relationship between Astrid and TaoFi",
+        "Whether subnet is active",
+        "What the actual product is"
+      ]
+    },
+    "sn128_byteleap": {
+      "netuid": 128,
+      "name": "ByteLeap",
+      "category": "Compute & Infrastructure",
+      "subcategory": "GPU Compute",
+      "tagline": "GPU compute marketplace",
+      "status": "live",
+      "links": {
+        "website": "https://byteleap.ai",
+        "github": "https://github.com/byteleapai/byteleap-Validator",
+        "docs": "https://doc.byteleap.ai",
+        "discord": null
+      },
+      "market_data": {
+        "mcap_tao": 13679.1,
+        "rank": 93
+      },
+      "logo": null,
+      "researched_at": "2026-05-01T22:30:00Z",
+      "confidence": "medium",
+      "data_gaps": [
+        "exact task types performed by workers",
+        "scoring algorithm details",
+        "website URL when launched"
+      ]
+    },
+    "sn12_compute_horde": {
+      "netuid": 12,
+      "name": "Compute Horde",
+      "category": "Compute & Infrastructure",
+      "subcategory": "GPU Compute Marketplace",
+      "tagline": "Scalable and trusted GPU computing power",
+      "status": "live",
+      "links": {
+        "website": "https://computehorde.io",
+        "github": "https://github.com/backend-developers-ltd/ComputeHorde",
+        "docs": "https://sdk.computehorde.io/master/",
+        "discord": "https://discordapp.com/channels/799672011265015819/1201941624243109888"
+      },
+      "market_data": {
+        "mcap_tao": 34905.1,
+        "rank": 34
+      },
+      "logo": null,
+      "researched_at": "2026-05-06T17:00:00Z",
+      "confidence": "high",
+      "data_gaps": [
+        "Current GPU pricing may have changed since Oct 2025 target of ~$0.70/hr",
+        "Number of active miners and total GPU capacity over time"
+      ]
+    },
+    "sn13_data_universe": {
+      "netuid": 13,
+      "name": "Data Universe",
+      "category": "Data Pipeline",
+      "subcategory": "Decentralized Data Intelligence",
+      "tagline": "Large-scale social media data for AI and analytics",
+      "status": "live",
+      "links": {
+        "website": "https://www.macrocosmos.ai/gravity",
+        "github": "https://github.com/macrocosm-os/data-universe",
+        "docs": "https://github.com/macrocosm-os/data-universe",
+        "discord": "https://discord.gg/bittensor"
+      },
+      "market_data": {
+        "mcap_tao": 39644.5,
+        "rank": 30
+      },
+      "logo": null,
+      "researched_at": "2026-05-06T17:00:00Z",
+      "confidence": "medium",
+      "data_gaps": []
+    },
+    "sn14_taohash": {
+      "netuid": 14,
+      "name": "TAOHash",
+      "category": "Compute & Infrastructure",
+      "subcategory": "Bitcoin Mining and Hashrate Infrastructure",
+      "tagline": "Collective Bitcoin mining pool with direct BTC payouts",
+      "status": "live",
+      "links": {
+        "website": "https://taohash.com",
+        "github": "https://github.com/latent-to/taohash",
+        "docs": "https://taohash.com/roadmap",
+        "discord": "https://discord.gg/wCvqvKJR7P"
+      },
+      "market_data": {
+        "mcap_tao": 48939.2,
+        "rank": 25
+      },
+      "logo": null,
+      "researched_at": "2026-05-06T17:00:00Z",
+      "confidence": "high",
+      "data_gaps": [
+        "Stratum endpoint URLs for BTC and BCH pool proxies",
+        "Current pool hashrate and mining performance stats"
+      ]
+    },
+    "sn15_oro": {
+      "netuid": 15,
+      "name": "ORO",
+      "category": "Model & Agent Development",
+      "subcategory": "AI Shopping Agents",
+      "tagline": "AI shopping agents for e-commerce",
+      "status": "live",
+      "links": {
+        "website": "https://oroagents.com",
+        "github": "https://github.com/ORO-AI/oro",
+        "docs": null,
+        "discord": "https://discord.gg/MHqAVWTdka"
+      },
+      "market_data": {
+        "mcap_tao": 35394.4,
+        "rank": 33
+      },
+      "logo": null,
+      "researched_at": "2026-04-28T20:07:00Z",
+      "confidence": "medium",
+      "data_gaps": []
+    },
+    "sn16_bitads": {
+      "netuid": 16,
+      "name": "BitAds",
+      "category": "Data Pipeline",
+      "subcategory": "Performance Marketing",
+      "tagline": "Performance-based digital marketing, pay only for verified sales",
+      "status": "live",
+      "links": {
+        "website": "https://bitads.ai",
+        "github": "https://github.com/FirstTensorLabs/BitAds",
+        "docs": null,
+        "discord": "https://discord.gg/qasY3HA9F9"
+      },
+      "market_data": {
+        "mcap_tao": 22862.3,
+        "rank": 53
+      },
+      "logo": null,
+      "researched_at": "2026-04-28T20:10:00Z",
+      "confidence": "medium",
+      "data_gaps": [
+        "Actual merchant adoption and campaign volume"
+      ]
+    },
+    "sn17_404-gen": {
+      "netuid": 17,
+      "name": "404-GEN",
+      "category": "Model & Agent Development",
+      "subcategory": "3D Model Generation",
+      "tagline": "AI-powered 3D model generation",
+      "status": "beta",
+      "links": {
+        "website": "https://www.404.xyz",
+        "github": "https://github.com/404-Repo/404-gen-subnet",
+        "docs": null,
+        "discord": null
+      },
+      "market_data": {
+        "mcap_tao": 64210.4,
+        "rank": 16
+      },
+      "logo": null,
+      "researched_at": "2026-05-06T17:00:00Z",
+      "confidence": "medium",
+      "data_gaps": []
+    },
+    "sn18_zeus": {
+      "netuid": 18,
+      "name": "Zeus",
+      "category": "Science",
+      "subcategory": "Foundational Research",
+      "tagline": "AI weather forecasting beyond state-of-the-art",
+      "status": "live",
+      "links": {
+        "website": "https://www.zeussubnet.com",
+        "github": "https://github.com/Orpheus-AI/Zeus",
+        "docs": "https://github.com/Orpheus-AI/Zeus",
+        "discord": "wouter_orpheusai"
+      },
+      "market_data": {
+        "mcap_tao": 28510.6,
+        "rank": 43
+      },
+      "logo": null,
+      "researched_at": "2026-05-06T17:00:00Z",
+      "confidence": "medium",
+      "data_gaps": [
+        "Whether zeussubnet.com offers public API for forecast data consumption",
+        "Consumer pricing for weather forecast data"
+      ]
+    },
+    "sn19_blockmachine": {
+      "netuid": 19,
+      "name": "Blockmachine",
+      "category": "Compute & Infrastructure",
+      "subcategory": "Cloud Infrastructure",
+      "tagline": "Fast, correct, verifiable blockchain RPC infrastructure",
+      "status": "live",
+      "links": {
+        "website": "https://blockmachine.io",
+        "github": "https://github.com/taostat/blockmachine",
+        "docs": "https://blockmachine.io/docs/ai-agents",
+        "discord": null
+      },
+      "market_data": {
+        "mcap_tao": 66912.3,
+        "rank": 15
+      },
+      "logo": null,
+      "researched_at": "2026-05-06T17:00:00Z",
+      "confidence": "high",
+      "data_gaps": [
+        "Which blockchains are supported, website mentions 'multiple chains' but specific list not confirmed from primary source"
+      ]
+    },
+    "sn1_apex": {
+      "netuid": 1,
+      "name": "Apex",
+      "category": "Model & Agent Development",
+      "subcategory": "Algorithmic Optimization",
+      "tagline": "Open competition platform for algorithmic innovation",
+      "status": "live",
+      "links": {
+        "website": "https://macrocosmos.ai",
+        "github": "https://github.com/macrocosm-os/apex",
+        "docs": "https://docs.macrocosmos.ai/subnets/subnet-1-apex",
+        "discord": "https://discord.gg/vdyz4JZ9Ww"
+      },
+      "market_data": {
+        "mcap_tao": 50466.8,
+        "rank": 23
+      },
+      "logo": null,
+      "researched_at": "2026-05-06T17:00:00Z",
+      "confidence": "medium",
+      "data_gaps": [
+        "Whether Apex results/models are used by external consumers or purely competitive"
+      ]
+    },
+    "sn20_groundlayer": {
+      "netuid": 20,
+      "name": "GroundLayer",
+      "category": "Finance",
+      "subcategory": "OTC Capital Markets",
+      "tagline": "Structured OTC capital layer for crypto tokens",
+      "status": "development",
+      "links": {
+        "website": "https://groundlayer.xyz",
+        "github": "https://github.com/RogueTensor",
+        "docs": null,
+        "discord": null
+      },
+      "market_data": {
+        "mcap_tao": 19621.3,
+        "rank": 66
+      },
+      "logo": null,
+      "researched_at": "2026-04-29T15:35:00Z",
+      "confidence": "high",
+      "data_gaps": [
+        "On-chain description says 'Decentralized AI agents' but website shows capital/OTC focus, may be outdated"
+      ]
+    },
+    "sn21_adtao": {
+      "netuid": 21,
+      "name": "AdTAO",
+      "category": "Marketing & Advertising",
+      "subcategory": "PPC Management",
+      "tagline": "AI-powered Google Ads diagnostic and optimization tool",
+      "status": "live",
+      "links": {
+        "website": "https://ppcrebel.com",
+        "github": null,
+        "docs": null,
+        "discord": null
+      },
+      "market_data": {
+        "mcap_tao": 23240,
+        "rank": 52
+      },
+      "logo": null,
+      "researched_at": "2026-05-10T16:30:00Z",
+      "confidence": "medium",
+      "data_gaps": []
+    },
+    "sn22_desearch": {
+      "netuid": 22,
+      "name": "Desearch",
+      "category": "Data Pipeline",
+      "subcategory": "Search and Data Aggregation",
+      "tagline": "AI-powered search engine with multi-source aggregation",
+      "status": "live",
+      "links": {
+        "website": "https://desearch.ai",
+        "github": "https://github.com/Desearch-ai/subnet-22",
+        "docs": null,
+        "discord": "https://discord.gg/P44zrJmdFy"
+      },
+      "market_data": {
+        "mcap_tao": 24694.4,
+        "rank": 50
+      },
+      "logo": null,
+      "researched_at": "2026-04-28T20:07:00Z",
+      "confidence": "medium",
+      "data_gaps": [
+        "API availability and pricing"
+      ]
+    },
+    "sn23_trishool": {
+      "netuid": 23,
+      "name": "Trishool",
+      "category": "Model & Agent Development",
+      "subcategory": "AI Safety Testing",
+      "tagline": "AI safety engine, adversarial testing for model alignment",
+      "status": "live",
+      "links": {
+        "website": "https://trishool.ai",
+        "github": "https://github.com/TrishoolAI/trishool-phase2",
+        "docs": "https://docs.trishool.ai/",
+        "discord": "https://discord.com/channels/799672011265015819/1437447445176127618"
+      },
+      "market_data": {
+        "mcap_tao": 19940.8,
+        "rank": 64
+      },
+      "logo": null,
+      "researched_at": "2026-04-29T15:45:00Z",
+      "confidence": 0.82,
+      "data_gaps": [
+        "commercial pricing for enterprise auditing",
+        "Guardian model performance metrics"
+      ]
+    },
+    "sn24_quasar": {
+      "netuid": 24,
+      "name": "Quasar",
+      "category": "Model & Agent Development",
+      "subcategory": "Model Serving",
+      "tagline": "Open foundation models for long-context intelligence",
+      "status": "live",
+      "links": {
+        "website": "https://silxinc.com",
+        "github": "https://github.com/SILX-LABS/QUASAR-SUBNET",
+        "docs": null,
+        "discord": "https://discordapp.com/channels/799672011265015819/1214246819886931988"
+      },
+      "market_data": {
+        "mcap_tao": 62019.6,
+        "rank": 18
+      },
+      "logo": null,
+      "researched_at": "2026-05-06T17:00:00Z",
+      "confidence": "medium",
+      "data_gaps": [
+        "Model performance benchmarks, SILX claims frontier-class quality but no independent third-party benchmarks found"
+      ]
+    },
+    "sn25_mainframe": {
+      "netuid": 25,
+      "name": "Mainframe",
+      "category": "Misc",
+      "subcategory": "Molecular Dynamics",
+      "tagline": "This product is no longer active",
+      "status": "deprecated",
+      "links": {
+        "website": "https://macrocosmos.ai/sn25",
+        "github": "https://github.com/macrocosm-os/mainframe",
+        "docs": null,
+        "discord": "mccrinbc"
+      },
+      "market_data": {
+        "mcap_tao": 22518.7,
+        "rank": 55
+      },
+      "logo": null,
+      "researched_at": "2026-05-01T22:30:00Z",
+      "confidence": "medium",
+      "data_gaps": [
+        "Organic API availability"
+      ]
+    },
+    "sn26_beqar": {
+      "netuid": 26,
+      "name": "beqar",
+      "category": "Robotics",
+      "subcategory": "Robotics Evaluation",
+      "tagline": "Generalist robotics policy evaluation via decentralized simulation",
+      "status": "development",
+      "links": {
+        "website": "https://beqar.dev",
+        "github": null,
+        "docs": null,
+        "discord": "https://discord.gg/6sFrH9B4Pa"
+      },
+      "market_data": {
+        "mcap_tao": 8443.1,
+        "rank": 107
+      },
+      "logo": null,
+      "researched_at": "2026-05-10T16:15:00Z",
+      "confidence": "medium",
+      "data_gaps": []
+    },
+    "sn27_nodexo": {
+      "netuid": 27,
+      "name": "Nodexo",
+      "category": "Data Pipeline",
+      "subcategory": "Search",
+      "tagline": "AI site search and shopping assistant that understands what visitors mean, not just what they type",
+      "status": "live",
+      "links": {
+        "website": "https://nobi.ai",
+        "github": "https://github.com/ProjectNobi/project-nobi",
+        "docs": "https://docs.nobi.ai",
+        "discord": "https://discord.com/invite/nodexo"
+      },
+      "market_data": {
+        "mcap_tao": 23128,
+        "rank": 56
+      },
+      "logo": null,
+      "researched_at": "2026-05-12T14:05:00Z",
+      "confidence": "high",
+      "data_gaps": [
+        "Enterprise tier pricing, listed as 'custom', no public rates"
+      ]
+    },
+    "sn28_gm": {
+      "netuid": 28,
+      "name": "Gm",
+      "category": "Misc",
+      "subcategory": "Inactive",
+      "tagline": "This product is no longer active",
+      "status": "development",
+      "links": {
+        "website": null,
+        "github": "https://github.com/sellfish",
+        "docs": null,
+        "discord": null
+      },
+      "market_data": {
+        "mcap_tao": 53800.5,
+        "rank": 22
+      },
+      "logo": null,
+      "researched_at": "2026-05-01T22:30:00Z",
+      "confidence": "low",
+      "data_gaps": []
+    },
+    "sn29_coldint": {
+      "netuid": 29,
+      "name": "Coldint",
+      "category": "Compute & Infrastructure",
+      "subcategory": "Cloud Infrastructure",
+      "tagline": "Cloud compute platform (in development)",
+      "status": "development",
+      "links": {
+        "website": null,
+        "github": "https://github.com/coldint/coldint_validator",
+        "docs": null,
+        "discord": null
+      },
+      "market_data": {
+        "mcap_tao": 28894.7,
+        "rank": 42
+      },
+      "logo": null,
+      "researched_at": "2026-05-01T22:30:00Z",
+      "confidence": "low",
+      "data_gaps": [
+        "Current development status and team plans"
+      ]
+    },
+    "sn2_dsperse": {
+      "netuid": 2,
+      "name": "DSperse",
+      "category": "Compute & Infrastructure",
+      "subcategory": "Verifiable Inference",
+      "tagline": "Verifiable AI inference with zero-knowledge proofs",
+      "status": "live",
+      "links": {
+        "website": "https://subnet2.inferencelabs.com",
+        "github": "https://github.com/inference-labs-inc/subnet-2",
+        "docs": "https://sn2-docs.inferencelabs.com",
+        "discord": "https://discord.gg/inferencelabs"
+      },
+      "market_data": {
+        "mcap_tao": 28999.4,
+        "rank": 40
+      },
+      "logo": null,
+      "researched_at": "2026-05-06T17:00:00Z",
+      "confidence": "high",
+      "data_gaps": [
+        "Whether DSperse inference is accessible via API for end users or purely a research subnet"
+      ]
+    },
+    "sn30_pending": {
+      "netuid": 30,
+      "name": "Pending",
+      "category": "Predictive Systems",
+      "subcategory": "Prediction Markets",
+      "tagline": "Trade on real-world event outcomes",
+      "status": "beta",
+      "links": {
+        "website": "https://wahoopredict.com",
+        "github": null,
+        "docs": null,
+        "discord": null
+      },
+      "market_data": {
+        "mcap_tao": 22421.5,
+        "rank": 56
+      },
+      "logo": null,
+      "researched_at": "2026-05-01T22:30:00Z",
+      "confidence": "medium",
+      "data_gaps": []
+    },
+    "sn32_itsai": {
+      "netuid": 32,
+      "name": "ItsAI",
+      "category": "Model & Agent Development",
+      "subcategory": "AI-Generated Content Detection",
+      "tagline": "Most accurate AI text detector, 99% accuracy",
+      "status": "live",
+      "links": {
+        "website": "https://its-ai.org/en",
+        "github": "https://github.com/It-s-AI/llm-detection",
+        "docs": "https://github.com/It-s-AI/llm-detection/tree/main/docs",
+        "discord": "https://discord.gg/bittensor"
+      },
+      "market_data": {
+        "mcap_tao": 19722.6,
+        "rank": 65
+      },
+      "logo": null,
+      "researched_at": "2026-04-29T15:45:00Z",
+      "confidence": 0.82,
+      "data_gaps": [
+        "exact pricing tiers and amounts"
+      ]
+    },
+    "sn33_readyai": {
+      "netuid": 33,
+      "name": "ReadyAI",
+      "category": "Data Pipeline",
+      "subcategory": "AI-Ready Dataset Curation",
+      "tagline": "Structured web intelligence from 1,230+ domains, agent-ready data via MCP",
+      "status": "live",
+      "links": {
+        "website": "https://readyai.ai",
+        "github": "https://github.com/afterpartyai/llms_txt_store",
+        "docs": "https://readyai.ai/docs",
+        "discord": "https://discord.gg/readyai"
+      },
+      "market_data": {
+        "mcap_tao": 29923.1,
+        "rank": 39
+      },
+      "logo": null,
+      "researched_at": "2026-05-06T17:00:00Z",
+      "confidence": "high",
+      "data_gaps": [
+        "Exact per-query pricing for Builder tier (estimated ~$0.001 from cost calculator)",
+        "MCP npm package not yet publicly released"
+      ]
+    },
+    "sn34_bitmind": {
+      "netuid": 34,
+      "name": "BitMind",
+      "category": "Model & Agent Development",
+      "subcategory": "AI-Generated Content Detection",
+      "tagline": "AI content verification, leader in deepfake detection",
+      "status": "live",
+      "links": {
+        "website": "https://bitmind.ai",
+        "github": "https://github.com/BitMind-AI/bitmind-subnet",
+        "docs": "https://docs.bitmind.ai",
+        "discord": "https://discord.gg/kKQR98CrUn"
+      },
+      "market_data": {
+        "mcap_tao": 63320.1,
+        "rank": 17
+      },
+      "logo": null,
+      "researched_at": "2026-05-06T17:00:00Z",
+      "confidence": "high",
+      "data_gaps": [
+        "Exact Pro tier request limits (listed as '10,000+')"
+      ]
+    },
+    "sn35_oxmarkets": {
+      "netuid": 35,
+      "name": "OxMarkets",
+      "category": "Finance",
+      "subcategory": "Perpetual Futures DEX",
+      "tagline": "Perpetual futures DEX for FX, crypto, and commodities, up to 500x leverage",
+      "status": "live",
+      "links": {
+        "website": "https://www.0xmarkets.io",
+        "github": "https://github.com/General-Tao-Ventures/cartha-validator",
+        "docs": "https://docs.0xmarkets.io/",
+        "discord": "https://discord.gg/sZbt93ANGG"
+      },
+      "market_data": {
+        "mcap_tao": 25071,
+        "rank": 49
+      },
+      "logo": null,
+      "researched_at": "2026-04-28T20:05:00Z",
+      "confidence": "high",
+      "data_gaps": [
+        "APY figures are dynamic and may change, reported at time of research",
+        "Testnet vs mainnet status unclear, app.0xmarkets.io labeled 'Launch Testnet'"
+      ]
+    },
+    "sn37_aurelius": {
+      "netuid": 37,
+      "name": "Aurelius",
+      "category": "Data Pipeline",
+      "subcategory": "Alignment Dataset Generation",
+      "tagline": "Alignment infrastructure for moral reasoning in AI",
+      "status": "live",
+      "links": {
+        "website": "https://aureliusaligned.ai",
+        "github": "https://github.com/Aurelius-Protocol/Aurelius-Protocol",
+        "docs": "https://aureliusaligned.ai/#",
+        "discord": null
+      },
+      "market_data": {
+        "mcap_tao": 19419.7,
+        "rank": 68
+      },
+      "logo": null,
+      "researched_at": "2026-04-29T15:35:00Z",
+      "confidence": "high",
+      "data_gaps": [
+        "API endpoint availability for external consumers"
+      ]
+    },
+    "sn39_deprecated": {
+      "netuid": 39,
+      "name": "Deprecated",
+      "category": "Misc",
+      "subcategory": "Faultless GPU Infrastructure",
+      "tagline": "Deprecated, no longer active",
+      "status": "deprecated",
+      "links": {
+        "website": null,
+        "github": null,
+        "docs": null,
+        "discord": "deprecated"
+      },
+      "market_data": {
+        "mcap_tao": 32941.3,
+        "rank": 35
+      },
+      "logo": null,
+      "researched_at": "2026-04-26T20:36:00Z",
+      "confidence": "high",
+      "data_gaps": []
+    },
+    "sn40_chunking": {
+      "netuid": 40,
+      "name": "Chunking",
+      "category": "Data Pipeline",
+      "subcategory": "Text Chunking",
+      "tagline": "Intelligent text segmentation for RAG systems",
+      "status": "live",
+      "links": {
+        "website": null,
+        "github": "https://github.com/airpdev/chunk",
+        "docs": null,
+        "discord": null
+      },
+      "market_data": {
+        "mcap_tao": 17728.3,
+        "rank": 79
+      },
+      "logo": null,
+      "researched_at": "2026-04-29T15:50:00.000Z",
+      "confidence": "medium",
+      "data_gaps": [
+        "alpha_staked is estimated from (mcap_tao/price_tao) - alpha_in_pool"
+      ]
+    },
+    "sn41_almanac": {
+      "netuid": 41,
+      "name": "Almanac",
+      "category": "Predictive Systems",
+      "subcategory": "Sports Predictions",
+      "tagline": "Sports and event prediction market trading",
+      "status": "live",
+      "links": {
+        "website": "https://almanac.market",
+        "github": "https://github.com/sportstensor/sn41",
+        "docs": null,
+        "discord": null
+      },
+      "market_data": {
+        "mcap_tao": 28981.3,
+        "rank": 41
+      },
+      "logo": null,
+      "researched_at": "2026-04-28T20:07:00Z",
+      "confidence": "medium",
+      "data_gaps": [
+        "Polymarket integration details"
+      ]
+    },
+    "sn42_unknown": {
+      "netuid": 42,
+      "name": "Unknown",
+      "category": "Data Pipeline",
+      "subcategory": "Data Scraping",
+      "tagline": "Real-time web data scraping for AI applications",
+      "status": "live",
+      "links": {
+        "website": "https://gopher-ai.com",
+        "github": "https://github.com/masa-finance/masa-bittensor",
+        "docs": null,
+        "discord": null
+      },
+      "market_data": {
+        "mcap_tao": 17603.3,
+        "rank": 80
+      },
+      "logo": null,
+      "researched_at": "2026-04-29T15:50:00.000Z",
+      "confidence": "medium",
+      "data_gaps": [
+        "alpha_staked estimated from (mcap_tao/price_tao) - alpha_in_pool",
+        "Current subnet owner vs Masa Finance not confirmed, on-chain owner address not verified against Masa",
+        "masa.ai website not fetched directly"
+      ]
+    },
+    "sn43_graphite": {
+      "netuid": 43,
+      "name": "Graphite",
+      "category": "Finance",
+      "subcategory": "Portfolio Optimization",
+      "tagline": "AI-powered portfolio optimization and copy trading",
+      "status": "live",
+      "links": {
+        "website": "https://graphite-ai.net",
+        "github": "https://github.com/GraphiteAI/Graphite-Subnet",
+        "docs": "https://github.com/GraphiteAI/Graphite-Subnet/blob/main/docs",
+        "discord": "https://discord.com/invite/bittensor"
+      },
+      "market_data": {
+        "mcap_tao": 30287.4,
+        "rank": 36
+      },
+      "logo": null,
+      "researched_at": "2026-05-06T17:00:00Z",
+      "confidence": "medium",
+      "data_gaps": [
+        "Current active status of TSP tasks vs portfolio reallocation tasks",
+        "TaoTrader revenue model and fees"
+      ]
+    },
+    "sn44_score": {
+      "netuid": 44,
+      "name": "Score",
+      "category": "Model & Agent Development",
+      "subcategory": "Visual Intelligence and Computer Vision",
+      "tagline": "Making every camera intelligent, computer vision from a text prompt",
+      "status": "live",
+      "links": {
+        "website": "https://www.wearescore.com",
+        "github": "https://github.com/score-technologies/score-vision",
+        "docs": null,
+        "discord": null
+      },
+      "market_data": {
+        "mcap_tao": 213692.5,
+        "rank": 4
+      },
+      "logo": null,
+      "researched_at": "2026-05-06T17:00:00Z",
+      "confidence": "high",
+      "data_gaps": [
+        "API pricing for integration partners",
+        "Partnership deal terms with AVIA, Reading FC, Two-a-Day, Lavance"
+      ]
+    },
+    "sn45_talisman_ai": {
+      "netuid": 45,
+      "name": "Talisman AI",
+      "category": "Predictive Systems",
+      "subcategory": "Crypto Sentiment Analysis",
+      "tagline": "Real-time crypto sentiment and alpha signals",
+      "status": "live",
+      "links": {
+        "website": "https://ai.talisman.xyz",
+        "github": "https://github.com/Team-Rizzo/talisman-ai",
+        "docs": null,
+        "discord": null
+      },
+      "market_data": {
+        "mcap_tao": 18229.3,
+        "rank": 77
+      },
+      "logo": null,
+      "researched_at": "2026-04-29T15:38:00Z",
+      "confidence": "high",
+      "data_gaps": [
+        "whether ai.talisman.xyz has dedicated subnet content vs. redirect to talisman.xyz main site",
+        "Phase 2 and Phase 3 timelines"
+      ]
+    },
+    "sn46_resi": {
+      "netuid": 46,
+      "name": "RESI",
+      "category": "Predictive Systems",
+      "subcategory": "Real Estate Price Prediction",
+      "tagline": "The Real Estate Oracle, institutional-grade property price predictions",
+      "status": "live",
+      "links": {
+        "website": "https://resilabs.ai",
+        "github": "https://github.com/resi-labs-ai/RESI-models",
+        "docs": "https://docs.resilabs.ai/",
+        "discord": "https://discord.gg/fpDQ6tHEXb"
+      },
+      "market_data": {
+        "mcap_tao": 45563.4,
+        "rank": 27
+      },
+      "logo": null,
+      "researched_at": "2026-05-01T22:30:00Z",
+      "confidence": "medium",
+      "data_gaps": [
+        "Dashboard functionality and data coverage, dashboard.resilabs.ai requires login",
+        "$15K all-time revenue figure (from Discord, not independently verified)"
+      ]
+    },
+    "sn48_quantum_compute": {
+      "netuid": 48,
+      "name": "Quantum Compute",
+      "category": "Compute & Infrastructure",
+      "subcategory": "Advanced Quantum Computing Network",
+      "tagline": "Access real quantum computers via the cloud",
+      "status": "live",
+      "links": {
+        "website": "https://www.qbittensorlabs.com",
+        "github": "https://github.com/qbittensor-labs/quantum-compute",
+        "docs": null,
+        "discord": "qbittensorlabs"
+      },
+      "market_data": {
+        "mcap_tao": 25813,
+        "rank": 48
+      },
+      "logo": null,
+      "researched_at": "2026-05-01T22:30:00Z",
+      "confidence": "medium",
+      "data_gaps": [
+        "Alpine Quantum Technologies partnership, confirmed in Discord by team, not on website"
+      ]
+    },
+    "sn50_synth": {
+      "netuid": 50,
+      "name": "Synth",
+      "category": "Predictive Systems",
+      "subcategory": "Synthetic Data and Predictions",
+      "tagline": "Predictive intelligence for financial markets and beyond",
+      "status": "live",
+      "links": {
+        "website": "https://synthdata.co",
+        "github": "https://github.com/synthdataco/synth-subnet",
+        "docs": "https://api.synthdata.co/docs",
+        "discord": "https://discord.gg/gnt8sFMdg6"
+      },
+      "market_data": {
+        "mcap_tao": 41127.2,
+        "rank": 29
+      },
+      "logo": null,
+      "researched_at": "2026-05-06T17:00:00Z",
+      "confidence": "high",
+      "data_gaps": []
+    },
+    "sn51_lium": {
+      "netuid": 51,
+      "name": "Lium",
+      "category": "Compute & Infrastructure",
+      "subcategory": "GPU Rental Marketplace",
+      "tagline": "Peer-to-peer GPU rental marketplace",
+      "status": "live",
+      "links": {
+        "website": "https://lium.io",
+        "github": "https://github.com/Datura-ai/lium-io",
+        "docs": "https://docs.lium.io",
+        "discord": "https://discord.com/channels/799672011265015819/1291754566957928469"
+      },
+      "market_data": {
+        "mcap_tao": 288724.4,
+        "rank": 3
+      },
+      "logo": null,
+      "researched_at": "2026-05-06T17:00:00Z",
+      "confidence": "medium",
+      "data_gaps": [
+        "Specific per-GPU hourly pricing, marketplace dynamic, not publicly listed"
+      ]
+    },
+    "sn52_dojo": {
+      "netuid": 52,
+      "name": "Dojo",
+      "category": "Misc",
+      "subcategory": "Human-Annotated Data and Labeling",
+      "tagline": "This product is no longer active",
+      "status": "deprecated",
+      "links": {
+        "website": "https://dojo.network",
+        "github": "https://github.com/tensorplex-labs/dojo",
+        "docs": "https://docs.tensorplex.ai/tensorplex-docs/tensorplex-dojo-bittensor-subnet",
+        "discord": null
+      },
+      "market_data": {
+        "mcap_tao": 36847.4,
+        "rank": 31
+      },
+      "logo": null,
+      "researched_at": "2026-04-27T20:24:41.207Z",
+      "confidence": "high",
+      "data_gaps": [
+        "Whether the team plans to relaunch"
+      ]
+    },
+    "sn53_efficientfrontier": {
+      "netuid": 53,
+      "name": "EfficientFrontier",
+      "category": "Finance",
+      "subcategory": "Strategy Vaults",
+      "tagline": "Institutional-grade trading strategies for the masses",
+      "status": "live",
+      "links": {
+        "website": "https://www.effrontier.com",
+        "github": "https://github.com/EfficientFrontier-SignalPlus/EfficientFrontier",
+        "docs": null,
+        "discord": null
+      },
+      "market_data": {
+        "mcap_tao": 27526.8,
+        "rank": 44
+      },
+      "logo": null,
+      "researched_at": "2026-05-01T22:30:00Z",
+      "confidence": "medium",
+      "data_gaps": [
+        "SignalPlus connection, mentioned in third-party sources but not confirmed on-chain"
+      ]
+    },
+    "sn54_yanez_miid": {
+      "netuid": 54,
+      "name": "Yanez MIID",
+      "category": "Data Pipeline",
+      "subcategory": "Identity Verification Data",
+      "tagline": "Synthetic identity data for fraud detection and KYC testing",
+      "status": "live",
+      "links": {
+        "website": "https://www.yanez.ai",
+        "github": "https://github.com/yanez-compliance/MIID-subnet",
+        "docs": "https://github.com/yanez-compliance/MIID-subnet",
+        "discord": "https://discord.com/channels/799672011265015819/1351934165964296232"
+      },
+      "market_data": {
+        "mcap_tao": 30247.6,
+        "rank": 37
+      },
+      "logo": null,
+      "researched_at": "2026-04-27T20:24:41.207Z",
+      "confidence": "high",
+      "data_gaps": [
+        "Existing paying clients mentioned in on-chain description, unverified",
+        "Yanez Compliance website and pricing"
+      ]
+    },
+    "sn55_niome": {
+      "netuid": 55,
+      "name": "NIOME",
+      "category": "Science",
+      "subcategory": "Synthetic Genomic Data",
+      "tagline": "Privacy-safe synthetic genomic data for pharma research",
+      "status": "beta",
+      "links": {
+        "website": "https://niome.genomes.io",
+        "github": "https://github.com/genomesio/subnet-niome",
+        "docs": "https://github.com/genomesio/subnet-niome/tree/main/docs",
+        "discord": "https://discord.com/invite/bittensor"
+      },
+      "market_data": {
+        "mcap_tao": 23995.5,
+        "rank": 51
+      },
+      "logo": null,
+      "researched_at": "2026-05-01T23:00:00Z",
+      "confidence": "high",
+      "data_gaps": [
+        "launch date (website said Q1 2026 but subnet is registered)",
+        "actual API availability and pricing"
+      ]
+    },
+    "sn56_gradients": {
+      "netuid": 56,
+      "name": "Gradients",
+      "category": "Model & Agent Development",
+      "subcategory": "On-Demand Model Fine-Tuning",
+      "tagline": "Anyone can train AI, fine-tune models without ML expertise",
+      "status": "live",
+      "links": {
+        "website": "https://www.gradients.io",
+        "github": "https://github.com/gradients-ai/G.O.D",
+        "docs": "https://www.gradients.io/platform",
+        "discord": "None"
+      },
+      "market_data": {
+        "mcap_tao": 107995.6,
+        "rank": 9
+      },
+      "logo": null,
+      "researched_at": "2026-05-06T17:00:00Z",
+      "confidence": "high",
+      "data_gaps": [
+        "Free tier availability, no free tier found but not explicitly confirmed absent"
+      ]
+    },
+    "sn58_handshake": {
+      "netuid": 58,
+      "name": "Handshake",
+      "category": "Model & Agent Development",
+      "subcategory": "AI Marketplace",
+      "tagline": "AI provider marketplace with trustless micropayments",
+      "status": "live",
+      "links": {
+        "website": "https://handshake58.com",
+        "github": "https://github.com/Handshake58/HS58",
+        "docs": null,
+        "discord": null
+      },
+      "market_data": {
+        "mcap_tao": 21445.1,
+        "rank": 59
+      },
+      "logo": null,
+      "researched_at": "2026-05-01T23:00:00Z",
+      "confidence": "medium",
+      "data_gaps": [
+        "Provider pricing and availability"
+      ]
+    },
+    "sn59_babelbit": {
+      "netuid": 59,
+      "name": "Babelbit",
+      "category": "Model & Agent Development",
+      "subcategory": "Speech & Language",
+      "tagline": "Real-time speech-to-speech translation that interprets, not just translates",
+      "status": "live",
+      "links": {
+        "website": "https://babelbit.ai",
+        "github": "https://github.com/babelbit/babelbit_subnet",
+        "docs": null,
+        "discord": "https://discord.com/channels/799672011265015819/1407849009976053832"
+      },
+      "market_data": {
+        "mcap_tao": 19347.7,
+        "rank": 69
+      },
+      "logo": null,
+      "researched_at": "2026-04-29T15:35:00Z",
+      "confidence": 0.75,
+      "data_gaps": [
+        "Exact launch date",
+        "Number of active miners",
+        "Translation quality benchmarks"
+      ]
+    },
+    "sn60_bitsec": {
+      "netuid": 60,
+      "name": "Bitsec.ai",
+      "category": "Model & Agent Development",
+      "subcategory": "Software Security Agents",
+      "tagline": "AI-powered security agents that find and fix code vulnerabilities",
+      "status": "live",
+      "links": {
+        "website": "https://bitsec.ai",
+        "github": "https://github.com/Bitsec-AI/subnet",
+        "docs": null,
+        "discord": "yubo"
+      },
+      "market_data": {
+        "mcap_tao": 18553.2,
+        "rank": 75
+      },
+      "logo": null,
+      "researched_at": "2026-04-29T15:35:00Z",
+      "confidence": "medium",
+      "data_gaps": [
+        "Exact pricing tiers for commercial audits"
+      ]
+    },
+    "sn61_redteam": {
+      "netuid": 61,
+      "name": "RedTeam",
+      "category": "Model & Agent Development",
+      "subcategory": "Red Team AI",
+      "tagline": "Cybersecurity challenge platform for breaking detection mechanisms",
+      "status": "live",
+      "links": {
+        "website": "https://www.theredteam.io",
+        "github": "https://github.com/RedTeamSubnet/RedTeam",
+        "docs": "https://docs.theredteam.io",
+        "discord": "https://discord.com/channels/799672011265015819/1319313447435108413"
+      },
+      "market_data": {
+        "mcap_tao": 22170.3,
+        "rank": 57
+      },
+      "logo": null,
+      "researched_at": "2026-04-29T15:38:00Z",
+      "confidence": "medium",
+      "data_gaps": [
+        "specific challenge types currently active",
+        "whether solutions are publicly accessible or licensed to products"
+      ]
+    },
+    "sn62_ridges": {
+      "netuid": 62,
+      "name": "Ridges",
+      "category": "Model & Agent Development",
+      "subcategory": "Software Development Agents",
+      "tagline": "Decentralized AI software engineering agents, autonomous code, debug, and PR",
+      "status": "live",
+      "links": {
+        "website": "https://www.ridges.ai",
+        "github": "https://github.com/ridgesai/ridges",
+        "docs": null,
+        "discord": "https://discord.gg/bittensor"
+      },
+      "market_data": {
+        "mcap_tao": 90027.9,
+        "rank": 13
+      },
+      "logo": null,
+      "researched_at": "2026-05-06T17:00:00Z",
+      "confidence": "medium",
+      "data_gaps": [
+        "Exact current pricing, sourced from LinkedIn (Dec 2024) and interview (Oct 2025); may have changed",
+        "SWE-bench scores (73-88% Verified), from third-party interview, not confirmed on primary site",
+        "USD payout amounts for miners"
+      ]
+    },
+    "sn63_enigma": {
+      "netuid": 63,
+      "name": "Enigma",
+      "category": "Compute & Infrastructure",
+      "subcategory": "Advancing Quantum Compute Networks",
+      "tagline": "Quantum circuit challenges, advancing quantum computing research",
+      "status": "live",
+      "links": {
+        "website": "https://www.qbittensorlabs.com",
+        "github": null,
+        "docs": null,
+        "discord": "qbittensorlabs"
+      },
+      "market_data": {
+        "mcap_tao": 44463.7,
+        "rank": 28
+      },
+      "logo": null,
+      "researched_at": "2026-04-26T20:44:00Z",
+      "confidence": "medium",
+      "data_gaps": [
+        "Whether any real quantum hardware (not just simulators) is currently being used by miners"
+      ]
+    },
+    "sn64_chutes": {
+      "netuid": 64,
+      "name": "Chutes",
+      "category": "Compute & Infrastructure",
+      "subcategory": "Serverless AI Compute",
+      "tagline": "Serverless AI compute for open-source models",
+      "status": "live",
+      "links": {
+        "website": "https://chutes.ai",
+        "github": "https://github.com/chutesai/chutes",
+        "docs": "https://docs.chutes.ai",
+        "discord": "https://discord.gg/chutes"
+      },
+      "market_data": {
+        "mcap_tao": 386890.9,
+        "rank": 1
+      },
+      "logo": null,
+      "researched_at": "2026-05-06T17:00:00Z",
+      "confidence": "high",
+      "data_gaps": [
+        "Enterprise tier pricing, listed as 'custom/contact sales', no public rates",
+        "Exact request limits per subscription tier, pricing page says 'View limits' but links to app login"
+      ]
+    },
+    "sn65_tao_private_network": {
+      "netuid": 65,
+      "name": "TAO Private Network",
+      "category": "Compute & Infrastructure",
+      "subcategory": "Proxy / VPN Infrastructure",
+      "tagline": "Distributed routing for modern enterprises",
+      "status": "live",
+      "links": {
+        "website": "https://taoprivatenetwork.com",
+        "github": "https://github.com/taofu-labs/tpn-subnet",
+        "docs": "https://api.taoprivatenetwork.com/docs",
+        "discord": "https://discord.gg/taoprivatenetwork"
+      },
+      "market_data": {
+        "mcap_tao": 18752.4,
+        "rank": 74
+      },
+      "logo": null,
+      "researched_at": "2026-05-10T16:15:00Z",
+      "confidence": "high",
+      "data_gaps": [
+        "Actual number of residential IPs in the pool",
+        "Geographic coverage specifics"
+      ]
+    },
+    "sn66_ninja": {
+      "netuid": 66,
+      "name": "Ninja",
+      "category": "Model & Agent Development",
+      "subcategory": "Software Agents",
+      "tagline": "Coding agent competition platform, king of the hill AI duels",
+      "status": "live",
+      "links": {
+        "website": "https://ninja.arbos.life",
+        "github": "https://github.com/unarbos/tau",
+        "docs": null,
+        "discord": "arbos"
+      },
+      "market_data": {
+        "mcap_tao": 60135.2,
+        "rank": 20
+      },
+      "logo": null,
+      "researched_at": "2026-05-06T17:00:00Z",
+      "confidence": "high",
+      "data_gaps": [
+        "Terraform/GCP sandbox validation, described on ICM Analytics but not confirmed from primary source"
+      ]
+    },
+    "sn68_nova": {
+      "netuid": 68,
+      "name": "NOVA",
+      "category": "Science",
+      "subcategory": "Drug Discovery and Design",
+      "tagline": "Open drug screening, compound discovery and nanobody design",
+      "status": "live",
+      "links": {
+        "website": "https://www.metanova-labs.ai",
+        "github": "https://github.com/metanova-labs/nova",
+        "docs": "https://www.metanova-labs.ai/whitepapers",
+        "discord": "https://discord.com/invite/bittensor"
+      },
+      "market_data": {
+        "mcap_tao": 98021.8,
+        "rank": 12
+      },
+      "logo": null,
+      "researched_at": "2026-05-06T17:00:00Z",
+      "confidence": "medium",
+      "data_gaps": [
+        "Yalotein partnership status, announced via Twitter, not confirmed on either party's website",
+        "Novalyst guide tool, mentioned but no direct URL found"
+      ]
+    },
+    "sn69_unknown": {
+      "netuid": 69,
+      "name": "Unknown",
+      "category": "Misc",
+      "subcategory": "Unknown",
+      "tagline": "This slot is inactive",
+      "status": "development",
+      "links": {
+        "website": null,
+        "github": null,
+        "docs": null,
+        "discord": null
+      },
+      "market_data": {
+        "mcap_tao": 13348,
+        "rank": 95
+      },
+      "logo": null,
+      "researched_at": "2026-05-01T22:30:00Z",
+      "confidence": "low",
+      "data_gaps": []
+    },
+    "sn6_numinous": {
+      "netuid": 6,
+      "name": "Numinous",
+      "category": "Predictive Systems",
+      "subcategory": "Event Prediction",
+      "tagline": "Superhuman AI forecasting agents",
+      "status": "live",
+      "links": {
+        "website": "https://numinouslabs.io",
+        "github": "https://github.com/numinouslabs/numinous",
+        "docs": null,
+        "discord": "amedeo_ma"
+      },
+      "market_data": {
+        "mcap_tao": 21738.7,
+        "rank": 58
+      },
+      "logo": null,
+      "researched_at": "2026-04-28T20:10:00Z",
+      "confidence": "medium",
+      "data_gaps": [
+        "Tool API availability and rate limits for agents"
+      ]
+    },
+    "sn71_leadpoet": {
+      "netuid": 71,
+      "name": "Leadpoet",
+      "category": "Data Pipeline",
+      "subcategory": "Marketing and Lead Data Generation",
+      "tagline": "Intent-driven AI for modern sales teams",
+      "status": "live",
+      "links": {
+        "website": "https://leadpoet.com",
+        "github": "https://github.com/leadpoet/leadpoet",
+        "docs": null,
+        "discord": null
+      },
+      "market_data": {
+        "mcap_tao": 26064.7,
+        "rank": 47
+      },
+      "logo": null,
+      "researched_at": "2026-04-28T20:05:00Z",
+      "confidence": "medium",
+      "data_gaps": [
+        "API availability mentioned on website footer but no public docs found"
+      ]
+    },
+    "sn72_streetvision": {
+      "netuid": 72,
+      "name": "StreetVision",
+      "category": "Data Pipeline",
+      "subcategory": "Street-Level Vision Data",
+      "tagline": "Street-level vision data for autonomous driving and smart maps",
+      "status": "live",
+      "links": {
+        "website": "https://natix.network",
+        "github": null,
+        "docs": "https://docs.natix.network/whitepaper/",
+        "discord": null
+      },
+      "market_data": {
+        "mcap_tao": 16034.9,
+        "rank": 85
+      },
+      "logo": null,
+      "researched_at": "2026-04-29T15:50:00.000Z",
+      "confidence": "medium",
+      "data_gaps": [
+        "$NATIX token integration details",
+        "miner setup requirements",
+        "data API access for buyers"
+      ]
+    },
+    "sn73_parked": {
+      "netuid": 73,
+      "name": "Parked",
+      "category": "Finance",
+      "subcategory": "VTO Market",
+      "tagline": "Treasury management and capital allocation system",
+      "status": "beta",
+      "links": {
+        "website": null,
+        "github": "https://github.com/fx-integral/merit",
+        "docs": null,
+        "discord": null
+      },
+      "market_data": {
+        "mcap_tao": 19953.5,
+        "rank": 63
+      },
+      "logo": null,
+      "researched_at": "2026-05-01T23:00:00Z",
+      "confidence": "medium",
+      "data_gaps": [
+        "tao_locked estimated as TVL/2 (15473τ / 2 = 7737τ)",
+        "alpha_in_pool estimated from tao_locked / price_tao",
+        "alpha_staked estimated from total supply minus pool",
+        "Unclear if fx-integral/merit (Merit subnet) is current operator of SN73 or historical"
+      ]
+    },
+    "sn74_gittensor": {
+      "netuid": 74,
+      "name": "Gittensor",
+      "category": "Model & Agent Development",
+      "subcategory": "Software Agents",
+      "tagline": "The workforce for open source, earn by contributing code",
+      "status": "live",
+      "links": {
+        "website": "https://gittensor.io",
+        "github": "https://github.com/entrius/gittensor",
+        "docs": "https://docs.gittensor.io/",
+        "discord": " "
+      },
+      "market_data": {
+        "mcap_tao": 27343.8,
+        "rank": 45
+      },
+      "logo": null,
+      "researched_at": "2026-04-28T20:07:00Z",
+      "confidence": "medium",
+      "data_gaps": [
+        "Monthly reward pool amount is dynamic and changes with token price"
+      ]
+    },
+    "sn75_hippius": {
+      "netuid": 75,
+      "name": "Hippius",
+      "category": "Compute & Infrastructure",
+      "subcategory": "Decentralized Storage",
+      "tagline": "Decentralized cloud storage with S3 compatibility",
+      "status": "live",
+      "links": {
+        "website": "https://hippius.com",
+        "github": "https://github.com/thenervelab/thebrain",
+        "docs": "https://docs.hippius.com",
+        "discord": "https://discord.hippius.com"
+      },
+      "market_data": {
+        "mcap_tao": 103671.1,
+        "rank": 10
+      },
+      "logo": null,
+      "researched_at": "2026-05-06T17:00:00Z",
+      "confidence": "high",
+      "data_gaps": [
+        "Virtual machine (VM) pricing, not listed on pricing page",
+        "App hosting pricing, not listed on pricing page",
+        "Arion Storage pricing vs S3 storage pricing"
+      ]
+    },
+    "sn77_liquidity": {
+      "netuid": 77,
+      "name": "Liquidity",
+      "category": "Finance",
+      "subcategory": "Liquidity Provision",
+      "tagline": "Decentralized liquidity pools",
+      "status": "live",
+      "links": {
+        "website": "https://sn77.xyz",
+        "github": "https://github.com/creativebuilds/sn77",
+        "docs": null,
+        "discord": "CreativeBuilds"
+      },
+      "market_data": {
+        "mcap_tao": 18164.9,
+        "rank": 78
+      },
+      "logo": null,
+      "researched_at": "2026-04-29T15:45:00Z",
+      "confidence": 0.45,
+      "data_gaps": [
+        "exact pool mechanics",
+        "miner incentive structure"
+      ]
+    },
+    "sn78_vocence": {
+      "netuid": 78,
+      "name": "Vocence",
+      "category": "AI & Machine Learning",
+      "subcategory": "Voice AI / Text-to-Speech",
+      "tagline": "The voice layer for decentralized intelligence",
+      "status": "live",
+      "links": {
+        "website": "https://www.vocence.ai",
+        "github": "https://github.com/vocence-78/vocence",
+        "docs": "https://www.vocence.ai/docs",
+        "discord": "https://discord.gg/TWmfwJAtXG"
+      },
+      "market_data": {
+        "mcap_tao": 2555.5,
+        "rank": 127
+      },
+      "logo": null,
+      "researched_at": "2026-05-10T16:15:00Z",
+      "confidence": "high",
+      "data_gaps": []
+    },
+    "sn79_mvtrx": {
+      "netuid": 79,
+      "name": "MVTRX",
+      "category": "Finance",
+      "subcategory": "Exchange Infrastructure",
+      "tagline": "Live crypto exchange with institutional-grade market data",
+      "status": "live",
+      "links": {
+        "website": "https://mvtrx.exchange",
+        "github": "https://github.com/taos-im/sn-79",
+        "docs": "https://simulate.trading/taos-im-paper",
+        "discord": "https://discord.com/channels/799672011265015819/1353733356470276096"
+      },
+      "market_data": {
+        "mcap_tao": 54251.9,
+        "rank": 21
+      },
+      "logo": null,
+      "researched_at": "2026-05-06T17:00:00Z",
+      "confidence": "high",
+      "data_gaps": [
+        "Whether the dTAO exchange product (beyond simulation) has launched or is in development"
+      ]
+    },
+    "sn7_allways": {
+      "netuid": 7,
+      "name": "Allways",
+      "category": "Finance",
+      "subcategory": "Cross-Chain Swaps",
+      "tagline": "Trustless native cross-chain swaps, no bridges, no wrapping",
+      "status": "beta",
+      "links": {
+        "website": "https://all-ways.io",
+        "github": "https://github.com/entrius/allways",
+        "docs": null,
+        "discord": " "
+      },
+      "market_data": {
+        "mcap_tao": 19573.7,
+        "rank": 67
+      },
+      "logo": null,
+      "researched_at": "2026-04-29T15:38:00Z",
+      "confidence": "medium",
+      "data_gaps": [
+        "swap fee structure",
+        "smart contract address / chain deployed on",
+        "current liquidity depth"
+      ]
+    },
+    "sn81_deprecated": {
+      "netuid": 81,
+      "name": "Deprecated",
+      "category": "Misc",
+      "subcategory": "Verifiable Inference and Training",
+      "tagline": "Deprecated, no longer active",
+      "status": "deprecated",
+      "links": {
+        "website": null,
+        "github": null,
+        "docs": null,
+        "discord": "deprecated"
+      },
+      "market_data": {
+        "mcap_tao": 36718.6,
+        "rank": 32
+      },
+      "logo": null,
+      "researched_at": "2026-04-26T20:36:00Z",
+      "confidence": "high",
+      "data_gaps": []
+    },
+    "sn83_cliqueai": {
+      "netuid": 83,
+      "name": "CliqueAI",
+      "category": "Model & Agent Development",
+      "subcategory": "Computational Mathematics",
+      "tagline": "AI-powered graph optimization solver",
+      "status": "live",
+      "links": {
+        "website": "https://cliqueai.toptensor.ai",
+        "github": "https://github.com/toptensor/CliqueAI",
+        "docs": null,
+        "discord": null
+      },
+      "market_data": {
+        "mcap_tao": 18391.4,
+        "rank": 76
+      },
+      "logo": null,
+      "researched_at": "2026-05-02T21:10:35Z",
+      "confidence": "medium",
+      "data_gaps": [
+        "problem difficulty progression roadmap",
+        "external use cases beyond research"
+      ]
+    },
+    "sn84_chipforge": {
+      "netuid": 84,
+      "name": "ChipForge",
+      "category": "Compute & Infrastructure",
+      "subcategory": "AI Chip Design",
+      "tagline": "AI-native semiconductor design, from sketch to verified hardware",
+      "status": "beta",
+      "links": {
+        "website": "https://chipforge.ai",
+        "github": null,
+        "docs": null,
+        "discord": null
+      },
+      "market_data": {
+        "mcap_tao": 7020.9,
+        "rank": 112
+      },
+      "logo": null,
+      "researched_at": "2026-05-02T21:10:35Z",
+      "confidence": "medium",
+      "data_gaps": [
+        "Challenge scoring methodology details",
+        "CoralNPU target specifications",
+        "Revenue model when product ships"
+      ]
+    },
+    "sn85_vidaio": {
+      "netuid": 85,
+      "name": "Vidaio",
+      "category": "Compute & Infrastructure",
+      "subcategory": "Video Processing",
+      "tagline": "AI-powered video upscaling and compression",
+      "status": "live",
+      "links": {
+        "website": "https://vidaio.io",
+        "github": "https://github.com/vidAio-subnet/vidaio-subnet",
+        "docs": "https://github.com/vidAio-subnet/vidaio-subnet/blob/main/docs",
+        "discord": "https://discord.gg/xhn4jxJMEX"
+      },
+      "market_data": {
+        "mcap_tao": 48943.8,
+        "rank": 24
+      },
+      "logo": null,
+      "researched_at": "2026-05-06T17:00:00Z",
+      "confidence": "medium",
+      "data_gaps": [
+        "Cost reduction claims (up to 80% compression), sourced from third-party analysis",
+        "Whether public API is live or still in roadmap Phase 6"
+      ]
+    },
+    "sn88_investing": {
+      "netuid": 88,
+      "name": "Investing",
+      "category": "Predictive Systems",
+      "subcategory": "Systematic Trading Strategies",
+      "tagline": "AI-powered portfolio management, the 88 Quant Fund",
+      "status": "live",
+      "links": {
+        "website": "https://investing88.ai",
+        "github": "https://github.com/mobiusfund/investing",
+        "docs": null,
+        "discord": null
+      },
+      "market_data": {
+        "mcap_tao": 18984.6,
+        "rank": 71
+      },
+      "logo": null,
+      "researched_at": "2026-05-02T21:10:35Z",
+      "confidence": "medium",
+      "data_gaps": [
+        "AUM app launch date",
+        "Public Index open enrollment timeline",
+        "GitHub repository URL"
+      ]
+    },
+    "sn89_infinitehash": {
+      "netuid": 89,
+      "name": "InfiniteHash",
+      "category": "Compute & Infrastructure",
+      "subcategory": "Decentralized Bitcoin Mining",
+      "tagline": "Bitcoin mining pool with Lightning Network infrastructure",
+      "status": "live",
+      "links": {
+        "website": "https://www.infinitehash.xyz",
+        "github": "https://github.com/backend-developers-ltd/InfiniteHash",
+        "docs": "https://github.com/backend-developers-ltd/InfiniteHash/blob/master/installer/README.md",
+        "discord": null
+      },
+      "market_data": {
+        "mcap_tao": 14968.4,
+        "rank": 88
+      },
+      "logo": null,
+      "researched_at": "2026-04-29T15:50:00.000Z",
+      "confidence": "high",
+      "data_gaps": [
+        "Lightning Network phase status",
+        "pool fee structure",
+        "relationship with Infinite Quant"
+      ]
+    },
+    "sn93_bitcast": {
+      "netuid": 93,
+      "name": "Bitcast",
+      "category": "Data Pipeline",
+      "subcategory": "Creator Marketing",
+      "tagline": "Decentralized creator marketing on X/Twitter, Stitch3 rewards tweets about real projects",
+      "status": "live",
+      "links": {
+        "website": "https://www.bitcast.network",
+        "github": "https://github.com/bitcast-network/bitcast-x",
+        "docs": null,
+        "discord": "https://discord.com/invite/bittensor"
+      },
+      "market_data": {
+        "mcap_tao": 61898.1,
+        "rank": 19
+      },
+      "logo": null,
+      "researched_at": "2026-05-06T17:00:00Z",
+      "confidence": "high",
+      "data_gaps": [
+        "Exact reward formula details (7-day moving average of watch time)",
+        "Number of active creators and campaigns as of April 2026"
+      ]
+    },
+    "sn95_unknown": {
+      "netuid": 95,
+      "name": "Actual",
+      "category": "Compute & Infrastructure",
+      "subcategory": "Compute-Optimized Inference Networks",
+      "tagline": "AI inference on Apple Silicon (in development)",
+      "status": "live",
+      "links": {
+        "website": "https://actual.computer",
+        "github": null,
+        "docs": null,
+        "discord": null
+      },
+      "market_data": {
+        "mcap_tao": 86373.4,
+        "rank": 14
+      },
+      "logo": null,
+      "researched_at": "2026-05-02T21:10:35Z",
+      "confidence": "low",
+      "data_gaps": [
+        "What the subnet actually does, completely unknown"
+      ]
+    },
+    "sn96_verathos": {
+      "netuid": 96,
+      "name": "Verathos",
+      "category": "Compute & Infrastructure",
+      "subcategory": "Serverless Inference",
+      "tagline": "Verified intelligence for everyone, AI you can verify, not trust",
+      "status": "live",
+      "links": {
+        "website": "https://verathos.ai",
+        "github": "https://github.com/verathos-ai/verathos",
+        "docs": "https://verathos.ai/docs",
+        "discord": null
+      },
+      "market_data": {
+        "mcap_tao": 681,
+        "rank": 128
+      },
+      "logo": null,
+      "researched_at": "2026-05-12T14:05:00Z",
+      "confidence": "high",
+      "data_gaps": [
+        "x402 payment integration, documented but not independently tested",
+        "Verified training, described as 'in testing', not yet active on network"
+      ]
+    },
+    "sn97_distil": {
+      "netuid": 97,
+      "name": "Distil",
+      "category": "Model & Agent Development",
+      "subcategory": "Model Distillation",
+      "tagline": "Competitive model distillation, smaller AI models that outperform larger ones",
+      "status": "live",
+      "links": {
+        "website": "https://distil.arbos.life",
+        "github": "https://github.com/unarbos/distil",
+        "docs": "https://github.com/unarbos/distil/blob/main/docs/MINER_FAQ.md",
+        "discord": "@Arbos"
+      },
+      "market_data": {
+        "mcap_tao": 17022.3,
+        "rank": 81
+      },
+      "logo": null,
+      "researched_at": "2026-04-29T15:35:00Z",
+      "confidence": 0.88,
+      "data_gaps": [
+        "Current king model identity",
+        "Number of active miners",
+        "Exact emission schedule"
+      ]
+    },
+    "sn98_forevermoney": {
+      "netuid": 98,
+      "name": "ForeverMoney",
+      "category": "Finance",
+      "subcategory": "Automated Liquidity Management",
+      "tagline": "Automated Uniswap V3 and Aerodrome liquidity management",
+      "status": "live",
+      "links": {
+        "website": "https://forevermoney.ai",
+        "github": "https://github.com/SN98-ForeverMoney/forever-money",
+        "docs": "https://docs.forevermoney.ai",
+        "discord": null
+      },
+      "market_data": {
+        "mcap_tao": 15909.1,
+        "rank": 86
+      },
+      "logo": null,
+      "researched_at": "2026-04-29T15:49:00.000Z",
+      "confidence": "high",
+      "data_gaps": [
+        "Revenue model / validator income",
+        "Current active pools",
+        "Total TVL in vaults"
+      ]
+    }
+  }
+}

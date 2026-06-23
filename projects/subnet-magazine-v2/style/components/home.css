@@ -1,0 +1,3311 @@
+/* =================================================================
+   SUBNET MAGAZINE, HOME
+   -----------------------------------------------------------------
+   The magazine cover below the hero icosphere + validator globe:
+     .home-net       LIVE NETWORK band, six real on-chain stats
+     .home-subnets   TOP SUBNETS, top-12 by market cap, real logos
+     .home-sections  SECTIONS nav, six cards into every page
+     .home-foot      colophon
+   Red-on-black, terminal-grade. Tokens only, no color literals.
+   ================================================================= */
+
+/* ---------- COVER ---------- */
+.home-cover{
+  position: relative;
+  border-bottom: var(--b-thin);
+  overflow: hidden;
+  isolation: isolate;
+}
+.home-cover__art{
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+}
+.home-cover__inner{
+  max-width: var(--max-w);
+  margin: 0 auto;
+  padding: clamp(48px, 8vw, 104px) var(--gutter);
+}
+.home-cover__meta{
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--s-2) var(--s-5);
+  font-family: var(--f-mono);
+  font-size: var(--t-xs);
+  letter-spacing: var(--ls-label);
+  text-transform: uppercase;
+  color: var(--c-red-1);
+}
+.home-cover__title{
+  margin: var(--s-5) 0 0;
+  max-width: 18ch;
+  font-family: var(--f-serif);
+  font-size: var(--t-display);
+  font-weight: 300;
+  line-height: var(--lh-tight);
+  letter-spacing: var(--ls-display);
+  color: var(--c-ink-1);
+}
+.home-cover__title em{ font-style: italic; color: var(--c-red); }
+.home-cover__dek{
+  margin: var(--s-6) 0 0;
+  max-width: 56ch;
+  font-family: var(--f-sans);
+  font-size: var(--t-lg);
+  line-height: var(--lh-loose);
+  color: var(--c-ink-2);
+}
+
+/* ---------- shared section heads ---------- */
+.home-net,
+.home-subnets,
+.home-sections,
+.home-research,
+.home-neural,
+.home-vals,
+.home-how,
+.home-bios{
+  max-width: var(--max-w);
+  margin: 0 auto;
+  padding: clamp(26px, 4vw, 52px) var(--gutter);
+  border-bottom: var(--b-thin);
+}
+
+/* ---------- TOP VALIDATORS, horizontal scroll rail ---------- */
+.home-vals__rail{
+  list-style: none;
+  margin: var(--s-4) calc(var(--gutter) * -1) 0;
+  padding: var(--s-1) var(--gutter) var(--s-4);
+  display: flex;
+  gap: var(--s-3);
+  overflow-x: auto;
+  overscroll-behavior-x: contain;
+  scroll-snap-type: x proximity;
+  scrollbar-width: thin;
+  scrollbar-color: var(--c-rule-3) transparent;
+}
+.home-vals__rail::-webkit-scrollbar{ height: 6px; }
+.home-vals__rail::-webkit-scrollbar-thumb{ background: var(--c-rule-3); }
+
+.home-val{
+  flex: 0 0 clamp(248px, 70vw, 296px);
+  scroll-snap-align: start;
+}
+.home-val__link{
+  display: flex;
+  flex-direction: column;
+  gap: var(--s-2);
+  padding: var(--s-4);
+  height: 100%;
+  background: var(--c-bg-2);
+  border: var(--b-thin);
+  text-decoration: none;
+  transition: background var(--d-fast) var(--e-out),
+              border-color var(--d-fast) var(--e-out);
+}
+.home-val__link:hover{
+  background: var(--c-bg-3);
+  border-color: var(--c-rule-2);
+}
+.home-val__head{
+  display: flex; justify-content: space-between; align-items: baseline;
+}
+.home-val__rank{
+  font-family: var(--f-mono); font-size: var(--t-sm); font-weight: 700;
+  color: var(--c-red-1); letter-spacing: var(--ls-data);
+}
+.home-val__country{
+  font-family: var(--f-mono); font-size: var(--t-xs);
+  color: var(--c-ink-3); letter-spacing: var(--ls-label);
+}
+.home-val__name{
+  font-family: var(--f-sans); font-size: var(--t-md); font-weight: 600;
+  color: var(--c-ink-1);
+  overflow: hidden; text-overflow: ellipsis; white-space: nowrap;
+}
+.home-val__hotkey{
+  font-family: var(--f-mono); font-size: var(--t-xs);
+  color: var(--c-ink-3); letter-spacing: var(--ls-data);
+}
+.home-val__spark{
+  display: block; width: 100%; height: 30px;
+}
+.home-val__spark canvas{ display: block; width: 100%; height: 100%; }
+.home-val__stats{
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 4px var(--s-3);
+  padding-top: var(--s-2);
+  border-top: var(--b-thin);
+}
+.home-val__stat{ display: flex; flex-direction: column; gap: 2px; }
+.home-val__stat .lbl{
+  font-family: var(--f-mono); font-size: var(--t-xs);
+  color: var(--c-ink-3); letter-spacing: var(--ls-label);
+  text-transform: uppercase;
+}
+.home-val__stat .val{
+  font-family: var(--f-mono); font-size: var(--t-sm); font-weight: 700;
+  color: var(--c-ink-1); letter-spacing: var(--ls-data);
+}
+.home-val__stat .val.up{ color: var(--c-up); }
+/* a section's running header sits in a hairline-framed strip, the
+   whole page reads as one terminal, not stacked magazine spreads */
+.home-net__head,
+.home-research__head,
+.home-subnets__head{
+  position: relative;
+  padding-left: var(--s-4);
+}
+.home-net__head::before,
+.home-research__head::before,
+.home-subnets__head::before{
+  content: "";
+  position: absolute;
+  left: 0; top: 2px; bottom: 2px;
+  width: 2px;
+  background: var(--c-red);
+}
+
+/* ---------- NEURAL / INFOGRAPHIC panels ---------- */
+.home-neural__canvas{
+  position: relative;
+  margin-top: var(--s-5);
+  height: clamp(380px, 56vw, 480px);
+  border: var(--b-thin);
+  overflow: hidden;
+  background:
+    radial-gradient(circle at 50% 0%, var(--c-red-trace), transparent 70%),
+    var(--c-bg-1);
+}
+.home-neural__canvas canvas{ display: block; width: 100%; height: 100%; }
+/* the infographic readout strip, the terminal caption under the diagram */
+.home-neural__foot{
+  position: absolute;
+  left: 0; right: 0; bottom: 0;
+  display: flex;
+  justify-content: space-between;
+  gap: var(--s-4);
+  padding: var(--s-2) var(--s-3);
+  background: linear-gradient(transparent, rgba(10,3,6,.92));
+  font-family: var(--f-mono);
+  font-size: var(--t-xs);
+  letter-spacing: var(--ls-label);
+  text-transform: uppercase;
+  color: var(--c-red-1);
+  pointer-events: none;
+}
+.home-neural__foot span:last-child{ color: var(--c-ink-3); white-space: nowrap; }
+/* `--block` variant: caption sits in its own band below the canvas
+   rather than overlaying it, so it never covers the bottom tiles of
+   a treemap or the lower nodes of a plexus. */
+.home-neural__foot--block{
+  position: static;
+  margin-top: var(--s-3);
+  padding: var(--s-2) 0;
+  background: transparent;
+  border-top: var(--b-thin);
+}
+
+/* ---------- FEATURED RESEARCH (top of page) ---------- */
+.home-research__head{
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: var(--s-6);
+  margin-bottom: var(--s-5);
+}
+/* a sideways-scrolling rail, articles run across, not down the page */
+.home-research__grid{
+  list-style: none;
+  margin: 0 calc(var(--gutter) * -1);
+  padding: var(--s-1) var(--gutter) var(--s-4);
+  display: flex;
+  gap: var(--s-3);
+  overflow-x: auto;
+  overscroll-behavior-x: contain;
+  scroll-snap-type: x proximity;
+  scrollbar-width: thin;
+  scrollbar-color: var(--c-rule-3) transparent;
+}
+.home-research__grid::-webkit-scrollbar{ height: 6px; }
+.home-research__grid::-webkit-scrollbar-thumb{ background: var(--c-rule-3); }
+.home-article{
+  display: block;
+  flex: 0 0 clamp(264px, 74vw, 320px);
+  scroll-snap-align: start;
+}
+.home-article.is-lead{ flex-basis: clamp(300px, 82vw, 392px); }
+.home-article__link{
+  position: relative;
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-areas:
+    "art"
+    "kicker"
+    "title"
+    "tag"
+    "meta";
+  align-content: start;
+  gap: var(--s-2);
+  height: 100%;
+  padding: var(--s-5);
+  background:
+    linear-gradient(180deg, rgba(255,30,60,.04), transparent 36%),
+    var(--c-bg-2);
+  border: var(--b-thin);
+  text-decoration: none;
+  transform-style: preserve-3d;
+  transition: background var(--d-fast) var(--e-out),
+              border-color var(--d-fast) var(--e-out),
+              transform .26s var(--e-out),
+              box-shadow .26s var(--e-out);
+  will-change: transform;
+}
+/* 2026 polish: a thin diagonal sheen across the card on hover, the
+   way 2026 marketing pages render glassmorphic cards. Card lifts
+   slightly and casts a soft red glow. */
+.home-article__link::after{
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(115deg, transparent 30%, rgba(255,30,60,.14) 50%, transparent 70%);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity .24s var(--e-out);
+}
+.home-article__link:hover{
+  background:
+    linear-gradient(180deg, rgba(255,30,60,.06), transparent 36%),
+    var(--c-bg-3);
+  border-color: var(--c-rule-3);
+  transform: translateY(-3px);
+  box-shadow: 0 18px 40px -22px rgba(255,30,60,.45);
+}
+.home-article__link:hover::after{ opacity: 1; }
+.home-article__link:hover .home-article__art svg{ transform: scale(1.04); }
+
+/* generative art banner, full-bleed to the card edges */
+.home-article__art{
+  grid-area: art;
+  position: relative;
+  display: block;
+  margin: calc(var(--s-5) * -1) calc(var(--s-5) * -1) var(--s-3);
+  height: 128px;
+  overflow: hidden;
+  border-bottom: var(--b-thin);
+  line-height: 0;
+}
+.home-article__art svg{
+  width: 100%; height: 100%; display: block;
+  transition: transform var(--d-base) var(--e-out);
+}
+.home-article__art-frame{
+  position: absolute; inset: 0;
+  pointer-events: none;
+  background:
+    linear-gradient(transparent 58%, var(--c-bg-2)),
+    repeating-linear-gradient(0deg, rgba(255,30,60,.05) 0 1px, transparent 1px 4px);
+}
+/* token-price chip, every article tagged with its market, the way
+   a news feed tags each story with a ticker */
+.home-article__price{
+  position: absolute;
+  top: var(--s-2); right: var(--s-2);
+  display: inline-flex; align-items: baseline; gap: 5px;
+  padding: 3px var(--s-2);
+  background: rgba(10,3,6,.86);
+  border: 1px solid var(--c-rule-2);
+  font-family: var(--f-mono);
+  font-size: var(--t-xs);
+  letter-spacing: var(--ls-data);
+  line-height: 1;
+}
+.home-article__price-sym{ color: var(--c-red-1); font-weight: 600; }
+
+/* the cover logo badge, subnet generative mark or the official τ */
+.home-article__logo{
+  position: absolute;
+  top: var(--s-2); left: var(--s-2);
+  width: 48px; height: 48px;
+  display: flex; align-items: center; justify-content: center;
+  background: rgba(10,3,6,.86);
+  border: 1px solid var(--c-rule-2);
+  border-radius: 50%;
+  overflow: hidden;
+  color: var(--c-ink-1);
+}
+.home-article__logo > svg{ width: 100%; height: 100%; display: block; }
+/* the bittensor τ chip, a white disc with the black mark, tightly cropped */
+.home-article__logo--tau{ padding: 3px; background: var(--c-ink-1); }
+.home-article__logo--tau img{
+  width: 100%; height: 100%;
+  display: block;
+  object-fit: contain;
+}
+/* when a real subnet logo lands from the live feed it covers the badge */
+.home-article__logo .home-article__logo-img{
+  width: 100%; height: 100%;
+  object-fit: cover;
+  border-radius: 50%;
+  display: block;
+}
+.home-article__price-val{ color: var(--c-ink-1); font-weight: 600; }
+.home-article__price-chg{ font-weight: 600; }
+.home-article__price.up   .home-article__price-chg{ color: var(--c-up); }
+.home-article__price.down .home-article__price-chg{ color: var(--c-down); }
+
+/* External-link cards (X interviews, podcasts), small ↗ glyph in
+   the top-left of the cover art, plus an underline shimmer on
+   hover so the card reads as "this opens off-site". */
+.home-article__ext-glyph{
+  position: absolute;
+  top: var(--s-2); left: var(--s-2);
+  width: 24px; height: 24px;
+  display: grid; place-items: center;
+  background: rgba(255,30,60,.18);
+  border: 1px solid var(--c-rule-3);
+  border-radius: 999px;
+  font-family: var(--f-mono);
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--c-red);
+  z-index: 2;
+  backdrop-filter: blur(4px);
+}
+.home-article.is-ext .home-article__kicker{
+  color: var(--c-red);
+}
+.home-article__kicker{
+  grid-area: kicker;
+  font-family: var(--f-mono);
+  font-size: var(--t-xs);
+  letter-spacing: var(--ls-label);
+  text-transform: uppercase;
+  color: var(--c-red-1);
+}
+.home-article__title{
+  grid-area: title;
+  margin-top: var(--s-1);
+  font-family: var(--f-serif);
+  font-size: var(--t-xl);
+  font-weight: 400;
+  line-height: var(--lh-snug);
+  color: var(--c-ink-1);
+}
+.home-article__tagline{
+  grid-area: tag;
+  margin-top: 0;
+  font-family: var(--f-sans);
+  font-size: var(--t-sm);
+  line-height: var(--lh-loose);
+  color: var(--c-ink-3);
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+.home-article__meta{
+  grid-area: meta;
+  margin-top: var(--s-2);
+  padding-top: var(--s-3);
+  border-top: var(--b-thin);
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--s-1) var(--s-4);
+  justify-content: space-between;
+  font-family: var(--f-mono);
+  font-size: var(--t-xs);
+  letter-spacing: var(--ls-data);
+  color: var(--c-ink-4);
+}
+.home-article.is-lead .home-article__title{ font-size: var(--t-2xl); }
+.home-article.is-lead .home-article__tagline{
+  font-size: var(--t-md);
+  -webkit-line-clamp: 4;
+}
+
+/* 2026 polish: section heads now sit on a faint top-anchored red wash
+   so each section is visually "lit" instead of floating. A 1px red
+   highlight runs along the top hairline to give the boundary
+   movement, the way a Bloomberg pane has its accent rail. */
+.home-net__head{
+  position: relative;
+  margin-bottom: var(--s-6);
+  padding-top: var(--s-4);
+}
+.home-net__head::before{
+  content: "";
+  position: absolute;
+  inset: 0;
+  top: -1px;
+  height: 88px;
+  background: radial-gradient(80% 100% at 12% 0%, var(--c-red-trace), transparent 70%);
+  pointer-events: none;
+  z-index: -1;
+}
+.home-net__head::after{
+  content: "";
+  position: absolute;
+  top: -1px; left: 0;
+  width: 96px;
+  height: 1px;
+  background: linear-gradient(90deg, var(--c-red), transparent);
+}
+
+/* AI-2026 data-lineage chip sitting under each kicker. Says exactly
+   where the section's numbers come from: LIVE feed, EDITORIAL desk,
+   or SIMULATED visualisation. Color of the leading dot encodes the
+   type, green for live, red for editorial, faded for simulated.
+   The credibility moat: every other site labels everything "LIVE"
+   regardless of whether it is. */
+.home-net__source{
+  display: inline-flex; align-items: center; gap: 5px;
+  margin-top: var(--s-2);
+  padding: 3px 9px;
+  border: 1px solid var(--c-rule-2);
+  border-radius: 999px;
+  background: rgba(255,30,60,.03);
+  font-family: var(--f-mono);
+  font-size: 9.5px;
+  font-weight: 600;
+  letter-spacing: var(--ls-label);
+  text-transform: uppercase;
+  color: var(--c-ink-3);
+  white-space: nowrap;
+  align-self: start;
+}
+.home-net__source .dot{
+  width: 5px; height: 5px;
+  border-radius: 50%;
+  background: var(--c-red);
+  flex: 0 0 5px;
+}
+.home-net__source .dot--live{
+  background: var(--c-up);
+  box-shadow: 0 0 6px var(--c-up);
+  animation: livePulse var(--d-pulse) ease-in-out infinite;
+}
+.home-net__source .dot--editorial{
+  background: var(--c-red);
+  box-shadow: 0 0 6px var(--c-red-pulse);
+}
+.home-net__source .dot--sim{
+  background: var(--c-ink-3);
+}
+
+/* The "§ NN" ordinal pill that prefixes each section's kicker. Reads
+   as a magazine-spread folio: it numbers the page sections so the
+   whole home view feels editorialised, not a scroll of unconnected
+   widgets. */
+.home-net__ord{
+  display: inline-flex;
+  align-items: center;
+  height: 18px;
+  padding: 0 8px;
+  margin-right: var(--s-2);
+  border: 1px solid var(--c-rule-2);
+  border-radius: 999px;
+  background: rgba(255, 30, 60, .06);
+  color: var(--c-red);
+  font-family: var(--f-mono);
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: .04em;
+  text-transform: none;
+  white-space: nowrap;
+}
+
+.home-net__kicker{
+  display: inline-flex;
+  align-items: center;
+  gap: var(--s-2);
+  font-family: var(--f-mono);
+  font-size: var(--t-xs);
+  letter-spacing: var(--ls-label);
+  text-transform: uppercase;
+  color: var(--c-red-1);
+}
+
+.live-dot{
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--c-red);
+  box-shadow: 0 0 0 0 var(--c-red-pulse);
+  animation: home-pulse var(--d-pulse) var(--e-in-out) infinite;
+}
+@keyframes home-pulse{
+  0%   { box-shadow: 0 0 0 0 var(--c-red-pulse); }
+  70%  { box-shadow: 0 0 0 7px rgba(255,30,60,0); }
+  100% { box-shadow: 0 0 0 0 rgba(255,30,60,0); }
+}
+
+.home-net__title{
+  margin: var(--s-3) 0 0;
+  font-family: var(--f-serif);
+  font-size: var(--t-3xl);
+  font-weight: 300;
+  line-height: var(--lh-tight);
+  letter-spacing: var(--ls-display);
+  color: var(--c-ink-1);
+}
+.home-net__title em{
+  font-style: italic;
+  color: var(--c-red);
+}
+
+.home-net__sub{
+  margin: var(--s-4) 0 0;
+  max-width: 62ch;
+  font-family: var(--f-sans);
+  font-size: var(--t-md);
+  line-height: var(--lh-loose);
+  color: var(--c-ink-3);
+}
+
+/* ---------- LIVE NETWORK band ---------- */
+.home-net__grid{
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  gap: 1px;
+  background: var(--c-rule);
+  border: var(--b-thin);
+}
+.home-stat{
+  display: flex;
+  flex-direction: column;
+  gap: var(--s-1);
+  padding: var(--s-4) var(--s-4) var(--s-3);
+  background: var(--c-bg-2);
+}
+.home-stat--lead{ background: var(--c-bg-3); }
+
+/* micro-trend under each stat */
+.home-stat__spark{
+  display: block;
+  width: 100%;
+  height: 28px;
+  margin-top: var(--s-3);
+}
+.home-stat__spark canvas{ display: block; width: 100%; height: 100%; }
+
+.home-stat__lbl{
+  font-family: var(--f-mono);
+  font-size: var(--t-xs);
+  letter-spacing: var(--ls-label);
+  text-transform: uppercase;
+  color: var(--c-ink-3);
+}
+.home-stat__val{
+  font-family: var(--f-mono);
+  font-size: var(--t-xl);
+  font-weight: 600;
+  letter-spacing: var(--ls-data);
+  color: var(--c-ink-1);
+}
+.home-stat--lead .home-stat__val{ color: var(--c-red); }
+.home-stat__sub{
+  font-family: var(--f-mono);
+  font-size: var(--t-xs);
+  letter-spacing: var(--ls-data);
+  color: var(--c-ink-3);
+}
+.home-stat__sub.up{ color: var(--c-up); }
+.home-stat__sub.down{ color: var(--c-down); }
+
+/* ---------- TOP SUBNETS ---------- */
+.home-subnets__head{
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: var(--s-6);
+  margin-bottom: var(--s-6);
+}
+.home-subnets__all{
+  flex: none;
+  font-family: var(--f-mono);
+  font-size: var(--t-sm);
+  letter-spacing: var(--ls-data);
+  color: var(--c-red-1);
+  text-decoration: none;
+  padding-bottom: var(--s-1);
+  border-bottom: 1px solid transparent;
+  transition: border-color var(--d-fast) var(--e-out);
+}
+.home-subnets__all:hover{ border-bottom-color: var(--c-red); }
+
+.home-subnets__grid{
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: var(--s-3);
+}
+.home-subnet{ display: block; }
+
+.home-subnet__link{
+  display: grid;
+  grid-template-columns: auto auto 1fr;
+  grid-template-areas:
+    "rank logo id"
+    "rank logo name"
+    "spark spark spark"
+    "price price chg"
+    "mcap  mcap  mcap";
+  align-items: center;
+  gap: var(--s-1) var(--s-3);
+  padding: var(--s-4);
+  background: var(--c-bg-2);
+  border: var(--b-thin);
+  text-decoration: none;
+  transition: background var(--d-fast) var(--e-out),
+              border-color var(--d-fast) var(--e-out);
+}
+.home-subnet__link:hover{
+  background: var(--c-bg-3);
+  border-color: var(--c-rule-2);
+}
+
+.home-subnet__rank{
+  grid-area: rank;
+  font-family: var(--f-mono);
+  font-size: var(--t-xs);
+  color: var(--c-ink-4);
+}
+.home-subnet__logo-wrap{
+  grid-area: logo;
+  width: 32px;
+  height: 32px;
+}
+.home-subnet__logo{
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  object-fit: cover;
+  background: var(--c-bg-4);
+}
+.home-subnet__logo-fallback{
+  display: block;
+  width: 32px;
+  height: 32px;
+  line-height: 0;
+}
+.home-subnet__logo-fallback svg{ display: block; }
+
+.home-subnet__spark{
+  grid-area: spark;
+  display: block;
+  width: 100%;
+  height: 34px;
+  margin-top: var(--s-2);
+}
+.home-subnet__spark canvas{
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+.home-subnet__id{
+  grid-area: id;
+  font-family: var(--f-mono);
+  font-size: var(--t-xs);
+  letter-spacing: var(--ls-data);
+  color: var(--c-red-1);
+}
+.home-subnet__name{
+  grid-area: name;
+  font-family: var(--f-sans);
+  font-size: var(--t-md);
+  font-weight: 600;
+  color: var(--c-ink-1);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.home-subnet__price{
+  grid-area: price;
+  margin-top: var(--s-2);
+  font-family: var(--f-mono);
+  font-size: var(--t-base);
+  color: var(--c-ink-1);
+}
+.home-subnet__chg{
+  grid-area: chg;
+  margin-top: var(--s-2);
+  text-align: right;
+  font-family: var(--f-mono);
+  font-size: var(--t-sm);
+}
+.home-subnet__chg.up{ color: var(--c-up); }
+.home-subnet__chg.down{ color: var(--c-down); }
+.home-subnet__mcap{
+  grid-area: mcap;
+  font-family: var(--f-mono);
+  font-size: var(--t-xs);
+  letter-spacing: var(--ls-data);
+  color: var(--c-ink-3);
+}
+
+/* loading skeleton */
+.home-subnet.is-loading{
+  height: 178px;
+  border: var(--b-thin);
+  background: var(--c-bg-2);
+  overflow: hidden;
+}
+.home-subnet__skeleton{
+  display: block;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg,
+    var(--c-bg-2) 0%, var(--c-bg-3) 50%, var(--c-bg-2) 100%);
+  background-size: 200% 100%;
+  animation: home-shimmer 1.4s linear infinite;
+}
+@keyframes home-shimmer{
+  0%   { background-position: 200% 0; }
+  100% { background-position: -200% 0; }
+}
+
+/* ---------- SECTIONS nav ---------- */
+.home-sections{ border-bottom: none; }
+.home-sections__grid{
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--s-3);
+}
+.home-section{ display: block; }
+.home-section__link{
+  display: flex;
+  flex-direction: column;
+  gap: var(--s-3);
+  height: 100%;
+  padding: var(--s-6);
+  background: var(--c-bg-2);
+  border: var(--b-thin);
+  text-decoration: none;
+  transition: background var(--d-fast) var(--e-out),
+              border-color var(--d-fast) var(--e-out);
+}
+.home-section__link:hover{
+  background: var(--c-bg-3);
+  border-color: var(--c-rule-3);
+}
+.home-section__code{
+  font-family: var(--f-mono);
+  font-size: var(--t-xs);
+  letter-spacing: var(--ls-data);
+  color: var(--c-red);
+}
+.home-section__label{
+  font-family: var(--f-serif);
+  font-size: var(--t-xl);
+  font-weight: 400;
+  color: var(--c-ink-1);
+}
+.home-section__desc{
+  font-family: var(--f-sans);
+  font-size: var(--t-sm);
+  line-height: var(--lh-loose);
+  color: var(--c-ink-3);
+  flex: 1;
+}
+.home-section__go{
+  font-family: var(--f-mono);
+  font-size: var(--t-xs);
+  letter-spacing: var(--ls-label);
+  text-transform: uppercase;
+  color: var(--c-red-1);
+}
+
+/* ---------- colophon ---------- */
+.home-foot{
+  max-width: var(--max-w);
+  margin: 0 auto;
+  padding: var(--s-10) var(--gutter);
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--s-3) var(--s-8);
+  justify-content: space-between;
+  align-items: center;
+  border-top: var(--b-thin);
+  font-family: var(--f-mono);
+  font-size: var(--t-xs);
+  letter-spacing: var(--ls-data);
+  color: var(--c-ink-4);
+}
+.home-foot__x{
+  color: var(--c-red-1);
+  text-decoration: none;
+  border: 1px solid var(--c-rule-2);
+  padding: var(--s-1) var(--s-3);
+  border-radius: var(--r-1);
+  transition: border-color var(--d-fast) var(--e-out),
+              background var(--d-fast) var(--e-out);
+}
+.home-foot__x:hover{
+  border-color: var(--c-rule-3);
+  background: var(--c-bg-3);
+}
+
+/* ---------- § 03 THE MONEY MAP · david vs goliath ----------
+   The lead visual is a log-scale proportional bar chart showing the
+   centralized market and the Bittensor α-mcap to scale for every
+   layer of the AI stack. The detail cards below give the specifics
+   per layer. Heavy section break so it doesn't blur into the bios
+   rail above or the protocol pipeline below. */
+.home-stack{
+  position: relative;
+  max-width: none;
+  margin: clamp(48px, 8vw, 96px) 0 0;
+  padding: clamp(56px, 8vw, 112px) 0 clamp(48px, 7vw, 88px);
+  background:
+    radial-gradient(80% 30% at 50% 0%, rgba(255,30,60,.10), transparent 70%),
+    linear-gradient(180deg, var(--c-bg-1), var(--c-bg));
+  border-top: 4px solid var(--c-red);
+  border-bottom: 4px solid var(--c-red);
+  isolation: isolate;
+}
+.home-stack::before{
+  /* a subtle inner divider so the band reads as one panel */
+  content: "";
+  position: absolute;
+  top: 1px; left: 0; right: 0;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--c-red-1), transparent);
+  pointer-events: none;
+}
+.home-stack__hero,
+.home-stack__detail-head,
+.home-stack__rows,
+.home-stack__thesis,
+.home-stack__foot{
+  max-width: var(--max-w);
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: var(--gutter);
+  padding-right: var(--gutter);
+}
+.home-stack__hero{ margin-bottom: clamp(28px, 4vw, 56px); }
+.home-stack__detail-head{ margin-top: clamp(28px, 4vw, 56px); margin-bottom: var(--s-4); }
+.home-stack__detail-kicker{
+  font-family: var(--f-mono);
+  font-size: var(--t-xs);
+  font-weight: 700;
+  letter-spacing: var(--ls-label);
+  text-transform: uppercase;
+  color: var(--c-red);
+}
+.home-stack__detail-sub{
+  margin: 4px 0 0;
+  max-width: 64ch;
+  font-family: var(--f-sans);
+  font-size: var(--t-md);
+  line-height: var(--lh-loose);
+  color: var(--c-ink-2);
+}
+
+/* Reader primer · one-paragraph glossary explaining the α-token
+   vocabulary before the chart. Subtle gray ground, italic body,
+   small red "PRIMER" tag in the corner. Lives inside the chart
+   panel above the axes. */
+.home-stack__gloss{
+  display: flex; gap: var(--s-3);
+  margin-bottom: var(--s-4);
+  padding: var(--s-3) var(--s-4);
+  background: rgba(255,255,255,.03);
+  border-left: 2px solid var(--c-red);
+  border-radius: 0 4px 4px 0;
+}
+.home-stack__gloss-tag{
+  flex: 0 0 auto;
+  display: inline-flex; align-items: center;
+  padding: 2px 8px;
+  height: 18px;
+  background: var(--c-red);
+  color: var(--c-bg);
+  border-radius: 999px;
+  font-family: var(--f-mono);
+  font-size: 9.5px;
+  font-weight: 700;
+  letter-spacing: var(--ls-label);
+  text-transform: uppercase;
+  align-self: start;
+}
+.home-stack__gloss p{
+  margin: 0;
+  font-family: var(--f-serif);
+  font-size: var(--t-md);
+  font-style: italic;
+  line-height: 1.5;
+  color: var(--c-ink-2);
+}
+.home-stack__gloss strong{
+  font-style: normal;
+  font-weight: 700;
+  color: var(--c-ink-1);
+}
+.home-stack__gloss em{
+  font-style: italic;
+  color: var(--c-red-1);
+}
+
+/* small parenthetical "(α price × supply)" appended to chart axis */
+.home-stack__deftag{
+  font-family: var(--f-mono);
+  font-size: 9px;
+  font-weight: 500;
+  letter-spacing: 0;
+  text-transform: none;
+  color: var(--c-ink-2);
+  margin-left: 4px;
+}
+
+/* small sub-label under the BITTENSOR α-MCAP big number in each
+   Money Map detail card, explains what α-MCAP actually is */
+.home-stack__capital-sub{
+  font-family: var(--f-mono);
+  font-size: 10px;
+  font-weight: 500;
+  letter-spacing: 0;
+  text-transform: none;
+  color: var(--c-ink-2);
+  font-style: italic;
+}
+
+/* ---------- the lead chart ---------- */
+.home-stack__chart{
+  margin-top: clamp(24px, 4vw, 48px);
+  padding: clamp(16px, 2.5vw, 28px);
+  background: var(--c-bg-2);
+  border: 1px solid var(--c-rule-3);
+  border-radius: 6px;
+  box-shadow:
+    0 0 0 1px rgba(255,30,60,.08) inset,
+    0 24px 60px -32px rgba(255,30,60,.35);
+}
+.home-stack__chart-head{
+  /* Global column-header was a 3-col grid aligned with the old
+     row layout. Now each row carries its own LAYER / $cap /
+     $bittensor / gap labels inline, so the global header is
+     redundant. Hidden. */
+  display: none;
+}
+.home-stack__chart-axis-bar{
+  display: flex;
+  align-items: end;
+  justify-content: space-between;
+  gap: var(--s-3);
+  min-width: 0;
+}
+.home-stack__chart-axis{
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.home-stack__chart-axis--c{ color: var(--c-ink-2); }
+.home-stack__chart-axis--b{
+  color: var(--c-red);
+  text-align: right;
+}
+.home-stack__chart-axis--gap{
+  color: var(--c-red-1);
+  text-align: right;
+}
+
+@media (max-width: 720px){
+  /* on phone, drop "BITTENSOR " prefix to just the symbol so the
+     two-line head doesn't get crushed */
+  .home-stack__chart-head{
+    grid-template-columns: clamp(70px, 13%, 92px) 1fr clamp(48px, 10%, 70px);
+    column-gap: var(--s-2);
+    font-size: 9px;
+  }
+}
+.home-stack__chart-rows{
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex; flex-direction: column;
+  gap: 8px;
+}
+.home-stack__chart-row{
+  /* per-layer card: a head row with the layer name + price labels
+     + gap, then a full-width bar below it. cleaner than the old
+     three-column grid that floated the layer name beside a
+     bar-with-labels-on-top and read awkwardly on phones. */
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  padding: 4px 0;
+}
+.home-stack__chart-head-row{
+  display: grid;
+  grid-template-columns: 1fr auto auto auto;
+  align-items: baseline;
+  column-gap: var(--s-3);
+  font-family: var(--f-mono);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: var(--ls-data);
+  font-variant-numeric: tabular-nums;
+  line-height: 1.1;
+}
+@media (max-width: 720px){
+  .home-stack__chart-head-row{ column-gap: var(--s-2); font-size: 10.5px; }
+}
+.home-stack__chart-layer{
+  font-family: var(--f-mono);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: var(--ls-label);
+  color: var(--c-ink-1);
+  white-space: nowrap;
+  display: inline-flex; align-items: center; gap: 5px;
+}
+.home-stack__chart-conf{
+  display: inline-block;
+  width: 6px; height: 6px;
+  border-radius: 50%;
+}
+.home-stack__chart-axis--gap{
+  color: var(--c-red-1);
+  text-align: right;
+  flex: 0 0 auto;
+}
+/* Tiny year tag rendered alongside the centralized $ value
+   inside its bar. Was rendering on its own line under the price
+   because the cap container was a grid that wrapped the inline
+   span; restyled here so it stays inline with the price text
+   and is brighter so it doesn't read as a paint smudge. Hidden
+   on phones, there's no room for it inside a 60-px-ish bar,
+   and the SOURCES line below the chart carries the same dates. */
+.home-stack__chart-yr{
+  display: inline;
+  margin-left: 6px;
+  font-size: 9px;
+  font-weight: 700;
+  color: var(--c-ink-2);
+  letter-spacing: var(--ls-label);
+  text-transform: uppercase;
+  opacity: .85;
+}
+@media (max-width: 720px){
+  .home-stack__chart-yr{ display: none; }
+}
+.home-stack__chart-gap{
+  font-family: var(--f-mono);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: var(--ls-data);
+  color: var(--c-red);
+  text-align: right;
+  font-variant-numeric: tabular-nums;
+  white-space: nowrap;
+}
+.home-stack__chart-gap.is-inverted{
+  color: var(--c-up);
+  font-size: 9.5px;
+}
+.home-stack__chart-bar{
+  display: flex; align-items: stretch;
+  height: 30px;
+  width: 100%;
+  border: 1px solid var(--c-rule-2);
+  border-radius: 4px;
+  overflow: hidden;
+}
+.home-stack__chart-c{
+  position: relative;
+  background: repeating-linear-gradient(
+    90deg,
+    rgba(245,229,232,.06) 0 2px,
+    transparent 2px 6px
+  ), rgba(245,229,232,.04);
+  border-right: 1px solid var(--c-rule-2);
+  min-width: 0;
+}
+.home-stack__chart-b{
+  position: relative;
+  background: linear-gradient(90deg,
+    var(--c-red-blood),
+    var(--c-red) 60%,
+    var(--c-red-1));
+  box-shadow: 0 0 18px rgba(255,30,60,.6) inset;
+  min-width: 0;
+}
+/* ---------- price labels (live in the chart head row) ----------
+   centralized in ink, Bittensor in red, both inherit font from
+   .chart-head-row. nowrap so a long $1.7T or $181M doesn't wrap
+   inside its own grid cell. */
+.home-stack__chart-c-lbl{
+  color: var(--c-ink-2);
+  white-space: nowrap;
+}
+.home-stack__chart-b-lbl{
+  color: var(--c-red-1);
+  white-space: nowrap;
+  text-shadow: 0 0 6px rgba(255,30,60,.35);
+}
+/* PROTOCOL row: no centralized side, Bittensor label takes the
+   middle of the head row. */
+.home-stack__chart-row.is-inverted .home-stack__chart-c-lbl{ display: none; }
+
+/* legacy caps (rendered when the values lived inside the bar
+   segments), kept defined here as display:none so any cached
+   call site / older template doesn't paint garbage. */
+.home-stack__chart-c-cap,
+.home-stack__chart-b-cap{ display: none; }
+.home-stack__chart-c-cap{ color: var(--c-ink-2); }
+.home-stack__chart-b-cap{ color: var(--c-bg); text-shadow: 0 0 6px rgba(0,0,0,.4); }
+.home-stack__chart-share{
+  font-family: var(--f-mono);
+  font-size: 10.5px;
+  font-weight: 700;
+  letter-spacing: var(--ls-data);
+  color: var(--c-red);
+  text-align: right;
+  font-variant-numeric: tabular-nums;
+  white-space: nowrap;
+}
+.home-stack__chart-row.is-inverted .home-stack__chart-c{ display: none; }
+.home-stack__chart-row.is-inverted .home-stack__chart-b{ width: 100% !important; }
+.home-stack__chart-foot{
+  margin-top: var(--s-3);
+  padding-top: var(--s-3);
+  border-top: var(--b-thin);
+  display: flex; flex-wrap: wrap;
+  justify-content: space-between;
+  gap: var(--s-2) var(--s-4);
+  font-family: var(--f-mono);
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: var(--ls-label);
+  text-transform: uppercase;
+  color: var(--c-ink-2);
+}
+.home-stack__snapshot{
+  display: inline-flex; align-items: center; gap: 5px;
+  padding: 2px 7px;
+  background: rgba(0,229,168,.10);
+  border: 1px solid rgba(0,229,168,.32);
+  border-radius: 999px;
+  color: var(--c-up);
+  font-weight: 700;
+  letter-spacing: var(--ls-data);
+}
+.home-stack__snapshot .dot{
+  width: 5px; height: 5px;
+  border-radius: 50%;
+  background: var(--c-up);
+  box-shadow: 0 0 6px var(--c-up);
+  animation: livePulse var(--d-pulse) ease-in-out infinite;
+}
+
+/* ---------- the detail cards (now with capital block) ---------- */
+.home-stack__rows{
+  list-style: none;
+  margin: var(--s-6) 0 0;
+  padding: 0;
+  border-top: var(--b-thin);
+  border-left: var(--b-thin);
+}
+.home-stack__row{
+  display: grid;
+  grid-template-columns: clamp(160px, 14%, 180px) clamp(180px, 16%, 220px) 1fr 1.2fr clamp(180px, 18%, 240px) clamp(180px, 18%, 240px);
+  gap: 0;
+  border-right: var(--b-thin);
+  border-bottom: var(--b-thin);
+  background: var(--c-bg-2);
+  transition: background var(--d-fast) var(--e-out);
+}
+.home-stack__row:hover{ background: var(--c-bg-3); }
+.home-stack__row > div{
+  padding: var(--s-4);
+  border-right: var(--b-thin);
+  display: flex; flex-direction: column; gap: var(--s-2);
+}
+.home-stack__row > div:last-child{ border-right: 0; }
+
+/* layer column: name · role · opportunity */
+.home-stack__layer{
+  background:
+    linear-gradient(180deg, rgba(255,30,60,.06), transparent 70%),
+    var(--c-bg-1);
+}
+.home-stack__layer-name{
+  font-family: var(--f-mono);
+  font-size: var(--t-md);
+  font-weight: 700;
+  letter-spacing: var(--ls-label);
+  color: var(--c-red);
+}
+.home-stack__layer-sub{
+  font-family: var(--f-sans);
+  font-size: var(--t-sm);
+  line-height: 1.5;
+  color: var(--c-ink-2);
+}
+.home-stack__opp{
+  align-self: start;
+  margin-top: var(--s-2);
+  padding: 2px 8px;
+  border-radius: 999px;
+  font-family: var(--f-mono);
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: var(--ls-label);
+  text-transform: uppercase;
+  border: 1px solid var(--c-rule-2);
+}
+.home-stack__opp.opp-breakaway   { color: var(--c-up);    background: rgba(0,229,168,.08);  border-color: rgba(0,229,168,.32); }
+.home-stack__opp.opp-contested   { color: var(--c-red-1); background: rgba(255,30,60,.08); }
+.home-stack__opp.opp-uncontested { color: var(--c-ink-1); background: rgba(255,255,255,.06); border-color: var(--c-rule-3); }
+
+/* shared column-label ("CENTRALIZED INCUMBENTS" etc.). Used to live
+   at ink-4 which was unreadable against the red wash; promoted to
+   ink-2 with a red tint so the label is legible at a glance. */
+.home-stack__col-lbl{
+  font-family: var(--f-mono);
+  font-size: 9.5px;
+  font-weight: 700;
+  letter-spacing: var(--ls-label);
+  text-transform: uppercase;
+  color: var(--c-red-1);
+  margin-bottom: 4px;
+}
+
+/* centralized list */
+.home-stack__cent ul,
+.home-stack__sn ul{
+  list-style: none;
+  margin: 0; padding: 0;
+  display: flex; flex-wrap: wrap; gap: 6px;
+}
+/* MARKET INTEL block: TAM / RECENT / WATCH, a compact 3-row
+   definition list above the capital comparison. Three labelled
+   cells separated by hairlines; each cell pairs a 3-letter tag
+   with one short editorial line. Adds depth without bloating
+   the card. */
+.home-stack__intel{
+  margin: var(--s-3) 0;
+}
+.home-stack__intel-list{
+  margin: var(--s-1) 0 0;
+  display: flex;
+  flex-direction: column;
+  border: 1px solid var(--c-rule-2);
+  border-radius: 4px;
+  overflow: hidden;
+}
+.home-stack__intel-row{
+  display: grid;
+  grid-template-columns: 64px 1fr;
+  align-items: baseline;
+  gap: var(--s-3);
+  padding: 8px 12px;
+  border-bottom: 1px dashed var(--c-rule);
+  background: linear-gradient(90deg, rgba(255,30,60,.06), transparent 60%);
+}
+.home-stack__intel-row:last-child{ border-bottom: 0; }
+.home-stack__intel-row dt{
+  font-family: var(--f-mono);
+  font-size: 9.5px;
+  font-weight: 800;
+  letter-spacing: var(--ls-label);
+  text-transform: uppercase;
+  color: var(--c-red-1);
+  margin: 0;
+}
+.home-stack__intel-row dd{
+  margin: 0;
+  font-family: var(--f-sans);
+  font-size: var(--t-sm);
+  line-height: 1.4;
+  color: var(--c-ink-2);
+}
+
+/* centralized incumbent pill, brand badge + name + small detail */
+.home-stack__cent-pill{
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 3px 9px 3px 4px;
+  border: 1px solid var(--c-rule-3);
+  border-radius: 999px;
+  background: rgba(255,255,255,.05);
+  color: var(--c-ink-1);
+  font-family: var(--f-mono);
+  font-size: 11px;
+  font-weight: 600;
+  white-space: nowrap;
+  max-width: 100%;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.home-stack__cent-name{ color: var(--c-ink-1); }
+.home-stack__cent-det{
+  color: var(--c-ink-3);
+  font-weight: 500;
+  font-size: 10px;
+  padding-left: 4px;
+  border-left: 1px solid var(--c-rule-2);
+}
+
+/* in-house brand monogram badge (used by the brand-chip helper).
+   structure: a coloured disc wrapper, then either an <img> with
+   the simple-icons white silhouette OR a monogram <span> fallback. */
+.brand-chip{
+  position: relative;
+  display: inline-grid;
+  place-items: center;
+  flex: 0 0 auto;
+  border-radius: 50%;
+  line-height: 1;
+  overflow: hidden;
+  box-shadow: 0 0 0 1px rgba(255,255,255,.04) inset, 0 0 8px rgba(0,0,0,.4);
+}
+.brand-chip__img{
+  display: block;
+  /* white silhouette already; this filter just ensures crisp
+     anti-aliasing against the coloured background */
+  filter: drop-shadow(0 0 1px rgba(0,0,0,.25));
+}
+.brand-chip__mono{
+  position: absolute;
+  inset: 0;
+  display: grid; place-items: center;
+  font-family: var(--f-mono, ui-monospace, monospace);
+  font-weight: 800;
+  letter-spacing: 0;
+  line-height: 1;
+}
+
+/* bittensor pills, node-graph monogram + SN id + name, colour-coded by category */
+.home-stack__sn-pill{
+  display: inline-flex; align-items: center; gap: 6px;
+  padding: 3px 9px 3px 4px;
+  border: 1px solid var(--c-rule-2);
+  border-radius: 999px;
+  background: rgba(255,30,60,.06);
+  color: var(--c-ink-1);
+  font-family: var(--f-mono);
+  font-size: 11px;
+  font-weight: 600;
+  white-space: nowrap;
+}
+.home-stack__sn-logo{
+  display: inline-grid; place-items: center;
+  width: 18px; height: 18px;
+  flex: 0 0 18px;
+  line-height: 0;
+}
+.home-stack__sn-logo svg{ width: 100%; height: 100%; display: block; border-radius: 50%; }
+.home-stack__sn-id{
+  color: var(--c-red);
+  font-weight: 700;
+  letter-spacing: var(--ls-data);
+  font-size: 10px;
+}
+/* category accents per pill */
+.home-stack__sn-pill.cat-text     { border-color: rgba(255,30,60,.32); }
+.home-stack__sn-pill.cat-vision   { border-color: rgba(255,180,0,.32); background: rgba(255,180,0,.05); }
+.home-stack__sn-pill.cat-agents   { border-color: rgba(120,180,255,.32); background: rgba(120,180,255,.05); }
+.home-stack__sn-pill.cat-training { border-color: rgba(0,229,168,.32); background: rgba(0,229,168,.05); }
+.home-stack__sn-pill.cat-data     { border-color: rgba(200,140,255,.32); background: rgba(200,140,255,.05); }
+.home-stack__sn-pill.cat-infra    { border-color: rgba(255,180,180,.32); background: rgba(255,180,180,.05); }
+.home-stack__sn-pill.cat-protocol { border-color: var(--c-rule-3); background: rgba(255,255,255,.05); color: var(--c-red); }
+
+/* the per-layer capital row inside each detail card. Two cells:
+   CENTRALIZED $X and BITTENSOR $Y, both big mono numerals so the
+   disparity reads even before the user reaches the bar chart. */
+.home-stack__capital{
+  background: var(--c-bg-1);
+}
+.home-stack__capital-row{
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--s-3);
+}
+.home-stack__capital-c,
+.home-stack__capital-b{
+  display: flex; flex-direction: column; gap: 2px;
+}
+.home-stack__capital-lbl{
+  font-family: var(--f-mono);
+  font-size: 9.5px;
+  font-weight: 700;
+  letter-spacing: var(--ls-label);
+  text-transform: uppercase;
+  color: var(--c-ink-2);
+}
+.home-stack__capital-c .home-stack__capital-val{
+  font-family: var(--f-mono);
+  font-size: 22px;
+  font-weight: 700;
+  color: var(--c-ink-1);
+  font-variant-numeric: tabular-nums;
+  letter-spacing: -.01em;
+}
+.home-stack__capital-b .home-stack__capital-val{
+  font-family: var(--f-mono);
+  font-size: 22px;
+  font-weight: 700;
+  color: var(--c-red);
+  font-variant-numeric: tabular-nums;
+  letter-spacing: -.01em;
+  text-shadow: 0 0 12px rgba(255,30,60,.45);
+  transition: text-shadow var(--d-base) var(--e-out), color var(--d-base) var(--e-out);
+}
+/* glow + brighten when the figure flips to live data from the
+   tao:subnets feed (TaoMarketCap public API rolled up by layer) */
+.home-stack__capital-b .home-stack__capital-val.is-live{
+  color: var(--c-red-1);
+  text-shadow: 0 0 16px rgba(255,30,60,.65);
+}
+
+/* gap multiplier chip below the capital row, gives the
+   centralized-vs-Bittensor disparity its own number, calibrated per
+   row so no two rows tell the same story. */
+.home-stack__capital-gap{
+  display: flex; align-items: baseline; gap: var(--s-2);
+  margin-top: var(--s-2);
+  padding: 6px 10px;
+  background: rgba(255,30,60,.08);
+  border: 1px solid var(--c-rule-3);
+  border-radius: 999px;
+  align-self: start;
+}
+.home-stack__capital-gap-lbl{
+  font-family: var(--f-mono);
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: var(--ls-label);
+  text-transform: uppercase;
+  color: var(--c-ink-3);
+}
+.home-stack__capital-gap-val{
+  font-family: var(--f-mono);
+  font-size: var(--t-md);
+  font-weight: 700;
+  font-variant-numeric: tabular-nums;
+  letter-spacing: var(--ls-data);
+  color: var(--c-red);
+}
+
+/* unit-economics block, names the actual quantitative front the
+   layer is being fought on (cost per token, MMLU parity, capex burn,
+   B2B contract count, etc). The piece of the card that turns "size
+   comparison" into "what's happening at this layer." */
+.home-stack__unit{
+  background: rgba(0,0,0,.18);
+}
+.home-stack__unit p{
+  margin: 0;
+  font-family: var(--f-mono);
+  font-size: var(--t-sm);
+  line-height: 1.5;
+  color: var(--c-ink-1);
+}
+
+/* the per-card "THE READ" verdict block, full sentence telling the
+   reader what to take from the row, not a vague badge */
+.home-stack__verdict{
+  background: rgba(255,30,60,.04);
+}
+.home-stack__verdict p{
+  margin: 0;
+  font-family: var(--f-serif);
+  font-style: italic;
+  font-size: var(--t-md);
+  line-height: 1.45;
+  color: var(--c-ink-1);
+}
+
+/* the editorial thesis line under the matrix */
+.home-stack__thesis{
+  margin: var(--s-6) auto 0;
+  max-width: 72ch;
+  text-align: center;
+  font-family: var(--f-serif);
+  font-size: clamp(18px, 3vw, 24px);
+  font-weight: 300;
+  line-height: 1.4;
+  letter-spacing: -.005em;
+  color: var(--c-ink-1);
+}
+.home-stack__thesis em{ font-style: italic; color: var(--c-red); }
+.home-stack__thesis-q{
+  display: inline-block;
+  color: var(--c-red);
+  font-style: normal;
+  font-weight: 700;
+  font-size: 1.4em;
+  line-height: 0;
+  vertical-align: -.18em;
+}
+
+.home-stack__foot{
+  margin-top: var(--s-4);
+  padding-top: var(--s-3);
+  border-top: var(--b-thin);
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--s-3) var(--s-6);
+  justify-content: space-between;
+  font-family: var(--f-mono);
+  font-size: 10.5px;
+  font-weight: 600;
+  letter-spacing: var(--ls-label);
+  text-transform: uppercase;
+  color: var(--c-ink-2);
+}
+
+.home-stack__layer-tag{
+  font-family: var(--f-mono);
+  font-size: 9.5px;
+  font-weight: 700;
+  letter-spacing: var(--ls-label);
+  text-transform: uppercase;
+  color: var(--c-red-1);
+  display: none;
+}
+
+@media (max-width: 980px){
+  /* Mobile: convert the 4-col matrix into a horizontal swipe rail.
+     Each layer becomes a self-contained card the user swipes through;
+     vertical scroll length collapses from "endless 7×4 stack" to one
+     viewport-height swipe rail. */
+  .home-stack__rows{
+    margin: var(--s-5) calc(var(--gutter) * -1) 0;
+    padding: 2px var(--gutter) var(--s-4);
+    border: 0;
+    display: flex;
+    gap: var(--s-3);
+    overflow-x: auto;
+    overscroll-behavior-x: contain;
+    scroll-snap-type: x mandatory;
+    scrollbar-width: thin;
+    scrollbar-color: var(--c-rule-3) transparent;
+    -webkit-mask-image: linear-gradient(90deg,
+      transparent 0, #000 24px,
+      #000 calc(100% - 24px), transparent 100%);
+            mask-image: linear-gradient(90deg,
+      transparent 0, #000 24px,
+      #000 calc(100% - 24px), transparent 100%);
+  }
+  .home-stack__rows::-webkit-scrollbar{ height: 6px; }
+  .home-stack__rows::-webkit-scrollbar-thumb{ background: var(--c-rule-3); border-radius: 999px; }
+  .home-stack__row{
+    flex: 0 0 clamp(300px, 86vw, 380px);
+    scroll-snap-align: start;
+    scroll-snap-stop: always;
+    grid-template-columns: 1fr;
+    grid-template-rows: auto auto auto auto auto auto;
+    border: 1px solid var(--c-rule-2);
+    border-radius: 4px;
+    min-height: auto;
+  }
+  /* the lead chart goes a bit denser at narrow widths so it still
+     reads on a phone. Chart head + chart row share the same 3-col
+     grid template so axis labels stay aligned over their data. */
+  .home-stack__chart-head{
+    grid-template-columns: 70px 1fr 56px;
+    column-gap: var(--s-2);
+    font-size: 9px;
+  }
+  /* chart-row is now a flex column on every viewport; nothing
+     extra to override at the row level on phones. */
+  .home-stack__chart-bar{ height: 22px; }
+  .home-stack__row > div{
+    border-right: 0;
+    border-bottom: var(--b-thin);
+  }
+  .home-stack__row > div:last-child{ border-bottom: 0; }
+  .home-stack__layer-tag{ display: block; margin-bottom: 4px; color: var(--c-red); }
+}
+
+/* ---------- THE PROTOCOL PIPELINE (six stages, horizontal) ----------
+   Reimagined as a horizontal scroll rail of stage cards, matching
+   the Top-25 bios rail. Each card is a self-contained protocol-spec
+   panel: number rail at the top, title + role meta, technical brief
+   with inline stats, a 3-field data list, a representative-subnet
+   chip, then a bespoke animated SVG viz spanning the card's bottom
+   half. The user swipes through the six stages the way you swipe
+   through the dTAO ranking. */
+
+/* the optional loop-summary diagram that introduces the section */
+.home-how__loop{
+  margin: var(--s-5) 0 var(--s-3);
+  padding: var(--s-4) var(--s-3);
+  background: linear-gradient(180deg, rgba(255,30,60,.04), transparent),
+              var(--c-bg-1);
+  border: 1px solid var(--c-rule-2);
+  border-radius: 4px;
+  color: var(--c-red-1);
+}
+.home-how__loop svg{ display: block; width: 100%; height: auto; max-height: 110px; }
+.home-how__loop-cap{
+  margin: var(--s-2) 0 0;
+  display: flex; justify-content: space-between; align-items: center;
+  flex-wrap: wrap; gap: var(--s-3);
+  font-family: var(--f-mono);
+  font-size: var(--t-xs);
+  letter-spacing: var(--ls-label);
+  text-transform: uppercase;
+  color: var(--c-ink-3);
+}
+.home-how__loop-cap span{ color: var(--c-red-1); font-weight: 700; }
+
+/* ---------- LIVE METRICS STRIP under the loop ----------
+   Six cells, one per stage. Each cell carries the stage label
+   (ordinal + name), the live number, a small unit/explainer,
+   and a thin horizontal bar visualizing the relative scale.
+   On desktop the strip is a six-column grid; on phone it falls
+   to a two-column wrap so each cell stays large enough to read.
+   Numbers refresh from the DataLayer ('tao:market', 'tao:chain',
+   'tao:subnets') via the renderHowMetrics subscriber. */
+.home-how__metrics{
+  list-style: none;
+  margin: var(--s-4) 0 var(--s-5);
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  gap: 8px;
+  border: 1px solid var(--c-rule-2);
+  border-radius: 4px;
+  padding: 10px;
+  background:
+    radial-gradient(120% 80% at 50% 0%, rgba(255,30,60,.04), transparent 70%),
+    rgba(10, 3, 6, .6);
+}
+@media (max-width: 1080px){
+  .home-how__metrics{ grid-template-columns: repeat(3, 1fr); }
+}
+@media (max-width: 560px){
+  .home-how__metrics{ grid-template-columns: repeat(2, 1fr); }
+}
+.how-metric{
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  padding: 8px 10px;
+  background: rgba(255,30,60,.04);
+  border-left: 2px solid var(--c-rule-3);
+  border-radius: 2px;
+  min-width: 0;
+}
+.how-metric__n{
+  font-family: var(--f-mono);
+  font-size: 9.5px;
+  font-weight: 700;
+  letter-spacing: var(--ls-label);
+  text-transform: uppercase;
+  color: var(--c-ink-3);
+  display: inline-flex;
+  align-items: baseline;
+  gap: 4px;
+}
+.how-metric__ord{
+  color: var(--c-red);
+  font-weight: 800;
+}
+.how-metric__val{
+  font-family: var(--f-mono);
+  font-size: 22px;
+  font-weight: 700;
+  letter-spacing: -.01em;
+  color: var(--c-ink-1);
+  font-variant-numeric: tabular-nums;
+  line-height: 1.05;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  text-shadow: 0 0 12px rgba(255,30,60,.25);
+}
+.how-metric__val .tau{ color: var(--c-red); }
+.how-metric__u{
+  font-family: var(--f-mono);
+  font-size: 9.5px;
+  font-weight: 500;
+  letter-spacing: var(--ls-label);
+  text-transform: uppercase;
+  color: var(--c-ink-4);
+}
+.how-metric__bar{
+  display: block;
+  height: 2px;
+  background: rgba(255,30,60,.10);
+  border-radius: 999px;
+  overflow: hidden;
+  margin-top: 4px;
+}
+.how-metric__bar-fill{
+  display: block;
+  height: 100%;
+  background: linear-gradient(90deg, var(--c-red-blood), var(--c-red), var(--c-red-1));
+  box-shadow: 0 0 8px rgba(255,30,60,.55);
+  transition: width var(--d-slow) var(--e-out);
+}
+/* live brighten when a metric is sourced from the DataLayer */
+.how-metric__val.is-live{
+  color: var(--c-red-1);
+  text-shadow: 0 0 14px rgba(255,30,60,.55);
+}
+
+.home-how__pipe{
+  list-style: none;
+  margin: var(--s-4) calc(var(--gutter) * -1) 0;
+  padding: 2px var(--gutter) var(--s-4);
+  display: flex;
+  gap: var(--s-3);
+  overflow-x: auto;
+  overscroll-behavior-x: contain;
+  scroll-snap-type: x mandatory;
+  scrollbar-width: thin;
+  scrollbar-color: var(--c-rule-3) transparent;
+  -webkit-mask-image: linear-gradient(90deg,
+    transparent 0, #000 28px,
+    #000 calc(100% - 28px), transparent 100%);
+          mask-image: linear-gradient(90deg,
+    transparent 0, #000 28px,
+    #000 calc(100% - 28px), transparent 100%);
+}
+.home-how__pipe::-webkit-scrollbar{ height: 6px; }
+.home-how__pipe::-webkit-scrollbar-thumb{ background: var(--c-rule-3); border-radius: 999px; }
+
+.home-how__row{
+  position: relative;
+  display: grid;
+  grid-template-rows: auto auto auto auto auto 1fr;
+  gap: var(--s-3);
+  padding: var(--s-5);
+  background: var(--c-bg-2);
+  border: 1px solid var(--c-rule-2);
+  border-radius: 4px;
+  flex: 0 0 clamp(300px, 86vw, 380px);
+  scroll-snap-align: start;
+  scroll-snap-stop: always;
+  min-height: 600px;
+  transition: background var(--d-fast) var(--e-out),
+              border-color var(--d-fast) var(--e-out);
+}
+.home-how__row:hover{ border-color: var(--c-rule-3); }
+.home-how__row::before{
+  /* a hairline accent rail at the top, the bloomberg pane signal */
+  content: "";
+  position: absolute;
+  top: -1px; left: 0;
+  width: 64px; height: 2px;
+  background: linear-gradient(90deg, var(--c-red), transparent);
+}
+
+.home-how__rail{
+  display: inline-flex;
+  align-items: center;
+  gap: var(--s-2);
+}
+.home-how__num{
+  font-family: var(--f-mono);
+  font-size: var(--t-2xl);
+  font-weight: 700;
+  line-height: 1;
+  color: var(--c-red);
+  letter-spacing: var(--ls-data);
+  font-variant-numeric: tabular-nums;
+}
+
+.home-how__body{ display: flex; flex-direction: column; gap: var(--s-3); min-width: 0; }
+.home-how__head{
+  display: flex; align-items: baseline; gap: var(--s-3);
+  flex-wrap: wrap;
+}
+.home-how__h{
+  margin: 0;
+  font-family: var(--f-serif);
+  font-size: 24px;
+  font-weight: 700;
+  letter-spacing: -.015em;
+  color: var(--c-ink-1);
+  line-height: 1;
+}
+.home-how__meta{
+  font-family: var(--f-mono);
+  font-size: var(--t-xs);
+  font-weight: 600;
+  letter-spacing: var(--ls-label);
+  text-transform: uppercase;
+  color: var(--c-red-1);
+}
+.home-how__brief{
+  margin: 0;
+  font-family: var(--f-sans);
+  font-size: var(--t-sm);
+  line-height: 1.55;
+  color: var(--c-ink-2);
+}
+.home-how__brief em{ font-style: italic; color: var(--c-red-1); }
+.home-how__brief .val{
+  font-family: var(--f-mono); font-weight: 700;
+  color: var(--c-ink-1);
+  background: var(--c-red-trace);
+  border: 1px solid var(--c-rule-2);
+  padding: 1px 5px;
+  border-radius: 3px;
+  font-size: .9em;
+  white-space: nowrap;
+}
+
+/* 3-field data list, the operating numbers for this stage */
+.home-how__data{
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 0;
+  margin: 0;
+  border-top: var(--b-thin);
+  border-left: var(--b-thin);
+}
+.home-how__data > div{
+  padding: 6px 8px;
+  border-right: var(--b-thin);
+  border-bottom: var(--b-thin);
+  display: flex; flex-direction: column; gap: 2px;
+}
+.home-how__data dt{
+  font-family: var(--f-mono); font-size: 9px; font-weight: 600;
+  letter-spacing: var(--ls-label); text-transform: uppercase;
+  color: var(--c-ink-4);
+  margin: 0;
+}
+.home-how__data dd{
+  font-family: var(--f-mono); font-size: var(--t-sm); font-weight: 700;
+  color: var(--c-ink-1);
+  font-variant-numeric: tabular-nums;
+  margin: 0;
+}
+.home-how__data dd .u{ font-weight: 400; color: var(--c-ink-4); margin-left: 2px; }
+
+.home-how__ex{
+  margin: 0;
+  display: flex; align-items: center; gap: var(--s-2); flex-wrap: wrap;
+}
+.home-how__ex-lbl{
+  font-family: var(--f-mono); font-size: 9px; font-weight: 600;
+  letter-spacing: var(--ls-label); text-transform: uppercase;
+  color: var(--c-ink-4);
+}
+.home-how__ex-chip{
+  font-family: var(--f-mono); font-size: 11px; font-weight: 600;
+  padding: 3px 8px;
+  border: 1px solid var(--c-rule-2);
+  border-radius: 999px;
+  background: rgba(255,30,60,.05);
+  color: var(--c-ink-1);
+  letter-spacing: 0;
+}
+
+.home-how__viz{
+  align-self: stretch;
+  width: 100%;
+  height: 220px;
+  padding: var(--s-3);
+  background: linear-gradient(180deg, rgba(255,30,60,.04), transparent),
+              var(--c-bg-1);
+  border: 1px solid var(--c-rule-2);
+  border-radius: 4px;
+  color: var(--c-red-1);
+  overflow: hidden;
+}
+.home-how__viz svg{
+  display: block;
+  width: 100%; height: 100%;
+  color: var(--c-red-1);
+}
+
+.home-how__foot{
+  margin-top: var(--s-5);
+  padding-top: var(--s-4);
+  border-top: var(--b-thin);
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--s-3) var(--s-6);
+  justify-content: space-between;
+  align-items: center;
+  font-family: var(--f-mono);
+  font-size: var(--t-xs);
+  letter-spacing: var(--ls-label);
+  text-transform: uppercase;
+  color: var(--c-ink-4);
+}
+.home-how__more{ color: var(--c-red-1); font-weight: 700; }
+.home-how__more:hover{ color: var(--c-red); }
+
+/* animations used inside the viz panels */
+@keyframes howPulse {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50%      { opacity: .35; transform: scale(.7); }
+}
+@keyframes howShimmer {
+  0%, 100% { fill-opacity: .9; }
+  50%      { fill-opacity: .35; }
+}
+@keyframes howVote {
+  0%, 100% { transform: translateX(0); }
+  50%      { transform: translateX(-4px); }
+}
+
+/* ---------- TOP 25 BIOS · the research-card grid ----------
+   Each card is a data-density playground: rank chip + mark + name +
+   category, headline keyMetric in big mono, four-cell stats grid,
+   the 150-200 word bio, a RECENT chip with the most recent 2026
+   milestone, and a deep-link CTA. The whole grid is the section
+   that gives the page its "research terminal" feel. */
+/* The 25-card deep-profile rail. Horizontal scroll, scroll-snap
+   on each card start, edge-mask fades on both ends. Each card is a
+   fixed width and the user swipes through them sideways the way a
+   Bloomberg watchlist scrolls horizontally. */
+.home-bios__grid{
+  list-style: none;
+  margin: var(--s-6) calc(var(--gutter) * -1) 0;
+  padding: 2px var(--gutter) var(--s-4);
+  display: flex;
+  gap: var(--s-3);
+  overflow-x: auto;
+  overscroll-behavior-x: contain;
+  scroll-snap-type: x mandatory;
+  scrollbar-width: thin;
+  scrollbar-color: var(--c-rule-3) transparent;
+  -webkit-mask-image: linear-gradient(90deg,
+    transparent 0, #000 28px,
+    #000 calc(100% - 28px), transparent 100%);
+          mask-image: linear-gradient(90deg,
+    transparent 0, #000 28px,
+    #000 calc(100% - 28px), transparent 100%);
+  counter-reset: bio;
+}
+.home-bios__grid::-webkit-scrollbar{ height: 6px; }
+.home-bios__grid::-webkit-scrollbar-thumb{ background: var(--c-rule-3); border-radius: 999px; }
+.home-bio{
+  position: relative;
+  display: grid;
+  /* cover, cat, one, metric, recent, details (collapsed), more */
+  grid-template-rows: auto auto auto auto auto auto 1fr;
+  gap: var(--s-3);
+  padding: var(--s-5);
+  background: var(--c-bg-2);
+  border: var(--b-thin);
+  border-radius: 4px;
+  transition: background var(--d-fast) var(--e-out),
+              border-color var(--d-fast) var(--e-out);
+  overflow: hidden;
+  /* horizontal scroll: each card is a flex item with fixed width */
+  flex: 0 0 clamp(300px, 86vw, 380px);
+  scroll-snap-align: start;
+  scroll-snap-stop: always;
+  min-height: 480px;
+}
+.home-bio::before{
+  /* a hairline accent rail on the left edge, the way Bloomberg's
+     terminal panes carry a stripe on the active side. */
+  content: "";
+  position: absolute;
+  top: 0; bottom: 0; left: 0;
+  width: 2px;
+  background: linear-gradient(180deg, var(--c-red), transparent 60%);
+  opacity: .65;
+  transition: opacity .26s var(--e-out), width .26s var(--e-out);
+}
+.home-bio:hover{ background: var(--c-bg-3); }
+.home-bio:hover::before{ opacity: 1; width: 3px; }
+.home-bio::after{
+  /* faint dot-grid texture behind each card, the "scientific paper
+     plotted on graph paper" feel, sub-1px scaled so it never reads
+     as a real grid. */
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image: radial-gradient(rgba(255,30,60,.06) 1px, transparent 1px);
+  background-size: 18px 18px;
+  pointer-events: none;
+  opacity: .35;
+  mask-image: linear-gradient(180deg, transparent, #000 30%, #000 70%, transparent);
+}
+.home-bio > *{ position: relative; z-index: 1; }
+
+/* ===== COVER BANNER =====
+   The headline at the top of every bio card: rank · logo · SN id ·
+   name on top, a full-width sparkline across the middle, big price +
+   mcap + 24h % chg on the bottom, color matched green/red.
+   The whole banner sits on a slightly inset dark surface inside the
+   card and gives every write-up a real "asset cover" feel. */
+.home-bio__cover{
+  display: grid;
+  grid-template-rows: auto 1fr auto;
+  gap: var(--s-3);
+  padding: var(--s-4) var(--s-4) var(--s-3);
+  margin: 0;
+  background:
+    radial-gradient(120% 80% at 0% 0%, rgba(255,30,60,.10), transparent 60%),
+    var(--c-bg-1);
+  border: 1px solid var(--c-rule-2);
+  border-radius: 4px;
+}
+.home-bio__cover-head{
+  display: grid;
+  grid-template-columns: auto auto 1fr;
+  align-items: center;
+  gap: var(--s-3);
+}
+.home-bio__rank{
+  font-family: var(--f-mono);
+  font-size: var(--t-md);
+  font-weight: 600;
+  line-height: 1;
+  color: var(--c-ink-4);
+  letter-spacing: var(--ls-data);
+  font-variant-numeric: tabular-nums;
+  align-self: start;
+  padding-top: 6px;
+}
+.home-bio__logo{
+  width: 36px; height: 36px;
+  border-radius: 50%;
+  background: var(--c-bg-2);
+  display: grid; place-items: center;
+  flex: 0 0 36px;
+  overflow: hidden;
+  border: 1px solid var(--c-rule-2);
+}
+.home-bio__logo--mark svg{ width: 28px; height: 28px; }
+.home-bio__id{ display: flex; flex-direction: column; gap: 2px; min-width: 0; }
+.home-bio__sn{
+  font-family: var(--f-mono); font-size: 11px; font-weight: 700;
+  letter-spacing: var(--ls-label);
+  color: var(--c-red); text-transform: uppercase;
+}
+.home-bio__name{
+  font-family: var(--f-serif); font-size: 18px; font-weight: 700;
+  color: var(--c-ink-1); line-height: 1.05; letter-spacing: -.015em;
+  overflow: hidden; text-overflow: ellipsis; white-space: nowrap;
+}
+.home-bio__cover-spark{
+  position: relative;
+  width: 100%; height: 64px;
+  margin: 2px 0 4px;
+}
+.home-bio__cover-spark canvas{
+  display: block; width: 100%; height: 100%;
+}
+.home-bio__cover-foot{
+  display: grid;
+  grid-template-columns: 1fr auto;
+  align-items: end;
+  gap: var(--s-3);
+}
+.home-bio__price-block{ display: flex; flex-direction: column; gap: 2px; }
+.home-bio__price{
+  font-family: var(--f-mono); font-size: 22px; font-weight: 700;
+  color: var(--c-ink-1); line-height: 1;
+  font-variant-numeric: tabular-nums;
+  letter-spacing: -.01em;
+}
+.home-bio__mcap{
+  font-family: var(--f-mono); font-size: 11px; font-weight: 500;
+  color: var(--c-ink-3); letter-spacing: var(--ls-label);
+  text-transform: uppercase;
+}
+.home-bio__chg{
+  font-family: var(--f-mono); font-size: 13px; font-weight: 700;
+  font-variant-numeric: tabular-nums;
+  letter-spacing: var(--ls-data);
+  padding-bottom: 2px;
+}
+.home-bio__chg.up   { color: var(--c-up); }
+.home-bio__chg.down { color: var(--c-down); }
+
+/* AI-2026 model-card meta strip, every bio carries its own
+   confidence rating and researched-at stamp. Editorial provenance
+   in the data layer, the way TaonSquare exposes via /api but baked
+   into the visible card. Sits inside the cover banner under the
+   sparkline + price strip. */
+.home-bio__card-meta{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--s-2);
+  margin-top: var(--s-3);
+  padding-top: var(--s-2);
+  border-top: 1px dashed var(--c-rule-2);
+  font-family: var(--f-mono);
+  font-size: 9px;
+  font-weight: 600;
+  letter-spacing: var(--ls-label);
+  text-transform: uppercase;
+}
+.home-bio__card-conf{
+  display: inline-flex; align-items: center; gap: 5px;
+  color: var(--c-up);
+}
+.home-bio__card-conf .dot{
+  width: 5px; height: 5px;
+  border-radius: 50%;
+  background: var(--c-up);
+  box-shadow: 0 0 6px var(--c-up);
+}
+.home-bio__card-when{ color: var(--c-ink-4); }
+
+/* TaonSquare verified-links row, only renders if the subnet
+   exists in the baked snapshot. 4 small clickable chips + a tiny
+   "via TaonSquare" attribution. Lets the user jump straight to the
+   subnet's official site / github / docs / discord without leaving
+   the bio card. */
+.home-bio__ts-row{
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  flex-wrap: wrap;
+  margin-top: 8px;
+  padding-top: 8px;
+  border-top: 1px dashed var(--c-rule);
+}
+.home-bio__ts-link{
+  display: inline-grid;
+  place-items: center;
+  width: 24px;
+  height: 24px;
+  border: 1px solid var(--c-rule-2);
+  border-radius: 999px;
+  background: rgba(255,30,60,.05);
+  color: var(--c-red-1);
+  text-decoration: none;
+  transition: background var(--d-fast) var(--e-out),
+              color var(--d-fast) var(--e-out),
+              border-color var(--d-fast) var(--e-out);
+}
+.home-bio__ts-link:hover{
+  background: rgba(255,30,60,.14);
+  border-color: var(--c-red);
+  color: var(--c-red);
+}
+.home-bio__ts-link svg{ display: block; }
+.home-bio__ts-attr{
+  margin-left: auto;
+  font-family: var(--f-mono);
+  font-size: 8.5px;
+  font-weight: 600;
+  letter-spacing: var(--ls-label);
+  text-transform: uppercase;
+  color: var(--c-ink-4);
+  font-style: italic;
+}
+
+/* the category pill, moved out of the head into its own line so it
+   sits between cover and the body content */
+.home-bio__cat{
+  align-self: start; justify-self: start;
+  font-family: var(--f-mono); font-size: 9.5px; font-weight: 600;
+  letter-spacing: var(--ls-label); text-transform: uppercase;
+  padding: 2px 8px;
+  border: 1px solid var(--c-rule-2); border-radius: 999px;
+  color: var(--c-ink-3); background: rgba(255,30,60,.04);
+  white-space: nowrap;
+}
+
+/* the one-line summary right under the head */
+.home-bio__one{
+  margin: 0;
+  font-family: var(--f-sans);
+  font-size: var(--t-md);
+  line-height: 1.4;
+  color: var(--c-ink-2);
+  font-style: italic;
+}
+
+/* headline metric, the single number that defines this subnet today */
+.home-bio__metric{
+  display: flex; flex-direction: column; gap: 4px;
+  padding: var(--s-3);
+  background: linear-gradient(180deg, rgba(255,30,60,.08), rgba(255,30,60,.02));
+  border: 1px solid var(--c-rule-2);
+  border-radius: 4px;
+}
+.home-bio__metric-lbl{
+  font-family: var(--f-mono); font-size: 9.5px; font-weight: 600;
+  letter-spacing: var(--ls-label); text-transform: uppercase;
+  color: var(--c-red-1);
+}
+.home-bio__metric-val{
+  font-family: var(--f-mono); font-size: 14.5px; font-weight: 700;
+  color: var(--c-ink-1); line-height: 1.25;
+  font-variant-numeric: tabular-nums;
+}
+
+/* compact stats grid: α-price · mcap · emission · 24h */
+.home-bio__stats{
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 0;
+  margin: 0;
+  border-top: var(--b-thin);
+  border-left: var(--b-thin);
+}
+.home-bio__stats > div{
+  display: flex; flex-direction: column; gap: 2px;
+  padding: 6px 8px;
+  border-right: var(--b-thin);
+  border-bottom: var(--b-thin);
+}
+.home-bio__stats dt{
+  font-family: var(--f-mono); font-size: 9px; font-weight: 600;
+  letter-spacing: var(--ls-label); text-transform: uppercase;
+  color: var(--c-ink-4); margin: 0;
+}
+.home-bio__stats dd{
+  font-family: var(--f-mono); font-size: var(--t-sm); font-weight: 700;
+  color: var(--c-ink-1); margin: 0;
+  font-variant-numeric: tabular-nums;
+}
+.home-bio__stats dd.up   { color: var(--c-up); }
+.home-bio__stats dd.down { color: var(--c-down); }
+.home-bio__stats dd .u   { color: var(--c-ink-4); font-weight: 400; margin-left: 1px; font-size: .85em; }
+
+/* the prose bio body, only visible when <details> is open */
+.home-bio__body{
+  margin: var(--s-3) 0 0;
+  font-family: var(--f-sans);
+  font-size: var(--t-sm);
+  line-height: 1.55;
+  color: var(--c-ink-2);
+  font-variant-numeric: normal;
+}
+
+/* Collapsible bio. Default-closed so the card stays a short read; the
+   user opens it inline rather than navigating away. Native <details>
+   element, accessible, keyboard-controllable, no JS. */
+.home-bio__details{
+  margin: 0;
+}
+.home-bio__details > summary{
+  list-style: none;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  padding: 5px 10px;
+  border: 1px solid var(--c-rule-2);
+  border-radius: 999px;
+  background: rgba(255, 30, 60, .045);
+  color: var(--c-red-1);
+  font-family: var(--f-mono);
+  font-size: var(--t-xs);
+  font-weight: 700;
+  letter-spacing: var(--ls-label);
+  text-transform: uppercase;
+  user-select: none;
+  transition: background var(--d-fast) var(--e-out),
+              border-color var(--d-fast) var(--e-out),
+              color var(--d-fast) var(--e-out);
+}
+.home-bio__details > summary::-webkit-details-marker{ display: none; }
+.home-bio__details > summary::marker{ display: none; content: ''; }
+.home-bio__details > summary:hover{
+  background: rgba(255, 30, 60, .10);
+  border-color: var(--c-rule-3);
+  color: var(--c-red);
+}
+/* swap the label between collapsed / expanded states */
+.home-bio__details > summary .home-bio__details-close{ display: none; }
+.home-bio__details[open] > summary{
+  background: rgba(255, 30, 60, .10);
+  border-color: var(--c-rule-3);
+  color: var(--c-red);
+}
+.home-bio__details[open] > summary .home-bio__details-open{ display: none; }
+.home-bio__details[open] > summary .home-bio__details-close{ display: inline; }
+
+/* RECENT chip, the most recent material event in 2026 */
+.home-bio__recent{
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: var(--s-2);
+  align-items: start;
+  padding-top: var(--s-3);
+  border-top: 1px dashed var(--c-rule-2);
+}
+.home-bio__recent-tag{
+  display: inline-flex; align-items: center; gap: 5px;
+  padding: 2px 7px;
+  border-radius: 999px;
+  background: rgba(0,229,168,.10);
+  border: 1px solid rgba(0,229,168,.32);
+  color: var(--c-up);
+  font-family: var(--f-mono); font-size: 9.5px; font-weight: 700;
+  letter-spacing: var(--ls-label); text-transform: uppercase;
+  white-space: nowrap;
+}
+.home-bio__recent-text{
+  font-family: var(--f-sans); font-size: 12px; line-height: 1.5;
+  color: var(--c-ink-2);
+}
+
+/* deep-link CTA */
+.home-bio__more{
+  font-family: var(--f-mono); font-size: var(--t-xs); font-weight: 700;
+  letter-spacing: var(--ls-label); text-transform: uppercase;
+  color: var(--c-red-1);
+  align-self: end; justify-self: end;
+  padding: 4px 0;
+}
+.home-bio__more:hover{ color: var(--c-red); }
+
+/* ---------- § 07 THE NETWORK · Six Degrees of Const ----------
+   The proof-table for the magazine's defining thesis. Sortable HTML
+   table on desktop, three-column condensed view on phone (SN ·
+   subnet · founders · degree only; chain + investor + parent hide
+   under .hide-sm). Hairline grid, mono numerals, tabular alignment,
+   degree pill color-coded by 0/1/2. */
+.home-network{
+  max-width: var(--max-w);
+  margin: 0 auto;
+  padding: clamp(40px, 6vw, 72px) var(--gutter);
+  border-bottom: var(--b-thin);
+}
+.home-network__rail{
+  margin: var(--s-5) calc(var(--gutter) * -1) 0;
+  padding: 0 var(--gutter);
+  overflow-x: auto;
+  scrollbar-width: thin;
+  scrollbar-color: var(--c-rule-3) transparent;
+}
+
+/* ---------- OPERATORS DESK · sideways scroll rail ----------
+   Per-subnet operator card with a sparkline cover strip, 4-cell
+   KPI grid (α-mcap · miners · validators · stake), proportional
+   emission bar, key-metric callout, meta block (parent · investors
+   · founder), and the Q2 2026 ship line. Cards scroll horizontally
+   on every viewport with scroll-snap on each card start. */
+.home-ops__rail{
+  list-style: none;
+  margin: var(--s-5) calc(var(--gutter) * -1) 0;
+  padding: 2px var(--gutter) var(--s-4);
+  display: flex;
+  gap: var(--s-3);
+  overflow-x: auto;
+  overscroll-behavior-x: contain;
+  scroll-snap-type: x mandatory;
+  scrollbar-width: thin;
+  scrollbar-color: var(--c-rule-3) transparent;
+  -webkit-mask-image: linear-gradient(90deg,
+    transparent 0, #000 24px,
+    #000 calc(100% - 24px), transparent 100%);
+          mask-image: linear-gradient(90deg,
+    transparent 0, #000 24px,
+    #000 calc(100% - 24px), transparent 100%);
+}
+.home-ops__rail::-webkit-scrollbar{ height: 6px; }
+.home-ops__rail::-webkit-scrollbar-thumb{ background: var(--c-rule-3); border-radius: 999px; }
+.home-ops__card{
+  flex: 0 0 clamp(320px, 88vw, 400px);
+  scroll-snap-align: start;
+  scroll-snap-stop: always;
+  display: flex; flex-direction: column;
+  gap: var(--s-3);
+  padding: var(--s-4);
+  background:
+    linear-gradient(180deg, rgba(255,30,60,.04), transparent 30%),
+    var(--c-bg-2);
+  border: 1px solid var(--c-rule-2);
+  border-radius: 4px;
+  transition: background var(--d-fast) var(--e-out),
+              border-color var(--d-fast) var(--e-out);
+}
+.home-ops__card:hover{
+  border-color: var(--c-rule-3);
+  background:
+    linear-gradient(180deg, rgba(255,30,60,.06), transparent 30%),
+    var(--c-bg-3);
+}
+
+/* sparkline cover strip, α-price big mono on the left, 36-pt
+   green/red sparkline on the right. Sparkline canvas itself is
+   mounted by opSparks[]; the canvas auto-colours by net direction. */
+.home-ops__spark-row{
+  display: grid;
+  grid-template-columns: auto 1fr;
+  align-items: center;
+  gap: var(--s-3);
+  padding: var(--s-3) 0;
+  border-top: var(--b-thin);
+  border-bottom: var(--b-thin);
+}
+.home-ops__price-block{ display: flex; flex-direction: column; gap: 2px; }
+.home-ops__price-lbl{
+  font-family: var(--f-mono);
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: var(--ls-label);
+  color: var(--c-ink-4);
+}
+.home-ops__price-val{
+  font-family: var(--f-mono);
+  font-size: 22px;
+  font-weight: 700;
+  color: var(--c-ink-1);
+  font-variant-numeric: tabular-nums;
+  letter-spacing: -.01em;
+  line-height: 1;
+}
+.home-ops__spark{
+  position: relative;
+  height: 48px;
+}
+.home-ops__spark canvas{ display: block; width: 100%; height: 100%; }
+
+/* 4-cell KPI grid */
+.home-ops__kpis{
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 0;
+  margin: 0;
+  border-top: var(--b-thin);
+  border-left: var(--b-thin);
+}
+.home-ops__kpi{
+  padding: 6px 8px;
+  display: flex; flex-direction: column; gap: 2px;
+  border-right: var(--b-thin);
+  border-bottom: var(--b-thin);
+}
+.home-ops__kpi dt{
+  margin: 0;
+  font-family: var(--f-mono);
+  font-size: 8.5px;
+  font-weight: 700;
+  letter-spacing: var(--ls-label);
+  text-transform: uppercase;
+  color: var(--c-ink-4);
+}
+.home-ops__kpi dd{
+  margin: 0;
+  font-family: var(--f-mono);
+  font-size: var(--t-md);
+  font-weight: 700;
+  color: var(--c-ink-1);
+  font-variant-numeric: tabular-nums;
+  letter-spacing: -.005em;
+  line-height: 1.1;
+}
+
+/* key-metric callout, pulled from b.keyMetric (the bio's defining
+   number). Red ground, big mono numeral, the signature metric for
+   that subnet on a single line. */
+.home-ops__metric{
+  display: flex; flex-direction: column; gap: 4px;
+  padding: var(--s-3);
+  background: rgba(255,30,60,.06);
+  border: 1px solid var(--c-rule-2);
+  border-radius: 4px;
+}
+.home-ops__metric-lbl{
+  font-family: var(--f-mono);
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: var(--ls-label);
+  text-transform: uppercase;
+  color: var(--c-red);
+}
+.home-ops__metric-val{
+  font-family: var(--f-mono);
+  font-size: var(--t-md);
+  font-weight: 600;
+  color: var(--c-ink-1);
+  line-height: 1.3;
+}
+
+/* meta grid, parent · investors · founder. 3 stacked rows, tight. */
+.home-ops__meta-grid{
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-areas: "parent investors" "founder founder";
+  gap: var(--s-2) var(--s-3);
+  padding-top: var(--s-2);
+  border-top: 1px dashed var(--c-rule-2);
+}
+.home-ops__meta-grid .home-ops__field:nth-child(1){ grid-area: parent; }
+.home-ops__meta-grid .home-ops__field:nth-child(2){ grid-area: investors; }
+.home-ops__meta-grid .home-ops__field:nth-child(3){ grid-area: founder; }
+
+.home-ops__more{
+  margin-top: auto;
+  padding-top: var(--s-3);
+  border-top: 1px dashed var(--c-rule-2);
+  font-family: var(--f-mono);
+  font-size: var(--t-xs);
+  font-weight: 700;
+  letter-spacing: var(--ls-label);
+  text-transform: uppercase;
+  color: var(--c-red-1);
+  text-decoration: none;
+  transition: color var(--d-fast) var(--e-out);
+}
+.home-ops__more:hover{ color: var(--c-red); }
+
+.home-ops__head{
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  align-items: baseline;
+  column-gap: var(--s-3);
+  row-gap: 4px;
+}
+.home-ops__sn{
+  font-family: var(--f-mono);
+  font-size: var(--t-xs);
+  font-weight: 700;
+  letter-spacing: var(--ls-data);
+  color: var(--c-red);
+}
+.home-ops__name{
+  font-family: var(--f-serif);
+  font-size: 22px;
+  font-weight: 700;
+  letter-spacing: -.015em;
+  color: var(--c-ink-1);
+  line-height: 1.05;
+  overflow: hidden; text-overflow: ellipsis; white-space: nowrap;
+}
+.home-ops__cat{
+  grid-column: 2;
+  font-family: var(--f-mono);
+  font-size: 9px;
+  font-weight: 600;
+  letter-spacing: var(--ls-label);
+  text-transform: uppercase;
+  color: var(--c-ink-3);
+}
+.home-ops__chg{
+  grid-row: 1 / span 2;
+  grid-column: 3;
+  align-self: center;
+  text-align: right;
+  font-family: var(--f-mono);
+  font-size: var(--t-md);
+  font-weight: 700;
+  font-variant-numeric: tabular-nums;
+  letter-spacing: var(--ls-data);
+  display: inline-flex; flex-direction: column; align-items: flex-end;
+  line-height: 1.1;
+}
+.home-ops__chg.up   { color: var(--c-up); }
+.home-ops__chg.down { color: var(--c-down); }
+.home-ops__chg-lbl{
+  font-size: 9px;
+  font-weight: 600;
+  color: var(--c-ink-4);
+  letter-spacing: var(--ls-label);
+}
+
+.home-ops__field{
+  display: flex; flex-direction: column; gap: 2px; min-width: 0;
+}
+.home-ops__field dt{
+  margin: 0;
+  font-family: var(--f-mono);
+  font-size: 9px;
+  font-weight: 600;
+  letter-spacing: var(--ls-label);
+  text-transform: uppercase;
+  color: var(--c-ink-4);
+}
+.home-ops__field dd{
+  margin: 0;
+  font-family: var(--f-mono);
+  font-size: var(--t-sm);
+  font-weight: 600;
+  color: var(--c-ink-1);
+  line-height: 1.35;
+  overflow: hidden; text-overflow: ellipsis;
+}
+
+.home-ops__field--emit dd{
+  display: flex; align-items: center; gap: var(--s-2);
+}
+.home-ops__emit-num{
+  font-family: var(--f-mono);
+  font-size: 18px;
+  font-weight: 700;
+  color: var(--c-red);
+  font-variant-numeric: tabular-nums;
+  min-width: 4ch;
+}
+.home-ops__emit-bar{
+  flex: 1;
+  height: 6px;
+  background: var(--c-bg-3);
+  border: 1px solid var(--c-rule-2);
+  border-radius: 999px;
+  overflow: hidden;
+}
+.home-ops__emit-fill{
+  display: block;
+  height: 100%;
+  background: linear-gradient(90deg, var(--c-red), var(--c-red-1));
+  border-radius: 999px;
+  transition: width .8s ease-out;
+}
+
+.home-ops__ship{
+  border-top: 1px dashed var(--c-rule-2);
+  padding-top: var(--s-3);
+  display: flex; flex-direction: column; gap: 4px;
+}
+.home-ops__ship-lbl{
+  font-family: var(--f-mono);
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: var(--ls-label);
+  text-transform: uppercase;
+  color: var(--c-up);
+}
+.home-ops__ship-text{
+  margin: 0;
+  font-family: var(--f-sans);
+  font-size: var(--t-sm);
+  line-height: 1.45;
+  color: var(--c-ink-2);
+}
+
+@media (max-width: 560px){
+  .home-ops__name{ font-size: 19px; }
+  .home-ops__card{ flex: 0 0 88vw; }
+}
+.home-network__table{
+  width: 100%;
+  border-collapse: collapse;
+  font-family: var(--f-mono);
+  font-size: var(--t-sm);
+  font-variant-numeric: tabular-nums;
+}
+.home-network__table thead th{
+  text-align: left;
+  padding: 8px 10px;
+  border-bottom: 1px solid var(--c-rule-3);
+  font-size: 9.5px;
+  font-weight: 700;
+  letter-spacing: var(--ls-label);
+  text-transform: uppercase;
+  color: var(--c-red-1);
+  white-space: nowrap;
+}
+.home-network__table tbody td{
+  padding: 10px;
+  border-bottom: var(--b-thin);
+  vertical-align: top;
+}
+.home-network__table tbody tr{
+  transition: background var(--d-fast) var(--e-out);
+}
+.home-network__table tbody tr:hover{
+  background: rgba(255, 30, 60, .05);
+}
+.home-network__table .num{ text-align: left; }
+.home-network__sn{
+  color: var(--c-red);
+  font-weight: 700;
+  letter-spacing: var(--ls-data);
+}
+.home-network__name{
+  font-family: var(--f-serif);
+  font-size: var(--t-md);
+  font-weight: 700;
+  color: var(--c-ink-1);
+  letter-spacing: -.01em;
+}
+.home-network__parent{ color: var(--c-ink-3); }
+.home-network__founders{
+  color: var(--c-ink-2);
+  font-size: var(--t-xs);
+  line-height: 1.35;
+  display: inline-block;
+  max-width: 32ch;
+}
+.home-network__inv{
+  color: var(--c-ink-2);
+  font-weight: 600;
+  font-size: var(--t-xs);
+  display: inline-block;
+  max-width: 28ch;
+  line-height: 1.35;
+}
+.home-network__emit{
+  color: var(--c-red-1);
+  font-weight: 700;
+  font-variant-numeric: tabular-nums;
+  white-space: nowrap;
+}
+.home-network__chg{
+  font-weight: 700;
+  font-variant-numeric: tabular-nums;
+}
+.home-network__chg.up   { color: var(--c-up); }
+.home-network__chg.down { color: var(--c-down); }
+.home-network__ship{
+  color: var(--c-ink-2);
+  font-size: var(--t-xs);
+  line-height: 1.4;
+  text-transform: none;
+  letter-spacing: 0;
+  display: inline-block;
+  max-width: 44ch;
+}
+@media (max-width: 720px){
+  .home-network__table th.hide-sm,
+  .home-network__table td.hide-sm{ display: none; }
+}
+
+/* Investor concentration strip, funds with public positions in 3+
+   top-25 subnets via the parent companies. The financial side of
+   the operators desk: who actually holds the network. */
+.home-network__investors{
+  margin: var(--s-6) 0 0;
+  padding: var(--s-4) 0;
+  border-top: var(--b-thin);
+}
+.home-network__investors-lbl{
+  display: block;
+  font-family: var(--f-mono);
+  font-size: var(--t-xs);
+  font-weight: 700;
+  letter-spacing: var(--ls-label);
+  text-transform: uppercase;
+  color: var(--c-red-1);
+  margin-bottom: var(--s-3);
+}
+.home-network__investors-list{
+  list-style: none;
+  margin: 0; padding: 0;
+  display: flex; flex-wrap: wrap; gap: var(--s-2);
+}
+.home-network__inv-pill{
+  display: inline-flex; align-items: baseline; gap: 6px;
+  padding: 5px 10px;
+  border: 1px solid var(--c-rule-2);
+  border-radius: 999px;
+  background: rgba(255,30,60,.04);
+  font-family: var(--f-mono);
+  font-size: var(--t-xs);
+}
+.home-network__inv-name{
+  font-weight: 700;
+  color: var(--c-ink-1);
+}
+.home-network__inv-count{
+  color: var(--c-red);
+  font-weight: 700;
+  font-variant-numeric: tabular-nums;
+}
+.home-network__inv-list{
+  color: var(--c-ink-3);
+  letter-spacing: var(--ls-data);
+}
+
+.home-network__foot{
+  margin-top: var(--s-5);
+  padding-top: var(--s-4);
+  border-top: var(--b-thin);
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--s-3) var(--s-6);
+  justify-content: space-between;
+  align-items: center;
+  font-family: var(--f-mono);
+  font-size: var(--t-xs);
+  letter-spacing: var(--ls-label);
+  text-transform: uppercase;
+  color: var(--c-ink-4);
+}
+.home-network__more{
+  color: var(--c-red-1);
+  font-weight: 700;
+  text-decoration: none;
+  border-bottom: 1px solid transparent;
+}
+.home-network__more:hover{
+  color: var(--c-red);
+  border-color: var(--c-red);
+}
+
+/* ---------- PAGE BREAK · magazine spine ----------
+   A big editorial divider that closes one page of the home view
+   and opens the next. The break itself reads as a real colophon,    a hairline rule with corner § marks and a centred "PAGE 01 · END"
+   chip, a small "Continued." caption, and a tap-target that scrolls
+   to the page-02 opener below it. The opener has its own big "PAGE
+   02" numeral, a serif title, dek, and a closing rule. */
+/* ---------- EDITOR'S NOTE CALLOUT ----------
+   Text-only callout above the END pagebreak that names the editor
+   and links to the full bio + portrait on its own page. Zero
+   image, zero canvas, zero filter, zero transform animation,    deliberately the lightest section on home. */
+.home-edcard{
+  max-width: var(--max-w);
+  margin: 0 auto;
+  padding: clamp(40px, 7vw, 80px) var(--gutter) clamp(8px, 2vw, 16px);
+  display: flex; flex-direction: column;
+  gap: var(--s-2);
+  align-items: flex-start;
+}
+.home-edcard__kicker{
+  font-family: var(--f-mono);
+  font-size: var(--t-xs);
+  font-weight: 700;
+  letter-spacing: var(--ls-label);
+  text-transform: uppercase;
+  color: var(--c-red);
+}
+.home-edcard__name{
+  margin: 0;
+  font-family: var(--f-serif);
+  font-size: clamp(28px, 4.4vw, 44px);
+  font-weight: 800;
+  letter-spacing: -.015em;
+  line-height: 1.05;
+  color: var(--c-ink-1);
+}
+.home-edcard__line{
+  margin: 0;
+  max-width: 56ch;
+  font-family: var(--f-sans);
+  font-size: var(--t-md);
+  line-height: 1.5;
+  color: var(--c-ink-2);
+}
+.home-edcard__line em{
+  font-style: italic;
+  color: var(--c-red-1);
+  font-weight: 600;
+}
+.home-edcard__links{
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--s-2);
+  margin-top: var(--s-2);
+}
+.home-edcard__cta{
+  display: inline-block;
+  padding: 8px 14px;
+  border: 1px solid var(--c-rule-3);
+  border-radius: 999px;
+  background: rgba(255,30,60,.10);
+  color: var(--c-ink-1);
+  font-family: var(--f-mono);
+  font-size: var(--t-xs);
+  font-weight: 700;
+  letter-spacing: var(--ls-label);
+  text-transform: uppercase;
+  text-decoration: none;
+  transition: background var(--d-fast) var(--e-out), border-color var(--d-fast) var(--e-out);
+}
+.home-edcard__cta:hover{
+  background: rgba(255,30,60,.20);
+  border-color: var(--c-red);
+}
+.home-edcard__cta--ghost{
+  background: transparent;
+  border-color: var(--c-rule-2);
+  color: var(--c-ink-2);
+}
+.home-edcard__cta--ghost:hover{
+  background: rgba(255,30,60,.06);
+  color: var(--c-ink-1);
+}
+
+/* ---------- EDITOR'S COLOPHON (legacy CSS, section is no longer
+   rendered on home, kept here in case we restore it later) ----- */
+.home-editor{
+  position: relative;
+  max-width: var(--max-w);
+  margin: 0 auto;
+  padding: clamp(56px, 9vw, 112px) var(--gutter) clamp(40px, 7vw, 80px);
+  border-bottom: var(--b-thin);
+  /* Isolate the editor section's layout + paint from the rest of
+     the page so a delayed portrait decode can't propagate a
+     reflow up the document and disrupt scroll anchoring. */
+  contain: layout style;
+}
+.home-editor::before{
+  content: "";
+  position: absolute;
+  top: 0; left: var(--gutter);
+  width: 80px;
+  height: 1px;
+  background: linear-gradient(90deg, var(--c-red), transparent);
+}
+.home-editor__inner{
+  display: grid;
+  grid-template-columns: clamp(180px, 26vw, 260px) 1fr;
+  gap: clamp(20px, 4vw, 48px);
+  align-items: start;
+}
+.home-editor__photo{
+  position: relative;
+  aspect-ratio: 1 / 1;
+  background: var(--c-bg-2);
+  border: 1px solid var(--c-rule-2);
+  overflow: hidden;
+  border-radius: 3px;
+}
+.home-editor__photo img{
+  display: block;
+  width: 100%; height: 100%;
+  object-fit: cover;
+  filter: contrast(1.02) saturate(.95);
+}
+.home-editor__photo-frame{
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(135deg, rgba(255,30,60,.12), transparent 28%),
+    linear-gradient(315deg, rgba(255,30,60,.10), transparent 24%);
+  pointer-events: none;
+}
+.home-editor__photo::after{
+  content: "";
+  position: absolute;
+  top: -1px; left: -1px;
+  width: 36px; height: 1px;
+  background: var(--c-red);
+}
+.home-editor__body{
+  display: flex;
+  flex-direction: column;
+  gap: var(--s-3);
+  min-width: 0;
+}
+.home-editor__kicker{
+  font-family: var(--f-mono);
+  font-size: var(--t-xs);
+  font-weight: 700;
+  letter-spacing: var(--ls-label);
+  text-transform: uppercase;
+  color: var(--c-red);
+}
+.home-editor__name{
+  margin: 0;
+  font-family: var(--f-serif);
+  font-size: clamp(34px, 5.4vw, 56px);
+  font-weight: 800;
+  letter-spacing: -.015em;
+  line-height: 1;
+  color: var(--c-ink-1);
+}
+.home-editor__role{
+  margin: 0;
+  font-family: var(--f-mono);
+  font-size: var(--t-sm);
+  font-weight: 600;
+  letter-spacing: var(--ls-label);
+  text-transform: uppercase;
+  color: var(--c-red-1);
+}
+.home-editor__role--quiet{
+  margin-top: 2px;
+  font-size: var(--t-xs);
+  font-weight: 500;
+  color: var(--c-ink-3);
+  text-transform: none;
+  letter-spacing: 0;
+}
+.home-editor__role--quiet a{
+  color: var(--c-ink-1);
+  border-bottom: 1px solid var(--c-rule-3);
+}
+.home-editor__role--quiet a:hover{ color: var(--c-red); border-color: var(--c-red); }
+.home-editor__bio{
+  margin: var(--s-2) 0 0;
+  max-width: 56ch;
+  font-family: var(--f-sans);
+  font-size: var(--t-md);
+  line-height: 1.55;
+  color: var(--c-ink-2);
+}
+.home-editor__bio em{
+  font-style: italic;
+  color: var(--c-red-1);
+  font-weight: 600;
+}
+.home-editor__bio--quiet{
+  color: var(--c-ink-3);
+  font-size: var(--t-sm);
+  line-height: 1.5;
+  border-left: 1px solid var(--c-rule-2);
+  padding-left: var(--s-4);
+}
+.home-editor__links{
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--s-2);
+  margin-top: var(--s-3);
+}
+.home-editor__link{
+  display: inline-flex; align-items: center; gap: 6px;
+  padding: 8px 14px;
+  border: 1px solid var(--c-rule-3);
+  border-radius: 999px;
+  background: rgba(255,30,60,.10);
+  color: var(--c-ink-1);
+  font-family: var(--f-mono);
+  font-size: var(--t-xs);
+  font-weight: 700;
+  letter-spacing: var(--ls-label);
+  text-transform: uppercase;
+  text-decoration: none;
+  transition: background var(--d-fast) var(--e-out),
+              border-color var(--d-fast) var(--e-out);
+}
+.home-editor__link:hover{
+  background: rgba(255,30,60,.20);
+  border-color: var(--c-red);
+}
+.home-editor__link--ghost{
+  background: transparent;
+  border-color: var(--c-rule-2);
+  color: var(--c-ink-2);
+}
+.home-editor__link--ghost:hover{
+  background: rgba(255,30,60,.06);
+  color: var(--c-ink-1);
+}
+.home-editor__x{
+  font-family: var(--f-serif);
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--c-red);
+  line-height: 1;
+}
+@media (max-width: 720px){
+  .home-editor__inner{
+    grid-template-columns: 1fr;
+    text-align: left;
+  }
+  .home-editor__photo{
+    width: 60vw;
+    max-width: 240px;
+    aspect-ratio: 1 / 1;
+  }
+}
+
+.home-pagebreak{
+  max-width: var(--max-w);
+  margin: 0 auto;
+  padding: clamp(56px, 12vw, 120px) var(--gutter) clamp(48px, 10vw, 96px);
+  display: flex; flex-direction: column;
+  align-items: center; text-align: center;
+  gap: var(--s-6);
+  position: relative;
+  background:
+    radial-gradient(60% 50% at 50% 50%, rgba(255,30,60,.06), transparent 70%);
+}
+.home-pagebreak__rule{
+  display: flex; align-items: center; gap: var(--s-3);
+  width: 100%;
+  max-width: 720px;
+}
+.home-pagebreak__corner{
+  font-family: var(--f-serif);
+  font-size: 20px; font-weight: 700;
+  color: var(--c-red);
+  line-height: 1;
+}
+.home-pagebreak__line{
+  flex: 1; height: 1px;
+  background: linear-gradient(90deg, transparent, var(--c-rule-3), transparent);
+}
+.home-pagebreak__num{
+  font-family: var(--f-mono);
+  font-size: var(--t-xs);
+  font-weight: 700;
+  letter-spacing: .14em;
+  text-transform: uppercase;
+  color: var(--c-red);
+  padding: 6px 14px;
+  border: 1px solid var(--c-rule-3);
+  border-radius: 999px;
+  background: rgba(255,30,60,.05);
+  white-space: nowrap;
+}
+.home-pagebreak__body{ max-width: 56ch; }
+.home-pagebreak__cap{
+  margin: 0;
+  font-family: var(--f-serif);
+  font-size: clamp(28px, 5vw, 44px);
+  font-weight: 300;
+  line-height: 1.05;
+  letter-spacing: var(--ls-display);
+  color: var(--c-ink-1);
+  font-style: italic;
+}
+.home-pagebreak__sub{
+  margin: var(--s-3) 0 0;
+  font-family: var(--f-mono);
+  font-size: var(--t-sm);
+  letter-spacing: var(--ls-label);
+  text-transform: uppercase;
+  color: var(--c-ink-3);
+}
+.home-pagebreak__sub em{
+  color: var(--c-red-1);
+  font-style: italic;
+}
+.home-pagebreak__turn{
+  display: inline-flex; align-items: center; gap: var(--s-3);
+  padding: 12px 24px;
+  border: 1px solid var(--c-rule-3);
+  border-radius: 999px;
+  background: rgba(255,30,60,.08);
+  color: var(--c-ink-1);
+  font-family: var(--f-mono);
+  font-size: var(--t-sm);
+  font-weight: 700;
+  letter-spacing: var(--ls-label);
+  text-transform: uppercase;
+  text-decoration: none;
+  transition: background var(--d-fast) var(--e-out),
+              border-color var(--d-fast) var(--e-out),
+              transform var(--d-fast) var(--e-out);
+}
+.home-pagebreak__turn:hover{
+  background: rgba(255,30,60,.18);
+  border-color: var(--c-red);
+  transform: translateY(2px);
+}
+.home-pagebreak__arrow{
+  display: inline-block;
+  color: var(--c-red);
+  animation: pageTurnArrow 2.2s ease-in-out infinite;
+}
+.home-pagebreak__x-glyph{
+  display: inline-block;
+  font-family: var(--f-serif);
+  font-size: 16px;
+  font-weight: 700;
+  color: var(--c-red);
+  line-height: 1;
+}
+/* AI-2026 signal cluster in the colophon: MCP-READY badge plus
+   editorial trust chips (confidence + researched). Three pill chips
+   stacked horizontally beneath the caption + sub line. */
+.home-pagebreak__signals{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: var(--s-2);
+  margin-top: var(--s-2);
+}
+.home-pagebreak__badge{
+  display: inline-flex; align-items: center; gap: 6px;
+  padding: 3px 10px;
+  border: 1px solid var(--c-rule-2);
+  border-radius: 999px;
+  background: rgba(0, 229, 168, .06);
+  font-family: var(--f-mono);
+  font-size: 9.5px;
+  font-weight: 700;
+  letter-spacing: var(--ls-label);
+  text-transform: uppercase;
+  color: var(--c-up);
+}
+.home-pagebreak__badge--alt{
+  background: rgba(255, 30, 60, .06);
+  color: var(--c-red-1);
+}
+.home-pagebreak__badge .dot{
+  width: 5px; height: 5px;
+  border-radius: 50%;
+  flex: 0 0 5px;
+}
+.home-pagebreak__badge .dot--live{
+  background: var(--c-up);
+  box-shadow: 0 0 6px var(--c-up);
+  animation: livePulse var(--d-pulse) ease-in-out infinite;
+}
+.home-pagebreak__badge .dot--editorial{
+  background: var(--c-red);
+  box-shadow: 0 0 6px var(--c-red-pulse);
+}
+
+.home-pagebreak__hint{
+  display: inline-block;
+  padding: 3px 8px;
+  border-left: 1px solid var(--c-rule-2);
+  margin-left: var(--s-2);
+  color: var(--c-red-1);
+  font-size: 10px;
+}
+@keyframes pageTurnArrow {
+  0%, 100% { transform: translateY(0); }
+  50%      { transform: translateY(4px); }
+}
+
+/* page-02 opener */
+.home-pageopener{
+  max-width: var(--max-w);
+  margin: 0 auto;
+  padding: clamp(40px, 8vw, 80px) var(--gutter) clamp(24px, 4vw, 40px);
+  position: relative;
+  scroll-margin-top: 80px;
+}
+.home-pageopener__num{
+  font-family: var(--f-mono);
+  font-size: clamp(56px, 13vw, 132px);
+  font-weight: 800;
+  line-height: 1;
+  letter-spacing: -.02em;
+  color: var(--c-red-trace);
+  /* outlined-numeral look, the page-marker, big and faded */
+  -webkit-text-stroke: 1px var(--c-rule-3);
+  color: transparent;
+  margin-bottom: var(--s-4);
+}
+.home-pageopener__title{
+  margin: 0;
+  font-family: var(--f-serif);
+  font-size: clamp(36px, 7vw, 72px);
+  font-weight: 300;
+  line-height: var(--lh-tight);
+  letter-spacing: var(--ls-display);
+  color: var(--c-ink-1);
+}
+.home-pageopener__title em{ font-style: italic; color: var(--c-red); }
+.home-pageopener__dek{
+  margin: var(--s-5) 0 0;
+  max-width: 56ch;
+  font-family: var(--f-sans);
+  font-size: var(--t-lg);
+  line-height: var(--lh-loose);
+  color: var(--c-ink-2);
+}
+.home-pageopener__rule{
+  display: block;
+  margin-top: var(--s-8);
+  height: 1px;
+  background: linear-gradient(90deg, var(--c-red), transparent 80%);
+}
+
+/* ---------- responsive ---------- */
+@media (max-width: 980px){
+  .home-net__grid{ grid-template-columns: repeat(3, 1fr); }
+  .home-subnets__grid{ grid-template-columns: repeat(2, 1fr); }
+  .home-sections__grid{ grid-template-columns: repeat(2, 1fr); }
+}
+@media (max-width: 560px){
+  .home-net__grid{ grid-template-columns: repeat(2, 1fr); }
+  .home-subnets__grid{ grid-template-columns: 1fr; }
+  .home-sections__grid{ grid-template-columns: 1fr; }
+  .home-subnets__head{ flex-direction: column; align-items: flex-start; gap: var(--s-3); }
+  .home-bio{ padding: var(--s-4); min-height: 460px; }
+  .home-bio__stats{ grid-template-columns: repeat(2, 1fr); }
+  .home-how__h{ font-size: 22px; }
+}

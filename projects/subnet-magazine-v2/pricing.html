@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#000000">
+  <title>Pricing · Subneτ Magazine</title>
+  <meta name="description" content="A research terminal for decentralized AI — Subneτ Magazine. Three tiers (OBSERVER free, PRO DESK $29/mo, INSTITUTIONAL $249/mo). Live Bittensor markets, attribution analytics, daily editorial, image-rich news cards. Cancel anytime.">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@300..800&family=Inter:wght@300..800&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="style/tokens.css">
+  <link rel="stylesheet" href="style/base.css">
+  <link rel="stylesheet" href="style/components/slide-hint.css">
+  <link rel="stylesheet" href="style/components/tickers.css">
+  <link rel="stylesheet" href="style/components/status-strip.css">
+  <link rel="stylesheet" href="style/components/masthead.css">
+  <link rel="stylesheet" href="style/components/panel.css">
+  <link rel="stylesheet" href="style/components/command-palette.css">
+  <link rel="stylesheet" href="style/components/mobile-nav.css">
+  <link rel="stylesheet" href="style/components/pricing.css">
+</head>
+<body>
+  <div data-mount="tickers"></div>
+  <div data-mount="statusbar"></div>
+  <div data-mount="masthead"></div>
+  <aside class="flow-thread" aria-hidden="true">
+    <span class="flow-thread__pulse"></span>
+  </aside>
+  <main id="main">
+    <div data-mount="pricing"></div>
+  </main>
+  <script src="config.js"></script>
+  <script type="module" src="src/boot.js?v=20260520s"></script>
+</body>
+</html>
