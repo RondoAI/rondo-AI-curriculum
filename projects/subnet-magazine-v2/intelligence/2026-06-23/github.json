@@ -1,0 +1,79 @@
+[
+  {
+    "repo": "opentensor/subtensor",
+    "name": "Subtensor (chain)",
+    "kind": "commit",
+    "sha": "6016381",
+    "message": "Merge pull request #2781 from opentensor/pr-2780",
+    "author": "sam0x17",
+    "posted_at": "2026-06-22T21:53:24Z",
+    "url": "https://github.com/opentensor/subtensor/commit/6016381e4fb230d17643cca948afe296eb06faac",
+    "fetched_at": "2026-06-23T02:40:22.806163+00:00"
+  },
+  {
+    "repo": "opentensor/subtensor",
+    "name": "Subtensor (chain)",
+    "kind": "commit",
+    "sha": "dc2d06c",
+    "message": "spec bump",
+    "author": "Greg Zaitsev",
+    "posted_at": "2026-06-22T21:10:30Z",
+    "url": "https://github.com/opentensor/subtensor/commit/dc2d06c5054e1d3ef107bf8b5731d9f8e517f71b",
+    "fetched_at": "2026-06-23T02:40:22.806163+00:00"
+  },
+  {
+    "repo": "opentensor/subtensor",
+    "name": "Subtensor (chain)",
+    "kind": "commit",
+    "sha": "38c9e76",
+    "message": "address ai review",
+    "author": "Greg Zaitsev",
+    "posted_at": "2026-06-22T20:55:36Z",
+    "url": "https://github.com/opentensor/subtensor/commit/38c9e763f7c50dfbdc645995e783c9b744e75289",
+    "fetched_at": "2026-06-23T02:40:22.806163+00:00"
+  },
+  {
+    "repo": "opentensor/subtensor",
+    "name": "Subtensor (chain)",
+    "kind": "commit",
+    "sha": "eaadb74",
+    "message": "Weight emission shares by root_proportion (favor newer subnets)",
+    "author": "unconst",
+    "posted_at": "2026-06-22T20:46:03Z",
+    "url": "https://github.com/opentensor/subtensor/commit/eaadb745a0c007b8fc1db534d2318dca0452da53",
+    "fetched_at": "2026-06-23T02:40:22.806163+00:00"
+  },
+  {
+    "repo": "opentensor/subtensor",
+    "name": "Subtensor (chain)",
+    "kind": "commit",
+    "sha": "a068db5",
+    "message": "Address review of miner-burn emission scaling",
+    "author": "unconst",
+    "posted_at": "2026-06-22T20:13:55Z",
+    "url": "https://github.com/opentensor/subtensor/commit/a068db561fdd1293b19b0a78308a3ce551557bff",
+    "fetched_at": "2026-06-23T02:40:22.806163+00:00"
+  },
+  {
+    "repo": "opentensor/subtensor",
+    "name": "Subtensor (chain)",
+    "kind": "commit",
+    "sha": "5c1b380",
+    "message": "Scale chain emission away from subnets burning miner emission",
+    "author": "unconst",
+    "posted_at": "2026-06-22T20:02:16Z",
+    "url": "https://github.com/opentensor/subtensor/commit/5c1b38081b5fba15adb43da283a54aef30ba2a00",
+    "fetched_at": "2026-06-23T02:40:22.806163+00:00"
+  },
+  {
+    "repo": "opentensor/subtensor",
+    "name": "Subtensor (chain)",
+    "kind": "commit",
+    "sha": "061559c",
+    "message": "Trim account flags PR to main changes",
+    "author": "Greg Zaitsev",
+    "posted_at": "2026-06-22T19:02:35Z",
+    "url": "https://github.com/opentensor/subtensor/commit/061559c23cd391e3db1be0cf19e4c441c04692f6",
+    "fetched_at": "2026-06-23T02:40:22.806163+00:00"
+  }
+]
