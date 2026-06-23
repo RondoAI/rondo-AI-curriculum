@@ -1,0 +1,4 @@
+# e8.py scratch renders (regenerate with: python3 e8.py)
+e8.svg
+e8.png
+__pycache__/
