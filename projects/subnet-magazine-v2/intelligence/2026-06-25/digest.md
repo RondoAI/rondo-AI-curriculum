@@ -11,6 +11,16 @@ _no human notes in the window_
 
 _SemiAnalysis is the most-cited semiconductor and AI infrastructure publication in the industry. They do NOT cover Bittensor. The Oracle uses this corpus for any claim about hyperscaler compute, GPU economics, datacenter power, foundry capacity, memory pricing, lab unit economics. DO NOT cite SemiAnalysis for any Bittensor-specific claim. Full archive (289 posts, May 2020 onwards) lives at `intelligence/_external_sources/semianalysis/` with an `INDEX.md` table of contents. Paywalled posts show only subtitle + free preview; free posts have the full body extracted._
 
+### 2026-06-25 · US Grid Constraints: Towards 40GW+ of Behind-The-Meter Datacenter by 2028?
+_Why the Grid Can't Keep Up, and Why that Drives Behind-The-Meter 50%+ of DCs/Year By 2028_
+
+- **Authors:** ["Jeremie Eliahou Ontiveros", "Sebastian Orejas", "Ellie Holbrook", "Dylan Patel"]
+- **Access:** paid-preview
+- **URL:** https://newsletter.semianalysis.com/p/us-grid-constraints-towards-40gw
+- **Corpus file:** `intelligence/_external_sources/semianalysis/2026-06-25-us-grid-constraints-towards-40gw.md`
+
+> Today, the US grid is serving most datacenter load in the US, but we’re reaching a tipping point. As the insatiable demand for power of AI Labs and hyperscalers keeps accelerating, the grid simply can’t add capacity fast enough. That leaves Behind-The-Meter as the only way for the largest players to secure the power they need. Nearly a year ago, [our Onsite Gas deep dive](https://newsletter.semianalysis.com/p/how-ai-labs-are-solving-the-power) was the first to predict the fast rise of new entran
+
 ### 2026-06-23 · China’s CXMT Is Set to Challenge DRAM Incumbents
 _CXMT IPO, SK Hynix, Micron, Samsung Competition, Process Node Deficit, China HBM, Wafer Adds, Memory LTAs_
 
@@ -121,23 +131,33 @@ _Amazon’s Bedrock Mix and Anthropic Deal Terms Combine to Show Greater Operati
 
 > While other CSPs have seen declining-to-flat operating margins over the last several quarters, Amazon’s AWS margins inflected this past quarter driven primarily by customer spending growth on Claude through Bedrock. AWS’ higher share of 3P model API spend, Anthropic/Bedrock deal structure, and Anthropic’s ARR outperformance in 1Q26 all contributed to EBIT margins increasing 213bp Q/Q while other CSPs lagged. SemiAnalysis’ work in the new [Tokenomics 2.0 model](https://semianalysis.com/tokenomics
 
-### 2026-05-26 · Inside the 800VDC Revolution – Part 1
-_Four-Phase 800VDC Transition, Power Rack Economics, SST, Equipment Content/MW Build, Supplier Implications_
-
-- **Authors:** ["Nicolas Bontigui", "Jeremie Eliahou Ontiveros", "Konrad Wang", "Aran Industries", "Derek Yin", "Dylan Patel"]
-- **Access:** paid-preview
-- **URL:** https://newsletter.semianalysis.com/p/inside-the-800vdc-revolution-part
-- **Corpus file:** `intelligence/_external_sources/semianalysis/2026-05-26-inside-the-800vdc-revolution-part.md`
-
-> [![](https://substackcdn.com/image/fetch/$s_!rZmH!,w_1456,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2Fafd57882-4edd-4d08-9ee9-923b94c43063_1672x941.png)](https://substackcdn.com/image/fetch/$s_!rZmH!,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2Fafd57882-4edd-4d08-9ee9-923b94c43063_1672x941.png)  We’d like to thank [DG Matrix](https://www.dgmatrix.com/), [No
-
 
 ## ⊕ GITHUB COMMITS + RELEASES, last 24h
 
+- **btcli** (RELEASE `v9.23.0`, 2026-06-25 21:26) v9.23.0  
+  https://github.com/latent-to/btcli/releases/tag/v9.23.0
+- **btcli** (COMMIT `29c5ec7`, 2026-06-25 21:25) Merge pull request #1020 from latent-to/release/9.23.0  
+  https://github.com/latent-to/btcli/commit/29c5ec747fab12d12ef2ab6af4cd1a94c2b43529
+- **btcli** (COMMIT `7bd8906`, 2026-06-25 21:02) Merge pull request #1019 from latent-to/changelog/9230  
+  https://github.com/latent-to/btcli/commit/7bd89065e234ba08b2b96144fdcebf4277ba67b2
+- **btcli** (COMMIT `4fc660f`, 2026-06-25 20:56) update changelog  
+  https://github.com/latent-to/btcli/commit/4fc660f9640cfa5a0003ad1b2e8a96e14f000069
+- **btcli** (COMMIT `e9c1019`, 2026-06-25 20:55) Merge pull request #1018 from latent-to/update-desc  
+  https://github.com/latent-to/btcli/commit/e9c10193a7c9bf08b391e9c414892a30042e08ed
+- **btcli** (COMMIT `f8794d4`, 2026-06-25 20:55) bumps version + changelog  
+  https://github.com/latent-to/btcli/commit/f8794d4b4bfb8085dba9585da82a5c2553d04b3c
+- **Subtensor (chain)** (RELEASE `v3.4.8-`, 2026-06-25 20:37) v3.4.8-423  
+  https://github.com/opentensor/subtensor/releases/tag/v3.4.8-423
 - **Subtensor (chain)** (COMMIT `06032d5`, 2026-06-25 15:50) Merge pull request #2769 from opentensor/testnet  
   https://github.com/opentensor/subtensor/commit/06032d518fbaead1ddc2039e9e6aa55715026364
+- **btcli** (COMMIT `120ed93`, 2026-06-25 14:01) docs: update sudo docstring  
+  https://github.com/latent-to/btcli/commit/120ed93407e3c5331eba7ab5bf4ef623bba80a93
+- **btcli** (COMMIT `b64b525`, 2026-06-24 18:43) Merge pull request #1016 from latent-to/update/handle-validity-for-no-emissions  
+  https://github.com/latent-to/btcli/commit/b64b525c672c70e7b8563dd022a33076335ac9b2
 - **Subtensor (chain)** (COMMIT `4ff1e30`, 2026-06-24 18:15) bump spec version  
   https://github.com/opentensor/subtensor/commit/4ff1e30c174acc0d6c766e4139f7f5ccd29ea488
+- **btcli** (COMMIT `3ad6368`, 2026-06-24 17:59) floor period in-cases of negative  
+  https://github.com/latent-to/btcli/commit/3ad6368e33e77d21c568bcc0b48ef180c590810a
 - **Subtensor (chain)** (COMMIT `c032ae4`, 2026-06-24 17:23) Merge pull request #2796 from opentensor/postpone-gov  
   https://github.com/opentensor/subtensor/commit/c032ae4b19c30b3ffb4481071dd2257afeb34522
 - **Subtensor (chain)** (COMMIT `5a874ad`, 2026-06-24 17:17) chore: auditor auto-fix  
@@ -165,4 +185,4 @@ _no posts retrieved · all Nitter instances may be down_
 
 
 ---
-_Generated at 2026-06-25T18:08:10.400770+00:00 by scripts/intel/aggregate.py. Treat this digest as input context, not as ground truth. Verify before quoting._
+_Generated at 2026-06-25T21:28:54.336702+00:00 by scripts/intel/aggregate.py. Treat this digest as input context, not as ground truth. Verify before quoting._

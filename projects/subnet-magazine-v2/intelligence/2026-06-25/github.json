@@ -1,5 +1,82 @@
 [
   {
+    "repo": "opentensor/btcli",
+    "name": "btcli",
+    "kind": "release",
+    "sha": "v9.23.0",
+    "message": "v9.23.0",
+    "author": "ibraheem-abe",
+    "posted_at": "2026-06-25T21:26:27Z",
+    "url": "https://github.com/latent-to/btcli/releases/tag/v9.23.0",
+    "fetched_at": "2026-06-25T21:28:49.818826+00:00"
+  },
+  {
+    "repo": "opentensor/btcli",
+    "name": "btcli",
+    "kind": "commit",
+    "sha": "29c5ec7",
+    "message": "Merge pull request #1020 from latent-to/release/9.23.0",
+    "author": "Ibraheem",
+    "posted_at": "2026-06-25T21:25:42Z",
+    "url": "https://github.com/latent-to/btcli/commit/29c5ec747fab12d12ef2ab6af4cd1a94c2b43529",
+    "fetched_at": "2026-06-25T21:28:49.176669+00:00"
+  },
+  {
+    "repo": "opentensor/btcli",
+    "name": "btcli",
+    "kind": "commit",
+    "sha": "7bd8906",
+    "message": "Merge pull request #1019 from latent-to/changelog/9230",
+    "author": "Ibraheem",
+    "posted_at": "2026-06-25T21:02:12Z",
+    "url": "https://github.com/latent-to/btcli/commit/7bd89065e234ba08b2b96144fdcebf4277ba67b2",
+    "fetched_at": "2026-06-25T21:28:49.176669+00:00"
+  },
+  {
+    "repo": "opentensor/btcli",
+    "name": "btcli",
+    "kind": "commit",
+    "sha": "4fc660f",
+    "message": "update changelog",
+    "author": "ibraheem-latent",
+    "posted_at": "2026-06-25T20:56:13Z",
+    "url": "https://github.com/latent-to/btcli/commit/4fc660f9640cfa5a0003ad1b2e8a96e14f000069",
+    "fetched_at": "2026-06-25T21:28:49.176669+00:00"
+  },
+  {
+    "repo": "opentensor/btcli",
+    "name": "btcli",
+    "kind": "commit",
+    "sha": "e9c1019",
+    "message": "Merge pull request #1018 from latent-to/update-desc",
+    "author": "Ibraheem",
+    "posted_at": "2026-06-25T20:55:44Z",
+    "url": "https://github.com/latent-to/btcli/commit/e9c10193a7c9bf08b391e9c414892a30042e08ed",
+    "fetched_at": "2026-06-25T21:28:49.176669+00:00"
+  },
+  {
+    "repo": "opentensor/btcli",
+    "name": "btcli",
+    "kind": "commit",
+    "sha": "f8794d4",
+    "message": "bumps version + changelog",
+    "author": "ibraheem-latent",
+    "posted_at": "2026-06-25T20:55:06Z",
+    "url": "https://github.com/latent-to/btcli/commit/f8794d4b4bfb8085dba9585da82a5c2553d04b3c",
+    "fetched_at": "2026-06-25T21:28:49.176669+00:00"
+  },
+  {
+    "repo": "opentensor/subtensor",
+    "name": "Subtensor (chain)",
+    "kind": "release",
+    "sha": "v3.4.8-423",
+    "message": "v3.4.8-423",
+    "author": "sam0x17",
+    "posted_at": "2026-06-25T20:37:26Z",
+    "url": "https://github.com/opentensor/subtensor/releases/tag/v3.4.8-423",
+    "fetched_at": "2026-06-25T21:28:47.149882+00:00"
+  },
+  {
     "repo": "opentensor/subtensor",
     "name": "Subtensor (chain)",
     "kind": "commit",
@@ -11,6 +88,28 @@
     "fetched_at": "2026-06-25T18:08:05.253600+00:00"
   },
   {
+    "repo": "opentensor/btcli",
+    "name": "btcli",
+    "kind": "commit",
+    "sha": "120ed93",
+    "message": "docs: update sudo docstring",
+    "author": "Dera Okeke",
+    "posted_at": "2026-06-25T14:01:44Z",
+    "url": "https://github.com/latent-to/btcli/commit/120ed93407e3c5331eba7ab5bf4ef623bba80a93",
+    "fetched_at": "2026-06-25T21:28:49.176669+00:00"
+  },
+  {
+    "repo": "opentensor/btcli",
+    "name": "btcli",
+    "kind": "commit",
+    "sha": "b64b525",
+    "message": "Merge pull request #1016 from latent-to/update/handle-validity-for-no-emissions",
+    "author": "Ibraheem",
+    "posted_at": "2026-06-24T18:43:40Z",
+    "url": "https://github.com/latent-to/btcli/commit/b64b525c672c70e7b8563dd022a33076335ac9b2",
+    "fetched_at": "2026-06-25T21:28:49.176669+00:00"
+  },
+  {
     "repo": "opentensor/subtensor",
     "name": "Subtensor (chain)",
     "kind": "commit",
@@ -20,6 +119,17 @@
     "posted_at": "2026-06-24T18:15:50Z",
     "url": "https://github.com/opentensor/subtensor/commit/4ff1e30c174acc0d6c766e4139f7f5ccd29ea488",
     "fetched_at": "2026-06-25T18:08:05.253600+00:00"
+  },
+  {
+    "repo": "opentensor/btcli",
+    "name": "btcli",
+    "kind": "commit",
+    "sha": "3ad6368",
+    "message": "floor period in-cases of negative",
+    "author": "ibraheem-latent",
+    "posted_at": "2026-06-24T17:59:37Z",
+    "url": "https://github.com/latent-to/btcli/commit/3ad6368e33e77d21c568bcc0b48ef180c590810a",
+    "fetched_at": "2026-06-25T21:28:49.176669+00:00"
   },
   {
     "repo": "opentensor/subtensor",
