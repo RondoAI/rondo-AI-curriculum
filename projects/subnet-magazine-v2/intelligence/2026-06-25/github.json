@@ -1,1 +1,112 @@
-[]
+[
+  {
+    "repo": "opentensor/subtensor",
+    "name": "Subtensor (chain)",
+    "kind": "commit",
+    "sha": "06032d5",
+    "message": "Merge pull request #2769 from opentensor/testnet",
+    "author": "sam0x17",
+    "posted_at": "2026-06-25T15:50:58Z",
+    "url": "https://github.com/opentensor/subtensor/commit/06032d518fbaead1ddc2039e9e6aa55715026364",
+    "fetched_at": "2026-06-25T18:08:05.253600+00:00"
+  },
+  {
+    "repo": "opentensor/subtensor",
+    "name": "Subtensor (chain)",
+    "kind": "commit",
+    "sha": "4ff1e30",
+    "message": "bump spec version",
+    "author": "Sam Johnson",
+    "posted_at": "2026-06-24T18:15:50Z",
+    "url": "https://github.com/opentensor/subtensor/commit/4ff1e30c174acc0d6c766e4139f7f5ccd29ea488",
+    "fetched_at": "2026-06-25T18:08:05.253600+00:00"
+  },
+  {
+    "repo": "opentensor/subtensor",
+    "name": "Subtensor (chain)",
+    "kind": "commit",
+    "sha": "c032ae4",
+    "message": "Merge pull request #2796 from opentensor/postpone-gov",
+    "author": "sam0x17",
+    "posted_at": "2026-06-24T17:23:13Z",
+    "url": "https://github.com/opentensor/subtensor/commit/c032ae4b19c30b3ffb4481071dd2257afeb34522",
+    "fetched_at": "2026-06-25T18:08:05.253600+00:00"
+  },
+  {
+    "repo": "opentensor/subtensor",
+    "name": "Subtensor (chain)",
+    "kind": "commit",
+    "sha": "5a874ad",
+    "message": "chore: auditor auto-fix",
+    "author": "subtensor-ai-review[bot]",
+    "posted_at": "2026-06-24T17:17:20Z",
+    "url": "https://github.com/opentensor/subtensor/commit/5a874ad1daf0d9bef9da1cd9978775b9e0b170e7",
+    "fetched_at": "2026-06-25T18:08:05.253600+00:00"
+  },
+  {
+    "repo": "opentensor/subtensor",
+    "name": "Subtensor (chain)",
+    "kind": "commit",
+    "sha": "5ed8211",
+    "message": "Remove gov preparation to reintroduce later",
+    "author": "Loris Moulin",
+    "posted_at": "2026-06-24T17:08:30Z",
+    "url": "https://github.com/opentensor/subtensor/commit/5ed82114c7a874d41c1693e22038714b4c439d42",
+    "fetched_at": "2026-06-25T18:08:05.253600+00:00"
+  },
+  {
+    "repo": "opentensor/subtensor",
+    "name": "Subtensor (chain)",
+    "kind": "commit",
+    "sha": "016d888",
+    "message": "Merge pull request #2790 from opentensor/feat/back-propagate-new-subnet-emission-off",
+    "author": "sam0x17",
+    "posted_at": "2026-06-24T16:30:17Z",
+    "url": "https://github.com/opentensor/subtensor/commit/016d888c8ee1a17a23995da8be9577be85313e2b",
+    "fetched_at": "2026-06-25T18:08:05.253600+00:00"
+  },
+  {
+    "repo": "opentensor/subtensor",
+    "name": "Subtensor (chain)",
+    "kind": "commit",
+    "sha": "c6db914",
+    "message": "Merge pull request #2791 from girazoki/girazoki-fix-pallet-limit-orders-bugs",
+    "author": "open-junius",
+    "posted_at": "2026-06-24T14:58:36Z",
+    "url": "https://github.com/opentensor/subtensor/commit/c6db914a2b442c2bec6841549e57f3cb11aac73d",
+    "fetched_at": "2026-06-25T18:08:05.253600+00:00"
+  },
+  {
+    "repo": "opentensor/subtensor",
+    "name": "Subtensor (chain)",
+    "kind": "commit",
+    "sha": "50a9fae",
+    "message": "Merge pull request #2716 from opentensor/migrate-contract-e2e",
+    "author": "open-junius",
+    "posted_at": "2026-06-24T14:47:02Z",
+    "url": "https://github.com/opentensor/subtensor/commit/50a9faea26cfece11a07347222abd1fc310a6e66",
+    "fetched_at": "2026-06-25T18:08:05.253600+00:00"
+  },
+  {
+    "repo": "opentensor/subtensor",
+    "name": "Subtensor (chain)",
+    "kind": "commit",
+    "sha": "8f04b5a",
+    "message": "we dont use balances so they are not transactional",
+    "author": "girazoki",
+    "posted_at": "2026-06-24T10:44:40Z",
+    "url": "https://github.com/opentensor/subtensor/commit/8f04b5ae27052d51c86c072fea2a07a3b5b9e4bd",
+    "fetched_at": "2026-06-25T18:08:05.253600+00:00"
+  },
+  {
+    "repo": "opentensor/subtensor",
+    "name": "Subtensor (chain)",
+    "kind": "commit",
+    "sha": "200155a",
+    "message": "Merge remote-tracking branch 'origin/devnet-ready' into girazoki-fix-pallet-limit-orders-bugs",
+    "author": "girazoki",
+    "posted_at": "2026-06-24T10:20:19Z",
+    "url": "https://github.com/opentensor/subtensor/commit/200155a8a4a4d5344f670ce3e28e9ed4818bd7cf",
+    "fetched_at": "2026-06-25T18:08:05.253600+00:00"
+  }
+]

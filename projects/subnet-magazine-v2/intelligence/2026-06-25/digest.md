@@ -134,7 +134,26 @@ _Four-Phase 800VDC Transition, Power Rack Economics, SST, Equipment Content/MW B
 
 ## ⊕ GITHUB COMMITS + RELEASES, last 24h
 
-_no commits or releases in the lookback window_
+- **Subtensor (chain)** (COMMIT `06032d5`, 2026-06-25 15:50) Merge pull request #2769 from opentensor/testnet  
+  https://github.com/opentensor/subtensor/commit/06032d518fbaead1ddc2039e9e6aa55715026364
+- **Subtensor (chain)** (COMMIT `4ff1e30`, 2026-06-24 18:15) bump spec version  
+  https://github.com/opentensor/subtensor/commit/4ff1e30c174acc0d6c766e4139f7f5ccd29ea488
+- **Subtensor (chain)** (COMMIT `c032ae4`, 2026-06-24 17:23) Merge pull request #2796 from opentensor/postpone-gov  
+  https://github.com/opentensor/subtensor/commit/c032ae4b19c30b3ffb4481071dd2257afeb34522
+- **Subtensor (chain)** (COMMIT `5a874ad`, 2026-06-24 17:17) chore: auditor auto-fix  
+  https://github.com/opentensor/subtensor/commit/5a874ad1daf0d9bef9da1cd9978775b9e0b170e7
+- **Subtensor (chain)** (COMMIT `5ed8211`, 2026-06-24 17:08) Remove gov preparation to reintroduce later  
+  https://github.com/opentensor/subtensor/commit/5ed82114c7a874d41c1693e22038714b4c439d42
+- **Subtensor (chain)** (COMMIT `016d888`, 2026-06-24 16:30) Merge pull request #2790 from opentensor/feat/back-propagate-new-subnet-emission-off  
+  https://github.com/opentensor/subtensor/commit/016d888c8ee1a17a23995da8be9577be85313e2b
+- **Subtensor (chain)** (COMMIT `c6db914`, 2026-06-24 14:58) Merge pull request #2791 from girazoki/girazoki-fix-pallet-limit-orders-bugs  
+  https://github.com/opentensor/subtensor/commit/c6db914a2b442c2bec6841549e57f3cb11aac73d
+- **Subtensor (chain)** (COMMIT `50a9fae`, 2026-06-24 14:47) Merge pull request #2716 from opentensor/migrate-contract-e2e  
+  https://github.com/opentensor/subtensor/commit/50a9faea26cfece11a07347222abd1fc310a6e66
+- **Subtensor (chain)** (COMMIT `8f04b5a`, 2026-06-24 10:44) we dont use balances so they are not transactional  
+  https://github.com/opentensor/subtensor/commit/8f04b5ae27052d51c86c072fea2a07a3b5b9e4bd
+- **Subtensor (chain)** (COMMIT `200155a`, 2026-06-24 10:20) Merge remote-tracking branch 'origin/devnet-ready' into girazoki-fix-pallet-limit-orders-bugs  
+  https://github.com/opentensor/subtensor/commit/200155a8a4a4d5344f670ce3e28e9ed4818bd7cf
 
 ## ⊕ ECOSYSTEM BLOGS via RSS
 
@@ -146,4 +165,4 @@ _no posts retrieved · all Nitter instances may be down_
 
 
 ---
-_Generated at 2026-06-25T14:13:13.604588+00:00 by scripts/intel/aggregate.py. Treat this digest as input context, not as ground truth. Verify before quoting._
+_Generated at 2026-06-25T18:08:10.400770+00:00 by scripts/intel/aggregate.py. Treat this digest as input context, not as ground truth. Verify before quoting._
