@@ -1,0 +1,200 @@
+[
+  {
+    "repo": "opentensor/btcli",
+    "name": "btcli",
+    "kind": "release",
+    "sha": "v9.23.1",
+    "message": "v9.23.1",
+    "author": "ibraheem-abe",
+    "posted_at": "2026-06-25T22:49:44Z",
+    "url": "https://github.com/latent-to/btcli/releases/tag/v9.23.1",
+    "fetched_at": "2026-06-26T02:45:57.581243+00:00"
+  },
+  {
+    "repo": "opentensor/btcli",
+    "name": "btcli",
+    "kind": "commit",
+    "sha": "350015a",
+    "message": "Merge pull request #1024 from latent-to/release/9.23.1",
+    "author": "Ibraheem",
+    "posted_at": "2026-06-25T22:49:20Z",
+    "url": "https://github.com/latent-to/btcli/commit/350015a1da9c2bde8a7ab7761a1af6ea9c4be766",
+    "fetched_at": "2026-06-26T02:45:56.936255+00:00"
+  },
+  {
+    "repo": "opentensor/bittensor",
+    "name": "Bittensor SDK",
+    "kind": "release",
+    "sha": "v10.5.0",
+    "message": "v10.5.0",
+    "author": "basfroman",
+    "posted_at": "2026-06-25T22:35:49Z",
+    "url": "https://github.com/latent-to/bittensor/releases/tag/v10.5.0",
+    "fetched_at": "2026-06-26T02:45:56.156917+00:00"
+  },
+  {
+    "repo": "opentensor/btcli",
+    "name": "btcli",
+    "kind": "commit",
+    "sha": "7816ff0",
+    "message": "Merge pull request #1023 from latent-to/changelog/9231",
+    "author": "Ibraheem",
+    "posted_at": "2026-06-25T22:35:04Z",
+    "url": "https://github.com/latent-to/btcli/commit/7816ff01e59126765891e50133ef418b7a7ab252",
+    "fetched_at": "2026-06-26T02:45:56.936255+00:00"
+  },
+  {
+    "repo": "opentensor/btcli",
+    "name": "btcli",
+    "kind": "commit",
+    "sha": "7cca194",
+    "message": "update changelog",
+    "author": "ibraheem-latent",
+    "posted_at": "2026-06-25T22:33:59Z",
+    "url": "https://github.com/latent-to/btcli/commit/7cca194e8306e3ea623d6c86e94d6a50a2c58e0b",
+    "fetched_at": "2026-06-26T02:45:56.936255+00:00"
+  },
+  {
+    "repo": "opentensor/btcli",
+    "name": "btcli",
+    "kind": "commit",
+    "sha": "87e8cf3",
+    "message": "Merge pull request #1022 from latent-to/update/drand-package",
+    "author": "Ibraheem",
+    "posted_at": "2026-06-25T22:32:41Z",
+    "url": "https://github.com/latent-to/btcli/commit/87e8cf3fcbfb5e48ff867dd154235b50ecae8ef2",
+    "fetched_at": "2026-06-26T02:45:56.936255+00:00"
+  },
+  {
+    "repo": "opentensor/btcli",
+    "name": "btcli",
+    "kind": "commit",
+    "sha": "204a04b",
+    "message": "Update drand package",
+    "author": "ibraheem-latent",
+    "posted_at": "2026-06-25T22:30:45Z",
+    "url": "https://github.com/latent-to/btcli/commit/204a04bef0d01e5e491f5eda1ad7166522c5f0d1",
+    "fetched_at": "2026-06-26T02:45:56.936255+00:00"
+  },
+  {
+    "repo": "opentensor/bittensor",
+    "name": "Bittensor SDK",
+    "kind": "commit",
+    "sha": "c4dca6b",
+    "message": "Merge pull request #3394 from latent-to/release/10.5.0",
+    "author": "Roman",
+    "posted_at": "2026-06-25T22:24:32Z",
+    "url": "https://github.com/latent-to/bittensor/commit/c4dca6bbe3ae1ad7097ac2850558d8c602a5b44e",
+    "fetched_at": "2026-06-26T02:45:55.536905+00:00"
+  },
+  {
+    "repo": "opentensor/bittensor",
+    "name": "Bittensor SDK",
+    "kind": "commit",
+    "sha": "b9af04a",
+    "message": "Merge pull request #3380 from latent-to/changelog/10.5.0",
+    "author": "Roman",
+    "posted_at": "2026-06-25T21:35:15Z",
+    "url": "https://github.com/latent-to/bittensor/commit/b9af04ad3452dde398460d464598837313226101",
+    "fetched_at": "2026-06-26T02:45:55.536905+00:00"
+  },
+  {
+    "repo": "opentensor/btcli",
+    "name": "btcli",
+    "kind": "commit",
+    "sha": "29c5ec7",
+    "message": "Merge pull request #1020 from latent-to/release/9.23.0",
+    "author": "Ibraheem",
+    "posted_at": "2026-06-25T21:25:42Z",
+    "url": "https://github.com/latent-to/btcli/commit/29c5ec747fab12d12ef2ab6af4cd1a94c2b43529",
+    "fetched_at": "2026-06-26T02:45:56.936255+00:00"
+  },
+  {
+    "repo": "opentensor/bittensor",
+    "name": "Bittensor SDK",
+    "kind": "commit",
+    "sha": "1267a10",
+    "message": "CHANGELOG.md up to date",
+    "author": "Roman Chkhaidze",
+    "posted_at": "2026-06-25T21:25:02Z",
+    "url": "https://github.com/latent-to/bittensor/commit/1267a1018e83ff877ac7d899107554e35d8d1933",
+    "fetched_at": "2026-06-26T02:45:55.536905+00:00"
+  },
+  {
+    "repo": "opentensor/bittensor",
+    "name": "Bittensor SDK",
+    "kind": "commit",
+    "sha": "a6b5430",
+    "message": "Merge branch 'staging' into changelog/10.5.0",
+    "author": "Roman Chkhaidze",
+    "posted_at": "2026-06-25T21:22:35Z",
+    "url": "https://github.com/latent-to/bittensor/commit/a6b5430c2d2aab170f9fb84f6d849a35e60b2496",
+    "fetched_at": "2026-06-26T02:45:55.536905+00:00"
+  },
+  {
+    "repo": "opentensor/btcli",
+    "name": "btcli",
+    "kind": "commit",
+    "sha": "7bd8906",
+    "message": "Merge pull request #1019 from latent-to/changelog/9230",
+    "author": "Ibraheem",
+    "posted_at": "2026-06-25T21:02:12Z",
+    "url": "https://github.com/latent-to/btcli/commit/7bd89065e234ba08b2b96144fdcebf4277ba67b2",
+    "fetched_at": "2026-06-26T02:45:56.936255+00:00"
+  },
+  {
+    "repo": "opentensor/btcli",
+    "name": "btcli",
+    "kind": "commit",
+    "sha": "4fc660f",
+    "message": "update changelog",
+    "author": "ibraheem-latent",
+    "posted_at": "2026-06-25T20:56:13Z",
+    "url": "https://github.com/latent-to/btcli/commit/4fc660f9640cfa5a0003ad1b2e8a96e14f000069",
+    "fetched_at": "2026-06-26T02:45:56.936255+00:00"
+  },
+  {
+    "repo": "opentensor/btcli",
+    "name": "btcli",
+    "kind": "commit",
+    "sha": "e9c1019",
+    "message": "Merge pull request #1018 from latent-to/update-desc",
+    "author": "Ibraheem",
+    "posted_at": "2026-06-25T20:55:44Z",
+    "url": "https://github.com/latent-to/btcli/commit/e9c10193a7c9bf08b391e9c414892a30042e08ed",
+    "fetched_at": "2026-06-26T02:45:56.936255+00:00"
+  },
+  {
+    "repo": "opentensor/btcli",
+    "name": "btcli",
+    "kind": "commit",
+    "sha": "f8794d4",
+    "message": "bumps version + changelog",
+    "author": "ibraheem-latent",
+    "posted_at": "2026-06-25T20:55:06Z",
+    "url": "https://github.com/latent-to/btcli/commit/f8794d4b4bfb8085dba9585da82a5c2553d04b3c",
+    "fetched_at": "2026-06-26T02:45:56.936255+00:00"
+  },
+  {
+    "repo": "opentensor/subtensor",
+    "name": "Subtensor (chain)",
+    "kind": "release",
+    "sha": "v3.4.8-423",
+    "message": "v3.4.8-423",
+    "author": "sam0x17",
+    "posted_at": "2026-06-25T20:37:26Z",
+    "url": "https://github.com/opentensor/subtensor/releases/tag/v3.4.8-423",
+    "fetched_at": "2026-06-26T02:45:54.798312+00:00"
+  },
+  {
+    "repo": "opentensor/subtensor",
+    "name": "Subtensor (chain)",
+    "kind": "commit",
+    "sha": "06032d5",
+    "message": "Merge pull request #2769 from opentensor/testnet",
+    "author": "sam0x17",
+    "posted_at": "2026-06-25T15:50:58Z",
+    "url": "https://github.com/opentensor/subtensor/commit/06032d518fbaead1ddc2039e9e6aa55715026364",
+    "fetched_at": "2026-06-26T02:45:54.481233+00:00"
+  }
+]
