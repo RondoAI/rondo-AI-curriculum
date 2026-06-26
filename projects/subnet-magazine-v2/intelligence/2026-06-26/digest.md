@@ -134,6 +134,26 @@ _Amazon’s Bedrock Mix and Anthropic Deal Terms Combine to Show Greater Operati
 
 ## ⊕ GITHUB COMMITS + RELEASES, last 24h
 
+- **Subtensor (chain)** (COMMIT `bb51677`, 2026-06-26 19:34) Merge pull request #2803 from opentensor/fix/balancer-performance  
+  https://github.com/opentensor/subtensor/commit/bb51677451dc74f2152d44a9a0c30b18b5e634fc
+- **Subtensor (chain)** (COMMIT `1ad1688`, 2026-06-26 18:30) Apply the 1000x swap input cap to simulations and limit-path max-amount probes.  
+  https://github.com/opentensor/subtensor/commit/1ad16880f9a66f9b4b8506c470d3fb6468db457e
+- **Subtensor (chain)** (COMMIT `132b9cc`, 2026-06-26 18:15) Fix tests, enforce atomic add-stake recycle/burn operations by rolling back the initial stake when the recycle or burn leg fails.  
+  https://github.com/opentensor/subtensor/commit/132b9cca3b0d8aa4cbadf54b402c2bde12bf8050
+- **Subtensor (chain)** (COMMIT `d005de3`, 2026-06-26 17:59) fix tests  
+  https://github.com/opentensor/subtensor/commit/d005de37e16fda9d4f2dac6d55604511ad4820de
+- **Subtensor (chain)** (COMMIT `566fb8c`, 2026-06-26 17:21) Update pallets/swap/src/pallet/balancer.rs  
+  https://github.com/opentensor/subtensor/commit/566fb8c5afd9a8fe323cde1224b19a98d75a9ad3
+- **Subtensor (chain)** (COMMIT `8bc8ef6`, 2026-06-26 17:17) Merge branch 'fix/balancer-performance' of github.com:opentensor/subtensor into fix/balancer-performance  
+  https://github.com/opentensor/subtensor/commit/8bc8ef6ed66771ffe3ec42826b47b777eaa90270
+- **Subtensor (chain)** (COMMIT `c4c77a2`, 2026-06-26 17:17) chore: auditor auto-fix  
+  https://github.com/opentensor/subtensor/commit/c4c77a270208e97243e48621adc5bde9aadc0c39
+- **Subtensor (chain)** (COMMIT `536c893`, 2026-06-26 17:16) spec bump  
+  https://github.com/opentensor/subtensor/commit/536c8938d7ff114508bcf6adaaa7290d22e73b75
+- **Subtensor (chain)** (COMMIT `593de8a`, 2026-06-26 16:26) Forbid swaps that are too large compared to available liauidity  
+  https://github.com/opentensor/subtensor/commit/593de8a177ddc00c3202705ff6c90e923a431241
+- **Subtensor (chain)** (COMMIT `98151ec`, 2026-06-26 16:11) cap exp_scaled at 1, set balancer exp precision to 256  
+  https://github.com/opentensor/subtensor/commit/98151ecd2eaea92b5966e81aca7fcc1897495076
 - **btcli** (RELEASE `v9.23.1`, 2026-06-25 22:49) v9.23.1  
   https://github.com/latent-to/btcli/releases/tag/v9.23.1
 - **btcli** (COMMIT `350015a`, 2026-06-25 22:49) Merge pull request #1024 from latent-to/release/9.23.1  
@@ -181,4 +201,4 @@ _no posts retrieved · all Nitter instances may be down_
 
 
 ---
-_Generated at 2026-06-26T17:45:04.494133+00:00 by scripts/intel/aggregate.py. Treat this digest as input context, not as ground truth. Verify before quoting._
+_Generated at 2026-06-26T21:16:49.204519+00:00 by scripts/intel/aggregate.py. Treat this digest as input context, not as ground truth. Verify before quoting._
