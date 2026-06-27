@@ -1,0 +1,112 @@
+[
+  {
+    "repo": "opentensor/subtensor",
+    "name": "Subtensor (chain)",
+    "kind": "commit",
+    "sha": "bb51677",
+    "message": "Merge pull request #2803 from opentensor/fix/balancer-performance",
+    "author": "sam0x17",
+    "posted_at": "2026-06-26T19:34:35Z",
+    "url": "https://github.com/opentensor/subtensor/commit/bb51677451dc74f2152d44a9a0c30b18b5e634fc",
+    "fetched_at": "2026-06-27T02:37:49.997874+00:00"
+  },
+  {
+    "repo": "opentensor/subtensor",
+    "name": "Subtensor (chain)",
+    "kind": "commit",
+    "sha": "1ad1688",
+    "message": "Apply the 1000x swap input cap to simulations and limit-path max-amount probes.",
+    "author": "Greg Zaitsev",
+    "posted_at": "2026-06-26T18:30:30Z",
+    "url": "https://github.com/opentensor/subtensor/commit/1ad16880f9a66f9b4b8506c470d3fb6468db457e",
+    "fetched_at": "2026-06-27T02:37:49.997874+00:00"
+  },
+  {
+    "repo": "opentensor/subtensor",
+    "name": "Subtensor (chain)",
+    "kind": "commit",
+    "sha": "132b9cc",
+    "message": "Fix tests, enforce atomic add-stake recycle/burn operations by rolling back the initial stake when the recycle or burn leg fails.",
+    "author": "Greg Zaitsev",
+    "posted_at": "2026-06-26T18:15:43Z",
+    "url": "https://github.com/opentensor/subtensor/commit/132b9cca3b0d8aa4cbadf54b402c2bde12bf8050",
+    "fetched_at": "2026-06-27T02:37:49.997874+00:00"
+  },
+  {
+    "repo": "opentensor/subtensor",
+    "name": "Subtensor (chain)",
+    "kind": "commit",
+    "sha": "d005de3",
+    "message": "fix tests",
+    "author": "Greg Zaitsev",
+    "posted_at": "2026-06-26T17:59:08Z",
+    "url": "https://github.com/opentensor/subtensor/commit/d005de37e16fda9d4f2dac6d55604511ad4820de",
+    "fetched_at": "2026-06-27T02:37:49.997874+00:00"
+  },
+  {
+    "repo": "opentensor/subtensor",
+    "name": "Subtensor (chain)",
+    "kind": "commit",
+    "sha": "566fb8c",
+    "message": "Update pallets/swap/src/pallet/balancer.rs",
+    "author": "gztensor",
+    "posted_at": "2026-06-26T17:21:51Z",
+    "url": "https://github.com/opentensor/subtensor/commit/566fb8c5afd9a8fe323cde1224b19a98d75a9ad3",
+    "fetched_at": "2026-06-27T02:37:49.997874+00:00"
+  },
+  {
+    "repo": "opentensor/subtensor",
+    "name": "Subtensor (chain)",
+    "kind": "commit",
+    "sha": "8bc8ef6",
+    "message": "Merge branch 'fix/balancer-performance' of github.com:opentensor/subtensor into fix/balancer-performance",
+    "author": "Greg Zaitsev",
+    "posted_at": "2026-06-26T17:17:55Z",
+    "url": "https://github.com/opentensor/subtensor/commit/8bc8ef6ed66771ffe3ec42826b47b777eaa90270",
+    "fetched_at": "2026-06-27T02:37:49.997874+00:00"
+  },
+  {
+    "repo": "opentensor/subtensor",
+    "name": "Subtensor (chain)",
+    "kind": "commit",
+    "sha": "c4c77a2",
+    "message": "chore: auditor auto-fix",
+    "author": "subtensor-ai-review[bot]",
+    "posted_at": "2026-06-26T17:17:36Z",
+    "url": "https://github.com/opentensor/subtensor/commit/c4c77a270208e97243e48621adc5bde9aadc0c39",
+    "fetched_at": "2026-06-27T02:37:49.997874+00:00"
+  },
+  {
+    "repo": "opentensor/subtensor",
+    "name": "Subtensor (chain)",
+    "kind": "commit",
+    "sha": "536c893",
+    "message": "spec bump",
+    "author": "Greg Zaitsev",
+    "posted_at": "2026-06-26T17:16:22Z",
+    "url": "https://github.com/opentensor/subtensor/commit/536c8938d7ff114508bcf6adaaa7290d22e73b75",
+    "fetched_at": "2026-06-27T02:37:49.997874+00:00"
+  },
+  {
+    "repo": "opentensor/subtensor",
+    "name": "Subtensor (chain)",
+    "kind": "commit",
+    "sha": "593de8a",
+    "message": "Forbid swaps that are too large compared to available liauidity",
+    "author": "Greg Zaitsev",
+    "posted_at": "2026-06-26T16:26:28Z",
+    "url": "https://github.com/opentensor/subtensor/commit/593de8a177ddc00c3202705ff6c90e923a431241",
+    "fetched_at": "2026-06-27T02:37:49.997874+00:00"
+  },
+  {
+    "repo": "opentensor/subtensor",
+    "name": "Subtensor (chain)",
+    "kind": "commit",
+    "sha": "98151ec",
+    "message": "cap exp_scaled at 1, set balancer exp precision to 256",
+    "author": "Greg Zaitsev",
+    "posted_at": "2026-06-26T16:11:16Z",
+    "url": "https://github.com/opentensor/subtensor/commit/98151ecd2eaea92b5966e81aca7fcc1897495076",
+    "fetched_at": "2026-06-27T02:37:49.997874+00:00"
+  }
+]
