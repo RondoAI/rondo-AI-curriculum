@@ -134,6 +134,12 @@ _Amazon’s Bedrock Mix and Anthropic Deal Terms Combine to Show Greater Operati
 
 ## ⊕ GITHUB COMMITS + RELEASES, last 24h
 
+- **Subtensor (chain)** (COMMIT `6d81084`, 2026-06-29 16:56) Merge pull request #2812 from opentensor/conditional-ext  
+  https://github.com/opentensor/subtensor/commit/6d81084c5c13413d9e3637586280125c0bfc1948
+- **Subtensor (chain)** (COMMIT `ebe1ac6`, 2026-06-29 16:34) Apply subtensor extension conditionally  
+  https://github.com/opentensor/subtensor/commit/ebe1ac631e04498b3e295ac87030e0c68f566585
+- **Subtensor (chain)** (COMMIT `b749a63`, 2026-06-29 16:34) Apply dispatch extension conditionally  
+  https://github.com/opentensor/subtensor/commit/b749a634a62bd409e13777deac404e32d6585975
 - **Subtensor (chain)** (COMMIT `34e1def`, 2026-06-29 14:47) Merge pull request #2810 from opentensor/fix/coldkey-swap-locked-alpha  
   https://github.com/opentensor/subtensor/commit/34e1def4b5d18e002f3eecd730de9d99bf02b016
 - **Subtensor (chain)** (COMMIT `156eeca`, 2026-06-29 11:50) Allow locked alpha transfers in coldkey swaps  
@@ -149,4 +155,4 @@ _no posts retrieved · all Nitter instances may be down_
 
 
 ---
-_Generated at 2026-06-29T15:38:14.609713+00:00 by scripts/intel/aggregate.py. Treat this digest as input context, not as ground truth. Verify before quoting._
+_Generated at 2026-06-29T18:06:38.015601+00:00 by scripts/intel/aggregate.py. Treat this digest as input context, not as ground truth. Verify before quoting._
