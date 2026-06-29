@@ -1,1 +1,24 @@
-[]
+[
+  {
+    "repo": "opentensor/subtensor",
+    "name": "Subtensor (chain)",
+    "kind": "commit",
+    "sha": "34e1def",
+    "message": "Merge pull request #2810 from opentensor/fix/coldkey-swap-locked-alpha",
+    "author": "sam0x17",
+    "posted_at": "2026-06-29T14:47:58Z",
+    "url": "https://github.com/opentensor/subtensor/commit/34e1def4b5d18e002f3eecd730de9d99bf02b016",
+    "fetched_at": "2026-06-29T15:38:08.434041+00:00"
+  },
+  {
+    "repo": "opentensor/subtensor",
+    "name": "Subtensor (chain)",
+    "kind": "commit",
+    "sha": "156eeca",
+    "message": "Allow locked alpha transfers in coldkey swaps",
+    "author": "Greg Zaitsev",
+    "posted_at": "2026-06-29T11:50:14Z",
+    "url": "https://github.com/opentensor/subtensor/commit/156eecadb2f9c3fbeed1b810a0ca94199cd9612f",
+    "fetched_at": "2026-06-29T15:38:08.434041+00:00"
+  }
+]

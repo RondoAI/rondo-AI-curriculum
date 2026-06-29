@@ -134,7 +134,10 @@ _Amazon’s Bedrock Mix and Anthropic Deal Terms Combine to Show Greater Operati
 
 ## ⊕ GITHUB COMMITS + RELEASES, last 24h
 
-_no commits or releases in the lookback window_
+- **Subtensor (chain)** (COMMIT `34e1def`, 2026-06-29 14:47) Merge pull request #2810 from opentensor/fix/coldkey-swap-locked-alpha  
+  https://github.com/opentensor/subtensor/commit/34e1def4b5d18e002f3eecd730de9d99bf02b016
+- **Subtensor (chain)** (COMMIT `156eeca`, 2026-06-29 11:50) Allow locked alpha transfers in coldkey swaps  
+  https://github.com/opentensor/subtensor/commit/156eecadb2f9c3fbeed1b810a0ca94199cd9612f
 
 ## ⊕ ECOSYSTEM BLOGS via RSS
 
@@ -146,4 +149,4 @@ _no posts retrieved · all Nitter instances may be down_
 
 
 ---
-_Generated at 2026-06-29T08:54:34.257712+00:00 by scripts/intel/aggregate.py. Treat this digest as input context, not as ground truth. Verify before quoting._
+_Generated at 2026-06-29T15:38:14.609713+00:00 by scripts/intel/aggregate.py. Treat this digest as input context, not as ground truth. Verify before quoting._
