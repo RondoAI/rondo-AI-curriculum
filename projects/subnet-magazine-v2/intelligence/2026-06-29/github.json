@@ -2,6 +2,17 @@
   {
     "repo": "opentensor/subtensor",
     "name": "Subtensor (chain)",
+    "kind": "release",
+    "sha": "v3.4.9-424",
+    "message": "v3.4.9-424",
+    "author": "sam0x17",
+    "posted_at": "2026-06-29T19:35:39Z",
+    "url": "https://github.com/opentensor/subtensor/releases/tag/v3.4.9-424",
+    "fetched_at": "2026-06-29T21:21:42.699697+00:00"
+  },
+  {
+    "repo": "opentensor/subtensor",
+    "name": "Subtensor (chain)",
     "kind": "commit",
     "sha": "6d81084",
     "message": "Merge pull request #2812 from opentensor/conditional-ext",

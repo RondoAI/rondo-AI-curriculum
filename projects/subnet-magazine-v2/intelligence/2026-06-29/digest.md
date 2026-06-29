@@ -134,6 +134,8 @@ _Amazon’s Bedrock Mix and Anthropic Deal Terms Combine to Show Greater Operati
 
 ## ⊕ GITHUB COMMITS + RELEASES, last 24h
 
+- **Subtensor (chain)** (RELEASE `v3.4.9-`, 2026-06-29 19:35) v3.4.9-424  
+  https://github.com/opentensor/subtensor/releases/tag/v3.4.9-424
 - **Subtensor (chain)** (COMMIT `6d81084`, 2026-06-29 16:56) Merge pull request #2812 from opentensor/conditional-ext  
   https://github.com/opentensor/subtensor/commit/6d81084c5c13413d9e3637586280125c0bfc1948
 - **Subtensor (chain)** (COMMIT `ebe1ac6`, 2026-06-29 16:34) Apply subtensor extension conditionally  
@@ -155,4 +157,4 @@ _no posts retrieved · all Nitter instances may be down_
 
 
 ---
-_Generated at 2026-06-29T18:06:38.015601+00:00 by scripts/intel/aggregate.py. Treat this digest as input context, not as ground truth. Verify before quoting._
+_Generated at 2026-06-29T21:21:46.915218+00:00 by scripts/intel/aggregate.py. Treat this digest as input context, not as ground truth. Verify before quoting._
