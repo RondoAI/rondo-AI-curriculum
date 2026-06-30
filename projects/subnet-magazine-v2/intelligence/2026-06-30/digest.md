@@ -11,6 +11,16 @@ _no human notes in the window_
 
 _SemiAnalysis is the most-cited semiconductor and AI infrastructure publication in the industry. They do NOT cover Bittensor. The Oracle uses this corpus for any claim about hyperscaler compute, GPU economics, datacenter power, foundry capacity, memory pricing, lab unit economics. DO NOT cite SemiAnalysis for any Bittensor-specific claim. Full archive (289 posts, May 2020 onwards) lives at `intelligence/_external_sources/semianalysis/` with an `INDEX.md` table of contents. Paywalled posts show only subtitle + free preview; free posts have the full body extracted._
 
+### 2026-06-30 · TokenBudgeting: Our Conversations with Enterprises on Token Spend
+_Was Widespread TokenMaxxing Ever Really Here?_
+
+- **Authors:** ["Crystal Huang", "Joey Brookhart", "Dylan Patel"]
+- **Access:** paid-preview
+- **URL:** https://newsletter.semianalysis.com/p/tokenbudgeting-our-conversations
+- **Corpus file:** `intelligence/_external_sources/semianalysis/2026-06-30-tokenbudgeting-our-conversations.md`
+
+> It’s been reported that token consumption inside of enterprises is hitting a budgeting wall after unhinged consumption earlier this year. The SemiAnalysis team talked with over 50 customers by slack, phone, and at the Databricks AI Summit to understand trends within the enterprise.  - Widely reported responses to Tokenmaxxing budgets from companies like Meta and Uber are overstated and stem from poor incentives and employee allocation we didn’t find present at other organizations  - Budgets are
+
 ### 2026-06-25 · US Grid Constraints: Towards 40GW+ of Behind-The-Meter Datacenter by 2028?
 _Why the Grid Can't Keep Up, and Why that Drives Behind-The-Meter 50%+ of DCs/Year By 2028_
 
@@ -121,16 +131,6 @@ _Or: You don’t need access to Claude Mythos to spend $10,000 in an afternoon._
 
 > I’ve worked on compilers for ML for the last decade across Google, Waymo, and OpenAI. This includes CUDA support in clang, XLA:GPU, Triton, and OpenAI’s custom hardware. I’ve seen stuff. But over the past week or so I had one of the most unsettling experiences of my career: In one afternoon, I spent more than $10,000 running AI agents over compiler code, finding hundreds of plausible bugs in LLVM, including many miscompiles and at least one that’s Quite Serious. This is the story of how I got he
 
-### 2026-05-27 · Anthropic Growth and Bedrock Mix Drive AWS Margins Higher While Peers Lag
-_Amazon’s Bedrock Mix and Anthropic Deal Terms Combine to Show Greater Operating Leverage_
-
-- **Authors:** ["Jeremie Eliahou Ontiveros", "Joey Brookhart", "Crystal Huang", "Dylan Patel"]
-- **Access:** paid-preview
-- **URL:** https://newsletter.semianalysis.com/p/anthropic-growth-and-bedrock-mix
-- **Corpus file:** `intelligence/_external_sources/semianalysis/2026-05-27-anthropic-growth-and-bedrock-mix.md`
-
-> While other CSPs have seen declining-to-flat operating margins over the last several quarters, Amazon’s AWS margins inflected this past quarter driven primarily by customer spending growth on Claude through Bedrock. AWS’ higher share of 3P model API spend, Anthropic/Bedrock deal structure, and Anthropic’s ARR outperformance in 1Q26 all contributed to EBIT margins increasing 213bp Q/Q while other CSPs lagged. SemiAnalysis’ work in the new [Tokenomics 2.0 model](https://semianalysis.com/tokenomics
-
 
 ## ⊕ GITHUB COMMITS + RELEASES, last 24h
 
@@ -157,4 +157,4 @@ _no posts retrieved · all Nitter instances may be down_
 
 
 ---
-_Generated at 2026-06-30T17:50:08.409138+00:00 by scripts/intel/aggregate.py. Treat this digest as input context, not as ground truth. Verify before quoting._
+_Generated at 2026-06-30T21:26:10.690974+00:00 by scripts/intel/aggregate.py. Treat this digest as input context, not as ground truth. Verify before quoting._
