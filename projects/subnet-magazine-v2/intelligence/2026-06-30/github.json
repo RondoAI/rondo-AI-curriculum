@@ -1,0 +1,68 @@
+[
+  {
+    "repo": "opentensor/subtensor",
+    "name": "Subtensor (chain)",
+    "kind": "release",
+    "sha": "v3.4.9-424",
+    "message": "v3.4.9-424",
+    "author": "sam0x17",
+    "posted_at": "2026-06-29T19:35:39Z",
+    "url": "https://github.com/opentensor/subtensor/releases/tag/v3.4.9-424",
+    "fetched_at": "2026-06-30T02:45:22.674086+00:00"
+  },
+  {
+    "repo": "opentensor/subtensor",
+    "name": "Subtensor (chain)",
+    "kind": "commit",
+    "sha": "6d81084",
+    "message": "Merge pull request #2812 from opentensor/conditional-ext",
+    "author": "sam0x17",
+    "posted_at": "2026-06-29T16:56:19Z",
+    "url": "https://github.com/opentensor/subtensor/commit/6d81084c5c13413d9e3637586280125c0bfc1948",
+    "fetched_at": "2026-06-30T02:45:22.420511+00:00"
+  },
+  {
+    "repo": "opentensor/subtensor",
+    "name": "Subtensor (chain)",
+    "kind": "commit",
+    "sha": "ebe1ac6",
+    "message": "Apply subtensor extension conditionally",
+    "author": "Loris Moulin",
+    "posted_at": "2026-06-29T16:34:53Z",
+    "url": "https://github.com/opentensor/subtensor/commit/ebe1ac631e04498b3e295ac87030e0c68f566585",
+    "fetched_at": "2026-06-30T02:45:22.420511+00:00"
+  },
+  {
+    "repo": "opentensor/subtensor",
+    "name": "Subtensor (chain)",
+    "kind": "commit",
+    "sha": "b749a63",
+    "message": "Apply dispatch extension conditionally",
+    "author": "Loris Moulin",
+    "posted_at": "2026-06-29T16:34:40Z",
+    "url": "https://github.com/opentensor/subtensor/commit/b749a634a62bd409e13777deac404e32d6585975",
+    "fetched_at": "2026-06-30T02:45:22.420511+00:00"
+  },
+  {
+    "repo": "opentensor/subtensor",
+    "name": "Subtensor (chain)",
+    "kind": "commit",
+    "sha": "34e1def",
+    "message": "Merge pull request #2810 from opentensor/fix/coldkey-swap-locked-alpha",
+    "author": "sam0x17",
+    "posted_at": "2026-06-29T14:47:58Z",
+    "url": "https://github.com/opentensor/subtensor/commit/34e1def4b5d18e002f3eecd730de9d99bf02b016",
+    "fetched_at": "2026-06-30T02:45:22.420511+00:00"
+  },
+  {
+    "repo": "opentensor/subtensor",
+    "name": "Subtensor (chain)",
+    "kind": "commit",
+    "sha": "156eeca",
+    "message": "Allow locked alpha transfers in coldkey swaps",
+    "author": "Greg Zaitsev",
+    "posted_at": "2026-06-29T11:50:14Z",
+    "url": "https://github.com/opentensor/subtensor/commit/156eecadb2f9c3fbeed1b810a0ca94199cd9612f",
+    "fetched_at": "2026-06-30T02:45:22.420511+00:00"
+  }
+]
