@@ -1,0 +1,57 @@
+[
+  {
+    "repo": "opentensor/subtensor",
+    "name": "Subtensor (chain)",
+    "kind": "commit",
+    "sha": "14bc6f9",
+    "message": "Merge pull request #2800 from opentensor/feat/enforce-conviction",
+    "author": "sam0x17",
+    "posted_at": "2026-06-30T22:55:46Z",
+    "url": "https://github.com/opentensor/subtensor/commit/14bc6f9f964b9cc362e9635dd110a487fa5d15a0",
+    "fetched_at": "2026-07-01T02:51:16.916862+00:00"
+  },
+  {
+    "repo": "opentensor/subtensor",
+    "name": "Subtensor (chain)",
+    "kind": "commit",
+    "sha": "6506ac6",
+    "message": "bump spec",
+    "author": "John Reed",
+    "posted_at": "2026-06-30T22:31:29Z",
+    "url": "https://github.com/opentensor/subtensor/commit/6506ac687cc47e51dfeedec3a43de26a337af13c",
+    "fetched_at": "2026-07-01T02:51:16.916862+00:00"
+  },
+  {
+    "repo": "opentensor/subtensor",
+    "name": "Subtensor (chain)",
+    "kind": "commit",
+    "sha": "3b94406",
+    "message": "test_get_shares_ignores_root_prop",
+    "author": "John Reed",
+    "posted_at": "2026-06-30T21:35:40Z",
+    "url": "https://github.com/opentensor/subtensor/commit/3b94406a1b6dfabe5b82ce0fa574f1218299e04f",
+    "fetched_at": "2026-07-01T02:51:16.916862+00:00"
+  },
+  {
+    "repo": "opentensor/subtensor",
+    "name": "Subtensor (chain)",
+    "kind": "commit",
+    "sha": "bb3591e",
+    "message": "remove root prop from emission calculation",
+    "author": "John Reed",
+    "posted_at": "2026-06-30T21:17:16Z",
+    "url": "https://github.com/opentensor/subtensor/commit/bb3591e715a4e283e4d3996b8c12058e0c7d8f3a",
+    "fetched_at": "2026-07-01T02:51:16.916862+00:00"
+  },
+  {
+    "repo": "opentensor/subtensor",
+    "name": "Subtensor (chain)",
+    "kind": "commit",
+    "sha": "d340436",
+    "message": "Enforce conviction, add test, bump spec",
+    "author": "Greg Zaitsev",
+    "posted_at": "2026-06-26T08:41:33Z",
+    "url": "https://github.com/opentensor/subtensor/commit/d3404368251fcb2c3af8821a0a79adaebd0fa228",
+    "fetched_at": "2026-07-01T02:51:16.916862+00:00"
+  }
+]
