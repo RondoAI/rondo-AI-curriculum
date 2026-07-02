@@ -1,11 +1,12 @@
 # SemiAnalysis Archive Index
 
-_304 posts captured. Generated 2026-07-02T17:41:23.984168+00:00._
+_305 posts captured. Generated 2026-07-02T21:00:10.313275+00:00._
 
 Editorial policy: SemiAnalysis is the macro reference. The Oracle cites it for any claim about hyperscaler compute, GPU economics, datacenter power, foundry capacity, memory pricing, lab unit economics. The Oracle does NOT cite SemiAnalysis for any Bittensor-specific claim. SemiAnalysis does not cover Bittensor; treat that absence as itself information.
 
 | Date | Title | Audience | Authors | File |
 | --- | --- | --- | --- | --- |
+| 2026-07-02 | [EMIB-T Roadmap, Custom HBM, HBM4 Packaging Challenges, Microfluidic Cooling, Pho](https://newsletter.semianalysis.com/p/ectc2026) | only_paid | ["Afzal Ahmad", "DC", "Gerald Wong", "Dylan Patel"] | `2026-07-02-ectc2026.md` |
 | 2026-06-30 | [TokenBudgeting: Our Conversations with Enterprises on Token Spend](https://newsletter.semianalysis.com/p/tokenbudgeting-our-conversations) | only_paid | ["Crystal Huang", "Joey Brookhart", "Dylan Patel"] | `2026-06-30-tokenbudgeting-our-conversations.md` |
 | 2026-06-25 | [US Grid Constraints: Towards 40GW+ of Behind-The-Meter Datacenter by 2028?](https://newsletter.semianalysis.com/p/us-grid-constraints-towards-40gw) | only_paid | ["Jeremie Eliahou Ontiveros", "Sebastian Orejas", "Ellie Hol | `2026-06-25-us-grid-constraints-towards-40gw.md` |
 | 2026-06-23 | [China’s CXMT Is Set to Challenge DRAM Incumbents](https://newsletter.semianalysis.com/p/chinas-cxmt-is-set-to-challenge-dram) | only_paid | ["Ray Wang", "Myron Xie", "Dylan Patel", "Junsung Kim", "Sra | `2026-06-23-chinas-cxmt-is-set-to-challenge-dram.md` |

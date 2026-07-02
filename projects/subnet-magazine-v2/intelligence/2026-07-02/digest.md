@@ -11,6 +11,16 @@ _no human notes in the window_
 
 _SemiAnalysis is the most-cited semiconductor and AI infrastructure publication in the industry. They do NOT cover Bittensor. The Oracle uses this corpus for any claim about hyperscaler compute, GPU economics, datacenter power, foundry capacity, memory pricing, lab unit economics. DO NOT cite SemiAnalysis for any Bittensor-specific claim. Full archive (289 posts, May 2020 onwards) lives at `intelligence/_external_sources/semianalysis/` with an `INDEX.md` table of contents. Paywalled posts show only subtitle + free preview; free posts have the full body extracted._
 
+### 2026-07-02 · EMIB-T Roadmap, Custom HBM, HBM4 Packaging Challenges, Microfluidic Cooling, Photonic Interconnects, and More
+_ECTC 2026 Roundup, Intel, TSMC, SK Hynix, Samsung, Micron, Marvell, Lightmatter, Microsoft_
+
+- **Authors:** ["Afzal Ahmad", "DC", "Gerald Wong", "Dylan Patel"]
+- **Access:** paid-preview
+- **URL:** https://newsletter.semianalysis.com/p/ectc2026
+- **Corpus file:** `intelligence/_external_sources/semianalysis/2026-07-02-ectc2026.md`
+
+> As transistor density scaling has slowed, advanced packaging has become the primary scaling vector. However, AI accelerators have grown so large and require such fast interconnects that the package itself is now hitting limits. Circular interposers constrain package size and wafer utilization, HBM4E doubles the I/O count while increasing speed, and multi-kilowatt packages are overwhelming conventional cooling architectures.  ECTC is the industry’s premier conference for all things packaging. Thi
+
 ### 2026-06-30 · TokenBudgeting: Our Conversations with Enterprises on Token Spend
 _Was Widespread TokenMaxxing Ever Really Here?_
 
@@ -121,16 +131,6 @@ _Why AI's increasing output is going to be one of the hardest economic measureme
 
 > During the 1980s and 90s, macroeconomic data could not detect the contribution of the emerging computer revolution. Famously, Robert Solow quipped “You can see the computer age everywhere, but in the productivity statistics.” And yet, despite the dot com boom and bust the Magnificent 7 now have a market cap 1.8x that of Europe. A similar issue is arising with AI where the macroeconomic data is not yet equipped to capture the value produced by AI while the headlines, public sentiment, and governm
 
-### 2026-05-28 · Finding Miscompiles for Fun, Not Profit
-_Or: You don’t need access to Claude Mythos to spend $10,000 in an afternoon._
-
-- **Authors:** ["Justin Lebar"]
-- **Access:** paid-preview
-- **URL:** https://newsletter.semianalysis.com/p/finding-miscompiles-for-fun-not-profit
-- **Corpus file:** `intelligence/_external_sources/semianalysis/2026-05-28-finding-miscompiles-for-fun-not-profit.md`
-
-> I’ve worked on compilers for ML for the last decade across Google, Waymo, and OpenAI. This includes CUDA support in clang, XLA:GPU, Triton, and OpenAI’s custom hardware. I’ve seen stuff. But over the past week or so I had one of the most unsettling experiences of my career: In one afternoon, I spent more than $10,000 running AI agents over compiler code, finding hundreds of plausible bugs in LLVM, including many miscompiles and at least one that’s Quite Serious. This is the story of how I got he
-
 
 ## ⊕ GITHUB COMMITS + RELEASES, last 24h
 
@@ -146,4 +146,4 @@ _no posts retrieved · all Nitter instances may be down_
 
 
 ---
-_Generated at 2026-07-02T17:41:24.131191+00:00 by scripts/intel/aggregate.py. Treat this digest as input context, not as ground truth. Verify before quoting._
+_Generated at 2026-07-02T21:00:10.481365+00:00 by scripts/intel/aggregate.py. Treat this digest as input context, not as ground truth. Verify before quoting._
