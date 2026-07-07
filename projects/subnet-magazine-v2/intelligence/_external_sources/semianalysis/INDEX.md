@@ -1,11 +1,12 @@
 # SemiAnalysis Archive Index
 
-_306 posts captured. Generated 2026-07-06T21:25:58.086142+00:00._
+_307 posts captured. Generated 2026-07-07T02:30:34.438279+00:00._
 
 Editorial policy: SemiAnalysis is the macro reference. The Oracle cites it for any claim about hyperscaler compute, GPU economics, datacenter power, foundry capacity, memory pricing, lab unit economics. The Oracle does NOT cite SemiAnalysis for any Bittensor-specific claim. SemiAnalysis does not cover Bittensor; treat that absence as itself information.
 
 | Date | Title | Audience | Authors | File |
 | --- | --- | --- | --- | --- |
+| 2026-07-06 | [Nvidia GPU Debt Backstop Unleashes the AI Project Trinity: Capital, Offtake and ](https://newsletter.semianalysis.com/p/nvidia-gpu-debt-backstop-unleashes) | only_paid | ["Daniel Nishball", "Cheang Kang Wen", "Zane Fong", "Reyk Kn | `2026-07-06-nvidia-gpu-debt-backstop-unleashes.md` |
 | 2026-07-02 | [EMIB-T Roadmap, Custom HBM, HBM4 Packaging Challenges, Microfluidic Cooling, Pho](https://newsletter.semianalysis.com/p/ectc2026) | only_paid | ["Afzal Ahmad", "DC", "Gerald Wong", "Dylan Patel"] | `2026-07-02-ectc2026.md` |
 | 2026-07-02 | [Meta Compute: Everyone Wants To Be A Neocloud](https://newsletter.semianalysis.com/p/meta-compute-everyone-wants-to-be) | only_paid | ["Jeremie Eliahou Ontiveros", "Max Kan", "Joey Brookhart", " | `2026-07-02-meta-compute-everyone-wants-to-be.md` |
 | 2026-06-30 | [TokenBudgeting: Our Conversations with Enterprises on Token Spend](https://newsletter.semianalysis.com/p/tokenbudgeting-our-conversations) | only_paid | ["Crystal Huang", "Joey Brookhart", "Dylan Patel"] | `2026-06-30-tokenbudgeting-our-conversations.md` |
