@@ -1,11 +1,12 @@
 # SemiAnalysis Archive Index
 
-_307 posts captured. Generated 2026-07-08T06:25:17.543026+00:00._
+_308 posts captured. Generated 2026-07-08T10:12:42.653690+00:00._
 
 Editorial policy: SemiAnalysis is the macro reference. The Oracle cites it for any claim about hyperscaler compute, GPU economics, datacenter power, foundry capacity, memory pricing, lab unit economics. The Oracle does NOT cite SemiAnalysis for any Bittensor-specific claim. SemiAnalysis does not cover Bittensor; treat that absence as itself information.
 
 | Date | Title | Audience | Authors | File |
 | --- | --- | --- | --- | --- |
+| 2026-07-08 | [Anthropic 3Q26 Profit Over $1B: The Anthropic IPO Financials Sneak Peak](https://newsletter.semianalysis.com/p/anthropic-3q26-profit-over-1b-the) | only_paid | ["Joey Brookhart", "Crystal Huang", "Dylan Patel"] | `2026-07-08-anthropic-3q26-profit-over-1b-the.md` |
 | 2026-07-06 | [Nvidia GPU Debt Backstop Unleashes the AI Project Trinity: Capital, Offtake and ](https://newsletter.semianalysis.com/p/nvidia-gpu-debt-backstop-unleashes) | only_paid | ["Daniel Nishball", "Cheang Kang Wen", "Zane Fong", "Reyk Kn | `2026-07-06-nvidia-gpu-debt-backstop-unleashes.md` |
 | 2026-07-02 | [EMIB-T Roadmap, Custom HBM, HBM4 Packaging Challenges, Microfluidic Cooling, Pho](https://newsletter.semianalysis.com/p/ectc2026) | only_paid | ["Afzal Ahmad", "DC", "Gerald Wong", "Dylan Patel"] | `2026-07-02-ectc2026.md` |
 | 2026-07-02 | [Meta Compute: Everyone Wants To Be A Neocloud](https://newsletter.semianalysis.com/p/meta-compute-everyone-wants-to-be) | only_paid | ["Jeremie Eliahou Ontiveros", "Max Kan", "Joey Brookhart", " | `2026-07-02-meta-compute-everyone-wants-to-be.md` |

@@ -11,6 +11,16 @@ _no human notes in the window_
 
 _SemiAnalysis is the most-cited semiconductor and AI infrastructure publication in the industry. They do NOT cover Bittensor. The Oracle uses this corpus for any claim about hyperscaler compute, GPU economics, datacenter power, foundry capacity, memory pricing, lab unit economics. DO NOT cite SemiAnalysis for any Bittensor-specific claim. Full archive (289 posts, May 2020 onwards) lives at `intelligence/_external_sources/semianalysis/` with an `INDEX.md` table of contents. Paywalled posts show only subtitle + free preview; free posts have the full body extracted._
 
+### 2026-07-08 · Anthropic 3Q26 Profit Over $1B: The Anthropic IPO Financials Sneak Peak
+_Anthropic’s Opportunity is Theirs to Lose_
+
+- **Authors:** ["Joey Brookhart", "Crystal Huang", "Dylan Patel"]
+- **Access:** paid-preview
+- **URL:** https://newsletter.semianalysis.com/p/anthropic-3q26-profit-over-1b-the
+- **Corpus file:** `intelligence/_external_sources/semianalysis/2026-07-08-anthropic-3q26-profit-over-1b-the.md`
+
+> # Introduction  When Dario Amodei left OpenAI to start Anthropic in early 2021, the viral release of ChatGPT was over 18 months away and the commercialization of LLMs was practically zero. Just a few short years later, Anthropic and OpenAI combine for ~$100B of ARR and a clear winner emerged in the profitable monetization of AI models in 2026 as Claude Code took the software development world by storm.  Anthropic confidentially filed for IPO on June 1st. Over 1 month later, equity raises from hy
+
 ### 2026-07-06 · Nvidia GPU Debt Backstop Unleashes the AI Project Trinity: Capital, Offtake and Datacenters
 _Over 7T AI debt by 2029, There can be no Neoclouds without the Trinity. Nvidia's Backstop Economics Explained. AI Debt Needs Quantified. Nvidia's Objective is to Broaden Compute Access_
 
@@ -121,16 +131,6 @@ _Day 0 Inference Performance, InferenceX, 100x performance improvement in 26 Day
 
 > The release of DeepSeek v4 marks another step forward for the open model community - unsurprisingly, it is the product of a Chinese lab. The evolution of its performance over time is of paramount importance to the AI Ecosystem. [The open-source InferenceX engineering team has pulled multiple all-nighters to measure performance results for this model on Day 0, Day 1, Day 2, and beyond and bring these results to the world.](https://inferencex.semianalysis.com/) In this article, we will highlight D
 
-### 2026-06-08 · China's Unitree Will Dominate Global Robotics
-_The Fastest Iteration Cycle In Next-Gen Robotics Should See Unprecedented Acceleration_
-
-- **Authors:** ["Reyk Knuhtsen", "Niko Ciminelli", "Jacob Rintamaki", "Robert Ghilduta", "Joe Ryu", "Jeremie Eliahou Ontiveros", "Dylan
-- **Access:** paid-preview
-- **URL:** https://newsletter.semianalysis.com/p/chinas-unitree-will-dominate-global
-- **Corpus file:** `intelligence/_external_sources/semianalysis/2026-06-08-chinas-unitree-will-dominate-global.md`
-
-> We are witnessing the birth of another Chinese hardware giant. Three years ago, Unitree was a quadruped company. By last year, they parlayed quadruped dominance into creating and leading the humanoid market. This year, their G1 humanoids are finally entering into viable deployments, and three new designs are on the way, including their most-direct [Western humanoid competitor](https://www.unitree.com/H2).  [![Quadruped State of The Market - Unitree, Boston Dynamics, ANYbotics, DEEP Robotics, and
-
 
 ## ⊕ GITHUB COMMITS + RELEASES, last 24h
 
@@ -146,4 +146,4 @@ _no posts retrieved · all Nitter instances may be down_
 
 
 ---
-_Generated at 2026-07-08T06:25:17.669189+00:00 by scripts/intel/aggregate.py. Treat this digest as input context, not as ground truth. Verify before quoting._
+_Generated at 2026-07-08T10:12:42.817549+00:00 by scripts/intel/aggregate.py. Treat this digest as input context, not as ground truth. Verify before quoting._
