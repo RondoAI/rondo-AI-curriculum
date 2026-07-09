@@ -11,6 +11,16 @@ _no human notes in the window_
 
 _SemiAnalysis is the most-cited semiconductor and AI infrastructure publication in the industry. They do NOT cover Bittensor. The Oracle uses this corpus for any claim about hyperscaler compute, GPU economics, datacenter power, foundry capacity, memory pricing, lab unit economics. DO NOT cite SemiAnalysis for any Bittensor-specific claim. Full archive (289 posts, May 2020 onwards) lives at `intelligence/_external_sources/semianalysis/` with an `INDEX.md` table of contents. Paywalled posts show only subtitle + free preview; free posts have the full body extracted._
 
+### 2026-07-09 · The Future of Meta Superintelligence: A 1 Year Progress Update
+_A top tier RL environment startup spawns out of thin air, the most aggressive compute ramp we've ever seen, 2000km+ scale-across, and some advice for Google DeepMind_
+
+- **Authors:** ["Max Kan", "Julien Martin-Prin", "Jeremie Eliahou Ontiveros", "Dylan Patel"]
+- **Access:** paid-preview
+- **URL:** https://newsletter.semianalysis.com/p/the-future-of-meta-superintelligence
+- **Corpus file:** `intelligence/_external_sources/semianalysis/2026-07-09-the-future-of-meta-superintelligence.md`
+
+> It’s been a little over 1 year since the disastrous Llama 4 release spurred Zuck to rebuild his entire AI org. Highlights include the shocking $14.3B Scale AI “investment” just to poach Alexandr Wang and the best people from his Safety, Evaluations, and Alignment Labs (SEAL) team, the multi-hundred million dollar (sometimes $1B+) pay packages offered to top AI researchers/engineers, and the expedited compute ramp enabled by their new “Tent” datacenter design. For more details, see our [original
+
 ### 2026-07-08 · Anthropic 3Q26 Profit Over $1B: The Anthropic IPO Financials Sneak Peak
 _Anthropic’s Opportunity is Theirs to Lose_
 
@@ -121,16 +131,6 @@ _Intel's woes are behind them. The heavy spending is ahead of them. Why an equit
 
 > We have written a lot about Intel. It’s a firm near and dear to our heart, and is the birth of the semiconductor industry. To say we love Intel and their role in the world is an understatement. We also have been very vocally right during their initial product mishaps, as well as supportive and excited for the turnaround. The thing we have believed the most is that Intel’s board is one of the biggest parties to blame for Intel’s death, and we recently got what we want.  [Intel on the Brink of Dea
 
-### 2026-06-09 · DeepSeekV4 1.6T Day 0 to Day 43 Performance Over Time - Huawei, GB300 NVL72, MI355X, B200
-_Day 0 Inference Performance, InferenceX, 100x performance improvement in 26 Days, Cost per Million Tokens, Huawei 950DT Inference Trace Analysis_
-
-- **Authors:** ["Bryan Shan", "Cam Quilici", "Kimbo Chen", "Alec Ibarra", "Dylan Patel", "Daniel Nishball", "Cheang Kang Wen"]
-- **Access:** paid-preview
-- **URL:** https://newsletter.semianalysis.com/p/deepseekv4-16t-day-0-to-day-43-performance
-- **Corpus file:** `intelligence/_external_sources/semianalysis/2026-06-09-deepseekv4-16t-day-0-to-day-43-performance.md`
-
-> The release of DeepSeek v4 marks another step forward for the open model community - unsurprisingly, it is the product of a Chinese lab. The evolution of its performance over time is of paramount importance to the AI Ecosystem. [The open-source InferenceX engineering team has pulled multiple all-nighters to measure performance results for this model on Day 0, Day 1, Day 2, and beyond and bring these results to the world.](https://inferencex.semianalysis.com/) In this article, we will highlight D
-
 
 ## ⊕ GITHUB COMMITS + RELEASES, last 24h
 
@@ -146,4 +146,4 @@ _no posts retrieved · all Nitter instances may be down_
 
 
 ---
-_Generated at 2026-07-09T17:52:59.101969+00:00 by scripts/intel/aggregate.py. Treat this digest as input context, not as ground truth. Verify before quoting._
+_Generated at 2026-07-09T21:22:50.233143+00:00 by scripts/intel/aggregate.py. Treat this digest as input context, not as ground truth. Verify before quoting._
