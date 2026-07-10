@@ -1,1 +1,24 @@
-[]
+[
+  {
+    "repo": "opentensor/btcli",
+    "name": "btcli",
+    "kind": "commit",
+    "sha": "5c814b8",
+    "message": "Add deprecation notice: development moved to the subtensor monorepo (#1029)",
+    "author": "Inti",
+    "posted_at": "2026-07-10T17:44:51Z",
+    "url": "https://github.com/RaoFoundation/btcli/commit/5c814b8815faab96b17aad44b50250e4f0a4356f",
+    "fetched_at": "2026-07-10T17:45:16.628845+00:00"
+  },
+  {
+    "repo": "opentensor/bittensor",
+    "name": "Bittensor SDK",
+    "kind": "commit",
+    "sha": "84152b5",
+    "message": "Add deprecation notice: development moved to the subtensor monorepo",
+    "author": "Inti",
+    "posted_at": "2026-07-10T17:43:53Z",
+    "url": "https://github.com/RaoFoundation/bittensor/commit/84152b5dbcc3f87d63ae0e4be25433aa22d88700",
+    "fetched_at": "2026-07-10T17:45:15.470002+00:00"
+  }
+]

@@ -134,7 +134,10 @@ _Intel's woes are behind them. The heavy spending is ahead of them. Why an equit
 
 ## ⊕ GITHUB COMMITS + RELEASES, last 24h
 
-_no commits or releases in the lookback window_
+- **btcli** (COMMIT `5c814b8`, 2026-07-10 17:44) Add deprecation notice: development moved to the subtensor monorepo (#1029)  
+  https://github.com/RaoFoundation/btcli/commit/5c814b8815faab96b17aad44b50250e4f0a4356f
+- **Bittensor SDK** (COMMIT `84152b5`, 2026-07-10 17:43) Add deprecation notice: development moved to the subtensor monorepo  
+  https://github.com/RaoFoundation/bittensor/commit/84152b5dbcc3f87d63ae0e4be25433aa22d88700
 
 ## ⊕ ECOSYSTEM BLOGS via RSS
 
@@ -146,4 +149,4 @@ _no posts retrieved · all Nitter instances may be down_
 
 
 ---
-_Generated at 2026-07-10T14:08:57.023893+00:00 by scripts/intel/aggregate.py. Treat this digest as input context, not as ground truth. Verify before quoting._
+_Generated at 2026-07-10T17:45:20.091023+00:00 by scripts/intel/aggregate.py. Treat this digest as input context, not as ground truth. Verify before quoting._
