@@ -1,1 +1,112 @@
-[]
+[
+  {
+    "repo": "opentensor/subtensor",
+    "name": "Subtensor (chain)",
+    "kind": "commit",
+    "sha": "647ca2b",
+    "message": "Merge pull request #2846 from RaoFoundation/bittensor-core-exploration",
+    "author": "Inti",
+    "posted_at": "2026-07-12T16:40:46Z",
+    "url": "https://github.com/RaoFoundation/subtensor/commit/647ca2b0493ed5c74399b73f2595643ba785c1b8",
+    "fetched_at": "2026-07-12T16:54:30.493322+00:00"
+  },
+  {
+    "repo": "opentensor/subtensor",
+    "name": "Subtensor (chain)",
+    "kind": "commit",
+    "sha": "f015dd0",
+    "message": "Merge pull request #2857 from RaoFoundation/codex/fireactions-runner-density-experiment",
+    "author": "Arbos",
+    "posted_at": "2026-07-12T16:21:35Z",
+    "url": "https://github.com/RaoFoundation/subtensor/commit/f015dd02a4c0c69b1a370ab4bbae6035206eeda2",
+    "fetched_at": "2026-07-12T16:54:30.493322+00:00"
+  },
+  {
+    "repo": "opentensor/subtensor",
+    "name": "Subtensor (chain)",
+    "kind": "commit",
+    "sha": "62fadce",
+    "message": "test(evm): wait for the deposit's block to finalize in alpha-pool test",
+    "author": "unarbos",
+    "posted_at": "2026-07-12T16:17:29Z",
+    "url": "https://github.com/RaoFoundation/subtensor/commit/62fadce7a0bea00b6a5abf77d9e2b2ae2d47a345",
+    "fetched_at": "2026-07-12T16:54:30.493322+00:00"
+  },
+  {
+    "repo": "opentensor/subtensor",
+    "name": "Subtensor (chain)",
+    "kind": "commit",
+    "sha": "e9cf2dd",
+    "message": "ci: warm sccache during trusted builds",
+    "author": "UnArbosFive",
+    "posted_at": "2026-07-12T12:30:30Z",
+    "url": "https://github.com/RaoFoundation/subtensor/commit/e9cf2dd16e8e5fad9296cf4fc0c27e0dd533e4c3",
+    "fetched_at": "2026-07-12T16:54:30.493322+00:00"
+  },
+  {
+    "repo": "opentensor/subtensor",
+    "name": "Subtensor (chain)",
+    "kind": "commit",
+    "sha": "d981a4c",
+    "message": "ci: tighten final cache and runner integration",
+    "author": "UnArbosFive",
+    "posted_at": "2026-07-12T09:34:06Z",
+    "url": "https://github.com/RaoFoundation/subtensor/commit/d981a4c02c1242c319ce70b577fc19acf1638cba",
+    "fetched_at": "2026-07-12T16:54:30.493322+00:00"
+  },
+  {
+    "repo": "opentensor/subtensor",
+    "name": "Subtensor (chain)",
+    "kind": "commit",
+    "sha": "fbf9883",
+    "message": "ci: cache native production builds",
+    "author": "UnArbosFive",
+    "posted_at": "2026-07-12T03:04:37Z",
+    "url": "https://github.com/RaoFoundation/subtensor/commit/fbf98837bcd62f91d3170fb44a575fcaa6b18390",
+    "fetched_at": "2026-07-12T16:54:30.493322+00:00"
+  },
+  {
+    "repo": "opentensor/subtensor",
+    "name": "Subtensor (chain)",
+    "kind": "commit",
+    "sha": "20d5735",
+    "message": "ci: warm high-miss compiler cache variants",
+    "author": "UnArbosFive",
+    "posted_at": "2026-07-12T03:01:06Z",
+    "url": "https://github.com/RaoFoundation/subtensor/commit/20d573570a6c9347a8c0e8f1353bf96d79feede1",
+    "fetched_at": "2026-07-12T16:54:30.493322+00:00"
+  },
+  {
+    "repo": "opentensor/subtensor",
+    "name": "Subtensor (chain)",
+    "kind": "commit",
+    "sha": "89adaa0",
+    "message": "ci: tighten cache writer and release smoke checks",
+    "author": "UnArbosFive",
+    "posted_at": "2026-07-12T02:40:14Z",
+    "url": "https://github.com/RaoFoundation/subtensor/commit/89adaa0ddf6b199f1cceaf7ea9b133c1d00f8b69",
+    "fetched_at": "2026-07-12T16:54:30.493322+00:00"
+  },
+  {
+    "repo": "opentensor/subtensor",
+    "name": "Subtensor (chain)",
+    "kind": "commit",
+    "sha": "ab14c7a",
+    "message": "ci: use supported CLI flag for image smoke test",
+    "author": "UnArbosFive",
+    "posted_at": "2026-07-12T02:11:17Z",
+    "url": "https://github.com/RaoFoundation/subtensor/commit/ab14c7a6f9e6b6531b94993b0a1e03661f5a4f3e",
+    "fetched_at": "2026-07-12T16:54:30.493322+00:00"
+  },
+  {
+    "repo": "opentensor/subtensor",
+    "name": "Subtensor (chain)",
+    "kind": "commit",
+    "sha": "b1645e7",
+    "message": "ci: name turbo pools by core count",
+    "author": "UnArbosFive",
+    "posted_at": "2026-07-12T01:25:03Z",
+    "url": "https://github.com/RaoFoundation/subtensor/commit/b1645e755b6758f7eb47c524bf2a0c4a1df1b9e4",
+    "fetched_at": "2026-07-12T16:54:30.493322+00:00"
+  }
+]

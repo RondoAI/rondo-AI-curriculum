@@ -134,7 +134,26 @@ _Intel's woes are behind them. The heavy spending is ahead of them. Why an equit
 
 ## ⊕ GITHUB COMMITS + RELEASES, last 24h
 
-_no commits or releases in the lookback window_
+- **Subtensor (chain)** (COMMIT `647ca2b`, 2026-07-12 16:40) Merge pull request #2846 from RaoFoundation/bittensor-core-exploration  
+  https://github.com/RaoFoundation/subtensor/commit/647ca2b0493ed5c74399b73f2595643ba785c1b8
+- **Subtensor (chain)** (COMMIT `f015dd0`, 2026-07-12 16:21) Merge pull request #2857 from RaoFoundation/codex/fireactions-runner-density-experiment  
+  https://github.com/RaoFoundation/subtensor/commit/f015dd02a4c0c69b1a370ab4bbae6035206eeda2
+- **Subtensor (chain)** (COMMIT `62fadce`, 2026-07-12 16:17) test(evm): wait for the deposit's block to finalize in alpha-pool test  
+  https://github.com/RaoFoundation/subtensor/commit/62fadce7a0bea00b6a5abf77d9e2b2ae2d47a345
+- **Subtensor (chain)** (COMMIT `e9cf2dd`, 2026-07-12 12:30) ci: warm sccache during trusted builds  
+  https://github.com/RaoFoundation/subtensor/commit/e9cf2dd16e8e5fad9296cf4fc0c27e0dd533e4c3
+- **Subtensor (chain)** (COMMIT `d981a4c`, 2026-07-12 09:34) ci: tighten final cache and runner integration  
+  https://github.com/RaoFoundation/subtensor/commit/d981a4c02c1242c319ce70b577fc19acf1638cba
+- **Subtensor (chain)** (COMMIT `fbf9883`, 2026-07-12 03:04) ci: cache native production builds  
+  https://github.com/RaoFoundation/subtensor/commit/fbf98837bcd62f91d3170fb44a575fcaa6b18390
+- **Subtensor (chain)** (COMMIT `20d5735`, 2026-07-12 03:01) ci: warm high-miss compiler cache variants  
+  https://github.com/RaoFoundation/subtensor/commit/20d573570a6c9347a8c0e8f1353bf96d79feede1
+- **Subtensor (chain)** (COMMIT `89adaa0`, 2026-07-12 02:40) ci: tighten cache writer and release smoke checks  
+  https://github.com/RaoFoundation/subtensor/commit/89adaa0ddf6b199f1cceaf7ea9b133c1d00f8b69
+- **Subtensor (chain)** (COMMIT `ab14c7a`, 2026-07-12 02:11) ci: use supported CLI flag for image smoke test  
+  https://github.com/RaoFoundation/subtensor/commit/ab14c7a6f9e6b6531b94993b0a1e03661f5a4f3e
+- **Subtensor (chain)** (COMMIT `b1645e7`, 2026-07-12 01:25) ci: name turbo pools by core count  
+  https://github.com/RaoFoundation/subtensor/commit/b1645e755b6758f7eb47c524bf2a0c4a1df1b9e4
 
 ## ⊕ ECOSYSTEM BLOGS via RSS
 
@@ -146,4 +165,4 @@ _no posts retrieved · all Nitter instances may be down_
 
 
 ---
-_Generated at 2026-07-12T13:06:37.492917+00:00 by scripts/intel/aggregate.py. Treat this digest as input context, not as ground truth. Verify before quoting._
+_Generated at 2026-07-12T16:54:35.945518+00:00 by scripts/intel/aggregate.py. Treat this digest as input context, not as ground truth. Verify before quoting._
