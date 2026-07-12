@@ -134,6 +134,28 @@ _Intel's woes are behind them. The heavy spending is ahead of them. Why an equit
 
 ## ⊕ GITHUB COMMITS + RELEASES, last 24h
 
+- **Subtensor (chain)** (COMMIT `75798da`, 2026-07-12 20:18) Merge pull request #2874 from RaoFoundation/split-stake-sdk-clone-shard  
+  https://github.com/RaoFoundation/subtensor/commit/75798da050a3033e64270bbabd6f2a853bb4b337
+- **Subtensor (chain)** (COMMIT `ef43c28`, 2026-07-12 20:03) ci: allow partial snapshot cache measurements  
+  https://github.com/RaoFoundation/subtensor/commit/ef43c28ad70cdd4f8316ef70dadc63d0d6519cf8
+- **Subtensor (chain)** (COMMIT `fe6edda`, 2026-07-12 20:02) ci: split the stake-sdk clone shard so the ~6-min issuance waits stop serializing behind the SDK pair  
+  https://github.com/RaoFoundation/subtensor/commit/fe6edda8108e1344afa3886261bb8b878dda0df6
+- **Subtensor (chain)** (COMMIT `ff1e1ed`, 2026-07-12 19:57) Merge pull request #2867 from RaoFoundation/bittensor-core-typed-units  
+  https://github.com/RaoFoundation/subtensor/commit/ff1e1ed62c92474d10528ed535b3d63d0ee0aacc
+- **Subtensor (chain)** (COMMIT `2abe0cd`, 2026-07-12 19:46) Merge remote-tracking branch 'origin/main' into bittensor-core-typed-units  
+  https://github.com/RaoFoundation/subtensor/commit/2abe0cd06d9109a6e225975f2c126691d9429957
+- **Subtensor (chain)** (COMMIT `31f9991`, 2026-07-12 19:44) fix PerU16 fallout in tests and CI lints: metagraph precompile and eco-tests indexer bindings track the Vec<PerU16> storage types, clippy doc indentation, rustfmt  
+  https://github.com/RaoFoundation/subtensor/commit/31f9991fe4bb47c310264dc07fcd0dbbeb30e3d4
+- **Subtensor (chain)** (COMMIT `bd2f7d5`, 2026-07-12 19:42) Merge pull request #2869 from RaoFoundation/fix-sdist-pep668  
+  https://github.com/RaoFoundation/subtensor/commit/bd2f7d5380de1fe8130844e435bbade1fc338ba4
+- **Subtensor (chain)** (COMMIT `a1b8f8c`, 2026-07-12 19:42) ci: build the core sdist with uv instead of maturin-action  
+  https://github.com/RaoFoundation/subtensor/commit/a1b8f8cd6ce2199dbe107e53754b26db7e66c70b
+- **Subtensor (chain)** (COMMIT `348420a`, 2026-07-12 19:16) ci: accelerate try-runtime with cached snapshots  
+  https://github.com/RaoFoundation/subtensor/commit/348420a3096ef6849533cc1847ca47c5af9ba361
+- **btcli** (COMMIT `8da4626`, 2026-07-12 18:10) Merge pull request #1031 from RaoFoundation/release/9.23.2  
+  https://github.com/RaoFoundation/btcli/commit/8da4626c5113745e1081109b3fe6d710665fb46b
+- **btcli** (COMMIT `9de9795`, 2026-07-12 18:07) Point docs at bittensor.com/docs and surface the supersession notice on PyPI  
+  https://github.com/RaoFoundation/btcli/commit/9de9795fa6063e6c5e757a6c7024ef0f84c3d011
 - **Subtensor (chain)** (COMMIT `647ca2b`, 2026-07-12 16:40) Merge pull request #2846 from RaoFoundation/bittensor-core-exploration  
   https://github.com/RaoFoundation/subtensor/commit/647ca2b0493ed5c74399b73f2595643ba785c1b8
 - **Subtensor (chain)** (COMMIT `f015dd0`, 2026-07-12 16:21) Merge pull request #2857 from RaoFoundation/codex/fireactions-runner-density-experiment  
@@ -154,6 +176,8 @@ _Intel's woes are behind them. The heavy spending is ahead of them. Why an equit
   https://github.com/RaoFoundation/subtensor/commit/ab14c7a6f9e6b6531b94993b0a1e03661f5a4f3e
 - **Subtensor (chain)** (COMMIT `b1645e7`, 2026-07-12 01:25) ci: name turbo pools by core count  
   https://github.com/RaoFoundation/subtensor/commit/b1645e755b6758f7eb47c524bf2a0c4a1df1b9e4
+- **Subtensor (chain)** (COMMIT `f07ecd9`, 2026-07-10 18:46) ai-review: update the branch-strategy context for the release-train flow — devnet/testnet/mainnet are CI-managed mirrors, not PR targets, so integration-branch PRs stop tripping a false VULNERABLE verdict  
+  https://github.com/RaoFoundation/subtensor/commit/f07ecd9442c14500f4991d8eae9b3f7a9b070941
 
 ## ⊕ ECOSYSTEM BLOGS via RSS
 
@@ -165,4 +189,4 @@ _no posts retrieved · all Nitter instances may be down_
 
 
 ---
-_Generated at 2026-07-12T16:54:35.945518+00:00 by scripts/intel/aggregate.py. Treat this digest as input context, not as ground truth. Verify before quoting._
+_Generated at 2026-07-12T20:40:11.882335+00:00 by scripts/intel/aggregate.py. Treat this digest as input context, not as ground truth. Verify before quoting._

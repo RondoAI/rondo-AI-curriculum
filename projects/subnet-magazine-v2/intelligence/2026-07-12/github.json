@@ -3,6 +3,127 @@
     "repo": "opentensor/subtensor",
     "name": "Subtensor (chain)",
     "kind": "commit",
+    "sha": "75798da",
+    "message": "Merge pull request #2874 from RaoFoundation/split-stake-sdk-clone-shard",
+    "author": "Inti",
+    "posted_at": "2026-07-12T20:18:21Z",
+    "url": "https://github.com/RaoFoundation/subtensor/commit/75798da050a3033e64270bbabd6f2a853bb4b337",
+    "fetched_at": "2026-07-12T20:40:06.386268+00:00"
+  },
+  {
+    "repo": "opentensor/subtensor",
+    "name": "Subtensor (chain)",
+    "kind": "commit",
+    "sha": "ef43c28",
+    "message": "ci: allow partial snapshot cache measurements",
+    "author": "UnArbosFive",
+    "posted_at": "2026-07-12T20:03:24Z",
+    "url": "https://github.com/RaoFoundation/subtensor/commit/ef43c28ad70cdd4f8316ef70dadc63d0d6519cf8",
+    "fetched_at": "2026-07-12T20:40:06.386268+00:00"
+  },
+  {
+    "repo": "opentensor/subtensor",
+    "name": "Subtensor (chain)",
+    "kind": "commit",
+    "sha": "fe6edda",
+    "message": "ci: split the stake-sdk clone shard so the ~6-min issuance waits stop serializing behind the SDK pair",
+    "author": "unarbos",
+    "posted_at": "2026-07-12T20:02:38Z",
+    "url": "https://github.com/RaoFoundation/subtensor/commit/fe6edda8108e1344afa3886261bb8b878dda0df6",
+    "fetched_at": "2026-07-12T20:40:06.386268+00:00"
+  },
+  {
+    "repo": "opentensor/subtensor",
+    "name": "Subtensor (chain)",
+    "kind": "commit",
+    "sha": "ff1e1ed",
+    "message": "Merge pull request #2867 from RaoFoundation/bittensor-core-typed-units",
+    "author": "Inti",
+    "posted_at": "2026-07-12T19:57:04Z",
+    "url": "https://github.com/RaoFoundation/subtensor/commit/ff1e1ed62c92474d10528ed535b3d63d0ee0aacc",
+    "fetched_at": "2026-07-12T20:40:06.386268+00:00"
+  },
+  {
+    "repo": "opentensor/subtensor",
+    "name": "Subtensor (chain)",
+    "kind": "commit",
+    "sha": "2abe0cd",
+    "message": "Merge remote-tracking branch 'origin/main' into bittensor-core-typed-units",
+    "author": "unarbos",
+    "posted_at": "2026-07-12T19:46:23Z",
+    "url": "https://github.com/RaoFoundation/subtensor/commit/2abe0cd06d9109a6e225975f2c126691d9429957",
+    "fetched_at": "2026-07-12T20:40:06.386268+00:00"
+  },
+  {
+    "repo": "opentensor/subtensor",
+    "name": "Subtensor (chain)",
+    "kind": "commit",
+    "sha": "31f9991",
+    "message": "fix PerU16 fallout in tests and CI lints: metagraph precompile and eco-tests indexer bindings track the Vec<PerU16> storage types, clippy doc indentation, rustfmt",
+    "author": "unarbos",
+    "posted_at": "2026-07-12T19:44:53Z",
+    "url": "https://github.com/RaoFoundation/subtensor/commit/31f9991fe4bb47c310264dc07fcd0dbbeb30e3d4",
+    "fetched_at": "2026-07-12T20:40:06.386268+00:00"
+  },
+  {
+    "repo": "opentensor/subtensor",
+    "name": "Subtensor (chain)",
+    "kind": "commit",
+    "sha": "bd2f7d5",
+    "message": "Merge pull request #2869 from RaoFoundation/fix-sdist-pep668",
+    "author": "Inti",
+    "posted_at": "2026-07-12T19:42:36Z",
+    "url": "https://github.com/RaoFoundation/subtensor/commit/bd2f7d5380de1fe8130844e435bbade1fc338ba4",
+    "fetched_at": "2026-07-12T20:40:06.386268+00:00"
+  },
+  {
+    "repo": "opentensor/subtensor",
+    "name": "Subtensor (chain)",
+    "kind": "commit",
+    "sha": "a1b8f8c",
+    "message": "ci: build the core sdist with uv instead of maturin-action",
+    "author": "unarbos",
+    "posted_at": "2026-07-12T19:42:22Z",
+    "url": "https://github.com/RaoFoundation/subtensor/commit/a1b8f8cd6ce2199dbe107e53754b26db7e66c70b",
+    "fetched_at": "2026-07-12T20:40:06.386268+00:00"
+  },
+  {
+    "repo": "opentensor/subtensor",
+    "name": "Subtensor (chain)",
+    "kind": "commit",
+    "sha": "348420a",
+    "message": "ci: accelerate try-runtime with cached snapshots",
+    "author": "UnArbosFive",
+    "posted_at": "2026-07-12T19:16:48Z",
+    "url": "https://github.com/RaoFoundation/subtensor/commit/348420a3096ef6849533cc1847ca47c5af9ba361",
+    "fetched_at": "2026-07-12T20:40:06.386268+00:00"
+  },
+  {
+    "repo": "opentensor/btcli",
+    "name": "btcli",
+    "kind": "commit",
+    "sha": "8da4626",
+    "message": "Merge pull request #1031 from RaoFoundation/release/9.23.2",
+    "author": "Arbos",
+    "posted_at": "2026-07-12T18:10:41Z",
+    "url": "https://github.com/RaoFoundation/btcli/commit/8da4626c5113745e1081109b3fe6d710665fb46b",
+    "fetched_at": "2026-07-12T20:40:08.424430+00:00"
+  },
+  {
+    "repo": "opentensor/btcli",
+    "name": "btcli",
+    "kind": "commit",
+    "sha": "9de9795",
+    "message": "Point docs at bittensor.com/docs and surface the supersession notice on PyPI",
+    "author": "Arbos",
+    "posted_at": "2026-07-12T18:07:03Z",
+    "url": "https://github.com/RaoFoundation/btcli/commit/9de9795fa6063e6c5e757a6c7024ef0f84c3d011",
+    "fetched_at": "2026-07-12T20:40:08.424430+00:00"
+  },
+  {
+    "repo": "opentensor/subtensor",
+    "name": "Subtensor (chain)",
+    "kind": "commit",
     "sha": "647ca2b",
     "message": "Merge pull request #2846 from RaoFoundation/bittensor-core-exploration",
     "author": "Inti",
@@ -108,5 +229,16 @@
     "posted_at": "2026-07-12T01:25:03Z",
     "url": "https://github.com/RaoFoundation/subtensor/commit/b1645e755b6758f7eb47c524bf2a0c4a1df1b9e4",
     "fetched_at": "2026-07-12T16:54:30.493322+00:00"
+  },
+  {
+    "repo": "opentensor/subtensor",
+    "name": "Subtensor (chain)",
+    "kind": "commit",
+    "sha": "f07ecd9",
+    "message": "ai-review: update the branch-strategy context for the release-train flow — devnet/testnet/mainnet are CI-managed mirrors, not PR targets, so integration-branch PRs stop tripping a false VULNERABLE verdict",
+    "author": "unarbos",
+    "posted_at": "2026-07-10T18:46:22Z",
+    "url": "https://github.com/RaoFoundation/subtensor/commit/f07ecd9442c14500f4991d8eae9b3f7a9b070941",
+    "fetched_at": "2026-07-12T20:40:06.386268+00:00"
   }
 ]
