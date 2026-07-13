@@ -134,6 +134,26 @@ _Intel's woes are behind them. The heavy spending is ahead of them. Why an equit
 
 ## ⊕ GITHUB COMMITS + RELEASES, last 24h
 
+- **Subtensor (chain)** (COMMIT `0bf8ea5`, 2026-07-13 20:47) Merge pull request #2895 from RaoFoundation/v430-release-page  
+  https://github.com/RaoFoundation/subtensor/commit/0bf8ea57aa2700d2751151a5f0d99fdfceb5427d
+- **Subtensor (chain)** (COMMIT `4c883f7`, 2026-07-13 20:32) regenerate docs for slippage-protected stake intents  
+  https://github.com/RaoFoundation/subtensor/commit/4c883f7f4780ab2d71a297664d21c745314ce10d
+- **Subtensor (chain)** (COMMIT `7c7cd97`, 2026-07-13 20:31) direct readers to live chain values for lock rates  
+  https://github.com/RaoFoundation/subtensor/commit/7c7cd97888cca24c239e620cb6f3fe36316c570c
+- **Subtensor (chain)** (COMMIT `3c932b5`, 2026-07-13 20:30) state conviction time constants with explicit percentages  
+  https://github.com/RaoFoundation/subtensor/commit/3c932b5fef37ed0a1c46c7b7aa187b38916a92a4
+- **Subtensor (chain)** (COMMIT `5d20ad3`, 2026-07-13 20:29) describe lock timing via configured rates and owner exception  
+  https://github.com/RaoFoundation/subtensor/commit/5d20ad3b6ad6fbf24e8b5c6ba15e768fec077827
+- **Subtensor (chain)** (COMMIT `98092ea`, 2026-07-13 20:28) describe conviction lock timing as half-lives on release page  
+  https://github.com/RaoFoundation/subtensor/commit/98092ea38cf18881264b7920413857cae9cbbcd0
+- **Subtensor (chain)** (COMMIT `19a2c90`, 2026-07-13 20:20) rename release page to v431 and trim intro  
+  https://github.com/RaoFoundation/subtensor/commit/19a2c9060377ad81a9af89781f9ca34041aba50c
+- **Subtensor (chain)** (COMMIT `a5343ba`, 2026-07-13 20:15) add default slippage protection to SDK stake trades  
+  https://github.com/RaoFoundation/subtensor/commit/a5343baf1b17a759c9811b3118b787005892f789
+- **Subtensor (chain)** (COMMIT `1b810b5`, 2026-07-13 20:12) fix v430 release page rendering on mobile  
+  https://github.com/RaoFoundation/subtensor/commit/1b810b5fff022baf065d4ee54e5856e005a775c4
+- **Subtensor (chain)** (COMMIT `216f3f1`, 2026-07-13 19:56) add built-for-agents section to v430 release page  
+  https://github.com/RaoFoundation/subtensor/commit/216f3f12159515ff90f2707c597a5c56a300a870
 - **Subtensor (chain)** (COMMIT `9c8e26e`, 2026-07-13 16:55) Merge pull request #2889 from RaoFoundation/ci-key-balance-check  
   https://github.com/RaoFoundation/subtensor/commit/9c8e26e7fccc76327ab5204f7978aa2e4d86efd6
 - **Subtensor (chain)** (COMMIT `59ae922`, 2026-07-13 16:55) ci: print CI key address and precheck balance in mainnet proposal  
@@ -174,14 +194,6 @@ _Intel's woes are behind them. The heavy spending is ahead of them. Why an equit
   https://github.com/RaoFoundation/subtensor/commit/bd2f7d5380de1fe8130844e435bbade1fc338ba4
 - **Subtensor (chain)** (COMMIT `a1b8f8c`, 2026-07-12 19:42) ci: build the core sdist with uv instead of maturin-action  
   https://github.com/RaoFoundation/subtensor/commit/a1b8f8cd6ce2199dbe107e53754b26db7e66c70b
-- **Subtensor (chain)** (COMMIT `348420a`, 2026-07-12 19:16) ci: accelerate try-runtime with cached snapshots  
-  https://github.com/RaoFoundation/subtensor/commit/348420a3096ef6849533cc1847ca47c5af9ba361
-- **btcli** (COMMIT `8da4626`, 2026-07-12 18:10) Merge pull request #1031 from RaoFoundation/release/9.23.2  
-  https://github.com/RaoFoundation/btcli/commit/8da4626c5113745e1081109b3fe6d710665fb46b
-- **btcli** (COMMIT `9de9795`, 2026-07-12 18:07) Point docs at bittensor.com/docs and surface the supersession notice on PyPI  
-  https://github.com/RaoFoundation/btcli/commit/9de9795fa6063e6c5e757a6c7024ef0f84c3d011
-- **Subtensor (chain)** (COMMIT `f07ecd9`, 2026-07-10 18:46) ai-review: update the branch-strategy context for the release-train flow — devnet/testnet/mainnet are CI-managed mirrors, not PR targets, so integration-branch PRs stop tripping a false VULNERABLE verdict  
-  https://github.com/RaoFoundation/subtensor/commit/f07ecd9442c14500f4991d8eae9b3f7a9b070941
 
 ## ⊕ ECOSYSTEM BLOGS via RSS
 
@@ -193,4 +205,4 @@ _no posts retrieved · all Nitter instances may be down_
 
 
 ---
-_Generated at 2026-07-13T17:52:28.394853+00:00 by scripts/intel/aggregate.py. Treat this digest as input context, not as ground truth. Verify before quoting._
+_Generated at 2026-07-13T20:54:48.422905+00:00 by scripts/intel/aggregate.py. Treat this digest as input context, not as ground truth. Verify before quoting._
