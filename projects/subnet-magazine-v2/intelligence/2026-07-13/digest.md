@@ -134,6 +134,10 @@ _Intel's woes are behind them. The heavy spending is ahead of them. Why an equit
 
 ## ⊕ GITHUB COMMITS + RELEASES, last 24h
 
+- **Subtensor (chain)** (COMMIT `a9b329f`, 2026-07-13 03:35) Merge pull request #2881 from RaoFoundation/fix-sdist-ordering  
+  https://github.com/RaoFoundation/subtensor/commit/a9b329f8809bc45243dd60bdbdaae18b0a652b64
+- **Subtensor (chain)** (COMMIT `f240f59`, 2026-07-13 03:35) ci: build the sdist before the docker wheel build  
+  https://github.com/RaoFoundation/subtensor/commit/f240f593dfad7c123f1d1b64b95ede1c044a5197
 - **Subtensor (chain)** (COMMIT `75798da`, 2026-07-12 20:18) Merge pull request #2874 from RaoFoundation/split-stake-sdk-clone-shard  
   https://github.com/RaoFoundation/subtensor/commit/75798da050a3033e64270bbabd6f2a853bb4b337
 - **Subtensor (chain)** (COMMIT `ef43c28`, 2026-07-12 20:03) ci: allow partial snapshot cache measurements  
@@ -169,4 +173,4 @@ _no posts retrieved · all Nitter instances may be down_
 
 
 ---
-_Generated at 2026-07-13T02:08:32.392953+00:00 by scripts/intel/aggregate.py. Treat this digest as input context, not as ground truth. Verify before quoting._
+_Generated at 2026-07-13T06:50:18.514570+00:00 by scripts/intel/aggregate.py. Treat this digest as input context, not as ground truth. Verify before quoting._

@@ -3,6 +3,28 @@
     "repo": "opentensor/subtensor",
     "name": "Subtensor (chain)",
     "kind": "commit",
+    "sha": "a9b329f",
+    "message": "Merge pull request #2881 from RaoFoundation/fix-sdist-ordering",
+    "author": "Inti",
+    "posted_at": "2026-07-13T03:35:50Z",
+    "url": "https://github.com/RaoFoundation/subtensor/commit/a9b329f8809bc45243dd60bdbdaae18b0a652b64",
+    "fetched_at": "2026-07-13T06:50:13.095854+00:00"
+  },
+  {
+    "repo": "opentensor/subtensor",
+    "name": "Subtensor (chain)",
+    "kind": "commit",
+    "sha": "f240f59",
+    "message": "ci: build the sdist before the docker wheel build",
+    "author": "unarbos",
+    "posted_at": "2026-07-13T03:35:41Z",
+    "url": "https://github.com/RaoFoundation/subtensor/commit/f240f593dfad7c123f1d1b64b95ede1c044a5197",
+    "fetched_at": "2026-07-13T06:50:13.095854+00:00"
+  },
+  {
+    "repo": "opentensor/subtensor",
+    "name": "Subtensor (chain)",
+    "kind": "commit",
     "sha": "75798da",
     "message": "Merge pull request #2874 from RaoFoundation/split-stake-sdk-clone-shard",
     "author": "Inti",
