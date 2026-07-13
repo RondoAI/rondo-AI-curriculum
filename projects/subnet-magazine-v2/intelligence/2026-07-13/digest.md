@@ -134,6 +134,26 @@ _Intel's woes are behind them. The heavy spending is ahead of them. Why an equit
 
 ## ⊕ GITHUB COMMITS + RELEASES, last 24h
 
+- **Subtensor (chain)** (COMMIT `9c8e26e`, 2026-07-13 16:55) Merge pull request #2889 from RaoFoundation/ci-key-balance-check  
+  https://github.com/RaoFoundation/subtensor/commit/9c8e26e7fccc76327ab5204f7978aa2e4d86efd6
+- **Subtensor (chain)** (COMMIT `59ae922`, 2026-07-13 16:55) ci: print CI key address and precheck balance in mainnet proposal  
+  https://github.com/RaoFoundation/subtensor/commit/59ae9224834da0bfde4d4137d22fe43355a33a82
+- **Subtensor (chain)** (COMMIT `b800d80`, 2026-07-13 15:55) Merge pull request #2888 from RaoFoundation/rao-release  
+  https://github.com/RaoFoundation/subtensor/commit/b800d8045e10c360c42123ab6ad768d183b5a629
+- **Subtensor (chain)** (COMMIT `3cd53e8`, 2026-07-13 15:51) chore: bump spec_version to 430; add devnet endpoint; dynamic SDK version  
+  https://github.com/RaoFoundation/subtensor/commit/3cd53e813378b8b1de9d4057439235a194839f56
+- **Subtensor (chain)** (COMMIT `5bb95ed`, 2026-07-13 15:50) test: poll NextKey in mev shield e2e instead of single startup read  
+  https://github.com/RaoFoundation/subtensor/commit/5bb95ed7def82699bfebe394fb21eb1dededd687
+- **Subtensor (chain)** (COMMIT `7b41d53`, 2026-07-13 15:37) Merge pull request #2875 from RaoFoundation/fix-fill-or-kill-doc-typo  
+  https://github.com/RaoFoundation/subtensor/commit/7b41d533ea3cf096ad5c7902cfb6e1b7644b2ebd
+- **Subtensor (chain)** (COMMIT `c87ac28`, 2026-07-13 15:19) Merge branch 'pr-2882' into fix-fill-or-kill-doc-typo  
+  https://github.com/RaoFoundation/subtensor/commit/c87ac2838cc7e748bf4cd157589efbbbfbaf5090
+- **Subtensor (chain)** (COMMIT `dc374d1`, 2026-07-13 15:18) feat: one-URL runtime upgrade signing (btcli upgrade + proposal pre-releases)  
+  https://github.com/RaoFoundation/subtensor/commit/dc374d1fa5c4c7c14286b1a141707829b75c96df
+- **Subtensor (chain)** (COMMIT `d823013`, 2026-07-13 15:01) ci: centralize e2e setup and validate shield shards  
+  https://github.com/RaoFoundation/subtensor/commit/d823013a7f05feebf9b3dc83e9a30f249baff3ca
+- **Subtensor (chain)** (COMMIT `c83cdba`, 2026-07-13 14:26) ci: keep faster e2e linker path  
+  https://github.com/RaoFoundation/subtensor/commit/c83cdba3e1db52e407e1a412f12fb334ab967c69
 - **Subtensor (chain)** (COMMIT `a9b329f`, 2026-07-13 03:35) Merge pull request #2881 from RaoFoundation/fix-sdist-ordering  
   https://github.com/RaoFoundation/subtensor/commit/a9b329f8809bc45243dd60bdbdaae18b0a652b64
 - **Subtensor (chain)** (COMMIT `f240f59`, 2026-07-13 03:35) ci: build the sdist before the docker wheel build  
@@ -173,4 +193,4 @@ _no posts retrieved · all Nitter instances may be down_
 
 
 ---
-_Generated at 2026-07-13T14:19:11.321399+00:00 by scripts/intel/aggregate.py. Treat this digest as input context, not as ground truth. Verify before quoting._
+_Generated at 2026-07-13T17:52:28.394853+00:00 by scripts/intel/aggregate.py. Treat this digest as input context, not as ground truth. Verify before quoting._
