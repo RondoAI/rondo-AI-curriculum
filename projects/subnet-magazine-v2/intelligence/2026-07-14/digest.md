@@ -134,6 +134,26 @@ _Intel's woes are behind them. The heavy spending is ahead of them. Why an equit
 
 ## ⊕ GITHUB COMMITS + RELEASES, last 24h
 
+- **Subtensor (chain)** (COMMIT `32f3b65`, 2026-07-14 19:36) Merge pull request #2898 from RaoFoundation/error-descriptions  
+  https://github.com/RaoFoundation/subtensor/commit/32f3b652cfa74df5f8f595a5be051bf5bb86925f
+- **Subtensor (chain)** (COMMIT `dc96d2b`, 2026-07-14 19:21) Regenerate SDK metadata layer for runtime spec 431.  
+  https://github.com/RaoFoundation/subtensor/commit/dc96d2b0738072e0e2865cf406fb5af322ad3e79
+- **Subtensor (chain)** (COMMIT `5406f31`, 2026-07-14 18:56) Mark deprecated tempo call stubs raw-only and refresh docs catalogs.  
+  https://github.com/RaoFoundation/subtensor/commit/5406f3101554ca85c64b0bf775cfb995140ea727
+- **Subtensor (chain)** (COMMIT `1b5a108`, 2026-07-14 18:52) Fix CI: ruff-format hyperparams and clippy indexing in tempo tests.  
+  https://github.com/RaoFoundation/subtensor/commit/1b5a108a40c5619459e37d45e7335bf213025b3b
+- **Subtensor (chain)** (COMMIT `9596e35`, 2026-07-14 18:48) Validate hyperparameter values against codec and semantic bounds.  
+  https://github.com/RaoFoundation/subtensor/commit/9596e351264270ab328213436cf95dc25f04fbe2
+- **Subtensor (chain)** (COMMIT `44af61a`, 2026-07-14 18:47) Merge pull request #2906 from RaoFoundation/fix/preserve-tempo-call-indices  
+  https://github.com/RaoFoundation/subtensor/commit/44af61a61763fa89ba07c9209b199201fd5a9ccf
+- **Subtensor (chain)** (COMMIT `ebff258`, 2026-07-14 18:45) Retry flaky GHCR docker pushes in e2e image job.  
+  https://github.com/RaoFoundation/subtensor/commit/ebff258d0ec32ba72a43a444efe6813b5e4c8980
+- **Subtensor (chain)** (COMMIT `66022e8`, 2026-07-14 18:42) fix(runtime): make deprecated tempo calls no-op  
+  https://github.com/RaoFoundation/subtensor/commit/66022e88e53f9f4afb01f96f3675d2bc5d874cfb
+- **Subtensor (chain)** (COMMIT `4fb248b`, 2026-07-14 18:37) Fix clippy needless borrow in destroy_alpha_tests.  
+  https://github.com/RaoFoundation/subtensor/commit/4fb248beba78d19c0d59eded052954cd4c23c817
+- **Subtensor (chain)** (COMMIT `b27ab99`, 2026-07-14 18:33) fix(runtime): preserve deprecated tempo call indices  
+  https://github.com/RaoFoundation/subtensor/commit/b27ab99a0163a00618b48b5673f3d12770816b76
 - **Subtensor (chain)** (COMMIT `0bf8ea5`, 2026-07-13 20:47) Merge pull request #2895 from RaoFoundation/v430-release-page  
   https://github.com/RaoFoundation/subtensor/commit/0bf8ea57aa2700d2751151a5f0d99fdfceb5427d
 - **Subtensor (chain)** (COMMIT `4c883f7`, 2026-07-13 20:32) regenerate docs for slippage-protected stake intents  
@@ -165,4 +185,4 @@ _no posts retrieved · all Nitter instances may be down_
 
 
 ---
-_Generated at 2026-07-14T17:09:37.806637+00:00 by scripts/intel/aggregate.py. Treat this digest as input context, not as ground truth. Verify before quoting._
+_Generated at 2026-07-14T20:56:15.500402+00:00 by scripts/intel/aggregate.py. Treat this digest as input context, not as ground truth. Verify before quoting._
