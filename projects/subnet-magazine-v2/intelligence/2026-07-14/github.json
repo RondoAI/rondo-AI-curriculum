@@ -1,0 +1,112 @@
+[
+  {
+    "repo": "opentensor/subtensor",
+    "name": "Subtensor (chain)",
+    "kind": "commit",
+    "sha": "0bf8ea5",
+    "message": "Merge pull request #2895 from RaoFoundation/v430-release-page",
+    "author": "Inti",
+    "posted_at": "2026-07-13T20:47:42Z",
+    "url": "https://github.com/RaoFoundation/subtensor/commit/0bf8ea57aa2700d2751151a5f0d99fdfceb5427d",
+    "fetched_at": "2026-07-14T01:54:21.791835+00:00"
+  },
+  {
+    "repo": "opentensor/subtensor",
+    "name": "Subtensor (chain)",
+    "kind": "commit",
+    "sha": "4c883f7",
+    "message": "regenerate docs for slippage-protected stake intents",
+    "author": "unarbos",
+    "posted_at": "2026-07-13T20:32:53Z",
+    "url": "https://github.com/RaoFoundation/subtensor/commit/4c883f7f4780ab2d71a297664d21c745314ce10d",
+    "fetched_at": "2026-07-14T01:54:21.791835+00:00"
+  },
+  {
+    "repo": "opentensor/subtensor",
+    "name": "Subtensor (chain)",
+    "kind": "commit",
+    "sha": "7c7cd97",
+    "message": "direct readers to live chain values for lock rates",
+    "author": "unarbos",
+    "posted_at": "2026-07-13T20:31:37Z",
+    "url": "https://github.com/RaoFoundation/subtensor/commit/7c7cd97888cca24c239e620cb6f3fe36316c570c",
+    "fetched_at": "2026-07-14T01:54:21.791835+00:00"
+  },
+  {
+    "repo": "opentensor/subtensor",
+    "name": "Subtensor (chain)",
+    "kind": "commit",
+    "sha": "3c932b5",
+    "message": "state conviction time constants with explicit percentages",
+    "author": "unarbos",
+    "posted_at": "2026-07-13T20:30:38Z",
+    "url": "https://github.com/RaoFoundation/subtensor/commit/3c932b5fef37ed0a1c46c7b7aa187b38916a92a4",
+    "fetched_at": "2026-07-14T01:54:21.791835+00:00"
+  },
+  {
+    "repo": "opentensor/subtensor",
+    "name": "Subtensor (chain)",
+    "kind": "commit",
+    "sha": "5d20ad3",
+    "message": "describe lock timing via configured rates and owner exception",
+    "author": "unarbos",
+    "posted_at": "2026-07-13T20:29:09Z",
+    "url": "https://github.com/RaoFoundation/subtensor/commit/5d20ad3b6ad6fbf24e8b5c6ba15e768fec077827",
+    "fetched_at": "2026-07-14T01:54:21.791835+00:00"
+  },
+  {
+    "repo": "opentensor/subtensor",
+    "name": "Subtensor (chain)",
+    "kind": "commit",
+    "sha": "98092ea",
+    "message": "describe conviction lock timing as half-lives on release page",
+    "author": "unarbos",
+    "posted_at": "2026-07-13T20:28:04Z",
+    "url": "https://github.com/RaoFoundation/subtensor/commit/98092ea38cf18881264b7920413857cae9cbbcd0",
+    "fetched_at": "2026-07-14T01:54:21.791835+00:00"
+  },
+  {
+    "repo": "opentensor/subtensor",
+    "name": "Subtensor (chain)",
+    "kind": "commit",
+    "sha": "19a2c90",
+    "message": "rename release page to v431 and trim intro",
+    "author": "unarbos",
+    "posted_at": "2026-07-13T20:20:42Z",
+    "url": "https://github.com/RaoFoundation/subtensor/commit/19a2c9060377ad81a9af89781f9ca34041aba50c",
+    "fetched_at": "2026-07-14T01:54:21.791835+00:00"
+  },
+  {
+    "repo": "opentensor/subtensor",
+    "name": "Subtensor (chain)",
+    "kind": "commit",
+    "sha": "a5343ba",
+    "message": "add default slippage protection to SDK stake trades",
+    "author": "unarbos",
+    "posted_at": "2026-07-13T20:15:07Z",
+    "url": "https://github.com/RaoFoundation/subtensor/commit/a5343baf1b17a759c9811b3118b787005892f789",
+    "fetched_at": "2026-07-14T01:54:21.791835+00:00"
+  },
+  {
+    "repo": "opentensor/subtensor",
+    "name": "Subtensor (chain)",
+    "kind": "commit",
+    "sha": "1b810b5",
+    "message": "fix v430 release page rendering on mobile",
+    "author": "unarbos",
+    "posted_at": "2026-07-13T20:12:23Z",
+    "url": "https://github.com/RaoFoundation/subtensor/commit/1b810b5fff022baf065d4ee54e5856e005a775c4",
+    "fetched_at": "2026-07-14T01:54:21.791835+00:00"
+  },
+  {
+    "repo": "opentensor/subtensor",
+    "name": "Subtensor (chain)",
+    "kind": "commit",
+    "sha": "216f3f1",
+    "message": "add built-for-agents section to v430 release page",
+    "author": "unarbos",
+    "posted_at": "2026-07-13T19:56:53Z",
+    "url": "https://github.com/RaoFoundation/subtensor/commit/216f3f12159515ff90f2707c597a5c56a300a870",
+    "fetched_at": "2026-07-14T01:54:21.791835+00:00"
+  }
+]
