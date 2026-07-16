@@ -134,7 +134,26 @@ _Intel's woes are behind them. The heavy spending is ahead of them. Why an equit
 
 ## ⊕ GITHUB COMMITS + RELEASES, last 24h
 
-_no commits or releases in the lookback window_
+- **Subtensor (chain)** (COMMIT `19a6485`, 2026-07-16 19:24) Merge pull request #2934 from RaoFoundation/fix/finalize-weight-headroom  
+  https://github.com/RaoFoundation/subtensor/commit/19a6485969253ee9756bc382bac536e0fcb0b72f
+- **Subtensor (chain)** (COMMIT `87df074`, 2026-07-16 19:24) Future-proof FINALIZE_WEIGHT to 200B ref_time / 1M proof_size.  
+  https://github.com/RaoFoundation/subtensor/commit/87df074575e1d6238a994769e7ebc6fd95b2ee4b
+- **Subtensor (chain)** (COMMIT `cadce5b`, 2026-07-16 19:22) Merge pull request #2933 from RaoFoundation/fix/revert-2932-website-noise  
+  https://github.com/RaoFoundation/subtensor/commit/cadce5bb2c4622273e4c7b153963c05e6a5583b2
+- **Subtensor (chain)** (COMMIT `bc0e706`, 2026-07-16 19:22) Revert accidental website changes from the FINALIZE_WEIGHT PR.  
+  https://github.com/RaoFoundation/subtensor/commit/bc0e706bba8ae74840263f8d74a72089f742e8d6
+- **Subtensor (chain)** (COMMIT `539c22d`, 2026-07-16 19:21) Merge pull request #2932 from RaoFoundation/fix/finalize-weight-proof-size  
+  https://github.com/RaoFoundation/subtensor/commit/539c22d4ca5cade27db63e08ad0306c12e5fabc7
+- **Subtensor (chain)** (COMMIT `43f3fd6`, 2026-07-16 19:21) Raise FINALIZE_WEIGHT so deployment as_multi can dispatch setCode.  
+  https://github.com/RaoFoundation/subtensor/commit/43f3fd6bcca63aa93d23e8e7885519afc7c68b1c
+- **Subtensor (chain)** (COMMIT `c7021ca`, 2026-07-16 18:49) Merge pull request #2909 from RaoFoundation/fix/upgrade-sign-max-weight  
+  https://github.com/RaoFoundation/subtensor/commit/c7021cad700b0ec77beed168f906b1284e50fcc7
+- **Subtensor (chain)** (COMMIT `8586e65`, 2026-07-16 18:10) Merge pull request #2910 from RaoFoundation/feat/intent-origins-root-ops  
+  https://github.com/RaoFoundation/subtensor/commit/8586e65ec279644a6837cf25b12333064c77474e
+- **Subtensor (chain)** (COMMIT `5cb5d50`, 2026-07-16 18:09) Wrap root intents in Sudo.sudo before MEV-shielded signing.  
+  https://github.com/RaoFoundation/subtensor/commit/5cb5d50081296865b931b3986ff409c4594d5e26
+- **Subtensor (chain)** (COMMIT `faf8efb`, 2026-07-14 20:44) Fix MaxWeightTooLow on the executing upgrade approval.  
+  https://github.com/RaoFoundation/subtensor/commit/faf8efbfefa5b630701040af46a82df4a848529b
 
 ## ⊕ ECOSYSTEM BLOGS via RSS
 
@@ -146,4 +165,4 @@ _no posts retrieved · all Nitter instances may be down_
 
 
 ---
-_Generated at 2026-07-16T17:10:10.730800+00:00 by scripts/intel/aggregate.py. Treat this digest as input context, not as ground truth. Verify before quoting._
+_Generated at 2026-07-16T20:53:09.028944+00:00 by scripts/intel/aggregate.py. Treat this digest as input context, not as ground truth. Verify before quoting._

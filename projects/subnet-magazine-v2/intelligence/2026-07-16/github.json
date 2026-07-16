@@ -1,1 +1,112 @@
-[]
+[
+  {
+    "repo": "opentensor/subtensor",
+    "name": "Subtensor (chain)",
+    "kind": "commit",
+    "sha": "19a6485",
+    "message": "Merge pull request #2934 from RaoFoundation/fix/finalize-weight-headroom",
+    "author": "Inti",
+    "posted_at": "2026-07-16T19:24:24Z",
+    "url": "https://github.com/RaoFoundation/subtensor/commit/19a6485969253ee9756bc382bac536e0fcb0b72f",
+    "fetched_at": "2026-07-16T20:53:05.033571+00:00"
+  },
+  {
+    "repo": "opentensor/subtensor",
+    "name": "Subtensor (chain)",
+    "kind": "commit",
+    "sha": "87df074",
+    "message": "Future-proof FINALIZE_WEIGHT to 200B ref_time / 1M proof_size.",
+    "author": "unarbos",
+    "posted_at": "2026-07-16T19:24:11Z",
+    "url": "https://github.com/RaoFoundation/subtensor/commit/87df074575e1d6238a994769e7ebc6fd95b2ee4b",
+    "fetched_at": "2026-07-16T20:53:05.033571+00:00"
+  },
+  {
+    "repo": "opentensor/subtensor",
+    "name": "Subtensor (chain)",
+    "kind": "commit",
+    "sha": "cadce5b",
+    "message": "Merge pull request #2933 from RaoFoundation/fix/revert-2932-website-noise",
+    "author": "Inti",
+    "posted_at": "2026-07-16T19:22:27Z",
+    "url": "https://github.com/RaoFoundation/subtensor/commit/cadce5bb2c4622273e4c7b153963c05e6a5583b2",
+    "fetched_at": "2026-07-16T20:53:05.033571+00:00"
+  },
+  {
+    "repo": "opentensor/subtensor",
+    "name": "Subtensor (chain)",
+    "kind": "commit",
+    "sha": "bc0e706",
+    "message": "Revert accidental website changes from the FINALIZE_WEIGHT PR.",
+    "author": "unarbos",
+    "posted_at": "2026-07-16T19:22:21Z",
+    "url": "https://github.com/RaoFoundation/subtensor/commit/bc0e706bba8ae74840263f8d74a72089f742e8d6",
+    "fetched_at": "2026-07-16T20:53:05.033571+00:00"
+  },
+  {
+    "repo": "opentensor/subtensor",
+    "name": "Subtensor (chain)",
+    "kind": "commit",
+    "sha": "539c22d",
+    "message": "Merge pull request #2932 from RaoFoundation/fix/finalize-weight-proof-size",
+    "author": "Inti",
+    "posted_at": "2026-07-16T19:21:53Z",
+    "url": "https://github.com/RaoFoundation/subtensor/commit/539c22d4ca5cade27db63e08ad0306c12e5fabc7",
+    "fetched_at": "2026-07-16T20:53:05.033571+00:00"
+  },
+  {
+    "repo": "opentensor/subtensor",
+    "name": "Subtensor (chain)",
+    "kind": "commit",
+    "sha": "43f3fd6",
+    "message": "Raise FINALIZE_WEIGHT so deployment as_multi can dispatch setCode.",
+    "author": "unarbos",
+    "posted_at": "2026-07-16T19:21:42Z",
+    "url": "https://github.com/RaoFoundation/subtensor/commit/43f3fd6bcca63aa93d23e8e7885519afc7c68b1c",
+    "fetched_at": "2026-07-16T20:53:05.033571+00:00"
+  },
+  {
+    "repo": "opentensor/subtensor",
+    "name": "Subtensor (chain)",
+    "kind": "commit",
+    "sha": "c7021ca",
+    "message": "Merge pull request #2909 from RaoFoundation/fix/upgrade-sign-max-weight",
+    "author": "Inti",
+    "posted_at": "2026-07-16T18:49:18Z",
+    "url": "https://github.com/RaoFoundation/subtensor/commit/c7021cad700b0ec77beed168f906b1284e50fcc7",
+    "fetched_at": "2026-07-16T20:53:05.033571+00:00"
+  },
+  {
+    "repo": "opentensor/subtensor",
+    "name": "Subtensor (chain)",
+    "kind": "commit",
+    "sha": "8586e65",
+    "message": "Merge pull request #2910 from RaoFoundation/feat/intent-origins-root-ops",
+    "author": "Inti",
+    "posted_at": "2026-07-16T18:10:07Z",
+    "url": "https://github.com/RaoFoundation/subtensor/commit/8586e65ec279644a6837cf25b12333064c77474e",
+    "fetched_at": "2026-07-16T20:53:05.033571+00:00"
+  },
+  {
+    "repo": "opentensor/subtensor",
+    "name": "Subtensor (chain)",
+    "kind": "commit",
+    "sha": "5cb5d50",
+    "message": "Wrap root intents in Sudo.sudo before MEV-shielded signing.",
+    "author": "unarbos",
+    "posted_at": "2026-07-16T18:09:09Z",
+    "url": "https://github.com/RaoFoundation/subtensor/commit/5cb5d50081296865b931b3986ff409c4594d5e26",
+    "fetched_at": "2026-07-16T20:53:05.033571+00:00"
+  },
+  {
+    "repo": "opentensor/subtensor",
+    "name": "Subtensor (chain)",
+    "kind": "commit",
+    "sha": "faf8efb",
+    "message": "Fix MaxWeightTooLow on the executing upgrade approval.",
+    "author": "unarbos",
+    "posted_at": "2026-07-14T20:44:40Z",
+    "url": "https://github.com/RaoFoundation/subtensor/commit/faf8efbfefa5b630701040af46a82df4a848529b",
+    "fetched_at": "2026-07-16T20:53:05.033571+00:00"
+  }
+]
