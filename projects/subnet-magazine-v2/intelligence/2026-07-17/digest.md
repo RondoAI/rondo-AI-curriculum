@@ -134,6 +134,18 @@ _Intel's woes are behind them. The heavy spending is ahead of them. Why an equit
 
 ## ⊕ GITHUB COMMITS + RELEASES, last 24h
 
+- **Subtensor (chain)** (COMMIT `74b77d7`, 2026-07-17 09:37) Merge pull request #2947 from RaoFoundation/chore/no-crates-publish  
+  https://github.com/RaoFoundation/subtensor/commit/74b77d74e529498afba444fcaea9af7628540145
+- **Subtensor (chain)** (COMMIT `759d521`, 2026-07-17 09:36) Stop publishing workspace crates to crates.io.  
+  https://github.com/RaoFoundation/subtensor/commit/759d521857cdb1f04d89cbafa669a2aa43ac62bc
+- **Subtensor (chain)** (COMMIT `74a8807`, 2026-07-17 09:18) Merge pull request #2946 from RaoFoundation/fix/vercel-archive-flag  
+  https://github.com/RaoFoundation/subtensor/commit/74a880729d9893b8b3c4a3c1241d7145bfca1f71
+- **Subtensor (chain)** (COMMIT `3a02a67`, 2026-07-17 09:18) Fix Vercel deploys: archive uploads that exceed the 15k-file limit.  
+  https://github.com/RaoFoundation/subtensor/commit/3a02a67ec239c3aeca0857520d4961feb81c6e31
+- **Subtensor (chain)** (COMMIT `b212672`, 2026-07-17 08:53) Merge pull request #2945 from RaoFoundation/fix/v432-stable-pypi-recovery  
+  https://github.com/RaoFoundation/subtensor/commit/b212672cf5b4e21821d7a8a736ef62202b2f4617
+- **Subtensor (chain)** (COMMIT `2c6f3d0`, 2026-07-17 08:51) One-time v432 recovery: stamp SDK 11.0.0 before the stable PyPI publish.  
+  https://github.com/RaoFoundation/subtensor/commit/2c6f3d08c742e6da985976321900234ef8839569
 - **Subtensor (chain)** (COMMIT `19a6485`, 2026-07-16 19:24) Merge pull request #2934 from RaoFoundation/fix/finalize-weight-headroom  
   https://github.com/RaoFoundation/subtensor/commit/19a6485969253ee9756bc382bac536e0fcb0b72f
 - **Subtensor (chain)** (COMMIT `87df074`, 2026-07-16 19:24) Future-proof FINALIZE_WEIGHT to 200B ref_time / 1M proof_size.  
@@ -148,6 +160,8 @@ _Intel's woes are behind them. The heavy spending is ahead of them. Why an equit
   https://github.com/RaoFoundation/subtensor/commit/43f3fd6bcca63aa93d23e8e7885519afc7c68b1c
 - **Subtensor (chain)** (COMMIT `c7021ca`, 2026-07-16 18:49) Merge pull request #2909 from RaoFoundation/fix/upgrade-sign-max-weight  
   https://github.com/RaoFoundation/subtensor/commit/c7021cad700b0ec77beed168f906b1284e50fcc7
+- **Subtensor (chain)** (RELEASE `v432`, 2026-07-16 18:34) Runtime 432  
+  https://github.com/RaoFoundation/subtensor/releases/tag/v432
 - **Subtensor (chain)** (COMMIT `8586e65`, 2026-07-16 18:10) Merge pull request #2910 from RaoFoundation/feat/intent-origins-root-ops  
   https://github.com/RaoFoundation/subtensor/commit/8586e65ec279644a6837cf25b12333064c77474e
 - **Subtensor (chain)** (COMMIT `5cb5d50`, 2026-07-16 18:09) Wrap root intents in Sudo.sudo before MEV-shielded signing.  
@@ -165,4 +179,4 @@ _no posts retrieved · all Nitter instances may be down_
 
 
 ---
-_Generated at 2026-07-17T06:12:42.255260+00:00 by scripts/intel/aggregate.py. Treat this digest as input context, not as ground truth. Verify before quoting._
+_Generated at 2026-07-17T09:53:10.441253+00:00 by scripts/intel/aggregate.py. Treat this digest as input context, not as ground truth. Verify before quoting._

@@ -3,6 +3,72 @@
     "repo": "opentensor/subtensor",
     "name": "Subtensor (chain)",
     "kind": "commit",
+    "sha": "74b77d7",
+    "message": "Merge pull request #2947 from RaoFoundation/chore/no-crates-publish",
+    "author": "Inti",
+    "posted_at": "2026-07-17T09:37:06Z",
+    "url": "https://github.com/RaoFoundation/subtensor/commit/74b77d74e529498afba444fcaea9af7628540145",
+    "fetched_at": "2026-07-17T09:53:03.973021+00:00"
+  },
+  {
+    "repo": "opentensor/subtensor",
+    "name": "Subtensor (chain)",
+    "kind": "commit",
+    "sha": "759d521",
+    "message": "Stop publishing workspace crates to crates.io.",
+    "author": "unarbos",
+    "posted_at": "2026-07-17T09:36:53Z",
+    "url": "https://github.com/RaoFoundation/subtensor/commit/759d521857cdb1f04d89cbafa669a2aa43ac62bc",
+    "fetched_at": "2026-07-17T09:53:03.973021+00:00"
+  },
+  {
+    "repo": "opentensor/subtensor",
+    "name": "Subtensor (chain)",
+    "kind": "commit",
+    "sha": "74a8807",
+    "message": "Merge pull request #2946 from RaoFoundation/fix/vercel-archive-flag",
+    "author": "Inti",
+    "posted_at": "2026-07-17T09:18:16Z",
+    "url": "https://github.com/RaoFoundation/subtensor/commit/74a880729d9893b8b3c4a3c1241d7145bfca1f71",
+    "fetched_at": "2026-07-17T09:53:03.973021+00:00"
+  },
+  {
+    "repo": "opentensor/subtensor",
+    "name": "Subtensor (chain)",
+    "kind": "commit",
+    "sha": "3a02a67",
+    "message": "Fix Vercel deploys: archive uploads that exceed the 15k-file limit.",
+    "author": "unarbos",
+    "posted_at": "2026-07-17T09:18:02Z",
+    "url": "https://github.com/RaoFoundation/subtensor/commit/3a02a67ec239c3aeca0857520d4961feb81c6e31",
+    "fetched_at": "2026-07-17T09:53:03.973021+00:00"
+  },
+  {
+    "repo": "opentensor/subtensor",
+    "name": "Subtensor (chain)",
+    "kind": "commit",
+    "sha": "b212672",
+    "message": "Merge pull request #2945 from RaoFoundation/fix/v432-stable-pypi-recovery",
+    "author": "Inti",
+    "posted_at": "2026-07-17T08:53:10Z",
+    "url": "https://github.com/RaoFoundation/subtensor/commit/b212672cf5b4e21821d7a8a736ef62202b2f4617",
+    "fetched_at": "2026-07-17T09:53:03.973021+00:00"
+  },
+  {
+    "repo": "opentensor/subtensor",
+    "name": "Subtensor (chain)",
+    "kind": "commit",
+    "sha": "2c6f3d0",
+    "message": "One-time v432 recovery: stamp SDK 11.0.0 before the stable PyPI publish.",
+    "author": "unarbos",
+    "posted_at": "2026-07-17T08:51:36Z",
+    "url": "https://github.com/RaoFoundation/subtensor/commit/2c6f3d08c742e6da985976321900234ef8839569",
+    "fetched_at": "2026-07-17T09:53:03.973021+00:00"
+  },
+  {
+    "repo": "opentensor/subtensor",
+    "name": "Subtensor (chain)",
+    "kind": "commit",
     "sha": "19a6485",
     "message": "Merge pull request #2934 from RaoFoundation/fix/finalize-weight-headroom",
     "author": "Inti",
@@ -75,6 +141,17 @@
     "posted_at": "2026-07-16T18:49:18Z",
     "url": "https://github.com/RaoFoundation/subtensor/commit/c7021cad700b0ec77beed168f906b1284e50fcc7",
     "fetched_at": "2026-07-17T02:04:15.892428+00:00"
+  },
+  {
+    "repo": "opentensor/subtensor",
+    "name": "Subtensor (chain)",
+    "kind": "release",
+    "sha": "v432",
+    "message": "Runtime 432",
+    "author": "github-actions[bot]",
+    "posted_at": "2026-07-16T18:34:43Z",
+    "url": "https://github.com/RaoFoundation/subtensor/releases/tag/v432",
+    "fetched_at": "2026-07-17T09:53:04.630871+00:00"
   },
   {
     "repo": "opentensor/subtensor",
