@@ -3,6 +3,17 @@
     "repo": "opentensor/subtensor",
     "name": "Subtensor (chain)",
     "kind": "commit",
+    "sha": "89eb75f",
+    "message": "Bound srtool builder image provisioning (#2965)",
+    "author": "UnArbosFive",
+    "posted_at": "2026-07-22T17:54:22Z",
+    "url": "https://github.com/RaoFoundation/subtensor/commit/89eb75f38fb3121fdd041d642331cc975dd20d94",
+    "fetched_at": "2026-07-22T21:00:12.839398+00:00"
+  },
+  {
+    "repo": "opentensor/subtensor",
+    "name": "Subtensor (chain)",
+    "kind": "commit",
     "sha": "2d52647",
     "message": "Merge pull request #2960 from RaoFoundation/v437-release",
     "author": "Inti",

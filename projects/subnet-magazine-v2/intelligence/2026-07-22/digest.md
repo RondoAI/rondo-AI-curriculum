@@ -51,16 +51,6 @@ _Over 7T AI debt by 2029, There can be no Neoclouds without the Trinity. Nvidia'
 
 > Up until now the majority of AI buildouts have been primarily cashflow funded by the hyperscalers such as Google, Amazon, Meta, Microsoft, Oracle. Over the last year, that's started to turn with Oracle then Meta, and now even Google turning to debt. Nvidia revenue is skyrocketing, and even 3 years into the build out, the general market is still materially lower on shipment volumes and revenue estimates for Nvidia in the 2nd half of this year versus our through supply chain tracking in the [Accel
 
-### 2026-07-02 · Meta Compute: Everyone Wants To Be A Neocloud
-_Zuck Takes Plan B? SpaceX 2.0, Bedrock 2.0, MSL Isn't Giving Up, Scaling RecSys by 10x... ClusterMAX ranking coming soon?_
-
-- **Authors:** ["Jeremie Eliahou Ontiveros", "Max Kan", "Joey Brookhart", "Crystal Huang", "Dylan Patel"]
-- **Access:** paid-preview
-- **URL:** https://newsletter.semianalysis.com/p/meta-compute-everyone-wants-to-be
-- **Corpus file:** `intelligence/_external_sources/semianalysis/2026-07-02-meta-compute-everyone-wants-to-be.md`
-
-> With Bloomberg headlines suggesting Meta could become a Neocloud, the market’s reaction was immediate: aggressive sell-off of Neoclouds like Coreweave & Nebius, and debates of “overcapacity” coming back. Let’s set the record straight – we believe that both takes are erroneous and that Meta’s datacenter & compute procurement will accelerate, not slow down. Capex in 2027 will be shockingly high. In just the first six months of the year, Meta has contracted over 5GW of capacity across Cloud & Colo,
-
 ### 2026-07-02 · EMIB-T Roadmap, Custom HBM, HBM4 Packaging Challenges, Microfluidic Cooling, Photonic Interconnects, and More
 _ECTC 2026 Roundup, Intel, TSMC, SK Hynix, Samsung, Micron, Marvell, Lightmatter, Microsoft_
 
@@ -70,6 +60,16 @@ _ECTC 2026 Roundup, Intel, TSMC, SK Hynix, Samsung, Micron, Marvell, Lightmatter
 - **Corpus file:** `intelligence/_external_sources/semianalysis/2026-07-02-ectc2026.md`
 
 > As transistor density scaling has slowed, advanced packaging has become the primary scaling vector. However, AI accelerators have grown so large and require such fast interconnects that the package itself is now hitting limits. Circular interposers constrain package size and wafer utilization, HBM4E doubles the I/O count while increasing speed, and multi-kilowatt packages are overwhelming conventional cooling architectures.  ECTC is the industry’s premier conference for all things packaging. Thi
+
+### 2026-07-02 · Meta Compute: Everyone Wants To Be A Neocloud
+_Zuck Takes Plan B? SpaceX 2.0, Bedrock 2.0, MSL Isn't Giving Up, Scaling RecSys by 10x... ClusterMAX ranking coming soon?_
+
+- **Authors:** ["Jeremie Eliahou Ontiveros", "Max Kan", "Joey Brookhart", "Crystal Huang", "Dylan Patel"]
+- **Access:** paid-preview
+- **URL:** https://newsletter.semianalysis.com/p/meta-compute-everyone-wants-to-be
+- **Corpus file:** `intelligence/_external_sources/semianalysis/2026-07-02-meta-compute-everyone-wants-to-be.md`
+
+> With Bloomberg headlines suggesting Meta could become a Neocloud, the market’s reaction was immediate: aggressive sell-off of Neoclouds like Coreweave & Nebius, and debates of “overcapacity” coming back. Let’s set the record straight – we believe that both takes are erroneous and that Meta’s datacenter & compute procurement will accelerate, not slow down. Capex in 2027 will be shockingly high. In just the first six months of the year, Meta has contracted over 5GW of capacity across Cloud & Colo,
 
 ### 2026-06-30 · TokenBudgeting: Our Conversations with Enterprises on Token Spend
 _Was Widespread TokenMaxxing Ever Really Here?_
@@ -134,6 +134,8 @@ _SMIC N+3 Node Deep Dive vs TSMC N6, TechInsights Private Equity Sale, SemiAnaly
 
 ## ⊕ GITHUB COMMITS + RELEASES, last 24h
 
+- **Subtensor (chain)** (COMMIT `89eb75f`, 2026-07-22 17:54) Bound srtool builder image provisioning (#2965)  
+  https://github.com/RaoFoundation/subtensor/commit/89eb75f38fb3121fdd041d642331cc975dd20d94
 - **Subtensor (chain)** (COMMIT `2d52647`, 2026-07-22 15:04) Merge pull request #2960 from RaoFoundation/v437-release  
   https://github.com/RaoFoundation/subtensor/commit/2d52647c415aa987ab93dbd7de4ddc5eaf7aa083
 - **Subtensor (chain)** (COMMIT `915a0fb`, 2026-07-22 14:58) Migrate zero-locked min-collateral floors on coldkey swap.  
@@ -185,4 +187,4 @@ _no posts retrieved · all Nitter instances may be down_
 
 
 ---
-_Generated at 2026-07-22T17:11:55.602201+00:00 by scripts/intel/aggregate.py. Treat this digest as input context, not as ground truth. Verify before quoting._
+_Generated at 2026-07-22T21:00:17.275725+00:00 by scripts/intel/aggregate.py. Treat this digest as input context, not as ground truth. Verify before quoting._
