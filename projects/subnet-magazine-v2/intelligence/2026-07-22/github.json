@@ -1,0 +1,112 @@
+[
+  {
+    "repo": "opentensor/subtensor",
+    "name": "Subtensor (chain)",
+    "kind": "commit",
+    "sha": "20a695c",
+    "message": "Merge pull request #2953 from RaoFoundation/v435-release",
+    "author": "Inti",
+    "posted_at": "2026-07-21T22:48:24Z",
+    "url": "https://github.com/RaoFoundation/subtensor/commit/20a695c8dbce5363a056ebabdd52f7d1ff684ec1",
+    "fetched_at": "2026-07-22T02:01:58.847356+00:00"
+  },
+  {
+    "repo": "opentensor/subtensor",
+    "name": "Subtensor (chain)",
+    "kind": "commit",
+    "sha": "231fc2f",
+    "message": "Poll MevShield.NextKey before the shielded e2e submit pipeline.",
+    "author": "unarbos",
+    "posted_at": "2026-07-21T21:31:39Z",
+    "url": "https://github.com/RaoFoundation/subtensor/commit/231fc2f53eff3892ac8b529fddf134086ca12a4c",
+    "fetched_at": "2026-07-22T02:01:58.847356+00:00"
+  },
+  {
+    "repo": "opentensor/subtensor",
+    "name": "Subtensor (chain)",
+    "kind": "commit",
+    "sha": "66b04de",
+    "message": "Regenerate SDK calls/runtime_apis against spec 435 metadata.",
+    "author": "unarbos",
+    "posted_at": "2026-07-21T21:11:30Z",
+    "url": "https://github.com/RaoFoundation/subtensor/commit/66b04de1e7b0181f63e1454492f63b73c1e0a57d",
+    "fetched_at": "2026-07-22T02:01:58.847356+00:00"
+  },
+  {
+    "repo": "opentensor/subtensor",
+    "name": "Subtensor (chain)",
+    "kind": "commit",
+    "sha": "754fbbb",
+    "message": "Accept excess-TAO SubnetTAO credit in balancer high-edge clone test.",
+    "author": "unarbos",
+    "posted_at": "2026-07-21T20:49:35Z",
+    "url": "https://github.com/RaoFoundation/subtensor/commit/754fbbbdc73e3b551a856dba2f7bb0aa41dead4b",
+    "fetched_at": "2026-07-22T02:01:58.847356+00:00"
+  },
+  {
+    "repo": "opentensor/subtensor",
+    "name": "Subtensor (chain)",
+    "kind": "commit",
+    "sha": "d4a60ae",
+    "message": "Restore asymmetric balancer edge reserves now that epochs are forced.",
+    "author": "unarbos",
+    "posted_at": "2026-07-21T20:40:01Z",
+    "url": "https://github.com/RaoFoundation/subtensor/commit/d4a60aee66dad70bcd5b1905e44e3b19ae10a3c1",
+    "fetched_at": "2026-07-22T02:01:58.847356+00:00"
+  },
+  {
+    "repo": "opentensor/subtensor",
+    "name": "Subtensor (chain)",
+    "kind": "commit",
+    "sha": "60a8f53",
+    "message": "Relax balancer edge-test injection accounting to an upper-bound check.",
+    "author": "unarbos",
+    "posted_at": "2026-07-21T20:27:53Z",
+    "url": "https://github.com/RaoFoundation/subtensor/commit/60a8f53c36d9045f04c3fe743e54f5a67d33b117",
+    "fetched_at": "2026-07-22T02:01:58.847356+00:00"
+  },
+  {
+    "repo": "opentensor/subtensor",
+    "name": "Subtensor (chain)",
+    "kind": "commit",
+    "sha": "52b9e12",
+    "message": "Fix skeptic skill name typo and force edge-test epoch scheduling.",
+    "author": "unarbos",
+    "posted_at": "2026-07-21T20:15:12Z",
+    "url": "https://github.com/RaoFoundation/subtensor/commit/52b9e127d3dc13d045c9a4dee3e4748029346048",
+    "fetched_at": "2026-07-22T02:01:58.847356+00:00"
+  },
+  {
+    "repo": "opentensor/subtensor",
+    "name": "Subtensor (chain)",
+    "kind": "commit",
+    "sha": "ecb1640",
+    "message": "Raise balancer edge-test TAO reserve to match alpha so tao_in does not truncate.",
+    "author": "unarbos",
+    "posted_at": "2026-07-21T20:04:10Z",
+    "url": "https://github.com/RaoFoundation/subtensor/commit/ecb164069d27d3660364dfea8ecb1f82f81f365a",
+    "fetched_at": "2026-07-22T02:01:58.847356+00:00"
+  },
+  {
+    "repo": "opentensor/subtensor",
+    "name": "Subtensor (chain)",
+    "kind": "commit",
+    "sha": "5b08853",
+    "message": "ci: quota docs-preview archive extract on the trusted runner",
+    "author": "unarbos",
+    "posted_at": "2026-07-21T19:52:43Z",
+    "url": "https://github.com/RaoFoundation/subtensor/commit/5b0885332a4bc4844ebcf55acc81832ae97a38fe",
+    "fetched_at": "2026-07-22T02:01:58.847356+00:00"
+  },
+  {
+    "repo": "opentensor/subtensor",
+    "name": "Subtensor (chain)",
+    "kind": "commit",
+    "sha": "0ec3042",
+    "message": "ci: scope docs-preview secrets per step; install vercel with --ignore-scripts",
+    "author": "unarbos",
+    "posted_at": "2026-07-21T19:45:27Z",
+    "url": "https://github.com/RaoFoundation/subtensor/commit/0ec30424154f84e124ce43c709ca080a201f2fe8",
+    "fetched_at": "2026-07-22T02:01:58.847356+00:00"
+  }
+]
