@@ -51,16 +51,6 @@ _Over 7T AI debt by 2029, There can be no Neoclouds without the Trinity. Nvidia'
 
 > Up until now the majority of AI buildouts have been primarily cashflow funded by the hyperscalers such as Google, Amazon, Meta, Microsoft, Oracle. Over the last year, that's started to turn with Oracle then Meta, and now even Google turning to debt. Nvidia revenue is skyrocketing, and even 3 years into the build out, the general market is still materially lower on shipment volumes and revenue estimates for Nvidia in the 2nd half of this year versus our through supply chain tracking in the [Accel
 
-### 2026-07-02 · EMIB-T Roadmap, Custom HBM, HBM4 Packaging Challenges, Microfluidic Cooling, Photonic Interconnects, and More
-_ECTC 2026 Roundup, Intel, TSMC, SK Hynix, Samsung, Micron, Marvell, Lightmatter, Microsoft_
-
-- **Authors:** ["Afzal Ahmad", "DC", "Gerald Wong", "Dylan Patel"]
-- **Access:** paid-preview
-- **URL:** https://newsletter.semianalysis.com/p/ectc2026
-- **Corpus file:** `intelligence/_external_sources/semianalysis/2026-07-02-ectc2026.md`
-
-> As transistor density scaling has slowed, advanced packaging has become the primary scaling vector. However, AI accelerators have grown so large and require such fast interconnects that the package itself is now hitting limits. Circular interposers constrain package size and wafer utilization, HBM4E doubles the I/O count while increasing speed, and multi-kilowatt packages are overwhelming conventional cooling architectures.  ECTC is the industry’s premier conference for all things packaging. Thi
-
 ### 2026-07-02 · Meta Compute: Everyone Wants To Be A Neocloud
 _Zuck Takes Plan B? SpaceX 2.0, Bedrock 2.0, MSL Isn't Giving Up, Scaling RecSys by 10x... ClusterMAX ranking coming soon?_
 
@@ -70,6 +60,16 @@ _Zuck Takes Plan B? SpaceX 2.0, Bedrock 2.0, MSL Isn't Giving Up, Scaling RecSys
 - **Corpus file:** `intelligence/_external_sources/semianalysis/2026-07-02-meta-compute-everyone-wants-to-be.md`
 
 > With Bloomberg headlines suggesting Meta could become a Neocloud, the market’s reaction was immediate: aggressive sell-off of Neoclouds like Coreweave & Nebius, and debates of “overcapacity” coming back. Let’s set the record straight – we believe that both takes are erroneous and that Meta’s datacenter & compute procurement will accelerate, not slow down. Capex in 2027 will be shockingly high. In just the first six months of the year, Meta has contracted over 5GW of capacity across Cloud & Colo,
+
+### 2026-07-02 · EMIB-T Roadmap, Custom HBM, HBM4 Packaging Challenges, Microfluidic Cooling, Photonic Interconnects, and More
+_ECTC 2026 Roundup, Intel, TSMC, SK Hynix, Samsung, Micron, Marvell, Lightmatter, Microsoft_
+
+- **Authors:** ["Afzal Ahmad", "DC", "Gerald Wong", "Dylan Patel"]
+- **Access:** paid-preview
+- **URL:** https://newsletter.semianalysis.com/p/ectc2026
+- **Corpus file:** `intelligence/_external_sources/semianalysis/2026-07-02-ectc2026.md`
+
+> As transistor density scaling has slowed, advanced packaging has become the primary scaling vector. However, AI accelerators have grown so large and require such fast interconnects that the package itself is now hitting limits. Circular interposers constrain package size and wafer utilization, HBM4E doubles the I/O count while increasing speed, and multi-kilowatt packages are overwhelming conventional cooling architectures.  ECTC is the industry’s premier conference for all things packaging. Thi
 
 ### 2026-06-30 · TokenBudgeting: Our Conversations with Enterprises on Token Spend
 _Was Widespread TokenMaxxing Ever Really Here?_
@@ -134,6 +134,26 @@ _SMIC N+3 Node Deep Dive vs TSMC N6, TechInsights Private Equity Sale, SemiAnaly
 
 ## ⊕ GITHUB COMMITS + RELEASES, last 24h
 
+- **Subtensor (chain)** (COMMIT `2d52647`, 2026-07-22 15:04) Merge pull request #2960 from RaoFoundation/v437-release  
+  https://github.com/RaoFoundation/subtensor/commit/2d52647c415aa987ab93dbd7de4ddc5eaf7aa083
+- **Subtensor (chain)** (COMMIT `915a0fb`, 2026-07-22 14:58) Migrate zero-locked min-collateral floors on coldkey swap.  
+  https://github.com/RaoFoundation/subtensor/commit/915a0fbf3a3eed7078c7e6eed382b429c41444d1
+- **Subtensor (chain)** (COMMIT `8df5c4b`, 2026-07-22 14:44) allow initial pulse to anchor fresh chains  
+  https://github.com/RaoFoundation/subtensor/commit/8df5c4be7ce0203083e217a49e3e21448f5b9b08
+- **Subtensor (chain)** (COMMIT `29019d1`, 2026-07-22 14:27) Regenerate SDK wire layer for runtime 437 metadata.  
+  https://github.com/RaoFoundation/subtensor/commit/29019d1614339013e8f13973f900806d1fee4d6d
+- **Subtensor (chain)** (COMMIT `e761216`, 2026-07-22 14:01) Fund burned_register keep-alive in reset_unactive_sn migration test.  
+  https://github.com/RaoFoundation/subtensor/commit/e7612160faa6d6937d713a0702c15c1e7ed4e4e8
+- **Subtensor (chain)** (COMMIT `ac99e45`, 2026-07-22 13:53) Fix clippy indexing_slicing in hotkey lineage tests.  
+  https://github.com/RaoFoundation/subtensor/commit/ac99e45dad51b1031a8384c25f16b043a77b67e7
+- **Subtensor (chain)** (COMMIT `1ce8b56`, 2026-07-22 13:47) Fix clippy indexing, unstake_all_alpha funding, and stale swap-hotkey docs.  
+  https://github.com/RaoFoundation/subtensor/commit/1ce8b56fc20bd0b19f2bfb8282c3e8c1416c2bb4
+- **Subtensor (chain)** (COMMIT `c0f954e`, 2026-07-22 13:39) Make hotkey swaps atomic around collateral index failures.  
+  https://github.com/RaoFoundation/subtensor/commit/c0f954e3ff82b0950d9e88f0a4a0f1d4f8dc249c
+- **Subtensor (chain)** (COMMIT `ddadb84`, 2026-07-22 13:33) Reserve collateral index slots before swap mutations.  
+  https://github.com/RaoFoundation/subtensor/commit/ddadb84e6bc2e7a0240644f8dfc725074d52b3a2
+- **Subtensor (chain)** (COMMIT `9297692`, 2026-07-22 13:24) Bound coldkey collateral migration with an indexed hotkey cap.  
+  https://github.com/RaoFoundation/subtensor/commit/9297692731688ca9fb65d646f3cfae7c168fb9bd
 - **Subtensor (chain)** (COMMIT `20a695c`, 2026-07-21 22:48) Merge pull request #2953 from RaoFoundation/v435-release  
   https://github.com/RaoFoundation/subtensor/commit/20a695c8dbce5363a056ebabdd52f7d1ff684ec1
 - **Subtensor (chain)** (COMMIT `231fc2f`, 2026-07-21 21:31) Poll MevShield.NextKey before the shielded e2e submit pipeline.  
@@ -165,4 +185,4 @@ _no posts retrieved · all Nitter instances may be down_
 
 
 ---
-_Generated at 2026-07-22T13:30:06.325994+00:00 by scripts/intel/aggregate.py. Treat this digest as input context, not as ground truth. Verify before quoting._
+_Generated at 2026-07-22T17:11:55.602201+00:00 by scripts/intel/aggregate.py. Treat this digest as input context, not as ground truth. Verify before quoting._
