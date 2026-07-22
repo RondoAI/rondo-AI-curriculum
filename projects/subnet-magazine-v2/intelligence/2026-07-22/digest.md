@@ -11,6 +11,16 @@ _no human notes in the window_
 
 _SemiAnalysis is the most-cited semiconductor and AI infrastructure publication in the industry. They do NOT cover Bittensor. The Oracle uses this corpus for any claim about hyperscaler compute, GPU economics, datacenter power, foundry capacity, memory pricing, lab unit economics. DO NOT cite SemiAnalysis for any Bittensor-specific claim. Full archive (289 posts, May 2020 onwards) lives at `intelligence/_external_sources/semianalysis/` with an `INDEX.md` table of contents. Paywalled posts show only subtitle + free preview; free posts have the full body extracted._
 
+### 2026-07-22 · Meta’s Infrastructure Team Needs A Culture Reset
+_Meta Infrastructure has become bloated, with middle managers expending resources on over-engineered technology solutions that lose sight of broader organizational needs._
+
+- **Authors:** ["Wayne Ma", "Myron Xie", "Julien Martin-Prin", "Daniel Nishball", "Dylan Patel"]
+- **Access:** paid-preview
+- **URL:** https://newsletter.semianalysis.com/p/metas-infrastructure-team-needs-a
+- **Corpus file:** `intelligence/_external_sources/semianalysis/2026-07-22-metas-infrastructure-team-needs-a.md`
+
+> In our [recent newsletter piece about Meta Superintelligence](https://newsletter.semianalysis.com/p/the-future-of-meta-superintelligence), we expressed reasons to be optimistic on Meta AI. MSL now has many of the right ingredients to catch up with Anthropic and OpenAI to return to the frontier. However, we also briefly alluded to cultural issues plaguing Meta’s infrastructure teams. This article will dive into how these cultural issues have manifested into expensive missteps, whether it be with
+
 ### 2026-07-09 · The Future of Meta Superintelligence: A 1 Year Progress Update
 _A top tier RL environment startup spawns out of thin air, the most aggressive compute ramp we've ever seen, 2000km+ scale-across, and some advice for Google DeepMind_
 
@@ -121,16 +131,6 @@ _SMIC N+3 Node Deep Dive vs TSMC N6, TechInsights Private Equity Sale, SemiAnaly
 
 > Almost four years ago, we published that [SMIC had started shipping 7 nm (N+1) chips](https://newsletter.semianalysis.com/p/chinas-smic-is-shipping-7nm-foundry). Now, SMIC is shipping its third-generation 7 nm (N+3) process in Huawei’s Kirin 9030, with a minimum metal pitch of 32.5 nm, about 10% tighter than the 36 nm minimum metal pitch shipping in Intel’s latest Panther Lake CPUs on 18A.  The headline is true, but incomplete cherry picked metric. N+3 reaches the density of TSMC N6 through aggr
 
-### 2026-06-11 · Intel Should Raise Capital
-_Intel's woes are behind them. The heavy spending is ahead of them. Why an equity issuance in a hot equity market could make Intel so much better sooner._
-
-- **Authors:** ["Doug", "Sravan Kundojjala", "Dylan Patel"]
-- **Access:** paid-preview
-- **URL:** https://newsletter.semianalysis.com/p/intel-should-raise-capital
-- **Corpus file:** `intelligence/_external_sources/semianalysis/2026-06-11-intel-should-raise-capital.md`
-
-> We have written a lot about Intel. It’s a firm near and dear to our heart, and is the birth of the semiconductor industry. To say we love Intel and their role in the world is an understatement. We also have been very vocally right during their initial product mishaps, as well as supportive and excited for the turnaround. The thing we have believed the most is that Intel’s board is one of the biggest parties to blame for Intel’s death, and we recently got what we want.  [Intel on the Brink of Dea
-
 
 ## ⊕ GITHUB COMMITS + RELEASES, last 24h
 
@@ -165,4 +165,4 @@ _no posts retrieved · all Nitter instances may be down_
 
 
 ---
-_Generated at 2026-07-22T02:02:04.241209+00:00 by scripts/intel/aggregate.py. Treat this digest as input context, not as ground truth. Verify before quoting._
+_Generated at 2026-07-22T06:25:11.911358+00:00 by scripts/intel/aggregate.py. Treat this digest as input context, not as ground truth. Verify before quoting._

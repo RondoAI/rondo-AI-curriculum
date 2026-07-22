@@ -1,11 +1,12 @@
 # SemiAnalysis Archive Index
 
-_309 posts captured. Generated 2026-07-22T02:02:04.070773+00:00._
+_310 posts captured. Generated 2026-07-22T06:25:11.766906+00:00._
 
 Editorial policy: SemiAnalysis is the macro reference. The Oracle cites it for any claim about hyperscaler compute, GPU economics, datacenter power, foundry capacity, memory pricing, lab unit economics. The Oracle does NOT cite SemiAnalysis for any Bittensor-specific claim. SemiAnalysis does not cover Bittensor; treat that absence as itself information.
 
 | Date | Title | Audience | Authors | File |
 | --- | --- | --- | --- | --- |
+| 2026-07-22 | [Meta’s Infrastructure Team Needs A Culture Reset](https://newsletter.semianalysis.com/p/metas-infrastructure-team-needs-a) | only_paid | ["Wayne Ma", "Myron Xie", "Julien Martin-Prin", "Daniel Nish | `2026-07-22-metas-infrastructure-team-needs-a.md` |
 | 2026-07-09 | [The Future of Meta Superintelligence: A 1 Year Progress Update](https://newsletter.semianalysis.com/p/the-future-of-meta-superintelligence) | only_paid | ["Max Kan", "Julien Martin-Prin", "Jeremie Eliahou Ontiveros | `2026-07-09-the-future-of-meta-superintelligence.md` |
 | 2026-07-08 | [Anthropic 3Q26 Profit Over $1B: The Anthropic IPO Financials Sneak Peak](https://newsletter.semianalysis.com/p/anthropic-3q26-profit-over-1b-the) | only_paid | ["Joey Brookhart", "Crystal Huang", "Dylan Patel"] | `2026-07-08-anthropic-3q26-profit-over-1b-the.md` |
 | 2026-07-06 | [Nvidia GPU Debt Backstop Unleashes the AI Project Trinity: Capital, Offtake and ](https://newsletter.semianalysis.com/p/nvidia-gpu-debt-backstop-unleashes) | only_paid | ["Daniel Nishball", "Cheang Kang Wen", "Zane Fong", "Reyk Kn | `2026-07-06-nvidia-gpu-debt-backstop-unleashes.md` |
