@@ -134,6 +134,14 @@ _RL Training Infrastructure, GRPO, PipelineRL, Async RL, Policy Staleness, RL Sa
 
 ## ⊕ GITHUB COMMITS + RELEASES, last 24h
 
+- **Subtensor (chain)** (COMMIT `0a95fac`, 2026-07-23 20:52) Merge pull request #2976 from RaoFoundation/agent/fix-release-json-booleans  
+  https://github.com/RaoFoundation/subtensor/commit/0a95fac7a090e580176414692586b00f3ae83831
+- **Subtensor (chain)** (COMMIT `3c48c94`, 2026-07-23 20:48) Fix release boolean parsing  
+  https://github.com/RaoFoundation/subtensor/commit/3c48c9474fd6e8c1653becdcb332cc471d4fa276
+- **Subtensor (chain)** (RELEASE `v438`, 2026-07-23 20:34) Runtime 438  
+  https://github.com/RaoFoundation/subtensor/releases/tag/v438
+- **Subtensor (chain)** (COMMIT `c1463f2`, 2026-07-23 20:13) V438 Release (#2970)  
+  https://github.com/RaoFoundation/subtensor/commit/c1463f2cc62e7de70aa3379ee53cfc5f060bde42
 - **Subtensor (chain)** (COMMIT `89eb75f`, 2026-07-22 17:54) Bound srtool builder image provisioning (#2965)  
   https://github.com/RaoFoundation/subtensor/commit/89eb75f38fb3121fdd041d642331cc975dd20d94
 - **Subtensor (chain)** (COMMIT `2d52647`, 2026-07-22 15:04) Merge pull request #2960 from RaoFoundation/v437-release  
@@ -165,4 +173,4 @@ _no posts retrieved · all Nitter instances may be down_
 
 
 ---
-_Generated at 2026-07-23T17:14:36.351575+00:00 by scripts/intel/aggregate.py. Treat this digest as input context, not as ground truth. Verify before quoting._
+_Generated at 2026-07-23T20:57:27.770968+00:00 by scripts/intel/aggregate.py. Treat this digest as input context, not as ground truth. Verify before quoting._
