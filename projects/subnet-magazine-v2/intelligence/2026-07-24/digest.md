@@ -134,6 +134,24 @@ _RL Training Infrastructure, GRPO, PipelineRL, Async RL, Policy Staleness, RL Sa
 
 ## ⊕ GITHUB COMMITS + RELEASES, last 24h
 
+- **Subtensor (chain)** (COMMIT `cda8fd7`, 2026-07-24 19:30) Merge pull request #2984 from RaoFoundation/release-v439  
+  https://github.com/RaoFoundation/subtensor/commit/cda8fd76ad2a7014cac632933237abf1ddaa9b30
+- **Subtensor (chain)** (COMMIT `62f0a49`, 2026-07-24 18:42) reduce registration fee  
+  https://github.com/RaoFoundation/subtensor/commit/62f0a49c3d18317866444e10e2913bc712dba204
+- **Subtensor (chain)** (COMMIT `09487e5`, 2026-07-24 17:52) fix metadata tests  
+  https://github.com/RaoFoundation/subtensor/commit/09487e58513599f4807428b65ad7c01004d96a97
+- **Subtensor (chain)** (COMMIT `aa35bcf`, 2026-07-24 17:41) update more metadata  
+  https://github.com/RaoFoundation/subtensor/commit/aa35bcfdf9fa3dd3dcd27e41b5c39a4c2f6c212f
+- **Subtensor (chain)** (COMMIT `647ea63`, 2026-07-24 17:38) update metadata  
+  https://github.com/RaoFoundation/subtensor/commit/647ea63f95c269d1dedf8e8b99e211a810ace6d5
+- **Subtensor (chain)** (COMMIT `7b664d9`, 2026-07-24 17:08) Merge pull request #2917 from RaoFoundation/agent/align-ai-review-trust-context  
+  https://github.com/RaoFoundation/subtensor/commit/7b664d967aeb74aa86cf417014acc90de0c78887
+- **Subtensor (chain)** (COMMIT `220a972`, 2026-07-24 16:45) remove last_update from precompile  
+  https://github.com/RaoFoundation/subtensor/commit/220a972e7e2cc2d3b3c71e8f6e3b2ceef616233f
+- **Subtensor (chain)** (COMMIT `3e80d3a`, 2026-07-24 16:27) Merge pull request #2983 from RaoFoundation/feat/evm-miner-conviction-precompile  
+  https://github.com/RaoFoundation/subtensor/commit/3e80d3a5508de56063a3bee20ad68a1899ac4201
+- **Subtensor (chain)** (COMMIT `e3004bc`, 2026-07-24 16:26) Merge pull request #2982 from RaoFoundation/feat/precompiles-block-of-registration  
+  https://github.com/RaoFoundation/subtensor/commit/e3004bc1f5e725871855dc0fc810fb83ce7b2941
 - **Subtensor (chain)** (COMMIT `0a95fac`, 2026-07-23 20:52) Merge pull request #2976 from RaoFoundation/agent/fix-release-json-booleans  
   https://github.com/RaoFoundation/subtensor/commit/0a95fac7a090e580176414692586b00f3ae83831
 - **Subtensor (chain)** (COMMIT `3c48c94`, 2026-07-23 20:48) Fix release boolean parsing  
@@ -142,6 +160,8 @@ _RL Training Infrastructure, GRPO, PipelineRL, Async RL, Policy Staleness, RL Sa
   https://github.com/RaoFoundation/subtensor/releases/tag/v438
 - **Subtensor (chain)** (COMMIT `c1463f2`, 2026-07-23 20:13) V438 Release (#2970)  
   https://github.com/RaoFoundation/subtensor/commit/c1463f2cc62e7de70aa3379ee53cfc5f060bde42
+- **Subtensor (chain)** (COMMIT `14ec95c`, 2026-07-15 15:34) Align AI review trust assumptions  
+  https://github.com/RaoFoundation/subtensor/commit/14ec95cf251f0f79cdae33b0115ccb65c14b8116
 
 ## ⊕ ECOSYSTEM BLOGS via RSS
 
@@ -153,4 +173,4 @@ _no posts retrieved · all Nitter instances may be down_
 
 
 ---
-_Generated at 2026-07-24T17:25:46.545994+00:00 by scripts/intel/aggregate.py. Treat this digest as input context, not as ground truth. Verify before quoting._
+_Generated at 2026-07-24T20:59:19.066046+00:00 by scripts/intel/aggregate.py. Treat this digest as input context, not as ground truth. Verify before quoting._
