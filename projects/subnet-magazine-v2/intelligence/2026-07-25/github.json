@@ -1,0 +1,112 @@
+[
+  {
+    "repo": "opentensor/subtensor",
+    "name": "Subtensor (chain)",
+    "kind": "commit",
+    "sha": "cda8fd7",
+    "message": "Merge pull request #2984 from RaoFoundation/release-v439",
+    "author": "Inti",
+    "posted_at": "2026-07-24T19:30:15Z",
+    "url": "https://github.com/RaoFoundation/subtensor/commit/cda8fd76ad2a7014cac632933237abf1ddaa9b30",
+    "fetched_at": "2026-07-25T02:04:29.486691+00:00"
+  },
+  {
+    "repo": "opentensor/subtensor",
+    "name": "Subtensor (chain)",
+    "kind": "commit",
+    "sha": "62f0a49",
+    "message": "reduce registration fee",
+    "author": "UnArbosSix",
+    "posted_at": "2026-07-24T18:42:40Z",
+    "url": "https://github.com/RaoFoundation/subtensor/commit/62f0a49c3d18317866444e10e2913bc712dba204",
+    "fetched_at": "2026-07-25T02:04:29.486691+00:00"
+  },
+  {
+    "repo": "opentensor/subtensor",
+    "name": "Subtensor (chain)",
+    "kind": "commit",
+    "sha": "09487e5",
+    "message": "fix metadata tests",
+    "author": "UnArbosSix",
+    "posted_at": "2026-07-24T17:52:21Z",
+    "url": "https://github.com/RaoFoundation/subtensor/commit/09487e58513599f4807428b65ad7c01004d96a97",
+    "fetched_at": "2026-07-25T02:04:29.486691+00:00"
+  },
+  {
+    "repo": "opentensor/subtensor",
+    "name": "Subtensor (chain)",
+    "kind": "commit",
+    "sha": "aa35bcf",
+    "message": "update more metadata",
+    "author": "UnArbosSix",
+    "posted_at": "2026-07-24T17:41:10Z",
+    "url": "https://github.com/RaoFoundation/subtensor/commit/aa35bcfdf9fa3dd3dcd27e41b5c39a4c2f6c212f",
+    "fetched_at": "2026-07-25T02:04:29.486691+00:00"
+  },
+  {
+    "repo": "opentensor/subtensor",
+    "name": "Subtensor (chain)",
+    "kind": "commit",
+    "sha": "647ea63",
+    "message": "update metadata",
+    "author": "UnArbosSix",
+    "posted_at": "2026-07-24T17:38:08Z",
+    "url": "https://github.com/RaoFoundation/subtensor/commit/647ea63f95c269d1dedf8e8b99e211a810ace6d5",
+    "fetched_at": "2026-07-25T02:04:29.486691+00:00"
+  },
+  {
+    "repo": "opentensor/subtensor",
+    "name": "Subtensor (chain)",
+    "kind": "commit",
+    "sha": "7b664d9",
+    "message": "Merge pull request #2917 from RaoFoundation/agent/align-ai-review-trust-context",
+    "author": "UnArbosSix",
+    "posted_at": "2026-07-24T17:08:02Z",
+    "url": "https://github.com/RaoFoundation/subtensor/commit/7b664d967aeb74aa86cf417014acc90de0c78887",
+    "fetched_at": "2026-07-25T02:04:29.486691+00:00"
+  },
+  {
+    "repo": "opentensor/subtensor",
+    "name": "Subtensor (chain)",
+    "kind": "commit",
+    "sha": "220a972",
+    "message": "remove last_update from precompile",
+    "author": "UnArbosSix",
+    "posted_at": "2026-07-24T16:45:18Z",
+    "url": "https://github.com/RaoFoundation/subtensor/commit/220a972e7e2cc2d3b3c71e8f6e3b2ceef616233f",
+    "fetched_at": "2026-07-25T02:04:29.486691+00:00"
+  },
+  {
+    "repo": "opentensor/subtensor",
+    "name": "Subtensor (chain)",
+    "kind": "commit",
+    "sha": "3e80d3a",
+    "message": "Merge pull request #2983 from RaoFoundation/feat/evm-miner-conviction-precompile",
+    "author": "UnArbosSix",
+    "posted_at": "2026-07-24T16:27:45Z",
+    "url": "https://github.com/RaoFoundation/subtensor/commit/3e80d3a5508de56063a3bee20ad68a1899ac4201",
+    "fetched_at": "2026-07-25T02:04:29.486691+00:00"
+  },
+  {
+    "repo": "opentensor/subtensor",
+    "name": "Subtensor (chain)",
+    "kind": "commit",
+    "sha": "e3004bc",
+    "message": "Merge pull request #2982 from RaoFoundation/feat/precompiles-block-of-registration",
+    "author": "UnArbosSix",
+    "posted_at": "2026-07-24T16:26:49Z",
+    "url": "https://github.com/RaoFoundation/subtensor/commit/e3004bc1f5e725871855dc0fc810fb83ce7b2941",
+    "fetched_at": "2026-07-25T02:04:29.486691+00:00"
+  },
+  {
+    "repo": "opentensor/subtensor",
+    "name": "Subtensor (chain)",
+    "kind": "commit",
+    "sha": "14ec95c",
+    "message": "Align AI review trust assumptions",
+    "author": "UnArbosFive",
+    "posted_at": "2026-07-15T15:34:56Z",
+    "url": "https://github.com/RaoFoundation/subtensor/commit/14ec95cf251f0f79cdae33b0115ccb65c14b8116",
+    "fetched_at": "2026-07-25T02:04:29.486691+00:00"
+  }
+]
