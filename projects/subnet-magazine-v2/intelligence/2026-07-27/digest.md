@@ -134,7 +134,26 @@ _Don't Believe The Vibecoded Estimates, Go Through Every Individual Filing Inste
 
 ## ⊕ GITHUB COMMITS + RELEASES, last 24h
 
-_no commits or releases in the lookback window_
+- **Subtensor (chain)** (COMMIT `e4ffa2e`, 2026-07-27 13:21) Merge pull request #2990 from RaoFoundation/release-v440  
+  https://github.com/RaoFoundation/subtensor/commit/e4ffa2e1325c6c7db618dbceaf396310a170990c
+- **Subtensor (chain)** (COMMIT `795ae02`, 2026-07-27 13:18) flip Hill gate chart to head→tail left-to-right  
+  https://github.com/RaoFoundation/subtensor/commit/795ae0269978d2cd8443da1002b939580850269f
+- **Subtensor (chain)** (COMMIT `eb0885b`, 2026-07-27 13:17) Merge pull request #2985 from RaoFoundation/fix/claim-root-weight-accounting  
+  https://github.com/RaoFoundation/subtensor/commit/eb0885b15444f20523dee1ebfbd02026b45f318d
+- **Subtensor (chain)** (COMMIT `b56ddbb`, 2026-07-27 13:16) fix cargo fmt in emission gate underflow test  
+  https://github.com/RaoFoundation/subtensor/commit/b56ddbbdb29cb78bca3189130d4dcbc01c787b06
+- **Subtensor (chain)** (COMMIT `3122175`, 2026-07-27 13:14) drop subnet-limit 256 from v440; ship emission gate only  
+  https://github.com/RaoFoundation/subtensor/commit/3122175bcee99c2b98deb9f14a556280657156e8
+- **Subtensor (chain)** (COMMIT `517b946`, 2026-07-27 13:03) add v440 release note diagrams for gate, bar, and slot cost  
+  https://github.com/RaoFoundation/subtensor/commit/517b946335a67c4349a301b34a68b0d3b807e74a
+- **Subtensor (chain)** (COMMIT `1b3e458`, 2026-07-27 13:02) add try-runtime checks and tests for subnet limit 256 migration  
+  https://github.com/RaoFoundation/subtensor/commit/1b3e458a39ec7029179342bdcc6d54034e6199db
+- **Subtensor (chain)** (COMMIT `7e20eb7`, 2026-07-27 12:58) fix emission gate underflow stranding block emission  
+  https://github.com/RaoFoundation/subtensor/commit/7e20eb76c0a9d1068d7d6e536c73a6eedcc06e90
+- **Subtensor (chain)** (COMMIT `75c55fe`, 2026-07-27 12:56) fix docs-preview lockfile sync and vercel pin test  
+  https://github.com/RaoFoundation/subtensor/commit/75c55fe2ce39eced561eac90c18417e2e3746d94
+- **Subtensor (chain)** (COMMIT `6c88464`, 2026-07-27 12:54) fix CI: ruff lint, regenerate docs, clear vercel audit  
+  https://github.com/RaoFoundation/subtensor/commit/6c88464af5386166fa1b0b0f759d0cd0c8412d4c
 
 ## ⊕ ECOSYSTEM BLOGS via RSS
 
@@ -146,4 +165,4 @@ _no posts retrieved · all Nitter instances may be down_
 
 
 ---
-_Generated at 2026-07-27T11:15:26.675973+00:00 by scripts/intel/aggregate.py. Treat this digest as input context, not as ground truth. Verify before quoting._
+_Generated at 2026-07-27T14:18:27.990890+00:00 by scripts/intel/aggregate.py. Treat this digest as input context, not as ground truth. Verify before quoting._
