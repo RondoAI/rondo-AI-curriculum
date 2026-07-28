@@ -1,0 +1,112 @@
+[
+  {
+    "repo": "opentensor/subtensor",
+    "name": "Subtensor (chain)",
+    "kind": "commit",
+    "sha": "e4ffa2e",
+    "message": "Merge pull request #2990 from RaoFoundation/release-v440",
+    "author": "Inti",
+    "posted_at": "2026-07-27T13:21:37Z",
+    "url": "https://github.com/RaoFoundation/subtensor/commit/e4ffa2e1325c6c7db618dbceaf396310a170990c",
+    "fetched_at": "2026-07-28T01:57:14.532141+00:00"
+  },
+  {
+    "repo": "opentensor/subtensor",
+    "name": "Subtensor (chain)",
+    "kind": "commit",
+    "sha": "795ae02",
+    "message": "flip Hill gate chart to head→tail left-to-right",
+    "author": "unarbos",
+    "posted_at": "2026-07-27T13:18:55Z",
+    "url": "https://github.com/RaoFoundation/subtensor/commit/795ae0269978d2cd8443da1002b939580850269f",
+    "fetched_at": "2026-07-28T01:57:14.532141+00:00"
+  },
+  {
+    "repo": "opentensor/subtensor",
+    "name": "Subtensor (chain)",
+    "kind": "commit",
+    "sha": "eb0885b",
+    "message": "Merge pull request #2985 from RaoFoundation/fix/claim-root-weight-accounting",
+    "author": "Inti",
+    "posted_at": "2026-07-27T13:17:52Z",
+    "url": "https://github.com/RaoFoundation/subtensor/commit/eb0885b15444f20523dee1ebfbd02026b45f318d",
+    "fetched_at": "2026-07-28T01:57:14.532141+00:00"
+  },
+  {
+    "repo": "opentensor/subtensor",
+    "name": "Subtensor (chain)",
+    "kind": "commit",
+    "sha": "b56ddbb",
+    "message": "fix cargo fmt in emission gate underflow test",
+    "author": "unarbos",
+    "posted_at": "2026-07-27T13:16:41Z",
+    "url": "https://github.com/RaoFoundation/subtensor/commit/b56ddbbdb29cb78bca3189130d4dcbc01c787b06",
+    "fetched_at": "2026-07-28T01:57:14.532141+00:00"
+  },
+  {
+    "repo": "opentensor/subtensor",
+    "name": "Subtensor (chain)",
+    "kind": "commit",
+    "sha": "3122175",
+    "message": "drop subnet-limit 256 from v440; ship emission gate only",
+    "author": "unarbos",
+    "posted_at": "2026-07-27T13:14:11Z",
+    "url": "https://github.com/RaoFoundation/subtensor/commit/3122175bcee99c2b98deb9f14a556280657156e8",
+    "fetched_at": "2026-07-28T01:57:14.532141+00:00"
+  },
+  {
+    "repo": "opentensor/subtensor",
+    "name": "Subtensor (chain)",
+    "kind": "commit",
+    "sha": "517b946",
+    "message": "add v440 release note diagrams for gate, bar, and slot cost",
+    "author": "unarbos",
+    "posted_at": "2026-07-27T13:03:36Z",
+    "url": "https://github.com/RaoFoundation/subtensor/commit/517b946335a67c4349a301b34a68b0d3b807e74a",
+    "fetched_at": "2026-07-28T01:57:14.532141+00:00"
+  },
+  {
+    "repo": "opentensor/subtensor",
+    "name": "Subtensor (chain)",
+    "kind": "commit",
+    "sha": "1b3e458",
+    "message": "add try-runtime checks and tests for subnet limit 256 migration",
+    "author": "unarbos",
+    "posted_at": "2026-07-27T13:02:51Z",
+    "url": "https://github.com/RaoFoundation/subtensor/commit/1b3e458a39ec7029179342bdcc6d54034e6199db",
+    "fetched_at": "2026-07-28T01:57:14.532141+00:00"
+  },
+  {
+    "repo": "opentensor/subtensor",
+    "name": "Subtensor (chain)",
+    "kind": "commit",
+    "sha": "7e20eb7",
+    "message": "fix emission gate underflow stranding block emission",
+    "author": "unarbos",
+    "posted_at": "2026-07-27T12:58:55Z",
+    "url": "https://github.com/RaoFoundation/subtensor/commit/7e20eb76c0a9d1068d7d6e536c73a6eedcc06e90",
+    "fetched_at": "2026-07-28T01:57:14.532141+00:00"
+  },
+  {
+    "repo": "opentensor/subtensor",
+    "name": "Subtensor (chain)",
+    "kind": "commit",
+    "sha": "75c55fe",
+    "message": "fix docs-preview lockfile sync and vercel pin test",
+    "author": "unarbos",
+    "posted_at": "2026-07-27T12:56:01Z",
+    "url": "https://github.com/RaoFoundation/subtensor/commit/75c55fe2ce39eced561eac90c18417e2e3746d94",
+    "fetched_at": "2026-07-28T01:57:14.532141+00:00"
+  },
+  {
+    "repo": "opentensor/subtensor",
+    "name": "Subtensor (chain)",
+    "kind": "commit",
+    "sha": "6c88464",
+    "message": "fix CI: ruff lint, regenerate docs, clear vercel audit",
+    "author": "unarbos",
+    "posted_at": "2026-07-27T12:54:42Z",
+    "url": "https://github.com/RaoFoundation/subtensor/commit/6c88464af5386166fa1b0b0f759d0cd0c8412d4c",
+    "fetched_at": "2026-07-28T01:57:14.532141+00:00"
+  }
+]
