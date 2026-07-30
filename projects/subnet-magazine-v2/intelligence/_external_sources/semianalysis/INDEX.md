@@ -1,11 +1,12 @@
 # SemiAnalysis Archive Index
 
-_312 posts captured. Generated 2026-07-29T20:47:43.097273+00:00._
+_313 posts captured. Generated 2026-07-30T01:51:38.212238+00:00._
 
 Editorial policy: SemiAnalysis is the macro reference. The Oracle cites it for any claim about hyperscaler compute, GPU economics, datacenter power, foundry capacity, memory pricing, lab unit economics. The Oracle does NOT cite SemiAnalysis for any Bittensor-specific claim. SemiAnalysis does not cover Bittensor; treat that absence as itself information.
 
 | Date | Title | Audience | Authors | File |
 | --- | --- | --- | --- | --- |
+| 2026-07-29 | [The Wild Wild West Of LEGO Datacenters](https://newsletter.semianalysis.com/p/the-wild-wild-west-of-lego-datacenters) | only_paid | ["Nicolas Bontigui", "Eric (Junqi) Wen", "Jeremie Eliahou On | `2026-07-29-the-wild-wild-west-of-lego-datacenters.md` |
 | 2026-07-25 | [Can AMD break the CUDA Moat? AMD Advancing AI 2026](https://newsletter.semianalysis.com/p/can-amd-break-the-cuda-moat-amd-advancing) | only_paid | ["Bryan Shan", "Daniel Nishball", "Myron Xie", "Wega Chu", " | `2026-07-25-can-amd-break-the-cuda-moat-amd-advancing.md` |
 | 2026-07-23 | [Vera Rubin NVL72 vs GB200 NVL72? Inference TCO & Architecture Analysis](https://newsletter.semianalysis.com/p/vera-rubin-nvl72-vs-gb200-nvl72-inference) | only_paid | ["Alec Ibarra", "Bryan Shan", "Daniel Nishball", "Zane Fong" | `2026-07-23-vera-rubin-nvl72-vs-gb200-nvl72-inference.md` |
 | 2026-07-22 | [Meta’s Infrastructure Team Needs A Culture Reset](https://newsletter.semianalysis.com/p/metas-infrastructure-team-needs-a) | only_paid | ["Wayne Ma", "Myron Xie", "Julien Martin-Prin", "Daniel Nish | `2026-07-22-metas-infrastructure-team-needs-a.md` |
