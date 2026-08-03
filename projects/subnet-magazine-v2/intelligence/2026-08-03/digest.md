@@ -134,7 +134,10 @@ _CXMT IPO, SK Hynix, Micron, Samsung Competition, Process Node Deficit, China HB
 
 ## ⊕ GITHUB COMMITS + RELEASES, last 24h
 
-_no commits or releases in the lookback window_
+- **Subtensor (chain)** (COMMIT `2d56d59`, 2026-08-03 11:36) fix(cli): natural-sort wallet and hotkey names  
+  https://github.com/RaoFoundation/subtensor/commit/2d56d59ad13b07298cddf3dae393dec939b74a2c
+- **Subtensor (chain)** (COMMIT `5d93703`, 2026-08-03 11:36) fix(cli): resolve local hotkey names before ss58 decode  
+  https://github.com/RaoFoundation/subtensor/commit/5d9370324280ed85bcce12217c94535cce7a1586
 
 ## ⊕ ECOSYSTEM BLOGS via RSS
 
@@ -146,4 +149,4 @@ _no posts retrieved · all Nitter instances may be down_
 
 
 ---
-_Generated at 2026-08-03T11:17:25.491258+00:00 by scripts/intel/aggregate.py. Treat this digest as input context, not as ground truth. Verify before quoting._
+_Generated at 2026-08-03T14:25:58.941223+00:00 by scripts/intel/aggregate.py. Treat this digest as input context, not as ground truth. Verify before quoting._
