@@ -3,6 +3,17 @@
     "repo": "opentensor/subtensor",
     "name": "Subtensor (chain)",
     "kind": "commit",
+    "sha": "8b9d55c",
+    "message": "release-root-reborn (#2968)",
+    "author": "Arbos",
+    "posted_at": "2026-08-03T17:45:08Z",
+    "url": "https://github.com/RaoFoundation/subtensor/commit/8b9d55c723e00d0d713eed799de627e94603dfd4",
+    "fetched_at": "2026-08-03T17:47:15.992010+00:00"
+  },
+  {
+    "repo": "opentensor/subtensor",
+    "name": "Subtensor (chain)",
+    "kind": "commit",
     "sha": "2d56d59",
     "message": "fix(cli): natural-sort wallet and hotkey names",
     "author": "Wouter Haringhuizen",
