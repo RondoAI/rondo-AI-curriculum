@@ -1,11 +1,12 @@
 # SemiAnalysis Archive Index
 
-_313 posts captured. Generated 2026-08-03T17:47:19.224239+00:00._
+_314 posts captured. Generated 2026-08-03T20:59:25.373516+00:00._
 
 Editorial policy: SemiAnalysis is the macro reference. The Oracle cites it for any claim about hyperscaler compute, GPU economics, datacenter power, foundry capacity, memory pricing, lab unit economics. The Oracle does NOT cite SemiAnalysis for any Bittensor-specific claim. SemiAnalysis does not cover Bittensor; treat that absence as itself information.
 
 | Date | Title | Audience | Authors | File |
 | --- | --- | --- | --- | --- |
+| 2026-08-03 | [Kimi K3, The Manos, The Mythos, The Legendos](https://newsletter.semianalysis.com/p/kimi-k3-the-manos-the-mythos-the) | only_paid | ["Kimbo Chen", "Shubham Choudhari", "Bryan Shan", "Dylan Pat | `2026-08-03-kimi-k3-the-manos-the-mythos-the.md` |
 | 2026-07-29 | [The Wild Wild West Of LEGO Datacenters](https://newsletter.semianalysis.com/p/the-wild-wild-west-of-lego-datacenters) | only_paid | ["Nicolas Bontigui", "Eric (Junqi) Wen", "Jeremie Eliahou On | `2026-07-29-the-wild-wild-west-of-lego-datacenters.md` |
 | 2026-07-25 | [Can AMD break the CUDA Moat? AMD Advancing AI 2026](https://newsletter.semianalysis.com/p/can-amd-break-the-cuda-moat-amd-advancing) | only_paid | ["Bryan Shan", "Daniel Nishball", "Myron Xie", "Wega Chu", " | `2026-07-25-can-amd-break-the-cuda-moat-amd-advancing.md` |
 | 2026-07-23 | [Vera Rubin NVL72 vs GB200 NVL72? Inference TCO & Architecture Analysis](https://newsletter.semianalysis.com/p/vera-rubin-nvl72-vs-gb200-nvl72-inference) | only_paid | ["Alec Ibarra", "Bryan Shan", "Daniel Nishball", "Zane Fong" | `2026-07-23-vera-rubin-nvl72-vs-gb200-nvl72-inference.md` |

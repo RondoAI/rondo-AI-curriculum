@@ -11,6 +11,16 @@ _no human notes in the window_
 
 _SemiAnalysis is the most-cited semiconductor and AI infrastructure publication in the industry. They do NOT cover Bittensor. The Oracle uses this corpus for any claim about hyperscaler compute, GPU economics, datacenter power, foundry capacity, memory pricing, lab unit economics. DO NOT cite SemiAnalysis for any Bittensor-specific claim. Full archive (289 posts, May 2020 onwards) lives at `intelligence/_external_sources/semianalysis/` with an `INDEX.md` table of contents. Paywalled posts show only subtitle + free preview; free posts have the full body extracted._
 
+### 2026-08-03 · Kimi K3, The Manos, The Mythos, The Legendos
+_Kimi K3’s architecture: compressed memory, attention across depth, latent expert routing, and serving performance_
+
+- **Authors:** ["Kimbo Chen", "Shubham Choudhari", "Bryan Shan", "Dylan Patel"]
+- **Access:** paid-preview
+- **URL:** https://newsletter.semianalysis.com/p/kimi-k3-the-manos-the-mythos-the
+- **Corpus file:** `intelligence/_external_sources/semianalysis/2026-08-03-kimi-k3-the-manos-the-mythos-the.md`
+
+> Kimi K3 took the world by storm at its announcement, sweeping leaderboards and establishing itself as the open frontier model. While the community is eager to understand how Kimi K3 works, many have been surprised by the unconventional techniques driving its performance. This article serves as a primer to understanding the core techniques of the Kimi K3 model architecture.  # Kimi Delta Attention  Kimi Delta Attention (KDA) is the linear attention layer in Kimi K3’s hybrid attention mechanism. W
+
 ### 2026-07-29 · The Wild Wild West Of LEGO Datacenters
 _Everyone Says They're Modular, Do The Vendor Claims Hold Up? Zuck's Tents, AWS's Houdini, 60GW+ Modular Capacity Tracked, Full Vendor Landscape Mapping, Vertiv's 2x Content Uplift Per MW_
 
@@ -121,19 +131,11 @@ _Why the Grid Can't Keep Up, and Why that Drives Behind-The-Meter 50%+ of DCs/Ye
 
 > Today, the US grid is serving most datacenter load in the US, but we’re reaching a tipping point. As the insatiable demand for power of AI Labs and hyperscalers keeps accelerating, the grid simply can’t add capacity fast enough. That leaves Behind-The-Meter as the only way for the largest players to secure the power they need. Nearly a year ago, [our Onsite Gas deep dive](https://newsletter.semianalysis.com/p/how-ai-labs-are-solving-the-power) was the first to predict the fast rise of new entran
 
-### 2026-06-23 · China’s CXMT Is Set to Challenge DRAM Incumbents
-_CXMT IPO, SK Hynix, Micron, Samsung Competition, Process Node Deficit, China HBM, Wafer Adds, Memory LTAs_
-
-- **Authors:** ["Ray Wang", "Myron Xie", "Dylan Patel", "Junsung Kim", "Sravan Kundojjala", "Louis Lu"]
-- **Access:** paid-preview
-- **URL:** https://newsletter.semianalysis.com/p/chinas-cxmt-is-set-to-challenge-dram
-- **Corpus file:** `intelligence/_external_sources/semianalysis/2026-06-23-chinas-cxmt-is-set-to-challenge-dram.md`
-
-> We were the first to describe the memory shortage coming from AI’s insatiable usage in reasoning and agentic flows in late 2024 on the newsletter. We have since previously published multiple in-depth pieces on memory, as well as detailed coverage of CXMT and China’s compute. With CXMT set to IPO in the coming months, we believe a dedicated deep dive on them specifically is warranted. The company is likely to become the largest semiconductor IPO in China and mark a major milestone for the country
-
 
 ## ⊕ GITHUB COMMITS + RELEASES, last 24h
 
+- **Subtensor (chain)** (RELEASE `v441`, 2026-08-03 18:04) Runtime 441  
+  https://github.com/RaoFoundation/subtensor/releases/tag/v441
 - **Subtensor (chain)** (COMMIT `8b9d55c`, 2026-08-03 17:45) release-root-reborn (#2968)  
   https://github.com/RaoFoundation/subtensor/commit/8b9d55c723e00d0d713eed799de627e94603dfd4
 - **Subtensor (chain)** (COMMIT `2d56d59`, 2026-08-03 11:36) fix(cli): natural-sort wallet and hotkey names  
@@ -151,4 +153,4 @@ _no posts retrieved · all Nitter instances may be down_
 
 
 ---
-_Generated at 2026-08-03T17:47:19.387683+00:00 by scripts/intel/aggregate.py. Treat this digest as input context, not as ground truth. Verify before quoting._
+_Generated at 2026-08-03T20:59:25.531583+00:00 by scripts/intel/aggregate.py. Treat this digest as input context, not as ground truth. Verify before quoting._
