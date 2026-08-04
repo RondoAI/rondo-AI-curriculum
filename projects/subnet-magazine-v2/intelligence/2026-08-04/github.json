@@ -1,0 +1,46 @@
+[
+  {
+    "repo": "opentensor/subtensor",
+    "name": "Subtensor (chain)",
+    "kind": "release",
+    "sha": "v441",
+    "message": "Runtime 441",
+    "author": "github-actions[bot]",
+    "posted_at": "2026-08-03T18:04:32Z",
+    "url": "https://github.com/RaoFoundation/subtensor/releases/tag/v441",
+    "fetched_at": "2026-08-04T01:55:45.556482+00:00"
+  },
+  {
+    "repo": "opentensor/subtensor",
+    "name": "Subtensor (chain)",
+    "kind": "commit",
+    "sha": "8b9d55c",
+    "message": "release-root-reborn (#2968)",
+    "author": "Arbos",
+    "posted_at": "2026-08-03T17:45:08Z",
+    "url": "https://github.com/RaoFoundation/subtensor/commit/8b9d55c723e00d0d713eed799de627e94603dfd4",
+    "fetched_at": "2026-08-04T01:55:45.127259+00:00"
+  },
+  {
+    "repo": "opentensor/subtensor",
+    "name": "Subtensor (chain)",
+    "kind": "commit",
+    "sha": "2d56d59",
+    "message": "fix(cli): natural-sort wallet and hotkey names",
+    "author": "Wouter Haringhuizen",
+    "posted_at": "2026-08-03T11:36:59Z",
+    "url": "https://github.com/RaoFoundation/subtensor/commit/2d56d59ad13b07298cddf3dae393dec939b74a2c",
+    "fetched_at": "2026-08-04T01:55:45.127259+00:00"
+  },
+  {
+    "repo": "opentensor/subtensor",
+    "name": "Subtensor (chain)",
+    "kind": "commit",
+    "sha": "5d93703",
+    "message": "fix(cli): resolve local hotkey names before ss58 decode",
+    "author": "Wouter Haringhuizen",
+    "posted_at": "2026-08-03T11:36:55Z",
+    "url": "https://github.com/RaoFoundation/subtensor/commit/5d9370324280ed85bcce12217c94535cce7a1586",
+    "fetched_at": "2026-08-04T01:55:45.127259+00:00"
+  }
+]
