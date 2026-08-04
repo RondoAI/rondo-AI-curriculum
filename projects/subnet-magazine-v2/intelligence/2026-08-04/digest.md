@@ -134,6 +134,8 @@ _Why the Grid Can't Keep Up, and Why that Drives Behind-The-Meter 50%+ of DCs/Ye
 
 ## ⊕ GITHUB COMMITS + RELEASES, last 24h
 
+- **Subtensor (chain)** (COMMIT `ec112cb`, 2026-08-04 11:01) hotfix: stop ineligible root stake diverting into ALPHA dividends (#3035)  
+  https://github.com/RaoFoundation/subtensor/commit/ec112cb0e68469fa1c5e5ae67dece043033f6673
 - **Subtensor (chain)** (RELEASE `v441`, 2026-08-03 18:04) Runtime 441  
   https://github.com/RaoFoundation/subtensor/releases/tag/v441
 - **Subtensor (chain)** (COMMIT `8b9d55c`, 2026-08-03 17:45) release-root-reborn (#2968)  
@@ -153,4 +155,4 @@ _no posts retrieved · all Nitter instances may be down_
 
 
 ---
-_Generated at 2026-08-04T10:34:54.359476+00:00 by scripts/intel/aggregate.py. Treat this digest as input context, not as ground truth. Verify before quoting._
+_Generated at 2026-08-04T13:56:25.965313+00:00 by scripts/intel/aggregate.py. Treat this digest as input context, not as ground truth. Verify before quoting._
