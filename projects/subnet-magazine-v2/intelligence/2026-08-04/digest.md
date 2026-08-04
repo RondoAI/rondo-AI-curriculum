@@ -134,6 +134,8 @@ _Why the Grid Can't Keep Up, and Why that Drives Behind-The-Meter 50%+ of DCs/Ye
 
 ## ⊕ GITHUB COMMITS + RELEASES, last 24h
 
+- **Subtensor (chain)** (COMMIT `c02a376`, 2026-08-04 18:16) chore(subtensor): gate stake_into_basket pending state-growth review (#3042)  
+  https://github.com/RaoFoundation/subtensor/commit/c02a376ecee28718970962562fece409b695df72
 - **Subtensor (chain)** (COMMIT `ec112cb`, 2026-08-04 11:01) hotfix: stop ineligible root stake diverting into ALPHA dividends (#3035)  
   https://github.com/RaoFoundation/subtensor/commit/ec112cb0e68469fa1c5e5ae67dece043033f6673
 - **Subtensor (chain)** (RELEASE `v441`, 2026-08-03 18:04) Runtime 441  
@@ -155,4 +157,4 @@ _no posts retrieved · all Nitter instances may be down_
 
 
 ---
-_Generated at 2026-08-04T17:40:47.400526+00:00 by scripts/intel/aggregate.py. Treat this digest as input context, not as ground truth. Verify before quoting._
+_Generated at 2026-08-04T21:06:50.495946+00:00 by scripts/intel/aggregate.py. Treat this digest as input context, not as ground truth. Verify before quoting._

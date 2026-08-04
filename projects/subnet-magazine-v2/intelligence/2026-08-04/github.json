@@ -3,6 +3,17 @@
     "repo": "opentensor/subtensor",
     "name": "Subtensor (chain)",
     "kind": "commit",
+    "sha": "c02a376",
+    "message": "chore(subtensor): gate stake_into_basket pending state-growth review (#3042)",
+    "author": "Arbos",
+    "posted_at": "2026-08-04T18:16:30Z",
+    "url": "https://github.com/RaoFoundation/subtensor/commit/c02a376ecee28718970962562fece409b695df72",
+    "fetched_at": "2026-08-04T21:06:45.069104+00:00"
+  },
+  {
+    "repo": "opentensor/subtensor",
+    "name": "Subtensor (chain)",
+    "kind": "commit",
     "sha": "ec112cb",
     "message": "hotfix: stop ineligible root stake diverting into ALPHA dividends (#3035)",
     "author": "Arbos",
