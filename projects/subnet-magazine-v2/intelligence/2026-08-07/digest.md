@@ -101,16 +101,6 @@ _Over 7T AI debt by 2029, There can be no Neoclouds without the Trinity. Nvidia'
 
 > Up until now the majority of AI buildouts have been primarily cashflow funded by the hyperscalers such as Google, Amazon, Meta, Microsoft, Oracle. Over the last year, that's started to turn with Oracle then Meta, and now even Google turning to debt. Nvidia revenue is skyrocketing, and even 3 years into the build out, the general market is still materially lower on shipment volumes and revenue estimates for Nvidia in the 2nd half of this year versus our through supply chain tracking in the [Accel
 
-### 2026-07-02 · EMIB-T Roadmap, Custom HBM, HBM4 Packaging Challenges, Microfluidic Cooling, Photonic Interconnects, and More
-_ECTC 2026 Roundup, Intel, TSMC, SK Hynix, Samsung, Micron, Marvell, Lightmatter, Microsoft_
-
-- **Authors:** ["Afzal Ahmad", "DC", "Gerald Wong", "Dylan Patel"]
-- **Access:** paid-preview
-- **URL:** https://newsletter.semianalysis.com/p/ectc2026
-- **Corpus file:** `intelligence/_external_sources/semianalysis/2026-07-02-ectc2026.md`
-
-> As transistor density scaling has slowed, advanced packaging has become the primary scaling vector. However, AI accelerators have grown so large and require such fast interconnects that the package itself is now hitting limits. Circular interposers constrain package size and wafer utilization, HBM4E doubles the I/O count while increasing speed, and multi-kilowatt packages are overwhelming conventional cooling architectures.  ECTC is the industry’s premier conference for all things packaging. Thi
-
 ### 2026-07-02 · Meta Compute: Everyone Wants To Be A Neocloud
 _Zuck Takes Plan B? SpaceX 2.0, Bedrock 2.0, MSL Isn't Giving Up, Scaling RecSys by 10x... ClusterMAX ranking coming soon?_
 
@@ -120,6 +110,16 @@ _Zuck Takes Plan B? SpaceX 2.0, Bedrock 2.0, MSL Isn't Giving Up, Scaling RecSys
 - **Corpus file:** `intelligence/_external_sources/semianalysis/2026-07-02-meta-compute-everyone-wants-to-be.md`
 
 > With Bloomberg headlines suggesting Meta could become a Neocloud, the market’s reaction was immediate: aggressive sell-off of Neoclouds like Coreweave & Nebius, and debates of “overcapacity” coming back. Let’s set the record straight – we believe that both takes are erroneous and that Meta’s datacenter & compute procurement will accelerate, not slow down. Capex in 2027 will be shockingly high. In just the first six months of the year, Meta has contracted over 5GW of capacity across Cloud & Colo,
+
+### 2026-07-02 · EMIB-T Roadmap, Custom HBM, HBM4 Packaging Challenges, Microfluidic Cooling, Photonic Interconnects, and More
+_ECTC 2026 Roundup, Intel, TSMC, SK Hynix, Samsung, Micron, Marvell, Lightmatter, Microsoft_
+
+- **Authors:** ["Afzal Ahmad", "DC", "Gerald Wong", "Dylan Patel"]
+- **Access:** paid-preview
+- **URL:** https://newsletter.semianalysis.com/p/ectc2026
+- **Corpus file:** `intelligence/_external_sources/semianalysis/2026-07-02-ectc2026.md`
+
+> As transistor density scaling has slowed, advanced packaging has become the primary scaling vector. However, AI accelerators have grown so large and require such fast interconnects that the package itself is now hitting limits. Circular interposers constrain package size and wafer utilization, HBM4E doubles the I/O count while increasing speed, and multi-kilowatt packages are overwhelming conventional cooling architectures.  ECTC is the industry’s premier conference for all things packaging. Thi
 
 ### 2026-06-30 · TokenBudgeting: Our Conversations with Enterprises on Token Spend
 _Was Widespread TokenMaxxing Ever Really Here?_
@@ -146,4 +146,4 @@ _no posts retrieved · all Nitter instances may be down_
 
 
 ---
-_Generated at 2026-08-07T05:31:58.232237+00:00 by scripts/intel/aggregate.py. Treat this digest as input context, not as ground truth. Verify before quoting._
+_Generated at 2026-08-07T08:52:08.026346+00:00 by scripts/intel/aggregate.py. Treat this digest as input context, not as ground truth. Verify before quoting._
