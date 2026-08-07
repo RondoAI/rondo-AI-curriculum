@@ -1,11 +1,12 @@
 # SemiAnalysis Archive Index
 
-_315 posts captured. Generated 2026-08-07T16:47:31.094564+00:00._
+_316 posts captured. Generated 2026-08-07T20:35:05.271474+00:00._
 
 Editorial policy: SemiAnalysis is the macro reference. The Oracle cites it for any claim about hyperscaler compute, GPU economics, datacenter power, foundry capacity, memory pricing, lab unit economics. The Oracle does NOT cite SemiAnalysis for any Bittensor-specific claim. SemiAnalysis does not cover Bittensor; treat that absence as itself information.
 
 | Date | Title | Audience | Authors | File |
 | --- | --- | --- | --- | --- |
+| 2026-08-07 | [SpaceX 10GW in 2027 – Why It’s Real, Will Drive $500B ARR for SpaceX, and Why Mi](https://newsletter.semianalysis.com/p/spacex-10gw-in-2027-why-its-real) | only_paid | ["Jeremie Eliahou Ontiveros", "Reyk Knuhtsen", "Jordan Nanos | `2026-08-07-spacex-10gw-in-2027-why-its-real.md` |
 | 2026-08-07 | [Gemini is Cooked but GCP is Cooking](https://newsletter.semianalysis.com/p/gemini-is-cooked-but-gcp-is-cooking) | only_paid | ["Max Kan", "Joey Brookhart", "Doug O'Laughlin", "Dylan Pate | `2026-08-07-gemini-is-cooked-but-gcp-is-cooking.md` |
 | 2026-08-03 | [Kimi K3, The Manos, The Mythos, The Legendos](https://newsletter.semianalysis.com/p/kimi-k3-the-manos-the-mythos-the) | only_paid | ["Kimbo Chen", "Shubham Choudhari", "Bryan Shan", "Dylan Pat | `2026-08-03-kimi-k3-the-manos-the-mythos-the.md` |
 | 2026-07-29 | [The Wild Wild West Of LEGO Datacenters](https://newsletter.semianalysis.com/p/the-wild-wild-west-of-lego-datacenters) | only_paid | ["Nicolas Bontigui", "Eric (Junqi) Wen", "Jeremie Eliahou On | `2026-07-29-the-wild-wild-west-of-lego-datacenters.md` |

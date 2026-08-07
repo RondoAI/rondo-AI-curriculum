@@ -11,6 +11,16 @@ _no human notes in the window_
 
 _SemiAnalysis is the most-cited semiconductor and AI infrastructure publication in the industry. They do NOT cover Bittensor. The Oracle uses this corpus for any claim about hyperscaler compute, GPU economics, datacenter power, foundry capacity, memory pricing, lab unit economics. DO NOT cite SemiAnalysis for any Bittensor-specific claim. Full archive (289 posts, May 2020 onwards) lives at `intelligence/_external_sources/semianalysis/` with an `INDEX.md` table of contents. Paywalled posts show only subtitle + free preview; free posts have the full body extracted._
 
+### 2026-08-07 · SpaceX 10GW in 2027 – Why It’s Real, Will Drive $500B ARR for SpaceX, and Why Microsoft Will Be the Largest Offtaker
+_Inference at 100B/GW/year, SpaceX's stellar pace, Microsoft's 10GW 2026 Awakening, Azure Can Grow Tiple-Digits_
+
+- **Authors:** ["Jeremie Eliahou Ontiveros", "Reyk Knuhtsen", "Jordan Nanos", "Max Kan", "Dylan Patel", "Muhammad Zuhair"]
+- **Access:** paid-preview
+- **URL:** https://newsletter.semianalysis.com/p/spacex-10gw-in-2027-why-its-real
+- **Corpus file:** `intelligence/_external_sources/semianalysis/2026-08-07-spacex-10gw-in-2027-why-its-real.md`
+
+> Elon Musk shocked the world, once again, when he announced on SpaceX’s first earnings his Gigawatt ambitions for next year. He “conservatively” aims to build & deliver an incremental 6-8GW in 2027 alone, with potential for that number to be well above +10GW. At 50B per GW, that’s $300-500B in capex in 2027, on par with what we expect from AWS and Google – an unbelievable number for a company significantly less profitable than rival hyperscalers.  Yet, we believe that the number is real. We see S
+
 ### 2026-08-07 · Gemini is Cooked but GCP is Cooking
 _GCP YoY rev growth >100%, DeepMind's long term failure is Google Cloud's short term gain_
 
@@ -121,16 +131,6 @@ _ECTC 2026 Roundup, Intel, TSMC, SK Hynix, Samsung, Micron, Marvell, Lightmatter
 
 > As transistor density scaling has slowed, advanced packaging has become the primary scaling vector. However, AI accelerators have grown so large and require such fast interconnects that the package itself is now hitting limits. Circular interposers constrain package size and wafer utilization, HBM4E doubles the I/O count while increasing speed, and multi-kilowatt packages are overwhelming conventional cooling architectures.  ECTC is the industry’s premier conference for all things packaging. Thi
 
-### 2026-06-30 · TokenBudgeting: Our Conversations with Enterprises on Token Spend
-_Was Widespread TokenMaxxing Ever Really Here?_
-
-- **Authors:** ["Crystal Huang", "Joey Brookhart", "Dylan Patel"]
-- **Access:** paid-preview
-- **URL:** https://newsletter.semianalysis.com/p/tokenbudgeting-our-conversations
-- **Corpus file:** `intelligence/_external_sources/semianalysis/2026-06-30-tokenbudgeting-our-conversations.md`
-
-> It’s been reported that token consumption inside of enterprises is hitting a budgeting wall after unhinged consumption earlier this year. The SemiAnalysis team talked with over 50 customers by slack, phone, and at the Databricks AI Summit to understand trends within the enterprise.  - Widely reported responses to Tokenmaxxing budgets from companies like Meta and Uber are overstated and stem from poor incentives and employee allocation we didn’t find present at other organizations  - Budgets are
-
 
 ## ⊕ GITHUB COMMITS + RELEASES, last 24h
 
@@ -146,4 +146,4 @@ _no posts retrieved · all Nitter instances may be down_
 
 
 ---
-_Generated at 2026-08-07T16:47:31.237936+00:00 by scripts/intel/aggregate.py. Treat this digest as input context, not as ground truth. Verify before quoting._
+_Generated at 2026-08-07T20:35:05.441390+00:00 by scripts/intel/aggregate.py. Treat this digest as input context, not as ground truth. Verify before quoting._
