@@ -11,6 +11,16 @@ _no human notes in the window_
 
 _SemiAnalysis is the most-cited semiconductor and AI infrastructure publication in the industry. They do NOT cover Bittensor. The Oracle uses this corpus for any claim about hyperscaler compute, GPU economics, datacenter power, foundry capacity, memory pricing, lab unit economics. DO NOT cite SemiAnalysis for any Bittensor-specific claim. Full archive (289 posts, May 2020 onwards) lives at `intelligence/_external_sources/semianalysis/` with an `INDEX.md` table of contents. Paywalled posts show only subtitle + free preview; free posts have the full body extracted._
 
+### 2026-08-07 · Gemini is Cooked but GCP is Cooking
+_GCP YoY rev growth >100%, DeepMind's long term failure is Google Cloud's short term gain_
+
+- **Authors:** ["Max Kan", "Joey Brookhart", "Doug O'Laughlin", "Dylan Patel"]
+- **Access:** paid-preview
+- **URL:** https://newsletter.semianalysis.com/p/gemini-is-cooked-but-gcp-is-cooking
+- **Corpus file:** `intelligence/_external_sources/semianalysis/2026-08-07-gemini-is-cooked-but-gcp-is-cooking.md`
+
+> On Wednesday, August 5th, Google [announced](https://blog.google/company-news/inside-google/message-ceo/next-chapter-ai-momentum/) a complete overhaul of DeepMind leadership. A quick recap:  - Demis Hassabis, DeepMind co-founder and former CEO, is no longer involved in day-to-day operations. - Jeff Dean, former Google Chief Scientist and Gemini co-lead is leaving to start a neolab called Discovery Loop. Jeff is the undisputed GOAT of Google engineering, co-founded Google Brain, and started the T
+
 ### 2026-08-03 · Kimi K3, The Manos, The Mythos, The Legendos
 _Kimi K3’s architecture: compressed memory, attention across depth, latent expert routing, and serving performance_
 
@@ -121,16 +131,6 @@ _Was Widespread TokenMaxxing Ever Really Here?_
 
 > It’s been reported that token consumption inside of enterprises is hitting a budgeting wall after unhinged consumption earlier this year. The SemiAnalysis team talked with over 50 customers by slack, phone, and at the Databricks AI Summit to understand trends within the enterprise.  - Widely reported responses to Tokenmaxxing budgets from companies like Meta and Uber are overstated and stem from poor incentives and employee allocation we didn’t find present at other organizations  - Budgets are
 
-### 2026-06-25 · US Grid Constraints: Towards 40GW+ of Behind-The-Meter Datacenter by 2028?
-_Why the Grid Can't Keep Up, and Why that Drives Behind-The-Meter 50%+ of DCs/Year By 2028_
-
-- **Authors:** ["Jeremie Eliahou Ontiveros", "Sebastian Orejas", "Ellie Holbrook", "Dylan Patel"]
-- **Access:** paid-preview
-- **URL:** https://newsletter.semianalysis.com/p/us-grid-constraints-towards-40gw
-- **Corpus file:** `intelligence/_external_sources/semianalysis/2026-06-25-us-grid-constraints-towards-40gw.md`
-
-> Today, the US grid is serving most datacenter load in the US, but we’re reaching a tipping point. As the insatiable demand for power of AI Labs and hyperscalers keeps accelerating, the grid simply can’t add capacity fast enough. That leaves Behind-The-Meter as the only way for the largest players to secure the power they need. Nearly a year ago, [our Onsite Gas deep dive](https://newsletter.semianalysis.com/p/how-ai-labs-are-solving-the-power) was the first to predict the fast rise of new entran
-
 
 ## ⊕ GITHUB COMMITS + RELEASES, last 24h
 
@@ -146,4 +146,4 @@ _no posts retrieved · all Nitter instances may be down_
 
 
 ---
-_Generated at 2026-08-07T00:53:18.370980+00:00 by scripts/intel/aggregate.py. Treat this digest as input context, not as ground truth. Verify before quoting._
+_Generated at 2026-08-07T05:31:58.232237+00:00 by scripts/intel/aggregate.py. Treat this digest as input context, not as ground truth. Verify before quoting._
