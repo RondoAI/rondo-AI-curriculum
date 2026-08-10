@@ -11,6 +11,16 @@ _no human notes in the window_
 
 _SemiAnalysis is the most-cited semiconductor and AI infrastructure publication in the industry. They do NOT cover Bittensor. The Oracle uses this corpus for any claim about hyperscaler compute, GPU economics, datacenter power, foundry capacity, memory pricing, lab unit economics. DO NOT cite SemiAnalysis for any Bittensor-specific claim. Full archive (289 posts, May 2020 onwards) lives at `intelligence/_external_sources/semianalysis/` with an `INDEX.md` table of contents. Paywalled posts show only subtitle + free preview; free posts have the full body extracted._
 
+### 2026-08-10 · Ultra-High Interactivity on NVIDIA GPUs? - TileRT InferenceX
+_Can TileRT software on NVIDIA GPU compete with Cerebras, Groq LPU, SambaNova? Batch Size 1, Disaggregated engine, high throughput prefill engine, high interactivity decode engine_
+
+- **Authors:** ["Bryan Shan", "Daniel Nishball", "Cam Quilici", "Kimbo Chen", "Alec Ibarra", "Dylan Patel"]
+- **Access:** paid-preview
+- **URL:** https://newsletter.semianalysis.com/p/ultra-high-interactivity-on-nvidia
+- **Corpus file:** `intelligence/_external_sources/semianalysis/2026-08-10-ultra-high-interactivity-on-nvidia.md`
+
+> Premium-priced “fast modes” are proving that users will pay more for lower latency and faster tokens, potentially yielding higher gross margins. Frontier AI labs such as [OpenAI are therefore evaluating purpose-built inference systems, including Cerebras and NVIDIA Groq LPUs](https://semianalysis.com/accelerator-hbm-model/) that prioritize ultra-high interactivity over maximum batched throughput. Ultra-low latency matters most in interactive workloads, including real-time assistants, and full-du
+
 ### 2026-08-07 · SpaceX 10GW in 2027 – Why It’s Real, Will Drive $500B ARR for SpaceX, and Why Microsoft Will Be the Largest Offtaker
 _Inference at 100B/GW/year, SpaceX's stellar pace, Microsoft's 10GW 2026 Awakening, Azure Can Grow Tiple-Digits_
 
@@ -121,16 +131,6 @@ _Zuck Takes Plan B? SpaceX 2.0, Bedrock 2.0, MSL Isn't Giving Up, Scaling RecSys
 
 > With Bloomberg headlines suggesting Meta could become a Neocloud, the market’s reaction was immediate: aggressive sell-off of Neoclouds like Coreweave & Nebius, and debates of “overcapacity” coming back. Let’s set the record straight – we believe that both takes are erroneous and that Meta’s datacenter & compute procurement will accelerate, not slow down. Capex in 2027 will be shockingly high. In just the first six months of the year, Meta has contracted over 5GW of capacity across Cloud & Colo,
 
-### 2026-07-02 · EMIB-T Roadmap, Custom HBM, HBM4 Packaging Challenges, Microfluidic Cooling, Photonic Interconnects, and More
-_ECTC 2026 Roundup, Intel, TSMC, SK Hynix, Samsung, Micron, Marvell, Lightmatter, Microsoft_
-
-- **Authors:** ["Afzal Ahmad", "DC", "Gerald Wong", "Dylan Patel"]
-- **Access:** paid-preview
-- **URL:** https://newsletter.semianalysis.com/p/ectc2026
-- **Corpus file:** `intelligence/_external_sources/semianalysis/2026-07-02-ectc2026.md`
-
-> As transistor density scaling has slowed, advanced packaging has become the primary scaling vector. However, AI accelerators have grown so large and require such fast interconnects that the package itself is now hitting limits. Circular interposers constrain package size and wafer utilization, HBM4E doubles the I/O count while increasing speed, and multi-kilowatt packages are overwhelming conventional cooling architectures.  ECTC is the industry’s premier conference for all things packaging. Thi
-
 
 ## ⊕ GITHUB COMMITS + RELEASES, last 24h
 
@@ -146,4 +146,4 @@ _no posts retrieved · all Nitter instances may be down_
 
 
 ---
-_Generated at 2026-08-10T01:13:34.395712+00:00 by scripts/intel/aggregate.py. Treat this digest as input context, not as ground truth. Verify before quoting._
+_Generated at 2026-08-10T05:21:42.067070+00:00 by scripts/intel/aggregate.py. Treat this digest as input context, not as ground truth. Verify before quoting._
