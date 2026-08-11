@@ -1,0 +1,112 @@
+[
+  {
+    "repo": "opentensor/subtensor",
+    "name": "Subtensor (chain)",
+    "kind": "commit",
+    "sha": "13d5a5e",
+    "message": "Merge pull request #3058 from RaoFoundation/release-444",
+    "author": "UnArbosFive",
+    "posted_at": "2026-08-10T20:41:50Z",
+    "url": "https://github.com/RaoFoundation/subtensor/commit/13d5a5e9b499574c89079698a2c23a40b51f92aa",
+    "fetched_at": "2026-08-11T01:15:02.300973+00:00"
+  },
+  {
+    "repo": "opentensor/subtensor",
+    "name": "Subtensor (chain)",
+    "kind": "commit",
+    "sha": "3aa4ae7",
+    "message": "docs: make emissions guidance timeless",
+    "author": "UnArbosFive",
+    "posted_at": "2026-08-10T20:16:24Z",
+    "url": "https://github.com/RaoFoundation/subtensor/commit/3aa4ae77ea3e21cbf38bd5079d4729efaf31f980",
+    "fetched_at": "2026-08-11T01:15:02.300973+00:00"
+  },
+  {
+    "repo": "opentensor/subtensor",
+    "name": "Subtensor (chain)",
+    "kind": "commit",
+    "sha": "f22b50e",
+    "message": "docs: refine v444 release actions",
+    "author": "UnArbosFive",
+    "posted_at": "2026-08-10T20:12:37Z",
+    "url": "https://github.com/RaoFoundation/subtensor/commit/f22b50e570f3762b3345cec6e3187ffa16dae13b",
+    "fetched_at": "2026-08-11T01:15:02.300973+00:00"
+  },
+  {
+    "repo": "opentensor/subtensor",
+    "name": "Subtensor (chain)",
+    "kind": "commit",
+    "sha": "a3aa5ba",
+    "message": "docs: prepare v444 release guidance",
+    "author": "UnArbosFive",
+    "posted_at": "2026-08-10T19:53:21Z",
+    "url": "https://github.com/RaoFoundation/subtensor/commit/a3aa5ba5742c06bbfd88976c1a955e1a307b16ad",
+    "fetched_at": "2026-08-11T01:15:02.300973+00:00"
+  },
+  {
+    "repo": "opentensor/subtensor",
+    "name": "Subtensor (chain)",
+    "kind": "commit",
+    "sha": "16a6b86",
+    "message": "docs: synchronize EVM interface artifacts",
+    "author": "UnArbosFive",
+    "posted_at": "2026-08-10T18:37:10Z",
+    "url": "https://github.com/RaoFoundation/subtensor/commit/16a6b86815c11c4577bf80caf5da851340730922",
+    "fetched_at": "2026-08-11T01:15:02.300973+00:00"
+  },
+  {
+    "repo": "opentensor/subtensor",
+    "name": "Subtensor (chain)",
+    "kind": "commit",
+    "sha": "f699950",
+    "message": "fix pre-compile conversions",
+    "author": "UnArbosSix",
+    "posted_at": "2026-08-10T18:30:55Z",
+    "url": "https://github.com/RaoFoundation/subtensor/commit/f699950f4a89e3e20e8a3742e5fabafc478fc983",
+    "fetched_at": "2026-08-11T01:15:02.300973+00:00"
+  },
+  {
+    "repo": "opentensor/subtensor",
+    "name": "Subtensor (chain)",
+    "kind": "commit",
+    "sha": "28e3c5f",
+    "message": "docs: correct documentation details",
+    "author": "UnArbosFive",
+    "posted_at": "2026-08-10T18:17:13Z",
+    "url": "https://github.com/RaoFoundation/subtensor/commit/28e3c5fcdfb76180bf31041e7bf068f258265662",
+    "fetched_at": "2026-08-11T01:15:02.300973+00:00"
+  },
+  {
+    "repo": "opentensor/subtensor",
+    "name": "Subtensor (chain)",
+    "kind": "commit",
+    "sha": "73f8092",
+    "message": "fix: restore release CI checks",
+    "author": "UnArbosFive",
+    "posted_at": "2026-08-10T17:39:48Z",
+    "url": "https://github.com/RaoFoundation/subtensor/commit/73f8092c0316b8e9eb03209417c839394e992a12",
+    "fetched_at": "2026-08-11T01:15:02.300973+00:00"
+  },
+  {
+    "repo": "opentensor/subtensor",
+    "name": "Subtensor (chain)",
+    "kind": "commit",
+    "sha": "a91ade0",
+    "message": "remove unsynchronized burnBalance function",
+    "author": "UnArbosSix",
+    "posted_at": "2026-08-10T17:28:54Z",
+    "url": "https://github.com/RaoFoundation/subtensor/commit/a91ade05e4331f981e686b5933f4f799e68a04ca",
+    "fetched_at": "2026-08-11T01:15:02.300973+00:00"
+  },
+  {
+    "repo": "opentensor/subtensor",
+    "name": "Subtensor (chain)",
+    "kind": "commit",
+    "sha": "49724bf",
+    "message": "add release page",
+    "author": "UnArbosSix",
+    "posted_at": "2026-08-10T17:08:34Z",
+    "url": "https://github.com/RaoFoundation/subtensor/commit/49724bf6b361bb220e1b494b71e9138a724d2e6b",
+    "fetched_at": "2026-08-11T01:15:02.300973+00:00"
+  }
+]
