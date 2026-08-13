@@ -1,0 +1,35 @@
+[
+  {
+    "repo": "opentensor/subtensor",
+    "name": "Subtensor (chain)",
+    "kind": "release",
+    "sha": "v445",
+    "message": "Runtime 445",
+    "author": "github-actions[bot]",
+    "posted_at": "2026-08-12T21:03:55Z",
+    "url": "https://github.com/RaoFoundation/subtensor/releases/tag/v445",
+    "fetched_at": "2026-08-13T01:22:07.302171+00:00"
+  },
+  {
+    "repo": "opentensor/subtensor",
+    "name": "Subtensor (chain)",
+    "kind": "commit",
+    "sha": "d3f40e4",
+    "message": "Restore miner-burn emission scaling (#3071)",
+    "author": "UnArbosSix",
+    "posted_at": "2026-08-12T20:44:55Z",
+    "url": "https://github.com/RaoFoundation/subtensor/commit/d3f40e44bda9019c606aeb0c907bb52ba7fe386c",
+    "fetched_at": "2026-08-13T01:22:06.806592+00:00"
+  },
+  {
+    "repo": "opentensor/subtensor",
+    "name": "Subtensor (chain)",
+    "kind": "commit",
+    "sha": "27862a7",
+    "message": "reduce bloat (#3076)",
+    "author": "UnArbosSix",
+    "posted_at": "2026-08-12T20:43:49Z",
+    "url": "https://github.com/RaoFoundation/subtensor/commit/27862a72c006d89787d78655023ca0f0414dee82",
+    "fetched_at": "2026-08-13T01:22:06.806592+00:00"
+  }
+]
