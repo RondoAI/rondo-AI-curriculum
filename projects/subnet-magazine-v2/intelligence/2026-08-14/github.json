@@ -3,6 +3,17 @@
     "repo": "opentensor/subtensor",
     "name": "Subtensor (chain)",
     "kind": "commit",
+    "sha": "1f090af",
+    "message": "Conviction Normalization: single-hotkey 18% takeover gate (spec 447) (#3083)",
+    "author": "Arbos",
+    "posted_at": "2026-08-14T19:18:51Z",
+    "url": "https://github.com/RaoFoundation/subtensor/commit/1f090af85d1771c5d8ece1f0910576fbd129906e",
+    "fetched_at": "2026-08-14T20:26:37.449522+00:00"
+  },
+  {
+    "repo": "opentensor/subtensor",
+    "name": "Subtensor (chain)",
+    "kind": "commit",
     "sha": "52d7e7c",
     "message": "Merge pull request #3077 from RaoFoundation/release-v446",
     "author": "UnArbosFive",

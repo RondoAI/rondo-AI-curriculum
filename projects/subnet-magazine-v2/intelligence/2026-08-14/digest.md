@@ -134,6 +134,8 @@ _Zuck Takes Plan B? SpaceX 2.0, Bedrock 2.0, MSL Isn't Giving Up, Scaling RecSys
 
 ## ⊕ GITHUB COMMITS + RELEASES, last 24h
 
+- **Subtensor (chain)** (COMMIT `1f090af`, 2026-08-14 19:18) Conviction Normalization: single-hotkey 18% takeover gate (spec 447) (#3083)  
+  https://github.com/RaoFoundation/subtensor/commit/1f090af85d1771c5d8ece1f0910576fbd129906e
 - **Subtensor (chain)** (COMMIT `52d7e7c`, 2026-08-13 21:40) Merge pull request #3077 from RaoFoundation/release-v446  
   https://github.com/RaoFoundation/subtensor/commit/52d7e7cf66c6fdcc76f62fd4b00732aa506afb2c
 - **Subtensor (chain)** (COMMIT `64285cc`, 2026-08-13 21:21) docs: fix v446 release text spacing  
@@ -165,4 +167,4 @@ _no posts retrieved · all Nitter instances may be down_
 
 
 ---
-_Generated at 2026-08-14T16:45:25.305068+00:00 by scripts/intel/aggregate.py. Treat this digest as input context, not as ground truth. Verify before quoting._
+_Generated at 2026-08-14T20:26:43.746222+00:00 by scripts/intel/aggregate.py. Treat this digest as input context, not as ground truth. Verify before quoting._
