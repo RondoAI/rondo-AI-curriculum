@@ -1,0 +1,112 @@
+[
+  {
+    "repo": "opentensor/subtensor",
+    "name": "Subtensor (chain)",
+    "kind": "commit",
+    "sha": "52d7e7c",
+    "message": "Merge pull request #3077 from RaoFoundation/release-v446",
+    "author": "UnArbosFive",
+    "posted_at": "2026-08-13T21:40:14Z",
+    "url": "https://github.com/RaoFoundation/subtensor/commit/52d7e7cf66c6fdcc76f62fd4b00732aa506afb2c",
+    "fetched_at": "2026-08-14T01:21:10.863011+00:00"
+  },
+  {
+    "repo": "opentensor/subtensor",
+    "name": "Subtensor (chain)",
+    "kind": "commit",
+    "sha": "64285cc",
+    "message": "docs: fix v446 release text spacing",
+    "author": "UnArbosFive",
+    "posted_at": "2026-08-13T21:21:06Z",
+    "url": "https://github.com/RaoFoundation/subtensor/commit/64285cc072d5965f32e213915431354b65712d86",
+    "fetched_at": "2026-08-14T01:21:10.863011+00:00"
+  },
+  {
+    "repo": "opentensor/subtensor",
+    "name": "Subtensor (chain)",
+    "kind": "commit",
+    "sha": "55cc8cd",
+    "message": "docs: complete v446 release documentation",
+    "author": "UnArbosFive",
+    "posted_at": "2026-08-13T21:04:12Z",
+    "url": "https://github.com/RaoFoundation/subtensor/commit/55cc8cd4a2fdf2356cffda6f4b5619289a2fd701",
+    "fetched_at": "2026-08-14T01:21:10.863011+00:00"
+  },
+  {
+    "repo": "opentensor/subtensor",
+    "name": "Subtensor (chain)",
+    "kind": "commit",
+    "sha": "9eb28d9",
+    "message": "Merge pull request #3080 from RaoFoundation/fix/timelock-reveal-keep-on-failure",
+    "author": "UnArbosSix",
+    "posted_at": "2026-08-13T20:14:18Z",
+    "url": "https://github.com/RaoFoundation/subtensor/commit/9eb28d99f2e97247fe2c0e7b96bac017d472a832",
+    "fetched_at": "2026-08-14T01:21:10.863011+00:00"
+  },
+  {
+    "repo": "opentensor/subtensor",
+    "name": "Subtensor (chain)",
+    "kind": "commit",
+    "sha": "94dd956",
+    "message": "Merge pull request #2971 from RaoFoundation/fix/grandpa-setid",
+    "author": "UnArbosFive",
+    "posted_at": "2026-08-13T20:03:13Z",
+    "url": "https://github.com/RaoFoundation/subtensor/commit/94dd9565f9a87235b821aa7fc42712b91f5a75ce",
+    "fetched_at": "2026-08-14T01:21:10.863011+00:00"
+  },
+  {
+    "repo": "opentensor/subtensor",
+    "name": "Subtensor (chain)",
+    "kind": "commit",
+    "sha": "9e58a64",
+    "message": "add python e2e",
+    "author": "UnArbosSix",
+    "posted_at": "2026-08-13T19:48:15Z",
+    "url": "https://github.com/RaoFoundation/subtensor/commit/9e58a6459f520b0b80715a13b9a50872abad5293",
+    "fetched_at": "2026-08-14T01:21:10.863011+00:00"
+  },
+  {
+    "repo": "opentensor/subtensor",
+    "name": "Subtensor (chain)",
+    "kind": "commit",
+    "sha": "462e29b",
+    "message": "Merge pull request #3070 from RaoFoundation/agent/liquid-alpha-consensus-mode",
+    "author": "UnArbosFour",
+    "posted_at": "2026-08-13T19:39:11Z",
+    "url": "https://github.com/RaoFoundation/subtensor/commit/462e29b320b5a48ab7c7f76adf051084b82ee331",
+    "fetched_at": "2026-08-14T01:21:10.863011+00:00"
+  },
+  {
+    "repo": "opentensor/subtensor",
+    "name": "Subtensor (chain)",
+    "kind": "commit",
+    "sha": "57cefe3",
+    "message": "Fix tests",
+    "author": "UnarbosFour",
+    "posted_at": "2026-08-13T19:27:51Z",
+    "url": "https://github.com/RaoFoundation/subtensor/commit/57cefe3b5a9eb2f5d96e1f8ea683fec29de2ecc8",
+    "fetched_at": "2026-08-14T01:21:10.863011+00:00"
+  },
+  {
+    "repo": "opentensor/subtensor",
+    "name": "Subtensor (chain)",
+    "kind": "commit",
+    "sha": "80c912c",
+    "message": "RoundMismatch",
+    "author": "UnArbosSix",
+    "posted_at": "2026-08-13T19:26:10Z",
+    "url": "https://github.com/RaoFoundation/subtensor/commit/80c912cb9f28678525c68257ca44adb75511d27f",
+    "fetched_at": "2026-08-14T01:21:10.863011+00:00"
+  },
+  {
+    "repo": "opentensor/subtensor",
+    "name": "Subtensor (chain)",
+    "kind": "commit",
+    "sha": "ed568d8",
+    "message": "Fix GRANDPA set ID handling",
+    "author": "UnArbosFive",
+    "posted_at": "2026-07-23T17:07:32Z",
+    "url": "https://github.com/RaoFoundation/subtensor/commit/ed568d87685adf6a74d792901ab074053426e895",
+    "fetched_at": "2026-08-14T01:21:10.863011+00:00"
+  }
+]
