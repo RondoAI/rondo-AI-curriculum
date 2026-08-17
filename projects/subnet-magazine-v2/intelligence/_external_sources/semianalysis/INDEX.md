@@ -1,11 +1,12 @@
 # SemiAnalysis Archive Index
 
-_317 posts captured. Generated 2026-08-16T20:16:07.954192+00:00._
+_318 posts captured. Generated 2026-08-17T00:53:58.894947+00:00._
 
 Editorial policy: SemiAnalysis is the macro reference. The Oracle cites it for any claim about hyperscaler compute, GPU economics, datacenter power, foundry capacity, memory pricing, lab unit economics. The Oracle does NOT cite SemiAnalysis for any Bittensor-specific claim. SemiAnalysis does not cover Bittensor; treat that absence as itself information.
 
 | Date | Title | Audience | Authors | File |
 | --- | --- | --- | --- | --- |
+| 2026-08-16 | [$12B of US ratepayers' money wasted on a modeling mistake and PJM wants to do it](https://newsletter.semianalysis.com/p/12b-of-us-ratepayers-money-wasted) | only_paid | ["Robert Boswall", "Reyk Knuhtsen", "Jeremie Eliahou Ontiver | `2026-08-16-12b-of-us-ratepayers-money-wasted.md` |
 | 2026-08-10 | [Ultra-High Interactivity on NVIDIA GPUs? - TileRT InferenceX](https://newsletter.semianalysis.com/p/ultra-high-interactivity-on-nvidia) | only_paid | ["Bryan Shan", "Daniel Nishball", "Cam Quilici", "Kimbo Chen | `2026-08-10-ultra-high-interactivity-on-nvidia.md` |
 | 2026-08-07 | [SpaceX 10GW in 2027 – Why It’s Real, Will Drive $500B ARR for SpaceX, and Why Mi](https://newsletter.semianalysis.com/p/spacex-10gw-in-2027-why-its-real) | only_paid | ["Jeremie Eliahou Ontiveros", "Reyk Knuhtsen", "Jordan Nanos | `2026-08-07-spacex-10gw-in-2027-why-its-real.md` |
 | 2026-08-07 | [Gemini is Cooked but GCP is Cooking](https://newsletter.semianalysis.com/p/gemini-is-cooked-but-gcp-is-cooking) | only_paid | ["Max Kan", "Joey Brookhart", "Doug O'Laughlin", "Dylan Pate | `2026-08-07-gemini-is-cooked-but-gcp-is-cooking.md` |
