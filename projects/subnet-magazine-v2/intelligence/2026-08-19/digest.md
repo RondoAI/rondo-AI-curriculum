@@ -11,6 +11,16 @@ _no human notes in the window_
 
 _SemiAnalysis is the most-cited semiconductor and AI infrastructure publication in the industry. They do NOT cover Bittensor. The Oracle uses this corpus for any claim about hyperscaler compute, GPU economics, datacenter power, foundry capacity, memory pricing, lab unit economics. DO NOT cite SemiAnalysis for any Bittensor-specific claim. Full archive (289 posts, May 2020 onwards) lives at `intelligence/_external_sources/semianalysis/` with an `INDEX.md` table of contents. Paywalled posts show only subtitle + free preview; free posts have the full body extracted._
 
+### 2026-08-19 · Cerebras's Next Generation CS-4: Fast Just Got Faster
+_Double the Performance, Double the Power, Double the Fun_
+
+- **Authors:** ["Myron Xie", "Bryan Shan", "Wega Chu", "Jordan Nanos", "Dylan Patel"]
+- **Access:** paid-preview
+- **URL:** https://newsletter.semianalysis.com/p/cerebrass-next-generation-cs-4-fast
+- **Corpus file:** `intelligence/_external_sources/semianalysis/2026-08-19-cerebrass-next-generation-cs-4-fast.md`
+
+> Cerebras revealed CS-4 this week, with more details to come at Hot Chips. CS-4 is their fourth-generation rack built around the same third generation 5nm wafer-scale engine: WSE-3. CS-4 doubles the performance of CS-3 through increased power consumption and clock frequency per wafer, and better rack-scale density.  This all translate into CS-4 being able to double the tokens/s/user per wafer from CS-3, and at around the same cost as the previous generation. This is a no-brainer for customers who
+
 ### 2026-08-16 · $12B of US ratepayers' money wasted on a modeling mistake and PJM wants to do it again
 _American Grid design needs an overhaul, Why it is good to be full of cold air._
 
@@ -121,16 +131,6 @@ _Anthropic’s Opportunity is Theirs to Lose_
 
 > # Introduction  When Dario Amodei left OpenAI to start Anthropic in early 2021, the viral release of ChatGPT was over 18 months away and the commercialization of LLMs was practically zero. Just a few short years later, Anthropic and OpenAI combine for ~$100B of ARR and a clear winner emerged in the profitable monetization of AI models in 2026 as Claude Code took the software development world by storm.  Anthropic confidentially filed for IPO on June 1st. Over 1 month later, equity raises from hy
 
-### 2026-07-06 · Nvidia GPU Debt Backstop Unleashes the AI Project Trinity: Capital, Offtake and Datacenters
-_Over 7T AI debt by 2029, There can be no Neoclouds without the Trinity. Nvidia's Backstop Economics Explained. AI Debt Needs Quantified. Nvidia's Objective is to Broaden Compute Access_
-
-- **Authors:** ["Daniel Nishball", "Cheang Kang Wen", "Zane Fong", "Reyk Knuhtsen", "Sebastian Orejas", "Jordan Nanos", "Terence Ong", 
-- **Access:** paid-preview
-- **URL:** https://newsletter.semianalysis.com/p/nvidia-gpu-debt-backstop-unleashes
-- **Corpus file:** `intelligence/_external_sources/semianalysis/2026-07-06-nvidia-gpu-debt-backstop-unleashes.md`
-
-> Up until now the majority of AI buildouts have been primarily cashflow funded by the hyperscalers such as Google, Amazon, Meta, Microsoft, Oracle. Over the last year, that's started to turn with Oracle then Meta, and now even Google turning to debt. Nvidia revenue is skyrocketing, and even 3 years into the build out, the general market is still materially lower on shipment volumes and revenue estimates for Nvidia in the 2nd half of this year versus our through supply chain tracking in the [Accel
-
 
 ## ⊕ GITHUB COMMITS + RELEASES, last 24h
 
@@ -146,4 +146,4 @@ _no posts retrieved · all Nitter instances may be down_
 
 
 ---
-_Generated at 2026-08-19T00:53:27.185784+00:00 by scripts/intel/aggregate.py. Treat this digest as input context, not as ground truth. Verify before quoting._
+_Generated at 2026-08-19T04:32:10.462721+00:00 by scripts/intel/aggregate.py. Treat this digest as input context, not as ground truth. Verify before quoting._
