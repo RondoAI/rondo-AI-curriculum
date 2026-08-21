@@ -1,1 +1,112 @@
-[]
+[
+  {
+    "repo": "opentensor/subtensor",
+    "name": "Subtensor (chain)",
+    "kind": "commit",
+    "sha": "8556286",
+    "message": "Merge pull request #3089 from RaoFoundation/release-448",
+    "author": "UnArbosFive",
+    "posted_at": "2026-08-21T16:01:06Z",
+    "url": "https://github.com/RaoFoundation/subtensor/commit/85562869f99f0de7c66d8784d4ca7ecd387b6767",
+    "fetched_at": "2026-08-21T16:26:08.696473+00:00"
+  },
+  {
+    "repo": "opentensor/subtensor",
+    "name": "Subtensor (chain)",
+    "kind": "commit",
+    "sha": "0d39882",
+    "message": "Merge pull request #3100 from RaoFoundation/fix/sdk-intent-safety-preflights-ready",
+    "author": "UnArbosFive",
+    "posted_at": "2026-08-20T21:02:47Z",
+    "url": "https://github.com/RaoFoundation/subtensor/commit/0d3988214a6f7eee8793fe17208365742a82d07b",
+    "fetched_at": "2026-08-21T16:26:08.696473+00:00"
+  },
+  {
+    "repo": "opentensor/subtensor",
+    "name": "Subtensor (chain)",
+    "kind": "commit",
+    "sha": "62a8065",
+    "message": "fix(sdk): sync v448 metadata bindings",
+    "author": "UnArbosFive",
+    "posted_at": "2026-08-20T21:02:00Z",
+    "url": "https://github.com/RaoFoundation/subtensor/commit/62a806519cdb408e00cced23030267e0c61a4df9",
+    "fetched_at": "2026-08-21T16:26:08.696473+00:00"
+  },
+  {
+    "repo": "opentensor/subtensor",
+    "name": "Subtensor (chain)",
+    "kind": "commit",
+    "sha": "214f2ce",
+    "message": "fix(sdk): bound canonical receipt lookup",
+    "author": "UnArbosFive",
+    "posted_at": "2026-08-20T20:41:20Z",
+    "url": "https://github.com/RaoFoundation/subtensor/commit/214f2ce8efc10339c48631b7ed696bcd43da327a",
+    "fetched_at": "2026-08-21T16:26:08.696473+00:00"
+  },
+  {
+    "repo": "opentensor/subtensor",
+    "name": "Subtensor (chain)",
+    "kind": "commit",
+    "sha": "1a3ec16",
+    "message": "fix(sdk): bound canonical finalization lookup",
+    "author": "UnArbosFive",
+    "posted_at": "2026-08-20T20:37:03Z",
+    "url": "https://github.com/RaoFoundation/subtensor/commit/1a3ec16be930c7ec187591e7cdca2a4d386c643e",
+    "fetched_at": "2026-08-21T16:26:08.696473+00:00"
+  },
+  {
+    "repo": "opentensor/subtensor",
+    "name": "Subtensor (chain)",
+    "kind": "commit",
+    "sha": "6ca8441",
+    "message": "fix(ci): preserve docs preview project root",
+    "author": "UnArbosFive",
+    "posted_at": "2026-08-20T20:27:01Z",
+    "url": "https://github.com/RaoFoundation/subtensor/commit/6ca844175b78df36864cc3cfb31ce7f01e1c2d9e",
+    "fetched_at": "2026-08-21T16:26:08.696473+00:00"
+  },
+  {
+    "repo": "opentensor/subtensor",
+    "name": "Subtensor (chain)",
+    "kind": "commit",
+    "sha": "ee178c4",
+    "message": "fix(runtime): remove empty alpha stake totals",
+    "author": "UnArbosFive",
+    "posted_at": "2026-08-20T20:24:43Z",
+    "url": "https://github.com/RaoFoundation/subtensor/commit/ee178c47313881eaeb929ed4a20be1b84334618f",
+    "fetched_at": "2026-08-21T16:26:08.696473+00:00"
+  },
+  {
+    "repo": "opentensor/subtensor",
+    "name": "Subtensor (chain)",
+    "kind": "commit",
+    "sha": "148cace",
+    "message": "fix(core): reject trailing timelock envelope data",
+    "author": "UnArbosFive",
+    "posted_at": "2026-08-20T20:09:11Z",
+    "url": "https://github.com/RaoFoundation/subtensor/commit/148cace5d5d492557141af8ed8ade257bde1767b",
+    "fetched_at": "2026-08-21T16:26:08.696473+00:00"
+  },
+  {
+    "repo": "opentensor/subtensor",
+    "name": "Subtensor (chain)",
+    "kind": "commit",
+    "sha": "a8ce8f7",
+    "message": "docs: remove v448 upgrade checklist",
+    "author": "UnArbosFive",
+    "posted_at": "2026-08-20T19:49:58Z",
+    "url": "https://github.com/RaoFoundation/subtensor/commit/a8ce8f723189c404531624ce49cd927c5584d0c9",
+    "fetched_at": "2026-08-21T16:26:08.696473+00:00"
+  },
+  {
+    "repo": "opentensor/subtensor",
+    "name": "Subtensor (chain)",
+    "kind": "commit",
+    "sha": "8194164",
+    "message": "docs: add v448 release documentation",
+    "author": "UnArbosFive",
+    "posted_at": "2026-08-20T19:39:53Z",
+    "url": "https://github.com/RaoFoundation/subtensor/commit/8194164f0fb3c59d8d5931b03557675a1eb77810",
+    "fetched_at": "2026-08-21T16:26:08.696473+00:00"
+  }
+]

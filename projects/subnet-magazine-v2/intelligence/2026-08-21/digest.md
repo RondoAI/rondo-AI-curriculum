@@ -134,7 +134,26 @@ _Anthropic’s Opportunity is Theirs to Lose_
 
 ## ⊕ GITHUB COMMITS + RELEASES, last 24h
 
-_no commits or releases in the lookback window_
+- **Subtensor (chain)** (COMMIT `8556286`, 2026-08-21 16:01) Merge pull request #3089 from RaoFoundation/release-448  
+  https://github.com/RaoFoundation/subtensor/commit/85562869f99f0de7c66d8784d4ca7ecd387b6767
+- **Subtensor (chain)** (COMMIT `0d39882`, 2026-08-20 21:02) Merge pull request #3100 from RaoFoundation/fix/sdk-intent-safety-preflights-ready  
+  https://github.com/RaoFoundation/subtensor/commit/0d3988214a6f7eee8793fe17208365742a82d07b
+- **Subtensor (chain)** (COMMIT `62a8065`, 2026-08-20 21:02) fix(sdk): sync v448 metadata bindings  
+  https://github.com/RaoFoundation/subtensor/commit/62a806519cdb408e00cced23030267e0c61a4df9
+- **Subtensor (chain)** (COMMIT `214f2ce`, 2026-08-20 20:41) fix(sdk): bound canonical receipt lookup  
+  https://github.com/RaoFoundation/subtensor/commit/214f2ce8efc10339c48631b7ed696bcd43da327a
+- **Subtensor (chain)** (COMMIT `1a3ec16`, 2026-08-20 20:37) fix(sdk): bound canonical finalization lookup  
+  https://github.com/RaoFoundation/subtensor/commit/1a3ec16be930c7ec187591e7cdca2a4d386c643e
+- **Subtensor (chain)** (COMMIT `6ca8441`, 2026-08-20 20:27) fix(ci): preserve docs preview project root  
+  https://github.com/RaoFoundation/subtensor/commit/6ca844175b78df36864cc3cfb31ce7f01e1c2d9e
+- **Subtensor (chain)** (COMMIT `ee178c4`, 2026-08-20 20:24) fix(runtime): remove empty alpha stake totals  
+  https://github.com/RaoFoundation/subtensor/commit/ee178c47313881eaeb929ed4a20be1b84334618f
+- **Subtensor (chain)** (COMMIT `148cace`, 2026-08-20 20:09) fix(core): reject trailing timelock envelope data  
+  https://github.com/RaoFoundation/subtensor/commit/148cace5d5d492557141af8ed8ade257bde1767b
+- **Subtensor (chain)** (COMMIT `a8ce8f7`, 2026-08-20 19:49) docs: remove v448 upgrade checklist  
+  https://github.com/RaoFoundation/subtensor/commit/a8ce8f723189c404531624ce49cd927c5584d0c9
+- **Subtensor (chain)** (COMMIT `8194164`, 2026-08-20 19:39) docs: add v448 release documentation  
+  https://github.com/RaoFoundation/subtensor/commit/8194164f0fb3c59d8d5931b03557675a1eb77810
 
 ## ⊕ ECOSYSTEM BLOGS via RSS
 
@@ -146,4 +165,4 @@ _no posts retrieved · all Nitter instances may be down_
 
 
 ---
-_Generated at 2026-08-21T12:35:06.556116+00:00 by scripts/intel/aggregate.py. Treat this digest as input context, not as ground truth. Verify before quoting._
+_Generated at 2026-08-21T16:26:12.468016+00:00 by scripts/intel/aggregate.py. Treat this digest as input context, not as ground truth. Verify before quoting._
