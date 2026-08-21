@@ -11,6 +11,16 @@ _no human notes in the window_
 
 _SemiAnalysis is the most-cited semiconductor and AI infrastructure publication in the industry. They do NOT cover Bittensor. The Oracle uses this corpus for any claim about hyperscaler compute, GPU economics, datacenter power, foundry capacity, memory pricing, lab unit economics. DO NOT cite SemiAnalysis for any Bittensor-specific claim. Full archive (289 posts, May 2020 onwards) lives at `intelligence/_external_sources/semianalysis/` with an `INDEX.md` table of contents. Paywalled posts show only subtitle + free preview; free posts have the full body extracted._
 
+### 2026-08-21 · Are Open Models Catching Up?
+_Comparing open vs. closed models across the eras of frontier models, Is the gap narrowing?_
+
+- **Authors:** ["Evan Cloutier", "Max Kan", "Jordan Nanos", "Dylan Patel"]
+- **Access:** paid-preview
+- **URL:** https://newsletter.semianalysis.com/p/are-open-models-catching-up
+- **Corpus file:** `intelligence/_external_sources/semianalysis/2026-08-21-are-open-models-catching-up.md`
+
+> The past two months have been a breakout period for open source AI. Yes, there was the “DeepSeek moment” back in January 2025, but no one actually used R1 to do any economically valuable work. In contrast, models like GLM 5.3 and Kimi K3 are genuinely capable of many of the same coding and agentic tasks that rocketed Anthropic to $65B+ ARR. Unlike others who inflated ARR, [our figures were much closer to reality.](https://semianalysis.com/tokenomics-model/)  [![](https://substackcdn.com/image/fe
+
 ### 2026-08-19 · Cerebras's Next Generation CS-4: Fast Just Got Faster
 _Double the Performance, Double the Power, Double the Fun_
 
@@ -121,19 +131,11 @@ _A top tier RL environment startup spawns out of thin air, the most aggressive c
 
 > It’s been a little over 1 year since the disastrous Llama 4 release spurred Zuck to rebuild his entire AI org. Highlights include the shocking $14.3B Scale AI “investment” just to poach Alexandr Wang and the best people from his Safety, Evaluations, and Alignment Labs (SEAL) team, the multi-hundred million dollar (sometimes $1B+) pay packages offered to top AI researchers/engineers, and the expedited compute ramp enabled by their new “Tent” datacenter design. For more details, see our [original
 
-### 2026-07-08 · Anthropic 3Q26 Profit Over $1B: The Anthropic IPO Financials Sneak Peak
-_Anthropic’s Opportunity is Theirs to Lose_
-
-- **Authors:** ["Joey Brookhart", "Crystal Huang", "Dylan Patel"]
-- **Access:** paid-preview
-- **URL:** https://newsletter.semianalysis.com/p/anthropic-3q26-profit-over-1b-the
-- **Corpus file:** `intelligence/_external_sources/semianalysis/2026-07-08-anthropic-3q26-profit-over-1b-the.md`
-
-> # Introduction  When Dario Amodei left OpenAI to start Anthropic in early 2021, the viral release of ChatGPT was over 18 months away and the commercialization of LLMs was practically zero. Just a few short years later, Anthropic and OpenAI combine for ~$100B of ARR and a clear winner emerged in the profitable monetization of AI models in 2026 as Claude Code took the software development world by storm.  Anthropic confidentially filed for IPO on June 1st. Over 1 month later, equity raises from hy
-
 
 ## ⊕ GITHUB COMMITS + RELEASES, last 24h
 
+- **Subtensor (chain)** (COMMIT `e18ca67`, 2026-08-21 16:42) sync bittensor-core 0.1.4 release versions (#3108)  
+  https://github.com/RaoFoundation/subtensor/commit/e18ca67f1a00b35c7d5986888d1cc388da8c095f
 - **Subtensor (chain)** (COMMIT `8556286`, 2026-08-21 16:01) Merge pull request #3089 from RaoFoundation/release-448  
   https://github.com/RaoFoundation/subtensor/commit/85562869f99f0de7c66d8784d4ca7ecd387b6767
 - **Subtensor (chain)** (COMMIT `0d39882`, 2026-08-20 21:02) Merge pull request #3100 from RaoFoundation/fix/sdk-intent-safety-preflights-ready  
@@ -165,4 +167,4 @@ _no posts retrieved · all Nitter instances may be down_
 
 
 ---
-_Generated at 2026-08-21T16:26:12.468016+00:00 by scripts/intel/aggregate.py. Treat this digest as input context, not as ground truth. Verify before quoting._
+_Generated at 2026-08-21T20:19:37.605622+00:00 by scripts/intel/aggregate.py. Treat this digest as input context, not as ground truth. Verify before quoting._
