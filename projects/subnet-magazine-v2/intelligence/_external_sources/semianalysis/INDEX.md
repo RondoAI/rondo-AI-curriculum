@@ -1,11 +1,12 @@
 # SemiAnalysis Archive Index
 
-_320 posts captured. Generated 2026-08-23T20:16:47.665421+00:00._
+_321 posts captured. Generated 2026-08-24T00:55:24.766490+00:00._
 
 Editorial policy: SemiAnalysis is the macro reference. The Oracle cites it for any claim about hyperscaler compute, GPU economics, datacenter power, foundry capacity, memory pricing, lab unit economics. The Oracle does NOT cite SemiAnalysis for any Bittensor-specific claim. SemiAnalysis does not cover Bittensor; treat that absence as itself information.
 
 | Date | Title | Audience | Authors | File |
 | --- | --- | --- | --- | --- |
+| 2026-08-24 | [AgentX - InferenceXv3: Does CUDA Moat Hold up in Agentic Inferencing?](https://newsletter.semianalysis.com/p/agentx-inferencexv3-does-cuda-moat) | only_paid | ["Cam Quilici", "Bryan Shan", "Alec Ibarra", "Daniel Nishbal | `2026-08-24-agentx-inferencexv3-does-cuda-moat.md` |
 | 2026-08-21 | [Are Open Models Catching Up?](https://newsletter.semianalysis.com/p/are-open-models-catching-up) | only_paid | ["Evan Cloutier", "Max Kan", "Jordan Nanos", "Dylan Patel"] | `2026-08-21-are-open-models-catching-up.md` |
 | 2026-08-19 | [Cerebras's Next Generation CS-4: Fast Just Got Faster](https://newsletter.semianalysis.com/p/cerebrass-next-generation-cs-4-fast) | only_paid | ["Myron Xie", "Bryan Shan", "Wega Chu", "Jordan Nanos", "Dyl | `2026-08-19-cerebrass-next-generation-cs-4-fast.md` |
 | 2026-08-16 | [$12B of US ratepayers' money wasted on a modeling mistake and PJM wants to do it](https://newsletter.semianalysis.com/p/12b-of-us-ratepayers-money-wasted) | only_paid | ["Robert Boswall", "Reyk Knuhtsen", "Jeremie Eliahou Ontiver | `2026-08-16-12b-of-us-ratepayers-money-wasted.md` |
