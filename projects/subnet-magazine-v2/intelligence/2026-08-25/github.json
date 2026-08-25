@@ -1,1 +1,13 @@
-[]
+[
+  {
+    "repo": "opentensor/subtensor",
+    "name": "Subtensor (chain)",
+    "kind": "commit",
+    "sha": "71136ad",
+    "message": "Release 449: enable root weight setting with a 1/16 concentration cap (#3109)",
+    "author": "UnArbosFour",
+    "posted_at": "2026-08-25T18:55:40Z",
+    "url": "https://github.com/RaoFoundation/subtensor/commit/71136ad1098a661c0d5477338b21557b9f9118e2",
+    "fetched_at": "2026-08-25T20:22:17.132836+00:00"
+  }
+]

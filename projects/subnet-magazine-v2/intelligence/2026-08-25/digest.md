@@ -134,7 +134,8 @@ _Rubin LUT Based Tensor Core, Feynman, Rack Scale, Perf Per MegaWatt, Perf Per D
 
 ## ⊕ GITHUB COMMITS + RELEASES, last 24h
 
-_no commits or releases in the lookback window_
+- **Subtensor (chain)** (COMMIT `71136ad`, 2026-08-25 18:55) Release 449: enable root weight setting with a 1/16 concentration cap (#3109)  
+  https://github.com/RaoFoundation/subtensor/commit/71136ad1098a661c0d5477338b21557b9f9118e2
 
 ## ⊕ ECOSYSTEM BLOGS via RSS
 
@@ -146,4 +147,4 @@ _no posts retrieved · all Nitter instances may be down_
 
 
 ---
-_Generated at 2026-08-25T16:30:07.293773+00:00 by scripts/intel/aggregate.py. Treat this digest as input context, not as ground truth. Verify before quoting._
+_Generated at 2026-08-25T20:22:20.765536+00:00 by scripts/intel/aggregate.py. Treat this digest as input context, not as ground truth. Verify before quoting._
