@@ -11,6 +11,16 @@ _no human notes in the window_
 
 _SemiAnalysis is the most-cited semiconductor and AI infrastructure publication in the industry. They do NOT cover Bittensor. The Oracle uses this corpus for any claim about hyperscaler compute, GPU economics, datacenter power, foundry capacity, memory pricing, lab unit economics. DO NOT cite SemiAnalysis for any Bittensor-specific claim. Full archive (289 posts, May 2020 onwards) lives at `intelligence/_external_sources/semianalysis/` with an `INDEX.md` table of contents. Paywalled posts show only subtitle + free preview; free posts have the full body extracted._
 
+### 2026-08-25 · OpenAI Jalapeño: Better Than Nvidia Blackwell
+_OpenAI’s self-designed ASIC compared with Rubin, Jalapeño’s TCO, throughput per MW, and spicy deets_
+
+- **Authors:** ["Bryan Shan", "Myron Xie", "Jordan Nanos", "Wega Chu", "Clara Ee", "Dylan Patel"]
+- **Access:** paid-preview
+- **URL:** https://newsletter.semianalysis.com/p/openai-jalapeno-better-than-nvidia
+- **Corpus file:** `intelligence/_external_sources/semianalysis/2026-08-25-openai-jalapeno-better-than-nvidia.md`
+
+> OpenAI has spent the past couple years quietly building “Jalapeño,” an inference chip just announced at Hot Chips. Rumors of a successful tapeout had been swirling for a while. But now we have details. OpenAI invited us to look at their chip, go to their labs to check out how real it is, and [benchmark](https://openai.com/index/jalapeno-first-results/) it with our [InferenceX](https://inferencex.semianalysis.com/) suite.  In June, [OpenAI unveiled the chip program](https://openai.com/index/opena
+
 ### 2026-08-24 · AgentX - InferenceXv3: Does CUDA Moat Hold up in Agentic Inferencing?
 _$3 Million USD dataset open sourced, 1 Mil+ Context Length, Multiturn, Sub Agents 95%+ KVCache HitRate, GB300 NVL72, MI355, B200_
 
@@ -121,16 +131,6 @@ _Rubin LUT Based Tensor Core, Feynman, Rack Scale, Perf Per MegaWatt, Perf Per D
 
 > [Vera Rubin NVL72 is the second generation of Nvidia’s rack-scale Oberon architecture, and its gains on inference come from extreme co-design](https://newsletter.semianalysis.com/p/vera-rubin-extreme-co-design-an-evolution). Early results from engineering samples are encouraging. Vera Rubin NVL72 running DeepSeek R1 delivers 5.4x performance per MW and 5x performance per dollar over GB200 NVL72 today, and the gap is even wider against GB200 NVL72 during its early bringup in 2025. Vera Rubin is s
 
-### 2026-07-22 · Meta’s Infrastructure Team Needs A Culture Reset
-_Meta Infrastructure has become bloated, with middle managers expending resources on over-engineered technology solutions that lose sight of broader organizational needs._
-
-- **Authors:** ["Wayne Ma", "Myron Xie", "Julien Martin-Prin", "Daniel Nishball", "Dylan Patel"]
-- **Access:** paid-preview
-- **URL:** https://newsletter.semianalysis.com/p/metas-infrastructure-team-needs-a
-- **Corpus file:** `intelligence/_external_sources/semianalysis/2026-07-22-metas-infrastructure-team-needs-a.md`
-
-> In our [recent newsletter piece about Meta Superintelligence](https://newsletter.semianalysis.com/p/the-future-of-meta-superintelligence), we expressed reasons to be optimistic on Meta AI. MSL now has many of the right ingredients to catch up with Anthropic and OpenAI to return to the frontier. However, we also briefly alluded to cultural issues plaguing Meta’s infrastructure teams. This article will dive into how these cultural issues have manifested into expensive missteps, whether it be with
-
 
 ## ⊕ GITHUB COMMITS + RELEASES, last 24h
 
@@ -146,4 +146,4 @@ _no posts retrieved · all Nitter instances may be down_
 
 
 ---
-_Generated at 2026-08-25T12:36:59.364301+00:00 by scripts/intel/aggregate.py. Treat this digest as input context, not as ground truth. Verify before quoting._
+_Generated at 2026-08-25T16:30:07.293773+00:00 by scripts/intel/aggregate.py. Treat this digest as input context, not as ground truth. Verify before quoting._
