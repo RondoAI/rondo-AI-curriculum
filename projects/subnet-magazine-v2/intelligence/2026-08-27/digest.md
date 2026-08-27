@@ -134,7 +134,8 @@ _Rubin LUT Based Tensor Core, Feynman, Rack Scale, Perf Per MegaWatt, Perf Per D
 
 ## ⊕ GITHUB COMMITS + RELEASES, last 24h
 
-_no commits or releases in the lookback window_
+- **Subtensor (chain)** (COMMIT `9540b3a`, 2026-08-27 18:41) Release 450: canonical on-chain beta pricing, display units, and curated beta (#3117)  
+  https://github.com/RaoFoundation/subtensor/commit/9540b3af59179b88af99f8e0d03add5d96512e3f
 
 ## ⊕ ECOSYSTEM BLOGS via RSS
 
@@ -146,4 +147,4 @@ _no posts retrieved · all Nitter instances may be down_
 
 
 ---
-_Generated at 2026-08-27T06:36:58.114678+00:00 by scripts/intel/aggregate.py. Treat this digest as input context, not as ground truth. Verify before quoting._
+_Generated at 2026-08-27T18:44:38.758346+00:00 by scripts/intel/aggregate.py. Treat this digest as input context, not as ground truth. Verify before quoting._
