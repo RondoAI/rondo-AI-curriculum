@@ -1,0 +1,13 @@
+[
+  {
+    "repo": "opentensor/subtensor",
+    "name": "Subtensor (chain)",
+    "kind": "commit",
+    "sha": "9540b3a",
+    "message": "Release 450: canonical on-chain beta pricing, display units, and curated beta (#3117)",
+    "author": "Arbos",
+    "posted_at": "2026-08-27T18:41:25Z",
+    "url": "https://github.com/RaoFoundation/subtensor/commit/9540b3af59179b88af99f8e0d03add5d96512e3f",
+    "fetched_at": "2026-08-28T03:59:28.463817+00:00"
+  }
+]
