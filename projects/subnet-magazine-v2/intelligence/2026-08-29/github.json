@@ -1,0 +1,79 @@
+[
+  {
+    "repo": "opentensor/subtensor",
+    "name": "Subtensor (chain)",
+    "kind": "commit",
+    "sha": "b209f3e",
+    "message": "Merge pull request #3126 from RaoFoundation/release-v451",
+    "author": "UnArbosFive",
+    "posted_at": "2026-08-28T19:05:10Z",
+    "url": "https://github.com/RaoFoundation/subtensor/commit/b209f3edea559b819031a7b8ef04eb8e0fe6f7cc",
+    "fetched_at": "2026-08-29T00:21:05.587438+00:00"
+  },
+  {
+    "repo": "opentensor/subtensor",
+    "name": "Subtensor (chain)",
+    "kind": "commit",
+    "sha": "d78d9cc",
+    "message": "Merge pull request #3127 from RaoFoundation/cleanup/root-reborn-2",
+    "author": "UnArbosFive",
+    "posted_at": "2026-08-28T18:31:17Z",
+    "url": "https://github.com/RaoFoundation/subtensor/commit/d78d9cc6a6ee4d805f74a35414baaef8be025a5f",
+    "fetched_at": "2026-08-29T00:21:05.587438+00:00"
+  },
+  {
+    "repo": "opentensor/subtensor",
+    "name": "Subtensor (chain)",
+    "kind": "commit",
+    "sha": "fd40d61",
+    "message": "spec bump",
+    "author": "UnarbosFour",
+    "posted_at": "2026-08-28T17:50:34Z",
+    "url": "https://github.com/RaoFoundation/subtensor/commit/fd40d61b4831598eacabbd0d9130e398111715d8",
+    "fetched_at": "2026-08-29T00:21:05.587438+00:00"
+  },
+  {
+    "repo": "opentensor/subtensor",
+    "name": "Subtensor (chain)",
+    "kind": "commit",
+    "sha": "e43eb96",
+    "message": "Avoid blocking root stake changes on pending basket deposits",
+    "author": "UnarbosFour",
+    "posted_at": "2026-08-28T17:17:42Z",
+    "url": "https://github.com/RaoFoundation/subtensor/commit/e43eb96f3bc4af318639f937461839baa13994e2",
+    "fetched_at": "2026-08-29T00:21:05.587438+00:00"
+  },
+  {
+    "repo": "opentensor/subtensor",
+    "name": "Subtensor (chain)",
+    "kind": "commit",
+    "sha": "0f053cf",
+    "message": "Merge branch 'release-v451' into cleanup/root-reborn-2",
+    "author": "UnarbosFour",
+    "posted_at": "2026-08-28T16:03:23Z",
+    "url": "https://github.com/RaoFoundation/subtensor/commit/0f053cfbae0e20b3d7cdd6669d98dff3e212dddb",
+    "fetched_at": "2026-08-29T00:21:05.587438+00:00"
+  },
+  {
+    "repo": "opentensor/subtensor",
+    "name": "Subtensor (chain)",
+    "kind": "commit",
+    "sha": "31e0a57",
+    "message": "Handle terminal basket swap failures per holding without blocking healthy root claims.",
+    "author": "UnarbosFour",
+    "posted_at": "2026-08-28T16:02:20Z",
+    "url": "https://github.com/RaoFoundation/subtensor/commit/31e0a57786403bfe110c63ef3c6f429c941ca62d",
+    "fetched_at": "2026-08-29T00:21:05.587438+00:00"
+  },
+  {
+    "repo": "opentensor/subtensor",
+    "name": "Subtensor (chain)",
+    "kind": "commit",
+    "sha": "409acb7",
+    "message": "release-v451",
+    "author": "UnArbosFive",
+    "posted_at": "2026-08-28T14:39:37Z",
+    "url": "https://github.com/RaoFoundation/subtensor/commit/409acb7fb3e3fe5a66d586b9862a49426dcfb992",
+    "fetched_at": "2026-08-29T00:21:05.587438+00:00"
+  }
+]
