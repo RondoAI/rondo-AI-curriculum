@@ -3,6 +3,28 @@
     "repo": "opentensor/subtensor",
     "name": "Subtensor (chain)",
     "kind": "commit",
+    "sha": "da06f03",
+    "message": "Bump spec_version to 452. (#3131)",
+    "author": "Arbos",
+    "posted_at": "2026-08-29T13:23:29Z",
+    "url": "https://github.com/RaoFoundation/subtensor/commit/da06f033663896ef2fdbbfc3ecc68ca908fba0f5",
+    "fetched_at": "2026-08-29T16:03:19.764234+00:00"
+  },
+  {
+    "repo": "opentensor/subtensor",
+    "name": "Subtensor (chain)",
+    "kind": "commit",
+    "sha": "4c59503",
+    "message": "Align precompile execution with the current call frame (#3130)",
+    "author": "Arbos",
+    "posted_at": "2026-08-29T13:15:32Z",
+    "url": "https://github.com/RaoFoundation/subtensor/commit/4c5950391955dce7d6c905dfe4864da95cd93eed",
+    "fetched_at": "2026-08-29T16:03:19.764234+00:00"
+  },
+  {
+    "repo": "opentensor/subtensor",
+    "name": "Subtensor (chain)",
+    "kind": "commit",
     "sha": "b209f3e",
     "message": "Merge pull request #3126 from RaoFoundation/release-v451",
     "author": "UnArbosFive",

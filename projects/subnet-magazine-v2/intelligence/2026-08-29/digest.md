@@ -134,6 +134,10 @@ _Rubin LUT Based Tensor Core, Feynman, Rack Scale, Perf Per MegaWatt, Perf Per D
 
 ## ⊕ GITHUB COMMITS + RELEASES, last 24h
 
+- **Subtensor (chain)** (COMMIT `da06f03`, 2026-08-29 13:23) Bump spec_version to 452. (#3131)  
+  https://github.com/RaoFoundation/subtensor/commit/da06f033663896ef2fdbbfc3ecc68ca908fba0f5
+- **Subtensor (chain)** (COMMIT `4c59503`, 2026-08-29 13:15) Align precompile execution with the current call frame (#3130)  
+  https://github.com/RaoFoundation/subtensor/commit/4c5950391955dce7d6c905dfe4864da95cd93eed
 - **Subtensor (chain)** (COMMIT `b209f3e`, 2026-08-28 19:05) Merge pull request #3126 from RaoFoundation/release-v451  
   https://github.com/RaoFoundation/subtensor/commit/b209f3edea559b819031a7b8ef04eb8e0fe6f7cc
 - **Subtensor (chain)** (COMMIT `d78d9cc`, 2026-08-28 18:31) Merge pull request #3127 from RaoFoundation/cleanup/root-reborn-2  
@@ -159,4 +163,4 @@ _no posts retrieved · all Nitter instances may be down_
 
 
 ---
-_Generated at 2026-08-29T10:41:03.025774+00:00 by scripts/intel/aggregate.py. Treat this digest as input context, not as ground truth. Verify before quoting._
+_Generated at 2026-08-29T16:03:24.622306+00:00 by scripts/intel/aggregate.py. Treat this digest as input context, not as ground truth. Verify before quoting._
