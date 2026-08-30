@@ -11,6 +11,16 @@ _no human notes in the window_
 
 _SemiAnalysis is the most-cited semiconductor and AI infrastructure publication in the industry. They do NOT cover Bittensor. The Oracle uses this corpus for any claim about hyperscaler compute, GPU economics, datacenter power, foundry capacity, memory pricing, lab unit economics. DO NOT cite SemiAnalysis for any Bittensor-specific claim. Full archive (289 posts, May 2020 onwards) lives at `intelligence/_external_sources/semianalysis/` with an `INDEX.md` table of contents. Paywalled posts show only subtitle + free preview; free posts have the full body extracted._
 
+### 2026-08-30 · Most Neoclouds Suck At Security
+_OpenAI vs HuggingFace, Container Escapes, Kernel Bypass, Network Policies, Security Keys, Multi-tenant Grafana, and a ClusterMAX 3.0 Preview_
+
+- **Authors:** ["Jordan Nanos", "Sam Harshe", "Pratt Bhatt", "Billy Cao", "Jack Carson", "Dylan Patel"]
+- **Access:** paid-preview
+- **URL:** https://newsletter.semianalysis.com/p/most-neoclouds-suck-at-security
+- **Corpus file:** `intelligence/_external_sources/semianalysis/2026-08-30-most-neoclouds-suck-at-security.md`
+
+> [![](https://substackcdn.com/image/fetch/$s_!zWz0!,w_1456,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2Fc647fca6-8c53-43a7-af27-f4396a31077b_1448x1086.png)](https://substackcdn.com/image/fetch/$s_!zWz0!,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2Fc647fca6-8c53-43a7-af27-f4396a31077b_1448x1086.png)  In Shakespeare’s Julius Caesar, Caesar ignores a soothsayer’
+
 ### 2026-08-25 · OpenAI Jalapeño: Better Than Nvidia Blackwell
 _OpenAI’s self-designed ASIC compared with Rubin, Jalapeño’s TCO, throughput per MW, and spicy deets_
 
@@ -121,16 +131,6 @@ _Up to 105% Equity Rebate Discounts for OpenAI, Agentic Kernel Generation, Impro
 
 > [When we published our first AMD software article](https://newsletter.semianalysis.com/p/mi300x-vs-h100-vs-h200-benchmark-part-1-training), we gave AMD a 0% chance of closing the gap with Nvidia in AI accelerators. Software was broken, progress was unexciting, and we were the top bug submitter for many months with dozens of AMD engineers triaging our bug reports.  [Six months later, in our AMD 2.0 article, we took the non-consensus position of upgrading from 0% chance to a much more meaningful c
 
-### 2026-07-23 · Vera Rubin NVL72 vs GB200 NVL72? Inference TCO & Architecture Analysis
-_Rubin LUT Based Tensor Core, Feynman, Rack Scale, Perf Per MegaWatt, Perf Per Dollar, Software Improvements, Public Rubin Software, PyTorch, vLLM, OpenAI Triton_
-
-- **Authors:** ["Alec Ibarra", "Bryan Shan", "Daniel Nishball", "Zane Fong", "Cam Quilici", "Kimbo Chen", "Jordan Nanos", "Dylan Patel"
-- **Access:** paid-preview
-- **URL:** https://newsletter.semianalysis.com/p/vera-rubin-nvl72-vs-gb200-nvl72-inference
-- **Corpus file:** `intelligence/_external_sources/semianalysis/2026-07-23-vera-rubin-nvl72-vs-gb200-nvl72-inference.md`
-
-> [Vera Rubin NVL72 is the second generation of Nvidia’s rack-scale Oberon architecture, and its gains on inference come from extreme co-design](https://newsletter.semianalysis.com/p/vera-rubin-extreme-co-design-an-evolution). Early results from engineering samples are encouraging. Vera Rubin NVL72 running DeepSeek R1 delivers 5.4x performance per MW and 5x performance per dollar over GB200 NVL72 today, and the gap is even wider against GB200 NVL72 during its early bringup in 2025. Vera Rubin is s
-
 
 ## ⊕ GITHUB COMMITS + RELEASES, last 24h
 
@@ -149,4 +149,4 @@ _no posts retrieved · all Nitter instances may be down_
 
 
 ---
-_Generated at 2026-08-30T15:52:31.350085+00:00 by scripts/intel/aggregate.py. Treat this digest as input context, not as ground truth. Verify before quoting._
+_Generated at 2026-08-30T19:00:57.408013+00:00 by scripts/intel/aggregate.py. Treat this digest as input context, not as ground truth. Verify before quoting._
