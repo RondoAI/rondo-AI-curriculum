@@ -11,6 +11,16 @@ _no human notes in the window_
 
 _SemiAnalysis is the most-cited semiconductor and AI infrastructure publication in the industry. They do NOT cover Bittensor. The Oracle uses this corpus for any claim about hyperscaler compute, GPU economics, datacenter power, foundry capacity, memory pricing, lab unit economics. DO NOT cite SemiAnalysis for any Bittensor-specific claim. Full archive (289 posts, May 2020 onwards) lives at `intelligence/_external_sources/semianalysis/` with an `INDEX.md` table of contents. Paywalled posts show only subtitle + free preview; free posts have the full body extracted._
 
+### 2026-09-01 · Korea’s Trillion-Dollar Sovereign AI Investment: Nvidia Wins, Hynix Loses
+_Korea hosts a Squid Games, National AI Tournament, the best non-Chinese open source model gets eliminated, why Nvidia needs open source, implications for Hynix and Samsung_
+
+- **Authors:** ["Max Kan", "Ray Wang", "Dylan Patel"]
+- **Access:** paid-preview
+- **URL:** https://newsletter.semianalysis.com/p/koreas-trillion-dollar-sovereign
+- **Corpus file:** `intelligence/_external_sources/semianalysis/2026-09-01-koreas-trillion-dollar-sovereign.md`
+
+> Every day, businesses and governments around the world are becoming increasingly reliant on America’s frontier models. Startup CEOs already can’t imagine running their companies without AI, and it won’t be long until the same is true for every other organization in the world.  At the same time, it’s become abundantly clear that access to frontier models is at the mercy of Anthropic, OpenAI, and the United States government. Fable 5 was temporarily banned by the USG, and GPT 5.6 and Astra were si
+
 ### 2026-08-30 · Most Neoclouds Suck At Security
 _OpenAI vs HuggingFace, Container Escapes, Kernel Bypass, Network Policies, Security Keys, Multi-tenant Grafana, and a ClusterMAX 3.0 Preview_
 
@@ -121,16 +131,6 @@ _Everyone Says They're Modular, Do The Vendor Claims Hold Up? Zuck's Tents, AWS'
 
 > # The Labor Problem and Modularization to the Rescue  Today we dig into the world of datacenter construction, because how datacenters are built now bears little resemblance to how the industry has historically done it. Concrete walls arrive as finished panels, mechanical and electrical rooms arrive wired, and sometimes even entire data halls arrive on the back of a truck. Some of the largest datacenters in the world are increasingly assembled the same way you assemble your new Spider-Man LEGO se
 
-### 2026-07-25 · Can AMD break the CUDA Moat? AMD Advancing AI 2026
-_Up to 105% Equity Rebate Discounts for OpenAI, Agentic Kernel Generation, Improvement in Software Quality, Unstable Internal Development Clusters, Helios MI455X Production Ramp Hell_
-
-- **Authors:** ["Bryan Shan", "Daniel Nishball", "Myron Xie", "Wega Chu", "Ivan Chiam", "Cam Quilici", "Cheang Kang Wen", "Kimbo Chen",
-- **Access:** paid-preview
-- **URL:** https://newsletter.semianalysis.com/p/can-amd-break-the-cuda-moat-amd-advancing
-- **Corpus file:** `intelligence/_external_sources/semianalysis/2026-07-25-can-amd-break-the-cuda-moat-amd-advancing.md`
-
-> [When we published our first AMD software article](https://newsletter.semianalysis.com/p/mi300x-vs-h100-vs-h200-benchmark-part-1-training), we gave AMD a 0% chance of closing the gap with Nvidia in AI accelerators. Software was broken, progress was unexciting, and we were the top bug submitter for many months with dozens of AMD engineers triaging our bug reports.  [Six months later, in our AMD 2.0 article, we took the non-consensus position of upgrading from 0% chance to a much more meaningful c
-
 
 ## ⊕ GITHUB COMMITS + RELEASES, last 24h
 
@@ -146,4 +146,4 @@ _no posts retrieved · all Nitter instances may be down_
 
 
 ---
-_Generated at 2026-09-01T19:08:31.134606+00:00 by scripts/intel/aggregate.py. Treat this digest as input context, not as ground truth. Verify before quoting._
+_Generated at 2026-09-01T22:18:57.466159+00:00 by scripts/intel/aggregate.py. Treat this digest as input context, not as ground truth. Verify before quoting._
