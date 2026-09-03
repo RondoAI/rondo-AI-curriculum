@@ -134,7 +134,8 @@ _Everyone Says They're Modular, Do The Vendor Claims Hold Up? Zuck's Tents, AWS'
 
 ## ⊕ GITHUB COMMITS + RELEASES, last 24h
 
-_no commits or releases in the lookback window_
+- **Subtensor (chain)** (COMMIT `823bdcb`, 2026-09-03 15:49) Release 453 (#3138)  
+  https://github.com/RaoFoundation/subtensor/commit/823bdcbc58a29f60b243be4737a7c72b34ac7d93
 
 ## ⊕ ECOSYSTEM BLOGS via RSS
 
@@ -146,4 +147,4 @@ _no posts retrieved · all Nitter instances may be down_
 
 
 ---
-_Generated at 2026-09-03T15:40:21.651368+00:00 by scripts/intel/aggregate.py. Treat this digest as input context, not as ground truth. Verify before quoting._
+_Generated at 2026-09-03T19:05:37.373829+00:00 by scripts/intel/aggregate.py. Treat this digest as input context, not as ground truth. Verify before quoting._

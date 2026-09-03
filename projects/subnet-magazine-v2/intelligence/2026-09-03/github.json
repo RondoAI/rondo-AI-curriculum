@@ -1,1 +1,13 @@
-[]
+[
+  {
+    "repo": "opentensor/subtensor",
+    "name": "Subtensor (chain)",
+    "kind": "commit",
+    "sha": "823bdcb",
+    "message": "Release 453 (#3138)",
+    "author": "UnArbosFive",
+    "posted_at": "2026-09-03T15:49:27Z",
+    "url": "https://github.com/RaoFoundation/subtensor/commit/823bdcbc58a29f60b243be4737a7c72b34ac7d93",
+    "fetched_at": "2026-09-03T19:05:33.469092+00:00"
+  }
+]
