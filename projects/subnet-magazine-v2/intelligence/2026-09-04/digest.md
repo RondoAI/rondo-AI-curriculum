@@ -134,6 +134,26 @@ _Everyone Says They're Modular, Do The Vendor Claims Hold Up? Zuck's Tents, AWS'
 
 ## ⊕ GITHUB COMMITS + RELEASES, last 24h
 
+- **Subtensor (chain)** (COMMIT `14cde64`, 2026-09-04 17:25) Merge pull request #3143 from RaoFoundation/release-454  
+  https://github.com/RaoFoundation/subtensor/commit/14cde6410fe8ec81a940e290c56f94a632a0988d
+- **Subtensor (chain)** (COMMIT `976f20a`, 2026-09-04 17:15) Fix SDK offline root claim fixtures  
+  https://github.com/RaoFoundation/subtensor/commit/976f20ad9fd8e10ac588717763cd74718192a9e0
+- **Subtensor (chain)** (COMMIT `1e2aec0`, 2026-09-04 16:59) Merge pull request #3141 from RaoFoundation/fix/claim-budget-cap  
+  https://github.com/RaoFoundation/subtensor/commit/1e2aec0dc333b32df8bd5db91db8634b0c7f2df5
+- **Subtensor (chain)** (COMMIT `14fe0ad`, 2026-09-04 16:09) Merge pull request #3140 from RaoFoundation/fix/proxy-transfer-stake  
+  https://github.com/RaoFoundation/subtensor/commit/14fe0ade52e969d7ee765c11f62b7e4090f6b00b
+- **Subtensor (chain)** (COMMIT `7d6db64`, 2026-09-04 15:58) Fix root claim benchmark and swap dust expectations  
+  https://github.com/RaoFoundation/subtensor/commit/7d6db649c7a5ae3e1995bd20c4e7bafe6c553ea2
+- **Subtensor (chain)** (COMMIT `437dd7d`, 2026-09-04 15:50) Account for root claim dispatch extension weight  
+  https://github.com/RaoFoundation/subtensor/commit/437dd7df7fa5d3ef8149a2a3ed1ffc472fa99f03
+- **Subtensor (chain)** (COMMIT `e02fb27`, 2026-09-04 15:38) Allow fixed-point dust in minimum-unit claim test  
+  https://github.com/RaoFoundation/subtensor/commit/e02fb27152c87aa774b502867293eed8c0bc19af
+- **Subtensor (chain)** (COMMIT `81e8c2a`, 2026-09-04 15:23) Fix migration marker test key type  
+  https://github.com/RaoFoundation/subtensor/commit/81e8c2a2d8017fe3aeae94ccd0d5f467b24c139e
+- **Subtensor (chain)** (COMMIT `76c11ae`, 2026-09-04 15:08) Gate staking hotkeys cleanup on storage migration completion  
+  https://github.com/RaoFoundation/subtensor/commit/76c11ae275cb514aec5672fd50155ece4cd9de67
+- **Subtensor (chain)** (COMMIT `b47a914`, 2026-09-04 14:52) Fix coldkey-wide root claims and clean stale staking hotkeys  
+  https://github.com/RaoFoundation/subtensor/commit/b47a91406bf9a9a53653955e9daaed65b81761d1
 - **Subtensor (chain)** (COMMIT `823bdcb`, 2026-09-03 15:49) Release 453 (#3138)  
   https://github.com/RaoFoundation/subtensor/commit/823bdcbc58a29f60b243be4737a7c72b34ac7d93
 
@@ -147,4 +167,4 @@ _no posts retrieved · all Nitter instances may be down_
 
 
 ---
-_Generated at 2026-09-04T15:38:39.627551+00:00 by scripts/intel/aggregate.py. Treat this digest as input context, not as ground truth. Verify before quoting._
+_Generated at 2026-09-04T18:49:35.320478+00:00 by scripts/intel/aggregate.py. Treat this digest as input context, not as ground truth. Verify before quoting._
