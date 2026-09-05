@@ -1,0 +1,112 @@
+[
+  {
+    "repo": "opentensor/subtensor",
+    "name": "Subtensor (chain)",
+    "kind": "commit",
+    "sha": "14cde64",
+    "message": "Merge pull request #3143 from RaoFoundation/release-454",
+    "author": "UnArbosFive",
+    "posted_at": "2026-09-04T17:25:39Z",
+    "url": "https://github.com/RaoFoundation/subtensor/commit/14cde6410fe8ec81a940e290c56f94a632a0988d",
+    "fetched_at": "2026-09-05T02:27:33.584808+00:00"
+  },
+  {
+    "repo": "opentensor/subtensor",
+    "name": "Subtensor (chain)",
+    "kind": "commit",
+    "sha": "976f20a",
+    "message": "Fix SDK offline root claim fixtures",
+    "author": "UnArbosFive",
+    "posted_at": "2026-09-04T17:15:18Z",
+    "url": "https://github.com/RaoFoundation/subtensor/commit/976f20ad9fd8e10ac588717763cd74718192a9e0",
+    "fetched_at": "2026-09-05T02:27:33.584808+00:00"
+  },
+  {
+    "repo": "opentensor/subtensor",
+    "name": "Subtensor (chain)",
+    "kind": "commit",
+    "sha": "1e2aec0",
+    "message": "Merge pull request #3141 from RaoFoundation/fix/claim-budget-cap",
+    "author": "UnArbosFive",
+    "posted_at": "2026-09-04T16:59:15Z",
+    "url": "https://github.com/RaoFoundation/subtensor/commit/1e2aec0dc333b32df8bd5db91db8634b0c7f2df5",
+    "fetched_at": "2026-09-05T02:27:33.584808+00:00"
+  },
+  {
+    "repo": "opentensor/subtensor",
+    "name": "Subtensor (chain)",
+    "kind": "commit",
+    "sha": "14fe0ad",
+    "message": "Merge pull request #3140 from RaoFoundation/fix/proxy-transfer-stake",
+    "author": "UnArbosFive",
+    "posted_at": "2026-09-04T16:09:52Z",
+    "url": "https://github.com/RaoFoundation/subtensor/commit/14fe0ade52e969d7ee765c11f62b7e4090f6b00b",
+    "fetched_at": "2026-09-05T02:27:33.584808+00:00"
+  },
+  {
+    "repo": "opentensor/subtensor",
+    "name": "Subtensor (chain)",
+    "kind": "commit",
+    "sha": "7d6db64",
+    "message": "Fix root claim benchmark and swap dust expectations",
+    "author": "UnarbosFour",
+    "posted_at": "2026-09-04T15:58:39Z",
+    "url": "https://github.com/RaoFoundation/subtensor/commit/7d6db649c7a5ae3e1995bd20c4e7bafe6c553ea2",
+    "fetched_at": "2026-09-05T02:27:33.584808+00:00"
+  },
+  {
+    "repo": "opentensor/subtensor",
+    "name": "Subtensor (chain)",
+    "kind": "commit",
+    "sha": "437dd7d",
+    "message": "Account for root claim dispatch extension weight",
+    "author": "UnarbosFour",
+    "posted_at": "2026-09-04T15:50:27Z",
+    "url": "https://github.com/RaoFoundation/subtensor/commit/437dd7df7fa5d3ef8149a2a3ed1ffc472fa99f03",
+    "fetched_at": "2026-09-05T02:27:33.584808+00:00"
+  },
+  {
+    "repo": "opentensor/subtensor",
+    "name": "Subtensor (chain)",
+    "kind": "commit",
+    "sha": "e02fb27",
+    "message": "Allow fixed-point dust in minimum-unit claim test",
+    "author": "UnarbosFour",
+    "posted_at": "2026-09-04T15:38:49Z",
+    "url": "https://github.com/RaoFoundation/subtensor/commit/e02fb27152c87aa774b502867293eed8c0bc19af",
+    "fetched_at": "2026-09-05T02:27:33.584808+00:00"
+  },
+  {
+    "repo": "opentensor/subtensor",
+    "name": "Subtensor (chain)",
+    "kind": "commit",
+    "sha": "81e8c2a",
+    "message": "Fix migration marker test key type",
+    "author": "UnarbosFour",
+    "posted_at": "2026-09-04T15:23:50Z",
+    "url": "https://github.com/RaoFoundation/subtensor/commit/81e8c2a2d8017fe3aeae94ccd0d5f467b24c139e",
+    "fetched_at": "2026-09-05T02:27:33.584808+00:00"
+  },
+  {
+    "repo": "opentensor/subtensor",
+    "name": "Subtensor (chain)",
+    "kind": "commit",
+    "sha": "76c11ae",
+    "message": "Gate staking hotkeys cleanup on storage migration completion",
+    "author": "UnarbosFour",
+    "posted_at": "2026-09-04T15:08:37Z",
+    "url": "https://github.com/RaoFoundation/subtensor/commit/76c11ae275cb514aec5672fd50155ece4cd9de67",
+    "fetched_at": "2026-09-05T02:27:33.584808+00:00"
+  },
+  {
+    "repo": "opentensor/subtensor",
+    "name": "Subtensor (chain)",
+    "kind": "commit",
+    "sha": "b47a914",
+    "message": "Fix coldkey-wide root claims and clean stale staking hotkeys",
+    "author": "UnarbosFour",
+    "posted_at": "2026-09-04T14:52:33Z",
+    "url": "https://github.com/RaoFoundation/subtensor/commit/b47a91406bf9a9a53653955e9daaed65b81761d1",
+    "fetched_at": "2026-09-05T02:27:33.584808+00:00"
+  }
+]
