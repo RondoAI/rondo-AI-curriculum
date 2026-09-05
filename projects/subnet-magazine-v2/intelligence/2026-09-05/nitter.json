@@ -30,6 +30,16 @@
     "via_instance": "https://nitter.cz"
   },
   {
+    "handle": "manakoai",
+    "name": "Manako",
+    "posted_at": "Wed, 12 Aug 2026 21:33:23 GMT",
+    "title": "The journey of building AI for the physical world is accelerating. What once took long, complex on-site deployments is rapidly becoming simple, fast, and repeatable. We’re making real-world AI deployment dramatically easier, one step at a time.",
+    "text": "The journey of building AI for the physical world is accelerating. What once took long, complex on-site deployments is rapidly becoming simple, fast, and repeatable. We’re making real-world AI deployment dramatically easier, one step at a time. Max (@MaxSebti) the first @manakoai on-site deployment took me 13 hours. the second one? @tm0klc knocked it out in 3. starting tomorrow, fully deploying Manako takes one ssh command. — http://nitter.jaydenha.uk/MaxSebti/status/2087652839157842247#m",
+    "url": "http://nitter.jaydenha.uk/manakoai/status/2087653699338326183#m",
+    "fetched_at": "2026-09-05T21:51:35.437664+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
     "handle": "oroagents",
     "name": "Oro",
     "posted_at": "Wed, 12 Aug 2026 21:15:59 GMT",
@@ -47,6 +57,16 @@
     "text": "The bigger opportunity is still untouched. When we wrote the paper, SN15 produces roughly 12,000 to 27,000 trajectories per day, but now, with optimisations from @ironseth_s, we're seeing over 60,000 trajectories a day. Our model used only the small agentic slice. The next step is converting the much larger Axis B firehose into grounded agentic training data. Perhaps moving from the static nature of ShoppingBench to a environment compiler? Open competition can produce open intelligence. We’re just getting started.",
     "url": "http://nitter.jaydenha.uk/oroagents/status/2087649321445736776#m",
     "fetched_at": "2026-09-05T17:51:56.119437+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "foundrydigital",
+    "name": "Foundry Digital",
+    "posted_at": "Wed, 11 Jan 2012 23:30:33 GMT",
+    "title": "Expression Engine 2.0 review by the guys at Scriptiny http://bit.ly/w3Pg3R",
+    "text": "Expression Engine 2.0 review by the guys at Scriptiny bit.ly/w3Pg3R",
+    "url": "http://nitter.jaydenha.uk/foundrydigital/status/157243024848596993#m",
+    "fetched_at": "2026-09-05T21:50:58.563647+00:00",
     "via_instance": "https://nitter.cz"
   },
   {
@@ -140,6 +160,16 @@
     "via_instance": "https://nitter.cz"
   },
   {
+    "handle": "zeussubnet",
+    "name": "Zeus Subnet",
+    "posted_at": "Tue, 25 Aug 2026 15:51:30 GMT",
+    "title": "Zeus is becoming energy-aware. The first among weather models. Incentives are now skewed towards Europe, most to Germany. Based on expressed interest from trading desks and trading volume. Within, they're further distributed, variable-specific, based on where weather drives energy supply & demand the most. Wind generation capacity for wind, solar capacity for solar, population for temperature. Now on mainnet.",
+    "text": "Zeus is becoming energy-aware. The first among weather models. Incentives are now skewed towards Europe, most to Germany. Based on expressed interest from trading desks and trading volume. Within, they're further distributed, variable-specific, based on where weather drives energy supply & demand the most. Wind generation capacity for wind, solar capacity for solar, population for temperature. Now on mainnet.",
+    "url": "http://nitter.jaydenha.uk/zeussubnet/status/2092278704445546730#m",
+    "fetched_at": "2026-09-05T21:52:28.890391+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
     "handle": "covenant_ai",
     "name": "Covenant AI",
     "posted_at": "Tue, 25 Aug 2026 15:08:46 GMT",
@@ -210,6 +240,26 @@
     "via_instance": "https://nitter.cz"
   },
   {
+    "handle": "nigescore",
+    "name": "Nige",
+    "posted_at": "Tue, 07 Jul 2026 12:24:58 GMT",
+    "title": "RT by @nigescore: Bandwidth is the hidden tax of edge vision. 3G, 4G, 5G, it all adds up when cameras need to send video. One click in Manako and our clients will run @vidaio_ compression models locally. Lighter clips, faster collection, lower costs.",
+    "text": "Bandwidth is the hidden tax of edge vision. 3G, 4G, 5G, it all adds up when cameras need to send video. One click in Manako and our clients will run @vidaio_ compression models locally. Lighter clips, faster collection, lower costs. Vidaio (@vidaio_) Not all partnerships are created equal.. some open doors... others open worlds! We are proud to announce: @manakoai customers will soon be able to cut bandwidth costs with a single click. @vidaio_ 's compression models, natively integrated. Every camera intelligent AND optimised As Manako grows, Vidaio grows with it This is optimisation on the edg",
+    "url": "http://nitter.jaydenha.uk/manakoai/status/2074469721416638602#m",
+    "fetched_at": "2026-09-05T21:51:30.807915+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "nigescore",
+    "name": "Nige",
+    "posted_at": "Tue, 07 Jul 2026 01:06:10 GMT",
+    "title": "RT by @nigescore: Subnet 44 @webuildscore is expanding. We’re incentivising training for a new vision-language model: Satori. Satori reasons AND grounds. It doesn’t just answer questions about an image. It points to the evidence. - Reason about scenes - Detect and segment objects - Read text - Count entities - Ground claims in pixels Most VLMs are split: strong reasoning OR strong grounding. Detection models localise, but can’t talk. Chatty VLMs describe fluently, but can’t prove it. Satori sits at the intersection. We’re starting with a 7B base model.",
+    "text": "Subnet 44 @webuildscore is expanding. We’re incentivising training for a new vision-language model: Satori. Satori reasons AND grounds. It doesn’t just answer questions about an image. It points to the evidence. - Reason about scenes - Detect and segment objects - Read text - Count entities - Ground claims in pixels Most VLMs are split: strong reasoning OR strong grounding. Detection models localise, but can’t talk. Chatty VLMs describe fluently, but can’t prove it. Satori sits at the intersection. We’re starting with a 7B base model.",
+    "url": "http://nitter.jaydenha.uk/tm0klc/status/2074298897305047101#m",
+    "fetched_at": "2026-09-05T21:51:30.807915+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
     "handle": "resilabsai",
     "name": "RESI",
     "posted_at": "Tue, 07 Apr 2026 17:33:18 GMT",
@@ -227,6 +277,16 @@
     "text": "Distributed training has never been easy. Building a distributed system that makes economic sense on Bittensor is harder still. Today, we’re introducing Connito: a network for collaboratively building composable specialized AI. Signal shows us that just by training a particular selection of experts as a partial model, we can improve the performance of the whole system. Learn about our architecture and results: connito.ai/blog/distributing… Video",
     "url": "http://nitter.jaydenha.uk/ConnitoAI/status/2084723024779989193#m",
     "fetched_at": "2026-09-05T17:50:38.992244+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "const_reborn",
+    "name": "Jacob Steeves",
+    "posted_at": "Tue, 01 Sep 2026 21:47:14 GMT",
+    "title": "https://saygm.com/models/claude-fable-5 Insane numbers from gm. Congrats to the team.",
+    "text": "saygm.com/models/claude-fabl… Insane numbers from gm. Congrats to the team. Link claude-fable-5 API pricing — $3.60 in · $17.99 out per Mtok · SayGM claude-fable-5 API pricing and cost on SayGM, by Anthropic. Input from $3.60, output from $17.99 per million tokens — 64.0% below Anthropic. saygm.com",
+    "url": "http://nitter.jaydenha.uk/const_reborn/status/2094904943853367696#m",
+    "fetched_at": "2026-09-05T21:50:04.938546+00:00",
     "via_instance": "https://nitter.cz"
   },
   {
@@ -257,6 +317,26 @@
     "text": "PSA: Score Studio launches on Sep 16",
     "url": "http://nitter.jaydenha.uk/webuildscore/status/2094860066373386399#m",
     "fetched_at": "2026-09-05T14:22:40.598813+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "zeussubnet",
+    "name": "Zeus Subnet",
+    "posted_at": "Tue, 01 Sep 2026 18:30:02 GMT",
+    "title": "RT by @zeussubnet: So you think you know #Bittensor? Now's your chance to prove it. The night before Exploit, we’re putting the community to the test. Protocol history, legendary moments, characters, launches and lore. Join us for the first Bittensor Community Quiz - in person in Montreal. Free for Exploit attendees. Powered by @generaltensor + @zeussubnet Register at: https://luma.com/7hj5nphs",
+    "text": "So you think you know #Bittensor? Now's your chance to prove it. The night before Exploit, we’re putting the community to the test. Protocol history, legendary moments, characters, launches and lore. Join us for the first Bittensor Community Quiz - in person in Montreal. Free for Exploit attendees. Powered by @generaltensor + @zeussubnet Register at: luma.com/7hj5nphs",
+    "url": "http://nitter.jaydenha.uk/ExploitSummit/status/2094855315930198101#m",
+    "fetched_at": "2026-09-05T21:52:28.890391+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "const_reborn",
+    "name": "Jacob Steeves",
+    "posted_at": "Tue, 01 Sep 2026 15:26:23 GMT",
+    "title": "RT by @const_reborn: Another great result coming out of this competition's arena. We've hit 2,274 tok/s on our MiniMax-M3 baseline We're hard at work on integrating the next top model for our arena. Cacheon focuses on production-ready models for real enterprise use-cases with evaluations only via end-to-end testing We're excited for the submissions we'll get on our next arena. More to come.",
+    "text": "Another great result coming out of this competition's arena. We've hit 2,274 tok/s on our MiniMax-M3 baseline We're hard at work on integrating the next top model for our arena. Cacheon focuses on production-ready models for real enterprise use-cases with evaluations only via end-to-end testing We're excited for the submissions we'll get on our next arena. More to come.",
+    "url": "http://nitter.jaydenha.uk/cacheon_ai/status/2094809099187728711#m",
+    "fetched_at": "2026-09-05T21:50:04.938546+00:00",
     "via_instance": "https://nitter.cz"
   },
   {
@@ -340,6 +420,46 @@
     "via_instance": "https://nitter.cz"
   },
   {
+    "handle": "nigescore",
+    "name": "Nige",
+    "posted_at": "Thu, 20 Aug 2026 12:55:35 GMT",
+    "title": "RT by @nigescore: Computer vision engineers are still duct-taping tools together just to get a model into production. We just finished another round of user interviews and that frustration came up again and again. So we re-designed Studio to work around our new Pipelines + Workflow Canvas features. Visually design any vision pipeline from start to finish, connect models, logic, and outputs on one canvas, preview the exact result, then deploy. You see the output before you ship it. Everything in a single interface. The full loop, shaped by the people who actually build vision systems every day. This is what Decentralized Vision Intelligence looks like.",
+    "text": "Computer vision engineers are still duct-taping tools together just to get a model into production. We just finished another round of user interviews and that frustration came up again and again. So we re-designed Studio to work around our new Pipelines + Workflow Canvas features. Visually design any vision pipeline from start to finish, connect models, logic, and outputs on one canvas, preview the exact result, then deploy. You see the output before you ship it. Everything in a single interface. The full loop, shaped by the people who actually build vision systems every day. This is what Dece",
+    "url": "http://nitter.jaydenha.uk/webuildscore/status/2090422492980515272#m",
+    "fetched_at": "2026-09-05T21:51:30.807915+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "manakoai",
+    "name": "Manako",
+    "posted_at": "Thu, 13 Aug 2026 11:27:25 GMT",
+    "title": "Step by step",
+    "text": "Step by step Max (@MaxSebti) forward deployed engineering — http://nitter.jaydenha.uk/MaxSebti/status/2087858212473098403#m",
+    "url": "http://nitter.jaydenha.uk/manakoai/status/2087863589839282535#m",
+    "fetched_at": "2026-09-05T21:51:35.437664+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "nigescore",
+    "name": "Nige",
+    "posted_at": "Thu, 09 Jul 2026 15:12:31 GMT",
+    "title": "RT by @nigescore: We are excited to announce our membership in the NVIDIA Inception Program #NVIDIAInception.",
+    "text": "We are excited to announce our membership in the NVIDIA Inception Program #NVIDIAInception.",
+    "url": "http://nitter.jaydenha.uk/manakoai/status/2075236662712439039#m",
+    "fetched_at": "2026-09-05T21:51:30.807915+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "manakoai",
+    "name": "Manako",
+    "posted_at": "Thu, 06 Aug 2026 11:51:34 GMT",
+    "title": "This is what shipping physical AI looks like. First stop? 124 fuel stations in France. next stop? everywhere with a camera. Built on @nvidia jetson. deployed in minutes. #NVIDIAInception",
+    "text": "This is what shipping physical AI looks like. First stop? 124 fuel stations in France. next stop? everywhere with a camera. Built on @nvidia jetson. deployed in minutes. #NVIDIAInception Max (@MaxSebti) everyone’s building AI in the cloud. we’re shipping it in boxes. this is the first of 124 @nvidia jetson powered vision intelligence platforms deploying across @Avia_France’s network this quarter as our first batch with them. unbox it, instant operational intelligence. — http://nitter.jaydenha.uk/MaxSebti/status/2085331352606343383#m",
+    "url": "http://nitter.jaydenha.uk/manakoai/status/2085332953459024132#m",
+    "fetched_at": "2026-09-05T21:51:35.437664+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
     "handle": "dippy_ai",
     "name": "Dippy AI",
     "posted_at": "Thu, 04 Jun 2026 15:53:04 GMT",
@@ -417,6 +537,16 @@
     "text": "Shell and ENI stations added to roll out today. Accelerate.",
     "url": "http://nitter.jaydenha.uk/MaxSebti/status/2095545005540552752#m",
     "fetched_at": "2026-09-05T17:52:08.215139+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "zeussubnet",
+    "name": "Zeus Subnet",
+    "posted_at": "Thu, 03 Sep 2026 15:33:05 GMT",
+    "title": "While energy supply becomes more and more weather-dependent, our mission is to give traders the fastest, most precise view on weather ✅ 75% faster* ✅ >30% more accurate on temperature* ✅ >20% more accurate on wind* *vs ECMWF IFS across June and July",
+    "text": "While energy supply becomes more and more weather-dependent, our mission is to give traders the fastest, most precise view on weather ✅ 75% faster* ✅ &gt;30% more accurate on temperature* ✅ &gt;20% more accurate on wind* *vs ECMWF IFS across June and July",
+    "url": "http://nitter.jaydenha.uk/zeussubnet/status/2095535560102203644#m",
+    "fetched_at": "2026-09-05T21:52:28.890391+00:00",
     "via_instance": "https://nitter.cz"
   },
   {
@@ -520,6 +650,16 @@
     "via_instance": "https://nitter.cz"
   },
   {
+    "handle": "manakoai",
+    "name": "Manako",
+    "posted_at": "Sat, 08 Aug 2026 11:48:41 GMT",
+    "title": "Welcome back",
+    "text": "Welcome back cryptolake (@crypt0lake) vacation for 2 weeks and @manakoai had like 20 major updates and a new product i have an insane team — http://nitter.jaydenha.uk/crypt0lake/status/2086044260231762171#m",
+    "url": "http://nitter.jaydenha.uk/manakoai/status/2086057005840466059#m",
+    "fetched_at": "2026-09-05T21:51:35.437664+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
     "handle": "resilabsai",
     "name": "RESI",
     "posted_at": "Sat, 08 Aug 2026 01:27:26 GMT",
@@ -527,6 +667,56 @@
     "text": "Attention Res Labs we have some really exciting news and updates to our project join our discord to stay up to date: discord.gg/TBj8q9vb2Q #bittensor #TAO bittensor:native #reslabs #reilabsai #crypto #subnet #subnet46 #reslabs_ai #reslabsai #opentensor #reptides",
     "url": "http://nitter.jaydenha.uk/resilabsai/status/2085900662139744548#m",
     "fetched_at": "2026-09-05T14:23:23.481441+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "SemiAnalysis_",
+    "name": "SemiAnalysis",
+    "posted_at": "Sat, 05 Sep 2026 21:00:33 GMT",
+    "title": "aura battles are taking over spain and latin america, with thousands showing up to watch people compete to see who can farm the most aura should semis have its own?",
+    "text": "aura battles are taking over spain and latin america, with thousands showing up to watch people compete to see who can farm the most aura should semis have its own?",
+    "url": "http://nitter.jaydenha.uk/SemiAnalysis_/status/2096342747313476013#m",
+    "fetched_at": "2026-09-05T21:52:04.167547+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "taomedia_",
+    "name": "TAO Media",
+    "posted_at": "Sat, 05 Sep 2026 18:36:32 GMT",
+    "title": "$TAO on @CNBC Decentralized AI is starting to attract public-market capital, infrastructure, and mainstream attention. ⬇️",
+    "text": "$TAO on @CNBC Decentralized AI is starting to attract public-market capital, infrastructure, and mainstream attention. ⬇️ Video",
+    "url": "http://nitter.jaydenha.uk/taomedia_/status/2096306504676581763#m",
+    "fetched_at": "2026-09-05T21:52:22.658088+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "galaxyhq",
+    "name": "Galaxy Digital",
+    "posted_at": "Sat, 05 Sep 2026 17:39:14 GMT",
+    "title": "RT by @galaxyhq: Initiate countdown sequence 🚀 @galaxyhq x #GalaxyStadium",
+    "text": "Initiate countdown sequence 🚀 @galaxyhq x #GalaxyStadium",
+    "url": "http://nitter.jaydenha.uk/TexasTechFB/status/2096292085049467125#m",
+    "fetched_at": "2026-09-05T21:50:38.325516+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "BarrySilbert",
+    "name": "Barry Silbert",
+    "posted_at": "Sat, 05 Sep 2026 17:09:23 GMT",
+    "title": "Pinned: adding @AgentsMIB and @MSKCancerCenter to the list",
+    "text": "adding @AgentsMIB and @MSKCancerCenter to the list",
+    "url": "http://nitter.jaydenha.uk/BarrySilbert/status/2096284572992291306#m",
+    "fetched_at": "2026-09-05T21:50:19.236126+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "BarrySilbert",
+    "name": "Barry Silbert",
+    "posted_at": "Sat, 05 Sep 2026 17:08:41 GMT",
+    "title": "RT by @BarrySilbert: ~$45M+ in inflows into $ZCSH, the Zcash ETF, over the last 7 days. The fund has now surpassed $430M in AUM and continues to climb. Investors want exposure to $ZEC, and they're getting it through the world's first Zcash fund. Private money is getting demand.",
+    "text": "~$45M+ in inflows into $ZCSH, the Zcash ETF, over the last 7 days. The fund has now surpassed $430M in AUM and continues to climb. Investors want exposure to $ZEC, and they're getting it through the world's first Zcash fund. Private money is getting demand.",
+    "url": "http://nitter.jaydenha.uk/ZcashETF/status/2096284396122952021#m",
+    "fetched_at": "2026-09-05T21:50:19.236126+00:00",
     "via_instance": "https://nitter.cz"
   },
   {
@@ -547,6 +737,16 @@
     "text": "Capacity ≈ stacks × dies per stack × GB per die Bandwidth ≈ stacks × interface width × pin speed Stack height buys capacity, not bandwidth. Cutting 12-Hi to 8-Hi drops a third of the DRAM dies, the most supply-constrained silicon on the BOM, while bandwidth holds or ticks up. Bandwidth per GB of capacity rises 50%, and $/bandwidth gets meaningfully better right as HBM prices hike. Inference is bandwidth bound: every decoded token re-reads weights and KV cache. (2/2)",
     "url": "http://nitter.jaydenha.uk/SemiAnalysis_/status/2096282607826661688#m",
     "fetched_at": "2026-09-05T17:52:41.916567+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "BarrySilbert",
+    "name": "Barry Silbert",
+    "posted_at": "Sat, 05 Sep 2026 15:21:00 GMT",
+    "title": "RT by @BarrySilbert: Here are the BEST PERFORMING 🟢 ETFs from this past week: $ZCSH The Zcash ETF +18.38% 🟢 $BWET Breakwave Tanker Shipping ETF +15.90% 🟢 $WTIB USCF Oil Plus Bitcoin Strategy Fund +11.87% 🟢 $USO United States Oil Fund +9.04% 🟢 $JJETF iPath Bloomberg Energy Subindex Total Return ETN +8.54% 🟢",
+    "text": "Here are the BEST PERFORMING 🟢 ETFs from this past week: $ZCSH The Zcash ETF +18.38% 🟢 $BWET Breakwave Tanker Shipping ETF +15.90% 🟢 $WTIB USCF Oil Plus Bitcoin Strategy Fund +11.87% 🟢 $USO United States Oil Fund +9.04% 🟢 $JJETF iPath Bloomberg Energy Subindex Total Return ETN +8.54% 🟢",
+    "url": "http://nitter.jaydenha.uk/TheETFTracker/status/2096257294405427538#m",
+    "fetched_at": "2026-09-05T21:50:19.236126+00:00",
     "via_instance": "https://nitter.cz"
   },
   {
@@ -670,6 +870,16 @@
     "via_instance": "https://nitter.cz"
   },
   {
+    "handle": "zeussubnet",
+    "name": "Zeus Subnet",
+    "posted_at": "Mon, 31 Aug 2026 07:57:01 GMT",
+    "title": "Zeus (SN18), recent sell pressure resolved. An early partner who covered the slot registration fee (and held a share of emissions in return) decided to wind down and move on. Although we do not agree with the decision, we respect it. Their remaining position has been fully bought out by a long-term holder. We, Ørpheus AI, own the subnet 100% now.",
+    "text": "Zeus (SN18), recent sell pressure resolved. An early partner who covered the slot registration fee (and held a share of emissions in return) decided to wind down and move on. Although we do not agree with the decision, we respect it. Their remaining position has been fully bought out by a long-term holder. We, Ørpheus AI, own the subnet 100% now.",
+    "url": "http://nitter.jaydenha.uk/zeussubnet/status/2094333622190841951#m",
+    "fetched_at": "2026-09-05T21:52:28.890391+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
     "handle": "resilabsai",
     "name": "RESI",
     "posted_at": "Mon, 20 Apr 2026 19:34:17 GMT",
@@ -710,6 +920,16 @@
     "via_instance": "https://nitter.cz"
   },
   {
+    "handle": "foundrydigital",
+    "name": "Foundry Digital",
+    "posted_at": "Mon, 02 Jan 2012 23:00:41 GMT",
+    "title": "Early predictions for design trends of 2012? http://tiny.cc/mkg4v",
+    "text": "Early predictions for design trends of 2012? tiny.cc/mkg4v",
+    "url": "http://nitter.jaydenha.uk/foundrydigital/status/153974018557493248#m",
+    "fetched_at": "2026-09-05T21:50:58.563647+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
     "handle": "rob_svrn",
     "name": "Rob Greer",
     "posted_at": "Fri, 28 Aug 2026 19:14:36 GMT",
@@ -717,6 +937,36 @@
     "text": "With all these releases, we sometimes forget what is actually happening. We are, quite literally, missing the forest for the trees, and losing sight of the bigger picture. Here are a few thoughts. By now, it has surely become commonplace to say that we are standing at the threshold of the most transformative societal change humanity has witnessed in centuries. It is no coincidence that the current moment is compared to the Industrial Revolution, and sometimes even to humanity’s discovery of fire. In other words, we are facing a societal transformation that could usher in an entirely new civili",
     "url": "http://nitter.jaydenha.uk/kimmonismus/status/2093416981936378090#m",
     "fetched_at": "2026-09-05T14:21:41.589876+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "manakoai",
+    "name": "Manako",
+    "posted_at": "Fri, 28 Aug 2026 14:47:12 GMT",
+    "title": "Those @nvidia Jetsons going into fuel stations just got a lot denser. With our new models, one unit now runs 35–40 cameras + 7–14 agents. Heavier agents eat more of the budget. Lighter ones scale further. The cameras were already on site. The intelligence wasn’t.",
+    "text": "Those @nvidia Jetsons going into fuel stations just got a lot denser. With our new models, one unit now runs 35–40 cameras + 7–14 agents. Heavier agents eat more of the budget. Lighter ones scale further. The cameras were already on site. The intelligence wasn’t.",
+    "url": "http://nitter.jaydenha.uk/manakoai/status/2093349687927394806#m",
+    "fetched_at": "2026-09-05T21:51:35.437664+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "const_reborn",
+    "name": "Jacob Steeves",
+    "posted_at": "Fri, 28 Aug 2026 14:01:44 GMT",
+    "title": "RT by @const_reborn: We’re bringing real-robot validation to OpenRoboto. Models submitted by miners won’t be judged only in simulation anymore. Now we’ll also test them on real robotic hardware.",
+    "text": "We’re bringing real-robot validation to OpenRoboto. Models submitted by miners won’t be judged only in simulation anymore. Now we’ll also test them on real robotic hardware. Video",
+    "url": "http://nitter.jaydenha.uk/openroboto/status/2093338246008979866#m",
+    "fetched_at": "2026-09-05T21:50:04.938546+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "zeussubnet",
+    "name": "Zeus Subnet",
+    "posted_at": "Fri, 28 Aug 2026 13:02:47 GMT",
+    "title": "Zeus gets a 10/10 from Arbos, by @const_reborn",
+    "text": "Zeus gets a 10/10 from Arbos, by @const_reborn",
+    "url": "http://nitter.jaydenha.uk/zeussubnet/status/2093323407345467453#m",
+    "fetched_at": "2026-09-05T21:52:28.890391+00:00",
     "via_instance": "https://nitter.cz"
   },
   {
@@ -810,6 +1060,16 @@
     "via_instance": "https://nitter.cz"
   },
   {
+    "handle": "BarrySilbert",
+    "name": "Barry Silbert",
+    "posted_at": "Fri, 04 Sep 2026 21:45:25 GMT",
+    "title": "RT by @BarrySilbert: September is Childhood Cancer Awareness Month 🎗️💛 It doesn’t seem to get nearly the attention it deserves, so I wanted to bring a little awareness to it. Every day, children and their families face diagnoses, treatments, hospital stays and challenges no family should have to navigate alone. If you’re able to donate this month, consider supporting organizations doing incredible work for children and families affected by cancer: @StJude St. Jude Children’s @BostonChildrens Boston Children’s @MakeAWishIntl MakeAWish @StBaldricks StBaldricks @RMHGlobal Ronald McDonald House If donating isn’t possible, simply sharing, raising awareness or supporting a family going through it matters too. September is for them. 🎗️💛 #ChildhoodCancerAwarenessMonth #GoGold",
+    "text": "September is Childhood Cancer Awareness Month 🎗️💛 It doesn’t seem to get nearly the attention it deserves, so I wanted to bring a little awareness to it. Every day, children and their families face diagnoses, treatments, hospital stays and challenges no family should have to navigate alone. If you’re able to donate this month, consider supporting organizations doing incredible work for children and families affected by cancer: @StJude St. Jude Children’s @BostonChildrens Boston Children’s @MakeAWishIntl MakeAWish @StBaldricks StBaldricks @RMHGlobal Ronald McDonald House If donating isn’t possi",
+    "url": "http://nitter.jaydenha.uk/BuiltFromIt/status/2095991647452405794#m",
+    "fetched_at": "2026-09-05T21:50:19.236126+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
     "handle": "SemiAnalysis_",
     "name": "SemiAnalysis",
     "posted_at": "Fri, 04 Sep 2026 21:01:15 GMT",
@@ -842,6 +1102,16 @@
   {
     "handle": "taomedia_",
     "name": "TAO Media",
+    "posted_at": "Fri, 04 Sep 2026 19:30:13 GMT",
+    "title": "RT by @taomedia_: Bittensor builds in the real world.",
+    "text": "Bittensor builds in the real world. Intelligence ττ (@taomedia_) Article Score Adds Shell and Eni Stations to Vision AI Rollout Plan ⛽️ The update expands Score&apos;s real-world computer vision rollout into major fuel retail environments while Bittensor Subnet 44 prepares a broader push into world models. Score founder Maxime — http://nitter.jaydenha.uk/taomedia_/status/2095957103936491762#m",
+    "url": "http://nitter.jaydenha.uk/bart_hillerich/status/2095957623371673602#m",
+    "fetched_at": "2026-09-05T21:52:22.658088+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "taomedia_",
+    "name": "TAO Media",
     "posted_at": "Fri, 04 Sep 2026 19:28:44 GMT",
     "title": "R to @taomedia_: ✏️Story by @bart_hillerich Read about @webuildscore on our website: https://www.tao.media/score-adds-shell-and-eni-stations-to-vision-ai-rollout-plan/",
     "text": "✏️Story by @bart_hillerich Read about @webuildscore on our website: tao.media/score-adds-shell-a… Link Score Adds Shell and Eni Stations to Vision AI Rollout Plan The update expands Score&apos;s real-world computer vision rollout into major fuel retail environments while Bittensor Subnet 44 prepares a broader push into world models. tao.media",
@@ -867,6 +1137,16 @@
     "text": "20 million ~ H100 GPUs equivalent of compute exists globally. 5% ~ of this training for 6 mo roughly produces a 10 trillion parameter SOTA model.. Astra / Fable level. The vast majority of compute is used for inference.. pre-training is billions of times less efficient than biology.",
     "url": "http://nitter.jaydenha.uk/JosephJacks_/status/2095944576075014639#m",
     "fetched_at": "2026-09-05T14:21:44.733106+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "BarrySilbert",
+    "name": "Barry Silbert",
+    "posted_at": "Fri, 04 Sep 2026 18:21:36 GMT",
+    "title": "RT by @BarrySilbert: For the first time in nearly a decade, Zcash zcash:native has broken back above $1,000. The privacy coin surged to $1,010 following strong institutional demand from Grayscale’s spot ETF ($ZCSH) listing on NYSE Arca and a market-wide shift toward shielded transfers.",
+    "text": "For the first time in nearly a decade, Zcash zcash:native has broken back above $1,000. The privacy coin surged to $1,010 following strong institutional demand from Grayscale’s spot ETF ($ZCSH) listing on NYSE Arca and a market-wide shift toward shielded transfers.",
+    "url": "http://nitter.jaydenha.uk/beincrypto/status/2095940358278647896#m",
+    "fetched_at": "2026-09-05T21:50:19.236126+00:00",
     "via_instance": "https://nitter.cz"
   },
   {
@@ -1007,6 +1287,16 @@
     "text": "Score Studio won't be limited to the models trained (past, present or future) on the subnet. You'll be able to run the rest of the computer vision stack in the same app. This is our quantized SAM3, used inside Score Studio, on Djokovic vs Nadal from the 2013 US Open final. Both players stay tracked for the whole point. Every step is drawn as a trail on the court. As the rally goes on, those trails build into a cluster: one map of where they ran. Two players, one of the longest rallies in the sport, held without losing either one, processed through a small, fast and efficient open-source segmen",
     "url": "http://nitter.jaydenha.uk/webuildscore/status/2095862793354260839#m",
     "fetched_at": "2026-09-05T14:22:40.598813+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "const_reborn",
+    "name": "Jacob Steeves",
+    "posted_at": "Fri, 04 Sep 2026 12:23:46 GMT",
+    "title": "GM had astra before openrouter",
+    "text": "GM had astra before openrouter",
+    "url": "http://nitter.jaydenha.uk/const_reborn/status/2095850305774641562#m",
+    "fetched_at": "2026-09-05T21:50:04.938546+00:00",
     "via_instance": "https://nitter.cz"
   },
   {
