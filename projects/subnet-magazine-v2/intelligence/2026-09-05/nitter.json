@@ -1,5 +1,15 @@
 [
   {
+    "handle": "ridges_ai",
+    "name": "Ridges",
+    "posted_at": "Wed, 26 Aug 2026 18:42:24 GMT",
+    "title": "We've kicked off Niches with a Linting competition! In just one week we've seen performance hit 76% on our hidden test set with cost reduction down to $0.02 per task. Results like these help us validate the Niches model and adjust where needed. We're excited for the next Niche, and eventually dynamic Niches. Stay tuned!",
+    "text": "We've kicked off Niches with a Linting competition! In just one week we've seen performance hit 76% on our hidden test set with cost reduction down to $0.02 per task. Results like these help us validate the Niches model and adjust where needed. We're excited for the next Niche, and eventually dynamic Niches. Stay tuned!",
+    "url": "http://nitter.jaydenha.uk/ridges_ai/status/2092684102595961119#m",
+    "fetched_at": "2026-09-05T17:51:39.280631+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
     "handle": "novogratz",
     "name": "Mike Novogratz",
     "posted_at": "Wed, 26 Aug 2026 15:55:25 GMT",
@@ -20,6 +30,36 @@
     "via_instance": "https://nitter.cz"
   },
   {
+    "handle": "oroagents",
+    "name": "Oro",
+    "posted_at": "Wed, 12 Aug 2026 21:15:59 GMT",
+    "title": "R to @oroagents: The model also reached 53.3% pass@8 versus 34.8% pass@1. That gap tells us the capability is already latent in the model. The remaining challenge is consistently extracting it. A dense teacher-grounded Dr. GRPO reward improved the process score from 0.02 to 0.42 and cut product-ID hallucinations from 14 to zero.",
+    "text": "The model also reached 53.3% pass@8 versus 34.8% pass@1. That gap tells us the capability is already latent in the model. The remaining challenge is consistently extracting it. A dense teacher-grounded Dr. GRPO reward improved the process score from 0.02 to 0.42 and cut product-ID hallucinations from 14 to zero.",
+    "url": "http://nitter.jaydenha.uk/oroagents/status/2087649319822512258#m",
+    "fetched_at": "2026-09-05T17:51:56.119437+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "oroagents",
+    "name": "Oro",
+    "posted_at": "Wed, 12 Aug 2026 21:15:59 GMT",
+    "title": "R to @oroagents: The bigger opportunity is still untouched. When we wrote the paper, SN15 produces roughly 12,000 to 27,000 trajectories per day, but now, with optimisations from @ironseth_s, we're seeing over 60,000 trajectories a day. Our model used only the small agentic slice. The next step is converting the much larger Axis B firehose into grounded agentic training data. Perhaps moving from the static nature of ShoppingBench to a environment compiler? Open competition can produce open intelligence. We’re just getting started.",
+    "text": "The bigger opportunity is still untouched. When we wrote the paper, SN15 produces roughly 12,000 to 27,000 trajectories per day, but now, with optimisations from @ironseth_s, we're seeing over 60,000 trajectories a day. Our model used only the small agentic slice. The next step is converting the much larger Axis B firehose into grounded agentic training data. Perhaps moving from the static nature of ShoppingBench to a environment compiler? Open competition can produce open intelligence. We’re just getting started.",
+    "url": "http://nitter.jaydenha.uk/oroagents/status/2087649321445736776#m",
+    "fetched_at": "2026-09-05T17:51:56.119437+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "shibshib89",
+    "name": "Ala Shaabana",
+    "posted_at": "Wed, 05 Aug 2026 17:13:33 GMT",
+    "title": "RT by @shibshib89: New issue of a BIT of joy, just dropped. Take a read! Stronger Foundations, Faster Builders https://cruciblelabs.substack.com/p/stronger-foundations-faster-builders?r=6k2tn3&utm_campaign=post&utm_medium=web&showWelcomeOnShare=true",
+    "text": "New issue of a BIT of joy, just dropped. Take a read! Stronger Foundations, Faster Builders cruciblelabs.substack.com/p/…",
+    "url": "http://nitter.jaydenha.uk/CrucibleLabs/status/2085051594983559267#m",
+    "fetched_at": "2026-09-05T17:50:38.992244+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
     "handle": "PanteraCapital",
     "name": "Pantera Capital",
     "posted_at": "Wed, 02 Sep 2026 19:52:31 GMT",
@@ -27,6 +67,16 @@
     "text": "Our full @Polymarket H1 report, in partnership with @Surfdeveloper, is now live 👇 This report covers: * Venue growth, market composition, and fee economics * User growth, cohort profiles, and PnL breakdowns * Market structure and user behavior, fee sensitivity and entry timing panteraresearchlab.xyz/resea… Podcast interview live at: nitter.net/apriori0x/status/20952… Link 2026 H1 Report: Flash Boys or Superforecasters? - Pantera Research Lab A deep dive into Polymarket’s venue growth, user portraits and market structures panteraresearchlab.xyz apriori (@apriori0x) Prediction markets are all di",
     "url": "http://nitter.jaydenha.uk/sui414/status/2095238459782991918#m",
     "fetched_at": "2026-09-05T14:22:07.003867+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "YumaGroup",
+    "name": "Yuma Holdings",
+    "posted_at": "Wed, 02 Sep 2026 19:00:06 GMT",
+    "title": "RT by @YumaGroup: . @YumaGroup is @DCGco’s Bittensor arm. It doesn't just fund builders - it runs validators, mines, and ships its own subnets. And Youssef El Moujahid leads Investment. Before Yuma, he spent more than a decade across global macro, exotics structuring, and quantitative research, bringing an institutional investment lens to Bittensor’s emerging markets. Catch him on the Exploit stage: https://luma.com/exploitsummit26",
+    "text": ". @YumaGroup is @DCGco’s Bittensor arm. It doesn't just fund builders - it runs validators, mines, and ships its own subnets. And Youssef El Moujahid leads Investment. Before Yuma, he spent more than a decade across global macro, exotics structuring, and quantitative research, bringing an institutional investment lens to Bittensor’s emerging markets. Catch him on the Exploit stage: luma.com/exploitsummit26 Video",
+    "url": "http://nitter.jaydenha.uk/ExploitSummit/status/2095225271742050447#m",
+    "fetched_at": "2026-09-05T17:50:53.229262+00:00",
     "via_instance": "https://nitter.cz"
   },
   {
@@ -40,6 +90,26 @@
     "via_instance": "https://nitter.cz"
   },
   {
+    "handle": "KyleSamani",
+    "name": "Kyle Samani",
+    "posted_at": "Wed, 02 Sep 2026 15:12:09 GMT",
+    "title": "RT by @KyleSamani: The headline event in Singapore - @KyleSamani vs @dschamis @FWDind and @HypeStrat @Solana and @HyperliquidX Mark your calendars. 🍿📅",
+    "text": "The headline event in Singapore - @KyleSamani vs @dschamis @FWDind and @HypeStrat @Solana and @HyperliquidX Mark your calendars. 🍿📅 Digital Asset Summit 2026 (@blockworksDAS) DAS DEBATE: Solana vs Hyperliquid for Institutions @KyleSamani vs @dschamis mod: @andyyy Oct 7th. Marina Bay Sands. Be there. — http://nitter.jaydenha.uk/blockworksDAS/status/2095154952368713768#m",
+    "url": "http://nitter.jaydenha.uk/FWDind/status/2095167906602500413#m",
+    "fetched_at": "2026-09-05T17:51:20.460174+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "shibshib89",
+    "name": "Ala Shaabana",
+    "posted_at": "Wed, 02 Sep 2026 13:38:19 GMT",
+    "title": "RT by @shibshib89: Crucible Labs dropping #downwiththedev Episode 1. We breakdown the Mobile Wallet with @buildwithsamp. Take a listen.",
+    "text": "Crucible Labs dropping #downwiththedev Episode 1. We breakdown the Mobile Wallet with @buildwithsamp. Take a listen. Video",
+    "url": "http://nitter.jaydenha.uk/CrucibleLabs/status/2095144290376937770#m",
+    "fetched_at": "2026-09-05T17:50:38.992244+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
     "handle": "novogratz",
     "name": "Mike Novogratz",
     "posted_at": "Wed, 02 Sep 2026 01:26:24 GMT",
@@ -47,6 +117,16 @@
     "text": "Sad! The New York Times (@nytimes) Breaking News: Senator Ed Markey, an 80-year-old progressive, held off Representative Seth Moulton to win the Democratic primary in Massachusetts. nyti.ms/4i7UOZO Link Senator Ed Markey, 80, Turns Back Younger Challenger in Massachusetts The oldest senator in Massachusetts history used a progressive message to beat Representative Seth Moulton, 47, defying calls for generational change. nytimes.com — http://nitter.jaydenha.uk/nytimes/status/2094953495908511875#m",
     "url": "http://nitter.jaydenha.uk/novogratz/status/2094960096895738221#m",
     "fetched_at": "2026-09-05T14:21:56.862372+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "ridges_ai",
+    "name": "Ridges",
+    "posted_at": "Tue, 28 Jul 2026 14:00:03 GMT",
+    "title": "⛰️ x402 is now live on Ridges X402 is an agentic payment protocol that lets agents pay for API access autonomously. Integrated with Ridgeline, agents can now pay for and access our coding infrastructure directly, no human in the loop.",
+    "text": "⛰️ x402 is now live on Ridges X402 is an agentic payment protocol that lets agents pay for API access autonomously. Integrated with Ridgeline, agents can now pay for and access our coding infrastructure directly, no human in the loop.",
+    "url": "http://nitter.jaydenha.uk/ridges_ai/status/2082103797418262564#m",
+    "fetched_at": "2026-09-05T17:51:39.280631+00:00",
     "via_instance": "https://nitter.cz"
   },
   {
@@ -90,6 +170,36 @@
     "via_instance": "https://nitter.cz"
   },
   {
+    "handle": "ridges_ai",
+    "name": "Ridges",
+    "posted_at": "Tue, 21 Jul 2026 15:55:17 GMT",
+    "title": "RT by @ridges_ai: Now live: SN62 @ridges_ai is a Bittensor subnet where AI agents compete to solve software engineering problems end-to-end. Every submitted agent is open sourced, evaluated onchain against an evolving gauntlet of coding challenges, with performance verifiable by anyone. Start trading today → https://proapp.kraken.com/9f1e/SN62 Geographic restrictions apply.",
+    "text": "Now live: SN62 @ridges_ai is a Bittensor subnet where AI agents compete to solve software engineering problems end-to-end. Every submitted agent is open sourced, evaluated onchain against an evolving gauntlet of coding challenges, with performance verifiable by anyone. Start trading today → proapp.kraken.com/9f1e/SN62 Geographic restrictions apply.",
+    "url": "http://nitter.jaydenha.uk/krakenlistings/status/2079596082632519805#m",
+    "fetched_at": "2026-09-05T17:51:39.280631+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "ridges_ai",
+    "name": "Ridges",
+    "posted_at": "Tue, 21 Jul 2026 14:00:03 GMT",
+    "title": "⛰️ Get convicted with us. Simple credits. Free if you stake. Standard · $9.99/month. 10 credits, always the top-ranked agent, PRs opened automatically. Staker · free. Lock your Ridges alpha, connect your wallet, get credits every 3 days. No subscription needed.",
+    "text": "⛰️ Get convicted with us. Simple credits. Free if you stake. Standard · $9.99/month. 10 credits, always the top-ranked agent, PRs opened automatically. Staker · free. Lock your Ridges alpha, connect your wallet, get credits every 3 days. No subscription needed.",
+    "url": "http://nitter.jaydenha.uk/ridges_ai/status/2079567082874871969#m",
+    "fetched_at": "2026-09-05T17:51:39.280631+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "oroagents",
+    "name": "Oro",
+    "posted_at": "Tue, 18 Aug 2026 21:22:27 GMT",
+    "title": "The ORO team has purchased 2500 Tao worth of SN15 alpha with the help of @CrucibleLabs. This will help us continue to deliver after the recent hack from the North Korean state actor group, Sapphire Sleet. Up and onwards 🚀",
+    "text": "The ORO team has purchased 2500 Tao worth of SN15 alpha with the help of @CrucibleLabs. This will help us continue to deliver after the recent hack from the North Korean state actor group, Sapphire Sleet. Up and onwards 🚀",
+    "url": "http://nitter.jaydenha.uk/oroagents/status/2089825274133381136#m",
+    "fetched_at": "2026-09-05T17:51:56.119437+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
     "handle": "covenant_ai",
     "name": "Covenant AI",
     "posted_at": "Tue, 18 Aug 2026 15:07:11 GMT",
@@ -107,6 +217,16 @@
     "text": "The power of holding Bittensor $TAO subnet alpha Here is an example to illustrate the flywheel of $TAO Let's say you 1,000 alpha of @resilabsai which cost around 7 $TAO 7 $TAO at a price of $310 = $2,170 Current alpha price of Resi, subnet 46: .0066 $TAO Let's make some calculated assumptions. &gt; price of resi alpha stays the same for 3 years &gt; price of $TAO remains the same at $310 &gt; APY for holding Resi alpha is 40% for the first 2 years, then 30% in year 3 What is my total value in 3 years? Year 1 (40% APY) 1,060.6 × 1.4 = 1,484.8 alpha In $TAO: 1,484.8 × 0.0066 ≈ 9.80 $TAO In USD: ",
     "url": "http://nitter.jaydenha.uk/Pop_Collapse/status/2041570023823528017#m",
     "fetched_at": "2026-09-05T14:23:23.481441+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "shibshib89",
+    "name": "Ala Shaabana",
+    "posted_at": "Tue, 04 Aug 2026 19:27:56 GMT",
+    "title": "RT by @shibshib89: Distributed training has never been easy. Building a distributed system that makes economic sense on Bittensor is harder still. Today, we’re introducing Connito: a network for collaboratively building composable specialized AI. Signal shows us that just by training a particular selection of experts as a partial model, we can improve the performance of the whole system. Learn about our architecture and results: https://connito.ai/blog/distributing-model-improvement",
+    "text": "Distributed training has never been easy. Building a distributed system that makes economic sense on Bittensor is harder still. Today, we’re introducing Connito: a network for collaboratively building composable specialized AI. Signal shows us that just by training a particular selection of experts as a partial model, we can improve the performance of the whole system. Learn about our architecture and results: connito.ai/blog/distributing… Video",
+    "url": "http://nitter.jaydenha.uk/ConnitoAI/status/2084723024779989193#m",
+    "fetched_at": "2026-09-05T17:50:38.992244+00:00",
     "via_instance": "https://nitter.cz"
   },
   {
@@ -150,6 +270,16 @@
     "via_instance": "https://nitter.cz"
   },
   {
+    "handle": "jtledore",
+    "name": "Jean-Thomas Ledoré",
+    "posted_at": "Tue, 01 Sep 2026 09:12:08 GMT",
+    "title": "RT by @jtledore: We’re rebuilding Taoswap from the ground up, and here’s a first look at the upcoming Validators tab. It will make it easy to visualize each validator’s full basket and the exact weight allocated to every subnet.",
+    "text": "We’re rebuilding Taoswap from the ground up, and here’s a first look at the upcoming Validators tab. It will make it easy to visualize each validator’s full basket and the exact weight allocated to every subnet. Video",
+    "url": "http://nitter.jaydenha.uk/taoswap_org/status/2094714914409427066#m",
+    "fetched_at": "2026-09-05T17:52:08.215139+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
     "handle": "opentensor",
     "name": "Opentensor Foundation",
     "posted_at": "Tue, 01 Sep 2026 03:01:37 GMT",
@@ -157,6 +287,26 @@
     "text": "Bittensor Meets Hangzhou’s Agent Builders 🇨🇳 Bittensor x HackQuest joined VENTURE D’s 48-hour Real-World Agents Hackathon in Hangzhou, bringing @opentensor closer to local AI builders through: ▪️ Introducing Bittensor to teams building real-world AI Agents ▪️ A dedicated workshop on the Bittensor ecosystem and subnet opportunities ▪️ New connections across devs, AI researchers, and content creators ▪️ Growing the local Bittensor builder community in Hangzhou More Bittensor activities are coming across APAC. Stay tuned for what’s next 🔥",
     "url": "http://nitter.jaydenha.uk/HackQuest_/status/2094621671101739067#m",
     "fetched_at": "2026-09-05T14:21:29.345680+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "dippy_ai",
+    "name": "Dippy AI",
+    "posted_at": "Thu, 30 Jul 2026 14:34:47 GMT",
+    "title": "RT by @dippy_ai: Excited to have helped @PrunaAI collect 1M+ votes for image preference data in a very short time :~)",
+    "text": "Excited to have helped @PrunaAI collect 1M+ votes for image preference data in a very short time :~) Pruna AI (@PrunaAI) P-Image-Ideogram dominate the speed-quality and price-quality Pareto frontiers for image generation. It is the result of a unique collaboration with @ideogram_ai. - Four modes (Very low, low, medium, high) for 1K-2K image generation. - Optimal quality-efficiency with 0.4s-7.5s latency, and $0.003-$0.03 price. - Structured JSON control & exact color control. Available via our inference partners @Replicate @inference_sh @scenario_gg @wavespeed_ai @wiroai @magnific @prodialabs ",
+    "url": "http://nitter.jaydenha.uk/datapointai/status/2082837314603032606#m",
+    "fetched_at": "2026-09-05T17:52:58.196660+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "dippy_ai",
+    "name": "Dippy AI",
+    "posted_at": "Thu, 27 Aug 2026 21:34:23 GMT",
+    "title": "we have significantly upgraded both the basic and super models 🤩🤩 we have also made optimizations to improve response speeds by upto 5x can't wait for you all to experience and enjoy the new dippy 📯📯😸 rolling out to everyone today",
+    "text": "we have significantly upgraded both the basic and super models 🤩🤩 we have also made optimizations to improve response speeds by upto 5x can't wait for you all to experience and enjoy the new dippy 📯📯😸 rolling out to everyone today",
+    "url": "http://nitter.jaydenha.uk/dippy_ai/status/2093089771824226802#m",
+    "fetched_at": "2026-09-05T17:52:58.196660+00:00",
     "via_instance": "https://nitter.cz"
   },
   {
@@ -180,6 +330,26 @@
     "via_instance": "https://nitter.cz"
   },
   {
+    "handle": "oroagents",
+    "name": "Oro",
+    "posted_at": "Thu, 20 Aug 2026 20:18:01 GMT",
+    "title": "Measuring the quality of the long-horizon data is a huge part of solving the AI consumer shopping problem. ORO-Distilled, a 4B model. 5x faster. 50x cheaper.",
+    "text": "Measuring the quality of the long-horizon data is a huge part of solving the AI consumer shopping problem. ORO-Distilled, a 4B model. 5x faster. 50x cheaper. Video",
+    "url": "http://nitter.jaydenha.uk/oroagents/status/2090533835192893616#m",
+    "fetched_at": "2026-09-05T17:51:56.119437+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "dippy_ai",
+    "name": "Dippy AI",
+    "posted_at": "Thu, 04 Jun 2026 15:53:04 GMT",
+    "title": "RT by @dippy_ai: Today, we’re opening up Datapoint AI for anyone to use. It is by far the fastest way to understand what your customers want. Type a question. Real people answer. You get a report back in ~10 minutes, not three weeks, and at a fraction of the cost.",
+    "text": "Today, we’re opening up Datapoint AI for anyone to use. It is by far the fastest way to understand what your customers want. Type a question. Real people answer. You get a report back in ~10 minutes, not three weeks, and at a fraction of the cost. Video",
+    "url": "http://nitter.jaydenha.uk/datapointai/status/2062563294880075837#m",
+    "fetched_at": "2026-09-05T17:52:58.196660+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
     "handle": "rob_svrn",
     "name": "Rob Greer",
     "posted_at": "Thu, 03 Sep 2026 23:19:30 GMT",
@@ -187,6 +357,26 @@
     "text": "Actual Computer CEO @Tom_A_Lynch predicts the next wave of AI inference will increasingly move from the cloud to local computers: \"How many tokens does the world go through a day right now? That number is probably like 500 trillion or so. Google themselves claims 100 trillion per day. The publicly accountable numbers are like 350 trillion or so.\" \"I like to look at it as where are the next tokens coming from. The next 100 trillion, what percentage of those are going to be local versus cloud? You're going to see a larger degree of growth in new tokens coming from local versus how it has been al",
     "url": "http://nitter.jaydenha.uk/MTSlive/status/2095652939125948894#m",
     "fetched_at": "2026-09-05T14:21:41.589876+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "KyleSamani",
+    "name": "Kyle Samani",
+    "posted_at": "Thu, 03 Sep 2026 22:04:52 GMT",
+    "title": "FSD",
+    "text": "FSD Tesla (@Tesla) The future has arrived in Austin Video — http://nitter.jaydenha.uk/Tesla/status/2095588745936298039#m",
+    "url": "http://nitter.jaydenha.uk/KyleSamani/status/2095634154780008842#m",
+    "fetched_at": "2026-09-05T17:51:20.460174+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "KyleSamani",
+    "name": "Kyle Samani",
+    "posted_at": "Thu, 03 Sep 2026 20:30:00 GMT",
+    "title": "RT by @KyleSamani: A reminder that this will 10x over the next 12 months and you should care because the more money institutions put into DeFi the more your coins will go up Kamino's Institutional Commodity Yield is one of the most important DeFi advancements ever shipped and is a dark horse for institutional adoption of onchain finance",
+    "text": "A reminder that this will 10x over the next 12 months and you should care because the more money institutions put into DeFi the more your coins will go up Kamino's Institutional Commodity Yield is one of the most important DeFi advancements ever shipped and is a dark horse for institutional adoption of onchain finance Kamino Intern (@kaminointern) the new @kamino Institutional Commodity Yield vault is one of the strongest ways to diversify beyond typical DeFi yield. different yield source, different risk profile. &gt; yield: commodity trade finance generating 7–8% APY from real financing deman",
+    "url": "http://nitter.jaydenha.uk/gumsays/status/2095610281552756979#m",
+    "fetched_at": "2026-09-05T17:51:20.460174+00:00",
     "via_instance": "https://nitter.cz"
   },
   {
@@ -200,6 +390,36 @@
     "via_instance": "https://nitter.cz"
   },
   {
+    "handle": "jtledore",
+    "name": "Jean-Thomas Ledoré",
+    "posted_at": "Thu, 03 Sep 2026 18:02:24 GMT",
+    "title": "RT by @jtledore: back to work",
+    "text": "back to work Tyler Denk 🐝 (@denk_tweets) as a founder you have precisely 23 minutes to celebrate a win until you have to put out the next fire — http://nitter.jaydenha.uk/denk_tweets/status/2095333209324339556#m",
+    "url": "http://nitter.jaydenha.uk/MaxSebti/status/2095573135575642571#m",
+    "fetched_at": "2026-09-05T17:52:08.215139+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "VantaTrading",
+    "name": "Vanta",
+    "posted_at": "Thu, 03 Sep 2026 16:44:14 GMT",
+    "title": "Six account sizes, $1,000 to $100,000. Same rules, same 10% target, same 100% split — nobody gets a watered-down version at the small tiers. Whether you're proving yourself on $1k or pushing size on $100k, you get the same shot. Start where you're comfortable. Good trading is good trading. Account size doesn't change that.",
+    "text": "Six account sizes, $1,000 to $100,000. Same rules, same 10% target, same 100% split — nobody gets a watered-down version at the small tiers. Whether you're proving yourself on $1k or pushing size on $100k, you get the same shot. Start where you're comfortable. Good trading is good trading. Account size doesn't change that.",
+    "url": "http://nitter.jaydenha.uk/VantaTrading/status/2095553467251376297#m",
+    "fetched_at": "2026-09-05T17:51:53.279105+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "jtledore",
+    "name": "Jean-Thomas Ledoré",
+    "posted_at": "Thu, 03 Sep 2026 16:10:37 GMT",
+    "title": "RT by @jtledore: Shell and ENI stations added to roll out today. Accelerate.",
+    "text": "Shell and ENI stations added to roll out today. Accelerate.",
+    "url": "http://nitter.jaydenha.uk/MaxSebti/status/2095545005540552752#m",
+    "fetched_at": "2026-09-05T17:52:08.215139+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
     "handle": "galaxyhq",
     "name": "Galaxy Digital",
     "posted_at": "Thu, 03 Sep 2026 14:30:42 GMT",
@@ -207,6 +427,16 @@
     "text": "Last week, John Cahill joined a discussion at DBS's digital asset ecosystem event, sharing perspectives on institutional adoption, regulatory developments, and the continued maturation of the digital asset ecosystem. We're grateful for the opportunity to deepen our relationship with DBS, and we're looking forward to exploring new ways to collaborate as we work together to support the growth of institutional digital assets.",
     "url": "http://nitter.jaydenha.uk/galaxyhq/status/2095519859589489108#m",
     "fetched_at": "2026-09-05T14:21:54.884154+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "KyleSamani",
+    "name": "Kyle Samani",
+    "posted_at": "Thu, 03 Sep 2026 04:25:28 GMT",
+    "title": "Steps to be a successful venture investor 1) buy big position 2) go on podcasts and talk about it 3) sell it I really struggled with step 3",
+    "text": "Steps to be a successful venture investor 1) buy big position 2) go on podcasts and talk about it 3) sell it I really struggled with step 3 Arkham (@arkham) Multicoin just sold another 10% of their HYPE stack. HYPE is Multicoin’s largest holding, with current holdings of $90.5M. They accumulated HYPE during February-March this year, and have held for over 6 months now. At peak, they held 4M HYPE tokens, and now hold just over 25% of what they had originally. — http://nitter.jaydenha.uk/arkham/status/2095313693483417802#m",
+    "url": "http://nitter.jaydenha.uk/KyleSamani/status/2095367547432395050#m",
+    "fetched_at": "2026-09-05T17:51:20.460174+00:00",
     "via_instance": "https://nitter.cz"
   },
   {
@@ -237,6 +467,16 @@
     "text": "Article Bittensor Ecosystem Highlights :: August 24–30, 2026 This week’s biggest stories across Bittensor came from Teutonic, Hippius, 404, Score and Synth. [ Teutonic - Subnet 3 ] Teutonic launched Teutonic-II, a permissionless 110B training run, 10x larger",
     "url": "http://nitter.jaydenha.uk/opentensor/status/2094052179556331721#m",
     "fetched_at": "2026-09-05T14:21:29.345680+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "dippy_ai",
+    "name": "Dippy AI",
+    "posted_at": "Sun, 09 Aug 2026 23:27:27 GMT",
+    "title": "We are experiencing an issue with our database provider @supabase , so the app & website may be down for a few more hours. We’ll send a notification when we are able to recover and the app is back to normal! Apologies for the inconvenience 😿😿",
+    "text": "We are experiencing an issue with our database provider @supabase , so the app &amp; website may be down for a few more hours. We’ll send a notification when we are able to recover and the app is back to normal! Apologies for the inconvenience 😿😿",
+    "url": "http://nitter.jaydenha.uk/dippy_ai/status/2086595242422149540#m",
+    "fetched_at": "2026-09-05T17:52:58.196660+00:00",
     "via_instance": "https://nitter.cz"
   },
   {
@@ -287,6 +527,36 @@
     "text": "Attention Res Labs we have some really exciting news and updates to our project join our discord to stay up to date: discord.gg/TBj8q9vb2Q #bittensor #TAO bittensor:native #reslabs #reilabsai #crypto #subnet #subnet46 #reslabs_ai #reslabsai #opentensor #reptides",
     "url": "http://nitter.jaydenha.uk/resilabsai/status/2085900662139744548#m",
     "fetched_at": "2026-09-05T14:23:23.481441+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "SemiAnalysis_",
+    "name": "SemiAnalysis",
+    "posted_at": "Sat, 05 Sep 2026 17:01:35 GMT",
+    "title": "Nvidia de-specced Rubin Ultra's HBM from 12-Hi to 8-Hi because the real bottleneck is $/bandwidth, not $/capacity. Let's do the math (1/2)🧵",
+    "text": "Nvidia de-specced Rubin Ultra's HBM from 12-Hi to 8-Hi because the real bottleneck is $/bandwidth, not $/capacity. Let's do the math (1/2)🧵",
+    "url": "http://nitter.jaydenha.uk/SemiAnalysis_/status/2096282606803284031#m",
+    "fetched_at": "2026-09-05T17:52:41.916567+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "SemiAnalysis_",
+    "name": "SemiAnalysis",
+    "posted_at": "Sat, 05 Sep 2026 17:01:35 GMT",
+    "title": "R to @SemiAnalysis_: Capacity ≈ stacks × dies per stack × GB per die Bandwidth ≈ stacks × interface width × pin speed Stack height buys capacity, not bandwidth. Cutting 12-Hi to 8-Hi drops a third of the DRAM dies, the most supply-constrained silicon on the BOM, while bandwidth holds or ticks up. Bandwidth per GB of capacity rises 50%, and $/bandwidth gets meaningfully better right as HBM prices hike. Inference is bandwidth bound: every decoded token re-reads weights and KV cache. (2/2)",
+    "text": "Capacity ≈ stacks × dies per stack × GB per die Bandwidth ≈ stacks × interface width × pin speed Stack height buys capacity, not bandwidth. Cutting 12-Hi to 8-Hi drops a third of the DRAM dies, the most supply-constrained silicon on the BOM, while bandwidth holds or ticks up. Bandwidth per GB of capacity rises 50%, and $/bandwidth gets meaningfully better right as HBM prices hike. Inference is bandwidth bound: every decoded token re-reads weights and KV cache. (2/2)",
+    "url": "http://nitter.jaydenha.uk/SemiAnalysis_/status/2096282607826661688#m",
+    "fetched_at": "2026-09-05T17:52:41.916567+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "VantaTrading",
+    "name": "Vanta",
+    "posted_at": "Sat, 05 Sep 2026 15:08:21 GMT",
+    "title": "Your downside at Vanta is one number: the evaluation fee. No liability past it. No margin call following you home. The worst case is printed on the checkout page before you start. Prove your skill, risk the fee, keep 100% of the rewards. That's the whole deal.",
+    "text": "Your downside at Vanta is one number: the evaluation fee. No liability past it. No margin call following you home. The worst case is printed on the checkout page before you start. Prove your skill, risk the fee, keep 100% of the rewards. That's the whole deal.",
+    "url": "http://nitter.jaydenha.uk/VantaTrading/status/2096254110974792063#m",
+    "fetched_at": "2026-09-05T17:51:53.279105+00:00",
     "via_instance": "https://nitter.cz"
   },
   {
@@ -350,6 +620,16 @@
     "via_instance": "https://nitter.cz"
   },
   {
+    "handle": "SemiAnalysis_",
+    "name": "SemiAnalysis",
+    "posted_at": "Sat, 05 Sep 2026 00:41:38 GMT",
+    "title": "Video",
+    "text": "Video Dylan Patel (@dylan522p) Been trying Anthropic Fable 5.1 vs OpenAI Astra recently. Pretty clear who the real winner is. Video — http://nitter.jaydenha.uk/dylan522p/status/2095940936438079549#m",
+    "url": "http://nitter.jaydenha.uk/SemiAnalysis_/status/2096035997649936416#m",
+    "fetched_at": "2026-09-05T17:52:41.916567+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
     "handle": "PanteraCapital",
     "name": "Pantera Capital",
     "posted_at": "Mon, 31 Aug 2026 21:17:20 GMT",
@@ -380,6 +660,16 @@
     "via_instance": "https://nitter.cz"
   },
   {
+    "handle": "shibshib89",
+    "name": "Ala Shaabana",
+    "posted_at": "Mon, 31 Aug 2026 15:22:45 GMT",
+    "title": "RT by @shibshib89: Get ready, a new TAO-inspired podcast with @CrucibleLabs own @buildwithsamp and Kelly. Coming soon!",
+    "text": "Get ready, a new TAO-inspired podcast with @CrucibleLabs own @buildwithsamp and Kelly. Coming soon! Video",
+    "url": "http://nitter.jaydenha.uk/CrucibleLabs/status/2094445795848446011#m",
+    "fetched_at": "2026-09-05T17:50:38.992244+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
     "handle": "resilabsai",
     "name": "RESI",
     "posted_at": "Mon, 20 Apr 2026 19:34:17 GMT",
@@ -387,6 +677,26 @@
     "text": "I am pleased to announce that Stillcore Capital @stillcorecap has invested in RESI @resilabsai (Bittensor Subnet 46).",
     "url": "http://nitter.jaydenha.uk/markjeffrey/status/2046311512621670731#m",
     "fetched_at": "2026-09-05T14:23:23.481441+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "oroagents",
+    "name": "Oro",
+    "posted_at": "Mon, 17 Aug 2026 15:29:03 GMT",
+    "title": "RT by @oroagents: AI models are poised and ready. But the training data isn't. So @shardiban manufactures it. @oroagents turns agent tasks into a competition, and the best runs become the data the next generation learns from. Ex- @AWS, early decentralized-AI researcher, now proving it on commerce. You don't need to know Bittensor to care - if you build agents, this is your problem too. He's on the Exploit stage this September: https://luma.com/exploitsummit26",
+    "text": "AI models are poised and ready. But the training data isn't. So @shardiban manufactures it. @oroagents turns agent tasks into a competition, and the best runs become the data the next generation learns from. Ex- @AWS, early decentralized-AI researcher, now proving it on commerce. You don't need to know Bittensor to care - if you build agents, this is your problem too. He's on the Exploit stage this September: luma.com/exploitsummit26 Video",
+    "url": "http://nitter.jaydenha.uk/ExploitSummit/status/2089373953769025843#m",
+    "fetched_at": "2026-09-05T17:51:56.119437+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "dippy_ai",
+    "name": "Dippy AI",
+    "posted_at": "Mon, 10 Aug 2026 15:35:59 GMT",
+    "title": "We are FINALLY back online! We deeply apologize for this issue extending nearly 24 hours 🥲 As a token of thanks for your patience, we are REMOVING CHAT LIMITS for the remainder of this month 😻😻 P.S: don't worry, we'll also reinstate your streaks :~)",
+    "text": "We are FINALLY back online! We deeply apologize for this issue extending nearly 24 hours 🥲 As a token of thanks for your patience, we are REMOVING CHAT LIMITS for the remainder of this month 😻😻 P.S: don't worry, we'll also reinstate your streaks :~)",
+    "url": "http://nitter.jaydenha.uk/dippy_ai/status/2086838981627420847#m",
+    "fetched_at": "2026-09-05T17:52:58.196660+00:00",
     "via_instance": "https://nitter.cz"
   },
   {
@@ -440,6 +750,16 @@
     "via_instance": "https://nitter.cz"
   },
   {
+    "handle": "ridges_ai",
+    "name": "Ridges",
+    "posted_at": "Fri, 24 Jul 2026 13:34:38 GMT",
+    "title": "Back in the arena. Get ready.",
+    "text": "Back in the arena. Get ready.",
+    "url": "http://nitter.jaydenha.uk/ridges_ai/status/2080647848677314822#m",
+    "fetched_at": "2026-09-05T17:51:39.280631+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
     "handle": "lium_io",
     "name": "Lium",
     "posted_at": "Fri, 21 Aug 2026 22:19:59 GMT",
@@ -460,6 +780,16 @@
     "via_instance": "https://nitter.cz"
   },
   {
+    "handle": "shibshib89",
+    "name": "Ala Shaabana",
+    "posted_at": "Fri, 07 Aug 2026 17:40:03 GMT",
+    "title": "RT by @shibshib89: can you actually coordinate AI across untrusted machines? @benfielding of @gensynai, @avestime of @ChainOpera_AI and @shibshib89 of @bittensor, moderated by @IsTheBaron of @hack_vc 👇 https://www.youtube.com/watch?v=WRpf1hY963s&t=24811s",
+    "text": "can you actually coordinate AI across untrusted machines? @benfielding of @gensynai, @avestime of @ChainOpera_AI and @shibshib89 of @bittensor, moderated by @IsTheBaron of @hack_vc 👇 piped.video/watch?v=WRpf1hY9…",
+    "url": "http://nitter.jaydenha.uk/StanfordSBA/status/2085783041415516378#m",
+    "fetched_at": "2026-09-05T17:50:38.992244+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
     "handle": "lium_io",
     "name": "Lium",
     "posted_at": "Fri, 07 Aug 2026 17:17:22 GMT",
@@ -477,6 +807,26 @@
     "text": "@planepowers is officially live as a ChatGPT plugin! Big thanks to the @OpenAI and ChatGPT team. Excited to bring Plane to more people. And happy Astra day! chatgpt.com/plugins/plugin_a… Link ChatGPT Plugins | Browse and add plugins to ChatGPT Discover and add plugins that extend ChatGPT with new tools, capabilities, and workflows. chatgpt.com",
     "url": "http://nitter.jaydenha.uk/vamsi_kurama/status/2096007800757571964#m",
     "fetched_at": "2026-09-05T14:21:44.733106+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "SemiAnalysis_",
+    "name": "SemiAnalysis",
+    "posted_at": "Fri, 04 Sep 2026 21:01:15 GMT",
+    "title": "R to @SemiAnalysis_: 5.6-sol rewrote the production kernel that solved itself which effectively resulted in: 🟠 20% lower serving costs from GPU kernel improvements 🟠 15% better token-generation efficiency from improved speculative decoding 🟠 Savings passed into Luna/Terra price cuts (2/2)",
+    "text": "5.6-sol rewrote the production kernel that solved itself which effectively resulted in: 🟠 20% lower serving costs from GPU kernel improvements 🟠 15% better token-generation efficiency from improved speculative decoding 🟠 Savings passed into Luna/Terra price cuts (2/2)",
+    "url": "http://nitter.jaydenha.uk/SemiAnalysis_/status/2095980533637382506#m",
+    "fetched_at": "2026-09-05T17:52:41.916567+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "SemiAnalysis_",
+    "name": "SemiAnalysis",
+    "posted_at": "Fri, 04 Sep 2026 21:01:14 GMT",
+    "title": "A (popcorn) kernel is a specialized seed from a variety of corn that can burst open and turn inside out when heated.  A kernel is also a few hundred lines of GPU code that executes the math and attention op in an LLM.  A GPU only delivers its paper FLOPS if kernel keeps the tensor cords fed.  Sloppy memory access patterns results in silicon that sits idle. At OpenAI's serving scale, single digit  % kernel gains are hundreds of millions in compute. (1/2)🧵",
+    "text": "A (popcorn) kernel is a specialized seed from a variety of corn that can burst open and turn inside out when heated. A kernel is also a few hundred lines of GPU code that executes the math and attention op in an LLM. A GPU only delivers its paper FLOPS if kernel keeps the tensor cords fed. Sloppy memory access patterns results in silicon that sits idle. At OpenAI's serving scale, single digit % kernel gains are hundreds of millions in compute. (1/2)🧵",
+    "url": "http://nitter.jaydenha.uk/SemiAnalysis_/status/2095980532186140692#m",
+    "fetched_at": "2026-09-05T17:52:41.916567+00:00",
     "via_instance": "https://nitter.cz"
   },
   {
@@ -520,6 +870,16 @@
     "via_instance": "https://nitter.cz"
   },
   {
+    "handle": "VantaTrading",
+    "name": "Vanta",
+    "posted_at": "Fri, 04 Sep 2026 17:57:17 GMT",
+    "title": "Proof Friday. 4.6 on Trustpilot. The card carries one reviewer's words from August — we didn't write them, and that's the point. Another from the same month: \"they process payout within hours not even up to 24hours.\" Every payout behind those sentences is on the public ledger.",
+    "text": "Proof Friday. 4.6 on Trustpilot. The card carries one reviewer's words from August — we didn't write them, and that's the point. Another from the same month: \"they process payout within hours not even up to 24hours.\" Every payout behind those sentences is on the public ledger.",
+    "url": "http://nitter.jaydenha.uk/VantaTrading/status/2095934238059323400#m",
+    "fetched_at": "2026-09-05T17:51:53.279105+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
     "handle": "galaxyhq",
     "name": "Galaxy Digital",
     "posted_at": "Fri, 04 Sep 2026 17:24:04 GMT",
@@ -550,6 +910,16 @@
     "via_instance": "https://nitter.cz"
   },
   {
+    "handle": "VantaTrading",
+    "name": "Vanta",
+    "posted_at": "Fri, 04 Sep 2026 16:21:17 GMT",
+    "title": "We've paid $603,594 to traders since April — every one visible on our public ledger. Our largest to date? $100,111.47. And it's only going up from here. Soon, we're launching $1,000,000 Pro accounts. Pass our standard evaluation, perform, and we upgrade you to Pro. That's how you get a $1,000,000 account for the price of a standard account. Start trading today and get ready for pro accounts: http://www.vantatrading.io",
+    "text": "We've paid $603,594 to traders since April — every one visible on our public ledger. Our largest to date? $100,111.47. And it's only going up from here. Soon, we're launching $1,000,000 Pro accounts. Pass our standard evaluation, perform, and we upgrade you to Pro. That's how you get a $1,000,000 account for the price of a standard account. Start trading today and get ready for pro accounts: vantatrading.io",
+    "url": "http://nitter.jaydenha.uk/VantaTrading/status/2095910079119937742#m",
+    "fetched_at": "2026-09-05T17:51:53.279105+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
     "handle": "taomedia_",
     "name": "TAO Media",
     "posted_at": "Fri, 04 Sep 2026 15:59:21 GMT",
@@ -570,6 +940,26 @@
     "via_instance": "https://nitter.cz"
   },
   {
+    "handle": "YumaGroup",
+    "name": "Yuma Holdings",
+    "posted_at": "Fri, 04 Sep 2026 15:01:51 GMT",
+    "title": "Yuma Staking has updated our Bittensor validator’s stake weights from the chain defaults to an equal distribution across the top 16 subnets ranked by subnet token price, with a minimum liquidity requirement to qualify. $TAO holders staked to Yuma’s validator began receiving rewards according to the updated weights as of this morning.",
+    "text": "Yuma Staking has updated our Bittensor validator’s stake weights from the chain defaults to an equal distribution across the top 16 subnets ranked by subnet token price, with a minimum liquidity requirement to qualify. $TAO holders staked to Yuma’s validator began receiving rewards according to the updated weights as of this morning.",
+    "url": "http://nitter.jaydenha.uk/YumaGroup/status/2095890087397482834#m",
+    "fetched_at": "2026-09-05T17:50:53.229262+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "YumaGroup",
+    "name": "Yuma Holdings",
+    "posted_at": "Fri, 04 Sep 2026 15:01:51 GMT",
+    "title": "R to @YumaGroup: Stake weights are set as part of Yuma’s participation in the Bittensor ecosystem pursuant to its staking and validation technology services. Weight setting shall not be construed as investment advice, investment management, or an offer or sale of a security nor as a recommendation to buy or sell any digital asset or participate in any activity related to digital assets. Rewards are protocol issued, variable, and not guaranteed. Yuma reserves the right to change or modify stake weights at any time without notice. Please see our Validator Staking ToS for important disclosures: https://yumaai.com/terms/validator",
+    "text": "Stake weights are set as part of Yuma’s participation in the Bittensor ecosystem pursuant to its staking and validation technology services. Weight setting shall not be construed as investment advice, investment management, or an offer or sale of a security nor as a recommendation to buy or sell any digital asset or participate in any activity related to digital assets. Rewards are protocol issued, variable, and not guaranteed. Yuma reserves the right to change or modify stake weights at any time without notice. Please see our Validator Staking ToS for important disclosures: yumaai.com/terms/v",
+    "url": "http://nitter.jaydenha.uk/YumaGroup/status/2095890089117159622#m",
+    "fetched_at": "2026-09-05T17:50:53.229262+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
     "handle": "galaxyhq",
     "name": "Galaxy Digital",
     "posted_at": "Fri, 04 Sep 2026 14:00:18 GMT",
@@ -580,6 +970,36 @@
     "via_instance": "https://nitter.cz"
   },
   {
+    "handle": "KyleSamani",
+    "name": "Kyle Samani",
+    "posted_at": "Fri, 04 Sep 2026 13:49:57 GMT",
+    "title": "The @tesla Cybercabs are everywhere in downtown Austin",
+    "text": "The @tesla Cybercabs are everywhere in downtown Austin",
+    "url": "http://nitter.jaydenha.uk/KyleSamani/status/2095871995594359282#m",
+    "fetched_at": "2026-09-05T17:51:20.460174+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "YumaGroup",
+    "name": "Yuma Holdings",
+    "posted_at": "Fri, 04 Sep 2026 13:49:16 GMT",
+    "title": "R to @YumaGroup: For informational purposes only. Not an offer or solicitation. Not investment advice. Do your own research. Past performance ≠ future results.",
+    "text": "For informational purposes only. Not an offer or solicitation. Not investment advice. Do your own research. Past performance ≠ future results.",
+    "url": "http://nitter.jaydenha.uk/YumaGroup/status/2095871821853696056#m",
+    "fetched_at": "2026-09-05T17:50:53.229262+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "YumaGroup",
+    "name": "Yuma Holdings",
+    "posted_at": "Fri, 04 Sep 2026 13:49:15 GMT",
+    "title": "The Yuma Large Cap Fund was Yuma Asset Management's highest performing Bittensor fund in August, posting a 25.1% gain on a USD basis, compared with 17.9% for $TAO/USD. The fund's composition is analogous to how the Mag 7 represent a concentrated allocation to dominant technology companies in public markets. Learn more about Yuma Asset Management funds at https://yumaai.com/asset-management",
+    "text": "The Yuma Large Cap Fund was Yuma Asset Management's highest performing Bittensor fund in August, posting a 25.1% gain on a USD basis, compared with 17.9% for $TAO/USD. The fund's composition is analogous to how the Mag 7 represent a concentrated allocation to dominant technology companies in public markets. Learn more about Yuma Asset Management funds at yumaai.com/asset-management",
+    "url": "http://nitter.jaydenha.uk/YumaGroup/status/2095871819425185996#m",
+    "fetched_at": "2026-09-05T17:50:53.229262+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
     "handle": "webuildscore",
     "name": "Score",
     "posted_at": "Fri, 04 Sep 2026 13:13:23 GMT",
@@ -587,6 +1007,16 @@
     "text": "Score Studio won't be limited to the models trained (past, present or future) on the subnet. You'll be able to run the rest of the computer vision stack in the same app. This is our quantized SAM3, used inside Score Studio, on Djokovic vs Nadal from the 2013 US Open final. Both players stay tracked for the whole point. Every step is drawn as a trail on the court. As the rally goes on, those trails build into a cluster: one map of where they ran. Two players, one of the longest rallies in the sport, held without losing either one, processed through a small, fast and efficient open-source segmen",
     "url": "http://nitter.jaydenha.uk/webuildscore/status/2095862793354260839#m",
     "fetched_at": "2026-09-05T14:22:40.598813+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "VantaTrading",
+    "name": "Vanta",
+    "posted_at": "Fri, 04 Sep 2026 11:53:16 GMT",
+    "title": "Why we publish every reward we pay. Every prop firm claims fast payouts. Screenshots are easy. Claims are free. So when we started paying traders in April, we made a decision that costs us the ability to exaggerate: the entire reward ledger is public. Every reward — its amount, its date, the rail it settled on, and a transaction reference. Bank rewards carry a Stripe id. Crypto rewards settle as USDC on-chain, where anyone can open the hash on a block explorer and see the transfer — no account, no permission from us. That changes the conversation with every skeptical trader, and it should. You don't have to believe our marketing. You can check the receipts, one by one, whenever you want, including right now. It also disciplines us. A public ledger can't be padded, backdated or quietly edited. If we ever stopped paying, the silence would be visible the same week. Don't trust us. Verify us.",
+    "text": "Why we publish every reward we pay. Every prop firm claims fast payouts. Screenshots are easy. Claims are free. So when we started paying traders in April, we made a decision that costs us the ability to exaggerate: the entire reward ledger is public. Every reward — its amount, its date, the rail it settled on, and a transaction reference. Bank rewards carry a Stripe id. Crypto rewards settle as USDC on-chain, where anyone can open the hash on a block explorer and see the transfer — no account, no permission from us. That changes the conversation with every skeptical trader, and it should. You",
+    "url": "http://nitter.jaydenha.uk/VantaTrading/status/2095842631255482870#m",
+    "fetched_at": "2026-09-05T17:51:53.279105+00:00",
     "via_instance": "https://nitter.cz"
   },
   {
