@@ -229,4 +229,4 @@ _no new posts in the lookback window_
 
 
 ---
-_Generated at 2026-09-06T08:20:56.072369+00:00 by scripts/intel/aggregate.py. Treat this digest as input context, not as ground truth. Verify before quoting._
+_Generated at 2026-09-06T14:44:49.642832+00:00 by scripts/intel/aggregate.py. Treat this digest as input context, not as ground truth. Verify before quoting._
