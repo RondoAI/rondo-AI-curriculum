@@ -11,6 +11,16 @@ _no human notes in the window_
 
 _SemiAnalysis is the most-cited semiconductor and AI infrastructure publication in the industry. They do NOT cover Bittensor. The Oracle uses this corpus for any claim about hyperscaler compute, GPU economics, datacenter power, foundry capacity, memory pricing, lab unit economics. DO NOT cite SemiAnalysis for any Bittensor-specific claim. Full archive (289 posts, May 2020 onwards) lives at `intelligence/_external_sources/semianalysis/` with an `INDEX.md` table of contents. Paywalled posts show only subtitle + free preview; free posts have the full body extracted._
 
+### 2026-09-07 · TPU Inference Externalization Full Steam Ahead - InferenceX
+_InferenceX, Up to 50% Better Performance per Dollar, Rapid Externalization of TPU stack, Growing Customer Base, Ironwood, TPUv8i, Reducing CUDA Moat_
+
+- **Authors:** ["Alec Ibarra", "Cam Quilici", "Bryan Shan", "Wenyao Gao", "Daniel Nishball", "Zane Fong", "Dylan Patel"]
+- **Access:** paid-preview
+- **URL:** https://newsletter.semianalysis.com/p/tpu-inferencex-full-steam
+- **Corpus file:** `intelligence/_external_sources/semianalysis/2026-09-07-tpu-inferencex-full-steam.md`
+
+> For more than a decade, the industry has watched Google build an empire on its own silicon. Search, Ads, YouTube, and every generation of Gemini run on TPUs. Few accelerators have attracted as much architectural scrutiny or as much debate about what their performance and economics would look like outside the company that designed them. Anthropic being the biggest user of TPUs, surpassing Deepmind’s own use by 2029.  [![A fisheye view of a data center wall with rows of server racks, complex cabli
+
 ### 2026-09-01 · Korea’s Trillion-Dollar Sovereign AI Investment: Nvidia Wins, Hynix Loses
 _Korea hosts a Squid Games, National AI Tournament, the best non-Chinese open source model gets eliminated, why Nvidia needs open source, implications for Hynix and Samsung_
 
@@ -121,20 +131,17 @@ _Kimi K3’s architecture: compressed memory, attention across depth, latent exp
 
 > Kimi K3 took the world by storm at its announcement, sweeping leaderboards and establishing itself as the open frontier model. While the community is eager to understand how Kimi K3 works, many have been surprised by the unconventional techniques driving its performance. This article serves as a primer to understanding the core techniques of the Kimi K3 model architecture.  # Kimi Delta Attention  Kimi Delta Attention (KDA) is the linear attention layer in Kimi K3’s hybrid attention mechanism. W
 
-### 2026-07-29 · The Wild Wild West Of LEGO Datacenters
-_Everyone Says They're Modular, Do The Vendor Claims Hold Up? Zuck's Tents, AWS's Houdini, 60GW+ Modular Capacity Tracked, Full Vendor Landscape Mapping, Vertiv's 2x Content Uplift Per MW_
-
-- **Authors:** ["Nicolas Bontigui", "Eric (Junqi) Wen", "Jeremie Eliahou Ontiveros", "Nigel Chiang", "Reyk Knuhtsen", "Dylan Patel"]
-- **Access:** paid-preview
-- **URL:** https://newsletter.semianalysis.com/p/the-wild-wild-west-of-lego-datacenters
-- **Corpus file:** `intelligence/_external_sources/semianalysis/2026-07-29-the-wild-wild-west-of-lego-datacenters.md`
-
-> # The Labor Problem and Modularization to the Rescue  Today we dig into the world of datacenter construction, because how datacenters are built now bears little resemblance to how the industry has historically done it. Concrete walls arrive as finished panels, mechanical and electrical rooms arrive wired, and sometimes even entire data halls arrive on the back of a truck. Some of the largest datacenters in the world are increasingly assembled the same way you assemble your new Spider-Man LEGO se
-
 
 ## ⊕ GITHUB COMMITS + RELEASES, last 24h
 
-_no commits or releases in the lookback window_
+- **Subtensor (chain)** (COMMIT `67dcf7f`, 2026-09-07 22:00) Merge pull request #3146 from RaoFoundation/release-455  
+  https://github.com/RaoFoundation/subtensor/commit/67dcf7f791dc495064c293f080a0702cb433e51e
+- **Subtensor (chain)** (COMMIT `b39e3cf`, 2026-09-07 20:13) clippy  
+  https://github.com/RaoFoundation/subtensor/commit/b39e3cfbd201b272b5c377413ad19f9ca56fc1e7
+- **Subtensor (chain)** (COMMIT `123395d`, 2026-09-07 19:58) fix: block indirect value movement through no-transfer proxies and re-enable crowdloan contributions  
+  https://github.com/RaoFoundation/subtensor/commit/123395df2083e2974e20b385c0630603eefa7550
+- **Subtensor (chain)** (COMMIT `cae63cf`, 2026-09-07 17:32) Temporarily disable crowdloan contributions and bump spec version  
+  https://github.com/RaoFoundation/subtensor/commit/cae63cfa59d2b15330f335f3d71b9dd8e5707d14
 
 ## ⊕ ECOSYSTEM BLOGS via RSS
 
@@ -148,6 +155,8 @@ _no new posts in the lookback window_
   http://nitter.jaydenha.uk/ridges_ai/status/2092684102595961119#m
 - @TargonCompute (Targon, Wed, 26 Aug 2026): .@TargonCompute is powering Theoriq AI experimentation. Curating risk-managed yield is, underneath, a research problem: how markets behave, where they break, and how much of that can be seen coming. That runs on heavy, on-demand compute. Targon is our partner in supplying it. Theoriq (@TheoriqAI) Article Theoriq partnering with Targon to power AI experimentation Curating risk-managed yield is, underneath, a research problem. Long before capital is deployed, we want to know how markets behave, where they tend to break, and how much of that can be seen coming — http://nitter.jaydenha.uk/TheoriqA  
   http://nitter.jaydenha.uk/TheoriqAI/status/2092661304444277050#m
+- @novogratz (Mike Novogratz, Wed, 26 Aug 2026): I don’t like him😂. Decentralized blockchains are part of the defense against us losing our privacy! Remarks (@remarks) JUST IN: 🇺🇸 Flock CEO says Americans must "compromise" on their privacy. — http://nitter.jaydenha.uk/remarks/status/2092446992383242547#m  
+  http://nitter.jaydenha.uk/novogratz/status/2092642077267972329#m
 - @polychain (Polychain Capital, Wed, 24 Jun 2026): I'm excited to share that Cambrian has raised $11.9M to build the financial intelligence layer for the convergence of AI, digital assets, and traditional finance. Our seed round was led by @Polychain and Franklin Templeton @FTDA_US: a convergence itself of a top OG digital assets fund and a $1.7T institutional asset manager of 75+ years. As AI starts to consume more data in minutes than most humans do in lifetimes, finance is evolving to adapt to this reality ⤵️ Cambrian Network 🪴 (@CambrianNetwork) Big news: we’ve raised $11.9 million to build the world’s financial intelligence layer. @Polych  
   http://nitter.jaydenha.uk/0xsamgreen/status/2069836236362313887#m
 - @polychain (Polychain Capital, Wed, 24 Jun 2026): Big news: we’ve raised $11.9 million to build the world’s financial intelligence layer. @Polychain and Franklin Templeton @FTDA_US share our conviction that the future of finance will be increasingly orchestrated by AI agents. The missing ingredient that separates winning agents from slopbots? Financial intelligence. Agents are beginning to consume human lifetimes' worth of data in minutes. As AI, digital assets, and traditional finance converge, the agentic appetite for data will grow larger – as will the challenge in separating noise from signal. Cambrian specializes strictly in financial da  
@@ -158,6 +167,10 @@ _no new posts in the lookback window_
   http://nitter.jaydenha.uk/jon_durbin/status/2090125585519444276#m
 - @_redteam_ (RedTeam / Innerworks, Wed, 19 Aug 2026): Listen in to @oscar_hayek discussing RedTeam on @YumaGroup's Subnet Spotlight. Origin, commercial and technical traction, and where we're headed. Yuma (@YumaGroup) How RedTeam (SN61) powers their cyberthreat immune system with Bittensor nitter.net/i/broadcasts/1dGYlazzp… Link Yuma How RedTeam (SN61) powers their cyberthreat immune system with Bittensor http://nitter.jaydenha.uk/i/broadcasts/1dGYlazzpnEKX — http://nitter.jaydenha.uk/YumaGroup/status/2090076390163095836#m  
   http://nitter.jaydenha.uk/_redteam_/status/2090091530920878293#m
+- @tm0klc (Tim, Wed, 17 Jun 2026): Introducing Manako, the fastest way to turn any camera into an vision ai agent. Go on manako.ai. Join our waitlist. Video  
+  http://nitter.jaydenha.uk/manakoai/status/2067298306200396197#m
+- @manakoai (Manako, Wed, 12 Aug 2026): The journey of building AI for the physical world is accelerating. What once took long, complex on-site deployments is rapidly becoming simple, fast, and repeatable. We’re making real-world AI deployment dramatically easier, one step at a time. Max (@MaxSebti) the first @manakoai on-site deployment took me 13 hours. the second one? @tm0klc knocked it out in 3. starting tomorrow, fully deploying Manako takes one ssh command. — http://nitter.jaydenha.uk/MaxSebti/status/2087652839157842247#m  
+  http://nitter.jaydenha.uk/manakoai/status/2087653699338326183#m
 - @oroagents (Oro, Wed, 12 Aug 2026): The model also reached 53.3% pass@8 versus 34.8% pass@1. That gap tells us the capability is already latent in the model. The remaining challenge is consistently extracting it. A dense teacher-grounded Dr. GRPO reward improved the process score from 0.02 to 0.42 and cut product-ID hallucinations from 14 to zero.  
   http://nitter.jaydenha.uk/oroagents/status/2087649319822512258#m
 - @oroagents (Oro, Wed, 12 Aug 2026): The bigger opportunity is still untouched. When we wrote the paper, SN15 produces roughly 12,000 to 27,000 trajectories per day, but now, with optimisations from @ironseth_s, we're seeing over 60,000 trajectories a day. Our model used only the small agentic slice. The next step is converting the much larger Axis B firehose into grounded agentic training data. Perhaps moving from the static nature of ShoppingBench to a environment compiler? Open competition can produce open intelligence. We’re just getting started.  
@@ -168,6 +181,8 @@ _no new posts in the lookback window_
   http://nitter.jaydenha.uk/CrucibleLabs/status/2085051594983559267#m
 - @PanteraCapital (Pantera Capital, Wed, 02 Sep 2026): Our full @Polymarket H1 report, in partnership with @Surfdeveloper, is now live 👇 This report covers: * Venue growth, market composition, and fee economics * User growth, cohort profiles, and PnL breakdowns * Market structure and user behavior, fee sensitivity and entry timing panteraresearchlab.xyz/resea… Podcast interview live at: nitter.net/apriori0x/status/20952… Link 2026 H1 Report: Flash Boys or Superforecasters? - Pantera Research Lab A deep dive into Polymarket’s venue growth, user portraits and market structures panteraresearchlab.xyz apriori (@apriori0x) Prediction markets are all di  
   http://nitter.jaydenha.uk/sui414/status/2095238459782991918#m
+- @YumaGroup (Yuma Holdings, Wed, 02 Sep 2026): . @YumaGroup is @DCGco’s Bittensor arm. It doesn't just fund builders - it runs validators, mines, and ships its own subnets. And Youssef El Moujahid leads Investment. Before Yuma, he spent more than a decade across global macro, exotics structuring, and quantitative research, bringing an institutional investment lens to Bittensor’s emerging markets. Catch him on the Exploit stage: luma.com/exploitsummit26 Video  
+  http://nitter.jaydenha.uk/ExploitSummit/status/2095225271742050447#m
 - @PanteraCapital (Pantera Capital, Wed, 02 Sep 2026): @worldcoinfnd's ProveKit brings zero-knowledge proofs, critical, open-sourced privacy technology, mainstream when consumers and enterprises need it more than ever. Remco (@recmo) Proud to announce ProveKit v1! Devs can build authentication with ZK privacy, running on all user devices. 2 years ago I started this project to show that every users’ phone is capable of ZK proving a passport document, under a minute, no trusted setup, 128bit post quantum secure. Thanks to collaborations with many world class teams, and several breakthroughs, this is now reality! Thank you everyone involved 🙏 ProveKi  
   http://nitter.jaydenha.uk/worldnetwork/status/2095204178075251131#m
 - @tplr_ai (Templar, Wed, 02 Sep 2026): Video  
@@ -176,12 +191,20 @@ _no new posts in the lookback window_
   http://nitter.jaydenha.uk/dylan522p/status/2095150842529694028#m
 - @shibshib89 (Ala Shaabana, Wed, 02 Sep 2026): Crucible Labs dropping #downwiththedev Episode 1. We breakdown the Mobile Wallet with @buildwithsamp. Take a listen. Video  
   http://nitter.jaydenha.uk/CrucibleLabs/status/2095144290376937770#m
+- @novogratz (Mike Novogratz, Wed, 02 Sep 2026): Sad! The New York Times (@nytimes) Breaking News: Senator Ed Markey, an 80-year-old progressive, held off Representative Seth Moulton to win the Democratic primary in Massachusetts. nyti.ms/4i7UOZO Link Senator Ed Markey, 80, Turns Back Younger Challenger in Massachusetts The oldest senator in Massachusetts history used a progressive message to beat Representative Seth Moulton, 47, defying calls for generational change. nytimes.com — http://nitter.jaydenha.uk/nytimes/status/2094953495908511875#m  
+  http://nitter.jaydenha.uk/novogratz/status/2094960096895738221#m
 - @ridges_ai (Ridges, Tue, 28 Jul 2026): ⛰️ x402 is now live on Ridges X402 is an agentic payment protocol that lets agents pay for API access autonomously. Integrated with Ridgeline, agents can now pay for and access our coding infrastructure directly, no human in the loop.  
   http://nitter.jaydenha.uk/ridges_ai/status/2082103797418262564#m
+- @novogratz (Mike Novogratz, Tue, 25 Aug 2026): “I was an A economist and a B- writer. Of course I use Ai”👋🏽😂 Deirdre Bosa (@dee_bosa) Lots of prominent ppl have had op-eds shaped or outright written by staff, comms ppl, ghostwriters, etc So not sure AI changes the underlying thing that much. If anything, might make the process more honest… Druckenmiller’s ideas, AI’s prose, and everyone knows it — http://nitter.jaydenha.uk/dee_bosa/status/2092324890191994884#m  
+  http://nitter.jaydenha.uk/novogratz/status/2092327481525100773#m
 - @zeussubnet (Zeus Subnet, Tue, 25 Aug 2026): Zeus is becoming energy-aware. The first among weather models. Incentives are now skewed towards Europe, most to Germany. Based on expressed interest from trading desks and trading volume. Within, they're further distributed, variable-specific, based on where weather drives energy supply & demand the most. Wind generation capacity for wind, solar capacity for solar, population for temperature. Now on mainnet.  
   http://nitter.jaydenha.uk/zeussubnet/status/2092278704445546730#m
 - @tplr_ai (Templar, Tue, 25 Aug 2026): Templar's work reduces to one question. How much of the machine-learning lifecycle can run across ordinary networks instead of a single datacentre? Pre-training answered first, with Covenant-72B as the proof at scale. Post-training followed through our communication-efficiency research. Serving open models on distributed hardware is the piece we are working on now, and it is the one that puts the whole arc in front of users. The internet is the datacentre.  
   http://nitter.jaydenha.uk/tplr_ai/status/2092267948765237743#m
+- @novogratz (Mike Novogratz, Tue, 25 Aug 2026): Disclosure: This information is for general informational purposes only and is not tax or legal advice. Collateral remains subject to market fluctuations and liquidation risk. Borrowing is generally not a taxable event. Consult your tax advisor.  
+  http://nitter.jaydenha.uk/novogratz/status/2092248677230223363#m
+- @novogratz (Mike Novogratz, Tue, 25 Aug 2026): GalaxyOne Crypto Portfolio Line of Credit is live today. You can now get liquidity on your crypto holdings across $BTC, $ETH, and $SOL without having to sell. We launched GalaxyOne last October to bring the power and sophistication of @galaxyhq to the modern individual investor. I've always believed you should be able to manage your entire financial portfolio (crypto, stocks, and cash) all in one platform, and that includes being able to borrow against your crypto. Congrats to @galaxyonezac & team on the launch!! GalaxyOne (@galaxyoneapp) Unlock liquidity. Keep your crypto. GalaxyOne Crypto Po  
+  http://nitter.jaydenha.uk/novogratz/status/2092248675120513395#m
 - @ridges_ai (Ridges, Tue, 21 Jul 2026): Now live: SN62 @ridges_ai is a Bittensor subnet where AI agents compete to solve software engineering problems end-to-end. Every submitted agent is open sourced, evaluated onchain against an evolving gauntlet of coding challenges, with performance verifiable by anyone. Start trading today → proapp.kraken.com/9f1e/SN62 Geographic restrictions apply.  
   http://nitter.jaydenha.uk/krakenlistings/status/2079596082632519805#m
 - @ridges_ai (Ridges, Tue, 21 Jul 2026): ⛰️ Get convicted with us. Simple credits. Free if you stake. Standard · $9.99/month. 10 credits, always the top-ranked agent, PRs opened automatically. Staker · free. Lock your Ridges alpha, connect your wallet, get credits every 3 days. No subscription needed.  
@@ -192,6 +215,8 @@ _no new posts in the lookback window_
   http://nitter.jaydenha.uk/jon_durbin/status/2089746552055030227#m
 - @_redteam_ (RedTeam / Innerworks, Tue, 11 Aug 2026): We have now seen client traffic where more than 95% of requests are automated. Humans are in the vast minority online. Part of that shift is agentic automation doing legitimate work for real users. Malicious bot traffic is spiking inside the same wave, much of it running the same frameworks, and from the traffic alone the two are getting harder to separate. bot_virus_v1 is live on Subnet 61, built to watch that tooling from the attacker's side. The challenge is completely open ended. Miners bring any tool, any framework, any attack vector, and every submission is scored on what it gets past ou  
   http://nitter.jaydenha.uk/_redteam_/status/2087198856455098799#m
+- @tm0klc (Tim, Tue, 07 Jul 2026): Subnet 44 @webuildscore is expanding. We’re incentivising training for a new vision-language model: Satori. Satori reasons AND grounds. It doesn’t just answer questions about an image. It points to the evidence. - Reason about scenes - Detect and segment objects - Read text - Count entities - Ground claims in pixels Most VLMs are split: strong reasoning OR strong grounding. Detection models localise, but can’t talk. Chatty VLMs describe fluently, but can’t prove it. Satori sits at the intersection. We’re starting with a 7B base model.  
+  http://nitter.jaydenha.uk/tm0klc/status/2074298897305047101#m
 - @resilabsai (RESI, Tue, 07 Apr 2026): The power of holding Bittensor $TAO subnet alpha Here is an example to illustrate the flywheel of $TAO Let's say you 1,000 alpha of @resilabsai which cost around 7 $TAO 7 $TAO at a price of $310 = $2,170 Current alpha price of Resi, subnet 46: .0066 $TAO Let's make some calculated assumptions. &gt; price of resi alpha stays the same for 3 years &gt; price of $TAO remains the same at $310 &gt; APY for holding Resi alpha is 40% for the first 2 years, then 30% in year 3 What is my total value in 3 years? Year 1 (40% APY) 1,060.6 × 1.4 = 1,484.8 alpha In $TAO: 1,484.8 × 0.0066 ≈ 9.80 $TAO In USD:   
   http://nitter.jaydenha.uk/Pop_Collapse/status/2041570023823528017#m
 - @shibshib89 (Ala Shaabana, Tue, 04 Aug 2026): Distributed training has never been easy. Building a distributed system that makes economic sense on Bittensor is harder still. Today, we’re introducing Connito: a network for collaboratively building composable specialized AI. Signal shows us that just by training a particular selection of experts as a partial model, we can improve the performance of the whole system. Learn about our architecture and results: connito.ai/blog/distributing… Video  
@@ -224,25 +249,7 @@ _no new posts in the lookback window_
   http://nitter.jaydenha.uk/oroagents/status/2090533835192893616#m
 - @tplr_ai (Templar, Thu, 20 Aug 2026): Following the extraordinary performance claims in the Teutonic-I report, we audited the released weights. We found overwhelming evidence that the model is derived from @Alibaba_Qwen's Qwen3.5-9B weights, while showing no clear benefit over that source model. Full report: tplr.ai/teutonic-1-audit.pdf const (@const_reborn) Today, after 4 months, Subnet 3 (previously @tplr_ai) got retaken by holders through vote. We're celebrating by releasing our first model. Teutonic-I: the worlds most performant decentralized LLM. teutonic.ai/paper.html Link Teutonic-I 10B — Technical Report A 10B language mod  
   http://nitter.jaydenha.uk/tplr_ai/status/2090433758977778074#m
-- @polychain (Polychain Capital, Thu, 13 Aug 2026): LBTC proved demand for yield-bearing Bitcoin. Today, we double down on that thesis. LBTC is moving to institutional yield. @Bitwise will manage a covered-call options strategy with a 4.5-year legacy track record, to generate LBTC's yield, targeting 2.5% net APY paid in Bitcoin.  
-  http://nitter.jaydenha.uk/Lombard_Finance/status/2087887552300933626#m
-- @jon_durbin (Jon Durbin, Thu, 06 Aug 2026): TL;DR: libp2p TCP transport with dual trainer/syncer roles = chef's kiss For model training, don't bottleneck and single-point-of -failure yourself with a blob store (S3/R2). Also, don't bash your forehead against a wall using listening sockets on nodes that may be behind firewalls/NAT/port mapped containers/etc. Just set up a separate backbone (sync only, non-GPU/training nodes) across the world with super fast WAN and use push only from training/GPU nodes to this layer. Easy peasy, works like a charm. And bonus, libp2p's TCP transports are reliably better across providers/networks/countries   
-  http://nitter.jaydenha.uk/jon_durbin/status/2085489952113225893#m
-- @dippy_ai (Dippy AI, Thu, 04 Jun 2026): Today, we’re opening up Datapoint AI for anyone to use. It is by far the fastest way to understand what your customers want. Type a question. Real people answer. You get a report back in ~10 minutes, not three weeks, and at a fraction of the cost. Video  
-  http://nitter.jaydenha.uk/datapointai/status/2062563294880075837#m
-- @rob_svrn (Rob Greer, Thu, 03 Sep 2026): Actual Computer CEO @Tom_A_Lynch predicts the next wave of AI inference will increasingly move from the cloud to local computers: "How many tokens does the world go through a day right now? That number is probably like 500 trillion or so. Google themselves claims 100 trillion per day. The publicly accountable numbers are like 350 trillion or so." "I like to look at it as where are the next tokens coming from. The next 100 trillion, what percentage of those are going to be local versus cloud? You're going to see a larger degree of growth in new tokens coming from local versus how it has been al  
-  http://nitter.jaydenha.uk/MTSlive/status/2095652939125948894#m
-- @KyleSamani (Kyle Samani, Thu, 03 Sep 2026): FSD Tesla (@Tesla) The future has arrived in Austin Video — http://nitter.jaydenha.uk/Tesla/status/2095588745936298039#m  
-  http://nitter.jaydenha.uk/KyleSamani/status/2095634154780008842#m
-- @KyleSamani (Kyle Samani, Thu, 03 Sep 2026): A reminder that this will 10x over the next 12 months and you should care because the more money institutions put into DeFi the more your coins will go up Kamino's Institutional Commodity Yield is one of the most important DeFi advancements ever shipped and is a dark horse for institutional adoption of onchain finance Kamino Intern (@kaminointern) the new @kamino Institutional Commodity Yield vault is one of the strongest ways to diversify beyond typical DeFi yield. different yield source, different risk profile. &gt; yield: commodity trade finance generating 7–8% APY from real financing deman  
-  http://nitter.jaydenha.uk/gumsays/status/2095610281552756979#m
-- @tplr_ai (Templar, Thu, 03 Sep 2026): Crucible, Templar's pre-training platform, has completed its first production end-to-end training runs. The latest trained an 8B model on 50.53B tokens across 48 distributed A100s, at an estimated $0.1202 per million tokens of GPU rental. The run reached 48.3% effective MFU. At AWS p4de Capacity Blocks pricing, a 48-A100 cluster operating at the literature-derived 65% compute ceiling comes to an estimated $0.1686 per million tokens. Crucible's measured $0.1202 was about 29% lower after its low-bandwidth overhead. The comparison excludes R2 storage and operations. The full writeup shows the met  
-  http://nitter.jaydenha.uk/tplr_ai/status/2095580357626110111#m
-- @zeussubnet (Zeus Subnet, Thu, 03 Sep 2026): While energy supply becomes more and more weather-dependent, our mission is to give traders the fastest, most precise view on weather ✅ 75% faster* ✅ &gt;30% more accurate on temperature* ✅ &gt;20% more accurate on wind* *vs ECMWF IFS across June and July  
-  http://nitter.jaydenha.uk/zeussubnet/status/2095535560102203644#m
-- @KyleSamani (Kyle Samani, Thu, 03 Sep 2026): Steps to be a successful venture investor 1) buy big position 2) go on podcasts and talk about it 3) sell it I really struggled with step 3 Arkham (@arkham) Multicoin just sold another 10% of their HYPE stack. HYPE is Multicoin’s largest holding, with current holdings of $90.5M. They accumulated HYPE during February-March this year, and have held for over 6 months now. At peak, they held 4M HYPE tokens, and now hold just over 25% of what they had originally. — http://nitter.jaydenha.uk/arkham/status/2095313693483417802#m  
-  http://nitter.jaydenha.uk/KyleSamani/status/2095367547432395050#m
 
 
 ---
-_Generated at 2026-09-07T17:03:05.918990+00:00 by scripts/intel/aggregate.py. Treat this digest as input context, not as ground truth. Verify before quoting._
+_Generated at 2026-09-07T22:28:32.784870+00:00 by scripts/intel/aggregate.py. Treat this digest as input context, not as ground truth. Verify before quoting._

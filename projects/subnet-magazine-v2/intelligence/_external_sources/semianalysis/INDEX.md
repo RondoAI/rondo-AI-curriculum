@@ -1,11 +1,12 @@
 # SemiAnalysis Archive Index
 
-_324 posts captured. Generated 2026-09-07T17:03:05.790543+00:00._
+_325 posts captured. Generated 2026-09-07T22:28:32.628352+00:00._
 
 Editorial policy: SemiAnalysis is the macro reference. The Oracle cites it for any claim about hyperscaler compute, GPU economics, datacenter power, foundry capacity, memory pricing, lab unit economics. The Oracle does NOT cite SemiAnalysis for any Bittensor-specific claim. SemiAnalysis does not cover Bittensor; treat that absence as itself information.
 
 | Date | Title | Audience | Authors | File |
 | --- | --- | --- | --- | --- |
+| 2026-09-07 | [TPU Inference Externalization Full Steam Ahead - InferenceX](https://newsletter.semianalysis.com/p/tpu-inferencex-full-steam) | only_paid | ["Alec Ibarra", "Cam Quilici", "Bryan Shan", "Wenyao Gao", " | `2026-09-07-tpu-inferencex-full-steam.md` |
 | 2026-09-01 | [Korea’s Trillion-Dollar Sovereign AI Investment: Nvidia Wins, Hynix Loses](https://newsletter.semianalysis.com/p/koreas-trillion-dollar-sovereign) | only_paid | ["Max Kan", "Ray Wang", "Dylan Patel"] | `2026-09-01-koreas-trillion-dollar-sovereign.md` |
 | 2026-08-30 | [Most Neoclouds Suck At Security](https://newsletter.semianalysis.com/p/most-neoclouds-suck-at-security) | only_paid | ["Jordan Nanos", "Sam Harshe", "Pratt Bhatt", "Billy Cao", " | `2026-08-30-most-neoclouds-suck-at-security.md` |
 | 2026-08-25 | [OpenAI Jalapeño: Better Than Nvidia Blackwell](https://newsletter.semianalysis.com/p/openai-jalapeno-better-than-nvidia) | only_paid | ["Bryan Shan", "Myron Xie", "Jordan Nanos", "Wega Chu", "Cla | `2026-08-25-openai-jalapeno-better-than-nvidia.md` |
