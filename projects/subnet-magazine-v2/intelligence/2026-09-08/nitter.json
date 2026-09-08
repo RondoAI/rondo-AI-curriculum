@@ -30,6 +30,26 @@
     "via_instance": "https://nitter.cz"
   },
   {
+    "handle": "manakoai",
+    "name": "Manako",
+    "posted_at": "Wed, 12 Aug 2026 21:33:23 GMT",
+    "title": "The journey of building AI for the physical world is accelerating. What once took long, complex on-site deployments is rapidly becoming simple, fast, and repeatable. We’re making real-world AI deployment dramatically easier, one step at a time.",
+    "text": "The journey of building AI for the physical world is accelerating. What once took long, complex on-site deployments is rapidly becoming simple, fast, and repeatable. We’re making real-world AI deployment dramatically easier, one step at a time. Max (@MaxSebti) the first @manakoai on-site deployment took me 13 hours. the second one? @tm0klc knocked it out in 3. starting tomorrow, fully deploying Manako takes one ssh command. — http://nitter.jaydenha.uk/MaxSebti/status/2087652839157842247#m",
+    "url": "http://nitter.jaydenha.uk/manakoai/status/2087653699338326183#m",
+    "fetched_at": "2026-09-08T22:16:10.955964+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "mcjkula",
+    "name": "mcjkula",
+    "posted_at": "Tue, 30 Dec 2025 05:41:20 GMT",
+    "title": "RT by @mcjkula: 7 months. 55,000+ conversations. 128 subnets. One Savant. Here's what we learned from building the first MCP for @Bittensor.",
+    "text": "7 months. 55,000+ conversations. 128 subnets. One Savant. Here's what we learned from building the first MCP for @Bittensor.",
+    "url": "http://nitter.jaydenha.uk/taoapp_/status/2005876837214228623#m",
+    "fetched_at": "2026-09-08T22:15:01.748692+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
     "handle": "zeussubnet",
     "name": "Zeus Subnet",
     "posted_at": "Tue, 25 Aug 2026 15:51:30 GMT",
@@ -67,6 +87,56 @@
     "text": "RT @tplr_ai: Nvidia is wrapping a $500B financing plan around GPU collateral. Compute is turning into a financialized asset you can borrow…",
     "url": "http://nitter.jaydenha.uk/covenant_ai/status/2089730838992666897#m",
     "fetched_at": "2026-09-08T19:11:44.907487+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "mcjkula",
+    "name": "mcjkula",
+    "posted_at": "Tue, 14 Apr 2026 18:41:35 GMT",
+    "title": "See you in Montréal everyone. Not gonna want to miss this one🫡",
+    "text": "See you in Montréal everyone. Not gonna want to miss this one🫡 Exploit Summit (@ExploitSummit) Building on Bittensor is hard. Doing it in isolation is even harder. Exploit puts you in a room with: • The subnet founders who've already solved your problems • The investors actually writing checks • The technical talent you're trying to hire Sept 28-29, Montréal. Two days that could save you six months. Video — http://nitter.jaydenha.uk/ExploitSummit/status/2044100822750114215#m",
+    "url": "http://nitter.jaydenha.uk/mcjkula/status/2044123923088830837#m",
+    "fetched_at": "2026-09-08T22:15:01.748692+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "markjeffrey",
+    "name": "Mark Jeffrey",
+    "posted_at": "Tue, 08 Sep 2026 20:11:30 GMT",
+    "title": "Holy smokes. (And I know Adrian personally, he's very legit):",
+    "text": "Holy smokes. (And I know Adrian personally, he's very legit): Adrian Scott | A.I. + Business Upscaling (@adrianscottcom) Is OpenAI Mining Your Secrets? The Navier-Stokes Scandal is a warning to every CEO Your proprietary IP is currently being used to train your biggest competitor. The Navier-Stokes dispute isn't just about math. It is a terrifying preview of how OpenAI and others can consume the value of the companies building on top of it. This is the ultimate story of platform risk. Two mathematicians spent a year putting unpublished, breakthrough work into Codex. The moment rumors of their ",
+    "url": "http://nitter.jaydenha.uk/markjeffrey/status/2097417564829970486#m",
+    "fetched_at": "2026-09-08T22:15:08.588822+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "markjeffrey",
+    "name": "Mark Jeffrey",
+    "posted_at": "Tue, 08 Sep 2026 20:00:00 GMT",
+    "title": "RT by @markjeffrey: I hope people understand how crazy this is. ORO is the first crypto company with a live token to be accepted into Y Combinator. YC underwrote ORO, evaluated the Bittensor model, and came to understand the subnet as a structural advantage and the token as accretive to the company's capital structure. What a time to be alive.",
+    "text": "I hope people understand how crazy this is. ORO is the first crypto company with a live token to be accepted into Y Combinator. YC underwrote ORO, evaluated the Bittensor model, and came to understand the subnet as a structural advantage and the token as accretive to the company's capital structure. What a time to be alive. ORO (@oroagents) We're excited to announce that we're going to be joining Y Combinator in Fall 2026. The team is super pumped to be working with @golda and co to continue on our journey of creating the best in class open source models for agentic commerce. Video — http://ni",
+    "url": "http://nitter.jaydenha.uk/capradavis/status/2097414672333050058#m",
+    "fetched_at": "2026-09-08T22:15:08.588822+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "markjeffrey",
+    "name": "Mark Jeffrey",
+    "posted_at": "Tue, 08 Sep 2026 19:35:42 GMT",
+    "title": "A bittensor subnet, Oro Subnet 15, has been accepted into Y Combinator. $TAO",
+    "text": "A bittensor subnet, Oro Subnet 15, has been accepted into Y Combinator. $TAO ORO (@oroagents) We're excited to announce that we're going to be joining Y Combinator in Fall 2026. The team is super pumped to be working with @golda and co to continue on our journey of creating the best in class open source models for agentic commerce. Video — http://nitter.jaydenha.uk/oroagents/status/2097396633764032707#m",
+    "url": "http://nitter.jaydenha.uk/markjeffrey/status/2097408555955658991#m",
+    "fetched_at": "2026-09-08T22:15:08.588822+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "markjeffrey",
+    "name": "Mark Jeffrey",
+    "posted_at": "Tue, 08 Sep 2026 19:19:34 GMT",
+    "title": "The key to humanoids is the brain AI. The key to the brain AI is DATA.",
+    "text": "The key to humanoids is the brain AI. The key to the brain AI is DATA. Brett Adcock (@adcock_brett) Figure is scaling up data in a big way. Last week we hit 69,900 weekly active users Users are uploading 35 minutes of data every second across the world — http://nitter.jaydenha.uk/adcock_brett/status/2097402864289411551#m",
+    "url": "http://nitter.jaydenha.uk/markjeffrey/status/2097404496678973500#m",
+    "fetched_at": "2026-09-08T22:15:08.588822+00:00",
     "via_instance": "https://nitter.cz"
   },
   {
@@ -300,6 +370,16 @@
     "via_instance": "https://nitter.cz"
   },
   {
+    "handle": "mcjkula",
+    "name": "mcjkula",
+    "posted_at": "Tue, 01 Sep 2026 17:30:03 GMT",
+    "title": "RT by @mcjkula: TAOApp Wallet is here. The self-custody browser wallet for Bittensor. Hold TAO, stake TAO, buy subnet tokens. When there’s more to protect, bring in your Ledger, proxies and multisigs. Install the beta, on Chrome, Brave and Edge. ↓ https://chromewebstore.google.com/detail/taoapp-wallet/plipkdflloklldnmnjdlonijlihafjjc",
+    "text": "TAOApp Wallet is here. The self-custody browser wallet for Bittensor. Hold TAO, stake TAO, buy subnet tokens. When there’s more to protect, bring in your Ledger, proxies and multisigs. Install the beta, on Chrome, Brave and Edge. ↓ chromewebstore.google.com/de…",
+    "url": "http://nitter.jaydenha.uk/taoapp_/status/2094840222441992209#m",
+    "fetched_at": "2026-09-08T22:15:01.748692+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
     "handle": "const_reborn",
     "name": "Jacob Steeves",
     "posted_at": "Tue, 01 Sep 2026 15:26:23 GMT",
@@ -400,6 +480,16 @@
     "via_instance": "https://nitter.cz"
   },
   {
+    "handle": "manakoai",
+    "name": "Manako",
+    "posted_at": "Thu, 13 Aug 2026 11:27:25 GMT",
+    "title": "Step by step",
+    "text": "Step by step Max (@MaxSebti) forward deployed engineering — http://nitter.jaydenha.uk/MaxSebti/status/2087858212473098403#m",
+    "url": "http://nitter.jaydenha.uk/manakoai/status/2087863589839282535#m",
+    "fetched_at": "2026-09-08T22:16:10.955964+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
     "handle": "nigescore",
     "name": "Nige",
     "posted_at": "Thu, 09 Jul 2026 15:12:31 GMT",
@@ -417,6 +507,16 @@
     "text": "TL;DR: libp2p TCP transport with dual trainer/syncer roles = chef's kiss For model training, don't bottleneck and single-point-of -failure yourself with a blob store (S3/R2). Also, don't bash your forehead against a wall using listening sockets on nodes that may be behind firewalls/NAT/port mapped containers/etc. Just set up a separate backbone (sync only, non-GPU/training nodes) across the world with super fast WAN and use push only from training/GPU nodes to this layer. Easy peasy, works like a charm. And bonus, libp2p's TCP transports are reliably better across providers/networks/countries ",
     "url": "http://nitter.jaydenha.uk/jon_durbin/status/2085489952113225893#m",
     "fetched_at": "2026-09-08T15:48:18.888321+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "manakoai",
+    "name": "Manako",
+    "posted_at": "Thu, 06 Aug 2026 11:51:34 GMT",
+    "title": "This is what shipping physical AI looks like. First stop? 124 fuel stations in France. next stop? everywhere with a camera. Built on @nvidia jetson. deployed in minutes. #NVIDIAInception",
+    "text": "This is what shipping physical AI looks like. First stop? 124 fuel stations in France. next stop? everywhere with a camera. Built on @nvidia jetson. deployed in minutes. #NVIDIAInception Max (@MaxSebti) everyone’s building AI in the cloud. we’re shipping it in boxes. this is the first of 124 @nvidia jetson powered vision intelligence platforms deploying across @Avia_France’s network this quarter as our first batch with them. unbox it, instant operational intelligence. — http://nitter.jaydenha.uk/MaxSebti/status/2085331352606343383#m",
+    "url": "http://nitter.jaydenha.uk/manakoai/status/2085332953459024132#m",
+    "fetched_at": "2026-09-08T22:16:10.955964+00:00",
     "via_instance": "https://nitter.cz"
   },
   {
@@ -590,6 +690,16 @@
     "via_instance": "https://nitter.cz"
   },
   {
+    "handle": "manakoai",
+    "name": "Manako",
+    "posted_at": "Sat, 08 Aug 2026 11:48:41 GMT",
+    "title": "Welcome back",
+    "text": "Welcome back cryptolake (@crypt0lake) vacation for 2 weeks and @manakoai had like 20 major updates and a new product i have an insane team — http://nitter.jaydenha.uk/crypt0lake/status/2086044260231762171#m",
+    "url": "http://nitter.jaydenha.uk/manakoai/status/2086057005840466059#m",
+    "fetched_at": "2026-09-08T22:16:10.955964+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
     "handle": "opentensor",
     "name": "Opentensor Foundation",
     "posted_at": "Mon, 31 Aug 2026 16:50:19 GMT",
@@ -627,6 +737,16 @@
     "text": "Over 1m alpha now perpetually locked via conviction on SN61. This is almost a 50% increase in less than 1 month. 90% of all future emissions stay locked.",
     "url": "http://nitter.jaydenha.uk/_redteam_/status/2089356070904901822#m",
     "fetched_at": "2026-09-08T15:48:51.343541+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "mcjkula",
+    "name": "mcjkula",
+    "posted_at": "Mon, 13 Apr 2026 09:59:22 GMT",
+    "title": "For anyone that wants to get an idea of what the discussion will be about on this week with Const, this one is worth to read and form opinions/prepare questions about 🫡",
+    "text": "For anyone that wants to get an idea of what the discussion will be about on this week with Const, this one is worth to read and form opinions/prepare questions about 🫡 Learn Bittensor (@learnbittensor) 🔒Locked Stake & Conviction are Being Proposed for Bittensor Subnet ownership may be about to change. BIT-0011 proposes that anyone can challenge for ownership of a subnet by locking their ALPHA stake and building \"conviction.\" Right now, inactive subnet owners can hold onto subnets indefinitely. 'Locked Stake' would make ownership a contest of commitment, giving motivated participants a path to",
+    "url": "http://nitter.jaydenha.uk/mcjkula/status/2043630114567491654#m",
+    "fetched_at": "2026-09-08T22:15:01.748692+00:00",
     "via_instance": "https://nitter.cz"
   },
   {
@@ -800,6 +920,16 @@
     "via_instance": "https://nitter.cz"
   },
   {
+    "handle": "manakoai",
+    "name": "Manako",
+    "posted_at": "Fri, 28 Aug 2026 14:47:12 GMT",
+    "title": "Those @nvidia Jetsons going into fuel stations just got a lot denser. With our new models, one unit now runs 35–40 cameras + 7–14 agents. Heavier agents eat more of the budget. Lighter ones scale further. The cameras were already on site. The intelligence wasn’t.",
+    "text": "Those @nvidia Jetsons going into fuel stations just got a lot denser. With our new models, one unit now runs 35–40 cameras + 7–14 agents. Heavier agents eat more of the budget. Lighter ones scale further. The cameras were already on site. The intelligence wasn’t.",
+    "url": "http://nitter.jaydenha.uk/manakoai/status/2093349687927394806#m",
+    "fetched_at": "2026-09-08T22:16:10.955964+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
     "handle": "zeussubnet",
     "name": "Zeus Subnet",
     "posted_at": "Fri, 28 Aug 2026 13:02:47 GMT",
@@ -817,6 +947,16 @@
     "text": "Ternary and sparse FP4 are a match made in heaven. 2x the performance, cost is basically nothing in terms of quality since ternary already has natural sparsity. AND, you can pack those params 1.15 bits per param instead of 1.58. A petaflop... at 200 watts... Almost magic. Jon Durbin (@jon_durbin) NVIDIA B300 servers retail around $350k min, crazy power/cooling requirements/etc. (bad maths) per GPU (8) is $43,750, if you can even find them (narrator: you can't) then pay for collocation etc... 9 PFLOPS dense FP4. DGX Spark: $4700, plug in anywhere, 1 PFLOP (fp4 sparse). B300 9ish PFLOP dense FP4",
     "url": "http://nitter.jaydenha.uk/jon_durbin/status/2090779358852010165#m",
     "fetched_at": "2026-09-08T15:48:18.888321+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "mcjkula",
+    "name": "mcjkula",
+    "posted_at": "Fri, 13 Feb 2026 21:46:49 GMT",
+    "title": "Block #4,920,351 to Block #7,537,718 1 year. No going back.",
+    "text": "Block #4,920,351 to Block #7,537,718 1 year. No going back.",
+    "url": "http://nitter.jaydenha.uk/mcjkula/status/2022427265955762602#m",
+    "fetched_at": "2026-09-08T22:15:01.748692+00:00",
     "via_instance": "https://nitter.cz"
   },
   {
