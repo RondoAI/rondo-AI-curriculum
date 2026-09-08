@@ -1,5 +1,25 @@
 [
   {
+    "handle": "jon_durbin",
+    "name": "Jon Durbin",
+    "posted_at": "Wed, 19 Aug 2026 17:15:46 GMT",
+    "title": "NVIDIA B300 servers retail around $350k min, crazy power/cooling requirements/etc. (bad maths) per GPU (8) is $43,750, if you can even find them (narrator: you can't) then pay for collocation etc... 9 PFLOPS dense FP4. DGX Spark: $4700, plug in anywhere, 1 PFLOP (fp4 sparse). B300 9ish PFLOP dense FP4 super expensive impossible to collocate anywhere etc. etc., $4861.11 per PFLOP. DGX Spark $4700 plug in any 15 amp outline in any house, $4700/PFLOP (but sparse). Memory is slower, so I guess use less of it/less manipulation of it... Yep, math checks out - pretraining on decentralized DGX Spark with native sparse FP4 (checks notes: yes we're using ternary weights which slot perfectly into sparse FP4 compute) should be a thing. Time to test it out...",
+    "text": "NVIDIA B300 servers retail around $350k min, crazy power/cooling requirements/etc. (bad maths) per GPU (8) is $43,750, if you can even find them (narrator: you can't) then pay for collocation etc... 9 PFLOPS dense FP4. DGX Spark: $4700, plug in anywhere, 1 PFLOP (fp4 sparse). B300 9ish PFLOP dense FP4 super expensive impossible to collocate anywhere etc. etc., $4861.11 per PFLOP. DGX Spark $4700 plug in any 15 amp outline in any house, $4700/PFLOP (but sparse). Memory is slower, so I guess use less of it/less manipulation of it... Yep, math checks out - pretraining on decentralized DGX Spark w",
+    "url": "http://nitter.jaydenha.uk/jon_durbin/status/2090125585519444276#m",
+    "fetched_at": "2026-09-08T15:48:18.888321+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "_redteam_",
+    "name": "RedTeam / Innerworks",
+    "posted_at": "Wed, 19 Aug 2026 15:00:27 GMT",
+    "title": "Listen in to @oscar_hayek discussing RedTeam on @YumaGroup's Subnet Spotlight. Origin, commercial and technical traction, and where we're headed.",
+    "text": "Listen in to @oscar_hayek discussing RedTeam on @YumaGroup's Subnet Spotlight. Origin, commercial and technical traction, and where we're headed. Yuma (@YumaGroup) How RedTeam (SN61) powers their cyberthreat immune system with Bittensor nitter.net/i/broadcasts/1dGYlazzp… Link Yuma How RedTeam (SN61) powers their cyberthreat immune system with Bittensor http://nitter.jaydenha.uk/i/broadcasts/1dGYlazzpnEKX — http://nitter.jaydenha.uk/YumaGroup/status/2090076390163095836#m",
+    "url": "http://nitter.jaydenha.uk/_redteam_/status/2090091530920878293#m",
+    "fetched_at": "2026-09-08T15:48:51.343541+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
     "handle": "zeussubnet",
     "name": "Zeus Subnet",
     "posted_at": "Tue, 25 Aug 2026 15:51:30 GMT",
@@ -7,6 +27,76 @@
     "text": "Zeus is becoming energy-aware. The first among weather models. Incentives are now skewed towards Europe, most to Germany. Based on expressed interest from trading desks and trading volume. Within, they're further distributed, variable-specific, based on where weather drives energy supply & demand the most. Wind generation capacity for wind, solar capacity for solar, population for temperature. Now on mainnet.",
     "url": "http://nitter.jaydenha.uk/zeussubnet/status/2092278704445546730#m",
     "fetched_at": "2026-09-08T08:31:22.156999+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "jon_durbin",
+    "name": "Jon Durbin",
+    "posted_at": "Tue, 18 Aug 2026 16:09:38 GMT",
+    "title": "So engy starts as explicitly non-TEE inference, but better for some reason because each instance requires 80 gpus that are flaky and slow over 25gbps interconnects. Then they realize TEE is necessary for any real use case, but TEE without open source/fixed/attested workloads is pointless because you could just change the stack to log whatever you want otherwise. So now it'll be... a chutes clone? But without any transparency, run by an anon and his many alts and lackies who are in a perpetual smear campaign against chutes? How many times to tao holders need to be rugged/deceived by anons with huge promises? Careful out there.",
+    "text": "So engy starts as explicitly non-TEE inference, but better for some reason because each instance requires 80 gpus that are flaky and slow over 25gbps interconnects. Then they realize TEE is necessary for any real use case, but TEE without open source/fixed/attested workloads is pointless because you could just change the stack to log whatever you want otherwise. So now it'll be... a chutes clone? But without any transparency, run by an anon and his many alts and lackies who are in a perpetual smear campaign against chutes? How many times to tao holders need to be rugged/deceived by anons with ",
+    "url": "http://nitter.jaydenha.uk/jon_durbin/status/2089746552055030227#m",
+    "fetched_at": "2026-09-08T15:48:18.888321+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "KyleSamani",
+    "name": "Kyle Samani",
+    "posted_at": "Tue, 08 Sep 2026 14:06:25 GMT",
+    "title": "RT by @KyleSamani: Investor barbell of the future. Links below.",
+    "text": "Investor barbell of the future. Links below.",
+    "url": "http://nitter.jaydenha.uk/kankanivishal/status/2097325688772604092#m",
+    "fetched_at": "2026-09-08T15:48:03.449623+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "BarrySilbert",
+    "name": "Barry Silbert",
+    "posted_at": "Tue, 08 Sep 2026 13:57:10 GMT",
+    "title": "RT by @BarrySilbert: $ZCSH, the world's first Zcash fund, is now available for options trading on @NYSE.",
+    "text": "$ZCSH, the world's first Zcash fund, is now available for options trading on @NYSE.",
+    "url": "http://nitter.jaydenha.uk/Grayscale/status/2097323361739403543#m",
+    "fetched_at": "2026-09-08T15:47:32.501774+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "BarrySilbert",
+    "name": "Barry Silbert",
+    "posted_at": "Tue, 08 Sep 2026 13:57:05 GMT",
+    "title": "RT by @BarrySilbert: Options trading is now available on $ZCSH, the world's first Zcash fund, built by @Grayscale, on @NYSE.",
+    "text": "Options trading is now available on $ZCSH, the world's first Zcash fund, built by @Grayscale, on @NYSE.",
+    "url": "http://nitter.jaydenha.uk/ZcashETF/status/2097323339828355482#m",
+    "fetched_at": "2026-09-08T15:47:32.501774+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "nigescore",
+    "name": "Nige",
+    "posted_at": "Tue, 08 Sep 2026 09:52:05 GMT",
+    "title": "RT by @nigescore: Astra Ultra did not cook sports-grade vision AI. Gave it a 30s football clip from our subnet private track. Frame-level events, JSON, annotated video. Ground truth and the published scoring rules only after it committed. 22 predictions. 17 real events. 15 inside the action windows. 7 extras. 2 misses. Precision 68.18%. Recall 88.24%. F1 76.92%. Our Bittensor eval, SN44: 0%. Matches after timing decay: 16.538 False positives: −20.300 GT weight: 25.600 score = max(0, (16.538 − 20.300) / 25.600) = 0 Three extra take-ons and two extra tackles were 14.6 penalty points. It also misread the late interception/clearance. Rare actions pay more when you hit them and tax you harder when you invent them. Perfect timestamps on the matches still would not have cleared that bill. This was one offline replay of the published scorer. Unchanged preds. Not live latency. Not a season. The point is simpler than the arithmetic. F1 is what you post. SN44 is what you get paid on. Real matches, messy cameras, hard negatives, and a 30-second clock are not the same sport as a nice 15s clip to aura farm on Twitter.",
+    "text": "Astra Ultra did not cook sports-grade vision AI. Gave it a 30s football clip from our subnet private track. Frame-level events, JSON, annotated video. Ground truth and the published scoring rules only after it committed. 22 predictions. 17 real events. 15 inside the action windows. 7 extras. 2 misses. Precision 68.18%. Recall 88.24%. F1 76.92%. Our Bittensor eval, SN44: 0%. Matches after timing decay: 16.538 False positives: −20.300 GT weight: 25.600 score = max(0, (16.538 − 20.300) / 25.600) = 0 Three extra take-ons and two extra tackles were 14.6 penalty points. It also misread the late inte",
+    "url": "http://nitter.jaydenha.uk/webuildscore/status/2097261685358596399#m",
+    "fetched_at": "2026-09-08T15:48:44.768024+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "BarrySilbert",
+    "name": "Barry Silbert",
+    "posted_at": "Tue, 08 Sep 2026 09:24:04 GMT",
+    "title": "RT by @BarrySilbert: 🚨 BREAKING: 🇮🇳 Indian authorities are examining offshore crypto-to-gift-card channels that allow Indians to convert crypto into vouchers to spend on groceries, fuel, food, mobile recharges and even gold. The crypto-to-gift-card mechanism is raising tax, AML and cross-border payment concerns as it allows spending without traditional banking rails. Source: ET",
+    "text": "🚨 BREAKING: 🇮🇳 Indian authorities are examining offshore crypto-to-gift-card channels that allow Indians to convert crypto into vouchers to spend on groceries, fuel, food, mobile recharges and even gold. The crypto-to-gift-card mechanism is raising tax, AML and cross-border payment concerns as it allows spending without traditional banking rails. Source: ET",
+    "url": "http://nitter.jaydenha.uk/CryptooIndia/status/2097254636029915255#m",
+    "fetched_at": "2026-09-08T15:47:32.501774+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "nigescore",
+    "name": "Nige",
+    "posted_at": "Tue, 07 Jul 2026 12:24:58 GMT",
+    "title": "RT by @nigescore: Bandwidth is the hidden tax of edge vision. 3G, 4G, 5G, it all adds up when cameras need to send video. One click in Manako and our clients will run @vidaio_ compression models locally. Lighter clips, faster collection, lower costs.",
+    "text": "Bandwidth is the hidden tax of edge vision. 3G, 4G, 5G, it all adds up when cameras need to send video. One click in Manako and our clients will run @vidaio_ compression models locally. Lighter clips, faster collection, lower costs. Vidaio (@vidaio_) Not all partnerships are created equal.. some open doors... others open worlds! We are proud to announce: @manakoai customers will soon be able to cut bandwidth costs with a single click. @vidaio_ 's compression models, natively integrated. Every camera intelligent AND optimised As Manako grows, Vidaio grows with it This is optimisation on the edg",
+    "url": "http://nitter.jaydenha.uk/manakoai/status/2074469721416638602#m",
+    "fetched_at": "2026-09-08T15:48:44.768024+00:00",
     "via_instance": "https://nitter.cz"
   },
   {
@@ -50,6 +140,56 @@
     "via_instance": "https://nitter.cz"
   },
   {
+    "handle": "jon_durbin",
+    "name": "Jon Durbin",
+    "posted_at": "Thu, 30 Jul 2026 23:17:08 GMT",
+    "title": "Napkin math on bits per byte vocab adjusted etc, this is also beating olmoe 7b 1ba at matched tokens (which is 30% more active params, 40% more total params). Maybe competitive with MobileMoE if we did a complete several trillion token severely overtrained run. Quantile balancing LatentMoE Hybrid GDN-2/SWAX/MSA Role differentiated mixed precision I think we have a winner. More napkin math, I think this 5b model would be able to do around 1200tps inference on 5090s. Kinda want to do the full 9t token run on some 5090s of this tiny one, for funsies. Parallax-5b-instant (or we could bump total params up to 10b for free if we don't change active params, or maybe higher)",
+    "text": "Napkin math on bits per byte vocab adjusted etc, this is also beating olmoe 7b 1ba at matched tokens (which is 30% more active params, 40% more total params). Maybe competitive with MobileMoE if we did a complete several trillion token severely overtrained run. Quantile balancing LatentMoE Hybrid GDN-2/SWAX/MSA Role differentiated mixed precision I think we have a winner. More napkin math, I think this 5b model would be able to do around 1200tps inference on 5090s. Kinda want to do the full 9t token run on some 5090s of this tiny one, for funsies. Parallax-5b-instant (or we could bump total pa",
+    "url": "http://nitter.jaydenha.uk/jon_durbin/status/2082968766099468651#m",
+    "fetched_at": "2026-09-08T15:48:18.888321+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "_redteam_",
+    "name": "RedTeam / Innerworks",
+    "posted_at": "Thu, 27 Aug 2026 20:59:36 GMT",
+    "title": "The Immune System for the Internet. Releasing next month.",
+    "text": "The Immune System for the Internet. Releasing next month. Oscar Hayek (@oscar_hayek) Defence in this era must be AI driven, the absolute baseline is adapting defences faster than attacks are being produced. Anything slower than this leaves you in a constant state of degradation. What we’ve built on @_redteam_ is an immune system for this problem. The attacks we ingest are evolved inside the system into complete novel vectors that cannot be produced anywhere else. Every one of these gets patched before an external attacker has the means/ability to create it, let alone release it. bittensor:nati",
+    "url": "http://nitter.jaydenha.uk/_redteam_/status/2093081017145847826#m",
+    "fetched_at": "2026-09-08T15:48:51.343541+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "nigescore",
+    "name": "Nige",
+    "posted_at": "Thu, 20 Aug 2026 12:55:35 GMT",
+    "title": "RT by @nigescore: Computer vision engineers are still duct-taping tools together just to get a model into production. We just finished another round of user interviews and that frustration came up again and again. So we re-designed Studio to work around our new Pipelines + Workflow Canvas features. Visually design any vision pipeline from start to finish, connect models, logic, and outputs on one canvas, preview the exact result, then deploy. You see the output before you ship it. Everything in a single interface. The full loop, shaped by the people who actually build vision systems every day. This is what Decentralized Vision Intelligence looks like.",
+    "text": "Computer vision engineers are still duct-taping tools together just to get a model into production. We just finished another round of user interviews and that frustration came up again and again. So we re-designed Studio to work around our new Pipelines + Workflow Canvas features. Visually design any vision pipeline from start to finish, connect models, logic, and outputs on one canvas, preview the exact result, then deploy. You see the output before you ship it. Everything in a single interface. The full loop, shaped by the people who actually build vision systems every day. This is what Dece",
+    "url": "http://nitter.jaydenha.uk/webuildscore/status/2090422492980515272#m",
+    "fetched_at": "2026-09-08T15:48:44.768024+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "nigescore",
+    "name": "Nige",
+    "posted_at": "Thu, 09 Jul 2026 15:12:31 GMT",
+    "title": "RT by @nigescore: We are excited to announce our membership in the NVIDIA Inception Program #NVIDIAInception.",
+    "text": "We are excited to announce our membership in the NVIDIA Inception Program #NVIDIAInception.",
+    "url": "http://nitter.jaydenha.uk/manakoai/status/2075236662712439039#m",
+    "fetched_at": "2026-09-08T15:48:44.768024+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "jon_durbin",
+    "name": "Jon Durbin",
+    "posted_at": "Thu, 06 Aug 2026 22:15:25 GMT",
+    "title": "TL;DR: libp2p TCP transport with dual trainer/syncer roles = chef's kiss For model training, don't bottleneck and single-point-of -failure yourself with a blob store (S3/R2). Also, don't bash your forehead against a wall using listening sockets on nodes that may be behind firewalls/NAT/port mapped containers/etc. Just set up a separate backbone (sync only, non-GPU/training nodes) across the world with super fast WAN and use push only from training/GPU nodes to this layer. Easy peasy, works like a charm. And bonus, libp2p's TCP transports are reliably better across providers/networks/countries compared to default quic/udp. Skynet?",
+    "text": "TL;DR: libp2p TCP transport with dual trainer/syncer roles = chef's kiss For model training, don't bottleneck and single-point-of -failure yourself with a blob store (S3/R2). Also, don't bash your forehead against a wall using listening sockets on nodes that may be behind firewalls/NAT/port mapped containers/etc. Just set up a separate backbone (sync only, non-GPU/training nodes) across the world with super fast WAN and use push only from training/GPU nodes to this layer. Easy peasy, works like a charm. And bonus, libp2p's TCP transports are reliably better across providers/networks/countries ",
+    "url": "http://nitter.jaydenha.uk/jon_durbin/status/2085489952113225893#m",
+    "fetched_at": "2026-09-08T15:48:18.888321+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
     "handle": "a16zcrypto",
     "name": "a16z Crypto",
     "posted_at": "Thu, 03 Sep 2026 22:40:42 GMT",
@@ -77,6 +217,16 @@
     "text": "A reminder that this will 10x over the next 12 months and you should care because the more money institutions put into DeFi the more your coins will go up Kamino's Institutional Commodity Yield is one of the most important DeFi advancements ever shipped and is a dark horse for institutional adoption of onchain finance Kamino Intern (@kaminointern) the new @kamino Institutional Commodity Yield vault is one of the strongest ways to diversify beyond typical DeFi yield. different yield source, different risk profile. &gt; yield: commodity trade finance generating 7–8% APY from real financing deman",
     "url": "http://nitter.jaydenha.uk/gumsays/status/2095610281552756979#m",
     "fetched_at": "2026-09-08T08:29:36.930493+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "nigescore",
+    "name": "Nige",
+    "posted_at": "Thu, 03 Sep 2026 16:10:37 GMT",
+    "title": "RT by @nigescore: Shell and ENI stations added to roll out today. Accelerate.",
+    "text": "Shell and ENI stations added to roll out today. Accelerate.",
+    "url": "http://nitter.jaydenha.uk/MaxSebti/status/2095545005540552752#m",
+    "fetched_at": "2026-09-08T15:48:44.768024+00:00",
     "via_instance": "https://nitter.cz"
   },
   {
@@ -160,6 +310,26 @@
     "via_instance": "https://nitter.cz"
   },
   {
+    "handle": "_redteam_",
+    "name": "RedTeam / Innerworks",
+    "posted_at": "Mon, 17 Aug 2026 16:15:58 GMT",
+    "title": "RT by @_redteam_: What if every cyberattack made your defenses stronger? That's the idea behind RedTeam (SN61), using Bittensor intelligence to build an Internet Immune System that continuously identifies, analyzes, and adapts to emerging cyber threats. Join us and @_redteam_ live for our next Subnet Spotlight to learn how they're pioneering a self-improving approach to cybersecurity, powering real-world deployments and gaining traction with enterprise customers. $TAO This Wednesday, 8/19 at 10am ET. https://x.com/i/broadcasts/1nGnRBVogRLGO",
+    "text": "What if every cyberattack made your defenses stronger? That's the idea behind RedTeam (SN61), using Bittensor intelligence to build an Internet Immune System that continuously identifies, analyzes, and adapts to emerging cyber threats. Join us and @_redteam_ live for our next Subnet Spotlight to learn how they're pioneering a self-improving approach to cybersecurity, powering real-world deployments and gaining traction with enterprise customers. $TAO This Wednesday, 8/19 at 10am ET. nitter.net/i/broadcasts/1nGnRBVog…",
+    "url": "http://nitter.jaydenha.uk/YumaGroup/status/2089385759312605617#m",
+    "fetched_at": "2026-09-08T15:48:51.343541+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "_redteam_",
+    "name": "RedTeam / Innerworks",
+    "posted_at": "Mon, 17 Aug 2026 14:18:00 GMT",
+    "title": "Over 1m alpha now perpetually locked via conviction on SN61. This is almost a 50% increase in less than 1 month. 90% of all future emissions stay locked.",
+    "text": "Over 1m alpha now perpetually locked via conviction on SN61. This is almost a 50% increase in less than 1 month. 90% of all future emissions stay locked.",
+    "url": "http://nitter.jaydenha.uk/_redteam_/status/2089356070904901822#m",
+    "fetched_at": "2026-09-08T15:48:51.343541+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
     "handle": "a16zcrypto",
     "name": "a16z Crypto",
     "posted_at": "Mon, 07 Sep 2026 19:11:16 GMT",
@@ -177,6 +347,16 @@
     "text": "$TAO hit a fresh three-month high as Solana-native trading ramps up and memecoins started quoting against it. But where there's a swarm of short-term speculators, believers are oftentimes left holding the bag. Full update ↓ tao.media/tao-hits-three-mon… Link TAO Hits Three-Month High as Solana Liquidity and StonkFun Trading Drive New Attention TAO’s latest move shows how Solana liquidity, memecoin speculation, and Bittensor’s expanding DeFi footprint are beginning to overlap. tao.media",
     "url": "http://nitter.jaydenha.uk/taomedia_/status/2097025298252587465#m",
     "fetched_at": "2026-09-08T08:31:15.251497+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "_redteam_",
+    "name": "RedTeam / Innerworks",
+    "posted_at": "Mon, 07 Sep 2026 18:05:06 GMT",
+    "title": "Join us this Thursday to discuss all things RedTeam",
+    "text": "Join us this Thursday to discuss all things RedTeam Openτensor Foundaτion (@opentensor) Novelty Search :: Subnet 61 :: @_redteam_ RedTeam turns Bittensor miners into a 24/7 network of ethical hackers. We’ll discuss how SN61 uses that competition to stay ahead of evolving bot attacks, its five new enterprise pilots, and what comes next with RedTeam’s upcoming Immune System. Live on Thursday :: 9PM UTC :: on X + YouTube Hosted by @const_reborn — http://nitter.jaydenha.uk/opentensor/status/2097022237337682320#m",
+    "url": "http://nitter.jaydenha.uk/_redteam_/status/2097023368629191078#m",
+    "fetched_at": "2026-09-08T15:48:51.343541+00:00",
     "via_instance": "https://nitter.cz"
   },
   {
@@ -297,6 +477,16 @@
     "text": "Zeus gets a 10/10 from Arbos, by @const_reborn",
     "url": "http://nitter.jaydenha.uk/zeussubnet/status/2093323407345467453#m",
     "fetched_at": "2026-09-08T08:31:22.156999+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "jon_durbin",
+    "name": "Jon Durbin",
+    "posted_at": "Fri, 21 Aug 2026 12:33:38 GMT",
+    "title": "Ternary and sparse FP4 are a match made in heaven. 2x the performance, cost is basically nothing in terms of quality since ternary already has natural sparsity. AND, you can pack those params 1.15 bits per param instead of 1.58. A petaflop... at 200 watts... Almost magic.",
+    "text": "Ternary and sparse FP4 are a match made in heaven. 2x the performance, cost is basically nothing in terms of quality since ternary already has natural sparsity. AND, you can pack those params 1.15 bits per param instead of 1.58. A petaflop... at 200 watts... Almost magic. Jon Durbin (@jon_durbin) NVIDIA B300 servers retail around $350k min, crazy power/cooling requirements/etc. (bad maths) per GPU (8) is $43,750, if you can even find them (narrator: you can't) then pay for collocation etc... 9 PFLOPS dense FP4. DGX Spark: $4700, plug in anywhere, 1 PFLOP (fp4 sparse). B300 9ish PFLOP dense FP4",
+    "url": "http://nitter.jaydenha.uk/jon_durbin/status/2090779358852010165#m",
+    "fetched_at": "2026-09-08T15:48:18.888321+00:00",
     "via_instance": "https://nitter.cz"
   },
   {
