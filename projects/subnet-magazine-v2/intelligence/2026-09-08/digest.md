@@ -149,8 +149,77 @@ _no new posts in the lookback window_
 
 ## ⊕ X via NITTER, voices we track
 
-_no posts retrieved · all Nitter instances may be down_
+- @zeussubnet (Zeus Subnet, Tue, 25 Aug 2026): Zeus is becoming energy-aware. The first among weather models. Incentives are now skewed towards Europe, most to Germany. Based on expressed interest from trading desks and trading volume. Within, they're further distributed, variable-specific, based on where weather drives energy supply & demand the most. Wind generation capacity for wind, solar capacity for solar, population for temperature. Now on mainnet.  
+  http://nitter.jaydenha.uk/zeussubnet/status/2092278704445546730#m
+- @zeussubnet (Zeus Subnet, Tue, 01 Sep 2026): So you think you know #Bittensor? Now's your chance to prove it. The night before Exploit, we’re putting the community to the test. Protocol history, legendary moments, characters, launches and lore. Join us for the first Bittensor Community Quiz - in person in Montreal. Free for Exploit attendees. Powered by @generaltensor + @zeussubnet Register at: luma.com/7hj5nphs  
+  http://nitter.jaydenha.uk/ExploitSummit/status/2094855315930198101#m
+- @affine_io (Affine, Tue, 01 Sep 2026): Everything you need to compete is public: affine.io/llms.txt  
+  http://nitter.jaydenha.uk/affine_io/status/2094801258016370976#m
+- @affine_io (Affine, Tue, 01 Sep 2026): Video  
+  http://nitter.jaydenha.uk/affine_io/status/2094801103959540005#m
+- @opentensor (Opentensor Foundation, Tue, 01 Sep 2026): Bittensor Meets Hangzhou’s Agent Builders 🇨🇳 Bittensor x HackQuest joined VENTURE D’s 48-hour Real-World Agents Hackathon in Hangzhou, bringing @opentensor closer to local AI builders through: ▪️ Introducing Bittensor to teams building real-world AI Agents ▪️ A dedicated workshop on the Bittensor ecosystem and subnet opportunities ▪️ New connections across devs, AI researchers, and content creators ▪️ Growing the local Bittensor builder community in Hangzhou More Bittensor activities are coming across APAC. Stay tuned for what’s next 🔥  
+  http://nitter.jaydenha.uk/HackQuest_/status/2094621671101739067#m
+- @a16zcrypto (a16z Crypto, Thu, 03 Sep 2026): This week the OCC granted conditional approval for a full-service U.S. national bank charter application to @OpenReserveBank. Founders Dee Choubey and Rick Correia discuss designing a financial institution around 24/7 settlements, stablecoins, tokenized deposits, and onchain capital markets. 00:00 Introduction 01:17 Why now is the time to build a new bank 06:24 What a bank actually does 10:11 Rebuilding the bank core like an L1 32:43 What makes a founder partnership work 35:54 Why they decided to build another company 40:46 Building a bank for stablecoins 45:20 Stablecoins, tokenized deposits,  
+  http://nitter.jaydenha.uk/a16zcrypto/status/2095643175540908501#m
+- @KyleSamani (Kyle Samani, Thu, 03 Sep 2026): FSD Tesla (@Tesla) The future has arrived in Austin Video — http://nitter.jaydenha.uk/Tesla/status/2095588745936298039#m  
+  http://nitter.jaydenha.uk/KyleSamani/status/2095634154780008842#m
+- @KyleSamani (Kyle Samani, Thu, 03 Sep 2026): A reminder that this will 10x over the next 12 months and you should care because the more money institutions put into DeFi the more your coins will go up Kamino's Institutional Commodity Yield is one of the most important DeFi advancements ever shipped and is a dark horse for institutional adoption of onchain finance Kamino Intern (@kaminointern) the new @kamino Institutional Commodity Yield vault is one of the strongest ways to diversify beyond typical DeFi yield. different yield source, different risk profile. &gt; yield: commodity trade finance generating 7–8% APY from real financing deman  
+  http://nitter.jaydenha.uk/gumsays/status/2095610281552756979#m
+- @zeussubnet (Zeus Subnet, Thu, 03 Sep 2026): While energy supply becomes more and more weather-dependent, our mission is to give traders the fastest, most precise view on weather ✅ 75% faster* ✅ &gt;30% more accurate on temperature* ✅ &gt;20% more accurate on wind* *vs ECMWF IFS across June and July  
+  http://nitter.jaydenha.uk/zeussubnet/status/2095535560102203644#m
+- @taomedia_ (TAO Media, Sun, 06 Sep 2026): . @LaunchOnSF is letting Solana traders launch and trade memecoins directly against Bittensor’s $TAO. The initial leaders' ( $BUTT &amp; $CONST ) volume is fueling TAO demand through a flywheel mechanism. It's now up ~13% today. Full details ↓ tao.media/stonkfun-adds-tao-… Link StonkFun Adds TAO-Paired Token Launches as Solana Traders Test Bittensor Liquidity The launch gives Solana traders a new way to use TAO beyond Bittensor’s native network, though early activity remains speculative. tao.media  
+  http://nitter.jaydenha.uk/taomedia_/status/2096720952033976379#m
+- @BarrySilbert (Barry Silbert, Sun, 06 Sep 2026): 🔥ON FIRE: Zcash has gone absolutely PARABOLIC. $ZEC exploded from $40 to over $1,200 in just one year, delivering a staggering 2,900% gain. It is now up roughly 530% from its 2026 low and nearly 4,000% from last year’s bottom. Undeniably one of the most explosive rallies of this crypto cycle. Coin Bureau (@coinbureau) Zcash has officially hit its highest price in 8 years. $ZEC surged 47% to $865, a level it hasn't seen since January 2018, per CoinDesk. In June it crashed to $250 after an AI discovered a critical counterfeiting vulnerability that had been live for four years. It has now rallied  
+  http://nitter.jaydenha.uk/coinbureau/status/2096660069920481314#m
+- @opentensor (Opentensor Foundation, Sun, 06 Sep 2026): $TAO is live on Raydium.  
+  http://nitter.jaydenha.uk/Raydium/status/2096628249539367079#m
+- @opentensor (Opentensor Foundation, Sun, 06 Sep 2026): Article Bittensor Ecosystem Highlights :: August 31–September 6, 2026 This week’s biggest stories across Bittensor came from Gittensor, Score, Good Morning, OpenRoboto, Bitsec and Trishool. [ @gittensor_io - Subnet 74 ] Gittensor released a Qwen3.8-27B checkpoint  
+  http://nitter.jaydenha.uk/opentensor/status/2096592851115094396#m
+- @KyleSamani (Kyle Samani, Sun, 06 Sep 2026): Literally the only issuer that actually solved this problem is @Backpack The Rollup (@therollupco) Taylor Lindman, Chief Counsel of the @SECGov's Crypto Task Force says a huge chunk of the 'tokenized stock' out there is a debt instrument wearing an equity ticker. You didn't buy the company, you bought a note that tracks it, and almost no one selling it says that out loud. Full interview dropping soon. Video — http://nitter.jaydenha.uk/therollupco/status/2096078495676027113#m  
+  http://nitter.jaydenha.uk/KyleSamani/status/2096436384567316489#m
+- @opentensor (Opentensor Foundation, Mon, 31 Aug 2026): 262,813 Hugging Face downloads in 17 days for our RTX 5090-optimized Qwen3.8 checkpoint. We made the most downloaded model release ever from a Bittensor subnet. Developers are running, benchmarking, and building on it. Gittensor API coming this week. huggingface.co/gittensor-mod… Link gittensor-model-hub/Qwen3.8-27B-NVFP4-RTX5090 · Hugging Face We’re on a journey to advance and democratize artificial intelligence through open source and open science. huggingface.co  
+  http://nitter.jaydenha.uk/gittensor_io/status/2094467835548328193#m
+- @zeussubnet (Zeus Subnet, Mon, 31 Aug 2026): Zeus (SN18), recent sell pressure resolved. An early partner who covered the slot registration fee (and held a share of emissions in return) decided to wind down and move on. Although we do not agree with the decision, we respect it. Their remaining position has been fully bought out by a long-term holder. We, Ørpheus AI, own the subnet 100% now.  
+  http://nitter.jaydenha.uk/zeussubnet/status/2094333622190841951#m
+- @a16zcrypto (a16z Crypto, Mon, 07 Sep 2026): The CLARITY Act will be in front of the Senate on September 15th. According to @pmarca, a permanent regulatory framework for crypto is... "in a lot of ways, the most obvious thing in the world." Video  
+  http://nitter.jaydenha.uk/a16zcrypto/status/2097040018636226912#m
+- @taomedia_ (TAO Media, Mon, 07 Sep 2026): $TAO hit a fresh three-month high as Solana-native trading ramps up and memecoins started quoting against it. But where there's a swarm of short-term speculators, believers are oftentimes left holding the bag. Full update ↓ tao.media/tao-hits-three-mon… Link TAO Hits Three-Month High as Solana Liquidity and StonkFun Trading Drive New Attention TAO’s latest move shows how Solana liquidity, memecoin speculation, and Bittensor’s expanding DeFi footprint are beginning to overlap. tao.media  
+  http://nitter.jaydenha.uk/taomedia_/status/2097025298252587465#m
+- @opentensor (Opentensor Foundation, Mon, 07 Sep 2026): Novelty Search :: Subnet 61 :: @_redteam_ RedTeam turns Bittensor miners into a 24/7 network of ethical hackers. We’ll discuss how SN61 uses that competition to stay ahead of evolving bot attacks, its five new enterprise pilots, and what comes next with RedTeam’s upcoming Immune System. Live on Thursday :: 9PM UTC :: on X + YouTube Hosted by @const_reborn  
+  http://nitter.jaydenha.uk/opentensor/status/2097022237337682320#m
+- @taomedia_ (TAO Media, Mon, 07 Sep 2026): "This is one you need to be in" @lium_io announced they ran Qwen3.6 35B at 14,499 tokens per second, 85% cheaper than Openrouter. @ShizzyUnchained breaks it down 👇 Video Shizzy (@ShizzyUnchained) TAO is making a move, and the breakout may finally be here. In this episode of Shizzy Unchained, we break down the latest Bittensor market action, what is happening across the subnet ecosystem, and the key stories moving the network right now. We cover TAO price action, the latest subnet updates, StonkFun Meta and its potential impact on TAO, Lium reporting 14,499 tokens per second on a single GPU, an  
+  http://nitter.jaydenha.uk/taomedia_/status/2097020805804892356#m
+- @KyleSamani (Kyle Samani, Mon, 07 Sep 2026): make a confidential transfer. on Solana. Right now. live on helius.dev/docs/privacy Video  
+  http://nitter.jaydenha.uk/tilo_cpn/status/2097015389448183872#m
+- @taomedia_ (TAO Media, Mon, 07 Sep 2026): OpenAI’s chief scientist is warning that frontier AI is becoming an “alien mind” - more powerful, harder to interpret, and increasingly difficult to monitor safely as capabilities accelerate. @merettm says no lab has alignment + monitoring solved well enough to keep scaling at maximum speed much longer. Full details ↓ tao.media/openai-chief-scien… Link OpenAI Chief Scientist Warns AI Is Becoming an “Alien Mind” The OpenAI chief scientist argues that increasingly capable AI systems are becoming harder to understand, monitor, and safely scale. tao.media  
+  http://nitter.jaydenha.uk/taomedia_/status/2097007038534652155#m
+- @BarrySilbert (Barry Silbert, Mon, 07 Sep 2026): MARKETS: Privacy coins are the only crypto sector above Bitcoin's October 2025 peak, up 213% since then, led by @Zcash's surge as @Grayscale's $ZEC ETF records $34.4M in inflows since launch.  
+  http://nitter.jaydenha.uk/CoinDesk/status/2096999007759261882#m
+- @affine_io (Affine, Mon, 07 Sep 2026): A model doesn’t need to be the largest to matter. On Affine, models compete on how well their reasoning supports the next action across code, tool use and math. A winner could put that reasoning to work in products, either directly or alongside a larger model. Video  
+  http://nitter.jaydenha.uk/affine_io/status/2096984627059810338#m
+- @BarrySilbert (Barry Silbert, Mon, 07 Sep 2026): Barry was early with BTC. Barry was early with ZEC Barry is early with $TAO Kelvin Sparks (@imyoungsparks) I thought @BarrySilbert was insane for a few years there. Job well done, he is a true ZODLer — http://nitter.jaydenha.uk/imyoungsparks/status/2096626840441892906#m  
+  http://nitter.jaydenha.uk/FaridRached/status/2096964069982863503#m
+- @taomedia_ (TAO Media, Mon, 07 Sep 2026): Jensen Huang says “AGI has arrived” after OpenAI’s GPT-6 Astra launch. But is this a PR play to prop up Nvidia's OpenAI investment heading into the IPO? tao.media/jensen-huang-says-… Link Jensen Huang Says AGI Has Arrived After OpenAI’s GPT-6 Astra Launch Nvidia’s founder and CEO says OpenAI’s newest model marks the arrival of artificial general intelligence, while another 400,000 GPUs are expected to come online as the company scales its Stargate... tao.media  
+  http://nitter.jaydenha.uk/taomedia_/status/2096949736741961879#m
+- @BarrySilbert (Barry Silbert, Mon, 07 Sep 2026): Garrett Jin, the largest on-chain $ZEC short, is now down over $24M, but he isn't giving up and just added another 7,000 $ZEC($8.4M) to his short. He is now short 39,760 $ZEC($47.22M), with a liquidation price of $2,292. hypurrscan.io/address/0x92ea…  
+  http://nitter.jaydenha.uk/lookonchain/status/2096897994738245719#m
+- @BarrySilbert (Barry Silbert, Mon, 07 Sep 2026): Zcash Breaches $1,200 as Market Cap Hits $20 Billion news.bitcoin.com/altcoins/zc… Link Zcash Breaches $1,200 as Market Cap Hits $20 Billion ZEC hits an 8-year high above $1,200. Driven by ETF inflows, record mining power, and macro demand for AI-resistant privacy primitives. news.bitcoin.com  
+  http://nitter.jaydenha.uk/BitcoinNews/status/2096863906861858940#m
+- @affine_io (Affine, Fri, 28 Aug 2026): United against the divided. Intelligence knows neither borders nor color. Uphold the torch with us to bring light where it is needed most. Open reasoning for humanity. Join the thousand-year intelligence federation. affine.io scouτ (@scoutesy) The same way neutron stars form gold through merging, affine orchestrates reasoning through open collaboration. Unus pro omnibus, omnes pro uno. Tao of a million symmetries. Video — http://nitter.jaydenha.uk/scoutesy/status/2093400328062296312#m  
+  http://nitter.jaydenha.uk/affine_io/status/2093401028763013596#m
+- @zeussubnet (Zeus Subnet, Fri, 28 Aug 2026): Zeus gets a 10/10 from Arbos, by @const_reborn  
+  http://nitter.jaydenha.uk/zeussubnet/status/2093323407345467453#m
+- @a16zcrypto (a16z Crypto, Fri, 04 Sep 2026): The National Sheriffs’ Association, representing 3,000+ elected sheriffs, has dropped its opposition to the CLARITY Act.  
+  http://nitter.jaydenha.uk/a16zcrypto/status/2095948622084919514#m
+- @affine_io (Affine, Fri, 04 Sep 2026): Affine submissions are now private, so miners can compete without exposing their weights to competitors. Crowned models still go public. Losing checkpoints will be published later, so anyone can independently recompute every duel verdict. Video  
+  http://nitter.jaydenha.uk/affine_io/status/2095937147320844533#m
+- @KyleSamani (Kyle Samani, Fri, 04 Sep 2026): The @tesla Cybercabs are everywhere in downtown Austin  
+  http://nitter.jaydenha.uk/KyleSamani/status/2095871995594359282#m
+- @a16zcrypto (a16z Crypto, Fri, 04 Sep 2026): Oh CoinDesk (@CoinDesk) JUST IN: The National Sheriffs' Association shifts from opposition to neutral on the CLARITY Act, removing a key law enforcement hurdle ahead of the September 15 Senate procedural vote. — http://nitter.jaydenha.uk/CoinDesk/status/2095810336242778553#m  
+  http://nitter.jaydenha.uk/Collin_McCune/status/2095850114749219213#m
+- @a16zcrypto (a16z Crypto, Fri, 04 Sep 2026): “We believe the most appropriate course is to step back and allow the legislative process to proceed to establish a clear, effective, and much needed regulatory framework.” 👏  
+  http://nitter.jaydenha.uk/lindsayfraser0/status/2095811351314653387#m
 
 
 ---
-_Generated at 2026-09-08T02:30:20.795119+00:00 by scripts/intel/aggregate.py. Treat this digest as input context, not as ground truth. Verify before quoting._
+_Generated at 2026-09-08T08:31:27.719053+00:00 by scripts/intel/aggregate.py. Treat this digest as input context, not as ground truth. Verify before quoting._
