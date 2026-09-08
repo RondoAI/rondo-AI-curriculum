@@ -1,0 +1,46 @@
+[
+  {
+    "repo": "opentensor/subtensor",
+    "name": "Subtensor (chain)",
+    "kind": "commit",
+    "sha": "67dcf7f",
+    "message": "Merge pull request #3146 from RaoFoundation/release-455",
+    "author": "UnArbosFive",
+    "posted_at": "2026-09-07T22:00:16Z",
+    "url": "https://github.com/RaoFoundation/subtensor/commit/67dcf7f791dc495064c293f080a0702cb433e51e",
+    "fetched_at": "2026-09-08T02:30:15.947067+00:00"
+  },
+  {
+    "repo": "opentensor/subtensor",
+    "name": "Subtensor (chain)",
+    "kind": "commit",
+    "sha": "b39e3cf",
+    "message": "clippy",
+    "author": "UnarbosFour",
+    "posted_at": "2026-09-07T20:13:37Z",
+    "url": "https://github.com/RaoFoundation/subtensor/commit/b39e3cfbd201b272b5c377413ad19f9ca56fc1e7",
+    "fetched_at": "2026-09-08T02:30:15.947067+00:00"
+  },
+  {
+    "repo": "opentensor/subtensor",
+    "name": "Subtensor (chain)",
+    "kind": "commit",
+    "sha": "123395d",
+    "message": "fix: block indirect value movement through no-transfer proxies and re-enable crowdloan contributions",
+    "author": "UnarbosFour",
+    "posted_at": "2026-09-07T19:58:19Z",
+    "url": "https://github.com/RaoFoundation/subtensor/commit/123395df2083e2974e20b385c0630603eefa7550",
+    "fetched_at": "2026-09-08T02:30:15.947067+00:00"
+  },
+  {
+    "repo": "opentensor/subtensor",
+    "name": "Subtensor (chain)",
+    "kind": "commit",
+    "sha": "cae63cf",
+    "message": "Temporarily disable crowdloan contributions and bump spec version",
+    "author": "UnarbosFour",
+    "posted_at": "2026-09-07T17:32:08Z",
+    "url": "https://github.com/RaoFoundation/subtensor/commit/cae63cfa59d2b15330f335f3d71b9dd8e5707d14",
+    "fetched_at": "2026-09-08T02:30:15.947067+00:00"
+  }
+]
