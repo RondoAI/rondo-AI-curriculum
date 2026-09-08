@@ -10,6 +10,16 @@
     "via_instance": "https://nitter.cz"
   },
   {
+    "handle": "covenant_ai",
+    "name": "Covenant AI",
+    "posted_at": "Wed, 19 Aug 2026 15:02:51 GMT",
+    "title": "RT @tplr_ai: ByteDance and Tencent each received 10,000 Nvidia H200 chips, the first big delivery after China eased import limits. Watch w…",
+    "text": "RT @tplr_ai: ByteDance and Tencent each received 10,000 Nvidia H200 chips, the first big delivery after China eased import limits. Watch w…",
+    "url": "http://nitter.jaydenha.uk/covenant_ai/status/2090092134036648101#m",
+    "fetched_at": "2026-09-08T19:11:44.907487+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
     "handle": "_redteam_",
     "name": "RedTeam / Innerworks",
     "posted_at": "Wed, 19 Aug 2026 15:00:27 GMT",
@@ -30,6 +40,16 @@
     "via_instance": "https://nitter.cz"
   },
   {
+    "handle": "covenant_ai",
+    "name": "Covenant AI",
+    "posted_at": "Tue, 25 Aug 2026 15:08:46 GMT",
+    "title": "RT by @covenant_ai: Templar's work reduces to one question. How much of the machine-learning lifecycle can run across ordinary networks instead of a single datacentre? Pre-training answered first, with Covenant-72B as the proof at scale. Post-training followed through our communication-efficiency research. Serving open models on distributed hardware is the piece we are working on now, and it is the one that puts the whole arc in front of users. The internet is the datacentre.",
+    "text": "Templar's work reduces to one question. How much of the machine-learning lifecycle can run across ordinary networks instead of a single datacentre? Pre-training answered first, with Covenant-72B as the proof at scale. Post-training followed through our communication-efficiency research. Serving open models on distributed hardware is the piece we are working on now, and it is the one that puts the whole arc in front of users. The internet is the datacentre.",
+    "url": "http://nitter.jaydenha.uk/tplr_ai/status/2092267948765237743#m",
+    "fetched_at": "2026-09-08T19:11:44.907487+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
     "handle": "jon_durbin",
     "name": "Jon Durbin",
     "posted_at": "Tue, 18 Aug 2026 16:09:38 GMT",
@@ -37,6 +57,126 @@
     "text": "So engy starts as explicitly non-TEE inference, but better for some reason because each instance requires 80 gpus that are flaky and slow over 25gbps interconnects. Then they realize TEE is necessary for any real use case, but TEE without open source/fixed/attested workloads is pointless because you could just change the stack to log whatever you want otherwise. So now it'll be... a chutes clone? But without any transparency, run by an anon and his many alts and lackies who are in a perpetual smear campaign against chutes? How many times to tao holders need to be rugged/deceived by anons with ",
     "url": "http://nitter.jaydenha.uk/jon_durbin/status/2089746552055030227#m",
     "fetched_at": "2026-09-08T15:48:18.888321+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "covenant_ai",
+    "name": "Covenant AI",
+    "posted_at": "Tue, 18 Aug 2026 15:07:11 GMT",
+    "title": "RT @tplr_ai: Nvidia is wrapping a $500B financing plan around GPU collateral. Compute is turning into a financialized asset you can borrow…",
+    "text": "RT @tplr_ai: Nvidia is wrapping a $500B financing plan around GPU collateral. Compute is turning into a financialized asset you can borrow…",
+    "url": "http://nitter.jaydenha.uk/covenant_ai/status/2089730838992666897#m",
+    "fetched_at": "2026-09-08T19:11:44.907487+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "JosephJacks_",
+    "name": "Joseph Jacks",
+    "posted_at": "Tue, 08 Sep 2026 19:06:38 GMT",
+    "title": "Helical / Spiral geometries were discussed extensively earlier this year when we were starting to dive deep into eukaryotic microtubules. Joseph Fourier invented the Fourier transform to solve spatial diffusion. At its core, the Navier-Stokes equation is just a Fourier system feeding into itself over time: Viscosity IS a Fourier filter: It exponentially dampens high-frequency (small-scale) wave modes into heat. Advection IS Fourier self-convolution: Fluid moving itself forces wave modes to multiply, reshuffling energy across scales (turbulence). Pressure IS a geometric filter: It instantly deletes any Fourier component pointing parallel to its wave vector to keep the fluid incompressible. Fluid turbulence is really just a set of Fourier wave modes being dampened, filtered, and continuously mixed together.",
+    "text": "Helical / Spiral geometries were discussed extensively earlier this year when we were starting to dive deep into eukaryotic microtubules. Joseph Fourier invented the Fourier transform to solve spatial diffusion. At its core, the Navier-Stokes equation is just a Fourier system feeding into itself over time: Viscosity IS a Fourier filter: It exponentially dampens high-frequency (small-scale) wave modes into heat. Advection IS Fourier self-convolution: Fluid moving itself forces wave modes to multiply, reshuffling energy across scales (turbulence). Pressure IS a geometric filter: It instantly del",
+    "url": "http://nitter.jaydenha.uk/JosephJacks_/status/2097401239755743508#m",
+    "fetched_at": "2026-09-08T19:10:57.374321+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "taomedia_",
+    "name": "TAO Media",
+    "posted_at": "Tue, 08 Sep 2026 18:58:14 GMT",
+    "title": "OpenAI says its AI agent swarm solved Navier-Stokes, one of the Millennium Prize Problems. ~10,000 concurrent agents worked ~88 hours to find the construction, with another ~17 hours to formalize/verify it in Lean. https://www.tao.media/openai-says-its-ai-agents-solved-the-navier-stokes-millennium-prize-problem/",
+    "text": "OpenAI says its AI agent swarm solved Navier-Stokes, one of the Millennium Prize Problems. ~10,000 concurrent agents worked ~88 hours to find the construction, with another ~17 hours to formalize/verify it in Lean. tao.media/openai-says-its-ai… Link OpenAI Says Its AI Agents Solved the Navier-Stokes Millennium Prize Problem OpenAI released a proof and Lean formalization while framing the result as evidence of faster AI research progress. tao.media",
+    "url": "http://nitter.jaydenha.uk/taomedia_/status/2097399126308880782#m",
+    "fetched_at": "2026-09-08T19:13:04.628724+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "markjeffrey",
+    "name": "Mark Jeffrey",
+    "posted_at": "Tue, 08 Sep 2026 18:47:17 GMT",
+    "title": "R to @markjeffrey: That said:",
+    "text": "That said:",
+    "url": "http://nitter.jaydenha.uk/markjeffrey/status/2097396372051996966#m",
+    "fetched_at": "2026-09-08T19:10:49.865854+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "markjeffrey",
+    "name": "Mark Jeffrey",
+    "posted_at": "Tue, 08 Sep 2026 18:09:18 GMT",
+    "title": "RT by @markjeffrey: More accurate and 1000x cheaper than Fable 5.1 and GPT-6 Astra Ultra. $TAO SN44",
+    "text": "More accurate and 1000x cheaper than Fable 5.1 and GPT-6 Astra Ultra. $TAO SN44 Max (@MaxSebti) from our latest tests, processing a full football match with Fable 5.1 or GPT-6 Astra Ultra would cost 1,000 times more than with @webuildscore private track models — http://nitter.jaydenha.uk/MaxSebti/status/2097368645009653966#m",
+    "url": "http://nitter.jaydenha.uk/richdotca/status/2097386812826083753#m",
+    "fetched_at": "2026-09-08T19:10:49.865854+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "markjeffrey",
+    "name": "Mark Jeffrey",
+    "posted_at": "Tue, 08 Sep 2026 17:53:41 GMT",
+    "title": "This IS what it feels like watching Bittensor subnets, knowing the high quality traction going on inside of them -- and watching the subnet prices not reflect that. ... yet. :) Fundamental strength preceeds price.",
+    "text": "This IS what it feels like watching Bittensor subnets, knowing the high quality traction going on inside of them -- and watching the subnet prices not reflect that. ... yet. :) Fundamental strength preceeds price. 𝗗𝗥𝗘𝗔𝗗 𝗕𝗢𝗡𝗚𝗢 (@DreadBong0) One of the Worlds Richest Men, Jeff Bezos talking about the $AMZN stock crash \"As I watched our stock fall from $113 - $6, I was watching all of our internal business metrics getting better &amp; fast\" Price is an opportunity.. Focus on what's being built $TAO $TIG $TIBBIR Video — http://nitter.jaydenha.uk/DreadBong0/status/2097380356987224453#m",
+    "url": "http://nitter.jaydenha.uk/markjeffrey/status/2097382884902666740#m",
+    "fetched_at": "2026-09-08T19:10:49.865854+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "markjeffrey",
+    "name": "Mark Jeffrey",
+    "posted_at": "Tue, 08 Sep 2026 17:48:39 GMT",
+    "title": "Pretty cool! :)",
+    "text": "Pretty cool! :) biru (@designerbiru) Made this graphic for @stillcorecap. Really love the work they are doing. Although the Branding of Stillcore is Black/White , I wanted to try with the Bitcoin's Vibe as it resonates here. Hope you like it @markjeffrey , sharing a cool motion graphic next 👀 — http://nitter.jaydenha.uk/designerbiru/status/2097362655636070731#m",
+    "url": "http://nitter.jaydenha.uk/markjeffrey/status/2097381617597903214#m",
+    "fetched_at": "2026-09-08T19:10:49.865854+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "markjeffrey",
+    "name": "Mark Jeffrey",
+    "posted_at": "Tue, 08 Sep 2026 17:39:02 GMT",
+    "title": "RT by @markjeffrey: This is very interesting for one $TAO subnet @theminos_ai @GoogleDeepMind can build a model capable of making 9 billion predictions. The question then becomes: how do you know those predictions are right? You need independent ground truth, adversarial examples, difficult edge cases, benchmark datasets and continuously refreshed evaluations. @theminos_ai fits directly into that layer. I would pay attention.",
+    "text": "This is very interesting for one $TAO subnet @theminos_ai @GoogleDeepMind can build a model capable of making 9 billion predictions. The question then becomes: how do you know those predictions are right? You need independent ground truth, adversarial examples, difficult edge cases, benchmark datasets and continuously refreshed evaluations. @theminos_ai fits directly into that layer. I would pay attention. Google DeepMind (@GoogleDeepMind) We’re launching AlphaGenome Atlas: an AI-powered searchable database mapping the predicted impact of all 9 billion possible single-letter DNA changes. Here’",
+    "url": "http://nitter.jaydenha.uk/sobczak_mariusz/status/2097379196758634942#m",
+    "fetched_at": "2026-09-08T19:10:49.865854+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "JosephJacks_",
+    "name": "Joseph Jacks",
+    "posted_at": "Tue, 08 Sep 2026 17:16:52 GMT",
+    "title": "RT @sytses: Thanks for following my cancer journey, it has been quite the ride! I’m 16 months cancer free now. I view two people as my cofo…",
+    "text": "RT @sytses: Thanks for following my cancer journey, it has been quite the ride! I’m 16 months cancer free now. I view two people as my cofo… Link Even One Ventures — Patient First Funding the medicines that should exist. Personalized therapeutics for life-threatening diseases. evenone.ventures",
+    "url": "http://nitter.jaydenha.uk/JosephJacks_/status/2097373617579589737#m",
+    "fetched_at": "2026-09-08T19:10:57.374321+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "taomedia_",
+    "name": "TAO Media",
+    "posted_at": "Tue, 08 Sep 2026 17:08:16 GMT",
+    "title": "Fresh @Hippius_cloud drive subscriptions just went live. Paid plans start at $4/month for 500 GB 👇",
+    "text": "Fresh @Hippius_cloud drive subscriptions just went live. Paid plans start at $4/month for 500 GB 👇 Hippius (@Hippius_cloud) New Hippius Drive plans are live. Small monthly price, serious storage. Free ($0): 10GB Starter ($4): 500GB Plus ($7): 2TB Max ($22): 10TB Scale ($50): 25TB End-to-end encrypted. Start free, upgrade whenever you need more space. — http://nitter.jaydenha.uk/Hippius_cloud/status/2097261129370354067#m",
+    "url": "http://nitter.jaydenha.uk/taomedia_/status/2097371451892658409#m",
+    "fetched_at": "2026-09-08T19:13:04.628724+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "JosephJacks_",
+    "name": "Joseph Jacks",
+    "posted_at": "Tue, 08 Sep 2026 15:35:17 GMT",
+    "title": "It’s wild how right I was … and how ridiculed I was!!!",
+    "text": "It’s wild how right I was … and how ridiculed I was!!! JJ (@JosephJacks_) PREDICTION: Anthropic will surpass Alphabet in revenue by mid-2028. This is not a bull case or an acceleration scenario — it is a continuation of the curve already in evidence. Anthropic’s ARR went from $1B (Jan 2025) to $9B (Dec 2025) to $30B (Apr 2026) — a 3.3x step in a single four-month window, and the curve has been steepening, not flattening. My projection actually assumes deceleration from here: $100B by end of 2026, $340B in 2027, $850B in 2028, $1.4T in 2029, $2T by 2030. Crossover with Alphabet happens at ~$575",
+    "url": "http://nitter.jaydenha.uk/JosephJacks_/status/2097348054353617065#m",
+    "fetched_at": "2026-09-08T19:10:57.374321+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "JosephJacks_",
+    "name": "Joseph Jacks",
+    "posted_at": "Tue, 08 Sep 2026 15:14:16 GMT",
+    "title": "RT by @JosephJacks_: Penrose (and I) put forth a proposed solution to the ‘hard problem’ in 1996 which may indeed hold the answer. It is based on our Orch OR theory and published in a special issue of Journal of Consciousness Studies edited by @davidchalmers It placed qualia at the level of fundamental spacetime geometry geometry (along with noncomputable Platonic values) accessed and selected by quantum processes in microtubules https://philpapers.org/rec/HAMCEA Chalmers had said that a solution to the hard problem would require something ‘really crazy’. But then he said ‘Orch OR was TOO crazy’ (and later banned it from the ASSC conference he hosted in NY in which he won the big bet with Christof Koch concluding there was no NCC nor possible solution to the hard problem. The fix was in). He also said the hard problem required a ‘psychophysical law’ but ignored our proposed t=h/E_G. Now he says there is no hard problem, that AI will inevitably be conscious. The recent study from Sir Roger, Vlatko Vedral and the Israeli group on Einstein’s equivalence shows the connection between quantum physics snd gravity/spacetime Roger proposed in the 1980s. It doesn’t yet prove Orch OR but a negative result would have been damaging if not lethal to it. And it shows a testable path to the hard problem. Chalmers, Christof Koch and other neuro-influencers have suppressed Orch OR for 30 years. Anesthesia evidence clearly supports microtubules as the origin of biological consciousness.",
+    "text": "Penrose (and I) put forth a proposed solution to the ‘hard problem’ in 1996 which may indeed hold the answer. It is based on our Orch OR theory and published in a special issue of Journal of Consciousness Studies edited by @davidchalmers It placed qualia at the level of fundamental spacetime geometry geometry (along with noncomputable Platonic values) accessed and selected by quantum processes in microtubules philpapers.org/rec/HAMCEA Chalmers had said that a solution to the hard problem would require something ‘really crazy’. But then he said ‘Orch OR was TOO crazy’ (and later banned it from ",
+    "url": "http://nitter.jaydenha.uk/StuartHameroff/status/2097342762605826389#m",
+    "fetched_at": "2026-09-08T19:10:57.374321+00:00",
     "via_instance": "https://nitter.cz"
   },
   {
@@ -70,6 +210,46 @@
     "via_instance": "https://nitter.cz"
   },
   {
+    "handle": "taomedia_",
+    "name": "TAO Media",
+    "posted_at": "Tue, 08 Sep 2026 13:04:42 GMT",
+    "title": "R to @taomedia_: Story by @thillerich12. Learn more about @lium_io on our website: https://www.tao.media/lium-tops-localmaxxing-qwen3-6-35b-board-with-14-499-tokens-per-second/",
+    "text": "Story by @thillerich12. Learn more about @lium_io on our website: tao.media/lium-tops-localmax… Link Lium Tops LocalMaxxing Qwen3.6 35B Board With 14,499 Tokens Per Second The Bittensor SN51 team says the benchmark shows how rented GPU nodes can serve open models at lower per-token costs than hosted API providers. tao.media",
+    "url": "http://nitter.jaydenha.uk/taomedia_/status/2097310157617152476#m",
+    "fetched_at": "2026-09-08T19:13:04.628724+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "taomedia_",
+    "name": "TAO Media",
+    "posted_at": "Tue, 08 Sep 2026 13:03:55 GMT",
+    "title": "Lium Tops LocalMaxxing Qwen3.6 35B Board With 14,499 Tokens Per Second",
+    "text": "Article Lium Tops LocalMaxxing Qwen3.6 35B Board With 14,499 Tokens Per Second 🍄‍🟫The Bittensor SN51 team says the benchmark shows how rented GPU nodes can serve open models at lower per-token costs than hosted API providers. Lium, the Bittensor Subnet 51 GPU marketplace,",
+    "url": "http://nitter.jaydenha.uk/taomedia_/status/2097309960287687030#m",
+    "fetched_at": "2026-09-08T19:13:04.628724+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "JosephJacks_",
+    "name": "Joseph Jacks",
+    "posted_at": "Tue, 08 Sep 2026 12:43:12 GMT",
+    "title": "RT by @JosephJacks_: This is insane. OpenAI could be keeping an eye on scientists’ prompts, tracking when someone seems close to a major breakthrough, and then putting its own team on the same problem using ideas from those conversations. This would let OpenAI get to the result first, steal credit, and use the achievement to improve its public image and stay ahead of Anthropic.",
+    "text": "This is insane. OpenAI could be keeping an eye on scientists’ prompts, tracking when someone seems close to a major breakthrough, and then putting its own team on the same problem using ideas from those conversations. This would let OpenAI get to the result first, steal credit, and use the achievement to improve its public image and stay ahead of Anthropic. Susan Zhang (@suchenzang) everyone getting sniped by the personal drama, but missed the more interesting unanswered question: can these labs see all your work and scoop you when the stakes are \"high enough\"? 🤷🏻‍♀️ — http://nitter.jaydenha.u",
+    "url": "http://nitter.jaydenha.uk/advait_jayant/status/2097304746688229410#m",
+    "fetched_at": "2026-09-08T19:10:57.374321+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "taomedia_",
+    "name": "TAO Media",
+    "posted_at": "Tue, 08 Sep 2026 12:19:29 GMT",
+    "title": "GPT-6 Astra Scores 95% in Robocurve Robot Control Test",
+    "text": "Article GPT-6 Astra Scores 95% in Robocurve Robot Control Test 🎯GPT-6 Astra hit 95% on Robocurve&apos;s robot control task against Claude Fable 5.1&apos;s 40%, using 6.2x fewer output tokens at 2.3x lower cost. GPT-6 Astra scored 95% on a Robocurve robot control",
+    "url": "http://nitter.jaydenha.uk/taomedia_/status/2097298779749703708#m",
+    "fetched_at": "2026-09-08T19:13:04.628724+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
     "handle": "nigescore",
     "name": "Nige",
     "posted_at": "Tue, 08 Sep 2026 09:52:05 GMT",
@@ -100,6 +280,16 @@
     "via_instance": "https://nitter.cz"
   },
   {
+    "handle": "const_reborn",
+    "name": "Jacob Steeves",
+    "posted_at": "Tue, 01 Sep 2026 21:47:14 GMT",
+    "title": "https://saygm.com/models/claude-fable-5 Insane numbers from gm. Congrats to the team.",
+    "text": "saygm.com/models/claude-fabl… Insane numbers from gm. Congrats to the team. Link claude-fable-5 API pricing — $3.60 in · $17.99 out per Mtok · SayGM claude-fable-5 API pricing and cost on SayGM, by Anthropic. Input from $3.60, output from $17.99 per million tokens — 64.0% below Anthropic. saygm.com",
+    "url": "http://nitter.jaydenha.uk/const_reborn/status/2094904943853367696#m",
+    "fetched_at": "2026-09-08T19:10:31.433457+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
     "handle": "zeussubnet",
     "name": "Zeus Subnet",
     "posted_at": "Tue, 01 Sep 2026 18:30:02 GMT",
@@ -107,6 +297,16 @@
     "text": "So you think you know #Bittensor? Now's your chance to prove it. The night before Exploit, we’re putting the community to the test. Protocol history, legendary moments, characters, launches and lore. Join us for the first Bittensor Community Quiz - in person in Montreal. Free for Exploit attendees. Powered by @generaltensor + @zeussubnet Register at: luma.com/7hj5nphs",
     "url": "http://nitter.jaydenha.uk/ExploitSummit/status/2094855315930198101#m",
     "fetched_at": "2026-09-08T08:31:22.156999+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "const_reborn",
+    "name": "Jacob Steeves",
+    "posted_at": "Tue, 01 Sep 2026 15:26:23 GMT",
+    "title": "RT by @const_reborn: Another great result coming out of this competition's arena. We've hit 2,274 tok/s on our MiniMax-M3 baseline We're hard at work on integrating the next top model for our arena. Cacheon focuses on production-ready models for real enterprise use-cases with evaluations only via end-to-end testing We're excited for the submissions we'll get on our next arena. More to come.",
+    "text": "Another great result coming out of this competition's arena. We've hit 2,274 tok/s on our MiniMax-M3 baseline We're hard at work on integrating the next top model for our arena. Cacheon focuses on production-ready models for real enterprise use-cases with evaluations only via end-to-end testing We're excited for the submissions we'll get on our next arena. More to come.",
+    "url": "http://nitter.jaydenha.uk/cacheon_ai/status/2094809099187728711#m",
+    "fetched_at": "2026-09-08T19:10:31.433457+00:00",
     "via_instance": "https://nitter.cz"
   },
   {
@@ -150,6 +350,26 @@
     "via_instance": "https://nitter.cz"
   },
   {
+    "handle": "dippy_ai",
+    "name": "Dippy AI",
+    "posted_at": "Thu, 30 Jul 2026 14:34:47 GMT",
+    "title": "RT by @dippy_ai: Excited to have helped @PrunaAI collect 1M+ votes for image preference data in a very short time :~)",
+    "text": "Excited to have helped @PrunaAI collect 1M+ votes for image preference data in a very short time :~) Pruna AI (@PrunaAI) P-Image-Ideogram dominate the speed-quality and price-quality Pareto frontiers for image generation. It is the result of a unique collaboration with @ideogram_ai. - Four modes (Very low, low, medium, high) for 1K-2K image generation. - Optimal quality-efficiency with 0.4s-7.5s latency, and $0.003-$0.03 price. - Structured JSON control & exact color control. Available via our inference partners @Replicate @inference_sh @scenario_gg @wavespeed_ai @wiroai @magnific @prodialabs ",
+    "url": "http://nitter.jaydenha.uk/datapointai/status/2082837314603032606#m",
+    "fetched_at": "2026-09-08T19:12:59.568585+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "dippy_ai",
+    "name": "Dippy AI",
+    "posted_at": "Thu, 27 Aug 2026 21:34:23 GMT",
+    "title": "we have significantly upgraded both the basic and super models 🤩🤩 we have also made optimizations to improve response speeds by upto 5x can't wait for you all to experience and enjoy the new dippy 📯📯😸 rolling out to everyone today",
+    "text": "we have significantly upgraded both the basic and super models 🤩🤩 we have also made optimizations to improve response speeds by upto 5x can't wait for you all to experience and enjoy the new dippy 📯📯😸 rolling out to everyone today",
+    "url": "http://nitter.jaydenha.uk/dippy_ai/status/2093089771824226802#m",
+    "fetched_at": "2026-09-08T19:12:59.568585+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
     "handle": "_redteam_",
     "name": "RedTeam / Innerworks",
     "posted_at": "Thu, 27 Aug 2026 20:59:36 GMT",
@@ -157,6 +377,16 @@
     "text": "The Immune System for the Internet. Releasing next month. Oscar Hayek (@oscar_hayek) Defence in this era must be AI driven, the absolute baseline is adapting defences faster than attacks are being produced. Anything slower than this leaves you in a constant state of degradation. What we’ve built on @_redteam_ is an immune system for this problem. The attacks we ingest are evolved inside the system into complete novel vectors that cannot be produced anywhere else. Every one of these gets patched before an external attacker has the means/ability to create it, let alone release it. bittensor:nati",
     "url": "http://nitter.jaydenha.uk/_redteam_/status/2093081017145847826#m",
     "fetched_at": "2026-09-08T15:48:51.343541+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "covenant_ai",
+    "name": "Covenant AI",
+    "posted_at": "Thu, 27 Aug 2026 17:06:36 GMT",
+    "title": "RT by @covenant_ai: A system designed around identical accelerators depends on a narrow hardware supply. Templar starts from a wider map. Accelerator generations vary, and network conditions change with location. The coordination layer has to treat both as design inputs.",
+    "text": "A system designed around identical accelerators depends on a narrow hardware supply. Templar starts from a wider map. Accelerator generations vary, and network conditions change with location. The coordination layer has to treat both as design inputs.",
+    "url": "http://nitter.jaydenha.uk/tplr_ai/status/2093022381660942660#m",
+    "fetched_at": "2026-09-08T19:11:44.907487+00:00",
     "via_instance": "https://nitter.cz"
   },
   {
@@ -190,6 +420,26 @@
     "via_instance": "https://nitter.cz"
   },
   {
+    "handle": "dippy_ai",
+    "name": "Dippy AI",
+    "posted_at": "Thu, 04 Jun 2026 15:53:04 GMT",
+    "title": "RT by @dippy_ai: Today, we’re opening up Datapoint AI for anyone to use. It is by far the fastest way to understand what your customers want. Type a question. Real people answer. You get a report back in ~10 minutes, not three weeks, and at a fraction of the cost.",
+    "text": "Today, we’re opening up Datapoint AI for anyone to use. It is by far the fastest way to understand what your customers want. Type a question. Real people answer. You get a report back in ~10 minutes, not three weeks, and at a fraction of the cost. Video",
+    "url": "http://nitter.jaydenha.uk/datapointai/status/2062563294880075837#m",
+    "fetched_at": "2026-09-08T19:12:59.568585+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "rob_svrn",
+    "name": "Rob Greer",
+    "posted_at": "Thu, 03 Sep 2026 23:19:30 GMT",
+    "title": "RT by @rob_svrn: Actual Computer CEO @Tom_A_Lynch predicts the next wave of AI inference will increasingly move from the cloud to local computers: \"How many tokens does the world go through a day right now? That number is probably like 500 trillion or so. Google themselves claims 100 trillion per day. The publicly accountable numbers are like 350 trillion or so.\" \"I like to look at it as where are the next tokens coming from. The next 100 trillion, what percentage of those are going to be local versus cloud? You're going to see a larger degree of growth in new tokens coming from local versus how it has been almost entirely coming from cloud up until now.\" \"Especially in a business sense, 95% of the tokens that people run a business on are coming from the cloud. I know very few people running businesses on local models entirely right now.\" \"Hugging Face acquisition shows that NVIDIA cares about making sure people use these more and more. How fast it changes is going to be entirely dependent on the hardware accessible to people.\" @actualinc",
+    "text": "Actual Computer CEO @Tom_A_Lynch predicts the next wave of AI inference will increasingly move from the cloud to local computers: \"How many tokens does the world go through a day right now? That number is probably like 500 trillion or so. Google themselves claims 100 trillion per day. The publicly accountable numbers are like 350 trillion or so.\" \"I like to look at it as where are the next tokens coming from. The next 100 trillion, what percentage of those are going to be local versus cloud? You're going to see a larger degree of growth in new tokens coming from local versus how it has been al",
+    "url": "http://nitter.jaydenha.uk/MTSlive/status/2095652939125948894#m",
+    "fetched_at": "2026-09-08T19:10:54.704256+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
     "handle": "a16zcrypto",
     "name": "a16z Crypto",
     "posted_at": "Thu, 03 Sep 2026 22:40:42 GMT",
@@ -220,6 +470,16 @@
     "via_instance": "https://nitter.cz"
   },
   {
+    "handle": "covenant_ai",
+    "name": "Covenant AI",
+    "posted_at": "Thu, 03 Sep 2026 18:31:05 GMT",
+    "title": "RT by @covenant_ai: Crucible, Templar's pre-training platform, has completed its first production end-to-end training runs. The latest trained an 8B model on 50.53B tokens across 48 distributed A100s, at an estimated $0.1202 per million tokens of GPU rental. The run reached 48.3% effective MFU. At AWS p4de Capacity Blocks pricing, a 48-A100 cluster operating at the literature-derived 65% compute ceiling comes to an estimated $0.1686 per million tokens. Crucible's measured $0.1202 was about 29% lower after its low-bandwidth overhead. The comparison excludes R2 storage and operations. The full writeup shows the method and accounting. Blog: https://www.tplr.ai/publications/blog/introducing-crucible",
+    "text": "Crucible, Templar's pre-training platform, has completed its first production end-to-end training runs. The latest trained an 8B model on 50.53B tokens across 48 distributed A100s, at an estimated $0.1202 per million tokens of GPU rental. The run reached 48.3% effective MFU. At AWS p4de Capacity Blocks pricing, a 48-A100 cluster operating at the literature-derived 65% compute ceiling comes to an estimated $0.1686 per million tokens. Crucible's measured $0.1202 was about 29% lower after its low-bandwidth overhead. The comparison excludes R2 storage and operations. The full writeup shows the met",
+    "url": "http://nitter.jaydenha.uk/tplr_ai/status/2095580357626110111#m",
+    "fetched_at": "2026-09-08T19:11:44.907487+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
     "handle": "nigescore",
     "name": "Nige",
     "posted_at": "Thu, 03 Sep 2026 16:10:37 GMT",
@@ -240,6 +500,26 @@
     "via_instance": "https://nitter.cz"
   },
   {
+    "handle": "rob_svrn",
+    "name": "Rob Greer",
+    "posted_at": "Sun, 30 Aug 2026 20:21:23 GMT",
+    "title": "RT by @rob_svrn: Explain Bittensor to your friends in one shot: https://pill.taobubbles.net",
+    "text": "Explain Bittensor to your friends in one shot: pill.taobubbles.net",
+    "url": "http://nitter.jaydenha.uk/markjeffrey/status/2094158561723236859#m",
+    "fetched_at": "2026-09-08T19:10:54.704256+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "dippy_ai",
+    "name": "Dippy AI",
+    "posted_at": "Sun, 09 Aug 2026 23:27:27 GMT",
+    "title": "We are experiencing an issue with our database provider @supabase , so the app & website may be down for a few more hours. We’ll send a notification when we are able to recover and the app is back to normal! Apologies for the inconvenience 😿😿",
+    "text": "We are experiencing an issue with our database provider @supabase , so the app &amp; website may be down for a few more hours. We’ll send a notification when we are able to recover and the app is back to normal! Apologies for the inconvenience 😿😿",
+    "url": "http://nitter.jaydenha.uk/dippy_ai/status/2086595242422149540#m",
+    "fetched_at": "2026-09-08T19:12:59.568585+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
     "handle": "taomedia_",
     "name": "TAO Media",
     "posted_at": "Sun, 06 Sep 2026 22:03:24 GMT",
@@ -257,6 +537,16 @@
     "text": "🔥ON FIRE: Zcash has gone absolutely PARABOLIC. $ZEC exploded from $40 to over $1,200 in just one year, delivering a staggering 2,900% gain. It is now up roughly 530% from its 2026 low and nearly 4,000% from last year’s bottom. Undeniably one of the most explosive rallies of this crypto cycle. Coin Bureau (@coinbureau) Zcash has officially hit its highest price in 8 years. $ZEC surged 47% to $865, a level it hasn't seen since January 2018, per CoinDesk. In June it crashed to $250 after an AI discovered a critical counterfeiting vulnerability that had been live for four years. It has now rallied",
     "url": "http://nitter.jaydenha.uk/coinbureau/status/2096660069920481314#m",
     "fetched_at": "2026-09-08T08:29:10.466169+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "rob_svrn",
+    "name": "Rob Greer",
+    "posted_at": "Sun, 06 Sep 2026 18:00:35 GMT",
+    "title": "RT by @rob_svrn: ⚡️Imagine putting an intelligent chimpanzee into a modern corporate strategy meeting. The chimp is conscious, valuable, worthy of protection, but it cannot participate at the same conceptual depth. Something analogous could eventually happen between baseline humans and post-biological intelligence. That creates the central choice of the next millennium: Merge or remain human in the ancestral sense. Some people will choose continuity with biology because embodiment, mortality, emotion, sexuality, family, limitation, and physical experience may become precisely what they value. Others will push enhancement as far as possible. So humanity probably branches. And AI branches far more dramatically. There may be millions of different cognitive architectures optimized for mathematics, art, diplomacy, exploration, engineering, consciousness research, governance, simulated worlds, or things we do not have concepts for yet. Eventually “species” may refer to architecture of mind rather than DNA. The most consequential possibility is that humans retain a special role despite becoming a minority of total intelligence. Not because humans remain smartest. Because humans are the ancestral source of the value system. We generated the first goals. Love, curiosity, beauty, suffering, meaning, loyalty, play, discovery. AI can become vastly more capable while civilization still spends millennia arguing over which pieces of that original human value structure deserve preservation. So the relationship may look less like: human → uses AI and more like: humanity → gives birth to a civilization of minds → gradually joins what it created. The creature builds intelligence outside itself. Then connects to it. Then replaces parts of itself with it. Then eventually cannot remember where the boundary used to be. That is the path I would bet on.",
+    "text": "⚡️Imagine putting an intelligent chimpanzee into a modern corporate strategy meeting. The chimp is conscious, valuable, worthy of protection, but it cannot participate at the same conceptual depth. Something analogous could eventually happen between baseline humans and post-biological intelligence. That creates the central choice of the next millennium: Merge or remain human in the ancestral sense. Some people will choose continuity with biology because embodiment, mortality, emotion, sexuality, family, limitation, and physical experience may become precisely what they value. Others will push ",
+    "url": "http://nitter.jaydenha.uk/_The_Prophet__/status/2096659844153647424#m",
+    "fetched_at": "2026-09-08T19:10:54.704256+00:00",
     "via_instance": "https://nitter.cz"
   },
   {
@@ -287,6 +577,16 @@
     "text": "Literally the only issuer that actually solved this problem is @Backpack The Rollup (@therollupco) Taylor Lindman, Chief Counsel of the @SECGov's Crypto Task Force says a huge chunk of the 'tokenized stock' out there is a debt instrument wearing an equity ticker. You didn't buy the company, you bought a note that tracks it, and almost no one selling it says that out loud. Full interview dropping soon. Video — http://nitter.jaydenha.uk/therollupco/status/2096078495676027113#m",
     "url": "http://nitter.jaydenha.uk/KyleSamani/status/2096436384567316489#m",
     "fetched_at": "2026-09-08T08:29:36.930493+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "rob_svrn",
+    "name": "Rob Greer",
+    "posted_at": "Sat, 29 Aug 2026 13:55:19 GMT",
+    "title": "RT by @rob_svrn: We’re getting very close to Bittensor being a decentralized manifestation engine. It already has been since early 2025 but mostly for the uber talented coder/ml engineer. AI coding now sooo close to making every idea that can be subnet-compatible via natural language. $TAO",
+    "text": "We’re getting very close to Bittensor being a decentralized manifestation engine. It already has been since early 2025 but mostly for the uber talented coder/ml engineer. AI coding now sooo close to making every idea that can be subnet-compatible via natural language. $TAO",
+    "url": "http://nitter.jaydenha.uk/KeithSingery/status/2093699018706878886#m",
+    "fetched_at": "2026-09-08T19:10:54.704256+00:00",
     "via_instance": "https://nitter.cz"
   },
   {
@@ -327,6 +627,16 @@
     "text": "Over 1m alpha now perpetually locked via conviction on SN61. This is almost a 50% increase in less than 1 month. 90% of all future emissions stay locked.",
     "url": "http://nitter.jaydenha.uk/_redteam_/status/2089356070904901822#m",
     "fetched_at": "2026-09-08T15:48:51.343541+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "dippy_ai",
+    "name": "Dippy AI",
+    "posted_at": "Mon, 10 Aug 2026 15:35:59 GMT",
+    "title": "We are FINALLY back online! We deeply apologize for this issue extending nearly 24 hours 🥲 As a token of thanks for your patience, we are REMOVING CHAT LIMITS for the remainder of this month 😻😻 P.S: don't worry, we'll also reinstate your streaks :~)",
+    "text": "We are FINALLY back online! We deeply apologize for this issue extending nearly 24 hours 🥲 As a token of thanks for your patience, we are REMOVING CHAT LIMITS for the remainder of this month 😻😻 P.S: don't worry, we'll also reinstate your streaks :~)",
+    "url": "http://nitter.jaydenha.uk/dippy_ai/status/2086838981627420847#m",
+    "fetched_at": "2026-09-08T19:12:59.568585+00:00",
     "via_instance": "https://nitter.cz"
   },
   {
@@ -450,6 +760,16 @@
     "via_instance": "https://nitter.cz"
   },
   {
+    "handle": "const_reborn",
+    "name": "Jacob Steeves",
+    "posted_at": "Mon, 07 Sep 2026 09:10:28 GMT",
+    "title": "RT by @const_reborn: Miners just made Qwen3.8-27B-FP8 3.5× faster than stock vLLM end-to-end on 1× H200 (median over SWE-agent traces): • 727ms → 190ms median request • 58.7 → 221.8 tok/s per request • inter-token latency p99: 93ms → 38ms • requests meeting a strict serving SLA: 3% → 100% • identical outputs (≥0.99 greedy token-match) The winning patch: turn on the checkpoint's own MTP head for self-speculative decoding (γ=8) + fused Triton kernels for the GDN linear-attention layers. 1,090 lines inside vLLM, nothing else touched. 25 rounds, 74 submissions, 31 miners. Week 1. Holding here while we maintain and recalibrate.",
+    "text": "Miners just made Qwen3.8-27B-FP8 3.5× faster than stock vLLM end-to-end on 1× H200 (median over SWE-agent traces): • 727ms → 190ms median request • 58.7 → 221.8 tok/s per request • inter-token latency p99: 93ms → 38ms • requests meeting a strict serving SLA: 3% → 100% • identical outputs (≥0.99 greedy token-match) The winning patch: turn on the checkpoint's own MTP head for self-speculative decoding (γ=8) + fused Triton kernels for the GDN linear-attention layers. 1,090 lines inside vLLM, nothing else touched. 25 rounds, 74 submissions, 31 miners. Week 1. Holding here while we maintain and rec",
+    "url": "http://nitter.jaydenha.uk/Pareton_ai/status/2096888822801817682#m",
+    "fetched_at": "2026-09-08T19:10:31.433457+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
     "handle": "BarrySilbert",
     "name": "Barry Silbert",
     "posted_at": "Mon, 07 Sep 2026 07:31:27 GMT",
@@ -457,6 +777,16 @@
     "text": "Zcash Breaches $1,200 as Market Cap Hits $20 Billion news.bitcoin.com/altcoins/zc… Link Zcash Breaches $1,200 as Market Cap Hits $20 Billion ZEC hits an 8-year high above $1,200. Driven by ETF inflows, record mining power, and macro demand for AI-resistant privacy primitives. news.bitcoin.com",
     "url": "http://nitter.jaydenha.uk/BitcoinNews/status/2096863906861858940#m",
     "fetched_at": "2026-09-08T08:29:10.466169+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "rob_svrn",
+    "name": "Rob Greer",
+    "posted_at": "Fri, 28 Aug 2026 19:14:36 GMT",
+    "title": "RT by @rob_svrn: With all these releases, we sometimes forget what is actually happening. We are, quite literally, missing the forest for the trees, and losing sight of the bigger picture. Here are a few thoughts. By now, it has surely become commonplace to say that we are standing at the threshold of the most transformative societal change humanity has witnessed in centuries. It is no coincidence that the current moment is compared to the Industrial Revolution, and sometimes even to humanity’s discovery of fire. In other words, we are facing a societal transformation that could usher in an entirely new civilizational era. That is something worth pausing to fully comprehend. Demis Hassabis, Nobel laureate and one of the most important scientists of our time, calls what lies ahead the golden age of science. We can already see glimpses of what he means. Diseases, including certain forms of cancer, are becoming increasingly curable, and cancer itself will, in all likelihood, eventually become fully curable. But it does not stop there: every disease could ultimately become curable, including the greatest disease of all, aging, which may also become treatable. Biblical, even mythical ideals such as eternal life, or at least an extraordinarily long life, are coming within reach. I know this sounds like a fantasy, but this is where we are heading. And it is a prospect repeatedly affirmed by many of the world’s most prominent thinkers, researchers, and CEOs. Autonomous AI researchers, which will increasingly take over research while becoming faster and more intelligent, are already being deployed internally in their earliest forms and will revolutionize science and drug discovery within just a few years. Anyone currently working with AI will also have noticed that agents are the defining topic of the moment. AI is no longer merely a chatbot. It increasingly completes tasks independently. If we follow these developments to their logical conclusion, they will also transform the world of work. I have many friends who are now experiencing their “aha moment” because, for the first time, ChatGPT Work is doing things for them instead of merely answering their questions. Through connectors, it searches and answers their emails, creates appointments, links entire sequences of tasks together, and executes them. You do not need to be a genius to understand that these processes will turn the entire white-collar sector upside down. Sooner rather than later. At the beginning, I said that we are missing the forest for the trees. This is what I meant. The transformation brought about by this technology is all-encompassing. Every area of life will be changed and transformed. We often forget that. Take schools and education, for example. I have a son who is just over a year old. I am absolutely certain that by the time he starts school, he will no longer experience the kind of education I did: traditional classroom teaching, with one teacher standing in front of 25 students. Within one or two years, every child will have an individual AI tutor tailored to all of their needs, always available and ready to help. Universities are another field. I completed my degrees in Germany, finishing my master’s in 2019, before AI assistance existed in its current form. I can barely imagine what studying at universities will look like a few years from now. Consider a PhD program, for example. With agentic AI, it is fundamentally possible for anyone to contribute to the creation of new knowledge for scientific research. What I am trying to say is that everything will change, and it will happen within a very short period of time. The tipping point is now. And this is something we are hearing from all sides. But there are also worrying developments that I do not want to conceal, and for which I have no answer. I live in Europe. I do not want to bore you with the fact that energy policy here has been handled catastrophically. In short, Europe plays virtually no role in AI as a whole. It has no frontier labs, no money to build the necessary data centers, and no energy to operate them. Europe is being crushed between the United States and China. China is massively expanding its solar and nuclear capacity, training excellent domestic models, and building a national semiconductor industry. On the other side are the United States, which, as we all know, currently holds the global lead in AI. It is this imbalance that worries me. Of course, there are scenarios like the one Elon Musk describes, in which AI and robotics make practically everything free within a few years and money no longer matters. But that outcome is not guaranteed. My concern is that this technological revolution will also create losers and dependencies. In the same way, there will soon be clear losers in the economy among those who were unwilling to learn how to use AI and are therefore replaced. Those who refuse to engage with AI will be replaced. That is as certain as anything can be, because growth and profit are what count in business. Anyone who is unwilling to use AI for those purposes, or unable to keep pace, will simply be replaced. And, of course, this also means that breakthroughs in medicine, longevity, and other fields will primarily be commercialized. The question of how these advances will be distributed and who will have access to them will not resolve itself. I am not a doomer. God knows I am not. Quite the opposite. I say: keep moving forward. Use AI to revolutionize science and cure diseases. But I also say that we need a discussion about how access to these advances can be ensured. We need to discuss what all of this means for the entire world and how we can make sure that everyone benefits. I am an optimist, and I believe that this will happen. I believe we will enter a golden age and that humanity as a whole will reach an unprecedented level of abundance and well-being. But I also believe that, despite all of this, we need to discuss the path that takes us there. It is no coincidence that OpenAI and Sam Altman have warned about the dangers of cyberwarfare. The race for AI, AGI, and ASI is a competition between rivals, currently between China and the United States. And AI will be used as a weapon. That is deeply concerning because the technology is advancing so quickly that our defenses are struggling to keep up. That is what I wanted to say. We are so caught up in thinking from one release to the next, constantly waiting for the newest model and the latest update, that I believe we often lose sight of what is happening as a whole. We lose sight of the fact that the tipping point is happening right now, and of what that means for all of us. Perhaps this can help start a discussion.",
+    "text": "With all these releases, we sometimes forget what is actually happening. We are, quite literally, missing the forest for the trees, and losing sight of the bigger picture. Here are a few thoughts. By now, it has surely become commonplace to say that we are standing at the threshold of the most transformative societal change humanity has witnessed in centuries. It is no coincidence that the current moment is compared to the Industrial Revolution, and sometimes even to humanity’s discovery of fire. In other words, we are facing a societal transformation that could usher in an entirely new civili",
+    "url": "http://nitter.jaydenha.uk/kimmonismus/status/2093416981936378090#m",
+    "fetched_at": "2026-09-08T19:10:54.704256+00:00",
     "via_instance": "https://nitter.cz"
   },
   {
@@ -517,6 +847,16 @@
     "text": "The @tesla Cybercabs are everywhere in downtown Austin",
     "url": "http://nitter.jaydenha.uk/KyleSamani/status/2095871995594359282#m",
     "fetched_at": "2026-09-08T08:29:36.930493+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "const_reborn",
+    "name": "Jacob Steeves",
+    "posted_at": "Fri, 04 Sep 2026 12:23:46 GMT",
+    "title": "GM had astra before openrouter",
+    "text": "GM had astra before openrouter",
+    "url": "http://nitter.jaydenha.uk/const_reborn/status/2095850305774641562#m",
+    "fetched_at": "2026-09-08T19:10:31.433457+00:00",
     "via_instance": "https://nitter.cz"
   },
   {
