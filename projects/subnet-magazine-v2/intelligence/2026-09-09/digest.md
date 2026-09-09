@@ -11,6 +11,16 @@ _no human notes in the window_
 
 _SemiAnalysis is the most-cited semiconductor and AI infrastructure publication in the industry. They do NOT cover Bittensor. The Oracle uses this corpus for any claim about hyperscaler compute, GPU economics, datacenter power, foundry capacity, memory pricing, lab unit economics. DO NOT cite SemiAnalysis for any Bittensor-specific claim. Full archive (289 posts, May 2020 onwards) lives at `intelligence/_external_sources/semianalysis/` with an `INDEX.md` table of contents. Paywalled posts show only subtitle + free preview; free posts have the full body extracted._
 
+### 2026-09-09 · Where Does a Robot Think – On-Device vs Datacenter Inference
+_The Embodiment Problem, Planning vs Action Layers, Glass-To-Glass Budgets, Wafers & DRAM Constraints, One B300 vs 56 Thors TCO, Factories To Caves_
+
+- **Authors:** ["Ivan Chiam", "Zane Fong", "Bryan Shan", "Reyk Knuhtsen", "Myron Xie", "Gerald Wong", "Dylan Patel"]
+- **Access:** paid-preview
+- **URL:** https://newsletter.semianalysis.com/p/where-does-a-robot-think-on-device
+- **Corpus file:** `intelligence/_external_sources/semianalysis/2026-09-09-where-does-a-robot-think-on-device.md`
+
+> For most of its short history, AI lived behind a screen. That’s starting to change.  First came chatbots, good for answering a question or drafting an email. Then agentic AI, models that don’t just respond but do real work on a computer: navigating software, calling tools, finishing multi-step tasks on their own. Now the frontier is physical AI, intelligence that reaches past the screen to perceive the world and act on it. The biggest piece is robots, and it is still early: the hardware, the mod
+
 ### 2026-09-07 · TPU Inference Externalization Full Steam Ahead - InferenceX
 _InferenceX, Up to 50% Better Performance per Dollar, Rapid Externalization of TPU stack, Growing Customer Base, Ironwood, TPUv8i, Reducing CUDA Moat_
 
@@ -121,16 +131,6 @@ _GCP YoY rev growth >100%, DeepMind's long term failure is Google Cloud's short 
 
 > On Wednesday, August 5th, Google [announced](https://blog.google/company-news/inside-google/message-ceo/next-chapter-ai-momentum/) a complete overhaul of DeepMind leadership. A quick recap:  - Demis Hassabis, DeepMind co-founder and former CEO, is no longer involved in day-to-day operations. - Jeff Dean, former Google Chief Scientist and Gemini co-lead is leaving to start a neolab called Discovery Loop. Jeff is the undisputed GOAT of Google engineering, co-founded Google Brain, and started the T
 
-### 2026-08-03 · Kimi K3, The Manos, The Mythos, The Legendos
-_Kimi K3’s architecture: compressed memory, attention across depth, latent expert routing, and serving performance_
-
-- **Authors:** ["Kimbo Chen", "Shubham Choudhari", "Bryan Shan", "Dylan Patel"]
-- **Access:** paid-preview
-- **URL:** https://newsletter.semianalysis.com/p/kimi-k3-the-manos-the-mythos-the
-- **Corpus file:** `intelligence/_external_sources/semianalysis/2026-08-03-kimi-k3-the-manos-the-mythos-the.md`
-
-> Kimi K3 took the world by storm at its announcement, sweeping leaderboards and establishing itself as the open frontier model. While the community is eager to understand how Kimi K3 works, many have been surprised by the unconventional techniques driving its performance. This article serves as a primer to understanding the core techniques of the Kimi K3 model architecture.  # Kimi Delta Attention  Kimi Delta Attention (KDA) is the linear attention layer in Kimi K3’s hybrid attention mechanism. W
-
 
 ## ⊕ GITHUB COMMITS + RELEASES, last 24h
 
@@ -144,14 +144,36 @@ _no new posts in the lookback window_
 
 - @ridges_ai (Ridges, Wed, 26 Aug 2026): We've kicked off Niches with a Linting competition! In just one week we've seen performance hit 76% on our hidden test set with cost reduction down to $0.02 per task. Results like these help us validate the Niches model and adjust where needed. We're excited for the next Niche, and eventually dynamic Niches. Stay tuned!  
   http://nitter.jaydenha.uk/ridges_ai/status/2092684102595961119#m
+- @polychain (Polychain Capital, Wed, 24 Jun 2026): I'm excited to share that Cambrian has raised $11.9M to build the financial intelligence layer for the convergence of AI, digital assets, and traditional finance. Our seed round was led by @Polychain and Franklin Templeton @FTDA_US: a convergence itself of a top OG digital assets fund and a $1.7T institutional asset manager of 75+ years. As AI starts to consume more data in minutes than most humans do in lifetimes, finance is evolving to adapt to this reality ⤵️ Cambrian Network 🪴 (@CambrianNetwork) Big news: we’ve raised $11.9 million to build the world’s financial intelligence layer. @Polych  
+  http://nitter.jaydenha.uk/0xsamgreen/status/2069836236362313887#m
+- @polychain (Polychain Capital, Wed, 24 Jun 2026): Big news: we’ve raised $11.9 million to build the world’s financial intelligence layer. @Polychain and Franklin Templeton @FTDA_US share our conviction that the future of finance will be increasingly orchestrated by AI agents. The missing ingredient that separates winning agents from slopbots? Financial intelligence. Agents are beginning to consume human lifetimes' worth of data in minutes. As AI, digital assets, and traditional finance converge, the agentic appetite for data will grow larger – as will the challenge in separating noise from signal. Cambrian specializes strictly in financial da  
+  http://nitter.jaydenha.uk/CambrianNetwork/status/2069834786647027852#m
+- @polychain (Polychain Capital, Wed, 24 Jun 2026): EXCLUSIVE: a16z CSX-backed Cambrian raises $6 million seed to build blockchain data oracle network theblock.co/post/406028/a16z… Link a16z CSX-backed Cambrian raises $6 million seed to build blockchain data oracle network Cambrian, a startup building blockchain data infrastructure for institutions and AI agents, raised $6 million in a seed funding round. theblock.co  
+  http://nitter.jaydenha.uk/TheBlockCo/status/2069827932843909349#m
+- @wallstreetbets (WallStreetBets (X), Wed, 09 Sep 2026): he really did believe in cryptocurrency Video Watcher.Guru (@WatcherGuru) JUST IN: Hunter Biden says he has not made a "single dollar" on his crypto memecoin $LAPTOP — http://nitter.jaydenha.uk/WatcherGuru/status/2097802286323859470#m  
+  http://nitter.jaydenha.uk/wallstreetbets/status/2097805670963634652#m
+- @wallstreetbets (WallStreetBets (X), Wed, 09 Sep 2026): 24/7 markets need 24/7 prices  
+  http://nitter.jaydenha.uk/wallstreetbets/status/2097769003980583067#m
+- @wallstreetbets (WallStreetBets (X), Wed, 09 Sep 2026): BREAKING: If you invested $1,000 in Hunter Biden's LAPTOP at the top today, you would now have about $9 generational wealth destruction  
+  http://nitter.jaydenha.uk/wallstreetbets/status/2097768368614805871#m
+- @wallstreetbets (WallStreetBets (X), Wed, 09 Sep 2026): BREAKING: Apple $AAPL unveils its new lineup &gt; iPhone 18 Pro &gt; iPhone 18 Pro Max &gt; iPhone Duo, Apple’s first foldable iPhone &gt; AirPods 5 &gt; Apple Watch Series 12 &gt; Apple Watch Ultra 4 Apple finally entered the foldable era  
+  http://nitter.jaydenha.uk/wallstreetbets/status/2097752263624151498#m
+- @nigescore (Nige, Wed, 09 Sep 2026): .@nigescore going to paris last time he went to nrf in dallas he got us our biggest client ever (not announced yet) i can’t go. got something bigger on the 15th, 16th and 17th (to be announced) Manako (@manakoai) Heading to @nrfeurope NRF Retail’s Big Show Europe in Paris next week (15–17 Sept) 🇫🇷 If you are attending and want to hear what Manako Labs have built for retail, please DM and let’s meet up. No new hardware, no engineers, no code just your existing cameras doing more. #NRFRetailsBigShowEurope — http://nitter.jaydenha.uk/manakoai/status/2097622722310242420#m  
+  http://nitter.jaydenha.uk/MaxSebti/status/2097630699129827589#m
+- @wallstreetbets (WallStreetBets (X), Wed, 09 Sep 2026): RWA perps did $752B in August memory stocks alone did $327B 24/7 global markets are here Pyth Network 🔮 (@PythNetwork) Article August Yielded a Record Month in RWA Perp Volume Cash markets do not share a clock and RWA perps don’t wait for them to agree. August was another record month against the previous report’s published July baseline. The tracked RWA perp market — http://nitter.jaydenha.uk/PythNetwork/status/2097324776427503907#m  
+  http://nitter.jaydenha.uk/wallstreetbets/status/2097580764871463003#m
 - @markjeffrey (Mark Jeffrey, Wed, 09 Sep 2026): Use AI that won't steal your prompts. Last thing you need is some BigAI co solving math problems open for hundreds of years off your back. Use Saygm.com. Frontier models. PRIVATE (for realz). Every request hits a hardware-attested Intel TDX enclave (Phala). Attestation is from the chip, not a 'privacy policy'. Powered by Bittensor $TAO  
   http://nitter.jaydenha.uk/markjeffrey/status/2097476709276877061#m
+- @mcjkula (mcjkula, Tue, 30 Dec 2025): 7 months. 55,000+ conversations. 128 subnets. One Savant. Here's what we learned from building the first MCP for @Bittensor.  
+  http://nitter.jaydenha.uk/taoapp_/status/2005876837214228623#m
 - @ridges_ai (Ridges, Tue, 28 Jul 2026): ⛰️ x402 is now live on Ridges X402 is an agentic payment protocol that lets agents pay for API access autonomously. Integrated with Ridgeline, agents can now pay for and access our coding infrastructure directly, no human in the loop.  
   http://nitter.jaydenha.uk/ridges_ai/status/2082103797418262564#m
 - @ridges_ai (Ridges, Tue, 21 Jul 2026): Now live: SN62 @ridges_ai is a Bittensor subnet where AI agents compete to solve software engineering problems end-to-end. Every submitted agent is open sourced, evaluated onchain against an evolving gauntlet of coding challenges, with performance verifiable by anyone. Start trading today → proapp.kraken.com/9f1e/SN62 Geographic restrictions apply.  
   http://nitter.jaydenha.uk/krakenlistings/status/2079596082632519805#m
 - @ridges_ai (Ridges, Tue, 21 Jul 2026): ⛰️ Get convicted with us. Simple credits. Free if you stake. Standard · $9.99/month. 10 credits, always the top-ranked agent, PRs opened automatically. Staker · free. Lock your Ridges alpha, connect your wallet, get credits every 3 days. No subscription needed.  
   http://nitter.jaydenha.uk/ridges_ai/status/2079567082874871969#m
+- @mcjkula (mcjkula, Tue, 14 Apr 2026): See you in Montréal everyone. Not gonna want to miss this one🫡 Exploit Summit (@ExploitSummit) Building on Bittensor is hard. Doing it in isolation is even harder. Exploit puts you in a room with: • The subnet founders who've already solved your problems • The investors actually writing checks • The technical talent you're trying to hire Sept 28-29, Montréal. Two days that could save you six months. Video — http://nitter.jaydenha.uk/ExploitSummit/status/2044100822750114215#m  
+  http://nitter.jaydenha.uk/mcjkula/status/2044123923088830837#m
 - @markjeffrey (Mark Jeffrey, Tue, 08 Sep 2026): Oh my Nicholas Negroponte flashback Karen X. Cheng (@karenxcheng) Instead of checking my phone first thing, I set up an agent to make a "morning newspaper". It prints while I sleep. I used grokbot @bot to pull from my calendar and email I made it available if you wanna try it 👇 Video — http://nitter.jaydenha.uk/karenxcheng/status/2097383854923538770#m  
   http://nitter.jaydenha.uk/markjeffrey/status/2097466191250071663#m
 - @markjeffrey (Mark Jeffrey, Tue, 08 Sep 2026): True. Nothing stops this trAIn. Raoul Pal (@RaoulGMI) What would happen if, say, OpenAI went bust? The doomers will say that's the minute the "bubble" pops. But Google or Microsoft would just buy all of their compute the next morning. Now they've got double the GPUs and they're further ahead than they were the day before. David made a great point in this clip... People keep confusing a financial event with the technology. If someone blows up, the infrastructure doesn't vanish, it just changes hands, and whoever ends up with it will have a lead nobody can close. A bankruptcy wouldn't slow the b  
@@ -168,10 +190,14 @@ _no new posts in the lookback window_
   http://nitter.jaydenha.uk/a16zcrypto/status/2097378001981776042#m
 - @VantaTrading (Vanta, Tue, 08 Sep 2026): Two ways rewards settle: bank transfer with a Stripe reference, or USDC on-chain with a public hash. Both end up on the same public ledger. Your pick at eligibility.  
   http://nitter.jaydenha.uk/VantaTrading/status/2097340005886861731#m
+- @nigescore (Nige, Tue, 08 Sep 2026): Astra Ultra did not cook sports-grade vision AI. Gave it a 30s football clip from our subnet private track. Frame-level events, JSON, annotated video. Ground truth and the published scoring rules only after it committed. 22 predictions. 17 real events. 15 inside the action windows. 7 extras. 2 misses. Precision 68.18%. Recall 88.24%. F1 76.92%. Our Bittensor eval, SN44: 0%. Matches after timing decay: 16.538 False positives: −20.300 GT weight: 25.600 score = max(0, (16.538 − 20.300) / 25.600) = 0 Three extra take-ons and two extra tackles were 14.6 penalty points. It also misread the late inte  
+  http://nitter.jaydenha.uk/webuildscore/status/2097261685358596399#m
 - @resilabsai (RESI, Tue, 07 Apr 2026): The power of holding Bittensor $TAO subnet alpha Here is an example to illustrate the flywheel of $TAO Let's say you 1,000 alpha of @resilabsai which cost around 7 $TAO 7 $TAO at a price of $310 = $2,170 Current alpha price of Resi, subnet 46: .0066 $TAO Let's make some calculated assumptions. &gt; price of resi alpha stays the same for 3 years &gt; price of $TAO remains the same at $310 &gt; APY for holding Resi alpha is 40% for the first 2 years, then 30% in year 3 What is my total value in 3 years? Year 1 (40% APY) 1,060.6 × 1.4 = 1,484.8 alpha In $TAO: 1,484.8 × 0.0066 ≈ 9.80 $TAO In USD:   
   http://nitter.jaydenha.uk/Pop_Collapse/status/2041570023823528017#m
 - @jtledore (Jean-Thomas Ledoré, Tue, 01 Sep 2026): PSA: Score Studio launches on Sep 16  
   http://nitter.jaydenha.uk/webuildscore/status/2094860066373386399#m
+- @mcjkula (mcjkula, Tue, 01 Sep 2026): TAOApp Wallet is here. The self-custody browser wallet for Bittensor. Hold TAO, stake TAO, buy subnet tokens. When there’s more to protect, bring in your Ledger, proxies and multisigs. Install the beta, on Chrome, Brave and Edge. ↓ chromewebstore.google.com/de…  
+  http://nitter.jaydenha.uk/taoapp_/status/2094840222441992209#m
 - @affine_io (Affine, Tue, 01 Sep 2026): Everything you need to compete is public: affine.io/llms.txt  
   http://nitter.jaydenha.uk/affine_io/status/2094801258016370976#m
 - @affine_io (Affine, Tue, 01 Sep 2026): Video  
@@ -184,6 +210,14 @@ _no new posts in the lookback window_
   http://nitter.jaydenha.uk/datapointai/status/2082837314603032606#m
 - @dippy_ai (Dippy AI, Thu, 27 Aug 2026): we have significantly upgraded both the basic and super models 🤩🤩 we have also made optimizations to improve response speeds by upto 5x can't wait for you all to experience and enjoy the new dippy 📯📯😸 rolling out to everyone today  
   http://nitter.jaydenha.uk/dippy_ai/status/2093089771824226802#m
+- @polychain (Polychain Capital, Thu, 25 Jun 2026): Article The Missing AI Layer Is Not Security. It&apos;s Authority. AI agents are now computer users. They browse websites. They read files. They write code. They call APIs. They log in to accounts. They handle credentials, use tools, and take actions across software  
+  http://nitter.jaydenha.uk/zherbert/status/2070178183333171395#m
+- @nigescore (Nige, Thu, 20 Aug 2026): Computer vision engineers are still duct-taping tools together just to get a model into production. We just finished another round of user interviews and that frustration came up again and again. So we re-designed Studio to work around our new Pipelines + Workflow Canvas features. Visually design any vision pipeline from start to finish, connect models, logic, and outputs on one canvas, preview the exact result, then deploy. You see the output before you ship it. Everything in a single interface. The full loop, shaped by the people who actually build vision systems every day. This is what Dece  
+  http://nitter.jaydenha.uk/webuildscore/status/2090422492980515272#m
+- @polychain (Polychain Capital, Thu, 13 Aug 2026): LBTC proved demand for yield-bearing Bitcoin. Today, we double down on that thesis. LBTC is moving to institutional yield. @Bitwise will manage a covered-call options strategy with a 4.5-year legacy track record, to generate LBTC's yield, targeting 2.5% net APY paid in Bitcoin.  
+  http://nitter.jaydenha.uk/Lombard_Finance/status/2087887552300933626#m
+- @nigescore (Nige, Thu, 09 Jul 2026): We are excited to announce our membership in the NVIDIA Inception Program #NVIDIAInception.  
+  http://nitter.jaydenha.uk/manakoai/status/2075236662712439039#m
 - @dippy_ai (Dippy AI, Thu, 04 Jun 2026): Today, we’re opening up Datapoint AI for anyone to use. It is by far the fastest way to understand what your customers want. Type a question. Real people answer. You get a report back in ~10 minutes, not three weeks, and at a fraction of the cost. Video  
   http://nitter.jaydenha.uk/datapointai/status/2062563294880075837#m
 - @jtledore (Jean-Thomas Ledoré, Thu, 03 Sep 2026): back to work Tyler Denk 🐝 (@denk_tweets) as a founder you have precisely 23 minutes to celebrate a win until you have to put out the next fire — http://nitter.jaydenha.uk/denk_tweets/status/2095333209324339556#m  
@@ -208,41 +242,7 @@ _no new posts in the lookback window_
   http://nitter.jaydenha.uk/lium_io/status/2091008389656588642#m
 - @resilabsai (RESI, Sat, 18 Apr 2026): Traditional centralized real estate data platforms are fundamentally flawed and often serve to extract wealth from users. @resilabsai (Subnet 46) is breaking this monopoly through decentralized AI technology that delivers up to 99% valuation accuracy. Skip the corporate intermediaries—this AI-powered home valuation tool provides the most reliable housing market forecasts for 2026 Video SEBY (@sebyrubino) The @resilabsai Portal is LIVE! Any agent or real estate professional can now easily access our SOTA remote appraisals. We built RESI as a compounding network that will naturally accelerate in  
   http://nitter.jaydenha.uk/3rdeye_rav3n/status/2045362275045753234#m
-- @resilabsai (RESI, Sat, 08 Aug 2026): Attention Res Labs we have some really exciting news and updates to our project join our discord to stay up to date: discord.gg/TBj8q9vb2Q #bittensor #TAO bittensor:native #reslabs #reilabsai #crypto #subnet #subnet46 #reslabs_ai #reslabsai #opentensor #reptides  
-  http://nitter.jaydenha.uk/resilabsai/status/2085900662139744548#m
-- @jtledore (Jean-Thomas Ledoré, Sat, 05 Sep 2026): I just deleted both the @Taodotcom Chrome extension and mobile app. Luckily, I’ve mainly been using their wallet to interact with third-party platforms, while doing most of my swaps through @taoswap_org . So I’ve avoided the hidden fees that apparently caught a lot of people off guard. But that’s not really the point. If I can’t trust a wallet to be transparent about what it’s charging me, I don’t want it on my devices. I know @wearetalisman also has relatively high fees, but at least they’re upfront about them. So what are we left with? @Taostats is the obvious option. Has anyone here used th  
-  http://nitter.jaydenha.uk/LordRagnarao/status/2096256133920960838#m
-- @VantaTrading (Vanta, Sat, 05 Sep 2026): Your downside at Vanta is one number: the evaluation fee. No liability past it. No margin call following you home. The worst case is printed on the checkout page before you start. Prove your skill, risk the fee, keep 100% of the rewards. That's the whole deal.  
-  http://nitter.jaydenha.uk/VantaTrading/status/2096254110974792063#m
-- @lium_io (Lium, Mon, 31 Aug 2026): what are you waiting for?  
-  http://nitter.jaydenha.uk/lium_io/status/2094475979938746381#m
-- @resilabsai (RESI, Mon, 20 Apr 2026): I am pleased to announce that Stillcore Capital @stillcorecap has invested in RESI @resilabsai (Bittensor Subnet 46).  
-  http://nitter.jaydenha.uk/markjeffrey/status/2046311512621670731#m
-- @dippy_ai (Dippy AI, Mon, 10 Aug 2026): We are FINALLY back online! We deeply apologize for this issue extending nearly 24 hours 🥲 As a token of thanks for your patience, we are REMOVING CHAT LIMITS for the remainder of this month 😻😻 P.S: don't worry, we'll also reinstate your streaks :~)  
-  http://nitter.jaydenha.uk/dippy_ai/status/2086838981627420847#m
-- @VantaTrading (Vanta, Mon, 07 Sep 2026): Our scoring rules are generated from the code that runs them. We publish every rule in plain English, and every change to them, read straight out of the open-source repo. Decentralized, transparent, and verifiable. Check it out: vantanetwork.io/transparency  
-  http://nitter.jaydenha.uk/VantaTrading/status/2097056424266502631#m
-- @a16zcrypto (a16z Crypto, Mon, 07 Sep 2026): The CLARITY Act will be in front of the Senate on September 15th. According to @pmarca, a permanent regulatory framework for crypto is... "in a lot of ways, the most obvious thing in the world." Video  
-  http://nitter.jaydenha.uk/a16zcrypto/status/2097040018636226912#m
-- @opentensor (Opentensor Foundation, Mon, 07 Sep 2026): Novelty Search :: Subnet 61 :: @_redteam_ RedTeam turns Bittensor miners into a 24/7 network of ethical hackers. We’ll discuss how SN61 uses that competition to stay ahead of evolving bot attacks, its five new enterprise pilots, and what comes next with RedTeam’s upcoming Immune System. Live on Thursday :: 9PM UTC :: on X + YouTube Hosted by @const_reborn  
-  http://nitter.jaydenha.uk/opentensor/status/2097022237337682320#m
-- @affine_io (Affine, Mon, 07 Sep 2026): A model doesn’t need to be the largest to matter. On Affine, models compete on how well their reasoning supports the next action across code, tool use and math. A winner could put that reasoning to work in products, either directly or alongside a larger model. Video  
-  http://nitter.jaydenha.uk/affine_io/status/2096984627059810338#m
-- @VantaTrading (Vanta, Mon, 07 Sep 2026): US markets are closed today. Labor Day. NYSE and Nasdaq shut all day, back Tuesday. CME equity index and rates hold in preopen until the 6:00pm ET reopen; energy and metals alongside them. No Monday settlements at CME, CBOT, NYMEX or COMEX. Crypto doesn’t observe holidays.  
-  http://nitter.jaydenha.uk/VantaTrading/status/2096954501450412536#m
-- @resilabsai (RESI, Mon, 06 Apr 2026): Chainlink gave DeFi price feeds. @resilabsai is doing the same for real estate. From static appraisals to dynamic, onchain pricing. It's already honing in on Zillow's pricing accuracy, and only a matter of weeks before it surpasses it!  
-  http://nitter.jaydenha.uk/gordonfrayne/status/2041152947925512465#m
-- @affine_io (Affine, Fri, 28 Aug 2026): United against the divided. Intelligence knows neither borders nor color. Uphold the torch with us to bring light where it is needed most. Open reasoning for humanity. Join the thousand-year intelligence federation. affine.io scouτ (@scoutesy) The same way neutron stars form gold through merging, affine orchestrates reasoning through open collaboration. Unus pro omnibus, omnes pro uno. Tao of a million symmetries. Video — http://nitter.jaydenha.uk/scoutesy/status/2093400328062296312#m  
-  http://nitter.jaydenha.uk/affine_io/status/2093401028763013596#m
-- @robmyers (Robert Myers, Fri, 26 Mar 2021): Try @rheaplex instead.  
-  http://nitter.jaydenha.uk/robmyers/status/1375288994989101059#m
-- @ridges_ai (Ridges, Fri, 24 Jul 2026): Back in the arena. Get ready.  
-  http://nitter.jaydenha.uk/ridges_ai/status/2080647848677314822#m
-- @a16zcrypto (a16z Crypto, Fri, 04 Sep 2026): The National Sheriffs’ Association, representing 3,000+ elected sheriffs, has dropped its opposition to the CLARITY Act.  
-  http://nitter.jaydenha.uk/a16zcrypto/status/2095948622084919514#m
-- @affine_io (Affine, Fri, 04 Sep 2026): Affine submissions are now private, so miners can compete without exposing their weights to competitors. Crowned models still go public. Losing checkpoints will be published later, so anyone can independently recompute every duel verdict. Video  
-  http://nitter.jaydenha.uk/affine_io/status/2095937147320844533#m
 
 
 ---
-_Generated at 2026-09-09T19:01:03.606400+00:00 by scripts/intel/aggregate.py. Treat this digest as input context, not as ground truth. Verify before quoting._
+_Generated at 2026-09-09T22:11:45.749819+00:00 by scripts/intel/aggregate.py. Treat this digest as input context, not as ground truth. Verify before quoting._
