@@ -11,6 +11,16 @@ _no human notes in the window_
 
 _SemiAnalysis is the most-cited semiconductor and AI infrastructure publication in the industry. They do NOT cover Bittensor. The Oracle uses this corpus for any claim about hyperscaler compute, GPU economics, datacenter power, foundry capacity, memory pricing, lab unit economics. DO NOT cite SemiAnalysis for any Bittensor-specific claim. Full archive (289 posts, May 2020 onwards) lives at `intelligence/_external_sources/semianalysis/` with an `INDEX.md` table of contents. Paywalled posts show only subtitle + free preview; free posts have the full body extracted._
 
+### 2026-09-10 · What is So Hard About Behind-The-Meter Power For Datacenters? Part 1
+_Dumb Science Experiments vs. Money Printing Machines_
+
+- **Authors:** ["Ellie Holbrook", "Robert Boswall", "Jeremie Eliahou Ontiveros", "Nicolas Bontigui", "Dylan Patel"]
+- **Access:** paid-preview
+- **URL:** https://newsletter.semianalysis.com/p/what-is-so-hard-about-behind-the
+- **Corpus file:** `intelligence/_external_sources/semianalysis/2026-09-10-what-is-so-hard-about-behind-the.md`
+
+> [![](https://substackcdn.com/image/fetch/$s_!xp5B!,w_1456,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F0fe650d6-cdda-4d26-a83d-1e793cf406c0_1672x941.png)](https://substackcdn.com/image/fetch/$s_!xp5B!,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F0fe650d6-cdda-4d26-a83d-1e793cf406c0_1672x941.png)  Last year we were the first to call out [Onsite Gas Generation
+
 ### 2026-09-09 · Where Does a Robot Think – On-Device vs Datacenter Inference
 _The Embodiment Problem, Planning vs Action Layers, Glass-To-Glass Budgets, Wafers & DRAM Constraints, One B300 vs 56 Thors TCO, Factories To Caves_
 
@@ -121,16 +131,6 @@ _Inference at 100B/GW/year, SpaceX's stellar pace, Microsoft's 10GW 2026 Awakeni
 
 > Elon Musk shocked the world, once again, when he announced on SpaceX’s first earnings his Gigawatt ambitions for next year. He “conservatively” aims to build & deliver an incremental 6-8GW in 2027 alone, with potential for that number to be well above +10GW. At 50B per GW, that’s $300-500B in capex in 2027, on par with what we expect from AWS and Google – an unbelievable number for a company significantly less profitable than rival hyperscalers.  Yet, we believe that the number is real. We see S
 
-### 2026-08-07 · Gemini is Cooked but GCP is Cooking
-_GCP YoY rev growth >100%, DeepMind's long term failure is Google Cloud's short term gain_
-
-- **Authors:** ["Max Kan", "Joey Brookhart", "Doug O'Laughlin", "Dylan Patel"]
-- **Access:** paid-preview
-- **URL:** https://newsletter.semianalysis.com/p/gemini-is-cooked-but-gcp-is-cooking
-- **Corpus file:** `intelligence/_external_sources/semianalysis/2026-08-07-gemini-is-cooked-but-gcp-is-cooking.md`
-
-> On Wednesday, August 5th, Google [announced](https://blog.google/company-news/inside-google/message-ceo/next-chapter-ai-momentum/) a complete overhaul of DeepMind leadership. A quick recap:  - Demis Hassabis, DeepMind co-founder and former CEO, is no longer involved in day-to-day operations. - Jeff Dean, former Google Chief Scientist and Gemini co-lead is leaving to start a neolab called Discovery Loop. Jeff is the undisputed GOAT of Google engineering, co-founded Google Brain, and started the T
-
 
 ## ⊕ GITHUB COMMITS + RELEASES, last 24h
 
@@ -185,4 +185,4 @@ _no new posts in the lookback window_
 
 
 ---
-_Generated at 2026-09-10T08:37:34.083423+00:00 by scripts/intel/aggregate.py. Treat this digest as input context, not as ground truth. Verify before quoting._
+_Generated at 2026-09-10T15:40:50.427315+00:00 by scripts/intel/aggregate.py. Treat this digest as input context, not as ground truth. Verify before quoting._

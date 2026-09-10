@@ -1,11 +1,12 @@
 # SemiAnalysis Archive Index
 
-_326 posts captured. Generated 2026-09-10T08:37:33.921854+00:00._
+_327 posts captured. Generated 2026-09-10T15:40:50.300401+00:00._
 
 Editorial policy: SemiAnalysis is the macro reference. The Oracle cites it for any claim about hyperscaler compute, GPU economics, datacenter power, foundry capacity, memory pricing, lab unit economics. The Oracle does NOT cite SemiAnalysis for any Bittensor-specific claim. SemiAnalysis does not cover Bittensor; treat that absence as itself information.
 
 | Date | Title | Audience | Authors | File |
 | --- | --- | --- | --- | --- |
+| 2026-09-10 | [What is So Hard About Behind-The-Meter Power For Datacenters? Part 1](https://newsletter.semianalysis.com/p/what-is-so-hard-about-behind-the) | only_paid | ["Ellie Holbrook", "Robert Boswall", "Jeremie Eliahou Ontive | `2026-09-10-what-is-so-hard-about-behind-the.md` |
 | 2026-09-09 | [Where Does a Robot Think – On-Device vs Datacenter Inference](https://newsletter.semianalysis.com/p/where-does-a-robot-think-on-device) | only_paid | ["Ivan Chiam", "Zane Fong", "Bryan Shan", "Reyk Knuhtsen", " | `2026-09-09-where-does-a-robot-think-on-device.md` |
 | 2026-09-07 | [TPU Inference Externalization Full Steam Ahead - InferenceX](https://newsletter.semianalysis.com/p/tpu-inferencex-full-steam) | only_paid | ["Alec Ibarra", "Cam Quilici", "Bryan Shan", "Wenyao Gao", " | `2026-09-07-tpu-inferencex-full-steam.md` |
 | 2026-09-01 | [Korea’s Trillion-Dollar Sovereign AI Investment: Nvidia Wins, Hynix Loses](https://newsletter.semianalysis.com/p/koreas-trillion-dollar-sovereign) | only_paid | ["Max Kan", "Ray Wang", "Dylan Patel"] | `2026-09-01-koreas-trillion-dollar-sovereign.md` |
