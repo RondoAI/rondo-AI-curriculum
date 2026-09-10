@@ -148,10 +148,16 @@ _no new posts in the lookback window_
   http://nitter.jaydenha.uk/glxyresearch/status/2097708292751401021#m
 - @galaxyhq (Galaxy Digital, Wed, 09 Sep 2026): Big milestone for @trmlabs, a Galaxy Ventures portfolio company: a $2 billion valuation, double where it stood in February. TRM builds the AI investigation software crimefighters use to catch criminals, trusted by 600+ agencies and institutions across 75 countries. Fighting AI crime is crucial to its sustainable adoption. Guardrails are the prevention layer. The second layer of protection is disruption: finding the criminals who break through and shutting them down. That is what TRM is building. Congrats to the team. *Valuation data is unaudited and not indicative of Galaxy Digital’s investmen  
   http://nitter.jaydenha.uk/galaxyhq/status/2097693166711271582#m
+- @dylan522p (Dylan Patel, Wed, 09 Sep 2026): I love leaving San Francisco during Goldman TMT because when the finance bros come, the city becomes significantly more retarded  
+  http://nitter.jaydenha.uk/dylan522p/status/2097494289697660957#m
 - @mcjkula (mcjkula, Tue, 30 Dec 2025): 7 months. 55,000+ conversations. 128 subnets. One Savant. Here's what we learned from building the first MCP for @Bittensor.  
   http://nitter.jaydenha.uk/taoapp_/status/2005876837214228623#m
 - @mcjkula (mcjkula, Tue, 14 Apr 2026): See you in Montréal everyone. Not gonna want to miss this one🫡 Exploit Summit (@ExploitSummit) Building on Bittensor is hard. Doing it in isolation is even harder. Exploit puts you in a room with: • The subnet founders who've already solved your problems • The investors actually writing checks • The technical talent you're trying to hire Sept 28-29, Montréal. Two days that could save you six months. Video — http://nitter.jaydenha.uk/ExploitSummit/status/2044100822750114215#m  
   http://nitter.jaydenha.uk/mcjkula/status/2044123923088830837#m
+- @dylan522p (Dylan Patel, Tue, 08 Sep 2026): We started calling marketing growth so men could do it We started calling socialites VCs so men can do it  
+  http://nitter.jaydenha.uk/dylan522p/status/2097454391762538738#m
+- @dylan522p (Dylan Patel, Tue, 08 Sep 2026): faithful stochastic parrot devotees desperately scrambling to find underpaid Kenyan genius who solved millenium prize in latest mercor data dump  
+  http://nitter.jaydenha.uk/dylan522p/status/2097437018657636559#m
 - @VantaTrading (Vanta, Tue, 08 Sep 2026): Two ways rewards settle: bank transfer with a Stripe reference, or USDC on-chain with a public hash. Both end up on the same public ledger. Your pick at eligibility.  
   http://nitter.jaydenha.uk/VantaTrading/status/2097340005886861731#m
 - @galaxyhq (Galaxy Digital, Tue, 08 Sep 2026): Your collateral trades 24/7. Your custodian’s SLA says business hours. A margin call before a holiday weekend can suddenly become 5 days of risk. @galaxyhq’s Max Bareiss (@Game_Set_Max) explains why control means very little if the lender can’t exercise it quickly. Full episode: membranelabs.com/podcast-tok… Video  
@@ -164,8 +170,12 @@ _no new posts in the lookback window_
   http://nitter.jaydenha.uk/VantaTrading/status/2096650234327961714#m
 - @galaxyhq (Galaxy Digital, Sun, 06 Sep 2026): had a blast with the galaxy team at galaxy stadium yesterday. loved seeing texas tech win their home opener in the newly renamed stadium.. a great way to end a great week big things are being built in west texas  
   http://nitter.jaydenha.uk/intangiblecoins/status/2096648558397083832#m
+- @dylan522p (Dylan Patel, Sun, 06 Sep 2026): Here's a 52 min deep-dive video into everything AI &amp; power with @SemiAnalysis_. Lot's of work went into that &amp; I think it's worth a watch 😊 👉AI is running out of Power piped.video/nB4wFU43wck?si=t-jD… Link AI is running out of Power How does the AI boom affect the electrical grid? Deep-dive into the... youtube.com  
+  http://nitter.jaydenha.uk/highyieldYT/status/2096559106299429114#m
 - @mcjkula (mcjkula, Mon, 13 Apr 2026): For anyone that wants to get an idea of what the discussion will be about on this week with Const, this one is worth to read and form opinions/prepare questions about 🫡 Learn Bittensor (@learnbittensor) 🔒Locked Stake & Conviction are Being Proposed for Bittensor Subnet ownership may be about to change. BIT-0011 proposes that anyone can challenge for ownership of a subnet by locking their ALPHA stake and building "conviction." Right now, inactive subnet owners can hold onto subnets indefinitely. 'Locked Stake' would make ownership a contest of commitment, giving motivated participants a path to  
   http://nitter.jaydenha.uk/mcjkula/status/2043630114567491654#m
+- @dylan522p (Dylan Patel, Mon, 07 Sep 2026): We are excited to bring the first open benchmarking of Google's TPUs to the world Running every day, on many models + scenarios $/token is better than B200 and B300 Huge shout-out to Google @inferact and the InferenceX team at SemiAnalysis to this effort that's taken many months SemiAnalysis (@SemiAnalysis_) TPU Inference Externalization Full Steam Ahead - InferenceX, Up to 50% Better Performance per Dollar, Rapid Externalization of TPU stack, Growing Customer Base, Ironwood, TPUv8i, Reducing CUDA Moat newsletter.semianalysis.com/… Link TPU Inference Externalization Full Steam Ahead InferenceX  
+  http://nitter.jaydenha.uk/dylan522p/status/2097079157301600275#m
 - @VantaTrading (Vanta, Mon, 07 Sep 2026): Our scoring rules are generated from the code that runs them. We publish every rule in plain English, and every change to them, read straight out of the open-source repo. Decentralized, transparent, and verifiable. Check it out: vantanetwork.io/transparency  
   http://nitter.jaydenha.uk/VantaTrading/status/2097056424266502631#m
 - @VantaTrading (Vanta, Mon, 07 Sep 2026): US markets are closed today. Labor Day. NYSE and Nasdaq shut all day, back Tuesday. CME equity index and rates hold in preopen until the 6:00pm ET reopen; energy and metals alongside them. No Monday settlements at CME, CBOT, NYMEX or COMEX. Crypto doesn’t observe holidays.  
@@ -175,4 +185,4 @@ _no new posts in the lookback window_
 
 
 ---
-_Generated at 2026-09-10T02:33:29.338440+00:00 by scripts/intel/aggregate.py. Treat this digest as input context, not as ground truth. Verify before quoting._
+_Generated at 2026-09-10T08:37:34.083423+00:00 by scripts/intel/aggregate.py. Treat this digest as input context, not as ground truth. Verify before quoting._
