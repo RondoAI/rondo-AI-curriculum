@@ -1,11 +1,12 @@
 # SemiAnalysis Archive Index
 
-_327 posts captured. Generated 2026-09-11T15:42:11.199077+00:00._
+_328 posts captured. Generated 2026-09-11T18:56:37.183068+00:00._
 
 Editorial policy: SemiAnalysis is the macro reference. The Oracle cites it for any claim about hyperscaler compute, GPU economics, datacenter power, foundry capacity, memory pricing, lab unit economics. The Oracle does NOT cite SemiAnalysis for any Bittensor-specific claim. SemiAnalysis does not cover Bittensor; treat that absence as itself information.
 
 | Date | Title | Audience | Authors | File |
 | --- | --- | --- | --- | --- |
+| 2026-09-11 | [Nvidia’s Backstop Universe – Heads I Win, Tails Who Loses?](https://newsletter.semianalysis.com/p/nvidias-backstop-universe-heads-i) | only_paid | ["Daniel Nishball", "Oliver Kennon", "Terence Ong"] | `2026-09-11-nvidias-backstop-universe-heads-i.md` |
 | 2026-09-10 | [What is So Hard About Behind-The-Meter Power For Datacenters? Part 1](https://newsletter.semianalysis.com/p/what-is-so-hard-about-behind-the) | only_paid | ["Ellie Holbrook", "Robert Boswall", "Jeremie Eliahou Ontive | `2026-09-10-what-is-so-hard-about-behind-the.md` |
 | 2026-09-09 | [Where Does a Robot Think – On-Device vs Datacenter Inference](https://newsletter.semianalysis.com/p/where-does-a-robot-think-on-device) | only_paid | ["Ivan Chiam", "Zane Fong", "Bryan Shan", "Reyk Knuhtsen", " | `2026-09-09-where-does-a-robot-think-on-device.md` |
 | 2026-09-07 | [TPU Inference Externalization Full Steam Ahead - InferenceX](https://newsletter.semianalysis.com/p/tpu-inferencex-full-steam) | only_paid | ["Alec Ibarra", "Cam Quilici", "Bryan Shan", "Wenyao Gao", " | `2026-09-07-tpu-inferencex-full-steam.md` |
