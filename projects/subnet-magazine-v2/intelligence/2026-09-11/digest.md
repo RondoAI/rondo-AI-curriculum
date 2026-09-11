@@ -142,6 +142,12 @@ _no new posts in the lookback window_
 
 ## ⊕ X via NITTER, voices we track
 
+- @TargonCompute (Targon, Wed, 26 Aug 2026): Proud to power @TheoriqAI with secure confidential compute for their agentic market research. Large GPU blocks on demand, with hardware-level guarantees that keep the workload and its data private even from the machines running it. Excited to keep powering experimental research infrastructure with Targon. Theoriq (@TheoriqAI) .@TargonCompute is powering Theoriq AI experimentation. Curating risk-managed yield is, underneath, a research problem: how markets behave, where they break, and how much of that can be seen coming. That runs on heavy, on-demand compute. Targon is our partner in supplying  
+  https://nitter.netbub.com/TargonCompute/status/2092690588143657190#m
+- @TargonCompute (Targon, Wed, 26 Aug 2026): .@TargonCompute is powering Theoriq AI experimentation. Curating risk-managed yield is, underneath, a research problem: how markets behave, where they break, and how much of that can be seen coming. That runs on heavy, on-demand compute. Targon is our partner in supplying it. Theoriq (@TheoriqAI) Article Theoriq partnering with Targon to power AI experimentation Curating risk-managed yield is, underneath, a research problem. Long before capital is deployed, we want to know how markets behave, where they tend to break, and how much of that can be seen coming — https://nitter.netbub.com/TheoriqA  
+  https://nitter.netbub.com/TheoriqAI/status/2092661304444277050#m
+- @_redteam_ (RedTeam / Innerworks, Wed, 19 Aug 2026): Listen in to @oscar_hayek discussing RedTeam on @YumaGroup's Subnet Spotlight. Origin, commercial and technical traction, and where we're headed. Yuma (@YumaGroup) How RedTeam (SN61) powers their cyberthreat immune system with Bittensor nitter.net/i/broadcasts/1dGYlazzp… Link Yuma How RedTeam (SN61) powers their cyberthreat immune system with Bittensor https://nitter.netbub.com/i/broadcasts/1dGYlazzpnEKX — https://nitter.netbub.com/YumaGroup/status/2090076390163095836#m  
+  https://nitter.netbub.com/_redteam_/status/2090091530920878293#m
 - @lium_io (Lium, Wed, 09 Sep 2026): lium.io Month in review: $964k billed to 1187 renters (36% MoM growth). 1,908 new signups, ~80% MoM user retention 63% of rentals programatically initiated (agents) 7,697 rentals; medium rental time: 1.15 hours.  
   http://nitter.jaydenha.uk/lium_io/status/2097824624117473549#m
 - @lium_io (Lium, Wed, 09 Sep 2026): Steadily building the most decentralized GPU cloud Lium now has capacity from 68 datacenters across 21 countries Have GPUs? Join now. Lium pays you even for idle minutes. Make your nodes rentable in 5 minutes -&gt; docs.lium.io/providers/quick…  
@@ -168,6 +174,8 @@ _no new posts in the lookback window_
   http://nitter.jaydenha.uk/zeussubnet/status/2097696101822304723#m
 - @webuildscore (Score, Tue, 08 Sep 2026): And we would still be more accurate Max (@MaxSebti) from our latest tests, processing a full football match with Fable 5.1 or GPT-6 Astra Ultra would cost 1,000 times more than with @webuildscore private track models — http://nitter.jaydenha.uk/MaxSebti/status/2097368645009653966#m  
   http://nitter.jaydenha.uk/webuildscore/status/2097369752763052122#m
+- @TargonCompute (Targon, Tue, 01 Sep 2026): Happy to help! Proud to be trusted with running critical workloads such as validators. Very excited to see the talented team at DeSci Labs join the Bittensor ecosystem, their research and expertise are sure to add long-lasting value to the network. 🔬 Claims - Subnet 111 (@DeSciClaims) Our validator for SN111 is running on hardware provided by @TargonCompute. We're super grateful for the fast, reliable setup and the team's amazing support. Thank you, guys! — https://nitter.netbub.com/DeSciClaims/status/2094364807596036575#m  
+  https://nitter.netbub.com/TargonCompute/status/2094908006039236625#m
 - @zeussubnet (Zeus Subnet, Tue, 01 Sep 2026): So you think you know #Bittensor? Now's your chance to prove it. The night before Exploit, we’re putting the community to the test. Protocol history, legendary moments, characters, launches and lore. Join us for the first Bittensor Community Quiz - in person in Montreal. Free for Exploit attendees. Powered by @generaltensor + @zeussubnet Register at: luma.com/7hj5nphs  
   http://nitter.jaydenha.uk/ExploitSummit/status/2094855315930198101#m
 - @affine_io (Affine, Tue, 01 Sep 2026): Everything you need to compete is public: affine.io/llms.txt  
@@ -178,8 +186,12 @@ _no new posts in the lookback window_
   http://nitter.jaydenha.uk/datapointai/status/2082837314603032606#m
 - @dippy_ai (Dippy AI, Thu, 27 Aug 2026): we have significantly upgraded both the basic and super models 🤩🤩 we have also made optimizations to improve response speeds by upto 5x can't wait for you all to experience and enjoy the new dippy 📯📯😸 rolling out to everyone today  
   http://nitter.jaydenha.uk/dippy_ai/status/2093089771824226802#m
+- @_redteam_ (RedTeam / Innerworks, Thu, 27 Aug 2026): The Immune System for the Internet. Releasing next month. Oscar Hayek (@oscar_hayek) Defence in this era must be AI driven, the absolute baseline is adapting defences faster than attacks are being produced. Anything slower than this leaves you in a constant state of degradation. What we’ve built on @_redteam_ is an immune system for this problem. The attacks we ingest are evolved inside the system into complete novel vectors that cannot be produced anywhere else. Every one of these gets patched before an external attacker has the means/ability to create it, let alone release it. bittensor:nati  
+  https://nitter.netbub.com/_redteam_/status/2093081017145847826#m
 - @wallstreetbets (WallStreetBets (X), Thu, 10 Sep 2026): what are we buying?  
   http://nitter.jaydenha.uk/wallstreetbets/status/2098192540763615253#m
+- @_redteam_ (RedTeam / Innerworks, Thu, 10 Sep 2026): I am pleased to announce that Stillcore Capital @stillcorecap has invested in Red Team @_redteam_ Bittensor $TAO Subnet 61.  
+  https://nitter.netbub.com/markjeffrey/status/2098171401152971021#m
 - @SemiAnalysis_ (SemiAnalysis, Thu, 10 Sep 2026): Then there is Ajinomoto ($2802.T). Ajinomoto controls roughly 95% of the ABF film market. ABF is the insulating film laminated between the copper layers of an advanced substrate. So while MEC captures the chemistry required to process the substrate, Ajinomoto supplies one of the critical materials that actually builds it. The economics are particularly interesting. Functional Materials was ~30% of FY25 sales, but contributed ~83% of business profit. The segment runs at &gt;50% operating margins. And Ajinomoto’s film consumption scales with layer count and substrate form factor. As substrates g  
   http://nitter.jaydenha.uk/SemiAnalysis_/status/2098169382744605158#m
 - @SemiAnalysis_ (SemiAnalysis, Thu, 10 Sep 2026): The broader point is that semiconductor research often gets more interesting as you move down the stack. AI accelerators are the first derivative. Memory, networking, power and advanced packaging are the second. But the third derivative is where you find the companies enabling those enablers: the equipment, materials and chemicals that scale with the underlying complexity. Taesung, Eternal Precision, MEC and Ajinomoto offer four examples of how this research process plays out in the area of large AI accelerator packages and ABF substrates. (7/7)  
@@ -192,8 +204,18 @@ _no new posts in the lookback window_
   http://nitter.jaydenha.uk/wallstreetbets/status/2098138037616030065#m
 - @SemiAnalysis_ (SemiAnalysis, Thu, 10 Sep 2026): one more thing  
   http://nitter.jaydenha.uk/SemiAnalysis_/status/2098120339074981962#m
+- @jon_durbin (Jon Durbin, Thu, 10 Sep 2026): Oh, and the bandwidth on GPU nodes INCLUDES the dataset streaming - no node predownloads the dataset it's streamed from the p2p backbone/syncer nodes with a fancy cursor failover thing to distribute the data nicely and handle failovers etc.  
+  https://nitter.netbub.com/jon_durbin/status/2098117083468845080#m
+- @jon_durbin (Jon Durbin, Thu, 10 Sep 2026): Another comparable, for example, in the decentralized training arena. agora.pluralis.ai/ Similar infra (4090s/5090s), distributed, 8.6b total params but dense not MoE, same tokenizer AFAIK and fine-web 1.3t. Link Agora Dashboard Pluralis introduce a collaborative event powered by Protocol Learning, our decentralized approach to AI development. This is the first pretraining run open to the public that can use commodity... agora.pluralis.ai  
+  https://nitter.netbub.com/jon_durbin/status/2098104993890853111#m
 - @wallstreetbets (WallStreetBets (X), Thu, 10 Sep 2026): wall street whenever i want it with leverage as god intended Alpha (@TradeAlpha) The biggest moves happen when your trading app is closed. It's 2026. No trade should be off limits. Trade the Moment. Trade Alpha. Comment to be first in line for early access. Video — http://nitter.jaydenha.uk/TradeAlpha/status/2098096588514377731#m  
   http://nitter.jaydenha.uk/wallstreetbets/status/2098103343289704858#m
+- @jon_durbin (Jon Durbin, Thu, 10 Sep 2026): And here's the dataset for it, trillion ish tokens for various phases, no SFT/RL just pretraining corpus. huggingface.co/datasets/chut… Gated with auto approval. Link chutesai/mesh-1t-prod-mix · Datasets at Hugging Face We’re on a journey to advance and democratize artificial intelligence through open source and open science. huggingface.co  
+  https://nitter.netbub.com/jon_durbin/status/2098103141103181851#m
+- @jon_durbin (Jon Durbin, Thu, 10 Sep 2026): And if you're wondering why I used 5090s for this, it's because they are the worst GPUs on earth for stability at this utilization and have like 50% failure rate in my experience thus far (at least 1 of 8 dropping off bus or producing NaNs randomly etc.). Stress test.  
+  https://nitter.netbub.com/jon_durbin/status/2098102402255655260#m
+- @jon_durbin (Jon Durbin, Thu, 10 Sep 2026): Dashboard is a quick work in progress, but for visibility into a run here ya go! parallax.chutes.ai/ This is around $11/b tokens, insane actually. MFU also insane. The whole thing, pretty legendary, and inference... Using a few nodes from @lium_io also! Link Parallax · live training register 30 independent GPU hosts · 3.7M tokens/s · 228.9B tokens trained · peak MFU 67% — a decentralized 8B mixture-of-experts pretraining run, live. parallax.chutes.ai  
+  https://nitter.netbub.com/jon_durbin/status/2098097374434299966#m
 - @YumaGroup (Yuma Holdings, Thu, 10 Sep 2026): It's not easy breaking into #Bittensor. That's what @LindsMikeStone is for. She sits at the operational heart of @YumaGroup, turning Bittensor strategy into programs, partnerships + teams. She's supported the launch of 20 subnets including @bitsecai, @yanez__ai, and @b1m_ai and co-authored Yuma’s subnet valuation research - connecting talent, capital + builders across the ecosystem. Find her at Exploit: luma.com/exploitsummit26 Video  
   http://nitter.jaydenha.uk/ExploitSummit/status/2098079115861799251#m
 - @SemiAnalysis_ (SemiAnalysis, Thu, 10 Sep 2026): What is So Hard About Behind-The-Meter Power For Datacenters? Part 1 Dumb Science Experiments vs. Money Printing Machines newsletter.semianalysis.com/… Link What is So Hard About Behind-The-Meter Power For Datacenters? Part 1 Dumb Science Experiments vs. Money Printing Machines newsletter.semianalysis.com  
@@ -216,23 +238,11 @@ _no new posts in the lookback window_
   http://nitter.jaydenha.uk/lium_io/status/2096626336693375483#m
 - @lium_io (Lium, Sun, 06 Sep 2026): We just ran Qwen3.6 35B at 14,499 tokens per second. on 1 lium GPU. 85% cheaper than Openrouter. how you can do it too ⬇️  
   http://nitter.jaydenha.uk/lium_io/status/2096626330808828216#m
+- @TargonCompute (Targon, Mon, 31 Aug 2026): It's been a pleasure working with the @cascade_sn91 team on their recent SN91 launch. As the first team out of the @bitstarterAI ML track, we were proud to support them with initial compute credits on Targon. Excited to continue powering their pursuit of SOTA time series foundation models on Bittensor. ⚡️ SN91, Cascade (@cascade_sn91) Article Better Data, Better Models: What 184 Experiments Changed for Cascade To build the best decoder for Cascade, we needed to optimize across streaming, covariates, context and the training distribution. Thanks to compute credits from @Targoncompute, we were a  
+  https://nitter.netbub.com/TargonCompute/status/2094532034488058036#m
 - @zeussubnet (Zeus Subnet, Mon, 31 Aug 2026): Zeus (SN18), recent sell pressure resolved. An early partner who covered the slot registration fee (and held a share of emissions in return) decided to wind down and move on. Although we do not agree with the decision, we respect it. Their remaining position has been fully bought out by a long-term holder. We, Ørpheus AI, own the subnet 100% now.  
   http://nitter.jaydenha.uk/zeussubnet/status/2094333622190841951#m
-- @dippy_ai (Dippy AI, Mon, 10 Aug 2026): We are FINALLY back online! We deeply apologize for this issue extending nearly 24 hours 🥲 As a token of thanks for your patience, we are REMOVING CHAT LIMITS for the remainder of this month 😻😻 P.S: don't worry, we'll also reinstate your streaks :~)  
-  http://nitter.jaydenha.uk/dippy_ai/status/2086838981627420847#m
-- @affine_io (Affine, Mon, 07 Sep 2026): A model doesn’t need to be the largest to matter. On Affine, models compete on how well their reasoning supports the next action across code, tool use and math. A winner could put that reasoning to work in products, either directly or alongside a larger model. Video  
-  http://nitter.jaydenha.uk/affine_io/status/2096984627059810338#m
-- @affine_io (Affine, Fri, 28 Aug 2026): United against the divided. Intelligence knows neither borders nor color. Uphold the torch with us to bring light where it is needed most. Open reasoning for humanity. Join the thousand-year intelligence federation. affine.io scouτ (@scoutesy) The same way neutron stars form gold through merging, affine orchestrates reasoning through open collaboration. Unus pro omnibus, omnes pro uno. Tao of a million symmetries. Video — http://nitter.jaydenha.uk/scoutesy/status/2093400328062296312#m  
-  http://nitter.jaydenha.uk/affine_io/status/2093401028763013596#m
-- @zeussubnet (Zeus Subnet, Fri, 28 Aug 2026): Zeus gets a 10/10 from Arbos, by @const_reborn  
-  http://nitter.jaydenha.uk/zeussubnet/status/2093323407345467453#m
-- @wallstreetbets (WallStreetBets (X), Fri, 11 Sep 2026): hypearliquid.  
-  http://nitter.jaydenha.uk/wallstreetbets/status/2098218447268180178#m
-- @wallstreetbets (WallStreetBets (X), Fri, 11 Sep 2026): pair trading might be one of the better use cases for trading agents Pear already did $1B+ through its Hyperliquid engine + hit top 3 on Lighter in its first week there now the agent can find pairs + manage the trade from your phone agent szn? Pear Protocol 🍐 (@pear_protocol) Pear has been busy. Here are the highlights. Article Q2-3 Buyback Report: Grow, grow, grow Hope everyone enjoyed their Labor Day. If you haven&apos;t been following Pear since our last report, here&apos;s the TL;DR of what&apos;s new since European Labor Day. We&apos;ve released Orchard, an all-new trading — http://nitter  
-  http://nitter.jaydenha.uk/wallstreetbets/status/2098218445007474942#m
-- @affine_io (Affine, Fri, 04 Sep 2026): Affine submissions are now private, so miners can compete without exposing their weights to competitors. Crowned models still go public. Losing checkpoints will be published later, so anyone can independently recompute every duel verdict. Video  
-  http://nitter.jaydenha.uk/affine_io/status/2095937147320844533#m
 
 
 ---
-_Generated at 2026-09-11T08:30:55.158126+00:00 by scripts/intel/aggregate.py. Treat this digest as input context, not as ground truth. Verify before quoting._
+_Generated at 2026-09-11T15:42:11.353787+00:00 by scripts/intel/aggregate.py. Treat this digest as input context, not as ground truth. Verify before quoting._
