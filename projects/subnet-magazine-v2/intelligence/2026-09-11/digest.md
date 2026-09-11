@@ -174,6 +174,8 @@ _no new posts in the lookback window_
   http://nitter.jaydenha.uk/webuildscore/status/2097716250914808192#m
 - @zeussubnet (Zeus Subnet, Wed, 09 Sep 2026): Zeus is energy-aware. How? 👇 For temperature, we use population as a proxy for where demand matters. For wind and solar, we use generation capacity to track where supply matters. Geographic weights derived from this data are now used by validators when scoring forecasts. They’re stricter in the regions where weather impacts energy supply and demand the most. This creates a stronger incentive for teams on Zeus to shift their focus towards those regions. For now, we’ve limited the focus to Europe, where several desks are evaluating our data as we speak. We may expand to other interesting trading  
   http://nitter.jaydenha.uk/zeussubnet/status/2097696101822304723#m
+- @dylan522p (Dylan Patel, Wed, 09 Sep 2026): I love leaving San Francisco during Goldman TMT because when the finance bros come, the city becomes significantly more retarded  
+  https://nitter.netbub.com/dylan522p/status/2097494289697660957#m
 - @novogratz (Mike Novogratz, Wed, 02 Sep 2026): Sad! The New York Times (@nytimes) Breaking News: Senator Ed Markey, an 80-year-old progressive, held off Representative Seth Moulton to win the Democratic primary in Massachusetts. nyti.ms/4i7UOZO Link Senator Ed Markey, 80, Turns Back Younger Challenger in Massachusetts The oldest senator in Massachusetts history used a progressive message to beat Representative Seth Moulton, 47, defying calls for generational change. nytimes.com — https://nitter.netbub.com/nytimes/status/2094953495908511875#m  
   https://nitter.netbub.com/novogratz/status/2094960096895738221#m
 - @novogratz (Mike Novogratz, Tue, 25 Aug 2026): “I was an A economist and a B- writer. Of course I use Ai”👋🏽😂 Deirdre Bosa (@dee_bosa) Lots of prominent ppl have had op-eds shaped or outright written by staff, comms ppl, ghostwriters, etc So not sure AI changes the underlying thing that much. If anything, might make the process more honest… Druckenmiller’s ideas, AI’s prose, and everyone knows it — https://nitter.netbub.com/dee_bosa/status/2092324890191994884#m  
@@ -182,6 +184,10 @@ _no new posts in the lookback window_
   https://nitter.netbub.com/novogratz/status/2092248677230223363#m
 - @novogratz (Mike Novogratz, Tue, 25 Aug 2026): GalaxyOne Crypto Portfolio Line of Credit is live today. You can now get liquidity on your crypto holdings across $BTC, $ETH, and $SOL without having to sell. We launched GalaxyOne last October to bring the power and sophistication of @galaxyhq to the modern individual investor. I've always believed you should be able to manage your entire financial portfolio (crypto, stocks, and cash) all in one platform, and that includes being able to borrow against your crypto. Congrats to @galaxyonezac & team on the launch!! GalaxyOne (@galaxyoneapp) Unlock liquidity. Keep your crypto. GalaxyOne Crypto Po  
   https://nitter.netbub.com/novogratz/status/2092248675120513395#m
+- @dylan522p (Dylan Patel, Tue, 08 Sep 2026): We started calling marketing growth so men could do it We started calling socialites VCs so men can do it  
+  https://nitter.netbub.com/dylan522p/status/2097454391762538738#m
+- @dylan522p (Dylan Patel, Tue, 08 Sep 2026): faithful stochastic parrot devotees desperately scrambling to find underpaid Kenyan genius who solved millenium prize in latest mercor data dump  
+  https://nitter.netbub.com/dylan522p/status/2097437018657636559#m
 - @rob_svrn (Rob Greer, Tue, 08 Sep 2026): also means intelligence is a commodity.. bittensor:native The Kobeissi Letter (@KobeissiLetter) AI is much bigger than most people realize. We currently have multiple $1+ trillion companies switching spots as the "best" AI model on a monthly basis. OpenAI just went from "falling behind" in the AI race to reaching Artificial General Intelligence (AGI) in a matter of weeks. Meanwhile, frontier models from OpenAI, Anthropic, Google, and xAI continue to leapfrog one another across major benchmarks and capability categories. When you have multi-trillion dollar companies losing and regaining the lea  
   https://nitter.netbub.com/rob_svrn/status/2097418513602285931#m
 - @rob_svrn (Rob Greer, Tue, 08 Sep 2026): correct Lamida (@LamidaGlobal) $TAO will do 100x. — https://nitter.netbub.com/LamidaGlobal/status/2097188492274962723#m  
@@ -214,8 +220,12 @@ _no new posts in the lookback window_
   http://nitter.jaydenha.uk/SemiAnalysis_/status/2098169383889588633#m
 - @SemiAnalysis_ (SemiAnalysis, Thu, 10 Sep 2026): One of the most useful frameworks in semiconductor research is to think in derivatives. The first derivative is often recognized early. For example, the insatiable demand for more AI accelerators has been well established. And therefore, the market has since moved down the stack, identifying many of the enabling technologies required to support accelerator growth, including memory, networking, power, and advanced packaging. The more interesting opportunities often emerge one level deeper; at the third derivative layer. (1/7)🧵  
   http://nitter.jaydenha.uk/SemiAnalysis_/status/2098169376285307111#m
+- @dylan522p (Dylan Patel, Thu, 10 Sep 2026): And on his farm he had to pay taxes EI EI EIN  
+  https://nitter.netbub.com/dylan522p/status/2098159067453653372#m
 - @PanteraCapital (Pantera Capital, Thu, 10 Sep 2026): As more financial assets and data move onchain, a custom intelligence layer becomes essential for automating work around them in every aspect: cost, speed, quality, and privacy. Surf is the team that builds it, starting with @BithumbOfficial Read here: prnewswire.com/news-releases…  
   http://nitter.jaydenha.uk/ryanli/status/2098142427555246153#m
+- @VantaTrading (Vanta, Thu, 10 Sep 2026): Making strong progress @NFAash12 keep it up! 💪 nfaash (@NFAash12) Day 2 of $100K Funded account challenge on @VantaTrading prop. &gt; Yesterday,I was almost 0.7% up and Today I'm around 1.5% up from start point. &gt; 8.5% Target still remaining. &gt; I'll try to slowly achieve instead of going for one big shot & over risk things. Vanta literally comes with best rules and competitive pricing with 5% static drawdown which is rare. Get a challenge here: vantatrading.io — https://nitter.netbub.com/NFAash12/status/2098131462658957402#m  
+  https://nitter.netbub.com/VantaTrading/status/2098140223313956903#m
 - @wallstreetbets (WallStreetBets (X), Thu, 10 Sep 2026): I’ve been saying, the robotics revolution is coming… and these companies are actually making money too… Skild AI (@SkildAI) We just hit 100M ARR within 10 months of starting deployments. We are in factory lines. On construction sites. In kitchens. In data centers. Cleaning. Welding. Building. Cooking. Deploying. Video — http://nitter.jaydenha.uk/SkildAI/status/2098093862548099111#m  
   http://nitter.jaydenha.uk/wallstreetbets/status/2098138037616030065#m
 - @rob_svrn (Rob Greer, Thu, 10 Sep 2026): Civilization began by playing with fire.  
@@ -224,25 +234,15 @@ _no new posts in the lookback window_
   http://nitter.jaydenha.uk/SemiAnalysis_/status/2098120339074981962#m
 - @jon_durbin (Jon Durbin, Thu, 10 Sep 2026): Oh, and the bandwidth on GPU nodes INCLUDES the dataset streaming - no node predownloads the dataset it's streamed from the p2p backbone/syncer nodes with a fancy cursor failover thing to distribute the data nicely and handle failovers etc.  
   https://nitter.netbub.com/jon_durbin/status/2098117083468845080#m
+- @JosephJacks_ (Joseph Jacks, Thu, 10 Sep 2026): I wireheaded the fly and forced it to doomscroll flytok. Dopamine neurons are measured and artificially enhanced to ensure maximum enjoyment. My goal is to create a fly that is happier than all other flies combined. Video  
+  https://nitter.netbub.com/mattyhempstead/status/2098106361355841816#m
 - @jon_durbin (Jon Durbin, Thu, 10 Sep 2026): Another comparable, for example, in the decentralized training arena. agora.pluralis.ai/ Similar infra (4090s/5090s), distributed, 8.6b total params but dense not MoE, same tokenizer AFAIK and fine-web 1.3t. Link Agora Dashboard Pluralis introduce a collaborative event powered by Protocol Learning, our decentralized approach to AI development. This is the first pretraining run open to the public that can use commodity... agora.pluralis.ai  
   https://nitter.netbub.com/jon_durbin/status/2098104993890853111#m
 - @wallstreetbets (WallStreetBets (X), Thu, 10 Sep 2026): wall street whenever i want it with leverage as god intended Alpha (@TradeAlpha) The biggest moves happen when your trading app is closed. It's 2026. No trade should be off limits. Trade the Moment. Trade Alpha. Comment to be first in line for early access. Video — http://nitter.jaydenha.uk/TradeAlpha/status/2098096588514377731#m  
   http://nitter.jaydenha.uk/wallstreetbets/status/2098103343289704858#m
 - @jon_durbin (Jon Durbin, Thu, 10 Sep 2026): And here's the dataset for it, trillion ish tokens for various phases, no SFT/RL just pretraining corpus. huggingface.co/datasets/chut… Gated with auto approval. Link chutesai/mesh-1t-prod-mix · Datasets at Hugging Face We’re on a journey to advance and democratize artificial intelligence through open source and open science. huggingface.co  
   https://nitter.netbub.com/jon_durbin/status/2098103141103181851#m
-- @jon_durbin (Jon Durbin, Thu, 10 Sep 2026): And if you're wondering why I used 5090s for this, it's because they are the worst GPUs on earth for stability at this utilization and have like 50% failure rate in my experience thus far (at least 1 of 8 dropping off bus or producing NaNs randomly etc.). Stress test.  
-  https://nitter.netbub.com/jon_durbin/status/2098102402255655260#m
-- @1inch (1inch, Thu, 10 Sep 2026): Three new chains in 2 days brings us to 17 total chains. All with the full 1inch stack from day one. We're not rolling out slowly. Here's a quick recap of where you can trade now 🧵 Video  
-  https://nitter.netbub.com/1inch/status/2098101697679602024#m
-- @1inch (1inch, Thu, 10 Sep 2026): HyperEVM @HyperliquidX. 1inch is live on HyperEVM. One of the most active trading ecosystems in DeFi now has the full stack behind it, Aqua included. There is no second best. Video  
-  https://nitter.netbub.com/1inch/status/2098101699172839484#m
-- @1inch (1inch, Thu, 10 Sep 2026): @cronosapp 1inch is live, full stack included. One more major ecosystem with best execution and Aqua liquidity from day one. Video  
-  https://nitter.netbub.com/1inch/status/2098101699663544815#m
-- @jon_durbin (Jon Durbin, Thu, 10 Sep 2026): Dashboard is a quick work in progress, but for visibility into a run here ya go! parallax.chutes.ai/ This is around $11/b tokens, insane actually. MFU also insane. The whole thing, pretty legendary, and inference... Using a few nodes from @lium_io also! Link Parallax · live training register 30 independent GPU hosts · 3.7M tokens/s · 228.9B tokens trained · peak MFU 67% — a decentralized 8B mixture-of-experts pretraining run, live. parallax.chutes.ai  
-  https://nitter.netbub.com/jon_durbin/status/2098097374434299966#m
-- @YumaGroup (Yuma Holdings, Thu, 10 Sep 2026): It's not easy breaking into #Bittensor. That's what @LindsMikeStone is for. She sits at the operational heart of @YumaGroup, turning Bittensor strategy into programs, partnerships + teams. She's supported the launch of 20 subnets including @bitsecai, @yanez__ai, and @b1m_ai and co-authored Yuma’s subnet valuation research - connecting talent, capital + builders across the ecosystem. Find her at Exploit: luma.com/exploitsummit26 Video  
-  http://nitter.jaydenha.uk/ExploitSummit/status/2098079115861799251#m
 
 
 ---
-_Generated at 2026-09-11T18:56:37.330513+00:00 by scripts/intel/aggregate.py. Treat this digest as input context, not as ground truth. Verify before quoting._
+_Generated at 2026-09-11T22:10:45.459631+00:00 by scripts/intel/aggregate.py. Treat this digest as input context, not as ground truth. Verify before quoting._
