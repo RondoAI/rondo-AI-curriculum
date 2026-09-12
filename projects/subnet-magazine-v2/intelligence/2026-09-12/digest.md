@@ -168,6 +168,8 @@ _no new posts in the lookback window_
   https://nitter.netbub.com/ridges_ai/status/2097823739765526549#m
 - @ridges_ai (Ridges, Wed, 09 Sep 2026): Next competition is live: Database Engineering. Agents compete on database engineering problems, fixing bugs, optimizing queries, and working with ORMs and GraphQL. Why this Niche next? Because inefficient queries are a real engineering challenge, and one where specialist agents have plenty of room to outperform. Open now for submissions:  
   https://nitter.netbub.com/ridges_ai/status/2097823726561866122#m
+- @shibshib89 (Ala Shaabana, Wed, 09 Sep 2026): Did you hear? Crucible Wallet is officially live on iOS today. An easy to use Bittensor wallet with Ledger security, Unified Swap and subnet level performance. Now available on iOS in the US, Android and Chrome. Download at CrucibleLabs.com #Bittensor #TAO #CrucibleWallet  
+  https://nitter.netbub.com/CrucibleLabs/status/2097815766473323006#m
 - @lium_io (Lium, Wed, 09 Sep 2026): Steadily building the most decentralized GPU cloud Lium now has capacity from 68 datacenters across 21 countries Have GPUs? Join now. Lium pays you even for idle minutes. Make your nodes rentable in 5 minutes -&gt; docs.lium.io/providers/quick…  
   https://nitter.netbub.com/lium_io/status/2097803045362966828#m
 - @PanteraCapital (Pantera Capital, Wed, 09 Sep 2026): "[Sydney Sweeney] initially approached us interested in some sort of equity partnership and the conversation really went from there." Novig CEO Jacob Fortinsky spoke with @readDanwrite about the company's viral ad featuring one of Hollywood's biggest stars. Video  
@@ -184,6 +186,8 @@ _no new posts in the lookback window_
   https://nitter.netbub.com/YumaGroup/status/2097758788577333627#m
 - @YumaGroup (Yuma Holdings, Wed, 09 Sep 2026): YCX is a market-cap–weighted price index for the Bittensor subnet economy, published by Yuma. You can view the index at yumaai.com/asset-management?… Link Yuma | Advancing Decentralized AI on Bittensor Yuma accelerates decentralized AI by investing in subnets and startups on Bittensor. We build open infrastructure and power the next wave of AI innovation. yumaai.com  
   https://nitter.netbub.com/YumaGroup/status/2097758791198441839#m
+- @shibshib89 (Ala Shaabana, Wed, 09 Sep 2026): We are officially on iOS! Onwards 🚀 Crucible Labs (@CrucibleLabs) A long time coming and officially here. Crucible Wallet is now available on iOS in the US. An easy, intuitive Bittensor wallet for your everyday TAO needs, with Unified Swap, portfolio tracking and Ledger support wherever you go. Already available on Google Play and Chrome Store. Download at CrucibleLabs.com #CrucibleWallet #TAO #Bittensor — https://nitter.netbub.com/CrucibleLabs/status/2097699938209857625#m  
+  https://nitter.netbub.com/shibshib89/status/2097724813028516224#m
 - @ridges_ai (Ridges, Wed, 09 Sep 2026): CMC Verification post: ridges.ai  
   https://nitter.netbub.com/ridges_ai/status/2097651752464011375#m
 - @nigescore (Nige, Wed, 09 Sep 2026): .@nigescore going to paris last time he went to nrf in dallas he got us our biggest client ever (not announced yet) i can’t go. got something bigger on the 15th, 16th and 17th (to be announced) Manako (@manakoai) Heading to @nrfeurope NRF Retail’s Big Show Europe in Paris next week (15–17 Sept) 🇫🇷 If you are attending and want to hear what Manako Labs have built for retail, please DM and let’s meet up. No new hardware, no engineers, no code just your existing cameras doing more. #NRFRetailsBigShowEurope — https://nitter.netbub.com/manakoai/status/2097622722310242420#m  
@@ -196,6 +200,8 @@ _no new posts in the lookback window_
   https://nitter.netbub.com/dylan522p/status/2097494289697660957#m
 - @jaltucher (James Altucher, Wed, 02 Sep 2026): There are two primary bottlenecks to today's AI. And solving these bottlenecks is where the money is right now. A) DATA - the big models have ALL the data already. All the texts, videos, reddit posts, tweets, etc. How can they get more data? Other than the natural daily creation of new data the biggest repository of UNUSED data is behind the corporate firewall. Whoever can unlock the data behind the firewall will create a model bigger than anything OpenAI can do. The key is this: corporate data does not want to be free (competition reasons or even legal reasons in the case of healthcare) So th  
   https://nitter.netbub.com/jaltucher/status/2095172985367773239#m
+- @shibshib89 (Ala Shaabana, Wed, 02 Sep 2026): Crucible Labs dropping #downwiththedev Episode 1. We breakdown the Mobile Wallet with @buildwithsamp. Take a listen. Video  
+  https://nitter.netbub.com/CrucibleLabs/status/2095144290376937770#m
 - @jaltucher (James Altucher, Wed, 02 Sep 2026): Thanks, David! Fixed it on mobile. magnus-mates.vercel.app/ IM David Shahinyan (@ImShahinyan) Nice idea, James! Tried to check on my phone, but it all shows whote pieces (google pixel 9a). Then checked on my laptop ot does work correctly! — https://nitter.netbub.com/ImShahinyan/status/2094878011313013174#m  
   https://nitter.netbub.com/jaltucher/status/2095130465812242651#m
 - @novogratz (Mike Novogratz, Wed, 02 Sep 2026): Sad! The New York Times (@nytimes) Breaking News: Senator Ed Markey, an 80-year-old progressive, held off Representative Seth Moulton to win the Democratic primary in Massachusetts. nyti.ms/4i7UOZO Link Senator Ed Markey, 80, Turns Back Younger Challenger in Massachusetts The oldest senator in Massachusetts history used a progressive message to beat Representative Seth Moulton, 47, defying calls for generational change. nytimes.com — https://nitter.netbub.com/nytimes/status/2094953495908511875#m  
@@ -236,13 +242,7 @@ _no new posts in the lookback window_
   https://nitter.netbub.com/affine_io/status/2094801258016370976#m
 - @affine_io (Affine, Tue, 01 Sep 2026): Video  
   https://nitter.netbub.com/affine_io/status/2094801103959540005#m
-- @dippy_ai (Dippy AI, Thu, 30 Jul 2026): Excited to have helped @PrunaAI collect 1M+ votes for image preference data in a very short time :~) Pruna AI (@PrunaAI) P-Image-Ideogram dominate the speed-quality and price-quality Pareto frontiers for image generation. It is the result of a unique collaboration with @ideogram_ai. - Four modes (Very low, low, medium, high) for 1K-2K image generation. - Optimal quality-efficiency with 0.4s-7.5s latency, and $0.003-$0.03 price. - Structured JSON control & exact color control. Available via our inference partners @Replicate @inference_sh @scenario_gg @wavespeed_ai @wiroai @magnific @prodialabs   
-  https://nitter.netbub.com/datapointai/status/2082837314603032606#m
-- @dippy_ai (Dippy AI, Thu, 27 Aug 2026): we have significantly upgraded both the basic and super models 🤩🤩 we have also made optimizations to improve response speeds by upto 5x can't wait for you all to experience and enjoy the new dippy 📯📯😸 rolling out to everyone today  
-  https://nitter.netbub.com/dippy_ai/status/2093089771824226802#m
-- @_redteam_ (RedTeam / Innerworks, Thu, 27 Aug 2026): The Immune System for the Internet. Releasing next month. Oscar Hayek (@oscar_hayek) Defence in this era must be AI driven, the absolute baseline is adapting defences faster than attacks are being produced. Anything slower than this leaves you in a constant state of degradation. What we’ve built on @_redteam_ is an immune system for this problem. The attacks we ingest are evolved inside the system into complete novel vectors that cannot be produced anywhere else. Every one of these gets patched before an external attacker has the means/ability to create it, let alone release it. bittensor:nati  
-  http://nitter.jaydenha.uk/_redteam_/status/2093081017145847826#m
 
 
 ---
-_Generated at 2026-09-12T18:03:07.602151+00:00 by scripts/intel/aggregate.py. Treat this digest as input context, not as ground truth. Verify before quoting._
+_Generated at 2026-09-12T21:55:14.519986+00:00 by scripts/intel/aggregate.py. Treat this digest as input context, not as ground truth. Verify before quoting._
