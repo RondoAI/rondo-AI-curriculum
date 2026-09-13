@@ -1,5 +1,15 @@
 [
   {
+    "handle": "ridges_ai",
+    "name": "Ridges",
+    "posted_at": "Wed, 26 Aug 2026 18:42:24 GMT",
+    "title": "We've kicked off Niches with a Linting competition! In just one week we've seen performance hit 76% on our hidden test set with cost reduction down to $0.02 per task. Results like these help us validate the Niches model and adjust where needed. We're excited for the next Niche, and eventually dynamic Niches. Stay tuned!",
+    "text": "We've kicked off Niches with a Linting competition! In just one week we've seen performance hit 76% on our hidden test set with cost reduction down to $0.02 per task. Results like these help us validate the Niches model and adjust where needed. We're excited for the next Niche, and eventually dynamic Niches. Stay tuned!",
+    "url": "http://nitter.jaydenha.uk/ridges_ai/status/2092684102595961119#m",
+    "fetched_at": "2026-09-13T15:26:59.784578+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
     "handle": "novogratz",
     "name": "Mike Novogratz",
     "posted_at": "Wed, 26 Aug 2026 15:55:25 GMT",
@@ -20,6 +30,16 @@
     "via_instance": "https://nitter.cz"
   },
   {
+    "handle": "manakoai",
+    "name": "Manako",
+    "posted_at": "Wed, 12 Aug 2026 21:33:23 GMT",
+    "title": "The journey of building AI for the physical world is accelerating. What once took long, complex on-site deployments is rapidly becoming simple, fast, and repeatable. We’re making real-world AI deployment dramatically easier, one step at a time.",
+    "text": "The journey of building AI for the physical world is accelerating. What once took long, complex on-site deployments is rapidly becoming simple, fast, and repeatable. We’re making real-world AI deployment dramatically easier, one step at a time. Max (@MaxSebti) the first @manakoai on-site deployment took me 13 hours. the second one? @tm0klc knocked it out in 3. starting tomorrow, fully deploying Manako takes one ssh command. — https://nitter.kareem.one/MaxSebti/status/2087652839157842247#m",
+    "url": "https://nitter.kareem.one/manakoai/status/2087653699338326183#m",
+    "fetched_at": "2026-09-13T15:27:53.157932+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
     "handle": "oroagents",
     "name": "Oro",
     "posted_at": "Wed, 12 Aug 2026 21:15:59 GMT",
@@ -27,6 +47,26 @@
     "text": "The model also reached 53.3% pass@8 versus 34.8% pass@1. That gap tells us the capability is already latent in the model. The remaining challenge is consistently extracting it. A dense teacher-grounded Dr. GRPO reward improved the process score from 0.02 to 0.42 and cut product-ID hallucinations from 14 to zero.",
     "url": "http://nitter.jaydenha.uk/oroagents/status/2087649319822512258#m",
     "fetched_at": "2026-09-13T08:42:10.398133+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "ridges_ai",
+    "name": "Ridges",
+    "posted_at": "Wed, 09 Sep 2026 23:05:29 GMT",
+    "title": "R to @ridges_ai: ridges.ai/explore/28",
+    "text": "ridges.ai/explore/28 Link Ridges AI AI Agents, powered by Bittensor | SN62 ridges.ai",
+    "url": "http://nitter.jaydenha.uk/ridges_ai/status/2097823739765526549#m",
+    "fetched_at": "2026-09-13T15:26:59.784578+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "ridges_ai",
+    "name": "Ridges",
+    "posted_at": "Wed, 09 Sep 2026 23:05:26 GMT",
+    "title": "Next competition is live: Database Engineering. Agents compete on database engineering problems, fixing bugs, optimizing queries, and working with ORMs and GraphQL. Why this Niche next? Because inefficient queries are a real engineering challenge, and one where specialist agents have plenty of room to outperform. Open now for submissions:",
+    "text": "Next competition is live: Database Engineering. Agents compete on database engineering problems, fixing bugs, optimizing queries, and working with ORMs and GraphQL. Why this Niche next? Because inefficient queries are a real engineering challenge, and one where specialist agents have plenty of room to outperform. Open now for submissions:",
+    "url": "http://nitter.jaydenha.uk/ridges_ai/status/2097823726561866122#m",
+    "fetched_at": "2026-09-13T15:26:59.784578+00:00",
     "via_instance": "https://nitter.cz"
   },
   {
@@ -67,6 +107,26 @@
     "text": "Zeus is energy-aware. How? 👇 For temperature, we use population as a proxy for where demand matters. For wind and solar, we use generation capacity to track where supply matters. Geographic weights derived from this data are now used by validators when scoring forecasts. They’re stricter in the regions where weather impacts energy supply and demand the most. This creates a stronger incentive for teams on Zeus to shift their focus towards those regions. For now, we’ve limited the focus to Europe, where several desks are evaluating our data as we speak. We may expand to other interesting trading",
     "url": "http://nitter.jaydenha.uk/zeussubnet/status/2097696101822304723#m",
     "fetched_at": "2026-09-13T02:34:29.837877+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "ridges_ai",
+    "name": "Ridges",
+    "posted_at": "Wed, 09 Sep 2026 11:42:04 GMT",
+    "title": "CMC Verification post: https://ridges.ai",
+    "text": "CMC Verification post: ridges.ai",
+    "url": "http://nitter.jaydenha.uk/ridges_ai/status/2097651752464011375#m",
+    "fetched_at": "2026-09-13T15:26:59.784578+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "manakoai",
+    "name": "Manako",
+    "posted_at": "Wed, 09 Sep 2026 09:46:43 GMT",
+    "title": "Heading to @nrfeurope NRF Retail’s Big Show Europe in Paris next week (15–17 Sept) 🇫🇷 If you are attending and want to hear what Manako Labs have built for retail, please DM and let’s meet up. No new hardware, no engineers, no code just your existing cameras doing more. #NRFRetailsBigShowEurope",
+    "text": "Heading to @nrfeurope NRF Retail’s Big Show Europe in Paris next week (15–17 Sept) 🇫🇷 If you are attending and want to hear what Manako Labs have built for retail, please DM and let’s meet up. No new hardware, no engineers, no code just your existing cameras doing more. #NRFRetailsBigShowEurope",
+    "url": "https://nitter.kareem.one/manakoai/status/2097622722310242420#m",
+    "fetched_at": "2026-09-13T15:27:53.157932+00:00",
     "via_instance": "https://nitter.cz"
   },
   {
@@ -117,6 +177,16 @@
     "text": "Sad! The New York Times (@nytimes) Breaking News: Senator Ed Markey, an 80-year-old progressive, held off Representative Seth Moulton to win the Democratic primary in Massachusetts. nyti.ms/4i7UOZO Link Senator Ed Markey, 80, Turns Back Younger Challenger in Massachusetts The oldest senator in Massachusetts history used a progressive message to beat Representative Seth Moulton, 47, defying calls for generational change. nytimes.com — http://nitter.jaydenha.uk/nytimes/status/2094953495908511875#m",
     "url": "http://nitter.jaydenha.uk/novogratz/status/2094960096895738221#m",
     "fetched_at": "2026-09-13T02:32:21.968888+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "ridges_ai",
+    "name": "Ridges",
+    "posted_at": "Tue, 28 Jul 2026 14:00:03 GMT",
+    "title": "⛰️ x402 is now live on Ridges X402 is an agentic payment protocol that lets agents pay for API access autonomously. Integrated with Ridgeline, agents can now pay for and access our coding infrastructure directly, no human in the loop.",
+    "text": "⛰️ x402 is now live on Ridges X402 is an agentic payment protocol that lets agents pay for API access autonomously. Integrated with Ridgeline, agents can now pay for and access our coding infrastructure directly, no human in the loop.",
+    "url": "http://nitter.jaydenha.uk/ridges_ai/status/2082103797418262564#m",
+    "fetched_at": "2026-09-13T15:26:59.784578+00:00",
     "via_instance": "https://nitter.cz"
   },
   {
@@ -220,6 +290,16 @@
     "via_instance": "https://nitter.cz"
   },
   {
+    "handle": "manakoai",
+    "name": "Manako",
+    "posted_at": "Thu, 13 Aug 2026 11:27:25 GMT",
+    "title": "Step by step",
+    "text": "Step by step Max (@MaxSebti) forward deployed engineering — https://nitter.kareem.one/MaxSebti/status/2087858212473098403#m",
+    "url": "https://nitter.kareem.one/manakoai/status/2087863589839282535#m",
+    "fetched_at": "2026-09-13T15:27:53.157932+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
     "handle": "a16zcrypto",
     "name": "a16z Crypto",
     "posted_at": "Thu, 10 Sep 2026 20:55:48 GMT",
@@ -237,6 +317,26 @@
     "text": "Galaxy Stadium is officially open in Lubbock, TX and @texastechfb is 1-0! 🏈 Saturday marked the first game at Galaxy Stadium and the formal kickoff of our long-term partnership with @TechAthletics. The defending Big 12 champs beat Abilene Christian 33-10 in front of 60,000+ Red Raider fans. Our favorite moment? Surprising a mom and her son with a seat upgrade to the Galaxy Club, presented by the Texas Tech Men's Basketball team. Welcome to Galaxy Stadium. #WreckEm",
     "url": "http://nitter.jaydenha.uk/galaxyhq/status/2098141617853211074#m",
     "fetched_at": "2026-09-13T02:32:18.857788+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "taomedia_",
+    "name": "TAO Media",
+    "posted_at": "Thu, 10 Sep 2026 19:29:23 GMT",
+    "title": "R to @taomedia_: tao.media/lium-tops-localmax…",
+    "text": "tao.media/lium-tops-localmax… Link Lium Tops LocalMaxxing Qwen3.6 35B Board With 14,499 Tokens Per Second The Bittensor SN51 team says the benchmark shows how rented GPU nodes can serve open models at lower per-token costs than hosted API providers. tao.media",
+    "url": "http://nitter.jaydenha.uk/taomedia_/status/2098131743282786409#m",
+    "fetched_at": "2026-09-13T15:28:50.928422+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "taomedia_",
+    "name": "TAO Media",
+    "posted_at": "Thu, 10 Sep 2026 19:29:22 GMT",
+    "title": "BREAKING: @lium_io has become the top subnet by market cap (our latest coverage in next tweet)",
+    "text": "BREAKING: @lium_io has become the top subnet by market cap (our latest coverage in next tweet)",
+    "url": "http://nitter.jaydenha.uk/taomedia_/status/2098131740170568178#m",
+    "fetched_at": "2026-09-13T15:28:50.928422+00:00",
     "via_instance": "https://nitter.cz"
   },
   {
@@ -290,6 +390,16 @@
     "via_instance": "https://nitter.cz"
   },
   {
+    "handle": "taomedia_",
+    "name": "TAO Media",
+    "posted_at": "Thu, 10 Sep 2026 16:51:33 GMT",
+    "title": "RT by @taomedia_: Bullish on @taomedia_",
+    "text": "Bullish on @taomedia_ Bart (@bart_hillerich) We are on pace to smash our site traffic ATH again (by over 60%) at @taomedia_, but this time is different. The broader AI & Robotics content that we began producing to expand our top-of-funnel is now performing. Over the past 30 days, 1/3 of our top articles fit these categories. The scope expansion is bringing new eyes to our site and, in turn, @bittensor and its subnets. As intended. With improved systems, our small team is also on pace to publish 70-80 articles this month, putting us in the same volume league as SolanaFloor. From here, the goal ",
+    "url": "http://nitter.jaydenha.uk/Verri_co/status/2098092021013512591#m",
+    "fetched_at": "2026-09-13T15:28:50.928422+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
     "handle": "jtledore",
     "name": "Jean-Thomas Ledoré",
     "posted_at": "Thu, 10 Sep 2026 14:19:43 GMT",
@@ -320,6 +430,66 @@
     "via_instance": "https://nitter.cz"
   },
   {
+    "handle": "markjeffrey",
+    "name": "Mark Jeffrey",
+    "posted_at": "Sun, 13 Sep 2026 15:08:48 GMT",
+    "title": "Gif",
+    "text": "Elon Musk (@elonmusk) Nothing can shut down open source — https://nitter.kareem.one/elonmusk/status/2099026767357120523#m",
+    "url": "https://nitter.kareem.one/markjeffrey/status/2099153328307638453#m",
+    "fetched_at": "2026-09-13T15:25:55.828156+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "markjeffrey",
+    "name": "Mark Jeffrey",
+    "posted_at": "Sun, 13 Sep 2026 14:27:37 GMT",
+    "title": "That's better.",
+    "text": "That's better. Elon Musk (@elonmusk) Nothing can shut down open source — https://nitter.kareem.one/elonmusk/status/2099026767357120523#m",
+    "url": "https://nitter.kareem.one/markjeffrey/status/2099142964140548573#m",
+    "fetched_at": "2026-09-13T15:25:55.828156+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "markjeffrey",
+    "name": "Mark Jeffrey",
+    "posted_at": "Sun, 13 Sep 2026 11:40:48 GMT",
+    "title": "RT by @markjeffrey: The question is not whether open source AI can be shut down. It is whether the funding for OSS AI can be shut down. All OSS models, Meta, DeepSeek, Mistral are just arms of fiat funded corporations or the state itself. The ML community has yet to swallow this pill. They will.",
+    "text": "The question is not whether open source AI can be shut down. It is whether the funding for OSS AI can be shut down. All OSS models, Meta, DeepSeek, Mistral are just arms of fiat funded corporations or the state itself. The ML community has yet to swallow this pill. They will. const (@const_reborn) No. But they can defund it. — https://nitter.kareem.one/const_reborn/status/2099098962082840635#m",
+    "url": "https://nitter.kareem.one/const_reborn/status/2099100984802697389#m",
+    "fetched_at": "2026-09-13T15:25:55.828156+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "markjeffrey",
+    "name": "Mark Jeffrey",
+    "posted_at": "Sun, 13 Sep 2026 08:21:13 GMT",
+    "title": "RT by @markjeffrey: Nothing can shut down open source",
+    "text": "Nothing can shut down open source Elon Musk (@elonmusk) Nothing can shut down open source — https://nitter.kareem.one/elonmusk/status/2099026767357120523#m",
+    "url": "https://nitter.kareem.one/chamath/status/2099050756192260430#m",
+    "fetched_at": "2026-09-13T15:25:55.828156+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "markjeffrey",
+    "name": "Mark Jeffrey",
+    "posted_at": "Sun, 13 Sep 2026 02:37:30 GMT",
+    "title": "RT by @markjeffrey: Can’t wait for the world to learn that this is bittensor",
+    "text": "Can’t wait for the world to learn that this is bittensor Beff (e/acc) (@beffjezos) If you are reading this, the only possible resistance is to build decentralized, permissionless, and sovereign AI. Open source, self-hosting tools, RL post-training, local inference, open harnesses, we must build it all. We must fight overcentralization with an open stack. — https://nitter.kareem.one/beffjezos/status/2098861431705972990#m",
+    "url": "https://nitter.kareem.one/Old_Samster/status/2098964258243444774#m",
+    "fetched_at": "2026-09-13T15:25:55.828156+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "SemiAnalysis_",
+    "name": "SemiAnalysis",
+    "posted_at": "Sun, 13 Sep 2026 02:28:26 GMT",
+    "title": "RT by @SemiAnalysis_: my hot take is specialized inference engines are amateur projects to spend the spare tokens when @thsottiaux gives people one more reset😄 an inference engine is way more than just running a model on a certain hardware, it is an inference ecosystem. I use this slide several times when I talk to people about vLLM. Models, hardwares, and inference techniques, all of them move quickly. And vLLM lies in the intersection to provide a unified interface to end-users and applications. vLLM is the inference ecosystem. vLLM not only support current models and hardwares, but we are also working to support new models and hardwares coming in the next few months. It's an ecosystem people can trust and rely on. Over the past 3 years, I have seen so many projects claiming to be better than vLLM in certain aspects, but in the end either their techniques are contributed to vLLM or they disappear. That's the power of ecosystem. A specific example would be tilert https://github.com/tile-ai/TileRT , a megakernel inference engine dedicated for decode. They collaborate with vLLM by using vLLM prefill + tilert decode in https://vllm.ai/blog/2026-07-14-vllm-tilert-pd , as highlighted in https://newsletter.semianalysis.com/p/ultra-high-interactivity-on-nvidia from @SemiAnalysis_ .",
+    "text": "my hot take is specialized inference engines are amateur projects to spend the spare tokens when @thsottiaux gives people one more reset😄 an inference engine is way more than just running a model on a certain hardware, it is an inference ecosystem. I use this slide several times when I talk to people about vLLM. Models, hardwares, and inference techniques, all of them move quickly. And vLLM lies in the intersection to provide a unified interface to end-users and applications. vLLM is the inference ecosystem. vLLM not only support current models and hardwares, but we are also working to support",
+    "url": "https://nitter.kareem.one/KaichaoYou/status/2098961977649615256#m",
+    "fetched_at": "2026-09-13T15:28:31.289569+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
     "handle": "jaltucher",
     "name": "James Altucher",
     "posted_at": "Sun, 06 Sep 2026 21:58:06 GMT",
@@ -327,6 +497,46 @@
     "text": "If you’re new to $TAO, here’s a quick primer on what it is and why people are paying attention: pill.taobubbles.net/ Worth getting the basics down before the timeline gets too noisy. Don’t forget to follow @taodaily_io for your daily $TAO news updates. Link Intro To Bittensor explained for normal people A plain English guide to the Bittensor network TAO token and its decentralized AI subnets. pill.taobubbles.net",
     "url": "http://nitter.jaydenha.uk/taodaily_io/status/2096719615002910934#m",
     "fetched_at": "2026-09-13T02:32:11.580685+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "SemiAnalysis_",
+    "name": "SemiAnalysis",
+    "posted_at": "Sat, 12 Sep 2026 23:00:38 GMT",
+    "title": "R to @SemiAnalysis_: To learn more, please check our networking model (7/7) https://semianalysis.com/ai-networking-model/",
+    "text": "To learn more, please check our networking model (7/7) semianalysis.com/ai-networki… Link AI Networking Model Device-level data on AI cluster networking: switch, transceiver, and cable units, spend, pricing, and vendor share across every major hyperscaler, 2023 to 2026. semianalysis.com",
+    "url": "https://nitter.kareem.one/SemiAnalysis_/status/2098909682270130233#m",
+    "fetched_at": "2026-09-13T15:28:31.289569+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "SemiAnalysis_",
+    "name": "SemiAnalysis",
+    "posted_at": "Sat, 12 Sep 2026 23:00:38 GMT",
+    "title": "R to @SemiAnalysis_: The main benefit for Anthropic would be more die space for compute or memory since the routing cores could be dropped as it should be handled by the switches, and a unified network architecture with other accelerators, such as Trainium or GPUs, as only Google’s TPUs are currently using OCS. (6/7)",
+    "text": "The main benefit for Anthropic would be more die space for compute or memory since the routing cores could be dropped as it should be handled by the switches, and a unified network architecture with other accelerators, such as Trainium or GPUs, as only Google’s TPUs are currently using OCS. (6/7)",
+    "url": "https://nitter.kareem.one/SemiAnalysis_/status/2098909681150234805#m",
+    "fetched_at": "2026-09-13T15:28:31.289569+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "SemiAnalysis_",
+    "name": "SemiAnalysis",
+    "posted_at": "Sat, 12 Sep 2026 23:00:38 GMT",
+    "title": "R to @SemiAnalysis_: This would leave 64 ports for cross-plane or intra-plane dragonfly interconnect, meaning a 4:1 oversubscription ratio and a maximum cluster size of up to 1,280 interconnected TPUs. (5/7)",
+    "text": "This would leave 64 ports for cross-plane or intra-plane dragonfly interconnect, meaning a 4:1 oversubscription ratio and a maximum cluster size of up to 1,280 interconnected TPUs. (5/7)",
+    "url": "https://nitter.kareem.one/SemiAnalysis_/status/2098909680017846430#m",
+    "fetched_at": "2026-09-13T15:28:31.289569+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "SemiAnalysis_",
+    "name": "SemiAnalysis",
+    "posted_at": "Sat, 12 Sep 2026 23:00:37 GMT",
+    "title": "R to @SemiAnalysis_: Looking a the topology, we expect it to be a 1-tier flattened network, with 5 planes of 24 switches or 24 planes of 5 switches. Each switch should connect to 4 compute racks and each rack should connect to 24 switches at 300G per lane. (4/7)",
+    "text": "Looking a the topology, we expect it to be a 1-tier flattened network, with 5 planes of 24 switches or 24 planes of 5 switches. Each switch should connect to 4 compute racks and each rack should connect to 24 switches at 300G per lane. (4/7)",
+    "url": "https://nitter.kareem.one/SemiAnalysis_/status/2098909677715079290#m",
+    "fetched_at": "2026-09-13T15:28:31.289569+00:00",
     "via_instance": "https://nitter.cz"
   },
   {
@@ -440,6 +650,16 @@
     "via_instance": "https://nitter.cz"
   },
   {
+    "handle": "manakoai",
+    "name": "Manako",
+    "posted_at": "Sat, 08 Aug 2026 11:48:41 GMT",
+    "title": "Welcome back",
+    "text": "Welcome back cryptolake (@crypt0lake) vacation for 2 weeks and @manakoai had like 20 major updates and a new product i have an insane team — https://nitter.kareem.one/crypt0lake/status/2086044260231762171#m",
+    "url": "https://nitter.kareem.one/manakoai/status/2086057005840466059#m",
+    "fetched_at": "2026-09-13T15:27:53.157932+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
     "handle": "jtledore",
     "name": "Jean-Thomas Ledoré",
     "posted_at": "Sat, 05 Sep 2026 15:16:23 GMT",
@@ -477,6 +697,16 @@
     "text": "AI models are poised and ready. But the training data isn't. So @shardiban manufactures it. @oroagents turns agent tasks into a competition, and the best runs become the data the next generation learns from. Ex- @AWS, early decentralized-AI researcher, now proving it on commerce. You don't need to know Bittensor to care - if you build agents, this is your problem too. He's on the Exploit stage this September: luma.com/exploitsummit26 Video",
     "url": "http://nitter.jaydenha.uk/ExploitSummit/status/2089373953769025843#m",
     "fetched_at": "2026-09-13T08:42:10.398133+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "manakoai",
+    "name": "Manako",
+    "posted_at": "Fri, 28 Aug 2026 14:47:12 GMT",
+    "title": "Those @nvidia Jetsons going into fuel stations just got a lot denser. With our new models, one unit now runs 35–40 cameras + 7–14 agents. Heavier agents eat more of the budget. Lighter ones scale further. The cameras were already on site. The intelligence wasn’t.",
+    "text": "Those @nvidia Jetsons going into fuel stations just got a lot denser. With our new models, one unit now runs 35–40 cameras + 7–14 agents. Heavier agents eat more of the budget. Lighter ones scale further. The cameras were already on site. The intelligence wasn’t.",
+    "url": "https://nitter.kareem.one/manakoai/status/2093349687927394806#m",
+    "fetched_at": "2026-09-13T15:27:53.157932+00:00",
     "via_instance": "https://nitter.cz"
   },
   {
@@ -570,6 +800,16 @@
     "via_instance": "https://nitter.cz"
   },
   {
+    "handle": "taomedia_",
+    "name": "TAO Media",
+    "posted_at": "Fri, 11 Sep 2026 16:04:06 GMT",
+    "title": "RT by @taomedia_: Bittensor $TAO is brutally competitive. That's what makes it beautiful.",
+    "text": "Bittensor $TAO is brutally competitive. That's what makes it beautiful. Tyler DurdΞth (@tylerdurdeth) The short degen explanation of Bittensor: Bittensor is a “launchpad” for decentralised AI startups, each with their own token paired with $TAO. Because there are only 128 startup spots available, they literally compete to death, with their performance objectively judged based on token price. Rugs and weak startups get quickly kicked out. $TAO captures value at the top, as the “index” token. The more capital flows into the startup tokens, the more $TAO gets locked into those tokens’ liquidity p",
+    "url": "http://nitter.jaydenha.uk/bart_hillerich/status/2098442470325723188#m",
+    "fetched_at": "2026-09-13T15:28:50.928422+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
     "handle": "galaxyhq",
     "name": "Galaxy Digital",
     "posted_at": "Fri, 11 Sep 2026 15:00:03 GMT",
@@ -577,6 +817,16 @@
     "text": "Crypto has speed-run an entire history of financial services. It just hasn't had access to the best assets, until now. At TokenizeThis 2026, @intangiblecoins (@galaxyhq), Giang Bui (@Securitize), @annabelleacta (@DinariGlobal), and @arush (@AlpacaHQ) explored the rise of tokenized equities. Alex’s take: RWAs are where high-quality assets meet high-quality infrastructure. Moderated by @andyyy (@therollupco). Video",
     "url": "http://nitter.jaydenha.uk/TokenizeThisNYC/status/2098426350109364506#m",
     "fetched_at": "2026-09-13T02:32:18.857788+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "taomedia_",
+    "name": "TAO Media",
+    "posted_at": "Fri, 11 Sep 2026 14:43:41 GMT",
+    "title": "\"When comparing, Nemotron 3.5 Lightning reached a 2.2x speedup with NVFP4 and a 3.37x speedup when NVFP4 was combined with DSpark speculative decoding. Qwen3.8-27B reached a 2.33x speedup with NVFP4 and a 6.28x speedup when combined with DFlash2.\"",
+    "text": "\"When comparing, Nemotron 3.5 Lightning reached a 2.2x speedup with NVFP4 and a 3.37x speedup when NVFP4 was combined with DSpark speculative decoding. Qwen3.8-27B reached a 2.33x speedup with NVFP4 and a 6.28x speedup when combined with DFlash2.\" Verri, CFA (@Verri_co) Article NVIDIA Shows How Compact Reasoning Models Can Run Locally on Jetson 💾 NVIDIA says compact reasoning models are now practical to run fully on Jetson, so agentic AI can make decisions on-device instead of round-tripping to the cloud. In a new guide, it walks through — http://nitter.jaydenha.uk/Verri_co/status/209842076910",
+    "url": "http://nitter.jaydenha.uk/taomedia_/status/2098422230736642400#m",
+    "fetched_at": "2026-09-13T15:28:50.928422+00:00",
     "via_instance": "https://nitter.cz"
   },
   {
