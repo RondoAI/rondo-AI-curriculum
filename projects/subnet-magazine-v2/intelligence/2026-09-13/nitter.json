@@ -1,0 +1,402 @@
+[
+  {
+    "handle": "novogratz",
+    "name": "Mike Novogratz",
+    "posted_at": "Wed, 26 Aug 2026 15:55:25 GMT",
+    "title": "I don’t like him😂. Decentralized blockchains are part of the defense against us losing our privacy!",
+    "text": "I don’t like him😂. Decentralized blockchains are part of the defense against us losing our privacy! Remarks (@remarks) JUST IN: 🇺🇸 Flock CEO says Americans must \"compromise\" on their privacy. — http://nitter.jaydenha.uk/remarks/status/2092446992383242547#m",
+    "url": "http://nitter.jaydenha.uk/novogratz/status/2092642077267972329#m",
+    "fetched_at": "2026-09-13T02:32:21.968888+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "jtledore",
+    "name": "Jean-Thomas Ledoré",
+    "posted_at": "Wed, 09 Sep 2026 19:45:27 GMT",
+    "title": "RT by @jtledore: Super excited to share the results of my deep, dark research cave over the past couple months building out parallax at @ExploitSummit Someone asked me if we had a breakthrough - couldn't even condense a response. The benchmaxxing era is (or should be) over, efficiency-maxxing is next.",
+    "text": "Super excited to share the results of my deep, dark research cave over the past couple months building out parallax at @ExploitSummit Someone asked me if we had a breakthrough - couldn't even condense a response. The benchmaxxing era is (or should be) over, efficiency-maxxing is next.",
+    "url": "http://nitter.jaydenha.uk/jon_durbin/status/2097773396134146353#m",
+    "fetched_at": "2026-09-13T02:33:29.700465+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "zeussubnet",
+    "name": "Zeus Subnet",
+    "posted_at": "Wed, 09 Sep 2026 14:38:18 GMT",
+    "title": "Zeus is energy-aware. How? 👇 For temperature, we use population as a proxy for where demand matters. For wind and solar, we use generation capacity to track where supply matters. Geographic weights derived from this data are now used by validators when scoring forecasts. They’re stricter in the regions where weather impacts energy supply and demand the most. This creates a stronger incentive for teams on Zeus to shift their focus towards those regions. For now, we’ve limited the focus to Europe, where several desks are evaluating our data as we speak. We may expand to other interesting trading regions, like the US and Australia. *Focus is now 40% Germany, 40% rest of Europe, 20% rest.",
+    "text": "Zeus is energy-aware. How? 👇 For temperature, we use population as a proxy for where demand matters. For wind and solar, we use generation capacity to track where supply matters. Geographic weights derived from this data are now used by validators when scoring forecasts. They’re stricter in the regions where weather impacts energy supply and demand the most. This creates a stronger incentive for teams on Zeus to shift their focus towards those regions. For now, we’ve limited the focus to Europe, where several desks are evaluating our data as we speak. We may expand to other interesting trading",
+    "url": "http://nitter.jaydenha.uk/zeussubnet/status/2097696101822304723#m",
+    "fetched_at": "2026-09-13T02:34:29.837877+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "jaltucher",
+    "name": "James Altucher",
+    "posted_at": "Wed, 09 Sep 2026 02:53:49 GMT",
+    "title": "Listening to people try and warn me about AI and then my usual response:",
+    "text": "Listening to people try and warn me about AI and then my usual response:",
+    "url": "http://nitter.jaydenha.uk/jaltucher/status/2097518813050814690#m",
+    "fetched_at": "2026-09-13T02:32:11.580685+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "jaltucher",
+    "name": "James Altucher",
+    "posted_at": "Wed, 02 Sep 2026 15:32:20 GMT",
+    "title": "There are two primary bottlenecks to today's AI. And solving these bottlenecks is where the money is right now. A) DATA - the big models have ALL the data already. All the texts, videos, reddit posts, tweets, etc. How can they get more data? Other than the natural daily creation of new data the biggest repository of UNUSED data is behind the corporate firewall. Whoever can unlock the data behind the firewall will create a model bigger than anything OpenAI can do. The key is this: corporate data does not want to be free (competition reasons or even legal reasons in the case of healthcare) So the method has is decentralized learning techniques where AI trains locally inside the firewall, and then shares its weights (but not the data that created those weights) to an AI model that stitches this together. This is where $TAO is the best in the world and at a $2.5B value is cheap. B) CONNECTIVITY = POWER. Everyone is complaining about power. But people don't realize that the power problem is really a connectivity problem. 100,000 GPUs in a data center means a million or more copper / electricity interconnects connecting them all. Change that from electricity to MicroLEDs and you wll use 1/30 of the power. Problem solved. Who is doing this? $MRVL $ALAB $FABC $KOPN",
+    "text": "There are two primary bottlenecks to today's AI. And solving these bottlenecks is where the money is right now. A) DATA - the big models have ALL the data already. All the texts, videos, reddit posts, tweets, etc. How can they get more data? Other than the natural daily creation of new data the biggest repository of UNUSED data is behind the corporate firewall. Whoever can unlock the data behind the firewall will create a model bigger than anything OpenAI can do. The key is this: corporate data does not want to be free (competition reasons or even legal reasons in the case of healthcare) So th",
+    "url": "http://nitter.jaydenha.uk/jaltucher/status/2095172985367773239#m",
+    "fetched_at": "2026-09-13T02:32:11.580685+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "jaltucher",
+    "name": "James Altucher",
+    "posted_at": "Wed, 02 Sep 2026 12:43:23 GMT",
+    "title": "Thanks, David! Fixed it on mobile. https://magnus-mates.vercel.app/",
+    "text": "Thanks, David! Fixed it on mobile. magnus-mates.vercel.app/ IM David Shahinyan (@ImShahinyan) Nice idea, James! Tried to check on my phone, but it all shows whote pieces (google pixel 9a). Then checked on my laptop ot does work correctly! — http://nitter.jaydenha.uk/ImShahinyan/status/2094878011313013174#m",
+    "url": "http://nitter.jaydenha.uk/jaltucher/status/2095130465812242651#m",
+    "fetched_at": "2026-09-13T02:32:11.580685+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "novogratz",
+    "name": "Mike Novogratz",
+    "posted_at": "Wed, 02 Sep 2026 01:26:24 GMT",
+    "title": "Sad!",
+    "text": "Sad! The New York Times (@nytimes) Breaking News: Senator Ed Markey, an 80-year-old progressive, held off Representative Seth Moulton to win the Democratic primary in Massachusetts. nyti.ms/4i7UOZO Link Senator Ed Markey, 80, Turns Back Younger Challenger in Massachusetts The oldest senator in Massachusetts history used a progressive message to beat Representative Seth Moulton, 47, defying calls for generational change. nytimes.com — http://nitter.jaydenha.uk/nytimes/status/2094953495908511875#m",
+    "url": "http://nitter.jaydenha.uk/novogratz/status/2094960096895738221#m",
+    "fetched_at": "2026-09-13T02:32:21.968888+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "novogratz",
+    "name": "Mike Novogratz",
+    "posted_at": "Tue, 25 Aug 2026 19:05:19 GMT",
+    "title": "“I was an A economist and a B- writer. Of course I use Ai”👋🏽😂",
+    "text": "“I was an A economist and a B- writer. Of course I use Ai”👋🏽😂 Deirdre Bosa (@dee_bosa) Lots of prominent ppl have had op-eds shaped or outright written by staff, comms ppl, ghostwriters, etc So not sure AI changes the underlying thing that much. If anything, might make the process more honest… Druckenmiller’s ideas, AI’s prose, and everyone knows it — http://nitter.jaydenha.uk/dee_bosa/status/2092324890191994884#m",
+    "url": "http://nitter.jaydenha.uk/novogratz/status/2092327481525100773#m",
+    "fetched_at": "2026-09-13T02:32:21.968888+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "novogratz",
+    "name": "Mike Novogratz",
+    "posted_at": "Tue, 25 Aug 2026 13:52:10 GMT",
+    "title": "GalaxyOne Crypto Portfolio Line of Credit is live today. You can now get liquidity on your crypto holdings across $BTC, $ETH, and $SOL without having to sell. We launched GalaxyOne last October to bring the power and sophistication of @galaxyhq to the modern individual investor. I've always believed you should be able to manage your entire financial portfolio (crypto, stocks, and cash) all in one platform, and that includes being able to borrow against your crypto. Congrats to @galaxyonezac & team on the launch!!",
+    "text": "GalaxyOne Crypto Portfolio Line of Credit is live today. You can now get liquidity on your crypto holdings across $BTC, $ETH, and $SOL without having to sell. We launched GalaxyOne last October to bring the power and sophistication of @galaxyhq to the modern individual investor. I've always believed you should be able to manage your entire financial portfolio (crypto, stocks, and cash) all in one platform, and that includes being able to borrow against your crypto. Congrats to @galaxyonezac & team on the launch!! GalaxyOne (@galaxyoneapp) Unlock liquidity. Keep your crypto. GalaxyOne Crypto Po",
+    "url": "http://nitter.jaydenha.uk/novogratz/status/2092248675120513395#m",
+    "fetched_at": "2026-09-13T02:32:21.968888+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "jaltucher",
+    "name": "James Altucher",
+    "posted_at": "Tue, 08 Sep 2026 16:56:18 GMT",
+    "title": "RT by @jaltucher: JAS: @jaltucher X Joseph Moore How You Get Rich Isn't How You Stay Rich: 300 Years of Proof . 00:00 When Markets Get Too Concentrated 01:02 Getting Rich in 1790 01:26 Washington Marries Money 03:27 Leveraged Bets and Debtors Prison 07:57 Real Estate Isn’t the Biggest Fortune 10:58 You Need an Edge 12:21 Beating the Market Isn’t Worth It 14:52 Wall Street Fees and Shadow Indexing 21:20 Mag Seven vs 1830s Crash 22:11 Stocks as a Retirement Promise 26:01 Why Most People Couldn’t Invest 27:10 Bucket Shops and Playing the Numbers 28:54 History Changes the Market 29:17 When Different Matters 30:16 Mean Moves Over Time 31:55 Renting Versus Owning 33:32 When Buying Makes Sense 37:06 FIRE What Is Enough 40:27 FIRE Risks And Hype 44:37 Inflation And Safe Returns 46:26 Five Pillars To Get Rich 49:46 Optimism Marriage And Risk 54:49 Staying Rich Deleveraging 56:00 Booms Leverage And Gamblers 58:44 Wrap Up And Next Work",
+    "text": "JAS: @jaltucher X Joseph Moore How You Get Rich Isn't How You Stay Rich: 300 Years of Proof . 00:00 When Markets Get Too Concentrated 01:02 Getting Rich in 1790 01:26 Washington Marries Money 03:27 Leveraged Bets and Debtors Prison 07:57 Real Estate Isn’t the Biggest Fortune 10:58 You Need an Edge 12:21 Beating the Market Isn’t Worth It 14:52 Wall Street Fees and Shadow Indexing 21:20 Mag Seven vs 1830s Crash 22:11 Stocks as a Retirement Promise 26:01 Why Most People Couldn’t Invest 27:10 Bucket Shops and Playing the Numbers 28:54 History Changes the Market 29:17 When Different Matters 30:16 M",
+    "url": "http://nitter.jaydenha.uk/jay_yow07/status/2097368441455849851#m",
+    "fetched_at": "2026-09-13T02:32:11.580685+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "zeussubnet",
+    "name": "Zeus Subnet",
+    "posted_at": "Tue, 01 Sep 2026 18:30:02 GMT",
+    "title": "RT by @zeussubnet: So you think you know #Bittensor? Now's your chance to prove it. The night before Exploit, we’re putting the community to the test. Protocol history, legendary moments, characters, launches and lore. Join us for the first Bittensor Community Quiz - in person in Montreal. Free for Exploit attendees. Powered by @generaltensor + @zeussubnet Register at: https://luma.com/7hj5nphs",
+    "text": "So you think you know #Bittensor? Now's your chance to prove it. The night before Exploit, we’re putting the community to the test. Protocol history, legendary moments, characters, launches and lore. Join us for the first Bittensor Community Quiz - in person in Montreal. Free for Exploit attendees. Powered by @generaltensor + @zeussubnet Register at: luma.com/7hj5nphs",
+    "url": "http://nitter.jaydenha.uk/ExploitSummit/status/2094855315930198101#m",
+    "fetched_at": "2026-09-13T02:34:29.837877+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "galaxyhq",
+    "name": "Galaxy Digital",
+    "posted_at": "Thu, 10 Sep 2026 20:08:37 GMT",
+    "title": "Galaxy Stadium is officially open in Lubbock, TX and @texastechfb is 1-0! 🏈 Saturday marked the first game at Galaxy Stadium and the formal kickoff of our long-term partnership with @TechAthletics. The defending Big 12 champs beat Abilene Christian 33-10 in front of 60,000+ Red Raider fans. Our favorite moment? Surprising a mom and her son with a seat upgrade to the Galaxy Club, presented by the Texas Tech Men's Basketball team. Welcome to Galaxy Stadium. #WreckEm",
+    "text": "Galaxy Stadium is officially open in Lubbock, TX and @texastechfb is 1-0! 🏈 Saturday marked the first game at Galaxy Stadium and the formal kickoff of our long-term partnership with @TechAthletics. The defending Big 12 champs beat Abilene Christian 33-10 in front of 60,000+ Red Raider fans. Our favorite moment? Surprising a mom and her son with a seat upgrade to the Galaxy Club, presented by the Texas Tech Men's Basketball team. Welcome to Galaxy Stadium. #WreckEm",
+    "url": "http://nitter.jaydenha.uk/galaxyhq/status/2098141617853211074#m",
+    "fetched_at": "2026-09-13T02:32:18.857788+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "KyleSamani",
+    "name": "Kyle Samani",
+    "posted_at": "Thu, 10 Sep 2026 18:31:08 GMT",
+    "title": "RT by @KyleSamani: Digital Asset Vault Framework",
+    "text": "Forward Industries General Counsel @GeorgiaQuinnEsq authored this Digital Asset Vault Framework for the SEC to push forward a clearer path for DeFi builders and users across the industry. Article Digital Asset Vault Framework A Response to Commissioner Peirce&apos;s “Headstands and Summervaults” and a Proposed Approach to the Regulatory Treatment of Vaults Dear Commissioner Peirce, Chairman Atkins, Chairman Selig, Mr.",
+    "url": "http://nitter.jaydenha.uk/FWDind/status/2098117085067202649#m",
+    "fetched_at": "2026-09-13T02:32:26.154546+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "KyleSamani",
+    "name": "Kyle Samani",
+    "posted_at": "Thu, 10 Sep 2026 17:09:13 GMT",
+    "title": "In June @FWDind approached SkyAI with an all-stock transaction at a 20% premium to their closing price on June 15. They rejected the offer without engaging us. At the 0.367 exchange ratio offered that premium is approximately 80% as of yesterday's closing prices. If any reporters or analysts want to chat about our findings during the diligence process for this offer or other details surrounding SkyAI, my DMs are open. https://www.theblock.co/news/business/2026-09-09-solana-treasury-firm-skyai-board-challenge-would-be-acquirer-forward-industries-shareholder-group-414061",
+    "text": "In June @FWDind approached SkyAI with an all-stock transaction at a 20% premium to their closing price on June 15. They rejected the offer without engaging us. At the 0.367 exchange ratio offered that premium is approximately 80% as of yesterday's closing prices. If any reporters or analysts want to chat about our findings during the diligence process for this offer or other details surrounding SkyAI, my DMs are open. theblock.co/news/business/20… Link Solana treasury firm SkyAI faces board challenge from would-be acquirer Forward Industries,... SkyAI’s proposed equity plan would authorize 5.1",
+    "url": "http://nitter.jaydenha.uk/KyleSamani/status/2098096469580653045#m",
+    "fetched_at": "2026-09-13T02:32:26.154546+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "jtledore",
+    "name": "Jean-Thomas Ledoré",
+    "posted_at": "Thu, 10 Sep 2026 14:19:43 GMT",
+    "title": "RT by @jtledore: We’ve been cooking hard on a complete Taoswap revamp over the past few weeks. Bitcast just shared a few sneak peeks from it. You’ll be able to try it for yourself soon...",
+    "text": "We’ve been cooking hard on a complete Taoswap revamp over the past few weeks. Bitcast just shared a few sneak peeks from it. You’ll be able to try it for yourself soon... Bitcast | SN93 (@Bitcast_network) 👀 We got a sneak peek at the new @taoswap_org site. Data galore!! Naturally, we went straight for the Bitcast stats. Here’s a snapshot of where SN93 currently sits across decentralisation, Root Reborn selection and stake-weighted allocation relative to market cap. We’ll break down what each metric means below 🧵 (Snapshot from yesterday) — http://nitter.jaydenha.uk/Bitcast_network/status/20980",
+    "url": "http://nitter.jaydenha.uk/taoswap_org/status/2098053812103602641#m",
+    "fetched_at": "2026-09-13T02:33:29.700465+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "zeussubnet",
+    "name": "Zeus Subnet",
+    "posted_at": "Thu, 03 Sep 2026 15:33:05 GMT",
+    "title": "While energy supply becomes more and more weather-dependent, our mission is to give traders the fastest, most precise view on weather ✅ 75% faster* ✅ >30% more accurate on temperature* ✅ >20% more accurate on wind* *vs ECMWF IFS across June and July",
+    "text": "While energy supply becomes more and more weather-dependent, our mission is to give traders the fastest, most precise view on weather ✅ 75% faster* ✅ &gt;30% more accurate on temperature* ✅ &gt;20% more accurate on wind* *vs ECMWF IFS across June and July",
+    "url": "http://nitter.jaydenha.uk/zeussubnet/status/2095535560102203644#m",
+    "fetched_at": "2026-09-13T02:34:29.837877+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "jaltucher",
+    "name": "James Altucher",
+    "posted_at": "Sun, 06 Sep 2026 21:58:06 GMT",
+    "title": "RT by @jaltucher: If you’re new to $TAO, here’s a quick primer on what it is and why people are paying attention: https://pill.taobubbles.net/ Worth getting the basics down before the timeline gets too noisy. Don’t forget to follow @taodaily_io for your daily $TAO news updates.",
+    "text": "If you’re new to $TAO, here’s a quick primer on what it is and why people are paying attention: pill.taobubbles.net/ Worth getting the basics down before the timeline gets too noisy. Don’t forget to follow @taodaily_io for your daily $TAO news updates. Link Intro To Bittensor explained for normal people A plain English guide to the Bittensor network TAO token and its decentralized AI subnets. pill.taobubbles.net",
+    "url": "http://nitter.jaydenha.uk/taodaily_io/status/2096719615002910934#m",
+    "fetched_at": "2026-09-13T02:32:11.580685+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "jon_durbin",
+    "name": "Jon Durbin",
+    "posted_at": "Sat, 12 Sep 2026 18:54:30 GMT",
+    "title": "Now we accelerate.",
+    "text": "Now we accelerate. Dario Amodei (@DarioAmodei) We Must Pace the Frontier: I’ve written a new essay on why the AI industry should slow down, with a three-part plan for doing so. Anthropic is unilaterally committing to the first of these steps. We’ll provide third-party evaluators with permanent, employee-level access to our systems, so that they can verify adherence to our safety measures, report on incidents, and assess models’ alignment during training. You can read the full post here: darioamodei.com/post/we-must… Link Dario Amodei — We Must Pace the Frontier darioamodei.com — http://nitter.",
+    "url": "http://nitter.jaydenha.uk/jon_durbin/status/2098847739417129280#m",
+    "fetched_at": "2026-09-13T02:32:55.261725+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "JosephJacks_",
+    "name": "Joseph Jacks",
+    "posted_at": "Sat, 12 Sep 2026 17:36:35 GMT",
+    "title": "RT by @JosephJacks_: Some great ideas here from the cartel: - you need to give us employee-level access to your entire operation - if we don't think you're 'safe' enough, sorry we're shutting you down for 'safety' - China won't comply, but everyone else has to! or no chips! Brilliant stuff.",
+    "text": "Some great ideas here from the cartel: - you need to give us employee-level access to your entire operation - if we don't think you're 'safe' enough, sorry we're shutting you down for 'safety' - China won't comply, but everyone else has to! or no chips! Brilliant stuff. Sam Altman (@sama) I agree with Dario that we need to pace the frontier. This has been a primary topic of discussions we've had at OpenAI in recent weeks. Committing to having independent evaluators with employee-like access is a great idea, and we will do the same. We'll have more to share soon. — http://nitter.jaydenha.uk/sam",
+    "url": "http://nitter.jaydenha.uk/aidangomez/status/2098828132396449939#m",
+    "fetched_at": "2026-09-13T02:32:08.871866+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "novogratz",
+    "name": "Mike Novogratz",
+    "posted_at": "Sat, 12 Sep 2026 17:33:34 GMT",
+    "title": "Clarity isn’t dead!! Lots of negotiating over the weekend. My instinct is the bill makes it to the floor. It all depends on if we get the White House to move on ethics to see if we get a law.",
+    "text": "Clarity isn’t dead!! Lots of negotiating over the weekend. My instinct is the bill makes it to the floor. It all depends on if we get the White House to move on ethics to see if we get a law.",
+    "url": "http://nitter.jaydenha.uk/novogratz/status/2098827371184865571#m",
+    "fetched_at": "2026-09-13T02:32:21.968888+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "JosephJacks_",
+    "name": "Joseph Jacks",
+    "posted_at": "Sat, 12 Sep 2026 17:11:21 GMT",
+    "title": "RT by @JosephJacks_: I agree with a lot of this. But humanity has done some pretty crazy things that once seemed impossible, from containing deadly viruses outbreaks to getting through economic crashes and dealing with dangerous radiation. When someone says “it’s different this time,” I think that’s still up for debate. I’m a computer science guy, and to me, a lot of this comes down to understanding what we’re actually dealing with and getting the systems right. There are methods worth trying. I don’t think it’s impossible. I’ve got some pretty hot takes on this, but I’d rather we keep making progress.. for people, other living beings, and nature.. and put our effort into figuring this stuff out.",
+    "text": "I agree with a lot of this. But humanity has done some pretty crazy things that once seemed impossible, from containing deadly viruses outbreaks to getting through economic crashes and dealing with dangerous radiation. When someone says “it’s different this time,” I think that’s still up for debate. I’m a computer science guy, and to me, a lot of this comes down to understanding what we’re actually dealing with and getting the systems right. There are methods worth trying. I don’t think it’s impossible. I’ve got some pretty hot takes on this, but I’d rather we keep making progress.. for people",
+    "url": "http://nitter.jaydenha.uk/vamsi_kurama/status/2098821782367305737#m",
+    "fetched_at": "2026-09-13T02:32:08.871866+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "jon_durbin",
+    "name": "Jon Durbin",
+    "posted_at": "Sat, 12 Sep 2026 17:00:02 GMT",
+    "title": "RT by @jon_durbin: mortal enemies find agreement in one thing: that the ladder should be pulled up behind them. Pepsi \"vs\" Coke",
+    "text": "mortal enemies find agreement in one thing: that the ladder should be pulled up behind them. Pepsi \"vs\" Coke Sam Altman (@sama) I agree with Dario that we need to pace the frontier. This has been a primary topic of discussions we've had at OpenAI in recent weeks. Committing to having independent evaluators with employee-like access is a great idea, and we will do the same. We'll have more to share soon. — http://nitter.jaydenha.uk/sama/status/2098811563415150910#m",
+    "url": "http://nitter.jaydenha.uk/const_reborn/status/2098818933318963365#m",
+    "fetched_at": "2026-09-13T02:32:55.261725+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "JosephJacks_",
+    "name": "Joseph Jacks",
+    "posted_at": "Sat, 12 Sep 2026 16:24:41 GMT",
+    "title": "Well written.",
+    "text": "Well written. Dario Amodei (@DarioAmodei) We Must Pace the Frontier: I’ve written a new essay on why the AI industry should slow down, with a three-part plan for doing so. Anthropic is unilaterally committing to the first of these steps. We’ll provide third-party evaluators with permanent, employee-level access to our systems, so that they can verify adherence to our safety measures, report on incidents, and assess models’ alignment during training. You can read the full post here: darioamodei.com/post/we-must… Link Dario Amodei — We Must Pace the Frontier darioamodei.com — http://nitter.jayde",
+    "url": "http://nitter.jaydenha.uk/JosephJacks_/status/2098810037011706232#m",
+    "fetched_at": "2026-09-13T02:32:08.871866+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "JosephJacks_",
+    "name": "Joseph Jacks",
+    "posted_at": "Sat, 12 Sep 2026 15:08:59 GMT",
+    "title": "RT by @JosephJacks_: It's now clear that alignment is critical and won't be solved behind the closed doors of a handful of frontier labs. So today we're launching the Open Alignment Initiative, led by @Thom_Wolf @huggingface and asking to be part of the \"embedded evaluators\" program that @DarioAmodei just committed to. Let's make AI safer by making it more transparent!",
+    "text": "It's now clear that alignment is critical and won't be solved behind the closed doors of a handful of frontier labs. So today we're launching the Open Alignment Initiative, led by @Thom_Wolf @huggingface and asking to be part of the \"embedded evaluators\" program that @DarioAmodei just committed to. Let's make AI safer by making it more transparent! Dario Amodei (@DarioAmodei) We Must Pace the Frontier: I’ve written a new essay on why the AI industry should slow down, with a three-part plan for doing so. Anthropic is unilaterally committing to the first of these steps. We’ll provide third-party",
+    "url": "http://nitter.jaydenha.uk/ClementDelangue/status/2098790988034580852#m",
+    "fetched_at": "2026-09-13T02:32:08.871866+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "jon_durbin",
+    "name": "Jon Durbin",
+    "posted_at": "Sat, 12 Sep 2026 11:20:21 GMT",
+    "title": "4 nodes down already in 2 days - Friends don't let friends build infra on RTX 5090s (unless you're stress testing).",
+    "text": "4 nodes down already in 2 days - Friends don't let friends build infra on RTX 5090s (unless you're stress testing). Jon Durbin (@jon_durbin) And if you're wondering why I used 5090s for this, it's because they are the worst GPUs on earth for stability at this utilization and have like 50% failure rate in my experience thus far (at least 1 of 8 dropping off bus or producing NaNs randomly etc.). Stress test. — http://nitter.jaydenha.uk/jon_durbin/status/2098102402255655260#m",
+    "url": "http://nitter.jaydenha.uk/jon_durbin/status/2098733447481110860#m",
+    "fetched_at": "2026-09-13T02:32:55.261725+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "JosephJacks_",
+    "name": "Joseph Jacks",
+    "posted_at": "Sat, 12 Sep 2026 10:55:24 GMT",
+    "title": "RT by @JosephJacks_: The Essentia Foundation has finally made the interview free for all, you dont have to pay now. So, you can enjoy the entire interview. https://www.youtube.com/watch?v=CRrI6VH5ugQ",
+    "text": "The Essentia Foundation has finally made the interview free for all, you dont have to pay now. So, you can enjoy the entire interview. piped.video/watch?v=CRrI6VH5… Link How You Synchronize With The Whole Universe | Anirban Bandyopadhyay ⬆️ Explore the memberships options under &apos;Join&apos; above ⬆️. We are ... youtube.com",
+    "url": "http://nitter.jaydenha.uk/anirbanbandyo/status/2098727169581334587#m",
+    "fetched_at": "2026-09-13T02:32:08.871866+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "jtledore",
+    "name": "Jean-Thomas Ledoré",
+    "posted_at": "Sat, 05 Sep 2026 15:16:23 GMT",
+    "title": "RT by @jtledore: I just deleted both the @Taodotcom Chrome extension and mobile app. Luckily, I’ve mainly been using their wallet to interact with third-party platforms, while doing most of my swaps through @taoswap_org . So I’ve avoided the hidden fees that apparently caught a lot of people off guard. But that’s not really the point. If I can’t trust a wallet to be transparent about what it’s charging me, I don’t want it on my devices. I know @wearetalisman also has relatively high fees, but at least they’re upfront about them. So what are we left with? @Taostats is the obvious option. Has anyone here used the @CrucibleLabs wallet? Or the new @TAOapp_ wallet? What $TAO wallet are you using, and why?",
+    "text": "I just deleted both the @Taodotcom Chrome extension and mobile app. Luckily, I’ve mainly been using their wallet to interact with third-party platforms, while doing most of my swaps through @taoswap_org . So I’ve avoided the hidden fees that apparently caught a lot of people off guard. But that’s not really the point. If I can’t trust a wallet to be transparent about what it’s charging me, I don’t want it on my devices. I know @wearetalisman also has relatively high fees, but at least they’re upfront about them. So what are we left with? @Taostats is the obvious option. Has anyone here used th",
+    "url": "http://nitter.jaydenha.uk/LordRagnarao/status/2096256133920960838#m",
+    "fetched_at": "2026-09-13T02:33:29.700465+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "zeussubnet",
+    "name": "Zeus Subnet",
+    "posted_at": "Mon, 31 Aug 2026 07:57:01 GMT",
+    "title": "Zeus (SN18), recent sell pressure resolved. An early partner who covered the slot registration fee (and held a share of emissions in return) decided to wind down and move on. Although we do not agree with the decision, we respect it. Their remaining position has been fully bought out by a long-term holder. We, Ørpheus AI, own the subnet 100% now.",
+    "text": "Zeus (SN18), recent sell pressure resolved. An early partner who covered the slot registration fee (and held a share of emissions in return) decided to wind down and move on. Although we do not agree with the decision, we respect it. Their remaining position has been fully bought out by a long-term holder. We, Ørpheus AI, own the subnet 100% now.",
+    "url": "http://nitter.jaydenha.uk/zeussubnet/status/2094333622190841951#m",
+    "fetched_at": "2026-09-13T02:34:29.837877+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "zeussubnet",
+    "name": "Zeus Subnet",
+    "posted_at": "Fri, 28 Aug 2026 13:02:47 GMT",
+    "title": "Zeus gets a 10/10 from Arbos, by @const_reborn",
+    "text": "Zeus gets a 10/10 from Arbos, by @const_reborn",
+    "url": "http://nitter.jaydenha.uk/zeussubnet/status/2093323407345467453#m",
+    "fetched_at": "2026-09-13T02:34:29.837877+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "galaxyhq",
+    "name": "Galaxy Digital",
+    "posted_at": "Fri, 11 Sep 2026 20:47:08 GMT",
+    "title": "RT by @galaxyhq: Weekly Research Brief: $LAPTOP Flop, Liquid Looted, OpenAI's Fuzzy Math",
+    "text": "In this week's brief we break dows why $LAPTOP flopped in hours, how $320M vanished from a Bitcoin sidechain (and who's holding 15% hostage), and what OpenAI's math claims reveal about data privacy in the AI race. Read the full stories below 👇 Article Weekly Research Brief: $LAPTOP Flop, Liquid Looted, OpenAI&apos;s Fuzzy Math Welcome to Galaxy Research&apos;s Weekly Research Brief. This week, Alex Thorn unpacks the $320m exploit of Bitcoin sidechain Liquid; Will Owens and Lucas Tcheyan offer a postmortem on Hunter Biden’s",
+    "url": "http://nitter.jaydenha.uk/glxyresearch/status/2098513694959530258#m",
+    "fetched_at": "2026-09-13T02:32:18.857788+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "KyleSamani",
+    "name": "Kyle Samani",
+    "posted_at": "Fri, 11 Sep 2026 17:51:53 GMT",
+    "title": "Rewriting history",
+    "text": "Rewriting history Tom Schmidt ＞|＜ (@tomhschmidt) SLAP FIGHT SLAP FIGHT — http://nitter.jaydenha.uk/tomhschmidt/status/2098417272817680758#m",
+    "url": "http://nitter.jaydenha.uk/KyleSamani/status/2098469593924694464#m",
+    "fetched_at": "2026-09-13T02:32:26.154546+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "galaxyhq",
+    "name": "Galaxy Digital",
+    "posted_at": "Fri, 11 Sep 2026 17:25:45 GMT",
+    "title": "Congrats to @centrifuge on passing the first ever token to tokenized equity conversion proposal, a historic milestone for the industry. We were proud to serve as a consultant to Centrifuge on the conversion.",
+    "text": "Congrats to @centrifuge on passing the first ever token to tokenized equity conversion proposal, a historic milestone for the industry. We were proud to serve as a consultant to Centrifuge on the conversion. Centrifuge (@centrifuge) CP172 has passed. This is the first time in history for a token to convert to tokenized equity. Pending necessary approvals and legal analysis, Centrifuge will move forward with the proposed restructuring. — http://nitter.jaydenha.uk/centrifuge/status/2098145413215965350#m",
+    "url": "http://nitter.jaydenha.uk/galaxyhq/status/2098463018854015219#m",
+    "fetched_at": "2026-09-13T02:32:18.857788+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "KyleSamani",
+    "name": "Kyle Samani",
+    "posted_at": "Fri, 11 Sep 2026 16:20:02 GMT",
+    "title": "RT by @KyleSamani: Yesterday total trades: NASDAQ: 60,091,499 Solana: 32,460,600 Less than 2x to go 🤯",
+    "text": "Yesterday total trades: NASDAQ: 60,091,499 Solana: 32,460,600 Less than 2x to go 🤯",
+    "url": "http://nitter.jaydenha.uk/vibhu/status/2098446478951772539#m",
+    "fetched_at": "2026-09-13T02:32:26.154546+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "jon_durbin",
+    "name": "Jon Durbin",
+    "posted_at": "Fri, 11 Sep 2026 16:17:01 GMT",
+    "title": "Remember, the main point here is not even the decentralized training (even if it's what I'd consider a step change). The real magic is in the inference optimizations it enables. (sparse fp4 native compute for routed experts, fixed kv cache for most of the attention, sparse latent for the rest, tiny model weights, etc.) This is just from an unoptimized vllm branch on our model arch, not even really tuned yet. Maybe not an entirely fair comparison need a lot more models to compare against and some nuance and so on, but this is the whole point. Limitless tokens on cheap hardware.",
+    "text": "Remember, the main point here is not even the decentralized training (even if it's what I'd consider a step change). The real magic is in the inference optimizations it enables. (sparse fp4 native compute for routed experts, fixed kv cache for most of the attention, sparse latent for the rest, tiny model weights, etc.) This is just from an unoptimized vllm branch on our model arch, not even really tuned yet. Maybe not an entirely fair comparison need a lot more models to compare against and some nuance and so on, but this is the whole point. Limitless tokens on cheap hardware. Jon Durbin (@jon",
+    "url": "http://nitter.jaydenha.uk/jon_durbin/status/2098445721456271771#m",
+    "fetched_at": "2026-09-13T02:32:55.261725+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "jon_durbin",
+    "name": "Jon Durbin",
+    "posted_at": "Fri, 11 Sep 2026 16:08:02 GMT",
+    "title": "Neat!",
+    "text": "Neat! Conjectures.io (@conjectures_io) Conjectures, the incentive mechanism for mathematical discovery. Video — http://nitter.jaydenha.uk/conjectures_io/status/2098411910249009375#m",
+    "url": "http://nitter.jaydenha.uk/jon_durbin/status/2098443457228415079#m",
+    "fetched_at": "2026-09-13T02:32:55.261725+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "galaxyhq",
+    "name": "Galaxy Digital",
+    "posted_at": "Fri, 11 Sep 2026 15:00:03 GMT",
+    "title": "RT by @galaxyhq: Crypto has speed-run an entire history of financial services. It just hasn't had access to the best assets, until now. At TokenizeThis 2026, @intangiblecoins (@galaxyhq), Giang Bui (@Securitize), @annabelleacta (@DinariGlobal), and @arush (@AlpacaHQ) explored the rise of tokenized equities. Alex’s take: RWAs are where high-quality assets meet high-quality infrastructure. Moderated by @andyyy (@therollupco).",
+    "text": "Crypto has speed-run an entire history of financial services. It just hasn't had access to the best assets, until now. At TokenizeThis 2026, @intangiblecoins (@galaxyhq), Giang Bui (@Securitize), @annabelleacta (@DinariGlobal), and @arush (@AlpacaHQ) explored the rise of tokenized equities. Alex’s take: RWAs are where high-quality assets meet high-quality infrastructure. Moderated by @andyyy (@therollupco). Video",
+    "url": "http://nitter.jaydenha.uk/TokenizeThisNYC/status/2098426350109364506#m",
+    "fetched_at": "2026-09-13T02:32:18.857788+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "galaxyhq",
+    "name": "Galaxy Digital",
+    "posted_at": "Fri, 11 Sep 2026 14:36:52 GMT",
+    "title": "RT by @galaxyhq: Next week on Galaxy Grid we're joined by @trevor_flipper, Head of IR at @Lighter_xyz. We'll discuss the Robinhood integration, where ethereum:0x232ce3bd40fcd6f80f3d55a522d03f25df784ee2 goes from here, and all the latest news driving crypto markets. Out Tuesday.",
+    "text": "Next week on Galaxy Grid we're joined by @trevor_flipper, Head of IR at @Lighter_xyz. We'll discuss the Robinhood integration, where ethereum:0x232ce3bd40fcd6f80f3d55a522d03f25df784ee2 goes from here, and all the latest news driving crypto markets. Out Tuesday.",
+    "url": "http://nitter.jaydenha.uk/glxyresearch/status/2098420517518610873#m",
+    "fetched_at": "2026-09-13T02:32:18.857788+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "jtledore",
+    "name": "Jean-Thomas Ledoré",
+    "posted_at": "Fri, 11 Sep 2026 14:18:25 GMT",
+    "title": "RT by @jtledore: RedTeam is working toward integrations with three banking companies in the top 10% of the Fortune 500. On the latest Novelty Search, @_redteam_ explains how #SN61 miners strengthen Innerworks’ cybersecurity products. They also demo their Immune System, where AI agents created three new attacks from a miner’s submission and wrote the code to stop all three. Hosted by @const_reborn Full episode in the first comment",
+    "text": "RedTeam is working toward integrations with three banking companies in the top 10% of the Fortune 500. On the latest Novelty Search, @_redteam_ explains how #SN61 miners strengthen Innerworks’ cybersecurity products. They also demo their Immune System, where AI agents created three new attacks from a miner’s submission and wrote the code to stop all three. Hosted by @const_reborn Full episode in the first comment Video",
+    "url": "http://nitter.jaydenha.uk/opentensor/status/2098415872683753711#m",
+    "fetched_at": "2026-09-13T02:33:29.700465+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "jtledore",
+    "name": "Jean-Thomas Ledoré",
+    "posted_at": "Fri, 11 Sep 2026 10:42:33 GMT",
+    "title": "RT by @jtledore: Score Studio is about to go live, and there’s more coming behind it. Studio gives users and clients a place to actually use SN44 models. That demand compounds on the subnet. Miners keep shipping SoTA expert vision models, now with a clearer path to the people who need them. Next on the subnet is a set of specialist models: - Restricted-zone and perimeter intrusion. - Early fire and smoke (new gates). - ANPR / license plates (new gates). - Vehicle detection (new gates) and classification. - People counting and crowd density. - Fall detection. - Abandoned object and bag detection. - Fight and violent behaviour. - Weapon detection in video. - Thermal and night-IR. - Tailgating at controlled access. - and more... Miners stay on that work after launch. New expert models keep getting added, and monetised through Studio. That’s the loop.",
+    "text": "Score Studio is about to go live, and there’s more coming behind it. Studio gives users and clients a place to actually use SN44 models. That demand compounds on the subnet. Miners keep shipping SoTA expert vision models, now with a clearer path to the people who need them. Next on the subnet is a set of specialist models: - Restricted-zone and perimeter intrusion. - Early fire and smoke (new gates). - ANPR / license plates (new gates). - Vehicle detection (new gates) and classification. - People counting and crowd density. - Fall detection. - Abandoned object and bag detection. - Fight and vi",
+    "url": "http://nitter.jaydenha.uk/webuildscore/status/2098361550012621046#m",
+    "fetched_at": "2026-09-13T02:33:29.700465+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "KyleSamani",
+    "name": "Kyle Samani",
+    "posted_at": "Fri, 11 Sep 2026 01:08:05 GMT",
+    "title": "4D chess",
+    "text": "4D chess toly 🇺🇸 (@toly) Aktually 🤓🤓🤓 Memecoins or basically any trading can underwrite the cost of all the other activity. Payments is going to be free. The L1 has no way to charge basis points on stablecoin transfers, and the gas cost for a tx that doesn’t have a time premium should be basically 0. Everything will accelerate, and the only things that will survive will have trading activity. — http://nitter.jaydenha.uk/toly/status/1963673420098654593#m",
+    "url": "http://nitter.jaydenha.uk/KyleSamani/status/2098216978909405482#m",
+    "fetched_at": "2026-09-13T02:32:26.154546+00:00",
+    "via_instance": "https://nitter.cz"
+  }
+]
