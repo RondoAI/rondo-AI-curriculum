@@ -142,8 +142,12 @@ _no new posts in the lookback window_
 
 ## ⊕ X via NITTER, voices we track
 
+- @TargonCompute (Targon, Wed, 26 Aug 2026): Proud to power @TheoriqAI with secure confidential compute for their agentic market research. Large GPU blocks on demand, with hardware-level guarantees that keep the workload and its data private even from the machines running it. Excited to keep powering experimental research infrastructure with Targon. Theoriq (@TheoriqAI) .@TargonCompute is powering Theoriq AI experimentation. Curating risk-managed yield is, underneath, a research problem: how markets behave, where they break, and how much of that can be seen coming. That runs on heavy, on-demand compute. Targon is our partner in supplying  
+  http://nitter.jaydenha.uk/TargonCompute/status/2092690588143657190#m
 - @ridges_ai (Ridges, Wed, 26 Aug 2026): We've kicked off Niches with a Linting competition! In just one week we've seen performance hit 76% on our hidden test set with cost reduction down to $0.02 per task. Results like these help us validate the Niches model and adjust where needed. We're excited for the next Niche, and eventually dynamic Niches. Stay tuned!  
   http://nitter.jaydenha.uk/ridges_ai/status/2092684102595961119#m
+- @TargonCompute (Targon, Wed, 26 Aug 2026): .@TargonCompute is powering Theoriq AI experimentation. Curating risk-managed yield is, underneath, a research problem: how markets behave, where they break, and how much of that can be seen coming. That runs on heavy, on-demand compute. Targon is our partner in supplying it. Theoriq (@TheoriqAI) Article Theoriq partnering with Targon to power AI experimentation Curating risk-managed yield is, underneath, a research problem. Long before capital is deployed, we want to know how markets behave, where they tend to break, and how much of that can be seen coming — http://nitter.jaydenha.uk/TheoriqA  
+  http://nitter.jaydenha.uk/TheoriqAI/status/2092661304444277050#m
 - @novogratz (Mike Novogratz, Wed, 26 Aug 2026): I don’t like him😂. Decentralized blockchains are part of the defense against us losing our privacy! Remarks (@remarks) JUST IN: 🇺🇸 Flock CEO says Americans must "compromise" on their privacy. — http://nitter.jaydenha.uk/remarks/status/2092446992383242547#m  
   http://nitter.jaydenha.uk/novogratz/status/2092642077267972329#m
 - @novogratz (Mike Novogratz, Wed, 26 Aug 2026): I don’t like him😂. Decentralized blockchains are part of the defense against us losing our privacy! Remarks (@remarks) JUST IN: 🇺🇸 Flock CEO says Americans must "compromise" on their privacy. — https://nitter.netbub.com/remarks/status/2092446992383242547#m  
@@ -152,6 +156,8 @@ _no new posts in the lookback window_
   http://nitter.jaydenha.uk/covenant_ai/status/2090092134036648101#m
 - @_redteam_ (RedTeam / Innerworks, Wed, 19 Aug 2026): Listen in to @oscar_hayek discussing RedTeam on @YumaGroup's Subnet Spotlight. Origin, commercial and technical traction, and where we're headed. Yuma (@YumaGroup) How RedTeam (SN61) powers their cyberthreat immune system with Bittensor nitter.net/i/broadcasts/1dGYlazzp… Link Yuma How RedTeam (SN61) powers their cyberthreat immune system with Bittensor https://nitter.netbub.com/i/broadcasts/1dGYlazzpnEKX — https://nitter.netbub.com/YumaGroup/status/2090076390163095836#m  
   https://nitter.netbub.com/_redteam_/status/2090091530920878293#m
+- @_redteam_ (RedTeam / Innerworks, Wed, 19 Aug 2026): Listen in to @oscar_hayek discussing RedTeam on @YumaGroup's Subnet Spotlight. Origin, commercial and technical traction, and where we're headed. Yuma (@YumaGroup) How RedTeam (SN61) powers their cyberthreat immune system with Bittensor nitter.kareem.one/i/broadcasts/1dGYlazzp… Link Yuma How RedTeam (SN61) powers their cyberthreat immune system with Bittensor https://nitter.kareem.one/i/broadcasts/1dGYlazzpnEKX — https://nitter.kareem.one/YumaGroup/status/2090076390163095836#m  
+  https://nitter.kareem.one/_redteam_/status/2090091530920878293#m
 - @tm0klc (Tim, Wed, 17 Jun 2026): Introducing Manako, the fastest way to turn any camera into an vision ai agent. Go on manako.ai. Join our waitlist. Video  
   http://nitter.jaydenha.uk/manakoai/status/2067298306200396197#m
 - @manakoai (Manako, Wed, 12 Aug 2026): The journey of building AI for the physical world is accelerating. What once took long, complex on-site deployments is rapidly becoming simple, fast, and repeatable. We’re making real-world AI deployment dramatically easier, one step at a time. Max (@MaxSebti) the first @manakoai on-site deployment took me 13 hours. the second one? @tm0klc knocked it out in 3. starting tomorrow, fully deploying Manako takes one ssh command. — https://nitter.kareem.one/MaxSebti/status/2087652839157842247#m  
@@ -160,6 +166,8 @@ _no new posts in the lookback window_
   http://nitter.jaydenha.uk/oroagents/status/2087649319822512258#m
 - @lium_io (Lium, Wed, 09 Sep 2026): lium.io Month in review: $964k billed to 1187 renters (36% MoM growth). 1,908 new signups, ~80% MoM user retention 63% of rentals programatically initiated (agents) 7,697 rentals; medium rental time: 1.15 hours.  
   https://nitter.netbub.com/lium_io/status/2097824624117473549#m
+- @lium_io (Lium, Wed, 09 Sep 2026): lium.io Month in review: $964k billed to 1187 renters (36% MoM growth). 1,908 new signups, ~80% MoM user retention 63% of rentals programatically initiated (agents) 7,697 rentals; medium rental time: 1.15 hours.  
+  https://nitter.kareem.one/lium_io/status/2097824624117473549#m
 - @ridges_ai (Ridges, Wed, 09 Sep 2026): ridges.ai/explore/28 Link Ridges AI AI Agents, powered by Bittensor | SN62 ridges.ai  
   http://nitter.jaydenha.uk/ridges_ai/status/2097823739765526549#m
 - @ridges_ai (Ridges, Wed, 09 Sep 2026): Next competition is live: Database Engineering. Agents compete on database engineering problems, fixing bugs, optimizing queries, and working with ORMs and GraphQL. Why this Niche next? Because inefficient queries are a real engineering challenge, and one where specialist agents have plenty of room to outperform. Open now for submissions:  
@@ -168,8 +176,14 @@ _no new posts in the lookback window_
   http://nitter.jaydenha.uk/CrucibleLabs/status/2097815766473323006#m
 - @lium_io (Lium, Wed, 09 Sep 2026): Steadily building the most decentralized GPU cloud Lium now has capacity from 68 datacenters across 21 countries Have GPUs? Join now. Lium pays you even for idle minutes. Make your nodes rentable in 5 minutes -&gt; docs.lium.io/providers/quick…  
   https://nitter.netbub.com/lium_io/status/2097803045362966828#m
+- @lium_io (Lium, Wed, 09 Sep 2026): Steadily building the most decentralized GPU cloud Lium now has capacity from 68 datacenters across 21 countries Have GPUs? Join now. Lium pays you even for idle minutes. Make your nodes rentable in 5 minutes -&gt; docs.lium.io/providers/quick…  
+  https://nitter.kareem.one/lium_io/status/2097803045362966828#m
 - @jtledore (Jean-Thomas Ledoré, Wed, 09 Sep 2026): Super excited to share the results of my deep, dark research cave over the past couple months building out parallax at @ExploitSummit Someone asked me if we had a breakthrough - couldn't even condense a response. The benchmaxxing era is (or should be) over, efficiency-maxxing is next.  
   http://nitter.jaydenha.uk/jon_durbin/status/2097773396134146353#m
+- @YumaGroup (Yuma Holdings, Wed, 09 Sep 2026): For informational purposes only. Not an offer or solicitation. Not investment advice. Do your own research. Past performance ≠ future results.  
+  https://nitter.kareem.one/YumaGroup/status/2097758792955879531#m
+- @YumaGroup (Yuma Holdings, Wed, 09 Sep 2026): YCX is a market-cap–weighted price index for the Bittensor subnet economy, published by Yuma. You can view the index at yumaai.com/asset-management?… Link Yuma | Advancing Decentralized AI on Bittensor Yuma accelerates decentralized AI by investing in subnets and startups on Bittensor. We build open infrastructure and power the next wave of AI innovation. yumaai.com  
+  https://nitter.kareem.one/YumaGroup/status/2097758791198441839#m
 - @shibshib89 (Ala Shaabana, Wed, 09 Sep 2026): We are officially on iOS! Onwards 🚀 Crucible Labs (@CrucibleLabs) A long time coming and officially here. Crucible Wallet is now available on iOS in the US. An easy, intuitive Bittensor wallet for your everyday TAO needs, with Unified Swap, portfolio tracking and Ledger support wherever you go. Already available on Google Play and Chrome Store. Download at CrucibleLabs.com #CrucibleWallet #TAO #Bittensor — http://nitter.jaydenha.uk/CrucibleLabs/status/2097699938209857625#m  
   http://nitter.jaydenha.uk/shibshib89/status/2097724813028516224#m
 - @zeussubnet (Zeus Subnet, Wed, 09 Sep 2026): Zeus is energy-aware. How? 👇 For temperature, we use population as a proxy for where demand matters. For wind and solar, we use generation capacity to track where supply matters. Geographic weights derived from this data are now used by validators when scoring forecasts. They’re stricter in the regions where weather impacts energy supply and demand the most. This creates a stronger incentive for teams on Zeus to shift their focus towards those regions. For now, we’ve limited the focus to Europe, where several desks are evaluating our data as we speak. We may expand to other interesting trading  
@@ -222,27 +236,13 @@ _no new posts in the lookback window_
   http://nitter.jaydenha.uk/tm0klc/status/2074298897305047101#m
 - @resilabsai (RESI, Tue, 07 Apr 2026): The power of holding Bittensor $TAO subnet alpha Here is an example to illustrate the flywheel of $TAO Let's say you 1,000 alpha of @resilabsai which cost around 7 $TAO 7 $TAO at a price of $310 = $2,170 Current alpha price of Resi, subnet 46: .0066 $TAO Let's make some calculated assumptions. &gt; price of resi alpha stays the same for 3 years &gt; price of $TAO remains the same at $310 &gt; APY for holding Resi alpha is 40% for the first 2 years, then 30% in year 3 What is my total value in 3 years? Year 1 (40% APY) 1,060.6 × 1.4 = 1,484.8 alpha In $TAO: 1,484.8 × 0.0066 ≈ 9.80 $TAO In USD:   
   http://nitter.jaydenha.uk/Pop_Collapse/status/2041570023823528017#m
+- @TargonCompute (Targon, Tue, 01 Sep 2026): Happy to help! Proud to be trusted with running critical workloads such as validators. Very excited to see the talented team at DeSci Labs join the Bittensor ecosystem, their research and expertise are sure to add long-lasting value to the network. 🔬 Claims - Subnet 111 (@DeSciClaims) Our validator for SN111 is running on hardware provided by @TargonCompute. We're super grateful for the fast, reliable setup and the team's amazing support. Thank you, guys! — http://nitter.jaydenha.uk/DeSciClaims/status/2094364807596036575#m  
+  http://nitter.jaydenha.uk/TargonCompute/status/2094908006039236625#m
 - @zeussubnet (Zeus Subnet, Tue, 01 Sep 2026): So you think you know #Bittensor? Now's your chance to prove it. The night before Exploit, we’re putting the community to the test. Protocol history, legendary moments, characters, launches and lore. Join us for the first Bittensor Community Quiz - in person in Montreal. Free for Exploit attendees. Powered by @generaltensor + @zeussubnet Register at: luma.com/7hj5nphs  
   http://nitter.jaydenha.uk/ExploitSummit/status/2094855315930198101#m
 - @mcjkula (mcjkula, Tue, 01 Sep 2026): TAOApp Wallet is here. The self-custody browser wallet for Bittensor. Hold TAO, stake TAO, buy subnet tokens. When there’s more to protect, bring in your Ledger, proxies and multisigs. Install the beta, on Chrome, Brave and Edge. ↓ chromewebstore.google.com/de…  
   http://nitter.jaydenha.uk/taoapp_/status/2094840222441992209#m
-- @_redteam_ (RedTeam / Innerworks, Thu, 27 Aug 2026): The Immune System for the Internet. Releasing next month. Oscar Hayek (@oscar_hayek) Defence in this era must be AI driven, the absolute baseline is adapting defences faster than attacks are being produced. Anything slower than this leaves you in a constant state of degradation. What we’ve built on @_redteam_ is an immune system for this problem. The attacks we ingest are evolved inside the system into complete novel vectors that cannot be produced anywhere else. Every one of these gets patched before an external attacker has the means/ability to create it, let alone release it. bittensor:nati  
-  https://nitter.netbub.com/_redteam_/status/2093081017145847826#m
-- @covenant_ai (Covenant AI, Thu, 27 Aug 2026): A system designed around identical accelerators depends on a narrow hardware supply. Templar starts from a wider map. Accelerator generations vary, and network conditions change with location. The coordination layer has to treat both as design inputs.  
-  http://nitter.jaydenha.uk/tplr_ai/status/2093022381660942660#m
-- @tplr_ai (Templar, Thu, 27 Aug 2026): A system designed around identical accelerators depends on a narrow hardware supply. Templar starts from a wider map. Accelerator generations vary, and network conditions change with location. The coordination layer has to treat both as design inputs.  
-  https://nitter.netbub.com/tplr_ai/status/2093022381660942660#m
-- @oroagents (Oro, Thu, 20 Aug 2026): Measuring the quality of the long-horizon data is a huge part of solving the AI consumer shopping problem. ORO-Distilled, a 4B model. 5x faster. 50x cheaper. Video  
-  http://nitter.jaydenha.uk/oroagents/status/2090533835192893616#m
-- @manakoai (Manako, Thu, 13 Aug 2026): Step by step Max (@MaxSebti) forward deployed engineering — https://nitter.kareem.one/MaxSebti/status/2087858212473098403#m  
-  https://nitter.kareem.one/manakoai/status/2087863589839282535#m
-- @rob_svrn (Rob Greer, Thu, 10 Sep 2026): I am pleased to announce that Stillcore Capital @stillcorecap has invested in Red Team @_redteam_ Bittensor $TAO Subnet 61.  
-  https://nitter.netbub.com/markjeffrey/status/2098171401152971021#m
-- @a16zcrypto (a16z Crypto, Thu, 10 Sep 2026): One step closer. This draft reflects important additional bipartisan compromises and a lot of effort from congressional staffers. This is the best version of market structure yet. a16z crypto (@a16zcrypto) BREAKING: The Senate has just released the latest version of the CLARITY Act. The next vote to move the bill forward will be Tuesday, September 15th at 2:15pm ET. — http://nitter.jaydenha.uk/a16zcrypto/status/2098153058496553100#m  
-  http://nitter.jaydenha.uk/milesjennings/status/2098153491206426757#m
-- @galaxyhq (Galaxy Digital, Thu, 10 Sep 2026): Galaxy Stadium is officially open in Lubbock, TX and @texastechfb is 1-0! 🏈 Saturday marked the first game at Galaxy Stadium and the formal kickoff of our long-term partnership with @TechAthletics. The defending Big 12 champs beat Abilene Christian 33-10 in front of 60,000+ Red Raider fans. Our favorite moment? Surprising a mom and her son with a seat upgrade to the Galaxy Club, presented by the Texas Tech Men's Basketball team. Welcome to Galaxy Stadium. #WreckEm  
-  http://nitter.jaydenha.uk/galaxyhq/status/2098141617853211074#m
 
 
 ---
-_Generated at 2026-09-13T18:29:42.571468+00:00 by scripts/intel/aggregate.py. Treat this digest as input context, not as ground truth. Verify before quoting._
+_Generated at 2026-09-13T22:01:50.977401+00:00 by scripts/intel/aggregate.py. Treat this digest as input context, not as ground truth. Verify before quoting._
