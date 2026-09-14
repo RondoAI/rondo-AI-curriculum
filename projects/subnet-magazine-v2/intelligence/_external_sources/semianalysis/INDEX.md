@@ -1,11 +1,13 @@
 # SemiAnalysis Archive Index
 
-_329 posts captured. Generated 2026-09-14T17:24:57.379518+00:00._
+_331 posts captured. Generated 2026-09-14T22:56:30.317775+00:00._
 
 Editorial policy: SemiAnalysis is the macro reference. The Oracle cites it for any claim about hyperscaler compute, GPU economics, datacenter power, foundry capacity, memory pricing, lab unit economics. The Oracle does NOT cite SemiAnalysis for any Bittensor-specific claim. SemiAnalysis does not cover Bittensor; treat that absence as itself information.
 
 | Date | Title | Audience | Authors | File |
 | --- | --- | --- | --- | --- |
+| 2026-09-14 | [A Brain Too Big to Carry — On-Device vs Datacenter Inference](https://newsletter.semianalysis.com/p/a-brain-too-big-to-carry-on-device) | only_paid | ["Ivan Chiam", "Gianluca", "Zane Fong", "Bryan Shan", "Dylan | `2026-09-14-a-brain-too-big-to-carry-on-device.md` |
+| 2026-09-14 | [Vera Rubin NVL72 Agentic Inference: 67x better Performance per Dollar](https://newsletter.semianalysis.com/p/vera-rubin-nvl72-agentic-inference) | only_paid | ["Bryan Shan", "Alec Ibarra", "Cam Quilici", "Wenyao Gao", " | `2026-09-14-vera-rubin-nvl72-agentic-inference.md` |
 | 2026-09-13 | [Long Live the Short King: Why 4-hi HBM Wins](https://newsletter.semianalysis.com/p/long-live-the-short-king-why-4-hi) | only_paid | ["Myron Xie", "Bryan Shan", "Harrison Barclay", "Minjae Kang | `2026-09-13-long-live-the-short-king-why-4-hi.md` |
 | 2026-09-11 | [Nvidia’s Backstop Universe – Heads I Win, Tails Who Loses?](https://newsletter.semianalysis.com/p/nvidias-backstop-universe-heads-i) | only_paid | ["Daniel Nishball", "Oliver Kennon", "Terence Ong"] | `2026-09-11-nvidias-backstop-universe-heads-i.md` |
 | 2026-09-10 | [What is So Hard About Behind-The-Meter Power For Datacenters? Part 1](https://newsletter.semianalysis.com/p/what-is-so-hard-about-behind-the) | only_paid | ["Ellie Holbrook", "Robert Boswall", "Jeremie Eliahou Ontive | `2026-09-10-what-is-so-hard-about-behind-the.md` |
