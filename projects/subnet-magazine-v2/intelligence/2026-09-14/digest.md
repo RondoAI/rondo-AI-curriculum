@@ -134,7 +134,14 @@ _American Grid design needs an overhaul, Why it is good to be full of cold air._
 
 ## ⊕ GITHUB COMMITS + RELEASES, last 24h
 
-_no commits or releases in the lookback window_
+- **Subtensor (chain)** (COMMIT `a7ae07e`, 2026-09-14 15:42) Merge pull request #3160 from RaoFoundation/release-v457  
+  https://github.com/RaoFoundation/subtensor/commit/a7ae07e5dd37b552f27aa8e4d7716c522eef9aa7
+- **Subtensor (chain)** (COMMIT `90cfdca`, 2026-09-14 15:38) Bump runtime spec version to 458  
+  https://github.com/RaoFoundation/subtensor/commit/90cfdca294c74e632ce1616dd8b09ca5bb8d1885
+- **Subtensor (chain)** (COMMIT `68987f8`, 2026-09-14 15:28) Publish runtime 457  
+  https://github.com/RaoFoundation/subtensor/commit/68987f890a955657ba4294f05f366c7863646670
+- **Subtensor (chain)** (COMMIT `c6ab473`, 2026-09-14 14:49) Apply runtime 456 security and accounting fixes (#3158)  
+  https://github.com/RaoFoundation/subtensor/commit/c6ab4733762201e04bee0ba8c8f27a3d09f75fb2
 
 ## ⊕ ECOSYSTEM BLOGS via RSS
 
@@ -142,6 +149,12 @@ _no new posts in the lookback window_
 
 ## ⊕ X via NITTER, voices we track
 
+- @TargonCompute (Targon, Wed, 26 Aug 2026): Proud to power @TheoriqAI with secure confidential compute for their agentic market research. Large GPU blocks on demand, with hardware-level guarantees that keep the workload and its data private even from the machines running it. Excited to keep powering experimental research infrastructure with Targon. Theoriq (@TheoriqAI) .@TargonCompute is powering Theoriq AI experimentation. Curating risk-managed yield is, underneath, a research problem: how markets behave, where they break, and how much of that can be seen coming. That runs on heavy, on-demand compute. Targon is our partner in supplying  
+  https://nitter.netbub.com/TargonCompute/status/2092690588143657190#m
+- @ridges_ai (Ridges, Wed, 26 Aug 2026): We've kicked off Niches with a Linting competition! In just one week we've seen performance hit 76% on our hidden test set with cost reduction down to $0.02 per task. Results like these help us validate the Niches model and adjust where needed. We're excited for the next Niche, and eventually dynamic Niches. Stay tuned!  
+  https://nitter.kareem.one/ridges_ai/status/2092684102595961119#m
+- @TargonCompute (Targon, Wed, 26 Aug 2026): .@TargonCompute is powering Theoriq AI experimentation. Curating risk-managed yield is, underneath, a research problem: how markets behave, where they break, and how much of that can be seen coming. That runs on heavy, on-demand compute. Targon is our partner in supplying it. Theoriq (@TheoriqAI) Article Theoriq partnering with Targon to power AI experimentation Curating risk-managed yield is, underneath, a research problem. Long before capital is deployed, we want to know how markets behave, where they tend to break, and how much of that can be seen coming — https://nitter.netbub.com/TheoriqA  
+  https://nitter.netbub.com/TheoriqAI/status/2092661304444277050#m
 - @novogratz (Mike Novogratz, Wed, 26 Aug 2026): I don’t like him😂. Decentralized blockchains are part of the defense against us losing our privacy! Remarks (@remarks) JUST IN: 🇺🇸 Flock CEO says Americans must "compromise" on their privacy. — http://nitter.jaydenha.uk/remarks/status/2092446992383242547#m  
   http://nitter.jaydenha.uk/novogratz/status/2092642077267972329#m
 - @covenant_ai (Covenant AI, Wed, 19 Aug 2026): RT @tplr_ai: ByteDance and Tencent each received 10,000 Nvidia H200 chips, the first big delivery after China eased import limits. Watch w…  
@@ -158,10 +171,24 @@ _no new posts in the lookback window_
   https://nitter.kareem.one/foundrydigital/status/157243024848596993#m
 - @lium_io (Lium, Wed, 09 Sep 2026): lium.io Month in review: $964k billed to 1187 renters (36% MoM growth). 1,908 new signups, ~80% MoM user retention 63% of rentals programatically initiated (agents) 7,697 rentals; medium rental time: 1.15 hours.  
   https://nitter.kareem.one/lium_io/status/2097824624117473549#m
+- @ridges_ai (Ridges, Wed, 09 Sep 2026): ridges.ai/explore/28 Link Ridges AI AI Agents, powered by Bittensor | SN62 ridges.ai  
+  https://nitter.kareem.one/ridges_ai/status/2097823739765526549#m
+- @ridges_ai (Ridges, Wed, 09 Sep 2026): Next competition is live: Database Engineering. Agents compete on database engineering problems, fixing bugs, optimizing queries, and working with ORMs and GraphQL. Why this Niche next? Because inefficient queries are a real engineering challenge, and one where specialist agents have plenty of room to outperform. Open now for submissions:  
+  https://nitter.kareem.one/ridges_ai/status/2097823726561866122#m
 - @lium_io (Lium, Wed, 09 Sep 2026): Steadily building the most decentralized GPU cloud Lium now has capacity from 68 datacenters across 21 countries Have GPUs? Join now. Lium pays you even for idle minutes. Make your nodes rentable in 5 minutes -&gt; docs.lium.io/providers/quick…  
   https://nitter.kareem.one/lium_io/status/2097803045362966828#m
+- @PanteraCapital (Pantera Capital, Wed, 09 Sep 2026): "[Sydney Sweeney] initially approached us interested in some sort of equity partnership and the conversation really went from there." Novig CEO Jacob Fortinsky spoke with @readDanwrite about the company's viral ad featuring one of Hollywood's biggest stars. Video  
+  http://nitter.jaydenha.uk/FOS/status/2097797842676916706#m
+- @PanteraCapital (Pantera Capital, Wed, 09 Sep 2026): RT @UngodlyGame: We're excited and honored to have been featured during WWDC and we can't wait for the world to play UnGodly! Watch the fu…  
+  http://nitter.jaydenha.uk/PanteraCapital/status/2097766569438753011#m
+- @webuildscore (Score, Wed, 09 Sep 2026): The GPT-6 Astra and Higgsfield sports demos deserve scrutiny before anyone calls sports computer vision solved. That claim needs full-match accuracy measured against ground truth, alongside the cost of producing those results. Our analysis models a dense annotation workflow at over $5,000 per match using frontier APIs, even with batch pricing. It does not establish that the resulting annotations would be usable. The assumptions and calculations are in the article below. Score (@webuildscore) Article The cost of representing football video as tokens A 96-minute football match at 30 frames per s  
+  https://nitter.kareem.one/webuildscore/status/2097761297022742646#m
+- @PanteraCapital (Pantera Capital, Wed, 09 Sep 2026): The resurgence of onchian volume and, in particular, the the growth of tokenized stocks is showcasing the power of Doppler as a platform to launch custom markets for any type of token (meme, stock, asset, etc.) Year to date, @dopplerprotocol has earn $5m in revenue and is on pace to make ~$3m in revenue in September alone. The market is waking up to how better infrastructure for token launches will create a more suitable market structure for tokenized assets. Markets for everything are coming.  
+  http://nitter.jaydenha.uk/masonnystrom/status/2097760441342849426#m
 - @zeussubnet (Zeus Subnet, Wed, 09 Sep 2026): Zeus is energy-aware. How? 👇 For temperature, we use population as a proxy for where demand matters. For wind and solar, we use generation capacity to track where supply matters. Geographic weights derived from this data are now used by validators when scoring forecasts. They’re stricter in the regions where weather impacts energy supply and demand the most. This creates a stronger incentive for teams on Zeus to shift their focus towards those regions. For now, we’ve limited the focus to Europe, where several desks are evaluating our data as we speak. We may expand to other interesting trading  
   https://nitter.netbub.com/zeussubnet/status/2097696101822304723#m
+- @ridges_ai (Ridges, Wed, 09 Sep 2026): CMC Verification post: ridges.ai  
+  https://nitter.kareem.one/ridges_ai/status/2097651752464011375#m
 - @nigescore (Nige, Wed, 09 Sep 2026): .@nigescore going to paris last time he went to nrf in dallas he got us our biggest client ever (not announced yet) i can’t go. got something bigger on the 15th, 16th and 17th (to be announced) Manako (@manakoai) Heading to @nrfeurope NRF Retail’s Big Show Europe in Paris next week (15–17 Sept) 🇫🇷 If you are attending and want to hear what Manako Labs have built for retail, please DM and let’s meet up. No new hardware, no engineers, no code just your existing cameras doing more. #NRFRetailsBigShowEurope — https://nitter.netbub.com/manakoai/status/2097622722310242420#m  
   https://nitter.netbub.com/MaxSebti/status/2097630699129827589#m
 - @jaltucher (James Altucher, Wed, 09 Sep 2026): Listening to people try and warn me about AI and then my usual response:  
@@ -176,6 +203,8 @@ _no new posts in the lookback window_
   http://nitter.jaydenha.uk/novogratz/status/2094960096895738221#m
 - @mcjkula (mcjkula, Tue, 30 Dec 2025): 7 months. 55,000+ conversations. 128 subnets. One Savant. Here's what we learned from building the first MCP for @Bittensor.  
   https://nitter.kareem.one/taoapp_/status/2005876837214228623#m
+- @ridges_ai (Ridges, Tue, 28 Jul 2026): ⛰️ x402 is now live on Ridges X402 is an agentic payment protocol that lets agents pay for API access autonomously. Integrated with Ridgeline, agents can now pay for and access our coding infrastructure directly, no human in the loop.  
+  https://nitter.kareem.one/ridges_ai/status/2082103797418262564#m
 - @novogratz (Mike Novogratz, Tue, 25 Aug 2026): “I was an A economist and a B- writer. Of course I use Ai”👋🏽😂 Deirdre Bosa (@dee_bosa) Lots of prominent ppl have had op-eds shaped or outright written by staff, comms ppl, ghostwriters, etc So not sure AI changes the underlying thing that much. If anything, might make the process more honest… Druckenmiller’s ideas, AI’s prose, and everyone knows it — http://nitter.jaydenha.uk/dee_bosa/status/2092324890191994884#m  
   http://nitter.jaydenha.uk/novogratz/status/2092327481525100773#m
 - @covenant_ai (Covenant AI, Tue, 25 Aug 2026): Templar's work reduces to one question. How much of the machine-learning lifecycle can run across ordinary networks instead of a single datacentre? Pre-training answered first, with Covenant-72B as the proof at scale. Post-training followed through our communication-efficiency research. Serving open models on distributed hardware is the piece we are working on now, and it is the one that puts the whole arc in front of users. The internet is the datacentre.  
@@ -204,6 +233,8 @@ _no new posts in the lookback window_
   https://nitter.kareem.one/tm0klc/status/2074298897305047101#m
 - @resilabsai (RESI, Tue, 07 Apr 2026): The power of holding Bittensor $TAO subnet alpha Here is an example to illustrate the flywheel of $TAO Let's say you 1,000 alpha of @resilabsai which cost around 7 $TAO 7 $TAO at a price of $310 = $2,170 Current alpha price of Resi, subnet 46: .0066 $TAO Let's make some calculated assumptions. &gt; price of resi alpha stays the same for 3 years &gt; price of $TAO remains the same at $310 &gt; APY for holding Resi alpha is 40% for the first 2 years, then 30% in year 3 What is my total value in 3 years? Year 1 (40% APY) 1,060.6 × 1.4 = 1,484.8 alpha In $TAO: 1,484.8 × 0.0066 ≈ 9.80 $TAO In USD:   
   https://nitter.netbub.com/Pop_Collapse/status/2041570023823528017#m
+- @TargonCompute (Targon, Tue, 01 Sep 2026): Happy to help! Proud to be trusted with running critical workloads such as validators. Very excited to see the talented team at DeSci Labs join the Bittensor ecosystem, their research and expertise are sure to add long-lasting value to the network. 🔬 Claims - Subnet 111 (@DeSciClaims) Our validator for SN111 is running on hardware provided by @TargonCompute. We're super grateful for the fast, reliable setup and the team's amazing support. Thank you, guys! — https://nitter.netbub.com/DeSciClaims/status/2094364807596036575#m  
+  https://nitter.netbub.com/TargonCompute/status/2094908006039236625#m
 - @zeussubnet (Zeus Subnet, Tue, 01 Sep 2026): So you think you know #Bittensor? Now's your chance to prove it. The night before Exploit, we’re putting the community to the test. Protocol history, legendary moments, characters, launches and lore. Join us for the first Bittensor Community Quiz - in person in Montreal. Free for Exploit attendees. Powered by @generaltensor + @zeussubnet Register at: luma.com/7hj5nphs  
   https://nitter.netbub.com/ExploitSummit/status/2094855315930198101#m
 - @mcjkula (mcjkula, Tue, 01 Sep 2026): TAOApp Wallet is here. The self-custody browser wallet for Bittensor. Hold TAO, stake TAO, buy subnet tokens. When there’s more to protect, bring in your Ledger, proxies and multisigs. Install the beta, on Chrome, Brave and Edge. ↓ chromewebstore.google.com/de…  
@@ -212,37 +243,13 @@ _no new posts in the lookback window_
   https://nitter.kareem.one/affine_io/status/2094801258016370976#m
 - @affine_io (Affine, Tue, 01 Sep 2026): Everything you need to compete is public: affine.io/llms.txt  
   https://nitter.netbub.com/affine_io/status/2094801258016370976#m
+- @affine_io (Affine, Tue, 01 Sep 2026): Everything you need to compete is public: affine.io/llms.txt  
+  http://nitter.jaydenha.uk/affine_io/status/2094801258016370976#m
 - @affine_io (Affine, Tue, 01 Sep 2026): Video  
   https://nitter.kareem.one/affine_io/status/2094801103959540005#m
 - @affine_io (Affine, Tue, 01 Sep 2026): Video  
   https://nitter.netbub.com/affine_io/status/2094801103959540005#m
-- @dippy_ai (Dippy AI, Thu, 30 Jul 2026): Excited to have helped @PrunaAI collect 1M+ votes for image preference data in a very short time :~) Pruna AI (@PrunaAI) P-Image-Ideogram dominate the speed-quality and price-quality Pareto frontiers for image generation. It is the result of a unique collaboration with @ideogram_ai. - Four modes (Very low, low, medium, high) for 1K-2K image generation. - Optimal quality-efficiency with 0.4s-7.5s latency, and $0.003-$0.03 price. - Structured JSON control & exact color control. Available via our inference partners @Replicate @inference_sh @scenario_gg @wavespeed_ai @wiroai @magnific @prodialabs   
-  https://nitter.kareem.one/datapointai/status/2082837314603032606#m
-- @dippy_ai (Dippy AI, Thu, 27 Aug 2026): we have significantly upgraded both the basic and super models 🤩🤩 we have also made optimizations to improve response speeds by upto 5x can't wait for you all to experience and enjoy the new dippy 📯📯😸 rolling out to everyone today  
-  https://nitter.kareem.one/dippy_ai/status/2093089771824226802#m
-- @_redteam_ (RedTeam / Innerworks, Thu, 27 Aug 2026): The Immune System for the Internet. Releasing next month. Oscar Hayek (@oscar_hayek) Defence in this era must be AI driven, the absolute baseline is adapting defences faster than attacks are being produced. Anything slower than this leaves you in a constant state of degradation. What we’ve built on @_redteam_ is an immune system for this problem. The attacks we ingest are evolved inside the system into complete novel vectors that cannot be produced anywhere else. Every one of these gets patched before an external attacker has the means/ability to create it, let alone release it. bittensor:nati  
-  http://nitter.jaydenha.uk/_redteam_/status/2093081017145847826#m
-- @tplr_ai (Templar, Thu, 27 Aug 2026): A system designed around identical accelerators depends on a narrow hardware supply. Templar starts from a wider map. Accelerator generations vary, and network conditions change with location. The coordination layer has to treat both as design inputs.  
-  http://nitter.jaydenha.uk/tplr_ai/status/2093022381660942660#m
-- @covenant_ai (Covenant AI, Thu, 27 Aug 2026): A system designed around identical accelerators depends on a narrow hardware supply. Templar starts from a wider map. Accelerator generations vary, and network conditions change with location. The coordination layer has to treat both as design inputs.  
-  https://nitter.netbub.com/tplr_ai/status/2093022381660942660#m
-- @oroagents (Oro, Thu, 20 Aug 2026): Measuring the quality of the long-horizon data is a huge part of solving the AI consumer shopping problem. ORO-Distilled, a 4B model. 5x faster. 50x cheaper. Video  
-  http://nitter.jaydenha.uk/oroagents/status/2090533835192893616#m
-- @oroagents (Oro, Thu, 20 Aug 2026): Measuring the quality of the long-horizon data is a huge part of solving the AI consumer shopping problem. ORO-Distilled, a 4B model. 5x faster. 50x cheaper. Video  
-  https://nitter.kareem.one/oroagents/status/2090533835192893616#m
-- @nigescore (Nige, Thu, 20 Aug 2026): Computer vision engineers are still duct-taping tools together just to get a model into production. We just finished another round of user interviews and that frustration came up again and again. So we re-designed Studio to work around our new Pipelines + Workflow Canvas features. Visually design any vision pipeline from start to finish, connect models, logic, and outputs on one canvas, preview the exact result, then deploy. You see the output before you ship it. Everything in a single interface. The full loop, shaped by the people who actually build vision systems every day. This is what Dece  
-  https://nitter.netbub.com/webuildscore/status/2090422492980515272#m
-- @_redteam_ (RedTeam / Innerworks, Thu, 10 Sep 2026): I am pleased to announce that Stillcore Capital @stillcorecap has invested in Red Team @_redteam_ Bittensor $TAO Subnet 61.  
-  http://nitter.jaydenha.uk/markjeffrey/status/2098171401152971021#m
-- @a16zcrypto (a16z Crypto, Thu, 10 Sep 2026): One step closer. This draft reflects important additional bipartisan compromises and a lot of effort from congressional staffers. This is the best version of market structure yet. a16z crypto (@a16zcrypto) BREAKING: The Senate has just released the latest version of the CLARITY Act. The next vote to move the bill forward will be Tuesday, September 15th at 2:15pm ET. — http://nitter.jaydenha.uk/a16zcrypto/status/2098153058496553100#m  
-  http://nitter.jaydenha.uk/milesjennings/status/2098153491206426757#m
-- @taomedia_ (TAO Media, Thu, 10 Sep 2026): tao.media/lium-tops-localmax… Link Lium Tops LocalMaxxing Qwen3.6 35B Board With 14,499 Tokens Per Second The Bittensor SN51 team says the benchmark shows how rented GPU nodes can serve open models at lower per-token costs than hosted API providers. tao.media  
-  https://nitter.netbub.com/taomedia_/status/2098131743282786409#m
-- @taomedia_ (TAO Media, Thu, 10 Sep 2026): BREAKING: @lium_io has become the top subnet by market cap (our latest coverage in next tweet)  
-  https://nitter.netbub.com/taomedia_/status/2098131740170568178#m
-- @rob_svrn (Rob Greer, Thu, 10 Sep 2026): Civilization began by playing with fire.  
-  https://nitter.kareem.one/xiangyuqi_pton/status/2098122383588835333#m
 
 
 ---
-_Generated at 2026-09-14T09:29:29.931913+00:00 by scripts/intel/aggregate.py. Treat this digest as input context, not as ground truth. Verify before quoting._
+_Generated at 2026-09-14T17:24:57.524086+00:00 by scripts/intel/aggregate.py. Treat this digest as input context, not as ground truth. Verify before quoting._

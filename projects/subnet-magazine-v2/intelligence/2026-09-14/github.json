@@ -1,1 +1,46 @@
-[]
+[
+  {
+    "repo": "opentensor/subtensor",
+    "name": "Subtensor (chain)",
+    "kind": "commit",
+    "sha": "a7ae07e",
+    "message": "Merge pull request #3160 from RaoFoundation/release-v457",
+    "author": "UnArbosFive",
+    "posted_at": "2026-09-14T15:42:18Z",
+    "url": "https://github.com/RaoFoundation/subtensor/commit/a7ae07e5dd37b552f27aa8e4d7716c522eef9aa7",
+    "fetched_at": "2026-09-14T17:24:50.963399+00:00"
+  },
+  {
+    "repo": "opentensor/subtensor",
+    "name": "Subtensor (chain)",
+    "kind": "commit",
+    "sha": "90cfdca",
+    "message": "Bump runtime spec version to 458",
+    "author": "UnArbosFive",
+    "posted_at": "2026-09-14T15:38:59Z",
+    "url": "https://github.com/RaoFoundation/subtensor/commit/90cfdca294c74e632ce1616dd8b09ca5bb8d1885",
+    "fetched_at": "2026-09-14T17:24:50.963399+00:00"
+  },
+  {
+    "repo": "opentensor/subtensor",
+    "name": "Subtensor (chain)",
+    "kind": "commit",
+    "sha": "68987f8",
+    "message": "Publish runtime 457",
+    "author": "Arbos",
+    "posted_at": "2026-09-14T15:28:24Z",
+    "url": "https://github.com/RaoFoundation/subtensor/commit/68987f890a955657ba4294f05f366c7863646670",
+    "fetched_at": "2026-09-14T17:24:50.963399+00:00"
+  },
+  {
+    "repo": "opentensor/subtensor",
+    "name": "Subtensor (chain)",
+    "kind": "commit",
+    "sha": "c6ab473",
+    "message": "Apply runtime 456 security and accounting fixes (#3158)",
+    "author": "UnArbosFive",
+    "posted_at": "2026-09-14T14:49:22Z",
+    "url": "https://github.com/RaoFoundation/subtensor/commit/c6ab4733762201e04bee0ba8c8f27a3d09f75fb2",
+    "fetched_at": "2026-09-14T17:24:50.963399+00:00"
+  }
+]
