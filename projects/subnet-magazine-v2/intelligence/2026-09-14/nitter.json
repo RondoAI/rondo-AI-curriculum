@@ -1,0 +1,632 @@
+[
+  {
+    "handle": "oroagents",
+    "name": "Oro",
+    "posted_at": "Wed, 12 Aug 2026 21:15:59 GMT",
+    "title": "R to @oroagents: The model also reached 53.3% pass@8 versus 34.8% pass@1. That gap tells us the capability is already latent in the model. The remaining challenge is consistently extracting it. A dense teacher-grounded Dr. GRPO reward improved the process score from 0.02 to 0.42 and cut product-ID hallucinations from 14 to zero.",
+    "text": "The model also reached 53.3% pass@8 versus 34.8% pass@1. That gap tells us the capability is already latent in the model. The remaining challenge is consistently extracting it. A dense teacher-grounded Dr. GRPO reward improved the process score from 0.02 to 0.42 and cut product-ID hallucinations from 14 to zero.",
+    "url": "http://nitter.jaydenha.uk/oroagents/status/2087649319822512258#m",
+    "fetched_at": "2026-09-14T02:49:15.489856+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "foundrydigital",
+    "name": "Foundry Digital",
+    "posted_at": "Wed, 11 Jan 2012 23:30:33 GMT",
+    "title": "Expression Engine 2.0 review by the guys at Scriptiny http://bit.ly/w3Pg3R",
+    "text": "Expression Engine 2.0 review by the guys at Scriptiny bit.ly/w3Pg3R",
+    "url": "https://nitter.kareem.one/foundrydigital/status/157243024848596993#m",
+    "fetched_at": "2026-09-14T02:48:52.696820+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "zeussubnet",
+    "name": "Zeus Subnet",
+    "posted_at": "Wed, 09 Sep 2026 14:38:18 GMT",
+    "title": "Zeus is energy-aware. How? 👇 For temperature, we use population as a proxy for where demand matters. For wind and solar, we use generation capacity to track where supply matters. Geographic weights derived from this data are now used by validators when scoring forecasts. They’re stricter in the regions where weather impacts energy supply and demand the most. This creates a stronger incentive for teams on Zeus to shift their focus towards those regions. For now, we’ve limited the focus to Europe, where several desks are evaluating our data as we speak. We may expand to other interesting trading regions, like the US and Australia. *Focus is now 40% Germany, 40% rest of Europe, 20% rest.",
+    "text": "Zeus is energy-aware. How? 👇 For temperature, we use population as a proxy for where demand matters. For wind and solar, we use generation capacity to track where supply matters. Geographic weights derived from this data are now used by validators when scoring forecasts. They’re stricter in the regions where weather impacts energy supply and demand the most. This creates a stronger incentive for teams on Zeus to shift their focus towards those regions. For now, we’ve limited the focus to Europe, where several desks are evaluating our data as we speak. We may expand to other interesting trading",
+    "url": "https://nitter.netbub.com/zeussubnet/status/2097696101822304723#m",
+    "fetched_at": "2026-09-14T02:50:18.996296+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "mcjkula",
+    "name": "mcjkula",
+    "posted_at": "Tue, 30 Dec 2025 05:41:20 GMT",
+    "title": "RT by @mcjkula: 7 months. 55,000+ conversations. 128 subnets. One Savant. Here's what we learned from building the first MCP for @Bittensor.",
+    "text": "7 months. 55,000+ conversations. 128 subnets. One Savant. Here's what we learned from building the first MCP for @Bittensor.",
+    "url": "https://nitter.kareem.one/taoapp_/status/2005876837214228623#m",
+    "fetched_at": "2026-09-14T02:48:10.166565+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "oroagents",
+    "name": "Oro",
+    "posted_at": "Tue, 18 Aug 2026 21:22:27 GMT",
+    "title": "The ORO team has purchased 2500 Tao worth of SN15 alpha with the help of @CrucibleLabs. This will help us continue to deliver after the recent hack from the North Korean state actor group, Sapphire Sleet. Up and onwards 🚀",
+    "text": "The ORO team has purchased 2500 Tao worth of SN15 alpha with the help of @CrucibleLabs. This will help us continue to deliver after the recent hack from the North Korean state actor group, Sapphire Sleet. Up and onwards 🚀",
+    "url": "http://nitter.jaydenha.uk/oroagents/status/2089825274133381136#m",
+    "fetched_at": "2026-09-14T02:49:15.489856+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "mcjkula",
+    "name": "mcjkula",
+    "posted_at": "Tue, 14 Apr 2026 18:41:35 GMT",
+    "title": "See you in Montréal everyone. Not gonna want to miss this one🫡",
+    "text": "See you in Montréal everyone. Not gonna want to miss this one🫡 Exploit Summit (@ExploitSummit) Building on Bittensor is hard. Doing it in isolation is even harder. Exploit puts you in a room with: • The subnet founders who've already solved your problems • The investors actually writing checks • The technical talent you're trying to hire Sept 28-29, Montréal. Two days that could save you six months. Video — https://nitter.kareem.one/ExploitSummit/status/2044100822750114215#m",
+    "url": "https://nitter.kareem.one/mcjkula/status/2044123923088830837#m",
+    "fetched_at": "2026-09-14T02:48:10.166565+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "oroagents",
+    "name": "Oro",
+    "posted_at": "Tue, 08 Sep 2026 18:48:19 GMT",
+    "title": "We're excited to announce that we're going to be joining Y Combinator in Fall 2026. The team is super pumped to be working with @golda and co to continue on our journey of creating the best in class open source models for agentic commerce.",
+    "text": "We're excited to announce that we're going to be joining Y Combinator in Fall 2026. The team is super pumped to be working with @golda and co to continue on our journey of creating the best in class open source models for agentic commerce. Video",
+    "url": "http://nitter.jaydenha.uk/oroagents/status/2097396633764032707#m",
+    "fetched_at": "2026-09-14T02:49:15.489856+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "resilabsai",
+    "name": "RESI",
+    "posted_at": "Tue, 07 Apr 2026 17:33:18 GMT",
+    "title": "RT by @resilabsai: The power of holding Bittensor $TAO subnet alpha Here is an example to illustrate the flywheel of $TAO Let's say you 1,000 alpha of @resilabsai which cost around 7 $TAO 7 $TAO at a price of $310 = $2,170 Current alpha price of Resi, subnet 46: .0066 $TAO Let's make some calculated assumptions. > price of resi alpha stays the same for 3 years > price of $TAO remains the same at $310 > APY for holding Resi alpha is 40% for the first 2 years, then 30% in year 3 What is my total value in 3 years? Year 1 (40% APY) 1,060.6 × 1.4 = 1,484.8 alpha In $TAO: 1,484.8 × 0.0066 ≈ 9.80 $TAO In USD: 9.80 × $310 ≈ $3,038 Year 2 (40% APY again) 1,484.8 × 1.4 = 2,078.8 alpha In $TAO: ≈ 13.72 $TAO In USD: ≈ $4,253 Year 3 (30% APY) 2,078.8 × 1.3 = 2,702.4 alpha In $TAO: ≈ 17.83 $TAO In USD: ≈ $5,527 Now what if the price of Resi alpha went up 2x in year 1, 25% in year 2 and 25% in year 3? Additionally, what if the price of $TAO goes up by 4x? Year 1 Alpha: 1,484.8 $TAO value: 1,484.8 × 0.0132 ≈ 19.6 $TAO USD value: 19.6 × $1,240 ≈ $24,304 Year 2 Alpha: 2,078.8 $TAO value: ≈ 34.3 $TAO USD value: ≈ $42,532 Year 3 Alpha: 2,702.4 $TAO value: ≈ 55.7 $TAO USD value: ≈ $69,068 This is the Bittensor flywheel in effect.",
+    "text": "The power of holding Bittensor $TAO subnet alpha Here is an example to illustrate the flywheel of $TAO Let's say you 1,000 alpha of @resilabsai which cost around 7 $TAO 7 $TAO at a price of $310 = $2,170 Current alpha price of Resi, subnet 46: .0066 $TAO Let's make some calculated assumptions. &gt; price of resi alpha stays the same for 3 years &gt; price of $TAO remains the same at $310 &gt; APY for holding Resi alpha is 40% for the first 2 years, then 30% in year 3 What is my total value in 3 years? Year 1 (40% APY) 1,060.6 × 1.4 = 1,484.8 alpha In $TAO: 1,484.8 × 0.0066 ≈ 9.80 $TAO In USD: ",
+    "url": "https://nitter.netbub.com/Pop_Collapse/status/2041570023823528017#m",
+    "fetched_at": "2026-09-14T02:49:58.023444+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "zeussubnet",
+    "name": "Zeus Subnet",
+    "posted_at": "Tue, 01 Sep 2026 18:30:02 GMT",
+    "title": "RT by @zeussubnet: So you think you know #Bittensor? Now's your chance to prove it. The night before Exploit, we’re putting the community to the test. Protocol history, legendary moments, characters, launches and lore. Join us for the first Bittensor Community Quiz - in person in Montreal. Free for Exploit attendees. Powered by @generaltensor + @zeussubnet Register at: https://luma.com/7hj5nphs",
+    "text": "So you think you know #Bittensor? Now's your chance to prove it. The night before Exploit, we’re putting the community to the test. Protocol history, legendary moments, characters, launches and lore. Join us for the first Bittensor Community Quiz - in person in Montreal. Free for Exploit attendees. Powered by @generaltensor + @zeussubnet Register at: luma.com/7hj5nphs",
+    "url": "https://nitter.netbub.com/ExploitSummit/status/2094855315930198101#m",
+    "fetched_at": "2026-09-14T02:50:18.996296+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "mcjkula",
+    "name": "mcjkula",
+    "posted_at": "Tue, 01 Sep 2026 17:30:03 GMT",
+    "title": "RT by @mcjkula: TAOApp Wallet is here. The self-custody browser wallet for Bittensor. Hold TAO, stake TAO, buy subnet tokens. When there’s more to protect, bring in your Ledger, proxies and multisigs. Install the beta, on Chrome, Brave and Edge. ↓ https://chromewebstore.google.com/detail/taoapp-wallet/plipkdflloklldnmnjdlonijlihafjjc",
+    "text": "TAOApp Wallet is here. The self-custody browser wallet for Bittensor. Hold TAO, stake TAO, buy subnet tokens. When there’s more to protect, bring in your Ledger, proxies and multisigs. Install the beta, on Chrome, Brave and Edge. ↓ chromewebstore.google.com/de…",
+    "url": "https://nitter.kareem.one/taoapp_/status/2094840222441992209#m",
+    "fetched_at": "2026-09-14T02:48:10.166565+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "affine_io",
+    "name": "Affine",
+    "posted_at": "Tue, 01 Sep 2026 14:55:14 GMT",
+    "title": "R to @affine_io: Everything you need to compete is public: https://affine.io/llms.txt",
+    "text": "Everything you need to compete is public: affine.io/llms.txt",
+    "url": "https://nitter.kareem.one/affine_io/status/2094801258016370976#m",
+    "fetched_at": "2026-09-14T02:50:02.547097+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "affine_io",
+    "name": "Affine",
+    "posted_at": "Tue, 01 Sep 2026 14:54:37 GMT",
+    "title": "Video",
+    "text": "Video",
+    "url": "https://nitter.kareem.one/affine_io/status/2094801103959540005#m",
+    "fetched_at": "2026-09-14T02:50:02.547097+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "dippy_ai",
+    "name": "Dippy AI",
+    "posted_at": "Thu, 30 Jul 2026 14:34:47 GMT",
+    "title": "RT by @dippy_ai: Excited to have helped @PrunaAI collect 1M+ votes for image preference data in a very short time :~)",
+    "text": "Excited to have helped @PrunaAI collect 1M+ votes for image preference data in a very short time :~) Pruna AI (@PrunaAI) P-Image-Ideogram dominate the speed-quality and price-quality Pareto frontiers for image generation. It is the result of a unique collaboration with @ideogram_ai. - Four modes (Very low, low, medium, high) for 1K-2K image generation. - Optimal quality-efficiency with 0.4s-7.5s latency, and $0.003-$0.03 price. - Structured JSON control & exact color control. Available via our inference partners @Replicate @inference_sh @scenario_gg @wavespeed_ai @wiroai @magnific @prodialabs ",
+    "url": "https://nitter.kareem.one/datapointai/status/2082837314603032606#m",
+    "fetched_at": "2026-09-14T02:50:10.215705+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "dippy_ai",
+    "name": "Dippy AI",
+    "posted_at": "Thu, 27 Aug 2026 21:34:23 GMT",
+    "title": "we have significantly upgraded both the basic and super models 🤩🤩 we have also made optimizations to improve response speeds by upto 5x can't wait for you all to experience and enjoy the new dippy 📯📯😸 rolling out to everyone today",
+    "text": "we have significantly upgraded both the basic and super models 🤩🤩 we have also made optimizations to improve response speeds by upto 5x can't wait for you all to experience and enjoy the new dippy 📯📯😸 rolling out to everyone today",
+    "url": "https://nitter.kareem.one/dippy_ai/status/2093089771824226802#m",
+    "fetched_at": "2026-09-14T02:50:10.215705+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "oroagents",
+    "name": "Oro",
+    "posted_at": "Thu, 20 Aug 2026 20:18:01 GMT",
+    "title": "Measuring the quality of the long-horizon data is a huge part of solving the AI consumer shopping problem. ORO-Distilled, a 4B model. 5x faster. 50x cheaper.",
+    "text": "Measuring the quality of the long-horizon data is a huge part of solving the AI consumer shopping problem. ORO-Distilled, a 4B model. 5x faster. 50x cheaper. Video",
+    "url": "http://nitter.jaydenha.uk/oroagents/status/2090533835192893616#m",
+    "fetched_at": "2026-09-14T02:49:15.489856+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "1inch",
+    "name": "1inch",
+    "posted_at": "Thu, 10 Sep 2026 17:30:00 GMT",
+    "title": "R to @1inch: @cronosapp 1inch is live, full stack included. One more major ecosystem with best execution and Aqua liquidity from day one.",
+    "text": "@cronosapp 1inch is live, full stack included. One more major ecosystem with best execution and Aqua liquidity from day one. Video",
+    "url": "https://nitter.kareem.one/1inch/status/2098101699663544815#m",
+    "fetched_at": "2026-09-14T02:49:33.820428+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "1inch",
+    "name": "1inch",
+    "posted_at": "Thu, 10 Sep 2026 17:30:00 GMT",
+    "title": "R to @1inch: HyperEVM @HyperliquidX. 1inch is live on HyperEVM. One of the most active trading ecosystems in DeFi now has the full stack behind it, Aqua included. There is no second best.",
+    "text": "HyperEVM @HyperliquidX. 1inch is live on HyperEVM. One of the most active trading ecosystems in DeFi now has the full stack behind it, Aqua included. There is no second best. Video",
+    "url": "https://nitter.kareem.one/1inch/status/2098101699172839484#m",
+    "fetched_at": "2026-09-14T02:49:33.820428+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "1inch",
+    "name": "1inch",
+    "posted_at": "Thu, 10 Sep 2026 17:30:00 GMT",
+    "title": "R to @1inch: @monad We went live yesterday, and the same day Aqua crossed $1b total volume, Monad crossed $1b TVL. One of the fastest EVMs now runs the full stack. Welcome to the 1billy club 💜",
+    "text": "@monad We went live yesterday, and the same day Aqua crossed $1b total volume, Monad crossed $1b TVL. One of the fastest EVMs now runs the full stack. Welcome to the 1billy club 💜 Video",
+    "url": "https://nitter.kareem.one/1inch/status/2098101698417889444#m",
+    "fetched_at": "2026-09-14T02:49:33.820428+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "dippy_ai",
+    "name": "Dippy AI",
+    "posted_at": "Thu, 04 Jun 2026 15:53:04 GMT",
+    "title": "RT by @dippy_ai: Today, we’re opening up Datapoint AI for anyone to use. It is by far the fastest way to understand what your customers want. Type a question. Real people answer. You get a report back in ~10 minutes, not three weeks, and at a fraction of the cost.",
+    "text": "Today, we’re opening up Datapoint AI for anyone to use. It is by far the fastest way to understand what your customers want. Type a question. Real people answer. You get a report back in ~10 minutes, not three weeks, and at a fraction of the cost. Video",
+    "url": "https://nitter.kareem.one/datapointai/status/2062563294880075837#m",
+    "fetched_at": "2026-09-14T02:50:10.215705+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "zeussubnet",
+    "name": "Zeus Subnet",
+    "posted_at": "Thu, 03 Sep 2026 15:33:05 GMT",
+    "title": "While energy supply becomes more and more weather-dependent, our mission is to give traders the fastest, most precise view on weather ✅ 75% faster* ✅ >30% more accurate on temperature* ✅ >20% more accurate on wind* *vs ECMWF IFS across June and July",
+    "text": "While energy supply becomes more and more weather-dependent, our mission is to give traders the fastest, most precise view on weather ✅ 75% faster* ✅ &gt;30% more accurate on temperature* ✅ &gt;20% more accurate on wind* *vs ECMWF IFS across June and July",
+    "url": "https://nitter.netbub.com/zeussubnet/status/2095535560102203644#m",
+    "fetched_at": "2026-09-14T02:50:18.996296+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "wallstreetbets",
+    "name": "WallStreetBets (X)",
+    "posted_at": "Sun, 13 Sep 2026 23:32:58 GMT",
+    "title": "JUST IN: Meta CEO Mark Zuckerberg’s stance on AI is the opposite of Anthropic, OpenAI and Elon Musk Zuckerberg says the US should accelerate AI development, not slow it down",
+    "text": "JUST IN: Meta CEO Mark Zuckerberg’s stance on AI is the opposite of Anthropic, OpenAI and Elon Musk Zuckerberg says the US should accelerate AI development, not slow it down WallStreetBets (@wallstreetbets) BREAKING: Anthropic CEO Dario Amodei says \"we must slow down\" AI development Within 6-12 months, he warns a misaligned AI swarm could take over \"the entire internet\" through a botnet and cause hundreds of billions in damage even people building AI think it’s moving too fast — http://nitter.jaydenha.uk/wallstreetbets/status/2098792452698017799#m",
+    "url": "http://nitter.jaydenha.uk/wallstreetbets/status/2099280206615789575#m",
+    "fetched_at": "2026-09-14T02:50:12.929688+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "JosephJacks_",
+    "name": "Joseph Jacks",
+    "posted_at": "Sun, 13 Sep 2026 22:34:42 GMT",
+    "title": "RT by @JosephJacks_: The contagion of fear https://bcantrill.dtrace.org/2026/09/13/the-contagion-of-fear/",
+    "text": "The contagion of fear bcantrill.dtrace.org/2026/09… Link The contagion of fear I have a difficult confession to make — a shameful incident that I have never spoken of, even to those closest to me. Late one night in my first year at university and having found computer science... bcantrill.dtrace.org",
+    "url": "https://nitter.netbub.com/bcantrill/status/2099265541383065861#m",
+    "fetched_at": "2026-09-14T02:48:24.367943+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "wallstreetbets",
+    "name": "WallStreetBets (X)",
+    "posted_at": "Sun, 13 Sep 2026 18:49:24 GMT",
+    "title": "NFL on Hyperliquid now lol who we got, Rams or Bills?",
+    "text": "NFL on Hyperliquid now lol who we got, Rams or Bills? Outcome (@Outcomexyz) KICKOFF SEASON HAS ARRIVED. TRADE EVERY NFL GAME ON HYPERLIQUID, STARTING NOW. — http://nitter.jaydenha.uk/Outcomexyz/status/2099156630969762250#m",
+    "url": "http://nitter.jaydenha.uk/wallstreetbets/status/2099208845738319924#m",
+    "fetched_at": "2026-09-14T02:50:12.929688+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "wallstreetbets",
+    "name": "WallStreetBets (X)",
+    "posted_at": "Sun, 13 Sep 2026 16:46:36 GMT",
+    "title": "JUST IN: Claude developer Anthropic has reportedly selected Nasdaq for its IPO The company has been targeting an October listing",
+    "text": "JUST IN: Claude developer Anthropic has reportedly selected Nasdaq for its IPO The company has been targeting an October listing",
+    "url": "http://nitter.jaydenha.uk/wallstreetbets/status/2099177939694657639#m",
+    "fetched_at": "2026-09-14T02:50:12.929688+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "wallstreetbets",
+    "name": "WallStreetBets (X)",
+    "posted_at": "Sun, 13 Sep 2026 16:44:05 GMT",
+    "title": "JUST IN: 🇺🇸 President Trump rejects calls to slow AI development \"we’re leading China in AI\" and \"whoever wins AI wins\" says many AI fears are being pushed by \"very negative forces\"",
+    "text": "JUST IN: 🇺🇸 President Trump rejects calls to slow AI development \"we’re leading China in AI\" and \"whoever wins AI wins\" says many AI fears are being pushed by \"very negative forces\" WallStreetBets (@wallstreetbets) BREAKING: Anthropic CEO Dario Amodei says \"we must slow down\" AI development Within 6-12 months, he warns a misaligned AI swarm could take over \"the entire internet\" through a botnet and cause hundreds of billions in damage even people building AI think it’s moving too fast — http://nitter.jaydenha.uk/wallstreetbets/status/2098792452698017799#m",
+    "url": "http://nitter.jaydenha.uk/wallstreetbets/status/2099177308347068911#m",
+    "fetched_at": "2026-09-14T02:50:12.929688+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "const_reborn",
+    "name": "Jacob Steeves",
+    "posted_at": "Sun, 13 Sep 2026 16:42:23 GMT",
+    "title": "we will need compute (@lium_io, @TargonCompute) we will need inference (@engyai, @chutes_ai) we will need data (@Hippius_cloud) we will need knowledge (@teutonic) If we are going to have free intelligence (@affine_io)",
+    "text": "we will need compute (@lium_io, @TargonCompute) we will need inference (@engyai, @chutes_ai) we will need data (@Hippius_cloud) we will need knowledge (@teutonic) If we are going to have free intelligence (@affine_io)",
+    "url": "https://nitter.kareem.one/const_reborn/status/2099176877508219132#m",
+    "fetched_at": "2026-09-14T02:47:59.346862+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "JosephJacks_",
+    "name": "Joseph Jacks",
+    "posted_at": "Sun, 13 Sep 2026 15:54:10 GMT",
+    "title": "Logical.",
+    "text": "Logical. Paul Graham (@paulg) If the model companies are all going to slow down, this makes it slightly more feasible to start a new model company. — https://nitter.netbub.com/paulg/status/2099108449669849393#m",
+    "url": "https://nitter.netbub.com/JosephJacks_/status/2099164744867328257#m",
+    "fetched_at": "2026-09-14T02:48:24.367943+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "JosephJacks_",
+    "name": "Joseph Jacks",
+    "posted_at": "Sun, 13 Sep 2026 11:45:00 GMT",
+    "title": "RT by @JosephJacks_: 🚨: Nobel Prize physicist Roger Penrose claims there is no such thing as nothingness. Your soul is eternal because matter cannot be destroyed.",
+    "text": "🚨: Nobel Prize physicist Roger Penrose claims there is no such thing as nothingness. Your soul is eternal because matter cannot be destroyed.",
+    "url": "https://nitter.netbub.com/latestincosmos/status/2099102039133278564#m",
+    "fetched_at": "2026-09-14T02:48:24.367943+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "const_reborn",
+    "name": "Jacob Steeves",
+    "posted_at": "Sun, 13 Sep 2026 11:40:48 GMT",
+    "title": "The question is not whether open source AI can be shut down. It is whether the funding for OSS AI can be shut down. All OSS models, Meta, DeepSeek, Mistral are just arms of fiat funded corporations or the state itself. The ML community has yet to swallow this pill. They will.",
+    "text": "The question is not whether open source AI can be shut down. It is whether the funding for OSS AI can be shut down. All OSS models, Meta, DeepSeek, Mistral are just arms of fiat funded corporations or the state itself. The ML community has yet to swallow this pill. They will. const (@const_reborn) No. But they can defund it. — https://nitter.kareem.one/const_reborn/status/2099098962082840635#m",
+    "url": "https://nitter.kareem.one/const_reborn/status/2099100984802697389#m",
+    "fetched_at": "2026-09-14T02:47:59.346862+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "const_reborn",
+    "name": "Jacob Steeves",
+    "posted_at": "Sun, 13 Sep 2026 11:32:46 GMT",
+    "title": "No. But they can defund it.",
+    "text": "No. But they can defund it. Elon Musk (@elonmusk) Nothing can shut down open source — https://nitter.kareem.one/elonmusk/status/2099026767357120523#m",
+    "url": "https://nitter.kareem.one/const_reborn/status/2099098962082840635#m",
+    "fetched_at": "2026-09-14T02:47:59.346862+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "jtledore",
+    "name": "Jean-Thomas Ledoré",
+    "posted_at": "Sun, 13 Sep 2026 11:11:12 GMT",
+    "title": "RT by @jtledore: Bittensor Ecosystem Highlights :: September 07–13, 2026",
+    "text": "Article Bittensor Ecosystem Highlights :: September 07–13, 2026 This week’s biggest stories across Bittensor came from Lium, Chutes, Oro, Pareton, Hippius and Bitcast. [ @lium_io - Subnet 51 ] Lium generated nearly $1M in revenue this month and used revenue to",
+    "url": "https://nitter.netbub.com/opentensor/status/2099093534921916665#m",
+    "fetched_at": "2026-09-14T02:49:26.716325+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "jtledore",
+    "name": "Jean-Thomas Ledoré",
+    "posted_at": "Sun, 13 Sep 2026 06:45:54 GMT",
+    "title": "RT by @jtledore: Nothing can shut down open source",
+    "text": "Nothing can shut down open source",
+    "url": "https://nitter.netbub.com/elonmusk/status/2099026767357120523#m",
+    "fetched_at": "2026-09-14T02:49:26.716325+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "jtledore",
+    "name": "Jean-Thomas Ledoré",
+    "posted_at": "Sun, 13 Sep 2026 02:37:30 GMT",
+    "title": "RT by @jtledore: Can’t wait for the world to learn that this is bittensor",
+    "text": "Can’t wait for the world to learn that this is bittensor Beff (e/acc) (@beffjezos) If you are reading this, the only possible resistance is to build decentralized, permissionless, and sovereign AI. Open source, self-hosting tools, RL post-training, local inference, open harnesses, we must build it all. We must fight overcentralization with an open stack. — https://nitter.netbub.com/beffjezos/status/2098861431705972990#m",
+    "url": "https://nitter.netbub.com/Old_Samster/status/2098964258243444774#m",
+    "fetched_at": "2026-09-14T02:49:26.716325+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "dippy_ai",
+    "name": "Dippy AI",
+    "posted_at": "Sun, 09 Aug 2026 23:27:27 GMT",
+    "title": "We are experiencing an issue with our database provider @supabase , so the app & website may be down for a few more hours. We’ll send a notification when we are able to recover and the app is back to normal! Apologies for the inconvenience 😿😿",
+    "text": "We are experiencing an issue with our database provider @supabase , so the app &amp; website may be down for a few more hours. We’ll send a notification when we are able to recover and the app is back to normal! Apologies for the inconvenience 😿😿",
+    "url": "https://nitter.kareem.one/dippy_ai/status/2086595242422149540#m",
+    "fetched_at": "2026-09-14T02:50:10.215705+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "resilabsai",
+    "name": "RESI",
+    "posted_at": "Sat, 18 Apr 2026 04:42:22 GMT",
+    "title": "RT by @resilabsai: Traditional centralized real estate data platforms are fundamentally flawed and often serve to extract wealth from users. @resilabsai (Subnet 46) is breaking this monopoly through decentralized AI technology that delivers up to 99% valuation accuracy. Skip the corporate intermediaries—this AI-powered home valuation tool provides the most reliable housing market forecasts for 2026",
+    "text": "Traditional centralized real estate data platforms are fundamentally flawed and often serve to extract wealth from users. @resilabsai (Subnet 46) is breaking this monopoly through decentralized AI technology that delivers up to 99% valuation accuracy. Skip the corporate intermediaries—this AI-powered home valuation tool provides the most reliable housing market forecasts for 2026 Video SEBY (@sebyrubino) The @resilabsai Portal is LIVE! Any agent or real estate professional can now easily access our SOTA remote appraisals. We built RESI as a compounding network that will naturally accelerate in",
+    "url": "https://nitter.netbub.com/3rdeye_rav3n/status/2045362275045753234#m",
+    "fetched_at": "2026-09-14T02:49:58.023444+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "jon_durbin",
+    "name": "Jon Durbin",
+    "posted_at": "Sat, 12 Sep 2026 18:54:30 GMT",
+    "title": "Now we accelerate.",
+    "text": "Now we accelerate. Dario Amodei (@DarioAmodei) We Must Pace the Frontier: I’ve written a new essay on why the AI industry should slow down, with a three-part plan for doing so. Anthropic is unilaterally committing to the first of these steps. We’ll provide third-party evaluators with permanent, employee-level access to our systems, so that they can verify adherence to our safety measures, report on incidents, and assess models’ alignment during training. You can read the full post here: darioamodei.com/post/we-must… Link Dario Amodei — We Must Pace the Frontier darioamodei.com — https://nitter",
+    "url": "https://nitter.netbub.com/jon_durbin/status/2098847739417129280#m",
+    "fetched_at": "2026-09-14T02:48:57.519700+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "const_reborn",
+    "name": "Jacob Steeves",
+    "posted_at": "Sat, 12 Sep 2026 17:01:13 GMT",
+    "title": "R to @const_reborn: pay no heed, just come mine the future.",
+    "text": "pay no heed, just come mine the future.",
+    "url": "https://nitter.kareem.one/const_reborn/status/2098819229885551032#m",
+    "fetched_at": "2026-09-14T02:47:59.346862+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "const_reborn",
+    "name": "Jacob Steeves",
+    "posted_at": "Sat, 12 Sep 2026 17:00:02 GMT",
+    "title": "mortal enemies find agreement in one thing: that the ladder should be pulled up behind them. Pepsi \"vs\" Coke",
+    "text": "mortal enemies find agreement in one thing: that the ladder should be pulled up behind them. Pepsi \"vs\" Coke Sam Altman (@sama) I agree with Dario that we need to pace the frontier. This has been a primary topic of discussions we've had at OpenAI in recent weeks. Committing to having independent evaluators with employee-like access is a great idea, and we will do the same. We'll have more to share soon. — https://nitter.kareem.one/sama/status/2098811563415150910#m",
+    "url": "https://nitter.kareem.one/const_reborn/status/2098818933318963365#m",
+    "fetched_at": "2026-09-14T02:47:59.346862+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "jon_durbin",
+    "name": "Jon Durbin",
+    "posted_at": "Sat, 12 Sep 2026 17:00:02 GMT",
+    "title": "RT by @jon_durbin: mortal enemies find agreement in one thing: that the ladder should be pulled up behind them. Pepsi \"vs\" Coke",
+    "text": "mortal enemies find agreement in one thing: that the ladder should be pulled up behind them. Pepsi \"vs\" Coke Sam Altman (@sama) I agree with Dario that we need to pace the frontier. This has been a primary topic of discussions we've had at OpenAI in recent weeks. Committing to having independent evaluators with employee-like access is a great idea, and we will do the same. We'll have more to share soon. — https://nitter.netbub.com/sama/status/2098811563415150910#m",
+    "url": "https://nitter.netbub.com/const_reborn/status/2098818933318963365#m",
+    "fetched_at": "2026-09-14T02:48:57.519700+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "jon_durbin",
+    "name": "Jon Durbin",
+    "posted_at": "Sat, 12 Sep 2026 11:20:21 GMT",
+    "title": "4 nodes down already in 2 days - Friends don't let friends build infra on RTX 5090s (unless you're stress testing).",
+    "text": "4 nodes down already in 2 days - Friends don't let friends build infra on RTX 5090s (unless you're stress testing). Jon Durbin (@jon_durbin) And if you're wondering why I used 5090s for this, it's because they are the worst GPUs on earth for stability at this utilization and have like 50% failure rate in my experience thus far (at least 1 of 8 dropping off bus or producing NaNs randomly etc.). Stress test. — https://nitter.netbub.com/jon_durbin/status/2098102402255655260#m",
+    "url": "https://nitter.netbub.com/jon_durbin/status/2098733447481110860#m",
+    "fetched_at": "2026-09-14T02:48:57.519700+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "resilabsai",
+    "name": "RESI",
+    "posted_at": "Sat, 08 Aug 2026 01:27:26 GMT",
+    "title": "Pinned: Attention Res Labs we have some really exciting news and updates to our project join our discord to stay up to date: https://discord.gg/TBj8q9vb2Q #bittensor #TAO bittensor:native #reslabs #reilabsai #crypto #subnet #subnet46 #reslabs_ai #reslabsai #opentensor #reptides",
+    "text": "Attention Res Labs we have some really exciting news and updates to our project join our discord to stay up to date: discord.gg/TBj8q9vb2Q #bittensor #TAO bittensor:native #reslabs #reilabsai #crypto #subnet #subnet46 #reslabs_ai #reslabsai #opentensor #reptides",
+    "url": "https://nitter.netbub.com/resilabsai/status/2085900662139744548#m",
+    "fetched_at": "2026-09-14T02:49:58.023444+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "zeussubnet",
+    "name": "Zeus Subnet",
+    "posted_at": "Mon, 31 Aug 2026 07:57:01 GMT",
+    "title": "Zeus (SN18), recent sell pressure resolved. An early partner who covered the slot registration fee (and held a share of emissions in return) decided to wind down and move on. Although we do not agree with the decision, we respect it. Their remaining position has been fully bought out by a long-term holder. We, Ørpheus AI, own the subnet 100% now.",
+    "text": "Zeus (SN18), recent sell pressure resolved. An early partner who covered the slot registration fee (and held a share of emissions in return) decided to wind down and move on. Although we do not agree with the decision, we respect it. Their remaining position has been fully bought out by a long-term holder. We, Ørpheus AI, own the subnet 100% now.",
+    "url": "https://nitter.netbub.com/zeussubnet/status/2094333622190841951#m",
+    "fetched_at": "2026-09-14T02:50:18.996296+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "resilabsai",
+    "name": "RESI",
+    "posted_at": "Mon, 20 Apr 2026 19:34:17 GMT",
+    "title": "RT by @resilabsai: I am pleased to announce that Stillcore Capital @stillcorecap has invested in RESI @resilabsai (Bittensor Subnet 46).",
+    "text": "I am pleased to announce that Stillcore Capital @stillcorecap has invested in RESI @resilabsai (Bittensor Subnet 46).",
+    "url": "https://nitter.netbub.com/markjeffrey/status/2046311512621670731#m",
+    "fetched_at": "2026-09-14T02:49:58.023444+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "oroagents",
+    "name": "Oro",
+    "posted_at": "Mon, 17 Aug 2026 15:29:03 GMT",
+    "title": "RT by @oroagents: AI models are poised and ready. But the training data isn't. So @shardiban manufactures it. @oroagents turns agent tasks into a competition, and the best runs become the data the next generation learns from. Ex- @AWS, early decentralized-AI researcher, now proving it on commerce. You don't need to know Bittensor to care - if you build agents, this is your problem too. He's on the Exploit stage this September: https://luma.com/exploitsummit26",
+    "text": "AI models are poised and ready. But the training data isn't. So @shardiban manufactures it. @oroagents turns agent tasks into a competition, and the best runs become the data the next generation learns from. Ex- @AWS, early decentralized-AI researcher, now proving it on commerce. You don't need to know Bittensor to care - if you build agents, this is your problem too. He's on the Exploit stage this September: luma.com/exploitsummit26 Video",
+    "url": "http://nitter.jaydenha.uk/ExploitSummit/status/2089373953769025843#m",
+    "fetched_at": "2026-09-14T02:49:15.489856+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "JosephJacks_",
+    "name": "Joseph Jacks",
+    "posted_at": "Mon, 14 Sep 2026 02:41:28 GMT",
+    "title": "PSA to all enterprises: @planepowers = Agentic Sovereignty",
+    "text": "PSA to all enterprises: @planepowers = Agentic Sovereignty",
+    "url": "https://nitter.netbub.com/JosephJacks_/status/2099327645037298145#m",
+    "fetched_at": "2026-09-14T02:48:24.367943+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "JosephJacks_",
+    "name": "Joseph Jacks",
+    "posted_at": "Mon, 14 Sep 2026 02:34:01 GMT",
+    "title": "😂 This is a hilariously disgusting revisionist history take by Vinod. Sun Microsystems did not “practically start” open source…. Sun took freely shared academic Unix code, baked it into a proprietary OS, and locked the source away. Richard Stallman was so triggered by this that he created Free Software (the fundamental origin of open source)… then invented the GPL and \"copyleft\", a genius legal hack to ensure corporations could never permanently hoard community code again. Thank you Richard Stallman.",
+    "text": "😂 This is a hilariously disgusting revisionist history take by Vinod. Sun Microsystems did not “practically start” open source…. Sun took freely shared academic Unix code, baked it into a proprietary OS, and locked the source away. Richard Stallman was so triggered by this that he created Free Software (the fundamental origin of open source)… then invented the GPL and \"copyleft\", a genius legal hack to ensure corporations could never permanently hoard community code again. Thank you Richard Stallman. Vinod Khosla (@vkhosla) To be clear we practically started open source movement at Sun and we ",
+    "url": "https://nitter.netbub.com/JosephJacks_/status/2099325768044306587#m",
+    "fetched_at": "2026-09-14T02:48:24.367943+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "wallstreetbets",
+    "name": "WallStreetBets (X)",
+    "posted_at": "Mon, 14 Sep 2026 01:30:01 GMT",
+    "title": "clarity is near",
+    "text": "clarity is near",
+    "url": "http://nitter.jaydenha.uk/wallstreetbets/status/2099309660666810841#m",
+    "fetched_at": "2026-09-14T02:50:12.929688+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "mcjkula",
+    "name": "mcjkula",
+    "posted_at": "Mon, 13 Apr 2026 09:59:22 GMT",
+    "title": "For anyone that wants to get an idea of what the discussion will be about on this week with Const, this one is worth to read and form opinions/prepare questions about 🫡",
+    "text": "For anyone that wants to get an idea of what the discussion will be about on this week with Const, this one is worth to read and form opinions/prepare questions about 🫡 Learn Bittensor (@learnbittensor) 🔒Locked Stake & Conviction are Being Proposed for Bittensor Subnet ownership may be about to change. BIT-0011 proposes that anyone can challenge for ownership of a subnet by locking their ALPHA stake and building \"conviction.\" Right now, inactive subnet owners can hold onto subnets indefinitely. 'Locked Stake' would make ownership a contest of commitment, giving motivated participants a path to",
+    "url": "https://nitter.kareem.one/mcjkula/status/2043630114567491654#m",
+    "fetched_at": "2026-09-14T02:48:10.166565+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "dippy_ai",
+    "name": "Dippy AI",
+    "posted_at": "Mon, 10 Aug 2026 15:35:59 GMT",
+    "title": "We are FINALLY back online! We deeply apologize for this issue extending nearly 24 hours 🥲 As a token of thanks for your patience, we are REMOVING CHAT LIMITS for the remainder of this month 😻😻 P.S: don't worry, we'll also reinstate your streaks :~)",
+    "text": "We are FINALLY back online! We deeply apologize for this issue extending nearly 24 hours 🥲 As a token of thanks for your patience, we are REMOVING CHAT LIMITS for the remainder of this month 😻😻 P.S: don't worry, we'll also reinstate your streaks :~)",
+    "url": "https://nitter.kareem.one/dippy_ai/status/2086838981627420847#m",
+    "fetched_at": "2026-09-14T02:50:10.215705+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "affine_io",
+    "name": "Affine",
+    "posted_at": "Mon, 07 Sep 2026 15:31:09 GMT",
+    "title": "A model doesn’t need to be the largest to matter. On Affine, models compete on how well their reasoning supports the next action across code, tool use and math. A winner could put that reasoning to work in products, either directly or alongside a larger model.",
+    "text": "A model doesn’t need to be the largest to matter. On Affine, models compete on how well their reasoning supports the next action across code, tool use and math. A winner could put that reasoning to work in products, either directly or alongside a larger model. Video",
+    "url": "https://nitter.kareem.one/affine_io/status/2096984627059810338#m",
+    "fetched_at": "2026-09-14T02:50:02.547097+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "resilabsai",
+    "name": "RESI",
+    "posted_at": "Mon, 06 Apr 2026 13:56:00 GMT",
+    "title": "RT by @resilabsai: Chainlink gave DeFi price feeds. @resilabsai is doing the same for real estate. From static appraisals to dynamic, onchain pricing. It's already honing in on Zillow's pricing accuracy, and only a matter of weeks before it surpasses it!",
+    "text": "Chainlink gave DeFi price feeds. @resilabsai is doing the same for real estate. From static appraisals to dynamic, onchain pricing. It's already honing in on Zillow's pricing accuracy, and only a matter of weeks before it surpasses it!",
+    "url": "https://nitter.netbub.com/gordonfrayne/status/2041152947925512465#m",
+    "fetched_at": "2026-09-14T02:49:58.023444+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "foundrydigital",
+    "name": "Foundry Digital",
+    "posted_at": "Mon, 02 Jan 2012 23:00:41 GMT",
+    "title": "Early predictions for design trends of 2012? http://tiny.cc/mkg4v",
+    "text": "Early predictions for design trends of 2012? tiny.cc/mkg4v",
+    "url": "https://nitter.kareem.one/foundrydigital/status/153974018557493248#m",
+    "fetched_at": "2026-09-14T02:48:52.696820+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "affine_io",
+    "name": "Affine",
+    "posted_at": "Fri, 28 Aug 2026 18:11:13 GMT",
+    "title": "United against the divided. Intelligence knows neither borders nor color. Uphold the torch with us to bring light where it is needed most. Open reasoning for humanity. Join the thousand-year intelligence federation. https://affine.io",
+    "text": "United against the divided. Intelligence knows neither borders nor color. Uphold the torch with us to bring light where it is needed most. Open reasoning for humanity. Join the thousand-year intelligence federation. affine.io scouτ (@scoutesy) The same way neutron stars form gold through merging, affine orchestrates reasoning through open collaboration. Unus pro omnibus, omnes pro uno. Tao of a million symmetries. Video — https://nitter.kareem.one/scoutesy/status/2093400328062296312#m",
+    "url": "https://nitter.kareem.one/affine_io/status/2093401028763013596#m",
+    "fetched_at": "2026-09-14T02:50:02.547097+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "zeussubnet",
+    "name": "Zeus Subnet",
+    "posted_at": "Fri, 28 Aug 2026 13:02:47 GMT",
+    "title": "Zeus gets a 10/10 from Arbos, by @const_reborn",
+    "text": "Zeus gets a 10/10 from Arbos, by @const_reborn",
+    "url": "https://nitter.netbub.com/zeussubnet/status/2093323407345467453#m",
+    "fetched_at": "2026-09-14T02:50:18.996296+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "robmyers",
+    "name": "Robert Myers",
+    "posted_at": "Fri, 26 Mar 2021 03:30:22 GMT",
+    "title": "Try @rheaplex instead.",
+    "text": "Try @rheaplex instead.",
+    "url": "https://nitter.kareem.one/robmyers/status/1375288994989101059#m",
+    "fetched_at": "2026-09-14T02:49:10.627703+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "mcjkula",
+    "name": "mcjkula",
+    "posted_at": "Fri, 13 Feb 2026 21:46:49 GMT",
+    "title": "Block #4,920,351 to Block #7,537,718 1 year. No going back.",
+    "text": "Block #4,920,351 to Block #7,537,718 1 year. No going back.",
+    "url": "https://nitter.kareem.one/mcjkula/status/2022427265955762602#m",
+    "fetched_at": "2026-09-14T02:48:10.166565+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "jon_durbin",
+    "name": "Jon Durbin",
+    "posted_at": "Fri, 11 Sep 2026 16:17:01 GMT",
+    "title": "Remember, the main point here is not even the decentralized training (even if it's what I'd consider a step change). The real magic is in the inference optimizations it enables. (sparse fp4 native compute for routed experts, fixed kv cache for most of the attention, sparse latent for the rest, tiny model weights, etc.) This is just from an unoptimized vllm branch on our model arch, not even really tuned yet. Maybe not an entirely fair comparison need a lot more models to compare against and some nuance and so on, but this is the whole point. Limitless tokens on cheap hardware.",
+    "text": "Remember, the main point here is not even the decentralized training (even if it's what I'd consider a step change). The real magic is in the inference optimizations it enables. (sparse fp4 native compute for routed experts, fixed kv cache for most of the attention, sparse latent for the rest, tiny model weights, etc.) This is just from an unoptimized vllm branch on our model arch, not even really tuned yet. Maybe not an entirely fair comparison need a lot more models to compare against and some nuance and so on, but this is the whole point. Limitless tokens on cheap hardware. Jon Durbin (@jon",
+    "url": "https://nitter.netbub.com/jon_durbin/status/2098445721456271771#m",
+    "fetched_at": "2026-09-14T02:48:57.519700+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "jon_durbin",
+    "name": "Jon Durbin",
+    "posted_at": "Fri, 11 Sep 2026 16:08:02 GMT",
+    "title": "Neat!",
+    "text": "Neat! Conjectures.io (@conjectures_io) Conjectures, the incentive mechanism for mathematical discovery. Video — https://nitter.netbub.com/conjectures_io/status/2098411910249009375#m",
+    "url": "https://nitter.netbub.com/jon_durbin/status/2098443457228415079#m",
+    "fetched_at": "2026-09-14T02:48:57.519700+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "jtledore",
+    "name": "Jean-Thomas Ledoré",
+    "posted_at": "Fri, 11 Sep 2026 14:18:25 GMT",
+    "title": "RT by @jtledore: RedTeam is working toward integrations with three banking companies in the top 10% of the Fortune 500. On the latest Novelty Search, @_redteam_ explains how #SN61 miners strengthen Innerworks’ cybersecurity products. They also demo their Immune System, where AI agents created three new attacks from a miner’s submission and wrote the code to stop all three. Hosted by @const_reborn Full episode in the first comment",
+    "text": "RedTeam is working toward integrations with three banking companies in the top 10% of the Fortune 500. On the latest Novelty Search, @_redteam_ explains how #SN61 miners strengthen Innerworks’ cybersecurity products. They also demo their Immune System, where AI agents created three new attacks from a miner’s submission and wrote the code to stop all three. Hosted by @const_reborn Full episode in the first comment Video",
+    "url": "https://nitter.netbub.com/opentensor/status/2098415872683753711#m",
+    "fetched_at": "2026-09-14T02:49:26.716325+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "1inch",
+    "name": "1inch",
+    "posted_at": "Fri, 11 Sep 2026 11:17:35 GMT",
+    "title": "Providing liquidity has always meant sending your tokens to a pool first. With Aqua they stay in your wallet and move only when a swap fills. How that works, and what it does not change:",
+    "text": "Providing liquidity has always meant sending your tokens to a pool first. With Aqua they stay in your wallet and move only when a swap fills. How that works, and what it does not change: Article Providing liquidity without handing over your tokens: how self-custodial LP works Every liquidity pool starts with the same step. You send your tokens to a contract, they sit there as pool liquidity and you get them back when you withdraw. 1inch Aqua drops that step. Your tokens",
+    "url": "https://nitter.kareem.one/1inch/status/2098370364220882961#m",
+    "fetched_at": "2026-09-14T02:49:33.820428+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "jtledore",
+    "name": "Jean-Thomas Ledoré",
+    "posted_at": "Fri, 11 Sep 2026 10:42:33 GMT",
+    "title": "RT by @jtledore: Score Studio is about to go live, and there’s more coming behind it. Studio gives users and clients a place to actually use SN44 models. That demand compounds on the subnet. Miners keep shipping SoTA expert vision models, now with a clearer path to the people who need them. Next on the subnet is a set of specialist models: - Restricted-zone and perimeter intrusion. - Early fire and smoke (new gates). - ANPR / license plates (new gates). - Vehicle detection (new gates) and classification. - People counting and crowd density. - Fall detection. - Abandoned object and bag detection. - Fight and violent behaviour. - Weapon detection in video. - Thermal and night-IR. - Tailgating at controlled access. - and more... Miners stay on that work after launch. New expert models keep getting added, and monetised through Studio. That’s the loop.",
+    "text": "Score Studio is about to go live, and there’s more coming behind it. Studio gives users and clients a place to actually use SN44 models. That demand compounds on the subnet. Miners keep shipping SoTA expert vision models, now with a clearer path to the people who need them. Next on the subnet is a set of specialist models: - Restricted-zone and perimeter intrusion. - Early fire and smoke (new gates). - ANPR / license plates (new gates). - Vehicle detection (new gates) and classification. - People counting and crowd density. - Fall detection. - Abandoned object and bag detection. - Fight and vi",
+    "url": "https://nitter.netbub.com/webuildscore/status/2098361550012621046#m",
+    "fetched_at": "2026-09-14T02:49:26.716325+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "1inch",
+    "name": "1inch",
+    "posted_at": "Fri, 11 Sep 2026 08:55:18 GMT",
+    "title": "If CLARITY stalls next week, Europe's slower path could win DeFi. Our CLO @OrestGavryliak gives his latest op-ed in Finance Magnates 👇",
+    "text": "If CLARITY stalls next week, Europe's slower path could win DeFi. Our CLO @OrestGavryliak gives his latest op-ed in Finance Magnates 👇 orestG (@OrestGavryliak) Crypto regulation is beginning to resemble the tortoise and the hare. 🐢🐇 If CLARITY stalls next week and MiCA moves on to crack DeFi too, Europe’s methodical approach could ultimately win the race. Read my latest op-ed in Finance Magnates: financemagnates.com/cryptocu… Link MiCA Takes the Lead as CLARITY Tackles Crypto’s Hardest Questions MiCA moved first with a workable framework, while the broader US CLARITY Act seeks to tackle DeFi a",
+    "url": "https://nitter.kareem.one/1inch/status/2098334556285800530#m",
+    "fetched_at": "2026-09-14T02:49:33.820428+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "affine_io",
+    "name": "Affine",
+    "posted_at": "Fri, 04 Sep 2026 18:08:51 GMT",
+    "title": "Affine submissions are now private, so miners can compete without exposing their weights to competitors. Crowned models still go public. Losing checkpoints will be published later, so anyone can independently recompute every duel verdict.",
+    "text": "Affine submissions are now private, so miners can compete without exposing their weights to competitors. Crowned models still go public. Losing checkpoints will be published later, so anyone can independently recompute every duel verdict. Video",
+    "url": "https://nitter.kareem.one/affine_io/status/2095937147320844533#m",
+    "fetched_at": "2026-09-14T02:50:02.547097+00:00",
+    "via_instance": "https://nitter.cz"
+  }
+]
