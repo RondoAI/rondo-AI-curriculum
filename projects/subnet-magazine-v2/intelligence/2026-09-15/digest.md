@@ -11,6 +11,16 @@ _no human notes in the window_
 
 _SemiAnalysis is the most-cited semiconductor and AI infrastructure publication in the industry. They do NOT cover Bittensor. The Oracle uses this corpus for any claim about hyperscaler compute, GPU economics, datacenter power, foundry capacity, memory pricing, lab unit economics. DO NOT cite SemiAnalysis for any Bittensor-specific claim. Full archive (289 posts, May 2020 onwards) lives at `intelligence/_external_sources/semianalysis/` with an `INDEX.md` table of contents. Paywalled posts show only subtitle + free preview; free posts have the full body extracted._
 
+### 2026-09-15 · Everyone Says Datacenter Moratoriums Are Killing the US Buildout. We disagree
+_300+ moratoriums mapped, 20GW sits inside a restricted local boundary, 1,525MW actually slips, 2.3GW nationwide including New York_
+
+- **Authors:** ["Maya Barkin", "Reyk Knuhtsen", "Jeremie Eliahou Ontiveros", "Dylan Patel"]
+- **Access:** paid-preview
+- **URL:** https://newsletter.semianalysis.com/p/everyone-says-datacenter-moratoriums
+- **Corpus file:** `intelligence/_external_sources/semianalysis/2026-09-15-everyone-says-datacenter-moratoriums.md`
+
+> The debate on US datacenters has never been so politically charged. Four states have acted in under two months. New York has stopped issuing environmental permits for datacenters, Texas has paused the next step in its massive ERCOT interconnection queue, Pennsylvania has pulled datacenters out of fast-track permitting and made state permits conditional on new guardrails, and Oregon has frozen datacenter deals on state-owned land.  Beyond the state level, more than 300 towns, cities and counties
+
 ### 2026-09-14 · A Brain Too Big to Carry — On-Device vs Datacenter Inference
 _Robot Models, Silicon & DRAM Efficiency, Jetson Thor vs. B300 TCO, Deployments, The Network Wall_
 
@@ -121,19 +131,29 @@ _$3 Million USD dataset open sourced, 1 Mil+ Context Length, Multiturn, Sub Agen
 
 > Since the [Claude Code inflection point](https://newsletter.semianalysis.com/p/claude-code-is-the-inflection-point) in November 2025, long-context, multi-turn agentic workloads have grown rapidly. They now dominate traffic for production inferencing. In April 2026, OpenAI’s Enterprise agentic spending overtook ChatGPT spending.  [![Claude Code is the Inflection Point](https://substackcdn.com/image/fetch/$s_!D9-B!,w_140,h_140,c_fill,f_auto,q_auto:good,fl_progressive:steep,g_auto/https%3A%2F%2Fsub
 
-### 2026-08-21 · Are Open Models Catching Up?
-_Comparing open vs. closed models across the eras of frontier models, Is the gap narrowing?_
-
-- **Authors:** ["Evan Cloutier", "Max Kan", "Jordan Nanos", "Dylan Patel"]
-- **Access:** paid-preview
-- **URL:** https://newsletter.semianalysis.com/p/are-open-models-catching-up
-- **Corpus file:** `intelligence/_external_sources/semianalysis/2026-08-21-are-open-models-catching-up.md`
-
-> The past two months have been a breakout period for open source AI. Yes, there was the “DeepSeek moment” back in January 2025, but no one actually used R1 to do any economically valuable work. In contrast, models like GLM 5.3 and Kimi K3 are genuinely capable of many of the same coding and agentic tasks that rocketed Anthropic to $65B+ ARR. Unlike others who inflated ARR, [our figures were much closer to reality.](https://semianalysis.com/tokenomics-model/)  [![](https://substackcdn.com/image/fe
-
 
 ## ⊕ GITHUB COMMITS + RELEASES, last 24h
 
+- **Subtensor (chain)** (COMMIT `8d5f20e`, 2026-09-15 22:04) Merge pull request #3164 from RaoFoundation/fix/sharepool-epoch-on-open  
+  https://github.com/RaoFoundation/subtensor/commit/8d5f20ec1a5e5d90295d43046dacdefc54aaed06
+- **Subtensor (chain)** (COMMIT `6ccd294`, 2026-09-15 21:42) chore(sdk): regenerate runtime metadata bindings for spec 460  
+  https://github.com/RaoFoundation/subtensor/commit/6ccd294cf162ac090a699a42a3c73e7c73d67800
+- **Subtensor (chain)** (COMMIT `4a8ba4e`, 2026-09-15 21:31) fix(subtensor): start a share-pool epoch on both denominator transitions  
+  https://github.com/RaoFoundation/subtensor/commit/4a8ba4edd69f395f9ceea53e50334679db169da2
+- **Subtensor (chain)** (COMMIT `09325bf`, 2026-09-15 21:14) chore(runtime): bump spec_version to 460  
+  https://github.com/RaoFoundation/subtensor/commit/09325bfab318e57bc3c22670be0155b904b182e8
+- **Subtensor (chain)** (COMMIT `1ac4174`, 2026-09-15 20:56) fix(subtensor): start a share-pool epoch when a pool opens so pre-upgrade leftovers are retired  
+  https://github.com/RaoFoundation/subtensor/commit/1ac417488e0dce3cbd43d2d16c0271f6aa7c611b
+- **Subtensor (chain)** (COMMIT `7037840`, 2026-09-15 20:49) Merge pull request #3162 from RaoFoundation/fix/sharepool-root-cause  
+  https://github.com/RaoFoundation/subtensor/commit/70378404b56c12a85bc8cd163aca2f32cf4d1b80
+- **Subtensor (chain)** (COMMIT `5a1c52c`, 2026-09-15 20:23) chore(sdk): classify the three newly exposed chain errors; refresh bindings and docs  
+  https://github.com/RaoFoundation/subtensor/commit/5a1c52c0b7934825ce220d71b759983a0118d1e9
+- **Subtensor (chain)** (COMMIT `20bcc4a`, 2026-09-15 20:04) fix(subtensor): keep the childkey owner exemption local when clearing suspension  
+  https://github.com/RaoFoundation/subtensor/commit/20bcc4a91f490d0b50c1f9a211a66ef9bb63d9a3
+- **Subtensor (chain)** (COMMIT `5567dce`, 2026-09-15 19:55) fix(subtensor): suspend rather than prune child relations of below-threshold parents  
+  https://github.com/RaoFoundation/subtensor/commit/5567dce63ba26693963e51988f43cb4756d36658
+- **Subtensor (chain)** (COMMIT `a79d5e9`, 2026-09-15 19:36) fix(subtensor): reserve a capped reverse-edge cost before reading a child's ParentKeys row  
+  https://github.com/RaoFoundation/subtensor/commit/a79d5e98760cc10cc598ec9b9ccc67208e93b8e7
 - **Subtensor (chain)** (COMMIT `a7ae07e`, 2026-09-14 15:42) Merge pull request #3160 from RaoFoundation/release-v457  
   https://github.com/RaoFoundation/subtensor/commit/a7ae07e5dd37b552f27aa8e4d7716c522eef9aa7
 - **Subtensor (chain)** (COMMIT `90cfdca`, 2026-09-14 15:38) Bump runtime spec version to 458  
@@ -191,16 +211,40 @@ _no new posts in the lookback window_
   https://nitter.kareem.one/dylan522p/status/2097494289697660957#m
 - @tplr_ai (Templar, Wed, 02 Sep 2026): Video  
   http://nitter.jaydenha.uk/tplr_ai/status/2095156480810836130#m
+- @tplr_ai (Templar, Wed, 02 Sep 2026): Video  
+  https://nitter.kareem.one/tplr_ai/status/2095156480810836130#m
 - @shibshib89 (Ala Shaabana, Wed, 02 Sep 2026): Crucible Labs dropping #downwiththedev Episode 1. We breakdown the Mobile Wallet with @buildwithsamp. Take a listen. Video  
   http://nitter.jaydenha.uk/CrucibleLabs/status/2095144290376937770#m
 - @mcjkula (mcjkula, Tue, 30 Dec 2025): 7 months. 55,000+ conversations. 128 subnets. One Savant. Here's what we learned from building the first MCP for @Bittensor.  
   http://nitter.jaydenha.uk/taoapp_/status/2005876837214228623#m
 - @ridges_ai (Ridges, Tue, 28 Jul 2026): ⛰️ x402 is now live on Ridges X402 is an agentic payment protocol that lets agents pay for API access autonomously. Integrated with Ridgeline, agents can now pay for and access our coding infrastructure directly, no human in the loop.  
   https://nitter.kareem.one/ridges_ai/status/2082103797418262564#m
+- @wallstreetbets (WallStreetBets (X), Tue, 15 Sep 2026): bro hear me out Video  
+  https://nitter.kareem.one/wallstreetbets/status/2099988656597430456#m
+- @wallstreetbets (WallStreetBets (X), Tue, 15 Sep 2026): sending money globally should not still be this complicated about time this got fixed Nabeel (@Moneymamba) Fin.com. $20M Raised. 7 M&amp;A’s completed in 12 months. Investors include Expa, Coinbase Ventures, and Tenet Fund. 825 million users impacted. You have probably used us already. We help your favorite fintechs move money to the rest of the world. Video — https://nitter.kareem.one/Moneymamba/status/2099860604810916135#m  
+  https://nitter.kareem.one/wallstreetbets/status/2099968209688408300#m
+- @wallstreetbets (WallStreetBets (X), Tue, 15 Sep 2026): Protect our supermodels ✊ Love what the @miraitalent_ai is cooking up here👀 Mirai (@miraitalent_ai) Today we’re launching Claude for Photoshoots. Cast the talent. Add your product. Direct each element. Generate the campaign. All with real, licensed talent. Mirai is live → mirai.inc Video — https://nitter.kareem.one/miraitalent_ai/status/2099936291374657619#m  
+  https://nitter.kareem.one/wallstreetbets/status/2099946182516560193#m
+- @wallstreetbets (WallStreetBets (X), Tue, 15 Sep 2026): it's so over  
+  https://nitter.kareem.one/wallstreetbets/status/2099943624905572514#m
+- @wallstreetbets (WallStreetBets (X), Tue, 15 Sep 2026): what democrats thought would happen if the CLARITY Act passed  
+  https://nitter.kareem.one/wallstreetbets/status/2099940239296909657#m
+- @KyleSamani (Kyle Samani, Tue, 15 Sep 2026): Big 💩 poppin today  
+  https://nitter.kareem.one/KyleSamani/status/2099917386405048746#m
 - @a16zcrypto (a16z Crypto, Tue, 15 Sep 2026): Today's choice: Policy or Politics. a16z crypto (@a16zcrypto) "The policy is fully baked. I think the question now is: do people have the political will to put this in place?" @milesjennings on why we need CLARITY Video — http://x.yuuki.sh/a16zcrypto/status/2099859879716397125#m  
   http://x.yuuki.sh/milesjennings/status/2099870719412683021#m
 - @a16zcrypto (a16z Crypto, Tue, 15 Sep 2026): "The policy is fully baked. I think the question now is: do people have the political will to put this in place?" @milesjennings on why we need CLARITY Video  
   http://x.yuuki.sh/a16zcrypto/status/2099859879716397125#m
+- @KyleSamani (Kyle Samani, Tue, 15 Sep 2026): Forward (@FWDind) has put forth an updated proposal to acquire SkyAI (@skyaico) at a 50% premium globenewswire.com/news-relea… Link Forward Industries Announces Updated Proposal to Acquire SkyAI, Inc. Proposal reflects a 50% premium to SkyAI&apos;s closing price on September 14, 2026. SkyAI stockholders may elect cash or Forward common stock, or any... globenewswire.com  
+  https://nitter.kareem.one/FWDind/status/2099858428575514815#m
+- @KyleSamani (Kyle Samani, Tue, 15 Sep 2026): Excited to share that I’ve joined Kamino as CEO. There's a generational moment happening across financial services and capital markets - infrastructure is shifting on-chain, ushering in a new era of access, distribution and liquidity for every kind of asset. Kamino is positioned to be a core player in that future, and I'm honored to lead our next chapter. Tokenization worked. But what’s missing is what comes after you put an asset on-chain. That requires liquidity, credit, distribution and infrastructure. Kamino has spent four years building that foundation. Thanks to everyone who has been par  
+  https://nitter.kareem.one/WeiszM/status/2099857786897051815#m
+- @KyleSamani (Kyle Samani, Tue, 15 Sep 2026): Global banking, built natively on stablecoin rails Altitude (@altitude) Acctual is joining Altitude to bring invoicing into the global operating account, alongside a deeper bill pay experience. We’re bringing more of how businesses get paid, pay bills, move money, and run finance into one connected system. Invoicing, now in your Altitude account. Video — https://nitter.kareem.one/altitude/status/2099847348209746057#m  
+  https://nitter.kareem.one/KyleSamani/status/2099856966797406562#m
+- @tplr_ai (Templar, Tue, 15 Sep 2026): Video  
+  https://nitter.kareem.one/tplr_ai/status/2099855617921880470#m
+- @KyleSamani (Kyle Samani, Tue, 15 Sep 2026): Commissioner @HesterPeirce signalled the SEC will address vaults and lending protocols. Forward Industries didn't wait to react. $FWDI General Counsel @GeorgiaQuinnEsq on the three-tier framework she's putting to the SEC and CFTC. Moving Solana Forward. Video  
+  https://nitter.kareem.one/FWDind/status/2099853691868332137#m
 - @SemiAnalysis_ (SemiAnalysis, Tue, 15 Sep 2026): GPT-6 Astra reportedly gets deeper without getting bigger. The labs already know what that means for scaling. "It's basically confirmed that GPT-6 Astra uses loop transformers, which means that instead of adding parameter count, it goes through the layers more than once. You add compute depth, but you don't increase the size of the model." "The labs are probably the people that are best positioned to say which way models are scaling. I think that's a tell that they're not seeing parameter sizes scaling as aggressively in their roadmaps, in what they find in their research." Video  
   http://x.yuuki.sh/SemiAnalysis_/status/2099679686758400144#m
 - @SemiAnalysis_ (SemiAnalysis, Tue, 15 Sep 2026): Watch it Now: youtu.be/2cmlk-YlgRk?si=pOZA… Link Ep. 030 - Long Live the Short King: Why 4-hi HBM Wins (Memory) NVIDIA previewed Rubin Ultra at 1TB of HBM per package. The part th... youtube.com  
@@ -213,6 +257,8 @@ _no new posts in the lookback window_
   http://nitter.jaydenha.uk/jay_yow07/status/2097368441455849851#m
 - @tplr_ai (Templar, Tue, 08 Sep 2026): Video  
   http://nitter.jaydenha.uk/tplr_ai/status/2097310955902292149#m
+- @tplr_ai (Templar, Tue, 08 Sep 2026): Video  
+  https://nitter.kareem.one/tplr_ai/status/2097310955902292149#m
 - @nigescore (Nige, Tue, 08 Sep 2026): Astra Ultra did not cook sports-grade vision AI. Gave it a 30s football clip from our subnet private track. Frame-level events, JSON, annotated video. Ground truth and the published scoring rules only after it committed. 22 predictions. 17 real events. 15 inside the action windows. 7 extras. 2 misses. Precision 68.18%. Recall 88.24%. F1 76.92%. Our Bittensor eval, SN44: 0%. Matches after timing decay: 16.538 False positives: −20.300 GT weight: 25.600 score = max(0, (16.538 − 20.300) / 25.600) = 0 Three extra take-ons and two extra tackles were 14.6 penalty points. It also misread the late inte  
   http://nitter.jaydenha.uk/webuildscore/status/2097261685358596399#m
 - @tm0klc (Tim, Tue, 07 Jul 2026): Subnet 44 @webuildscore is expanding. We’re incentivising training for a new vision-language model: Satori. Satori reasons AND grounds. It doesn’t just answer questions about an image. It points to the evidence. - Reason about scenes - Detect and segment objects - Read text - Count entities - Ground claims in pixels Most VLMs are split: strong reasoning OR strong grounding. Detection models localise, but can’t talk. Chatty VLMs describe fluently, but can’t prove it. Satori sits at the intersection. We’re starting with a 7B base model.  
@@ -223,33 +269,7 @@ _no new posts in the lookback window_
   https://nitter.kareem.one/TargonCompute/status/2094908006039236625#m
 - @mcjkula (mcjkula, Tue, 01 Sep 2026): TAOApp Wallet is here. The self-custody browser wallet for Bittensor. Hold TAO, stake TAO, buy subnet tokens. When there’s more to protect, bring in your Ledger, proxies and multisigs. Install the beta, on Chrome, Brave and Edge. ↓ chromewebstore.google.com/de…  
   http://nitter.jaydenha.uk/taoapp_/status/2094840222441992209#m
-- @affine_io (Affine, Tue, 01 Sep 2026): Everything you need to compete is public: affine.io/llms.txt  
-  https://nitter.netbub.com/affine_io/status/2094801258016370976#m
-- @affine_io (Affine, Tue, 01 Sep 2026): Everything you need to compete is public: affine.io/llms.txt  
-  http://nitter.jaydenha.uk/affine_io/status/2094801258016370976#m
-- @affine_io (Affine, Tue, 01 Sep 2026): Video  
-  https://nitter.netbub.com/affine_io/status/2094801103959540005#m
-- @affine_io (Affine, Tue, 01 Sep 2026): Video  
-  http://nitter.jaydenha.uk/affine_io/status/2094801103959540005#m
-- @tplr_ai (Templar, Thu, 27 Aug 2026): A system designed around identical accelerators depends on a narrow hardware supply. Templar starts from a wider map. Accelerator generations vary, and network conditions change with location. The coordination layer has to treat both as design inputs.  
-  http://nitter.jaydenha.uk/tplr_ai/status/2093022381660942660#m
-- @polychain (Polychain Capital, Thu, 25 Jun 2026): Article The Missing AI Layer Is Not Security. It&apos;s Authority. AI agents are now computer users. They browse websites. They read files. They write code. They call APIs. They log in to accounts. They handle credentials, use tools, and take actions across software  
-  http://nitter.jaydenha.uk/zherbert/status/2070178183333171395#m
-- @nigescore (Nige, Thu, 20 Aug 2026): Computer vision engineers are still duct-taping tools together just to get a model into production. We just finished another round of user interviews and that frustration came up again and again. So we re-designed Studio to work around our new Pipelines + Workflow Canvas features. Visually design any vision pipeline from start to finish, connect models, logic, and outputs on one canvas, preview the exact result, then deploy. You see the output before you ship it. Everything in a single interface. The full loop, shaped by the people who actually build vision systems every day. This is what Dece  
-  http://nitter.jaydenha.uk/webuildscore/status/2090422492980515272#m
-- @Olaf (Olaf Carlson-Wee, Thu, 19 Aug 2010): lekker biertje drinken bij Dims!  
-  https://nitter.netbub.com/olaf/status/21602951308#m
-- @Olaf (Olaf Carlson-Wee, Thu, 19 Aug 2010): lekker biertje drinken bij Dims!  
-  https://nitter.kareem.one/olaf/status/21602951308#m
-- @polychain (Polychain Capital, Thu, 13 Aug 2026): LBTC proved demand for yield-bearing Bitcoin. Today, we double down on that thesis. LBTC is moving to institutional yield. @Bitwise will manage a covered-call options strategy with a 4.5-year legacy track record, to generate LBTC's yield, targeting 2.5% net APY paid in Bitcoin.  
-  http://nitter.jaydenha.uk/Lombard_Finance/status/2087887552300933626#m
-- @dylan522p (Dylan Patel, Thu, 10 Sep 2026): And on his farm he had to pay taxes EI EI EIN  
-  https://nitter.kareem.one/dylan522p/status/2098159067453653372#m
-- @opentensor (Opentensor Foundation, Thu, 10 Sep 2026): Dashboard is a quick work in progress, but for visibility into a run here ya go! parallax.chutes.ai/ This is around $11/b tokens, insane actually. MFU also insane. The whole thing, pretty legendary, and inference... Using a few nodes from @lium_io also! Link Parallax · live training register 30 independent GPU hosts · 3.7M tokens/s · 228.9B tokens trained · peak MFU 67% — a decentralized 8B mixture-of-experts pretraining run, live. parallax.chutes.ai  
-  https://nitter.kareem.one/jon_durbin/status/2098097374434299966#m
-- @YumaGroup (Yuma Holdings, Thu, 10 Sep 2026): It's not easy breaking into #Bittensor. That's what @LindsMikeStone is for. She sits at the operational heart of @YumaGroup, turning Bittensor strategy into programs, partnerships + teams. She's supported the launch of 20 subnets including @bitsecai, @yanez__ai, and @b1m_ai and co-authored Yuma’s subnet valuation research - connecting talent, capital + builders across the ecosystem. Find her at Exploit: luma.com/exploitsummit26 Video  
-  https://nitter.kareem.one/ExploitSummit/status/2098079115861799251#m
 
 
 ---
-_Generated at 2026-09-15T16:03:22.401995+00:00 by scripts/intel/aggregate.py. Treat this digest as input context, not as ground truth. Verify before quoting._
+_Generated at 2026-09-15T22:39:03.415185+00:00 by scripts/intel/aggregate.py. Treat this digest as input context, not as ground truth. Verify before quoting._
