@@ -153,6 +153,8 @@ _no new posts in the lookback window_
   https://nitter.netbub.com/TargonCompute/status/2092690588143657190#m
 - @TargonCompute (Targon, Wed, 26 Aug 2026): Proud to power @TheoriqAI with secure confidential compute for their agentic market research. Large GPU blocks on demand, with hardware-level guarantees that keep the workload and its data private even from the machines running it. Excited to keep powering experimental research infrastructure with Targon. Theoriq (@TheoriqAI) .@TargonCompute is powering Theoriq AI experimentation. Curating risk-managed yield is, underneath, a research problem: how markets behave, where they break, and how much of that can be seen coming. That runs on heavy, on-demand compute. Targon is our partner in supplying  
   https://nitter.kareem.one/TargonCompute/status/2092690588143657190#m
+- @ridges_ai (Ridges, Wed, 26 Aug 2026): We've kicked off Niches with a Linting competition! In just one week we've seen performance hit 76% on our hidden test set with cost reduction down to $0.02 per task. Results like these help us validate the Niches model and adjust where needed. We're excited for the next Niche, and eventually dynamic Niches. Stay tuned!  
+  https://nitter.kareem.one/ridges_ai/status/2092684102595961119#m
 - @TargonCompute (Targon, Wed, 26 Aug 2026): .@TargonCompute is powering Theoriq AI experimentation. Curating risk-managed yield is, underneath, a research problem: how markets behave, where they break, and how much of that can be seen coming. That runs on heavy, on-demand compute. Targon is our partner in supplying it. Theoriq (@TheoriqAI) Article Theoriq partnering with Targon to power AI experimentation Curating risk-managed yield is, underneath, a research problem. Long before capital is deployed, we want to know how markets behave, where they tend to break, and how much of that can be seen coming — https://nitter.netbub.com/TheoriqA  
   https://nitter.netbub.com/TheoriqAI/status/2092661304444277050#m
 - @TargonCompute (Targon, Wed, 26 Aug 2026): .@TargonCompute is powering Theoriq AI experimentation. Curating risk-managed yield is, underneath, a research problem: how markets behave, where they break, and how much of that can be seen coming. That runs on heavy, on-demand compute. Targon is our partner in supplying it. Theoriq (@TheoriqAI) Article Theoriq partnering with Targon to power AI experimentation Curating risk-managed yield is, underneath, a research problem. Long before capital is deployed, we want to know how markets behave, where they tend to break, and how much of that can be seen coming — https://nitter.kareem.one/TheoriqA  
@@ -169,8 +171,18 @@ _no new posts in the lookback window_
   https://nitter.kareem.one/foundrydigital/status/157243024848596993#m
 - @lium_io (Lium, Wed, 09 Sep 2026): lium.io Month in review: $964k billed to 1187 renters (36% MoM growth). 1,908 new signups, ~80% MoM user retention 63% of rentals programatically initiated (agents) 7,697 rentals; medium rental time: 1.15 hours.  
   https://nitter.kareem.one/lium_io/status/2097824624117473549#m
+- @ridges_ai (Ridges, Wed, 09 Sep 2026): ridges.ai/explore/28 Link Ridges AI AI Agents, powered by Bittensor | SN62 ridges.ai  
+  https://nitter.kareem.one/ridges_ai/status/2097823739765526549#m
+- @ridges_ai (Ridges, Wed, 09 Sep 2026): Next competition is live: Database Engineering. Agents compete on database engineering problems, fixing bugs, optimizing queries, and working with ORMs and GraphQL. Why this Niche next? Because inefficient queries are a real engineering challenge, and one where specialist agents have plenty of room to outperform. Open now for submissions:  
+  https://nitter.kareem.one/ridges_ai/status/2097823726561866122#m
+- @shibshib89 (Ala Shaabana, Wed, 09 Sep 2026): Did you hear? Crucible Wallet is officially live on iOS today. An easy to use Bittensor wallet with Ledger security, Unified Swap and subnet level performance. Now available on iOS in the US, Android and Chrome. Download at CrucibleLabs.com #Bittensor #TAO #CrucibleWallet  
+  http://nitter.jaydenha.uk/CrucibleLabs/status/2097815766473323006#m
 - @lium_io (Lium, Wed, 09 Sep 2026): Steadily building the most decentralized GPU cloud Lium now has capacity from 68 datacenters across 21 countries Have GPUs? Join now. Lium pays you even for idle minutes. Make your nodes rentable in 5 minutes -&gt; docs.lium.io/providers/quick…  
   https://nitter.kareem.one/lium_io/status/2097803045362966828#m
+- @shibshib89 (Ala Shaabana, Wed, 09 Sep 2026): We are officially on iOS! Onwards 🚀 Crucible Labs (@CrucibleLabs) A long time coming and officially here. Crucible Wallet is now available on iOS in the US. An easy, intuitive Bittensor wallet for your everyday TAO needs, with Unified Swap, portfolio tracking and Ledger support wherever you go. Already available on Google Play and Chrome Store. Download at CrucibleLabs.com #CrucibleWallet #TAO #Bittensor — http://nitter.jaydenha.uk/CrucibleLabs/status/2097699938209857625#m  
+  http://nitter.jaydenha.uk/shibshib89/status/2097724813028516224#m
+- @ridges_ai (Ridges, Wed, 09 Sep 2026): CMC Verification post: ridges.ai  
+  https://nitter.kareem.one/ridges_ai/status/2097651752464011375#m
 - @nigescore (Nige, Wed, 09 Sep 2026): .@nigescore going to paris last time he went to nrf in dallas he got us our biggest client ever (not announced yet) i can’t go. got something bigger on the 15th, 16th and 17th (to be announced) Manako (@manakoai) Heading to @nrfeurope NRF Retail’s Big Show Europe in Paris next week (15–17 Sept) 🇫🇷 If you are attending and want to hear what Manako Labs have built for retail, please DM and let’s meet up. No new hardware, no engineers, no code just your existing cameras doing more. #NRFRetailsBigShowEurope — http://nitter.jaydenha.uk/manakoai/status/2097622722310242420#m  
   http://nitter.jaydenha.uk/MaxSebti/status/2097630699129827589#m
 - @jaltucher (James Altucher, Wed, 09 Sep 2026): Listening to people try and warn me about AI and then my usual response:  
@@ -179,8 +191,16 @@ _no new posts in the lookback window_
   https://nitter.kareem.one/dylan522p/status/2097494289697660957#m
 - @tplr_ai (Templar, Wed, 02 Sep 2026): Video  
   http://nitter.jaydenha.uk/tplr_ai/status/2095156480810836130#m
+- @shibshib89 (Ala Shaabana, Wed, 02 Sep 2026): Crucible Labs dropping #downwiththedev Episode 1. We breakdown the Mobile Wallet with @buildwithsamp. Take a listen. Video  
+  http://nitter.jaydenha.uk/CrucibleLabs/status/2095144290376937770#m
 - @mcjkula (mcjkula, Tue, 30 Dec 2025): 7 months. 55,000+ conversations. 128 subnets. One Savant. Here's what we learned from building the first MCP for @Bittensor.  
   http://nitter.jaydenha.uk/taoapp_/status/2005876837214228623#m
+- @ridges_ai (Ridges, Tue, 28 Jul 2026): ⛰️ x402 is now live on Ridges X402 is an agentic payment protocol that lets agents pay for API access autonomously. Integrated with Ridgeline, agents can now pay for and access our coding infrastructure directly, no human in the loop.  
+  https://nitter.kareem.one/ridges_ai/status/2082103797418262564#m
+- @a16zcrypto (a16z Crypto, Tue, 15 Sep 2026): Today's choice: Policy or Politics. a16z crypto (@a16zcrypto) "The policy is fully baked. I think the question now is: do people have the political will to put this in place?" @milesjennings on why we need CLARITY Video — http://x.yuuki.sh/a16zcrypto/status/2099859879716397125#m  
+  http://x.yuuki.sh/milesjennings/status/2099870719412683021#m
+- @a16zcrypto (a16z Crypto, Tue, 15 Sep 2026): "The policy is fully baked. I think the question now is: do people have the political will to put this in place?" @milesjennings on why we need CLARITY Video  
+  http://x.yuuki.sh/a16zcrypto/status/2099859879716397125#m
 - @SemiAnalysis_ (SemiAnalysis, Tue, 15 Sep 2026): GPT-6 Astra reportedly gets deeper without getting bigger. The labs already know what that means for scaling. "It's basically confirmed that GPT-6 Astra uses loop transformers, which means that instead of adding parameter count, it goes through the layers more than once. You add compute depth, but you don't increase the size of the model." "The labs are probably the people that are best positioned to say which way models are scaling. I think that's a tell that they're not seeing parameter sizes scaling as aggressively in their roadmaps, in what they find in their research." Video  
   http://x.yuuki.sh/SemiAnalysis_/status/2099679686758400144#m
 - @SemiAnalysis_ (SemiAnalysis, Tue, 15 Sep 2026): Watch it Now: youtu.be/2cmlk-YlgRk?si=pOZA… Link Ep. 030 - Long Live the Short King: Why 4-hi HBM Wins (Memory) NVIDIA previewed Rubin Ultra at 1TB of HBM per package. The part th... youtube.com  
@@ -205,8 +225,12 @@ _no new posts in the lookback window_
   http://nitter.jaydenha.uk/taoapp_/status/2094840222441992209#m
 - @affine_io (Affine, Tue, 01 Sep 2026): Everything you need to compete is public: affine.io/llms.txt  
   https://nitter.netbub.com/affine_io/status/2094801258016370976#m
+- @affine_io (Affine, Tue, 01 Sep 2026): Everything you need to compete is public: affine.io/llms.txt  
+  http://nitter.jaydenha.uk/affine_io/status/2094801258016370976#m
 - @affine_io (Affine, Tue, 01 Sep 2026): Video  
   https://nitter.netbub.com/affine_io/status/2094801103959540005#m
+- @affine_io (Affine, Tue, 01 Sep 2026): Video  
+  http://nitter.jaydenha.uk/affine_io/status/2094801103959540005#m
 - @tplr_ai (Templar, Thu, 27 Aug 2026): A system designed around identical accelerators depends on a narrow hardware supply. Templar starts from a wider map. Accelerator generations vary, and network conditions change with location. The coordination layer has to treat both as design inputs.  
   http://nitter.jaydenha.uk/tplr_ai/status/2093022381660942660#m
 - @polychain (Polychain Capital, Thu, 25 Jun 2026): Article The Missing AI Layer Is Not Security. It&apos;s Authority. AI agents are now computer users. They browse websites. They read files. They write code. They call APIs. They log in to accounts. They handle credentials, use tools, and take actions across software  
@@ -215,6 +239,8 @@ _no new posts in the lookback window_
   http://nitter.jaydenha.uk/webuildscore/status/2090422492980515272#m
 - @Olaf (Olaf Carlson-Wee, Thu, 19 Aug 2010): lekker biertje drinken bij Dims!  
   https://nitter.netbub.com/olaf/status/21602951308#m
+- @Olaf (Olaf Carlson-Wee, Thu, 19 Aug 2010): lekker biertje drinken bij Dims!  
+  https://nitter.kareem.one/olaf/status/21602951308#m
 - @polychain (Polychain Capital, Thu, 13 Aug 2026): LBTC proved demand for yield-bearing Bitcoin. Today, we double down on that thesis. LBTC is moving to institutional yield. @Bitwise will manage a covered-call options strategy with a 4.5-year legacy track record, to generate LBTC's yield, targeting 2.5% net APY paid in Bitcoin.  
   http://nitter.jaydenha.uk/Lombard_Finance/status/2087887552300933626#m
 - @dylan522p (Dylan Patel, Thu, 10 Sep 2026): And on his farm he had to pay taxes EI EI EIN  
@@ -223,33 +249,7 @@ _no new posts in the lookback window_
   https://nitter.kareem.one/jon_durbin/status/2098097374434299966#m
 - @YumaGroup (Yuma Holdings, Thu, 10 Sep 2026): It's not easy breaking into #Bittensor. That's what @LindsMikeStone is for. She sits at the operational heart of @YumaGroup, turning Bittensor strategy into programs, partnerships + teams. She's supported the launch of 20 subnets including @bitsecai, @yanez__ai, and @b1m_ai and co-authored Yuma’s subnet valuation research - connecting talent, capital + builders across the ecosystem. Find her at Exploit: luma.com/exploitsummit26 Video  
   https://nitter.kareem.one/ExploitSummit/status/2098079115861799251#m
-- @webuildscore (Score, Thu, 10 Sep 2026): Gm Good Morning (@say_gm_) You can soon run @webuildscore image generation, training, and model deployment through SayGm's inference routing. Score Studio launching on Sept 16. Video — http://x.yuuki.sh/say_gm_/status/2098048853660533078#m  
-  http://x.yuuki.sh/webuildscore/status/2098054569653641584#m
-- @YumaGroup (Yuma Holdings, Thu, 10 Sep 2026): Today marks 6 months since Beam went live on Bittensor mainnet. The thesis was simple: bandwidth can be an open, distributed resource, with data moving wherever it needs to go. In six months we built: • A global distributed data transport network • Proof of Bandwidth and public transfer verification • Terabyte-scale transfers across regions and clouds • Continuous high-volume workloads on @Cloudflare R2, S3, GCP, @huggingface and more • Beam P2P distributed Tunnels and Room • Data, message, stream and media transport • Beam Studio • SDKs, CLI and integrations across AI, cloud, storage and ente  
-  https://nitter.kareem.one/b1m_ai/status/2098045316553486542#m
-- @nigescore (Nige, Thu, 09 Jul 2026): We are excited to announce our membership in the NVIDIA Inception Program #NVIDIAInception.  
-  http://nitter.jaydenha.uk/manakoai/status/2075236662712439039#m
-- @tplr_ai (Templar, Thu, 03 Sep 2026): Crucible, Templar's pre-training platform, has completed its first production end-to-end training runs. The latest trained an 8B model on 50.53B tokens across 48 distributed A100s, at an estimated $0.1202 per million tokens of GPU rental. The run reached 48.3% effective MFU. At AWS p4de Capacity Blocks pricing, a 48-A100 cluster operating at the literature-derived 65% compute ceiling comes to an estimated $0.1686 per million tokens. Crucible's measured $0.1202 was about 29% lower after its low-bandwidth overhead. The comparison excludes R2 storage and operations. The full writeup shows the met  
-  http://nitter.jaydenha.uk/tplr_ai/status/2095580357626110111#m
-- @nigescore (Nige, Thu, 03 Sep 2026): Shell and ENI stations added to roll out today. Accelerate.  
-  http://nitter.jaydenha.uk/MaxSebti/status/2095545005540552752#m
-- @dylan522p (Dylan Patel, Sun, 13 Sep 2026): Long Live the Short King: Why 4-hi HBM Wins Same Bandwidth, Fewer Dies: How 4-hi HBM Cuts Inference Costs and Makes Scarce DRAM Go Further newsletter.semianalysis.com/… Link Long Live the Short King: Why 4-hi HBM Wins Same Bandwidth, Fewer Dies: How 4-hi HBM Cuts Inference Costs and Makes Scarce DRAM Go Further newsletter.semianalysis.com  
-  https://nitter.kareem.one/SemiAnalysis_/status/2099203133079429136#m
-- @opentensor (Opentensor Foundation, Sun, 13 Sep 2026): we will need compute (@lium_io, @TargonCompute) we will need inference (@engyai, @chutes_ai) we will need data (@Hippius_cloud) we will need knowledge (@teutonic) If we are going to have free intelligence (@affine_io)  
-  https://nitter.kareem.one/const_reborn/status/2099176877508219132#m
-- @opentensor (Opentensor Foundation, Sun, 13 Sep 2026): Article Bittensor Ecosystem Highlights :: September 07–13, 2026 This week’s biggest stories across Bittensor came from Lium, Chutes, Oro, Pareton, Hippius and Bitcast. [ @lium_io - Subnet 51 ] Lium generated nearly $1M in revenue this month and used revenue to  
-  https://nitter.kareem.one/opentensor/status/2099093534921916665#m
-- @Olaf (Olaf Carlson-Wee, Sun, 10 Jul 2011): RT @timmerarjan Life is good! yfrog.com/kkli4iaj zeker !! Wel tof dat je het deelt met je vrienden :)  
-  https://nitter.netbub.com/olaf/status/90083936700600321#m
-- @lium_io (Lium, Sun, 06 Sep 2026): reproduce it in 15 mins here. github.com/Datura-ai/lium-lo… Link GitHub - Datura-ai/lium-localmaxxing: Reproduce Lium&apos;s LocalMaxxing leaderboard runs (7 boards, 20... Reproduce Lium&apos;s LocalMaxxing leaderboard runs (7 boards, 20 Verified) on a rented Lium GPU in one script — vLLM/llama.cpp recipes, measured cost per million tokens - Datura-ai/lium-localmaxxing github.com  
-  https://nitter.kareem.one/lium_io/status/2096626342976520327#m
-- @lium_io (Lium, Sun, 06 Sep 2026): Cost: $5.60/h ÷ 52.2M output tok/h = $0.107 per million tokens. OpenRouter's cheapest FP8 provider lists the same model at $0.90/M  
-  https://nitter.kareem.one/lium_io/status/2096626336693375483#m
-- @lium_io (Lium, Sun, 06 Sep 2026): We just ran Qwen3.6 35B at 14,499 tokens per second. on 1 lium GPU. 85% cheaper than Openrouter. how you can do it too ⬇️  
-  https://nitter.kareem.one/lium_io/status/2096626330808828216#m
-- @a16zcrypto (a16z Crypto, Sat, 12 Sep 2026): Technologies don't un-invent themselves. The question is... where do they get built? "Every American citizen, regardless of their political position, should want America to be the technology leader in the world." @pmarca on the CLARITY Act and why crypto belongs in the US. Video  
-  https://nitter.kareem.one/a16zcrypto/status/2098849877706813874#m
 
 
 ---
-_Generated at 2026-09-15T09:08:53.429828+00:00 by scripts/intel/aggregate.py. Treat this digest as input context, not as ground truth. Verify before quoting._
+_Generated at 2026-09-15T16:03:22.401995+00:00 by scripts/intel/aggregate.py. Treat this digest as input context, not as ground truth. Verify before quoting._
