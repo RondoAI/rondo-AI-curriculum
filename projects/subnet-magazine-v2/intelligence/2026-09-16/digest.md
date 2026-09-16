@@ -134,6 +134,10 @@ _$3 Million USD dataset open sourced, 1 Mil+ Context Length, Multiturn, Sub Agen
 
 ## ⊕ GITHUB COMMITS + RELEASES, last 24h
 
+- **Subtensor (chain)** (COMMIT `5e65086`, 2026-09-16 03:00) Merge pull request #3170 from RaoFoundation/cursor/balancer-edge-basket-flush-flake-568b  
+  https://github.com/RaoFoundation/subtensor/commit/5e65086c3ec6e05852a1f82642ff9eb124becfb8
+- **Subtensor (chain)** (COMMIT `3d52c3c`, 2026-09-16 02:32) test(clone): credit in-window basket-flush and user TAO inflows in balancer edge emission check  
+  https://github.com/RaoFoundation/subtensor/commit/3d52c3c0bf95f5a454d1c01565dc3b9d27439206
 - **Subtensor (chain)** (COMMIT `7c9d45e`, 2026-09-16 01:57) Merge pull request #3155 from RaoFoundation/cursor/swap-basket-consolidated-b2ac  
   https://github.com/RaoFoundation/subtensor/commit/7c9d45ebd423c7f6b0b477e11414fe2fe3a3794b
 - **Subtensor (chain)** (COMMIT `c1816d4`, 2026-09-16 00:37) Merge pull request #3144 from manfromhellxbt/fix/cli-prompt-typer-exit  
@@ -165,12 +169,20 @@ _no new posts in the lookback window_
   https://nitter.kareem.one/TargonCompute/status/2092690588143657190#m
 - @TargonCompute (Targon, Wed, 26 Aug 2026): .@TargonCompute is powering Theoriq AI experimentation. Curating risk-managed yield is, underneath, a research problem: how markets behave, where they break, and how much of that can be seen coming. That runs on heavy, on-demand compute. Targon is our partner in supplying it. Theoriq (@TheoriqAI) Article Theoriq partnering with Targon to power AI experimentation Curating risk-managed yield is, underneath, a research problem. Long before capital is deployed, we want to know how markets behave, where they tend to break, and how much of that can be seen coming — https://nitter.kareem.one/TheoriqA  
   https://nitter.kareem.one/TheoriqAI/status/2092661304444277050#m
+- @polychain (Polychain Capital, Wed, 24 Jun 2026): I'm excited to share that Cambrian has raised $11.9M to build the financial intelligence layer for the convergence of AI, digital assets, and traditional finance. Our seed round was led by @Polychain and Franklin Templeton @FTDA_US: a convergence itself of a top OG digital assets fund and a $1.7T institutional asset manager of 75+ years. As AI starts to consume more data in minutes than most humans do in lifetimes, finance is evolving to adapt to this reality ⤵️ Cambrian Network 🪴 (@CambrianNetwork) Big news: we’ve raised $11.9 million to build the world’s financial intelligence layer. @Polych  
+  http://nitter.jaydenha.uk/0xsamgreen/status/2069836236362313887#m
+- @polychain (Polychain Capital, Wed, 24 Jun 2026): Big news: we’ve raised $11.9 million to build the world’s financial intelligence layer. @Polychain and Franklin Templeton @FTDA_US share our conviction that the future of finance will be increasingly orchestrated by AI agents. The missing ingredient that separates winning agents from slopbots? Financial intelligence. Agents are beginning to consume human lifetimes' worth of data in minutes. As AI, digital assets, and traditional finance converge, the agentic appetite for data will grow larger – as will the challenge in separating noise from signal. Cambrian specializes strictly in financial da  
+  http://nitter.jaydenha.uk/CambrianNetwork/status/2069834786647027852#m
+- @polychain (Polychain Capital, Wed, 24 Jun 2026): EXCLUSIVE: a16z CSX-backed Cambrian raises $6 million seed to build blockchain data oracle network theblock.co/post/406028/a16z… Link a16z CSX-backed Cambrian raises $6 million seed to build blockchain data oracle network Cambrian, a startup building blockchain data infrastructure for institutions and AI agents, raised $6 million in a seed funding round. theblock.co  
+  http://nitter.jaydenha.uk/TheBlockCo/status/2069827932843909349#m
 - @manakoai (Manako, Wed, 12 Aug 2026): The journey of building AI for the physical world is accelerating. What once took long, complex on-site deployments is rapidly becoming simple, fast, and repeatable. We’re making real-world AI deployment dramatically easier, one step at a time. Max (@MaxSebti) the first @manakoai on-site deployment took me 13 hours. the second one? @tm0klc knocked it out in 3. starting tomorrow, fully deploying Manako takes one ssh command. — https://nitter.kareem.one/MaxSebti/status/2087652839157842247#m  
   https://nitter.kareem.one/manakoai/status/2087653699338326183#m
 - @foundrydigital (Foundry Digital, Wed, 11 Jan 2012): Expression Engine 2.0 review by the guys at Scriptiny bit.ly/w3Pg3R  
   https://nitter.kareem.one/foundrydigital/status/157243024848596993#m
 - @manakoai (Manako, Wed, 09 Sep 2026): Heading to @nrfeurope NRF Retail’s Big Show Europe in Paris next week (15–17 Sept) 🇫🇷 If you are attending and want to hear what Manako Labs have built for retail, please DM and let’s meet up. No new hardware, no engineers, no code just your existing cameras doing more. #NRFRetailsBigShowEurope  
   https://nitter.kareem.one/manakoai/status/2097622722310242420#m
+- @jaltucher (James Altucher, Wed, 09 Sep 2026): Listening to people try and warn me about AI and then my usual response:  
+  http://nitter.jaydenha.uk/jaltucher/status/2097518813050814690#m
 - @rob_svrn (Rob Greer, Tue, 15 Sep 2026): My incredible Stillcore Partner @rob_svrn :) Our other partner @jason is busy interviewing Presidents / Vice Presidents / Elons at the moment :)  
   https://nitter.kareem.one/markjeffrey/status/2099990718421074338#m
 - @taomedia_ (TAO Media, Tue, 15 Sep 2026): Story by @thillerich12. Learn more about @agilityrobotics on our website: tao.media/agility-robotics-u… Link Agility Robotics Unveils Digit 5 Humanoid for Safer Factory Work The fifth-generation Digit adds a 50-pound payload, faster charging, and a safety architecture designed for work closer to people. tao.media  
@@ -193,10 +205,16 @@ _no new posts in the lookback window_
   https://nitter.kareem.one/taomedia_/status/2099857123135885801#m
 - @taomedia_ (TAO Media, Tue, 15 Sep 2026): Article 404—GEN Launches First Game Jam for Games Built With AI-Generated Assets 🎲404-GEN has announced a two-week contest that asks creators to build playable Three.js games with 404’s game generator repo, with 10 TAO in rewards. 404—GEN has launched its first 404 Game Jam  
   https://nitter.kareem.one/taomedia_/status/2099856893497774221#m
+- @jaltucher (James Altucher, Tue, 15 Sep 2026): Q/C Technologies has appointed Yossef Ehrlichman, Ph.D., as Chief Technology Officer to lead the company’s optical processing unit program and overall technology strategy. Learn more: bit.ly/4xXk2ik $QCLS  
+  http://nitter.jaydenha.uk/Q_CTechnologies/status/2099856104670859351#m
 - @taomedia_ (TAO Media, Tue, 15 Sep 2026): Tomorrow, Score Studio goes live on Product Hunt. This is a big milestone, not just for us, but for anyone who believes open Vision AI should actually get a shot. Follow the page now so you’re first when we launch: producthunt.com/products/sco… From raw footage to production vision. Automatically. Labels, trains, evaluates, deploys, with Frontier Lab researchers on demand. Open Vision AI for everyone.  
   https://nitter.kareem.one/webuildscore/status/2099838107067515096#m
 - @TargonCompute (Targon, Tue, 01 Sep 2026): Happy to help! Proud to be trusted with running critical workloads such as validators. Very excited to see the talented team at DeSci Labs join the Bittensor ecosystem, their research and expertise are sure to add long-lasting value to the network. 🔬 Claims - Subnet 111 (@DeSciClaims) Our validator for SN111 is running on hardware provided by @TargonCompute. We're super grateful for the fast, reliable setup and the team's amazing support. Thank you, guys! — https://nitter.kareem.one/DeSciClaims/status/2094364807596036575#m  
   https://nitter.kareem.one/TargonCompute/status/2094908006039236625#m
+- @polychain (Polychain Capital, Thu, 25 Jun 2026): Article The Missing AI Layer Is Not Security. It&apos;s Authority. AI agents are now computer users. They browse websites. They read files. They write code. They call APIs. They log in to accounts. They handle credentials, use tools, and take actions across software  
+  http://nitter.jaydenha.uk/zherbert/status/2070178183333171395#m
+- @polychain (Polychain Capital, Thu, 13 Aug 2026): LBTC proved demand for yield-bearing Bitcoin. Today, we double down on that thesis. LBTC is moving to institutional yield. @Bitwise will manage a covered-call options strategy with a 4.5-year legacy track record, to generate LBTC's yield, targeting 2.5% net APY paid in Bitcoin.  
+  http://nitter.jaydenha.uk/Lombard_Finance/status/2087887552300933626#m
 - @manakoai (Manako, Thu, 13 Aug 2026): Step by step Max (@MaxSebti) forward deployed engineering — https://nitter.kareem.one/MaxSebti/status/2087858212473098403#m  
   https://nitter.kareem.one/manakoai/status/2087863589839282535#m
 - @rob_svrn (Rob Greer, Sun, 13 Sep 2026): I cannot emphasize enough how much GPT-6 Astra and Fable 5.1 are already enough for transformative impact in large sections of the economy. They can reliably do weeks worth of human work when properly guided & harnessed. Those effects will not be all at once and be uneven, but the fact that change will occur is inevitable no matter how the frontier is paced. But inevitable change does not mean the type of change is inevitable. It is increasingly important that we develop & share models of AI-human work that enhance, rather than only replace, human labor. The labs have a role to play in doing t  
@@ -207,12 +225,18 @@ _no new posts in the lookback window_
   http://nitter.jaydenha.uk/const_reborn/status/2099100984802697389#m
 - @TargonCompute (Targon, Mon, 31 Aug 2026): It's been a pleasure working with the @cascade_sn91 team on their recent SN91 launch. As the first team out of the @bitstarterAI ML track, we were proud to support them with initial compute credits on Targon. Excited to continue powering their pursuit of SOTA time series foundation models on Bittensor. ⚡️ SN91, Cascade (@cascade_sn91) Article Better Data, Better Models: What 184 Experiments Changed for Cascade To build the best decoder for Cascade, we needed to optimize across streaming, covariates, context and the training distribution. Thanks to compute credits from @Targoncompute, we were a  
   https://nitter.kareem.one/TargonCompute/status/2094532034488058036#m
+- @jaltucher (James Altucher, Mon, 14 Sep 2026): All of this is so surreal and most of the global population isn’t even fully aware of it. James Altucher (@jaltucher) Inspired by @ashe’s Exploding Human Body, I set up a site to ExplodeAnything.com. Put in any object (“an Iphone”, “a data center”, “an Ozempic pill”, “the soul”. etc), and it will “explode it” and teach you what each component does AND, tell you which public companies make each component, with links to their Yahoo Finance page. Video — http://nitter.jaydenha.uk/jaltucher/status/2099550542515110239#m  
+  http://nitter.jaydenha.uk/ReneSellmann/status/2099588988017299496#m
 - @const_reborn (Jacob Steeves, Mon, 14 Sep 2026): The push for regulatory capture and AI cabalism is accelerating. This, in large part, is why I'm building parallax. True P2P unstoppable, uncensorable AI systems aren't just neat, they're mandatory. This little single DGX spark "datacenter" in my forge with parallax can train (with other nodes) an 80b parameter model. - two solar blankets - ecoflow battery - lapdock for kvm - starlink internet - dgx spark Total input from solar ~600w (800w max) Total power draw from spark/starlink/etc. &lt; 200w No datacenters, no water supplies, no external power grid, no multi gigabit link. We must design AI  
   http://nitter.jaydenha.uk/jon_durbin/status/2099565522543104495#m
 - @const_reborn (Jacob Steeves, Mon, 14 Sep 2026): The most dangerous mind in history is the one aligned to a state.  
   http://nitter.jaydenha.uk/const_reborn/status/2099563846067191949#m
+- @jaltucher (James Altucher, Mon, 14 Sep 2026): Inspired by @ashe’s Exploding Human Body, I set up a site to ExplodeAnything.com. Put in any object (“an Iphone”, “a data center”, “an Ozempic pill”, “the soul”. etc), and it will “explode it” and teach you what each component does AND, tell you which public companies make each component, with links to their Yahoo Finance page. Video  
+  http://nitter.jaydenha.uk/jaltucher/status/2099550542515110239#m
 - @rob_svrn (Rob Greer, Mon, 14 Sep 2026): ALL-IN sessions begin! @jason and pals  
   https://nitter.kareem.one/markjeffrey/status/2099532488972685740#m
+- @jaltucher (James Altucher, Mon, 14 Sep 2026): The AI news from this weekend must be taken in perspective. First off, let’s make clear what was NOT said: - Zero AI companies said they were slowing down development.. - Nobody said that their release cadence was going to be slower. - And nobody even said they were going to cap capabilities of future AI models. What the Anthropic CEO said, and Sam Altman from OpenAI agreed with, is that they would use third party evaluators before they release a new model. Fine. In fact, the Anthropic CEO SPECIFICALLY said, “pacing does not mean halting model training or technical progress” which I note that   
+  http://nitter.jaydenha.uk/jaltucher/status/2099532383598838126#m
 - @const_reborn (Jacob Steeves, Mon, 14 Sep 2026): Today, we’re announcing a solution found by our miners to Erdős Problem 96, open for over 66 years. The result disproves the conjectured linear bound, constructing strictly convex polygons with superlinearly many unit-distance pairs. Verified in Lean through Conjectures. Full proof below.  
   http://nitter.jaydenha.uk/conjectures_io/status/2099495903346163977#m
 - @rob_svrn (Rob Greer, Mon, 14 Sep 2026): Introducing "What if AI Goes Right?" There’s too much doomerism & “AI is going to kill us” talk, and not enough discourse about all the promise of this technology. So I'm starting a weekly essay series. Every week, I'll post a deeply-researched essay outlining how AI will solve the biggest problems in the world. The first essays will include: - How AI Will Cure Cancer - How AI Will Solve Free Education - How AI Will Create Efficient Governments - How AI Will End Aging - How AI Will End Poverty - How AI Will Create Energy Abundance (and what that will provide) Comment with an essay you'd want t  
@@ -228,4 +252,4 @@ _no new posts in the lookback window_
 
 
 ---
-_Generated at 2026-09-16T02:48:28.751752+00:00 by scripts/intel/aggregate.py. Treat this digest as input context, not as ground truth. Verify before quoting._
+_Generated at 2026-09-16T09:00:46.745482+00:00 by scripts/intel/aggregate.py. Treat this digest as input context, not as ground truth. Verify before quoting._

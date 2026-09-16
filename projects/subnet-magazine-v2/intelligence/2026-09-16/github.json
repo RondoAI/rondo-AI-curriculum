@@ -3,6 +3,28 @@
     "repo": "opentensor/subtensor",
     "name": "Subtensor (chain)",
     "kind": "commit",
+    "sha": "5e65086",
+    "message": "Merge pull request #3170 from RaoFoundation/cursor/balancer-edge-basket-flush-flake-568b",
+    "author": "Arbos",
+    "posted_at": "2026-09-16T03:00:37Z",
+    "url": "https://github.com/RaoFoundation/subtensor/commit/5e65086c3ec6e05852a1f82642ff9eb124becfb8",
+    "fetched_at": "2026-09-16T09:00:42.818769+00:00"
+  },
+  {
+    "repo": "opentensor/subtensor",
+    "name": "Subtensor (chain)",
+    "kind": "commit",
+    "sha": "3d52c3c",
+    "message": "test(clone): credit in-window basket-flush and user TAO inflows in balancer edge emission check",
+    "author": "unarbos",
+    "posted_at": "2026-09-16T02:32:43Z",
+    "url": "https://github.com/RaoFoundation/subtensor/commit/3d52c3c0bf95f5a454d1c01565dc3b9d27439206",
+    "fetched_at": "2026-09-16T09:00:42.818769+00:00"
+  },
+  {
+    "repo": "opentensor/subtensor",
+    "name": "Subtensor (chain)",
+    "kind": "commit",
     "sha": "7c9d45e",
     "message": "Merge pull request #3155 from RaoFoundation/cursor/swap-basket-consolidated-b2ac",
     "author": "Arbos",
