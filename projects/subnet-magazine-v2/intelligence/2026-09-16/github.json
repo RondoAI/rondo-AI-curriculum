@@ -1,0 +1,112 @@
+[
+  {
+    "repo": "opentensor/subtensor",
+    "name": "Subtensor (chain)",
+    "kind": "commit",
+    "sha": "7c9d45e",
+    "message": "Merge pull request #3155 from RaoFoundation/cursor/swap-basket-consolidated-b2ac",
+    "author": "Arbos",
+    "posted_at": "2026-09-16T01:57:18Z",
+    "url": "https://github.com/RaoFoundation/subtensor/commit/7c9d45ebd423c7f6b0b477e11414fe2fe3a3794b",
+    "fetched_at": "2026-09-16T02:48:22.363725+00:00"
+  },
+  {
+    "repo": "opentensor/subtensor",
+    "name": "Subtensor (chain)",
+    "kind": "commit",
+    "sha": "c1816d4",
+    "message": "Merge pull request #3144 from manfromhellxbt/fix/cli-prompt-typer-exit",
+    "author": "Arbos",
+    "posted_at": "2026-09-16T00:37:59Z",
+    "url": "https://github.com/RaoFoundation/subtensor/commit/c1816d49f742993601a9a320a94112bbf13ff685",
+    "fetched_at": "2026-09-16T02:48:22.363725+00:00"
+  },
+  {
+    "repo": "opentensor/subtensor",
+    "name": "Subtensor (chain)",
+    "kind": "commit",
+    "sha": "cb7d603",
+    "message": "Merge pull request #3167 from RaoFoundation/dependabot/npm_and_yarn/website/npm_and_yarn-49ff85be5b",
+    "author": "Arbos",
+    "posted_at": "2026-09-16T00:37:43Z",
+    "url": "https://github.com/RaoFoundation/subtensor/commit/cb7d603a33581cbb0bb357677e18da12b0b5ff69",
+    "fetched_at": "2026-09-16T02:48:22.363725+00:00"
+  },
+  {
+    "repo": "opentensor/subtensor",
+    "name": "Subtensor (chain)",
+    "kind": "commit",
+    "sha": "869889f",
+    "message": "ci: trigger workflows as an allowed actor",
+    "author": "unarbos",
+    "posted_at": "2026-09-16T00:31:28Z",
+    "url": "https://github.com/RaoFoundation/subtensor/commit/869889f32ad8de373581eedf2847ba6c9e246b61",
+    "fetched_at": "2026-09-16T02:48:22.363725+00:00"
+  },
+  {
+    "repo": "opentensor/subtensor",
+    "name": "Subtensor (chain)",
+    "kind": "commit",
+    "sha": "5f169f5",
+    "message": "Merge branch 'main' into fix/cli-prompt-typer-exit",
+    "author": "unarbos",
+    "posted_at": "2026-09-16T00:31:26Z",
+    "url": "https://github.com/RaoFoundation/subtensor/commit/5f169f55d1ca9d676f480c7c2a6261c78676ea7a",
+    "fetched_at": "2026-09-16T02:48:22.363725+00:00"
+  },
+  {
+    "repo": "opentensor/subtensor",
+    "name": "Subtensor (chain)",
+    "kind": "commit",
+    "sha": "2e00027",
+    "message": "Merge pull request #3104 from RaoFoundation/fix-flakey-unittest",
+    "author": "Arbos",
+    "posted_at": "2026-09-16T00:29:38Z",
+    "url": "https://github.com/RaoFoundation/subtensor/commit/2e0002772233dad7c415bac3154ff7f38c8326f9",
+    "fetched_at": "2026-09-16T02:48:22.363725+00:00"
+  },
+  {
+    "repo": "opentensor/subtensor",
+    "name": "Subtensor (chain)",
+    "kind": "commit",
+    "sha": "15dc62b",
+    "message": "Merge pull request #3124 from RaoFoundation/fix/wallet-balance-decimals",
+    "author": "Arbos",
+    "posted_at": "2026-09-16T00:29:22Z",
+    "url": "https://github.com/RaoFoundation/subtensor/commit/15dc62b68aab8c82935992142903d2150d45d39c",
+    "fetched_at": "2026-09-16T02:48:22.363725+00:00"
+  },
+  {
+    "repo": "opentensor/subtensor",
+    "name": "Subtensor (chain)",
+    "kind": "commit",
+    "sha": "a7a3f19",
+    "message": "bench(basket): seed the fast moving price in the swap_basket benchmark",
+    "author": "unarbos",
+    "posted_at": "2026-09-16T00:25:37Z",
+    "url": "https://github.com/RaoFoundation/subtensor/commit/a7a3f191691bab216554eace4c6ff077d3dfda9d",
+    "fetched_at": "2026-09-16T02:48:22.363725+00:00"
+  },
+  {
+    "repo": "opentensor/subtensor",
+    "name": "Subtensor (chain)",
+    "kind": "commit",
+    "sha": "5ce614d",
+    "message": "chore(sdk): re-record fixtures after rebasing onto #3166",
+    "author": "unarbos",
+    "posted_at": "2026-09-15T23:50:57Z",
+    "url": "https://github.com/RaoFoundation/subtensor/commit/5ce614d1628eefeab0f3500997f519432c8220e9",
+    "fetched_at": "2026-09-16T02:48:22.363725+00:00"
+  },
+  {
+    "repo": "opentensor/subtensor",
+    "name": "Subtensor (chain)",
+    "kind": "commit",
+    "sha": "59c8f78",
+    "message": "chore: rebase onto main (spec 459); spec_version 461; regenerate bindings and docs",
+    "author": "unarbos",
+    "posted_at": "2026-09-15T23:04:12Z",
+    "url": "https://github.com/RaoFoundation/subtensor/commit/59c8f781b101255ade4c8ab772292c2d66b2bf8a",
+    "fetched_at": "2026-09-16T02:48:22.363725+00:00"
+  }
+]

@@ -1,0 +1,231 @@
+# Intelligence Digest, 2026-09-16
+
+_Single-file briefing for the daily research agent. Sources listed in trust order: human-curated notes first, then objective (github), then editorial (RSS), then volume (X via Nitter)._
+
+
+## ⊕ HUMAN-CURATED NOTES, last 7 days
+
+_no human notes in the window_
+
+## ⊕ MACRO BACKDROP via SEMIANALYSIS, 12 most recent posts
+
+_SemiAnalysis is the most-cited semiconductor and AI infrastructure publication in the industry. They do NOT cover Bittensor. The Oracle uses this corpus for any claim about hyperscaler compute, GPU economics, datacenter power, foundry capacity, memory pricing, lab unit economics. DO NOT cite SemiAnalysis for any Bittensor-specific claim. Full archive (289 posts, May 2020 onwards) lives at `intelligence/_external_sources/semianalysis/` with an `INDEX.md` table of contents. Paywalled posts show only subtitle + free preview; free posts have the full body extracted._
+
+### 2026-09-15 · Everyone Says Datacenter Moratoriums Are Killing the US Buildout. We disagree
+_300+ moratoriums mapped, 20GW sits inside a restricted local boundary, 1,525MW actually slips, 2.3GW nationwide including New York_
+
+- **Authors:** ["Maya Barkin", "Reyk Knuhtsen", "Jeremie Eliahou Ontiveros", "Dylan Patel"]
+- **Access:** paid-preview
+- **URL:** https://newsletter.semianalysis.com/p/everyone-says-datacenter-moratoriums
+- **Corpus file:** `intelligence/_external_sources/semianalysis/2026-09-15-everyone-says-datacenter-moratoriums.md`
+
+> The debate on US datacenters has never been so politically charged. Four states have acted in under two months. New York has stopped issuing environmental permits for datacenters, Texas has paused the next step in its massive ERCOT interconnection queue, Pennsylvania has pulled datacenters out of fast-track permitting and made state permits conditional on new guardrails, and Oregon has frozen datacenter deals on state-owned land.  Beyond the state level, more than 300 towns, cities and counties
+
+### 2026-09-14 · A Brain Too Big to Carry — On-Device vs Datacenter Inference
+_Robot Models, Silicon & DRAM Efficiency, Jetson Thor vs. B300 TCO, Deployments, The Network Wall_
+
+- **Authors:** ["Ivan Chiam", "Gianluca", "Zane Fong", "Bryan Shan", "Dylan Patel", "Reyk Knuhtsen"]
+- **Access:** paid-preview
+- **URL:** https://newsletter.semianalysis.com/p/a-brain-too-big-to-carry-on-device
+- **Corpus file:** `intelligence/_external_sources/semianalysis/2026-09-14-a-brain-too-big-to-carry-on-device.md`
+
+> # Where should the brain of the robot go?  So far, AI has mostly lived behind a screen. Chatbots answered questions. Then agents started driving software and finishing multi-step tasks on their own. The next step is AI that acts in the physical world, and the biggest piece of that is robots. It’s early. Nobody has settled the hardware, the models, or the economics.  ## The Embodiment Problem  With LLMs, the hardware bends to the model. Pour in as much data and compute as possible at training, th
+
+### 2026-09-14 · Vera Rubin NVL72 Agentic Inference: 67x better Performance per Dollar
+_Jensen Sandbagging Performance Again, 2x more Annual Profit Per GigaWatt, The More you Buy, The More you Earn, AgentX, InferenceX, Extreme Co-Design_
+
+- **Authors:** ["Bryan Shan", "Alec Ibarra", "Cam Quilici", "Wenyao Gao", "Dylan Patel"]
+- **Access:** paid-preview
+- **URL:** https://newsletter.semianalysis.com/p/vera-rubin-nvl72-agentic-inference
+- **Corpus file:** `intelligence/_external_sources/semianalysis/2026-09-14-vera-rubin-nvl72-agentic-inference.md`
+
+> [Rubin is the first platform co-designed across six products for the agentic era: Rubin GPU, Vera CPU, NVLink 6 Switch, ConnectX-9, BlueField-4, and Spectrum-6.](https://newsletter.semianalysis.com/p/vera-rubin-extreme-co-design-an-evolution) Today we are publishing the first verified agentic inference results for Rubin, measured on our agentic inference benchmark, AgentX. Even on early pre-release software, the results already show why extreme co-design was necessary.  At GTC 2026, Jensen prese
+
+### 2026-09-13 · Long Live the Short King: Why 4-hi HBM Wins
+_Same Bandwidth, Fewer Dies: How 4-hi HBM Cuts Inference Costs and Makes Scarce DRAM Go Further_
+
+- **Authors:** ["Myron Xie", "Bryan Shan", "Harrison Barclay", "Minjae Kang", "Dylan Patel"]
+- **Access:** paid-preview
+- **URL:** https://newsletter.semianalysis.com/p/long-live-the-short-king-why-4-hi
+- **Corpus file:** `intelligence/_external_sources/semianalysis/2026-09-13-long-live-the-short-king-why-4-hi.md`
+
+> High Bandwidth Memory has been a key technology enabling the AI revolution. Despite HBM’s high costs relative to other forms of memory, chip designers have packaged more and more HBM into AI accelerators. Customers push to design in newer generation HBM whilst also increasing capacity per XPU by adding more cubes, and with denser and higher stacks. This has led to HBM consuming an increasing share of total DRAM wafer capacity, resulting in the extreme DRAM shortage we see ourselves in today.  We
+
+### 2026-09-11 · Nvidia’s Backstop Universe – Heads I Win, Tails Who Loses?
+_The $11T AI Buildout, Nvidia’s Backstop Economics, and the Limits of Nvidia’s Balance Sheet_
+
+- **Authors:** ["Daniel Nishball", "Oliver Kennon", "Terence Ong"]
+- **Access:** paid-preview
+- **URL:** https://newsletter.semianalysis.com/p/nvidias-backstop-universe-heads-i
+- **Corpus file:** `intelligence/_external_sources/semianalysis/2026-09-11-nvidias-backstop-universe-heads-i.md`
+
+> Follow the money behind the AI buildout with our [AI Compute, Capital and Markets Model](https://semianalysis.com/capital-and-markets/) - understand who is funding the expansion, how deals are structured, and where the risks sit. Contact our team [here](https://semianalysis.com/capital-and-markets/) to find out more.  We’re also hiring for SemiAnalysis’s Compute, Capital & Markets team. We have four openings across New York and Singapore:  - Senior Credit Markets Specialist - New York: 5-7 years
+
+### 2026-09-10 · What is So Hard About Behind-The-Meter Power For Datacenters? Part 1
+_Dumb Science Experiments vs. Money Printing Machines_
+
+- **Authors:** ["Ellie Holbrook", "Robert Boswall", "Jeremie Eliahou Ontiveros", "Nicolas Bontigui", "Dylan Patel"]
+- **Access:** paid-preview
+- **URL:** https://newsletter.semianalysis.com/p/what-is-so-hard-about-behind-the
+- **Corpus file:** `intelligence/_external_sources/semianalysis/2026-09-10-what-is-so-hard-about-behind-the.md`
+
+> [![](https://substackcdn.com/image/fetch/$s_!xp5B!,w_1456,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F0fe650d6-cdda-4d26-a83d-1e793cf406c0_1672x941.png)](https://substackcdn.com/image/fetch/$s_!xp5B!,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F0fe650d6-cdda-4d26-a83d-1e793cf406c0_1672x941.png)  Last year we were the first to call out [Onsite Gas Generation
+
+### 2026-09-09 · Where Does a Robot Think – On-Device vs Datacenter Inference
+_The Embodiment Problem, Planning vs Action Layers, Glass-To-Glass Budgets, Wafers & DRAM Constraints, One B300 vs 56 Thors TCO, Factories To Caves_
+
+- **Authors:** ["Ivan Chiam", "Zane Fong", "Bryan Shan", "Reyk Knuhtsen", "Myron Xie", "Gerald Wong", "Dylan Patel"]
+- **Access:** paid-preview
+- **URL:** https://newsletter.semianalysis.com/p/where-does-a-robot-think-on-device
+- **Corpus file:** `intelligence/_external_sources/semianalysis/2026-09-09-where-does-a-robot-think-on-device.md`
+
+> For most of its short history, AI lived behind a screen. That’s starting to change.  First came chatbots, good for answering a question or drafting an email. Then agentic AI, models that don’t just respond but do real work on a computer: navigating software, calling tools, finishing multi-step tasks on their own. Now the frontier is physical AI, intelligence that reaches past the screen to perceive the world and act on it. The biggest piece is robots, and it is still early: the hardware, the mod
+
+### 2026-09-07 · TPU Inference Externalization Full Steam Ahead - InferenceX
+_InferenceX, Up to 50% Better Performance per Dollar, Rapid Externalization of TPU stack, Growing Customer Base, Ironwood, TPUv8i, Reducing CUDA Moat_
+
+- **Authors:** ["Alec Ibarra", "Cam Quilici", "Bryan Shan", "Wenyao Gao", "Daniel Nishball", "Zane Fong", "Dylan Patel"]
+- **Access:** paid-preview
+- **URL:** https://newsletter.semianalysis.com/p/tpu-inferencex-full-steam
+- **Corpus file:** `intelligence/_external_sources/semianalysis/2026-09-07-tpu-inferencex-full-steam.md`
+
+> For more than a decade, the industry has watched Google build an empire on its own silicon. Search, Ads, YouTube, and every generation of Gemini run on TPUs. Few accelerators have attracted as much architectural scrutiny or as much debate about what their performance and economics would look like outside the company that designed them. Anthropic being the biggest user of TPUs, surpassing Deepmind’s own use by 2029.  [![A fisheye view of a data center wall with rows of server racks, complex cabli
+
+### 2026-09-01 · Korea’s Trillion-Dollar Sovereign AI Investment: Nvidia Wins, Hynix Loses
+_Korea hosts a Squid Games, National AI Tournament, the best non-Chinese open source model gets eliminated, why Nvidia needs open source, implications for Hynix and Samsung_
+
+- **Authors:** ["Max Kan", "Ray Wang", "Dylan Patel"]
+- **Access:** paid-preview
+- **URL:** https://newsletter.semianalysis.com/p/koreas-trillion-dollar-sovereign
+- **Corpus file:** `intelligence/_external_sources/semianalysis/2026-09-01-koreas-trillion-dollar-sovereign.md`
+
+> Every day, businesses and governments around the world are becoming increasingly reliant on America’s frontier models. Startup CEOs already can’t imagine running their companies without AI, and it won’t be long until the same is true for every other organization in the world.  At the same time, it’s become abundantly clear that access to frontier models is at the mercy of Anthropic, OpenAI, and the United States government. Fable 5 was temporarily banned by the USG, and GPT 5.6 and Astra were si
+
+### 2026-08-30 · Most Neoclouds Suck At Security
+_OpenAI vs HuggingFace, Container Escapes, Kernel Bypass, Network Policies, Security Keys, Multi-tenant Grafana, and a ClusterMAX 3.0 Preview_
+
+- **Authors:** ["Jordan Nanos", "Sam Harshe", "Pratt Bhatt", "Billy Cao", "Jack Carson", "Dylan Patel"]
+- **Access:** paid-preview
+- **URL:** https://newsletter.semianalysis.com/p/most-neoclouds-suck-at-security
+- **Corpus file:** `intelligence/_external_sources/semianalysis/2026-08-30-most-neoclouds-suck-at-security.md`
+
+> [![](https://substackcdn.com/image/fetch/$s_!zWz0!,w_1456,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2Fc647fca6-8c53-43a7-af27-f4396a31077b_1448x1086.png)](https://substackcdn.com/image/fetch/$s_!zWz0!,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2Fc647fca6-8c53-43a7-af27-f4396a31077b_1448x1086.png)  In Shakespeare’s Julius Caesar, Caesar ignores a soothsayer’
+
+### 2026-08-25 · OpenAI Jalapeño: Better Than Nvidia Blackwell
+_OpenAI’s self-designed ASIC compared with Rubin, Jalapeño’s TCO, throughput per MW, and spicy deets_
+
+- **Authors:** ["Bryan Shan", "Myron Xie", "Jordan Nanos", "Wega Chu", "Clara Ee", "Dylan Patel"]
+- **Access:** paid-preview
+- **URL:** https://newsletter.semianalysis.com/p/openai-jalapeno-better-than-nvidia
+- **Corpus file:** `intelligence/_external_sources/semianalysis/2026-08-25-openai-jalapeno-better-than-nvidia.md`
+
+> OpenAI has spent the past couple years quietly building “Jalapeño,” an inference chip just announced at Hot Chips. Rumors of a successful tapeout had been swirling for a while. But now we have details. OpenAI invited us to look at their chip, go to their labs to check out how real it is, and [benchmark](https://openai.com/index/jalapeno-first-results/) it with our [InferenceX](https://inferencex.semianalysis.com/) suite.  In June, [OpenAI unveiled the chip program](https://openai.com/index/opena
+
+### 2026-08-24 · AgentX - InferenceXv3: Does CUDA Moat Hold up in Agentic Inferencing?
+_$3 Million USD dataset open sourced, 1 Mil+ Context Length, Multiturn, Sub Agents 95%+ KVCache HitRate, GB300 NVL72, MI355, B200_
+
+- **Authors:** ["Cam Quilici", "Bryan Shan", "Alec Ibarra", "Daniel Nishball", "Zane Fong", "Kimbo Chen", "Dylan Patel"]
+- **Access:** paid-preview
+- **URL:** https://newsletter.semianalysis.com/p/agentx-inferencexv3-does-cuda-moat
+- **Corpus file:** `intelligence/_external_sources/semianalysis/2026-08-24-agentx-inferencexv3-does-cuda-moat.md`
+
+> Since the [Claude Code inflection point](https://newsletter.semianalysis.com/p/claude-code-is-the-inflection-point) in November 2025, long-context, multi-turn agentic workloads have grown rapidly. They now dominate traffic for production inferencing. In April 2026, OpenAI’s Enterprise agentic spending overtook ChatGPT spending.  [![Claude Code is the Inflection Point](https://substackcdn.com/image/fetch/$s_!D9-B!,w_140,h_140,c_fill,f_auto,q_auto:good,fl_progressive:steep,g_auto/https%3A%2F%2Fsub
+
+
+## ⊕ GITHUB COMMITS + RELEASES, last 24h
+
+- **Subtensor (chain)** (COMMIT `7c9d45e`, 2026-09-16 01:57) Merge pull request #3155 from RaoFoundation/cursor/swap-basket-consolidated-b2ac  
+  https://github.com/RaoFoundation/subtensor/commit/7c9d45ebd423c7f6b0b477e11414fe2fe3a3794b
+- **Subtensor (chain)** (COMMIT `c1816d4`, 2026-09-16 00:37) Merge pull request #3144 from manfromhellxbt/fix/cli-prompt-typer-exit  
+  https://github.com/RaoFoundation/subtensor/commit/c1816d49f742993601a9a320a94112bbf13ff685
+- **Subtensor (chain)** (COMMIT `cb7d603`, 2026-09-16 00:37) Merge pull request #3167 from RaoFoundation/dependabot/npm_and_yarn/website/npm_and_yarn-49ff85be5b  
+  https://github.com/RaoFoundation/subtensor/commit/cb7d603a33581cbb0bb357677e18da12b0b5ff69
+- **Subtensor (chain)** (COMMIT `869889f`, 2026-09-16 00:31) ci: trigger workflows as an allowed actor  
+  https://github.com/RaoFoundation/subtensor/commit/869889f32ad8de373581eedf2847ba6c9e246b61
+- **Subtensor (chain)** (COMMIT `5f169f5`, 2026-09-16 00:31) Merge branch 'main' into fix/cli-prompt-typer-exit  
+  https://github.com/RaoFoundation/subtensor/commit/5f169f55d1ca9d676f480c7c2a6261c78676ea7a
+- **Subtensor (chain)** (COMMIT `2e00027`, 2026-09-16 00:29) Merge pull request #3104 from RaoFoundation/fix-flakey-unittest  
+  https://github.com/RaoFoundation/subtensor/commit/2e0002772233dad7c415bac3154ff7f38c8326f9
+- **Subtensor (chain)** (COMMIT `15dc62b`, 2026-09-16 00:29) Merge pull request #3124 from RaoFoundation/fix/wallet-balance-decimals  
+  https://github.com/RaoFoundation/subtensor/commit/15dc62b68aab8c82935992142903d2150d45d39c
+- **Subtensor (chain)** (COMMIT `a7a3f19`, 2026-09-16 00:25) bench(basket): seed the fast moving price in the swap_basket benchmark  
+  https://github.com/RaoFoundation/subtensor/commit/a7a3f191691bab216554eace4c6ff077d3dfda9d
+- **Subtensor (chain)** (COMMIT `5ce614d`, 2026-09-15 23:50) chore(sdk): re-record fixtures after rebasing onto #3166  
+  https://github.com/RaoFoundation/subtensor/commit/5ce614d1628eefeab0f3500997f519432c8220e9
+- **Subtensor (chain)** (COMMIT `59c8f78`, 2026-09-15 23:04) chore: rebase onto main (spec 459); spec_version 461; regenerate bindings and docs  
+  https://github.com/RaoFoundation/subtensor/commit/59c8f781b101255ade4c8ab772292c2d66b2bf8a
+
+## ⊕ ECOSYSTEM BLOGS via RSS
+
+_no new posts in the lookback window_
+
+## ⊕ X via NITTER, voices we track
+
+- @TargonCompute (Targon, Wed, 26 Aug 2026): Proud to power @TheoriqAI with secure confidential compute for their agentic market research. Large GPU blocks on demand, with hardware-level guarantees that keep the workload and its data private even from the machines running it. Excited to keep powering experimental research infrastructure with Targon. Theoriq (@TheoriqAI) .@TargonCompute is powering Theoriq AI experimentation. Curating risk-managed yield is, underneath, a research problem: how markets behave, where they break, and how much of that can be seen coming. That runs on heavy, on-demand compute. Targon is our partner in supplying  
+  https://nitter.kareem.one/TargonCompute/status/2092690588143657190#m
+- @TargonCompute (Targon, Wed, 26 Aug 2026): .@TargonCompute is powering Theoriq AI experimentation. Curating risk-managed yield is, underneath, a research problem: how markets behave, where they break, and how much of that can be seen coming. That runs on heavy, on-demand compute. Targon is our partner in supplying it. Theoriq (@TheoriqAI) Article Theoriq partnering with Targon to power AI experimentation Curating risk-managed yield is, underneath, a research problem. Long before capital is deployed, we want to know how markets behave, where they tend to break, and how much of that can be seen coming — https://nitter.kareem.one/TheoriqA  
+  https://nitter.kareem.one/TheoriqAI/status/2092661304444277050#m
+- @manakoai (Manako, Wed, 12 Aug 2026): The journey of building AI for the physical world is accelerating. What once took long, complex on-site deployments is rapidly becoming simple, fast, and repeatable. We’re making real-world AI deployment dramatically easier, one step at a time. Max (@MaxSebti) the first @manakoai on-site deployment took me 13 hours. the second one? @tm0klc knocked it out in 3. starting tomorrow, fully deploying Manako takes one ssh command. — https://nitter.kareem.one/MaxSebti/status/2087652839157842247#m  
+  https://nitter.kareem.one/manakoai/status/2087653699338326183#m
+- @foundrydigital (Foundry Digital, Wed, 11 Jan 2012): Expression Engine 2.0 review by the guys at Scriptiny bit.ly/w3Pg3R  
+  https://nitter.kareem.one/foundrydigital/status/157243024848596993#m
+- @manakoai (Manako, Wed, 09 Sep 2026): Heading to @nrfeurope NRF Retail’s Big Show Europe in Paris next week (15–17 Sept) 🇫🇷 If you are attending and want to hear what Manako Labs have built for retail, please DM and let’s meet up. No new hardware, no engineers, no code just your existing cameras doing more. #NRFRetailsBigShowEurope  
+  https://nitter.kareem.one/manakoai/status/2097622722310242420#m
+- @rob_svrn (Rob Greer, Tue, 15 Sep 2026): My incredible Stillcore Partner @rob_svrn :) Our other partner @jason is busy interviewing Presidents / Vice Presidents / Elons at the moment :)  
+  https://nitter.kareem.one/markjeffrey/status/2099990718421074338#m
+- @taomedia_ (TAO Media, Tue, 15 Sep 2026): Story by @thillerich12. Learn more about @agilityrobotics on our website: tao.media/agility-robotics-u… Link Agility Robotics Unveils Digit 5 Humanoid for Safer Factory Work The fifth-generation Digit adds a 50-pound payload, faster charging, and a safety architecture designed for work closer to people. tao.media  
+  https://nitter.kareem.one/taomedia_/status/2099972273826345316#m
+- @taomedia_ (TAO Media, Tue, 15 Sep 2026): Article Agility Robotics Unveils Digit 5 Humanoid for Safer Factory Work 🦾The fifth-generation Digit adds a 50-pound payload, faster charging, and a safety architecture designed for work closer to people. Agility Robotics has introduced Digit 5, the next generation of  
+  https://nitter.kareem.one/taomedia_/status/2099972085590462489#m
+- @1inch (1inch, Tue, 15 Sep 2026): Today's result is a delay, not a verdict. Legislation of this scale rarely moves in a straight line, and a cloture vote can be brought again. Crypto is not going anywhere. Clarity for this industry is a question of when, not if. We will have CLARITY. Watcher.Guru (@WatcherGuru) BREAKING: 🇺🇸 Senate fails to advance Crypto Clarity Act. — http://x.yuuki.sh/WatcherGuru/status/2099932484205240366#m  
+  http://x.yuuki.sh/1inch/status/2099932709418135876#m
+- @1inch (1inch, Tue, 15 Sep 2026): Swap USDC for tokenized Tesla on BNB Chain. TSLAon by @Ondo. Same network, one swap. Video  
+  http://x.yuuki.sh/1inch/status/2099895517706678762#m
+- @1inch (1inch, Tue, 15 Sep 2026):   
+  http://x.yuuki.sh/1inch/status/2099895518029664422#m
+- @1inch (1inch, Tue, 15 Sep 2026): 1inch.com/aqua/incentives  
+  http://x.yuuki.sh/1inch/status/2099875159943373005#m
+- @1inch (1inch, Tue, 15 Sep 2026): Your Aqua rewards show zero and you did everything right. Two reasons that can happen, and neither is a bug. Baptiste Guerin, Head of Sales &amp; Partnerships at @merkl_xyz, on how weekly reward runs work and the one timing edge case to know about. Video  
+  http://x.yuuki.sh/1inch/status/2099875156919304513#m
+- @manakoai (Manako, Tue, 15 Sep 2026): The physical world still can’t talk to software. A billion cameras watch factories, stations, warehouses, and stores every second. Almost none of that footage becomes action. That’s what we build at Manako. Today we join F/ai at @joinstationf The program that put OpenAI, Anthropic, Google, Meta, Microsoft and top-tier VCs behind a handful of AI-native teams. Honoured. Focused. Shipping.  
+  https://nitter.kareem.one/manakoai/status/2099861562882203822#m
+- @taomedia_ (TAO Media, Tue, 15 Sep 2026): ✏️ Story by @Verri_co Learn more about @404gen_ on our website: tao.media/404-gen-launches-f… Link 404—GEN Launches First Game Jam for Games Built With AI-Generated Assets 404-GEN has announced a two-week contest that asks creators to build playable Three.js games with 404’s game generator repo, with 10 TAO in rewards. tao.media  
+  https://nitter.kareem.one/taomedia_/status/2099857123135885801#m
+- @taomedia_ (TAO Media, Tue, 15 Sep 2026): Article 404—GEN Launches First Game Jam for Games Built With AI-Generated Assets 🎲404-GEN has announced a two-week contest that asks creators to build playable Three.js games with 404’s game generator repo, with 10 TAO in rewards. 404—GEN has launched its first 404 Game Jam  
+  https://nitter.kareem.one/taomedia_/status/2099856893497774221#m
+- @taomedia_ (TAO Media, Tue, 15 Sep 2026): Tomorrow, Score Studio goes live on Product Hunt. This is a big milestone, not just for us, but for anyone who believes open Vision AI should actually get a shot. Follow the page now so you’re first when we launch: producthunt.com/products/sco… From raw footage to production vision. Automatically. Labels, trains, evaluates, deploys, with Frontier Lab researchers on demand. Open Vision AI for everyone.  
+  https://nitter.kareem.one/webuildscore/status/2099838107067515096#m
+- @TargonCompute (Targon, Tue, 01 Sep 2026): Happy to help! Proud to be trusted with running critical workloads such as validators. Very excited to see the talented team at DeSci Labs join the Bittensor ecosystem, their research and expertise are sure to add long-lasting value to the network. 🔬 Claims - Subnet 111 (@DeSciClaims) Our validator for SN111 is running on hardware provided by @TargonCompute. We're super grateful for the fast, reliable setup and the team's amazing support. Thank you, guys! — https://nitter.kareem.one/DeSciClaims/status/2094364807596036575#m  
+  https://nitter.kareem.one/TargonCompute/status/2094908006039236625#m
+- @manakoai (Manako, Thu, 13 Aug 2026): Step by step Max (@MaxSebti) forward deployed engineering — https://nitter.kareem.one/MaxSebti/status/2087858212473098403#m  
+  https://nitter.kareem.one/manakoai/status/2087863589839282535#m
+- @rob_svrn (Rob Greer, Sun, 13 Sep 2026): I cannot emphasize enough how much GPT-6 Astra and Fable 5.1 are already enough for transformative impact in large sections of the economy. They can reliably do weeks worth of human work when properly guided & harnessed. Those effects will not be all at once and be uneven, but the fact that change will occur is inevitable no matter how the frontier is paced. But inevitable change does not mean the type of change is inevitable. It is increasingly important that we develop & share models of AI-human work that enhance, rather than only replace, human labor. The labs have a role to play in doing t  
+  https://nitter.kareem.one/emollick/status/2099235643792462040#m
+- @const_reborn (Jacob Steeves, Sun, 13 Sep 2026): we will need compute (@lium_io, @TargonCompute) we will need inference (@engyai, @chutes_ai) we will need data (@Hippius_cloud) we will need knowledge (@teutonic) If we are going to have free intelligence (@affine_io)  
+  http://nitter.jaydenha.uk/const_reborn/status/2099176877508219132#m
+- @const_reborn (Jacob Steeves, Sun, 13 Sep 2026): The question is not whether open source AI can be shut down. It is whether the funding for OSS AI can be shut down. All OSS models, Meta, DeepSeek, Mistral are just arms of fiat funded corporations or the state itself. The ML community has yet to swallow this pill. They will. const (@const_reborn) No. But they can defund it. — http://nitter.jaydenha.uk/const_reborn/status/2099098962082840635#m  
+  http://nitter.jaydenha.uk/const_reborn/status/2099100984802697389#m
+- @TargonCompute (Targon, Mon, 31 Aug 2026): It's been a pleasure working with the @cascade_sn91 team on their recent SN91 launch. As the first team out of the @bitstarterAI ML track, we were proud to support them with initial compute credits on Targon. Excited to continue powering their pursuit of SOTA time series foundation models on Bittensor. ⚡️ SN91, Cascade (@cascade_sn91) Article Better Data, Better Models: What 184 Experiments Changed for Cascade To build the best decoder for Cascade, we needed to optimize across streaming, covariates, context and the training distribution. Thanks to compute credits from @Targoncompute, we were a  
+  https://nitter.kareem.one/TargonCompute/status/2094532034488058036#m
+- @const_reborn (Jacob Steeves, Mon, 14 Sep 2026): The push for regulatory capture and AI cabalism is accelerating. This, in large part, is why I'm building parallax. True P2P unstoppable, uncensorable AI systems aren't just neat, they're mandatory. This little single DGX spark "datacenter" in my forge with parallax can train (with other nodes) an 80b parameter model. - two solar blankets - ecoflow battery - lapdock for kvm - starlink internet - dgx spark Total input from solar ~600w (800w max) Total power draw from spark/starlink/etc. &lt; 200w No datacenters, no water supplies, no external power grid, no multi gigabit link. We must design AI  
+  http://nitter.jaydenha.uk/jon_durbin/status/2099565522543104495#m
+- @const_reborn (Jacob Steeves, Mon, 14 Sep 2026): The most dangerous mind in history is the one aligned to a state.  
+  http://nitter.jaydenha.uk/const_reborn/status/2099563846067191949#m
+- @rob_svrn (Rob Greer, Mon, 14 Sep 2026): ALL-IN sessions begin! @jason and pals  
+  https://nitter.kareem.one/markjeffrey/status/2099532488972685740#m
+- @const_reborn (Jacob Steeves, Mon, 14 Sep 2026): Today, we’re announcing a solution found by our miners to Erdős Problem 96, open for over 66 years. The result disproves the conjectured linear bound, constructing strictly convex polygons with superlinearly many unit-distance pairs. Verified in Lean through Conjectures. Full proof below.  
+  http://nitter.jaydenha.uk/conjectures_io/status/2099495903346163977#m
+- @rob_svrn (Rob Greer, Mon, 14 Sep 2026): Introducing "What if AI Goes Right?" There’s too much doomerism & “AI is going to kill us” talk, and not enough discourse about all the promise of this technology. So I'm starting a weekly essay series. Every week, I'll post a deeply-researched essay outlining how AI will solve the biggest problems in the world. The first essays will include: - How AI Will Cure Cancer - How AI Will Solve Free Education - How AI Will Create Efficient Governments - How AI Will End Aging - How AI Will End Poverty - How AI Will Create Energy Abundance (and what that will provide) Comment with an essay you'd want t  
+  https://nitter.kareem.one/ArmanHezarkhani/status/2099477884553343235#m
+- @rob_svrn (Rob Greer, Mon, 14 Sep 2026): Heather vs a robot - and @stillcore partner @rob_svrn Video  
+  https://nitter.kareem.one/markjeffrey/status/2099296033759199677#m
+- @foundrydigital (Foundry Digital, Mon, 02 Jan 2012): Early predictions for design trends of 2012? tiny.cc/mkg4v  
+  https://nitter.kareem.one/foundrydigital/status/153974018557493248#m
+- @manakoai (Manako, Fri, 28 Aug 2026): Those @nvidia Jetsons going into fuel stations just got a lot denser. With our new models, one unit now runs 35–40 cameras + 7–14 agents. Heavier agents eat more of the budget. Lighter ones scale further. The cameras were already on site. The intelligence wasn’t.  
+  https://nitter.kareem.one/manakoai/status/2093349687927394806#m
+- @TargonCompute (Targon, Fri, 21 Aug 2026): The Manifold team has had our heads down building, and we are excited to be making an apperance at @ExploitSummit very soon! We are looking forward to connecting with the community in Canada, and sharing the latest innovations in open stack inference and permissionless compute. Hope to see you all September 28-29th in Montreal 🍁 Exploit Summit (@ExploitSummit) Decentralization doesn't remove trust. It relocates it. @manifoldlabs took that head-on. @TargonCompute turned untrusted GPUs into confidential compute you can actually verify - and put the architecture in a paper co-authored with @intel  
+  https://nitter.kareem.one/manifoldlabs/status/2090871513616433547#m
+
+
+---
+_Generated at 2026-09-16T02:48:28.751752+00:00 by scripts/intel/aggregate.py. Treat this digest as input context, not as ground truth. Verify before quoting._
