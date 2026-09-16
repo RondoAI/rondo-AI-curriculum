@@ -195,6 +195,18 @@ _no new posts in the lookback window_
   http://nitter.jaydenha.uk/CambrianNetwork/status/2069834786647027852#m
 - @polychain (Polychain Capital, Wed, 24 Jun 2026): EXCLUSIVE: a16z CSX-backed Cambrian raises $6 million seed to build blockchain data oracle network theblock.co/post/406028/a16z… Link a16z CSX-backed Cambrian raises $6 million seed to build blockchain data oracle network Cambrian, a startup building blockchain data infrastructure for institutions and AI agents, raised $6 million in a seed funding round. theblock.co  
   http://nitter.jaydenha.uk/TheBlockCo/status/2069827932843909349#m
+- @KyleSamani (Kyle Samani, Wed, 16 Sep 2026): The ticker is solana:FWDtiB5fXHdVAewPqvHPL2dh4aBC1C6GacQbePoQXKjz Sunrise (@sunrise) $FWDI is now listed on @Solana via Sunrise. Issued by @Backpack Securities. — http://nitter.jaydenha.uk/sunrise/status/2100317083112222976#m  
+  http://nitter.jaydenha.uk/KyleSamani/status/2100343176812966070#m
+- @BarrySilbert (Barry Silbert, Wed, 16 Sep 2026): BREAKING: Zcash zcash:native becomes the 9th largest cryptocurrency in the world by market cap  
+  http://nitter.jaydenha.uk/AltcoinDaily/status/2100302473894441292#m
+- @JosephJacks_ (Joseph Jacks, Wed, 16 Sep 2026): American open weights 👌🏼📈🇺🇸 Arcee.ai (@arcee_ai) Today, we are announcing our Series B funding round, valuing the company at more than $1B. This round accelerates our next-gen Trinity models across diverse infrastructure, expands our work with the DOE and national labs on Genesis-Science-1, and enables us to build the platform teams need to build, evaluate, deploy, and operate open models in production. We are grateful to our team, partners, open-source community, and investors. Led by @Vista_Equity, Cambium Capital, and @emergencecap, with participation from AI10 Ventures, @Hitachi, IAG, @M12  
+  http://nitter.jaydenha.uk/JosephJacks_/status/2100266931479880087#m
+- @jaltucher (James Altucher, Wed, 16 Sep 2026): Working on an AI-powered end to end platform for designing optical and then quantum chips at $QCLS. More details and refinements later but you can check it out at VibeGDS.io - you just enter plain English for the chip you want and it will build it out, simulate, verify, etc. Of interest mostly to optical engineers.  
+  http://nitter.jaydenha.uk/jaltucher/status/2100262449685364904#m
+- @JosephJacks_ (Joseph Jacks, Wed, 16 Sep 2026): Hugging Face CEO @ClementDelangue, whose company was the victim of an AI-led cyberattack, said existing cyber laws are likely sufficient to govern advanced AI. “I’m not even sure that we need to reinvent the wheel,” he told @alexanderburns at @POLITICOLive’s Decoded Summit.👇 Video  
+  http://nitter.jaydenha.uk/politico/status/2100254944745898045#m
+- @JosephJacks_ (Joseph Jacks, Wed, 16 Sep 2026): The future is more likely AIs fighting AIs (on behalf of humans) than AI fighting humanity.  
+  http://nitter.jaydenha.uk/naval/status/2100249689321033731#m
 - @JosephJacks_ (Joseph Jacks, Wed, 16 Sep 2026): People who really want to orchestrate their agents properly need to study @GustavoDudamel.  
   http://nitter.jaydenha.uk/JosephJacks_/status/2100244389830480193#m
 - @tplr_ai (Templar, Wed, 16 Sep 2026): When using pipeline compression with fixed projections shared across layers, robustness improves further as seen in the figure below. This suggests that shared projectors align representations across stage boundaries, making bypasses less disruptive. 4/n  
@@ -229,6 +241,8 @@ _no new posts in the lookback window_
   http://nitter.jaydenha.uk/manakoai/status/2087653699338326183#m
 - @foundrydigital (Foundry Digital, Wed, 11 Jan 2012): Expression Engine 2.0 review by the guys at Scriptiny bit.ly/w3Pg3R  
   https://nitter.kareem.one/foundrydigital/status/157243024848596993#m
+- @foundrydigital (Foundry Digital, Wed, 11 Jan 2012): Expression Engine 2.0 review by the guys at Scriptiny bit.ly/w3Pg3R  
+  http://nitter.jaydenha.uk/foundrydigital/status/157243024848596993#m
 - @PanteraCapital (Pantera Capital, Wed, 09 Sep 2026): "[Sydney Sweeney] initially approached us interested in some sort of equity partnership and the conversation really went from there." Novig CEO Jacob Fortinsky spoke with @readDanwrite about the company's viral ad featuring one of Hollywood's biggest stars. Video  
   http://nitter.jaydenha.uk/FOS/status/2097797842676916706#m
 - @manakoai (Manako, Wed, 09 Sep 2026): Heading to @nrfeurope NRF Retail’s Big Show Europe in Paris next week (15–17 Sept) 🇫🇷 If you are attending and want to hear what Manako Labs have built for retail, please DM and let’s meet up. No new hardware, no engineers, no code just your existing cameras doing more. #NRFRetailsBigShowEurope  
@@ -239,6 +253,10 @@ _no new posts in the lookback window_
   http://nitter.jaydenha.uk/jaltucher/status/2097518813050814690#m
 - @mcjkula (mcjkula, Tue, 30 Dec 2025): 7 months. 55,000+ conversations. 128 subnets. One Savant. Here's what we learned from building the first MCP for @Bittensor.  
   http://nitter.jaydenha.uk/taoapp_/status/2005876837214228623#m
+- @KyleSamani (Kyle Samani, Tue, 15 Sep 2026): Multicollateral rolling out on @PhoenixTrade Get ready for SPCX-margined SPCX-perps  
+  http://nitter.jaydenha.uk/KyleSamani/status/2099998227236106468#m
+- @KyleSamani (Kyle Samani, Tue, 15 Sep 2026): Darwin Startup Archive (@StartupArchive_) Peter Thiel on why the name of your startup is predictive of success or failure “This is a slight aesthetic thing that I believe in very strongly: the names of companies are often very predictive of future failure or success.” PayPal and Napster are the first example Thiel gives: “PayPal was a very friendly name — it was the friend that helps you pay. Napster was a bad name — you nap some music, you nap a kid. That sounds like a bad thing to be doing, and it’s no wonder the government then comes in and shuts the company down within a few years.” “You w  
+  http://nitter.jaydenha.uk/KyleSamani/status/2099996673900765233#m
 - @rob_svrn (Rob Greer, Tue, 15 Sep 2026): My incredible Stillcore Partner @rob_svrn :) Our other partner @jason is busy interviewing Presidents / Vice Presidents / Elons at the moment :)  
   https://nitter.kareem.one/markjeffrey/status/2099990718421074338#m
 - @taomedia_ (TAO Media, Tue, 15 Sep 2026): Story by @thillerich12. Learn more about @agilityrobotics on our website: tao.media/agility-robotics-u… Link Agility Robotics Unveils Digit 5 Humanoid for Safer Factory Work The fifth-generation Digit adds a 50-pound payload, faster charging, and a safety architecture designed for work closer to people. tao.media  
@@ -247,6 +265,8 @@ _no new posts in the lookback window_
   https://nitter.kareem.one/taomedia_/status/2099972085590462489#m
 - @1inch (1inch, Tue, 15 Sep 2026): Today's result is a delay, not a verdict. Legislation of this scale rarely moves in a straight line, and a cloture vote can be brought again. Crypto is not going anywhere. Clarity for this industry is a question of when, not if. We will have CLARITY. Watcher.Guru (@WatcherGuru) BREAKING: 🇺🇸 Senate fails to advance Crypto Clarity Act. — http://x.yuuki.sh/WatcherGuru/status/2099932484205240366#m  
   http://x.yuuki.sh/1inch/status/2099932709418135876#m
+- @KyleSamani (Kyle Samani, Tue, 15 Sep 2026): Big 💩 poppin today  
+  http://nitter.jaydenha.uk/KyleSamani/status/2099917386405048746#m
 - @1inch (1inch, Tue, 15 Sep 2026): Swap USDC for tokenized Tesla on BNB Chain. TSLAon by @Ondo. Same network, one swap. Video  
   http://x.yuuki.sh/1inch/status/2099895517706678762#m
 - @1inch (1inch, Tue, 15 Sep 2026):   
@@ -259,33 +279,13 @@ _no new posts in the lookback window_
   https://nitter.kareem.one/manakoai/status/2099861562882203822#m
 - @manakoai (Manako, Tue, 15 Sep 2026): The physical world still can’t talk to software. A billion cameras watch factories, stations, warehouses, and stores every second. Almost none of that footage becomes action. That’s what we build at Manako. Today we join F/ai at @joinstationf The program that put OpenAI, Anthropic, Google, Meta, Microsoft and top-tier VCs behind a handful of AI-native teams. Honoured. Focused. Shipping.  
   http://nitter.jaydenha.uk/manakoai/status/2099861562882203822#m
+- @KyleSamani (Kyle Samani, Tue, 15 Sep 2026): Excited to share that I’ve joined Kamino as CEO. There's a generational moment happening across financial services and capital markets - infrastructure is shifting on-chain, ushering in a new era of access, distribution and liquidity for every kind of asset. Kamino is positioned to be a core player in that future, and I'm honored to lead our next chapter. Tokenization worked. But what’s missing is what comes after you put an asset on-chain. That requires liquidity, credit, distribution and infrastructure. Kamino has spent four years building that foundation. Thanks to everyone who has been par  
+  http://nitter.jaydenha.uk/WeiszM/status/2099857786897051815#m
 - @taomedia_ (TAO Media, Tue, 15 Sep 2026): ✏️ Story by @Verri_co Learn more about @404gen_ on our website: tao.media/404-gen-launches-f… Link 404—GEN Launches First Game Jam for Games Built With AI-Generated Assets 404-GEN has announced a two-week contest that asks creators to build playable Three.js games with 404’s game generator repo, with 10 TAO in rewards. tao.media  
   https://nitter.kareem.one/taomedia_/status/2099857123135885801#m
 - @taomedia_ (TAO Media, Tue, 15 Sep 2026): Article 404—GEN Launches First Game Jam for Games Built With AI-Generated Assets 🎲404-GEN has announced a two-week contest that asks creators to build playable Three.js games with 404’s game generator repo, with 10 TAO in rewards. 404—GEN has launched its first 404 Game Jam  
   https://nitter.kareem.one/taomedia_/status/2099856893497774221#m
-- @jaltucher (James Altucher, Tue, 15 Sep 2026): Q/C Technologies has appointed Yossef Ehrlichman, Ph.D., as Chief Technology Officer to lead the company’s optical processing unit program and overall technology strategy. Learn more: bit.ly/4xXk2ik $QCLS  
-  http://nitter.jaydenha.uk/Q_CTechnologies/status/2099856104670859351#m
-- @tplr_ai (Templar, Tue, 15 Sep 2026): Video  
-  http://nitter.jaydenha.uk/tplr_ai/status/2099855617921880470#m
-- @PanteraCapital (Pantera Capital, Tue, 15 Sep 2026): We just crossed $1 billion in trading volume on Novig — five weeks after launching our prediction market. Onward.  
-  http://nitter.jaydenha.uk/j__fort/status/2099854622940619058#m
-- @taomedia_ (TAO Media, Tue, 15 Sep 2026): Tomorrow, Score Studio goes live on Product Hunt. This is a big milestone, not just for us, but for anyone who believes open Vision AI should actually get a shot. Follow the page now so you’re first when we launch: producthunt.com/products/sco… From raw footage to production vision. Automatically. Labels, trains, evaluates, deploys, with Frontier Lab researchers on demand. Open Vision AI for everyone.  
-  https://nitter.kareem.one/webuildscore/status/2099838107067515096#m
-- @PanteraCapital (Pantera Capital, Tue, 15 Sep 2026): Confidential DeFi at scale, live today. Zama is the fastest growing confidentiality protocol for onchain finance. Today, Zama expands confidential access to 16 curated yield vaults across 5 institutional curators and 5 assets: USDC, USDT, AUSD, WBTC, and tGBP, all deployed on @Morpho. The same trusted curators and strategies that institutional capital already uses, now with confidential entry. Alongside the vaults, the Zama Confidential Swap Protocol goes live. Swap between confidential assets without exposing intent or size. Curated by: Armitage by @wintermute_t, @Bitwise, @flowdesk_co, @Rock  
-  http://nitter.jaydenha.uk/zama/status/2099828283093209488#m
-- @mcjkula (mcjkula, Tue, 14 Apr 2026): See you in Montréal everyone. Not gonna want to miss this one🫡 Exploit Summit (@ExploitSummit) Building on Bittensor is hard. Doing it in isolation is even harder. Exploit puts you in a room with: • The subnet founders who've already solved your problems • The investors actually writing checks • The technical talent you're trying to hire Sept 28-29, Montréal. Two days that could save you six months. Video — http://nitter.jaydenha.uk/ExploitSummit/status/2044100822750114215#m  
-  http://nitter.jaydenha.uk/mcjkula/status/2044123923088830837#m
-- @resilabsai (RESI, Tue, 07 Apr 2026): The power of holding Bittensor $TAO subnet alpha Here is an example to illustrate the flywheel of $TAO Let's say you 1,000 alpha of @resilabsai which cost around 7 $TAO 7 $TAO at a price of $310 = $2,170 Current alpha price of Resi, subnet 46: .0066 $TAO Let's make some calculated assumptions. &gt; price of resi alpha stays the same for 3 years &gt; price of $TAO remains the same at $310 &gt; APY for holding Resi alpha is 40% for the first 2 years, then 30% in year 3 What is my total value in 3 years? Year 1 (40% APY) 1,060.6 × 1.4 = 1,484.8 alpha In $TAO: 1,484.8 × 0.0066 ≈ 9.80 $TAO In USD:   
-  http://nitter.jaydenha.uk/Pop_Collapse/status/2041570023823528017#m
-- @TargonCompute (Targon, Tue, 01 Sep 2026): Happy to help! Proud to be trusted with running critical workloads such as validators. Very excited to see the talented team at DeSci Labs join the Bittensor ecosystem, their research and expertise are sure to add long-lasting value to the network. 🔬 Claims - Subnet 111 (@DeSciClaims) Our validator for SN111 is running on hardware provided by @TargonCompute. We're super grateful for the fast, reliable setup and the team's amazing support. Thank you, guys! — https://nitter.kareem.one/DeSciClaims/status/2094364807596036575#m  
-  https://nitter.kareem.one/TargonCompute/status/2094908006039236625#m
-- @mcjkula (mcjkula, Tue, 01 Sep 2026): TAOApp Wallet is here. The self-custody browser wallet for Bittensor. Hold TAO, stake TAO, buy subnet tokens. When there’s more to protect, bring in your Ledger, proxies and multisigs. Install the beta, on Chrome, Brave and Edge. ↓ chromewebstore.google.com/de…  
-  http://nitter.jaydenha.uk/taoapp_/status/2094840222441992209#m
-- @polychain (Polychain Capital, Thu, 25 Jun 2026): Article The Missing AI Layer Is Not Security. It&apos;s Authority. AI agents are now computer users. They browse websites. They read files. They write code. They call APIs. They log in to accounts. They handle credentials, use tools, and take actions across software  
-  http://nitter.jaydenha.uk/zherbert/status/2070178183333171395#m
-- @polychain (Polychain Capital, Thu, 13 Aug 2026): LBTC proved demand for yield-bearing Bitcoin. Today, we double down on that thesis. LBTC is moving to institutional yield. @Bitwise will manage a covered-call options strategy with a 4.5-year legacy track record, to generate LBTC's yield, targeting 2.5% net APY paid in Bitcoin.  
-  http://nitter.jaydenha.uk/Lombard_Finance/status/2087887552300933626#m
 
 
 ---
-_Generated at 2026-09-16T19:18:44.637892+00:00 by scripts/intel/aggregate.py. Treat this digest as input context, not as ground truth. Verify before quoting._
+_Generated at 2026-09-16T22:34:50.729788+00:00 by scripts/intel/aggregate.py. Treat this digest as input context, not as ground truth. Verify before quoting._
