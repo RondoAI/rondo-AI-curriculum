@@ -50,6 +50,86 @@
     "via_instance": "https://nitter.cz"
   },
   {
+    "handle": "JosephJacks_",
+    "name": "Joseph Jacks",
+    "posted_at": "Wed, 16 Sep 2026 15:24:17 GMT",
+    "title": "People who really want to orchestrate their agents properly need to study @GustavoDudamel.",
+    "text": "People who really want to orchestrate their agents properly need to study @GustavoDudamel.",
+    "url": "http://nitter.jaydenha.uk/JosephJacks_/status/2100244389830480193#m",
+    "fetched_at": "2026-09-16T15:54:14.459159+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "tplr_ai",
+    "name": "Templar",
+    "posted_at": "Wed, 16 Sep 2026 14:57:46 GMT",
+    "title": "R to @tplr_ai: When using pipeline compression with fixed projections shared across layers, robustness improves further as seen in the figure below. This suggests that shared projectors align representations across stage boundaries, making bypasses less disruptive. 4/n",
+    "text": "When using pipeline compression with fixed projections shared across layers, robustness improves further as seen in the figure below. This suggests that shared projectors align representations across stage boundaries, making bypasses less disruptive. 4/n",
+    "url": "http://nitter.jaydenha.uk/tplr_ai/status/2100237714918367690#m",
+    "fetched_at": "2026-09-16T15:54:56.109037+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "tplr_ai",
+    "name": "Templar",
+    "posted_at": "Wed, 16 Sep 2026 14:57:46 GMT",
+    "title": "R to @tplr_ai: These results point toward training on a broader pool of compute, including unreliable workers and spot instances, while keeping healthy stages productive. Blog: https://www.tplr.ai/publications/blog/skipping-stages-with-fixed-projections n/n",
+    "text": "These results point toward training on a broader pool of compute, including unreliable workers and spot instances, while keeping healthy stages productive. Blog: tplr.ai/publications/blog/sk… n/n Link Fault tolerance in low-bandwidth model parallelism: exploring pipeline stage-skipping with boundary... We explore how the residual nature of the transformer architecture can be leveraged to mitigate hardware faults, and demonstrate that the compression-based implementation of low-bandwidth model... tplr.ai",
+    "url": "http://nitter.jaydenha.uk/tplr_ai/status/2100237717162303718#m",
+    "fetched_at": "2026-09-16T15:54:56.109037+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "tplr_ai",
+    "name": "Templar",
+    "posted_at": "Wed, 16 Sep 2026 14:57:44 GMT",
+    "title": "We’ve been researching fault tolerance in Crucible, Templar’s pre-training platform. The goal: keep training through node failures and make better use of unreliable workers and spot instances, without idling an entire model replica when one stage goes down. 1/n",
+    "text": "We’ve been researching fault tolerance in Crucible, Templar’s pre-training platform. The goal: keep training through node failures and make better use of unreliable workers and spot instances, without idling an entire model replica when one stage goes down. 1/n Video",
+    "url": "http://nitter.jaydenha.uk/tplr_ai/status/2100237708186550642#m",
+    "fetched_at": "2026-09-16T15:54:56.109037+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "JosephJacks_",
+    "name": "Joseph Jacks",
+    "posted_at": "Wed, 16 Sep 2026 14:44:39 GMT",
+    "title": "RT by @JosephJacks_: For “dangerous” or weakly-guarded open source models, hold the hosts liable. Of course the end user holds liability as well if they are jailbreaking models to do harmful things.",
+    "text": "For “dangerous” or weakly-guarded open source models, hold the hosts liable. Of course the end user holds liability as well if they are jailbreaking models to do harmful things.",
+    "url": "http://nitter.jaydenha.uk/naval/status/2100234414739571063#m",
+    "fetched_at": "2026-09-16T15:54:14.459159+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "JosephJacks_",
+    "name": "Joseph Jacks",
+    "posted_at": "Wed, 16 Sep 2026 14:42:36 GMT",
+    "title": "RT by @JosephJacks_: The best way to pace the frontier is to hold the labs fully liable for the behavior of their models.",
+    "text": "The best way to pace the frontier is to hold the labs fully liable for the behavior of their models.",
+    "url": "http://nitter.jaydenha.uk/naval/status/2100233897191903500#m",
+    "fetched_at": "2026-09-16T15:54:14.459159+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "JosephJacks_",
+    "name": "Joseph Jacks",
+    "posted_at": "Wed, 16 Sep 2026 14:00:07 GMT",
+    "title": "RT by @JosephJacks_: Reinforcements are on the way.",
+    "text": "Reinforcements are on the way. Video",
+    "url": "http://nitter.jaydenha.uk/planepowers/status/2100223206116188510#m",
+    "fetched_at": "2026-09-16T15:54:14.459159+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "JosephJacks_",
+    "name": "Joseph Jacks",
+    "posted_at": "Wed, 16 Sep 2026 13:25:17 GMT",
+    "title": "RT by @JosephJacks_: Legendary companies rarely scale in a linear fashion. When you look at the greatest companies and founders, you’ll find that they bypassed consistency and took leaps forward at various points along their journey, despite differences in their values, leadership style, and path to success. These leaps take vision, inspiration, conviction, strategy, energy, and, most importantly, action. You have to know where you’re aiming, commit with conviction, and then stick the landing. Every leap starts with a leader. A leader must be fearless to take leaps and needs to inspire the team to follow. The CEO has to be the most fearless and push the company to solve the boldest and hardest problems and shape their business and industry. In addition, leaders need to be right a lot. While they have often made plenty of mistakes, they also have strong judgment and good instincts. They seek diverse perspectives and work to disconfirm their beliefs. As @JensenHuang has said, \"no one wants to follow a dumb CEO with a bad strategy.\"",
+    "text": "Legendary companies rarely scale in a linear fashion. When you look at the greatest companies and founders, you’ll find that they bypassed consistency and took leaps forward at various points along their journey, despite differences in their values, leadership style, and path to success. These leaps take vision, inspiration, conviction, strategy, energy, and, most importantly, action. You have to know where you’re aiming, commit with conviction, and then stick the landing. Every leap starts with a leader. A leader must be fearless to take leaps and needs to inspire the team to follow. The CEO ",
+    "url": "http://nitter.jaydenha.uk/Alfred_Lin/status/2100214439077126389#m",
+    "fetched_at": "2026-09-16T15:54:14.459159+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
     "handle": "manakoai",
     "name": "Manako",
     "posted_at": "Wed, 12 Aug 2026 21:33:23 GMT",
@@ -57,6 +137,16 @@
     "text": "The journey of building AI for the physical world is accelerating. What once took long, complex on-site deployments is rapidly becoming simple, fast, and repeatable. We’re making real-world AI deployment dramatically easier, one step at a time. Max (@MaxSebti) the first @manakoai on-site deployment took me 13 hours. the second one? @tm0klc knocked it out in 3. starting tomorrow, fully deploying Manako takes one ssh command. — https://nitter.kareem.one/MaxSebti/status/2087652839157842247#m",
     "url": "https://nitter.kareem.one/manakoai/status/2087653699338326183#m",
     "fetched_at": "2026-09-16T02:47:29.877081+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "manakoai",
+    "name": "Manako",
+    "posted_at": "Wed, 12 Aug 2026 21:33:23 GMT",
+    "title": "The journey of building AI for the physical world is accelerating. What once took long, complex on-site deployments is rapidly becoming simple, fast, and repeatable. We’re making real-world AI deployment dramatically easier, one step at a time.",
+    "text": "The journey of building AI for the physical world is accelerating. What once took long, complex on-site deployments is rapidly becoming simple, fast, and repeatable. We’re making real-world AI deployment dramatically easier, one step at a time. Max (@MaxSebti) the first @manakoai on-site deployment took me 13 hours. the second one? @tm0klc knocked it out in 3. starting tomorrow, fully deploying Manako takes one ssh command. — http://nitter.jaydenha.uk/MaxSebti/status/2087652839157842247#m",
+    "url": "http://nitter.jaydenha.uk/manakoai/status/2087653699338326183#m",
+    "fetched_at": "2026-09-16T15:55:22.097782+00:00",
     "via_instance": "https://nitter.cz"
   },
   {
@@ -80,6 +170,16 @@
     "via_instance": "https://nitter.cz"
   },
   {
+    "handle": "manakoai",
+    "name": "Manako",
+    "posted_at": "Wed, 09 Sep 2026 09:46:43 GMT",
+    "title": "Heading to @nrfeurope NRF Retail’s Big Show Europe in Paris next week (15–17 Sept) 🇫🇷 If you are attending and want to hear what Manako Labs have built for retail, please DM and let’s meet up. No new hardware, no engineers, no code just your existing cameras doing more. #NRFRetailsBigShowEurope",
+    "text": "Heading to @nrfeurope NRF Retail’s Big Show Europe in Paris next week (15–17 Sept) 🇫🇷 If you are attending and want to hear what Manako Labs have built for retail, please DM and let’s meet up. No new hardware, no engineers, no code just your existing cameras doing more. #NRFRetailsBigShowEurope",
+    "url": "http://nitter.jaydenha.uk/manakoai/status/2097622722310242420#m",
+    "fetched_at": "2026-09-16T15:55:22.097782+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
     "handle": "jaltucher",
     "name": "James Altucher",
     "posted_at": "Wed, 09 Sep 2026 02:53:49 GMT",
@@ -87,6 +187,16 @@
     "text": "Listening to people try and warn me about AI and then my usual response:",
     "url": "http://nitter.jaydenha.uk/jaltucher/status/2097518813050814690#m",
     "fetched_at": "2026-09-16T08:58:50.377327+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "mcjkula",
+    "name": "mcjkula",
+    "posted_at": "Tue, 30 Dec 2025 05:41:20 GMT",
+    "title": "RT by @mcjkula: 7 months. 55,000+ conversations. 128 subnets. One Savant. Here's what we learned from building the first MCP for @Bittensor.",
+    "text": "7 months. 55,000+ conversations. 128 subnets. One Savant. Here's what we learned from building the first MCP for @Bittensor.",
+    "url": "http://nitter.jaydenha.uk/taoapp_/status/2005876837214228623#m",
+    "fetched_at": "2026-09-16T15:54:00.026187+00:00",
     "via_instance": "https://nitter.cz"
   },
   {
@@ -180,6 +290,16 @@
     "via_instance": "https://nitter.cz"
   },
   {
+    "handle": "manakoai",
+    "name": "Manako",
+    "posted_at": "Tue, 15 Sep 2026 14:03:04 GMT",
+    "title": "Pinned: The physical world still can’t talk to software. A billion cameras watch factories, stations, warehouses, and stores every second. Almost none of that footage becomes action. That’s what we build at Manako. Today we join F/ai at @joinstationf The program that put OpenAI, Anthropic, Google, Meta, Microsoft and top-tier VCs behind a handful of AI-native teams. Honoured. Focused. Shipping.",
+    "text": "The physical world still can’t talk to software. A billion cameras watch factories, stations, warehouses, and stores every second. Almost none of that footage becomes action. That’s what we build at Manako. Today we join F/ai at @joinstationf The program that put OpenAI, Anthropic, Google, Meta, Microsoft and top-tier VCs behind a handful of AI-native teams. Honoured. Focused. Shipping.",
+    "url": "http://nitter.jaydenha.uk/manakoai/status/2099861562882203822#m",
+    "fetched_at": "2026-09-16T15:55:22.097782+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
     "handle": "taomedia_",
     "name": "TAO Media",
     "posted_at": "Tue, 15 Sep 2026 13:45:26 GMT",
@@ -210,6 +330,16 @@
     "via_instance": "https://nitter.cz"
   },
   {
+    "handle": "tplr_ai",
+    "name": "Templar",
+    "posted_at": "Tue, 15 Sep 2026 13:39:27 GMT",
+    "title": "Video",
+    "text": "Video",
+    "url": "http://nitter.jaydenha.uk/tplr_ai/status/2099855617921880470#m",
+    "fetched_at": "2026-09-16T15:54:56.109037+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
     "handle": "taomedia_",
     "name": "TAO Media",
     "posted_at": "Tue, 15 Sep 2026 12:29:52 GMT",
@@ -220,6 +350,26 @@
     "via_instance": "https://nitter.cz"
   },
   {
+    "handle": "mcjkula",
+    "name": "mcjkula",
+    "posted_at": "Tue, 14 Apr 2026 18:41:35 GMT",
+    "title": "See you in Montréal everyone. Not gonna want to miss this one🫡",
+    "text": "See you in Montréal everyone. Not gonna want to miss this one🫡 Exploit Summit (@ExploitSummit) Building on Bittensor is hard. Doing it in isolation is even harder. Exploit puts you in a room with: • The subnet founders who've already solved your problems • The investors actually writing checks • The technical talent you're trying to hire Sept 28-29, Montréal. Two days that could save you six months. Video — http://nitter.jaydenha.uk/ExploitSummit/status/2044100822750114215#m",
+    "url": "http://nitter.jaydenha.uk/mcjkula/status/2044123923088830837#m",
+    "fetched_at": "2026-09-16T15:54:00.026187+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "resilabsai",
+    "name": "RESI",
+    "posted_at": "Tue, 07 Apr 2026 17:33:18 GMT",
+    "title": "RT by @resilabsai: The power of holding Bittensor $TAO subnet alpha Here is an example to illustrate the flywheel of $TAO Let's say you 1,000 alpha of @resilabsai which cost around 7 $TAO 7 $TAO at a price of $310 = $2,170 Current alpha price of Resi, subnet 46: .0066 $TAO Let's make some calculated assumptions. > price of resi alpha stays the same for 3 years > price of $TAO remains the same at $310 > APY for holding Resi alpha is 40% for the first 2 years, then 30% in year 3 What is my total value in 3 years? Year 1 (40% APY) 1,060.6 × 1.4 = 1,484.8 alpha In $TAO: 1,484.8 × 0.0066 ≈ 9.80 $TAO In USD: 9.80 × $310 ≈ $3,038 Year 2 (40% APY again) 1,484.8 × 1.4 = 2,078.8 alpha In $TAO: ≈ 13.72 $TAO In USD: ≈ $4,253 Year 3 (30% APY) 2,078.8 × 1.3 = 2,702.4 alpha In $TAO: ≈ 17.83 $TAO In USD: ≈ $5,527 Now what if the price of Resi alpha went up 2x in year 1, 25% in year 2 and 25% in year 3? Additionally, what if the price of $TAO goes up by 4x? Year 1 Alpha: 1,484.8 $TAO value: 1,484.8 × 0.0132 ≈ 19.6 $TAO USD value: 19.6 × $1,240 ≈ $24,304 Year 2 Alpha: 2,078.8 $TAO value: ≈ 34.3 $TAO USD value: ≈ $42,532 Year 3 Alpha: 2,702.4 $TAO value: ≈ 55.7 $TAO USD value: ≈ $69,068 This is the Bittensor flywheel in effect.",
+    "text": "The power of holding Bittensor $TAO subnet alpha Here is an example to illustrate the flywheel of $TAO Let's say you 1,000 alpha of @resilabsai which cost around 7 $TAO 7 $TAO at a price of $310 = $2,170 Current alpha price of Resi, subnet 46: .0066 $TAO Let's make some calculated assumptions. &gt; price of resi alpha stays the same for 3 years &gt; price of $TAO remains the same at $310 &gt; APY for holding Resi alpha is 40% for the first 2 years, then 30% in year 3 What is my total value in 3 years? Year 1 (40% APY) 1,060.6 × 1.4 = 1,484.8 alpha In $TAO: 1,484.8 × 0.0066 ≈ 9.80 $TAO In USD: ",
+    "url": "http://nitter.jaydenha.uk/Pop_Collapse/status/2041570023823528017#m",
+    "fetched_at": "2026-09-16T15:55:50.853889+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
     "handle": "TargonCompute",
     "name": "Targon",
     "posted_at": "Tue, 01 Sep 2026 21:59:24 GMT",
@@ -227,6 +377,16 @@
     "text": "Happy to help! Proud to be trusted with running critical workloads such as validators. Very excited to see the talented team at DeSci Labs join the Bittensor ecosystem, their research and expertise are sure to add long-lasting value to the network. 🔬 Claims - Subnet 111 (@DeSciClaims) Our validator for SN111 is running on hardware provided by @TargonCompute. We're super grateful for the fast, reliable setup and the team's amazing support. Thank you, guys! — https://nitter.kareem.one/DeSciClaims/status/2094364807596036575#m",
     "url": "https://nitter.kareem.one/TargonCompute/status/2094908006039236625#m",
     "fetched_at": "2026-09-16T02:47:06.972220+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "mcjkula",
+    "name": "mcjkula",
+    "posted_at": "Tue, 01 Sep 2026 17:30:03 GMT",
+    "title": "RT by @mcjkula: TAOApp Wallet is here. The self-custody browser wallet for Bittensor. Hold TAO, stake TAO, buy subnet tokens. When there’s more to protect, bring in your Ledger, proxies and multisigs. Install the beta, on Chrome, Brave and Edge. ↓ https://chromewebstore.google.com/detail/taoapp-wallet/plipkdflloklldnmnjdlonijlihafjjc",
+    "text": "TAOApp Wallet is here. The self-custody browser wallet for Bittensor. Hold TAO, stake TAO, buy subnet tokens. When there’s more to protect, bring in your Ledger, proxies and multisigs. Install the beta, on Chrome, Brave and Edge. ↓ chromewebstore.google.com/de…",
+    "url": "http://nitter.jaydenha.uk/taoapp_/status/2094840222441992209#m",
+    "fetched_at": "2026-09-16T15:54:00.026187+00:00",
     "via_instance": "https://nitter.cz"
   },
   {
@@ -260,6 +420,16 @@
     "via_instance": "https://nitter.cz"
   },
   {
+    "handle": "manakoai",
+    "name": "Manako",
+    "posted_at": "Thu, 13 Aug 2026 11:27:25 GMT",
+    "title": "Step by step",
+    "text": "Step by step Max (@MaxSebti) forward deployed engineering — http://nitter.jaydenha.uk/MaxSebti/status/2087858212473098403#m",
+    "url": "http://nitter.jaydenha.uk/manakoai/status/2087863589839282535#m",
+    "fetched_at": "2026-09-16T15:55:22.097782+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
     "handle": "rob_svrn",
     "name": "Rob Greer",
     "posted_at": "Sun, 13 Sep 2026 20:35:54 GMT",
@@ -290,6 +460,26 @@
     "via_instance": "https://nitter.cz"
   },
   {
+    "handle": "resilabsai",
+    "name": "RESI",
+    "posted_at": "Sat, 18 Apr 2026 04:42:22 GMT",
+    "title": "RT by @resilabsai: Traditional centralized real estate data platforms are fundamentally flawed and often serve to extract wealth from users. @resilabsai (Subnet 46) is breaking this monopoly through decentralized AI technology that delivers up to 99% valuation accuracy. Skip the corporate intermediaries—this AI-powered home valuation tool provides the most reliable housing market forecasts for 2026",
+    "text": "Traditional centralized real estate data platforms are fundamentally flawed and often serve to extract wealth from users. @resilabsai (Subnet 46) is breaking this monopoly through decentralized AI technology that delivers up to 99% valuation accuracy. Skip the corporate intermediaries—this AI-powered home valuation tool provides the most reliable housing market forecasts for 2026 Video SEBY (@sebyrubino) The @resilabsai Portal is LIVE! Any agent or real estate professional can now easily access our SOTA remote appraisals. We built RESI as a compounding network that will naturally accelerate in",
+    "url": "http://nitter.jaydenha.uk/3rdeye_rav3n/status/2045362275045753234#m",
+    "fetched_at": "2026-09-16T15:55:50.853889+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "resilabsai",
+    "name": "RESI",
+    "posted_at": "Sat, 08 Aug 2026 01:27:26 GMT",
+    "title": "Pinned: Attention Res Labs we have some really exciting news and updates to our project join our discord to stay up to date: https://discord.gg/TBj8q9vb2Q #bittensor #TAO bittensor:native #reslabs #reilabsai #crypto #subnet #subnet46 #reslabs_ai #reslabsai #opentensor #reptides",
+    "text": "Attention Res Labs we have some really exciting news and updates to our project join our discord to stay up to date: discord.gg/TBj8q9vb2Q #bittensor #TAO bittensor:native #reslabs #reilabsai #crypto #subnet #subnet46 #reslabs_ai #reslabsai #opentensor #reptides",
+    "url": "http://nitter.jaydenha.uk/resilabsai/status/2085900662139744548#m",
+    "fetched_at": "2026-09-16T15:55:50.853889+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
     "handle": "TargonCompute",
     "name": "Targon",
     "posted_at": "Mon, 31 Aug 2026 21:05:26 GMT",
@@ -297,6 +487,16 @@
     "text": "It's been a pleasure working with the @cascade_sn91 team on their recent SN91 launch. As the first team out of the @bitstarterAI ML track, we were proud to support them with initial compute credits on Targon. Excited to continue powering their pursuit of SOTA time series foundation models on Bittensor. ⚡️ SN91, Cascade (@cascade_sn91) Article Better Data, Better Models: What 184 Experiments Changed for Cascade To build the best decoder for Cascade, we needed to optimize across streaming, covariates, context and the training distribution. Thanks to compute credits from @Targoncompute, we were a",
     "url": "https://nitter.kareem.one/TargonCompute/status/2094532034488058036#m",
     "fetched_at": "2026-09-16T02:47:06.972220+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "resilabsai",
+    "name": "RESI",
+    "posted_at": "Mon, 20 Apr 2026 19:34:17 GMT",
+    "title": "RT by @resilabsai: I am pleased to announce that Stillcore Capital @stillcorecap has invested in RESI @resilabsai (Bittensor Subnet 46).",
+    "text": "I am pleased to announce that Stillcore Capital @stillcorecap has invested in RESI @resilabsai (Bittensor Subnet 46).",
+    "url": "http://nitter.jaydenha.uk/markjeffrey/status/2046311512621670731#m",
+    "fetched_at": "2026-09-16T15:55:50.853889+00:00",
     "via_instance": "https://nitter.cz"
   },
   {
@@ -390,6 +590,26 @@
     "via_instance": "https://nitter.cz"
   },
   {
+    "handle": "mcjkula",
+    "name": "mcjkula",
+    "posted_at": "Mon, 13 Apr 2026 09:59:22 GMT",
+    "title": "For anyone that wants to get an idea of what the discussion will be about on this week with Const, this one is worth to read and form opinions/prepare questions about 🫡",
+    "text": "For anyone that wants to get an idea of what the discussion will be about on this week with Const, this one is worth to read and form opinions/prepare questions about 🫡 Learn Bittensor (@learnbittensor) 🔒Locked Stake & Conviction are Being Proposed for Bittensor Subnet ownership may be about to change. BIT-0011 proposes that anyone can challenge for ownership of a subnet by locking their ALPHA stake and building \"conviction.\" Right now, inactive subnet owners can hold onto subnets indefinitely. 'Locked Stake' would make ownership a contest of commitment, giving motivated participants a path to",
+    "url": "http://nitter.jaydenha.uk/mcjkula/status/2043630114567491654#m",
+    "fetched_at": "2026-09-16T15:54:00.026187+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "resilabsai",
+    "name": "RESI",
+    "posted_at": "Mon, 06 Apr 2026 13:56:00 GMT",
+    "title": "RT by @resilabsai: Chainlink gave DeFi price feeds. @resilabsai is doing the same for real estate. From static appraisals to dynamic, onchain pricing. It's already honing in on Zillow's pricing accuracy, and only a matter of weeks before it surpasses it!",
+    "text": "Chainlink gave DeFi price feeds. @resilabsai is doing the same for real estate. From static appraisals to dynamic, onchain pricing. It's already honing in on Zillow's pricing accuracy, and only a matter of weeks before it surpasses it!",
+    "url": "http://nitter.jaydenha.uk/gordonfrayne/status/2041152947925512465#m",
+    "fetched_at": "2026-09-16T15:55:50.853889+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
     "handle": "foundrydigital",
     "name": "Foundry Digital",
     "posted_at": "Mon, 02 Jan 2012 23:00:41 GMT",
@@ -410,6 +630,16 @@
     "via_instance": "https://nitter.cz"
   },
   {
+    "handle": "manakoai",
+    "name": "Manako",
+    "posted_at": "Fri, 28 Aug 2026 14:47:12 GMT",
+    "title": "Those @nvidia Jetsons going into fuel stations just got a lot denser. With our new models, one unit now runs 35–40 cameras + 7–14 agents. Heavier agents eat more of the budget. Lighter ones scale further. The cameras were already on site. The intelligence wasn’t.",
+    "text": "Those @nvidia Jetsons going into fuel stations just got a lot denser. With our new models, one unit now runs 35–40 cameras + 7–14 agents. Heavier agents eat more of the budget. Lighter ones scale further. The cameras were already on site. The intelligence wasn’t.",
+    "url": "http://nitter.jaydenha.uk/manakoai/status/2093349687927394806#m",
+    "fetched_at": "2026-09-16T15:55:22.097782+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
     "handle": "TargonCompute",
     "name": "Targon",
     "posted_at": "Fri, 21 Aug 2026 18:39:50 GMT",
@@ -417,6 +647,26 @@
     "text": "The Manifold team has had our heads down building, and we are excited to be making an apperance at @ExploitSummit very soon! We are looking forward to connecting with the community in Canada, and sharing the latest innovations in open stack inference and permissionless compute. Hope to see you all September 28-29th in Montreal 🍁 Exploit Summit (@ExploitSummit) Decentralization doesn't remove trust. It relocates it. @manifoldlabs took that head-on. @TargonCompute turned untrusted GPUs into confidential compute you can actually verify - and put the architecture in a paper co-authored with @intel",
     "url": "https://nitter.kareem.one/manifoldlabs/status/2090871513616433547#m",
     "fetched_at": "2026-09-16T02:47:06.972220+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "mcjkula",
+    "name": "mcjkula",
+    "posted_at": "Fri, 13 Feb 2026 21:46:49 GMT",
+    "title": "Block #4,920,351 to Block #7,537,718 1 year. No going back.",
+    "text": "Block #4,920,351 to Block #7,537,718 1 year. No going back.",
+    "url": "http://nitter.jaydenha.uk/mcjkula/status/2022427265955762602#m",
+    "fetched_at": "2026-09-16T15:54:00.026187+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "tplr_ai",
+    "name": "Templar",
+    "posted_at": "Fri, 11 Sep 2026 19:44:24 GMT",
+    "title": "Video",
+    "text": "Video",
+    "url": "http://nitter.jaydenha.uk/tplr_ai/status/2098497911550017611#m",
+    "fetched_at": "2026-09-16T15:54:56.109037+00:00",
     "via_instance": "https://nitter.cz"
   }
 ]

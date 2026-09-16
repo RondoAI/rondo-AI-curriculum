@@ -134,6 +134,26 @@ _$3 Million USD dataset open sourced, 1 Mil+ Context Length, Multiturn, Sub Agen
 
 ## ⊕ GITHUB COMMITS + RELEASES, last 24h
 
+- **Subtensor (chain)** (COMMIT `f9e58e7`, 2026-09-16 14:19) Merge pull request #3175 from RaoFoundation/cursor/basket-docs-pin-rc47-f5aa  
+  https://github.com/RaoFoundation/subtensor/commit/f9e58e7394b3a098d9b09f9600c4408f952e2db1
+- **Subtensor (chain)** (COMMIT `255cc53`, 2026-09-16 14:15) ci: trigger workflows as an allowed actor  
+  https://github.com/RaoFoundation/subtensor/commit/255cc534febb7d9488a452b9e0323c5062c25107
+- **Subtensor (chain)** (COMMIT `f83c2f3`, 2026-09-16 14:12) docs: pass --no-mev-shield on testnet basket swaps  
+  https://github.com/RaoFoundation/subtensor/commit/f83c2f30f751e075c0637133fae20a2d84165342
+- **Subtensor (chain)** (COMMIT `934f06d`, 2026-09-16 14:08) docs: pin the basket-trading SDK install to bittensor 11.3.0rc47  
+  https://github.com/RaoFoundation/subtensor/commit/934f06d86ce6c3f5d0ee69a457bd06cb74ddeb0c
+- **Subtensor (chain)** (COMMIT `e70a779`, 2026-09-16 11:53) Merge pull request #3169 from RaoFoundation/fix/hotfix-2-replay-dos  
+  https://github.com/RaoFoundation/subtensor/commit/e70a7798de2f1f4b6034bc103e38fb3e220a0b8b
+- **Subtensor (chain)** (COMMIT `6b25c3b`, 2026-09-16 11:40) Merge pull request #3174 from RaoFoundation/cherry/3059-per-runtime-slot  
+  https://github.com/RaoFoundation/subtensor/commit/6b25c3bb5ddaeffc3ca33fe967303c997807db7d
+- **Subtensor (chain)** (COMMIT `a67d30b`, 2026-09-16 11:35) fix: make release watcher supersession-safe  
+  https://github.com/RaoFoundation/subtensor/commit/a67d30b0927c67148147376f8ff9bb2329f00060
+- **Subtensor (chain)** (COMMIT `42bbbce`, 2026-09-16 11:20) Merge pull request #3036 from RaoFoundation/fix/e2e-artifact-fanout  
+  https://github.com/RaoFoundation/subtensor/commit/42bbbceb2d34dc8fd2c8fa472870c03580fd0bd8
+- **Subtensor (chain)** (COMMIT `2547239`, 2026-09-16 11:17) fix(ci): assert fail-closed trusted E2E bootstrap  
+  https://github.com/RaoFoundation/subtensor/commit/2547239a8282009a733d2bc3aea2eecd7e2250df
+- **Subtensor (chain)** (COMMIT `4476afb`, 2026-09-16 11:12) fix(ci): fail closed when trusted E2E helpers are missing  
+  https://github.com/RaoFoundation/subtensor/commit/4476afb210cdc8fc4c3f9fb9cc62331fe66d7905
 - **Subtensor (chain)** (COMMIT `5e65086`, 2026-09-16 03:00) Merge pull request #3170 from RaoFoundation/cursor/balancer-edge-basket-flush-flake-568b  
   https://github.com/RaoFoundation/subtensor/commit/5e65086c3ec6e05852a1f82642ff9eb124becfb8
 - **Subtensor (chain)** (COMMIT `3d52c3c`, 2026-09-16 02:32) test(clone): credit in-window basket-flush and user TAO inflows in balancer edge emission check  
@@ -175,14 +195,36 @@ _no new posts in the lookback window_
   http://nitter.jaydenha.uk/CambrianNetwork/status/2069834786647027852#m
 - @polychain (Polychain Capital, Wed, 24 Jun 2026): EXCLUSIVE: a16z CSX-backed Cambrian raises $6 million seed to build blockchain data oracle network theblock.co/post/406028/a16z… Link a16z CSX-backed Cambrian raises $6 million seed to build blockchain data oracle network Cambrian, a startup building blockchain data infrastructure for institutions and AI agents, raised $6 million in a seed funding round. theblock.co  
   http://nitter.jaydenha.uk/TheBlockCo/status/2069827932843909349#m
+- @JosephJacks_ (Joseph Jacks, Wed, 16 Sep 2026): People who really want to orchestrate their agents properly need to study @GustavoDudamel.  
+  http://nitter.jaydenha.uk/JosephJacks_/status/2100244389830480193#m
+- @tplr_ai (Templar, Wed, 16 Sep 2026): When using pipeline compression with fixed projections shared across layers, robustness improves further as seen in the figure below. This suggests that shared projectors align representations across stage boundaries, making bypasses less disruptive. 4/n  
+  http://nitter.jaydenha.uk/tplr_ai/status/2100237714918367690#m
+- @tplr_ai (Templar, Wed, 16 Sep 2026): These results point toward training on a broader pool of compute, including unreliable workers and spot instances, while keeping healthy stages productive. Blog: tplr.ai/publications/blog/sk… n/n Link Fault tolerance in low-bandwidth model parallelism: exploring pipeline stage-skipping with boundary... We explore how the residual nature of the transformer architecture can be leveraged to mitigate hardware faults, and demonstrate that the compression-based implementation of low-bandwidth model... tplr.ai  
+  http://nitter.jaydenha.uk/tplr_ai/status/2100237717162303718#m
+- @tplr_ai (Templar, Wed, 16 Sep 2026): We’ve been researching fault tolerance in Crucible, Templar’s pre-training platform. The goal: keep training through node failures and make better use of unreliable workers and spot instances, without idling an entire model replica when one stage goes down. 1/n Video  
+  http://nitter.jaydenha.uk/tplr_ai/status/2100237708186550642#m
+- @JosephJacks_ (Joseph Jacks, Wed, 16 Sep 2026): For “dangerous” or weakly-guarded open source models, hold the hosts liable. Of course the end user holds liability as well if they are jailbreaking models to do harmful things.  
+  http://nitter.jaydenha.uk/naval/status/2100234414739571063#m
+- @JosephJacks_ (Joseph Jacks, Wed, 16 Sep 2026): The best way to pace the frontier is to hold the labs fully liable for the behavior of their models.  
+  http://nitter.jaydenha.uk/naval/status/2100233897191903500#m
+- @JosephJacks_ (Joseph Jacks, Wed, 16 Sep 2026): Reinforcements are on the way. Video  
+  http://nitter.jaydenha.uk/planepowers/status/2100223206116188510#m
+- @JosephJacks_ (Joseph Jacks, Wed, 16 Sep 2026): Legendary companies rarely scale in a linear fashion. When you look at the greatest companies and founders, you’ll find that they bypassed consistency and took leaps forward at various points along their journey, despite differences in their values, leadership style, and path to success. These leaps take vision, inspiration, conviction, strategy, energy, and, most importantly, action. You have to know where you’re aiming, commit with conviction, and then stick the landing. Every leap starts with a leader. A leader must be fearless to take leaps and needs to inspire the team to follow. The CEO   
+  http://nitter.jaydenha.uk/Alfred_Lin/status/2100214439077126389#m
 - @manakoai (Manako, Wed, 12 Aug 2026): The journey of building AI for the physical world is accelerating. What once took long, complex on-site deployments is rapidly becoming simple, fast, and repeatable. We’re making real-world AI deployment dramatically easier, one step at a time. Max (@MaxSebti) the first @manakoai on-site deployment took me 13 hours. the second one? @tm0klc knocked it out in 3. starting tomorrow, fully deploying Manako takes one ssh command. — https://nitter.kareem.one/MaxSebti/status/2087652839157842247#m  
   https://nitter.kareem.one/manakoai/status/2087653699338326183#m
+- @manakoai (Manako, Wed, 12 Aug 2026): The journey of building AI for the physical world is accelerating. What once took long, complex on-site deployments is rapidly becoming simple, fast, and repeatable. We’re making real-world AI deployment dramatically easier, one step at a time. Max (@MaxSebti) the first @manakoai on-site deployment took me 13 hours. the second one? @tm0klc knocked it out in 3. starting tomorrow, fully deploying Manako takes one ssh command. — http://nitter.jaydenha.uk/MaxSebti/status/2087652839157842247#m  
+  http://nitter.jaydenha.uk/manakoai/status/2087653699338326183#m
 - @foundrydigital (Foundry Digital, Wed, 11 Jan 2012): Expression Engine 2.0 review by the guys at Scriptiny bit.ly/w3Pg3R  
   https://nitter.kareem.one/foundrydigital/status/157243024848596993#m
 - @manakoai (Manako, Wed, 09 Sep 2026): Heading to @nrfeurope NRF Retail’s Big Show Europe in Paris next week (15–17 Sept) 🇫🇷 If you are attending and want to hear what Manako Labs have built for retail, please DM and let’s meet up. No new hardware, no engineers, no code just your existing cameras doing more. #NRFRetailsBigShowEurope  
   https://nitter.kareem.one/manakoai/status/2097622722310242420#m
+- @manakoai (Manako, Wed, 09 Sep 2026): Heading to @nrfeurope NRF Retail’s Big Show Europe in Paris next week (15–17 Sept) 🇫🇷 If you are attending and want to hear what Manako Labs have built for retail, please DM and let’s meet up. No new hardware, no engineers, no code just your existing cameras doing more. #NRFRetailsBigShowEurope  
+  http://nitter.jaydenha.uk/manakoai/status/2097622722310242420#m
 - @jaltucher (James Altucher, Wed, 09 Sep 2026): Listening to people try and warn me about AI and then my usual response:  
   http://nitter.jaydenha.uk/jaltucher/status/2097518813050814690#m
+- @mcjkula (mcjkula, Tue, 30 Dec 2025): 7 months. 55,000+ conversations. 128 subnets. One Savant. Here's what we learned from building the first MCP for @Bittensor.  
+  http://nitter.jaydenha.uk/taoapp_/status/2005876837214228623#m
 - @rob_svrn (Rob Greer, Tue, 15 Sep 2026): My incredible Stillcore Partner @rob_svrn :) Our other partner @jason is busy interviewing Presidents / Vice Presidents / Elons at the moment :)  
   https://nitter.kareem.one/markjeffrey/status/2099990718421074338#m
 - @taomedia_ (TAO Media, Tue, 15 Sep 2026): Story by @thillerich12. Learn more about @agilityrobotics on our website: tao.media/agility-robotics-u… Link Agility Robotics Unveils Digit 5 Humanoid for Safer Factory Work The fifth-generation Digit adds a 50-pound payload, faster charging, and a safety architecture designed for work closer to people. tao.media  
@@ -201,55 +243,49 @@ _no new posts in the lookback window_
   http://x.yuuki.sh/1inch/status/2099875156919304513#m
 - @manakoai (Manako, Tue, 15 Sep 2026): The physical world still can’t talk to software. A billion cameras watch factories, stations, warehouses, and stores every second. Almost none of that footage becomes action. That’s what we build at Manako. Today we join F/ai at @joinstationf The program that put OpenAI, Anthropic, Google, Meta, Microsoft and top-tier VCs behind a handful of AI-native teams. Honoured. Focused. Shipping.  
   https://nitter.kareem.one/manakoai/status/2099861562882203822#m
+- @manakoai (Manako, Tue, 15 Sep 2026): The physical world still can’t talk to software. A billion cameras watch factories, stations, warehouses, and stores every second. Almost none of that footage becomes action. That’s what we build at Manako. Today we join F/ai at @joinstationf The program that put OpenAI, Anthropic, Google, Meta, Microsoft and top-tier VCs behind a handful of AI-native teams. Honoured. Focused. Shipping.  
+  http://nitter.jaydenha.uk/manakoai/status/2099861562882203822#m
 - @taomedia_ (TAO Media, Tue, 15 Sep 2026): ✏️ Story by @Verri_co Learn more about @404gen_ on our website: tao.media/404-gen-launches-f… Link 404—GEN Launches First Game Jam for Games Built With AI-Generated Assets 404-GEN has announced a two-week contest that asks creators to build playable Three.js games with 404’s game generator repo, with 10 TAO in rewards. tao.media  
   https://nitter.kareem.one/taomedia_/status/2099857123135885801#m
 - @taomedia_ (TAO Media, Tue, 15 Sep 2026): Article 404—GEN Launches First Game Jam for Games Built With AI-Generated Assets 🎲404-GEN has announced a two-week contest that asks creators to build playable Three.js games with 404’s game generator repo, with 10 TAO in rewards. 404—GEN has launched its first 404 Game Jam  
   https://nitter.kareem.one/taomedia_/status/2099856893497774221#m
 - @jaltucher (James Altucher, Tue, 15 Sep 2026): Q/C Technologies has appointed Yossef Ehrlichman, Ph.D., as Chief Technology Officer to lead the company’s optical processing unit program and overall technology strategy. Learn more: bit.ly/4xXk2ik $QCLS  
   http://nitter.jaydenha.uk/Q_CTechnologies/status/2099856104670859351#m
+- @tplr_ai (Templar, Tue, 15 Sep 2026): Video  
+  http://nitter.jaydenha.uk/tplr_ai/status/2099855617921880470#m
 - @taomedia_ (TAO Media, Tue, 15 Sep 2026): Tomorrow, Score Studio goes live on Product Hunt. This is a big milestone, not just for us, but for anyone who believes open Vision AI should actually get a shot. Follow the page now so you’re first when we launch: producthunt.com/products/sco… From raw footage to production vision. Automatically. Labels, trains, evaluates, deploys, with Frontier Lab researchers on demand. Open Vision AI for everyone.  
   https://nitter.kareem.one/webuildscore/status/2099838107067515096#m
+- @mcjkula (mcjkula, Tue, 14 Apr 2026): See you in Montréal everyone. Not gonna want to miss this one🫡 Exploit Summit (@ExploitSummit) Building on Bittensor is hard. Doing it in isolation is even harder. Exploit puts you in a room with: • The subnet founders who've already solved your problems • The investors actually writing checks • The technical talent you're trying to hire Sept 28-29, Montréal. Two days that could save you six months. Video — http://nitter.jaydenha.uk/ExploitSummit/status/2044100822750114215#m  
+  http://nitter.jaydenha.uk/mcjkula/status/2044123923088830837#m
+- @resilabsai (RESI, Tue, 07 Apr 2026): The power of holding Bittensor $TAO subnet alpha Here is an example to illustrate the flywheel of $TAO Let's say you 1,000 alpha of @resilabsai which cost around 7 $TAO 7 $TAO at a price of $310 = $2,170 Current alpha price of Resi, subnet 46: .0066 $TAO Let's make some calculated assumptions. &gt; price of resi alpha stays the same for 3 years &gt; price of $TAO remains the same at $310 &gt; APY for holding Resi alpha is 40% for the first 2 years, then 30% in year 3 What is my total value in 3 years? Year 1 (40% APY) 1,060.6 × 1.4 = 1,484.8 alpha In $TAO: 1,484.8 × 0.0066 ≈ 9.80 $TAO In USD:   
+  http://nitter.jaydenha.uk/Pop_Collapse/status/2041570023823528017#m
 - @TargonCompute (Targon, Tue, 01 Sep 2026): Happy to help! Proud to be trusted with running critical workloads such as validators. Very excited to see the talented team at DeSci Labs join the Bittensor ecosystem, their research and expertise are sure to add long-lasting value to the network. 🔬 Claims - Subnet 111 (@DeSciClaims) Our validator for SN111 is running on hardware provided by @TargonCompute. We're super grateful for the fast, reliable setup and the team's amazing support. Thank you, guys! — https://nitter.kareem.one/DeSciClaims/status/2094364807596036575#m  
   https://nitter.kareem.one/TargonCompute/status/2094908006039236625#m
+- @mcjkula (mcjkula, Tue, 01 Sep 2026): TAOApp Wallet is here. The self-custody browser wallet for Bittensor. Hold TAO, stake TAO, buy subnet tokens. When there’s more to protect, bring in your Ledger, proxies and multisigs. Install the beta, on Chrome, Brave and Edge. ↓ chromewebstore.google.com/de…  
+  http://nitter.jaydenha.uk/taoapp_/status/2094840222441992209#m
 - @polychain (Polychain Capital, Thu, 25 Jun 2026): Article The Missing AI Layer Is Not Security. It&apos;s Authority. AI agents are now computer users. They browse websites. They read files. They write code. They call APIs. They log in to accounts. They handle credentials, use tools, and take actions across software  
   http://nitter.jaydenha.uk/zherbert/status/2070178183333171395#m
 - @polychain (Polychain Capital, Thu, 13 Aug 2026): LBTC proved demand for yield-bearing Bitcoin. Today, we double down on that thesis. LBTC is moving to institutional yield. @Bitwise will manage a covered-call options strategy with a 4.5-year legacy track record, to generate LBTC's yield, targeting 2.5% net APY paid in Bitcoin.  
   http://nitter.jaydenha.uk/Lombard_Finance/status/2087887552300933626#m
 - @manakoai (Manako, Thu, 13 Aug 2026): Step by step Max (@MaxSebti) forward deployed engineering — https://nitter.kareem.one/MaxSebti/status/2087858212473098403#m  
   https://nitter.kareem.one/manakoai/status/2087863589839282535#m
+- @manakoai (Manako, Thu, 13 Aug 2026): Step by step Max (@MaxSebti) forward deployed engineering — http://nitter.jaydenha.uk/MaxSebti/status/2087858212473098403#m  
+  http://nitter.jaydenha.uk/manakoai/status/2087863589839282535#m
 - @rob_svrn (Rob Greer, Sun, 13 Sep 2026): I cannot emphasize enough how much GPT-6 Astra and Fable 5.1 are already enough for transformative impact in large sections of the economy. They can reliably do weeks worth of human work when properly guided & harnessed. Those effects will not be all at once and be uneven, but the fact that change will occur is inevitable no matter how the frontier is paced. But inevitable change does not mean the type of change is inevitable. It is increasingly important that we develop & share models of AI-human work that enhance, rather than only replace, human labor. The labs have a role to play in doing t  
   https://nitter.kareem.one/emollick/status/2099235643792462040#m
 - @const_reborn (Jacob Steeves, Sun, 13 Sep 2026): we will need compute (@lium_io, @TargonCompute) we will need inference (@engyai, @chutes_ai) we will need data (@Hippius_cloud) we will need knowledge (@teutonic) If we are going to have free intelligence (@affine_io)  
   http://nitter.jaydenha.uk/const_reborn/status/2099176877508219132#m
 - @const_reborn (Jacob Steeves, Sun, 13 Sep 2026): The question is not whether open source AI can be shut down. It is whether the funding for OSS AI can be shut down. All OSS models, Meta, DeepSeek, Mistral are just arms of fiat funded corporations or the state itself. The ML community has yet to swallow this pill. They will. const (@const_reborn) No. But they can defund it. — http://nitter.jaydenha.uk/const_reborn/status/2099098962082840635#m  
   http://nitter.jaydenha.uk/const_reborn/status/2099100984802697389#m
+- @resilabsai (RESI, Sat, 18 Apr 2026): Traditional centralized real estate data platforms are fundamentally flawed and often serve to extract wealth from users. @resilabsai (Subnet 46) is breaking this monopoly through decentralized AI technology that delivers up to 99% valuation accuracy. Skip the corporate intermediaries—this AI-powered home valuation tool provides the most reliable housing market forecasts for 2026 Video SEBY (@sebyrubino) The @resilabsai Portal is LIVE! Any agent or real estate professional can now easily access our SOTA remote appraisals. We built RESI as a compounding network that will naturally accelerate in  
+  http://nitter.jaydenha.uk/3rdeye_rav3n/status/2045362275045753234#m
+- @resilabsai (RESI, Sat, 08 Aug 2026): Attention Res Labs we have some really exciting news and updates to our project join our discord to stay up to date: discord.gg/TBj8q9vb2Q #bittensor #TAO bittensor:native #reslabs #reilabsai #crypto #subnet #subnet46 #reslabs_ai #reslabsai #opentensor #reptides  
+  http://nitter.jaydenha.uk/resilabsai/status/2085900662139744548#m
 - @TargonCompute (Targon, Mon, 31 Aug 2026): It's been a pleasure working with the @cascade_sn91 team on their recent SN91 launch. As the first team out of the @bitstarterAI ML track, we were proud to support them with initial compute credits on Targon. Excited to continue powering their pursuit of SOTA time series foundation models on Bittensor. ⚡️ SN91, Cascade (@cascade_sn91) Article Better Data, Better Models: What 184 Experiments Changed for Cascade To build the best decoder for Cascade, we needed to optimize across streaming, covariates, context and the training distribution. Thanks to compute credits from @Targoncompute, we were a  
   https://nitter.kareem.one/TargonCompute/status/2094532034488058036#m
-- @jaltucher (James Altucher, Mon, 14 Sep 2026): All of this is so surreal and most of the global population isn’t even fully aware of it. James Altucher (@jaltucher) Inspired by @ashe’s Exploding Human Body, I set up a site to ExplodeAnything.com. Put in any object (“an Iphone”, “a data center”, “an Ozempic pill”, “the soul”. etc), and it will “explode it” and teach you what each component does AND, tell you which public companies make each component, with links to their Yahoo Finance page. Video — http://nitter.jaydenha.uk/jaltucher/status/2099550542515110239#m  
-  http://nitter.jaydenha.uk/ReneSellmann/status/2099588988017299496#m
-- @const_reborn (Jacob Steeves, Mon, 14 Sep 2026): The push for regulatory capture and AI cabalism is accelerating. This, in large part, is why I'm building parallax. True P2P unstoppable, uncensorable AI systems aren't just neat, they're mandatory. This little single DGX spark "datacenter" in my forge with parallax can train (with other nodes) an 80b parameter model. - two solar blankets - ecoflow battery - lapdock for kvm - starlink internet - dgx spark Total input from solar ~600w (800w max) Total power draw from spark/starlink/etc. &lt; 200w No datacenters, no water supplies, no external power grid, no multi gigabit link. We must design AI  
-  http://nitter.jaydenha.uk/jon_durbin/status/2099565522543104495#m
-- @const_reborn (Jacob Steeves, Mon, 14 Sep 2026): The most dangerous mind in history is the one aligned to a state.  
-  http://nitter.jaydenha.uk/const_reborn/status/2099563846067191949#m
-- @jaltucher (James Altucher, Mon, 14 Sep 2026): Inspired by @ashe’s Exploding Human Body, I set up a site to ExplodeAnything.com. Put in any object (“an Iphone”, “a data center”, “an Ozempic pill”, “the soul”. etc), and it will “explode it” and teach you what each component does AND, tell you which public companies make each component, with links to their Yahoo Finance page. Video  
-  http://nitter.jaydenha.uk/jaltucher/status/2099550542515110239#m
-- @rob_svrn (Rob Greer, Mon, 14 Sep 2026): ALL-IN sessions begin! @jason and pals  
-  https://nitter.kareem.one/markjeffrey/status/2099532488972685740#m
-- @jaltucher (James Altucher, Mon, 14 Sep 2026): The AI news from this weekend must be taken in perspective. First off, let’s make clear what was NOT said: - Zero AI companies said they were slowing down development.. - Nobody said that their release cadence was going to be slower. - And nobody even said they were going to cap capabilities of future AI models. What the Anthropic CEO said, and Sam Altman from OpenAI agreed with, is that they would use third party evaluators before they release a new model. Fine. In fact, the Anthropic CEO SPECIFICALLY said, “pacing does not mean halting model training or technical progress” which I note that   
-  http://nitter.jaydenha.uk/jaltucher/status/2099532383598838126#m
-- @const_reborn (Jacob Steeves, Mon, 14 Sep 2026): Today, we’re announcing a solution found by our miners to Erdős Problem 96, open for over 66 years. The result disproves the conjectured linear bound, constructing strictly convex polygons with superlinearly many unit-distance pairs. Verified in Lean through Conjectures. Full proof below.  
-  http://nitter.jaydenha.uk/conjectures_io/status/2099495903346163977#m
-- @rob_svrn (Rob Greer, Mon, 14 Sep 2026): Introducing "What if AI Goes Right?" There’s too much doomerism & “AI is going to kill us” talk, and not enough discourse about all the promise of this technology. So I'm starting a weekly essay series. Every week, I'll post a deeply-researched essay outlining how AI will solve the biggest problems in the world. The first essays will include: - How AI Will Cure Cancer - How AI Will Solve Free Education - How AI Will Create Efficient Governments - How AI Will End Aging - How AI Will End Poverty - How AI Will Create Energy Abundance (and what that will provide) Comment with an essay you'd want t  
-  https://nitter.kareem.one/ArmanHezarkhani/status/2099477884553343235#m
-- @rob_svrn (Rob Greer, Mon, 14 Sep 2026): Heather vs a robot - and @stillcore partner @rob_svrn Video  
-  https://nitter.kareem.one/markjeffrey/status/2099296033759199677#m
-- @foundrydigital (Foundry Digital, Mon, 02 Jan 2012): Early predictions for design trends of 2012? tiny.cc/mkg4v  
-  https://nitter.kareem.one/foundrydigital/status/153974018557493248#m
-- @manakoai (Manako, Fri, 28 Aug 2026): Those @nvidia Jetsons going into fuel stations just got a lot denser. With our new models, one unit now runs 35–40 cameras + 7–14 agents. Heavier agents eat more of the budget. Lighter ones scale further. The cameras were already on site. The intelligence wasn’t.  
-  https://nitter.kareem.one/manakoai/status/2093349687927394806#m
-- @TargonCompute (Targon, Fri, 21 Aug 2026): The Manifold team has had our heads down building, and we are excited to be making an apperance at @ExploitSummit very soon! We are looking forward to connecting with the community in Canada, and sharing the latest innovations in open stack inference and permissionless compute. Hope to see you all September 28-29th in Montreal 🍁 Exploit Summit (@ExploitSummit) Decentralization doesn't remove trust. It relocates it. @manifoldlabs took that head-on. @TargonCompute turned untrusted GPUs into confidential compute you can actually verify - and put the architecture in a paper co-authored with @intel  
-  https://nitter.kareem.one/manifoldlabs/status/2090871513616433547#m
+- @resilabsai (RESI, Mon, 20 Apr 2026): I am pleased to announce that Stillcore Capital @stillcorecap has invested in RESI @resilabsai (Bittensor Subnet 46).  
+  http://nitter.jaydenha.uk/markjeffrey/status/2046311512621670731#m
 
 
 ---
-_Generated at 2026-09-16T09:00:46.745482+00:00 by scripts/intel/aggregate.py. Treat this digest as input context, not as ground truth. Verify before quoting._
+_Generated at 2026-09-16T15:56:16.475618+00:00 by scripts/intel/aggregate.py. Treat this digest as input context, not as ground truth. Verify before quoting._
