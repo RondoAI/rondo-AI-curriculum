@@ -134,6 +134,26 @@ _$3 Million USD dataset open sourced, 1 Mil+ Context Length, Multiturn, Sub Agen
 
 ## ⊕ GITHUB COMMITS + RELEASES, last 24h
 
+- **Subtensor (chain)** (COMMIT `5cd66b8`, 2026-09-17 11:52) Merge pull request #3178 from RaoFoundation/cursor/unify-runtime-464-2a4f  
+  https://github.com/RaoFoundation/subtensor/commit/5cd66b8597b3ce5f9f2bade2b11c91af57df923d
+- **Subtensor (chain)** (COMMIT `c619349`, 2026-09-17 11:36) fix(runtime): raise share-pool visit cap and regen 464 SDK  
+  https://github.com/RaoFoundation/subtensor/commit/c6193495cf3d216e9dce591f52c2425f3bc003d0
+- **Subtensor (chain)** (COMMIT `04e95ee`, 2026-09-17 11:17) chore(ci): retrigger required checks as unarbos  
+  https://github.com/RaoFoundation/subtensor/commit/04e95eeadf1a831fd3a8ceb40c7bfc4e5004b3c6
+- **Subtensor (chain)** (COMMIT `5bd737f`, 2026-09-17 11:14) fix(ci): clippy expect and docs line anchors  
+  https://github.com/RaoFoundation/subtensor/commit/5bd737fce1034afd4fb9875d1bac1e46aa4c43e3
+- **Subtensor (chain)** (COMMIT `b48d92d`, 2026-09-17 11:04) fix(subtensor): cap unstake_all weight under the block  
+  https://github.com/RaoFoundation/subtensor/commit/b48d92deb68cdb5957464401965becf2722bcfd3
+- **Subtensor (chain)** (COMMIT `a954b02`, 2026-09-17 10:51) fix(subtensor): bound the share-pool reconcile scan  
+  https://github.com/RaoFoundation/subtensor/commit/a954b02390299bfdc256478202e01f66a4826348
+- **Subtensor (chain)** (COMMIT `3b3a09d`, 2026-09-17 10:39) Merge release/mainnet-459-security-base into main for spec 464  
+  https://github.com/RaoFoundation/subtensor/commit/3b3a09ddac98b64f09277e2ec81d28e86f76f933
+- **Subtensor (chain)** (COMMIT `9e3a945`, 2026-09-17 10:05) Reject small-order Ed25519 senders and EVM address(0) origins (#3177)  
+  https://github.com/RaoFoundation/subtensor/commit/9e3a945d0e921ef67233fe4db97f14ed8a08f470
+- **Subtensor (chain)** (COMMIT `d269da2`, 2026-09-17 09:42) fix(runtime): reject small-order Ed25519 senders and EVM address(0) origins  
+  https://github.com/RaoFoundation/subtensor/commit/d269da29905a01ad94301d496208c6e17f34549b
+- **Subtensor (chain)** (COMMIT `eba5e30`, 2026-09-16 20:02) Merge pull request #3176 from RaoFoundation/fix/security-hotfix-459  
+  https://github.com/RaoFoundation/subtensor/commit/eba5e30921b1f894f13111cc0f0aef6ae08350eb
 - **Subtensor (chain)** (COMMIT `f9e58e7`, 2026-09-16 14:19) Merge pull request #3175 from RaoFoundation/cursor/basket-docs-pin-rc47-f5aa  
   https://github.com/RaoFoundation/subtensor/commit/f9e58e7394b3a098d9b09f9600c4408f952e2db1
 - **Subtensor (chain)** (COMMIT `255cc53`, 2026-09-16 14:15) ci: trigger workflows as an allowed actor  
@@ -161,6 +181,8 @@ _no new posts in the lookback window_
 
 ## ⊕ X via NITTER, voices we track
 
+- @tm0klc (Tim, Wed, 17 Jun 2026): Introducing Manako, the fastest way to turn any camera into an vision ai agent. Go on manako.ai. Join our waitlist. Video  
+  http://nitter.jaydenha.uk/manakoai/status/2067298306200396197#m
 - @PanteraCapital (Pantera Capital, Wed, 16 Sep 2026): YouTube: piped.video/mdL_enCWj70 Spotify: open.spotify.com/episode/2jr… Apple Podcasts: podcasts.apple.com/us/podcas… Link Latest On the CLARITY Act: Here&apos;s What&apos;s Next for Digital Asset Regulation The CLARITY Act did not advance in the Senate. Prediction markets n... youtube.com  
   http://nitter.jaydenha.uk/PanteraCapital/status/2100346175215788042#m
 - @PanteraCapital (Pantera Capital, Wed, 16 Sep 2026): The CLARITY Act did not advance in the Senate. Prediction markets now put 2026 passage in the single digits. But the agencies were never waiting on Congress. @kspaglia, Chief Legal Officer at Pantera, joins Stateful, hosted by @masonnystrom, to break down what happens next: - The ethics provisions killed it, not the bank and exchange yield fight - Reg CA is the real unlock: raise US capital pre-decentralization, then self-certify into commodity status - Disclosure finally built for tokenomics and governance instead of IPO-style filings - Prediction market regulation is the next fight, and it m  
@@ -177,14 +199,20 @@ _no new posts in the lookback window_
   http://nitter.jaydenha.uk/PRHillmann/status/2100198566731927680#m
 - @a16zcrypto (a16z Crypto, Wed, 16 Sep 2026): While I’m disappointed by today’s Senate vote, it doesn’t change the fact that crypto’s fundamentals are stronger than ever. Billions of dollars are moving onchain, leading payments companies and financial institutions are adopting blockchain technology, and entrepreneurs around the world are building new financial products that bring money into the internet age. Our work in DC is far from over. We’ll keep working for clear rules that protect consumers and let entrepreneurs build.  
   http://nitter.jaydenha.uk/cdixon/status/2100016153800126972#m
+- @manakoai (Manako, Wed, 12 Aug 2026): The journey of building AI for the physical world is accelerating. What once took long, complex on-site deployments is rapidly becoming simple, fast, and repeatable. We’re making real-world AI deployment dramatically easier, one step at a time. Max (@MaxSebti) the first @manakoai on-site deployment took me 13 hours. the second one? @tm0klc knocked it out in 3. starting tomorrow, fully deploying Manako takes one ssh command. — http://nitter.jaydenha.uk/MaxSebti/status/2087652839157842247#m  
+  http://nitter.jaydenha.uk/manakoai/status/2087653699338326183#m
 - @nigescore (Nige, Wed, 09 Sep 2026): .@nigescore going to paris last time he went to nrf in dallas he got us our biggest client ever (not announced yet) i can’t go. got something bigger on the 15th, 16th and 17th (to be announced) Manako (@manakoai) Heading to @nrfeurope NRF Retail’s Big Show Europe in Paris next week (15–17 Sept) 🇫🇷 If you are attending and want to hear what Manako Labs have built for retail, please DM and let’s meet up. No new hardware, no engineers, no code just your existing cameras doing more. #NRFRetailsBigShowEurope — http://nitter.jaydenha.uk/manakoai/status/2097622722310242420#m  
   http://nitter.jaydenha.uk/MaxSebti/status/2097630699129827589#m
+- @manakoai (Manako, Wed, 09 Sep 2026): Heading to @nrfeurope NRF Retail’s Big Show Europe in Paris next week (15–17 Sept) 🇫🇷 If you are attending and want to hear what Manako Labs have built for retail, please DM and let’s meet up. No new hardware, no engineers, no code just your existing cameras doing more. #NRFRetailsBigShowEurope  
+  http://nitter.jaydenha.uk/manakoai/status/2097622722310242420#m
 - @JosephJacks_ (Joseph Jacks, Tue, 15 Sep 2026): Our biggest release ever. The last month has been so fun. Lots of building. Heads down. Which is funny because growth has never been higher. I can’t believe building Cap as a solo founder is my “job”. Please, nobody wake me up from this dream! Cap (@cap) Cap v0.6 is here. The open source screen recording and sharing app. Video — http://nitter.jaydenha.uk/cap/status/2099888955818656212#m  
   http://nitter.jaydenha.uk/richiemcilroy/status/2099953322056724774#m
 - @a16zcrypto (a16z Crypto, Tue, 15 Sep 2026): This afternoon, the Senate will vote on whether to advance the crypto CLARITY Act. Americans are tired of lawmakers dodging responsibility and calling it politics. It’s time for Congress to set the rules for the crypto industry. You can read the full op-ed I wrote with @SenToomey here:  
   http://nitter.jaydenha.uk/PatrickMcHenry/status/2099898341215621254#m
 - @a16zcrypto (a16z Crypto, Tue, 15 Sep 2026): If we want people to start and grow crypto companies in America, we need to give them rules they can build their businesses around. We've waited long enough. Pat Toomey (US Sen. ret.) (@SenToomey) Check out the op-ed I wrote with Patrick McHenry urging the Senate to vote today to begin the process of passing the CLARITY Act. washingtonexaminer.com/op-ed… Link Pass the CLARITY Act, or prepare for the next Sam Bankman-Fried Congress must pass the CLARITY Act to provide clear rules for crypto, protect consumers, and drive financial innovation in the U.S. washingtonexaminer.com — http://nitter.jay  
   http://nitter.jaydenha.uk/a16zcrypto/status/2099889808977879178#m
+- @nigescore (Nige, Tue, 15 Sep 2026): The physical world still can’t talk to software. A billion cameras watch factories, stations, warehouses, and stores every second. Almost none of that footage becomes action. That’s what we build at Manako. Today we join F/ai at @joinstationf The program that put OpenAI, Anthropic, Google, Meta, Microsoft and top-tier VCs behind a handful of AI-native teams. Honoured. Focused. Shipping.  
+  http://nitter.jaydenha.uk/manakoai/status/2099861562882203822#m
 - @nigescore (Nige, Tue, 15 Sep 2026): RT @manakoai: The physical world still can’t talk to software. A billion cameras watch factories, stations, warehouses, and stores every s…  
   http://nitter.jaydenha.uk/nigescore/status/2099860475429220484#m
 - @PanteraCapital (Pantera Capital, Tue, 15 Sep 2026): We just crossed $1 billion in trading volume on Novig — five weeks after launching our prediction market. Onward.  
@@ -193,12 +221,26 @@ _no new posts in the lookback window_
   http://nitter.jaydenha.uk/zama/status/2099828283093209488#m
 - @nigescore (Nige, Tue, 08 Sep 2026): Astra Ultra did not cook sports-grade vision AI. Gave it a 30s football clip from our subnet private track. Frame-level events, JSON, annotated video. Ground truth and the published scoring rules only after it committed. 22 predictions. 17 real events. 15 inside the action windows. 7 extras. 2 misses. Precision 68.18%. Recall 88.24%. F1 76.92%. Our Bittensor eval, SN44: 0%. Matches after timing decay: 16.538 False positives: −20.300 GT weight: 25.600 score = max(0, (16.538 − 20.300) / 25.600) = 0 Three extra take-ons and two extra tackles were 14.6 penalty points. It also misread the late inte  
   http://nitter.jaydenha.uk/webuildscore/status/2097261685358596399#m
+- @tm0klc (Tim, Tue, 07 Jul 2026): Subnet 44 @webuildscore is expanding. We’re incentivising training for a new vision-language model: Satori. Satori reasons AND grounds. It doesn’t just answer questions about an image. It points to the evidence. - Reason about scenes - Detect and segment objects - Read text - Count entities - Ground claims in pixels Most VLMs are split: strong reasoning OR strong grounding. Detection models localise, but can’t talk. Chatty VLMs describe fluently, but can’t prove it. Satori sits at the intersection. We’re starting with a 7B base model.  
+  http://nitter.jaydenha.uk/tm0klc/status/2074298897305047101#m
 - @nigescore (Nige, Thu, 20 Aug 2026): Computer vision engineers are still duct-taping tools together just to get a model into production. We just finished another round of user interviews and that frustration came up again and again. So we re-designed Studio to work around our new Pipelines + Workflow Canvas features. Visually design any vision pipeline from start to finish, connect models, logic, and outputs on one canvas, preview the exact result, then deploy. You see the output before you ship it. Everything in a single interface. The full loop, shaped by the people who actually build vision systems every day. This is what Dece  
   http://nitter.jaydenha.uk/webuildscore/status/2090422492980515272#m
+- @BarrySilbert (Barry Silbert, Thu, 17 Sep 2026): A roundup of our progress to grow the Bittensor ecosystem in 2026: - Over $200,000,000 in $TAO and subnet tokens staked to Yuma's validator - Bittensor staking access expanded to hundreds of millions of users through partnerships with @cryptocom and @MEXC - Launch of our third institutional fund, the first Yuma Asset Management strategy combining TAO and subnet tokens - 134% growth in token market cap for subnets backed by Yuma Accelerator - Numerous enterprise partnerships signed by those same subnets Read the full release globenewswire.com/news-relea… Link Yuma Reaches $200M in Staked Assets  
+  http://nitter.jaydenha.uk/YumaGroup/status/2100598166143819880#m
+- @BarrySilbert (Barry Silbert, Thu, 17 Sep 2026): THE BLOCK: Former Hut 8 CEO Jaime Leverton is taking the helm of Zcash miner Fortitude as it prepares to go public through its proposed merger with HeartSciences. Fortitude mined nearly 73,000 $ZEC in the first half of 2026, accounting for roughly 28% of total network production.  
+  http://nitter.jaydenha.uk/TheBlockCo/status/2100585521861079226#m
+- @BarrySilbert (Barry Silbert, Thu, 17 Sep 2026): Zcash 🛡️ Mining ⛏️ Jaime Leverton (@JaimeLeverton) Thrilled to join @FortitudeCrypto as CEO. Fortitude has executed on a long-term conviction in Zcash and financial privacy, with owned power, owned sites, and a production track record to show for it - exactly the kind of infrastructure-driven approach I've spent my career building. Excited to help build on what the team has created as we head toward the public markets. $ZEC $HSCS businesswire.com/news/home/2… Link Fortitude Appoints Jaime Leverton as Chief Executive Officer Fortitude names former Hut 8 CEO Jaime Leverton as CEO; Andrea Childs   
+  http://nitter.jaydenha.uk/LowBeta/status/2100583953988010343#m
+- @BarrySilbert (Barry Silbert, Thu, 17 Sep 2026): Our ability to track Garrett’s every onchain movement is a great pitch for the asset he’s shorting. Lookonchain (@lookonchain) Garrett Jin(@GarrettBullish) just withdrew 35,001 $ETH ($85M) from #Binance and deposited it into Hyperliquid. Will he sell the $ETH to support his $ZEC short? arkm.com/explorer/address/0x… hypurrscan.io/address/0x92ea… — http://nitter.jaydenha.uk/lookonchain/status/2100561524310131193#m  
+  http://nitter.jaydenha.uk/CryptoTaxGuyETH/status/2100565355382837643#m
+- @BarrySilbert (Barry Silbert, Thu, 17 Sep 2026): Thrilled to join @FortitudeCrypto as CEO. Fortitude has executed on a long-term conviction in Zcash and financial privacy, with owned power, owned sites, and a production track record to show for it - exactly the kind of infrastructure-driven approach I've spent my career building. Excited to help build on what the team has created as we head toward the public markets. $ZEC $HSCS businesswire.com/news/home/2… Link Fortitude Appoints Jaime Leverton as Chief Executive Officer Fortitude names former Hut 8 CEO Jaime Leverton as CEO; Andrea Childs becomes COO as Zcash-focused mining platform advanc  
+  http://nitter.jaydenha.uk/JaimeLeverton/status/2100559002278998319#m
 - @JosephJacks_ (Joseph Jacks, Thu, 17 Sep 2026): The best entry price is $0  
   http://nitter.jaydenha.uk/JosephJacks_/status/2100437139892936840#m
 - @JosephJacks_ (Joseph Jacks, Thu, 17 Sep 2026): There are too many people making plans only for the next 3-6 months … and too few making plans for the next 3-6 years.  
   http://nitter.jaydenha.uk/JosephJacks_/status/2100412583048278219#m
+- @manakoai (Manako, Thu, 13 Aug 2026): Step by step Max (@MaxSebti) forward deployed engineering — http://nitter.jaydenha.uk/MaxSebti/status/2087858212473098403#m  
+  http://nitter.jaydenha.uk/manakoai/status/2087863589839282535#m
 - @nigescore (Nige, Thu, 03 Sep 2026): Shell and ENI stations added to roll out today. Accelerate.  
   http://nitter.jaydenha.uk/MaxSebti/status/2095545005540552752#m
 - @jon_durbin (Jon Durbin, Sat, 12 Sep 2026): Now we accelerate. Dario Amodei (@DarioAmodei) We Must Pace the Frontier: I’ve written a new essay on why the AI industry should slow down, with a three-part plan for doing so. Anthropic is unilaterally committing to the first of these steps. We’ll provide third-party evaluators with permanent, employee-level access to our systems, so that they can verify adherence to our safety measures, report on incidents, and assess models’ alignment during training. You can read the full post here: darioamodei.com/post/we-must… Link Dario Amodei — We Must Pace the Frontier darioamodei.com — http://nitter.  
@@ -207,11 +249,21 @@ _no new posts in the lookback window_
   http://nitter.jaydenha.uk/const_reborn/status/2098818933318963365#m
 - @jon_durbin (Jon Durbin, Sat, 12 Sep 2026): 4 nodes down already in 2 days - Friends don't let friends build infra on RTX 5090s (unless you're stress testing). Jon Durbin (@jon_durbin) And if you're wondering why I used 5090s for this, it's because they are the worst GPUs on earth for stability at this utilization and have like 50% failure rate in my experience thus far (at least 1 of 8 dropping off bus or producing NaNs randomly etc.). Stress test. — http://nitter.jaydenha.uk/jon_durbin/status/2098102402255655260#m  
   http://nitter.jaydenha.uk/jon_durbin/status/2098733447481110860#m
+- @tm0klc (Tim, Mon, 15 Jun 2026): Cameras shouldn’t just record the world. They should make it queryable. That’s the shift we’re building at Manako. Vision Agents that turn live video into real-time operational intelligence, running close to the edge where decisions actually happen. Manako (@manakoai) Article Teaching the physical world to talk For decades, we&apos;ve been building digital systems that can process, search and reason about information. Yet much of the world&apos;s most valuable information still exists outside those systems. Factories — http://nitter.jaydenha.uk/manakoai/status/2066467103163511203#m  
+  http://nitter.jaydenha.uk/tm0klc/status/2066622375358308467#m
 - @jon_durbin (Jon Durbin, Mon, 14 Sep 2026): "in 6–12 months such a swarm could be capable of taking over the entire internet with a persistent botnet" Maybe, maybe not. If it does, the internet (really: software and operating systems) obviously need some improvement and we should do so. If the bugs are there, they will be found, one way or another regardless of some LLM. What a great opportunity for a renaissance. Anyone else remember the doomerism around Y2K? Int overflows because of epoch seconds? This is that.  
   http://nitter.jaydenha.uk/jon_durbin/status/2099604160509325695#m
 - @jon_durbin (Jon Durbin, Mon, 14 Sep 2026): The push for regulatory capture and AI cabalism is accelerating. This, in large part, is why I'm building parallax. True P2P unstoppable, uncensorable AI systems aren't just neat, they're mandatory. This little single DGX spark "datacenter" in my forge with parallax can train (with other nodes) an 80b parameter model. - two solar blankets - ecoflow battery - lapdock for kvm - starlink internet - dgx spark Total input from solar ~600w (800w max) Total power draw from spark/starlink/etc. &lt; 200w No datacenters, no water supplies, no external power grid, no multi gigabit link. We must design AI  
   http://nitter.jaydenha.uk/jon_durbin/status/2099565522543104495#m
+- @manakoai (Manako, Fri, 28 Aug 2026): Those @nvidia Jetsons going into fuel stations just got a lot denser. With our new models, one unit now runs 35–40 cameras + 7–14 agents. Heavier agents eat more of the budget. Lighter ones scale further. The cameras were already on site. The intelligence wasn’t.  
+  http://nitter.jaydenha.uk/manakoai/status/2093349687927394806#m
+- @robmyers (Robert Myers, Fri, 26 Mar 2021): Try @rheaplex instead.  
+  http://nitter.jaydenha.uk/robmyers/status/1375288994989101059#m
+- @tm0klc (Tim, Fri, 21 Aug 2026): I have now made 5 Omarchy plugins that I use every day! Check them out here: omarchyplugins.com/?author=c…  
+  http://nitter.jaydenha.uk/paolino/status/2090738880106377257#m
+- @tm0klc (Tim, Fri, 21 Aug 2026): Computer vision, decentralised Score (@webuildscore) Computer vision engineers are still duct-taping tools together just to get a model into production. We just finished another round of user interviews and that frustration came up again and again. So we re-designed Studio to work around our new Pipelines + Workflow Canvas features. Visually design any vision pipeline from start to finish, connect models, logic, and outputs on one canvas, preview the exact result, then deploy. You see the output before you ship it. Everything in a single interface. The full loop, shaped by the people who actua  
+  http://nitter.jaydenha.uk/tm0klc/status/2090610814449570047#m
 
 
 ---
-_Generated at 2026-09-17T09:06:50.837083+00:00 by scripts/intel/aggregate.py. Treat this digest as input context, not as ground truth. Verify before quoting._
+_Generated at 2026-09-17T16:02:54.461202+00:00 by scripts/intel/aggregate.py. Treat this digest as input context, not as ground truth. Verify before quoting._
