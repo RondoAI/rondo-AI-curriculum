@@ -1,5 +1,25 @@
 [
   {
+    "handle": "polychain",
+    "name": "Polychain Capital",
+    "posted_at": "Wed, 24 Jun 2026 17:33:09 GMT",
+    "title": "RT by @polychain: I'm excited to share that Cambrian has raised $11.9M to build the financial intelligence layer for the convergence of AI, digital assets, and traditional finance. Our seed round was led by @Polychain and Franklin Templeton @FTDA_US: a convergence itself of a top OG digital assets fund and a $1.7T institutional asset manager of 75+ years. As AI starts to consume more data in minutes than most humans do in lifetimes, finance is evolving to adapt to this reality ⤵️",
+    "text": "I'm excited to share that Cambrian has raised $11.9M to build the financial intelligence layer for the convergence of AI, digital assets, and traditional finance. Our seed round was led by @Polychain and Franklin Templeton @FTDA_US: a convergence itself of a top OG digital assets fund and a $1.7T institutional asset manager of 75+ years. As AI starts to consume more data in minutes than most humans do in lifetimes, finance is evolving to adapt to this reality ⤵️ Cambrian Network 🪴 (@CambrianNetwork) Big news: we’ve raised $11.9 million to build the world’s financial intelligence layer. @Polych",
+    "url": "http://nitter.jaydenha.uk/0xsamgreen/status/2069836236362313887#m",
+    "fetched_at": "2026-09-17T19:40:00.415543+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "polychain",
+    "name": "Polychain Capital",
+    "posted_at": "Wed, 24 Jun 2026 17:00:09 GMT",
+    "title": "RT by @polychain: EXCLUSIVE: a16z CSX-backed Cambrian raises $6 million seed to build blockchain data oracle network https://www.theblock.co/post/406028/a16z-csx-backed-cambrian-seed-round-blockchain-data-oracle-network?utm_source=twitter&utm_medium=social",
+    "text": "EXCLUSIVE: a16z CSX-backed Cambrian raises $6 million seed to build blockchain data oracle network theblock.co/post/406028/a16z… Link a16z CSX-backed Cambrian raises $6 million seed to build blockchain data oracle network Cambrian, a startup building blockchain data infrastructure for institutions and AI agents, raised $6 million in a seed funding round. theblock.co",
+    "url": "http://nitter.jaydenha.uk/TheBlockCo/status/2069827932843909349#m",
+    "fetched_at": "2026-09-17T19:40:00.415543+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
     "handle": "tm0klc",
     "name": "Tim",
     "posted_at": "Wed, 17 Jun 2026 17:28:19 GMT",
@@ -57,6 +77,36 @@
     "text": "Introducing the @dubdotco Program Marketplace → dub.co/marketplace Discover the best affiliate programs in AI, Fitness, Marketing, Fintech, Design, DevTools, and more. Featuring world-class companies like Beehiiv, Wispr Flow, Framer, Granola, Polymarket, Viktor and more. Video",
     "url": "http://nitter.jaydenha.uk/steventey/status/2100299741271908682#m",
     "fetched_at": "2026-09-17T09:04:48.466721+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "tplr_ai",
+    "name": "Templar",
+    "posted_at": "Wed, 16 Sep 2026 14:57:46 GMT",
+    "title": "R to @tplr_ai: When using pipeline compression with fixed projections shared across layers, robustness improves further as seen in the figure below. This suggests that shared projectors align representations across stage boundaries, making bypasses less disruptive. 4/n",
+    "text": "When using pipeline compression with fixed projections shared across layers, robustness improves further as seen in the figure below. This suggests that shared projectors align representations across stage boundaries, making bypasses less disruptive. 4/n",
+    "url": "http://nitter.jaydenha.uk/tplr_ai/status/2100237714918367690#m",
+    "fetched_at": "2026-09-17T19:40:46.975670+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "tplr_ai",
+    "name": "Templar",
+    "posted_at": "Wed, 16 Sep 2026 14:57:46 GMT",
+    "title": "R to @tplr_ai: These results point toward training on a broader pool of compute, including unreliable workers and spot instances, while keeping healthy stages productive. Blog: https://www.tplr.ai/publications/blog/skipping-stages-with-fixed-projections n/n",
+    "text": "These results point toward training on a broader pool of compute, including unreliable workers and spot instances, while keeping healthy stages productive. Blog: tplr.ai/publications/blog/sk… n/n Link Fault tolerance in low-bandwidth model parallelism: exploring pipeline stage-skipping with boundary... We explore how the residual nature of the transformer architecture can be leveraged to mitigate hardware faults, and demonstrate that the compression-based implementation of low-bandwidth model... tplr.ai",
+    "url": "http://nitter.jaydenha.uk/tplr_ai/status/2100237717162303718#m",
+    "fetched_at": "2026-09-17T19:40:46.975670+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "tplr_ai",
+    "name": "Templar",
+    "posted_at": "Wed, 16 Sep 2026 14:57:44 GMT",
+    "title": "We’ve been researching fault tolerance in Crucible, Templar’s pre-training platform. The goal: keep training through node failures and make better use of unreliable workers and spot instances, without idling an entire model replica when one stage goes down. 1/n",
+    "text": "We’ve been researching fault tolerance in Crucible, Templar’s pre-training platform. The goal: keep training through node failures and make better use of unreliable workers and spot instances, without idling an entire model replica when one stage goes down. 1/n Video",
+    "url": "http://nitter.jaydenha.uk/tplr_ai/status/2100237708186550642#m",
+    "fetched_at": "2026-09-17T19:40:46.975670+00:00",
     "via_instance": "https://nitter.cz"
   },
   {
@@ -140,6 +190,16 @@
     "via_instance": "https://nitter.cz"
   },
   {
+    "handle": "jtledore",
+    "name": "Jean-Thomas Ledoré",
+    "posted_at": "Tue, 15 Sep 2026 16:12:29 GMT",
+    "title": "RT by @jtledore: Novelty Search :: Subnet 105 :: @b1m_ai Beam is building programmable bandwidth on Bittensor, moving data across clouds, storage, P2P networks and AI infrastructure. Six months after launching on mainnet, Beam is already processing ~1 TB every 30 minutes, with the next phase focused on real-world adoption and larger-scale workloads. Live on Thursday :: 9PM UTC :: via Bittensor Discord Hosted by @const_reborn",
+    "text": "Novelty Search :: Subnet 105 :: @b1m_ai Beam is building programmable bandwidth on Bittensor, moving data across clouds, storage, P2P networks and AI infrastructure. Six months after launching on mainnet, Beam is already processing ~1 TB every 30 minutes, with the next phase focused on real-world adoption and larger-scale workloads. Live on Thursday :: 9PM UTC :: via Bittensor Discord Hosted by @const_reborn",
+    "url": "http://nitter.jaydenha.uk/opentensor/status/2099894128721207319#m",
+    "fetched_at": "2026-09-17T19:41:28.787158+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
     "handle": "a16zcrypto",
     "name": "a16z Crypto",
     "posted_at": "Tue, 15 Sep 2026 15:55:19 GMT",
@@ -147,6 +207,16 @@
     "text": "If we want people to start and grow crypto companies in America, we need to give them rules they can build their businesses around. We've waited long enough. Pat Toomey (US Sen. ret.) (@SenToomey) Check out the op-ed I wrote with Patrick McHenry urging the Senate to vote today to begin the process of passing the CLARITY Act. washingtonexaminer.com/op-ed… Link Pass the CLARITY Act, or prepare for the next Sam Bankman-Fried Congress must pass the CLARITY Act to provide clear rules for crypto, protect consumers, and drive financial innovation in the U.S. washingtonexaminer.com — http://nitter.jay",
     "url": "http://nitter.jaydenha.uk/a16zcrypto/status/2099889808977879178#m",
     "fetched_at": "2026-09-17T09:05:16.164297+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "polychain",
+    "name": "Polychain Capital",
+    "posted_at": "Tue, 15 Sep 2026 14:20:05 GMT",
+    "title": "RT by @polychain: It's time for a new foundation. Not a new start. Legacy Mode is live on Passport, keep every account you already have, on code anyone can inspect. Switch to open source hardware and software while keeping your existing accounts for supported assets. Here’s how. 🧵",
+    "text": "It's time for a new foundation. Not a new start. Legacy Mode is live on Passport, keep every account you already have, on code anyone can inspect. Switch to open source hardware and software while keeping your existing accounts for supported assets. Here’s how. 🧵 Video",
+    "url": "http://nitter.jaydenha.uk/FoundationHQ/status/2099865846101180499#m",
+    "fetched_at": "2026-09-17T19:40:00.415543+00:00",
     "via_instance": "https://nitter.cz"
   },
   {
@@ -167,6 +237,16 @@
     "text": "RT @manakoai: The physical world still can’t talk to software. A billion cameras watch factories, stations, warehouses, and stores every s…",
     "url": "http://nitter.jaydenha.uk/nigescore/status/2099860475429220484#m",
     "fetched_at": "2026-09-17T02:51:17.810480+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "tplr_ai",
+    "name": "Templar",
+    "posted_at": "Tue, 15 Sep 2026 13:39:27 GMT",
+    "title": "Video",
+    "text": "Video",
+    "url": "http://nitter.jaydenha.uk/tplr_ai/status/2099855617921880470#m",
+    "fetched_at": "2026-09-17T19:40:46.975670+00:00",
     "via_instance": "https://nitter.cz"
   },
   {
@@ -210,6 +290,16 @@
     "via_instance": "https://nitter.cz"
   },
   {
+    "handle": "polychain",
+    "name": "Polychain Capital",
+    "posted_at": "Thu, 25 Jun 2026 16:11:55 GMT",
+    "title": "RT by @polychain: The Missing AI Layer Is Not Security. It's Authority.",
+    "text": "Article The Missing AI Layer Is Not Security. It&apos;s Authority. AI agents are now computer users. They browse websites. They read files. They write code. They call APIs. They log in to accounts. They handle credentials, use tools, and take actions across software",
+    "url": "http://nitter.jaydenha.uk/zherbert/status/2070178183333171395#m",
+    "fetched_at": "2026-09-17T19:40:00.415543+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
     "handle": "nigescore",
     "name": "Nige",
     "posted_at": "Thu, 20 Aug 2026 12:55:35 GMT",
@@ -227,6 +317,16 @@
     "text": "A roundup of our progress to grow the Bittensor ecosystem in 2026: - Over $200,000,000 in $TAO and subnet tokens staked to Yuma's validator - Bittensor staking access expanded to hundreds of millions of users through partnerships with @cryptocom and @MEXC - Launch of our third institutional fund, the first Yuma Asset Management strategy combining TAO and subnet tokens - 134% growth in token market cap for subnets backed by Yuma Accelerator - Numerous enterprise partnerships signed by those same subnets Read the full release globenewswire.com/news-relea… Link Yuma Reaches $200M in Staked Assets",
     "url": "http://nitter.jaydenha.uk/YumaGroup/status/2100598166143819880#m",
     "fetched_at": "2026-09-17T16:00:21.562386+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "jtledore",
+    "name": "Jean-Thomas Ledoré",
+    "posted_at": "Thu, 17 Sep 2026 14:32:41 GMT",
+    "title": "No more PvP, because the focus is PvE bittensor:native. Thank you @MaxSebti for executing this vision. Congrats @say_gm_ for that",
+    "text": "No more PvP, because the focus is PvE bittensor:native. Thank you @MaxSebti for executing this vision. Congrats @say_gm_ for that Score (@webuildscore) And you, what did you do today to make other subnets shine? — http://nitter.jaydenha.uk/webuildscore/status/2100525314816262526#m",
+    "url": "http://nitter.jaydenha.uk/jtledore/status/2100593788871643354#m",
+    "fetched_at": "2026-09-17T19:41:28.787158+00:00",
     "via_instance": "https://nitter.cz"
   },
   {
@@ -270,6 +370,26 @@
     "via_instance": "https://nitter.cz"
   },
   {
+    "handle": "jtledore",
+    "name": "Jean-Thomas Ledoré",
+    "posted_at": "Thu, 17 Sep 2026 09:24:41 GMT",
+    "title": "For bittensor:native we fight 🔥@kusanagi_vntrs 🧑🏼‍🍳🧑🏼‍🍳🧑🏼‍🍳🧑🏼‍🍳 every day",
+    "text": "For bittensor:native we fight 🔥@kusanagi_vntrs 🧑🏼‍🍳🧑🏼‍🍳🧑🏼‍🍳🧑🏼‍🍳 every day",
+    "url": "http://nitter.jaydenha.uk/jtledore/status/2100516281791242573#m",
+    "fetched_at": "2026-09-17T19:41:28.787158+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "jtledore",
+    "name": "Jean-Thomas Ledoré",
+    "posted_at": "Thu, 17 Sep 2026 08:09:07 GMT",
+    "title": "RT by @jtledore: .@webuildscore just launched Score Studio, a Bittensor-powered platform where independent engineers can build and deploy vision systems using Score’s models. Through Manako, Score brings that technology to enterprises like AVIA and has signed more major clients in recent weeks.",
+    "text": ".@webuildscore just launched Score Studio, a Bittensor-powered platform where independent engineers can build and deploy vision systems using Score’s models. Through Manako, Score brings that technology to enterprises like AVIA and has signed more major clients in recent weeks.",
+    "url": "http://nitter.jaydenha.uk/opentensor/status/2100497263605002626#m",
+    "fetched_at": "2026-09-17T19:41:28.787158+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
     "handle": "JosephJacks_",
     "name": "Joseph Jacks",
     "posted_at": "Thu, 17 Sep 2026 04:10:13 GMT",
@@ -280,6 +400,16 @@
     "via_instance": "https://nitter.cz"
   },
   {
+    "handle": "jtledore",
+    "name": "Jean-Thomas Ledoré",
+    "posted_at": "Thu, 17 Sep 2026 03:39:56 GMT",
+    "title": "RT by @jtledore: Score Studio is live today. Computer vision has been fragmented across labeling tools, notebooks, model hubs, and deployment stacks. We brought the workflow into one place. Annotate. Train. Evaluate. Deploy. Try it free at http://scorestudio.ai. Product Hunt launch: 12:01am PT.",
+    "text": "Score Studio is live today. Computer vision has been fragmented across labeling tools, notebooks, model hubs, and deployment stacks. We brought the workflow into one place. Annotate. Train. Evaluate. Deploy. Try it free at scorestudio.ai. Product Hunt launch: 12:01am PT. Video",
+    "url": "http://nitter.jaydenha.uk/webuildscore/status/2100429521937658001#m",
+    "fetched_at": "2026-09-17T19:41:28.787158+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
     "handle": "JosephJacks_",
     "name": "Joseph Jacks",
     "posted_at": "Thu, 17 Sep 2026 02:32:38 GMT",
@@ -287,6 +417,16 @@
     "text": "There are too many people making plans only for the next 3-6 months … and too few making plans for the next 3-6 years.",
     "url": "http://nitter.jaydenha.uk/JosephJacks_/status/2100412583048278219#m",
     "fetched_at": "2026-09-17T09:04:48.466721+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "polychain",
+    "name": "Polychain Capital",
+    "posted_at": "Thu, 13 Aug 2026 13:02:38 GMT",
+    "title": "RT by @polychain: LBTC proved demand for yield-bearing Bitcoin. Today, we double down on that thesis. LBTC is moving to institutional yield. @Bitwise will manage a covered-call options strategy with a 4.5-year legacy track record, to generate LBTC's yield, targeting 2.5% net APY paid in Bitcoin.",
+    "text": "LBTC proved demand for yield-bearing Bitcoin. Today, we double down on that thesis. LBTC is moving to institutional yield. @Bitwise will manage a covered-call options strategy with a 4.5-year legacy track record, to generate LBTC's yield, targeting 2.5% net APY paid in Bitcoin.",
+    "url": "http://nitter.jaydenha.uk/Lombard_Finance/status/2087887552300933626#m",
+    "fetched_at": "2026-09-17T19:40:00.415543+00:00",
     "via_instance": "https://nitter.cz"
   },
   {
@@ -407,6 +547,16 @@
     "text": "Computer vision, decentralised Score (@webuildscore) Computer vision engineers are still duct-taping tools together just to get a model into production. We just finished another round of user interviews and that frustration came up again and again. So we re-designed Studio to work around our new Pipelines + Workflow Canvas features. Visually design any vision pipeline from start to finish, connect models, logic, and outputs on one canvas, preview the exact result, then deploy. You see the output before you ship it. Everything in a single interface. The full loop, shaped by the people who actua",
     "url": "http://nitter.jaydenha.uk/tm0klc/status/2090610814449570047#m",
     "fetched_at": "2026-09-17T16:01:45.554307+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "tplr_ai",
+    "name": "Templar",
+    "posted_at": "Fri, 11 Sep 2026 19:44:24 GMT",
+    "title": "Video",
+    "text": "Video",
+    "url": "http://nitter.jaydenha.uk/tplr_ai/status/2098497911550017611#m",
+    "fetched_at": "2026-09-17T19:40:46.975670+00:00",
     "via_instance": "https://nitter.cz"
   }
 ]
