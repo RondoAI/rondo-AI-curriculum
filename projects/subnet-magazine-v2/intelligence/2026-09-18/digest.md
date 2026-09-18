@@ -134,6 +134,26 @@ _OpenAI’s self-designed ASIC compared with Rubin, Jalapeño’s TCO, throughpu
 
 ## ⊕ GITHUB COMMITS + RELEASES, last 24h
 
+- **Subtensor (chain)** (COMMIT `c6bcb4a`, 2026-09-18 16:05) Merge pull request #3183 from RaoFoundation/cursor/spec-467-halve-fees-0c5e  
+  https://github.com/RaoFoundation/subtensor/commit/c6bcb4a7400764c94c1d1b1938514c6c2dd3d33b
+- **Subtensor (chain)** (COMMIT `23d57fd`, 2026-09-18 15:44) fix(runtime): collapse the single-leaf fee discount check (clippy)  
+  https://github.com/RaoFoundation/subtensor/commit/23d57fdd889057181b81fb41d985f2988ba0830d
+- **Subtensor (chain)** (COMMIT `045dd81`, 2026-09-18 15:37) feat(runtime): cap every regressed call's fee at its spec 459 weight; fee baseline guard  
+  https://github.com/RaoFoundation/subtensor/commit/045dd814af8cae8272d9f38aadaf3a45e9bc2645
+- **Subtensor (chain)** (COMMIT `253132b`, 2026-09-18 14:22) fix(runtime): clippy in native fee rate pins  
+  https://github.com/RaoFoundation/subtensor/commit/253132b5a1c764714abc388d2bf4551b03709290
+- **Subtensor (chain)** (COMMIT `dee67ba`, 2026-09-18 14:16) fix(sdk): mirror the runtime claim-fee discount exactly; pin native fee rates  
+  https://github.com/RaoFoundation/subtensor/commit/dee67ba939a4c2e67091a9008ea5dd533fac1c26
+- **Subtensor (chain)** (COMMIT `546d26b`, 2026-09-18 14:01) ci: retrigger workflows as unarbos  
+  https://github.com/RaoFoundation/subtensor/commit/546d26bd9f1cefecbae66cf3425e6b7cf2665168
+- **Subtensor (chain)** (COMMIT `6f7adba`, 2026-09-18 13:53) feat(runtime): subsidize root-claim fees to a four-unit allowance  
+  https://github.com/RaoFoundation/subtensor/commit/6f7adbaa4de65fea1b3af21763164f1ca482dca7
+- **Subtensor (chain)** (COMMIT `918f835`, 2026-09-18 10:45) fix(sdk): regen 467 bindings from CI Linux release node  
+  https://github.com/RaoFoundation/subtensor/commit/918f835d1cbbc171a729e2f224747eea6a22a4a0
+- **Subtensor (chain)** (COMMIT `b33e15b`, 2026-09-18 10:33) fix(docs): re-anchor generated runtime API pages after 467 edits  
+  https://github.com/RaoFoundation/subtensor/commit/b33e15b3e4858067092a2889709976dec5c8189d
+- **Subtensor (chain)** (COMMIT `5fcaf41`, 2026-09-18 10:26) feat(runtime): spec 467 halve native and EVM transaction fees  
+  https://github.com/RaoFoundation/subtensor/commit/5fcaf413218536c9eae40b2504cee125311cf9c0
 - **Subtensor (chain)** (COMMIT `cdffbe2`, 2026-09-18 00:39) Merge pull request #3182 from RaoFoundation/cursor/spec-466-drop-12s-e52d  
   https://github.com/RaoFoundation/subtensor/commit/cdffbe2f7ab0c37ab07884387bfbd6443dca178d
 - **Subtensor (chain)** (COMMIT `41dd4f4`, 2026-09-18 00:38) fix(runtime): restore 4s native block budget on 466  
@@ -262,4 +282,4 @@ _no new posts in the lookback window_
 
 
 ---
-_Generated at 2026-09-18T15:37:26.307368+00:00 by scripts/intel/aggregate.py. Treat this digest as input context, not as ground truth. Verify before quoting._
+_Generated at 2026-09-18T18:48:57.200979+00:00 by scripts/intel/aggregate.py. Treat this digest as input context, not as ground truth. Verify before quoting._
