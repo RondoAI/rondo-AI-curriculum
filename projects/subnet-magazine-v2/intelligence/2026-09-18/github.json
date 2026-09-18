@@ -1,0 +1,112 @@
+[
+  {
+    "repo": "opentensor/subtensor",
+    "name": "Subtensor (chain)",
+    "kind": "commit",
+    "sha": "cdffbe2",
+    "message": "Merge pull request #3182 from RaoFoundation/cursor/spec-466-drop-12s-e52d",
+    "author": "Arbos",
+    "posted_at": "2026-09-18T00:39:25Z",
+    "url": "https://github.com/RaoFoundation/subtensor/commit/cdffbe2f7ab0c37ab07884387bfbd6443dca178d",
+    "fetched_at": "2026-09-18T02:39:09.847511+00:00"
+  },
+  {
+    "repo": "opentensor/subtensor",
+    "name": "Subtensor (chain)",
+    "kind": "commit",
+    "sha": "41dd4f4",
+    "message": "fix(runtime): restore 4s native block budget on 466",
+    "author": "unarbos",
+    "posted_at": "2026-09-18T00:38:05Z",
+    "url": "https://github.com/RaoFoundation/subtensor/commit/41dd4f4c07a4d839809275842eb992ac1d8e1312",
+    "fetched_at": "2026-09-18T02:39:09.847511+00:00"
+  },
+  {
+    "repo": "opentensor/subtensor",
+    "name": "Subtensor (chain)",
+    "kind": "commit",
+    "sha": "dfdfba1",
+    "message": "Merge pull request #3181 from RaoFoundation/cursor/spec-466-safer-3180-e52d",
+    "author": "Arbos",
+    "posted_at": "2026-09-18T00:31:22Z",
+    "url": "https://github.com/RaoFoundation/subtensor/commit/dfdfba159d675b532ac61d6ccea3745e34cf1bcc",
+    "fetched_at": "2026-09-18T02:39:09.847511+00:00"
+  },
+  {
+    "repo": "opentensor/subtensor",
+    "name": "Subtensor (chain)",
+    "kind": "commit",
+    "sha": "5418384",
+    "message": "fix(runtime): spec 466 CI reds from #3180",
+    "author": "unarbos",
+    "posted_at": "2026-09-18T00:29:20Z",
+    "url": "https://github.com/RaoFoundation/subtensor/commit/5418384936bd75230d95c4b21dfe50b127b2f20f",
+    "fetched_at": "2026-09-18T02:39:09.847511+00:00"
+  },
+  {
+    "repo": "opentensor/subtensor",
+    "name": "Subtensor (chain)",
+    "kind": "commit",
+    "sha": "7cd6b3e",
+    "message": "fix(runtime): expand block capacity without raising staking fees",
+    "author": "UnarbosFour",
+    "posted_at": "2026-09-17T23:59:06Z",
+    "url": "https://github.com/RaoFoundation/subtensor/commit/7cd6b3e624209d135d53449002fcd1197ba2975d",
+    "fetched_at": "2026-09-18T02:39:09.847511+00:00"
+  },
+  {
+    "repo": "opentensor/subtensor",
+    "name": "Subtensor (chain)",
+    "kind": "commit",
+    "sha": "b9222b6",
+    "message": "fix(runtime): cap staking scan fees at four hotkeys",
+    "author": "UnarbosFour",
+    "posted_at": "2026-09-17T22:29:44Z",
+    "url": "https://github.com/RaoFoundation/subtensor/commit/b9222b611161679c1a260dca56d6722656433745",
+    "fetched_at": "2026-09-18T02:39:09.847511+00:00"
+  },
+  {
+    "repo": "opentensor/subtensor",
+    "name": "Subtensor (chain)",
+    "kind": "commit",
+    "sha": "7c732d8",
+    "message": "Merge pull request #3179 from RaoFoundation/cursor/spec-465-hotfix-cee2",
+    "author": "Arbos",
+    "posted_at": "2026-09-17T19:57:33Z",
+    "url": "https://github.com/RaoFoundation/subtensor/commit/7c732d8d3eb7f8d736bf64d5809c48cbf2e4f028",
+    "fetched_at": "2026-09-18T02:39:09.847511+00:00"
+  },
+  {
+    "repo": "opentensor/subtensor",
+    "name": "Subtensor (chain)",
+    "kind": "commit",
+    "sha": "97cb62c",
+    "message": "test: pin claim_root_with_hotkey envelope to 129",
+    "author": "unarbos",
+    "posted_at": "2026-09-17T19:31:39Z",
+    "url": "https://github.com/RaoFoundation/subtensor/commit/97cb62c6621ab96247ca9f94e8cf6d8f1214fce7",
+    "fetched_at": "2026-09-18T02:39:09.847511+00:00"
+  },
+  {
+    "repo": "opentensor/subtensor",
+    "name": "Subtensor (chain)",
+    "kind": "commit",
+    "sha": "041e171",
+    "message": "test(runtime): live plus retired row still pays alpha fee",
+    "author": "unarbos",
+    "posted_at": "2026-09-17T19:15:27Z",
+    "url": "https://github.com/RaoFoundation/subtensor/commit/041e17187552282bc025c5e146adf5b93f9a1cb4",
+    "fetched_at": "2026-09-18T02:39:09.847511+00:00"
+  },
+  {
+    "repo": "opentensor/subtensor",
+    "name": "Subtensor (chain)",
+    "kind": "commit",
+    "sha": "c695321",
+    "message": "fix(runtime): ignore retired rows in alpha fee netuid walk",
+    "author": "unarbos",
+    "posted_at": "2026-09-17T19:10:36Z",
+    "url": "https://github.com/RaoFoundation/subtensor/commit/c6953216d61bb0a963270af9ce0a5193d543761e",
+    "fetched_at": "2026-09-18T02:39:09.847511+00:00"
+  }
+]
