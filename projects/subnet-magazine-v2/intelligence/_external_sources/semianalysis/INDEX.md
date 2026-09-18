@@ -1,11 +1,12 @@
 # SemiAnalysis Archive Index
 
-_332 posts captured. Generated 2026-09-18T08:41:43.873168+00:00._
+_333 posts captured. Generated 2026-09-18T15:37:26.155951+00:00._
 
 Editorial policy: SemiAnalysis is the macro reference. The Oracle cites it for any claim about hyperscaler compute, GPU economics, datacenter power, foundry capacity, memory pricing, lab unit economics. The Oracle does NOT cite SemiAnalysis for any Bittensor-specific claim. SemiAnalysis does not cover Bittensor; treat that absence as itself information.
 
 | Date | Title | Audience | Authors | File |
 | --- | --- | --- | --- | --- |
+| 2026-09-18 | [Engrams Embedding Entendre: Codesign for Efficient DRAM/SSD Offloading](https://newsletter.semianalysis.com/p/engrams-embedding-entendre-codesign) | only_paid | ["Bryan Shan", "Cam Quilici", "Alec Ibarra", "Kimbo Chen", " | `2026-09-18-engrams-embedding-entendre-codesign.md` |
 | 2026-09-15 | [Everyone Says Datacenter Moratoriums Are Killing the US Buildout. We disagree](https://newsletter.semianalysis.com/p/everyone-says-datacenter-moratoriums) | only_paid | ["Maya Barkin", "Reyk Knuhtsen", "Jeremie Eliahou Ontiveros" | `2026-09-15-everyone-says-datacenter-moratoriums.md` |
 | 2026-09-14 | [A Brain Too Big to Carry — On-Device vs Datacenter Inference](https://newsletter.semianalysis.com/p/a-brain-too-big-to-carry-on-device) | only_paid | ["Ivan Chiam", "Gianluca", "Zane Fong", "Bryan Shan", "Dylan | `2026-09-14-a-brain-too-big-to-carry-on-device.md` |
 | 2026-09-14 | [Vera Rubin NVL72 Agentic Inference: 67x better Performance per Dollar](https://newsletter.semianalysis.com/p/vera-rubin-nvl72-agentic-inference) | only_paid | ["Bryan Shan", "Alec Ibarra", "Cam Quilici", "Wenyao Gao", " | `2026-09-14-vera-rubin-nvl72-agentic-inference.md` |

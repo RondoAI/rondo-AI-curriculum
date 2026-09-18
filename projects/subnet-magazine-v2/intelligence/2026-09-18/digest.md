@@ -11,6 +11,16 @@ _no human notes in the window_
 
 _SemiAnalysis is the most-cited semiconductor and AI infrastructure publication in the industry. They do NOT cover Bittensor. The Oracle uses this corpus for any claim about hyperscaler compute, GPU economics, datacenter power, foundry capacity, memory pricing, lab unit economics. DO NOT cite SemiAnalysis for any Bittensor-specific claim. Full archive (289 posts, May 2020 onwards) lives at `intelligence/_external_sources/semianalysis/` with an `INDEX.md` table of contents. Paywalled posts show only subtitle + free preview; free posts have the full body extracted._
 
+### 2026-09-18 · Engrams Embedding Entendre: Codesign for Efficient DRAM/SSD Offloading
+_New Model Architecture Implications for TAM of DRAM/NVMe, DeepSeek V4.1 Flash, AgentX, InferenceX, NVMe experiments_
+
+- **Authors:** ["Bryan Shan", "Cam Quilici", "Alec Ibarra", "Kimbo Chen", "Myron Xie", "Dylan Patel"]
+- **Access:** paid-preview
+- **URL:** https://newsletter.semianalysis.com/p/engrams-embedding-entendre-codesign
+- **Corpus file:** `intelligence/_external_sources/semianalysis/2026-09-18-engrams-embedding-entendre-codesign.md`
+
+> Engram extends standard token embeddings with learned multi-token lookups. Recurring local patterns retrieve vectors directly, reducing the need to reconstruct them through attention and feed-forward layers.  With Engram model architecture optimization, it allows for lower HBM capacity to be needed for models at the same quality. [This does not mean there won’t be an insane demand for HBM but it just means that model architecture will continue to innovate around constraints.](https://semianalysi
+
 ### 2026-09-15 · Everyone Says Datacenter Moratoriums Are Killing the US Buildout. We disagree
 _300+ moratoriums mapped, 20GW sits inside a restricted local boundary, 1,525MW actually slips, 2.3GW nationwide including New York_
 
@@ -120,16 +130,6 @@ _OpenAI’s self-designed ASIC compared with Rubin, Jalapeño’s TCO, throughpu
 - **Corpus file:** `intelligence/_external_sources/semianalysis/2026-08-25-openai-jalapeno-better-than-nvidia.md`
 
 > OpenAI has spent the past couple years quietly building “Jalapeño,” an inference chip just announced at Hot Chips. Rumors of a successful tapeout had been swirling for a while. But now we have details. OpenAI invited us to look at their chip, go to their labs to check out how real it is, and [benchmark](https://openai.com/index/jalapeno-first-results/) it with our [InferenceX](https://inferencex.semianalysis.com/) suite.  In June, [OpenAI unveiled the chip program](https://openai.com/index/opena
-
-### 2026-08-24 · AgentX - InferenceXv3: Does CUDA Moat Hold up in Agentic Inferencing?
-_$3 Million USD dataset open sourced, 1 Mil+ Context Length, Multiturn, Sub Agents 95%+ KVCache HitRate, GB300 NVL72, MI355, B200_
-
-- **Authors:** ["Cam Quilici", "Bryan Shan", "Alec Ibarra", "Daniel Nishball", "Zane Fong", "Kimbo Chen", "Dylan Patel"]
-- **Access:** paid-preview
-- **URL:** https://newsletter.semianalysis.com/p/agentx-inferencexv3-does-cuda-moat
-- **Corpus file:** `intelligence/_external_sources/semianalysis/2026-08-24-agentx-inferencexv3-does-cuda-moat.md`
-
-> Since the [Claude Code inflection point](https://newsletter.semianalysis.com/p/claude-code-is-the-inflection-point) in November 2025, long-context, multi-turn agentic workloads have grown rapidly. They now dominate traffic for production inferencing. In April 2026, OpenAI’s Enterprise agentic spending overtook ChatGPT spending.  [![Claude Code is the Inflection Point](https://substackcdn.com/image/fetch/$s_!D9-B!,w_140,h_140,c_fill,f_auto,q_auto:good,fl_progressive:steep,g_auto/https%3A%2F%2Fsub
 
 
 ## ⊕ GITHUB COMMITS + RELEASES, last 24h
@@ -262,4 +262,4 @@ _no new posts in the lookback window_
 
 
 ---
-_Generated at 2026-09-18T08:41:44.035163+00:00 by scripts/intel/aggregate.py. Treat this digest as input context, not as ground truth. Verify before quoting._
+_Generated at 2026-09-18T15:37:26.307368+00:00 by scripts/intel/aggregate.py. Treat this digest as input context, not as ground truth. Verify before quoting._
