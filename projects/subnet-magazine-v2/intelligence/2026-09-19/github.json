@@ -1,0 +1,112 @@
+[
+  {
+    "repo": "opentensor/subtensor",
+    "name": "Subtensor (chain)",
+    "kind": "commit",
+    "sha": "c6bcb4a",
+    "message": "Merge pull request #3183 from RaoFoundation/cursor/spec-467-halve-fees-0c5e",
+    "author": "Arbos",
+    "posted_at": "2026-09-18T16:05:26Z",
+    "url": "https://github.com/RaoFoundation/subtensor/commit/c6bcb4a7400764c94c1d1b1938514c6c2dd3d33b",
+    "fetched_at": "2026-09-19T02:37:54.570679+00:00"
+  },
+  {
+    "repo": "opentensor/subtensor",
+    "name": "Subtensor (chain)",
+    "kind": "commit",
+    "sha": "23d57fd",
+    "message": "fix(runtime): collapse the single-leaf fee discount check (clippy)",
+    "author": "unarbos",
+    "posted_at": "2026-09-18T15:44:06Z",
+    "url": "https://github.com/RaoFoundation/subtensor/commit/23d57fdd889057181b81fb41d985f2988ba0830d",
+    "fetched_at": "2026-09-19T02:37:54.570679+00:00"
+  },
+  {
+    "repo": "opentensor/subtensor",
+    "name": "Subtensor (chain)",
+    "kind": "commit",
+    "sha": "045dd81",
+    "message": "feat(runtime): cap every regressed call's fee at its spec 459 weight; fee baseline guard",
+    "author": "unarbos",
+    "posted_at": "2026-09-18T15:37:23Z",
+    "url": "https://github.com/RaoFoundation/subtensor/commit/045dd814af8cae8272d9f38aadaf3a45e9bc2645",
+    "fetched_at": "2026-09-19T02:37:54.570679+00:00"
+  },
+  {
+    "repo": "opentensor/subtensor",
+    "name": "Subtensor (chain)",
+    "kind": "commit",
+    "sha": "253132b",
+    "message": "fix(runtime): clippy in native fee rate pins",
+    "author": "unarbos",
+    "posted_at": "2026-09-18T14:22:54Z",
+    "url": "https://github.com/RaoFoundation/subtensor/commit/253132b5a1c764714abc388d2bf4551b03709290",
+    "fetched_at": "2026-09-19T02:37:54.570679+00:00"
+  },
+  {
+    "repo": "opentensor/subtensor",
+    "name": "Subtensor (chain)",
+    "kind": "commit",
+    "sha": "dee67ba",
+    "message": "fix(sdk): mirror the runtime claim-fee discount exactly; pin native fee rates",
+    "author": "unarbos",
+    "posted_at": "2026-09-18T14:16:45Z",
+    "url": "https://github.com/RaoFoundation/subtensor/commit/dee67ba939a4c2e67091a9008ea5dd533fac1c26",
+    "fetched_at": "2026-09-19T02:37:54.570679+00:00"
+  },
+  {
+    "repo": "opentensor/subtensor",
+    "name": "Subtensor (chain)",
+    "kind": "commit",
+    "sha": "546d26b",
+    "message": "ci: retrigger workflows as unarbos",
+    "author": "unarbos",
+    "posted_at": "2026-09-18T14:01:12Z",
+    "url": "https://github.com/RaoFoundation/subtensor/commit/546d26bd9f1cefecbae66cf3425e6b7cf2665168",
+    "fetched_at": "2026-09-19T02:37:54.570679+00:00"
+  },
+  {
+    "repo": "opentensor/subtensor",
+    "name": "Subtensor (chain)",
+    "kind": "commit",
+    "sha": "6f7adba",
+    "message": "feat(runtime): subsidize root-claim fees to a four-unit allowance",
+    "author": "unarbos",
+    "posted_at": "2026-09-18T13:53:23Z",
+    "url": "https://github.com/RaoFoundation/subtensor/commit/6f7adbaa4de65fea1b3af21763164f1ca482dca7",
+    "fetched_at": "2026-09-19T02:37:54.570679+00:00"
+  },
+  {
+    "repo": "opentensor/subtensor",
+    "name": "Subtensor (chain)",
+    "kind": "commit",
+    "sha": "918f835",
+    "message": "fix(sdk): regen 467 bindings from CI Linux release node",
+    "author": "unarbos",
+    "posted_at": "2026-09-18T10:45:15Z",
+    "url": "https://github.com/RaoFoundation/subtensor/commit/918f835d1cbbc171a729e2f224747eea6a22a4a0",
+    "fetched_at": "2026-09-19T02:37:54.570679+00:00"
+  },
+  {
+    "repo": "opentensor/subtensor",
+    "name": "Subtensor (chain)",
+    "kind": "commit",
+    "sha": "b33e15b",
+    "message": "fix(docs): re-anchor generated runtime API pages after 467 edits",
+    "author": "unarbos",
+    "posted_at": "2026-09-18T10:33:52Z",
+    "url": "https://github.com/RaoFoundation/subtensor/commit/b33e15b3e4858067092a2889709976dec5c8189d",
+    "fetched_at": "2026-09-19T02:37:54.570679+00:00"
+  },
+  {
+    "repo": "opentensor/subtensor",
+    "name": "Subtensor (chain)",
+    "kind": "commit",
+    "sha": "5fcaf41",
+    "message": "feat(runtime): spec 467 halve native and EVM transaction fees",
+    "author": "unarbos",
+    "posted_at": "2026-09-18T10:26:24Z",
+    "url": "https://github.com/RaoFoundation/subtensor/commit/5fcaf413218536c9eae40b2504cee125311cf9c0",
+    "fetched_at": "2026-09-19T02:37:54.570679+00:00"
+  }
+]
