@@ -110,6 +110,36 @@
     "via_instance": "https://nitter.cz"
   },
   {
+    "handle": "KyleSamani",
+    "name": "Kyle Samani",
+    "posted_at": "Thu, 17 Sep 2026 13:57:07 GMT",
+    "title": ".@Backpack Securities are about to go vertical And Backpack is about to release what I think is the most important product launch of the year in crypto Higher",
+    "text": ".@Backpack Securities are about to go vertical And Backpack is about to release what I think is the most important product launch of the year in crypto Higher U.S. Securities and Exchange Commission (@SECGov) 🚨 TODAY: The SEC issued an order granting temporary, conditional exemptive relief to Tokenized Securities Venues from the definition of “exchange” in the Exchange Act to trade tokenized NMS stock using innovative permissioned automated market makers and liquidity pools. — http://nitter.jaydenha.uk/SECGov/status/2100571317128888364#m",
+    "url": "http://nitter.jaydenha.uk/KyleSamani/status/2100584839762026697#m",
+    "fetched_at": "2026-09-19T18:20:18.578382+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "KyleSamani",
+    "name": "Kyle Samani",
+    "posted_at": "Thu, 17 Sep 2026 12:57:43 GMT",
+    "title": "With the rise of @WisprFlow, how do I short open office floor plans?",
+    "text": "With the rise of @WisprFlow, how do I short open office floor plans?",
+    "url": "http://nitter.jaydenha.uk/KyleSamani/status/2100569890524484032#m",
+    "fetched_at": "2026-09-19T18:20:18.578382+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "KyleSamani",
+    "name": "Kyle Samani",
+    "posted_at": "Thu, 17 Sep 2026 12:10:38 GMT",
+    "title": "Backpack",
+    "text": "Backpack Backpack 🎒 (@Backpack) All stocks &amp; ETFs with corresponding perp markets can now be used as collateral 🎒 ▸ Use real shares as collateral across Backpack’s unified, cross-asset portfolio ▸ Borrow USD, trade futures, and trade spot on margin — http://nitter.jaydenha.uk/Backpack/status/2100539283774025828#m",
+    "url": "http://nitter.jaydenha.uk/KyleSamani/status/2100558042060165156#m",
+    "fetched_at": "2026-09-19T18:20:18.578382+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
     "handle": "markjeffrey",
     "name": "Mark Jeffrey",
     "posted_at": "Sun, 26 Jul 2026 21:18:58 GMT",
@@ -117,6 +147,16 @@
     "text": "Jason gets it. He’s early in the next big thing, like usual Don’t sleep on Bittensor $TAO @jason (@Jason) I'm so obsessed with the @bittensor model, where competing for prizes is vetted by validators... open source, OPEN COMPETITION, is the future! Please explain to me how you're using this stuff fam — http://nitter.jaydenha.uk/Jason/status/2081362360560947339#m",
     "url": "http://nitter.jaydenha.uk/BarrySilbert/status/2081489477793390933#m",
     "fetched_at": "2026-09-19T15:09:01.044230+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "SemiAnalysis_",
+    "name": "SemiAnalysis",
+    "posted_at": "Sat, 19 Sep 2026 17:01:07 GMT",
+    "title": "Many Google TPU customers are already asking Google for SemiAnalysis AgentX performance results, as customers are saying that it is a representative workload of their agentic inference traffic. We are excited to announce that we are working on AgentX TPU benchmarking too in the coming months! Stay tuned! Super proud of the Google, RadixArk, Red Hat, and Inferact teams for bringing TPU inferencing to the rest of the world!",
+    "text": "Many Google TPU customers are already asking Google for SemiAnalysis AgentX performance results, as customers are saying that it is a representative workload of their agentic inference traffic. We are excited to announce that we are working on AgentX TPU benchmarking too in the coming months! Stay tuned! Super proud of the Google, RadixArk, Red Hat, and Inferact teams for bringing TPU inferencing to the rest of the world!",
+    "url": "http://nitter.jaydenha.uk/SemiAnalysis_/status/2101355922148782264#m",
+    "fetched_at": "2026-09-19T18:21:57.775691+00:00",
     "via_instance": "https://nitter.cz"
   },
   {
@@ -160,6 +200,36 @@
     "via_instance": "https://nitter.cz"
   },
   {
+    "handle": "SemiAnalysis_",
+    "name": "SemiAnalysis",
+    "posted_at": "Sat, 19 Sep 2026 03:15:03 GMT",
+    "title": "R to @SemiAnalysis_: Here are some common examples of bad designs: 🟠 Containers on shared hardware as the only level of isolation between tenants 🟠 VMs on shared hardware as the only level of isolation between tenants (less serious than containers, but still risky) 🟠 Lack of VXLANs or improper configuration, and no concept of a per-tenant VPC on the frontend network, relying on firewalls 🟠 Multi-tenant Kubernetes control planes, where components such as kube-apiserver, the scheduler, helm charts controlling cluster-wide services such as a shared GPUOperator or NetworkOperator, and etcd are shared across tenants 🟠 No hardware, firmware, and OS provisioning automation, leading to a practice where machines are recycled between tenants instead of provisioning things from scratch 🟠 Backend storage on a shared network with no isolation (the VPC comment again) 🟠 Giving any tenant access to the BMC network (IPMI, Redfish) or to any management port on Bluefield DPUs or any SmartNICs 🟠 Leaving Bluefield DPUs in their default host-trusted mode, where anyone with root on the host can reach the DPU’s Arm cores over RShim 🟠 Giving any tenant access to login to backend or frontend switches on a shared network 🟠 Incorrect configuration of InfiniBand security keys such as PKey, MKey and SAKey 🟠 Multi-tenant dashboards where infrastructure is shared between internal-facing logs and customer-facing logs 🟠 Controls where provider employees can receive privileged access to tenant logs and monitoring dashboards without tenant permission. (4/5)",
+    "text": "Here are some common examples of bad designs: 🟠 Containers on shared hardware as the only level of isolation between tenants 🟠 VMs on shared hardware as the only level of isolation between tenants (less serious than containers, but still risky) 🟠 Lack of VXLANs or improper configuration, and no concept of a per-tenant VPC on the frontend network, relying on firewalls 🟠 Multi-tenant Kubernetes control planes, where components such as kube-apiserver, the scheduler, helm charts controlling cluster-wide services such as a shared GPUOperator or NetworkOperator, and etcd are shared across tenants 🟠 ",
+    "url": "http://nitter.jaydenha.uk/SemiAnalysis_/status/2101148033786212454#m",
+    "fetched_at": "2026-09-19T18:21:57.775691+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "SemiAnalysis_",
+    "name": "SemiAnalysis",
+    "posted_at": "Sat, 19 Sep 2026 03:15:03 GMT",
+    "title": "R to @SemiAnalysis_: For more details, and stories like how we got root access to the Grafana monitoring dashboard for an intelligence service of a country with a top 10 global GDP, read the full article here👇️ (5/5) https://newsletter.semianalysis.com/p/most-neoclouds-suck-at-security",
+    "text": "For more details, and stories like how we got root access to the Grafana monitoring dashboard for an intelligence service of a country with a top 10 global GDP, read the full article here👇️ (5/5) newsletter.semianalysis.com/… Link Most Neoclouds Suck At Security OpenAI vs HuggingFace, Container Escapes, Kernel Bypass, Network Policies, Security Keys, Multi-tenant Grafana, and a ClusterMAX 3.0 Preview newsletter.semianalysis.com",
+    "url": "http://nitter.jaydenha.uk/SemiAnalysis_/status/2101148034826416282#m",
+    "fetched_at": "2026-09-19T18:21:57.775691+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "SemiAnalysis_",
+    "name": "SemiAnalysis",
+    "posted_at": "Sat, 19 Sep 2026 03:15:02 GMT",
+    "title": "Single points of failure are not limited to obscure image libraries. We see plenty of bad designs on Neoclouds. (1/5)🧵",
+    "text": "Single points of failure are not limited to obscure image libraries. We see plenty of bad designs on Neoclouds. (1/5)🧵 Harsh Jaiswal (@rootxharsh) We’re disclosing HEIF Heist, a months-long investigation into libheif that allowed us to hack OpenAI, Slack, Meta, GitHub Ent, Rails, Next.js, ImageMagick, and many more. It was literally xkcd #234, one obscure image library beneath a huge number of apps. 🧵 — http://nitter.jaydenha.uk/rootxharsh/status/2100801820960620574#m",
+    "url": "http://nitter.jaydenha.uk/SemiAnalysis_/status/2101148029474550074#m",
+    "fetched_at": "2026-09-19T18:21:57.775691+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
     "handle": "wallstreetbets",
     "name": "WallStreetBets (X)",
     "posted_at": "Sat, 19 Sep 2026 02:48:30 GMT",
@@ -177,6 +247,26 @@
     "text": "kept buying the dip but the dip kept dipping Video",
     "url": "http://nitter.jaydenha.uk/wallstreetbets/status/2101109926542401714#m",
     "fetched_at": "2026-09-19T15:10:52.048442+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "SemiAnalysis_",
+    "name": "SemiAnalysis",
+    "posted_at": "Fri, 18 Sep 2026 23:40:22 GMT",
+    "title": "RT by @SemiAnalysis_: I sat down with @dylan522p and spoke with over a dozen people about his information machine. \"I don't think anyone who has a traditional equity research background would even try to figure out where $3T in [the AI labs' combined] ARR comes from.\" Slack private messaging limits, finding CoWoS volume, and the industry they're looking at next - I wrote about SemiAnalysis here: https://substratemag.com/dylanpatel/?v=2",
+    "text": "I sat down with @dylan522p and spoke with over a dozen people about his information machine. \"I don't think anyone who has a traditional equity research background would even try to figure out where $3T in [the AI labs' combined] ARR comes from.\" Slack private messaging limits, finding CoWoS volume, and the industry they're looking at next - I wrote about SemiAnalysis here: substratemag.com/dylanpatel/… Link Dylan Patel’s Information Machine How u/dylan522p created SemiAnalysis: the intelligence firm informing a trillion-dollar AI infrastructure buildout. substratemag.com",
+    "url": "http://nitter.jaydenha.uk/cattttang/status/2101094006679540129#m",
+    "fetched_at": "2026-09-19T18:21:57.775691+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "KyleSamani",
+    "name": "Kyle Samani",
+    "posted_at": "Fri, 18 Sep 2026 22:08:06 GMT",
+    "title": "As @Solana slot times have dropped, I can noticeably feel all Solana applications getting snappier. It's nice.",
+    "text": "As @Solana slot times have dropped, I can noticeably feel all Solana applications getting snappier. It's nice.",
+    "url": "http://nitter.jaydenha.uk/KyleSamani/status/2101070786828304773#m",
+    "fetched_at": "2026-09-19T18:20:18.578382+00:00",
     "via_instance": "https://nitter.cz"
   },
   {
@@ -237,6 +327,16 @@
     "text": "Comming soon, Minimax-H3: Video",
     "url": "http://nitter.jaydenha.uk/engyai/status/2100940283030679691#m",
     "fetched_at": "2026-09-19T15:08:41.631611+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "KyleSamani",
+    "name": "Kyle Samani",
+    "posted_at": "Fri, 18 Sep 2026 11:46:19 GMT",
+    "title": "Faster",
+    "text": "Faster Anza (@anza_xyz) 250ms slots live on mainnet-beta. Last stop: 200ms. — http://nitter.jaydenha.uk/anza_xyz/status/2100813567037739169#m",
+    "url": "http://nitter.jaydenha.uk/KyleSamani/status/2100914312214622557#m",
+    "fetched_at": "2026-09-19T18:20:18.578382+00:00",
     "via_instance": "https://nitter.cz"
   },
   {

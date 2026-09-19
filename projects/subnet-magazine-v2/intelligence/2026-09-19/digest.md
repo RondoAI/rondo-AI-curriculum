@@ -183,8 +183,16 @@ _no new posts in the lookback window_
   http://nitter.jaydenha.uk/const_reborn/status/2100648472936387023#m
 - @const_reborn (Jacob Steeves, Thu, 17 Sep 2026): Conjectures has done a great job showing how incentive systems don't just parallelize search over solutions — they parallelize search over search systems themselves. Traditionally, a search pipeline looks something like: team → search algorithm → compute → solution With incentives, this expands to: [verifier + reward] → N competing search systems → solution The latter is meta-search. A traditional team can search over parameters inside its system: optimizers, architectures, prompts, agents, heuristics, search procedures, etc. But many things remain fixed outside the search. The team itself. It  
   http://nitter.jaydenha.uk/const_reborn/status/2100647788778295431#m
+- @KyleSamani (Kyle Samani, Thu, 17 Sep 2026): .@Backpack Securities are about to go vertical And Backpack is about to release what I think is the most important product launch of the year in crypto Higher U.S. Securities and Exchange Commission (@SECGov) 🚨 TODAY: The SEC issued an order granting temporary, conditional exemptive relief to Tokenized Securities Venues from the definition of “exchange” in the Exchange Act to trade tokenized NMS stock using innovative permissioned automated market makers and liquidity pools. — http://nitter.jaydenha.uk/SECGov/status/2100571317128888364#m  
+  http://nitter.jaydenha.uk/KyleSamani/status/2100584839762026697#m
+- @KyleSamani (Kyle Samani, Thu, 17 Sep 2026): With the rise of @WisprFlow, how do I short open office floor plans?  
+  http://nitter.jaydenha.uk/KyleSamani/status/2100569890524484032#m
+- @KyleSamani (Kyle Samani, Thu, 17 Sep 2026): Backpack Backpack 🎒 (@Backpack) All stocks &amp; ETFs with corresponding perp markets can now be used as collateral 🎒 ▸ Use real shares as collateral across Backpack’s unified, cross-asset portfolio ▸ Borrow USD, trade futures, and trade spot on margin — http://nitter.jaydenha.uk/Backpack/status/2100539283774025828#m  
+  http://nitter.jaydenha.uk/KyleSamani/status/2100558042060165156#m
 - @markjeffrey (Mark Jeffrey, Sun, 26 Jul 2026): Jason gets it. He’s early in the next big thing, like usual Don’t sleep on Bittensor $TAO @jason (@Jason) I'm so obsessed with the @bittensor model, where competing for prizes is vetted by validators... open source, OPEN COMPETITION, is the future! Please explain to me how you're using this stuff fam — http://nitter.jaydenha.uk/Jason/status/2081362360560947339#m  
   http://nitter.jaydenha.uk/BarrySilbert/status/2081489477793390933#m
+- @SemiAnalysis_ (SemiAnalysis, Sat, 19 Sep 2026): Many Google TPU customers are already asking Google for SemiAnalysis AgentX performance results, as customers are saying that it is a representative workload of their agentic inference traffic. We are excited to announce that we are working on AgentX TPU benchmarking too in the coming months! Stay tuned! Super proud of the Google, RadixArk, Red Hat, and Inferact teams for bringing TPU inferencing to the rest of the world!  
+  http://nitter.jaydenha.uk/SemiAnalysis_/status/2101355922148782264#m
 - @markjeffrey (Mark Jeffrey, Sat, 19 Sep 2026): Well that's a new wrinkle: Dr. Eli David (@DrEliDavid) 🚨 Breaking: Anthropic, OpenAI, SpaceX, Google sued for alleged agreement to pace AI in violation of Sherman Act — http://nitter.jaydenha.uk/DrEliDavid/status/2101227316500185368#m  
   http://nitter.jaydenha.uk/markjeffrey/status/2101231478504067297#m
 - @markjeffrey (Mark Jeffrey, Sat, 19 Sep 2026): Still a good one :) Altcoin Daily (@AltcoinDaily) 🚨 Smart Money Alert: Grant Cardone and Brian Dixon Break Down Investing in Bittensor $TAO "Think about #Bitcoin is decentralized money. TAO and Bittensor is decentralized intelligence." "That's one of the things we've learned today, that #Perplexity and #ChatGPT and #Claude, there's a small percentage of the questions that are getting asked to those platforms that #Bittensor's intelligence is actually feeding for the answer. But they don't tell you that on Claude and they're just licensing that information. And that'll grow significantly over t  
@@ -193,10 +201,20 @@ _no new posts in the lookback window_
   http://nitter.jaydenha.uk/markjeffrey/status/2101206945386676345#m
 - @markjeffrey (Mark Jeffrey, Sat, 19 Sep 2026): We'll hear a lot of subnet announcements next week at the EXPLOIT Bittensor conference. I'm talking significant customer traction and revenue with real AI products. Stay tuned. Barry Silbert🎗️ (@BarrySilbert) — http://nitter.jaydenha.uk/BarrySilbert/status/2100938101052850610#m  
   http://nitter.jaydenha.uk/markjeffrey/status/2101182453058785592#m
+- @SemiAnalysis_ (SemiAnalysis, Sat, 19 Sep 2026): Here are some common examples of bad designs: 🟠 Containers on shared hardware as the only level of isolation between tenants 🟠 VMs on shared hardware as the only level of isolation between tenants (less serious than containers, but still risky) 🟠 Lack of VXLANs or improper configuration, and no concept of a per-tenant VPC on the frontend network, relying on firewalls 🟠 Multi-tenant Kubernetes control planes, where components such as kube-apiserver, the scheduler, helm charts controlling cluster-wide services such as a shared GPUOperator or NetworkOperator, and etcd are shared across tenants 🟠   
+  http://nitter.jaydenha.uk/SemiAnalysis_/status/2101148033786212454#m
+- @SemiAnalysis_ (SemiAnalysis, Sat, 19 Sep 2026): For more details, and stories like how we got root access to the Grafana monitoring dashboard for an intelligence service of a country with a top 10 global GDP, read the full article here👇️ (5/5) newsletter.semianalysis.com/… Link Most Neoclouds Suck At Security OpenAI vs HuggingFace, Container Escapes, Kernel Bypass, Network Policies, Security Keys, Multi-tenant Grafana, and a ClusterMAX 3.0 Preview newsletter.semianalysis.com  
+  http://nitter.jaydenha.uk/SemiAnalysis_/status/2101148034826416282#m
+- @SemiAnalysis_ (SemiAnalysis, Sat, 19 Sep 2026): Single points of failure are not limited to obscure image libraries. We see plenty of bad designs on Neoclouds. (1/5)🧵 Harsh Jaiswal (@rootxharsh) We’re disclosing HEIF Heist, a months-long investigation into libheif that allowed us to hack OpenAI, Slack, Meta, GitHub Ent, Rails, Next.js, ImageMagick, and many more. It was literally xkcd #234, one obscure image library beneath a huge number of apps. 🧵 — http://nitter.jaydenha.uk/rootxharsh/status/2100801820960620574#m  
+  http://nitter.jaydenha.uk/SemiAnalysis_/status/2101148029474550074#m
 - @wallstreetbets (WallStreetBets (X), Sat, 19 Sep 2026): $100 $HYPE soon?  
   http://nitter.jaydenha.uk/wallstreetbets/status/2101141353077887249#m
 - @wallstreetbets (WallStreetBets (X), Sat, 19 Sep 2026): kept buying the dip but the dip kept dipping Video  
   http://nitter.jaydenha.uk/wallstreetbets/status/2101109926542401714#m
+- @SemiAnalysis_ (SemiAnalysis, Fri, 18 Sep 2026): I sat down with @dylan522p and spoke with over a dozen people about his information machine. "I don't think anyone who has a traditional equity research background would even try to figure out where $3T in [the AI labs' combined] ARR comes from." Slack private messaging limits, finding CoWoS volume, and the industry they're looking at next - I wrote about SemiAnalysis here: substratemag.com/dylanpatel/… Link Dylan Patel’s Information Machine How u/dylan522p created SemiAnalysis: the intelligence firm informing a trillion-dollar AI infrastructure buildout. substratemag.com  
+  http://nitter.jaydenha.uk/cattttang/status/2101094006679540129#m
+- @KyleSamani (Kyle Samani, Fri, 18 Sep 2026): As @Solana slot times have dropped, I can noticeably feel all Solana applications getting snappier. It's nice.  
+  http://nitter.jaydenha.uk/KyleSamani/status/2101070786828304773#m
 - @wallstreetbets (WallStreetBets (X), Fri, 18 Sep 2026): we're going higher  
   http://nitter.jaydenha.uk/wallstreetbets/status/2101069876781625599#m
 - @wallstreetbets (WallStreetBets (X), Fri, 18 Sep 2026): 24/7 global markets are here  
@@ -209,9 +227,11 @@ _no new posts in the lookback window_
   http://nitter.jaydenha.uk/opentensor/status/2100992475477540903#m
 - @const_reborn (Jacob Steeves, Fri, 18 Sep 2026): Comming soon, Minimax-H3: Video  
   http://nitter.jaydenha.uk/engyai/status/2100940283030679691#m
+- @KyleSamani (Kyle Samani, Fri, 18 Sep 2026): Faster Anza (@anza_xyz) 250ms slots live on mainnet-beta. Last stop: 200ms. — http://nitter.jaydenha.uk/anza_xyz/status/2100813567037739169#m  
+  http://nitter.jaydenha.uk/KyleSamani/status/2100914312214622557#m
 - @const_reborn (Jacob Steeves, Fri, 18 Sep 2026): Today Numinous is announcing its first forecasting model: Numinous-1! It’s an 8B parameter model fine-tuned over Qwen3-8B. We will make it available in the coming days. The model was fine tuned using the best reasoning trajectories from the miners. It never sees the prices, only the best belief updates among the miners. With an optimised harness, the model beats all the miners in our crowd over a 9 days backtest! With a generic harness the model ranks between 5 and 7.  
   http://nitter.jaydenha.uk/numinous_ai/status/2100897804415611217#m
 
 
 ---
-_Generated at 2026-09-19T15:11:03.348758+00:00 by scripts/intel/aggregate.py. Treat this digest as input context, not as ground truth. Verify before quoting._
+_Generated at 2026-09-19T18:22:35.169256+00:00 by scripts/intel/aggregate.py. Treat this digest as input context, not as ground truth. Verify before quoting._
