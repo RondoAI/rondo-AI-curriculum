@@ -163,20 +163,60 @@ _no new posts in the lookback window_
 
 - @ridges_ai (Ridges, Wed, 26 Aug 2026): We've kicked off Niches with a Linting competition! In just one week we've seen performance hit 76% on our hidden test set with cost reduction down to $0.02 per task. Results like these help us validate the Niches model and adjust where needed. We're excited for the next Niche, and eventually dynamic Niches. Stay tuned!  
   http://nitter.jaydenha.uk/ridges_ai/status/2092684102595961119#m
+- @polychain (Polychain Capital, Wed, 24 Jun 2026): I'm excited to share that Cambrian has raised $11.9M to build the financial intelligence layer for the convergence of AI, digital assets, and traditional finance. Our seed round was led by @Polychain and Franklin Templeton @FTDA_US: a convergence itself of a top OG digital assets fund and a $1.7T institutional asset manager of 75+ years. As AI starts to consume more data in minutes than most humans do in lifetimes, finance is evolving to adapt to this reality ⤵️ Cambrian Network 🪴 (@CambrianNetwork) Big news: we’ve raised $11.9 million to build the world’s financial intelligence layer. @Polych  
+  http://nitter.jaydenha.uk/0xsamgreen/status/2069836236362313887#m
+- @polychain (Polychain Capital, Wed, 24 Jun 2026): EXCLUSIVE: a16z CSX-backed Cambrian raises $6 million seed to build blockchain data oracle network theblock.co/post/406028/a16z… Link a16z CSX-backed Cambrian raises $6 million seed to build blockchain data oracle network Cambrian, a startup building blockchain data infrastructure for institutions and AI agents, raised $6 million in a seed funding round. theblock.co  
+  http://nitter.jaydenha.uk/TheBlockCo/status/2069827932843909349#m
+- @covenant_ai (Covenant AI, Wed, 19 Aug 2026): RT @tplr_ai: ByteDance and Tencent each received 10,000 Nvidia H200 chips, the first big delivery after China eased import limits. Watch w…  
+  http://nitter.jaydenha.uk/covenant_ai/status/2090092134036648101#m
+- @shibshib89 (Ala Shaabana, Wed, 16 Sep 2026): LFG! Crucible Labs (@CrucibleLabs) Crucible Wallet Extension v2.1.1 is LIVE. This isn’t just an update. We rebuilt the entire wallet experience from the ground up. A completely new UI. More control over your TAO. More Bittensor tools built directly into your wallet. What’s new in v2.1.1: ✔️Completely updated UI + light/dark mode ✔️Claim rewards directly in the wallet ✔️Unified balance across TAO + alpha ✔️Universal Swap ✔️Transfer TAO + alpha ✔️Subnet discovery + detailed subnet views ✔️Multi-address support for seed phrases ✔️12 and 24 word seed phrase support ✔️Updated Smart Account + Reward  
+  http://nitter.jaydenha.uk/shibshib89/status/2100300168633761947#m
 - @opentensor (Opentensor Foundation, Wed, 16 Sep 2026): Today, we’re announcing a solution found by our miners to both parts of Erdős Problem 14, open for over 34 years. The result proves a square-root lower bound on exceptions to unique representation as a sum of two elements of any set of natural numbers. Verified in Lean through Conjectures. Full proofs below.  
   http://nitter.jaydenha.uk/conjectures_io/status/2100267350540894439#m
+- @covenant_ai (Covenant AI, Wed, 16 Sep 2026): We’ve been researching fault tolerance in Crucible, Templar’s pre-training platform. The goal: keep training through node failures and make better use of unreliable workers and spot instances, without idling an entire model replica when one stage goes down. 1/n Video  
+  http://nitter.jaydenha.uk/tplr_ai/status/2100237708186550642#m
 - @opentensor (Opentensor Foundation, Wed, 16 Sep 2026): Pareton miners found it, vLLM merged it. An optimization from our Qwen campaign on #Bittensor SN10 is now upstream in @vllm_project: ~4% more throughput at batch 4–8 for Qwen3.8 with MTP speculative decoding. Open competition → open-source wins. PR: github.com/vllm-project/vllm… 1/5  
   http://nitter.jaydenha.uk/Pareton_ai/status/2100230731368661046#m
+- @oroagents (Oro, Wed, 12 Aug 2026): The model also reached 53.3% pass@8 versus 34.8% pass@1. That gap tells us the capability is already latent in the model. The remaining challenge is consistently extracting it. A dense teacher-grounded Dr. GRPO reward improved the process score from 0.02 to 0.42 and cut product-ID hallucinations from 14 to zero.  
+  http://nitter.jaydenha.uk/oroagents/status/2087649319822512258#m
 - @ridges_ai (Ridges, Wed, 09 Sep 2026): ridges.ai/explore/28 Link Ridges AI AI Agents, powered by Bittensor | SN62 ridges.ai  
   http://nitter.jaydenha.uk/ridges_ai/status/2097823739765526549#m
 - @ridges_ai (Ridges, Wed, 09 Sep 2026): Next competition is live: Database Engineering. Agents compete on database engineering problems, fixing bugs, optimizing queries, and working with ORMs and GraphQL. Why this Niche next? Because inefficient queries are a real engineering challenge, and one where specialist agents have plenty of room to outperform. Open now for submissions:  
   http://nitter.jaydenha.uk/ridges_ai/status/2097823726561866122#m
+- @shibshib89 (Ala Shaabana, Wed, 09 Sep 2026): Did you hear? Crucible Wallet is officially live on iOS today. An easy to use Bittensor wallet with Ledger security, Unified Swap and subnet level performance. Now available on iOS in the US, Android and Chrome. Download at CrucibleLabs.com #Bittensor #TAO #CrucibleWallet  
+  http://nitter.jaydenha.uk/CrucibleLabs/status/2097815766473323006#m
+- @shibshib89 (Ala Shaabana, Wed, 09 Sep 2026): We are officially on iOS! Onwards 🚀 Crucible Labs (@CrucibleLabs) A long time coming and officially here. Crucible Wallet is now available on iOS in the US. An easy, intuitive Bittensor wallet for your everyday TAO needs, with Unified Swap, portfolio tracking and Ledger support wherever you go. Already available on Google Play and Chrome Store. Download at CrucibleLabs.com #CrucibleWallet #TAO #Bittensor — http://nitter.jaydenha.uk/CrucibleLabs/status/2097699938209857625#m  
+  http://nitter.jaydenha.uk/shibshib89/status/2097724813028516224#m
+- @zeussubnet (Zeus Subnet, Wed, 09 Sep 2026): Zeus is energy-aware. How? 👇 For temperature, we use population as a proxy for where demand matters. For wind and solar, we use generation capacity to track where supply matters. Geographic weights derived from this data are now used by validators when scoring forecasts. They’re stricter in the regions where weather impacts energy supply and demand the most. This creates a stronger incentive for teams on Zeus to shift their focus towards those regions. For now, we’ve limited the focus to Europe, where several desks are evaluating our data as we speak. We may expand to other interesting trading  
+  http://nitter.jaydenha.uk/zeussubnet/status/2097696101822304723#m
 - @ridges_ai (Ridges, Wed, 09 Sep 2026): CMC Verification post: ridges.ai  
   http://nitter.jaydenha.uk/ridges_ai/status/2097651752464011375#m
+- @shibshib89 (Ala Shaabana, Wed, 02 Sep 2026): Crucible Labs dropping #downwiththedev Episode 1. We breakdown the Mobile Wallet with @buildwithsamp. Take a listen. Video  
+  http://nitter.jaydenha.uk/CrucibleLabs/status/2095144290376937770#m
 - @ridges_ai (Ridges, Tue, 28 Jul 2026): ⛰️ x402 is now live on Ridges X402 is an agentic payment protocol that lets agents pay for API access autonomously. Integrated with Ridgeline, agents can now pay for and access our coding infrastructure directly, no human in the loop.  
   http://nitter.jaydenha.uk/ridges_ai/status/2082103797418262564#m
+- @covenant_ai (Covenant AI, Tue, 25 Aug 2026): Templar's work reduces to one question. How much of the machine-learning lifecycle can run across ordinary networks instead of a single datacentre? Pre-training answered first, with Covenant-72B as the proof at scale. Post-training followed through our communication-efficiency research. Serving open models on distributed hardware is the piece we are working on now, and it is the one that puts the whole arc in front of users. The internet is the datacentre.  
+  http://nitter.jaydenha.uk/tplr_ai/status/2092267948765237743#m
+- @oroagents (Oro, Tue, 18 Aug 2026): The ORO team has purchased 2500 Tao worth of SN15 alpha with the help of @CrucibleLabs. This will help us continue to deliver after the recent hack from the North Korean state actor group, Sapphire Sleet. Up and onwards 🚀  
+  http://nitter.jaydenha.uk/oroagents/status/2089825274133381136#m
+- @polychain (Polychain Capital, Tue, 15 Sep 2026): It's time for a new foundation. Not a new start. Legacy Mode is live on Passport, keep every account you already have, on code anyone can inspect. Switch to open source hardware and software while keeping your existing accounts for supported assets. Here’s how. 🧵 Video  
+  http://nitter.jaydenha.uk/FoundationHQ/status/2099865846101180499#m
 - @const_reborn (Jacob Steeves, Tue, 15 Sep 2026): Today, we’re announcing a solution found by our miners to Erdős Problem 196, open for over 49 years. The result disproves the conjecture, constructing a permutation of the natural numbers with no four-term arithmetic progression appearing in increasing or decreasing order. Verified in Lean through Conjectures. Full proof below.  
   http://nitter.jaydenha.uk/conjectures_io/status/2099864445002436663#m
+- @oroagents (Oro, Tue, 08 Sep 2026): We're excited to announce that we're going to be joining Y Combinator in Fall 2026. The team is super pumped to be working with @golda and co to continue on our journey of creating the best in class open source models for agentic commerce. Video  
+  http://nitter.jaydenha.uk/oroagents/status/2097396633764032707#m
+- @zeussubnet (Zeus Subnet, Tue, 01 Sep 2026): So you think you know #Bittensor? Now's your chance to prove it. The night before Exploit, we’re putting the community to the test. Protocol history, legendary moments, characters, launches and lore. Join us for the first Bittensor Community Quiz - in person in Montreal. Free for Exploit attendees. Powered by @generaltensor + @zeussubnet Register at: luma.com/7hj5nphs  
+  http://nitter.jaydenha.uk/ExploitSummit/status/2094855315930198101#m
+- @covenant_ai (Covenant AI, Thu, 27 Aug 2026): A system designed around identical accelerators depends on a narrow hardware supply. Templar starts from a wider map. Accelerator generations vary, and network conditions change with location. The coordination layer has to treat both as design inputs.  
+  http://nitter.jaydenha.uk/tplr_ai/status/2093022381660942660#m
+- @polychain (Polychain Capital, Thu, 25 Jun 2026): Article The Missing AI Layer Is Not Security. It&apos;s Authority. AI agents are now computer users. They browse websites. They read files. They write code. They call APIs. They log in to accounts. They handle credentials, use tools, and take actions across software  
+  http://nitter.jaydenha.uk/zherbert/status/2070178183333171395#m
+- @oroagents (Oro, Thu, 20 Aug 2026): Measuring the quality of the long-horizon data is a huge part of solving the AI consumer shopping problem. ORO-Distilled, a 4B model. 5x faster. 50x cheaper. Video  
+  http://nitter.jaydenha.uk/oroagents/status/2090533835192893616#m
+- @galaxyhq (Galaxy Digital, Thu, 17 Sep 2026): Welcome to the football resort 🏠 @novogratz 🤝 @danawhite Video Video  
+  http://nitter.jaydenha.uk/TexasTechFB/status/2100729769750909011#m
+- @galaxyhq (Galaxy Digital, Thu, 17 Sep 2026): These hype men absolutely slapped. @novogratz 🤝 @danawhite  
+  http://nitter.jaydenha.uk/TexasTechFB/status/2100726702489870789#m
 - @opentensor (Opentensor Foundation, Thu, 17 Sep 2026): Novelty Search // Bittensor Subnet 105 Beam :: The Bandwidth Subnet nitter.net/i/broadcasts/1rxmqpmwA… Link Openτensor Foundaτion Novelty Search // Bittensor Subnet 105 Beam :: The Bandwidth Subnet http://nitter.jaydenha.uk/i/broadcasts/1rxmqpmwAykxy  
   http://nitter.jaydenha.uk/opentensor/status/2100692690405036129#m
 - @const_reborn (Jacob Steeves, Thu, 17 Sep 2026): Bitter Lesson 2.0  
@@ -189,8 +229,18 @@ _no new posts in the lookback window_
   http://nitter.jaydenha.uk/KyleSamani/status/2100569890524484032#m
 - @KyleSamani (Kyle Samani, Thu, 17 Sep 2026): Backpack Backpack 🎒 (@Backpack) All stocks &amp; ETFs with corresponding perp markets can now be used as collateral 🎒 ▸ Use real shares as collateral across Backpack’s unified, cross-asset portfolio ▸ Borrow USD, trade futures, and trade spot on margin — http://nitter.jaydenha.uk/Backpack/status/2100539283774025828#m  
   http://nitter.jaydenha.uk/KyleSamani/status/2100558042060165156#m
+- @polychain (Polychain Capital, Thu, 13 Aug 2026): LBTC proved demand for yield-bearing Bitcoin. Today, we double down on that thesis. LBTC is moving to institutional yield. @Bitwise will manage a covered-call options strategy with a 4.5-year legacy track record, to generate LBTC's yield, targeting 2.5% net APY paid in Bitcoin.  
+  http://nitter.jaydenha.uk/Lombard_Finance/status/2087887552300933626#m
+- @covenant_ai (Covenant AI, Thu, 03 Sep 2026): Crucible, Templar's pre-training platform, has completed its first production end-to-end training runs. The latest trained an 8B model on 50.53B tokens across 48 distributed A100s, at an estimated $0.1202 per million tokens of GPU rental. The run reached 48.3% effective MFU. At AWS p4de Capacity Blocks pricing, a 48-A100 cluster operating at the literature-derived 65% compute ceiling comes to an estimated $0.1686 per million tokens. Crucible's measured $0.1202 was about 29% lower after its low-bandwidth overhead. The comparison excludes R2 storage and operations. The full writeup shows the met  
+  http://nitter.jaydenha.uk/tplr_ai/status/2095580357626110111#m
+- @zeussubnet (Zeus Subnet, Thu, 03 Sep 2026): While energy supply becomes more and more weather-dependent, our mission is to give traders the fastest, most precise view on weather ✅ 75% faster* ✅ &gt;30% more accurate on temperature* ✅ &gt;20% more accurate on wind* *vs ECMWF IFS across June and July  
+  http://nitter.jaydenha.uk/zeussubnet/status/2095535560102203644#m
 - @markjeffrey (Mark Jeffrey, Sun, 26 Jul 2026): Jason gets it. He’s early in the next big thing, like usual Don’t sleep on Bittensor $TAO @jason (@Jason) I'm so obsessed with the @bittensor model, where competing for prizes is vetted by validators... open source, OPEN COMPETITION, is the future! Please explain to me how you're using this stuff fam — http://nitter.jaydenha.uk/Jason/status/2081362360560947339#m  
   http://nitter.jaydenha.uk/BarrySilbert/status/2081489477793390933#m
+- @SemiAnalysis_ (SemiAnalysis, Sat, 19 Sep 2026): Watch Now: piped.video/Qv2vMj0Uq3c?si=scDM… Link Ep. 032 - 300 Datacenter Bans, 6 Projects Delayed: Moratoriums... More than 300 towns, cities, and counties have voted to pause data ... youtube.com  
+  http://nitter.jaydenha.uk/SemiAnalysis_/status/2101419227789905934#m
+- @SemiAnalysis_ (SemiAnalysis, Sat, 19 Sep 2026): More than 300 US local governments have voted to pause datacenters in the past 18 months, and the pace picked up sharply this summer. Most of them are buying time. "A datacenter moratorium is a temporary legal pause, usually enacted by a local government. It halts approval, permitting, and construction of new datacenters. It doesn't affect existing datacenters." "These can last anywhere from months to a year, and can often be revoked, replaced by new regulation, or extended." "Many zoning codes were written before anyone was considering those huge 100-plus megawatt to multiple gigawatt facilit  
+  http://nitter.jaydenha.uk/SemiAnalysis_/status/2101419225474814214#m
 - @SemiAnalysis_ (SemiAnalysis, Sat, 19 Sep 2026): Many Google TPU customers are already asking Google for SemiAnalysis AgentX performance results, as customers are saying that it is a representative workload of their agentic inference traffic. We are excited to announce that we are working on AgentX TPU benchmarking too in the coming months! Stay tuned! Super proud of the Google, RadixArk, Red Hat, and Inferact teams for bringing TPU inferencing to the rest of the world!  
   http://nitter.jaydenha.uk/SemiAnalysis_/status/2101355922148782264#m
 - @markjeffrey (Mark Jeffrey, Sat, 19 Sep 2026): Well that's a new wrinkle: Dr. Eli David (@DrEliDavid) 🚨 Breaking: Anthropic, OpenAI, SpaceX, Google sued for alleged agreement to pace AI in violation of Sherman Act — http://nitter.jaydenha.uk/DrEliDavid/status/2101227316500185368#m  
@@ -209,29 +259,9 @@ _no new posts in the lookback window_
   http://nitter.jaydenha.uk/SemiAnalysis_/status/2101148029474550074#m
 - @wallstreetbets (WallStreetBets (X), Sat, 19 Sep 2026): $100 $HYPE soon?  
   http://nitter.jaydenha.uk/wallstreetbets/status/2101141353077887249#m
-- @wallstreetbets (WallStreetBets (X), Sat, 19 Sep 2026): kept buying the dip but the dip kept dipping Video  
-  http://nitter.jaydenha.uk/wallstreetbets/status/2101109926542401714#m
-- @SemiAnalysis_ (SemiAnalysis, Fri, 18 Sep 2026): I sat down with @dylan522p and spoke with over a dozen people about his information machine. "I don't think anyone who has a traditional equity research background would even try to figure out where $3T in [the AI labs' combined] ARR comes from." Slack private messaging limits, finding CoWoS volume, and the industry they're looking at next - I wrote about SemiAnalysis here: substratemag.com/dylanpatel/… Link Dylan Patel’s Information Machine How u/dylan522p created SemiAnalysis: the intelligence firm informing a trillion-dollar AI infrastructure buildout. substratemag.com  
-  http://nitter.jaydenha.uk/cattttang/status/2101094006679540129#m
-- @KyleSamani (Kyle Samani, Fri, 18 Sep 2026): As @Solana slot times have dropped, I can noticeably feel all Solana applications getting snappier. It's nice.  
-  http://nitter.jaydenha.uk/KyleSamani/status/2101070786828304773#m
-- @wallstreetbets (WallStreetBets (X), Fri, 18 Sep 2026): we're going higher  
-  http://nitter.jaydenha.uk/wallstreetbets/status/2101069876781625599#m
-- @wallstreetbets (WallStreetBets (X), Fri, 18 Sep 2026): 24/7 global markets are here  
-  http://nitter.jaydenha.uk/wallstreetbets/status/2101011501234417699#m
-- @wallstreetbets (WallStreetBets (X), Fri, 18 Sep 2026): now i get what injective is doing bringing stocks, RWAs, private institutional trading onchain Injective 🥷 (@injective) NEW: The Injective Meridian Mainnet Upgrade governance proposal is now live to bring you the leading L1 blockchain for tokenization and finance. ⚡️Institutional-grade RWA issuance ⚡️Native onchain privacy alpha ⚡️Unified RFQ perp markets ⚡️Much More on $INJ — http://nitter.jaydenha.uk/injective/status/2100996096872878473#m  
-  http://nitter.jaydenha.uk/wallstreetbets/status/2101004378630959535#m
-- @opentensor (Opentensor Foundation, Fri, 18 Sep 2026): Full E088 @b1m_ai piped.video/QjWEOFWGLuc Link Subnet 105 :: AI Has a Data Movement Problem. Beam Wants to Solve It. What if bandwidth itself could become programmable?In Novelty Sea... youtube.com  
-  http://nitter.jaydenha.uk/opentensor/status/2100992487540305925#m
-- @opentensor (Opentensor Foundation, Fri, 18 Sep 2026): “You can literally build your Discord on top of Beam.” On the latest Novelty Search, @b1m_ai demonstrates how Bittensor’s Subnet 105 can power live video apps without developers running their own streaming servers. The team also previews Beam Studio, its tool for automating data transfers, and explains how parallel transfers can move 1 TB across Cloudflare R2 regions in under two minutes. Hosted by @const_reborn Full episode in the first comment Video  
-  http://nitter.jaydenha.uk/opentensor/status/2100992475477540903#m
-- @const_reborn (Jacob Steeves, Fri, 18 Sep 2026): Comming soon, Minimax-H3: Video  
-  http://nitter.jaydenha.uk/engyai/status/2100940283030679691#m
-- @KyleSamani (Kyle Samani, Fri, 18 Sep 2026): Faster Anza (@anza_xyz) 250ms slots live on mainnet-beta. Last stop: 200ms. — http://nitter.jaydenha.uk/anza_xyz/status/2100813567037739169#m  
-  http://nitter.jaydenha.uk/KyleSamani/status/2100914312214622557#m
-- @const_reborn (Jacob Steeves, Fri, 18 Sep 2026): Today Numinous is announcing its first forecasting model: Numinous-1! It’s an 8B parameter model fine-tuned over Qwen3-8B. We will make it available in the coming days. The model was fine tuned using the best reasoning trajectories from the miners. It never sees the prices, only the best belief updates among the miners. With an optimised harness, the model beats all the miners in our crowd over a 9 days backtest! With a generic harness the model ranks between 5 and 7.  
-  http://nitter.jaydenha.uk/numinous_ai/status/2100897804415611217#m
+- @galaxyhq (Galaxy Digital, Sat, 19 Sep 2026): These lucky fans got a seat upgrade courtesy of @galaxyhq! @novogratz x @TexasTechMBB x @TexasTechSB  
+  http://nitter.jaydenha.uk/TechAthletics/status/2101135361522950611#m
 
 
 ---
-_Generated at 2026-09-19T18:22:35.169256+00:00 by scripts/intel/aggregate.py. Treat this digest as input context, not as ground truth. Verify before quoting._
+_Generated at 2026-09-19T22:02:32.131135+00:00 by scripts/intel/aggregate.py. Treat this digest as input context, not as ground truth. Verify before quoting._
