@@ -161,8 +161,57 @@ _no new posts in the lookback window_
 
 ## ⊕ X via NITTER, voices we track
 
-_no posts retrieved · all Nitter instances may be down_
+- @ridges_ai (Ridges, Wed, 26 Aug 2026): We've kicked off Niches with a Linting competition! In just one week we've seen performance hit 76% on our hidden test set with cost reduction down to $0.02 per task. Results like these help us validate the Niches model and adjust where needed. We're excited for the next Niche, and eventually dynamic Niches. Stay tuned!  
+  http://nitter.jaydenha.uk/ridges_ai/status/2092684102595961119#m
+- @opentensor (Opentensor Foundation, Wed, 16 Sep 2026): Today, we’re announcing a solution found by our miners to both parts of Erdős Problem 14, open for over 34 years. The result proves a square-root lower bound on exceptions to unique representation as a sum of two elements of any set of natural numbers. Verified in Lean through Conjectures. Full proofs below.  
+  http://nitter.jaydenha.uk/conjectures_io/status/2100267350540894439#m
+- @opentensor (Opentensor Foundation, Wed, 16 Sep 2026): Pareton miners found it, vLLM merged it. An optimization from our Qwen campaign on #Bittensor SN10 is now upstream in @vllm_project: ~4% more throughput at batch 4–8 for Qwen3.8 with MTP speculative decoding. Open competition → open-source wins. PR: github.com/vllm-project/vllm… 1/5  
+  http://nitter.jaydenha.uk/Pareton_ai/status/2100230731368661046#m
+- @ridges_ai (Ridges, Wed, 09 Sep 2026): ridges.ai/explore/28 Link Ridges AI AI Agents, powered by Bittensor | SN62 ridges.ai  
+  http://nitter.jaydenha.uk/ridges_ai/status/2097823739765526549#m
+- @ridges_ai (Ridges, Wed, 09 Sep 2026): Next competition is live: Database Engineering. Agents compete on database engineering problems, fixing bugs, optimizing queries, and working with ORMs and GraphQL. Why this Niche next? Because inefficient queries are a real engineering challenge, and one where specialist agents have plenty of room to outperform. Open now for submissions:  
+  http://nitter.jaydenha.uk/ridges_ai/status/2097823726561866122#m
+- @ridges_ai (Ridges, Wed, 09 Sep 2026): CMC Verification post: ridges.ai  
+  http://nitter.jaydenha.uk/ridges_ai/status/2097651752464011375#m
+- @ridges_ai (Ridges, Tue, 28 Jul 2026): ⛰️ x402 is now live on Ridges X402 is an agentic payment protocol that lets agents pay for API access autonomously. Integrated with Ridgeline, agents can now pay for and access our coding infrastructure directly, no human in the loop.  
+  http://nitter.jaydenha.uk/ridges_ai/status/2082103797418262564#m
+- @const_reborn (Jacob Steeves, Tue, 15 Sep 2026): Today, we’re announcing a solution found by our miners to Erdős Problem 196, open for over 49 years. The result disproves the conjecture, constructing a permutation of the natural numbers with no four-term arithmetic progression appearing in increasing or decreasing order. Verified in Lean through Conjectures. Full proof below.  
+  http://nitter.jaydenha.uk/conjectures_io/status/2099864445002436663#m
+- @opentensor (Opentensor Foundation, Thu, 17 Sep 2026): Novelty Search // Bittensor Subnet 105 Beam :: The Bandwidth Subnet nitter.net/i/broadcasts/1rxmqpmwA… Link Openτensor Foundaτion Novelty Search // Bittensor Subnet 105 Beam :: The Bandwidth Subnet http://nitter.jaydenha.uk/i/broadcasts/1rxmqpmwAykxy  
+  http://nitter.jaydenha.uk/opentensor/status/2100692690405036129#m
+- @const_reborn (Jacob Steeves, Thu, 17 Sep 2026): Bitter Lesson 2.0  
+  http://nitter.jaydenha.uk/const_reborn/status/2100648472936387023#m
+- @const_reborn (Jacob Steeves, Thu, 17 Sep 2026): Conjectures has done a great job showing how incentive systems don't just parallelize search over solutions — they parallelize search over search systems themselves. Traditionally, a search pipeline looks something like: team → search algorithm → compute → solution With incentives, this expands to: [verifier + reward] → N competing search systems → solution The latter is meta-search. A traditional team can search over parameters inside its system: optimizers, architectures, prompts, agents, heuristics, search procedures, etc. But many things remain fixed outside the search. The team itself. It  
+  http://nitter.jaydenha.uk/const_reborn/status/2100647788778295431#m
+- @markjeffrey (Mark Jeffrey, Sun, 26 Jul 2026): Jason gets it. He’s early in the next big thing, like usual Don’t sleep on Bittensor $TAO @jason (@Jason) I'm so obsessed with the @bittensor model, where competing for prizes is vetted by validators... open source, OPEN COMPETITION, is the future! Please explain to me how you're using this stuff fam — http://nitter.jaydenha.uk/Jason/status/2081362360560947339#m  
+  http://nitter.jaydenha.uk/BarrySilbert/status/2081489477793390933#m
+- @markjeffrey (Mark Jeffrey, Sat, 19 Sep 2026): Well that's a new wrinkle: Dr. Eli David (@DrEliDavid) 🚨 Breaking: Anthropic, OpenAI, SpaceX, Google sued for alleged agreement to pace AI in violation of Sherman Act — http://nitter.jaydenha.uk/DrEliDavid/status/2101227316500185368#m  
+  http://nitter.jaydenha.uk/markjeffrey/status/2101231478504067297#m
+- @markjeffrey (Mark Jeffrey, Sat, 19 Sep 2026): Still a good one :) Altcoin Daily (@AltcoinDaily) 🚨 Smart Money Alert: Grant Cardone and Brian Dixon Break Down Investing in Bittensor $TAO "Think about #Bitcoin is decentralized money. TAO and Bittensor is decentralized intelligence." "That's one of the things we've learned today, that #Perplexity and #ChatGPT and #Claude, there's a small percentage of the questions that are getting asked to those platforms that #Bittensor's intelligence is actually feeding for the answer. But they don't tell you that on Claude and they're just licensing that information. And that'll grow significantly over t  
+  http://nitter.jaydenha.uk/markjeffrey/status/2101216144782921749#m
+- @markjeffrey (Mark Jeffrey, Sat, 19 Sep 2026): Ah sorry — Exploit is a week and a half away, not next week :) my bad  
+  http://nitter.jaydenha.uk/markjeffrey/status/2101206945386676345#m
+- @markjeffrey (Mark Jeffrey, Sat, 19 Sep 2026): We'll hear a lot of subnet announcements next week at the EXPLOIT Bittensor conference. I'm talking significant customer traction and revenue with real AI products. Stay tuned. Barry Silbert🎗️ (@BarrySilbert) — http://nitter.jaydenha.uk/BarrySilbert/status/2100938101052850610#m  
+  http://nitter.jaydenha.uk/markjeffrey/status/2101182453058785592#m
+- @wallstreetbets (WallStreetBets (X), Sat, 19 Sep 2026): $100 $HYPE soon?  
+  http://nitter.jaydenha.uk/wallstreetbets/status/2101141353077887249#m
+- @wallstreetbets (WallStreetBets (X), Sat, 19 Sep 2026): kept buying the dip but the dip kept dipping Video  
+  http://nitter.jaydenha.uk/wallstreetbets/status/2101109926542401714#m
+- @wallstreetbets (WallStreetBets (X), Fri, 18 Sep 2026): we're going higher  
+  http://nitter.jaydenha.uk/wallstreetbets/status/2101069876781625599#m
+- @wallstreetbets (WallStreetBets (X), Fri, 18 Sep 2026): 24/7 global markets are here  
+  http://nitter.jaydenha.uk/wallstreetbets/status/2101011501234417699#m
+- @wallstreetbets (WallStreetBets (X), Fri, 18 Sep 2026): now i get what injective is doing bringing stocks, RWAs, private institutional trading onchain Injective 🥷 (@injective) NEW: The Injective Meridian Mainnet Upgrade governance proposal is now live to bring you the leading L1 blockchain for tokenization and finance. ⚡️Institutional-grade RWA issuance ⚡️Native onchain privacy alpha ⚡️Unified RFQ perp markets ⚡️Much More on $INJ — http://nitter.jaydenha.uk/injective/status/2100996096872878473#m  
+  http://nitter.jaydenha.uk/wallstreetbets/status/2101004378630959535#m
+- @opentensor (Opentensor Foundation, Fri, 18 Sep 2026): Full E088 @b1m_ai piped.video/QjWEOFWGLuc Link Subnet 105 :: AI Has a Data Movement Problem. Beam Wants to Solve It. What if bandwidth itself could become programmable?In Novelty Sea... youtube.com  
+  http://nitter.jaydenha.uk/opentensor/status/2100992487540305925#m
+- @opentensor (Opentensor Foundation, Fri, 18 Sep 2026): “You can literally build your Discord on top of Beam.” On the latest Novelty Search, @b1m_ai demonstrates how Bittensor’s Subnet 105 can power live video apps without developers running their own streaming servers. The team also previews Beam Studio, its tool for automating data transfers, and explains how parallel transfers can move 1 TB across Cloudflare R2 regions in under two minutes. Hosted by @const_reborn Full episode in the first comment Video  
+  http://nitter.jaydenha.uk/opentensor/status/2100992475477540903#m
+- @const_reborn (Jacob Steeves, Fri, 18 Sep 2026): Comming soon, Minimax-H3: Video  
+  http://nitter.jaydenha.uk/engyai/status/2100940283030679691#m
+- @const_reborn (Jacob Steeves, Fri, 18 Sep 2026): Today Numinous is announcing its first forecasting model: Numinous-1! It’s an 8B parameter model fine-tuned over Qwen3-8B. We will make it available in the coming days. The model was fine tuned using the best reasoning trajectories from the miners. It never sees the prices, only the best belief updates among the miners. With an optimised harness, the model beats all the miners in our crowd over a 9 days backtest! With a generic harness the model ranks between 5 and 7.  
+  http://nitter.jaydenha.uk/numinous_ai/status/2100897804415611217#m
 
 
 ---
-_Generated at 2026-09-19T08:28:18.027611+00:00 by scripts/intel/aggregate.py. Treat this digest as input context, not as ground truth. Verify before quoting._
+_Generated at 2026-09-19T15:11:03.348758+00:00 by scripts/intel/aggregate.py. Treat this digest as input context, not as ground truth. Verify before quoting._
