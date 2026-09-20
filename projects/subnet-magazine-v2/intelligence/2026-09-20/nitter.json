@@ -10,6 +10,16 @@
     "via_instance": "https://nitter.cz"
   },
   {
+    "handle": "ridges_ai",
+    "name": "Ridges",
+    "posted_at": "Wed, 26 Aug 2026 18:42:24 GMT",
+    "title": "We've kicked off Niches with a Linting competition! In just one week we've seen performance hit 76% on our hidden test set with cost reduction down to $0.02 per task. Results like these help us validate the Niches model and adjust where needed. We're excited for the next Niche, and eventually dynamic Niches. Stay tuned!",
+    "text": "We've kicked off Niches with a Linting competition! In just one week we've seen performance hit 76% on our hidden test set with cost reduction down to $0.02 per task. Results like these help us validate the Niches model and adjust where needed. We're excited for the next Niche, and eventually dynamic Niches. Stay tuned!",
+    "url": "http://shitter.thepixora.com/ridges_ai/status/2092684102595961119#m",
+    "fetched_at": "2026-09-20T08:59:29.557230+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
     "handle": "TargonCompute",
     "name": "Targon",
     "posted_at": "Wed, 26 Aug 2026 17:11:49 GMT",
@@ -27,6 +37,16 @@
     "text": "RT @tplr_ai: ByteDance and Tencent each received 10,000 Nvidia H200 chips, the first big delivery after China eased import limits. Watch w…",
     "url": "http://nitter.jaydenha.uk/covenant_ai/status/2090092134036648101#m",
     "fetched_at": "2026-09-20T02:48:52.300062+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "covenant_ai",
+    "name": "Covenant AI",
+    "posted_at": "Wed, 19 Aug 2026 15:02:51 GMT",
+    "title": "RT @tplr_ai: ByteDance and Tencent each received 10,000 Nvidia H200 chips, the first big delivery after China eased import limits. Watch w…",
+    "text": "RT @tplr_ai: ByteDance and Tencent each received 10,000 Nvidia H200 chips, the first big delivery after China eased import limits. Watch w…",
+    "url": "http://shitter.thepixora.com/covenant_ai/status/2090092134036648101#m",
+    "fetched_at": "2026-09-20T08:59:35.837256+00:00",
     "via_instance": "https://nitter.cz"
   },
   {
@@ -50,6 +70,16 @@
     "via_instance": "https://nitter.cz"
   },
   {
+    "handle": "jaltucher",
+    "name": "James Altucher",
+    "posted_at": "Wed, 16 Sep 2026 16:36:03 GMT",
+    "title": "Working on an AI-powered end to end platform for designing optical and then quantum chips at $QCLS. More details and refinements later but you can check it out at https://VibeGDS.io - you just enter plain English for the chip you want and it will build it out, simulate, verify, etc. Of interest mostly to optical engineers.",
+    "text": "Working on an AI-powered end to end platform for designing optical and then quantum chips at $QCLS. More details and refinements later but you can check it out at VibeGDS.io - you just enter plain English for the chip you want and it will build it out, simulate, verify, etc. Of interest mostly to optical engineers.",
+    "url": "http://shitter.thepixora.com/jaltucher/status/2100262449685364904#m",
+    "fetched_at": "2026-09-20T08:58:44.305713+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
     "handle": "covenant_ai",
     "name": "Covenant AI",
     "posted_at": "Wed, 16 Sep 2026 14:57:44 GMT",
@@ -57,6 +87,16 @@
     "text": "We’ve been researching fault tolerance in Crucible, Templar’s pre-training platform. The goal: keep training through node failures and make better use of unreliable workers and spot instances, without idling an entire model replica when one stage goes down. 1/n Video",
     "url": "http://nitter.jaydenha.uk/tplr_ai/status/2100237708186550642#m",
     "fetched_at": "2026-09-20T02:48:52.300062+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "covenant_ai",
+    "name": "Covenant AI",
+    "posted_at": "Wed, 16 Sep 2026 14:57:44 GMT",
+    "title": "RT by @covenant_ai: We’ve been researching fault tolerance in Crucible, Templar’s pre-training platform. The goal: keep training through node failures and make better use of unreliable workers and spot instances, without idling an entire model replica when one stage goes down. 1/n",
+    "text": "We’ve been researching fault tolerance in Crucible, Templar’s pre-training platform. The goal: keep training through node failures and make better use of unreliable workers and spot instances, without idling an entire model replica when one stage goes down. 1/n Video",
+    "url": "http://shitter.thepixora.com/tplr_ai/status/2100237708186550642#m",
+    "fetched_at": "2026-09-20T08:59:35.837256+00:00",
     "via_instance": "https://nitter.cz"
   },
   {
@@ -70,6 +110,26 @@
     "via_instance": "https://nitter.cz"
   },
   {
+    "handle": "ridges_ai",
+    "name": "Ridges",
+    "posted_at": "Wed, 09 Sep 2026 23:05:29 GMT",
+    "title": "R to @ridges_ai: ridges.ai/explore/28",
+    "text": "ridges.ai/explore/28 Link Ridges AI AI Agents, powered by Bittensor | SN62 ridges.ai",
+    "url": "http://shitter.thepixora.com/ridges_ai/status/2097823739765526549#m",
+    "fetched_at": "2026-09-20T08:59:29.557230+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "ridges_ai",
+    "name": "Ridges",
+    "posted_at": "Wed, 09 Sep 2026 23:05:26 GMT",
+    "title": "Next competition is live: Database Engineering. Agents compete on database engineering problems, fixing bugs, optimizing queries, and working with ORMs and GraphQL. Why this Niche next? Because inefficient queries are a real engineering challenge, and one where specialist agents have plenty of room to outperform. Open now for submissions:",
+    "text": "Next competition is live: Database Engineering. Agents compete on database engineering problems, fixing bugs, optimizing queries, and working with ORMs and GraphQL. Why this Niche next? Because inefficient queries are a real engineering challenge, and one where specialist agents have plenty of room to outperform. Open now for submissions:",
+    "url": "http://shitter.thepixora.com/ridges_ai/status/2097823726561866122#m",
+    "fetched_at": "2026-09-20T08:59:29.557230+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
     "handle": "lium_io",
     "name": "Lium",
     "posted_at": "Wed, 09 Sep 2026 21:43:15 GMT",
@@ -77,6 +137,26 @@
     "text": "Steadily building the most decentralized GPU cloud Lium now has capacity from 68 datacenters across 21 countries Have GPUs? Join now. Lium pays you even for idle minutes. Make your nodes rentable in 5 minutes -&gt; docs.lium.io/providers/quick…",
     "url": "http://nitter.jaydenha.uk/lium_io/status/2097803045362966828#m",
     "fetched_at": "2026-09-20T02:50:30.263967+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "ridges_ai",
+    "name": "Ridges",
+    "posted_at": "Wed, 09 Sep 2026 11:42:04 GMT",
+    "title": "CMC Verification post: https://ridges.ai",
+    "text": "CMC Verification post: ridges.ai",
+    "url": "http://shitter.thepixora.com/ridges_ai/status/2097651752464011375#m",
+    "fetched_at": "2026-09-20T08:59:29.557230+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "ridges_ai",
+    "name": "Ridges",
+    "posted_at": "Tue, 28 Jul 2026 14:00:03 GMT",
+    "title": "⛰️ x402 is now live on Ridges X402 is an agentic payment protocol that lets agents pay for API access autonomously. Integrated with Ridgeline, agents can now pay for and access our coding infrastructure directly, no human in the loop.",
+    "text": "⛰️ x402 is now live on Ridges X402 is an agentic payment protocol that lets agents pay for API access autonomously. Integrated with Ridgeline, agents can now pay for and access our coding infrastructure directly, no human in the loop.",
+    "url": "http://shitter.thepixora.com/ridges_ai/status/2082103797418262564#m",
+    "fetched_at": "2026-09-20T08:59:29.557230+00:00",
     "via_instance": "https://nitter.cz"
   },
   {
@@ -90,6 +170,36 @@
     "via_instance": "https://nitter.cz"
   },
   {
+    "handle": "covenant_ai",
+    "name": "Covenant AI",
+    "posted_at": "Tue, 25 Aug 2026 15:08:46 GMT",
+    "title": "RT by @covenant_ai: Templar's work reduces to one question. How much of the machine-learning lifecycle can run across ordinary networks instead of a single datacentre? Pre-training answered first, with Covenant-72B as the proof at scale. Post-training followed through our communication-efficiency research. Serving open models on distributed hardware is the piece we are working on now, and it is the one that puts the whole arc in front of users. The internet is the datacentre.",
+    "text": "Templar's work reduces to one question. How much of the machine-learning lifecycle can run across ordinary networks instead of a single datacentre? Pre-training answered first, with Covenant-72B as the proof at scale. Post-training followed through our communication-efficiency research. Serving open models on distributed hardware is the piece we are working on now, and it is the one that puts the whole arc in front of users. The internet is the datacentre.",
+    "url": "http://shitter.thepixora.com/tplr_ai/status/2092267948765237743#m",
+    "fetched_at": "2026-09-20T08:59:35.837256+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "jaltucher",
+    "name": "James Altucher",
+    "posted_at": "Tue, 15 Sep 2026 13:41:23 GMT",
+    "title": "RT by @jaltucher: Q/C Technologies has appointed Yossef Ehrlichman, Ph.D., as Chief Technology Officer to lead the company’s optical processing unit program and overall technology strategy. Learn more: https://bit.ly/4xXk2ik $QCLS",
+    "text": "Q/C Technologies has appointed Yossef Ehrlichman, Ph.D., as Chief Technology Officer to lead the company’s optical processing unit program and overall technology strategy. Learn more: bit.ly/4xXk2ik $QCLS",
+    "url": "http://shitter.thepixora.com/Q_CTechnologies/status/2099856104670859351#m",
+    "fetched_at": "2026-09-20T08:58:44.305713+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "mcjkula",
+    "name": "mcjkula",
+    "posted_at": "Tue, 14 Apr 2026 18:41:35 GMT",
+    "title": "See you in Montréal everyone. Not gonna want to miss this one🫡",
+    "text": "See you in Montréal everyone. Not gonna want to miss this one🫡 Exploit Summit (@ExploitSummit) Building on Bittensor is hard. Doing it in isolation is even harder. Exploit puts you in a room with: • The subnet founders who've already solved your problems • The investors actually writing checks • The technical talent you're trying to hire Sept 28-29, Montréal. Two days that could save you six months. Video — http://shitter.thepixora.com/ExploitSummit/status/2044100822750114215#m",
+    "url": "http://shitter.thepixora.com/mcjkula/status/2044123923088830837#m",
+    "fetched_at": "2026-09-20T08:58:07.867155+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
     "handle": "tm0klc",
     "name": "Tim",
     "posted_at": "Tue, 07 Jul 2026 01:06:10 GMT",
@@ -100,6 +210,16 @@
     "via_instance": "https://nitter.cz"
   },
   {
+    "handle": "resilabsai",
+    "name": "RESI",
+    "posted_at": "Tue, 07 Apr 2026 17:33:18 GMT",
+    "title": "RT by @resilabsai: The power of holding Bittensor $TAO subnet alpha Here is an example to illustrate the flywheel of $TAO Let's say you 1,000 alpha of @resilabsai which cost around 7 $TAO 7 $TAO at a price of $310 = $2,170 Current alpha price of Resi, subnet 46: .0066 $TAO Let's make some calculated assumptions. > price of resi alpha stays the same for 3 years > price of $TAO remains the same at $310 > APY for holding Resi alpha is 40% for the first 2 years, then 30% in year 3 What is my total value in 3 years? Year 1 (40% APY) 1,060.6 × 1.4 = 1,484.8 alpha In $TAO: 1,484.8 × 0.0066 ≈ 9.80 $TAO In USD: 9.80 × $310 ≈ $3,038 Year 2 (40% APY again) 1,484.8 × 1.4 = 2,078.8 alpha In $TAO: ≈ 13.72 $TAO In USD: ≈ $4,253 Year 3 (30% APY) 2,078.8 × 1.3 = 2,702.4 alpha In $TAO: ≈ 17.83 $TAO In USD: ≈ $5,527 Now what if the price of Resi alpha went up 2x in year 1, 25% in year 2 and 25% in year 3? Additionally, what if the price of $TAO goes up by 4x? Year 1 Alpha: 1,484.8 $TAO value: 1,484.8 × 0.0132 ≈ 19.6 $TAO USD value: 19.6 × $1,240 ≈ $24,304 Year 2 Alpha: 2,078.8 $TAO value: ≈ 34.3 $TAO USD value: ≈ $42,532 Year 3 Alpha: 2,702.4 $TAO value: ≈ 55.7 $TAO USD value: ≈ $69,068 This is the Bittensor flywheel in effect.",
+    "text": "The power of holding Bittensor $TAO subnet alpha Here is an example to illustrate the flywheel of $TAO Let's say you 1,000 alpha of @resilabsai which cost around 7 $TAO 7 $TAO at a price of $310 = $2,170 Current alpha price of Resi, subnet 46: .0066 $TAO Let's make some calculated assumptions. &gt; price of resi alpha stays the same for 3 years &gt; price of $TAO remains the same at $310 &gt; APY for holding Resi alpha is 40% for the first 2 years, then 30% in year 3 What is my total value in 3 years? Year 1 (40% APY) 1,060.6 × 1.4 = 1,484.8 alpha In $TAO: 1,484.8 × 0.0066 ≈ 9.80 $TAO In USD: ",
+    "url": "http://shitter.thepixora.com/Pop_Collapse/status/2041570023823528017#m",
+    "fetched_at": "2026-09-20T09:00:39.671731+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
     "handle": "TargonCompute",
     "name": "Targon",
     "posted_at": "Tue, 01 Sep 2026 21:59:24 GMT",
@@ -107,6 +227,16 @@
     "text": "Happy to help! Proud to be trusted with running critical workloads such as validators. Very excited to see the talented team at DeSci Labs join the Bittensor ecosystem, their research and expertise are sure to add long-lasting value to the network. 🔬 Claims - Subnet 111 (@DeSciClaims) Our validator for SN111 is running on hardware provided by @TargonCompute. We're super grateful for the fast, reliable setup and the team's amazing support. Thank you, guys! — http://nitter.jaydenha.uk/DeSciClaims/status/2094364807596036575#m",
     "url": "http://nitter.jaydenha.uk/TargonCompute/status/2094908006039236625#m",
     "fetched_at": "2026-09-20T02:48:56.077977+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "mcjkula",
+    "name": "mcjkula",
+    "posted_at": "Tue, 01 Sep 2026 17:30:03 GMT",
+    "title": "RT by @mcjkula: TAOApp Wallet is here. The self-custody browser wallet for Bittensor. Hold TAO, stake TAO, buy subnet tokens. When there’s more to protect, bring in your Ledger, proxies and multisigs. Install the beta, on Chrome, Brave and Edge. ↓ https://chromewebstore.google.com/detail/taoapp-wallet/plipkdflloklldnmnjdlonijlihafjjc",
+    "text": "TAOApp Wallet is here. The self-custody browser wallet for Bittensor. Hold TAO, stake TAO, buy subnet tokens. When there’s more to protect, bring in your Ledger, proxies and multisigs. Install the beta, on Chrome, Brave and Edge. ↓ chromewebstore.google.com/de…",
+    "url": "http://shitter.thepixora.com/taoapp_/status/2094840222441992209#m",
+    "fetched_at": "2026-09-20T08:58:07.867155+00:00",
     "via_instance": "https://nitter.cz"
   },
   {
@@ -130,6 +260,66 @@
     "via_instance": "https://nitter.cz"
   },
   {
+    "handle": "covenant_ai",
+    "name": "Covenant AI",
+    "posted_at": "Thu, 27 Aug 2026 17:06:36 GMT",
+    "title": "RT by @covenant_ai: A system designed around identical accelerators depends on a narrow hardware supply. Templar starts from a wider map. Accelerator generations vary, and network conditions change with location. The coordination layer has to treat both as design inputs.",
+    "text": "A system designed around identical accelerators depends on a narrow hardware supply. Templar starts from a wider map. Accelerator generations vary, and network conditions change with location. The coordination layer has to treat both as design inputs.",
+    "url": "http://shitter.thepixora.com/tplr_ai/status/2093022381660942660#m",
+    "fetched_at": "2026-09-20T08:59:35.837256+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "galaxyhq",
+    "name": "Galaxy Digital",
+    "posted_at": "Thu, 17 Sep 2026 23:33:01 GMT",
+    "title": "RT by @galaxyhq: Welcome to the football resort 🏠 @novogratz 🤝 @danawhite",
+    "text": "Welcome to the football resort 🏠 @novogratz 🤝 @danawhite Video Video",
+    "url": "http://shitter.thepixora.com/TexasTechFB/status/2100729769750909011#m",
+    "fetched_at": "2026-09-20T08:58:50.970895+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "galaxyhq",
+    "name": "Galaxy Digital",
+    "posted_at": "Thu, 17 Sep 2026 23:20:50 GMT",
+    "title": "RT by @galaxyhq: These hype men absolutely slapped. @novogratz 🤝 @danawhite",
+    "text": "These hype men absolutely slapped. @novogratz 🤝 @danawhite",
+    "url": "http://shitter.thepixora.com/TexasTechFB/status/2100726702489870789#m",
+    "fetched_at": "2026-09-20T08:58:50.970895+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "YumaGroup",
+    "name": "Yuma Holdings",
+    "posted_at": "Thu, 17 Sep 2026 16:00:06 GMT",
+    "title": "RT by @YumaGroup: . @GSchvey knows what it takes to turn emerging infrastructure into something institutions actually use. He co-founded TradeBlock, later acquired by @DCGco, then Axoni, whose post-trade business was acquired by @LSEGplc. Now COO of @YumaGroup, he’s helping scale Bittensor across validators, mining, subnet acceleration + institutional adoption. Catch him on the Exploit stage: https://luma.com/exploitsummit26",
+    "text": ". @GSchvey knows what it takes to turn emerging infrastructure into something institutions actually use. He co-founded TradeBlock, later acquired by @DCGco, then Axoni, whose post-trade business was acquired by @LSEGplc. Now COO of @YumaGroup, he’s helping scale Bittensor across validators, mining, subnet acceleration + institutional adoption. Catch him on the Exploit stage: luma.com/exploitsummit26 Video",
+    "url": "http://nitter.jaydenha.uk/ExploitSummit/status/2100615790051692859#m",
+    "fetched_at": "2026-09-20T08:58:32.661939+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "YumaGroup",
+    "name": "Yuma Holdings",
+    "posted_at": "Thu, 17 Sep 2026 14:50:05 GMT",
+    "title": "R to @YumaGroup: For informational purposes only. Not an offer or solicitation. Not investment advice. Do your own research. Past performance ≠ future results.",
+    "text": "For informational purposes only. Not an offer or solicitation. Not investment advice. Do your own research. Past performance ≠ future results.",
+    "url": "http://nitter.jaydenha.uk/YumaGroup/status/2100598167502758350#m",
+    "fetched_at": "2026-09-20T08:58:32.661939+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "YumaGroup",
+    "name": "Yuma Holdings",
+    "posted_at": "Thu, 17 Sep 2026 14:50:04 GMT",
+    "title": "A roundup of our progress to grow the Bittensor ecosystem in 2026: - Over $200,000,000 in $TAO and subnet tokens staked to Yuma's validator - Bittensor staking access expanded to hundreds of millions of users through partnerships with @cryptocom and @MEXC - Launch of our third institutional fund, the first Yuma Asset Management strategy combining TAO and subnet tokens - 134% growth in token market cap for subnets backed by Yuma Accelerator - Numerous enterprise partnerships signed by those same subnets Read the full release https://www.globenewswire.com/news-release/2026/09/14/3361039/0/en/yuma-reaches-200m-in-staked-assets-to-support-ai-infrastructure-and-134-growth-in-accelerator-portfolio.html",
+    "text": "A roundup of our progress to grow the Bittensor ecosystem in 2026: - Over $200,000,000 in $TAO and subnet tokens staked to Yuma's validator - Bittensor staking access expanded to hundreds of millions of users through partnerships with @cryptocom and @MEXC - Launch of our third institutional fund, the first Yuma Asset Management strategy combining TAO and subnet tokens - 134% growth in token market cap for subnets backed by Yuma Accelerator - Numerous enterprise partnerships signed by those same subnets Read the full release globenewswire.com/news-relea… Link Yuma Reaches $200M in Staked Assets",
+    "url": "http://nitter.jaydenha.uk/YumaGroup/status/2100598166143819880#m",
+    "fetched_at": "2026-09-20T08:58:32.661939+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
     "handle": "_redteam_",
     "name": "RedTeam / Innerworks",
     "posted_at": "Thu, 10 Sep 2026 22:06:58 GMT",
@@ -147,6 +337,56 @@
     "text": "Crucible, Templar's pre-training platform, has completed its first production end-to-end training runs. The latest trained an 8B model on 50.53B tokens across 48 distributed A100s, at an estimated $0.1202 per million tokens of GPU rental. The run reached 48.3% effective MFU. At AWS p4de Capacity Blocks pricing, a 48-A100 cluster operating at the literature-derived 65% compute ceiling comes to an estimated $0.1686 per million tokens. Crucible's measured $0.1202 was about 29% lower after its low-bandwidth overhead. The comparison excludes R2 storage and operations. The full writeup shows the met",
     "url": "http://nitter.jaydenha.uk/tplr_ai/status/2095580357626110111#m",
     "fetched_at": "2026-09-20T02:48:52.300062+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "covenant_ai",
+    "name": "Covenant AI",
+    "posted_at": "Thu, 03 Sep 2026 18:31:05 GMT",
+    "title": "RT by @covenant_ai: Crucible, Templar's pre-training platform, has completed its first production end-to-end training runs. The latest trained an 8B model on 50.53B tokens across 48 distributed A100s, at an estimated $0.1202 per million tokens of GPU rental. The run reached 48.3% effective MFU. At AWS p4de Capacity Blocks pricing, a 48-A100 cluster operating at the literature-derived 65% compute ceiling comes to an estimated $0.1686 per million tokens. Crucible's measured $0.1202 was about 29% lower after its low-bandwidth overhead. The comparison excludes R2 storage and operations. The full writeup shows the method and accounting. Blog: https://www.tplr.ai/publications/blog/introducing-crucible",
+    "text": "Crucible, Templar's pre-training platform, has completed its first production end-to-end training runs. The latest trained an 8B model on 50.53B tokens across 48 distributed A100s, at an estimated $0.1202 per million tokens of GPU rental. The run reached 48.3% effective MFU. At AWS p4de Capacity Blocks pricing, a 48-A100 cluster operating at the literature-derived 65% compute ceiling comes to an estimated $0.1686 per million tokens. Crucible's measured $0.1202 was about 29% lower after its low-bandwidth overhead. The comparison excludes R2 storage and operations. The full writeup shows the met",
+    "url": "http://shitter.thepixora.com/tplr_ai/status/2095580357626110111#m",
+    "fetched_at": "2026-09-20T08:59:35.837256+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "markjeffrey",
+    "name": "Mark Jeffrey",
+    "posted_at": "Sun, 20 Sep 2026 06:42:05 GMT",
+    "title": "RT by @markjeffrey: Don’t let these $TAO holders bitching about alpha cloud weaken your conviction. Remember, they want you to unstake from subnets AFTER they have so that they can get back in cheaper. They also are desperate for validation. Bittensor Subnet alpha APY + emissions over time ✌️",
+    "text": "Don’t let these $TAO holders bitching about alpha cloud weaken your conviction. Remember, they want you to unstake from subnets AFTER they have so that they can get back in cheaper. They also are desperate for validation. Bittensor Subnet alpha APY + emissions over time ✌️",
+    "url": "http://nitter.jaydenha.uk/KeithSingery/status/2101562523434844304#m",
+    "fetched_at": "2026-09-20T08:58:37.081098+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "markjeffrey",
+    "name": "Mark Jeffrey",
+    "posted_at": "Sun, 20 Sep 2026 02:27:47 GMT",
+    "title": "I Have No Moat And I Must Scream",
+    "text": "I Have No Moat And I Must Scream Polymarket (@Polymarket) JUST IN: Open-source AI models surge to a record 78.4% of token volume on Vercel’s AI Gateway. — http://nitter.jaydenha.uk/Polymarket/status/2101488459982557425#m",
+    "url": "http://nitter.jaydenha.uk/markjeffrey/status/2101498525532278880#m",
+    "fetched_at": "2026-09-20T08:58:37.081098+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "markjeffrey",
+    "name": "Mark Jeffrey",
+    "posted_at": "Sun, 20 Sep 2026 02:23:55 GMT",
+    "title": "This is amazing. Well-explained @JesusMartinez",
+    "text": "This is amazing. Well-explained @JesusMartinez Jesus Martinez (@JesusMartinez) $NEAR &amp; $TAO have begun collaborating This is great news for the privacy x open source AI narrative Video — http://nitter.jaydenha.uk/JesusMartinez/status/2101491537180008875#m",
+    "url": "http://nitter.jaydenha.uk/markjeffrey/status/2101497552768225726#m",
+    "fetched_at": "2026-09-20T08:58:37.081098+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "markjeffrey",
+    "name": "Mark Jeffrey",
+    "posted_at": "Sun, 20 Sep 2026 01:43:15 GMT",
+    "title": "We found our datacenter site. No cooling required! Behold the US Datacontinent.",
+    "text": "We found our datacenter site. No cooling required! Behold the US Datacontinent. sunny madra (@sundeep) 🇺🇸🇬🇱 — http://nitter.jaydenha.uk/sundeep/status/2101303463103680747#m",
+    "url": "http://nitter.jaydenha.uk/markjeffrey/status/2101487321367654805#m",
+    "fetched_at": "2026-09-20T08:58:37.081098+00:00",
     "via_instance": "https://nitter.cz"
   },
   {
@@ -180,6 +420,96 @@
     "via_instance": "https://nitter.cz"
   },
   {
+    "handle": "markjeffrey",
+    "name": "Mark Jeffrey",
+    "posted_at": "Sat, 19 Sep 2026 23:39:54 GMT",
+    "title": "I was in the audience for this -- an extremely powerful presentation. (and I'm not a fan of this guy after what he did to @travisk)",
+    "text": "I was in the audience for this -- an extremely powerful presentation. (and I'm not a fan of this guy after what he did to @travisk) Rhea (@rheacts) Venture capitalist Bill Gurley says he is not afraid of AI doom when nobody can explain what COVID already did \"COVID 19 caused 15 million deaths, disrupted every life on the planet, and cost our globe $45 trillion. It was particularly hard on children. You've read about learning loss\" \"My kids were in high school and college and missed three years of the most formative years of your life. I never want to live through this thing again in my life\" \"",
+    "url": "http://nitter.jaydenha.uk/markjeffrey/status/2101456279428550754#m",
+    "fetched_at": "2026-09-20T08:58:37.081098+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "wallstreetbets",
+    "name": "WallStreetBets (X)",
+    "posted_at": "Sat, 19 Sep 2026 22:34:44 GMT",
+    "title": "trying leverage for the first time be like",
+    "text": "trying leverage for the first time be like Video",
+    "url": "http://shitter.thepixora.com/wallstreetbets/status/2101439876998512663#m",
+    "fetched_at": "2026-09-20T09:01:05.401255+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "mcjkula",
+    "name": "mcjkula",
+    "posted_at": "Sat, 19 Sep 2026 21:34:40 GMT",
+    "title": "Bittensor took me a while to understand. I want to make that first step easier for the next person. We’ll be kicking things off with Bittensor 101 at Exploit. Looking forward to meeting some of you for the first time and catching up with familiar faces. 👋",
+    "text": "Bittensor took me a while to understand. I want to make that first step easier for the next person. We’ll be kicking things off with Bittensor 101 at Exploit. Looking forward to meeting some of you for the first time and catching up with familiar faces. 👋 Exploit Summit (@ExploitSummit) Maciej Kula ( @mcjkula ) couldn't find a clear way to learn #Bittensor from scratch, so he built the resource he wished existed. @learnbittensor is now part of @latentholdings, where Maciej leads education and makes Bittensor easier to understand. He'll be leading our Bittensor 101 session to kick off Day 1: lu",
+    "url": "http://shitter.thepixora.com/mcjkula/status/2101424763344437495#m",
+    "fetched_at": "2026-09-20T08:58:07.867155+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "wallstreetbets",
+    "name": "WallStreetBets (X)",
+    "posted_at": "Sat, 19 Sep 2026 17:09:57 GMT",
+    "title": "privacy szn",
+    "text": "privacy szn",
+    "url": "http://shitter.thepixora.com/wallstreetbets/status/2101358144634974551#m",
+    "fetched_at": "2026-09-20T09:01:05.401255+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "wallstreetbets",
+    "name": "WallStreetBets (X)",
+    "posted_at": "Sat, 19 Sep 2026 02:48:30 GMT",
+    "title": "$100 $HYPE soon?",
+    "text": "$100 $HYPE soon?",
+    "url": "http://shitter.thepixora.com/wallstreetbets/status/2101141353077887249#m",
+    "fetched_at": "2026-09-20T09:01:05.401255+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "galaxyhq",
+    "name": "Galaxy Digital",
+    "posted_at": "Sat, 19 Sep 2026 02:24:42 GMT",
+    "title": "RT by @galaxyhq: These lucky fans got a seat upgrade courtesy of @galaxyhq! @novogratz x @TexasTechMBB x @TexasTechSB",
+    "text": "These lucky fans got a seat upgrade courtesy of @galaxyhq! @novogratz x @TexasTechMBB x @TexasTechSB",
+    "url": "http://shitter.thepixora.com/TechAthletics/status/2101135361522950611#m",
+    "fetched_at": "2026-09-20T08:58:50.970895+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "wallstreetbets",
+    "name": "WallStreetBets (X)",
+    "posted_at": "Sat, 19 Sep 2026 00:43:37 GMT",
+    "title": "kept buying the dip but the dip kept dipping",
+    "text": "kept buying the dip but the dip kept dipping Video",
+    "url": "http://shitter.thepixora.com/wallstreetbets/status/2101109926542401714#m",
+    "fetched_at": "2026-09-20T09:01:05.401255+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "resilabsai",
+    "name": "RESI",
+    "posted_at": "Sat, 18 Apr 2026 04:42:22 GMT",
+    "title": "RT by @resilabsai: Traditional centralized real estate data platforms are fundamentally flawed and often serve to extract wealth from users. @resilabsai (Subnet 46) is breaking this monopoly through decentralized AI technology that delivers up to 99% valuation accuracy. Skip the corporate intermediaries—this AI-powered home valuation tool provides the most reliable housing market forecasts for 2026",
+    "text": "Traditional centralized real estate data platforms are fundamentally flawed and often serve to extract wealth from users. @resilabsai (Subnet 46) is breaking this monopoly through decentralized AI technology that delivers up to 99% valuation accuracy. Skip the corporate intermediaries—this AI-powered home valuation tool provides the most reliable housing market forecasts for 2026 Video SEBY (@sebyrubino) The @resilabsai Portal is LIVE! Any agent or real estate professional can now easily access our SOTA remote appraisals. We built RESI as a compounding network that will naturally accelerate in",
+    "url": "http://shitter.thepixora.com/3rdeye_rav3n/status/2045362275045753234#m",
+    "fetched_at": "2026-09-20T09:00:39.671731+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "resilabsai",
+    "name": "RESI",
+    "posted_at": "Sat, 08 Aug 2026 01:27:26 GMT",
+    "title": "Pinned: Attention Res Labs we have some really exciting news and updates to our project join our discord to stay up to date: https://discord.gg/TBj8q9vb2Q #bittensor #TAO bittensor:native #reslabs #reilabsai #crypto #subnet #subnet46 #reslabs_ai #reslabsai #opentensor #reptides",
+    "text": "Attention Res Labs we have some really exciting news and updates to our project join our discord to stay up to date: discord.gg/TBj8q9vb2Q #bittensor #TAO bittensor:native #reslabs #reilabsai #crypto #subnet #subnet46 #reslabs_ai #reslabsai #opentensor #reptides",
+    "url": "http://shitter.thepixora.com/resilabsai/status/2085900662139744548#m",
+    "fetched_at": "2026-09-20T09:00:39.671731+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
     "handle": "TargonCompute",
     "name": "Targon",
     "posted_at": "Mon, 31 Aug 2026 21:05:26 GMT",
@@ -187,6 +517,16 @@
     "text": "It's been a pleasure working with the @cascade_sn91 team on their recent SN91 launch. As the first team out of the @bitstarterAI ML track, we were proud to support them with initial compute credits on Targon. Excited to continue powering their pursuit of SOTA time series foundation models on Bittensor. ⚡️ SN91, Cascade (@cascade_sn91) Article Better Data, Better Models: What 184 Experiments Changed for Cascade To build the best decoder for Cascade, we needed to optimize across streaming, covariates, context and the training distribution. Thanks to compute credits from @Targoncompute, we were a",
     "url": "http://nitter.jaydenha.uk/TargonCompute/status/2094532034488058036#m",
     "fetched_at": "2026-09-20T02:48:56.077977+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "resilabsai",
+    "name": "RESI",
+    "posted_at": "Mon, 20 Apr 2026 19:34:17 GMT",
+    "title": "RT by @resilabsai: I am pleased to announce that Stillcore Capital @stillcorecap has invested in RESI @resilabsai (Bittensor Subnet 46).",
+    "text": "I am pleased to announce that Stillcore Capital @stillcorecap has invested in RESI @resilabsai (Bittensor Subnet 46).",
+    "url": "http://shitter.thepixora.com/markjeffrey/status/2046311512621670731#m",
+    "fetched_at": "2026-09-20T09:00:39.671731+00:00",
     "via_instance": "https://nitter.cz"
   },
   {
@@ -200,6 +540,46 @@
     "via_instance": "https://nitter.cz"
   },
   {
+    "handle": "jaltucher",
+    "name": "James Altucher",
+    "posted_at": "Mon, 14 Sep 2026 19:59:57 GMT",
+    "title": "RT by @jaltucher: All of this is so surreal and most of the global population isn’t even fully aware of it.",
+    "text": "All of this is so surreal and most of the global population isn’t even fully aware of it. James Altucher (@jaltucher) Inspired by @ashe’s Exploding Human Body, I set up a site to ExplodeAnything.com. Put in any object (“an Iphone”, “a data center”, “an Ozempic pill”, “the soul”. etc), and it will “explode it” and teach you what each component does AND, tell you which public companies make each component, with links to their Yahoo Finance page. Video — http://shitter.thepixora.com/jaltucher/status/2099550542515110239#m",
+    "url": "http://shitter.thepixora.com/ReneSellmann/status/2099588988017299496#m",
+    "fetched_at": "2026-09-20T08:58:44.305713+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "jaltucher",
+    "name": "James Altucher",
+    "posted_at": "Mon, 14 Sep 2026 17:27:11 GMT",
+    "title": "Inspired by @ashe’s Exploding Human Body, I set up a site to http://ExplodeAnything.com. Put in any object (“an Iphone”, “a data center”, “an Ozempic pill”, “the soul”. etc), and it will “explode it” and teach you what each component does AND, tell you which public companies make each component, with links to their Yahoo Finance page.",
+    "text": "Inspired by @ashe’s Exploding Human Body, I set up a site to ExplodeAnything.com. Put in any object (“an Iphone”, “a data center”, “an Ozempic pill”, “the soul”. etc), and it will “explode it” and teach you what each component does AND, tell you which public companies make each component, with links to their Yahoo Finance page. Video",
+    "url": "http://shitter.thepixora.com/jaltucher/status/2099550542515110239#m",
+    "fetched_at": "2026-09-20T08:58:44.305713+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "jaltucher",
+    "name": "James Altucher",
+    "posted_at": "Mon, 14 Sep 2026 16:15:02 GMT",
+    "title": "The AI news from this weekend must be taken in perspective. First off, let’s make clear what was NOT said: - Zero AI companies said they were slowing down development.. - Nobody said that their release cadence was going to be slower. - And nobody even said they were going to cap capabilities of future AI models. What the Anthropic CEO said, and Sam Altman from OpenAI agreed with, is that they would use third party evaluators before they release a new model. Fine. In fact, the Anthropic CEO SPECIFICALLY said, “pacing does not mean halting model training or technical progress” which I note that most media outlets forgot to put in their articles. The other thing that is important to note is: assume the worst case scenario. Let’s say AI models were more slowly released. Who would this effect? Demand for AI is NOT slowing down (se chart): Most of the demand for AI computing is for people who want inference. Not for the companies training AI models. Training happens once, but inference is going up in a straight line. In fact, slower / older models require more infrastructure to provide inference. So who wins in the worst case scenario? NVDA (inference needs lots of GPUs), MU (inference needs lots of memory), ALAB (inference needs millions of connections between the GPUs), MRVL, AVGO, etc. Let's even take a more worst case scenario. If AI models are truly a risk, the risk is from a cybersecurity standpoint. Who benefits? NET NTCT PANW CRWD NOK etc etc. You have to ask: why is the media not reporting this accurately?",
+    "text": "The AI news from this weekend must be taken in perspective. First off, let’s make clear what was NOT said: - Zero AI companies said they were slowing down development.. - Nobody said that their release cadence was going to be slower. - And nobody even said they were going to cap capabilities of future AI models. What the Anthropic CEO said, and Sam Altman from OpenAI agreed with, is that they would use third party evaluators before they release a new model. Fine. In fact, the Anthropic CEO SPECIFICALLY said, “pacing does not mean halting model training or technical progress” which I note that ",
+    "url": "http://shitter.thepixora.com/jaltucher/status/2099532383598838126#m",
+    "fetched_at": "2026-09-20T08:58:44.305713+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "mcjkula",
+    "name": "mcjkula",
+    "posted_at": "Mon, 13 Apr 2026 09:59:22 GMT",
+    "title": "For anyone that wants to get an idea of what the discussion will be about on this week with Const, this one is worth to read and form opinions/prepare questions about 🫡",
+    "text": "For anyone that wants to get an idea of what the discussion will be about on this week with Const, this one is worth to read and form opinions/prepare questions about 🫡 Learn Bittensor (@learnbittensor) 🔒Locked Stake & Conviction are Being Proposed for Bittensor Subnet ownership may be about to change. BIT-0011 proposes that anyone can challenge for ownership of a subnet by locking their ALPHA stake and building \"conviction.\" Right now, inactive subnet owners can hold onto subnets indefinitely. 'Locked Stake' would make ownership a contest of commitment, giving motivated participants a path to",
+    "url": "http://shitter.thepixora.com/mcjkula/status/2043630114567491654#m",
+    "fetched_at": "2026-09-20T08:58:07.867155+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
     "handle": "_redteam_",
     "name": "RedTeam / Innerworks",
     "posted_at": "Mon, 07 Sep 2026 18:05:06 GMT",
@@ -207,6 +587,16 @@
     "text": "Join us this Thursday to discuss all things RedTeam Openτensor Foundaτion (@opentensor) Novelty Search :: Subnet 61 :: @_redteam_ RedTeam turns Bittensor miners into a 24/7 network of ethical hackers. We’ll discuss how SN61 uses that competition to stay ahead of evolving bot attacks, its five new enterprise pilots, and what comes next with RedTeam’s upcoming Immune System. Live on Thursday :: 9PM UTC :: on X + YouTube Hosted by @const_reborn — http://nitter.jaydenha.uk/opentensor/status/2097022237337682320#m",
     "url": "http://nitter.jaydenha.uk/_redteam_/status/2097023368629191078#m",
     "fetched_at": "2026-09-20T02:49:28.191675+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "resilabsai",
+    "name": "RESI",
+    "posted_at": "Mon, 06 Apr 2026 13:56:00 GMT",
+    "title": "RT by @resilabsai: Chainlink gave DeFi price feeds. @resilabsai is doing the same for real estate. From static appraisals to dynamic, onchain pricing. It's already honing in on Zillow's pricing accuracy, and only a matter of weeks before it surpasses it!",
+    "text": "Chainlink gave DeFi price feeds. @resilabsai is doing the same for real estate. From static appraisals to dynamic, onchain pricing. It's already honing in on Zillow's pricing accuracy, and only a matter of weeks before it surpasses it!",
+    "url": "http://shitter.thepixora.com/gordonfrayne/status/2041152947925512465#m",
+    "fetched_at": "2026-09-20T09:00:39.671731+00:00",
     "via_instance": "https://nitter.cz"
   },
   {
@@ -237,6 +627,66 @@
     "text": "Computer vision, decentralised Score (@webuildscore) Computer vision engineers are still duct-taping tools together just to get a model into production. We just finished another round of user interviews and that frustration came up again and again. So we re-designed Studio to work around our new Pipelines + Workflow Canvas features. Visually design any vision pipeline from start to finish, connect models, logic, and outputs on one canvas, preview the exact result, then deploy. You see the output before you ship it. Everything in a single interface. The full loop, shaped by the people who actua",
     "url": "http://nitter.jaydenha.uk/tm0klc/status/2090610814449570047#m",
     "fetched_at": "2026-09-20T02:49:13.474809+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "wallstreetbets",
+    "name": "WallStreetBets (X)",
+    "posted_at": "Fri, 18 Sep 2026 22:04:29 GMT",
+    "title": "we're going higher",
+    "text": "we're going higher",
+    "url": "http://shitter.thepixora.com/wallstreetbets/status/2101069876781625599#m",
+    "fetched_at": "2026-09-20T09:01:05.401255+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "galaxyhq",
+    "name": "Galaxy Digital",
+    "posted_at": "Fri, 18 Sep 2026 17:15:34 GMT",
+    "title": "RT by @galaxyhq: Good afternoon, Red Raiders. #WreckEm x @galaxyhq",
+    "text": "Good afternoon, Red Raiders. #WreckEm x @galaxyhq Texas Tech Football (@TexasTechFB) Goodnight, Red Raiders. — http://shitter.thepixora.com/TexasTechFB/status/2100790510671597599#m",
+    "url": "http://shitter.thepixora.com/TexasTechFB/status/2100997168207151543#m",
+    "fetched_at": "2026-09-20T08:58:50.970895+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "galaxyhq",
+    "name": "Galaxy Digital",
+    "posted_at": "Fri, 18 Sep 2026 16:45:58 GMT",
+    "title": "RT by @galaxyhq: Weekly Research Brief: Clarity Without the Clarity Act",
+    "text": "The Clarity Act collapses in the Senate 49-50, the SEC unveils a 5-year tokenized stocks exemption, and Anthropic's Dario Amodei sparks an AI industry fight over slowing down frontier development. Full breakdown below. Article Weekly Research Brief: Clarity Without the Clarity Act In this week&apos;s edition, Alex Thorn postmortems the Clarity Act; Alex separately breaks down the SEC’s long-awaited innovation exemption; and Zack Pokorny unpacks the debate in AI over “pacing the",
+    "url": "http://shitter.thepixora.com/glxyresearch/status/2100989721908584864#m",
+    "fetched_at": "2026-09-20T08:58:50.970895+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "YumaGroup",
+    "name": "Yuma Holdings",
+    "posted_at": "Fri, 18 Sep 2026 14:00:08 GMT",
+    "title": "Bittensor is on the move. bittensor:native is back above $250, up 36% from its 60-day low of $184. Momentum building in crypto markets after a volatile summer.",
+    "text": "Bittensor is on the move. bittensor:native is back above $250, up 36% from its 60-day low of $184. Momentum building in crypto markets after a volatile summer.",
+    "url": "http://nitter.jaydenha.uk/YumaGroup/status/2100947985169342622#m",
+    "fetched_at": "2026-09-20T08:58:32.661939+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "YumaGroup",
+    "name": "Yuma Holdings",
+    "posted_at": "Fri, 18 Sep 2026 14:00:08 GMT",
+    "title": "R to @YumaGroup: For informational purposes only. Not an offer or solicitation. Not investment advice. Do your own research. Past performance ≠ future results.",
+    "text": "For informational purposes only. Not an offer or solicitation. Not investment advice. Do your own research. Past performance ≠ future results.",
+    "url": "http://nitter.jaydenha.uk/YumaGroup/status/2100947987048415686#m",
+    "fetched_at": "2026-09-20T08:58:32.661939+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "mcjkula",
+    "name": "mcjkula",
+    "posted_at": "Fri, 13 Feb 2026 21:46:49 GMT",
+    "title": "Block #4,920,351 to Block #7,537,718 1 year. No going back.",
+    "text": "Block #4,920,351 to Block #7,537,718 1 year. No going back.",
+    "url": "http://shitter.thepixora.com/mcjkula/status/2022427265955762602#m",
+    "fetched_at": "2026-09-20T08:58:07.867155+00:00",
     "via_instance": "https://nitter.cz"
   },
   {
