@@ -1,5 +1,35 @@
 [
   {
+    "handle": "covenant_ai",
+    "name": "Covenant AI",
+    "posted_at": "Wed, 19 Aug 2026 15:02:51 GMT",
+    "title": "RT @tplr_ai: ByteDance and Tencent each received 10,000 Nvidia H200 chips, the first big delivery after China eased import limits. Watch w…",
+    "text": "RT @tplr_ai: ByteDance and Tencent each received 10,000 Nvidia H200 chips, the first big delivery after China eased import limits. Watch w…",
+    "url": "http://shitter.thepixora.com/covenant_ai/status/2090092134036648101#m",
+    "fetched_at": "2026-09-21T09:30:11.123763+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "jaltucher",
+    "name": "James Altucher",
+    "posted_at": "Wed, 16 Sep 2026 16:36:03 GMT",
+    "title": "Working on an AI-powered end to end platform for designing optical and then quantum chips at $QCLS. More details and refinements later but you can check it out at https://VibeGDS.io - you just enter plain English for the chip you want and it will build it out, simulate, verify, etc. Of interest mostly to optical engineers.",
+    "text": "Working on an AI-powered end to end platform for designing optical and then quantum chips at $QCLS. More details and refinements later but you can check it out at VibeGDS.io - you just enter plain English for the chip you want and it will build it out, simulate, verify, etc. Of interest mostly to optical engineers.",
+    "url": "http://shitter.thepixora.com/jaltucher/status/2100262449685364904#m",
+    "fetched_at": "2026-09-21T09:29:28.652160+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "covenant_ai",
+    "name": "Covenant AI",
+    "posted_at": "Wed, 16 Sep 2026 14:57:44 GMT",
+    "title": "RT by @covenant_ai: We’ve been researching fault tolerance in Crucible, Templar’s pre-training platform. The goal: keep training through node failures and make better use of unreliable workers and spot instances, without idling an entire model replica when one stage goes down. 1/n",
+    "text": "We’ve been researching fault tolerance in Crucible, Templar’s pre-training platform. The goal: keep training through node failures and make better use of unreliable workers and spot instances, without idling an entire model replica when one stage goes down. 1/n Video",
+    "url": "http://shitter.thepixora.com/tplr_ai/status/2100237708186550642#m",
+    "fetched_at": "2026-09-21T09:30:11.123763+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
     "handle": "opentensor",
     "name": "Opentensor Foundation",
     "posted_at": "Wed, 16 Sep 2026 14:30:01 GMT",
@@ -7,6 +37,66 @@
     "text": "Pareton miners found it, vLLM merged it. An optimization from our Qwen campaign on #Bittensor SN10 is now upstream in @vllm_project: ~4% more throughput at batch 4–8 for Qwen3.8 with MTP speculative decoding. Open competition → open-source wins. PR: github.com/vllm-project/vllm… 1/5",
     "url": "http://shitter.thepixora.com/Pareton_ai/status/2100230731368661046#m",
     "fetched_at": "2026-09-21T02:44:46.046791+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "oroagents",
+    "name": "Oro",
+    "posted_at": "Wed, 12 Aug 2026 21:15:59 GMT",
+    "title": "R to @oroagents: The model also reached 53.3% pass@8 versus 34.8% pass@1. That gap tells us the capability is already latent in the model. The remaining challenge is consistently extracting it. A dense teacher-grounded Dr. GRPO reward improved the process score from 0.02 to 0.42 and cut product-ID hallucinations from 14 to zero.",
+    "text": "The model also reached 53.3% pass@8 versus 34.8% pass@1. That gap tells us the capability is already latent in the model. The remaining challenge is consistently extracting it. A dense teacher-grounded Dr. GRPO reward improved the process score from 0.02 to 0.42 and cut product-ID hallucinations from 14 to zero.",
+    "url": "http://shitter.thepixora.com/oroagents/status/2087649319822512258#m",
+    "fetched_at": "2026-09-21T09:30:21.556683+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "foundrydigital",
+    "name": "Foundry Digital",
+    "posted_at": "Wed, 11 Jan 2012 23:30:33 GMT",
+    "title": "Expression Engine 2.0 review by the guys at Scriptiny http://bit.ly/w3Pg3R",
+    "text": "Expression Engine 2.0 review by the guys at Scriptiny bit.ly/w3Pg3R",
+    "url": "http://shitter.thepixora.com/foundrydigital/status/157243024848596993#m",
+    "fetched_at": "2026-09-21T09:29:56.016696+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "covenant_ai",
+    "name": "Covenant AI",
+    "posted_at": "Tue, 25 Aug 2026 15:08:46 GMT",
+    "title": "RT by @covenant_ai: Templar's work reduces to one question. How much of the machine-learning lifecycle can run across ordinary networks instead of a single datacentre? Pre-training answered first, with Covenant-72B as the proof at scale. Post-training followed through our communication-efficiency research. Serving open models on distributed hardware is the piece we are working on now, and it is the one that puts the whole arc in front of users. The internet is the datacentre.",
+    "text": "Templar's work reduces to one question. How much of the machine-learning lifecycle can run across ordinary networks instead of a single datacentre? Pre-training answered first, with Covenant-72B as the proof at scale. Post-training followed through our communication-efficiency research. Serving open models on distributed hardware is the piece we are working on now, and it is the one that puts the whole arc in front of users. The internet is the datacentre.",
+    "url": "http://shitter.thepixora.com/tplr_ai/status/2092267948765237743#m",
+    "fetched_at": "2026-09-21T09:30:11.123763+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "oroagents",
+    "name": "Oro",
+    "posted_at": "Tue, 18 Aug 2026 21:22:27 GMT",
+    "title": "The ORO team has purchased 2500 Tao worth of SN15 alpha with the help of @CrucibleLabs. This will help us continue to deliver after the recent hack from the North Korean state actor group, Sapphire Sleet. Up and onwards 🚀",
+    "text": "The ORO team has purchased 2500 Tao worth of SN15 alpha with the help of @CrucibleLabs. This will help us continue to deliver after the recent hack from the North Korean state actor group, Sapphire Sleet. Up and onwards 🚀",
+    "url": "http://shitter.thepixora.com/oroagents/status/2089825274133381136#m",
+    "fetched_at": "2026-09-21T09:30:21.556683+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "jaltucher",
+    "name": "James Altucher",
+    "posted_at": "Tue, 15 Sep 2026 13:41:23 GMT",
+    "title": "RT by @jaltucher: Q/C Technologies has appointed Yossef Ehrlichman, Ph.D., as Chief Technology Officer to lead the company’s optical processing unit program and overall technology strategy. Learn more: https://bit.ly/4xXk2ik $QCLS",
+    "text": "Q/C Technologies has appointed Yossef Ehrlichman, Ph.D., as Chief Technology Officer to lead the company’s optical processing unit program and overall technology strategy. Learn more: bit.ly/4xXk2ik $QCLS",
+    "url": "http://shitter.thepixora.com/Q_CTechnologies/status/2099856104670859351#m",
+    "fetched_at": "2026-09-21T09:29:28.652160+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "oroagents",
+    "name": "Oro",
+    "posted_at": "Tue, 08 Sep 2026 18:48:19 GMT",
+    "title": "We're excited to announce that we're going to be joining Y Combinator in Fall 2026. The team is super pumped to be working with @golda and co to continue on our journey of creating the best in class open source models for agentic commerce.",
+    "text": "We're excited to announce that we're going to be joining Y Combinator in Fall 2026. The team is super pumped to be working with @golda and co to continue on our journey of creating the best in class open source models for agentic commerce. Video",
+    "url": "http://shitter.thepixora.com/oroagents/status/2097396633764032707#m",
+    "fetched_at": "2026-09-21T09:30:21.556683+00:00",
     "via_instance": "https://nitter.cz"
   },
   {
@@ -30,6 +120,26 @@
     "via_instance": "https://nitter.cz"
   },
   {
+    "handle": "covenant_ai",
+    "name": "Covenant AI",
+    "posted_at": "Thu, 27 Aug 2026 17:06:36 GMT",
+    "title": "RT by @covenant_ai: A system designed around identical accelerators depends on a narrow hardware supply. Templar starts from a wider map. Accelerator generations vary, and network conditions change with location. The coordination layer has to treat both as design inputs.",
+    "text": "A system designed around identical accelerators depends on a narrow hardware supply. Templar starts from a wider map. Accelerator generations vary, and network conditions change with location. The coordination layer has to treat both as design inputs.",
+    "url": "http://shitter.thepixora.com/tplr_ai/status/2093022381660942660#m",
+    "fetched_at": "2026-09-21T09:30:11.123763+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "oroagents",
+    "name": "Oro",
+    "posted_at": "Thu, 20 Aug 2026 20:18:01 GMT",
+    "title": "Measuring the quality of the long-horizon data is a huge part of solving the AI consumer shopping problem. ORO-Distilled, a 4B model. 5x faster. 50x cheaper.",
+    "text": "Measuring the quality of the long-horizon data is a huge part of solving the AI consumer shopping problem. ORO-Distilled, a 4B model. 5x faster. 50x cheaper. Video",
+    "url": "http://shitter.thepixora.com/oroagents/status/2090533835192893616#m",
+    "fetched_at": "2026-09-21T09:30:21.556683+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
     "handle": "opentensor",
     "name": "Opentensor Foundation",
     "posted_at": "Thu, 17 Sep 2026 21:05:41 GMT",
@@ -37,6 +147,16 @@
     "text": "Novelty Search // Bittensor Subnet 105 Beam :: The Bandwidth Subnet shitter.thepixora.com/i/broadcasts/1rxmqpmwA… Link Openτensor Foundaτion Novelty Search // Bittensor Subnet 105 Beam :: The Bandwidth Subnet http://shitter.thepixora.com/i/broadcasts/1rxmqpmwAykxy",
     "url": "http://shitter.thepixora.com/opentensor/status/2100692690405036129#m",
     "fetched_at": "2026-09-21T02:44:46.046791+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "covenant_ai",
+    "name": "Covenant AI",
+    "posted_at": "Thu, 03 Sep 2026 18:31:05 GMT",
+    "title": "RT by @covenant_ai: Crucible, Templar's pre-training platform, has completed its first production end-to-end training runs. The latest trained an 8B model on 50.53B tokens across 48 distributed A100s, at an estimated $0.1202 per million tokens of GPU rental. The run reached 48.3% effective MFU. At AWS p4de Capacity Blocks pricing, a 48-A100 cluster operating at the literature-derived 65% compute ceiling comes to an estimated $0.1686 per million tokens. Crucible's measured $0.1202 was about 29% lower after its low-bandwidth overhead. The comparison excludes R2 storage and operations. The full writeup shows the method and accounting. Blog: https://www.tplr.ai/publications/blog/introducing-crucible",
+    "text": "Crucible, Templar's pre-training platform, has completed its first production end-to-end training runs. The latest trained an 8B model on 50.53B tokens across 48 distributed A100s, at an estimated $0.1202 per million tokens of GPU rental. The run reached 48.3% effective MFU. At AWS p4de Capacity Blocks pricing, a 48-A100 cluster operating at the literature-derived 65% compute ceiling comes to an estimated $0.1686 per million tokens. Crucible's measured $0.1202 was about 29% lower after its low-bandwidth overhead. The comparison excludes R2 storage and operations. The full writeup shows the met",
+    "url": "http://shitter.thepixora.com/tplr_ai/status/2095580357626110111#m",
+    "fetched_at": "2026-09-21T09:30:11.123763+00:00",
     "via_instance": "https://nitter.cz"
   },
   {
@@ -100,6 +220,46 @@
     "via_instance": "https://nitter.cz"
   },
   {
+    "handle": "oroagents",
+    "name": "Oro",
+    "posted_at": "Mon, 17 Aug 2026 15:29:03 GMT",
+    "title": "RT by @oroagents: AI models are poised and ready. But the training data isn't. So @shardiban manufactures it. @oroagents turns agent tasks into a competition, and the best runs become the data the next generation learns from. Ex- @AWS, early decentralized-AI researcher, now proving it on commerce. You don't need to know Bittensor to care - if you build agents, this is your problem too. He's on the Exploit stage this September: https://luma.com/exploitsummit26",
+    "text": "AI models are poised and ready. But the training data isn't. So @shardiban manufactures it. @oroagents turns agent tasks into a competition, and the best runs become the data the next generation learns from. Ex- @AWS, early decentralized-AI researcher, now proving it on commerce. You don't need to know Bittensor to care - if you build agents, this is your problem too. He's on the Exploit stage this September: luma.com/exploitsummit26 Video",
+    "url": "http://shitter.thepixora.com/ExploitSummit/status/2089373953769025843#m",
+    "fetched_at": "2026-09-21T09:30:21.556683+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "jaltucher",
+    "name": "James Altucher",
+    "posted_at": "Mon, 14 Sep 2026 19:59:57 GMT",
+    "title": "RT by @jaltucher: All of this is so surreal and most of the global population isn’t even fully aware of it.",
+    "text": "All of this is so surreal and most of the global population isn’t even fully aware of it. James Altucher (@jaltucher) Inspired by @ashe’s Exploding Human Body, I set up a site to ExplodeAnything.com. Put in any object (“an Iphone”, “a data center”, “an Ozempic pill”, “the soul”. etc), and it will “explode it” and teach you what each component does AND, tell you which public companies make each component, with links to their Yahoo Finance page. Video — http://shitter.thepixora.com/jaltucher/status/2099550542515110239#m",
+    "url": "http://shitter.thepixora.com/ReneSellmann/status/2099588988017299496#m",
+    "fetched_at": "2026-09-21T09:29:28.652160+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "jaltucher",
+    "name": "James Altucher",
+    "posted_at": "Mon, 14 Sep 2026 17:27:11 GMT",
+    "title": "Inspired by @ashe’s Exploding Human Body, I set up a site to http://ExplodeAnything.com. Put in any object (“an Iphone”, “a data center”, “an Ozempic pill”, “the soul”. etc), and it will “explode it” and teach you what each component does AND, tell you which public companies make each component, with links to their Yahoo Finance page.",
+    "text": "Inspired by @ashe’s Exploding Human Body, I set up a site to ExplodeAnything.com. Put in any object (“an Iphone”, “a data center”, “an Ozempic pill”, “the soul”. etc), and it will “explode it” and teach you what each component does AND, tell you which public companies make each component, with links to their Yahoo Finance page. Video",
+    "url": "http://shitter.thepixora.com/jaltucher/status/2099550542515110239#m",
+    "fetched_at": "2026-09-21T09:29:28.652160+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "jaltucher",
+    "name": "James Altucher",
+    "posted_at": "Mon, 14 Sep 2026 16:15:02 GMT",
+    "title": "The AI news from this weekend must be taken in perspective. First off, let’s make clear what was NOT said: - Zero AI companies said they were slowing down development.. - Nobody said that their release cadence was going to be slower. - And nobody even said they were going to cap capabilities of future AI models. What the Anthropic CEO said, and Sam Altman from OpenAI agreed with, is that they would use third party evaluators before they release a new model. Fine. In fact, the Anthropic CEO SPECIFICALLY said, “pacing does not mean halting model training or technical progress” which I note that most media outlets forgot to put in their articles. The other thing that is important to note is: assume the worst case scenario. Let’s say AI models were more slowly released. Who would this effect? Demand for AI is NOT slowing down (se chart): Most of the demand for AI computing is for people who want inference. Not for the companies training AI models. Training happens once, but inference is going up in a straight line. In fact, slower / older models require more infrastructure to provide inference. So who wins in the worst case scenario? NVDA (inference needs lots of GPUs), MU (inference needs lots of memory), ALAB (inference needs millions of connections between the GPUs), MRVL, AVGO, etc. Let's even take a more worst case scenario. If AI models are truly a risk, the risk is from a cybersecurity standpoint. Who benefits? NET NTCT PANW CRWD NOK etc etc. You have to ask: why is the media not reporting this accurately?",
+    "text": "The AI news from this weekend must be taken in perspective. First off, let’s make clear what was NOT said: - Zero AI companies said they were slowing down development.. - Nobody said that their release cadence was going to be slower. - And nobody even said they were going to cap capabilities of future AI models. What the Anthropic CEO said, and Sam Altman from OpenAI agreed with, is that they would use third party evaluators before they release a new model. Fine. In fact, the Anthropic CEO SPECIFICALLY said, “pacing does not mean halting model training or technical progress” which I note that ",
+    "url": "http://shitter.thepixora.com/jaltucher/status/2099532383598838126#m",
+    "fetched_at": "2026-09-21T09:29:28.652160+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
     "handle": "affine_io",
     "name": "Affine",
     "posted_at": "Mon, 07 Sep 2026 15:31:09 GMT",
@@ -107,6 +267,16 @@
     "text": "A model doesn’t need to be the largest to matter. On Affine, models compete on how well their reasoning supports the next action across code, tool use and math. A winner could put that reasoning to work in products, either directly or alongside a larger model. Video",
     "url": "http://shitter.thepixora.com/affine_io/status/2096984627059810338#m",
     "fetched_at": "2026-09-21T02:46:57.125445+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "foundrydigital",
+    "name": "Foundry Digital",
+    "posted_at": "Mon, 02 Jan 2012 23:00:41 GMT",
+    "title": "Early predictions for design trends of 2012? http://tiny.cc/mkg4v",
+    "text": "Early predictions for design trends of 2012? tiny.cc/mkg4v",
+    "url": "http://shitter.thepixora.com/foundrydigital/status/153974018557493248#m",
+    "fetched_at": "2026-09-21T09:29:56.016696+00:00",
     "via_instance": "https://nitter.cz"
   },
   {

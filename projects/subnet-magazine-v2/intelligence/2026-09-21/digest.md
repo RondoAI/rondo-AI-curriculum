@@ -142,14 +142,38 @@ _no new posts in the lookback window_
 
 ## ⊕ X via NITTER, voices we track
 
+- @covenant_ai (Covenant AI, Wed, 19 Aug 2026): RT @tplr_ai: ByteDance and Tencent each received 10,000 Nvidia H200 chips, the first big delivery after China eased import limits. Watch w…  
+  http://shitter.thepixora.com/covenant_ai/status/2090092134036648101#m
+- @jaltucher (James Altucher, Wed, 16 Sep 2026): Working on an AI-powered end to end platform for designing optical and then quantum chips at $QCLS. More details and refinements later but you can check it out at VibeGDS.io - you just enter plain English for the chip you want and it will build it out, simulate, verify, etc. Of interest mostly to optical engineers.  
+  http://shitter.thepixora.com/jaltucher/status/2100262449685364904#m
+- @covenant_ai (Covenant AI, Wed, 16 Sep 2026): We’ve been researching fault tolerance in Crucible, Templar’s pre-training platform. The goal: keep training through node failures and make better use of unreliable workers and spot instances, without idling an entire model replica when one stage goes down. 1/n Video  
+  http://shitter.thepixora.com/tplr_ai/status/2100237708186550642#m
 - @opentensor (Opentensor Foundation, Wed, 16 Sep 2026): Pareton miners found it, vLLM merged it. An optimization from our Qwen campaign on #Bittensor SN10 is now upstream in @vllm_project: ~4% more throughput at batch 4–8 for Qwen3.8 with MTP speculative decoding. Open competition → open-source wins. PR: github.com/vllm-project/vllm… 1/5  
   http://shitter.thepixora.com/Pareton_ai/status/2100230731368661046#m
+- @oroagents (Oro, Wed, 12 Aug 2026): The model also reached 53.3% pass@8 versus 34.8% pass@1. That gap tells us the capability is already latent in the model. The remaining challenge is consistently extracting it. A dense teacher-grounded Dr. GRPO reward improved the process score from 0.02 to 0.42 and cut product-ID hallucinations from 14 to zero.  
+  http://shitter.thepixora.com/oroagents/status/2087649319822512258#m
+- @foundrydigital (Foundry Digital, Wed, 11 Jan 2012): Expression Engine 2.0 review by the guys at Scriptiny bit.ly/w3Pg3R  
+  http://shitter.thepixora.com/foundrydigital/status/157243024848596993#m
+- @covenant_ai (Covenant AI, Tue, 25 Aug 2026): Templar's work reduces to one question. How much of the machine-learning lifecycle can run across ordinary networks instead of a single datacentre? Pre-training answered first, with Covenant-72B as the proof at scale. Post-training followed through our communication-efficiency research. Serving open models on distributed hardware is the piece we are working on now, and it is the one that puts the whole arc in front of users. The internet is the datacentre.  
+  http://shitter.thepixora.com/tplr_ai/status/2092267948765237743#m
+- @oroagents (Oro, Tue, 18 Aug 2026): The ORO team has purchased 2500 Tao worth of SN15 alpha with the help of @CrucibleLabs. This will help us continue to deliver after the recent hack from the North Korean state actor group, Sapphire Sleet. Up and onwards 🚀  
+  http://shitter.thepixora.com/oroagents/status/2089825274133381136#m
+- @jaltucher (James Altucher, Tue, 15 Sep 2026): Q/C Technologies has appointed Yossef Ehrlichman, Ph.D., as Chief Technology Officer to lead the company’s optical processing unit program and overall technology strategy. Learn more: bit.ly/4xXk2ik $QCLS  
+  http://shitter.thepixora.com/Q_CTechnologies/status/2099856104670859351#m
+- @oroagents (Oro, Tue, 08 Sep 2026): We're excited to announce that we're going to be joining Y Combinator in Fall 2026. The team is super pumped to be working with @golda and co to continue on our journey of creating the best in class open source models for agentic commerce. Video  
+  http://shitter.thepixora.com/oroagents/status/2097396633764032707#m
 - @affine_io (Affine, Tue, 01 Sep 2026): Everything you need to compete is public: affine.io/llms.txt  
   http://shitter.thepixora.com/affine_io/status/2094801258016370976#m
 - @affine_io (Affine, Tue, 01 Sep 2026): Video  
   http://shitter.thepixora.com/affine_io/status/2094801103959540005#m
+- @covenant_ai (Covenant AI, Thu, 27 Aug 2026): A system designed around identical accelerators depends on a narrow hardware supply. Templar starts from a wider map. Accelerator generations vary, and network conditions change with location. The coordination layer has to treat both as design inputs.  
+  http://shitter.thepixora.com/tplr_ai/status/2093022381660942660#m
+- @oroagents (Oro, Thu, 20 Aug 2026): Measuring the quality of the long-horizon data is a huge part of solving the AI consumer shopping problem. ORO-Distilled, a 4B model. 5x faster. 50x cheaper. Video  
+  http://shitter.thepixora.com/oroagents/status/2090533835192893616#m
 - @opentensor (Opentensor Foundation, Thu, 17 Sep 2026): Novelty Search // Bittensor Subnet 105 Beam :: The Bandwidth Subnet shitter.thepixora.com/i/broadcasts/1rxmqpmwA… Link Openτensor Foundaτion Novelty Search // Bittensor Subnet 105 Beam :: The Bandwidth Subnet http://shitter.thepixora.com/i/broadcasts/1rxmqpmwAykxy  
   http://shitter.thepixora.com/opentensor/status/2100692690405036129#m
+- @covenant_ai (Covenant AI, Thu, 03 Sep 2026): Crucible, Templar's pre-training platform, has completed its first production end-to-end training runs. The latest trained an 8B model on 50.53B tokens across 48 distributed A100s, at an estimated $0.1202 per million tokens of GPU rental. The run reached 48.3% effective MFU. At AWS p4de Capacity Blocks pricing, a 48-A100 cluster operating at the literature-derived 65% compute ceiling comes to an estimated $0.1686 per million tokens. Crucible's measured $0.1202 was about 29% lower after its low-bandwidth overhead. The comparison excludes R2 storage and operations. The full writeup shows the met  
+  http://shitter.thepixora.com/tplr_ai/status/2095580357626110111#m
 - @wallstreetbets (WallStreetBets (X), Sun, 20 Sep 2026): buy high sell low Watcher.Guru (@WatcherGuru) YouTuber Logan Paul purchased this NFT for $635,000 in 2021. Today, it's worth $96. — http://shitter.thepixora.com/WatcherGuru/status/2101791102768419047#m  
   http://shitter.thepixora.com/wallstreetbets/status/2101821468271075639#m
 - @wallstreetbets (WallStreetBets (X), Sun, 20 Sep 2026): free btc at 80k is crazy BTC (@btc) Market's doing market things this week 📉📈 Faucet doesn't care. Still flowing. Follow @btc and @tetherwallet Reply here with your @tether.me handle Priority to first-timers and the long-thirsty. — http://shitter.thepixora.com/btc/status/2100919491202896234#m  
@@ -162,8 +186,18 @@ _no new posts in the lookback window_
   http://shitter.thepixora.com/wallstreetbets/status/2101358144634974551#m
 - @wallstreetbets (WallStreetBets (X), Mon, 21 Sep 2026): higher  
   http://shitter.thepixora.com/wallstreetbets/status/2101854407637749987#m
+- @oroagents (Oro, Mon, 17 Aug 2026): AI models are poised and ready. But the training data isn't. So @shardiban manufactures it. @oroagents turns agent tasks into a competition, and the best runs become the data the next generation learns from. Ex- @AWS, early decentralized-AI researcher, now proving it on commerce. You don't need to know Bittensor to care - if you build agents, this is your problem too. He's on the Exploit stage this September: luma.com/exploitsummit26 Video  
+  http://shitter.thepixora.com/ExploitSummit/status/2089373953769025843#m
+- @jaltucher (James Altucher, Mon, 14 Sep 2026): All of this is so surreal and most of the global population isn’t even fully aware of it. James Altucher (@jaltucher) Inspired by @ashe’s Exploding Human Body, I set up a site to ExplodeAnything.com. Put in any object (“an Iphone”, “a data center”, “an Ozempic pill”, “the soul”. etc), and it will “explode it” and teach you what each component does AND, tell you which public companies make each component, with links to their Yahoo Finance page. Video — http://shitter.thepixora.com/jaltucher/status/2099550542515110239#m  
+  http://shitter.thepixora.com/ReneSellmann/status/2099588988017299496#m
+- @jaltucher (James Altucher, Mon, 14 Sep 2026): Inspired by @ashe’s Exploding Human Body, I set up a site to ExplodeAnything.com. Put in any object (“an Iphone”, “a data center”, “an Ozempic pill”, “the soul”. etc), and it will “explode it” and teach you what each component does AND, tell you which public companies make each component, with links to their Yahoo Finance page. Video  
+  http://shitter.thepixora.com/jaltucher/status/2099550542515110239#m
+- @jaltucher (James Altucher, Mon, 14 Sep 2026): The AI news from this weekend must be taken in perspective. First off, let’s make clear what was NOT said: - Zero AI companies said they were slowing down development.. - Nobody said that their release cadence was going to be slower. - And nobody even said they were going to cap capabilities of future AI models. What the Anthropic CEO said, and Sam Altman from OpenAI agreed with, is that they would use third party evaluators before they release a new model. Fine. In fact, the Anthropic CEO SPECIFICALLY said, “pacing does not mean halting model training or technical progress” which I note that   
+  http://shitter.thepixora.com/jaltucher/status/2099532383598838126#m
 - @affine_io (Affine, Mon, 07 Sep 2026): A model doesn’t need to be the largest to matter. On Affine, models compete on how well their reasoning supports the next action across code, tool use and math. A winner could put that reasoning to work in products, either directly or alongside a larger model. Video  
   http://shitter.thepixora.com/affine_io/status/2096984627059810338#m
+- @foundrydigital (Foundry Digital, Mon, 02 Jan 2012): Early predictions for design trends of 2012? tiny.cc/mkg4v  
+  http://shitter.thepixora.com/foundrydigital/status/153974018557493248#m
 - @affine_io (Affine, Fri, 28 Aug 2026): United against the divided. Intelligence knows neither borders nor color. Uphold the torch with us to bring light where it is needed most. Open reasoning for humanity. Join the thousand-year intelligence federation. affine.io Link Affine — Bittensor subnet 120 King-of-the-hill subnet for open-weight language models, scored by teacher-anchored distillation duels. Live validator dashboard. affine.io scouτ (@scoutesy) The same way neutron stars form gold through merging, affine orchestrates reasoning through open collaboration. Unus pro omnibus, omnes pro uno. Tao of a million symmetries. Video —  
   http://shitter.thepixora.com/affine_io/status/2093401028763013596#m
 - @opentensor (Opentensor Foundation, Fri, 18 Sep 2026): Full E088 @b1m_ai redirect.invidious.io/QjWEOFWGLuc Link Subnet 105 :: AI Has a Data Movement Problem. Beam Wants to Solve It. What if bandwidth itself could become programmable?In Novelty Sea... youtube.com  
@@ -175,4 +209,4 @@ _no new posts in the lookback window_
 
 
 ---
-_Generated at 2026-09-21T02:47:21.670334+00:00 by scripts/intel/aggregate.py. Treat this digest as input context, not as ground truth. Verify before quoting._
+_Generated at 2026-09-21T09:31:38.709717+00:00 by scripts/intel/aggregate.py. Treat this digest as input context, not as ground truth. Verify before quoting._
