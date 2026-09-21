@@ -150,6 +150,16 @@
     "via_instance": "https://nitter.cz"
   },
   {
+    "handle": "zeussubnet",
+    "name": "Zeus Subnet",
+    "posted_at": "Wed, 09 Sep 2026 14:38:18 GMT",
+    "title": "Zeus is energy-aware. How? 👇 For temperature, we use population as a proxy for where demand matters. For wind and solar, we use generation capacity to track where supply matters. Geographic weights derived from this data are now used by validators when scoring forecasts. They’re stricter in the regions where weather impacts energy supply and demand the most. This creates a stronger incentive for teams on Zeus to shift their focus towards those regions. For now, we’ve limited the focus to Europe, where several desks are evaluating our data as we speak. We may expand to other interesting trading regions, like the US and Australia. *Focus is now 40% Germany, 40% rest of Europe, 20% rest.",
+    "text": "Zeus is energy-aware. How? 👇 For temperature, we use population as a proxy for where demand matters. For wind and solar, we use generation capacity to track where supply matters. Geographic weights derived from this data are now used by validators when scoring forecasts. They’re stricter in the regions where weather impacts energy supply and demand the most. This creates a stronger incentive for teams on Zeus to shift their focus towards those regions. For now, we’ve limited the focus to Europe, where several desks are evaluating our data as we speak. We may expand to other interesting trading",
+    "url": "http://shitter.thepixora.com/zeussubnet/status/2097696101822304723#m",
+    "fetched_at": "2026-09-21T22:59:30.941797+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
     "handle": "ridges_ai",
     "name": "Ridges",
     "posted_at": "Wed, 09 Sep 2026 11:42:04 GMT",
@@ -157,6 +167,16 @@
     "text": "CMC Verification post: ridges.ai",
     "url": "http://shitter.thepixora.com/ridges_ai/status/2097651752464011375#m",
     "fetched_at": "2026-09-21T17:37:28.922850+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "nigescore",
+    "name": "Nige",
+    "posted_at": "Wed, 09 Sep 2026 10:18:25 GMT",
+    "title": "RT by @nigescore: .@nigescore going to paris last time he went to nrf in dallas he got us our biggest client ever (not announced yet) i can’t go. got something bigger on the 15th, 16th and 17th (to be announced)",
+    "text": ".@nigescore going to paris last time he went to nrf in dallas he got us our biggest client ever (not announced yet) i can’t go. got something bigger on the 15th, 16th and 17th (to be announced) Manako (@manakoai) Heading to @nrfeurope NRF Retail’s Big Show Europe in Paris next week (15–17 Sept) 🇫🇷 If you are attending and want to hear what Manako Labs have built for retail, please DM and let’s meet up. No new hardware, no engineers, no code just your existing cameras doing more. #NRFRetailsBigShowEurope — http://shitter.thepixora.com/manakoai/status/2097622722310242420#m",
+    "url": "http://shitter.thepixora.com/MaxSebti/status/2097630699129827589#m",
+    "fetched_at": "2026-09-21T22:58:32.378402+00:00",
     "via_instance": "https://nitter.cz"
   },
   {
@@ -190,6 +210,16 @@
     "via_instance": "https://nitter.cz"
   },
   {
+    "handle": "nigescore",
+    "name": "Nige",
+    "posted_at": "Tue, 15 Sep 2026 14:03:04 GMT",
+    "title": "RT by @nigescore: The physical world still can’t talk to software. A billion cameras watch factories, stations, warehouses, and stores every second. Almost none of that footage becomes action. That’s what we build at Manako. Today we join F/ai at @joinstationf The program that put OpenAI, Anthropic, Google, Meta, Microsoft and top-tier VCs behind a handful of AI-native teams. Honoured. Focused. Shipping.",
+    "text": "The physical world still can’t talk to software. A billion cameras watch factories, stations, warehouses, and stores every second. Almost none of that footage becomes action. That’s what we build at Manako. Today we join F/ai at @joinstationf The program that put OpenAI, Anthropic, Google, Meta, Microsoft and top-tier VCs behind a handful of AI-native teams. Honoured. Focused. Shipping.",
+    "url": "http://shitter.thepixora.com/manakoai/status/2099861562882203822#m",
+    "fetched_at": "2026-09-21T22:58:32.378402+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
     "handle": "jaltucher",
     "name": "James Altucher",
     "posted_at": "Tue, 15 Sep 2026 13:41:23 GMT",
@@ -220,6 +250,16 @@
     "via_instance": "https://nitter.cz"
   },
   {
+    "handle": "mcjkula",
+    "name": "mcjkula",
+    "posted_at": "Tue, 14 Apr 2026 18:41:35 GMT",
+    "title": "See you in Montréal everyone. Not gonna want to miss this one🫡",
+    "text": "See you in Montréal everyone. Not gonna want to miss this one🫡 Exploit Summit (@ExploitSummit) Building on Bittensor is hard. Doing it in isolation is even harder. Exploit puts you in a room with: • The subnet founders who've already solved your problems • The investors actually writing checks • The technical talent you're trying to hire Sept 28-29, Montréal. Two days that could save you six months. Video — http://shitter.thepixora.com/ExploitSummit/status/2044100822750114215#m",
+    "url": "http://shitter.thepixora.com/mcjkula/status/2044123923088830837#m",
+    "fetched_at": "2026-09-21T22:57:11.037044+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
     "handle": "oroagents",
     "name": "Oro",
     "posted_at": "Tue, 08 Sep 2026 18:48:19 GMT",
@@ -230,6 +270,16 @@
     "via_instance": "https://nitter.cz"
   },
   {
+    "handle": "nigescore",
+    "name": "Nige",
+    "posted_at": "Tue, 08 Sep 2026 09:52:05 GMT",
+    "title": "RT by @nigescore: Astra Ultra did not cook sports-grade vision AI. Gave it a 30s football clip from our subnet private track. Frame-level events, JSON, annotated video. Ground truth and the published scoring rules only after it committed. 22 predictions. 17 real events. 15 inside the action windows. 7 extras. 2 misses. Precision 68.18%. Recall 88.24%. F1 76.92%. Our Bittensor eval, SN44: 0%. Matches after timing decay: 16.538 False positives: −20.300 GT weight: 25.600 score = max(0, (16.538 − 20.300) / 25.600) = 0 Three extra take-ons and two extra tackles were 14.6 penalty points. It also misread the late interception/clearance. Rare actions pay more when you hit them and tax you harder when you invent them. Perfect timestamps on the matches still would not have cleared that bill. This was one offline replay of the published scorer. Unchanged preds. Not live latency. Not a season. The point is simpler than the arithmetic. F1 is what you post. SN44 is what you get paid on. Real matches, messy cameras, hard negatives, and a 30-second clock are not the same sport as a nice 15s clip to aura farm on Twitter.",
+    "text": "Astra Ultra did not cook sports-grade vision AI. Gave it a 30s football clip from our subnet private track. Frame-level events, JSON, annotated video. Ground truth and the published scoring rules only after it committed. 22 predictions. 17 real events. 15 inside the action windows. 7 extras. 2 misses. Precision 68.18%. Recall 88.24%. F1 76.92%. Our Bittensor eval, SN44: 0%. Matches after timing decay: 16.538 False positives: −20.300 GT weight: 25.600 score = max(0, (16.538 − 20.300) / 25.600) = 0 Three extra take-ons and two extra tackles were 14.6 penalty points. It also misread the late inte",
+    "url": "http://shitter.thepixora.com/webuildscore/status/2097261685358596399#m",
+    "fetched_at": "2026-09-21T22:58:32.378402+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
     "handle": "tm0klc",
     "name": "Tim",
     "posted_at": "Tue, 07 Jul 2026 01:06:10 GMT",
@@ -237,6 +287,16 @@
     "text": "Subnet 44 @webuildscore is expanding. We’re incentivising training for a new vision-language model: Satori. Satori reasons AND grounds. It doesn’t just answer questions about an image. It points to the evidence. - Reason about scenes - Detect and segment objects - Read text - Count entities - Ground claims in pixels Most VLMs are split: strong reasoning OR strong grounding. Detection models localise, but can’t talk. Chatty VLMs describe fluently, but can’t prove it. Satori sits at the intersection. We’re starting with a 7B base model.",
     "url": "http://shitter.thepixora.com/tm0klc/status/2074298897305047101#m",
     "fetched_at": "2026-09-21T17:37:58.496933+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "mcjkula",
+    "name": "mcjkula",
+    "posted_at": "Tue, 01 Sep 2026 17:30:03 GMT",
+    "title": "RT by @mcjkula: TAOApp Wallet is here. The self-custody browser wallet for Bittensor. Hold TAO, stake TAO, buy subnet tokens. When there’s more to protect, bring in your Ledger, proxies and multisigs. Install the beta, on Chrome, Brave and Edge. ↓ https://chromewebstore.google.com/detail/taoapp-wallet/plipkdflloklldnmnjdlonijlihafjjc",
+    "text": "TAOApp Wallet is here. The self-custody browser wallet for Bittensor. Hold TAO, stake TAO, buy subnet tokens. When there’s more to protect, bring in your Ledger, proxies and multisigs. Install the beta, on Chrome, Brave and Edge. ↓ chromewebstore.google.com/de…",
+    "url": "http://shitter.thepixora.com/taoapp_/status/2094840222441992209#m",
+    "fetched_at": "2026-09-21T22:57:11.037044+00:00",
     "via_instance": "https://nitter.cz"
   },
   {
@@ -280,6 +340,26 @@
     "via_instance": "https://nitter.cz"
   },
   {
+    "handle": "galaxyhq",
+    "name": "Galaxy Digital",
+    "posted_at": "Thu, 17 Sep 2026 23:33:01 GMT",
+    "title": "RT by @galaxyhq: Welcome to the football resort 🏠 @novogratz 🤝 @danawhite",
+    "text": "Welcome to the football resort 🏠 @novogratz 🤝 @danawhite Video Video",
+    "url": "http://shitter.thepixora.com/TexasTechFB/status/2100729769750909011#m",
+    "fetched_at": "2026-09-21T22:57:36.368444+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "galaxyhq",
+    "name": "Galaxy Digital",
+    "posted_at": "Thu, 17 Sep 2026 23:20:50 GMT",
+    "title": "RT by @galaxyhq: These hype men absolutely slapped. @novogratz 🤝 @danawhite",
+    "text": "These hype men absolutely slapped. @novogratz 🤝 @danawhite",
+    "url": "http://shitter.thepixora.com/TexasTechFB/status/2100726702489870789#m",
+    "fetched_at": "2026-09-21T22:57:36.368444+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
     "handle": "opentensor",
     "name": "Opentensor Foundation",
     "posted_at": "Thu, 17 Sep 2026 21:05:41 GMT",
@@ -317,6 +397,26 @@
     "text": "Crucible, Templar's pre-training platform, has completed its first production end-to-end training runs. The latest trained an 8B model on 50.53B tokens across 48 distributed A100s, at an estimated $0.1202 per million tokens of GPU rental. The run reached 48.3% effective MFU. At AWS p4de Capacity Blocks pricing, a 48-A100 cluster operating at the literature-derived 65% compute ceiling comes to an estimated $0.1686 per million tokens. Crucible's measured $0.1202 was about 29% lower after its low-bandwidth overhead. The comparison excludes R2 storage and operations. The full writeup shows the met",
     "url": "http://shitter.thepixora.com/tplr_ai/status/2095580357626110111#m",
     "fetched_at": "2026-09-21T09:30:11.123763+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "nigescore",
+    "name": "Nige",
+    "posted_at": "Thu, 03 Sep 2026 16:10:37 GMT",
+    "title": "RT by @nigescore: Shell and ENI stations added to roll out today. Accelerate.",
+    "text": "Shell and ENI stations added to roll out today. Accelerate.",
+    "url": "http://shitter.thepixora.com/MaxSebti/status/2095545005540552752#m",
+    "fetched_at": "2026-09-21T22:58:32.378402+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "zeussubnet",
+    "name": "Zeus Subnet",
+    "posted_at": "Thu, 03 Sep 2026 15:33:05 GMT",
+    "title": "While energy supply becomes more and more weather-dependent, our mission is to give traders the fastest, most precise view on weather ✅ 75% faster* ✅ >30% more accurate on temperature* ✅ >20% more accurate on wind* *vs ECMWF IFS across June and July",
+    "text": "While energy supply becomes more and more weather-dependent, our mission is to give traders the fastest, most precise view on weather ✅ 75% faster* ✅ &gt;30% more accurate on temperature* ✅ &gt;20% more accurate on wind* *vs ECMWF IFS across June and July",
+    "url": "http://shitter.thepixora.com/zeussubnet/status/2095535560102203644#m",
+    "fetched_at": "2026-09-21T22:59:30.941797+00:00",
     "via_instance": "https://nitter.cz"
   },
   {
@@ -390,6 +490,26 @@
     "via_instance": "https://nitter.cz"
   },
   {
+    "handle": "mcjkula",
+    "name": "mcjkula",
+    "posted_at": "Sat, 19 Sep 2026 21:34:40 GMT",
+    "title": "Bittensor took me a while to understand. I want to make that first step easier for the next person. We’ll be kicking things off with Bittensor 101 at Exploit. Looking forward to meeting some of you for the first time and catching up with familiar faces. 👋",
+    "text": "Bittensor took me a while to understand. I want to make that first step easier for the next person. We’ll be kicking things off with Bittensor 101 at Exploit. Looking forward to meeting some of you for the first time and catching up with familiar faces. 👋 Exploit Summit (@ExploitSummit) Maciej Kula ( @mcjkula ) couldn't find a clear way to learn #Bittensor from scratch, so he built the resource he wished existed. @learnbittensor is now part of @latentholdings, where Maciej leads education and makes Bittensor easier to understand. He'll be leading our Bittensor 101 session to kick off Day 1: lu",
+    "url": "http://shitter.thepixora.com/mcjkula/status/2101424763344437495#m",
+    "fetched_at": "2026-09-21T22:57:11.037044+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "nigescore",
+    "name": "Nige",
+    "posted_at": "Sat, 19 Sep 2026 20:10:18 GMT",
+    "title": "RT by @nigescore: We’re completing our first 20 reference deployments, led by our CEO and engineering team, and the headline finding is that Manako is genuinely plug and play. No specialist integration required: a unit can be shipped to site and connected by anyone on the ground. That’s what makes our next phase possible. Our integration partners will roll out at scale on a simple, repeatable install, with less time on site and lower cost per deployment.",
+    "text": "We’re completing our first 20 reference deployments, led by our CEO and engineering team, and the headline finding is that Manako is genuinely plug and play. No specialist integration required: a unit can be shipped to site and connected by anyone on the ground. That’s what makes our next phase possible. Our integration partners will roll out at scale on a simple, repeatable install, with less time on site and lower cost per deployment.",
+    "url": "http://shitter.thepixora.com/manakoai/status/2101403529558577403#m",
+    "fetched_at": "2026-09-21T22:58:32.378402+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
     "handle": "wallstreetbets",
     "name": "WallStreetBets (X)",
     "posted_at": "Sat, 19 Sep 2026 17:09:57 GMT",
@@ -397,6 +517,26 @@
     "text": "privacy szn",
     "url": "http://shitter.thepixora.com/wallstreetbets/status/2101358144634974551#m",
     "fetched_at": "2026-09-21T02:47:07.723116+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "BarrySilbert",
+    "name": "Barry Silbert",
+    "posted_at": "Sat, 19 Sep 2026 06:00:15 GMT",
+    "title": "RT by @BarrySilbert: 🇦🇷 NEW: Argentina will begin automatically sharing crypto transaction data with tax authorities worldwide by September 2029. The tax man is coming.",
+    "text": "🇦🇷 NEW: Argentina will begin automatically sharing crypto transaction data with tax authorities worldwide by September 2029. The tax man is coming.",
+    "url": "http://shitter.thepixora.com/Cointelegraph/status/2101189610248253728#m",
+    "fetched_at": "2026-09-21T22:57:14.693815+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "galaxyhq",
+    "name": "Galaxy Digital",
+    "posted_at": "Sat, 19 Sep 2026 02:24:42 GMT",
+    "title": "RT by @galaxyhq: These lucky fans got a seat upgrade courtesy of @galaxyhq! @novogratz x @TexasTechMBB x @TexasTechSB",
+    "text": "These lucky fans got a seat upgrade courtesy of @galaxyhq! @novogratz x @TexasTechMBB x @TexasTechSB",
+    "url": "http://shitter.thepixora.com/TechAthletics/status/2101135361522950611#m",
+    "fetched_at": "2026-09-21T22:57:36.368444+00:00",
     "via_instance": "https://nitter.cz"
   },
   {
@@ -430,6 +570,66 @@
     "via_instance": "https://nitter.cz"
   },
   {
+    "handle": "SemiAnalysis_",
+    "name": "SemiAnalysis",
+    "posted_at": "Mon, 21 Sep 2026 22:40:15 GMT",
+    "title": "Is EMIB really chipping away at CoWoS? CoWoS has owned advanced packaging for years. TSMC keeps adding capacity aggressively but it still isn't enough to satisfy customer demand. Intel stepped in with a compelling alternative with EMIB — and customers are responding. (1/3)🧵",
+    "text": "Is EMIB really chipping away at CoWoS? CoWoS has owned advanced packaging for years. TSMC keeps adding capacity aggressively but it still isn't enough to satisfy customer demand. Intel stepped in with a compelling alternative with EMIB — and customers are responding. (1/3)🧵",
+    "url": "http://shitter.thepixora.com/SemiAnalysis_/status/2102166041308561830#m",
+    "fetched_at": "2026-09-21T22:59:06.799298+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "SemiAnalysis_",
+    "name": "SemiAnalysis",
+    "posted_at": "Mon, 21 Sep 2026 22:40:15 GMT",
+    "title": "R to @SemiAnalysis_: ChipBook August data caught a +467% YoY jump in HBM exports from Korea to Malaysia, ~$3B in just two months. We attribute this primarily to Intel's advanced packaging capacity in Penang, with LinkedIn showing ~50 back-end job openings in Malaysia. Not an insignificant number. Exports to Taiwan slowed in return. Trade flows and job openings are starting to confirm customer shift. (2/3)",
+    "text": "ChipBook August data caught a +467% YoY jump in HBM exports from Korea to Malaysia, ~$3B in just two months. We attribute this primarily to Intel's advanced packaging capacity in Penang, with LinkedIn showing ~50 back-end job openings in Malaysia. Not an insignificant number. Exports to Taiwan slowed in return. Trade flows and job openings are starting to confirm customer shift. (2/3)",
+    "url": "http://shitter.thepixora.com/SemiAnalysis_/status/2102166043108004235#m",
+    "fetched_at": "2026-09-21T22:59:06.799298+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "SemiAnalysis_",
+    "name": "SemiAnalysis",
+    "posted_at": "Mon, 21 Sep 2026 22:40:15 GMT",
+    "title": "R to @SemiAnalysis_: These are the types of datasets we track in ChipBook to see where the goods actually show up before the announcements are out. Check it out here.👇️(3/3) https://semianalysis.com/chipbook/",
+    "text": "These are the types of datasets we track in ChipBook to see where the goods actually show up before the announcements are out. Check it out here.👇️(3/3) semianalysis.com/chipbook/ Link SemiAnalysis ChipBook The monthly AI and semiconductor industry tracker: 40 to 50 pages of charts and equity references from 250+ actively tracked datasets, spanning core value chain trackers, timely picks, and distilla... semianalysis.com",
+    "url": "http://shitter.thepixora.com/SemiAnalysis_/status/2102166044374716428#m",
+    "fetched_at": "2026-09-21T22:59:06.799298+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "galaxyhq",
+    "name": "Galaxy Digital",
+    "posted_at": "Mon, 21 Sep 2026 19:34:36 GMT",
+    "title": "Crypto lending is shrinking, but it's not falling apart. Bitcoin bounced from $58K to $82K before easing back to around $76K this quarter. But the real story is credit: crypto lending dropped 40% from its peak, yet it's happening slowly, not crashing. At the same time, Coinbase and Robinhood are turning stocks like Nvidia and Apple into crypto collateral. Circle just launched a new blockchain backed by BlackRock and Visa. Onchain lending is changing fast. Here's what it means for crypto's next chapter. 👇 https://www.galaxy.com/insights/perspectives/crypto-markets-recover-as-rates-and-lending-conditions-shift",
+    "text": "Crypto lending is shrinking, but it's not falling apart. Bitcoin bounced from $58K to $82K before easing back to around $76K this quarter. But the real story is credit: crypto lending dropped 40% from its peak, yet it's happening slowly, not crashing. At the same time, Coinbase and Robinhood are turning stocks like Nvidia and Apple into crypto collateral. Circle just launched a new blockchain backed by BlackRock and Visa. Onchain lending is changing fast. Here's what it means for crypto's next chapter. 👇 galaxy.com/insights/perspect… Link Crypto Markets Recover as Rates and Lending Conditions ",
+    "url": "http://shitter.thepixora.com/galaxyhq/status/2102119322101403842#m",
+    "fetched_at": "2026-09-21T22:57:36.368444+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "1inch",
+    "name": "1inch",
+    "posted_at": "Mon, 21 Sep 2026 18:18:00 GMT",
+    "title": "We are not going to tell you this is easy money. Providing liquidity carries risk, Aqua does not rebalance for you and your wallet balance is the cap:",
+    "text": "We are not going to tell you this is easy money. Providing liquidity carries risk, Aqua does not rebalance for you and your wallet balance is the cap: Video",
+    "url": "http://shitter.thepixora.com/1inch/status/2102100044161708150#m",
+    "fetched_at": "2026-09-21T22:58:42.674397+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "1inch",
+    "name": "1inch",
+    "posted_at": "Mon, 21 Sep 2026 18:18:00 GMT",
+    "title": "R to @1inch: 1inch.com/aqua",
+    "text": "1inch.com/aqua Link Provide Liquidity on 1inch Aqua | Shared Liquidity AMM Provide liquidity on 1inch Aqua, the shared liquidity AMM. Become a self-custodial liquidity provider, back many positions with the same tokens, no deposits. 1inch.com",
+    "url": "http://shitter.thepixora.com/1inch/status/2102100044560138474#m",
+    "fetched_at": "2026-09-21T22:58:42.674397+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
     "handle": "1inch",
     "name": "1inch",
     "posted_at": "Mon, 21 Sep 2026 16:32:59 GMT",
@@ -442,11 +642,51 @@
   {
     "handle": "SemiAnalysis_",
     "name": "SemiAnalysis",
+    "posted_at": "Mon, 21 Sep 2026 16:25:45 GMT",
+    "title": "RT by @SemiAnalysis_: Perplexity Computer can now create videos using MiniMax H3 and ByteDance Seedance 2.5. Ask Computer for a campaign clip, product demo, or social asset, and it produces finished video next to copy and creative in same thread. Available now for Pro and Max subscribers.",
+    "text": "Perplexity Computer can now create videos using MiniMax H3 and ByteDance Seedance 2.5. Ask Computer for a campaign clip, product demo, or social asset, and it produces finished video next to copy and creative in same thread. Available now for Pro and Max subscribers. Video",
+    "url": "http://shitter.thepixora.com/perplexity_ai/status/2102071798179434966#m",
+    "fetched_at": "2026-09-21T22:59:06.799298+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "SemiAnalysis_",
+    "name": "SemiAnalysis",
+    "posted_at": "Mon, 21 Sep 2026 16:20:45 GMT",
+    "title": "RT by @SemiAnalysis_: @LukasGentele sat down with @dylan522p at AI Infra Summit. They got into why an H100 is worth more today than the day you bought it, even as token prices fall by an order of magnitude. Cost per token keeps collapsing, but the volume of tokens coming out of each GPU rises faster than the price falls, so total dollars per GPU keep going up. Compute gets more valuable, not less. Dylan then walked through what SemiAnalysis found testing AI cloud security. Many of the vulnerabilities could be surfaced just by pointing a model at the cluster and asking it to look. Other tenants' storage, other tenants' nodes, other tenants' Slurm. On one cluster they found a country's national security apparatus, multiple agencies, sitting in the same data center they had just gotten into. His summary: it's the Wild West. Which raises an uncomfortable question for every sovereign AI buildout currently being announced. They also covered why the plan almost every AI cloud starts with, hire a team and build the whole software stack ourselves, does not survive contact with reality. The hyperscalers absorbed the talent. The biggest AI clouds took the rest. As Dylan put it, the talent does not exist, and it takes far more people than anyone budgets for to build it, stress test it, and prove it has no security holes. The question they didn't resolve: if security is what pushes large customers into renting entire sites rather than sharing infrastructure, does the middle of the market ever get to exist? Or does everything consolidate into a handful of operators big enough to sell trust along with capacity? 0:00:00 - Why an H100 is worth more now than three years ago 0:01:49 - What an AI cloud can actually optimize in the stack 0:04:15 - ClusterMAX, and what separates gold tier from silver 0:06:19 - Point a model at a cluster and it finds the holes 0:09:48 - Bare metal off take deals and billion dollar rentals 0:11:23 - Where the bottleneck moves in 2027 0:13:05 - \"The talent does not exist\" 0:15:47 - What the AI clouds still standing will be selling 0:16:19 - Single tenant inference vs public endpoints",
+    "text": "@LukasGentele sat down with @dylan522p at AI Infra Summit. They got into why an H100 is worth more today than the day you bought it, even as token prices fall by an order of magnitude. Cost per token keeps collapsing, but the volume of tokens coming out of each GPU rises faster than the price falls, so total dollars per GPU keep going up. Compute gets more valuable, not less. Dylan then walked through what SemiAnalysis found testing AI cloud security. Many of the vulnerabilities could be surfaced just by pointing a model at the cluster and asking it to look. Other tenants' storage, other tenan",
+    "url": "http://shitter.thepixora.com/vclusterlabs/status/2102070537862386159#m",
+    "fetched_at": "2026-09-21T22:59:06.799298+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "galaxyhq",
+    "name": "Galaxy Digital",
+    "posted_at": "Mon, 21 Sep 2026 15:45:13 GMT",
+    "title": "RT by @galaxyhq: The Grove x @GalaxyHQ warehouse is now at 75% utilization. With the latest $71M loan, the facility has financed $375M in overcollateralized loans since its launch on July 15. Capitalizing the stablecoin economy.",
+    "text": "The Grove x @GalaxyHQ warehouse is now at 75% utilization. With the latest $71M loan, the facility has financed $375M in overcollateralized loans since its launch on July 15. Capitalizing the stablecoin economy.",
+    "url": "http://shitter.thepixora.com/grovedotfinance/status/2102061594054402057#m",
+    "fetched_at": "2026-09-21T22:57:36.368444+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "SemiAnalysis_",
+    "name": "SemiAnalysis",
     "posted_at": "Mon, 21 Sep 2026 15:00:11 GMT",
     "title": "Experiments have shown that offloading Engram to DRAM results in up to 50% better performance on H200, B200, B300, and even GB300 NVL72. Our technical team has collaborated with 10x engineers from @EmadBarsoumPi & @AnushElangovan to upstream support for @vllm_project ROCm Engram DRAM offloading too, and we are already seeing up to 50% better perf too in PR 57491. As such, in PRs 985, 1002, 1005, 1006 @NVIDIA, @AIatAMD and @SemiAnalysis_ are updating the default recommended recipes to use Engram offloading.",
     "text": "Experiments have shown that offloading Engram to DRAM results in up to 50% better performance on H200, B200, B300, and even GB300 NVL72. Our technical team has collaborated with 10x engineers from @EmadBarsoumPi & @AnushElangovan to upstream support for @vllm_project ROCm Engram DRAM offloading too, and we are already seeing up to 50% better perf too in PR 57491. As such, in PRs 985, 1002, 1005, 1006 @NVIDIA, @AIatAMD and @SemiAnalysis_ are updating the default recommended recipes to use Engram offloading.",
     "url": "http://shitter.thepixora.com/SemiAnalysis_/status/2102050260721807397#m",
     "fetched_at": "2026-09-21T17:38:35.431479+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "mcjkula",
+    "name": "mcjkula",
+    "posted_at": "Mon, 21 Sep 2026 13:36:27 GMT",
+    "title": "RT by @mcjkula: New to #Bittensor? Start here. In exactly one week, Exploit opens with Bittensor 101, led by @TAOTemplar + @mcjkula of @learnbittensor - a high-level map of how the network works, where subnets fit + how to navigate the ecosystem. Get the foundations in place before two days of big conversations. 📅 Monday 28 September · 9–9:45am Register here → https://luma.com/nqy2n5zi (free to Exploit guests)",
+    "text": "New to #Bittensor? Start here. In exactly one week, Exploit opens with Bittensor 101, led by @TAOTemplar + @mcjkula of @learnbittensor - a high-level map of how the network works, where subnets fit + how to navigate the ecosystem. Get the foundations in place before two days of big conversations. 📅 Monday 28 September · 9–9:45am Register here → luma.com/nqy2n5zi (free to Exploit guests)",
+    "url": "http://shitter.thepixora.com/ExploitSummit/status/2102029192284283120#m",
+    "fetched_at": "2026-09-21T22:57:11.037044+00:00",
     "via_instance": "https://nitter.cz"
   },
   {
@@ -467,6 +707,16 @@
     "text": "Watch the loop between four tokens. SPCXon → WBTC → USDT → USDC and back around. No direct pair needed. The router threads liquidity through the whole map to find the best route. This is what makes shared liquidity unique.",
     "url": "http://shitter.thepixora.com/1inch/status/2102016407512715643#m",
     "fetched_at": "2026-09-21T17:38:10.292357+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "zeussubnet",
+    "name": "Zeus Subnet",
+    "posted_at": "Mon, 21 Sep 2026 12:32:12 GMT",
+    "title": "RT by @zeussubnet: Remember when @zeussubnet beat Google LIVE? A few weeks ago, Google released a new MEGA model: WeatherNext 3 🔥 Zeus vs @Google round 2 soon",
+    "text": "Remember when @zeussubnet beat Google LIVE? A few weeks ago, Google released a new MEGA model: WeatherNext 3 🔥 Zeus vs @Google round 2 soon Zeus | SN 18 (@zeussubnet) Yesterday, during @opentensor Novelty Search, @const_reborn asked us to demo Zeus live: “Max temperature in Seoul tomorrow?” 🇰🇷 Zeus: 26°C Google: 28°C Today? It was 26°C. Live, verified, beat @Google. No better validation than that. 🔥 Video — http://shitter.thepixora.com/zeussubnet/status/1971601638189379774#m",
+    "url": "http://shitter.thepixora.com/egillwx/status/2102013020486394112#m",
+    "fetched_at": "2026-09-21T22:59:30.941797+00:00",
     "via_instance": "https://nitter.cz"
   },
   {
@@ -580,6 +830,16 @@
     "via_instance": "https://nitter.cz"
   },
   {
+    "handle": "mcjkula",
+    "name": "mcjkula",
+    "posted_at": "Mon, 13 Apr 2026 09:59:22 GMT",
+    "title": "For anyone that wants to get an idea of what the discussion will be about on this week with Const, this one is worth to read and form opinions/prepare questions about 🫡",
+    "text": "For anyone that wants to get an idea of what the discussion will be about on this week with Const, this one is worth to read and form opinions/prepare questions about 🫡 Learn Bittensor (@learnbittensor) 🔒Locked Stake & Conviction are Being Proposed for Bittensor Subnet ownership may be about to change. BIT-0011 proposes that anyone can challenge for ownership of a subnet by locking their ALPHA stake and building \"conviction.\" Right now, inactive subnet owners can hold onto subnets indefinitely. 'Locked Stake' would make ownership a contest of commitment, giving motivated participants a path to",
+    "url": "http://shitter.thepixora.com/mcjkula/status/2043630114567491654#m",
+    "fetched_at": "2026-09-21T22:57:11.037044+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
     "handle": "affine_io",
     "name": "Affine",
     "posted_at": "Mon, 07 Sep 2026 15:31:09 GMT",
@@ -630,6 +890,16 @@
     "via_instance": "https://nitter.cz"
   },
   {
+    "handle": "BarrySilbert",
+    "name": "Barry Silbert",
+    "posted_at": "Fri, 18 Sep 2026 21:51:33 GMT",
+    "title": "RT by @BarrySilbert: He’s exactly right. $TAO and $ZEC are the foundations of a world where you think and save outside the systems of control.",
+    "text": "He’s exactly right. $TAO and $ZEC are the foundations of a world where you think and save outside the systems of control. 𝗗𝗥𝗘𝗔𝗗 𝗕𝗢𝗡𝗚𝗢 (@DreadBong0) I can see why people are comparing $TAO to $ZEC Both have #Bitcoin like scarcity.. 21 million max supply and halvings #Zcash is built around the idea that financial privacy shouldn't depend on permission from an institution.. #Bittensor is built around the idea that advancing intelligence shouldn't depend on permission from a handful of powerful AI labs.. Both use scarce digital assets to incentivise participation in open networks Yes.. Different t",
+    "url": "http://shitter.thepixora.com/GSchvey/status/2101066622459068574#m",
+    "fetched_at": "2026-09-21T22:57:14.693815+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
     "handle": "opentensor",
     "name": "Opentensor Foundation",
     "posted_at": "Fri, 18 Sep 2026 16:56:58 GMT",
@@ -650,6 +920,46 @@
     "via_instance": "https://nitter.cz"
   },
   {
+    "handle": "zeussubnet",
+    "name": "Zeus Subnet",
+    "posted_at": "Fri, 18 Sep 2026 15:57:01 GMT",
+    "title": "NEW! Full-on benchmarking environment to see how Zeus performs, where and when. Zeus vs ECMWF’s IFS & AIFS singles and ensembles, across regions, lead times and variables. 🔗 https://zeussubnet.com/benchmarks",
+    "text": "NEW! Full-on benchmarking environment to see how Zeus performs, where and when. Zeus vs ECMWF’s IFS &amp; AIFS singles and ensembles, across regions, lead times and variables. 🔗 zeussubnet.com/benchmarks",
+    "url": "http://shitter.thepixora.com/zeussubnet/status/2100977402302054430#m",
+    "fetched_at": "2026-09-21T22:59:30.941797+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "BarrySilbert",
+    "name": "Barry Silbert",
+    "posted_at": "Fri, 18 Sep 2026 14:56:49 GMT",
+    "title": "RT by @BarrySilbert: THE BLOCK: Grayscale’s Zcash ETF is already getting a 3-for-1 share split, less than a month after it began trading. $ZCSH has pulled in more than $233 million in net inflows since launch, including $46.6 million on Wednesday.",
+    "text": "THE BLOCK: Grayscale’s Zcash ETF is already getting a 3-for-1 share split, less than a month after it began trading. $ZCSH has pulled in more than $233 million in net inflows since launch, including $46.6 million on Wednesday.",
+    "url": "http://shitter.thepixora.com/TheBlockCo/status/2100962252048248991#m",
+    "fetched_at": "2026-09-21T22:57:14.693815+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "BarrySilbert",
+    "name": "Barry Silbert",
+    "posted_at": "Fri, 18 Sep 2026 14:44:33 GMT",
+    "title": "RT by @BarrySilbert: .@Grayscale $GSNR trading as a trust not an ETF going parabolic $NEAR",
+    "text": ".@Grayscale $GSNR trading as a trust not an ETF going parabolic $NEAR",
+    "url": "http://shitter.thepixora.com/inthepixels/status/2100959165246300288#m",
+    "fetched_at": "2026-09-21T22:57:14.693815+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "zeussubnet",
+    "name": "Zeus Subnet",
+    "posted_at": "Fri, 18 Sep 2026 13:58:38 GMT",
+    "title": "RT by @zeussubnet: Energy Trader, see this benchmark 🫨 Its hard to keep track of the quality of all models, see a benchmark of multiple models on our website; https://zeussubnet.com/benchmarks",
+    "text": "Energy Trader, see this benchmark 🫨 Its hard to keep track of the quality of all models, see a benchmark of multiple models on our website; zeussubnet.com/benchmarks",
+    "url": "http://shitter.thepixora.com/wouterhar/status/2100947610269819060#m",
+    "fetched_at": "2026-09-21T22:59:30.941797+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
     "handle": "PanteraCapital",
     "name": "Pantera Capital",
     "posted_at": "Fri, 18 Sep 2026 13:29:27 GMT",
@@ -657,6 +967,16 @@
     "text": "Digital Asset progress will march on even without the Clarity Act, as the SEC and CFTC keep delivering frameworks for digital assets to succeed - such as the Tokenized Equity innovation exemption launched this week. It's always a pleasure to speak with @KellyCNBC and the @CNBC team. Video",
     "url": "http://shitter.thepixora.com/cosmo_jiang/status/2100940265389211876#m",
     "fetched_at": "2026-09-21T17:37:12.244117+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "BarrySilbert",
+    "name": "Barry Silbert",
+    "posted_at": "Fri, 18 Sep 2026 12:53:57 GMT",
+    "title": "RT by @BarrySilbert: 🚨ZCASH PUMPED SO HARD THE ETF IS ALREADY SPLITTING! $ZCSH only listed on NYSE Arca on Aug. 25 and Grayscale is already doing a 3-for-1 split. One share becomes three after Sept. 28. Value stays the same. The cheaper share makes $ZCSH easier to buy. More buying forces the fund to take in more zcash:native. The share got too expensive too fast because zcash:native ripped, this is what a pump looks like in TradFi.",
+    "text": "🚨ZCASH PUMPED SO HARD THE ETF IS ALREADY SPLITTING! $ZCSH only listed on NYSE Arca on Aug. 25 and Grayscale is already doing a 3-for-1 split. One share becomes three after Sept. 28. Value stays the same. The cheaper share makes $ZCSH easier to buy. More buying forces the fund to take in more zcash:native. The share got too expensive too fast because zcash:native ripped, this is what a pump looks like in TradFi. Video",
+    "url": "http://shitter.thepixora.com/crypto_banter/status/2100931331035111798#m",
+    "fetched_at": "2026-09-21T22:57:14.693815+00:00",
     "via_instance": "https://nitter.cz"
   },
   {
