@@ -1,5 +1,15 @@
 [
   {
+    "handle": "ridges_ai",
+    "name": "Ridges",
+    "posted_at": "Wed, 26 Aug 2026 18:42:24 GMT",
+    "title": "We've kicked off Niches with a Linting competition! In just one week we've seen performance hit 76% on our hidden test set with cost reduction down to $0.02 per task. Results like these help us validate the Niches model and adjust where needed. We're excited for the next Niche, and eventually dynamic Niches. Stay tuned!",
+    "text": "We've kicked off Niches with a Linting competition! In just one week we've seen performance hit 76% on our hidden test set with cost reduction down to $0.02 per task. Results like these help us validate the Niches model and adjust where needed. We're excited for the next Niche, and eventually dynamic Niches. Stay tuned!",
+    "url": "http://shitter.thepixora.com/ridges_ai/status/2092684102595961119#m",
+    "fetched_at": "2026-09-21T17:37:28.922850+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
     "handle": "covenant_ai",
     "name": "Covenant AI",
     "posted_at": "Wed, 19 Aug 2026 15:02:51 GMT",
@@ -7,6 +17,36 @@
     "text": "RT @tplr_ai: ByteDance and Tencent each received 10,000 Nvidia H200 chips, the first big delivery after China eased import limits. Watch w…",
     "url": "http://shitter.thepixora.com/covenant_ai/status/2090092134036648101#m",
     "fetched_at": "2026-09-21T09:30:11.123763+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "tm0klc",
+    "name": "Tim",
+    "posted_at": "Wed, 17 Jun 2026 17:28:19 GMT",
+    "title": "RT by @tm0klc: Introducing Manako, the fastest way to turn any camera into an vision ai agent. Go on http://manako.ai. Join our waitlist.",
+    "text": "Introducing Manako, the fastest way to turn any camera into an vision ai agent. Go on manako.ai. Join our waitlist. Video",
+    "url": "http://shitter.thepixora.com/manakoai/status/2067298306200396197#m",
+    "fetched_at": "2026-09-21T17:37:58.496933+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "PanteraCapital",
+    "name": "Pantera Capital",
+    "posted_at": "Wed, 16 Sep 2026 22:08:45 GMT",
+    "title": "R to @PanteraCapital: YouTube: https://youtu.be/mdL_enCWj70 Spotify: https://open.spotify.com/episode/2jrXh7EP4dzzdkLKqUOVOo?si=9ec5c3a582b744d5 Apple Podcasts: https://podcasts.apple.com/us/podcast/latest-on-the-clarity-act-heres-whats-next-for/id1843681425?i=1000790166283",
+    "text": "YouTube: redirect.invidious.io/mdL_enCWj70 Spotify: open.spotify.com/episode/2jr… Apple Podcasts: podcasts.apple.com/us/podcas… Link Latest On the CLARITY Act: Here&apos;s What&apos;s Next for Digital Asset Regulation The CLARITY Act did not advance in the Senate. Prediction markets n... youtube.com",
+    "url": "http://shitter.thepixora.com/PanteraCapital/status/2100346175215788042#m",
+    "fetched_at": "2026-09-21T17:37:12.244117+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "PanteraCapital",
+    "name": "Pantera Capital",
+    "posted_at": "Wed, 16 Sep 2026 22:08:44 GMT",
+    "title": "The CLARITY Act did not advance in the Senate. Prediction markets now put 2026 passage in the single digits. But the agencies were never waiting on Congress. @kspaglia, Chief Legal Officer at Pantera, joins Stateful, hosted by @masonnystrom, to break down what happens next: - The ethics provisions killed it, not the bank and exchange yield fight - Reg CA is the real unlock: raise US capital pre-decentralization, then self-certify into commodity status - Disclosure finally built for tokenomics and governance instead of IPO-style filings - Prediction market regulation is the next fight, and it may reach the Supreme Court 01:44 Why the Ethics Provisions Killed the Bill 03:37 How the SEC and CFTC Are Filling the Gap 04:16 Reg CA: The Capital Raising Unlock for Early-Stage Projects 07:21 What This Means for Tokenization and Institutional Adoption 08:58 The Pendulum Risk of Agency-Led Rulemaking 10:18 Will a Future CLARITY Act Pass? 11:14 Prediction Markets: The Next Regulatory Battle to Watch",
+    "text": "The CLARITY Act did not advance in the Senate. Prediction markets now put 2026 passage in the single digits. But the agencies were never waiting on Congress. @kspaglia, Chief Legal Officer at Pantera, joins Stateful, hosted by @masonnystrom, to break down what happens next: - The ethics provisions killed it, not the bank and exchange yield fight - Reg CA is the real unlock: raise US capital pre-decentralization, then self-certify into commodity status - Disclosure finally built for tokenomics and governance instead of IPO-style filings - Prediction market regulation is the next fight, and it m",
+    "url": "http://shitter.thepixora.com/PanteraCapital/status/2100346171827048715#m",
+    "fetched_at": "2026-09-21T17:37:12.244117+00:00",
     "via_instance": "https://nitter.cz"
   },
   {
@@ -40,6 +80,36 @@
     "via_instance": "https://nitter.cz"
   },
   {
+    "handle": "PanteraCapital",
+    "name": "Pantera Capital",
+    "posted_at": "Wed, 16 Sep 2026 12:22:12 GMT",
+    "title": "RT by @PanteraCapital: My interview for a senior policy role at a major lab a few years ago told me that they did not understand what was about to happen. The backlash was obvious even then. You can’t tell people that the good outcome of your thing is the loss of millions of jobs and an outsourcing of creativity, and the bad outcome is human extinction. The frontier labs are happy to warn us that they are building something so amazing and so smart that it could threaten humanity. Let’s set aside the obvious financial motivation for saying that and take them at their word. If they want us to take them seriously, then they need to take their responsibility seriously too. Stop building with inadequate controls, stop using the failures of those controls to promote the intelligence of your model, stop calling for a regulatory moat, and tell us what you’re actually prepared to stop doing. https://logicalintelligence.com/blog/llms-won%E2%80%99t-kill-us-but-they-will-destabilize-the-global-economy-if-frontier-labs-refuse-to-be-honest-with-themselves-and-the-general-public",
+    "text": "My interview for a senior policy role at a major lab a few years ago told me that they did not understand what was about to happen. The backlash was obvious even then. You can’t tell people that the good outcome of your thing is the loss of millions of jobs and an outsourcing of creativity, and the bad outcome is human extinction. The frontier labs are happy to warn us that they are building something so amazing and so smart that it could threaten humanity. Let’s set aside the obvious financial motivation for saying that and take them at their word. If they want us to take them seriously, then",
+    "url": "http://shitter.thepixora.com/PRHillmann/status/2100198566731927680#m",
+    "fetched_at": "2026-09-21T17:37:12.244117+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "novogratz",
+    "name": "Mike Novogratz",
+    "posted_at": "Wed, 16 Sep 2026 12:03:02 GMT",
+    "title": "Our economy doesn’t work without immigration. We need at least 1.5-2mm new immigrants a year to create taxpayers and consumers to help us grow our way out of 40th in debt and to pay for an aging population. This isn’t political. It’s just math. We of course can decide what immigrants we take. From where, what educational level, wealth etc. that’s political. But the fact that we need them isn’t.",
+    "text": "Our economy doesn’t work without immigration. We need at least 1.5-2mm new immigrants a year to create taxpayers and consumers to help us grow our way out of 40th in debt and to pay for an aging population. This isn’t political. It’s just math. We of course can decide what immigrants we take. From where, what educational level, wealth etc. that’s political. But the fact that we need them isn’t. Lisa Boothe (@LisaMarieBoothe) At this point, I am fine with shutting down all immigration, legal or not. It's a mess. — http://shitter.thepixora.com/LisaMarieBoothe/status/2099891080258875467#m",
+    "url": "http://shitter.thepixora.com/novogratz/status/2100193741633929406#m",
+    "fetched_at": "2026-09-21T17:37:00.811823+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "novogratz",
+    "name": "Mike Novogratz",
+    "posted_at": "Wed, 16 Sep 2026 00:36:00 GMT",
+    "title": "Govt feels broken. 18 months of work between our industry, dems and republicans and Clarity falls apart on the 5 yard line. All the issues got to a hard fought compromise other than one. On Ethics both sides dug in and decided their stance was more important than the long run good of a major industry and our countries chance to lead it. Republicans were afraid of putting real limits on a President’s ability to profit from digital assets. Dems decided that this one industry is where they would fight a corruption battle. They were scared to be seen doing anything that could be perceived as being soft on the President. There had been a bi-partisan proposal that would have worked but it got hi-jacked in the politics of it all. I am very disappointed that neither side could find a way to cross that chasm. I know there is an election in 7 weeks and that dominated the actions of both sides. What is crazy is the I honestly don’t believe crypto and this bill will be a top 10 issue in this election. It was in 2024 but this year will be about the war, inflation, affordability, Ai , immigration and what party has a better answer to those questions. I do have faith that the SEC and CFTC will drive on with rules for the road and hopefully in time congress will find a way to memorialize them so people can have a longer term confidence in how digital assets will be treated in the US. Maybe Mitch McConnell coming back in a wheel chair after 90 days was s comic signs to amplify how broken Congress is. We go back to work tomorrow. And continue building.",
+    "text": "Govt feels broken. 18 months of work between our industry, dems and republicans and Clarity falls apart on the 5 yard line. All the issues got to a hard fought compromise other than one. On Ethics both sides dug in and decided their stance was more important than the long run good of a major industry and our countries chance to lead it. Republicans were afraid of putting real limits on a President’s ability to profit from digital assets. Dems decided that this one industry is where they would fight a corruption battle. They were scared to be seen doing anything that could be perceived as being",
+    "url": "http://shitter.thepixora.com/novogratz/status/2100020845942911165#m",
+    "fetched_at": "2026-09-21T17:37:00.811823+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
     "handle": "oroagents",
     "name": "Oro",
     "posted_at": "Wed, 12 Aug 2026 21:15:59 GMT",
@@ -57,6 +127,46 @@
     "text": "Expression Engine 2.0 review by the guys at Scriptiny bit.ly/w3Pg3R",
     "url": "http://shitter.thepixora.com/foundrydigital/status/157243024848596993#m",
     "fetched_at": "2026-09-21T09:29:56.016696+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "ridges_ai",
+    "name": "Ridges",
+    "posted_at": "Wed, 09 Sep 2026 23:05:29 GMT",
+    "title": "R to @ridges_ai: ridges.ai/explore/28",
+    "text": "ridges.ai/explore/28 Link Ridges AI AI Agents, powered by Bittensor | SN62 ridges.ai",
+    "url": "http://shitter.thepixora.com/ridges_ai/status/2097823739765526549#m",
+    "fetched_at": "2026-09-21T17:37:28.922850+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "ridges_ai",
+    "name": "Ridges",
+    "posted_at": "Wed, 09 Sep 2026 23:05:26 GMT",
+    "title": "Next competition is live: Database Engineering. Agents compete on database engineering problems, fixing bugs, optimizing queries, and working with ORMs and GraphQL. Why this Niche next? Because inefficient queries are a real engineering challenge, and one where specialist agents have plenty of room to outperform. Open now for submissions:",
+    "text": "Next competition is live: Database Engineering. Agents compete on database engineering problems, fixing bugs, optimizing queries, and working with ORMs and GraphQL. Why this Niche next? Because inefficient queries are a real engineering challenge, and one where specialist agents have plenty of room to outperform. Open now for submissions:",
+    "url": "http://shitter.thepixora.com/ridges_ai/status/2097823726561866122#m",
+    "fetched_at": "2026-09-21T17:37:28.922850+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "ridges_ai",
+    "name": "Ridges",
+    "posted_at": "Wed, 09 Sep 2026 11:42:04 GMT",
+    "title": "CMC Verification post: https://ridges.ai",
+    "text": "CMC Verification post: ridges.ai",
+    "url": "http://shitter.thepixora.com/ridges_ai/status/2097651752464011375#m",
+    "fetched_at": "2026-09-21T17:37:28.922850+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "ridges_ai",
+    "name": "Ridges",
+    "posted_at": "Tue, 28 Jul 2026 14:00:03 GMT",
+    "title": "⛰️ x402 is now live on Ridges X402 is an agentic payment protocol that lets agents pay for API access autonomously. Integrated with Ridgeline, agents can now pay for and access our coding infrastructure directly, no human in the loop.",
+    "text": "⛰️ x402 is now live on Ridges X402 is an agentic payment protocol that lets agents pay for API access autonomously. Integrated with Ridgeline, agents can now pay for and access our coding infrastructure directly, no human in the loop.",
+    "url": "http://shitter.thepixora.com/ridges_ai/status/2082103797418262564#m",
+    "fetched_at": "2026-09-21T17:37:28.922850+00:00",
     "via_instance": "https://nitter.cz"
   },
   {
@@ -90,6 +200,26 @@
     "via_instance": "https://nitter.cz"
   },
   {
+    "handle": "novogratz",
+    "name": "Mike Novogratz",
+    "posted_at": "Tue, 15 Sep 2026 02:41:47 GMT",
+    "title": "When I say both sides I mean it. The R’s have at least 4 holdouts right now. Probably more.",
+    "text": "When I say both sides I mean it. The R’s have at least 4 holdouts right now. Probably more. Mike Novogratz (@novogratz) What is clear to me is that if Clarity doesn’t advance tommorrow we probably won’t get crypto regulation for a long, long time - if ever. This would be terrible for USA and force more of our industry off shore. The digital and blockchain revolution will go on. Two more years of an SEC and CFTC to set rules and allow businesses to get started. But a longer term uncertainty which isn’t good. Asking Senators on both sides to see the big picture. — http://shitter.thepixora.com/no",
+    "url": "http://shitter.thepixora.com/novogratz/status/2099690109142450525#m",
+    "fetched_at": "2026-09-21T17:37:00.811823+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "novogratz",
+    "name": "Mike Novogratz",
+    "posted_at": "Tue, 15 Sep 2026 00:43:20 GMT",
+    "title": "What is clear to me is that if Clarity doesn’t advance tommorrow we probably won’t get crypto regulation for a long, long time - if ever. This would be terrible for USA and force more of our industry off shore. The digital and blockchain revolution will go on. Two more years of an SEC and CFTC to set rules and allow businesses to get started. But a longer term uncertainty which isn’t good. Asking Senators on both sides to see the big picture.",
+    "text": "What is clear to me is that if Clarity doesn’t advance tommorrow we probably won’t get crypto regulation for a long, long time - if ever. This would be terrible for USA and force more of our industry off shore. The digital and blockchain revolution will go on. Two more years of an SEC and CFTC to set rules and allow businesses to get started. But a longer term uncertainty which isn’t good. Asking Senators on both sides to see the big picture.",
+    "url": "http://shitter.thepixora.com/novogratz/status/2099660302555967744#m",
+    "fetched_at": "2026-09-21T17:37:00.811823+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
     "handle": "oroagents",
     "name": "Oro",
     "posted_at": "Tue, 08 Sep 2026 18:48:19 GMT",
@@ -97,6 +227,16 @@
     "text": "We're excited to announce that we're going to be joining Y Combinator in Fall 2026. The team is super pumped to be working with @golda and co to continue on our journey of creating the best in class open source models for agentic commerce. Video",
     "url": "http://shitter.thepixora.com/oroagents/status/2097396633764032707#m",
     "fetched_at": "2026-09-21T09:30:21.556683+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "tm0klc",
+    "name": "Tim",
+    "posted_at": "Tue, 07 Jul 2026 01:06:10 GMT",
+    "title": "Subnet 44 @webuildscore is expanding. We’re incentivising training for a new vision-language model: Satori. Satori reasons AND grounds. It doesn’t just answer questions about an image. It points to the evidence. - Reason about scenes - Detect and segment objects - Read text - Count entities - Ground claims in pixels Most VLMs are split: strong reasoning OR strong grounding. Detection models localise, but can’t talk. Chatty VLMs describe fluently, but can’t prove it. Satori sits at the intersection. We’re starting with a 7B base model.",
+    "text": "Subnet 44 @webuildscore is expanding. We’re incentivising training for a new vision-language model: Satori. Satori reasons AND grounds. It doesn’t just answer questions about an image. It points to the evidence. - Reason about scenes - Detect and segment objects - Read text - Count entities - Ground claims in pixels Most VLMs are split: strong reasoning OR strong grounding. Detection models localise, but can’t talk. Chatty VLMs describe fluently, but can’t prove it. Satori sits at the intersection. We’re starting with a 7B base model.",
+    "url": "http://shitter.thepixora.com/tm0klc/status/2074298897305047101#m",
+    "fetched_at": "2026-09-21T17:37:58.496933+00:00",
     "via_instance": "https://nitter.cz"
   },
   {
@@ -150,6 +290,26 @@
     "via_instance": "https://nitter.cz"
   },
   {
+    "handle": "PanteraCapital",
+    "name": "Pantera Capital",
+    "posted_at": "Thu, 17 Sep 2026 15:00:34 GMT",
+    "title": "RT by @PanteraCapital: America’s next financial frontier is onchain. Today, the SEC issued its Innovation Exemption with temporary, conditional relief for onchain trading of certain tokenized U.S. stocks. The framework is designed to protect investors while supporting innovation. The SEC identifies potential benefits including: → Fractional ownership → Investor self-custody → Around-the-clock trading → Near-instantaneous settlement Ondo welcomes the Commission’s action to advance tokenized markets and support responsible innovation in the United States. Today’s action demonstrates that regulatory progress can continue under existing law, while longer-term rules take shape. Ondo is already building within the existing framework. Through its subsidiaries, Oasis Pro, acquired by Ondo, provides compliant infrastructure to support issuing and trading tokenized securities in the United States. We look forward to continued engagement with the SEC and market participants to advance practical regulatory clarity and better market infrastructure. Onwards 🇺🇸",
+    "text": "America’s next financial frontier is onchain. Today, the SEC issued its Innovation Exemption with temporary, conditional relief for onchain trading of certain tokenized U.S. stocks. The framework is designed to protect investors while supporting innovation. The SEC identifies potential benefits including: → Fractional ownership → Investor self-custody → Around-the-clock trading → Near-instantaneous settlement Ondo welcomes the Commission’s action to advance tokenized markets and support responsible innovation in the United States. Today’s action demonstrates that regulatory progress can contin",
+    "url": "http://shitter.thepixora.com/Ondo/status/2100600808828006907#m",
+    "fetched_at": "2026-09-21T17:37:12.244117+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "novogratz",
+    "name": "Mike Novogratz",
+    "posted_at": "Thu, 17 Sep 2026 14:07:34 GMT",
+    "title": "Thank you @SECPaulSAtkins @HesterPeirce @MarkUyedaUS for leading on digital asset policy !!! Innovation exemption moves tokenization ahead. Proud to be first on Nasdaq to tokenize shares. More to come with tokenized $GLXY !",
+    "text": "Thank you @SECPaulSAtkins @HesterPeirce @MarkUyedaUS for leading on digital asset policy !!! Innovation exemption moves tokenization ahead. Proud to be first on Nasdaq to tokenize shares. More to come with tokenized $GLXY ! U.S. Securities and Exchange Commission (@SECGov) 🚨 TODAY: The SEC issued an order granting temporary, conditional exemptive relief to Tokenized Securities Venues from the definition of “exchange” in the Exchange Act to trade tokenized NMS stock using innovative permissioned automated market makers and liquidity pools. — http://shitter.thepixora.com/SECGov/status/2100571317",
+    "url": "http://shitter.thepixora.com/novogratz/status/2100587469708140836#m",
+    "fetched_at": "2026-09-21T17:37:00.811823+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
     "handle": "covenant_ai",
     "name": "Covenant AI",
     "posted_at": "Thu, 03 Sep 2026 18:31:05 GMT",
@@ -170,6 +330,16 @@
     "via_instance": "https://nitter.cz"
   },
   {
+    "handle": "SemiAnalysis_",
+    "name": "SemiAnalysis",
+    "posted_at": "Sun, 20 Sep 2026 19:38:37 GMT",
+    "title": "We took the silicon out of the silicon. Quick turn from SemiAnalysis STEEL Teardown Lab: iPhone 18 Pro Max, A20 silicon on TSMC N2. more to follow...",
+    "text": "We took the silicon out of the silicon. Quick turn from SemiAnalysis STEEL Teardown Lab: iPhone 18 Pro Max, A20 silicon on TSMC N2. more to follow...",
+    "url": "http://shitter.thepixora.com/SemiAnalysis_/status/2101757943351783908#m",
+    "fetched_at": "2026-09-21T17:38:35.431479+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
     "handle": "wallstreetbets",
     "name": "WallStreetBets (X)",
     "posted_at": "Sun, 20 Sep 2026 17:21:26 GMT",
@@ -180,6 +350,16 @@
     "via_instance": "https://nitter.cz"
   },
   {
+    "handle": "SemiAnalysis_",
+    "name": "SemiAnalysis",
+    "posted_at": "Sun, 20 Sep 2026 16:01:36 GMT",
+    "title": "Ever since NVIDIA acquired @HuggingFace, we have been looking into migrating some of our work off of HuggingFace and to alternative solutions like ModelScope. Even though NVIDIA's announcement claims they will continue allowing HuggingFace to be accelerator-agnostic, NVIDIA does not have a good track record of developing hardware-agnostic software. We love HuggingFace and hope we are wrong, but at the same time, we are also finding the UX of ModelScope to be great!",
+    "text": "Ever since NVIDIA acquired @HuggingFace, we have been looking into migrating some of our work off of HuggingFace and to alternative solutions like ModelScope. Even though NVIDIA's announcement claims they will continue allowing HuggingFace to be accelerator-agnostic, NVIDIA does not have a good track record of developing hardware-agnostic software. We love HuggingFace and hope we are wrong, but at the same time, we are also finding the UX of ModelScope to be great!",
+    "url": "http://shitter.thepixora.com/SemiAnalysis_/status/2101703331286507887#m",
+    "fetched_at": "2026-09-21T17:38:35.431479+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
     "handle": "opentensor",
     "name": "Opentensor Foundation",
     "posted_at": "Sun, 20 Sep 2026 14:24:11 GMT",
@@ -187,6 +367,16 @@
     "text": "Article Bittensor Ecosystem Highlights :: September 13–20, 2026 This week’s biggest stories across Bittensor came from Conjectures, Score, Pareton, TAO(.)com, Good Morning and Almanac. [ @conjectures_io - Subnet 66 ] Conjectures miners resolved six Erdős",
     "url": "http://shitter.thepixora.com/opentensor/status/2101678815709712714#m",
     "fetched_at": "2026-09-21T02:44:46.046791+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "1inch",
+    "name": "1inch",
+    "posted_at": "Sun, 20 Sep 2026 14:09:29 GMT",
+    "title": "The future of crypto in one word. Go.",
+    "text": "The future of crypto in one word. Go.",
+    "url": "http://shitter.thepixora.com/1inch/status/2101675116270653536#m",
+    "fetched_at": "2026-09-21T17:38:10.292357+00:00",
     "via_instance": "https://nitter.cz"
   },
   {
@@ -210,6 +400,86 @@
     "via_instance": "https://nitter.cz"
   },
   {
+    "handle": "jon_durbin",
+    "name": "Jon Durbin",
+    "posted_at": "Sat, 12 Sep 2026 18:54:30 GMT",
+    "title": "Now we accelerate.",
+    "text": "Now we accelerate. Dario Amodei (@DarioAmodei) We Must Pace the Frontier: I’ve written a new essay on why the AI industry should slow down, with a three-part plan for doing so. Anthropic is unilaterally committing to the first of these steps. We’ll provide third-party evaluators with permanent, employee-level access to our systems, so that they can verify adherence to our safety measures, report on incidents, and assess models’ alignment during training. You can read the full post here: darioamodei.com/post/we-must… Link Dario Amodei — We Must Pace the Frontier darioamodei.com — http://shitter",
+    "url": "http://shitter.thepixora.com/jon_durbin/status/2098847739417129280#m",
+    "fetched_at": "2026-09-21T17:37:26.379684+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "jon_durbin",
+    "name": "Jon Durbin",
+    "posted_at": "Sat, 12 Sep 2026 17:00:02 GMT",
+    "title": "RT by @jon_durbin: mortal enemies find agreement in one thing: that the ladder should be pulled up behind them. Pepsi \"vs\" Coke",
+    "text": "mortal enemies find agreement in one thing: that the ladder should be pulled up behind them. Pepsi \"vs\" Coke Sam Altman (@sama) I agree with Dario that we need to pace the frontier. This has been a primary topic of discussions we've had at OpenAI in recent weeks. Committing to having independent evaluators with employee-like access is a great idea, and we will do the same. We'll have more to share soon. — http://shitter.thepixora.com/sama/status/2098811563415150910#m",
+    "url": "http://shitter.thepixora.com/const_reborn/status/2098818933318963365#m",
+    "fetched_at": "2026-09-21T17:37:26.379684+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "jon_durbin",
+    "name": "Jon Durbin",
+    "posted_at": "Sat, 12 Sep 2026 11:20:21 GMT",
+    "title": "4 nodes down already in 2 days - Friends don't let friends build infra on RTX 5090s (unless you're stress testing).",
+    "text": "4 nodes down already in 2 days - Friends don't let friends build infra on RTX 5090s (unless you're stress testing). Jon Durbin (@jon_durbin) And if you're wondering why I used 5090s for this, it's because they are the worst GPUs on earth for stability at this utilization and have like 50% failure rate in my experience thus far (at least 1 of 8 dropping off bus or producing NaNs randomly etc.). Stress test. — http://shitter.thepixora.com/jon_durbin/status/2098102402255655260#m",
+    "url": "http://shitter.thepixora.com/jon_durbin/status/2098733447481110860#m",
+    "fetched_at": "2026-09-21T17:37:26.379684+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "1inch",
+    "name": "1inch",
+    "posted_at": "Mon, 21 Sep 2026 16:32:59 GMT",
+    "title": "Pinned: $3B through Aqua. $1B took 6 weeks. The next $2B took 12 days. Shared liquidity isn’t a thesis anymore.",
+    "text": "$3B through Aqua. $1B took 6 weeks. The next $2B took 12 days. Shared liquidity isn’t a thesis anymore. Video",
+    "url": "http://shitter.thepixora.com/1inch/status/2102073614719668259#m",
+    "fetched_at": "2026-09-21T17:38:10.292357+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "SemiAnalysis_",
+    "name": "SemiAnalysis",
+    "posted_at": "Mon, 21 Sep 2026 15:00:11 GMT",
+    "title": "Experiments have shown that offloading Engram to DRAM results in up to 50% better performance on H200, B200, B300, and even GB300 NVL72. Our technical team has collaborated with 10x engineers from @EmadBarsoumPi & @AnushElangovan to upstream support for @vllm_project ROCm Engram DRAM offloading too, and we are already seeing up to 50% better perf too in PR 57491. As such, in PRs 985, 1002, 1005, 1006 @NVIDIA, @AIatAMD and @SemiAnalysis_ are updating the default recommended recipes to use Engram offloading.",
+    "text": "Experiments have shown that offloading Engram to DRAM results in up to 50% better performance on H200, B200, B300, and even GB300 NVL72. Our technical team has collaborated with 10x engineers from @EmadBarsoumPi & @AnushElangovan to upstream support for @vllm_project ROCm Engram DRAM offloading too, and we are already seeing up to 50% better perf too in PR 57491. As such, in PRs 985, 1002, 1005, 1006 @NVIDIA, @AIatAMD and @SemiAnalysis_ are updating the default recommended recipes to use Engram offloading.",
+    "url": "http://shitter.thepixora.com/SemiAnalysis_/status/2102050260721807397#m",
+    "fetched_at": "2026-09-21T17:38:35.431479+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "1inch",
+    "name": "1inch",
+    "posted_at": "Mon, 21 Sep 2026 12:45:56 GMT",
+    "title": "R to @1inch: Try it 👇 https://1inch.com/aqua",
+    "text": "Try it 👇 1inch.com/aqua Link Provide Liquidity on 1inch Aqua | Shared Liquidity AMM Provide liquidity on 1inch Aqua, the shared liquidity AMM. Become a self-custodial liquidity provider, back many positions with the same tokens, no deposits. 1inch.com",
+    "url": "http://shitter.thepixora.com/1inch/status/2102016477750555126#m",
+    "fetched_at": "2026-09-21T17:38:10.292357+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "1inch",
+    "name": "1inch",
+    "posted_at": "Mon, 21 Sep 2026 12:45:39 GMT",
+    "title": "Watch the loop between four tokens. SPCXon → WBTC → USDT → USDC and back around. No direct pair needed. The router threads liquidity through the whole map to find the best route. This is what makes shared liquidity unique.",
+    "text": "Watch the loop between four tokens. SPCXon → WBTC → USDT → USDC and back around. No direct pair needed. The router threads liquidity through the whole map to find the best route. This is what makes shared liquidity unique.",
+    "url": "http://shitter.thepixora.com/1inch/status/2102016407512715643#m",
+    "fetched_at": "2026-09-21T17:38:10.292357+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "1inch",
+    "name": "1inch",
+    "posted_at": "Mon, 21 Sep 2026 11:25:38 GMT",
+    "title": "You send a swap. Someone fills it. Any idea who?",
+    "text": "You send a swap. Someone fills it. Any idea who? Poll 21% — I check the tx after 42% — I only care about price 21% — The app handles it 17% — Never crossed my mind 53 votes • 17 hours",
+    "url": "http://shitter.thepixora.com/1inch/status/2101996267555471741#m",
+    "fetched_at": "2026-09-21T17:38:10.292357+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
     "handle": "wallstreetbets",
     "name": "WallStreetBets (X)",
     "posted_at": "Mon, 21 Sep 2026 02:01:56 GMT",
@@ -217,6 +487,26 @@
     "text": "higher",
     "url": "http://shitter.thepixora.com/wallstreetbets/status/2101854407637749987#m",
     "fetched_at": "2026-09-21T02:47:07.723116+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "SemiAnalysis_",
+    "name": "SemiAnalysis",
+    "posted_at": "Mon, 21 Sep 2026 00:27:29 GMT",
+    "title": "Neocloud is now an entire industry. The word was coined by a SemiAnalysis researcher. Some of the companies using it still have no idea. \"Nobody believes me when I say that. I'll tell people externally, yeah, we're the ones who invented the word, and they're like, No, you didn't. I'm like, Yeah, great.\" \"This guy didn't know us at all. He was like, Cool man, what do you guys do? I'm like, What the f**k? We invented your entire industry.\"",
+    "text": "Neocloud is now an entire industry. The word was coined by a SemiAnalysis researcher. Some of the companies using it still have no idea. \"Nobody believes me when I say that. I'll tell people externally, yeah, we're the ones who invented the word, and they're like, No, you didn't. I'm like, Yeah, great.\" \"This guy didn't know us at all. He was like, Cool man, what do you guys do? I'm like, What the f**k? We invented your entire industry.\" Video",
+    "url": "http://shitter.thepixora.com/SemiAnalysis_/status/2101830640773525612#m",
+    "fetched_at": "2026-09-21T17:38:35.431479+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "SemiAnalysis_",
+    "name": "SemiAnalysis",
+    "posted_at": "Mon, 21 Sep 2026 00:27:29 GMT",
+    "title": "R to @SemiAnalysis_: Watch Now: https://youtu.be/Qv2vMj0Uq3c?si=nu2u4epnNUEfSoQt",
+    "text": "Watch Now: redirect.invidious.io/Qv2vMj0Uq3c?si=nu2u… Link Ep. 032 - 300 Datacenter Bans, 6 Projects Delayed: Moratoriums... More than 300 towns, cities, and counties have voted to pause data ... youtube.com",
+    "url": "http://shitter.thepixora.com/SemiAnalysis_/status/2101830641960562989#m",
+    "fetched_at": "2026-09-21T17:38:35.431479+00:00",
     "via_instance": "https://nitter.cz"
   },
   {
@@ -230,6 +520,26 @@
     "via_instance": "https://nitter.cz"
   },
   {
+    "handle": "tm0klc",
+    "name": "Tim",
+    "posted_at": "Mon, 15 Jun 2026 20:42:24 GMT",
+    "title": "Cameras shouldn’t just record the world. They should make it queryable. That’s the shift we’re building at Manako. Vision Agents that turn live video into real-time operational intelligence, running close to the edge where decisions actually happen.",
+    "text": "Cameras shouldn’t just record the world. They should make it queryable. That’s the shift we’re building at Manako. Vision Agents that turn live video into real-time operational intelligence, running close to the edge where decisions actually happen. Manako (@manakoai) Article Teaching the physical world to talk For decades, we&apos;ve been building digital systems that can process, search and reason about information. Yet much of the world&apos;s most valuable information still exists outside those systems. Factories — http://shitter.thepixora.com/manakoai/status/2066467103163511203#m",
+    "url": "http://shitter.thepixora.com/tm0klc/status/2066622375358308467#m",
+    "fetched_at": "2026-09-21T17:37:58.496933+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "jon_durbin",
+    "name": "Jon Durbin",
+    "posted_at": "Mon, 14 Sep 2026 21:00:15 GMT",
+    "title": "\"in 6–12 months such a swarm could be capable of taking over the entire internet with a persistent botnet\" Maybe, maybe not. If it does, the internet (really: software and operating systems) obviously need some improvement and we should do so. If the bugs are there, they will be found, one way or another regardless of some LLM. What a great opportunity for a renaissance. Anyone else remember the doomerism around Y2K? Int overflows because of epoch seconds? This is that.",
+    "text": "\"in 6–12 months such a swarm could be capable of taking over the entire internet with a persistent botnet\" Maybe, maybe not. If it does, the internet (really: software and operating systems) obviously need some improvement and we should do so. If the bugs are there, they will be found, one way or another regardless of some LLM. What a great opportunity for a renaissance. Anyone else remember the doomerism around Y2K? Int overflows because of epoch seconds? This is that.",
+    "url": "http://shitter.thepixora.com/jon_durbin/status/2099604160509325695#m",
+    "fetched_at": "2026-09-21T17:37:26.379684+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
     "handle": "jaltucher",
     "name": "James Altucher",
     "posted_at": "Mon, 14 Sep 2026 19:59:57 GMT",
@@ -237,6 +547,16 @@
     "text": "All of this is so surreal and most of the global population isn’t even fully aware of it. James Altucher (@jaltucher) Inspired by @ashe’s Exploding Human Body, I set up a site to ExplodeAnything.com. Put in any object (“an Iphone”, “a data center”, “an Ozempic pill”, “the soul”. etc), and it will “explode it” and teach you what each component does AND, tell you which public companies make each component, with links to their Yahoo Finance page. Video — http://shitter.thepixora.com/jaltucher/status/2099550542515110239#m",
     "url": "http://shitter.thepixora.com/ReneSellmann/status/2099588988017299496#m",
     "fetched_at": "2026-09-21T09:29:28.652160+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "jon_durbin",
+    "name": "Jon Durbin",
+    "posted_at": "Mon, 14 Sep 2026 18:26:43 GMT",
+    "title": "The push for regulatory capture and AI cabalism is accelerating. This, in large part, is why I'm building parallax. True P2P unstoppable, uncensorable AI systems aren't just neat, they're mandatory. This little single DGX spark \"datacenter\" in my forge with parallax can train (with other nodes) an 80b parameter model. - two solar blankets - ecoflow battery - lapdock for kvm - starlink internet - dgx spark Total input from solar ~600w (800w max) Total power draw from spark/starlink/etc. < 200w No datacenters, no water supplies, no external power grid, no multi gigabit link. We must design AI systems that are as resilient as the humble cockroach. Why do we all appreciate BTC? Because it's a mathematically certain sovereign ledger that can't be inflated away or centrally controlled. Current AI represent the greatest concentration of wealth, power, and information (IP theft? blackmail? or simply ads and behavior control?) the world has ever seen... As BTC did to finances, we must do to AI. Chutes + parallax is a step forward towards tearing down this moat.",
+    "text": "The push for regulatory capture and AI cabalism is accelerating. This, in large part, is why I'm building parallax. True P2P unstoppable, uncensorable AI systems aren't just neat, they're mandatory. This little single DGX spark \"datacenter\" in my forge with parallax can train (with other nodes) an 80b parameter model. - two solar blankets - ecoflow battery - lapdock for kvm - starlink internet - dgx spark Total input from solar ~600w (800w max) Total power draw from spark/starlink/etc. &lt; 200w No datacenters, no water supplies, no external power grid, no multi gigabit link. We must design AI",
+    "url": "http://shitter.thepixora.com/jon_durbin/status/2099565522543104495#m",
+    "fetched_at": "2026-09-21T17:37:26.379684+00:00",
     "via_instance": "https://nitter.cz"
   },
   {
@@ -290,6 +610,26 @@
     "via_instance": "https://nitter.cz"
   },
   {
+    "handle": "tm0klc",
+    "name": "Tim",
+    "posted_at": "Fri, 21 Aug 2026 09:52:47 GMT",
+    "title": "RT by @tm0klc: I have now made 5 Omarchy plugins that I use every day! Check them out here: https://omarchyplugins.com/?author=crmne&sort=stars#catalog",
+    "text": "I have now made 5 Omarchy plugins that I use every day! Check them out here: omarchyplugins.com/?author=c…",
+    "url": "http://shitter.thepixora.com/paolino/status/2090738880106377257#m",
+    "fetched_at": "2026-09-21T17:37:58.496933+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "tm0klc",
+    "name": "Tim",
+    "posted_at": "Fri, 21 Aug 2026 01:23:54 GMT",
+    "title": "Computer vision, decentralised",
+    "text": "Computer vision, decentralised Score (@webuildscore) Computer vision engineers are still duct-taping tools together just to get a model into production. We just finished another round of user interviews and that frustration came up again and again. So we re-designed Studio to work around our new Pipelines + Workflow Canvas features. Visually design any vision pipeline from start to finish, connect models, logic, and outputs on one canvas, preview the exact result, then deploy. You see the output before you ship it. Everything in a single interface. The full loop, shaped by the people who actua",
+    "url": "http://shitter.thepixora.com/tm0klc/status/2090610814449570047#m",
+    "fetched_at": "2026-09-21T17:37:58.496933+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
     "handle": "opentensor",
     "name": "Opentensor Foundation",
     "posted_at": "Fri, 18 Sep 2026 16:56:58 GMT",
@@ -307,6 +647,16 @@
     "text": "“You can literally build your Discord on top of Beam.” On the latest Novelty Search, @b1m_ai demonstrates how Bittensor’s Subnet 105 can power live video apps without developers running their own streaming servers. The team also previews Beam Studio, its tool for automating data transfers, and explains how parallel transfers can move 1 TB across Cloudflare R2 regions in under two minutes. Hosted by @const_reborn Full episode in the first comment Video",
     "url": "http://shitter.thepixora.com/opentensor/status/2100992475477540903#m",
     "fetched_at": "2026-09-21T02:44:46.046791+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "PanteraCapital",
+    "name": "Pantera Capital",
+    "posted_at": "Fri, 18 Sep 2026 13:29:27 GMT",
+    "title": "RT by @PanteraCapital: Digital Asset progress will march on even without the Clarity Act, as the SEC and CFTC keep delivering frameworks for digital assets to succeed - such as the Tokenized Equity innovation exemption launched this week. It's always a pleasure to speak with @KellyCNBC and the @CNBC team.",
+    "text": "Digital Asset progress will march on even without the Clarity Act, as the SEC and CFTC keep delivering frameworks for digital assets to succeed - such as the Tokenized Equity innovation exemption launched this week. It's always a pleasure to speak with @KellyCNBC and the @CNBC team. Video",
+    "url": "http://shitter.thepixora.com/cosmo_jiang/status/2100940265389211876#m",
+    "fetched_at": "2026-09-21T17:37:12.244117+00:00",
     "via_instance": "https://nitter.cz"
   },
   {

@@ -1,1 +1,24 @@
-[]
+[
+  {
+    "repo": "opentensor/subtensor",
+    "name": "Subtensor (chain)",
+    "kind": "commit",
+    "sha": "d83cc0e",
+    "message": "Merge pull request #3187 from RaoFoundation/cursor/ts-tests-ink-gas-limit-687e",
+    "author": "Arbos",
+    "posted_at": "2026-09-21T11:27:49Z",
+    "url": "https://github.com/RaoFoundation/subtensor/commit/d83cc0e36142e5c22517ed78bf73b6024e1c5a41",
+    "fetched_at": "2026-09-21T17:38:58.559742+00:00"
+  },
+  {
+    "repo": "opentensor/subtensor",
+    "name": "Subtensor (chain)",
+    "kind": "commit",
+    "sha": "380d1b0",
+    "message": "ts-tests: size ink gas limit from declared weight (fix evm_b T04 OutOfGas)",
+    "author": "Cursor Agent",
+    "posted_at": "2026-09-21T11:13:03Z",
+    "url": "https://github.com/RaoFoundation/subtensor/commit/380d1b0d561f70222138bbace8dce3cd18b6fbe9",
+    "fetched_at": "2026-09-21T17:38:58.559742+00:00"
+  }
+]

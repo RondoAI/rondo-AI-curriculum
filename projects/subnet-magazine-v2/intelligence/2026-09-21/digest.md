@@ -134,7 +134,10 @@ _OpenAI’s self-designed ASIC compared with Rubin, Jalapeño’s TCO, throughpu
 
 ## ⊕ GITHUB COMMITS + RELEASES, last 24h
 
-_no commits or releases in the lookback window_
+- **Subtensor (chain)** (COMMIT `d83cc0e`, 2026-09-21 11:27) Merge pull request #3187 from RaoFoundation/cursor/ts-tests-ink-gas-limit-687e  
+  https://github.com/RaoFoundation/subtensor/commit/d83cc0e36142e5c22517ed78bf73b6024e1c5a41
+- **Subtensor (chain)** (COMMIT `380d1b0`, 2026-09-21 11:13) ts-tests: size ink gas limit from declared weight (fix evm_b T04 OutOfGas)  
+  https://github.com/RaoFoundation/subtensor/commit/380d1b0d561f70222138bbace8dce3cd18b6fbe9
 
 ## ⊕ ECOSYSTEM BLOGS via RSS
 
@@ -142,26 +145,54 @@ _no new posts in the lookback window_
 
 ## ⊕ X via NITTER, voices we track
 
+- @ridges_ai (Ridges, Wed, 26 Aug 2026): We've kicked off Niches with a Linting competition! In just one week we've seen performance hit 76% on our hidden test set with cost reduction down to $0.02 per task. Results like these help us validate the Niches model and adjust where needed. We're excited for the next Niche, and eventually dynamic Niches. Stay tuned!  
+  http://shitter.thepixora.com/ridges_ai/status/2092684102595961119#m
 - @covenant_ai (Covenant AI, Wed, 19 Aug 2026): RT @tplr_ai: ByteDance and Tencent each received 10,000 Nvidia H200 chips, the first big delivery after China eased import limits. Watch w…  
   http://shitter.thepixora.com/covenant_ai/status/2090092134036648101#m
+- @tm0klc (Tim, Wed, 17 Jun 2026): Introducing Manako, the fastest way to turn any camera into an vision ai agent. Go on manako.ai. Join our waitlist. Video  
+  http://shitter.thepixora.com/manakoai/status/2067298306200396197#m
+- @PanteraCapital (Pantera Capital, Wed, 16 Sep 2026): YouTube: redirect.invidious.io/mdL_enCWj70 Spotify: open.spotify.com/episode/2jr… Apple Podcasts: podcasts.apple.com/us/podcas… Link Latest On the CLARITY Act: Here&apos;s What&apos;s Next for Digital Asset Regulation The CLARITY Act did not advance in the Senate. Prediction markets n... youtube.com  
+  http://shitter.thepixora.com/PanteraCapital/status/2100346175215788042#m
+- @PanteraCapital (Pantera Capital, Wed, 16 Sep 2026): The CLARITY Act did not advance in the Senate. Prediction markets now put 2026 passage in the single digits. But the agencies were never waiting on Congress. @kspaglia, Chief Legal Officer at Pantera, joins Stateful, hosted by @masonnystrom, to break down what happens next: - The ethics provisions killed it, not the bank and exchange yield fight - Reg CA is the real unlock: raise US capital pre-decentralization, then self-certify into commodity status - Disclosure finally built for tokenomics and governance instead of IPO-style filings - Prediction market regulation is the next fight, and it m  
+  http://shitter.thepixora.com/PanteraCapital/status/2100346171827048715#m
 - @jaltucher (James Altucher, Wed, 16 Sep 2026): Working on an AI-powered end to end platform for designing optical and then quantum chips at $QCLS. More details and refinements later but you can check it out at VibeGDS.io - you just enter plain English for the chip you want and it will build it out, simulate, verify, etc. Of interest mostly to optical engineers.  
   http://shitter.thepixora.com/jaltucher/status/2100262449685364904#m
 - @covenant_ai (Covenant AI, Wed, 16 Sep 2026): We’ve been researching fault tolerance in Crucible, Templar’s pre-training platform. The goal: keep training through node failures and make better use of unreliable workers and spot instances, without idling an entire model replica when one stage goes down. 1/n Video  
   http://shitter.thepixora.com/tplr_ai/status/2100237708186550642#m
 - @opentensor (Opentensor Foundation, Wed, 16 Sep 2026): Pareton miners found it, vLLM merged it. An optimization from our Qwen campaign on #Bittensor SN10 is now upstream in @vllm_project: ~4% more throughput at batch 4–8 for Qwen3.8 with MTP speculative decoding. Open competition → open-source wins. PR: github.com/vllm-project/vllm… 1/5  
   http://shitter.thepixora.com/Pareton_ai/status/2100230731368661046#m
+- @PanteraCapital (Pantera Capital, Wed, 16 Sep 2026): My interview for a senior policy role at a major lab a few years ago told me that they did not understand what was about to happen. The backlash was obvious even then. You can’t tell people that the good outcome of your thing is the loss of millions of jobs and an outsourcing of creativity, and the bad outcome is human extinction. The frontier labs are happy to warn us that they are building something so amazing and so smart that it could threaten humanity. Let’s set aside the obvious financial motivation for saying that and take them at their word. If they want us to take them seriously, then  
+  http://shitter.thepixora.com/PRHillmann/status/2100198566731927680#m
+- @novogratz (Mike Novogratz, Wed, 16 Sep 2026): Our economy doesn’t work without immigration. We need at least 1.5-2mm new immigrants a year to create taxpayers and consumers to help us grow our way out of 40th in debt and to pay for an aging population. This isn’t political. It’s just math. We of course can decide what immigrants we take. From where, what educational level, wealth etc. that’s political. But the fact that we need them isn’t. Lisa Boothe (@LisaMarieBoothe) At this point, I am fine with shutting down all immigration, legal or not. It's a mess. — http://shitter.thepixora.com/LisaMarieBoothe/status/2099891080258875467#m  
+  http://shitter.thepixora.com/novogratz/status/2100193741633929406#m
+- @novogratz (Mike Novogratz, Wed, 16 Sep 2026): Govt feels broken. 18 months of work between our industry, dems and republicans and Clarity falls apart on the 5 yard line. All the issues got to a hard fought compromise other than one. On Ethics both sides dug in and decided their stance was more important than the long run good of a major industry and our countries chance to lead it. Republicans were afraid of putting real limits on a President’s ability to profit from digital assets. Dems decided that this one industry is where they would fight a corruption battle. They were scared to be seen doing anything that could be perceived as being  
+  http://shitter.thepixora.com/novogratz/status/2100020845942911165#m
 - @oroagents (Oro, Wed, 12 Aug 2026): The model also reached 53.3% pass@8 versus 34.8% pass@1. That gap tells us the capability is already latent in the model. The remaining challenge is consistently extracting it. A dense teacher-grounded Dr. GRPO reward improved the process score from 0.02 to 0.42 and cut product-ID hallucinations from 14 to zero.  
   http://shitter.thepixora.com/oroagents/status/2087649319822512258#m
 - @foundrydigital (Foundry Digital, Wed, 11 Jan 2012): Expression Engine 2.0 review by the guys at Scriptiny bit.ly/w3Pg3R  
   http://shitter.thepixora.com/foundrydigital/status/157243024848596993#m
+- @ridges_ai (Ridges, Wed, 09 Sep 2026): ridges.ai/explore/28 Link Ridges AI AI Agents, powered by Bittensor | SN62 ridges.ai  
+  http://shitter.thepixora.com/ridges_ai/status/2097823739765526549#m
+- @ridges_ai (Ridges, Wed, 09 Sep 2026): Next competition is live: Database Engineering. Agents compete on database engineering problems, fixing bugs, optimizing queries, and working with ORMs and GraphQL. Why this Niche next? Because inefficient queries are a real engineering challenge, and one where specialist agents have plenty of room to outperform. Open now for submissions:  
+  http://shitter.thepixora.com/ridges_ai/status/2097823726561866122#m
+- @ridges_ai (Ridges, Wed, 09 Sep 2026): CMC Verification post: ridges.ai  
+  http://shitter.thepixora.com/ridges_ai/status/2097651752464011375#m
+- @ridges_ai (Ridges, Tue, 28 Jul 2026): ⛰️ x402 is now live on Ridges X402 is an agentic payment protocol that lets agents pay for API access autonomously. Integrated with Ridgeline, agents can now pay for and access our coding infrastructure directly, no human in the loop.  
+  http://shitter.thepixora.com/ridges_ai/status/2082103797418262564#m
 - @covenant_ai (Covenant AI, Tue, 25 Aug 2026): Templar's work reduces to one question. How much of the machine-learning lifecycle can run across ordinary networks instead of a single datacentre? Pre-training answered first, with Covenant-72B as the proof at scale. Post-training followed through our communication-efficiency research. Serving open models on distributed hardware is the piece we are working on now, and it is the one that puts the whole arc in front of users. The internet is the datacentre.  
   http://shitter.thepixora.com/tplr_ai/status/2092267948765237743#m
 - @oroagents (Oro, Tue, 18 Aug 2026): The ORO team has purchased 2500 Tao worth of SN15 alpha with the help of @CrucibleLabs. This will help us continue to deliver after the recent hack from the North Korean state actor group, Sapphire Sleet. Up and onwards 🚀  
   http://shitter.thepixora.com/oroagents/status/2089825274133381136#m
 - @jaltucher (James Altucher, Tue, 15 Sep 2026): Q/C Technologies has appointed Yossef Ehrlichman, Ph.D., as Chief Technology Officer to lead the company’s optical processing unit program and overall technology strategy. Learn more: bit.ly/4xXk2ik $QCLS  
   http://shitter.thepixora.com/Q_CTechnologies/status/2099856104670859351#m
+- @novogratz (Mike Novogratz, Tue, 15 Sep 2026): When I say both sides I mean it. The R’s have at least 4 holdouts right now. Probably more. Mike Novogratz (@novogratz) What is clear to me is that if Clarity doesn’t advance tommorrow we probably won’t get crypto regulation for a long, long time - if ever. This would be terrible for USA and force more of our industry off shore. The digital and blockchain revolution will go on. Two more years of an SEC and CFTC to set rules and allow businesses to get started. But a longer term uncertainty which isn’t good. Asking Senators on both sides to see the big picture. — http://shitter.thepixora.com/no  
+  http://shitter.thepixora.com/novogratz/status/2099690109142450525#m
+- @novogratz (Mike Novogratz, Tue, 15 Sep 2026): What is clear to me is that if Clarity doesn’t advance tommorrow we probably won’t get crypto regulation for a long, long time - if ever. This would be terrible for USA and force more of our industry off shore. The digital and blockchain revolution will go on. Two more years of an SEC and CFTC to set rules and allow businesses to get started. But a longer term uncertainty which isn’t good. Asking Senators on both sides to see the big picture.  
+  http://shitter.thepixora.com/novogratz/status/2099660302555967744#m
 - @oroagents (Oro, Tue, 08 Sep 2026): We're excited to announce that we're going to be joining Y Combinator in Fall 2026. The team is super pumped to be working with @golda and co to continue on our journey of creating the best in class open source models for agentic commerce. Video  
   http://shitter.thepixora.com/oroagents/status/2097396633764032707#m
+- @tm0klc (Tim, Tue, 07 Jul 2026): Subnet 44 @webuildscore is expanding. We’re incentivising training for a new vision-language model: Satori. Satori reasons AND grounds. It doesn’t just answer questions about an image. It points to the evidence. - Reason about scenes - Detect and segment objects - Read text - Count entities - Ground claims in pixels Most VLMs are split: strong reasoning OR strong grounding. Detection models localise, but can’t talk. Chatty VLMs describe fluently, but can’t prove it. Satori sits at the intersection. We’re starting with a 7B base model.  
+  http://shitter.thepixora.com/tm0klc/status/2074298897305047101#m
 - @affine_io (Affine, Tue, 01 Sep 2026): Everything you need to compete is public: affine.io/llms.txt  
   http://shitter.thepixora.com/affine_io/status/2094801258016370976#m
 - @affine_io (Affine, Tue, 01 Sep 2026): Video  
@@ -172,41 +203,49 @@ _no new posts in the lookback window_
   http://shitter.thepixora.com/oroagents/status/2090533835192893616#m
 - @opentensor (Opentensor Foundation, Thu, 17 Sep 2026): Novelty Search // Bittensor Subnet 105 Beam :: The Bandwidth Subnet shitter.thepixora.com/i/broadcasts/1rxmqpmwA… Link Openτensor Foundaτion Novelty Search // Bittensor Subnet 105 Beam :: The Bandwidth Subnet http://shitter.thepixora.com/i/broadcasts/1rxmqpmwAykxy  
   http://shitter.thepixora.com/opentensor/status/2100692690405036129#m
+- @PanteraCapital (Pantera Capital, Thu, 17 Sep 2026): America’s next financial frontier is onchain. Today, the SEC issued its Innovation Exemption with temporary, conditional relief for onchain trading of certain tokenized U.S. stocks. The framework is designed to protect investors while supporting innovation. The SEC identifies potential benefits including: → Fractional ownership → Investor self-custody → Around-the-clock trading → Near-instantaneous settlement Ondo welcomes the Commission’s action to advance tokenized markets and support responsible innovation in the United States. Today’s action demonstrates that regulatory progress can contin  
+  http://shitter.thepixora.com/Ondo/status/2100600808828006907#m
+- @novogratz (Mike Novogratz, Thu, 17 Sep 2026): Thank you @SECPaulSAtkins @HesterPeirce @MarkUyedaUS for leading on digital asset policy !!! Innovation exemption moves tokenization ahead. Proud to be first on Nasdaq to tokenize shares. More to come with tokenized $GLXY ! U.S. Securities and Exchange Commission (@SECGov) 🚨 TODAY: The SEC issued an order granting temporary, conditional exemptive relief to Tokenized Securities Venues from the definition of “exchange” in the Exchange Act to trade tokenized NMS stock using innovative permissioned automated market makers and liquidity pools. — http://shitter.thepixora.com/SECGov/status/2100571317  
+  http://shitter.thepixora.com/novogratz/status/2100587469708140836#m
 - @covenant_ai (Covenant AI, Thu, 03 Sep 2026): Crucible, Templar's pre-training platform, has completed its first production end-to-end training runs. The latest trained an 8B model on 50.53B tokens across 48 distributed A100s, at an estimated $0.1202 per million tokens of GPU rental. The run reached 48.3% effective MFU. At AWS p4de Capacity Blocks pricing, a 48-A100 cluster operating at the literature-derived 65% compute ceiling comes to an estimated $0.1686 per million tokens. Crucible's measured $0.1202 was about 29% lower after its low-bandwidth overhead. The comparison excludes R2 storage and operations. The full writeup shows the met  
   http://shitter.thepixora.com/tplr_ai/status/2095580357626110111#m
 - @wallstreetbets (WallStreetBets (X), Sun, 20 Sep 2026): buy high sell low Watcher.Guru (@WatcherGuru) YouTuber Logan Paul purchased this NFT for $635,000 in 2021. Today, it's worth $96. — http://shitter.thepixora.com/WatcherGuru/status/2101791102768419047#m  
   http://shitter.thepixora.com/wallstreetbets/status/2101821468271075639#m
+- @SemiAnalysis_ (SemiAnalysis, Sun, 20 Sep 2026): We took the silicon out of the silicon. Quick turn from SemiAnalysis STEEL Teardown Lab: iPhone 18 Pro Max, A20 silicon on TSMC N2. more to follow...  
+  http://shitter.thepixora.com/SemiAnalysis_/status/2101757943351783908#m
 - @wallstreetbets (WallStreetBets (X), Sun, 20 Sep 2026): free btc at 80k is crazy BTC (@btc) Market's doing market things this week 📉📈 Faucet doesn't care. Still flowing. Follow @btc and @tetherwallet Reply here with your @tether.me handle Priority to first-timers and the long-thirsty. — http://shitter.thepixora.com/btc/status/2100919491202896234#m  
   http://shitter.thepixora.com/wallstreetbets/status/2101723420002058264#m
+- @SemiAnalysis_ (SemiAnalysis, Sun, 20 Sep 2026): Ever since NVIDIA acquired @HuggingFace, we have been looking into migrating some of our work off of HuggingFace and to alternative solutions like ModelScope. Even though NVIDIA's announcement claims they will continue allowing HuggingFace to be accelerator-agnostic, NVIDIA does not have a good track record of developing hardware-agnostic software. We love HuggingFace and hope we are wrong, but at the same time, we are also finding the UX of ModelScope to be great!  
+  http://shitter.thepixora.com/SemiAnalysis_/status/2101703331286507887#m
 - @opentensor (Opentensor Foundation, Sun, 20 Sep 2026): Article Bittensor Ecosystem Highlights :: September 13–20, 2026 This week’s biggest stories across Bittensor came from Conjectures, Score, Pareton, TAO(.)com, Good Morning and Almanac. [ @conjectures_io - Subnet 66 ] Conjectures miners resolved six Erdős  
   http://shitter.thepixora.com/opentensor/status/2101678815709712714#m
+- @1inch (1inch, Sun, 20 Sep 2026): The future of crypto in one word. Go.  
+  http://shitter.thepixora.com/1inch/status/2101675116270653536#m
 - @wallstreetbets (WallStreetBets (X), Sat, 19 Sep 2026): trying leverage for the first time be like Video  
   http://shitter.thepixora.com/wallstreetbets/status/2101439876998512663#m
 - @wallstreetbets (WallStreetBets (X), Sat, 19 Sep 2026): privacy szn  
   http://shitter.thepixora.com/wallstreetbets/status/2101358144634974551#m
+- @jon_durbin (Jon Durbin, Sat, 12 Sep 2026): Now we accelerate. Dario Amodei (@DarioAmodei) We Must Pace the Frontier: I’ve written a new essay on why the AI industry should slow down, with a three-part plan for doing so. Anthropic is unilaterally committing to the first of these steps. We’ll provide third-party evaluators with permanent, employee-level access to our systems, so that they can verify adherence to our safety measures, report on incidents, and assess models’ alignment during training. You can read the full post here: darioamodei.com/post/we-must… Link Dario Amodei — We Must Pace the Frontier darioamodei.com — http://shitter  
+  http://shitter.thepixora.com/jon_durbin/status/2098847739417129280#m
+- @jon_durbin (Jon Durbin, Sat, 12 Sep 2026): mortal enemies find agreement in one thing: that the ladder should be pulled up behind them. Pepsi "vs" Coke Sam Altman (@sama) I agree with Dario that we need to pace the frontier. This has been a primary topic of discussions we've had at OpenAI in recent weeks. Committing to having independent evaluators with employee-like access is a great idea, and we will do the same. We'll have more to share soon. — http://shitter.thepixora.com/sama/status/2098811563415150910#m  
+  http://shitter.thepixora.com/const_reborn/status/2098818933318963365#m
+- @jon_durbin (Jon Durbin, Sat, 12 Sep 2026): 4 nodes down already in 2 days - Friends don't let friends build infra on RTX 5090s (unless you're stress testing). Jon Durbin (@jon_durbin) And if you're wondering why I used 5090s for this, it's because they are the worst GPUs on earth for stability at this utilization and have like 50% failure rate in my experience thus far (at least 1 of 8 dropping off bus or producing NaNs randomly etc.). Stress test. — http://shitter.thepixora.com/jon_durbin/status/2098102402255655260#m  
+  http://shitter.thepixora.com/jon_durbin/status/2098733447481110860#m
+- @1inch (1inch, Mon, 21 Sep 2026): $3B through Aqua. $1B took 6 weeks. The next $2B took 12 days. Shared liquidity isn’t a thesis anymore. Video  
+  http://shitter.thepixora.com/1inch/status/2102073614719668259#m
+- @SemiAnalysis_ (SemiAnalysis, Mon, 21 Sep 2026): Experiments have shown that offloading Engram to DRAM results in up to 50% better performance on H200, B200, B300, and even GB300 NVL72. Our technical team has collaborated with 10x engineers from @EmadBarsoumPi & @AnushElangovan to upstream support for @vllm_project ROCm Engram DRAM offloading too, and we are already seeing up to 50% better perf too in PR 57491. As such, in PRs 985, 1002, 1005, 1006 @NVIDIA, @AIatAMD and @SemiAnalysis_ are updating the default recommended recipes to use Engram offloading.  
+  http://shitter.thepixora.com/SemiAnalysis_/status/2102050260721807397#m
+- @1inch (1inch, Mon, 21 Sep 2026): Try it 👇 1inch.com/aqua Link Provide Liquidity on 1inch Aqua | Shared Liquidity AMM Provide liquidity on 1inch Aqua, the shared liquidity AMM. Become a self-custodial liquidity provider, back many positions with the same tokens, no deposits. 1inch.com  
+  http://shitter.thepixora.com/1inch/status/2102016477750555126#m
+- @1inch (1inch, Mon, 21 Sep 2026): Watch the loop between four tokens. SPCXon → WBTC → USDT → USDC and back around. No direct pair needed. The router threads liquidity through the whole map to find the best route. This is what makes shared liquidity unique.  
+  http://shitter.thepixora.com/1inch/status/2102016407512715643#m
+- @1inch (1inch, Mon, 21 Sep 2026): You send a swap. Someone fills it. Any idea who? Poll 21% — I check the tx after 42% — I only care about price 21% — The app handles it 17% — Never crossed my mind 53 votes • 17 hours  
+  http://shitter.thepixora.com/1inch/status/2101996267555471741#m
 - @wallstreetbets (WallStreetBets (X), Mon, 21 Sep 2026): higher  
   http://shitter.thepixora.com/wallstreetbets/status/2101854407637749987#m
-- @oroagents (Oro, Mon, 17 Aug 2026): AI models are poised and ready. But the training data isn't. So @shardiban manufactures it. @oroagents turns agent tasks into a competition, and the best runs become the data the next generation learns from. Ex- @AWS, early decentralized-AI researcher, now proving it on commerce. You don't need to know Bittensor to care - if you build agents, this is your problem too. He's on the Exploit stage this September: luma.com/exploitsummit26 Video  
-  http://shitter.thepixora.com/ExploitSummit/status/2089373953769025843#m
-- @jaltucher (James Altucher, Mon, 14 Sep 2026): All of this is so surreal and most of the global population isn’t even fully aware of it. James Altucher (@jaltucher) Inspired by @ashe’s Exploding Human Body, I set up a site to ExplodeAnything.com. Put in any object (“an Iphone”, “a data center”, “an Ozempic pill”, “the soul”. etc), and it will “explode it” and teach you what each component does AND, tell you which public companies make each component, with links to their Yahoo Finance page. Video — http://shitter.thepixora.com/jaltucher/status/2099550542515110239#m  
-  http://shitter.thepixora.com/ReneSellmann/status/2099588988017299496#m
-- @jaltucher (James Altucher, Mon, 14 Sep 2026): Inspired by @ashe’s Exploding Human Body, I set up a site to ExplodeAnything.com. Put in any object (“an Iphone”, “a data center”, “an Ozempic pill”, “the soul”. etc), and it will “explode it” and teach you what each component does AND, tell you which public companies make each component, with links to their Yahoo Finance page. Video  
-  http://shitter.thepixora.com/jaltucher/status/2099550542515110239#m
-- @jaltucher (James Altucher, Mon, 14 Sep 2026): The AI news from this weekend must be taken in perspective. First off, let’s make clear what was NOT said: - Zero AI companies said they were slowing down development.. - Nobody said that their release cadence was going to be slower. - And nobody even said they were going to cap capabilities of future AI models. What the Anthropic CEO said, and Sam Altman from OpenAI agreed with, is that they would use third party evaluators before they release a new model. Fine. In fact, the Anthropic CEO SPECIFICALLY said, “pacing does not mean halting model training or technical progress” which I note that   
-  http://shitter.thepixora.com/jaltucher/status/2099532383598838126#m
-- @affine_io (Affine, Mon, 07 Sep 2026): A model doesn’t need to be the largest to matter. On Affine, models compete on how well their reasoning supports the next action across code, tool use and math. A winner could put that reasoning to work in products, either directly or alongside a larger model. Video  
-  http://shitter.thepixora.com/affine_io/status/2096984627059810338#m
-- @foundrydigital (Foundry Digital, Mon, 02 Jan 2012): Early predictions for design trends of 2012? tiny.cc/mkg4v  
-  http://shitter.thepixora.com/foundrydigital/status/153974018557493248#m
-- @affine_io (Affine, Fri, 28 Aug 2026): United against the divided. Intelligence knows neither borders nor color. Uphold the torch with us to bring light where it is needed most. Open reasoning for humanity. Join the thousand-year intelligence federation. affine.io Link Affine — Bittensor subnet 120 King-of-the-hill subnet for open-weight language models, scored by teacher-anchored distillation duels. Live validator dashboard. affine.io scouτ (@scoutesy) The same way neutron stars form gold through merging, affine orchestrates reasoning through open collaboration. Unus pro omnibus, omnes pro uno. Tao of a million symmetries. Video —  
-  http://shitter.thepixora.com/affine_io/status/2093401028763013596#m
-- @opentensor (Opentensor Foundation, Fri, 18 Sep 2026): Full E088 @b1m_ai redirect.invidious.io/QjWEOFWGLuc Link Subnet 105 :: AI Has a Data Movement Problem. Beam Wants to Solve It. What if bandwidth itself could become programmable?In Novelty Sea... youtube.com  
-  http://shitter.thepixora.com/opentensor/status/2100992487540305925#m
-- @opentensor (Opentensor Foundation, Fri, 18 Sep 2026): “You can literally build your Discord on top of Beam.” On the latest Novelty Search, @b1m_ai demonstrates how Bittensor’s Subnet 105 can power live video apps without developers running their own streaming servers. The team also previews Beam Studio, its tool for automating data transfers, and explains how parallel transfers can move 1 TB across Cloudflare R2 regions in under two minutes. Hosted by @const_reborn Full episode in the first comment Video  
-  http://shitter.thepixora.com/opentensor/status/2100992475477540903#m
-- @affine_io (Affine, Fri, 04 Sep 2026): Affine submissions are now private, so miners can compete without exposing their weights to competitors. Crowned models still go public. Losing checkpoints will be published later, so anyone can independently recompute every duel verdict. Video  
-  http://shitter.thepixora.com/affine_io/status/2095937147320844533#m
+- @SemiAnalysis_ (SemiAnalysis, Mon, 21 Sep 2026): Neocloud is now an entire industry. The word was coined by a SemiAnalysis researcher. Some of the companies using it still have no idea. "Nobody believes me when I say that. I'll tell people externally, yeah, we're the ones who invented the word, and they're like, No, you didn't. I'm like, Yeah, great." "This guy didn't know us at all. He was like, Cool man, what do you guys do? I'm like, What the f**k? We invented your entire industry." Video  
+  http://shitter.thepixora.com/SemiAnalysis_/status/2101830640773525612#m
 
 
 ---
-_Generated at 2026-09-21T09:31:38.709717+00:00 by scripts/intel/aggregate.py. Treat this digest as input context, not as ground truth. Verify before quoting._
+_Generated at 2026-09-21T17:39:03.794506+00:00 by scripts/intel/aggregate.py. Treat this digest as input context, not as ground truth. Verify before quoting._
