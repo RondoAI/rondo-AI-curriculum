@@ -134,6 +134,26 @@ _OpenAI vs HuggingFace, Container Escapes, Kernel Bypass, Network Policies, Secu
 
 ## ⊕ GITHUB COMMITS + RELEASES, last 24h
 
+- **Subtensor (chain)** (COMMIT `370bac4`, 2026-09-22 09:15) Merge pull request #3192 from RaoFoundation/cursor/spec-469-bugfixes-fee-refunds-1eaa  
+  https://github.com/RaoFoundation/subtensor/commit/370bac46fa8cf602c4f8283a0635b3a8b4675394
+- **Subtensor (chain)** (COMMIT `7a6f2e2`, 2026-09-22 03:22) fix(subtensor): the single-subnet swap_hotkey pre-check figure covers the clean-root checks (auditor 8668832a)  
+  https://github.com/RaoFoundation/subtensor/commit/7a6f2e2a3ce3d47575bf67e23ffdbae622b1403e
+- **Subtensor (chain)** (COMMIT `7cfbe23`, 2026-09-22 02:45) fix(subtensor): all-subnet swap_hotkey refusals keep the declared weight; single-subnet refusals pay their fixed pre-check reads (skeptic 533f63c3)  
+  https://github.com/RaoFoundation/subtensor/commit/7cfbe23e0118def65eb45cfb04cd1188fd51e791
+- **Subtensor (chain)** (COMMIT `eba0825`, 2026-09-22 02:39) docs: regenerate swap-hotkey source anchor  
+  https://github.com/RaoFoundation/subtensor/commit/eba08254382e4ed2722ece6b5868326bc70c4e16
+- **Subtensor (chain)** (COMMIT `a3e96ff`, 2026-09-22 02:38) fix(subtensor): the swap_hotkey pre-check figure covers every subnet scan the checks run (skeptic 533f63c3)  
+  https://github.com/RaoFoundation/subtensor/commit/a3e96ffc83e82cf6d7c3b7867afd375b65e732ef
+- **Subtensor (chain)** (COMMIT `b76b04c`, 2026-09-22 02:09) fix(subtensor): swap_hotkey keeps the declared weight on every in-transaction failure (auditor ad513859)  
+  https://github.com/RaoFoundation/subtensor/commit/b76b04c2838d4e68dc78edc791ab0f109c71bfd2
+- **Subtensor (chain)** (COMMIT `9f5073f`, 2026-09-22 01:40) fix(subtensor): a registration refused after the prune search keeps the declared weight (skeptic 2870f4be)  
+  https://github.com/RaoFoundation/subtensor/commit/9f5073f46a5cafa7e25f3f21e4c292b86d69bf23
+- **Subtensor (chain)** (COMMIT `1cc79b2`, 2026-09-22 00:48) ci: preflight --rev gates a clean HEAD in place and drops stale wbuild lockfiles  
+  https://github.com/RaoFoundation/subtensor/commit/1cc79b22844176f325a97948a6595433b9d94d5b
+- **Subtensor (chain)** (COMMIT `ccf93c7`, 2026-09-22 00:31) docs: regenerate swap-hotkey source anchor  
+  https://github.com/RaoFoundation/subtensor/commit/ccf93c7569ca364e099438510d8bfa0e2cb83baf
+- **Subtensor (chain)** (COMMIT `dd8a7de`, 2026-09-22 00:30) fix: local skeptic/auditor findings on the 469 refund paths  
+  https://github.com/RaoFoundation/subtensor/commit/dd8a7de70bac7906f4fd6fc11b86243d85276af1
 - **Subtensor (chain)** (COMMIT `d885300`, 2026-09-21 19:03) Merge pull request #3191 from RaoFoundation/cursor/preflight-gate-dce3  
   https://github.com/RaoFoundation/subtensor/commit/d8853006fc42a86e9be27be8cdfd8b06239a52d8
 - **Subtensor (chain)** (COMMIT `076dc24`, 2026-09-21 18:16) ci: preflight resolves node and wasm artifacts from Cargo's target dir  
@@ -181,6 +201,8 @@ _no new posts in the lookback window_
   http://shitter.thepixora.com/CrucibleLabs/status/2097815766473323006#m
 - @shibshib89 (Ala Shaabana, Wed, 09 Sep 2026): We are officially on iOS! Onwards 🚀 Crucible Labs (@CrucibleLabs) A long time coming and officially here. Crucible Wallet is now available on iOS in the US. An easy, intuitive Bittensor wallet for your everyday TAO needs, with Unified Swap, portfolio tracking and Ledger support wherever you go. Already available on Google Play and Chrome Store. Download at CrucibleLabs.com #CrucibleWallet #TAO #Bittensor — http://shitter.thepixora.com/CrucibleLabs/status/2097699938209857625#m  
   http://shitter.thepixora.com/shibshib89/status/2097724813028516224#m
+- @nigescore (Nige, Wed, 09 Sep 2026): .@nigescore going to paris last time he went to nrf in dallas he got us our biggest client ever (not announced yet) i can’t go. got something bigger on the 15th, 16th and 17th (to be announced) Manako (@manakoai) Heading to @nrfeurope NRF Retail’s Big Show Europe in Paris next week (15–17 Sept) 🇫🇷 If you are attending and want to hear what Manako Labs have built for retail, please DM and let’s meet up. No new hardware, no engineers, no code just your existing cameras doing more. #NRFRetailsBigShowEurope — http://shitter.thepixora.com/manakoai/status/2097622722310242420#m  
+  http://shitter.thepixora.com/MaxSebti/status/2097630699129827589#m
 - @shibshib89 (Ala Shaabana, Wed, 02 Sep 2026): Crucible Labs dropping #downwiththedev Episode 1. We breakdown the Mobile Wallet with @buildwithsamp. Take a listen. Video  
   http://shitter.thepixora.com/CrucibleLabs/status/2095144290376937770#m
 - @wallstreetbets (WallStreetBets (X), Tue, 22 Sep 2026): bears are fucked  
@@ -197,32 +219,44 @@ _no new posts in the lookback window_
   http://shitter.thepixora.com/markjeffrey/status/2102217673568624667#m
 - @VantaTrading (Vanta, Tue, 22 Sep 2026): Markets had a good Monday. Nasdaq up 2.3% on chips, bitcoin over $85,000, Brent under $100 for a fourth day as the Iran talks cooled things off. PCE Friday is the one that matters. However you're positioned, size it right. That's the whole game. vantatrading.io/pro  
   http://shitter.thepixora.com/VantaTrading/status/2102198861427249658#m
+- @nigescore (Nige, Tue, 15 Sep 2026): The physical world still can’t talk to software. A billion cameras watch factories, stations, warehouses, and stores every second. Almost none of that footage becomes action. That’s what we build at Manako. Today we join F/ai at @joinstationf The program that put OpenAI, Anthropic, Google, Meta, Microsoft and top-tier VCs behind a handful of AI-native teams. Honoured. Focused. Shipping.  
+  http://shitter.thepixora.com/manakoai/status/2099861562882203822#m
 - @tplr_ai (Templar, Tue, 15 Sep 2026): Video  
   http://shitter.thepixora.com/tplr_ai/status/2099855617921880470#m
+- @nigescore (Nige, Tue, 08 Sep 2026): Astra Ultra did not cook sports-grade vision AI. Gave it a 30s football clip from our subnet private track. Frame-level events, JSON, annotated video. Ground truth and the published scoring rules only after it committed. 22 predictions. 17 real events. 15 inside the action windows. 7 extras. 2 misses. Precision 68.18%. Recall 88.24%. F1 76.92%. Our Bittensor eval, SN44: 0%. Matches after timing decay: 16.538 False positives: −20.300 GT weight: 25.600 score = max(0, (16.538 − 20.300) / 25.600) = 0 Three extra take-ons and two extra tackles were 14.6 penalty points. It also misread the late inte  
+  http://shitter.thepixora.com/webuildscore/status/2097261685358596399#m
 - @TargonCompute (Targon, Tue, 01 Sep 2026): Happy to help! Proud to be trusted with running critical workloads such as validators. Very excited to see the talented team at DeSci Labs join the Bittensor ecosystem, their research and expertise are sure to add long-lasting value to the network. 🔬 Claims - Subnet 111 (@DeSciClaims) Our validator for SN111 is running on hardware provided by @TargonCompute. We're super grateful for the fast, reliable setup and the team's amazing support. Thank you, guys! — http://shitter.thepixora.com/DeSciClaims/status/2094364807596036575#m  
   http://shitter.thepixora.com/TargonCompute/status/2094908006039236625#m
 - @BarrySilbert (Barry Silbert, Thu, 27 Aug 2026): Eventually investors will connect the dots to Bittensor bittensor:native Tommy (@Shaughnessy119) OpenRouter, poolside, Hugging Face Everything open source getting acquired — http://shitter.thepixora.com/Shaughnessy119/status/2092792085459935404#m  
   http://shitter.thepixora.com/BarrySilbert/status/2093020796109123804#m
 - @a16zcrypto (a16z Crypto, Thu, 17 Sep 2026): Clarity was coming no matter the outcome of the vote. Paul Atkins (@SECPaulSAtkins) Today, we are taking a significant step forward, within our statutory authority, to bring America’s capital markets into the digital age by facilitating onchain trading of certain tokenized stocks through the "Innovation Exemption." 🇺🇸 — http://shitter.thepixora.com/SECPaulSAtkins/status/2100572313334821271#m  
   http://shitter.thepixora.com/Collin_McCune/status/2100575079318855709#m
+- @nigescore (Nige, Thu, 03 Sep 2026): Shell and ENI stations added to roll out today. Accelerate.  
+  http://shitter.thepixora.com/MaxSebti/status/2095545005540552752#m
 - @jtledore (Jean-Thomas Ledoré, Sun, 20 Sep 2026): Very cool! Any chance we could get it on hf.co/datasets? Link Datasets – Hugging Face Explore datasets powering machine learning. huggingface.co  
   http://shitter.thepixora.com/ClementDelangue/status/2101801371477393660#m
 - @const_reborn (Jacob Steeves, Sun, 20 Sep 2026): I love the push towards private AI, but a seperate source of freedom will be truly public AI, i.e. a world where the majority of AI trajectories are searchable, and thus minable for us to improve, understand and monitor intelligence -- not just the central labs.  
   http://shitter.thepixora.com/const_reborn/status/2101783043354538441#m
 - @jtledore (Jean-Thomas Ledoré, Sun, 20 Sep 2026): Article Bittensor Ecosystem Highlights :: September 13–20, 2026 This week’s biggest stories across Bittensor came from Conjectures, Score, Pareton, TAO(.)com, Good Morning and Almanac. [ @conjectures_io - Subnet 66 ] Conjectures miners resolved six Erdős  
   http://shitter.thepixora.com/opentensor/status/2101678815709712714#m
+- @manakoai (Manako, Sun, 20 Sep 2026): making new friends while deploying @manakoai  
+  http://shitter.thepixora.com/MaxSebti/status/2101651979541901384#m
 - @VantaTrading (Vanta, Sun, 20 Sep 2026): Nobody in the industry is scaling your account to $1,000,000. Except Vanta. Ours is a $1,000,000 Pro account. And that's at zero additional cost. What's stopping you from joining today? vantatrading.io/pro  
   http://shitter.thepixora.com/VantaTrading/status/2101491682982445066#m
 - @jtledore (Jean-Thomas Ledoré, Sun, 20 Sep 2026): Announcing one year of LLM inference metadata traces, with 6.12 billion requests. We hope this dataset can support research on real-world LLM serving workload understanding, system design and infrastructure optimization. Explore the dataset and learn more: data.agentic-system.org Driven by our great graduate student William Nixon and in collab with @jon_durbin @airesearch12 @chutes_ai Link Open Data · A dataset hub for LLM serving research A dataset hub for LLM serving research. Request traces, agent workloads, and GPU telemetry from Harvard MadSys and collaborators. data.agentic-system.org  
   http://shitter.thepixora.com/1a1a11a/status/2101469990188732897#m
 - @jtledore (Jean-Thomas Ledoré, Sat, 19 Sep 2026): people overestimate what can happen in a year and underestimate what can happen in 2, 5 or 10 over the last two weeks I had confirmations at so many levels that we were playing the right playbook at the right place and the right time, with the right team. 1. IBC Amsterdam and NRF Paris confirmed the need for a real open vision AI alternative (and made us proud of our models’ quality and efficiency). 2. the current petrol station rollout confirmed that Manako was plug-and-play and ready to be installed at the speed of light (5 mins process from box opening to live deployment) in june I didn’t k  
   http://shitter.thepixora.com/MaxSebti/status/2101417422440046836#m
+- @nigescore (Nige, Sat, 19 Sep 2026): We’re completing our first 20 reference deployments, led by our CEO and engineering team, and the headline finding is that Manako is genuinely plug and play. No specialist integration required: a unit can be shipped to site and connected by anyone on the ground. That’s what makes our next phase possible. Our integration partners will roll out at scale on a simple, repeatable install, with less time on site and lower cost per deployment.  
+  http://shitter.thepixora.com/manakoai/status/2101403529558577403#m
 - @webuildscore (Score, Sat, 19 Sep 2026): what "skill issue" looks like: Video  
   http://shitter.thepixora.com/webuildscore/status/2101372555688919339#m
 - @webuildscore (Score, Sat, 19 Sep 2026): This is our general detector, running inside Score Studio, on Heat vs Mavericks, tied at 39 in the second quarter. Miami crashes the glass for 7 straight offensive rebounds. Every player on the floor stays boxed through the scramble, the ball tracked with them, frame after frame. 180 frames sampled, 4,298 objects found, each one drawn and laid back out for review. One raw broadcast clip in, a labelled and measurable model out, without a single frame touched by hand. Original video in the comments 👇 Try it here: scorestudio.ai Video  
   http://shitter.thepixora.com/webuildscore/status/2101371661136138357#m
 - @const_reborn (Jacob Steeves, Sat, 19 Sep 2026): Jev by @typesafeai might change how we control robots. We compared Jev, GPT-6 Astra and GPT-4.1 mini in MuJoCo. One apple. One plate. Each model chooses intent → X/Y/Z direction + gripper open/hold/close. 🧵 Video  
   http://shitter.thepixora.com/openroboto/status/2101310974359941332#m
+- @manakoai (Manako, Sat, 19 Sep 2026): now deploying sites in 10min from a phone  
+  http://shitter.thepixora.com/MaxSebti/status/2101289380602163437#m
 - @BarrySilbert (Barry Silbert, Sat, 19 Sep 2026): 🇦🇷 NEW: Argentina will begin automatically sharing crypto transaction data with tax authorities worldwide by September 2029. The tax man is coming.  
   http://shitter.thepixora.com/Cointelegraph/status/2101189610248253728#m
 - @TargonCompute (Targon, Mon, 31 Aug 2026): It's been a pleasure working with the @cascade_sn91 team on their recent SN91 launch. As the first team out of the @bitstarterAI ML track, we were proud to support them with initial compute credits on Targon. Excited to continue powering their pursuit of SOTA time series foundation models on Bittensor. ⚡️ SN91, Cascade (@cascade_sn91) Article Better Data, Better Models: What 184 Experiments Changed for Cascade To build the best decoder for Cascade, we needed to optimize across streaming, covariates, context and the training distribution. Thanks to compute credits from @Targoncompute, we were a  
@@ -247,21 +281,7 @@ _no new posts in the lookback window_
   http://shitter.thepixora.com/webuildscore/status/2102110342004310234#m
 - @const_reborn (Jacob Steeves, Mon, 21 Sep 2026): Welcome to the era to decentralized post trained models that beat the frontier in their classes. Reliquary | Bittensor SN81 τ (@reliquary_ai) Introducing Reliquary-4B. A 4B math & code model trained with reinforcement learning. Anyone could join the network and contribute rollouts. Independent miners chose the prompts and generated the rollouts. The protocol verified them and trained the model. Here’s the model and the research behind it. — http://shitter.thepixora.com/reliquary_ai/status/2102107246905741819#m  
   http://shitter.thepixora.com/const_reborn/status/2102110250241314873#m
-- @const_reborn (Jacob Steeves, Mon, 21 Sep 2026): Albedo Agent API is live for free. Miners get 10x standard quota - resets every 24h. Drop a key into Claude Code, Codex, Copilot, Cursor, ACP. Sign in with GitHub, copy a key, paste it into your agent. albedo.tech/keys.html Use it on real work and LMK how it feels.  
-  http://shitter.thepixora.com/weather_boss_/status/2102079911565345113#m
-- @webuildscore (Score, Mon, 21 Sep 2026): Took 2 clicks btw Try it here: scorestudio.ai  
-  http://shitter.thepixora.com/webuildscore/status/2102062949565182063#m
-- @webuildscore (Score, Mon, 21 Sep 2026): Ran our vehicle detector on the Wolverine "it plays itself" clip. every car on the road, tagged, in a game it has never seen. if it can box vehicles that aren't even real, your actual footage is nothing. Put the controller down. Score Studio's still counting every car on the road. Video  
-  http://shitter.thepixora.com/webuildscore/status/2102061827878183050#m
-- @jtledore (Jean-Thomas Ledoré, Mon, 21 Sep 2026): .@near_ai’s confidential models are now available through @say_gm_ on Bittensor. GM is becoming a gateway for private AI across ecosystems. NEAR AI (@near_ai) NEAR AI Cloud's confidential inference is now live on @say_gm_'s confidential tier. SayGm reaches dozens of models through one API key, and runs its own routing inside an Intel TDX enclave rather than on ordinary servers. — http://shitter.thepixora.com/near_ai/status/2101053165730988390#m  
-  http://shitter.thepixora.com/opentensor/status/2102034210705842529#m
-- @const_reborn (Jacob Steeves, Mon, 21 Sep 2026): The Hippius mobile app is live on Android. Your photos and files, backed up automatically and end-to-end encrypted on your phone before they ever upload. The same account and storage you already use on desktop and web. Your whole cloud, now in your pocket. iOS is coming next.  
-  http://shitter.thepixora.com/Hippius_cloud/status/2101978478904222062#m
-- @VantaTrading (Vanta, Mon, 21 Sep 2026): $259. That's how little you can pay for access to $1,000,000 in capital. Pass our classic evaluation, trade it well, and Vanta can move you up to a $1,000,000 Pro account. Weekly rewards from the day you pass. Get started today -&gt; app.vantatrading.io  
-  http://shitter.thepixora.com/VantaTrading/status/2101854079312089120#m
-- @VantaTrading (Vanta, Mon, 21 Sep 2026): 5% and 5% - our static drawdown rules. On a Classic evaluation, both loss limits come off your starting balance. It's that simple. You shouldn't need to read your firm's rules section over and over to understand it.  
-  http://shitter.thepixora.com/VantaTrading/status/2101823879723524454#m
 
 
 ---
-_Generated at 2026-09-22T08:58:39.662673+00:00 by scripts/intel/aggregate.py. Treat this digest as input context, not as ground truth. Verify before quoting._
+_Generated at 2026-09-22T16:06:38.734135+00:00 by scripts/intel/aggregate.py. Treat this digest as input context, not as ground truth. Verify before quoting._
