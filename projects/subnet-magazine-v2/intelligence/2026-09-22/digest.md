@@ -161,6 +161,10 @@ _no new posts in the lookback window_
 
 ## ⊕ X via NITTER, voices we track
 
+- @TargonCompute (Targon, Wed, 26 Aug 2026): Proud to power @TheoriqAI with secure confidential compute for their agentic market research. Large GPU blocks on demand, with hardware-level guarantees that keep the workload and its data private even from the machines running it. Excited to keep powering experimental research infrastructure with Targon. Theoriq (@TheoriqAI) .@TargonCompute is powering Theoriq AI experimentation. Curating risk-managed yield is, underneath, a research problem: how markets behave, where they break, and how much of that can be seen coming. That runs on heavy, on-demand compute. Targon is our partner in supplying  
+  http://shitter.thepixora.com/TargonCompute/status/2092690588143657190#m
+- @TargonCompute (Targon, Wed, 26 Aug 2026): .@TargonCompute is powering Theoriq AI experimentation. Curating risk-managed yield is, underneath, a research problem: how markets behave, where they break, and how much of that can be seen coming. That runs on heavy, on-demand compute. Targon is our partner in supplying it. Theoriq (@TheoriqAI) Article Theoriq partnering with Targon to power AI experimentation Curating risk-managed yield is, underneath, a research problem. Long before capital is deployed, we want to know how markets behave, where they tend to break, and how much of that can be seen coming — http://shitter.thepixora.com/Theor  
+  http://shitter.thepixora.com/TheoriqAI/status/2092661304444277050#m
 - @shibshib89 (Ala Shaabana, Wed, 16 Sep 2026): LFG! Crucible Labs (@CrucibleLabs) Crucible Wallet Extension v2.1.1 is LIVE. This isn’t just an update. We rebuilt the entire wallet experience from the ground up. A completely new UI. More control over your TAO. More Bittensor tools built directly into your wallet. What’s new in v2.1.1: ✔️Completely updated UI + light/dark mode ✔️Claim rewards directly in the wallet ✔️Unified balance across TAO + alpha ✔️Universal Swap ✔️Transfer TAO + alpha ✔️Subnet discovery + detailed subnet views ✔️Multi-address support for seed phrases ✔️12 and 24 word seed phrase support ✔️Updated Smart Account + Reward  
   http://shitter.thepixora.com/shibshib89/status/2100300168633761947#m
 - @tplr_ai (Templar, Wed, 16 Sep 2026): When using pipeline compression with fixed projections shared across layers, robustness improves further as seen in the figure below. This suggests that shared projectors align representations across stage boundaries, making bypasses less disruptive. 4/n  
@@ -169,6 +173,8 @@ _no new posts in the lookback window_
   http://shitter.thepixora.com/tplr_ai/status/2100237717162303718#m
 - @tplr_ai (Templar, Wed, 16 Sep 2026): We’ve been researching fault tolerance in Crucible, Templar’s pre-training platform. The goal: keep training through node failures and make better use of unreliable workers and spot instances, without idling an entire model replica when one stage goes down. 1/n Video  
   http://shitter.thepixora.com/tplr_ai/status/2100237708186550642#m
+- @a16zcrypto (a16z Crypto, Wed, 16 Sep 2026): The crypto industry needs a fair tax code. The Digital Asset Tax Certainty Act is a major step forward in achieving this. This bill creates clear rules for entrepreneurs while also providing a pathway for crypto foundations to reenter the U.S. and adopt this new tax structure. Thank you @RepJasonSmith, @WaysandMeansGOP, and @WaysMeansCmte for your bipartisan work on this bill. Ways and Means Committee (@WaysandMeansGOP) LIVE NOW: After more than a year of bipartisan work, the Ways and Means Committee is marking up the first-ever tax framework for digital assets, bringing much needed tax certai  
+  http://shitter.thepixora.com/milesjennings/status/2100233610464825513#m
 - @foundrydigital (Foundry Digital, Wed, 11 Jan 2012): Expression Engine 2.0 review by the guys at Scriptiny bit.ly/w3Pg3R  
   http://shitter.thepixora.com/foundrydigital/status/157243024848596993#m
 - @shibshib89 (Ala Shaabana, Wed, 09 Sep 2026): Did you hear? Crucible Wallet is officially live on iOS today. An easy to use Bittensor wallet with Ledger security, Unified Swap and subnet level performance. Now available on iOS in the US, Android and Chrome. Download at CrucibleLabs.com #Bittensor #TAO #CrucibleWallet  
@@ -177,6 +183,12 @@ _no new posts in the lookback window_
   http://shitter.thepixora.com/shibshib89/status/2097724813028516224#m
 - @shibshib89 (Ala Shaabana, Wed, 02 Sep 2026): Crucible Labs dropping #downwiththedev Episode 1. We breakdown the Mobile Wallet with @buildwithsamp. Take a listen. Video  
   http://shitter.thepixora.com/CrucibleLabs/status/2095144290376937770#m
+- @wallstreetbets (WallStreetBets (X), Tue, 22 Sep 2026): bears are fucked  
+  http://shitter.thepixora.com/wallstreetbets/status/2102280482822008886#m
+- @wallstreetbets (WallStreetBets (X), Tue, 22 Sep 2026): jim sold the bottom again 😭 Watcher.Guru (@WatcherGuru) JUST IN: Bitcoin is up 38% since Jim Cramer said he was selling. On August 3, 2026, Cramer said he was selling his Bitcoin over quantum computing fears. $BTC was trading around $63,000. It has since surged to $87,000, a gain of $24,000 over the past 49 days. Bitcoin has also added $475,000,000,000 to its market cap during that period. — http://shitter.thepixora.com/WatcherGuru/status/2102144598688588028#m  
+  http://shitter.thepixora.com/wallstreetbets/status/2102250283908894761#m
+- @wallstreetbets (WallStreetBets (X), Tue, 22 Sep 2026): BREAKING: prediction markets are officially on X Spotlight for the NFL Gemini is taking over the section with pro football markets prediction markets are everywhere now  
+  http://shitter.thepixora.com/wallstreetbets/status/2102226001056915772#m
 - @markjeffrey (Mark Jeffrey, Tue, 22 Sep 2026): Bessent basically said:  
   http://shitter.thepixora.com/markjeffrey/status/2102221840634810491#m
 - @VantaTrading (Vanta, Tue, 22 Sep 2026): Funded should mean paid. With a receipt a stranger can open. Weekly rewards from the day you pass Vanta's classic evaluation, always listed on our public ledger. Our pro accounts are here, and soon traders will be earning rewards on $1,000,000 accounts. You can view all of our rewards paid transparently here: vantatrading.io/rewards  
@@ -187,6 +199,12 @@ _no new posts in the lookback window_
   http://shitter.thepixora.com/VantaTrading/status/2102198861427249658#m
 - @tplr_ai (Templar, Tue, 15 Sep 2026): Video  
   http://shitter.thepixora.com/tplr_ai/status/2099855617921880470#m
+- @TargonCompute (Targon, Tue, 01 Sep 2026): Happy to help! Proud to be trusted with running critical workloads such as validators. Very excited to see the talented team at DeSci Labs join the Bittensor ecosystem, their research and expertise are sure to add long-lasting value to the network. 🔬 Claims - Subnet 111 (@DeSciClaims) Our validator for SN111 is running on hardware provided by @TargonCompute. We're super grateful for the fast, reliable setup and the team's amazing support. Thank you, guys! — http://shitter.thepixora.com/DeSciClaims/status/2094364807596036575#m  
+  http://shitter.thepixora.com/TargonCompute/status/2094908006039236625#m
+- @BarrySilbert (Barry Silbert, Thu, 27 Aug 2026): Eventually investors will connect the dots to Bittensor bittensor:native Tommy (@Shaughnessy119) OpenRouter, poolside, Hugging Face Everything open source getting acquired — http://shitter.thepixora.com/Shaughnessy119/status/2092792085459935404#m  
+  http://shitter.thepixora.com/BarrySilbert/status/2093020796109123804#m
+- @a16zcrypto (a16z Crypto, Thu, 17 Sep 2026): Clarity was coming no matter the outcome of the vote. Paul Atkins (@SECPaulSAtkins) Today, we are taking a significant step forward, within our statutory authority, to bring America’s capital markets into the digital age by facilitating onchain trading of certain tokenized stocks through the "Innovation Exemption." 🇺🇸 — http://shitter.thepixora.com/SECPaulSAtkins/status/2100572313334821271#m  
+  http://shitter.thepixora.com/Collin_McCune/status/2100575079318855709#m
 - @jtledore (Jean-Thomas Ledoré, Sun, 20 Sep 2026): Very cool! Any chance we could get it on hf.co/datasets? Link Datasets – Hugging Face Explore datasets powering machine learning. huggingface.co  
   http://shitter.thepixora.com/ClementDelangue/status/2101801371477393660#m
 - @const_reborn (Jacob Steeves, Sun, 20 Sep 2026): I love the push towards private AI, but a seperate source of freedom will be truly public AI, i.e. a world where the majority of AI trajectories are searchable, and thus minable for us to improve, understand and monitor intelligence -- not just the central labs.  
@@ -199,8 +217,16 @@ _no new posts in the lookback window_
   http://shitter.thepixora.com/1a1a11a/status/2101469990188732897#m
 - @jtledore (Jean-Thomas Ledoré, Sat, 19 Sep 2026): people overestimate what can happen in a year and underestimate what can happen in 2, 5 or 10 over the last two weeks I had confirmations at so many levels that we were playing the right playbook at the right place and the right time, with the right team. 1. IBC Amsterdam and NRF Paris confirmed the need for a real open vision AI alternative (and made us proud of our models’ quality and efficiency). 2. the current petrol station rollout confirmed that Manako was plug-and-play and ready to be installed at the speed of light (5 mins process from box opening to live deployment) in june I didn’t k  
   http://shitter.thepixora.com/MaxSebti/status/2101417422440046836#m
+- @webuildscore (Score, Sat, 19 Sep 2026): what "skill issue" looks like: Video  
+  http://shitter.thepixora.com/webuildscore/status/2101372555688919339#m
+- @webuildscore (Score, Sat, 19 Sep 2026): This is our general detector, running inside Score Studio, on Heat vs Mavericks, tied at 39 in the second quarter. Miami crashes the glass for 7 straight offensive rebounds. Every player on the floor stays boxed through the scramble, the ball tracked with them, frame after frame. 180 frames sampled, 4,298 objects found, each one drawn and laid back out for review. One raw broadcast clip in, a labelled and measurable model out, without a single frame touched by hand. Original video in the comments 👇 Try it here: scorestudio.ai Video  
+  http://shitter.thepixora.com/webuildscore/status/2101371661136138357#m
 - @const_reborn (Jacob Steeves, Sat, 19 Sep 2026): Jev by @typesafeai might change how we control robots. We compared Jev, GPT-6 Astra and GPT-4.1 mini in MuJoCo. One apple. One plate. Each model chooses intent → X/Y/Z direction + gripper open/hold/close. 🧵 Video  
   http://shitter.thepixora.com/openroboto/status/2101310974359941332#m
+- @BarrySilbert (Barry Silbert, Sat, 19 Sep 2026): 🇦🇷 NEW: Argentina will begin automatically sharing crypto transaction data with tax authorities worldwide by September 2029. The tax man is coming.  
+  http://shitter.thepixora.com/Cointelegraph/status/2101189610248253728#m
+- @TargonCompute (Targon, Mon, 31 Aug 2026): It's been a pleasure working with the @cascade_sn91 team on their recent SN91 launch. As the first team out of the @bitstarterAI ML track, we were proud to support them with initial compute credits on Targon. Excited to continue powering their pursuit of SOTA time series foundation models on Bittensor. ⚡️ SN91, Cascade (@cascade_sn91) Article Better Data, Better Models: What 184 Experiments Changed for Cascade To build the best decoder for Cascade, we needed to optimize across streaming, covariates, context and the training distribution. Thanks to compute credits from @Targoncompute, we were a  
+  http://shitter.thepixora.com/TargonCompute/status/2094532034488058036#m
 - @shibshib89 (Ala Shaabana, Mon, 31 Aug 2026): Get ready, a new TAO-inspired podcast with @CrucibleLabs own @buildwithsamp and Kelly. Coming soon! Video  
   http://shitter.thepixora.com/CrucibleLabs/status/2094445795848446011#m
 - @markjeffrey (Mark Jeffrey, Mon, 21 Sep 2026): Bittensor Bungalow $TAO shitter.thepixora.com/i/spaces/1RJjpbrVrlBKw Link Twitter Space Click to view Space http://shitter.thepixora.com/i/spaces/1RJjpbrVrlBKw  
@@ -209,10 +235,24 @@ _no new posts in the lookback window_
   http://shitter.thepixora.com/ShizzyUnchained/status/2102181307367174348#m
 - @markjeffrey (Mark Jeffrey, Mon, 21 Sep 2026): Did you know Bittensor ($TAO) produce apps that compete with iCloud and Dropbox and cost a fraction of the blockbuster product for the consumer? Probably not, and that’s on us. But this is why it is pumping af today. Hippius (@Hippius_cloud) The Hippius mobile app is live on Android. Your photos and files, backed up automatically and end-to-end encrypted on your phone before they ever upload. The same account and storage you already use on desktop and web. Your whole cloud, now in your pocket. iOS is coming next. — http://shitter.thepixora.com/Hippius_cloud/status/2101978478904222062#m  
   http://shitter.thepixora.com/tylerdurdeth/status/2102177648369615221#m
+- @wallstreetbets (WallStreetBets (X), Mon, 21 Sep 2026): pairing stocks with memes was inevitable Zora (@zora) Custom Pairs are now live for all users on the Zora mobile app. Create new pairs with stocks, memes, and majors on the go in just a few clicks. Plus, crosschain trading is now available on all supported networks: -SOL -BNB -RH -BASE Out now on iOS and Android! Download here: zora.co/ Video — http://shitter.thepixora.com/zora/status/2102101502210785421#m  
+  http://shitter.thepixora.com/wallstreetbets/status/2102176363046150607#m
+- @wallstreetbets (WallStreetBets (X), Mon, 21 Sep 2026): The X takeover🤘 X (@X) timeline. ticker. trade. Video — http://shitter.thepixora.com/X/status/2102147636702634195#m  
+  http://shitter.thepixora.com/wallstreetbets/status/2102175845766856813#m
+- @a16zcrypto (a16z Crypto, Mon, 21 Sep 2026): You don’t have to move a market onchain if you build it there in the first place. @guywuolletjr on why he’s excited about new markets for compute and energy 👇 Video  
+  http://shitter.thepixora.com/a16zcrypto/status/2102164015409418469#m
+- @jtledore (Jean-Thomas Ledoré, Mon, 21 Sep 2026): A Harvard research team and @chutes_ai just released a public dataset covering one year of real-world LLM inference on Chutes: 6.12B requests across 9,174 models. Technical usage data from a Bittensor subnet is now open to the wider AI research community. Juncheng Yang (@1a1a11a) Announcing one year of LLM inference metadata traces, with 6.12 billion requests. We hope this dataset can support research on real-world LLM serving workload understanding, system design and infrastructure optimization. Explore the dataset and learn more: data.agentic-system.org Driven by our great graduate student W  
+  http://shitter.thepixora.com/opentensor/status/2102149456401408309#m
+- @webuildscore (Score, Mon, 21 Sep 2026): Where can we buy this chain? Millie (@AltcoinMillie) I finally got it in the booth with the Goat @MaxSebti Never seen a subnet owner owning gas stations to making a full mixtape. I told y'all 🐐Max never stops working! I blame @tsliceAI for what's going on in Montreal. We lit doe @webuildscore $TAO #higher Video — http://shitter.thepixora.com/AltcoinMillie/status/2102104893980831866#m  
+  http://shitter.thepixora.com/webuildscore/status/2102110342004310234#m
 - @const_reborn (Jacob Steeves, Mon, 21 Sep 2026): Welcome to the era to decentralized post trained models that beat the frontier in their classes. Reliquary | Bittensor SN81 τ (@reliquary_ai) Introducing Reliquary-4B. A 4B math & code model trained with reinforcement learning. Anyone could join the network and contribute rollouts. Independent miners chose the prompts and generated the rollouts. The protocol verified them and trained the model. Here’s the model and the research behind it. — http://shitter.thepixora.com/reliquary_ai/status/2102107246905741819#m  
   http://shitter.thepixora.com/const_reborn/status/2102110250241314873#m
 - @const_reborn (Jacob Steeves, Mon, 21 Sep 2026): Albedo Agent API is live for free. Miners get 10x standard quota - resets every 24h. Drop a key into Claude Code, Codex, Copilot, Cursor, ACP. Sign in with GitHub, copy a key, paste it into your agent. albedo.tech/keys.html Use it on real work and LMK how it feels.  
   http://shitter.thepixora.com/weather_boss_/status/2102079911565345113#m
+- @webuildscore (Score, Mon, 21 Sep 2026): Took 2 clicks btw Try it here: scorestudio.ai  
+  http://shitter.thepixora.com/webuildscore/status/2102062949565182063#m
+- @webuildscore (Score, Mon, 21 Sep 2026): Ran our vehicle detector on the Wolverine "it plays itself" clip. every car on the road, tagged, in a game it has never seen. if it can box vehicles that aren't even real, your actual footage is nothing. Put the controller down. Score Studio's still counting every car on the road. Video  
+  http://shitter.thepixora.com/webuildscore/status/2102061827878183050#m
 - @jtledore (Jean-Thomas Ledoré, Mon, 21 Sep 2026): .@near_ai’s confidential models are now available through @say_gm_ on Bittensor. GM is becoming a gateway for private AI across ecosystems. NEAR AI (@near_ai) NEAR AI Cloud's confidential inference is now live on @say_gm_'s confidential tier. SayGm reaches dozens of models through one API key, and runs its own routing inside an Intel TDX enclave rather than on ordinary servers. — http://shitter.thepixora.com/near_ai/status/2101053165730988390#m  
   http://shitter.thepixora.com/opentensor/status/2102034210705842529#m
 - @const_reborn (Jacob Steeves, Mon, 21 Sep 2026): The Hippius mobile app is live on Android. Your photos and files, backed up automatically and end-to-end encrypted on your phone before they ever upload. The same account and storage you already use on desktop and web. Your whole cloud, now in your pocket. iOS is coming next.  
@@ -221,11 +261,7 @@ _no new posts in the lookback window_
   http://shitter.thepixora.com/VantaTrading/status/2101854079312089120#m
 - @VantaTrading (Vanta, Mon, 21 Sep 2026): 5% and 5% - our static drawdown rules. On a Classic evaluation, both loss limits come off your starting balance. It's that simple. You shouldn't need to read your firm's rules section over and over to understand it.  
   http://shitter.thepixora.com/VantaTrading/status/2101823879723524454#m
-- @foundrydigital (Foundry Digital, Mon, 02 Jan 2012): Early predictions for design trends of 2012? tiny.cc/mkg4v  
-  http://shitter.thepixora.com/foundrydigital/status/153974018557493248#m
-- @tplr_ai (Templar, Fri, 11 Sep 2026): Video  
-  http://shitter.thepixora.com/tplr_ai/status/2098497911550017611#m
 
 
 ---
-_Generated at 2026-09-22T02:48:05.999927+00:00 by scripts/intel/aggregate.py. Treat this digest as input context, not as ground truth. Verify before quoting._
+_Generated at 2026-09-22T08:58:39.662673+00:00 by scripts/intel/aggregate.py. Treat this digest as input context, not as ground truth. Verify before quoting._
