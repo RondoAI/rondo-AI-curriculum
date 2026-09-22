@@ -1,0 +1,112 @@
+[
+  {
+    "repo": "opentensor/subtensor",
+    "name": "Subtensor (chain)",
+    "kind": "commit",
+    "sha": "d885300",
+    "message": "Merge pull request #3191 from RaoFoundation/cursor/preflight-gate-dce3",
+    "author": "Arbos",
+    "posted_at": "2026-09-21T19:03:18Z",
+    "url": "https://github.com/RaoFoundation/subtensor/commit/d8853006fc42a86e9be27be8cdfd8b06239a52d8",
+    "fetched_at": "2026-09-22T02:48:00.512413+00:00"
+  },
+  {
+    "repo": "opentensor/subtensor",
+    "name": "Subtensor (chain)",
+    "kind": "commit",
+    "sha": "076dc24",
+    "message": "ci: preflight resolves node and wasm artifacts from Cargo's target dir",
+    "author": "Cursor Agent",
+    "posted_at": "2026-09-21T18:16:32Z",
+    "url": "https://github.com/RaoFoundation/subtensor/commit/076dc24a742f3cb026cec0c712fa337e584fde2f",
+    "fetched_at": "2026-09-22T02:48:00.512413+00:00"
+  },
+  {
+    "repo": "opentensor/subtensor",
+    "name": "Subtensor (chain)",
+    "kind": "commit",
+    "sha": "516ad10",
+    "message": "docs: describe the credential-owner check and pushed-revision gating",
+    "author": "Cursor Agent",
+    "posted_at": "2026-09-21T18:06:31Z",
+    "url": "https://github.com/RaoFoundation/subtensor/commit/516ad104ce7622e275dfb5b5a5816a6ec6cb0aa3",
+    "fetched_at": "2026-09-22T02:48:00.512413+00:00"
+  },
+  {
+    "repo": "opentensor/subtensor",
+    "name": "Subtensor (chain)",
+    "kind": "commit",
+    "sha": "eceece7",
+    "message": "ci: preflight verifies the push credential owner and gates the pushed revision",
+    "author": "Cursor Agent",
+    "posted_at": "2026-09-21T18:05:13Z",
+    "url": "https://github.com/RaoFoundation/subtensor/commit/eceece73ace0d1284b3469004ed12408804b143d",
+    "fetched_at": "2026-09-22T02:48:00.512413+00:00"
+  },
+  {
+    "repo": "opentensor/subtensor",
+    "name": "Subtensor (chain)",
+    "kind": "commit",
+    "sha": "30c70d9",
+    "message": "Merge pull request #3184 from RaoFoundation/cursor/spec-468-cash-first-claims-1eaa",
+    "author": "Inti",
+    "posted_at": "2026-09-21T17:52:55Z",
+    "url": "https://github.com/RaoFoundation/subtensor/commit/30c70d90f8a3708d85cf95ae992b7a3fe30d2c4c",
+    "fetched_at": "2026-09-22T02:48:00.512413+00:00"
+  },
+  {
+    "repo": "opentensor/subtensor",
+    "name": "Subtensor (chain)",
+    "kind": "commit",
+    "sha": "a598926",
+    "message": "docs: regenerate source anchors",
+    "author": "unarbos",
+    "posted_at": "2026-09-21T17:07:06Z",
+    "url": "https://github.com/RaoFoundation/subtensor/commit/a5989266f239ae7b981ce3c98f5b8db485d8722b",
+    "fetched_at": "2026-09-22T02:48:00.512413+00:00"
+  },
+  {
+    "repo": "opentensor/subtensor",
+    "name": "Subtensor (chain)",
+    "kind": "commit",
+    "sha": "1f64c09",
+    "message": "ci: preflight builds the release node with the runtime wasm embedded",
+    "author": "Cursor Agent",
+    "posted_at": "2026-09-21T16:30:53Z",
+    "url": "https://github.com/RaoFoundation/subtensor/commit/1f64c09c4c33d039dbb7236a29b6786b9603d94a",
+    "fetched_at": "2026-09-22T02:48:00.512413+00:00"
+  },
+  {
+    "repo": "opentensor/subtensor",
+    "name": "Subtensor (chain)",
+    "kind": "commit",
+    "sha": "5e7410f",
+    "message": "ci: preflight prints per-gate wall time on the PASS/FAIL line",
+    "author": "Cursor Agent",
+    "posted_at": "2026-09-21T16:29:24Z",
+    "url": "https://github.com/RaoFoundation/subtensor/commit/5e7410f8f63e7e5e608e4629d380d69b44378e6c",
+    "fetched_at": "2026-09-22T02:48:00.512413+00:00"
+  },
+  {
+    "repo": "opentensor/subtensor",
+    "name": "Subtensor (chain)",
+    "kind": "commit",
+    "sha": "cfd3ce1",
+    "message": "ci: install-hooks.sh backs up a foreign pre-push hook instead of overwriting it",
+    "author": "Cursor Agent",
+    "posted_at": "2026-09-21T16:28:08Z",
+    "url": "https://github.com/RaoFoundation/subtensor/commit/cfd3ce1fa196b0879fc84e5c65f3b54013538a8c",
+    "fetched_at": "2026-09-22T02:48:00.512413+00:00"
+  },
+  {
+    "repo": "opentensor/subtensor",
+    "name": "Subtensor (chain)",
+    "kind": "commit",
+    "sha": "945199a",
+    "message": "ci: enforced local preflight gate + pre-push hook",
+    "author": "Cursor Agent",
+    "posted_at": "2026-09-21T16:27:11Z",
+    "url": "https://github.com/RaoFoundation/subtensor/commit/945199a481c480cbee58ba50584fe7b92e72f0b8",
+    "fetched_at": "2026-09-22T02:48:00.512413+00:00"
+  }
+]

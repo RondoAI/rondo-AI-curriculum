@@ -1,0 +1,322 @@
+[
+  {
+    "handle": "shibshib89",
+    "name": "Ala Shaabana",
+    "posted_at": "Wed, 16 Sep 2026 19:05:56 GMT",
+    "title": "LFG!",
+    "text": "LFG! Crucible Labs (@CrucibleLabs) Crucible Wallet Extension v2.1.1 is LIVE. This isn’t just an update. We rebuilt the entire wallet experience from the ground up. A completely new UI. More control over your TAO. More Bittensor tools built directly into your wallet. What’s new in v2.1.1: ✔️Completely updated UI + light/dark mode ✔️Claim rewards directly in the wallet ✔️Unified balance across TAO + alpha ✔️Universal Swap ✔️Transfer TAO + alpha ✔️Subnet discovery + detailed subnet views ✔️Multi-address support for seed phrases ✔️12 and 24 word seed phrase support ✔️Updated Smart Account + Reward",
+    "url": "http://shitter.thepixora.com/shibshib89/status/2100300168633761947#m",
+    "fetched_at": "2026-09-22T02:45:33.667656+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "tplr_ai",
+    "name": "Templar",
+    "posted_at": "Wed, 16 Sep 2026 14:57:46 GMT",
+    "title": "R to @tplr_ai: When using pipeline compression with fixed projections shared across layers, robustness improves further as seen in the figure below. This suggests that shared projectors align representations across stage boundaries, making bypasses less disruptive. 4/n",
+    "text": "When using pipeline compression with fixed projections shared across layers, robustness improves further as seen in the figure below. This suggests that shared projectors align representations across stage boundaries, making bypasses less disruptive. 4/n",
+    "url": "http://shitter.thepixora.com/tplr_ai/status/2100237714918367690#m",
+    "fetched_at": "2026-09-22T02:46:41.135764+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "tplr_ai",
+    "name": "Templar",
+    "posted_at": "Wed, 16 Sep 2026 14:57:46 GMT",
+    "title": "R to @tplr_ai: These results point toward training on a broader pool of compute, including unreliable workers and spot instances, while keeping healthy stages productive. Blog: https://www.tplr.ai/publications/blog/skipping-stages-with-fixed-projections n/n",
+    "text": "These results point toward training on a broader pool of compute, including unreliable workers and spot instances, while keeping healthy stages productive. Blog: tplr.ai/publications/blog/sk… n/n Link Fault tolerance in low-bandwidth model parallelism: exploring pipeline stage-skipping with boundary... We explore how the residual nature of the transformer architecture can be leveraged to mitigate hardware faults, and demonstrate that the compression-based implementation of low-bandwidth model... tplr.ai",
+    "url": "http://shitter.thepixora.com/tplr_ai/status/2100237717162303718#m",
+    "fetched_at": "2026-09-22T02:46:41.135764+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "tplr_ai",
+    "name": "Templar",
+    "posted_at": "Wed, 16 Sep 2026 14:57:44 GMT",
+    "title": "We’ve been researching fault tolerance in Crucible, Templar’s pre-training platform. The goal: keep training through node failures and make better use of unreliable workers and spot instances, without idling an entire model replica when one stage goes down. 1/n",
+    "text": "We’ve been researching fault tolerance in Crucible, Templar’s pre-training platform. The goal: keep training through node failures and make better use of unreliable workers and spot instances, without idling an entire model replica when one stage goes down. 1/n Video",
+    "url": "http://shitter.thepixora.com/tplr_ai/status/2100237708186550642#m",
+    "fetched_at": "2026-09-22T02:46:41.135764+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "foundrydigital",
+    "name": "Foundry Digital",
+    "posted_at": "Wed, 11 Jan 2012 23:30:33 GMT",
+    "title": "Expression Engine 2.0 review by the guys at Scriptiny http://bit.ly/w3Pg3R",
+    "text": "Expression Engine 2.0 review by the guys at Scriptiny bit.ly/w3Pg3R",
+    "url": "http://shitter.thepixora.com/foundrydigital/status/157243024848596993#m",
+    "fetched_at": "2026-09-22T02:46:29.791569+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "shibshib89",
+    "name": "Ala Shaabana",
+    "posted_at": "Wed, 09 Sep 2026 22:33:48 GMT",
+    "title": "RT by @shibshib89: Did you hear? Crucible Wallet is officially live on iOS today. An easy to use Bittensor wallet with Ledger security, Unified Swap and subnet level performance. Now available on iOS in the US, Android and Chrome. Download at http://CrucibleLabs.com #Bittensor #TAO #CrucibleWallet",
+    "text": "Did you hear? Crucible Wallet is officially live on iOS today. An easy to use Bittensor wallet with Ledger security, Unified Swap and subnet level performance. Now available on iOS in the US, Android and Chrome. Download at CrucibleLabs.com #Bittensor #TAO #CrucibleWallet",
+    "url": "http://shitter.thepixora.com/CrucibleLabs/status/2097815766473323006#m",
+    "fetched_at": "2026-09-22T02:45:33.667656+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "shibshib89",
+    "name": "Ala Shaabana",
+    "posted_at": "Wed, 09 Sep 2026 16:32:23 GMT",
+    "title": "We are officially on iOS! Onwards 🚀",
+    "text": "We are officially on iOS! Onwards 🚀 Crucible Labs (@CrucibleLabs) A long time coming and officially here. Crucible Wallet is now available on iOS in the US. An easy, intuitive Bittensor wallet for your everyday TAO needs, with Unified Swap, portfolio tracking and Ledger support wherever you go. Already available on Google Play and Chrome Store. Download at CrucibleLabs.com #CrucibleWallet #TAO #Bittensor — http://shitter.thepixora.com/CrucibleLabs/status/2097699938209857625#m",
+    "url": "http://shitter.thepixora.com/shibshib89/status/2097724813028516224#m",
+    "fetched_at": "2026-09-22T02:45:33.667656+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "shibshib89",
+    "name": "Ala Shaabana",
+    "posted_at": "Wed, 02 Sep 2026 13:38:19 GMT",
+    "title": "RT by @shibshib89: Crucible Labs dropping #downwiththedev Episode 1. We breakdown the Mobile Wallet with @buildwithsamp. Take a listen.",
+    "text": "Crucible Labs dropping #downwiththedev Episode 1. We breakdown the Mobile Wallet with @buildwithsamp. Take a listen. Video",
+    "url": "http://shitter.thepixora.com/CrucibleLabs/status/2095144290376937770#m",
+    "fetched_at": "2026-09-22T02:45:33.667656+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "markjeffrey",
+    "name": "Mark Jeffrey",
+    "posted_at": "Tue, 22 Sep 2026 02:21:58 GMT",
+    "title": "Bessent basically said:",
+    "text": "Bessent basically said:",
+    "url": "http://shitter.thepixora.com/markjeffrey/status/2102221840634810491#m",
+    "fetched_at": "2026-09-22T02:45:51.008777+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "VantaTrading",
+    "name": "Vanta",
+    "posted_at": "Tue, 22 Sep 2026 02:05:40 GMT",
+    "title": "Funded should mean paid. With a receipt a stranger can open. Weekly rewards from the day you pass Vanta's classic evaluation, always listed on our public ledger. Our pro accounts are here, and soon traders will be earning rewards on $1,000,000 accounts. You can view all of our rewards paid transparently here: http://www.vantatrading.io/rewards",
+    "text": "Funded should mean paid. With a receipt a stranger can open. Weekly rewards from the day you pass Vanta's classic evaluation, always listed on our public ledger. Our pro accounts are here, and soon traders will be earning rewards on $1,000,000 accounts. You can view all of our rewards paid transparently here: vantatrading.io/rewards",
+    "url": "http://shitter.thepixora.com/VantaTrading/status/2102217735828873365#m",
+    "fetched_at": "2026-09-22T02:46:51.094778+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "markjeffrey",
+    "name": "Mark Jeffrey",
+    "posted_at": "Tue, 22 Sep 2026 02:05:25 GMT",
+    "title": "Google and Apple are loading up on crypto people.",
+    "text": "Google and Apple are loading up on crypto people. CoinMarketCap (@CoinMarketCap) LATEST: ⚡ Apple and Google have both posted senior roles seeking stablecoin and blockchain expertise, covering Apple Pay strategy and Google Cloud's digital asset clients. — http://shitter.thepixora.com/CoinMarketCap/status/2102187667391680925#m",
+    "url": "http://shitter.thepixora.com/markjeffrey/status/2102217673568624667#m",
+    "fetched_at": "2026-09-22T02:45:51.008777+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "VantaTrading",
+    "name": "Vanta",
+    "posted_at": "Tue, 22 Sep 2026 00:50:40 GMT",
+    "title": "Markets had a good Monday. Nasdaq up 2.3% on chips, bitcoin over $85,000, Brent under $100 for a fourth day as the Iran talks cooled things off. PCE Friday is the one that matters. However you're positioned, size it right. That's the whole game. https://www.vantatrading.io/pro",
+    "text": "Markets had a good Monday. Nasdaq up 2.3% on chips, bitcoin over $85,000, Brent under $100 for a fourth day as the Iran talks cooled things off. PCE Friday is the one that matters. However you're positioned, size it right. That's the whole game. vantatrading.io/pro",
+    "url": "http://shitter.thepixora.com/VantaTrading/status/2102198861427249658#m",
+    "fetched_at": "2026-09-22T02:46:51.094778+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "tplr_ai",
+    "name": "Templar",
+    "posted_at": "Tue, 15 Sep 2026 13:39:27 GMT",
+    "title": "Video",
+    "text": "Video",
+    "url": "http://shitter.thepixora.com/tplr_ai/status/2099855617921880470#m",
+    "fetched_at": "2026-09-22T02:46:41.135764+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "jtledore",
+    "name": "Jean-Thomas Ledoré",
+    "posted_at": "Sun, 20 Sep 2026 22:31:11 GMT",
+    "title": "RT by @jtledore: Very cool! Any chance we could get it on https://hf.co/datasets?",
+    "text": "Very cool! Any chance we could get it on hf.co/datasets? Link Datasets – Hugging Face Explore datasets powering machine learning. huggingface.co",
+    "url": "http://shitter.thepixora.com/ClementDelangue/status/2101801371477393660#m",
+    "fetched_at": "2026-09-22T02:47:07.453718+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "const_reborn",
+    "name": "Jacob Steeves",
+    "posted_at": "Sun, 20 Sep 2026 21:18:21 GMT",
+    "title": "I love the push towards private AI, but a seperate source of freedom will be truly public AI, i.e. a world where the majority of AI trajectories are searchable, and thus minable for us to improve, understand and monitor intelligence -- not just the central labs.",
+    "text": "I love the push towards private AI, but a seperate source of freedom will be truly public AI, i.e. a world where the majority of AI trajectories are searchable, and thus minable for us to improve, understand and monitor intelligence -- not just the central labs.",
+    "url": "http://shitter.thepixora.com/const_reborn/status/2101783043354538441#m",
+    "fetched_at": "2026-09-22T02:45:31.594265+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "jtledore",
+    "name": "Jean-Thomas Ledoré",
+    "posted_at": "Sun, 20 Sep 2026 14:24:11 GMT",
+    "title": "RT by @jtledore: Bittensor Ecosystem Highlights :: September 13–20, 2026",
+    "text": "Article Bittensor Ecosystem Highlights :: September 13–20, 2026 This week’s biggest stories across Bittensor came from Conjectures, Score, Pareton, TAO(.)com, Good Morning and Almanac. [ @conjectures_io - Subnet 66 ] Conjectures miners resolved six Erdős",
+    "url": "http://shitter.thepixora.com/opentensor/status/2101678815709712714#m",
+    "fetched_at": "2026-09-22T02:47:07.453718+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "VantaTrading",
+    "name": "Vanta",
+    "posted_at": "Sun, 20 Sep 2026 02:00:35 GMT",
+    "title": "Nobody in the industry is scaling your account to $1,000,000. Except Vanta. Ours is a $1,000,000 Pro account. And that's at zero additional cost. What's stopping you from joining today? https://www.vantatrading.io/pro",
+    "text": "Nobody in the industry is scaling your account to $1,000,000. Except Vanta. Ours is a $1,000,000 Pro account. And that's at zero additional cost. What's stopping you from joining today? vantatrading.io/pro",
+    "url": "http://shitter.thepixora.com/VantaTrading/status/2101491682982445066#m",
+    "fetched_at": "2026-09-22T02:46:51.094778+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "jtledore",
+    "name": "Jean-Thomas Ledoré",
+    "posted_at": "Sun, 20 Sep 2026 00:34:23 GMT",
+    "title": "RT by @jtledore: Announcing one year of LLM inference metadata traces, with 6.12 billion requests. We hope this dataset can support research on real-world LLM serving workload understanding, system design and infrastructure optimization. Explore the dataset and learn more: https://data.agentic-system.org Driven by our great graduate student William Nixon and in collab with @jon_durbin @airesearch12 @chutes_ai",
+    "text": "Announcing one year of LLM inference metadata traces, with 6.12 billion requests. We hope this dataset can support research on real-world LLM serving workload understanding, system design and infrastructure optimization. Explore the dataset and learn more: data.agentic-system.org Driven by our great graduate student William Nixon and in collab with @jon_durbin @airesearch12 @chutes_ai Link Open Data · A dataset hub for LLM serving research A dataset hub for LLM serving research. Request traces, agent workloads, and GPU telemetry from Harvard MadSys and collaborators. data.agentic-system.org",
+    "url": "http://shitter.thepixora.com/1a1a11a/status/2101469990188732897#m",
+    "fetched_at": "2026-09-22T02:47:07.453718+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "jtledore",
+    "name": "Jean-Thomas Ledoré",
+    "posted_at": "Sat, 19 Sep 2026 21:05:30 GMT",
+    "title": "RT by @jtledore: people overestimate what can happen in a year and underestimate what can happen in 2, 5 or 10 over the last two weeks I had confirmations at so many levels that we were playing the right playbook at the right place and the right time, with the right team. 1. IBC Amsterdam and NRF Paris confirmed the need for a real open vision AI alternative (and made us proud of our models’ quality and efficiency). 2. the current petrol station rollout confirmed that Manako was plug-and-play and ready to be installed at the speed of light (5 mins process from box opening to live deployment) in june I didn’t know any of that. did you? maybe they were right after all , maybe it all happens at once",
+    "text": "people overestimate what can happen in a year and underestimate what can happen in 2, 5 or 10 over the last two weeks I had confirmations at so many levels that we were playing the right playbook at the right place and the right time, with the right team. 1. IBC Amsterdam and NRF Paris confirmed the need for a real open vision AI alternative (and made us proud of our models’ quality and efficiency). 2. the current petrol station rollout confirmed that Manako was plug-and-play and ready to be installed at the speed of light (5 mins process from box opening to live deployment) in june I didn’t k",
+    "url": "http://shitter.thepixora.com/MaxSebti/status/2101417422440046836#m",
+    "fetched_at": "2026-09-22T02:47:07.453718+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "const_reborn",
+    "name": "Jacob Steeves",
+    "posted_at": "Sat, 19 Sep 2026 14:02:31 GMT",
+    "title": "RT by @const_reborn: Jev by @typesafeai might change how we control robots. We compared Jev, GPT-6 Astra and GPT-4.1 mini in MuJoCo. One apple. One plate. Each model chooses intent → X/Y/Z direction + gripper open/hold/close. 🧵",
+    "text": "Jev by @typesafeai might change how we control robots. We compared Jev, GPT-6 Astra and GPT-4.1 mini in MuJoCo. One apple. One plate. Each model chooses intent → X/Y/Z direction + gripper open/hold/close. 🧵 Video",
+    "url": "http://shitter.thepixora.com/openroboto/status/2101310974359941332#m",
+    "fetched_at": "2026-09-22T02:45:31.594265+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "shibshib89",
+    "name": "Ala Shaabana",
+    "posted_at": "Mon, 31 Aug 2026 15:22:45 GMT",
+    "title": "RT by @shibshib89: Get ready, a new TAO-inspired podcast with @CrucibleLabs own @buildwithsamp and Kelly. Coming soon!",
+    "text": "Get ready, a new TAO-inspired podcast with @CrucibleLabs own @buildwithsamp and Kelly. Coming soon! Video",
+    "url": "http://shitter.thepixora.com/CrucibleLabs/status/2094445795848446011#m",
+    "fetched_at": "2026-09-22T02:45:33.667656+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "markjeffrey",
+    "name": "Mark Jeffrey",
+    "posted_at": "Mon, 21 Sep 2026 23:59:21 GMT",
+    "title": "RT by @markjeffrey: Bittensor Bungalow $TAO https://x.com/i/spaces/1RJjpbrVrlBKw",
+    "text": "Bittensor Bungalow $TAO shitter.thepixora.com/i/spaces/1RJjpbrVrlBKw Link Twitter Space Click to view Space http://shitter.thepixora.com/i/spaces/1RJjpbrVrlBKw",
+    "url": "http://shitter.thepixora.com/markjeffrey/status/2102185950566826375#m",
+    "fetched_at": "2026-09-22T02:45:51.008777+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "markjeffrey",
+    "name": "Mark Jeffrey",
+    "posted_at": "Mon, 21 Sep 2026 23:40:54 GMT",
+    "title": "RT by @markjeffrey: The GREAT @markjeffrey, the AMAZING @JesusMartinez, and myself all in ONE Space! 🔥 We’re only 20 minutes away — pop in and hang with us! 🏝️ BITTENSOR BUNGALOW 🏝️ This one should be a damn good time. bittensor:native",
+    "text": "The GREAT @markjeffrey, the AMAZING @JesusMartinez, and myself all in ONE Space! 🔥 We’re only 20 minutes away — pop in and hang with us! 🏝️ BITTENSOR BUNGALOW 🏝️ This one should be a damn good time. bittensor:native Jesus Martinez (@JesusMartinez) I'll be going live w/ @markjeffrey &amp; @ShizzyUnchained to chat $TAO in 30 minutes on X spaces Tune in! (to Bittensor Bungalow) — http://shitter.thepixora.com/JesusMartinez/status/2102179616811086064#m",
+    "url": "http://shitter.thepixora.com/ShizzyUnchained/status/2102181307367174348#m",
+    "fetched_at": "2026-09-22T02:45:51.008777+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "markjeffrey",
+    "name": "Mark Jeffrey",
+    "posted_at": "Mon, 21 Sep 2026 23:26:22 GMT",
+    "title": "RT by @markjeffrey: Did you know Bittensor ($TAO) produce apps that compete with iCloud and Dropbox and cost a fraction of the blockbuster product for the consumer? Probably not, and that’s on us. But this is why it is pumping af today.",
+    "text": "Did you know Bittensor ($TAO) produce apps that compete with iCloud and Dropbox and cost a fraction of the blockbuster product for the consumer? Probably not, and that’s on us. But this is why it is pumping af today. Hippius (@Hippius_cloud) The Hippius mobile app is live on Android. Your photos and files, backed up automatically and end-to-end encrypted on your phone before they ever upload. The same account and storage you already use on desktop and web. Your whole cloud, now in your pocket. iOS is coming next. — http://shitter.thepixora.com/Hippius_cloud/status/2101978478904222062#m",
+    "url": "http://shitter.thepixora.com/tylerdurdeth/status/2102177648369615221#m",
+    "fetched_at": "2026-09-22T02:45:51.008777+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "const_reborn",
+    "name": "Jacob Steeves",
+    "posted_at": "Mon, 21 Sep 2026 18:58:33 GMT",
+    "title": "Welcome to the era to decentralized post trained models that beat the frontier in their classes.",
+    "text": "Welcome to the era to decentralized post trained models that beat the frontier in their classes. Reliquary | Bittensor SN81 τ (@reliquary_ai) Introducing Reliquary-4B. A 4B math & code model trained with reinforcement learning. Anyone could join the network and contribute rollouts. Independent miners chose the prompts and generated the rollouts. The protocol verified them and trained the model. Here’s the model and the research behind it. — http://shitter.thepixora.com/reliquary_ai/status/2102107246905741819#m",
+    "url": "http://shitter.thepixora.com/const_reborn/status/2102110250241314873#m",
+    "fetched_at": "2026-09-22T02:45:31.594265+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "const_reborn",
+    "name": "Jacob Steeves",
+    "posted_at": "Mon, 21 Sep 2026 16:58:00 GMT",
+    "title": "RT by @const_reborn: Albedo Agent API is live for free. Miners get 10x standard quota - resets every 24h. Drop a key into Claude Code, Codex, Copilot, Cursor, ACP. Sign in with GitHub, copy a key, paste it into your agent. https://albedo.tech/keys.html Use it on real work and LMK how it feels.",
+    "text": "Albedo Agent API is live for free. Miners get 10x standard quota - resets every 24h. Drop a key into Claude Code, Codex, Copilot, Cursor, ACP. Sign in with GitHub, copy a key, paste it into your agent. albedo.tech/keys.html Use it on real work and LMK how it feels.",
+    "url": "http://shitter.thepixora.com/weather_boss_/status/2102079911565345113#m",
+    "fetched_at": "2026-09-22T02:45:31.594265+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "jtledore",
+    "name": "Jean-Thomas Ledoré",
+    "posted_at": "Mon, 21 Sep 2026 13:56:24 GMT",
+    "title": "RT by @jtledore: .@near_ai’s confidential models are now available through @say_gm_ on Bittensor. GM is becoming a gateway for private AI across ecosystems.",
+    "text": ".@near_ai’s confidential models are now available through @say_gm_ on Bittensor. GM is becoming a gateway for private AI across ecosystems. NEAR AI (@near_ai) NEAR AI Cloud's confidential inference is now live on @say_gm_'s confidential tier. SayGm reaches dozens of models through one API key, and runs its own routing inside an Intel TDX enclave rather than on ordinary servers. — http://shitter.thepixora.com/near_ai/status/2101053165730988390#m",
+    "url": "http://shitter.thepixora.com/opentensor/status/2102034210705842529#m",
+    "fetched_at": "2026-09-22T02:47:07.453718+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "const_reborn",
+    "name": "Jacob Steeves",
+    "posted_at": "Mon, 21 Sep 2026 10:14:56 GMT",
+    "title": "RT by @const_reborn: The Hippius mobile app is live on Android. Your photos and files, backed up automatically and end-to-end encrypted on your phone before they ever upload. The same account and storage you already use on desktop and web. Your whole cloud, now in your pocket. iOS is coming next.",
+    "text": "The Hippius mobile app is live on Android. Your photos and files, backed up automatically and end-to-end encrypted on your phone before they ever upload. The same account and storage you already use on desktop and web. Your whole cloud, now in your pocket. iOS is coming next.",
+    "url": "http://shitter.thepixora.com/Hippius_cloud/status/2101978478904222062#m",
+    "fetched_at": "2026-09-22T02:45:31.594265+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "VantaTrading",
+    "name": "Vanta",
+    "posted_at": "Mon, 21 Sep 2026 02:00:37 GMT",
+    "title": "$259. That's how little you can pay for access to $1,000,000 in capital. Pass our classic evaluation, trade it well, and Vanta can move you up to a $1,000,000 Pro account. Weekly rewards from the day you pass. Get started today -> https://app.vantatrading.io",
+    "text": "$259. That's how little you can pay for access to $1,000,000 in capital. Pass our classic evaluation, trade it well, and Vanta can move you up to a $1,000,000 Pro account. Weekly rewards from the day you pass. Get started today -&gt; app.vantatrading.io",
+    "url": "http://shitter.thepixora.com/VantaTrading/status/2101854079312089120#m",
+    "fetched_at": "2026-09-22T02:46:51.094778+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "VantaTrading",
+    "name": "Vanta",
+    "posted_at": "Mon, 21 Sep 2026 00:00:37 GMT",
+    "title": "5% and 5% - our static drawdown rules. On a Classic evaluation, both loss limits come off your starting balance. It's that simple. You shouldn't need to read your firm's rules section over and over to understand it.",
+    "text": "5% and 5% - our static drawdown rules. On a Classic evaluation, both loss limits come off your starting balance. It's that simple. You shouldn't need to read your firm's rules section over and over to understand it.",
+    "url": "http://shitter.thepixora.com/VantaTrading/status/2101823879723524454#m",
+    "fetched_at": "2026-09-22T02:46:51.094778+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "foundrydigital",
+    "name": "Foundry Digital",
+    "posted_at": "Mon, 02 Jan 2012 23:00:41 GMT",
+    "title": "Early predictions for design trends of 2012? http://tiny.cc/mkg4v",
+    "text": "Early predictions for design trends of 2012? tiny.cc/mkg4v",
+    "url": "http://shitter.thepixora.com/foundrydigital/status/153974018557493248#m",
+    "fetched_at": "2026-09-22T02:46:29.791569+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "tplr_ai",
+    "name": "Templar",
+    "posted_at": "Fri, 11 Sep 2026 19:44:24 GMT",
+    "title": "Video",
+    "text": "Video",
+    "url": "http://shitter.thepixora.com/tplr_ai/status/2098497911550017611#m",
+    "fetched_at": "2026-09-22T02:46:41.135764+00:00",
+    "via_instance": "https://nitter.cz"
+  }
+]
