@@ -11,6 +11,16 @@ _no human notes in the window_
 
 _SemiAnalysis is the most-cited semiconductor and AI infrastructure publication in the industry. They do NOT cover Bittensor. The Oracle uses this corpus for any claim about hyperscaler compute, GPU economics, datacenter power, foundry capacity, memory pricing, lab unit economics. DO NOT cite SemiAnalysis for any Bittensor-specific claim. Full archive (289 posts, May 2020 onwards) lives at `intelligence/_external_sources/semianalysis/` with an `INDEX.md` table of contents. Paywalled posts show only subtitle + free preview; free posts have the full body extracted._
 
+### 2026-09-23 · ClusterMAX 3.0: The Industry Standard GPU Cloud Rating System Returns
+_In gory detail: reliability, performance, support, pricing—and, of course, security—in our most thorough analysis of GPU cloud providers globally._
+
+- **Authors:** ["Jordan Nanos", "Sam Harshe", "Samuel Kruse", "Pratt Bhatt", "Billy Cao", "Jack Carson", "Dylan Patel"]
+- **Access:** paid-preview
+- **URL:** https://newsletter.semianalysis.com/p/clustermax-30-the-industry-standard
+- **Corpus file:** `intelligence/_external_sources/semianalysis/2026-09-23-clustermax-30-the-industry-standard.md`
+
+> This post has bonus content for paid subscribers. Upgrade to get full access.  Subscribe  In 8 months since our last major release of ClusterMAX, slavering investors have just about run out of pockets to stuff checks into. GPU supply has gone to zero. Meanwhile, we have been hard at work putting clusters through the ringer.  Weeks ago, we teased this report with some R-rated anecdotes from our experiences probing the security practices of neoclouds, eliciting a PSA from a neocloud customer that
+
 ### 2026-09-21 · Computation and Data Movement for Inference
 _Mapping MoE models onto inference hardware: structure, flow, and efficient serving_
 
@@ -41,16 +51,6 @@ _300+ moratoriums mapped, 20GW sits inside a restricted local boundary, 1,525MW 
 
 > The debate on US datacenters has never been so politically charged. Four states have acted in under two months. New York has stopped issuing environmental permits for datacenters, Texas has paused the next step in its massive ERCOT interconnection queue, Pennsylvania has pulled datacenters out of fast-track permitting and made state permits conditional on new guardrails, and Oregon has frozen datacenter deals on state-owned land.  Beyond the state level, more than 300 towns, cities and counties
 
-### 2026-09-14 · A Brain Too Big to Carry — On-Device vs Datacenter Inference
-_Robot Models, Silicon & DRAM Efficiency, Jetson Thor vs. B300 TCO, Deployments, The Network Wall_
-
-- **Authors:** ["Ivan Chiam", "Gianluca", "Zane Fong", "Bryan Shan", "Dylan Patel", "Reyk Knuhtsen"]
-- **Access:** paid-preview
-- **URL:** https://newsletter.semianalysis.com/p/a-brain-too-big-to-carry-on-device
-- **Corpus file:** `intelligence/_external_sources/semianalysis/2026-09-14-a-brain-too-big-to-carry-on-device.md`
-
-> # Where should the brain of the robot go?  So far, AI has mostly lived behind a screen. Chatbots answered questions. Then agents started driving software and finishing multi-step tasks on their own. The next step is AI that acts in the physical world, and the biggest piece of that is robots. It’s early. Nobody has settled the hardware, the models, or the economics.  ## The Embodiment Problem  With LLMs, the hardware bends to the model. Pour in as much data and compute as possible at training, th
-
 ### 2026-09-14 · Vera Rubin NVL72 Agentic Inference: 67x better Performance per Dollar
 _Jensen Sandbagging Performance Again, 2x more Annual Profit Per GigaWatt, The More you Buy, The More you Earn, AgentX, InferenceX, Extreme Co-Design_
 
@@ -60,6 +60,16 @@ _Jensen Sandbagging Performance Again, 2x more Annual Profit Per GigaWatt, The M
 - **Corpus file:** `intelligence/_external_sources/semianalysis/2026-09-14-vera-rubin-nvl72-agentic-inference.md`
 
 > [Rubin is the first platform co-designed across six products for the agentic era: Rubin GPU, Vera CPU, NVLink 6 Switch, ConnectX-9, BlueField-4, and Spectrum-6.](https://newsletter.semianalysis.com/p/vera-rubin-extreme-co-design-an-evolution) Today we are publishing the first verified agentic inference results for Rubin, measured on our agentic inference benchmark, AgentX. Even on early pre-release software, the results already show why extreme co-design was necessary.  At GTC 2026, Jensen prese
+
+### 2026-09-14 · A Brain Too Big to Carry — On-Device vs Datacenter Inference
+_Robot Models, Silicon & DRAM Efficiency, Jetson Thor vs. B300 TCO, Deployments, The Network Wall_
+
+- **Authors:** ["Ivan Chiam", "Gianluca", "Zane Fong", "Bryan Shan", "Dylan Patel", "Reyk Knuhtsen"]
+- **Access:** paid-preview
+- **URL:** https://newsletter.semianalysis.com/p/a-brain-too-big-to-carry-on-device
+- **Corpus file:** `intelligence/_external_sources/semianalysis/2026-09-14-a-brain-too-big-to-carry-on-device.md`
+
+> # Where should the brain of the robot go?  So far, AI has mostly lived behind a screen. Chatbots answered questions. Then agents started driving software and finishing multi-step tasks on their own. The next step is AI that acts in the physical world, and the biggest piece of that is robots. It’s early. Nobody has settled the hardware, the models, or the economics.  ## The Embodiment Problem  With LLMs, the hardware bends to the model. Pour in as much data and compute as possible at training, th
 
 ### 2026-09-13 · Long Live the Short King: Why 4-hi HBM Wins
 _Same Bandwidth, Fewer Dies: How 4-hi HBM Cuts Inference Costs and Makes Scarce DRAM Go Further_
@@ -121,16 +131,6 @@ _Korea hosts a Squid Games, National AI Tournament, the best non-Chinese open so
 
 > Every day, businesses and governments around the world are becoming increasingly reliant on America’s frontier models. Startup CEOs already can’t imagine running their companies without AI, and it won’t be long until the same is true for every other organization in the world.  At the same time, it’s become abundantly clear that access to frontier models is at the mercy of Anthropic, OpenAI, and the United States government. Fable 5 was temporarily banned by the USG, and GPT 5.6 and Astra were si
 
-### 2026-08-30 · Most Neoclouds Suck At Security
-_OpenAI vs HuggingFace, Container Escapes, Kernel Bypass, Network Policies, Security Keys, Multi-tenant Grafana, and a ClusterMAX 3.0 Preview_
-
-- **Authors:** ["Jordan Nanos", "Sam Harshe", "Pratt Bhatt", "Billy Cao", "Jack Carson", "Dylan Patel"]
-- **Access:** paid-preview
-- **URL:** https://newsletter.semianalysis.com/p/most-neoclouds-suck-at-security
-- **Corpus file:** `intelligence/_external_sources/semianalysis/2026-08-30-most-neoclouds-suck-at-security.md`
-
-> [![](https://substackcdn.com/image/fetch/$s_!zWz0!,w_1456,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2Fc647fca6-8c53-43a7-af27-f4396a31077b_1448x1086.png)](https://substackcdn.com/image/fetch/$s_!zWz0!,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2Fc647fca6-8c53-43a7-af27-f4396a31077b_1448x1086.png)  In Shakespeare’s Julius Caesar, Caesar ignores a soothsayer’
-
 
 ## ⊕ GITHUB COMMITS + RELEASES, last 24h
 
@@ -149,14 +149,30 @@ _no new posts in the lookback window_
 
 ## ⊕ X via NITTER, voices we track
 
+- @TargonCompute (Targon, Wed, 26 Aug 2026): Proud to power @TheoriqAI with secure confidential compute for their agentic market research. Large GPU blocks on demand, with hardware-level guarantees that keep the workload and its data private even from the machines running it. Excited to keep powering experimental research infrastructure with Targon. Theoriq (@TheoriqAI) .@TargonCompute is powering Theoriq AI experimentation. Curating risk-managed yield is, underneath, a research problem: how markets behave, where they break, and how much of that can be seen coming. That runs on heavy, on-demand compute. Targon is our partner in supplying  
+  http://shitter.thepixora.com/TargonCompute/status/2092690588143657190#m
+- @ridges_ai (Ridges, Wed, 26 Aug 2026): We've kicked off Niches with a Linting competition! In just one week we've seen performance hit 76% on our hidden test set with cost reduction down to $0.02 per task. Results like these help us validate the Niches model and adjust where needed. We're excited for the next Niche, and eventually dynamic Niches. Stay tuned!  
+  http://nitter.jaydenha.uk/ridges_ai/status/2092684102595961119#m
+- @TargonCompute (Targon, Wed, 26 Aug 2026): .@TargonCompute is powering Theoriq AI experimentation. Curating risk-managed yield is, underneath, a research problem: how markets behave, where they break, and how much of that can be seen coming. That runs on heavy, on-demand compute. Targon is our partner in supplying it. Theoriq (@TheoriqAI) Article Theoriq partnering with Targon to power AI experimentation Curating risk-managed yield is, underneath, a research problem. Long before capital is deployed, we want to know how markets behave, where they tend to break, and how much of that can be seen coming — http://shitter.thepixora.com/Theor  
+  http://shitter.thepixora.com/TheoriqAI/status/2092661304444277050#m
 - @polychain (Polychain Capital, Wed, 24 Jun 2026): I'm excited to share that Cambrian has raised $11.9M to build the financial intelligence layer for the convergence of AI, digital assets, and traditional finance. Our seed round was led by @Polychain and Franklin Templeton @FTDA_US: a convergence itself of a top OG digital assets fund and a $1.7T institutional asset manager of 75+ years. As AI starts to consume more data in minutes than most humans do in lifetimes, finance is evolving to adapt to this reality ⤵️ Cambrian Network 🪴 (@CambrianNetwork) Big news: we’ve raised $11.9 million to build the world’s financial intelligence layer. @Polych  
   http://nitter.jaydenha.uk/0xsamgreen/status/2069836236362313887#m
 - @polychain (Polychain Capital, Wed, 24 Jun 2026): EXCLUSIVE: a16z CSX-backed Cambrian raises $6 million seed to build blockchain data oracle network theblock.co/post/406028/a16z… Link a16z CSX-backed Cambrian raises $6 million seed to build blockchain data oracle network Cambrian, a startup building blockchain data infrastructure for institutions and AI agents, raised $6 million in a seed funding round. theblock.co  
   http://nitter.jaydenha.uk/TheBlockCo/status/2069827932843909349#m
+- @a16zcrypto (a16z Crypto, Wed, 23 Sep 2026): Article The rise of the $100-billion RWA perp market Trading in perpetual futures tied to stocks, gold, and other traditional assets is growing fast. And an increasing share of that activity is now happening onchain. These contracts, often referred to  
+  http://shitter.thepixora.com/a16zcrypto/status/2102875903500197915#m
+- @novogratz (Mike Novogratz, Wed, 23 Sep 2026): Thanks for making the trip to Lubbock, Mike — and for spending time with our Red Raider football team ahead of the game. Great to have you at @TexasTech, and even better to cap off the visit with a big win at the new @galaxyhq Stadium. This partnership is just getting started. #WreckEm! Mike Novogratz (@novogratz) Last Friday, I visited our flagship campus Helios in West Texas. Three years ago, this was still a bitcoin mining facility. Today Helios is a fully operational AI-ready campus with 133MW of critical IT capacity, and we’re just getting started! @galaxyhq is taking a big swing out here  
+  http://shitter.thepixora.com/CreightonForTX/status/2102869773776269419#m
+- @a16zcrypto (a16z Crypto, Wed, 23 Sep 2026): Note: While a small number of U.S.-regulated centralized platforms offer products similar to perpetual futures contracts to U.S. persons, most centralized and all decentralized exchanges restrict U.S. persons’ access to true perpetual futures contracts.  
+  http://shitter.thepixora.com/a16zcrypto/status/2102823016929624104#m
+- @a16zcrypto (a16z Crypto, Wed, 23 Sep 2026): Perps have become one of crypto’s most-traded products. @guywuolletjr and @jay_drainjr explain where they came from, how they work, and why more of the market is moving onchain. Video  
+  http://shitter.thepixora.com/a16zcrypto/status/2102823014090064201#m
 - @galaxyhq (Galaxy Digital, Wed, 23 Sep 2026): Last Friday, I visited our flagship campus Helios in West Texas. Three years ago, this was still a bitcoin mining facility. Today Helios is a fully operational AI-ready campus with 133MW of critical IT capacity, and we’re just getting started! @galaxyhq is taking a big swing out here, and so is America. The move to build an AI future for this country is real, and none of it happens without the physical infrastructure. It starts with power, land, and hard-working people willing to put in the work to build a new future. Our partnership with @TechAthletics with Galaxy Stadium is part of investing  
   http://shitter.thepixora.com/novogratz/status/2102773522292428868#m
 - @taomedia_ (TAO Media, Wed, 23 Sep 2026): Midcentury just raised a $15M seed and emerged from stealth to build the “scaling layer” for physical AI. The company is already working with frontier labs, with 2M+ hours of egocentric robotics data spanning 50+ environments and 20,000 tasks. tao.media/midcentury-raises-… Link Midcentury Raises $15M Seed to Build Physical AI Data and Simulation Infrastructure The stealth exit pairs a large egocentric robotics dataset with Matrix, a simulation platform for evaluating and improving robot policies before deployment. tao.media  
   http://nitter.jaydenha.uk/taomedia_/status/2102771470296650095#m
+- @webuildscore (Score, Wed, 23 Sep 2026): Ran our auto-annotate engine on 120 frames of highway traffic. every car, truck, and person on the road, tagged. If you are still drawing bounding boxes by hand in 2026, blink twice and we will send help. Try it here: scorestudio.ai Video  
+  http://shitter.thepixora.com/webuildscore/status/2102768498426380399#m
 - @taomedia_ (TAO Media, Wed, 23 Sep 2026): ICYMI: Harvard &amp; @chutes_ai dropped one of the biggest real-world LLM serving traces we’ve seen: a full year of production inference metadata. The open dataset spans 6.12B requests across 9,174 models. tao.media/harvard-and-chutes… Link Harvard and Chutes Release Yearlong LLM Inference Dataset With 6.12B Requests The open dataset gives researchers production traces from Chutes for studying LLM serving, caching, and load balancing. tao.media  
   http://nitter.jaydenha.uk/taomedia_/status/2102761820096528736#m
 - @galaxyhq (Galaxy Digital, Wed, 23 Sep 2026):   
@@ -165,6 +181,8 @@ _no new posts in the lookback window_
   http://shitter.thepixora.com/galaxyhq/status/2102757266059325881#m
 - @galaxyhq (Galaxy Digital, Wed, 23 Sep 2026): Galaxy is expanding its partnership with Sky Protocol across treasury, lending and capital markets. We are now holding Sky’s sUSDS in our own treasury and accepting it as loan collateral, so clients may continue to earn yield even while using that same asset to back a loan. We're also expanding how we borrow through Sky to support additional financing for our institutional clients, putting idle capital to work, onchain. This builds on a relationship we've developed with @SkyEcosystem over time, having borrowed on Spark to support Galaxy Onchain Financing Rate (GOFR). Structuring this new tri-p  
   http://shitter.thepixora.com/galaxyhq/status/2102757263253426562#m
+- @VantaTrading (Vanta, Wed, 23 Sep 2026): gm Vanta fam, say it back what are you trading today? and in case you missed it... my first giveaway is below. maybe more to come soon? Vanta Trading (@VantaTrading) vanta's intern here - just decided i'm giving away a $100k challenge now 💸 how to enter • retweet this post • follow @VantaTrading • tag a friend and tell us what you would do with your first payout winner announced friday, september 25 🚨 — http://shitter.thepixora.com/VantaTrading/status/2102402116295733434#m  
+  http://shitter.thepixora.com/VantaTrading/status/2102744558777897078#m
 - @JosephJacks_ (Joseph Jacks, Wed, 23 Sep 2026): Charging for any education whatsoever in the age of AI is silly. It has never been more possible to completely delete ALL educational systems entirely and create a culture of continuous learning through example and curiosity.  
   http://shitter.thepixora.com/JosephJacks_/status/2102727749836190124#m
 - @JosephJacks_ (Joseph Jacks, Wed, 23 Sep 2026): Read books before sleeping. Write your goals and note progress in writing. Talk to smarter people than yourself on a regular basis. Learn new things (skills, topics, domains). Create new phrases for things you have a hard time concisely expressing. ♾️ nature (@Nature) There is growing concern that AI can blunt memory and reasoning. Science shows ways to keep the brain sharp go.nature.com/4h4cZP2 Link How to stay smart in the age of AI: the science of critical thinking Nature - There is growing concern that AI can blunt memory and reasoning. But science shows ways to keep the brain sharp. natur  
@@ -179,16 +197,36 @@ _no new posts in the lookback window_
   http://shitter.thepixora.com/uixmat/status/2102696698258559200#m
 - @taomedia_ (TAO Media, Wed, 23 Sep 2026): 418,000 people are already using SpaceXAI’s Grok Bot weekly, about a month after launch. Usage jumped 24% week over week, with an estimated ~70:30 enterprise skew. tao.media/spacexais-grok-bot… Link SpaceXAI’s Grok Bot Reaches 418,000 Weekly Users After First Month The cloud-computer agent grew 24% week over week, with enterprises estimated to account for roughly 70% of its user base. tao.media  
   http://nitter.jaydenha.uk/taomedia_/status/2102584192760750387#m
+- @VantaTrading (Vanta, Wed, 23 Sep 2026): 10%. That's the whole target on a Classic evaluation, and there's one to pass. A Classic evaluation has no time limit and no consistency rule. Pass one on $50,000 or $100,000 and Vanta can move you up to a $1,000,000 Pro account. Get started -&gt; app.vantatrading.io  
+  http://shitter.thepixora.com/VantaTrading/status/2102578874773344325#m
 - @shibshib89 (Ala Shaabana, Wed, 16 Sep 2026): LFG! Crucible Labs (@CrucibleLabs) Crucible Wallet Extension v2.1.1 is LIVE. This isn’t just an update. We rebuilt the entire wallet experience from the ground up. A completely new UI. More control over your TAO. More Bittensor tools built directly into your wallet. What’s new in v2.1.1: ✔️Completely updated UI + light/dark mode ✔️Claim rewards directly in the wallet ✔️Unified balance across TAO + alpha ✔️Universal Swap ✔️Transfer TAO + alpha ✔️Subnet discovery + detailed subnet views ✔️Multi-address support for seed phrases ✔️12 and 24 word seed phrase support ✔️Updated Smart Account + Reward  
   http://shitter.thepixora.com/shibshib89/status/2100300168633761947#m
 - @jaltucher (James Altucher, Wed, 16 Sep 2026): Working on an AI-powered end to end platform for designing optical and then quantum chips at $QCLS. More details and refinements later but you can check it out at VibeGDS.io - you just enter plain English for the chip you want and it will build it out, simulate, verify, etc. Of interest mostly to optical engineers.  
   http://shitter.thepixora.com/jaltucher/status/2100262449685364904#m
+- @novogratz (Mike Novogratz, Wed, 16 Sep 2026): Our economy doesn’t work without immigration. We need at least 1.5-2mm new immigrants a year to create taxpayers and consumers to help us grow our way out of 40th in debt and to pay for an aging population. This isn’t political. It’s just math. We of course can decide what immigrants we take. From where, what educational level, wealth etc. that’s political. But the fact that we need them isn’t. Lisa Boothe (@LisaMarieBoothe) At this point, I am fine with shutting down all immigration, legal or not. It's a mess. — http://shitter.thepixora.com/LisaMarieBoothe/status/2099891080258875467#m  
+  http://shitter.thepixora.com/novogratz/status/2100193741633929406#m
+- @novogratz (Mike Novogratz, Wed, 16 Sep 2026): Govt feels broken. 18 months of work between our industry, dems and republicans and Clarity falls apart on the 5 yard line. All the issues got to a hard fought compromise other than one. On Ethics both sides dug in and decided their stance was more important than the long run good of a major industry and our countries chance to lead it. Republicans were afraid of putting real limits on a President’s ability to profit from digital assets. Dems decided that this one industry is where they would fight a corruption battle. They were scared to be seen doing anything that could be perceived as being  
+  http://shitter.thepixora.com/novogratz/status/2100020845942911165#m
+- @lium_io (Lium, Wed, 09 Sep 2026): lium.io Month in review: $964k billed to 1187 renters (36% MoM growth). 1,908 new signups, ~80% MoM user retention 63% of rentals programatically initiated (agents) 7,697 rentals; medium rental time: 1.15 hours.  
+  http://nitter.jaydenha.uk/lium_io/status/2097824624117473549#m
+- @ridges_ai (Ridges, Wed, 09 Sep 2026): ridges.ai/explore/28 Link Ridges AI AI Agents, powered by Bittensor | SN62 ridges.ai  
+  http://nitter.jaydenha.uk/ridges_ai/status/2097823739765526549#m
+- @ridges_ai (Ridges, Wed, 09 Sep 2026): Next competition is live: Database Engineering. Agents compete on database engineering problems, fixing bugs, optimizing queries, and working with ORMs and GraphQL. Why this Niche next? Because inefficient queries are a real engineering challenge, and one where specialist agents have plenty of room to outperform. Open now for submissions:  
+  http://nitter.jaydenha.uk/ridges_ai/status/2097823726561866122#m
 - @shibshib89 (Ala Shaabana, Wed, 09 Sep 2026): Did you hear? Crucible Wallet is officially live on iOS today. An easy to use Bittensor wallet with Ledger security, Unified Swap and subnet level performance. Now available on iOS in the US, Android and Chrome. Download at CrucibleLabs.com #Bittensor #TAO #CrucibleWallet  
   http://shitter.thepixora.com/CrucibleLabs/status/2097815766473323006#m
+- @lium_io (Lium, Wed, 09 Sep 2026): Steadily building the most decentralized GPU cloud Lium now has capacity from 68 datacenters across 21 countries Have GPUs? Join now. Lium pays you even for idle minutes. Make your nodes rentable in 5 minutes -&gt; docs.lium.io/providers/quick…  
+  http://nitter.jaydenha.uk/lium_io/status/2097803045362966828#m
 - @shibshib89 (Ala Shaabana, Wed, 09 Sep 2026): We are officially on iOS! Onwards 🚀 Crucible Labs (@CrucibleLabs) A long time coming and officially here. Crucible Wallet is now available on iOS in the US. An easy, intuitive Bittensor wallet for your everyday TAO needs, with Unified Swap, portfolio tracking and Ledger support wherever you go. Already available on Google Play and Chrome Store. Download at CrucibleLabs.com #CrucibleWallet #TAO #Bittensor — http://shitter.thepixora.com/CrucibleLabs/status/2097699938209857625#m  
   http://shitter.thepixora.com/shibshib89/status/2097724813028516224#m
+- @zeussubnet (Zeus Subnet, Wed, 09 Sep 2026): Zeus is energy-aware. How? 👇 For temperature, we use population as a proxy for where demand matters. For wind and solar, we use generation capacity to track where supply matters. Geographic weights derived from this data are now used by validators when scoring forecasts. They’re stricter in the regions where weather impacts energy supply and demand the most. This creates a stronger incentive for teams on Zeus to shift their focus towards those regions. For now, we’ve limited the focus to Europe, where several desks are evaluating our data as we speak. We may expand to other interesting trading  
+  http://nitter.jaydenha.uk/zeussubnet/status/2097696101822304723#m
+- @ridges_ai (Ridges, Wed, 09 Sep 2026): CMC Verification post: ridges.ai  
+  http://nitter.jaydenha.uk/ridges_ai/status/2097651752464011375#m
 - @shibshib89 (Ala Shaabana, Wed, 02 Sep 2026): Crucible Labs dropping #downwiththedev Episode 1. We breakdown the Mobile Wallet with @buildwithsamp. Take a listen. Video  
   http://shitter.thepixora.com/CrucibleLabs/status/2095144290376937770#m
+- @ridges_ai (Ridges, Tue, 28 Jul 2026): ⛰️ x402 is now live on Ridges X402 is an agentic payment protocol that lets agents pay for API access autonomously. Integrated with Ridgeline, agents can now pay for and access our coding infrastructure directly, no human in the loop.  
+  http://nitter.jaydenha.uk/ridges_ai/status/2082103797418262564#m
 - @taomedia_ (TAO Media, Tue, 22 Sep 2026): The @conjectures_io system is reaching escape velocity. Today, the team announced a solution to Erdős Problem 1062(ii), open since at least 1994. It's their fifth Erdős solution of September! tao.media/conjectures-miners… Link Conjectures Miners Prove Erdős 1062(ii) Density Is Irrational in Lean The Bittensor formal-math subnet says a miner-submitted proof resolves the irrationality question for a classic fork-free-set density. tao.media  
   http://nitter.jaydenha.uk/taomedia_/status/2102533534976229487#m
 - @YumaGroup (Yuma Holdings, Tue, 22 Sep 2026): In the past two weeks, Trishool joined the @OpenAI cyber program and launched its Output Guard product for model-output alignment, complementing its existing Input Guard. Since launch, Output Guard has already closed ~50% of the gap to the leading model's performance, powered by continuously improving intelligence produced on Bittensor. $TAO Trishool | SN23 (@trishoolai) Two weeks ago we shipped the first version of our output guard and showed you the starting number. 73.9% F1. We called it the floor, not the ceiling. Here is the floor already moving. The output guard is now at 78.53% F1. That  
@@ -197,59 +235,21 @@ _no new posts in the lookback window_
   http://nitter.jaydenha.uk/opentensor/status/2102525497687285851#m
 - @opentensor (Opentensor Foundation, Tue, 22 Sep 2026): .@openroboto just built a decentralized alternative to @Figure_robot’s Index for collecting robot training data, with real-world capture hardware. Open robotics on Bittensor now has its data network to challenge the industry’s biggest labs. Bittensor is coming for physical AI. OpenRoboto (@openroboto) Today we’re launching OpenRoboto Shift, opening a new chapter for OpenRoboto. Shift is a decentralized network for collecting egocentric robotics data: first-person video of real people doing real work. Only Possible on Bittensor. Explore Shift → shift.openroboto.ai/ Video — http://shitter.thepix  
   http://shitter.thepixora.com/opentensor/status/2102525497687285851#m
+- @a16zcrypto (a16z Crypto, Tue, 22 Sep 2026): You can copy the code. You can’t copy the network of lenders, borrowers, and companies building on it. Morpho continues to show the power of open credit networks. Paul Frambot 🦋 (@PaulFrambot) I’ve been asked a lot what it’s like to partner with both Coinbase and Robinhood when they compete so fiercely. The answer comes down to Morpho’s fundamental purpose: connecting. Morpho is an open credit network designed to connect lenders and borrowers across any boundary (social, geographic, political, …). More borrowers create more demand for capital. More lenders create more competition to fund borro  
+  http://shitter.thepixora.com/guywuolletjr/status/2102523019906478220#m
 - @dylan522p (Dylan Patel, Tue, 22 Sep 2026): Spoke with AMD, they did not ship / sell this dual use chip to this firm and they're investigating the sourcing. This violates their policies + they work with authorities to take action on violations I am very concerned about the fact that pricing discrepancy is so large. I have heard from multiple folks that there are bitstream compatible FPGAs not from AMD that are floating around too. Dylan Patel (@dylan522p) US supply chains for electronics suck so much AMD found a business opportunity in dumping US military chips for 1/4 of the cost in China. US list price is $36k for this chip, with $4-5  
   http://nitter.jaydenha.uk/dylan522p/status/2102503347681210570#m
+- @VantaTrading (Vanta, Tue, 22 Sep 2026): Vanta Pro is a $1,000,000 account. 1% on a $100,000 Classic pays you $2,000. Your Pro return is applied to your Classic account size, then doubled through Grow. So a 1% month is worth 2% to you. Every reward we've paid is on our public ledger. vantatrading.io/rewards  
+  http://shitter.thepixora.com/VantaTrading/status/2102495825159180512#m
+- @VantaTrading (Vanta, Tue, 22 Sep 2026): day 1 as Vanta's intern has been fun should i change the password and take over our X page full time? just kidding... for now maybe i'll take over the Vanta discord next discord.gg/vantatrading Link Join the Vanta Trading Discord Server! Pass our 1-step trading test and earn a $100k account. Keep 100% of your rewards. Grow to $2.5M.vantatrading.io | 1756 members discord.com Vanta Trading (@VantaTrading) vanta's intern here - just decided i'm giving away a $100k challenge now 💸 how to enter • retweet this post • follow @VantaTrading • tag a friend and tell us what you would do with your first p  
+  http://shitter.thepixora.com/VantaTrading/status/2102485693423329363#m
+- @a16zcrypto (a16z Crypto, Tue, 22 Sep 2026): Ben Horowitz says instead of banning AI, educators should set problems students can't solve without it: "I was talking to Dan Boneh, who is a great professor of computer science and cryptography at Stanford. His take on AI was: You have two choices. You can ban it, and by the way, that won't work. Or you can make the problems so hard that you can't solve them without AI." "What he's seeing is, 'I've got students solving things that no student in history could have ever solved.' That's what's possible. You want to have that orientation: What can you solve with the tools? What can you do that's   
+  http://shitter.thepixora.com/a16z/status/2102476819438141767#m
 - @taomedia_ (TAO Media, Tue, 22 Sep 2026): Pumped for this one Tesla owners can now use @bot to get work done on the go. Place a coffee order, book a reservation, get through your email. All hands free! Follow @taomedia_ tao.media/tesla-adds-grok-co… Link Tesla Adds Grok Connectors and Bot Tasks for Hands-Free In-Car Work The update lets drivers manage inboxes, calendars, files, and task workflows by voice, while more complex Grok Bot jobs start on SuperGrok Heavy. tao.media  
   http://nitter.jaydenha.uk/bart_hillerich/status/2102473875116511319#m
-- @galaxyhq (Galaxy Digital, Tue, 22 Sep 2026): With the midterm elections weeks out, investors are asking the same question: how might either outcome shape policy, sentiment, and asset prices? Galaxy's Joe Armao, Beimnet Abebe (@BeimnetAbebe), and Gil Wassermann (@GilWassermann) sit down and unpack their views on what may come next. Topics include scenario planning, reading real-time signals from prediction markets, and how our team is thinking about portfolio positioning through the uncertainty. 🗓️ Tuesday, September 29, 11:00–11:45 AM ET Register here: galaxy.com/galaxy-lens-webin…  
-  http://shitter.thepixora.com/galaxyhq/status/2102447963033293186#m
-- @KyleSamani (Kyle Samani, Tue, 22 Sep 2026): Autonomous agents need rails fast and cheap enough to transact constantly. That's consolidating in one place. @solana now handles 76% of all x402 transactions. 23.2M in four weeks. Solana (@solana) JUST IN: Solana handles 76% of all @x402 transactions. 23.2M in four weeks. The next-largest network did 3.39M. — http://shitter.thepixora.com/solana/status/2102285997304148088#m  
-  http://shitter.thepixora.com/FWDind/status/2102422922845696103#m
-- @YumaGroup (Yuma Holdings, Tue, 22 Sep 2026): We're proud to be the pilot partner for @taostats' ads program and support one of the best pieces of free infrastructure in Bittensor. Soon these ad spaces will be available to subnets and other ecosystem participants as a new way to reach users, builders, and investors. For Bittensor and its subnets, growth starts with awareness. Nobody can use something they've never heard of. Taostats is our first ad campaign. It won't be our last, and soon we'll be advertising beyond the existing community to help new talent and capital discover Bittensor. $TAO  
-  http://shitter.thepixora.com/YumaGroup/status/2102396817975529838#m
-- @BarrySilbert (Barry Silbert, Tue, 22 Sep 2026): We're proud to be the pilot partner for @taostats' ads program and support one of the best pieces of free infrastructure in Bittensor. Soon these ad spaces will be available to subnets and other ecosystem participants as a new way to reach users, builders, and investors. For Bittensor and its subnets, growth starts with awareness. Nobody can use something they've never heard of. Taostats is our first ad campaign. It won't be our last, and soon we'll be advertising beyond the existing community to help new talent and capital discover Bittensor. $TAO  
-  http://nitter.jaydenha.uk/YumaGroup/status/2102396817975529838#m
-- @jaltucher (James Altucher, Tue, 22 Sep 2026): Welcome to Bittensor. Here's why you should stay and diamond-hand $TAO.  
-  http://shitter.thepixora.com/taodaily_io/status/2102390629422567556#m
-- @BarrySilbert (Barry Silbert, Tue, 22 Sep 2026): Grayscale AI Compute ETF (Ticker: $GCPU) is now trading. Why AI Compute? ⟶ AI's growth is constrained by physical compute. Data centers have just six months of capacity¹, and new ones take two to five years to build². ⟶ AI infrastructure capex is projected to exceed $1 trillion annually³. ⟶ $GCPU portfolio includes native data center businesses, plus operators repurposing existing power and land for AI, including Bitcoin miners. $GCPU offers exposure to AI’s physical layer, now accessible through brokerage or investment accounts. Learn more: etfs.grayscale.com/gcpu Video  
-  http://nitter.jaydenha.uk/Grayscale/status/2102381328880832751#m
-- @rob_svrn (Rob Greer, Tue, 22 Sep 2026): the ARR on @engyai is now 3.5m-4m usd, hoping to scale this beyond 8 figures before end of year. Demand for inference will be infinite, accelerate  
-  http://shitter.thepixora.com/AlgodTrading/status/2102369904934686742#m
-- @jtledore (Jean-Thomas Ledoré, Tue, 22 Sep 2026): Proud of you @MaxSebti your pitch was great. One of the firsts talking about Decentralized Ai in front of this kind of audience. This is necessary to be game changers. @kusanagi_vntrs @opentensor bittensor:native Max (@MaxSebti) onto the next one — http://shitter.thepixora.com/MaxSebti/status/2102320219603492969#m  
-  http://shitter.thepixora.com/jtledore/status/2102341730792018380#m
-- @jtledore (Jean-Thomas Ledoré, Tue, 22 Sep 2026): preached decentralised AI in front of the largest French PE and VC funds (hundreds of billions under management in the room). main takeaways from the COO of a multi-billion-dollar manufacturing company: - efficiency is the ultimate goal. - all big-data LLM pilots have been cancelled across all verticals: no clear use cases, no productivity spikes. - vision is the only vertical where he and his industry counterparts know value can be created, so they want to double down on it.  
-  http://shitter.thepixora.com/MaxSebti/status/2102328200751649276#m
-- @BarrySilbert (Barry Silbert, Tue, 22 Sep 2026): Luno has acquired @GTXNGlobal to expand cross-border payments across its core markets. GTXN brings licensed collection and payout infrastructure into @LunoGlobal's existing regulatory and liquidity footprint, giving enterprise clients a more integrated way to move money between developed and emerging markets. Led by CEO Dan Kleinbaum, GTXN will operate as Luno’s cross-border payments capability. Read the full announcement: luno.com/newsroom/luno-acqui… Link Luno Newsroom - What Luno&apos;s acquisition of GTXN means for cross-border payments Luno has acquired GTXN, giving businesses a single li  
-  http://nitter.jaydenha.uk/LunoGlobal/status/2102321078874095983#m
-- @dylan522p (Dylan Patel, Tue, 22 Sep 2026): I wanted to use this photo because it's the actual package and looks way cooler. The black area above is the DRAM but not milled yet. Cross section from our Hitachi XTEM coming soon 🤫 SemiAnalysis (@SemiAnalysis_) We took the silicon out of the silicon. Quick turn from SemiAnalysis STEEL Teardown Lab: iPhone 18 Pro Max, A20 silicon on TSMC N2. more to follow... — http://nitter.jaydenha.uk/SemiAnalysis_/status/2101757943351783908#m  
-  http://nitter.jaydenha.uk/dylan522p/status/2102208035225760191#m
-- @BarrySilbert (Barry Silbert, Tue, 22 Sep 2026): $GTAO 👀 Are you paying attention yet? $TAO  
-  http://nitter.jaydenha.uk/Altcoin_Hero_/status/2102190155213770803#m
-- @polychain (Polychain Capital, Tue, 15 Sep 2026): It's time for a new foundation. Not a new start. Legacy Mode is live on Passport, keep every account you already have, on code anyone can inspect. Switch to open source hardware and software while keeping your existing accounts for supported assets. Here’s how. 🧵 Video  
-  http://nitter.jaydenha.uk/FoundationHQ/status/2099865846101180499#m
-- @jaltucher (James Altucher, Tue, 15 Sep 2026): Q/C Technologies has appointed Yossef Ehrlichman, Ph.D., as Chief Technology Officer to lead the company’s optical processing unit program and overall technology strategy. Learn more: bit.ly/4xXk2ik $QCLS  
-  http://shitter.thepixora.com/Q_CTechnologies/status/2099856104670859351#m
-- @mcjkula (mcjkula, Tue, 14 Apr 2026): See you in Montréal everyone. Not gonna want to miss this one🫡 Exploit Summit (@ExploitSummit) Building on Bittensor is hard. Doing it in isolation is even harder. Exploit puts you in a room with: • The subnet founders who've already solved your problems • The investors actually writing checks • The technical talent you're trying to hire Sept 28-29, Montréal. Two days that could save you six months. Video — http://shitter.thepixora.com/ExploitSummit/status/2044100822750114215#m  
-  http://shitter.thepixora.com/mcjkula/status/2044123923088830837#m
-- @mcjkula (mcjkula, Tue, 01 Sep 2026): TAOApp Wallet is here. The self-custody browser wallet for Bittensor. Hold TAO, stake TAO, buy subnet tokens. When there’s more to protect, bring in your Ledger, proxies and multisigs. Install the beta, on Chrome, Brave and Edge. ↓ chromewebstore.google.com/de…  
-  http://shitter.thepixora.com/taoapp_/status/2094840222441992209#m
-- @BarrySilbert (Barry Silbert, Thu, 27 Aug 2026): Eventually investors will connect the dots to Bittensor bittensor:native Tommy (@Shaughnessy119) OpenRouter, poolside, Hugging Face Everything open source getting acquired — http://nitter.jaydenha.uk/Shaughnessy119/status/2092792085459935404#m  
-  http://nitter.jaydenha.uk/BarrySilbert/status/2093020796109123804#m
-- @polychain (Polychain Capital, Thu, 25 Jun 2026): Article The Missing AI Layer Is Not Security. It&apos;s Authority. AI agents are now computer users. They browse websites. They read files. They write code. They call APIs. They log in to accounts. They handle credentials, use tools, and take actions across software  
-  http://nitter.jaydenha.uk/zherbert/status/2070178183333171395#m
-- @Olaf (Olaf Carlson-Wee, Thu, 19 Aug 2010): lekker biertje drinken bij Dims!  
-  http://shitter.thepixora.com/olaf/status/21602951308#m
-- @jtledore (Jean-Thomas Ledoré, Thu, 17 Sep 2026): Manako charges recurring fees that grow as customers deploy Score’s technology across more cameras and sites. In European fuel retail, Manako charges €15 per camera per month plus €150 per site for the VLM layer. A site with 10 cameras therefore costs around €300 a month, and revenue scales as the customer expands to more locations. Score Studio creates another revenue stream for the subnet. Score plans to use its profits for SN44 buybacks and burns.  
-  http://shitter.thepixora.com/opentensor/status/2100497406047719483#m
-- @polychain (Polychain Capital, Thu, 13 Aug 2026): LBTC proved demand for yield-bearing Bitcoin. Today, we double down on that thesis. LBTC is moving to institutional yield. @Bitwise will manage a covered-call options strategy with a 4.5-year legacy track record, to generate LBTC's yield, targeting 2.5% net APY paid in Bitcoin.  
-  http://nitter.jaydenha.uk/Lombard_Finance/status/2087887552300933626#m
-- @rob_svrn (Rob Greer, Sun, 20 Sep 2026): ⚡️The strongest people are not the ones with the strongest beliefs. They are the ones who can hold a belief with enormous force and still kill it the moment reality kills it. So to me, conviction is one of the highest forms of leverage because it lets you stay in the game long enough for an asymmetric truth to compound. But only when paired with surrender to reality. The deepest line is: Conviction is the strength to remain unmoved by noise without becoming immovable to truth.  
-  http://shitter.thepixora.com/_The_Prophet__/status/2101753669414989910#m
-- @manakoai (Manako, Sun, 20 Sep 2026): making new friends while deploying @manakoai  
-  http://shitter.thepixora.com/MaxSebti/status/2101651979541901384#m
-- @Olaf (Olaf Carlson-Wee, Sun, 10 Jul 2011): RT @timmerarjan Life is good! yfrog.com/kkli4iaj zeker !! Wel tof dat je het deelt met je vrienden :)  
-  http://shitter.thepixora.com/olaf/status/90083936700600321#m
+- @VantaTrading (Vanta, Tue, 22 Sep 2026): Think about this: - Take Vanta's classic challenge - Pass and start earning rewards - Rewards paid in tokens - Revenue from Vanta goes back to the token You earn real rewards AND a stake in our decentralized ecosystem. That's a flywheel, all built around trader success 🚀 (Also, if you want rewards in USD or USDC, that's your choice too!) Arrash (@0xarrash) Received my first alpha token payout from @VantaTrading. All of my payouts are trackable here: taostats.io/account/5EUkfavM… Inside Vanta Trading, every trader can choose to take their rewards in alpha, Vanta’s native token. Under the hood,   
+  http://shitter.thepixora.com/VantaTrading/status/2102449928996036775#m
 
 
 ---
-_Generated at 2026-09-23T19:26:04.511547+00:00 by scripts/intel/aggregate.py. Treat this digest as input context, not as ground truth. Verify before quoting._
+_Generated at 2026-09-23T22:39:37.548772+00:00 by scripts/intel/aggregate.py. Treat this digest as input context, not as ground truth. Verify before quoting._
