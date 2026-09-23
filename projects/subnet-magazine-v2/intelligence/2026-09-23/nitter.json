@@ -120,6 +120,16 @@
     "via_instance": "https://nitter.cz"
   },
   {
+    "handle": "manakoai",
+    "name": "Manako",
+    "posted_at": "Wed, 23 Sep 2026 09:49:54 GMT",
+    "title": "This weekend the team brought 15 stations online across Lyon, France. Three days of work. Around five minutes end to end for each site. Deploying computer vision to a physical location usually means weeks of integration. New cameras, a site visit, cabling, sign-off. Every one of these 15 stations went live on the cameras it already had. No new hardware, no rewiring, no site visits. We point Manako at the existing feed and it starts watching and alerting. The reason we did 15 at once was to see how deployment holds up across different setups. No two stations are the same, camera angles, how the feeds are wired, the lighting, the layout. Doing a batch like this confirms the system handles real-world variance, rather than just guessing from one clean pilot. We have our baseline, and we can now take this speed and scale the rollout to any site. Real World. Real Action.",
+    "text": "This weekend the team brought 15 stations online across Lyon, France. Three days of work. Around five minutes end to end for each site. Deploying computer vision to a physical location usually means weeks of integration. New cameras, a site visit, cabling, sign-off. Every one of these 15 stations went live on the cameras it already had. No new hardware, no rewiring, no site visits. We point Manako at the existing feed and it starts watching and alerting. The reason we did 15 at once was to see how deployment holds up across different setups. No two stations are the same, camera angles, how the",
+    "url": "http://shitter.thepixora.com/manakoai/status/2102696954937426000#m",
+    "fetched_at": "2026-09-23T19:24:45.206774+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
     "handle": "JosephJacks_",
     "name": "Joseph Jacks",
     "posted_at": "Wed, 23 Sep 2026 09:48:53 GMT",
@@ -217,6 +227,16 @@
     "text": ".@openroboto just built a decentralized alternative to @Figure_robot’s Index for collecting robot training data, with real-world capture hardware. Open robotics on Bittensor now has its data network to challenge the industry’s biggest labs. Bittensor is coming for physical AI. OpenRoboto (@openroboto) Today we’re launching OpenRoboto Shift, opening a new chapter for OpenRoboto. Shift is a decentralized network for collecting egocentric robotics data: first-person video of real people doing real work. Only Possible on Bittensor. Explore Shift → shift.openroboto.ai/ Video — http://nitter.jaydenh",
     "url": "http://nitter.jaydenha.uk/opentensor/status/2102525497687285851#m",
     "fetched_at": "2026-09-23T15:53:57.773718+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "opentensor",
+    "name": "Opentensor Foundation",
+    "posted_at": "Tue, 22 Sep 2026 22:28:36 GMT",
+    "title": ".@openroboto just built a decentralized alternative to @Figure_robot’s Index for collecting robot training data, with real-world capture hardware. Open robotics on Bittensor now has its data network to challenge the industry’s biggest labs. Bittensor is coming for physical AI.",
+    "text": ".@openroboto just built a decentralized alternative to @Figure_robot’s Index for collecting robot training data, with real-world capture hardware. Open robotics on Bittensor now has its data network to challenge the industry’s biggest labs. Bittensor is coming for physical AI. OpenRoboto (@openroboto) Today we’re launching OpenRoboto Shift, opening a new chapter for OpenRoboto. Shift is a decentralized network for collecting egocentric robotics data: first-person video of real people doing real work. Only Possible on Bittensor. Explore Shift → shift.openroboto.ai/ Video — http://shitter.thepix",
+    "url": "http://shitter.thepixora.com/opentensor/status/2102525497687285851#m",
+    "fetched_at": "2026-09-23T19:22:54.803212+00:00",
     "via_instance": "https://nitter.cz"
   },
   {
@@ -460,6 +480,16 @@
     "via_instance": "https://nitter.cz"
   },
   {
+    "handle": "manakoai",
+    "name": "Manako",
+    "posted_at": "Sun, 20 Sep 2026 12:37:33 GMT",
+    "title": "RT by @manakoai: making new friends while deploying @manakoai",
+    "text": "making new friends while deploying @manakoai",
+    "url": "http://shitter.thepixora.com/MaxSebti/status/2101651979541901384#m",
+    "fetched_at": "2026-09-23T19:24:45.206774+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
     "handle": "Olaf",
     "name": "Olaf Carlson-Wee",
     "posted_at": "Sun, 10 Jul 2011 15:44:18 GMT",
@@ -477,6 +507,16 @@
     "text": "Bittensor took me a while to understand. I want to make that first step easier for the next person. We’ll be kicking things off with Bittensor 101 at Exploit. Looking forward to meeting some of you for the first time and catching up with familiar faces. 👋 Exploit Summit (@ExploitSummit) Maciej Kula ( @mcjkula ) couldn't find a clear way to learn #Bittensor from scratch, so he built the resource he wished existed. @learnbittensor is now part of @latentholdings, where Maciej leads education and makes Bittensor easier to understand. He'll be leading our Bittensor 101 session to kick off Day 1: lu",
     "url": "http://shitter.thepixora.com/mcjkula/status/2101424763344437495#m",
     "fetched_at": "2026-09-23T02:46:18.345506+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "manakoai",
+    "name": "Manako",
+    "posted_at": "Sat, 19 Sep 2026 20:10:18 GMT",
+    "title": "We’re completing our first 20 reference deployments, led by our CEO and engineering team, and the headline finding is that Manako is genuinely plug and play. No specialist integration required: a unit can be shipped to site and connected by anyone on the ground. That’s what makes our next phase possible. Our integration partners will roll out at scale on a simple, repeatable install, with less time on site and lower cost per deployment.",
+    "text": "We’re completing our first 20 reference deployments, led by our CEO and engineering team, and the headline finding is that Manako is genuinely plug and play. No specialist integration required: a unit can be shipped to site and connected by anyone on the ground. That’s what makes our next phase possible. Our integration partners will roll out at scale on a simple, repeatable install, with less time on site and lower cost per deployment.",
+    "url": "http://shitter.thepixora.com/manakoai/status/2101403529558577403#m",
+    "fetched_at": "2026-09-23T19:24:45.206774+00:00",
     "via_instance": "https://nitter.cz"
   },
   {
@@ -580,6 +620,16 @@
     "via_instance": "https://nitter.cz"
   },
   {
+    "handle": "opentensor",
+    "name": "Opentensor Foundation",
+    "posted_at": "Mon, 21 Sep 2026 20:40:59 GMT",
+    "title": "This Thursday on Novelty Search :: SOMA, SN114 @SomaSubnet is building a decentralized marketplace for AI services, starting with context compression. Miners compete by submitting compression algorithms that make AI workloads more efficient. Validators test & score miners on the balance between compression and retained performance. Thursday :: 5PM EDT / 9PM UTC Live via Youtube and X",
+    "text": "This Thursday on Novelty Search :: SOMA, SN114 @SomaSubnet is building a decentralized marketplace for AI services, starting with context compression. Miners compete by submitting compression algorithms that make AI workloads more efficient. Validators test & score miners on the balance between compression and retained performance. Thursday :: 5PM EDT / 9PM UTC Live via Youtube and X",
+    "url": "http://shitter.thepixora.com/opentensor/status/2102136028656255194#m",
+    "fetched_at": "2026-09-23T19:22:54.803212+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
     "handle": "KyleSamani",
     "name": "Kyle Samani",
     "posted_at": "Mon, 21 Sep 2026 20:01:51 GMT",
@@ -610,6 +660,26 @@
     "via_instance": "https://nitter.cz"
   },
   {
+    "handle": "opentensor",
+    "name": "Opentensor Foundation",
+    "posted_at": "Mon, 21 Sep 2026 18:58:33 GMT",
+    "title": "RT by @opentensor: Welcome to the era to decentralized post trained models that beat the frontier in their classes.",
+    "text": "Welcome to the era to decentralized post trained models that beat the frontier in their classes. Reliquary | Bittensor SN81 τ (@reliquary_ai) Introducing Reliquary-4B. A 4B math & code model trained with reinforcement learning. Anyone could join the network and contribute rollouts. Independent miners chose the prompts and generated the rollouts. The protocol verified them and trained the model. Here’s the model and the research behind it. — http://shitter.thepixora.com/reliquary_ai/status/2102107246905741819#m",
+    "url": "http://shitter.thepixora.com/const_reborn/status/2102110250241314873#m",
+    "fetched_at": "2026-09-23T19:22:54.803212+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "manakoai",
+    "name": "Manako",
+    "posted_at": "Mon, 21 Sep 2026 18:43:50 GMT",
+    "title": "And this, ladies and gentlemen, is our Head of Forward Deployed Engineering",
+    "text": "And this, ladies and gentlemen, is our Head of Forward Deployed Engineering Arno (@arnod3f) just got back home after deploying @manakoai on 15 stations alongside @MaxSebti these last 3 days. I’m now convinced of three things: 1. our team is outstanding. elite people in all departments, constantly delivering, week in, week out. 2. our founders, the three of them, are delusional ambitious hard core operators. some of the toughest mfers, and, at the same time, most beautiful human beings you’ll meet. 3. our window of opportunity is exceptional. we have a shot at bringing to market a technology ca",
+    "url": "http://shitter.thepixora.com/manakoai/status/2102106546532462654#m",
+    "fetched_at": "2026-09-23T19:24:45.206774+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
     "handle": "KyleSamani",
     "name": "Kyle Samani",
     "posted_at": "Mon, 21 Sep 2026 17:00:24 GMT",
@@ -617,6 +687,16 @@
     "text": "We are live! Improved opsec. Contracts re-audited from scratch. I know this has been a long time coming for those of you impacted by the exploit. Every day the exchange was offline was revenue that could have been directed to the recovery fund. I personally appreciate your patience. In the wake of the incident, the last thing I wanted to do was rush security for the sake of earlier revenue, so we took our time and did things properly. This is the biggest step towards recovery. More announcements coming on the DFX launch and recovery pool. For now, the protocol is collecting fees which will be ",
     "url": "http://shitter.thepixora.com/redacted_noah/status/2102080518103965880#m",
     "fetched_at": "2026-09-23T08:59:28.858665+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "manakoai",
+    "name": "Manako",
+    "posted_at": "Mon, 21 Sep 2026 16:31:53 GMT",
+    "title": "RT by @manakoai: Tomorrow I'll be at the 15th France Invest Conference, presenting @manakoai i'll be talking briefly about how vision ai can help on ESG, and where it actually makes a difference on the ground rather than in a report thank you to France Invest and PwC France for the invitation, and a special thank you to Emilie Bobin, Partner @PwC_France",
+    "text": "Tomorrow I'll be at the 15th France Invest Conference, presenting @manakoai i'll be talking briefly about how vision ai can help on ESG, and where it actually makes a difference on the ground rather than in a report thank you to France Invest and PwC France for the invitation, and a special thank you to Emilie Bobin, Partner @PwC_France",
+    "url": "http://shitter.thepixora.com/MaxSebti/status/2102073341133664396#m",
+    "fetched_at": "2026-09-23T19:24:45.206774+00:00",
     "via_instance": "https://nitter.cz"
   },
   {
@@ -647,6 +727,16 @@
     "text": ".@near_ai’s confidential models are now available through @say_gm_ on Bittensor. GM is becoming a gateway for private AI across ecosystems. NEAR AI (@near_ai) NEAR AI Cloud's confidential inference is now live on @say_gm_'s confidential tier. SayGm reaches dozens of models through one API key, and runs its own routing inside an Intel TDX enclave rather than on ordinary servers. — http://nitter.jaydenha.uk/near_ai/status/2101053165730988390#m",
     "url": "http://nitter.jaydenha.uk/opentensor/status/2102034210705842529#m",
     "fetched_at": "2026-09-23T15:53:57.773718+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "opentensor",
+    "name": "Opentensor Foundation",
+    "posted_at": "Mon, 21 Sep 2026 13:56:24 GMT",
+    "title": ".@near_ai’s confidential models are now available through @say_gm_ on Bittensor. GM is becoming a gateway for private AI across ecosystems.",
+    "text": ".@near_ai’s confidential models are now available through @say_gm_ on Bittensor. GM is becoming a gateway for private AI across ecosystems. NEAR AI (@near_ai) NEAR AI Cloud's confidential inference is now live on @say_gm_'s confidential tier. SayGm reaches dozens of models through one API key, and runs its own routing inside an Intel TDX enclave rather than on ordinary servers. — http://shitter.thepixora.com/near_ai/status/2101053165730988390#m",
+    "url": "http://shitter.thepixora.com/opentensor/status/2102034210705842529#m",
+    "fetched_at": "2026-09-23T19:22:54.803212+00:00",
     "via_instance": "https://nitter.cz"
   },
   {

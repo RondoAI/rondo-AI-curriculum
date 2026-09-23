@@ -41,16 +41,6 @@ _300+ moratoriums mapped, 20GW sits inside a restricted local boundary, 1,525MW 
 
 > The debate on US datacenters has never been so politically charged. Four states have acted in under two months. New York has stopped issuing environmental permits for datacenters, Texas has paused the next step in its massive ERCOT interconnection queue, Pennsylvania has pulled datacenters out of fast-track permitting and made state permits conditional on new guardrails, and Oregon has frozen datacenter deals on state-owned land.  Beyond the state level, more than 300 towns, cities and counties
 
-### 2026-09-14 · Vera Rubin NVL72 Agentic Inference: 67x better Performance per Dollar
-_Jensen Sandbagging Performance Again, 2x more Annual Profit Per GigaWatt, The More you Buy, The More you Earn, AgentX, InferenceX, Extreme Co-Design_
-
-- **Authors:** ["Bryan Shan", "Alec Ibarra", "Cam Quilici", "Wenyao Gao", "Dylan Patel"]
-- **Access:** paid-preview
-- **URL:** https://newsletter.semianalysis.com/p/vera-rubin-nvl72-agentic-inference
-- **Corpus file:** `intelligence/_external_sources/semianalysis/2026-09-14-vera-rubin-nvl72-agentic-inference.md`
-
-> [Rubin is the first platform co-designed across six products for the agentic era: Rubin GPU, Vera CPU, NVLink 6 Switch, ConnectX-9, BlueField-4, and Spectrum-6.](https://newsletter.semianalysis.com/p/vera-rubin-extreme-co-design-an-evolution) Today we are publishing the first verified agentic inference results for Rubin, measured on our agentic inference benchmark, AgentX. Even on early pre-release software, the results already show why extreme co-design was necessary.  At GTC 2026, Jensen prese
-
 ### 2026-09-14 · A Brain Too Big to Carry — On-Device vs Datacenter Inference
 _Robot Models, Silicon & DRAM Efficiency, Jetson Thor vs. B300 TCO, Deployments, The Network Wall_
 
@@ -60,6 +50,16 @@ _Robot Models, Silicon & DRAM Efficiency, Jetson Thor vs. B300 TCO, Deployments,
 - **Corpus file:** `intelligence/_external_sources/semianalysis/2026-09-14-a-brain-too-big-to-carry-on-device.md`
 
 > # Where should the brain of the robot go?  So far, AI has mostly lived behind a screen. Chatbots answered questions. Then agents started driving software and finishing multi-step tasks on their own. The next step is AI that acts in the physical world, and the biggest piece of that is robots. It’s early. Nobody has settled the hardware, the models, or the economics.  ## The Embodiment Problem  With LLMs, the hardware bends to the model. Pour in as much data and compute as possible at training, th
+
+### 2026-09-14 · Vera Rubin NVL72 Agentic Inference: 67x better Performance per Dollar
+_Jensen Sandbagging Performance Again, 2x more Annual Profit Per GigaWatt, The More you Buy, The More you Earn, AgentX, InferenceX, Extreme Co-Design_
+
+- **Authors:** ["Bryan Shan", "Alec Ibarra", "Cam Quilici", "Wenyao Gao", "Dylan Patel"]
+- **Access:** paid-preview
+- **URL:** https://newsletter.semianalysis.com/p/vera-rubin-nvl72-agentic-inference
+- **Corpus file:** `intelligence/_external_sources/semianalysis/2026-09-14-vera-rubin-nvl72-agentic-inference.md`
+
+> [Rubin is the first platform co-designed across six products for the agentic era: Rubin GPU, Vera CPU, NVLink 6 Switch, ConnectX-9, BlueField-4, and Spectrum-6.](https://newsletter.semianalysis.com/p/vera-rubin-extreme-co-design-an-evolution) Today we are publishing the first verified agentic inference results for Rubin, measured on our agentic inference benchmark, AgentX. Even on early pre-release software, the results already show why extreme co-design was necessary.  At GTC 2026, Jensen prese
 
 ### 2026-09-13 · Long Live the Short King: Why 4-hi HBM Wins
 _Same Bandwidth, Fewer Dies: How 4-hi HBM Cuts Inference Costs and Makes Scarce DRAM Go Further_
@@ -173,6 +173,8 @@ _no new posts in the lookback window_
   http://shitter.thepixora.com/umbrel/status/2102720948365643901#m
 - @JosephJacks_ (Joseph Jacks, Wed, 23 Sep 2026): Quick stop @taoyuanairport .. @JensenHuang is everywhere. 🔥🇹🇼  
   http://shitter.thepixora.com/JosephJacks_/status/2102715291671441411#m
+- @manakoai (Manako, Wed, 23 Sep 2026): This weekend the team brought 15 stations online across Lyon, France. Three days of work. Around five minutes end to end for each site. Deploying computer vision to a physical location usually means weeks of integration. New cameras, a site visit, cabling, sign-off. Every one of these 15 stations went live on the cameras it already had. No new hardware, no rewiring, no site visits. We point Manako at the existing feed and it starts watching and alerting. The reason we did 15 at once was to see how deployment holds up across different setups. No two stations are the same, camera angles, how the  
+  http://shitter.thepixora.com/manakoai/status/2102696954937426000#m
 - @JosephJacks_ (Joseph Jacks, Wed, 23 Sep 2026): We've tweaked/improved who we're hiring... ◌︎ Senior Product Design Engineer ◌︎ Full-time &amp; Fully Remote → cal.com/jobs/senior-product-… 💡 We're looking for product designers who have transitioned heavily into design engineering. Link Cal.com | Scheduling Software for Online Bookings A fully customizable scheduling software for individuals, businesses taking calls and developers building scheduling platforms where users meet users. cal.com Matt (@uixmat) I’m hiring a Senior Product Designer for @calcom to work alongside myself and the product team. Full-time, fully remote &amp; competitive  
   http://shitter.thepixora.com/uixmat/status/2102696698258559200#m
 - @taomedia_ (TAO Media, Wed, 23 Sep 2026): 418,000 people are already using SpaceXAI’s Grok Bot weekly, about a month after launch. Usage jumped 24% week over week, with an estimated ~70:30 enterprise skew. tao.media/spacexais-grok-bot… Link SpaceXAI’s Grok Bot Reaches 418,000 Weekly Users After First Month The cloud-computer agent grew 24% week over week, with enterprises estimated to account for roughly 70% of its user base. tao.media  
@@ -193,6 +195,8 @@ _no new posts in the lookback window_
   http://shitter.thepixora.com/YumaGroup/status/2102527344166465625#m
 - @opentensor (Opentensor Foundation, Tue, 22 Sep 2026): .@openroboto just built a decentralized alternative to @Figure_robot’s Index for collecting robot training data, with real-world capture hardware. Open robotics on Bittensor now has its data network to challenge the industry’s biggest labs. Bittensor is coming for physical AI. OpenRoboto (@openroboto) Today we’re launching OpenRoboto Shift, opening a new chapter for OpenRoboto. Shift is a decentralized network for collecting egocentric robotics data: first-person video of real people doing real work. Only Possible on Bittensor. Explore Shift → shift.openroboto.ai/ Video — http://nitter.jaydenh  
   http://nitter.jaydenha.uk/opentensor/status/2102525497687285851#m
+- @opentensor (Opentensor Foundation, Tue, 22 Sep 2026): .@openroboto just built a decentralized alternative to @Figure_robot’s Index for collecting robot training data, with real-world capture hardware. Open robotics on Bittensor now has its data network to challenge the industry’s biggest labs. Bittensor is coming for physical AI. OpenRoboto (@openroboto) Today we’re launching OpenRoboto Shift, opening a new chapter for OpenRoboto. Shift is a decentralized network for collecting egocentric robotics data: first-person video of real people doing real work. Only Possible on Bittensor. Explore Shift → shift.openroboto.ai/ Video — http://shitter.thepix  
+  http://shitter.thepixora.com/opentensor/status/2102525497687285851#m
 - @dylan522p (Dylan Patel, Tue, 22 Sep 2026): Spoke with AMD, they did not ship / sell this dual use chip to this firm and they're investigating the sourcing. This violates their policies + they work with authorities to take action on violations I am very concerned about the fact that pricing discrepancy is so large. I have heard from multiple folks that there are bitstream compatible FPGAs not from AMD that are floating around too. Dylan Patel (@dylan522p) US supply chains for electronics suck so much AMD found a business opportunity in dumping US military chips for 1/4 of the cost in China. US list price is $36k for this chip, with $4-5  
   http://nitter.jaydenha.uk/dylan522p/status/2102503347681210570#m
 - @taomedia_ (TAO Media, Tue, 22 Sep 2026): Pumped for this one Tesla owners can now use @bot to get work done on the go. Place a coffee order, book a reservation, get through your email. All hands free! Follow @taomedia_ tao.media/tesla-adds-grok-co… Link Tesla Adds Grok Connectors and Bot Tasks for Hands-Free In-Car Work The update lets drivers manage inboxes, calendars, files, and task workflows by voice, while more complex Grok Bot jobs start on SuperGrok Heavy. tao.media  
@@ -241,15 +245,11 @@ _no new posts in the lookback window_
   http://nitter.jaydenha.uk/Lombard_Finance/status/2087887552300933626#m
 - @rob_svrn (Rob Greer, Sun, 20 Sep 2026): ⚡️The strongest people are not the ones with the strongest beliefs. They are the ones who can hold a belief with enormous force and still kill it the moment reality kills it. So to me, conviction is one of the highest forms of leverage because it lets you stay in the game long enough for an asymmetric truth to compound. But only when paired with surrender to reality. The deepest line is: Conviction is the strength to remain unmoved by noise without becoming immovable to truth.  
   http://shitter.thepixora.com/_The_Prophet__/status/2101753669414989910#m
+- @manakoai (Manako, Sun, 20 Sep 2026): making new friends while deploying @manakoai  
+  http://shitter.thepixora.com/MaxSebti/status/2101651979541901384#m
 - @Olaf (Olaf Carlson-Wee, Sun, 10 Jul 2011): RT @timmerarjan Life is good! yfrog.com/kkli4iaj zeker !! Wel tof dat je het deelt met je vrienden :)  
   http://shitter.thepixora.com/olaf/status/90083936700600321#m
-- @mcjkula (mcjkula, Sat, 19 Sep 2026): Bittensor took me a while to understand. I want to make that first step easier for the next person. We’ll be kicking things off with Bittensor 101 at Exploit. Looking forward to meeting some of you for the first time and catching up with familiar faces. 👋 Exploit Summit (@ExploitSummit) Maciej Kula ( @mcjkula ) couldn't find a clear way to learn #Bittensor from scratch, so he built the resource he wished existed. @learnbittensor is now part of @latentholdings, where Maciej leads education and makes Bittensor easier to understand. He'll be leading our Bittensor 101 session to kick off Day 1: lu  
-  http://shitter.thepixora.com/mcjkula/status/2101424763344437495#m
-- @dylan522p (Dylan Patel, Sat, 19 Sep 2026): US supply chains for electronics suck so much AMD found a business opportunity in dumping US military chips for 1/4 of the cost in China. US list price is $36k for this chip, with $4-5k to US companies at volume, but it's getting quoted $1k in China to crowdfunding campaigns AMD needs to be investigated for treason. it's not just export violations, but it's literally selling military end use components to an adversary for less than your home country.... Pharma companies are also similarly treasonous digikey.com/en/products/deta… crowdsupply.com/puzhi/pzsdr-…  
-  http://nitter.jaydenha.uk/dylan522p/status/2101350877932212621#m
-- @rob_svrn (Rob Greer, Sat, 19 Sep 2026): "I think a Bittensor $TAO can go up 500x" @BarrySilbert redirect.invidious.io/kVos-jFyEpw?si=fNfG… Link &quot;I think a Bittensor $TAO can go up 500x&quot; &quot;I think a Bittensor $TAO can go up 500x. And so our portfolio is a... youtube.com  
-  http://shitter.thepixora.com/SubnetSummerT/status/2101287520453435644#m
 
 
 ---
-_Generated at 2026-09-23T15:56:22.201955+00:00 by scripts/intel/aggregate.py. Treat this digest as input context, not as ground truth. Verify before quoting._
+_Generated at 2026-09-23T19:26:04.511547+00:00 by scripts/intel/aggregate.py. Treat this digest as input context, not as ground truth. Verify before quoting._
