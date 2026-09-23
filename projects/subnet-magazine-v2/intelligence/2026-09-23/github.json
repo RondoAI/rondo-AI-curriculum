@@ -1,0 +1,46 @@
+[
+  {
+    "repo": "opentensor/subtensor",
+    "name": "Subtensor (chain)",
+    "kind": "commit",
+    "sha": "923fd1f",
+    "message": "Merge pull request #3196 from RaoFoundation/feat/add-swap-basket-many",
+    "author": "UnArbosFive",
+    "posted_at": "2026-09-23T01:45:04Z",
+    "url": "https://github.com/RaoFoundation/subtensor/commit/923fd1fa7d6eadad3ec16f3941826b86c9c3aa1d",
+    "fetched_at": "2026-09-23T02:48:32.789946+00:00"
+  },
+  {
+    "repo": "opentensor/subtensor",
+    "name": "Subtensor (chain)",
+    "kind": "commit",
+    "sha": "63db95d",
+    "message": "spec bump",
+    "author": "UnarbosFour",
+    "posted_at": "2026-09-23T01:40:41Z",
+    "url": "https://github.com/RaoFoundation/subtensor/commit/63db95d1672e405d93068c0632373744f20a0049",
+    "fetched_at": "2026-09-23T02:48:32.789946+00:00"
+  },
+  {
+    "repo": "opentensor/subtensor",
+    "name": "Subtensor (chain)",
+    "kind": "commit",
+    "sha": "5ee0fcd",
+    "message": "Add atomic  for efficient multi-leg basket rebalancing",
+    "author": "UnarbosFour",
+    "posted_at": "2026-09-22T23:07:36Z",
+    "url": "https://github.com/RaoFoundation/subtensor/commit/5ee0fcde09bfa551db2ae7b977cd9943f269bed1",
+    "fetched_at": "2026-09-23T02:48:32.789946+00:00"
+  },
+  {
+    "repo": "opentensor/subtensor",
+    "name": "Subtensor (chain)",
+    "kind": "commit",
+    "sha": "370bac4",
+    "message": "Merge pull request #3192 from RaoFoundation/cursor/spec-469-bugfixes-fee-refunds-1eaa",
+    "author": "Inti",
+    "posted_at": "2026-09-22T09:15:34Z",
+    "url": "https://github.com/RaoFoundation/subtensor/commit/370bac46fa8cf602c4f8283a0635b3a8b4675394",
+    "fetched_at": "2026-09-23T02:48:32.789946+00:00"
+  }
+]
