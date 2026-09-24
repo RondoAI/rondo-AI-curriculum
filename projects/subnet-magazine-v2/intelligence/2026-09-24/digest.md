@@ -51,16 +51,6 @@ _300+ moratoriums mapped, 20GW sits inside a restricted local boundary, 1,525MW 
 
 > The debate on US datacenters has never been so politically charged. Four states have acted in under two months. New York has stopped issuing environmental permits for datacenters, Texas has paused the next step in its massive ERCOT interconnection queue, Pennsylvania has pulled datacenters out of fast-track permitting and made state permits conditional on new guardrails, and Oregon has frozen datacenter deals on state-owned land.  Beyond the state level, more than 300 towns, cities and counties
 
-### 2026-09-14 · A Brain Too Big to Carry — On-Device vs Datacenter Inference
-_Robot Models, Silicon & DRAM Efficiency, Jetson Thor vs. B300 TCO, Deployments, The Network Wall_
-
-- **Authors:** ["Ivan Chiam", "Gianluca", "Zane Fong", "Bryan Shan", "Dylan Patel", "Reyk Knuhtsen"]
-- **Access:** paid-preview
-- **URL:** https://newsletter.semianalysis.com/p/a-brain-too-big-to-carry-on-device
-- **Corpus file:** `intelligence/_external_sources/semianalysis/2026-09-14-a-brain-too-big-to-carry-on-device.md`
-
-> # Where should the brain of the robot go?  So far, AI has mostly lived behind a screen. Chatbots answered questions. Then agents started driving software and finishing multi-step tasks on their own. The next step is AI that acts in the physical world, and the biggest piece of that is robots. It’s early. Nobody has settled the hardware, the models, or the economics.  ## The Embodiment Problem  With LLMs, the hardware bends to the model. Pour in as much data and compute as possible at training, th
-
 ### 2026-09-14 · Vera Rubin NVL72 Agentic Inference: 67x better Performance per Dollar
 _Jensen Sandbagging Performance Again, 2x more Annual Profit Per GigaWatt, The More you Buy, The More you Earn, AgentX, InferenceX, Extreme Co-Design_
 
@@ -70,6 +60,16 @@ _Jensen Sandbagging Performance Again, 2x more Annual Profit Per GigaWatt, The M
 - **Corpus file:** `intelligence/_external_sources/semianalysis/2026-09-14-vera-rubin-nvl72-agentic-inference.md`
 
 > [Rubin is the first platform co-designed across six products for the agentic era: Rubin GPU, Vera CPU, NVLink 6 Switch, ConnectX-9, BlueField-4, and Spectrum-6.](https://newsletter.semianalysis.com/p/vera-rubin-extreme-co-design-an-evolution) Today we are publishing the first verified agentic inference results for Rubin, measured on our agentic inference benchmark, AgentX. Even on early pre-release software, the results already show why extreme co-design was necessary.  At GTC 2026, Jensen prese
+
+### 2026-09-14 · A Brain Too Big to Carry — On-Device vs Datacenter Inference
+_Robot Models, Silicon & DRAM Efficiency, Jetson Thor vs. B300 TCO, Deployments, The Network Wall_
+
+- **Authors:** ["Ivan Chiam", "Gianluca", "Zane Fong", "Bryan Shan", "Dylan Patel", "Reyk Knuhtsen"]
+- **Access:** paid-preview
+- **URL:** https://newsletter.semianalysis.com/p/a-brain-too-big-to-carry-on-device
+- **Corpus file:** `intelligence/_external_sources/semianalysis/2026-09-14-a-brain-too-big-to-carry-on-device.md`
+
+> # Where should the brain of the robot go?  So far, AI has mostly lived behind a screen. Chatbots answered questions. Then agents started driving software and finishing multi-step tasks on their own. The next step is AI that acts in the physical world, and the biggest piece of that is robots. It’s early. Nobody has settled the hardware, the models, or the economics.  ## The Embodiment Problem  With LLMs, the hardware bends to the model. Pour in as much data and compute as possible at training, th
 
 ### 2026-09-13 · Long Live the Short King: Why 4-hi HBM Wins
 _Same Bandwidth, Fewer Dies: How 4-hi HBM Cuts Inference Costs and Makes Scarce DRAM Go Further_
@@ -142,12 +142,36 @@ _no new posts in the lookback window_
 
 ## ⊕ X via NITTER, voices we track
 
+- @TargonCompute (Targon, Wed, 26 Aug 2026): Proud to power @TheoriqAI with secure confidential compute for their agentic market research. Large GPU blocks on demand, with hardware-level guarantees that keep the workload and its data private even from the machines running it. Excited to keep powering experimental research infrastructure with Targon. Theoriq (@TheoriqAI) .@TargonCompute is powering Theoriq AI experimentation. Curating risk-managed yield is, underneath, a research problem: how markets behave, where they break, and how much of that can be seen coming. That runs on heavy, on-demand compute. Targon is our partner in supplying  
+  http://shitter.thepixora.com/TargonCompute/status/2092690588143657190#m
 - @ridges_ai (Ridges, Wed, 26 Aug 2026): We've kicked off Niches with a Linting competition! In just one week we've seen performance hit 76% on our hidden test set with cost reduction down to $0.02 per task. Results like these help us validate the Niches model and adjust where needed. We're excited for the next Niche, and eventually dynamic Niches. Stay tuned!  
   http://nitter.jaydenha.uk/ridges_ai/status/2092684102595961119#m
+- @TargonCompute (Targon, Wed, 26 Aug 2026): .@TargonCompute is powering Theoriq AI experimentation. Curating risk-managed yield is, underneath, a research problem: how markets behave, where they break, and how much of that can be seen coming. That runs on heavy, on-demand compute. Targon is our partner in supplying it. Theoriq (@TheoriqAI) Article Theoriq partnering with Targon to power AI experimentation Curating risk-managed yield is, underneath, a research problem. Long before capital is deployed, we want to know how markets behave, where they tend to break, and how much of that can be seen coming — http://shitter.thepixora.com/Theor  
+  http://shitter.thepixora.com/TheoriqAI/status/2092661304444277050#m
+- @taomedia_ (TAO Media, Wed, 23 Sep 2026): ✏️ Story by @bart_hillerich Read about @oroagents on our website: tao.media/oro-launches-oro-b… Link ORO Launches ORO Bench With Daily Synthetic Shopping Environments on SN15 Bittensor Subnet 15 replaces static ShoppingBench evaluation with versioned EnvPacks, seven task families, and family-specific verifiers for agentic commerce. tao.media  
+  http://nitter.jaydenha.uk/taomedia_/status/2102878389657014523#m
+- @taomedia_ (TAO Media, Wed, 23 Sep 2026): Article ORO Launches ORO Bench With Daily Synthetic Shopping Environments on SN15 🛒 The move replaces static ShoppingBench evaluation with versioned EnvPacks, seven task families, and family-specific verifiers for agentic commerce. ORO has launched ORO Bench, a new  
+  http://nitter.jaydenha.uk/taomedia_/status/2102878233498722574#m
+- @BarrySilbert (Barry Silbert, Wed, 23 Sep 2026): Fortitude has amended its existing credit facility with @DCGco, increasing commitment by $24 million. Approximately $31 million of remaining availability is expected to be funded by DCG in $ZEC, which Fortitude expects to sell to fund Zcash mining machine purchases, mining facility acquisitions, greenfield construction and infrastructure expansion, as Fortitude advances toward its proposed business combination with HeartSciences Inc. (Nasdaq: $HSCS). Read the announcement: businesswire.com/news/home/2…. $ZEC $HSCS Link Fortitude Announces Amendment to Existing DCG Credit Facility, Increasing C  
+  http://shitter.thepixora.com/FortitudeCrypto/status/2102874420780175866#m
+- @manakoai (Manako, Wed, 23 Sep 2026): USA ⏭️ Max (@MaxSebti) just flashed the first few @manakoai boxes that will be deployed in the US — http://nitter.jaydenha.uk/MaxSebti/status/2102842552827412624#m  
+  http://nitter.jaydenha.uk/manakoai/status/2102843727048024497#m
 - @dylan522p (Dylan Patel, Wed, 23 Sep 2026): ALERT ALERT ALERT 🚨 🚨 🚨 VLLM MAINTAINERS HAVE JUST SHOWN THAT TPUv7 CAN GET 700 tok/s/user, 56% BETTER PERFORMANCE THAN NVIDIA GB200 NVL72 THROUGH MEGAKERNEL OPTIMIZATION ON KIMI K3. As we said awhile ago, the TPU externalization of software is full steam ahead. This is ultra important to follow the progress of this.  
   http://shitter.thepixora.com/SemiAnalysis_/status/2102833399475879977#m
+- @taomedia_ (TAO Media, Wed, 23 Sep 2026): ✏️ Story by @bart_hillerich Read about @numinous_ai on our site: tao.media/numinous-opens-imp… Link Numinous Opens Impact UI to Map Equity Exposure to Macro and Geopolitical Events The SN6 forecasting team is turning its causal graph and LLM forecasters into a fund-facing interface for tracking how event risks may move through equities. tao.media  
+  http://nitter.jaydenha.uk/taomedia_/status/2102794073752887475#m
+- @taomedia_ (TAO Media, Wed, 23 Sep 2026): Article Numinous Opens Impact UI to Map Equity Exposure to Macro and Geopolitical Events 📈 The SN6 forecasting team is turning its causal graph and LLM forecasters into a fund-facing interface for tracking how event risks may move through equities. @numinous_ai, the Bittensor  
+  http://nitter.jaydenha.uk/taomedia_/status/2102793909881410015#m
+- @taomedia_ (TAO Media, Wed, 23 Sep 2026): Midcentury just raised a $15M seed and emerged from stealth to build the “scaling layer” for physical AI. The company is already working with frontier labs, with 2M+ hours of egocentric robotics data spanning 50+ environments and 20,000 tasks. tao.media/midcentury-raises-… Link Midcentury Raises $15M Seed to Build Physical AI Data and Simulation Infrastructure The stealth exit pairs a large egocentric robotics dataset with Matrix, a simulation platform for evaluating and improving robot policies before deployment. tao.media  
+  http://nitter.jaydenha.uk/taomedia_/status/2102771470296650095#m
 - @const_reborn (Jacob Steeves, Wed, 23 Sep 2026): NOVA Blueprint: 678.5 Billion Possible Molecules Last week, we upgraded Blueprint to Boltz-2-based scoring. This week, we're expanding the chemical search space by more than 11×. Reactions: 5 → 44 Building blocks: 225K → 2.03M Enumerable chemical space: 61.1B → 678.5B molecules The implications are bigger than the numbers. Blueprint competitors now have to find the highest-scoring set within an 11× larger chemical space, using a substantially more computationally intensive scoring model than before. That makes deciding where to search and which molecules are worth spending inference on more im  
   http://nitter.jaydenha.uk/metanova_labs/status/2102759303421563262#m
+- @manakoai (Manako, Wed, 23 Sep 2026): This weekend the team brought 15 stations online across Lyon, France. Three days of work. Around five minutes end to end for each site. Deploying computer vision to a physical location usually means weeks of integration. New cameras, a site visit, cabling, sign-off. Every one of these 15 stations went live on the cameras it already had. No new hardware, no rewiring, no site visits. We point Manako at the existing feed and it starts watching and alerting. The reason we did 15 at once was to see how deployment holds up across different setups. No two stations are the same, camera angles, how the  
+  http://nitter.jaydenha.uk/manakoai/status/2102696954937426000#m
+- @tm0klc (Tim, Wed, 17 Jun 2026): Introducing Manako, the fastest way to turn any camera into an vision ai agent. Go on manako.ai. Join our waitlist. Video  
+  http://shitter.thepixora.com/manakoai/status/2067298306200396197#m
+- @jaltucher (James Altucher, Wed, 16 Sep 2026): Working on an AI-powered end to end platform for designing optical and then quantum chips at $QCLS. More details and refinements later but you can check it out at VibeGDS.io - you just enter plain English for the chip you want and it will build it out, simulate, verify, etc. Of interest mostly to optical engineers.  
+  http://shitter.thepixora.com/jaltucher/status/2100262449685364904#m
 - @foundrydigital (Foundry Digital, Wed, 11 Jan 2012): Expression Engine 2.0 review by the guys at Scriptiny bit.ly/w3Pg3R  
   http://shitter.thepixora.com/foundrydigital/status/157243024848596993#m
 - @ridges_ai (Ridges, Wed, 09 Sep 2026): ridges.ai/explore/28 Link Ridges AI AI Agents, powered by Bittensor | SN62 ridges.ai  
@@ -160,47 +184,65 @@ _no new posts in the lookback window_
   http://shitter.thepixora.com/MaxSebti/status/2097630699129827589#m
 - @ridges_ai (Ridges, Tue, 28 Jul 2026): ⛰️ x402 is now live on Ridges X402 is an agentic payment protocol that lets agents pay for API access autonomously. Integrated with Ridgeline, agents can now pay for and access our coding infrastructure directly, no human in the loop.  
   http://nitter.jaydenha.uk/ridges_ai/status/2082103797418262564#m
+- @jtledore (Jean-Thomas Ledoré, Tue, 22 Sep 2026): .@openroboto just built a decentralized alternative to @Figure_robot’s Index for collecting robot training data, with real-world capture hardware. Open robotics on Bittensor now has its data network to challenge the industry’s biggest labs. Bittensor is coming for physical AI. OpenRoboto (@openroboto) Today we’re launching OpenRoboto Shift, opening a new chapter for OpenRoboto. Shift is a decentralized network for collecting egocentric robotics data: first-person video of real people doing real work. Only Possible on Bittensor. Explore Shift → shift.openroboto.ai/ Video — http://nitter.jaydenh  
+  http://nitter.jaydenha.uk/opentensor/status/2102525497687285851#m
 - @dylan522p (Dylan Patel, Tue, 22 Sep 2026): Spoke with AMD, they did not ship / sell this dual use chip to this firm and they're investigating the sourcing. This violates their policies + they work with authorities to take action on violations I am very concerned about the fact that pricing discrepancy is so large. I have heard from multiple folks that there are bitstream compatible FPGAs not from AMD that are floating around too. Dylan Patel (@dylan522p) US supply chains for electronics suck so much AMD found a business opportunity in dumping US military chips for 1/4 of the cost in China. US list price is $36k for this chip, with $4-5  
   http://shitter.thepixora.com/dylan522p/status/2102503347681210570#m
 - @const_reborn (Jacob Steeves, Tue, 22 Sep 2026): Today Numinous is releasing its impact UI! Built from our underlying causal graph, it shows for each equities their exposures along macro and geopolitics factors, tracked by prediction markets. As the event landscape changes, your fund can track the mechanisms propagating to equities.  
   http://nitter.jaydenha.uk/numinous_ai/status/2102448310267019339#m
+- @jtledore (Jean-Thomas Ledoré, Tue, 22 Sep 2026): Our latest research paper explores the growing connection between AI and digital assets and explains why broad AI adoption may drive new demand, utility and applications across the digital asset economy. blackrock.com/us/individual/…  
+  http://nitter.jaydenha.uk/BlackRock/status/2102409739175141458#m
+- @BarrySilbert (Barry Silbert, Tue, 22 Sep 2026): We're proud to be the pilot partner for @taostats' ads program and support one of the best pieces of free infrastructure in Bittensor. Soon these ad spaces will be available to subnets and other ecosystem participants as a new way to reach users, builders, and investors. For Bittensor and its subnets, growth starts with awareness. Nobody can use something they've never heard of. Taostats is our first ad campaign. It won't be our last, and soon we'll be advertising beyond the existing community to help new talent and capital discover Bittensor. $TAO  
+  http://shitter.thepixora.com/YumaGroup/status/2102396817975529838#m
+- @jaltucher (James Altucher, Tue, 22 Sep 2026): Welcome to Bittensor. Here's why you should stay and diamond-hand $TAO.  
+  http://shitter.thepixora.com/taodaily_io/status/2102390629422567556#m
+- @BarrySilbert (Barry Silbert, Tue, 22 Sep 2026): Grayscale AI Compute ETF (Ticker: $GCPU) is now trading. Why AI Compute? ⟶ AI's growth is constrained by physical compute. Data centers have just six months of capacity¹, and new ones take two to five years to build². ⟶ AI infrastructure capex is projected to exceed $1 trillion annually³. ⟶ $GCPU portfolio includes native data center businesses, plus operators repurposing existing power and land for AI, including Bitcoin miners. $GCPU offers exposure to AI’s physical layer, now accessible through brokerage or investment accounts. Learn more: etfs.grayscale.com/gcpu Video  
+  http://shitter.thepixora.com/Grayscale/status/2102381328880832751#m
 - @rob_svrn (Rob Greer, Tue, 22 Sep 2026): the ARR on @engyai is now 3.5m-4m usd, hoping to scale this beyond 8 figures before end of year. Demand for inference will be infinite, accelerate  
   http://shitter.thepixora.com/AlgodTrading/status/2102369904934686742#m
+- @BarrySilbert (Barry Silbert, Tue, 22 Sep 2026): Luno has acquired @GTXNGlobal to expand cross-border payments across its core markets. GTXN brings licensed collection and payout infrastructure into @LunoGlobal's existing regulatory and liquidity footprint, giving enterprise clients a more integrated way to move money between developed and emerging markets. Led by CEO Dan Kleinbaum, GTXN will operate as Luno’s cross-border payments capability. Read the full announcement: luno.com/newsroom/luno-acqui… Link Luno Newsroom - What Luno&apos;s acquisition of GTXN means for cross-border payments Luno has acquired GTXN, giving businesses a single li  
+  http://shitter.thepixora.com/LunoGlobal/status/2102321078874095983#m
 - @dylan522p (Dylan Patel, Tue, 22 Sep 2026): I wanted to use this photo because it's the actual package and looks way cooler. The black area above is the DRAM but not milled yet. Cross section from our Hitachi XTEM coming soon 🤫 SemiAnalysis (@SemiAnalysis_) We took the silicon out of the silicon. Quick turn from SemiAnalysis STEEL Teardown Lab: iPhone 18 Pro Max, A20 silicon on TSMC N2. more to follow... — http://shitter.thepixora.com/SemiAnalysis_/status/2101757943351783908#m  
   http://shitter.thepixora.com/dylan522p/status/2102208035225760191#m
+- @BarrySilbert (Barry Silbert, Tue, 22 Sep 2026): $GTAO 👀 Are you paying attention yet? $TAO  
+  http://shitter.thepixora.com/Altcoin_Hero_/status/2102190155213770803#m
 - @nigescore (Nige, Tue, 15 Sep 2026): The physical world still can’t talk to software. A billion cameras watch factories, stations, warehouses, and stores every second. Almost none of that footage becomes action. That’s what we build at Manako. Today we join F/ai at @joinstationf The program that put OpenAI, Anthropic, Google, Meta, Microsoft and top-tier VCs behind a handful of AI-native teams. Honoured. Focused. Shipping.  
   http://shitter.thepixora.com/manakoai/status/2099861562882203822#m
+- @jaltucher (James Altucher, Tue, 15 Sep 2026): Q/C Technologies has appointed Yossef Ehrlichman, Ph.D., as Chief Technology Officer to lead the company’s optical processing unit program and overall technology strategy. Learn more: bit.ly/4xXk2ik $QCLS  
+  http://shitter.thepixora.com/Q_CTechnologies/status/2099856104670859351#m
 - @nigescore (Nige, Tue, 08 Sep 2026): Astra Ultra did not cook sports-grade vision AI. Gave it a 30s football clip from our subnet private track. Frame-level events, JSON, annotated video. Ground truth and the published scoring rules only after it committed. 22 predictions. 17 real events. 15 inside the action windows. 7 extras. 2 misses. Precision 68.18%. Recall 88.24%. F1 76.92%. Our Bittensor eval, SN44: 0%. Matches after timing decay: 16.538 False positives: −20.300 GT weight: 25.600 score = max(0, (16.538 − 20.300) / 25.600) = 0 Three extra take-ons and two extra tackles were 14.6 penalty points. It also misread the late inte  
   http://shitter.thepixora.com/webuildscore/status/2097261685358596399#m
+- @tm0klc (Tim, Tue, 07 Jul 2026): Subnet 44 @webuildscore is expanding. We’re incentivising training for a new vision-language model: Satori. Satori reasons AND grounds. It doesn’t just answer questions about an image. It points to the evidence. - Reason about scenes - Detect and segment objects - Read text - Count entities - Ground claims in pixels Most VLMs are split: strong reasoning OR strong grounding. Detection models localise, but can’t talk. Chatty VLMs describe fluently, but can’t prove it. Satori sits at the intersection. We’re starting with a 7B base model.  
+  http://shitter.thepixora.com/tm0klc/status/2074298897305047101#m
+- @TargonCompute (Targon, Tue, 01 Sep 2026): Happy to help! Proud to be trusted with running critical workloads such as validators. Very excited to see the talented team at DeSci Labs join the Bittensor ecosystem, their research and expertise are sure to add long-lasting value to the network. 🔬 Claims - Subnet 111 (@DeSciClaims) Our validator for SN111 is running on hardware provided by @TargonCompute. We're super grateful for the fast, reliable setup and the team's amazing support. Thank you, guys! — http://shitter.thepixora.com/DeSciClaims/status/2094364807596036575#m  
+  http://shitter.thepixora.com/TargonCompute/status/2094908006039236625#m
 - @Olaf (Olaf Carlson-Wee, Thu, 19 Aug 2010): lekker biertje drinken bij Dims!  
   http://nitter.jaydenha.uk/olaf/status/21602951308#m
+- @Olaf (Olaf Carlson-Wee, Thu, 19 Aug 2010): lekker biertje drinken bij Dims!  
+  http://shitter.thepixora.com/olaf/status/21602951308#m
+- @jtledore (Jean-Thomas Ledoré, Thu, 17 Sep 2026): Manako charges recurring fees that grow as customers deploy Score’s technology across more cameras and sites. In European fuel retail, Manako charges €15 per camera per month plus €150 per site for the VLM layer. A site with 10 cameras therefore costs around €300 a month, and revenue scales as the customer expands to more locations. Score Studio creates another revenue stream for the subnet. Score plans to use its profits for SN44 buybacks and burns.  
+  http://nitter.jaydenha.uk/opentensor/status/2100497406047719483#m
 - @nigescore (Nige, Thu, 03 Sep 2026): Shell and ENI stations added to roll out today. Accelerate.  
   http://shitter.thepixora.com/MaxSebti/status/2095545005540552752#m
 - @rob_svrn (Rob Greer, Sun, 20 Sep 2026): ⚡️The strongest people are not the ones with the strongest beliefs. They are the ones who can hold a belief with enormous force and still kill it the moment reality kills it. So to me, conviction is one of the highest forms of leverage because it lets you stay in the game long enough for an asymmetric truth to compound. But only when paired with surrender to reality. The deepest line is: Conviction is the strength to remain unmoved by noise without becoming immovable to truth.  
   http://shitter.thepixora.com/_The_Prophet__/status/2101753669414989910#m
+- @manakoai (Manako, Sun, 20 Sep 2026): making new friends while deploying @manakoai  
+  http://nitter.jaydenha.uk/MaxSebti/status/2101651979541901384#m
 - @Olaf (Olaf Carlson-Wee, Sun, 10 Jul 2011): RT @timmerarjan Life is good! yfrog.com/kkli4iaj zeker !! Wel tof dat je het deelt met je vrienden :)  
   http://nitter.jaydenha.uk/olaf/status/90083936700600321#m
+- @Olaf (Olaf Carlson-Wee, Sun, 10 Jul 2011): RT @timmerarjan Life is good! yfrog.com/kkli4iaj zeker !! Wel tof dat je het deelt met je vrienden :)  
+  http://shitter.thepixora.com/olaf/status/90083936700600321#m
 - @nigescore (Nige, Sat, 19 Sep 2026): We’re completing our first 20 reference deployments, led by our CEO and engineering team, and the headline finding is that Manako is genuinely plug and play. No specialist integration required: a unit can be shipped to site and connected by anyone on the ground. That’s what makes our next phase possible. Our integration partners will roll out at scale on a simple, repeatable install, with less time on site and lower cost per deployment.  
   http://shitter.thepixora.com/manakoai/status/2101403529558577403#m
 - @dylan522p (Dylan Patel, Sat, 19 Sep 2026): US supply chains for electronics suck so much AMD found a business opportunity in dumping US military chips for 1/4 of the cost in China. US list price is $36k for this chip, with $4-5k to US companies at volume, but it's getting quoted $1k in China to crowdfunding campaigns AMD needs to be investigated for treason. it's not just export violations, but it's literally selling military end use components to an adversary for less than your home country.... Pharma companies are also similarly treasonous digikey.com/en/products/deta… crowdsupply.com/puzhi/pzsdr-…  
   http://shitter.thepixora.com/dylan522p/status/2101350877932212621#m
 - @dylan522p (Dylan Patel, Sat, 19 Sep 2026): Nuke SF Dylan Patel (@dylan522p) People hate on SF men for group think, but every girl in SF has Tabi's now It's an epidemic — http://shitter.thepixora.com/dylan522p/status/2050789533055328614#m  
   http://shitter.thepixora.com/dylan522p/status/2101192802411663519#m
+- @TargonCompute (Targon, Mon, 31 Aug 2026): It's been a pleasure working with the @cascade_sn91 team on their recent SN91 launch. As the first team out of the @bitstarterAI ML track, we were proud to support them with initial compute credits on Targon. Excited to continue powering their pursuit of SOTA time series foundation models on Bittensor. ⚡️ SN91, Cascade (@cascade_sn91) Article Better Data, Better Models: What 184 Experiments Changed for Cascade To build the best decoder for Cascade, we needed to optimize across streaming, covariates, context and the training distribution. Thanks to compute credits from @Targoncompute, we were a  
+  http://shitter.thepixora.com/TargonCompute/status/2094532034488058036#m
 - @rob_svrn (Rob Greer, Mon, 21 Sep 2026): Bittensor Bungalow $TAO shitter.thepixora.com/i/spaces/1RJjpbrVrlBKw Link Twitter Space Click to view Space http://shitter.thepixora.com/i/spaces/1RJjpbrVrlBKw  
   http://shitter.thepixora.com/markjeffrey/status/2102185950566826375#m
-- @rob_svrn (Rob Greer, Mon, 21 Sep 2026): A simple intro to Bittensor $TAO for the new people: pill.taobubbles.net Link Intro To Bittensor explained for normal people A plain English guide to the Bittensor network TAO token and its decentralized AI subnets. pill.taobubbles.net  
-  http://shitter.thepixora.com/markjeffrey/status/2102149366308057553#m
-- @const_reborn (Jacob Steeves, Mon, 21 Sep 2026): Welcome to the era to decentralized post trained models that beat the frontier in their classes. Reliquary | Bittensor SN81 τ (@reliquary_ai) Introducing Reliquary-4B. A 4B math & code model trained with reinforcement learning. Anyone could join the network and contribute rollouts. Independent miners chose the prompts and generated the rollouts. The protocol verified them and trained the model. Here’s the model and the research behind it. — http://nitter.jaydenha.uk/reliquary_ai/status/2102107246905741819#m  
-  http://nitter.jaydenha.uk/const_reborn/status/2102110250241314873#m
-- @const_reborn (Jacob Steeves, Mon, 21 Sep 2026): Albedo Agent API is live for free. Miners get 10x standard quota - resets every 24h. Drop a key into Claude Code, Codex, Copilot, Cursor, ACP. Sign in with GitHub, copy a key, paste it into your agent. albedo.tech/keys.html Use it on real work and LMK how it feels.  
-  http://nitter.jaydenha.uk/weather_boss_/status/2102079911565345113#m
-- @const_reborn (Jacob Steeves, Mon, 21 Sep 2026): The Hippius mobile app is live on Android. Your photos and files, backed up automatically and end-to-end encrypted on your phone before they ever upload. The same account and storage you already use on desktop and web. Your whole cloud, now in your pocket. iOS is coming next.  
-  http://nitter.jaydenha.uk/Hippius_cloud/status/2101978478904222062#m
-- @foundrydigital (Foundry Digital, Mon, 02 Jan 2012): Early predictions for design trends of 2012? tiny.cc/mkg4v  
-  http://shitter.thepixora.com/foundrydigital/status/153974018557493248#m
-- @rob_svrn (Rob Greer, Fri, 28 Jun 2024): You're building an AI company. We're building a 1000 year Intelligence Federation. We are not the same.  
-  http://shitter.thepixora.com/const_reborn/status/1806721647241802062#m
 
 
 ---
-_Generated at 2026-09-24T02:37:52.903231+00:00 by scripts/intel/aggregate.py. Treat this digest as input context, not as ground truth. Verify before quoting._
+_Generated at 2026-09-24T08:58:01.681449+00:00 by scripts/intel/aggregate.py. Treat this digest as input context, not as ground truth. Verify before quoting._
