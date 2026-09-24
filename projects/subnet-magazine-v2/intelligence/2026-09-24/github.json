@@ -1,1 +1,112 @@
-[]
+[
+  {
+    "repo": "opentensor/subtensor",
+    "name": "Subtensor (chain)",
+    "kind": "commit",
+    "sha": "c004ceb",
+    "message": "Merge pull request #3198 from RaoFoundation/fix/basket-fee-drain",
+    "author": "UnArbosFive",
+    "posted_at": "2026-09-24T20:32:18Z",
+    "url": "https://github.com/RaoFoundation/subtensor/commit/c004cebf360f4088187ee49d851dfb1a1eaaf710",
+    "fetched_at": "2026-09-24T22:58:15.586027+00:00"
+  },
+  {
+    "repo": "opentensor/subtensor",
+    "name": "Subtensor (chain)",
+    "kind": "commit",
+    "sha": "a8664c1",
+    "message": "fix(basket): restore runtime validation checks",
+    "author": "UnarbosFour",
+    "posted_at": "2026-09-24T19:52:15Z",
+    "url": "https://github.com/RaoFoundation/subtensor/commit/a8664c169b81d5b06ce0b45ba0bab321742d3eb2",
+    "fetched_at": "2026-09-24T22:58:15.586027+00:00"
+  },
+  {
+    "repo": "opentensor/subtensor",
+    "name": "Subtensor (chain)",
+    "kind": "commit",
+    "sha": "e0722cb",
+    "message": "ts-tests: split the slowest Shield shard",
+    "author": "UnArbosFive",
+    "posted_at": "2026-09-24T19:00:20Z",
+    "url": "https://github.com/RaoFoundation/subtensor/commit/e0722cbf6f578088bdf7f0bf2eb65b29d9991a1c",
+    "fetched_at": "2026-09-24T22:58:15.586027+00:00"
+  },
+  {
+    "repo": "opentensor/subtensor",
+    "name": "Subtensor (chain)",
+    "kind": "commit",
+    "sha": "b0771b7",
+    "message": "ci: run the Docker check only for node and image inputs",
+    "author": "UnArbosFive",
+    "posted_at": "2026-09-24T18:54:17Z",
+    "url": "https://github.com/RaoFoundation/subtensor/commit/b0771b738a95e101ff33196b1fe86bea31aa09e5",
+    "fetched_at": "2026-09-24T22:58:15.586027+00:00"
+  },
+  {
+    "repo": "opentensor/subtensor",
+    "name": "Subtensor (chain)",
+    "kind": "commit",
+    "sha": "061105e",
+    "message": "ci: use the reader cache environment for pull-request-only jobs",
+    "author": "UnArbosFive",
+    "posted_at": "2026-09-24T18:54:17Z",
+    "url": "https://github.com/RaoFoundation/subtensor/commit/061105e8e1c81335a3d8e9212570afc385b85bf9",
+    "fetched_at": "2026-09-24T22:58:15.586027+00:00"
+  },
+  {
+    "repo": "opentensor/subtensor",
+    "name": "Subtensor (chain)",
+    "kind": "commit",
+    "sha": "e7155a3",
+    "message": "clones: overlap SDK environment sync with clone regressions",
+    "author": "UnArbosFive",
+    "posted_at": "2026-09-24T18:36:09Z",
+    "url": "https://github.com/RaoFoundation/subtensor/commit/e7155a3059d22377c43ce2232b19c69878e43b35",
+    "fetched_at": "2026-09-24T22:58:15.586027+00:00"
+  },
+  {
+    "repo": "opentensor/subtensor",
+    "name": "Subtensor (chain)",
+    "kind": "commit",
+    "sha": "22a0ee7",
+    "message": "sdk: stop stamping spec_version into generated bindings",
+    "author": "UnArbosFive",
+    "posted_at": "2026-09-24T18:09:42Z",
+    "url": "https://github.com/RaoFoundation/subtensor/commit/22a0ee7951eb3f310d67e7cade1b608c9c87671c",
+    "fetched_at": "2026-09-24T22:58:15.586027+00:00"
+  },
+  {
+    "repo": "opentensor/subtensor",
+    "name": "Subtensor (chain)",
+    "kind": "commit",
+    "sha": "9e18e40",
+    "message": "clones: widen warp-sync peer search and retry wedged syncs",
+    "author": "UnArbosFive",
+    "posted_at": "2026-09-24T16:37:02Z",
+    "url": "https://github.com/RaoFoundation/subtensor/commit/9e18e409bfd03d376d59dba300ca102144005d82",
+    "fetched_at": "2026-09-24T22:58:15.586027+00:00"
+  },
+  {
+    "repo": "opentensor/subtensor",
+    "name": "Subtensor (chain)",
+    "kind": "commit",
+    "sha": "7151896",
+    "message": "ci: persist trusted sccache writes and warm localnet builds",
+    "author": "UnArbosFive",
+    "posted_at": "2026-09-24T16:37:02Z",
+    "url": "https://github.com/RaoFoundation/subtensor/commit/7151896dbaadc8955123dfca8870f844895c7311",
+    "fetched_at": "2026-09-24T22:58:15.586027+00:00"
+  },
+  {
+    "repo": "opentensor/subtensor",
+    "name": "Subtensor (chain)",
+    "kind": "commit",
+    "sha": "59a8706",
+    "message": "ci: assert Files API fail-closed branch structurally",
+    "author": "UnArbosFive",
+    "posted_at": "2026-09-22T23:01:39Z",
+    "url": "https://github.com/RaoFoundation/subtensor/commit/59a8706af3ba606c42c10e43c37ecd0e44028c22",
+    "fetched_at": "2026-09-24T22:58:15.586027+00:00"
+  }
+]
