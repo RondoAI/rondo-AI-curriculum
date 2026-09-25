@@ -20,6 +20,16 @@
     "via_instance": "https://nitter.cz"
   },
   {
+    "handle": "manakoai",
+    "name": "Manako",
+    "posted_at": "Wed, 23 Sep 2026 19:33:08 GMT",
+    "title": "USA ⏭️",
+    "text": "USA ⏭️ Max (@MaxSebti) just flashed the first few @manakoai boxes that will be deployed in the US — http://shitter.thepixora.com/MaxSebti/status/2102842552827412624#m",
+    "url": "http://shitter.thepixora.com/manakoai/status/2102843727048024497#m",
+    "fetched_at": "2026-09-25T09:18:02.694958+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
     "handle": "KyleSamani",
     "name": "Kyle Samani",
     "posted_at": "Wed, 23 Sep 2026 17:34:09 GMT",
@@ -87,6 +97,16 @@
     "text": "This weekend the team brought 15 stations online across Lyon, France. Three days of work. Around five minutes end to end for each site. Deploying computer vision to a physical location usually means weeks of integration. New cameras, a site visit, cabling, sign-off. Every one of these 15 stations went live on the cameras it already had. No new hardware, no rewiring, no site visits. We point Manako at the existing feed and it starts watching and alerting. The reason we did 15 at once was to see how deployment holds up across different setups. No two stations are the same, camera angles, how the",
     "url": "http://nitter.jaydenha.uk/manakoai/status/2102696954937426000#m",
     "fetched_at": "2026-09-25T02:54:24.241767+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "manakoai",
+    "name": "Manako",
+    "posted_at": "Wed, 23 Sep 2026 09:49:54 GMT",
+    "title": "This weekend the team brought 15 stations online across Lyon, France. Three days of work. Around five minutes end to end for each site. Deploying computer vision to a physical location usually means weeks of integration. New cameras, a site visit, cabling, sign-off. Every one of these 15 stations went live on the cameras it already had. No new hardware, no rewiring, no site visits. We point Manako at the existing feed and it starts watching and alerting. The reason we did 15 at once was to see how deployment holds up across different setups. No two stations are the same, camera angles, how the feeds are wired, the lighting, the layout. Doing a batch like this confirms the system handles real-world variance, rather than just guessing from one clean pilot. We have our baseline, and we can now take this speed and scale the rollout to any site. Real World. Real Action.",
+    "text": "This weekend the team brought 15 stations online across Lyon, France. Three days of work. Around five minutes end to end for each site. Deploying computer vision to a physical location usually means weeks of integration. New cameras, a site visit, cabling, sign-off. Every one of these 15 stations went live on the cameras it already had. No new hardware, no rewiring, no site visits. We point Manako at the existing feed and it starts watching and alerting. The reason we did 15 at once was to see how deployment holds up across different setups. No two stations are the same, camera angles, how the",
+    "url": "http://shitter.thepixora.com/manakoai/status/2102696954937426000#m",
+    "fetched_at": "2026-09-25T09:18:02.694958+00:00",
     "via_instance": "https://nitter.cz"
   },
   {
@@ -170,6 +190,26 @@
     "via_instance": "https://nitter.cz"
   },
   {
+    "handle": "SemiAnalysis_",
+    "name": "SemiAnalysis",
+    "posted_at": "Thu, 24 Sep 2026 23:35:49 GMT",
+    "title": "AMD MI355X becomes the first official TileRT result no AgentX! This configuration achieves an astounding 470 TPS on GLM 5.3 (FP8). This is over 40% faster than GB300 TRTLLM using FP4! Great work to the TileRT x AMD team! (1/3)🧵",
+    "text": "AMD MI355X becomes the first official TileRT result no AgentX! This configuration achieves an astounding 470 TPS on GLM 5.3 (FP8). This is over 40% faster than GB300 TRTLLM using FP4! Great work to the TileRT x AMD team! (1/3)🧵",
+    "url": "http://shitter.thepixora.com/SemiAnalysis_/status/2103267188278698055#m",
+    "fetched_at": "2026-09-25T09:18:47.144409+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "SemiAnalysis_",
+    "name": "SemiAnalysis",
+    "posted_at": "Thu, 24 Sep 2026 23:35:49 GMT",
+    "title": "R to @SemiAnalysis_: This is a disaggregated config: the prefill engine runs vLLM and the decode engine TileRT. TileRT is an ultra-low latency-focused inference engine that runs model decoding in a persistent GPU kernel to deliver faster tokens to each user. (2/3) https://github.com/tile-ai/tilert",
+    "text": "This is a disaggregated config: the prefill engine runs vLLM and the decode engine TileRT. TileRT is an ultra-low latency-focused inference engine that runs model decoding in a persistent GPU kernel to deliver faster tokens to each user. (2/3) github.com/tile-ai/tilert",
+    "url": "http://shitter.thepixora.com/SemiAnalysis_/status/2103267190686232614#m",
+    "fetched_at": "2026-09-25T09:18:47.144409+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
     "handle": "KyleSamani",
     "name": "Kyle Samani",
     "posted_at": "Thu, 24 Sep 2026 22:13:03 GMT",
@@ -190,6 +230,26 @@
     "via_instance": "https://nitter.cz"
   },
   {
+    "handle": "PanteraCapital",
+    "name": "Pantera Capital",
+    "posted_at": "Thu, 24 Sep 2026 21:17:07 GMT",
+    "title": "RT by @PanteraCapital: The last closing bell is coming.",
+    "text": "The last closing bell is coming. Video",
+    "url": "http://shitter.thepixora.com/Ondo/status/2103232283218247755#m",
+    "fetched_at": "2026-09-25T09:16:38.033218+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "PanteraCapital",
+    "name": "Pantera Capital",
+    "posted_at": "Thu, 24 Sep 2026 18:57:55 GMT",
+    "title": "RT by @PanteraCapital: < 2 weeks after launch: - doing 1/4 traffic of Google search - #1 chain used by devs - inventing new metas (stock x meme pairing) @RobinhoodApp chain just getting started reinventing finance fun convo with @FranklinBi @JohannKerbrat about the 3 crypto megatrends, the Whatsapp Effect, and how @davehappyminion bought flowers and snitched",
+    "text": "&lt; 2 weeks after launch: - doing 1/4 traffic of Google search - #1 chain used by devs - inventing new metas (stock x meme pairing) @RobinhoodApp chain just getting started reinventing finance fun convo with @FranklinBi @JohannKerbrat about the 3 crypto megatrends, the Whatsapp Effect, and how @davehappyminion bought flowers and snitched Pantera Capital (@PanteraCapital) Robinhood Chain is three months old. In API calls it already runs at roughly a quarter the volume of Google search. @nikil (@Alchemy) and @JohannKerbrat (@RobinhoodCrypto) join Stateful, hosted by @FranklinBi, to talk tokeniz",
+    "url": "http://shitter.thepixora.com/nikil/status/2103197255620841752#m",
+    "fetched_at": "2026-09-25T09:16:38.033218+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
     "handle": "wallstreetbets",
     "name": "WallStreetBets (X)",
     "posted_at": "Thu, 24 Sep 2026 18:40:33 GMT",
@@ -197,6 +257,16 @@
     "text": "AI supercycleeeee 0G Labs (@0G_labs) Introducing Compute Finance (ComFi). A financial layer for AI where digital assets don't just sit idle. They can pay for AI compute you actually use, in 0G Private Computer (100+ models) and the 0G App. Ascend is live. Infinite AI is scheduled for Sept 29. Video — http://shitter.thepixora.com/0G_labs/status/2103109837999735262#m",
     "url": "http://shitter.thepixora.com/wallstreetbets/status/2103192883817783453#m",
     "fetched_at": "2026-09-25T02:55:09.046821+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "PanteraCapital",
+    "name": "Pantera Capital",
+    "posted_at": "Thu, 24 Sep 2026 18:04:13 GMT",
+    "title": "RT by @PanteraCapital: This one has been in the works for over a year. Tokenization is not about bringing existing assets onchain anymore - that problem has already been solved by Ondo Stocks. What's next is bringing asset management and wealth management onchain, starting with intelligent portfolios. People globally can invest in sophisticated portfolios, developed by Blackrock for Ondo, with a single click, and access products that were previously only available to the wealthy select few. Over the next few months, expect Ondo to launch more intelligent portfolios that combine stocks, commodities, ETFs, and even prediction markets, to enable seamless and diversified investing. We are just getting started.",
+    "text": "This one has been in the works for over a year. Tokenization is not about bringing existing assets onchain anymore - that problem has already been solved by Ondo Stocks. What's next is bringing asset management and wealth management onchain, starting with intelligent portfolios. People globally can invest in sophisticated portfolios, developed by Blackrock for Ondo, with a single click, and access products that were previously only available to the wealthy select few. Over the next few months, expect Ondo to launch more intelligent portfolios that combine stocks, commodities, ETFs, and even pr",
+    "url": "http://shitter.thepixora.com/iandebode/status/2103183739824329188#m",
+    "fetched_at": "2026-09-25T09:16:38.033218+00:00",
     "via_instance": "https://nitter.cz"
   },
   {
@@ -210,6 +280,16 @@
     "via_instance": "https://nitter.cz"
   },
   {
+    "handle": "manakoai",
+    "name": "Manako",
+    "posted_at": "Thu, 24 Sep 2026 17:25:54 GMT",
+    "title": "RT by @manakoai: next batch of stations to be deployed with @manakoai is going to allow us to leverage a lot more @webuildscore models. - 4 motorway stations. beasts with 40+ cameras each. - that’s 10x more cameras than on unmanned stations. - massive fuel forecourts, EV charging bays, car wash, restaurants, supermarkets, coffee areas. the second best news… is it’s with a new signed client 👀",
+    "text": "next batch of stations to be deployed with @manakoai is going to allow us to leverage a lot more @webuildscore models. - 4 motorway stations. beasts with 40+ cameras each. - that’s 10x more cameras than on unmanned stations. - massive fuel forecourts, EV charging bays, car wash, restaurants, supermarkets, coffee areas. the second best news… is it’s with a new signed client 👀",
+    "url": "http://shitter.thepixora.com/arnod3f/status/2103174097522098609#m",
+    "fetched_at": "2026-09-25T09:18:02.694958+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
     "handle": "wallstreetbets",
     "name": "WallStreetBets (X)",
     "posted_at": "Thu, 24 Sep 2026 16:15:13 GMT",
@@ -220,6 +300,16 @@
     "via_instance": "https://nitter.cz"
   },
   {
+    "handle": "PanteraCapital",
+    "name": "Pantera Capital",
+    "posted_at": "Thu, 24 Sep 2026 16:07:38 GMT",
+    "title": "RT by @PanteraCapital: We backed @OndoFinance to bring traditional finance onchain. Today the world's largest asset manager's portfolio strategies are live as single onchain tokens, three strategies developed by BlackRock for Ondo. Institutional allocation expertise is now an onchain product. ethereum:0xfaba6f8e4a5e8ab82f62fe7c39859fa577269be3",
+    "text": "We backed @OndoFinance to bring traditional finance onchain. Today the world's largest asset manager's portfolio strategies are live as single onchain tokens, three strategies developed by BlackRock for Ondo. Institutional allocation expertise is now an onchain product. ethereum:0xfaba6f8e4a5e8ab82f62fe7c39859fa577269be3 Ondo Finance (@Ondo) Introducing Ondo Intelligent Portfolios, the first three portfolios powered by BlackRock. Ondo Intelligent Portfolios introduces a new onchain product category: curated investment portfolios delivered as single onchain transferable tokens. The first three ",
+    "url": "http://shitter.thepixora.com/veradittakit/status/2103154400856609204#m",
+    "fetched_at": "2026-09-25T09:16:38.033218+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
     "handle": "manakoai",
     "name": "Manako",
     "posted_at": "Thu, 24 Sep 2026 15:43:03 GMT",
@@ -227,6 +317,26 @@
     "text": "Same week, different rooms, same vision Paris ✅ London ✅ Next?",
     "url": "http://nitter.jaydenha.uk/manakoai/status/2103148213645558030#m",
     "fetched_at": "2026-09-25T02:54:24.241767+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "manakoai",
+    "name": "Manako",
+    "posted_at": "Thu, 24 Sep 2026 15:43:03 GMT",
+    "title": "Same week, different rooms, same vision Paris ✅ London ✅ Next?",
+    "text": "Same week, different rooms, same vision Paris ✅ London ✅ Next?",
+    "url": "http://shitter.thepixora.com/manakoai/status/2103148213645558030#m",
+    "fetched_at": "2026-09-25T09:18:02.694958+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "PanteraCapital",
+    "name": "Pantera Capital",
+    "posted_at": "Thu, 24 Sep 2026 15:38:31 GMT",
+    "title": "RT by @PanteraCapital: JUST IN: $ZAMA is now live on @solana via @sunrise",
+    "text": "JUST IN: $ZAMA is now live on @solana via @sunrise Solana (@solana) BREAKING: $ZAMA from @zama is live on Solana via @sunrise — http://shitter.thepixora.com/solana/status/2103146074550718518#m",
+    "url": "http://shitter.thepixora.com/zama/status/2103147073356882242#m",
+    "fetched_at": "2026-09-25T09:16:38.033218+00:00",
     "via_instance": "https://nitter.cz"
   },
   {
@@ -320,6 +430,16 @@
     "via_instance": "https://nitter.cz"
   },
   {
+    "handle": "manakoai",
+    "name": "Manako",
+    "posted_at": "Mon, 21 Sep 2026 18:43:50 GMT",
+    "title": "And this, ladies and gentlemen, is our Head of Forward Deployed Engineering",
+    "text": "And this, ladies and gentlemen, is our Head of Forward Deployed Engineering Arno (@arnod3f) just got back home after deploying @manakoai on 15 stations alongside @MaxSebti these last 3 days. I’m now convinced of three things: 1. our team is outstanding. elite people in all departments, constantly delivering, week in, week out. 2. our founders, the three of them, are delusional ambitious hard core operators. some of the toughest mfers, and, at the same time, most beautiful human beings you’ll meet. 3. our window of opportunity is exceptional. we have a shot at bringing to market a technology ca",
+    "url": "http://shitter.thepixora.com/manakoai/status/2102106546532462654#m",
+    "fetched_at": "2026-09-25T09:18:02.694958+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
     "handle": "mcjkula",
     "name": "mcjkula",
     "posted_at": "Mon, 21 Sep 2026 13:36:27 GMT",
@@ -397,6 +517,36 @@
     "text": "You're building an AI company. We're building a 1000 year Intelligence Federation. We are not the same.",
     "url": "http://nitter.jaydenha.uk/const_reborn/status/1806721647241802062#m",
     "fetched_at": "2026-09-25T02:54:21.432879+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "SemiAnalysis_",
+    "name": "SemiAnalysis",
+    "posted_at": "Fri, 25 Sep 2026 03:00:23 GMT",
+    "title": "R to @SemiAnalysis_: Chinese SemiCaps are also expanding capacity faster to capture strong demand. (4/5)",
+    "text": "Chinese SemiCaps are also expanding capacity faster to capture strong demand. (4/5)",
+    "url": "http://shitter.thepixora.com/SemiAnalysis_/status/2103318670998909332#m",
+    "fetched_at": "2026-09-25T09:18:47.144409+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "SemiAnalysis_",
+    "name": "SemiAnalysis",
+    "posted_at": "Fri, 25 Sep 2026 03:00:23 GMT",
+    "title": "R to @SemiAnalysis_: Localization in process control and components is still relatively low but should catch up over the next few years. For more details, please subscribe to our WFE Model. (5/5) https://semianalysis.com/wafer-fab-model/",
+    "text": "Localization in process control and components is still relatively low but should catch up over the next few years. For more details, please subscribe to our WFE Model. (5/5) semianalysis.com/wafer-fab-m… Link Wafer Fab Equipment Model Bottoms-up wafer fab equipment forecasts: capacity and layer-by-layer lithography flows drive tool demand across lithography, deposition, etch, wafer track, and metrology, with a tool-level litho... semianalysis.com",
+    "url": "http://shitter.thepixora.com/SemiAnalysis_/status/2103318671888130462#m",
+    "fetched_at": "2026-09-25T09:18:47.144409+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "SemiAnalysis_",
+    "name": "SemiAnalysis",
+    "posted_at": "Fri, 25 Sep 2026 03:00:22 GMT",
+    "title": "We are more bullish on China’s WFE localization after attending CSEAC 2026 in Wuxi. (1/5)🧵",
+    "text": "We are more bullish on China’s WFE localization after attending CSEAC 2026 in Wuxi. (1/5)🧵",
+    "url": "http://shitter.thepixora.com/SemiAnalysis_/status/2103318667416973786#m",
+    "fetched_at": "2026-09-25T09:18:47.144409+00:00",
     "via_instance": "https://nitter.cz"
   },
   {
