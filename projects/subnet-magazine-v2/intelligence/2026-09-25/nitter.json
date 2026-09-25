@@ -130,6 +130,26 @@
     "via_instance": "https://nitter.cz"
   },
   {
+    "handle": "lium_io",
+    "name": "Lium",
+    "posted_at": "Wed, 09 Sep 2026 23:09:00 GMT",
+    "title": "https://lium.io Month in review: $964k billed to 1187 renters (36% MoM growth). 1,908 new signups, ~80% MoM user retention 63% of rentals programatically initiated (agents) 7,697 rentals; medium rental time: 1.15 hours.",
+    "text": "lium.io Month in review: $964k billed to 1187 renters (36% MoM growth). 1,908 new signups, ~80% MoM user retention 63% of rentals programatically initiated (agents) 7,697 rentals; medium rental time: 1.15 hours.",
+    "url": "http://shitter.thepixora.com/lium_io/status/2097824624117473549#m",
+    "fetched_at": "2026-09-25T16:19:13.769648+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "lium_io",
+    "name": "Lium",
+    "posted_at": "Wed, 09 Sep 2026 21:43:15 GMT",
+    "title": "Steadily building the most decentralized GPU cloud Lium now has capacity from 68 datacenters across 21 countries Have GPUs? Join now. Lium pays you even for idle minutes. Make your nodes rentable in 5 minutes -> https://docs.lium.io/providers/quickstart",
+    "text": "Steadily building the most decentralized GPU cloud Lium now has capacity from 68 datacenters across 21 countries Have GPUs? Join now. Lium pays you even for idle minutes. Make your nodes rentable in 5 minutes -&gt; docs.lium.io/providers/quick…",
+    "url": "http://shitter.thepixora.com/lium_io/status/2097803045362966828#m",
+    "fetched_at": "2026-09-25T16:19:13.769648+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
     "handle": "jtledore",
     "name": "Jean-Thomas Ledoré",
     "posted_at": "Tue, 22 Sep 2026 22:28:36 GMT",
@@ -290,6 +310,16 @@
     "via_instance": "https://nitter.cz"
   },
   {
+    "handle": "zeussubnet",
+    "name": "Zeus Subnet",
+    "posted_at": "Thu, 24 Sep 2026 16:27:01 GMT",
+    "title": "RT by @zeussubnet: 🤯 4 hours of latency advantage with a model that's more accurate than both EC's IFS ENS & Google's new state-of-the-art model WeatherNext 3, on 100m wind in 0-48H window",
+    "text": "🤯 4 hours of latency advantage with a model that's more accurate than both EC's IFS ENS &amp; Google's new state-of-the-art model WeatherNext 3, on 100m wind in 0-48H window Zeus | SN 18 (@zeussubnet) An hour and a half. That's how fast Zeus delivers a new weather run. That's 4× faster than IFS (6h) and nearly 5× faster than Google's new WeatherNext 3 (7h). And it's not winning on speed alone. 👇 We’ve put WeatherNext 3 head-to-head with our Zeus Pro and the industry-standard IFS ENS. On 2m temperature, Zeus has been consistently more accurate than both throughout August. — http://shitter.thepi",
+    "url": "http://shitter.thepixora.com/egillwx/status/2103159277405843965#m",
+    "fetched_at": "2026-09-25T16:19:15.663767+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
     "handle": "wallstreetbets",
     "name": "WallStreetBets (X)",
     "posted_at": "Thu, 24 Sep 2026 16:15:13 GMT",
@@ -360,6 +390,26 @@
     "via_instance": "https://nitter.cz"
   },
   {
+    "handle": "zeussubnet",
+    "name": "Zeus Subnet",
+    "posted_at": "Thu, 24 Sep 2026 14:13:26 GMT",
+    "title": "An hour and a half. That's how fast Zeus delivers a new weather run. That's 4× faster than IFS (6h) and nearly 5× faster than Google's new WeatherNext 3 (7h). And it's not winning on speed alone. 👇 We’ve put WeatherNext 3 head-to-head with our Zeus Pro and the industry-standard IFS ENS. On 2m temperature, Zeus has been consistently more accurate than both throughout August.",
+    "text": "An hour and a half. That's how fast Zeus delivers a new weather run. That's 4× faster than IFS (6h) and nearly 5× faster than Google's new WeatherNext 3 (7h). And it's not winning on speed alone. 👇 We’ve put WeatherNext 3 head-to-head with our Zeus Pro and the industry-standard IFS ENS. On 2m temperature, Zeus has been consistently more accurate than both throughout August.",
+    "url": "http://shitter.thepixora.com/zeussubnet/status/2103125660398981184#m",
+    "fetched_at": "2026-09-25T16:19:15.663767+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "Olaf",
+    "name": "Olaf Carlson-Wee",
+    "posted_at": "Thu, 19 Aug 2010 19:44:32 GMT",
+    "title": "lekker biertje drinken bij Dims!",
+    "text": "lekker biertje drinken bij Dims!",
+    "url": "http://shitter.thepixora.com/olaf/status/21602951308#m",
+    "fetched_at": "2026-09-25T16:17:08.641589+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
     "handle": "jtledore",
     "name": "Jean-Thomas Ledoré",
     "posted_at": "Thu, 17 Sep 2026 08:09:41 GMT",
@@ -367,6 +417,36 @@
     "text": "Manako charges recurring fees that grow as customers deploy Score’s technology across more cameras and sites. In European fuel retail, Manako charges €15 per camera per month plus €150 per site for the VLM layer. A site with 10 cameras therefore costs around €300 a month, and revenue scales as the customer expands to more locations. Score Studio creates another revenue stream for the subnet. Score plans to use its profits for SN44 buybacks and burns.",
     "url": "http://nitter.jaydenha.uk/opentensor/status/2100497406047719483#m",
     "fetched_at": "2026-09-25T02:54:21.432879+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "Olaf",
+    "name": "Olaf Carlson-Wee",
+    "posted_at": "Sun, 10 Jul 2011 15:44:18 GMT",
+    "title": "RT @timmerarjan Life is good! http://yfrog.com/kkli4iaj zeker !! Wel tof dat je het deelt met je vrienden :)",
+    "text": "RT @timmerarjan Life is good! yfrog.com/kkli4iaj zeker !! Wel tof dat je het deelt met je vrienden :)",
+    "url": "http://shitter.thepixora.com/olaf/status/90083936700600321#m",
+    "fetched_at": "2026-09-25T16:17:08.641589+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "lium_io",
+    "name": "Lium",
+    "posted_at": "Sun, 06 Sep 2026 15:47:26 GMT",
+    "title": "R to @lium_io: Cost: $5.60/h ÷ 52.2M output tok/h = $0.107 per million tokens. OpenRouter's cheapest FP8 provider lists the same model at $0.90/M",
+    "text": "Cost: $5.60/h ÷ 52.2M output tok/h = $0.107 per million tokens. OpenRouter's cheapest FP8 provider lists the same model at $0.90/M",
+    "url": "http://shitter.thepixora.com/lium_io/status/2096626336693375483#m",
+    "fetched_at": "2026-09-25T16:19:13.769648+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "lium_io",
+    "name": "Lium",
+    "posted_at": "Sun, 06 Sep 2026 15:47:25 GMT",
+    "title": "We just ran Qwen3.6 35B at 14,499 tokens per second. on 1 lium GPU. 85% cheaper than Openrouter. how you can do it too ⬇️",
+    "text": "We just ran Qwen3.6 35B at 14,499 tokens per second. on 1 lium GPU. 85% cheaper than Openrouter. how you can do it too ⬇️",
+    "url": "http://shitter.thepixora.com/lium_io/status/2096626330808828216#m",
+    "fetched_at": "2026-09-25T16:19:13.769648+00:00",
     "via_instance": "https://nitter.cz"
   },
   {
@@ -450,6 +530,16 @@
     "via_instance": "https://nitter.cz"
   },
   {
+    "handle": "zeussubnet",
+    "name": "Zeus Subnet",
+    "posted_at": "Mon, 21 Sep 2026 12:32:12 GMT",
+    "title": "RT by @zeussubnet: Remember when @zeussubnet beat Google LIVE? A few weeks ago, Google released a new MEGA model: WeatherNext 3 🔥 Zeus vs @Google round 2 soon",
+    "text": "Remember when @zeussubnet beat Google LIVE? A few weeks ago, Google released a new MEGA model: WeatherNext 3 🔥 Zeus vs @Google round 2 soon Zeus | SN 18 (@zeussubnet) Yesterday, during @opentensor Novelty Search, @const_reborn asked us to demo Zeus live: “Max temperature in Seoul tomorrow?” 🇰🇷 Zeus: 26°C Google: 28°C Today? It was 26°C. Live, verified, beat @Google. No better validation than that. 🔥 Video — http://shitter.thepixora.com/zeussubnet/status/1971601638189379774#m",
+    "url": "http://shitter.thepixora.com/egillwx/status/2102013020486394112#m",
+    "fetched_at": "2026-09-25T16:19:15.663767+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
     "handle": "jon_durbin",
     "name": "Jon Durbin",
     "posted_at": "Mon, 14 Sep 2026 21:00:15 GMT",
@@ -520,6 +610,16 @@
     "via_instance": "https://nitter.cz"
   },
   {
+    "handle": "lium_io",
+    "name": "Lium",
+    "posted_at": "Fri, 25 Sep 2026 06:32:19 GMT",
+    "title": "RT by @lium_io: I set up @lium_io [SN51] today for some GPU compute I need for a project. I've used a fair few GPU providers at this point, and this was probably the smoothest setup I've had. Created an account, topped up with $TAO, generated an API key and handed the docs to my agent. A few minutes later it was spinning up GPUs. The part I really liked is how agent-friendly everything is. llms.txt, clean docs, JSON output, budget caps and TTLs. There was no fighting with dashboards or figuring out some obscure API. Well done to the team. This is how infrastructure should be built now.",
+    "text": "I set up @lium_io [SN51] today for some GPU compute I need for a project. I've used a fair few GPU providers at this point, and this was probably the smoothest setup I've had. Created an account, topped up with $TAO, generated an API key and handed the docs to my agent. A few minutes later it was spinning up GPUs. The part I really liked is how agent-friendly everything is. llms.txt, clean docs, JSON output, budget caps and TTLs. There was no fighting with dashboards or figuring out some obscure API. Well done to the team. This is how infrastructure should be built now.",
+    "url": "http://shitter.thepixora.com/vaNlabs/status/2103372005236240584#m",
+    "fetched_at": "2026-09-25T16:19:13.769648+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
     "handle": "SemiAnalysis_",
     "name": "SemiAnalysis",
     "posted_at": "Fri, 25 Sep 2026 03:00:23 GMT",
@@ -567,6 +667,26 @@
     "text": "Hypercall will be hosting an X Spaces in 30 minutes to talk: - @sonic_strategy and what DATs mean for options flows - The SP500 trade: what delta hedging on @tradexyz means for $HYPE - Builder codes projects including @Scenarios_fi - Combo books - New assets: crypto &amp; rwas",
     "url": "http://shitter.thepixora.com/SynapseProtocol/status/2103281470240690656#m",
     "fetched_at": "2026-09-25T02:55:09.046821+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "zeussubnet",
+    "name": "Zeus Subnet",
+    "posted_at": "Fri, 18 Sep 2026 15:57:01 GMT",
+    "title": "NEW! Full-on benchmarking environment to see how Zeus performs, where and when. Zeus vs ECMWF’s IFS & AIFS singles and ensembles, across regions, lead times and variables. 🔗 https://zeussubnet.com/benchmarks",
+    "text": "NEW! Full-on benchmarking environment to see how Zeus performs, where and when. Zeus vs ECMWF’s IFS &amp; AIFS singles and ensembles, across regions, lead times and variables. 🔗 zeussubnet.com/benchmarks",
+    "url": "http://shitter.thepixora.com/zeussubnet/status/2100977402302054430#m",
+    "fetched_at": "2026-09-25T16:19:15.663767+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "zeussubnet",
+    "name": "Zeus Subnet",
+    "posted_at": "Fri, 18 Sep 2026 13:58:38 GMT",
+    "title": "RT by @zeussubnet: Energy Trader, see this benchmark 🫨 Its hard to keep track of the quality of all models, see a benchmark of multiple models on our website; https://zeussubnet.com/benchmarks",
+    "text": "Energy Trader, see this benchmark 🫨 Its hard to keep track of the quality of all models, see a benchmark of multiple models on our website; zeussubnet.com/benchmarks",
+    "url": "http://shitter.thepixora.com/wouterhar/status/2100947610269819060#m",
+    "fetched_at": "2026-09-25T16:19:15.663767+00:00",
     "via_instance": "https://nitter.cz"
   }
 ]
