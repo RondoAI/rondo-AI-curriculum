@@ -70,6 +70,16 @@
     "via_instance": "https://nitter.cz"
   },
   {
+    "handle": "webuildscore",
+    "name": "Score",
+    "posted_at": "Wed, 23 Sep 2026 14:34:12 GMT",
+    "title": "Ran our auto-annotate engine on 120 frames of highway traffic. every car, truck, and person on the road, tagged. If you are still drawing bounding boxes by hand in 2026, blink twice and we will send help. Try it here: https://scorestudio.ai",
+    "text": "Ran our auto-annotate engine on 120 frames of highway traffic. every car, truck, and person on the road, tagged. If you are still drawing bounding boxes by hand in 2026, blink twice and we will send help. Try it here: scorestudio.ai Video",
+    "url": "http://shitter.thepixora.com/webuildscore/status/2102768498426380399#m",
+    "fetched_at": "2026-09-26T18:55:54.574096+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
     "handle": "const_reborn",
     "name": "Jacob Steeves",
     "posted_at": "Wed, 23 Sep 2026 13:57:39 GMT",
@@ -87,6 +97,16 @@
     "text": "Listen in to @oscar_hayek discussing RedTeam on @YumaGroup's Subnet Spotlight. Origin, commercial and technical traction, and where we're headed. Yuma (@YumaGroup) How RedTeam (SN61) powers their cyberthreat immune system with Bittensor nitter.net/i/broadcasts/1dGYlazzp… Link Yuma How RedTeam (SN61) powers their cyberthreat immune system with Bittensor http://nitter.jaydenha.uk/i/broadcasts/1dGYlazzpnEKX — http://nitter.jaydenha.uk/YumaGroup/status/2090076390163095836#m",
     "url": "http://nitter.jaydenha.uk/_redteam_/status/2090091530920878293#m",
     "fetched_at": "2026-09-26T08:59:43.981304+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "jaltucher",
+    "name": "James Altucher",
+    "posted_at": "Wed, 16 Sep 2026 16:36:03 GMT",
+    "title": "Working on an AI-powered end to end platform for designing optical and then quantum chips at $QCLS. More details and refinements later but you can check it out at https://VibeGDS.io - you just enter plain English for the chip you want and it will build it out, simulate, verify, etc. Of interest mostly to optical engineers.",
+    "text": "Working on an AI-powered end to end platform for designing optical and then quantum chips at $QCLS. More details and refinements later but you can check it out at VibeGDS.io - you just enter plain English for the chip you want and it will build it out, simulate, verify, etc. Of interest mostly to optical engineers.",
+    "url": "http://nitter.jaydenha.uk/jaltucher/status/2100262449685364904#m",
+    "fetched_at": "2026-09-26T18:54:50.412318+00:00",
     "via_instance": "https://nitter.cz"
   },
   {
@@ -150,6 +170,16 @@
     "via_instance": "https://nitter.cz"
   },
   {
+    "handle": "foundrydigital",
+    "name": "Foundry Digital",
+    "posted_at": "Wed, 11 Jan 2012 23:30:33 GMT",
+    "title": "Expression Engine 2.0 review by the guys at Scriptiny http://bit.ly/w3Pg3R",
+    "text": "Expression Engine 2.0 review by the guys at Scriptiny bit.ly/w3Pg3R",
+    "url": "http://shitter.thepixora.com/foundrydigital/status/157243024848596993#m",
+    "fetched_at": "2026-09-26T18:55:31.093628+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
     "handle": "nigescore",
     "name": "Nige",
     "posted_at": "Wed, 09 Sep 2026 10:18:25 GMT",
@@ -192,6 +222,16 @@
   {
     "handle": "oroagents",
     "name": "Oro",
+    "posted_at": "Tue, 22 Sep 2026 19:16:18 GMT",
+    "title": "R to @oroagents: Check out our latest article for how we are approaching benchmarks and evals as the incentive layer on Bittensor -",
+    "text": "Check out our latest article for how we are approaching benchmarks and evals as the incentive layer on Bittensor - ORO (@oroagents) The team has been hard at work building ORO Bench and we're excited to share this with the world today. Now powering SN15 on Bittensor. Article ORO Bench The ORO model: Eval as an Incentive Mechanism Subnet owners that are testing agent capabilities should be thinking about their validation as EVAL as an incentive mechanism (EAAIM). If you build a — http://shitter.thepixora.com/oroagents/status/2102473778509087203#m",
+    "url": "http://shitter.thepixora.com/oroagents/status/2102477102453055786#m",
+    "fetched_at": "2026-09-26T18:55:52.203916+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "oroagents",
+    "name": "Oro",
     "posted_at": "Tue, 22 Sep 2026 19:10:47 GMT",
     "title": "We're excited to announce ORO Bench today, a benchmark that's powered by a generator creating new synthetic shopping environments everyday. This is now powering our subnet on Bittensor, SN15.",
     "text": "We're excited to announce ORO Bench today, a benchmark that's powered by a generator creating new synthetic shopping environments everyday. This is now powering our subnet on Bittensor, SN15. Video",
@@ -202,11 +242,31 @@
   {
     "handle": "oroagents",
     "name": "Oro",
+    "posted_at": "Tue, 22 Sep 2026 19:10:47 GMT",
+    "title": "We're excited to announce ORO Bench today, a benchmark that's powered by a generator creating new synthetic shopping environments everyday. This is now powering our subnet on Bittensor, SN15.",
+    "text": "We're excited to announce ORO Bench today, a benchmark that's powered by a generator creating new synthetic shopping environments everyday. This is now powering our subnet on Bittensor, SN15. Video",
+    "url": "http://shitter.thepixora.com/oroagents/status/2102475717367963815#m",
+    "fetched_at": "2026-09-26T18:55:52.203916+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "oroagents",
+    "name": "Oro",
     "posted_at": "Tue, 22 Sep 2026 19:03:05 GMT",
     "title": "ORO Bench",
     "text": "The team has been hard at work building ORO Bench and we're excited to share this with the world today. Now powering SN15 on Bittensor. Article ORO Bench The ORO model: Eval as an Incentive Mechanism Subnet owners that are testing agent capabilities should be thinking about their validation as EVAL as an incentive mechanism (EAAIM). If you build a",
     "url": "http://nitter.jaydenha.uk/oroagents/status/2102473778509087203#m",
     "fetched_at": "2026-09-26T02:58:39.513391+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "oroagents",
+    "name": "Oro",
+    "posted_at": "Tue, 22 Sep 2026 19:03:05 GMT",
+    "title": "ORO Bench",
+    "text": "The team has been hard at work building ORO Bench and we're excited to share this with the world today. Now powering SN15 on Bittensor. Article ORO Bench The ORO model: Eval as an Incentive Mechanism Subnet owners that are testing agent capabilities should be thinking about their validation as EVAL as an incentive mechanism (EAAIM). If you build a",
+    "url": "http://shitter.thepixora.com/oroagents/status/2102473778509087203#m",
+    "fetched_at": "2026-09-26T18:55:52.203916+00:00",
     "via_instance": "https://nitter.cz"
   },
   {
@@ -250,6 +310,16 @@
     "via_instance": "https://nitter.cz"
   },
   {
+    "handle": "jaltucher",
+    "name": "James Altucher",
+    "posted_at": "Tue, 22 Sep 2026 13:32:41 GMT",
+    "title": "RT by @jaltucher: Welcome to Bittensor. Here's why you should stay and diamond-hand $TAO.",
+    "text": "Welcome to Bittensor. Here's why you should stay and diamond-hand $TAO.",
+    "url": "http://nitter.jaydenha.uk/taodaily_io/status/2102390629422567556#m",
+    "fetched_at": "2026-09-26T18:54:50.412318+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
     "handle": "BarrySilbert",
     "name": "Barry Silbert",
     "posted_at": "Tue, 22 Sep 2026 12:55:43 GMT",
@@ -290,6 +360,16 @@
     "via_instance": "https://nitter.cz"
   },
   {
+    "handle": "jaltucher",
+    "name": "James Altucher",
+    "posted_at": "Tue, 15 Sep 2026 13:41:23 GMT",
+    "title": "RT by @jaltucher: Q/C Technologies has appointed Yossef Ehrlichman, Ph.D., as Chief Technology Officer to lead the company’s optical processing unit program and overall technology strategy. Learn more: https://bit.ly/4xXk2ik $QCLS",
+    "text": "Q/C Technologies has appointed Yossef Ehrlichman, Ph.D., as Chief Technology Officer to lead the company’s optical processing unit program and overall technology strategy. Learn more: bit.ly/4xXk2ik $QCLS",
+    "url": "http://nitter.jaydenha.uk/Q_CTechnologies/status/2099856104670859351#m",
+    "fetched_at": "2026-09-26T18:54:50.412318+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
     "handle": "oroagents",
     "name": "Oro",
     "posted_at": "Tue, 08 Sep 2026 18:48:19 GMT",
@@ -297,6 +377,16 @@
     "text": "We're excited to announce that we're going to be joining Y Combinator in Fall 2026. The team is super pumped to be working with @golda and co to continue on our journey of creating the best in class open source models for agentic commerce. Video",
     "url": "http://nitter.jaydenha.uk/oroagents/status/2097396633764032707#m",
     "fetched_at": "2026-09-26T02:58:39.513391+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "oroagents",
+    "name": "Oro",
+    "posted_at": "Tue, 08 Sep 2026 18:48:19 GMT",
+    "title": "We're excited to announce that we're going to be joining Y Combinator in Fall 2026. The team is super pumped to be working with @golda and co to continue on our journey of creating the best in class open source models for agentic commerce.",
+    "text": "We're excited to announce that we're going to be joining Y Combinator in Fall 2026. The team is super pumped to be working with @golda and co to continue on our journey of creating the best in class open source models for agentic commerce. Video",
+    "url": "http://shitter.thepixora.com/oroagents/status/2097396633764032707#m",
+    "fetched_at": "2026-09-26T18:55:52.203916+00:00",
     "via_instance": "https://nitter.cz"
   },
   {
@@ -460,6 +550,16 @@
     "via_instance": "https://nitter.cz"
   },
   {
+    "handle": "webuildscore",
+    "name": "Score",
+    "posted_at": "Thu, 24 Sep 2026 17:03:49 GMT",
+    "title": "\"We're slowing down AI development\" they said",
+    "text": "\"We're slowing down AI development\" they said",
+    "url": "http://shitter.thepixora.com/webuildscore/status/2103168539217523018#m",
+    "fetched_at": "2026-09-26T18:55:54.574096+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
     "handle": "zeussubnet",
     "name": "Zeus Subnet",
     "posted_at": "Thu, 24 Sep 2026 16:27:01 GMT",
@@ -570,6 +670,26 @@
     "via_instance": "https://nitter.cz"
   },
   {
+    "handle": "oroagents",
+    "name": "Oro",
+    "posted_at": "Thu, 20 Aug 2026 20:18:01 GMT",
+    "title": "Measuring the quality of the long-horizon data is a huge part of solving the AI consumer shopping problem. ORO-Distilled, a 4B model. 5x faster. 50x cheaper.",
+    "text": "Measuring the quality of the long-horizon data is a huge part of solving the AI consumer shopping problem. ORO-Distilled, a 4B model. 5x faster. 50x cheaper. Video",
+    "url": "http://shitter.thepixora.com/oroagents/status/2090533835192893616#m",
+    "fetched_at": "2026-09-26T18:55:52.203916+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "Olaf",
+    "name": "Olaf Carlson-Wee",
+    "posted_at": "Thu, 19 Aug 2010 19:44:32 GMT",
+    "title": "lekker biertje drinken bij Dims!",
+    "text": "lekker biertje drinken bij Dims!",
+    "url": "http://nitter.jaydenha.uk/olaf/status/21602951308#m",
+    "fetched_at": "2026-09-26T18:54:55.732293+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
     "handle": "novogratz",
     "name": "Mike Novogratz",
     "posted_at": "Thu, 17 Sep 2026 14:07:34 GMT",
@@ -610,6 +730,16 @@
     "via_instance": "https://nitter.cz"
   },
   {
+    "handle": "Olaf",
+    "name": "Olaf Carlson-Wee",
+    "posted_at": "Sun, 10 Jul 2011 15:44:18 GMT",
+    "title": "RT @timmerarjan Life is good! http://yfrog.com/kkli4iaj zeker !! Wel tof dat je het deelt met je vrienden :)",
+    "text": "RT @timmerarjan Life is good! yfrog.com/kkli4iaj zeker !! Wel tof dat je het deelt met je vrienden :)",
+    "url": "http://nitter.jaydenha.uk/olaf/status/90083936700600321#m",
+    "fetched_at": "2026-09-26T18:54:55.732293+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
     "handle": "dippy_ai",
     "name": "Dippy AI",
     "posted_at": "Sun, 09 Aug 2026 23:27:27 GMT",
@@ -640,6 +770,26 @@
     "via_instance": "https://nitter.cz"
   },
   {
+    "handle": "webuildscore",
+    "name": "Score",
+    "posted_at": "Sat, 26 Sep 2026 16:00:52 GMT",
+    "title": "Gordon Ramsay with kids vs Gordon Ramsay with adults. Our Fire and Smoke Detector caught the fire in both. If you need strong detection models, don't be an idiot sandwich. Use Score Studio. Try it here: https://scorestudio.ai",
+    "text": "Gordon Ramsay with kids vs Gordon Ramsay with adults. Our Fire and Smoke Detector caught the fire in both. If you need strong detection models, don't be an idiot sandwich. Use Score Studio. Try it here: scorestudio.ai Video",
+    "url": "http://shitter.thepixora.com/webuildscore/status/2103877473012203889#m",
+    "fetched_at": "2026-09-26T18:55:54.574096+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "webuildscore",
+    "name": "Score",
+    "posted_at": "Sat, 26 Sep 2026 15:31:32 GMT",
+    "title": "This one hits hard",
+    "text": "This one hits hard Millie (@AltcoinMillie) 🐐 $TAO — http://shitter.thepixora.com/AltcoinMillie/status/2103864269141844002#m",
+    "url": "http://shitter.thepixora.com/webuildscore/status/2103870090122764752#m",
+    "fetched_at": "2026-09-26T18:55:54.574096+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
     "handle": "SemiAnalysis_",
     "name": "SemiAnalysis",
     "posted_at": "Sat, 26 Sep 2026 13:49:30 GMT",
@@ -647,6 +797,66 @@
     "text": "Intel Panther Lake Teardown Taking a look inside Intel’s latest consumer chip and 18A process node newsletter.semianalysis.com/… Link Intel Panther Lake Teardown Looking inside Intel 18A and Intel’s Panther Lake. A free SemiAnalysis STEEL teardown. newsletter.semianalysis.com",
     "url": "http://nitter.jaydenha.uk/SemiAnalysis_/status/2103844415832023446#m",
     "fetched_at": "2026-09-26T15:33:19.789644+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "wallstreetbets",
+    "name": "WallStreetBets (X)",
+    "posted_at": "Sat, 26 Sep 2026 12:30:01 GMT",
+    "title": "until all of wall street is onchain, we're still early",
+    "text": "until all of wall street is onchain, we're still early",
+    "url": "http://nitter.jaydenha.uk/wallstreetbets/status/2103824409991532849#m",
+    "fetched_at": "2026-09-26T18:57:36.563528+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "jaltucher",
+    "name": "James Altucher",
+    "posted_at": "Sat, 26 Sep 2026 11:59:57 GMT",
+    "title": "RT by @jaltucher: bittensor:native will change your life. 🫶",
+    "text": "bittensor:native will change your life. 🫶",
+    "url": "http://nitter.jaydenha.uk/taodaily_io/status/2103816843806879925#m",
+    "fetched_at": "2026-09-26T18:54:50.412318+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "wallstreetbets",
+    "name": "WallStreetBets (X)",
+    "posted_at": "Sat, 26 Sep 2026 10:30:00 GMT",
+    "title": "which coin did this to you?",
+    "text": "which coin did this to you?",
+    "url": "http://nitter.jaydenha.uk/wallstreetbets/status/2103794207962120295#m",
+    "fetched_at": "2026-09-26T18:57:36.563528+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "wallstreetbets",
+    "name": "WallStreetBets (X)",
+    "posted_at": "Sat, 26 Sep 2026 08:30:00 GMT",
+    "title": "hyperliquid",
+    "text": "hyperliquid",
+    "url": "http://nitter.jaydenha.uk/wallstreetbets/status/2103764008624968019#m",
+    "fetched_at": "2026-09-26T18:57:36.563528+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "wallstreetbets",
+    "name": "WallStreetBets (X)",
+    "posted_at": "Sat, 26 Sep 2026 06:30:00 GMT",
+    "title": "took enough profit to cover the fees",
+    "text": "took enough profit to cover the fees Video",
+    "url": "http://nitter.jaydenha.uk/wallstreetbets/status/2103733809430827311#m",
+    "fetched_at": "2026-09-26T18:57:36.563528+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "wallstreetbets",
+    "name": "WallStreetBets (X)",
+    "posted_at": "Sat, 26 Sep 2026 04:20:00 GMT",
+    "title": "record revenue and all of it going to buybacks? yeah i can get used to these updates",
+    "text": "record revenue and all of it going to buybacks? yeah i can get used to these updates Arrash (@0xarrash) biggest revenue week for @VantaTrading and we’re halfway through the week. Will all go to token buybacks. — http://nitter.jaydenha.uk/0xarrash/status/2103149734563368982#m",
+    "url": "http://nitter.jaydenha.uk/wallstreetbets/status/2103701093498622148#m",
+    "fetched_at": "2026-09-26T18:57:36.563528+00:00",
     "via_instance": "https://nitter.cz"
   },
   {
@@ -840,6 +1050,16 @@
     "via_instance": "https://nitter.cz"
   },
   {
+    "handle": "jaltucher",
+    "name": "James Altucher",
+    "posted_at": "Mon, 14 Sep 2026 19:59:57 GMT",
+    "title": "RT by @jaltucher: All of this is so surreal and most of the global population isn’t even fully aware of it.",
+    "text": "All of this is so surreal and most of the global population isn’t even fully aware of it. James Altucher (@jaltucher) Inspired by @ashe’s Exploding Human Body, I set up a site to ExplodeAnything.com. Put in any object (“an Iphone”, “a data center”, “an Ozempic pill”, “the soul”. etc), and it will “explode it” and teach you what each component does AND, tell you which public companies make each component, with links to their Yahoo Finance page. Video — http://nitter.jaydenha.uk/jaltucher/status/2099550542515110239#m",
+    "url": "http://nitter.jaydenha.uk/ReneSellmann/status/2099588988017299496#m",
+    "fetched_at": "2026-09-26T18:54:50.412318+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
     "handle": "dippy_ai",
     "name": "Dippy AI",
     "posted_at": "Mon, 10 Aug 2026 15:35:59 GMT",
@@ -867,6 +1087,16 @@
     "text": "Early predictions for design trends of 2012? tiny.cc/mkg4v",
     "url": "http://nitter.jaydenha.uk/foundrydigital/status/153974018557493248#m",
     "fetched_at": "2026-09-26T08:59:02.927633+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "foundrydigital",
+    "name": "Foundry Digital",
+    "posted_at": "Mon, 02 Jan 2012 23:00:41 GMT",
+    "title": "Early predictions for design trends of 2012? http://tiny.cc/mkg4v",
+    "text": "Early predictions for design trends of 2012? tiny.cc/mkg4v",
+    "url": "http://shitter.thepixora.com/foundrydigital/status/153974018557493248#m",
+    "fetched_at": "2026-09-26T18:55:31.093628+00:00",
     "via_instance": "https://nitter.cz"
   },
   {
@@ -960,6 +1190,16 @@
     "via_instance": "https://nitter.cz"
   },
   {
+    "handle": "taomedia_",
+    "name": "TAO Media",
+    "posted_at": "Fri, 25 Sep 2026 20:32:52 GMT",
+    "title": "OpenRoboto and @axisrobotics launched Open Axis Benchmark, a “living” test for robot-manipulation models that rotates tasks so teams can’t simply tune to a fixed benchmark. Axis says its library spans 6,000+ tasks and 5.5M trajectories, and Season 1 submissions are open on @openroboto’ s site. https://www.tao.media/openroboto-and-axis-robotics-launch-open-axis-benchmark-for-robot-model-evaluation/",
+    "text": "OpenRoboto and @axisrobotics launched Open Axis Benchmark, a “living” test for robot-manipulation models that rotates tasks so teams can’t simply tune to a fixed benchmark. Axis says its library spans 6,000+ tasks and 5.5M trajectories, and Season 1 submissions are open on @openroboto’ s site. tao.media/openroboto-and-axi… Link OpenRoboto and Axis Robotics Launch Open Axis Benchmark for Robot Model Evaluation The living benchmark rotates robot-manipulation tasks from Axis Robotics&apos; growing library to test whether models can generalize beyond fixed evaluation sets. tao.media",
+    "url": "http://shitter.thepixora.com/taomedia_/status/2103583535487676570#m",
+    "fetched_at": "2026-09-26T18:57:38.732620+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
     "handle": "VantaTrading",
     "name": "Vanta",
     "posted_at": "Fri, 25 Sep 2026 20:30:44 GMT",
@@ -967,6 +1207,16 @@
     "text": "$599 for a $100,000 account at a 100% split. It was $899. Pass it and Vanta can move you up to a $1,000,000 Pro account. Promotion costs nothing extra. You pay once, and that's the whole price. What's stopping you from starting today? app.vantatrading.io",
     "url": "http://shitter.thepixora.com/VantaTrading/status/2103582998553841781#m",
     "fetched_at": "2026-09-26T08:59:23.774419+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "webuildscore",
+    "name": "Score",
+    "posted_at": "Fri, 25 Sep 2026 20:03:12 GMT",
+    "title": "he can drive",
+    "text": "he can drive Gyro Zeppeli (@Gyrolens) trying out Score Studio's vehicle detector on the most random clip i could find, safe to say i wasn't disappointed. @webuildscore Video — http://shitter.thepixora.com/Gyrolens/status/2103575595028189386#m",
+    "url": "http://shitter.thepixora.com/webuildscore/status/2103576072654840037#m",
+    "fetched_at": "2026-09-26T18:55:54.574096+00:00",
     "via_instance": "https://nitter.cz"
   },
   {
@@ -1020,6 +1270,16 @@
     "via_instance": "https://nitter.cz"
   },
   {
+    "handle": "taomedia_",
+    "name": "TAO Media",
+    "posted_at": "Fri, 25 Sep 2026 17:22:02 GMT",
+    "title": "RT by @taomedia_: Did Opus cook?",
+    "text": "Did Opus cook? Intelligence ττ (@taomedia_) Intelligence, built by everyone ττ A one-shotted Bittensor explanation by Opus 5.5. Video — http://shitter.thepixora.com/taomedia_/status/2103485587449860375#m",
+    "url": "http://shitter.thepixora.com/bart_hillerich/status/2103535513953284590#m",
+    "fetched_at": "2026-09-26T18:57:38.732620+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
     "handle": "dylan522p",
     "name": "Dylan Patel",
     "posted_at": "Fri, 25 Sep 2026 16:37:32 GMT",
@@ -1027,6 +1287,16 @@
     "text": "The Chinese AI Infrastructure Boom: Introducing the SemiAnalysis China Datacenter Model 1,000+ facilities across 60+ operators mapped, built retail-first and flipped by AI, largest hyperscaler leases 1/5 national capacity, 100MW in 12 months, Eastern Data Western Compute newsletter.semianalysis.com/… Link The Chinese AI Infrastructure Boom: Introducing the SemiAnalysis China Datacenter Model 1,000+ facilities across 60+ operators mapped, built retail-first and flipped by AI, largest hyperscaler leases 1/5 national capacity, 100MW in 12 months, Eastern Data Western Compute newsletter.semianalys",
     "url": "http://shitter.thepixora.com/SemiAnalysis_/status/2103524314444148856#m",
     "fetched_at": "2026-09-26T09:00:07.932493+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "taomedia_",
+    "name": "TAO Media",
+    "posted_at": "Fri, 25 Sep 2026 14:03:39 GMT",
+    "title": "Intelligence, built by everyone ττ A one-shotted Bittensor explanation by Opus 5.5.",
+    "text": "Intelligence, built by everyone ττ A one-shotted Bittensor explanation by Opus 5.5. Video",
+    "url": "http://shitter.thepixora.com/taomedia_/status/2103485587449860375#m",
+    "fetched_at": "2026-09-26T18:57:38.732620+00:00",
     "via_instance": "https://nitter.cz"
   },
   {
@@ -1050,6 +1320,16 @@
     "via_instance": "https://nitter.cz"
   },
   {
+    "handle": "taomedia_",
+    "name": "TAO Media",
+    "posted_at": "Fri, 25 Sep 2026 13:51:40 GMT",
+    "title": "RT by @taomedia_: Thanks @bart_hillerich for having us. Our co-founder @AntoinePlancho3 joined @taomedia_ to talk Mentat Lend and DeFi on Bittensor.",
+    "text": "Thanks @bart_hillerich for having us. Our co-founder @AntoinePlancho3 joined @taomedia_ to talk Mentat Lend and DeFi on Bittensor. Intelligence ττ (@taomedia_) Bittensor DeFi is a blue ocean opportunity, and @MentatLend_ is leading the expansion effort. @bart_hillerich caught up with @AntoinePlancho3 to discuss protocol progress, subnet tokens as collateral, and what it’ll take for Bittensor to develop into a leading DeFi ecosystem. Video — http://shitter.thepixora.com/taomedia_/status/2103470773935681611#m",
+    "url": "http://shitter.thepixora.com/MentatLend_/status/2103482569740452316#m",
+    "fetched_at": "2026-09-26T18:57:38.732620+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
     "handle": "YumaGroup",
     "name": "Yuma Holdings",
     "posted_at": "Fri, 25 Sep 2026 13:30:04 GMT",
@@ -1067,6 +1347,16 @@
     "text": "$250 TAO is old news. Bittensor traded above $325 this week, up 39% over the prior 7 days and +73% from its 90-day low. Yuma Asset Management provides access to bittensor:native and the broader Bittensor subnet economy in a single vehicle, giving allocators exposure to one of the most active ecosystems in decentralized AI. Learn more about Yuma Asset Management here: yumaai.com/asset-management?…",
     "url": "http://shitter.thepixora.com/YumaGroup/status/2103477131023954420#m",
     "fetched_at": "2026-09-26T02:56:43.633939+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "taomedia_",
+    "name": "TAO Media",
+    "posted_at": "Fri, 25 Sep 2026 13:04:47 GMT",
+    "title": "Bittensor DeFi is a blue ocean opportunity, and @MentatLend_ is leading the expansion effort. @bart_hillerich caught up with @AntoinePlancho3 to discuss protocol progress, subnet tokens as collateral, and what it’ll take for Bittensor to develop into a leading DeFi ecosystem.",
+    "text": "Bittensor DeFi is a blue ocean opportunity, and @MentatLend_ is leading the expansion effort. @bart_hillerich caught up with @AntoinePlancho3 to discuss protocol progress, subnet tokens as collateral, and what it’ll take for Bittensor to develop into a leading DeFi ecosystem. Video",
+    "url": "http://shitter.thepixora.com/taomedia_/status/2103470773935681611#m",
+    "fetched_at": "2026-09-26T18:57:38.732620+00:00",
     "via_instance": "https://nitter.cz"
   },
   {
