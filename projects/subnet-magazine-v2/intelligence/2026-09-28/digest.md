@@ -196,6 +196,14 @@ _no new posts in the lookback window_
   http://nitter.jaydenha.uk/TargonCompute/status/2094908006039236625#m
 - @mcjkula (mcjkula, Tue, 01 Sep 2026): TAOApp Wallet is here. The self-custody browser wallet for Bittensor. Hold TAO, stake TAO, buy subnet tokens. When there’s more to protect, bring in your Ledger, proxies and multisigs. Install the beta, on Chrome, Brave and Edge. ↓ chromewebstore.google.com/de…  
   http://shitter.thepixora.com/taoapp_/status/2094840222441992209#m
+- @affine_io (Affine, Tue, 01 Sep 2026): Everything you need to compete is public: affine.io/llms.txt  
+  http://shitter.thepixora.com/affine_io/status/2094801258016370976#m
+- @affine_io (Affine, Tue, 01 Sep 2026): Video  
+  http://shitter.thepixora.com/affine_io/status/2094801103959540005#m
+- @dippy_ai (Dippy AI, Thu, 30 Jul 2026): Excited to have helped @PrunaAI collect 1M+ votes for image preference data in a very short time :~) Pruna AI (@PrunaAI) P-Image-Ideogram dominate the speed-quality and price-quality Pareto frontiers for image generation. It is the result of a unique collaboration with @ideogram_ai. - Four modes (Very low, low, medium, high) for 1K-2K image generation. - Optimal quality-efficiency with 0.4s-7.5s latency, and $0.003-$0.03 price. - Structured JSON control & exact color control. Available via our inference partners @Replicate @inference_sh @scenario_gg @wavespeed_ai @wiroai @magnific @prodialabs   
+  http://shitter.thepixora.com/datapointai/status/2082837314603032606#m
+- @dippy_ai (Dippy AI, Thu, 27 Aug 2026): we have significantly upgraded both the basic and super models 🤩🤩 we have also made optimizations to improve response speeds by upto 5x can't wait for you all to experience and enjoy the new dippy 📯📯😸 rolling out to everyone today  
+  http://shitter.thepixora.com/dippy_ai/status/2093089771824226802#m
 - @covenant_ai (Covenant AI, Thu, 27 Aug 2026): A system designed around identical accelerators depends on a narrow hardware supply. Templar starts from a wider map. Accelerator generations vary, and network conditions change with location. The coordination layer has to treat both as design inputs.  
   http://shitter.thepixora.com/tplr_ai/status/2093022381660942660#m
 - @polychain (Polychain Capital, Thu, 25 Jun 2026): Article The Missing AI Layer Is Not Security. It&apos;s Authority. AI agents are now computer users. They browse websites. They read files. They write code. They call APIs. They log in to accounts. They handle credentials, use tools, and take actions across software  
@@ -206,10 +214,16 @@ _no new posts in the lookback window_
   http://shitter.thepixora.com/opentensor/status/2103229076056207404#m
 - @a16zcrypto (a16z Crypto, Thu, 24 Sep 2026): “We can now be that regulated partner for all of the largest financial institutions in and outside of the U.S., who want to launch products here.” – @Bastion CEO Nassim Eddequiouaq Bastion (@Bastion) Bastion is the regulated stablecoin infrastructure provider behind global enterprises and financial institutions. As enterprises bring stablecoins into their products and payment flows, they need infrastructure that can support them at scale while meeting the standards their regulators, auditors, and risk committees expect. Our preliminary conditional approval from the OCC for a national trust ban  
   http://nitter.jaydenha.uk/a16zcrypto/status/2103212956259668294#m
+- @a16zcrypto (a16z Crypto, Thu, 24 Sep 2026): “We can now be that regulated partner for all of the largest financial institutions in and outside of the U.S., who want to launch products here.” – @Bastion CEO Nassim Eddequiouaq Bastion (@Bastion) Bastion is the regulated stablecoin infrastructure provider behind global enterprises and financial institutions. As enterprises bring stablecoins into their products and payment flows, they need infrastructure that can support them at scale while meeting the standards their regulators, auditors, and risk committees expect. Our preliminary conditional approval from the OCC for a national trust ban  
+  http://shitter.thepixora.com/a16zcrypto/status/2103212956259668294#m
 - @a16zcrypto (a16z Crypto, Thu, 24 Sep 2026): Want to learn more about perps? Read below 👇 a16z crypto (@a16zcrypto) Article The rise of the $100-billion RWA perp market Trading in perpetual futures tied to stocks, gold, and other traditional assets is growing fast. And an increasing share of that activity is now happening onchain. These contracts, often referred to — http://nitter.jaydenha.uk/a16zcrypto/status/2102875903500197915#m  
   http://nitter.jaydenha.uk/a16zcrypto/status/2103210492210626834#m
+- @a16zcrypto (a16z Crypto, Thu, 24 Sep 2026): Want to learn more about perps? Read below 👇 a16z crypto (@a16zcrypto) Article The rise of the $100-billion RWA perp market Trading in perpetual futures tied to stocks, gold, and other traditional assets is growing fast. And an increasing share of that activity is now happening onchain. These contracts, often referred to — http://shitter.thepixora.com/a16zcrypto/status/2102875903500197915#m  
+  http://shitter.thepixora.com/a16zcrypto/status/2103210492210626834#m
 - @a16zcrypto (a16z Crypto, Thu, 24 Sep 2026): Just going to leave this here. Open interest in perps tied to traditional assets grew from $161 million to $4.8 billion in 13 months.  
   http://nitter.jaydenha.uk/a16zcrypto/status/2103210350770356589#m
+- @a16zcrypto (a16z Crypto, Thu, 24 Sep 2026): Just going to leave this here. Open interest in perps tied to traditional assets grew from $161 million to $4.8 billion in 13 months.  
+  http://shitter.thepixora.com/a16zcrypto/status/2103210350770356589#m
 - @PanteraCapital (Pantera Capital, Thu, 24 Sep 2026): &lt; 2 weeks after launch: - doing 1/4 traffic of Google search - #1 chain used by devs - inventing new metas (stock x meme pairing) @RobinhoodApp chain just getting started reinventing finance fun convo with @FranklinBi @JohannKerbrat about the 3 crypto megatrends, the Whatsapp Effect, and how @davehappyminion bought flowers and snitched Pantera Capital (@PanteraCapital) Robinhood Chain is three months old. In API calls it already runs at roughly a quarter the volume of Google search. @nikil (@Alchemy) and @JohannKerbrat (@RobinhoodCrypto) join Stateful, hosted by @FranklinBi, to talk tokeniz  
   http://nitter.jaydenha.uk/nikil/status/2103197255620841752#m
 - @PanteraCapital (Pantera Capital, Thu, 24 Sep 2026): This one has been in the works for over a year. Tokenization is not about bringing existing assets onchain anymore - that problem has already been solved by Ondo Stocks. What's next is bringing asset management and wealth management onchain, starting with intelligent portfolios. People globally can invest in sophisticated portfolios, developed by Blackrock for Ondo, with a single click, and access products that were previously only available to the wealthy select few. Over the next few months, expect Ondo to launch more intelligent portfolios that combine stocks, commodities, ETFs, and even pr  
@@ -228,21 +242,7 @@ _no new posts in the lookback window_
   http://shitter.thepixora.com/zeussubnet/status/2103125660398981184#m
 - @Olaf (Olaf Carlson-Wee, Thu, 19 Aug 2010): lekker biertje drinken bij Dims!  
   http://shitter.thepixora.com/olaf/status/21602951308#m
-- @Olaf (Olaf Carlson-Wee, Thu, 19 Aug 2010): lekker biertje drinken bij Dims!  
-  http://nitter.jaydenha.uk/olaf/status/21602951308#m
-- @JosephJacks_ (Joseph Jacks, Thu, 17 Sep 2026): GN  
-  http://shitter.thepixora.com/kikanicolela/status/2100698888139083986#m
-- @novogratz (Mike Novogratz, Thu, 17 Sep 2026): Thank you @SECPaulSAtkins @HesterPeirce @MarkUyedaUS for leading on digital asset policy !!! Innovation exemption moves tokenization ahead. Proud to be first on Nasdaq to tokenize shares. More to come with tokenized $GLXY ! U.S. Securities and Exchange Commission (@SECGov) 🚨 TODAY: The SEC issued an order granting temporary, conditional exemptive relief to Tokenized Securities Venues from the definition of “exchange” in the Exchange Act to trade tokenized NMS stock using innovative permissioned automated market makers and liquidity pools. — http://shitter.thepixora.com/SECGov/status/2100571317  
-  http://shitter.thepixora.com/novogratz/status/2100587469708140836#m
-- @polychain (Polychain Capital, Thu, 13 Aug 2026): LBTC proved demand for yield-bearing Bitcoin. Today, we double down on that thesis. LBTC is moving to institutional yield. @Bitwise will manage a covered-call options strategy with a 4.5-year legacy track record, to generate LBTC's yield, targeting 2.5% net APY paid in Bitcoin.  
-  http://shitter.thepixora.com/Lombard_Finance/status/2087887552300933626#m
-- @covenant_ai (Covenant AI, Thu, 03 Sep 2026): Crucible, Templar's pre-training platform, has completed its first production end-to-end training runs. The latest trained an 8B model on 50.53B tokens across 48 distributed A100s, at an estimated $0.1202 per million tokens of GPU rental. The run reached 48.3% effective MFU. At AWS p4de Capacity Blocks pricing, a 48-A100 cluster operating at the literature-derived 65% compute ceiling comes to an estimated $0.1686 per million tokens. Crucible's measured $0.1202 was about 29% lower after its low-bandwidth overhead. The comparison excludes R2 storage and operations. The full writeup shows the met  
-  http://shitter.thepixora.com/tplr_ai/status/2095580357626110111#m
-- @JosephJacks_ (Joseph Jacks, Sun, 27 Sep 2026): The music stops when a fundamentally more efficient step change in AI compute occurs that first occurs outside the labs, then is taken over by them in a very messy transition .. but then markets recover and go stratospheric yet again. Meghan Reynolds (@MeghanKReynolds) Heard from VC LPs this week: “What’s next?” While everyone waits (im)patiently for a big LLM IPO, most LP conversations look forward: 1) most likely big IPO post the labs? 2) most important up and coming late stage AI assets? 3) the risk that could stop the music? — http://shitter.thepixora.com/MeghanKReynolds/status/21043364241  
-  http://shitter.thepixora.com/JosephJacks_/status/2104343238849294551#m
-- @wallstreetbets (WallStreetBets (X), Sun, 27 Sep 2026): bullish on the future of crypto  
-  http://shitter.thepixora.com/wallstreetbets/status/2104334174723432537#m
 
 
 ---
-_Generated at 2026-09-28T10:24:38.436870+00:00 by scripts/intel/aggregate.py. Treat this digest as input context, not as ground truth. Verify before quoting._
+_Generated at 2026-09-28T19:08:08.731970+00:00 by scripts/intel/aggregate.py. Treat this digest as input context, not as ground truth. Verify before quoting._
