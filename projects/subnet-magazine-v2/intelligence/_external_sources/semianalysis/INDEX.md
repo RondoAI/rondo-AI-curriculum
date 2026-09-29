@@ -1,11 +1,12 @@
 # SemiAnalysis Archive Index
 
-_337 posts captured. Generated 2026-09-28T19:08:08.610510+00:00._
+_338 posts captured. Generated 2026-09-29T00:08:46.557191+00:00._
 
 Editorial policy: SemiAnalysis is the macro reference. The Oracle cites it for any claim about hyperscaler compute, GPU economics, datacenter power, foundry capacity, memory pricing, lab unit economics. The Oracle does NOT cite SemiAnalysis for any Bittensor-specific claim. SemiAnalysis does not cover Bittensor; treat that absence as itself information.
 
 | Date | Title | Audience | Authors | File |
 | --- | --- | --- | --- | --- |
+| 2026-09-28 | [How GLM5.3 Sparse Attention Affects HBM Memory Usage](https://newsletter.semianalysis.com/p/sparse-savings-persistent-demand-inside-glm53) | only_paid | ["Kimbo Chen", "Alec Ibarra", "Wenyao Gao", "Pratt Bhatt", " | `2026-09-28-sparse-savings-persistent-demand-inside-glm53.md` |
 | 2026-09-26 | [Intel Panther Lake Teardown](https://newsletter.semianalysis.com/p/intel-panther-lake-teardown) | only_paid | ["Adith Shankar", "Daniel Sanchez", "Allison Elliott", "Sara | `2026-09-26-intel-panther-lake-teardown.md` |
 | 2026-09-25 | [The Chinese AI Infrastructure Boom: Introducing the SemiAnalysis China Datacente](https://newsletter.semianalysis.com/p/the-chinese-ai-infrastructure-boom) | only_paid | ["Everlyn", "Dylan Patel", "Patrick Schaabi"] | `2026-09-25-the-chinese-ai-infrastructure-boom.md` |
 | 2026-09-23 | [ClusterMAX 3.0: The Industry Standard GPU Cloud Rating System Returns](https://newsletter.semianalysis.com/p/clustermax-30-the-industry-standard) | only_paid | ["Jordan Nanos", "Sam Harshe", "Samuel Kruse", "Pratt Bhatt" | `2026-09-23-clustermax-30-the-industry-standard.md` |

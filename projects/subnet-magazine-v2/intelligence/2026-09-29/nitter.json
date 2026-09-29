@@ -1,0 +1,462 @@
+[
+  {
+    "handle": "oroagents",
+    "name": "Oro",
+    "posted_at": "Tue, 22 Sep 2026 19:16:18 GMT",
+    "title": "R to @oroagents: Check out our latest article for how we are approaching benchmarks and evals as the incentive layer on Bittensor -",
+    "text": "Check out our latest article for how we are approaching benchmarks and evals as the incentive layer on Bittensor - ORO (@oroagents) The team has been hard at work building ORO Bench and we're excited to share this with the world today. Now powering SN15 on Bittensor. Article ORO Bench The ORO model: Eval as an Incentive Mechanism Subnet owners that are testing agent capabilities should be thinking about their validation as EVAL as an incentive mechanism (EAAIM). If you build a — http://shitter.thepixora.com/oroagents/status/2102473778509087203#m",
+    "url": "http://shitter.thepixora.com/oroagents/status/2102477102453055786#m",
+    "fetched_at": "2026-09-29T00:07:38.352586+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "oroagents",
+    "name": "Oro",
+    "posted_at": "Tue, 22 Sep 2026 19:10:47 GMT",
+    "title": "We're excited to announce ORO Bench today, a benchmark that's powered by a generator creating new synthetic shopping environments everyday. This is now powering our subnet on Bittensor, SN15.",
+    "text": "We're excited to announce ORO Bench today, a benchmark that's powered by a generator creating new synthetic shopping environments everyday. This is now powering our subnet on Bittensor, SN15. Video",
+    "url": "http://shitter.thepixora.com/oroagents/status/2102475717367963815#m",
+    "fetched_at": "2026-09-29T00:07:38.352586+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "oroagents",
+    "name": "Oro",
+    "posted_at": "Tue, 22 Sep 2026 19:03:05 GMT",
+    "title": "ORO Bench",
+    "text": "The team has been hard at work building ORO Bench and we're excited to share this with the world today. Now powering SN15 on Bittensor. Article ORO Bench The ORO model: Eval as an Incentive Mechanism Subnet owners that are testing agent capabilities should be thinking about their validation as EVAL as an incentive mechanism (EAAIM). If you build a",
+    "url": "http://shitter.thepixora.com/oroagents/status/2102473778509087203#m",
+    "fetched_at": "2026-09-29T00:07:38.352586+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "resilabsai",
+    "name": "RESI",
+    "posted_at": "Tue, 07 Apr 2026 17:33:18 GMT",
+    "title": "RT by @resilabsai: The power of holding Bittensor $TAO subnet alpha Here is an example to illustrate the flywheel of $TAO Let's say you 1,000 alpha of @resilabsai which cost around 7 $TAO 7 $TAO at a price of $310 = $2,170 Current alpha price of Resi, subnet 46: .0066 $TAO Let's make some calculated assumptions. > price of resi alpha stays the same for 3 years > price of $TAO remains the same at $310 > APY for holding Resi alpha is 40% for the first 2 years, then 30% in year 3 What is my total value in 3 years? Year 1 (40% APY) 1,060.6 × 1.4 = 1,484.8 alpha In $TAO: 1,484.8 × 0.0066 ≈ 9.80 $TAO In USD: 9.80 × $310 ≈ $3,038 Year 2 (40% APY again) 1,484.8 × 1.4 = 2,078.8 alpha In $TAO: ≈ 13.72 $TAO In USD: ≈ $4,253 Year 3 (30% APY) 2,078.8 × 1.3 = 2,702.4 alpha In $TAO: ≈ 17.83 $TAO In USD: ≈ $5,527 Now what if the price of Resi alpha went up 2x in year 1, 25% in year 2 and 25% in year 3? Additionally, what if the price of $TAO goes up by 4x? Year 1 Alpha: 1,484.8 $TAO value: 1,484.8 × 0.0132 ≈ 19.6 $TAO USD value: 19.6 × $1,240 ≈ $24,304 Year 2 Alpha: 2,078.8 $TAO value: ≈ 34.3 $TAO USD value: ≈ $42,532 Year 3 Alpha: 2,702.4 $TAO value: ≈ 55.7 $TAO USD value: ≈ $69,068 This is the Bittensor flywheel in effect.",
+    "text": "The power of holding Bittensor $TAO subnet alpha Here is an example to illustrate the flywheel of $TAO Let's say you 1,000 alpha of @resilabsai which cost around 7 $TAO 7 $TAO at a price of $310 = $2,170 Current alpha price of Resi, subnet 46: .0066 $TAO Let's make some calculated assumptions. &gt; price of resi alpha stays the same for 3 years &gt; price of $TAO remains the same at $310 &gt; APY for holding Resi alpha is 40% for the first 2 years, then 30% in year 3 What is my total value in 3 years? Year 1 (40% APY) 1,060.6 × 1.4 = 1,484.8 alpha In $TAO: 1,484.8 × 0.0066 ≈ 9.80 $TAO In USD: ",
+    "url": "http://shitter.thepixora.com/Pop_Collapse/status/2041570023823528017#m",
+    "fetched_at": "2026-09-29T00:08:22.724314+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "_redteam_",
+    "name": "RedTeam / Innerworks",
+    "posted_at": "Thu, 27 Aug 2026 20:59:36 GMT",
+    "title": "The Immune System for the Internet. Releasing next month.",
+    "text": "The Immune System for the Internet. Releasing next month. Oscar Hayek (@oscar_hayek) Defence in this era must be AI driven, the absolute baseline is adapting defences faster than attacks are being produced. Anything slower than this leaves you in a constant state of degradation. What we’ve built on @_redteam_ is an immune system for this problem. The attacks we ingest are evolved inside the system into complete novel vectors that cannot be produced anywhere else. Every one of these gets patched before an external attacker has the means/ability to create it, let alone release it. bittensor:nati",
+    "url": "http://shitter.thepixora.com/_redteam_/status/2093081017145847826#m",
+    "fetched_at": "2026-09-29T00:07:54.410164+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "a16zcrypto",
+    "name": "a16z Crypto",
+    "posted_at": "Thu, 24 Sep 2026 20:00:19 GMT",
+    "title": "“We can now be that regulated partner for all of the largest financial institutions in and outside of the U.S., who want to launch products here.” – @Bastion CEO Nassim Eddequiouaq",
+    "text": "“We can now be that regulated partner for all of the largest financial institutions in and outside of the U.S., who want to launch products here.” – @Bastion CEO Nassim Eddequiouaq Bastion (@Bastion) Bastion is the regulated stablecoin infrastructure provider behind global enterprises and financial institutions. As enterprises bring stablecoins into their products and payment flows, they need infrastructure that can support them at scale while meeting the standards their regulators, auditors, and risk committees expect. Our preliminary conditional approval from the OCC for a national trust ban",
+    "url": "http://nitter.jaydenha.uk/a16zcrypto/status/2103212956259668294#m",
+    "fetched_at": "2026-09-29T00:06:46.269578+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "Olaf",
+    "name": "Olaf Carlson-Wee",
+    "posted_at": "Thu, 19 Aug 2010 19:44:32 GMT",
+    "title": "lekker biertje drinken bij Dims!",
+    "text": "lekker biertje drinken bij Dims!",
+    "url": "http://shitter.thepixora.com/olaf/status/21602951308#m",
+    "fetched_at": "2026-09-29T00:06:23.760808+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "_redteam_",
+    "name": "RedTeam / Innerworks",
+    "posted_at": "Thu, 10 Sep 2026 22:06:58 GMT",
+    "title": "RT by @_redteam_: I am pleased to announce that Stillcore Capital @stillcorecap has invested in Red Team @_redteam_ Bittensor $TAO Subnet 61.",
+    "text": "I am pleased to announce that Stillcore Capital @stillcorecap has invested in Red Team @_redteam_ Bittensor $TAO Subnet 61.",
+    "url": "http://shitter.thepixora.com/markjeffrey/status/2098171401152971021#m",
+    "fetched_at": "2026-09-29T00:07:54.410164+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "jtledore",
+    "name": "Jean-Thomas Ledoré",
+    "posted_at": "Sun, 27 Sep 2026 22:09:09 GMT",
+    "title": "More in 10 years",
+    "text": "More in 10 years Dervish (@kundunsan) $TAO to $4700 — http://shitter.thepixora.com/kundunsan/status/2104113461420536004#m",
+    "url": "http://shitter.thepixora.com/jtledore/status/2104332542241304892#m",
+    "fetched_at": "2026-09-29T00:07:49.295199+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "jtledore",
+    "name": "Jean-Thomas Ledoré",
+    "posted_at": "Sun, 27 Sep 2026 12:37:49 GMT",
+    "title": "RT by @jtledore: I used to be a bitcoin:native maxi. Now, I'm a bitcoin:native and bittensor:native maxi. @Jason gets it.",
+    "text": "I used to be a bitcoin:native maxi. Now, I'm a bitcoin:native and bittensor:native maxi. @Jason gets it. @jason (@Jason) I have nothing to do with any meme coins and never will — I am a fan of bitcoin:native and bittensor:native and sometimes talk about those two projects. Memecoins are a giant scam and if the people running them successfully send money to my accounts I will donate the money to a good cause. For the truly gullible, I will obviously never ask you to buy, sell or trade anything — especially on social media or via DM 🤦😂 — http://shitter.thepixora.com/Jason/status/2103897137767448",
+    "url": "http://shitter.thepixora.com/LordRagnarao/status/2104188764159455291#m",
+    "fetched_at": "2026-09-29T00:07:49.295199+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "jtledore",
+    "name": "Jean-Thomas Ledoré",
+    "posted_at": "Sun, 27 Sep 2026 12:25:18 GMT",
+    "title": "RT by @jtledore: Bittensor Ecosystem Highlights :: September 20–27, 2026",
+    "text": "Article Bittensor Ecosystem Highlights :: September 20–27, 2026 This week’s biggest stories across Bittensor came from OpenRoboto, Chutes, Good Morning, Reliquary, Hippius, Score and Bitcast. [ @openroboto - Subnet 80 ] OpenRoboto launched Shift, a platform for",
+    "url": "http://shitter.thepixora.com/opentensor/status/2104185610520957421#m",
+    "fetched_at": "2026-09-29T00:07:49.295199+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "Olaf",
+    "name": "Olaf Carlson-Wee",
+    "posted_at": "Sun, 10 Jul 2011 15:44:18 GMT",
+    "title": "RT @timmerarjan Life is good! http://yfrog.com/kkli4iaj zeker !! Wel tof dat je het deelt met je vrienden :)",
+    "text": "RT @timmerarjan Life is good! yfrog.com/kkli4iaj zeker !! Wel tof dat je het deelt met je vrienden :)",
+    "url": "http://shitter.thepixora.com/olaf/status/90083936700600321#m",
+    "fetched_at": "2026-09-29T00:06:23.760808+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "jtledore",
+    "name": "Jean-Thomas Ledoré",
+    "posted_at": "Sat, 28 Feb 2026 00:58:33 GMT",
+    "title": "RT by @jtledore: You don't own enough $TAO",
+    "text": "You don't own enough $TAO",
+    "url": "http://shitter.thepixora.com/BarrySilbert/status/2027548944968843726#m",
+    "fetched_at": "2026-09-29T00:07:49.295199+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "webuildscore",
+    "name": "Score",
+    "posted_at": "Sat, 26 Sep 2026 16:00:52 GMT",
+    "title": "Gordon Ramsay with kids vs Gordon Ramsay with adults. Our Fire and Smoke Detector caught the fire in both. If you need strong detection models, don't be an idiot sandwich. Use Score Studio. Try it here: https://scorestudio.ai",
+    "text": "Gordon Ramsay with kids vs Gordon Ramsay with adults. Our Fire and Smoke Detector caught the fire in both. If you need strong detection models, don't be an idiot sandwich. Use Score Studio. Try it here: scorestudio.ai Video",
+    "url": "http://shitter.thepixora.com/webuildscore/status/2103877473012203889#m",
+    "fetched_at": "2026-09-29T00:07:40.591015+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "webuildscore",
+    "name": "Score",
+    "posted_at": "Sat, 26 Sep 2026 15:31:32 GMT",
+    "title": "This one hits hard",
+    "text": "This one hits hard Millie (@AltcoinMillie) 🐐 $TAO — http://shitter.thepixora.com/AltcoinMillie/status/2103864269141844002#m",
+    "url": "http://shitter.thepixora.com/webuildscore/status/2103870090122764752#m",
+    "fetched_at": "2026-09-29T00:07:40.591015+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "resilabsai",
+    "name": "RESI",
+    "posted_at": "Sat, 18 Apr 2026 04:42:22 GMT",
+    "title": "RT by @resilabsai: Traditional centralized real estate data platforms are fundamentally flawed and often serve to extract wealth from users. @resilabsai (Subnet 46) is breaking this monopoly through decentralized AI technology that delivers up to 99% valuation accuracy. Skip the corporate intermediaries—this AI-powered home valuation tool provides the most reliable housing market forecasts for 2026",
+    "text": "Traditional centralized real estate data platforms are fundamentally flawed and often serve to extract wealth from users. @resilabsai (Subnet 46) is breaking this monopoly through decentralized AI technology that delivers up to 99% valuation accuracy. Skip the corporate intermediaries—this AI-powered home valuation tool provides the most reliable housing market forecasts for 2026 Video SEBY (@sebyrubino) The @resilabsai Portal is LIVE! Any agent or real estate professional can now easily access our SOTA remote appraisals. We built RESI as a compounding network that will naturally accelerate in",
+    "url": "http://shitter.thepixora.com/3rdeye_rav3n/status/2045362275045753234#m",
+    "fetched_at": "2026-09-29T00:08:22.724314+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "jon_durbin",
+    "name": "Jon Durbin",
+    "posted_at": "Sat, 12 Sep 2026 18:54:30 GMT",
+    "title": "Now we accelerate.",
+    "text": "Now we accelerate. Dario Amodei (@DarioAmodei) We Must Pace the Frontier: I’ve written a new essay on why the AI industry should slow down, with a three-part plan for doing so. Anthropic is unilaterally committing to the first of these steps. We’ll provide third-party evaluators with permanent, employee-level access to our systems, so that they can verify adherence to our safety measures, report on incidents, and assess models’ alignment during training. You can read the full post here: darioamodei.com/post/we-must… Link Dario Amodei — We Must Pace the Frontier darioamodei.com — http://nitter.",
+    "url": "http://nitter.jaydenha.uk/jon_durbin/status/2098847739417129280#m",
+    "fetched_at": "2026-09-29T00:07:21.982679+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "jon_durbin",
+    "name": "Jon Durbin",
+    "posted_at": "Sat, 12 Sep 2026 17:00:02 GMT",
+    "title": "RT by @jon_durbin: mortal enemies find agreement in one thing: that the ladder should be pulled up behind them. Pepsi \"vs\" Coke",
+    "text": "mortal enemies find agreement in one thing: that the ladder should be pulled up behind them. Pepsi \"vs\" Coke Sam Altman (@sama) I agree with Dario that we need to pace the frontier. This has been a primary topic of discussions we've had at OpenAI in recent weeks. Committing to having independent evaluators with employee-like access is a great idea, and we will do the same. We'll have more to share soon. — http://nitter.jaydenha.uk/sama/status/2098811563415150910#m",
+    "url": "http://nitter.jaydenha.uk/const_reborn/status/2098818933318963365#m",
+    "fetched_at": "2026-09-29T00:07:21.982679+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "jon_durbin",
+    "name": "Jon Durbin",
+    "posted_at": "Sat, 12 Sep 2026 11:20:21 GMT",
+    "title": "4 nodes down already in 2 days - Friends don't let friends build infra on RTX 5090s (unless you're stress testing).",
+    "text": "4 nodes down already in 2 days - Friends don't let friends build infra on RTX 5090s (unless you're stress testing). Jon Durbin (@jon_durbin) And if you're wondering why I used 5090s for this, it's because they are the worst GPUs on earth for stability at this utilization and have like 50% failure rate in my experience thus far (at least 1 of 8 dropping off bus or producing NaNs randomly etc.). Stress test. — http://nitter.jaydenha.uk/jon_durbin/status/2098102402255655260#m",
+    "url": "http://nitter.jaydenha.uk/jon_durbin/status/2098733447481110860#m",
+    "fetched_at": "2026-09-29T00:07:21.982679+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "resilabsai",
+    "name": "RESI",
+    "posted_at": "Sat, 08 Aug 2026 01:27:26 GMT",
+    "title": "Pinned: Attention Res Labs we have some really exciting news and updates to our project join our discord to stay up to date: https://discord.gg/TBj8q9vb2Q #bittensor #TAO bittensor:native #reslabs #reilabsai #crypto #subnet #subnet46 #reslabs_ai #reslabsai #opentensor #reptides",
+    "text": "Attention Res Labs we have some really exciting news and updates to our project join our discord to stay up to date: discord.gg/TBj8q9vb2Q #bittensor #TAO bittensor:native #reslabs #reilabsai #crypto #subnet #subnet46 #reslabs_ai #reslabsai #opentensor #reptides",
+    "url": "http://shitter.thepixora.com/resilabsai/status/2085900662139744548#m",
+    "fetched_at": "2026-09-29T00:08:22.724314+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "markjeffrey",
+    "name": "Mark Jeffrey",
+    "posted_at": "Mon, 28 Sep 2026 22:56:27 GMT",
+    "title": "I am pleased to announce that Stillcore Capital @stillcorecap has invested in @lium_io (https://lium.io) (Bittensor Subnet 51) bittensor:native",
+    "text": "I am pleased to announce that Stillcore Capital @stillcorecap has invested in @lium_io (lium.io) (Bittensor Subnet 51) bittensor:native",
+    "url": "http://shitter.thepixora.com/markjeffrey/status/2104706832778592365#m",
+    "fetched_at": "2026-09-29T00:06:11.685546+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "markjeffrey",
+    "name": "Mark Jeffrey",
+    "posted_at": "Mon, 28 Sep 2026 22:00:34 GMT",
+    "title": "RT by @markjeffrey: Training and inference will run on the edge, by miners, myopically seeking energy wells like they do with Bitcoin mining. @jon_durbin presenting the future and how humanity gets there.",
+    "text": "Training and inference will run on the edge, by miners, myopically seeking energy wells like they do with Bitcoin mining. @jon_durbin presenting the future and how humanity gets there.",
+    "url": "http://shitter.thepixora.com/const_reborn/status/2104692770149736953#m",
+    "fetched_at": "2026-09-29T00:06:11.685546+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "markjeffrey",
+    "name": "Mark Jeffrey",
+    "posted_at": "Mon, 28 Sep 2026 20:58:50 GMT",
+    "title": "Exploit Summit - Bittensor $TAO conference:",
+    "text": "Exploit Summit - Bittensor $TAO conference: Exploit Summit (@ExploitSummit) “What I am saying is that: We have to build faster” Rob Myers. Everyone at Exploit Summit is tuned in to the debate on the OTF stage. Should Bittensor move faster or take a slower, more measured approach? Share your take. Video — http://shitter.thepixora.com/ExploitSummit/status/2104676076215738432#m",
+    "url": "http://shitter.thepixora.com/markjeffrey/status/2104677234980344202#m",
+    "fetched_at": "2026-09-29T00:06:11.685546+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "a16zcrypto",
+    "name": "a16z Crypto",
+    "posted_at": "Mon, 28 Sep 2026 20:57:14 GMT",
+    "title": "R to @a16zcrypto: Interested in perps? Read below 👇",
+    "text": "Interested in perps? Read below 👇 a16z crypto (@a16zcrypto) Article The rise of the $100-billion RWA perp market Trading in perpetual futures tied to stocks, gold, and other traditional assets is growing fast. And an increasing share of that activity is now happening onchain. These contracts, often referred to — http://nitter.jaydenha.uk/a16zcrypto/status/2102875903500197915#m",
+    "url": "http://nitter.jaydenha.uk/a16zcrypto/status/2104676832700244103#m",
+    "fetched_at": "2026-09-29T00:06:46.269578+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "a16zcrypto",
+    "name": "a16z Crypto",
+    "posted_at": "Mon, 28 Sep 2026 20:56:28 GMT",
+    "title": "RT by @a16zcrypto: An early wave of RWA perps was commodities. The new wave could be stocks. A year ago, equity perp open interest was near zero. It passed commodities in June. Today it leads at $2.2B.",
+    "text": "An early wave of RWA perps was commodities. The new wave could be stocks. A year ago, equity perp open interest was near zero. It passed commodities in June. Today it leads at $2.2B.",
+    "url": "http://nitter.jaydenha.uk/a16zcrypto/status/2104676639166861421#m",
+    "fetched_at": "2026-09-29T00:06:46.269578+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "oroagents",
+    "name": "Oro",
+    "posted_at": "Mon, 28 Sep 2026 20:20:00 GMT",
+    "title": "RT by @oroagents: “Every day we are changing our incentive mechanism.” @oroagents keeps its miners facing fresh challenges. At Exploit, Shardul Bansal explained how a catalog of 11 million products becomes new tasks and evaluation environments every day, keeping the competition moving as AI models improve.",
+    "text": "“Every day we are changing our incentive mechanism.” @oroagents keeps its miners facing fresh challenges. At Exploit, Shardul Bansal explained how a catalog of 11 million products becomes new tasks and evaluation environments every day, keeping the competition moving as AI models improve. Video",
+    "url": "http://shitter.thepixora.com/ExploitSummit/status/2104667461517713663#m",
+    "fetched_at": "2026-09-29T00:07:38.352586+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "oroagents",
+    "name": "Oro",
+    "posted_at": "Mon, 28 Sep 2026 19:36:16 GMT",
+    "title": "Accelerating development at ORO",
+    "text": "Accelerating development at ORO Seth Schilbe (@ironseth_s) PSA: Your CLAUDE.md is probably the problem, not the models. I audited my Claude Code memory after using it for 9 months since Opus 4.5. **49 of 260 entries contradicted our current code**. Memory had become a second copy of team knowledge outside our normal review process. So I ran ~270 tests to see what my config actually did. — http://shitter.thepixora.com/ironseth_s/status/2104645444169334831#m",
+    "url": "http://shitter.thepixora.com/oroagents/status/2104656457237209371#m",
+    "fetched_at": "2026-09-29T00:07:38.352586+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "markjeffrey",
+    "name": "Mark Jeffrey",
+    "posted_at": "Mon, 28 Sep 2026 19:33:28 GMT",
+    "title": "RT by @markjeffrey: Counting cars at the Arc de Triomphe, the roundabout with no lanes and no rules. 4 blocks in Score Studio's workflow builder: image in, vehicle detector, count, output. No code. Swap the detector and the same 4 blocks count people, plates or anything else you point it at. Build yours: http://scorestudio.ai",
+    "text": "Counting cars at the Arc de Triomphe, the roundabout with no lanes and no rules. 4 blocks in Score Studio's workflow builder: image in, vehicle detector, count, output. No code. Swap the detector and the same 4 blocks count people, plates or anything else you point it at. Build yours: scorestudio.ai Video",
+    "url": "http://shitter.thepixora.com/webuildscore/status/2104655751205851432#m",
+    "fetched_at": "2026-09-29T00:06:11.685546+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "_redteam_",
+    "name": "RedTeam / Innerworks",
+    "posted_at": "Mon, 28 Sep 2026 18:43:14 GMT",
+    "title": "\"We're not afraid of hyper-intelligent bot swarms on the internet. We use them to optimise our technology.\" When we launched RedTeam almost two years ago we could clearly see where the internet was heading. We've since seen clients with over 90% of their traffic made up of not just automation but highly intelligent bot swarms, capable of bypassing any traditional detection mechanism. The only way to combat a threat like this is to welcome it and learn from it. By constantly ingesting and evolving attack vectors from a hive mind of miners, a Bittensor powered defence has now become the only reliable source of protection on the internet.",
+    "text": "\"We're not afraid of hyper-intelligent bot swarms on the internet. We use them to optimise our technology.\" When we launched RedTeam almost two years ago we could clearly see where the internet was heading. We've since seen clients with over 90% of their traffic made up of not just automation but highly intelligent bot swarms, capable of bypassing any traditional detection mechanism. The only way to combat a threat like this is to welcome it and learn from it. By constantly ingesting and evolving attack vectors from a hive mind of miners, a Bittensor powered defence has now become the only rel",
+    "url": "http://shitter.thepixora.com/_redteam_/status/2104643110911533312#m",
+    "fetched_at": "2026-09-29T00:07:54.410164+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "markjeffrey",
+    "name": "Mark Jeffrey",
+    "posted_at": "Mon, 28 Sep 2026 17:28:35 GMT",
+    "title": "RT by @markjeffrey: David Sacks explains what “banning AI” as defined in Bernie Sanders’ bill actually looks like “If Bernie's bill passed tomorrow, everything would stop. Because the way he defines artificial superintelligence in his bill, you could argue we've already hit those thresholds. It’s a very loose definition.” “And then on top of that, he's got 20 year prison sentences for developers who violate the law. So no one's going to want to take the chance. So think about the chilling effect.” “Let me tell you, the Democrats want to do to AI what they did to crypto. They're going to drive the whole industry offshore. They're going to basically drive all the innovators out of the country offshore.” Jason: “Where I was going with it is like, just move your company to Singapore, move it to Zurich, move it to another geo where people are embracing open source and are embracing superintelligence. This is literally where my head goes.” David Friedberg: “You can't stop AI. You can't just tell people a class of software can't exist. In my head, I'm like, if the US passed a law that said this class of software cannot exist, I would move to another country.”",
+    "text": "David Sacks explains what “banning AI” as defined in Bernie Sanders’ bill actually looks like “If Bernie's bill passed tomorrow, everything would stop. Because the way he defines artificial superintelligence in his bill, you could argue we've already hit those thresholds. It’s a very loose definition.” “And then on top of that, he's got 20 year prison sentences for developers who violate the law. So no one's going to want to take the chance. So think about the chilling effect.” “Let me tell you, the Democrats want to do to AI what they did to crypto. They're going to drive the whole industry o",
+    "url": "http://shitter.thepixora.com/dnapway/status/2104624323873165424#m",
+    "fetched_at": "2026-09-29T00:06:11.685546+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "webuildscore",
+    "name": "Score",
+    "posted_at": "Mon, 28 Sep 2026 17:07:23 GMT",
+    "title": "Keeping every builder caffeinated",
+    "text": "Keeping every builder caffeinated Max (@MaxSebti) Coffees are on us — http://shitter.thepixora.com/MaxSebti/status/2104618597528068393#m",
+    "url": "http://shitter.thepixora.com/webuildscore/status/2104618990815384001#m",
+    "fetched_at": "2026-09-29T00:07:40.591015+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "1inch",
+    "name": "1inch",
+    "posted_at": "Mon, 28 Sep 2026 14:26:13 GMT",
+    "title": "Aqua prices a fill onchain. The provider signs the instructions. SwapVM runs them at execution. @OpenZeppelin audited that engine, the Aqua router, and the pegged-swap and concentrated-liquidity instructions that are live.",
+    "text": "Aqua prices a fill onchain. The provider signs the instructions. SwapVM runs them at execution. @OpenZeppelin audited that engine, the Aqua router, and the pegged-swap and concentrated-liquidity instructions that are live.",
+    "url": "http://shitter.thepixora.com/1inch/status/2104578428796125249#m",
+    "fetched_at": "2026-09-29T00:07:58.345624+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "1inch",
+    "name": "1inch",
+    "posted_at": "Mon, 28 Sep 2026 14:26:13 GMT",
+    "title": "R to @1inch: An audit is not a guarantee. Report is public. One of eight Aqua and SwapVM audits: https://1inch.com/blog/post/1inch-aqua-security",
+    "text": "An audit is not a guarantee. Report is public. One of eight Aqua and SwapVM audits: 1inch.com/blog/post/1inch-aq… Link 1inch Aqua security: Eight independent audits | 1inch Blog See how 1inch Aqua and SwapVM were reviewed by 8 independent security firms, with public audit reports, a bug bounty and ongoing security checks. 1inch.com",
+    "url": "http://shitter.thepixora.com/1inch/status/2104578431312658545#m",
+    "fetched_at": "2026-09-29T00:07:58.345624+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "1inch",
+    "name": "1inch",
+    "posted_at": "Mon, 28 Sep 2026 11:00:01 GMT",
+    "title": "5 teams took home prizes for building on Aqua at @ETHGlobal Tokyo 2026 🇯🇵. Here are your winners: 🥇 OddsFlow - $2500 | @salviega @jaenjiar Bet on any prediction markets with one balance, spent only when someone takes the other side. 🥈 Wamia - $1500 | @Amine1246780537 @HediKharouf0 🥉 Watermark - $1000 | @henryfromseoul @hyeon_sec @GimgeonU95171 Continuity 🥇 VexiHakari - $1500 | @hiasdasdqwwd1 Options via 1inch Aqua, with tokens pullet at fill and a Uniswap V4 TWAP quote guard. 🥈 Takarabako - $500 | @wanaokii @sebestdebest @nizarsyahmi37 Congratulations to all 🏆",
+    "text": "5 teams took home prizes for building on Aqua at @ETHGlobal Tokyo 2026 🇯🇵. Here are your winners: 🥇 OddsFlow - $2500 | @salviega @jaenjiar Bet on any prediction markets with one balance, spent only when someone takes the other side. 🥈 Wamia - $1500 | @Amine1246780537 @HediKharouf0 🥉 Watermark - $1000 | @henryfromseoul @hyeon_sec @GimgeonU95171 Continuity 🥇 VexiHakari - $1500 | @hiasdasdqwwd1 Options via 1inch Aqua, with tokens pullet at fill and a Uniswap V4 TWAP quote guard. 🥈 Takarabako - $500 | @wanaokii @sebestdebest @nizarsyahmi37 Congratulations to all 🏆",
+    "url": "http://shitter.thepixora.com/1inch/status/2104526538808918471#m",
+    "fetched_at": "2026-09-29T00:07:58.345624+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "resilabsai",
+    "name": "RESI",
+    "posted_at": "Mon, 20 Apr 2026 19:34:17 GMT",
+    "title": "RT by @resilabsai: I am pleased to announce that Stillcore Capital @stillcorecap has invested in RESI @resilabsai (Bittensor Subnet 46).",
+    "text": "I am pleased to announce that Stillcore Capital @stillcorecap has invested in RESI @resilabsai (Bittensor Subnet 46).",
+    "url": "http://shitter.thepixora.com/markjeffrey/status/2046311512621670731#m",
+    "fetched_at": "2026-09-29T00:08:22.724314+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "jon_durbin",
+    "name": "Jon Durbin",
+    "posted_at": "Mon, 14 Sep 2026 21:00:15 GMT",
+    "title": "\"in 6–12 months such a swarm could be capable of taking over the entire internet with a persistent botnet\" Maybe, maybe not. If it does, the internet (really: software and operating systems) obviously need some improvement and we should do so. If the bugs are there, they will be found, one way or another regardless of some LLM. What a great opportunity for a renaissance. Anyone else remember the doomerism around Y2K? Int overflows because of epoch seconds? This is that.",
+    "text": "\"in 6–12 months such a swarm could be capable of taking over the entire internet with a persistent botnet\" Maybe, maybe not. If it does, the internet (really: software and operating systems) obviously need some improvement and we should do so. If the bugs are there, they will be found, one way or another regardless of some LLM. What a great opportunity for a renaissance. Anyone else remember the doomerism around Y2K? Int overflows because of epoch seconds? This is that.",
+    "url": "http://nitter.jaydenha.uk/jon_durbin/status/2099604160509325695#m",
+    "fetched_at": "2026-09-29T00:07:21.982679+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "jon_durbin",
+    "name": "Jon Durbin",
+    "posted_at": "Mon, 14 Sep 2026 18:26:43 GMT",
+    "title": "The push for regulatory capture and AI cabalism is accelerating. This, in large part, is why I'm building parallax. True P2P unstoppable, uncensorable AI systems aren't just neat, they're mandatory. This little single DGX spark \"datacenter\" in my forge with parallax can train (with other nodes) an 80b parameter model. - two solar blankets - ecoflow battery - lapdock for kvm - starlink internet - dgx spark Total input from solar ~600w (800w max) Total power draw from spark/starlink/etc. < 200w No datacenters, no water supplies, no external power grid, no multi gigabit link. We must design AI systems that are as resilient as the humble cockroach. Why do we all appreciate BTC? Because it's a mathematically certain sovereign ledger that can't be inflated away or centrally controlled. Current AI represent the greatest concentration of wealth, power, and information (IP theft? blackmail? or simply ads and behavior control?) the world has ever seen... As BTC did to finances, we must do to AI. Chutes + parallax is a step forward towards tearing down this moat.",
+    "text": "The push for regulatory capture and AI cabalism is accelerating. This, in large part, is why I'm building parallax. True P2P unstoppable, uncensorable AI systems aren't just neat, they're mandatory. This little single DGX spark \"datacenter\" in my forge with parallax can train (with other nodes) an 80b parameter model. - two solar blankets - ecoflow battery - lapdock for kvm - starlink internet - dgx spark Total input from solar ~600w (800w max) Total power draw from spark/starlink/etc. &lt; 200w No datacenters, no water supplies, no external power grid, no multi gigabit link. We must design AI",
+    "url": "http://nitter.jaydenha.uk/jon_durbin/status/2099565522543104495#m",
+    "fetched_at": "2026-09-29T00:07:21.982679+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "_redteam_",
+    "name": "RedTeam / Innerworks",
+    "posted_at": "Mon, 07 Sep 2026 18:05:06 GMT",
+    "title": "Join us this Thursday to discuss all things RedTeam",
+    "text": "Join us this Thursday to discuss all things RedTeam Openτensor Foundaτion (@opentensor) Novelty Search :: Subnet 61 :: @_redteam_ RedTeam turns Bittensor miners into a 24/7 network of ethical hackers. We’ll discuss how SN61 uses that competition to stay ahead of evolving bot attacks, its five new enterprise pilots, and what comes next with RedTeam’s upcoming Immune System. Live on Thursday :: 9PM UTC :: on X + YouTube Hosted by @const_reborn — http://shitter.thepixora.com/opentensor/status/2097022237337682320#m",
+    "url": "http://shitter.thepixora.com/_redteam_/status/2097023368629191078#m",
+    "fetched_at": "2026-09-29T00:07:54.410164+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "resilabsai",
+    "name": "RESI",
+    "posted_at": "Mon, 06 Apr 2026 13:56:00 GMT",
+    "title": "RT by @resilabsai: Chainlink gave DeFi price feeds. @resilabsai is doing the same for real estate. From static appraisals to dynamic, onchain pricing. It's already honing in on Zillow's pricing accuracy, and only a matter of weeks before it surpasses it!",
+    "text": "Chainlink gave DeFi price feeds. @resilabsai is doing the same for real estate. From static appraisals to dynamic, onchain pricing. It's already honing in on Zillow's pricing accuracy, and only a matter of weeks before it surpasses it!",
+    "url": "http://shitter.thepixora.com/gordonfrayne/status/2041152947925512465#m",
+    "fetched_at": "2026-09-29T00:08:22.724314+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "webuildscore",
+    "name": "Score",
+    "posted_at": "Fri, 25 Sep 2026 20:03:12 GMT",
+    "title": "he can drive",
+    "text": "he can drive Gyro Zeppeli (@Gyrolens) trying out Score Studio's vehicle detector on the most random clip i could find, safe to say i wasn't disappointed. @webuildscore Video — http://shitter.thepixora.com/Gyrolens/status/2103575595028189386#m",
+    "url": "http://shitter.thepixora.com/webuildscore/status/2103576072654840037#m",
+    "fetched_at": "2026-09-29T00:07:40.591015+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "jtledore",
+    "name": "Jean-Thomas Ledoré",
+    "posted_at": "Fri, 25 Sep 2026 19:52:55 GMT",
+    "title": "RT by @jtledore: I just published an article for @FuturEconomy ahead of @ExploitSummit As more of AI concentrates around a handful of major labs, mostly in the US and China, how do we keep independent teams able to build and compete? I use Bittensor and concrete examples from @chutes_ai, @webuildscore and @metanova_labs to show what that can look like.",
+    "text": "I just published an article for @FuturEconomy ahead of @ExploitSummit As more of AI concentrates around a handful of major labs, mostly in the US and China, how do we keep independent teams able to build and compete? I use Bittensor and concrete examples from @chutes_ai, @webuildscore and @metanova_labs to show what that can look like. TheFutureEconomy.ca (@FuturEconomy) Who gets to build the next generation of AI? That question matters for Canada. Competing with the largest US and Chinese AI labs on sheer scale requires enormous amounts of capital, computing infrastructure and talent. But the",
+    "url": "http://shitter.thepixora.com/VictorVL_EN/status/2103573484072792269#m",
+    "fetched_at": "2026-09-29T00:07:49.295199+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "a16zcrypto",
+    "name": "a16z Crypto",
+    "posted_at": "Fri, 25 Sep 2026 18:43:17 GMT",
+    "title": "R to @a16zcrypto: Want to learn more about perps? Read below 👇",
+    "text": "Want to learn more about perps? Read below 👇 a16z crypto (@a16zcrypto) Article The rise of the $100-billion RWA perp market Trading in perpetual futures tied to stocks, gold, and other traditional assets is growing fast. And an increasing share of that activity is now happening onchain. These contracts, often referred to — http://nitter.jaydenha.uk/a16zcrypto/status/2102875903500197915#m",
+    "url": "http://nitter.jaydenha.uk/a16zcrypto/status/2103555958660043006#m",
+    "fetched_at": "2026-09-29T00:06:46.269578+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "a16zcrypto",
+    "name": "a16z Crypto",
+    "posted_at": "Fri, 25 Sep 2026 18:42:20 GMT",
+    "title": "These assets are called “real world.” BUT trading is increasingly happening onchain. 86% of RWA perp volume now runs through onchain venues.",
+    "text": "These assets are called “real world.” BUT trading is increasingly happening onchain. 86% of RWA perp volume now runs through onchain venues.",
+    "url": "http://nitter.jaydenha.uk/a16zcrypto/status/2103555717986972066#m",
+    "fetched_at": "2026-09-29T00:06:46.269578+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "1inch",
+    "name": "1inch",
+    "posted_at": "Fri, 25 Sep 2026 15:45:00 GMT",
+    "title": "🇯🇵",
+    "text": "🇯🇵 ETHGlobal (@ETHGlobal) Reimagining the AMM with 1inch Aqua. Catch Tanner from @1inch on self-custodial onchain liquidity at ETHGlobal Tokyo. Watch the workshop: redirect.invidious.io/q96vlWoZCd0?si=a6VM… — http://shitter.thepixora.com/ETHGlobal/status/2103476376380817632#m",
+    "url": "http://shitter.thepixora.com/1inch/status/2103511091896848517#m",
+    "fetched_at": "2026-09-29T00:07:58.345624+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "1inch",
+    "name": "1inch",
+    "posted_at": "Fri, 25 Sep 2026 14:17:00 GMT",
+    "title": "This week’s most-traded @ondo tokenized stocks on 1inch: ▪️ METAon ▪️ CRCLon ▪️ MSTRon Powered by 1inch intent-based swaps.",
+    "text": "This week’s most-traded @ondo tokenized stocks on 1inch: ▪️ METAon ▪️ CRCLon ▪️ MSTRon Powered by 1inch intent-based swaps. Video",
+    "url": "http://shitter.thepixora.com/1inch/status/2103488947292635496#m",
+    "fetched_at": "2026-09-29T00:07:58.345624+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "_redteam_",
+    "name": "RedTeam / Innerworks",
+    "posted_at": "Fri, 11 Sep 2026 17:52:15 GMT",
+    "title": "The future of cybersecurity will be dictated by a defender's ability to not only ingest unique attacks, but generate the strains that don't exist yet and ship the detection ahead of them. As the rest of the industry degrades, the largest financial institutions will consolidate on the single provider that can do this at scale. That provider needs a constant supply of unique attacks to work from, and a subnet is the only structure that pays a swarm of attackers to supply them. bittensor:native #SN61",
+    "text": "The future of cybersecurity will be dictated by a defender's ability to not only ingest unique attacks, but generate the strains that don't exist yet and ship the detection ahead of them. As the rest of the industry degrades, the largest financial institutions will consolidate on the single provider that can do this at scale. That provider needs a constant supply of unique attacks to work from, and a subnet is the only structure that pays a swarm of attackers to supply them. bittensor:native #SN61 Openτensor Foundaτion (@opentensor) RedTeam is working toward integrations with three banking com",
+    "url": "http://shitter.thepixora.com/_redteam_/status/2098469688137097632#m",
+    "fetched_at": "2026-09-29T00:07:54.410164+00:00",
+    "via_instance": "https://nitter.cz"
+  }
+]
