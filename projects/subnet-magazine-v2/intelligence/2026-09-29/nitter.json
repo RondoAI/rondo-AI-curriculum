@@ -1,5 +1,75 @@
 [
   {
+    "handle": "novogratz",
+    "name": "Mike Novogratz",
+    "posted_at": "Wed, 23 Sep 2026 21:16:38 GMT",
+    "title": "RT by @novogratz: Thanks for making the trip to Lubbock, Mike — and for spending time with our Red Raider football team ahead of the game. Great to have you at @TexasTech, and even better to cap off the visit with a big win at the new @galaxyhq Stadium. This partnership is just getting started. #WreckEm!",
+    "text": "Thanks for making the trip to Lubbock, Mike — and for spending time with our Red Raider football team ahead of the game. Great to have you at @TexasTech, and even better to cap off the visit with a big win at the new @galaxyhq Stadium. This partnership is just getting started. #WreckEm! Mike Novogratz (@novogratz) Last Friday, I visited our flagship campus Helios in West Texas. Three years ago, this was still a bitcoin mining facility. Today Helios is a fully operational AI-ready campus with 133MW of critical IT capacity, and we’re just getting started! @galaxyhq is taking a big swing out here",
+    "url": "https://shi.meowing.de/CreightonForTX/status/2102869773776269419#m",
+    "fetched_at": "2026-09-29T10:18:19.074496+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "novogratz",
+    "name": "Mike Novogratz",
+    "posted_at": "Wed, 23 Sep 2026 14:54:10 GMT",
+    "title": "Last Friday, I visited our flagship campus Helios in West Texas. Three years ago, this was still a bitcoin mining facility. Today Helios is a fully operational AI-ready campus with 133MW of critical IT capacity, and we’re just getting started! @galaxyhq is taking a big swing out here, and so is America. The move to build an AI future for this country is real, and none of it happens without the physical infrastructure. It starts with power, land, and hard-working people willing to put in the work to build a new future. Our partnership with @TechAthletics with Galaxy Stadium is part of investing in the local community and workforce pipeline right here in Texas. Guns up!!",
+    "text": "Last Friday, I visited our flagship campus Helios in West Texas. Three years ago, this was still a bitcoin mining facility. Today Helios is a fully operational AI-ready campus with 133MW of critical IT capacity, and we’re just getting started! @galaxyhq is taking a big swing out here, and so is America. The move to build an AI future for this country is real, and none of it happens without the physical infrastructure. It starts with power, land, and hard-working people willing to put in the work to build a new future. Our partnership with @TechAthletics with Galaxy Stadium is part of investing",
+    "url": "https://shi.meowing.de/novogratz/status/2102773522292428868#m",
+    "fetched_at": "2026-09-29T10:18:19.074496+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "novogratz",
+    "name": "Mike Novogratz",
+    "posted_at": "Wed, 16 Sep 2026 12:03:02 GMT",
+    "title": "Our economy doesn’t work without immigration. We need at least 1.5-2mm new immigrants a year to create taxpayers and consumers to help us grow our way out of 40th in debt and to pay for an aging population. This isn’t political. It’s just math. We of course can decide what immigrants we take. From where, what educational level, wealth etc. that’s political. But the fact that we need them isn’t.",
+    "text": "Our economy doesn’t work without immigration. We need at least 1.5-2mm new immigrants a year to create taxpayers and consumers to help us grow our way out of 40th in debt and to pay for an aging population. This isn’t political. It’s just math. We of course can decide what immigrants we take. From where, what educational level, wealth etc. that’s political. But the fact that we need them isn’t. Lisa Boothe (@LisaMarieBoothe) At this point, I am fine with shutting down all immigration, legal or not. It's a mess. — https://shi.meowing.de/LisaMarieBoothe/status/2099891080258875467#m",
+    "url": "https://shi.meowing.de/novogratz/status/2100193741633929406#m",
+    "fetched_at": "2026-09-29T10:18:19.074496+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "SemiAnalysis_",
+    "name": "SemiAnalysis",
+    "posted_at": "Tue, 29 Sep 2026 03:00:31 GMT",
+    "title": "The most basic test SemiAnalysis applies to a GPU cluster health check is whether it could possibly work on paper. Several could not. \"We've been through a few of these clusters where there's no way it could possibly work. These are health checks so bad they're worse than no health checks, because they're actively interfering with jobs.\" \"On Amazon HyperPod Slurm, the first time we tested, there was a health check that needed the node to be healthy before it could run. It could only run once the node was back in the fleet, and it was needed to bring the node back into the fleet.\" \"There are probably five or ten examples of this throughout testing where the health check never had a chance. It makes you wonder whether these people are really putting it through the paces before they hand it off to customers.\"",
+    "text": "The most basic test SemiAnalysis applies to a GPU cluster health check is whether it could possibly work on paper. Several could not. \"We've been through a few of these clusters where there's no way it could possibly work. These are health checks so bad they're worse than no health checks, because they're actively interfering with jobs.\" \"On Amazon HyperPod Slurm, the first time we tested, there was a health check that needed the node to be healthy before it could run. It could only run once the node was back in the fleet, and it was needed to bring the node back into the fleet.\" \"There are pr",
+    "url": "http://shitter.thepixora.com/SemiAnalysis_/status/2104768254405156899#m",
+    "fetched_at": "2026-09-29T10:19:38.291067+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "SemiAnalysis_",
+    "name": "SemiAnalysis",
+    "posted_at": "Tue, 29 Sep 2026 03:00:31 GMT",
+    "title": "R to @SemiAnalysis_: Watch Now: https://youtu.be/gO7oczGh9qE?si=m8IB6dZfin-9-D9O",
+    "text": "Watch Now: redirect.invidious.io/gO7oczGh9qE?si=m8IB… Link Ep. 033 - ClusterMAX 3.0 Is Here! Neoclouds Ranked (Neoclouds, GPUs) ClusterMAX 3.0 is here. Sam Harshe (@sharshe02) and Pratt Bhatt (@P... youtube.com",
+    "url": "http://shitter.thepixora.com/SemiAnalysis_/status/2104768256925999484#m",
+    "fetched_at": "2026-09-29T10:19:38.291067+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "SemiAnalysis_",
+    "name": "SemiAnalysis",
+    "posted_at": "Tue, 29 Sep 2026 01:00:10 GMT",
+    "title": "Singapore, you won't want to miss this: we're hosting the SemiAnalysis × Nanyang Capital Stock Pitch Challenge. Pitch an AI or semis stock for a shot at S$5,000 in prizes and a fast track into SemiAnalysis. Register by 11 Oct: https://nanyangcapitalspc.com/register",
+    "text": "Singapore, you won't want to miss this: we're hosting the SemiAnalysis × Nanyang Capital Stock Pitch Challenge. Pitch an AI or semis stock for a shot at S$5,000 in prizes and a fast track into SemiAnalysis. Register by 11 Oct: nanyangcapitalspc.com/regist…",
+    "url": "http://shitter.thepixora.com/SemiAnalysis_/status/2104737967575085176#m",
+    "fetched_at": "2026-09-29T10:19:38.291067+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "polychain",
+    "name": "Polychain Capital",
+    "posted_at": "Tue, 26 Mar 2024 21:29:52 GMT",
+    "title": "The activity in crypto is always volatile, but if you zoom out, it's actually in one direction only.\" @zxocw speaking to the audience at Upfront Summit 2024 https://youtu.be/9Fh9ntiMa6s?feature=shared",
+    "text": "The activity in crypto is always volatile, but if you zoom out, it's actually in one direction only.\" @zxocw speaking to the audience at Upfront Summit 2024 youtu.be/9Fh9ntiMa6s?feature… Link The Bull Case for Crypto in 2024 with Olaf Carlson-Wee of Polychain... Anita Ramaswamy of Reuters sits down with Olaf Carlson-Wee, founder... youtube.com",
+    "url": "https://shi.meowing.de/polychain/status/1772737758794006565#m",
+    "fetched_at": "2026-09-29T10:18:12.882163+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
     "handle": "oroagents",
     "name": "Oro",
     "posted_at": "Tue, 22 Sep 2026 19:16:18 GMT",
@@ -30,6 +100,16 @@
     "via_instance": "https://nitter.cz"
   },
   {
+    "handle": "polychain",
+    "name": "Polychain Capital",
+    "posted_at": "Tue, 18 Jan 2022 17:00:00 GMT",
+    "title": "EVER.XYZ",
+    "text": "EVER.XYZ Link Ever ever.xyz",
+    "url": "https://shi.meowing.de/polychain/status/1483484330966069250#m",
+    "fetched_at": "2026-09-29T10:18:12.882163+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
     "handle": "resilabsai",
     "name": "RESI",
     "posted_at": "Tue, 07 Apr 2026 17:33:18 GMT",
@@ -50,6 +130,26 @@
     "via_instance": "https://nitter.cz"
   },
   {
+    "handle": "PanteraCapital",
+    "name": "Pantera Capital",
+    "posted_at": "Thu, 24 Sep 2026 21:17:07 GMT",
+    "title": "RT by @PanteraCapital: The last closing bell is coming.",
+    "text": "The last closing bell is coming. Video",
+    "url": "http://shitter.thepixora.com/Ondo/status/2103232283218247755#m",
+    "fetched_at": "2026-09-29T10:18:28.321584+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "dylan522p",
+    "name": "Dylan Patel",
+    "posted_at": "Thu, 24 Sep 2026 20:48:36 GMT",
+    "title": "Fentanyl Grade Compute: Why a GB300 Rack Will Out-Price Blow by Weight in 2030 A GB300 NVL72 weighs roughly 1,580 kg fully populated and recent purchase orders put it at $5M per rack. That is $3,165/kg. Strip out the 1.5 tons of busbar, manifold and coolant and the GPU packages alone are well into gold territory, but we're pricing the rack, because that's what you actually take delivery of. Where that sits on the illicit commodity curve today ($/kg): $2,400 Cannabis flower $3,165 GB300 NVL72 $3,500 Fentanyl $28,000 Cocaine $65,000 Heroin $138,000 Gold So today NVIDIA ships a product that is denser in value than weed, roughly fentanyl-grade, and still an order of magnitude short of cocaine. For now... GB200 NVL72 was $4M, GB300 is ~$5M, and Vera Rubin NVL72 is already quoted at up to $8.8M at essentially the same rack mass. Rack weight is constrained by the datacenter floor loading; rack price is constrained by nothing. That's ~1.75x $/kg per generation with HBM, CoWoS and power all supply-limited through the decade. Cocaine: Colombia's new president has pledged a hard-line security crackdown with $1B in US aid behind it Every prior crackdown has consolidated the industry into fewer, better-capitalized operators with better logistics and higher yields per hectare. Consolidation is deflationary. We model US wholesale drifting from ~$28k/kg toward ~$12k/kg by 2030 as the supply chain professionalizes. **Crossover: 2030.** Our extrapolated NVL72-class rack hits ~$17k/kg while wholesale cocaine falls to ~$12k/kg. At that point the rational cartel pivots to smuggling racks, except a rack has a fixed 500+ kW power draw, a 3,300 lb forklift requirement and an export-control regime that is actually enforced. Cocaine has none of these problems, which is why it will remain the superior product for anyone without a substation. Key risks to the thesis: US retail coke is still ~$60–200/g, i.e. $60k–200k/kg so the crossover only holds at wholesale. Retail compute (H100 hour on a neocloud) is also marked up, so we consider this an apples-to-apples wholesale comparison. Full model available to Coke Research subscribers.",
+    "text": "Fentanyl Grade Compute: Why a GB300 Rack Will Out-Price Blow by Weight in 2030 A GB300 NVL72 weighs roughly 1,580 kg fully populated and recent purchase orders put it at $5M per rack. That is $3,165/kg. Strip out the 1.5 tons of busbar, manifold and coolant and the GPU packages alone are well into gold territory, but we're pricing the rack, because that's what you actually take delivery of. Where that sits on the illicit commodity curve today ($/kg): $2,400 Cannabis flower $3,165 GB300 NVL72 $3,500 Fentanyl $28,000 Cocaine $65,000 Heroin $138,000 Gold So today NVIDIA ships a product that is de",
+    "url": "http://shitter.thepixora.com/dylan522p/status/2103225106512363902#m",
+    "fetched_at": "2026-09-29T10:19:37.089637+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
     "handle": "a16zcrypto",
     "name": "a16z Crypto",
     "posted_at": "Thu, 24 Sep 2026 20:00:19 GMT",
@@ -57,6 +157,36 @@
     "text": "“We can now be that regulated partner for all of the largest financial institutions in and outside of the U.S., who want to launch products here.” – @Bastion CEO Nassim Eddequiouaq Bastion (@Bastion) Bastion is the regulated stablecoin infrastructure provider behind global enterprises and financial institutions. As enterprises bring stablecoins into their products and payment flows, they need infrastructure that can support them at scale while meeting the standards their regulators, auditors, and risk committees expect. Our preliminary conditional approval from the OCC for a national trust ban",
     "url": "http://nitter.jaydenha.uk/a16zcrypto/status/2103212956259668294#m",
     "fetched_at": "2026-09-29T00:06:46.269578+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "dylan522p",
+    "name": "Dylan Patel",
+    "posted_at": "Thu, 24 Sep 2026 18:30:35 GMT",
+    "title": "Everytime AI spend grows where I flirt with token budgeting, Anthropic + OpenAI save me Astra had a spike then settled down lower Opus 5.5 it looks like spend is lowered for current usecases Of course people figure out new things to do Spend goes up again ROI keeps increasing",
+    "text": "Everytime AI spend grows where I flirt with token budgeting, Anthropic + OpenAI save me Astra had a spike then settled down lower Opus 5.5 it looks like spend is lowered for current usecases Of course people figure out new things to do Spend goes up again ROI keeps increasing",
+    "url": "http://shitter.thepixora.com/dylan522p/status/2103190377289363907#m",
+    "fetched_at": "2026-09-29T10:19:37.089637+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "PanteraCapital",
+    "name": "Pantera Capital",
+    "posted_at": "Thu, 24 Sep 2026 18:04:13 GMT",
+    "title": "RT by @PanteraCapital: This one has been in the works for over a year. Tokenization is not about bringing existing assets onchain anymore - that problem has already been solved by Ondo Stocks. What's next is bringing asset management and wealth management onchain, starting with intelligent portfolios. People globally can invest in sophisticated portfolios, developed by Blackrock for Ondo, with a single click, and access products that were previously only available to the wealthy select few. Over the next few months, expect Ondo to launch more intelligent portfolios that combine stocks, commodities, ETFs, and even prediction markets, to enable seamless and diversified investing. We are just getting started.",
+    "text": "This one has been in the works for over a year. Tokenization is not about bringing existing assets onchain anymore - that problem has already been solved by Ondo Stocks. What's next is bringing asset management and wealth management onchain, starting with intelligent portfolios. People globally can invest in sophisticated portfolios, developed by Blackrock for Ondo, with a single click, and access products that were previously only available to the wealthy select few. Over the next few months, expect Ondo to launch more intelligent portfolios that combine stocks, commodities, ETFs, and even pr",
+    "url": "http://shitter.thepixora.com/iandebode/status/2103183739824329188#m",
+    "fetched_at": "2026-09-29T10:18:28.321584+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "galaxyhq",
+    "name": "Galaxy Digital",
+    "posted_at": "Thu, 24 Sep 2026 14:32:28 GMT",
+    "title": "Galaxy bought $100M of sUSDS and approved it as collateral across our institutional lending book. It's the latest step in a deepening relationship with @SkyEcosystem — from Grove's $500M warehouse facility to Spark-backed financing for GOFR.",
+    "text": "Galaxy bought $100M of sUSDS and approved it as collateral across our institutional lending book. It's the latest step in a deepening relationship with @SkyEcosystem — from Grove's $500M warehouse facility to Spark-backed financing for GOFR.",
+    "url": "https://shi.meowing.de/galaxyhq/status/2103130450738716905#m",
+    "fetched_at": "2026-09-29T10:18:17.638433+00:00",
     "via_instance": "https://nitter.cz"
   },
   {
@@ -70,6 +200,16 @@
     "via_instance": "https://nitter.cz"
   },
   {
+    "handle": "novogratz",
+    "name": "Mike Novogratz",
+    "posted_at": "Thu, 17 Sep 2026 14:07:34 GMT",
+    "title": "Thank you @SECPaulSAtkins @HesterPeirce @MarkUyedaUS for leading on digital asset policy !!! Innovation exemption moves tokenization ahead. Proud to be first on Nasdaq to tokenize shares. More to come with tokenized $GLXY !",
+    "text": "Thank you @SECPaulSAtkins @HesterPeirce @MarkUyedaUS for leading on digital asset policy !!! Innovation exemption moves tokenization ahead. Proud to be first on Nasdaq to tokenize shares. More to come with tokenized $GLXY ! U.S. Securities and Exchange Commission (@SECGov) 🚨 TODAY: The SEC issued an order granting temporary, conditional exemptive relief to Tokenized Securities Venues from the definition of “exchange” in the Exchange Act to trade tokenized NMS stock using innovative permissioned automated market makers and liquidity pools. — https://shi.meowing.de/SECGov/status/2100571317128888",
+    "url": "https://shi.meowing.de/novogratz/status/2100587469708140836#m",
+    "fetched_at": "2026-09-29T10:18:19.074496+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
     "handle": "_redteam_",
     "name": "RedTeam / Innerworks",
     "posted_at": "Thu, 10 Sep 2026 22:06:58 GMT",
@@ -80,6 +220,16 @@
     "via_instance": "https://nitter.cz"
   },
   {
+    "handle": "polychain",
+    "name": "Polychain Capital",
+    "posted_at": "Thu, 05 Dec 2024 20:23:18 GMT",
+    "title": "Let The Ritual Begin",
+    "text": "Let The Ritual Begin Ritual (@ritualnet) Let The Ritual Begin. Private Testnet. Today. ritualvisualized.com Video — https://shi.meowing.de/ritualnet/status/1864745321613402277#m",
+    "url": "https://shi.meowing.de/polychain/status/1864767526594335027#m",
+    "fetched_at": "2026-09-29T10:18:12.882163+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
     "handle": "jtledore",
     "name": "Jean-Thomas Ledoré",
     "posted_at": "Sun, 27 Sep 2026 22:09:09 GMT",
@@ -87,6 +237,16 @@
     "text": "More in 10 years Dervish (@kundunsan) $TAO to $4700 — http://shitter.thepixora.com/kundunsan/status/2104113461420536004#m",
     "url": "http://shitter.thepixora.com/jtledore/status/2104332542241304892#m",
     "fetched_at": "2026-09-29T00:07:49.295199+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "novogratz",
+    "name": "Mike Novogratz",
+    "posted_at": "Sun, 27 Sep 2026 16:43:24 GMT",
+    "title": "Congrats @Scaramucci on this launch! You are one of the hardest working buys in the biz!!",
+    "text": "Congrats @Scaramucci on this launch! You are one of the hardest working buys in the biz!! Anthony Scaramucci (@Scaramucci) All The Wrong Moves is #1 in the United States National Government category on Amazon. Get the hardcover copy: amzn.to/3VSdRhj Get the audiobook (read by me): amzn.to/4ydOXqV — https://shi.meowing.de/Scaramucci/status/2104001152316809589#m",
+    "url": "https://shi.meowing.de/novogratz/status/2104250567115641310#m",
+    "fetched_at": "2026-09-29T10:18:19.074496+00:00",
     "via_instance": "https://nitter.cz"
   },
   {
@@ -130,6 +290,16 @@
     "via_instance": "https://nitter.cz"
   },
   {
+    "handle": "dylan522p",
+    "name": "Dylan Patel",
+    "posted_at": "Sat, 26 Sep 2026 16:24:09 GMT",
+    "title": "Rubin HBM Despec = Nvidia cutting coke",
+    "text": "Rubin HBM Despec = Nvidia cutting coke Dylan Patel (@dylan522p) Fentanyl Grade Compute: Why a GB300 Rack Will Out-Price Blow by Weight in 2030 A GB300 NVL72 weighs roughly 1,580 kg fully populated and recent purchase orders put it at $5M per rack. That is $3,165/kg. Strip out the 1.5 tons of busbar, manifold and coolant and the GPU packages alone are well into gold territory, but we're pricing the rack, because that's what you actually take delivery of. Where that sits on the illicit commodity curve today ($/kg): $2,400 Cannabis flower $3,165 GB300 NVL72 $3,500 Fentanyl $28,000 Cocaine $65,000",
+    "url": "http://shitter.thepixora.com/dylan522p/status/2103883333067485599#m",
+    "fetched_at": "2026-09-29T10:19:37.089637+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
     "handle": "webuildscore",
     "name": "Score",
     "posted_at": "Sat, 26 Sep 2026 16:00:52 GMT",
@@ -157,6 +327,26 @@
     "text": "Traditional centralized real estate data platforms are fundamentally flawed and often serve to extract wealth from users. @resilabsai (Subnet 46) is breaking this monopoly through decentralized AI technology that delivers up to 99% valuation accuracy. Skip the corporate intermediaries—this AI-powered home valuation tool provides the most reliable housing market forecasts for 2026 Video SEBY (@sebyrubino) The @resilabsai Portal is LIVE! Any agent or real estate professional can now easily access our SOTA remote appraisals. We built RESI as a compounding network that will naturally accelerate in",
     "url": "http://shitter.thepixora.com/3rdeye_rav3n/status/2045362275045753234#m",
     "fetched_at": "2026-09-29T00:08:22.724314+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "polychain",
+    "name": "Polychain Capital",
+    "posted_at": "Sat, 17 Jan 2026 01:02:52 GMT",
+    "title": "We have not invested in this project and did not participate in the referenced round. The information in this post is inaccurate. x.com/SynapLogic/status/2010…",
+    "text": "We have not invested in this project and did not participate in the referenced round. The information in this post is inaccurate. x.com/SynapLogic/status/2010…",
+    "url": "https://shi.meowing.de/polychain/status/2012329741827690907#m",
+    "fetched_at": "2026-09-29T10:18:12.882163+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "polychain",
+    "name": "Polychain Capital",
+    "posted_at": "Sat, 14 Sep 2024 00:00:34 GMT",
+    "title": "Image",
+    "text": "",
+    "url": "https://shi.meowing.de/polychain/status/1834744008545124669#m",
+    "fetched_at": "2026-09-29T10:18:12.882163+00:00",
     "via_instance": "https://nitter.cz"
   },
   {
@@ -260,6 +450,26 @@
     "via_instance": "https://nitter.cz"
   },
   {
+    "handle": "SemiAnalysis_",
+    "name": "SemiAnalysis",
+    "posted_at": "Mon, 28 Sep 2026 19:55:53 GMT",
+    "title": "How GLM5.3 Sparse Attention Affects HBM Memory Usage GLM-5.3, KV Cache Offloading, HiSparse, AgentX TileRT, InferenceX DeepSeek Sparse Attention, IndexShare, Single-rollout Asynchronous Optimization, Cybersecurity https://newsletter.semianalysis.com/p/sparse-savings-persistent-demand-inside-glm53",
+    "text": "How GLM5.3 Sparse Attention Affects HBM Memory Usage GLM-5.3, KV Cache Offloading, HiSparse, AgentX TileRT, InferenceX DeepSeek Sparse Attention, IndexShare, Single-rollout Asynchronous Optimization, Cybersecurity newsletter.semianalysis.com/… Link Inside GLM-5.3: How Sparse Attention Affects DRAM Memory TAM GLM-5.3, KV Cache Offloading, HiSparse, DeepSeek Sparse Attention, IndexShare, Single-rollout Asynchronous Optimization, Cybersecurity newsletter.semianalysis.com",
+    "url": "http://shitter.thepixora.com/SemiAnalysis_/status/2104661392892604443#m",
+    "fetched_at": "2026-09-29T10:19:38.291067+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "opentensor",
+    "name": "Opentensor Foundation",
+    "posted_at": "Mon, 28 Sep 2026 19:49:31 GMT",
+    "title": "Introducing Gamma tokens, a proposed new economic layer for Bittensor. The ambition is to make it easier for subnets to power each other’s products and grow an open AI ecosystem that can compete with the biggest labs.",
+    "text": "Introducing Gamma tokens, a proposed new economic layer for Bittensor. The ambition is to make it easier for subnets to power each other’s products and grow an open AI ecosystem that can compete with the biggest labs. Exploit Summit (@ExploitSummit) Gamma tokens would let Bittensor subnets buy services from each other using part of their emissions. @const_reborn outlined the plan at Exploit: transferable usage credits for compute, inference and other infrastructure, with access extending beyond Bittensor. Video — http://shitter.thepixora.com/ExploitSummit/status/2104602268213637221#m",
+    "url": "http://shitter.thepixora.com/opentensor/status/2104659793008820379#m",
+    "fetched_at": "2026-09-29T10:17:53.154998+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
     "handle": "oroagents",
     "name": "Oro",
     "posted_at": "Mon, 28 Sep 2026 19:36:16 GMT",
@@ -280,6 +490,16 @@
     "via_instance": "https://nitter.cz"
   },
   {
+    "handle": "SemiAnalysis_",
+    "name": "SemiAnalysis",
+    "posted_at": "Mon, 28 Sep 2026 19:01:19 GMT",
+    "title": "SpaceX is building Terafab at full speed. Program launched in March, equipment orders placed by April, and concrete is already being poured on site. (1/5)🧵",
+    "text": "SpaceX is building Terafab at full speed. Program launched in March, equipment orders placed by April, and concrete is already being poured on site. (1/5)🧵",
+    "url": "http://shitter.thepixora.com/SemiAnalysis_/status/2104647659273228375#m",
+    "fetched_at": "2026-09-29T10:19:38.291067+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
     "handle": "_redteam_",
     "name": "RedTeam / Innerworks",
     "posted_at": "Mon, 28 Sep 2026 18:43:14 GMT",
@@ -287,6 +507,16 @@
     "text": "\"We're not afraid of hyper-intelligent bot swarms on the internet. We use them to optimise our technology.\" When we launched RedTeam almost two years ago we could clearly see where the internet was heading. We've since seen clients with over 90% of their traffic made up of not just automation but highly intelligent bot swarms, capable of bypassing any traditional detection mechanism. The only way to combat a threat like this is to welcome it and learn from it. By constantly ingesting and evolving attack vectors from a hive mind of miners, a Bittensor powered defence has now become the only rel",
     "url": "http://shitter.thepixora.com/_redteam_/status/2104643110911533312#m",
     "fetched_at": "2026-09-29T00:07:54.410164+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "galaxyhq",
+    "name": "Galaxy Digital",
+    "posted_at": "Mon, 28 Sep 2026 17:29:48 GMT",
+    "title": "Diesel prices have gotten so extreme that some truckers are paying $1,500 to fill a single tank and turning down loads because fuel costs eat up nearly all the pay. Galaxy's Alex Thorn and Beimnet Abebe break down what soaring diesel prices mean for trucking, goods prices, and inflation across the US economy. Watch the full Galaxy Brains episode now: https://www.youtube.com/watch?v=7R9I6OfiRho",
+    "text": "Diesel prices have gotten so extreme that some truckers are paying $1,500 to fill a single tank and turning down loads because fuel costs eat up nearly all the pay. Galaxy's Alex Thorn and Beimnet Abebe break down what soaring diesel prices mean for trucking, goods prices, and inflation across the US economy. Watch the full Galaxy Brains episode now: youtube.com/watch?v=7R9I6Ofi… Video",
+    "url": "https://shi.meowing.de/galaxyhq/status/2104624630434496944#m",
+    "fetched_at": "2026-09-29T10:18:17.638433+00:00",
     "via_instance": "https://nitter.cz"
   },
   {
@@ -310,6 +540,16 @@
     "via_instance": "https://nitter.cz"
   },
   {
+    "handle": "PanteraCapital",
+    "name": "Pantera Capital",
+    "posted_at": "Mon, 28 Sep 2026 15:17:30 GMT",
+    "title": "RT by @PanteraCapital: Introducing spot trading for @Ondo Stocks. This brings the basis trade onto a single platform: 1. Buy Ondo Stocks 2. Deploy them as collateral 3. Short the corresponding perp to collect funding Because the spot holding doubles as long exposure and collateral, delta-neutral strategies become more capital efficient. Running both legs on a single platform also eliminates the risks of managing positions across separate platforms. Starting with 12 assets: ✅ Silver (SLVon) ✅ Gold (GLDon) ✅ Micron (MUon) ✅ Tesla (TSLAon) ✅ Circle (CRCLon) ✅ NVIDIA (NVDAon) ✅ SpaceX (SPCXon) ✅ Sandisk (SNDKon) ✅ Alphabet (GOOGLon) ✅ S&P 500 ETF (SPYon) ✅ Invesco QQQ (QQQon) ✅ Roundhill Memory ETF (DRAMon) ✅ & more to come For the first time, Ondo Stocks are available for permissionless trading (outside the US) on a spot central limit order book. Ondo Stocks opened access to tokenized equities, supporting them as collateral made those holdings productive, and now, spot trading on Ondo Perps brings the entire workflow to a single platform. Another step closer to onchain prime brokerage. To celebrate the launch, spot trading is fee-free for the first 30 days. Build a basis trade → http://app.ondoperps.xyz",
+    "text": "Introducing spot trading for @Ondo Stocks. This brings the basis trade onto a single platform: 1. Buy Ondo Stocks 2. Deploy them as collateral 3. Short the corresponding perp to collect funding Because the spot holding doubles as long exposure and collateral, delta-neutral strategies become more capital efficient. Running both legs on a single platform also eliminates the risks of managing positions across separate platforms. Starting with 12 assets: ✅ Silver (SLVon) ✅ Gold (GLDon) ✅ Micron (MUon) ✅ Tesla (TSLAon) ✅ Circle (CRCLon) ✅ NVIDIA (NVDAon) ✅ SpaceX (SPCXon) ✅ Sandisk (SNDKon) ✅ Alpha",
+    "url": "http://shitter.thepixora.com/OndoPerps/status/2104591335260926369#m",
+    "fetched_at": "2026-09-29T10:18:28.321584+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
     "handle": "1inch",
     "name": "1inch",
     "posted_at": "Mon, 28 Sep 2026 14:26:13 GMT",
@@ -330,6 +570,36 @@
     "via_instance": "https://nitter.cz"
   },
   {
+    "handle": "opentensor",
+    "name": "Opentensor Foundation",
+    "posted_at": "Mon, 28 Sep 2026 14:15:39 GMT",
+    "title": "The Bittensor ecosystem is taking over Montréal for the next two days. If you’re not in Montréal, @ExploitSummit is live now.",
+    "text": "The Bittensor ecosystem is taking over Montréal for the next two days. If you’re not in Montréal, @ExploitSummit is live now. Exploit Summit (@ExploitSummit) Exploit Summit: Live from Montreal shitter.thepixora.com/i/broadcasts/1nxnRBrrZ… Link Exploit Summit Exploit Summit: Live from Montreal http://shitter.thepixora.com/i/broadcasts/1nxnRBrrZZdxO — http://shitter.thepixora.com/ExploitSummit/status/2104570079367299092#m",
+    "url": "http://shitter.thepixora.com/opentensor/status/2104575769171354078#m",
+    "fetched_at": "2026-09-29T10:17:53.154998+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "opentensor",
+    "name": "Opentensor Foundation",
+    "posted_at": "Mon, 28 Sep 2026 13:53:02 GMT",
+    "title": "RT by @opentensor: Exploit Summit: Live from Montreal https://x.com/i/broadcasts/1nxnRBrrZZdxO",
+    "text": "Exploit Summit: Live from Montreal shitter.thepixora.com/i/broadcasts/1nxnRBrrZ… Link Exploit Summit Exploit Summit: Live from Montreal http://shitter.thepixora.com/i/broadcasts/1nxnRBrrZZdxO",
+    "url": "http://shitter.thepixora.com/ExploitSummit/status/2104570079367299092#m",
+    "fetched_at": "2026-09-29T10:17:53.154998+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "galaxyhq",
+    "name": "Galaxy Digital",
+    "posted_at": "Mon, 28 Sep 2026 11:16:59 GMT",
+    "title": "RT by @galaxyhq: EVERY BITCOIN BY THE PRICE IT LAST MOVED a short video of bitcoin history by its UTXO realized price distribution (URPD)",
+    "text": "EVERY BITCOIN BY THE PRICE IT LAST MOVED a short video of bitcoin history by its UTXO realized price distribution (URPD) Video",
+    "url": "https://shi.meowing.de/intangiblecoins/status/2104530805733388754#m",
+    "fetched_at": "2026-09-29T10:18:17.638433+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
     "handle": "1inch",
     "name": "1inch",
     "posted_at": "Mon, 28 Sep 2026 11:00:01 GMT",
@@ -337,6 +607,16 @@
     "text": "5 teams took home prizes for building on Aqua at @ETHGlobal Tokyo 2026 🇯🇵. Here are your winners: 🥇 OddsFlow - $2500 | @salviega @jaenjiar Bet on any prediction markets with one balance, spent only when someone takes the other side. 🥈 Wamia - $1500 | @Amine1246780537 @HediKharouf0 🥉 Watermark - $1000 | @henryfromseoul @hyeon_sec @GimgeonU95171 Continuity 🥇 VexiHakari - $1500 | @hiasdasdqwwd1 Options via 1inch Aqua, with tokens pullet at fill and a Uniswap V4 TWAP quote guard. 🥈 Takarabako - $500 | @wanaokii @sebestdebest @nizarsyahmi37 Congratulations to all 🏆",
     "url": "http://shitter.thepixora.com/1inch/status/2104526538808918471#m",
     "fetched_at": "2026-09-29T00:07:58.345624+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "galaxyhq",
+    "name": "Galaxy Digital",
+    "posted_at": "Mon, 28 Sep 2026 03:13:44 GMT",
+    "title": "RT by @galaxyhq: Bitcoin Privacy Upgrade, AI Regulation Debate & CFTC's Mention Markets Ruling",
+    "text": "Bitcoin could be getting a Zcash-style privacy upgrade, shielding transaction details from public view. Meanwhile, the CFTC weighs in on the rise of \"mention markets,\" and the debate over AI governance heats up. Article Bitcoin Privacy Upgrade, AI Regulation Debate &amp; CFTC&apos;s Mention Markets Ruling In this week&apos;s edition, Zack Pokorny looks at the CFTC’s advisory on mention markets; Lucas Tcheyan rounds up another dizzying week of AI developments; and Will Owens explains a proposal to bring",
+    "url": "https://shi.meowing.de/glxyresearch/status/2104409192140271708#m",
+    "fetched_at": "2026-09-29T10:18:17.638433+00:00",
     "via_instance": "https://nitter.cz"
   },
   {
@@ -390,6 +670,36 @@
     "via_instance": "https://nitter.cz"
   },
   {
+    "handle": "PanteraCapital",
+    "name": "Pantera Capital",
+    "posted_at": "Fri, 25 Sep 2026 23:54:10 GMT",
+    "title": "RT by @PanteraCapital: ICYMI in the Wall Street Journal: Tokenization is gaining momentum as financial markets enter a new era.",
+    "text": "ICYMI in the Wall Street Journal: Tokenization is gaining momentum as financial markets enter a new era. Ondo Finance (@Ondo) Introducing Ondo Intelligent Portfolios, the first three portfolios powered by BlackRock. Ondo Intelligent Portfolios introduces a new onchain product category: curated investment portfolios delivered as single onchain transferable tokens. The first three portfolios are based on portfolio strategies developed by BlackRock for Ondo, marking the first time eligible onchain investors can access exposure to such strategies through a single token. 1. BLKHIon: Ondo High Incom",
+    "url": "http://shitter.thepixora.com/Ondo/status/2103634193842622581#m",
+    "fetched_at": "2026-09-29T10:18:28.321584+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "dylan522p",
+    "name": "Dylan Patel",
+    "posted_at": "Fri, 25 Sep 2026 23:43:00 GMT",
+    "title": "In 2025 a misaligned Anthropic model hacked the US Governent looking for the Furry NSA chat https://www.nytimes.com/2025/02/25/us/politics/gabbard-nsa-firing-explicit-chat.html",
+    "text": "In 2025 a misaligned Anthropic model hacked the US Governent looking for the Furry NSA chat nytimes.com/2025/02/25/us/po… Link Gabbard Says More Than 100 Intelligence Officers Fired for Chat Messages (Published 2025) The chats had been set up to discuss sensitive security matters. But a group of employees used them for discussions that contained sexual themes, intelligence officials said this week. nytimes.com",
+    "url": "http://shitter.thepixora.com/dylan522p/status/2103631387287052757#m",
+    "fetched_at": "2026-09-29T10:19:37.089637+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "opentensor",
+    "name": "Opentensor Foundation",
+    "posted_at": "Fri, 25 Sep 2026 20:36:19 GMT",
+    "title": "SOMA cut a prompt’s token count by 76% live, reducing the text you pay AI models to process. On the latest Novelty Search, Subnet 114 presents its compression tool for coding agents, already in early access for Copilot and Codex. The team reports ~15% lower inference costs on average across coding tasks. @say_gm_ has integrated SOMA’s open-source compressor, and Dendrite uses it in daily development. Hosted by @const_reborn Full episode in the first comment",
+    "text": "SOMA cut a prompt’s token count by 76% live, reducing the text you pay AI models to process. On the latest Novelty Search, Subnet 114 presents its compression tool for coding agents, already in early access for Copilot and Codex. The team reports ~15% lower inference costs on average across coding tasks. @say_gm_ has integrated SOMA’s open-source compressor, and Dendrite uses it in daily development. Hosted by @const_reborn Full episode in the first comment Video",
+    "url": "http://shitter.thepixora.com/opentensor/status/2103584404975301060#m",
+    "fetched_at": "2026-09-29T10:17:53.154998+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
     "handle": "webuildscore",
     "name": "Score",
     "posted_at": "Fri, 25 Sep 2026 20:03:12 GMT",
@@ -410,6 +720,16 @@
     "via_instance": "https://nitter.cz"
   },
   {
+    "handle": "PanteraCapital",
+    "name": "Pantera Capital",
+    "posted_at": "Fri, 25 Sep 2026 19:01:58 GMT",
+    "title": "RT by @PanteraCapital: The newest buyers of US stocks will be outside the US and aren't even humans. I had a blast chatting about this + more with @nikil, ceo/cofounder @Alchemy and @JohannKerbrat, head of crypto @RobinhoodApp. We covered so much, from Robinhood Chain's launch success to AI agents sending flowers to Nikil's girlfriend to buying stocks for grandma on a Saturday. In case you missed it: Robinhood Chain now has 190 tokenized US stocks & ETFs. Within 2 weeks of launch, they were the top chain running on @Alchemy and running the equivalent of 25% of Google's search volume in API calls. As I wrote about in my Great Onchain Migration essay, the gravitational pull of onchain assets will be swift & violent and that's playing out now through @RobinhoodCrypto. The agents are showing up just as fast. In my piece on 80 Billion Customers, I threw out a question for businesses: can agents discover, purchase, and use your product without a human in the loop? Well, Alchemy deleted CAPTCHAs from their signup process, so agents could pay for their product themselves. They grew 20% in two weeks. Meanwhile, Robinhood's agentic trading saw about 100K accounts in roughly a month. Wall Street has talked about \"global capital markets\" for decades. In practice it's never existed. Now we're finally seeing the first true layer of global capital markets, built for 8 billion people and 80 billion agents. Here's my conversation with Nikil and Johann:",
+    "text": "The newest buyers of US stocks will be outside the US and aren't even humans. I had a blast chatting about this + more with @nikil, ceo/cofounder @Alchemy and @JohannKerbrat, head of crypto @RobinhoodApp. We covered so much, from Robinhood Chain's launch success to AI agents sending flowers to Nikil's girlfriend to buying stocks for grandma on a Saturday. In case you missed it: Robinhood Chain now has 190 tokenized US stocks & ETFs. Within 2 weeks of launch, they were the top chain running on @Alchemy and running the equivalent of 25% of Google's search volume in API calls. As I wrote about in",
+    "url": "http://shitter.thepixora.com/FranklinBi/status/2103560661171335289#m",
+    "fetched_at": "2026-09-29T10:18:28.321584+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
     "handle": "a16zcrypto",
     "name": "a16z Crypto",
     "posted_at": "Fri, 25 Sep 2026 18:43:17 GMT",
@@ -427,6 +747,26 @@
     "text": "These assets are called “real world.” BUT trading is increasingly happening onchain. 86% of RWA perp volume now runs through onchain venues.",
     "url": "http://nitter.jaydenha.uk/a16zcrypto/status/2103555717986972066#m",
     "fetched_at": "2026-09-29T00:06:46.269578+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "galaxyhq",
+    "name": "Galaxy Digital",
+    "posted_at": "Fri, 25 Sep 2026 17:00:56 GMT",
+    "title": "Last week, Galaxy Ventures + @raincards kicked off the first Wake-Up Series in NYC. 30 leaders across payments & digital assets. The question: how do we put onchain value to work in payments? Stablecoins are one piece. Tokenized deposits are another. Grateful to everyone who showed up for our first session. We will host another event with Rain during Money 20/20 in Las Vegas. Check out http://galaxy.com/events for updates.",
+    "text": "Last week, Galaxy Ventures + @raincards kicked off the first Wake-Up Series in NYC. 30 leaders across payments & digital assets. The question: how do we put onchain value to work in payments? Stablecoins are one piece. Tokenized deposits are another. Grateful to everyone who showed up for our first session. We will host another event with Rain during Money 20/20 in Las Vegas. Check out galaxy.com/events for updates.",
+    "url": "https://shi.meowing.de/galaxyhq/status/2103530202601255278#m",
+    "fetched_at": "2026-09-29T10:18:17.638433+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "dylan522p",
+    "name": "Dylan Patel",
+    "posted_at": "Fri, 25 Sep 2026 16:37:32 GMT",
+    "title": "RT by @dylan522p: The Chinese AI Infrastructure Boom: Introducing the SemiAnalysis China Datacenter Model 1,000+ facilities across 60+ operators mapped, built retail-first and flipped by AI, largest hyperscaler leases 1/5 national capacity, 100MW in 12 months, Eastern Data Western Compute https://newsletter.semianalysis.com/p/the-chinese-ai-infrastructure-boom",
+    "text": "The Chinese AI Infrastructure Boom: Introducing the SemiAnalysis China Datacenter Model 1,000+ facilities across 60+ operators mapped, built retail-first and flipped by AI, largest hyperscaler leases 1/5 national capacity, 100MW in 12 months, Eastern Data Western Compute newsletter.semianalysis.com/… Link The Chinese AI Infrastructure Boom: Introducing the SemiAnalysis China Datacenter Model 1,000+ facilities across 60+ operators mapped, built retail-first and flipped by AI, largest hyperscaler leases 1/5 national capacity, 100MW in 12 months, Eastern Data Western Compute newsletter.semianalys",
+    "url": "http://shitter.thepixora.com/SemiAnalysis_/status/2103524314444148856#m",
+    "fetched_at": "2026-09-29T10:19:37.089637+00:00",
     "via_instance": "https://nitter.cz"
   },
   {
