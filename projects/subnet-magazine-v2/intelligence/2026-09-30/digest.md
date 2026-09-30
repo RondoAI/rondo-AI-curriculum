@@ -142,6 +142,16 @@ _no new posts in the lookback window_
 
 ## ⊕ X via NITTER, voices we track
 
+- @opentensor (Opentensor Foundation, Wed, 30 Sep 2026): This Thursday on Novelty Search :: Subnet 80 :: @openroboto OpenRoboto is building an open competition for robot intelligence on Bittensor, where miners improve shared base models and each champion becomes the next starting point. They are now expanding into real robot validation and Shift, their decentralized network for collecting real world robotics data, connecting model improvement with physical data and commercial demand. Thursday :: 5PM EDT / 9PM UTC Hosted by @const_reborn  
+  http://shitter.thepixora.com/opentensor/status/2105322199787700284#m
+- @1inch (1inch, Wed, 30 Sep 2026): Swap USDG for tokenized Apple on @RobinhoodCrypto Chain. Same chain, one swap. Video  
+  http://shitter.thepixora.com/1inch/status/2105289057903182213#m
+- @1inch (1inch, Wed, 30 Sep 2026):   
+  http://shitter.thepixora.com/1inch/status/2105289058280747354#m
+- @1inch (1inch, Wed, 30 Sep 2026): Grab the book here: written.app/stack/35  
+  http://shitter.thepixora.com/1inch/status/2105254252235157588#m
+- @1inch (1inch, Wed, 30 Sep 2026): The digital edition of reDeFine Money is live. The history of DeFi, told by the people who built it. One line from @newmichwill, founder of @CurveFinance, stuck with us: ‘'If it is real DeFi, no one can take your funds, not even the project you have them in.’' When we started Aqua, that was the question. Should a protocol ever hold your tokens? We decided no. Aqua contracts hold zero tokens. Your funds stay in your wallet and only move when a swap needs them. One wallet can back many positions at once. Video  
+  http://shitter.thepixora.com/1inch/status/2105254248971653311#m
 - @polychain (Polychain Capital, Wed, 24 Jun 2026): I'm excited to share that Cambrian has raised $11.9M to build the financial intelligence layer for the convergence of AI, digital assets, and traditional finance. Our seed round was led by @Polychain and Franklin Templeton @FTDA_US: a convergence itself of a top OG digital assets fund and a $1.7T institutional asset manager of 75+ years. As AI starts to consume more data in minutes than most humans do in lifetimes, finance is evolving to adapt to this reality ⤵️ Cambrian Network 🪴 (@CambrianNetwork) Big news: we’ve raised $11.9 million to build the world’s financial intelligence layer. @Polych  
   http://shitter.thepixora.com/0xsamgreen/status/2069836236362313887#m
 - @polychain (Polychain Capital, Wed, 24 Jun 2026): EXCLUSIVE: a16z CSX-backed Cambrian raises $6 million seed to build blockchain data oracle network theblock.co/post/406028/a16z… Link a16z CSX-backed Cambrian raises $6 million seed to build blockchain data oracle network Cambrian’s new funding will expand its API and verifiable oracle network for institutions and AI agents, with Base and Solana already in production. theblock.co  
@@ -150,12 +160,20 @@ _no new posts in the lookback window_
   http://shitter.thepixora.com/CreightonForTX/status/2102869773776269419#m
 - @novogratz (Mike Novogratz, Wed, 23 Sep 2026): Last Friday, I visited our flagship campus Helios in West Texas. Three years ago, this was still a bitcoin mining facility. Today Helios is a fully operational AI-ready campus with 133MW of critical IT capacity, and we’re just getting started! @galaxyhq is taking a big swing out here, and so is America. The move to build an AI future for this country is real, and none of it happens without the physical infrastructure. It starts with power, land, and hard-working people willing to put in the work to build a new future. Our partnership with @TechAthletics with Galaxy Stadium is part of investing  
   http://shitter.thepixora.com/novogratz/status/2102773522292428868#m
+- @shibshib89 (Ala Shaabana, Wed, 16 Sep 2026): LFG! Crucible Labs (@CrucibleLabs) Crucible Wallet Extension v2.1.1 is LIVE. This isn’t just an update. We rebuilt the entire wallet experience from the ground up. A completely new UI. More control over your TAO. More Bittensor tools built directly into your wallet. What’s new in v2.1.1: ✔️Completely updated UI + light/dark mode ✔️Claim rewards directly in the wallet ✔️Unified balance across TAO + alpha ✔️Universal Swap ✔️Transfer TAO + alpha ✔️Subnet discovery + detailed subnet views ✔️Multi-address support for seed phrases ✔️12 and 24 word seed phrase support ✔️Updated Smart Account + Reward  
+  http://shitter.thepixora.com/shibshib89/status/2100300168633761947#m
 - @novogratz (Mike Novogratz, Wed, 16 Sep 2026): Our economy doesn’t work without immigration. We need at least 1.5-2mm new immigrants a year to create taxpayers and consumers to help us grow our way out of 40th in debt and to pay for an aging population. This isn’t political. It’s just math. We of course can decide what immigrants we take. From where, what educational level, wealth etc. that’s political. But the fact that we need them isn’t. Lisa Boothe (@LisaMarieBoothe) At this point, I am fine with shutting down all immigration, legal or not. It's a mess. — http://shitter.thepixora.com/LisaMarieBoothe/status/2099891080258875467#m  
   http://shitter.thepixora.com/novogratz/status/2100193741633929406#m
 - @lium_io (Lium, Wed, 09 Sep 2026): lium.io Month in review: $964k billed to 1187 renters (36% MoM growth). 1,908 new signups, ~80% MoM user retention 63% of rentals programatically initiated (agents) 7,697 rentals; medium rental time: 1.15 hours.  
   http://shitter.thepixora.com/lium_io/status/2097824624117473549#m
+- @shibshib89 (Ala Shaabana, Wed, 09 Sep 2026): Did you hear? Crucible Wallet is officially live on iOS today. An easy to use Bittensor wallet with Ledger security, Unified Swap and subnet level performance. Now available on iOS in the US, Android and Chrome. Download at CrucibleLabs.com #Bittensor #TAO #CrucibleWallet  
+  http://shitter.thepixora.com/CrucibleLabs/status/2097815766473323006#m
 - @lium_io (Lium, Wed, 09 Sep 2026): Steadily building the most decentralized GPU cloud Lium now has capacity from 68 datacenters across 21 countries Have GPUs? Join now. Lium pays you even for idle minutes. Make your nodes rentable in 5 minutes -&gt; docs.lium.io/providers/quick…  
   http://shitter.thepixora.com/lium_io/status/2097803045362966828#m
+- @shibshib89 (Ala Shaabana, Wed, 09 Sep 2026): We are officially on iOS! Onwards 🚀 Crucible Labs (@CrucibleLabs) A long time coming and officially here. Crucible Wallet is now available on iOS in the US. An easy, intuitive Bittensor wallet for your everyday TAO needs, with Unified Swap, portfolio tracking and Ledger support wherever you go. Already available on Google Play and Chrome Store. Download at CrucibleLabs.com #CrucibleWallet #TAO #Bittensor — http://shitter.thepixora.com/CrucibleLabs/status/2097699938209857625#m  
+  http://shitter.thepixora.com/shibshib89/status/2097724813028516224#m
+- @shibshib89 (Ala Shaabana, Wed, 02 Sep 2026): Crucible Labs dropping #downwiththedev Episode 1. We breakdown the Mobile Wallet with @buildwithsamp. Take a listen. Video  
+  http://shitter.thepixora.com/CrucibleLabs/status/2095144290376937770#m
 - @opentensor (Opentensor Foundation, Tue, 29 Sep 2026): Watch @ExploitSummit Day 2 Live Lineup: - Enterprise-ready Bittensor :: @webuildscore × PwC France - Agentic world models on SN17 :: @404gen. The legal reality of subnet slots and validators :: Renno Law Firm. - Research vs Revenue :: @taostats × @MacrocosmosAI. - Reward hacking subnets :: Bitsec live demonstration. - Sovereignty in the age of AI :: SPUR × BTLabs. - OpenDev: Gamma deep dive :: @const_reborn - Pitchtensor :: live machine learning crowdfund - Synthetic genomes at scale :: @theminos_ai. - Where do we go from here? :: @chutes_ai, @metanova_labs, @taodotcom, @latentholdings @YumaGr  
   http://shitter.thepixora.com/opentensor/status/2105014802246418456#m
 - @opentensor (Opentensor Foundation, Tue, 29 Sep 2026): 00:38 - Intro to Bittensor as Incentive computing 03:30 - Harnessing the exploit 06:00 - From Bitcoin → 128 Bittensor Subnets 09:00 - Revenue generating subnets 12:00 - Full stack model training on Bittensor. 19:20 - Bittensor Governance: Root → dTAO → Root Reborn 23:00 - External revenue flow becoming inputs to emissions. 24:04 - Gamma tokens 25:30 - Subnet-to-subnet economics 27:50 - Full stack products built entirely on Bittensor 33:40 - A “mind outside the state” Watch the full talk on YouTube redirect.invidious.io/G2GsHun38qM Link The State and Future of Bittensor :: Jacob Steeves Opening  
@@ -176,6 +194,8 @@ _no new posts in the lookback window_
   http://shitter.thepixora.com/ExploitSummit/status/2104942854753947674#m
 - @a16zcrypto (a16z Crypto, Tue, 29 Sep 2026): Article Blockchains create net new markets For most of financial history, the supply of new markets — not demand — was the bottleneck. Blockchains remove that bottleneck. I believe this will unlock an explosion of net new markets. Markets are  
   http://shitter.thepixora.com/robbiepetersen_/status/2104925872553709720#m
+- @1inch (1inch, Tue, 29 Sep 2026): You open an Aqua position and your tokens stay in your wallet until someone takes the other side. Who that someone is, what happens at the moment of a fill and why taker access is gated at launch. Article Who actually fills your 1inch Aqua orders You open an Aqua position, set your pair, price range and fee, and your tokens stay in your wallet. Then you wait for someone to swap against that liquidity. In Aqua terminology you are the maker; the  
+  http://shitter.thepixora.com/1inch/status/2104913312542564360#m
 - @opentensor (Opentensor Foundation, Tue, 29 Sep 2026): Very excited crowd at Exploit. For those that missed, here is a break down of what I announced on stage.  
   http://shitter.thepixora.com/const_reborn/status/2104904084054777917#m
 - @oroagents (Oro, Tue, 29 Sep 2026): Commerce is going to prove to be one of the largest opportunities in the agent world. Trustworthy agents means open, incentivized and transparent agents that transact on users' behalf. great article by @CrucibleLabs. Let's make this future happen the right way. Crucible Labs (@CrucibleLabs) Article a BIT of Joy: Issue 11 The Agent Era Is Here For the last few years, the AI industry has talked about agents as the next big thing. At this point, the more interesting question isn&apos;t when agents arrive. They&apos;re already — http://shitter.thepixora.com/CrucibleLabs/status/2103188134238564440#  
@@ -198,6 +218,8 @@ _no new posts in the lookback window_
   http://shitter.thepixora.com/lium_io/status/2096626336693375483#m
 - @lium_io (Lium, Sun, 06 Sep 2026): We just ran Qwen3.6 35B at 14,499 tokens per second. on 1 lium GPU. 85% cheaper than Openrouter. how you can do it too ⬇️  
   http://shitter.thepixora.com/lium_io/status/2096626330808828216#m
+- @shibshib89 (Ala Shaabana, Mon, 28 Sep 2026): Bittensor and Baguettes is ready for her interviews @ExploitSummit. See what subnets we’re chatting about soon!  
+  http://shitter.thepixora.com/CrucibleLabs/status/2104684600291180752#m
 - @a16zcrypto (a16z Crypto, Mon, 28 Sep 2026): Interested in perps? Read below 👇 a16z crypto (@a16zcrypto) Article The rise of the $100-billion RWA perp market Trading in perpetual futures tied to stocks, gold, and other traditional assets is growing fast. And an increasing share of that activity is now happening onchain. These contracts, often referred to — http://shitter.thepixora.com/a16zcrypto/status/2102875903500197915#m  
   http://shitter.thepixora.com/a16zcrypto/status/2104676832700244103#m
 - @a16zcrypto (a16z Crypto, Mon, 28 Sep 2026): An early wave of RWA perps was commodities. The new wave could be stocks. A year ago, equity perp open interest was near zero. It passed commodities in June. Today it leads at $2.2B.  
@@ -208,6 +230,8 @@ _no new posts in the lookback window_
   http://shitter.thepixora.com/oroagents/status/2104656457237209371#m
 - @jtledore (Jean-Thomas Ledoré, Mon, 28 Sep 2026): The whole Kusanagi team is in Montréal for @ExploitSummit 🇨🇦 If you’re around, come find us.  
   http://shitter.thepixora.com/kusanagi_vntrs/status/2104577141786472639#m
+- @robmyers (Robert Myers, Fri, 26 Mar 2021): Try @rheaplex instead.  
+  http://shitter.thepixora.com/robmyers/status/1375288994989101059#m
 - @a16zcrypto (a16z Crypto, Fri, 25 Sep 2026): These assets are called “real world.” BUT trading is increasingly happening onchain. 86% of RWA perp volume now runs through onchain venues.  
   http://shitter.thepixora.com/a16zcrypto/status/2103555717986972066#m
 - @lium_io (Lium, Fri, 25 Sep 2026): I set up @lium_io [SN51] today for some GPU compute I need for a project. I've used a fair few GPU providers at this point, and this was probably the smoothest setup I've had. Created an account, topped up with $TAO, generated an API key and handed the docs to my agent. A few minutes later it was spinning up GPUs. The part I really liked is how agent-friendly everything is. llms.txt, clean docs, JSON output, budget caps and TTLs. There was no fighting with dashboards or figuring out some obscure API. Well done to the team. This is how infrastructure should be built now.  
@@ -215,4 +239,4 @@ _no new posts in the lookback window_
 
 
 ---
-_Generated at 2026-09-30T10:13:17.444996+00:00 by scripts/intel/aggregate.py. Treat this digest as input context, not as ground truth. Verify before quoting._
+_Generated at 2026-09-30T17:25:34.617176+00:00 by scripts/intel/aggregate.py. Treat this digest as input context, not as ground truth. Verify before quoting._
