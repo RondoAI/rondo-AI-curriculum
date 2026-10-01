@@ -190,6 +190,8 @@ _no new posts in the lookback window_
   http://shitter.thepixora.com/opentensor/status/2105322199787700284#m
 - @jaltucher (James Altucher, Wed, 30 Sep 2026): MY TOP 10. I love TV. I worked at HBO (in the 90s). I've been an advisor for shows ("Billions"), I've pitched shows to every studio. Here's my top 10. I've watched each of these at least 4 times. BUT...what should #10 be?? 1) Breaking Bad 2) Mad Men 3) Lost 4) Carnevale 5) Battlestar Galactica 6) Better Call Saul 7) Arrested Devekooment 8) Sopranos 9) Curb Your Enthusiasm  
   http://shitter.thepixora.com/jaltucher/status/2105314083108974777#m
+- @jaltucher (James Altucher, Wed, 30 Sep 2026): MY TOP 10. I love TV. I worked at HBO (in the 90s). I've been an advisor for shows ("Billions"), I've pitched shows to every studio. Here's my top 10. I've watched each of these at least 4 times. BUT...what should #10 be?? 1) Breaking Bad 2) Mad Men 3) Lost 4) Carnevale 5) Battlestar Galactica 6) Better Call Saul 7) Arrested Devekooment 8) Sopranos 9) Curb Your Enthusiasm  
+  https://nitter.kareem.one/jaltucher/status/2105314083108974777#m
 - @webuildscore (Score, Wed, 30 Sep 2026): 256 vision AI research teams competing to build the best models on the planet. Different tasks, different approaches, different ways to win. Models are judged on results through transparent, independent validation running 24/7. We’re building a vision lab where today’s best is tomorrow’s target. There’s always someone hungry enough to push it further, and an incentive to do exactly that. It’s more than automated research or recursive self-improvement. It’s the human need to evolve and win, distilled into an incentive mechanism. That’s Score. That’s SN44. That’s what building on Bittensor with   
   http://shitter.thepixora.com/webuildscore/status/2105306037943144483#m
 - @webuildscore (Score, Wed, 30 Sep 2026): 256 vision AI research teams competing to build the best models on the planet. Different tasks, different approaches, different ways to win. Models are judged on results through transparent, independent validation running 24/7. We’re building a vision lab where today’s best is tomorrow’s target. There’s always someone hungry enough to push it further, and an incentive to do exactly that. It’s more than automated research or recursive self-improvement. It’s the human need to evolve and win, distilled into an incentive mechanism. That’s Score. That’s SN44. That’s what building on Bittensor with   
@@ -200,14 +202,20 @@ _no new posts in the lookback window_
   http://shitter.thepixora.com/CoreWeave/status/2105288849719194040#m
 - @const_reborn (Jacob Steeves, Wed, 30 Sep 2026): Thiel, who has cared for this problem more than any thinker believes the answer is the state (USA) or the state outside the state (Praxis). But only one thing, ever, ever in human history, has ever evaded the tendrils of power, and it’s not an address. It’s a network.  
   https://nitter.kareem.one/const_reborn/status/2105281085483479098#m
+- @const_reborn (Jacob Steeves, Wed, 30 Sep 2026): Thiel, who has cared for this problem more than any thinker believes the answer is the state (USA) or the state outside the state (Praxis). But only one thing, ever, ever in human history, has ever evaded the tendrils of power, and it’s not an address. It’s a network.  
+  http://shitter.thepixora.com/const_reborn/status/2105281085483479098#m
 - @const_reborn (Jacob Steeves, Wed, 30 Sep 2026): The anti christ is this. Untethered power. The detachment between the machine and the natural world that birthed it.  
   https://nitter.kareem.one/const_reborn/status/2105280079320469684#m
+- @const_reborn (Jacob Steeves, Wed, 30 Sep 2026): The anti christ is this. Untethered power. The detachment between the machine and the natural world that birthed it.  
+  http://shitter.thepixora.com/const_reborn/status/2105280079320469684#m
 - @const_reborn (Jacob Steeves, Wed, 30 Sep 2026): Make no mistake, we are witnessing the end of a ten thousand year civilization balance of power. There will be consequences to that.  
   https://nitter.kareem.one/const_reborn/status/2105279430247452774#m
 - @const_reborn (Jacob Steeves, Wed, 30 Sep 2026): But now the monopoly on violence has captured capital and capital just eroded the value of labour. And it was labour which kept the state in check.  
   https://nitter.kareem.one/const_reborn/status/2105278930013864035#m
 - @const_reborn (Jacob Steeves, Wed, 30 Sep 2026): At the end of the day all the major labs will bend to the monopoly on violence (state). They don’t have a choice if they want access to the chips and the privilege to sip from the tit of fiat money.  
   https://nitter.kareem.one/const_reborn/status/2105278607115321702#m
+- @const_reborn (Jacob Steeves, Wed, 30 Sep 2026): Incentives of a mind *inside the state Sound Dobad (@SoundDobad) Update? — http://shitter.thepixora.com/SoundDobad/status/2105123961553952890#m  
+  http://shitter.thepixora.com/const_reborn/status/2105274795885793746#m
 - @jtledore (Jean-Thomas Ledoré, Wed, 30 Sep 2026): harness the exploit, fight the cabal  
   http://shitter.thepixora.com/const_reborn/status/2105243337439715381#m
 - @tplr_ai (Templar, Wed, 23 Sep 2026): Video  
@@ -216,6 +224,8 @@ _no new posts in the lookback window_
   http://shitter.thepixora.com/tplr_ai/status/2102792676676432160#m
 - @jaltucher (James Altucher, Wed, 16 Sep 2026): Working on an AI-powered end to end platform for designing optical and then quantum chips at $QCLS. More details and refinements later but you can check it out at VibeGDS.io - you just enter plain English for the chip you want and it will build it out, simulate, verify, etc. Of interest mostly to optical engineers.  
   http://shitter.thepixora.com/jaltucher/status/2100262449685364904#m
+- @jaltucher (James Altucher, Wed, 16 Sep 2026): Working on an AI-powered end to end platform for designing optical and then quantum chips at $QCLS. More details and refinements later but you can check it out at VibeGDS.io - you just enter plain English for the chip you want and it will build it out, simulate, verify, etc. Of interest mostly to optical engineers.  
+  https://nitter.kareem.one/jaltucher/status/2100262449685364904#m
 - @tplr_ai (Templar, Wed, 16 Sep 2026): When using pipeline compression with fixed projections shared across layers, robustness improves further as seen in the figure below. This suggests that shared projectors align representations across stage boundaries, making bypasses less disruptive. 4/n  
   http://shitter.thepixora.com/tplr_ai/status/2100237714918367690#m
 - @tplr_ai (Templar, Wed, 16 Sep 2026): We’ve been researching fault tolerance in Crucible, Templar’s pre-training platform. The goal: keep training through node failures and make better use of unreliable workers and spot instances, without idling an entire model replica when one stage goes down. 1/n Video  
@@ -232,17 +242,7 @@ _no new posts in the lookback window_
   http://shitter.thepixora.com/KatieAWheeler/status/2105057463666168136#m
 - @taomedia_ (TAO Media, Tue, 29 Sep 2026): The human side of Bittensor @mogmachine shed light on building publicly, finding time to unplug, remembering kindness, and more of the lesser-discussed difficulties of being a builder. Watch his full @ExploitSummit talk: Video  
   https://nitter.kareem.one/taomedia_/status/2105057387107471705#m
-- @PanteraCapital (Pantera Capital, Tue, 29 Sep 2026): New from @PanteraCapital's State of Tokenization: RWA distribution has broadened dramatically onchain. The leading chain’s share of tokenized value fell from 88% in 2023 to 45% today, as the market expanded across 24 chains. Pantera Capital (@PanteraCapital) Pantera's latest State of Tokenization report is out. We analyzed the $332bn tokenization market across 671 assets. Institutions entered in force this quarter. J.P. Morgan, HSBC and Fidelity launched onchain products. BlackRock's BUIDL moved $441mn onchain in June, runs a $1bn daily redemption facility, and is now accepted as collateral. O  
-  http://shitter.thepixora.com/AlliumLabs/status/2105026778221703235#m
-- @webuildscore (Score, Tue, 29 Sep 2026): Gun labeled. Rocket launcher, minigun and the rest of the weapon wheel next.  
-  http://shitter.thepixora.com/webuildscore/status/2105024223269868015#m
-- @webuildscore (Score, Tue, 29 Sep 2026): Gun labeled. Rocket launcher, minigun and the rest of the weapon wheel next.  
-  https://nitter.kareem.one/webuildscore/status/2105024223269868015#m
-- @webuildscore (Score, Tue, 29 Sep 2026): Preparing our Security Risk Indicator model for the GTA 6 release on November 19. We're already teaching it what a robbery looks like. Draw a box, Score Studio suggests the class, confirm, next frame. And yes, we know it's a bandana. Try it at scorestudio.ai  
-  http://shitter.thepixora.com/webuildscore/status/2105023016014844353#m
-- @webuildscore (Score, Tue, 29 Sep 2026): Preparing our Security Risk Indicator model for the GTA 6 release on November 19. We're already teaching it what a robbery looks like. Draw a box, Score Studio suggests the class, confirm, next frame. And yes, we know it's a bandana. Try it at scorestudio.ai  
-  https://nitter.kareem.one/webuildscore/status/2105023016014844353#m
 
 
 ---
-_Generated at 2026-10-01T17:52:16.006899+00:00 by scripts/intel/aggregate.py. Treat this digest as input context, not as ground truth. Verify before quoting._
+_Generated at 2026-10-01T23:38:57.438923+00:00 by scripts/intel/aggregate.py. Treat this digest as input context, not as ground truth. Verify before quoting._
