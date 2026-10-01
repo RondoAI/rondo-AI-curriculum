@@ -1,0 +1,352 @@
+[
+  {
+    "handle": "markjeffrey",
+    "name": "Mark Jeffrey",
+    "posted_at": "Wed, 30 Sep 2026 23:44:23 GMT",
+    "title": "RT by @markjeffrey: Bittensor Subnet 64, Chutes, has an infernece platform that at one point was serving billions of tokens a day on OpenRouter. The problem? It wasn't profitable. In order for the subnet to survive long-term in the fierce competition that is Bittensor, this had to be figured out. The network incentivized Chutes to serve inference more efficiently. So backend dev @jon_durbin set out to solve it. In the process, he (and the Chutes team) may have wound up discovering an entirely new way to train models that could revolutionize decentralized training and truly unlock open-source models for the world. Highly recommend giving a listen to the story: https://www.youtube.com/watch?v=4FOxXT66Xlo&t=598s",
+    "text": "Bittensor Subnet 64, Chutes, has an infernece platform that at one point was serving billions of tokens a day on OpenRouter. The problem? It wasn't profitable. In order for the subnet to survive long-term in the fierce competition that is Bittensor, this had to be figured out. The network incentivized Chutes to serve inference more efficiently. So backend dev @jon_durbin set out to solve it. In the process, he (and the Chutes team) may have wound up discovering an entirely new way to train models that could revolutionize decentralized training and truly unlock open-source models for the world.",
+    "url": "http://shitter.thepixora.com/0xSunRun/status/2105443672548381102#m",
+    "fetched_at": "2026-10-01T03:30:46.483073+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "JosephJacks_",
+    "name": "Joseph Jacks",
+    "posted_at": "Wed, 30 Sep 2026 23:25:57 GMT",
+    "title": "RT by @JosephJacks_: Introducing the LiquidRouter. We experimented with the @liquidai's d1 classifier model, and came up with a router that saves up to 80% of your LLM costs. It rates every of your prompt's difficulty and sends it to the right model: low-cost models for easy work, top models for hard work.",
+    "text": "Introducing the LiquidRouter. We experimented with the @liquidai's d1 classifier model, and came up with a router that saves up to 80% of your LLM costs. It rates every of your prompt's difficulty and sends it to the right model: low-cost models for easy work, top models for hard work. Liquid AI (@liquidai) Announcing d1, our first decision model. It's the first model to outperform Jev on @huggingface's Decision Index. &gt; wins on multilingual evals &gt; more robust against prompt injection &gt; handles longer inputs more effectively &gt; built for fast, structured decision-making in software",
+    "url": "http://shitter.thepixora.com/aimlapi/status/2105439034298302688#m",
+    "fetched_at": "2026-10-01T03:30:51.435992+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "markjeffrey",
+    "name": "Mark Jeffrey",
+    "posted_at": "Wed, 30 Sep 2026 23:23:04 GMT",
+    "title": "Subnets using Subnets. Powered by Bittensor. GM is our 'openrouter'. Beam is our 'Big Bandwidth' provider. Move massive files fast and securely with granular enterprise-class controls.",
+    "text": "Subnets using Subnets. Powered by Bittensor. GM is our 'openrouter'. Beam is our 'Big Bandwidth' provider. Move massive files fast and securely with granular enterprise-class controls. Good Morning (@say_gm_) Beam Studio is live and we're proud to be a launch partner. Every prompt in Beam AI, from building workflows to investigating failed runs, is routed through SayGm. @b1m_ai said \"we could have picked any provider but SayGM is the best\". Congrats on the launch. — http://shitter.thepixora.com/say_gm_/status/2105436391513673819#m",
+    "url": "http://shitter.thepixora.com/markjeffrey/status/2105438309673738667#m",
+    "fetched_at": "2026-10-01T03:30:46.483073+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "markjeffrey",
+    "name": "Mark Jeffrey",
+    "posted_at": "Wed, 30 Sep 2026 22:47:35 GMT",
+    "title": "Boom > Doom",
+    "text": "Boom &gt; Doom Beff (e/acc) (@beffjezos) Never doom. Always accelerate. e/acc — http://shitter.thepixora.com/beffjezos/status/2105399255779488202#m",
+    "url": "http://shitter.thepixora.com/markjeffrey/status/2105429376905216481#m",
+    "fetched_at": "2026-10-01T03:30:46.483073+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "markjeffrey",
+    "name": "Mark Jeffrey",
+    "posted_at": "Wed, 30 Sep 2026 22:24:58 GMT",
+    "title": "Looking forward to the Strange New Worlds episode where the crew gets stuck in a Road Runner cartoon.",
+    "text": "Looking forward to the Strange New Worlds episode where the crew gets stuck in a Road Runner cartoon. Watcher.Guru (@WatcherGuru) JUST IN: 🇺🇸 Judge officially approves Paramount's acquisition of Warner Bros for $110,000,000,000 — http://shitter.thepixora.com/WatcherGuru/status/2105385372444442786#m",
+    "url": "http://shitter.thepixora.com/markjeffrey/status/2105423685545009400#m",
+    "fetched_at": "2026-10-01T03:30:46.483073+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "markjeffrey",
+    "name": "Mark Jeffrey",
+    "posted_at": "Wed, 30 Sep 2026 21:37:19 GMT",
+    "title": "RT by @markjeffrey: Did you miss any of the great presentations at @ExploitSummit ? Or do you have any talks you’d like to watch again? Great news. Our LIVESTREAM website has them all. https://stream.vidaio.io/vod.html Video On Demand (VOD) allows you to watch all the action. At the top of the page, look for the “Watch again” tab. Filter by Day 1 or 2, and which stage the talk was given. Optionally, use the search bar on the right to search by speaker, subnet, or talk title. Every talk will have subtitles in English, French, Spanish, Chinese, German, and Italian, prepared after the event with our most accurate models, plus the key takeaways and highlights. Dubbed voices are being added talk by talk as well. Choose your language in the top right pull-down list. Currently, all videos have English and French subtitles, and many have all 6 available. (The rest coming as soon as we get back home) Open any talk for the full presentations, and see Key Takeaways and Highlights as well as other events from that day on the right. Download the subtitles/transcript in multiple languages. We appreciate our community and welcome any feedback regarding your user experience for both the LIVESTREAM and the WATCH AGAIN services. Please let us know if there are any features you’d like to see. Happy viewing! @vidaio_ bittensor:native",
+    "text": "Did you miss any of the great presentations at @ExploitSummit ? Or do you have any talks you’d like to watch again? Great news. Our LIVESTREAM website has them all. stream.vidaio.io/vod.html Video On Demand (VOD) allows you to watch all the action. At the top of the page, look for the “Watch again” tab. Filter by Day 1 or 2, and which stage the talk was given. Optionally, use the search bar on the right to search by speaker, subnet, or talk title. Every talk will have subtitles in English, French, Spanish, Chinese, German, and Italian, prepared after the event with our most accurate models, pl",
+    "url": "http://shitter.thepixora.com/vidaio_/status/2105411694688399582#m",
+    "fetched_at": "2026-10-01T03:30:46.483073+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "JosephJacks_",
+    "name": "Joseph Jacks",
+    "posted_at": "Wed, 30 Sep 2026 21:05:57 GMT",
+    "title": "RT by @JosephJacks_: Fun fact: We actually built our AI emoji picker @dubdotco with Jev at first, but since we had to feed the entire emoji catalog into Jev, it consumed a lot of input tokens. Refactored to a simple vector index on @upstash vector, and costs became nearly negligible 🤯 Just shipped this to prod – h/t @pedrooladeira 👏",
+    "text": "Fun fact: We actually built our AI emoji picker @dubdotco with Jev at first, but since we had to feed the entire emoji catalog into Jev, it consumed a lot of input tokens. Refactored to a simple vector index on @upstash vector, and costs became nearly negligible 🤯 Just shipped this to prod – h/t @pedrooladeira 👏 Video Max Leiter (@maxleiter) You don't need Jev for good emoji search maxleiter.com/blog/embedding… — http://shitter.thepixora.com/maxleiter/status/2103918959271793017#m",
+    "url": "http://shitter.thepixora.com/steventey/status/2105403801721299189#m",
+    "fetched_at": "2026-10-01T03:30:51.435992+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "rob_svrn",
+    "name": "Rob Greer",
+    "posted_at": "Wed, 30 Sep 2026 20:44:03 GMT",
+    "title": "RT by @rob_svrn: Today, the Kusanagi team visited MIT’s @medialab to present Bittensor. We met with the lab’s leadership and researchers for initial discussions about a potential partnership between @MIT and the wider Bittensor ecosystem through @opentensor. Let’s make TAO win.",
+    "text": "Today, the Kusanagi team visited MIT’s @medialab to present Bittensor. We met with the lab’s leadership and researchers for initial discussions about a potential partnership between @MIT and the wider Bittensor ecosystem through @opentensor. Let’s make TAO win.",
+    "url": "http://shitter.thepixora.com/kusanagi_vntrs/status/2105398290107798012#m",
+    "fetched_at": "2026-10-01T03:30:48.848439+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "JosephJacks_",
+    "name": "Joseph Jacks",
+    "posted_at": "Wed, 30 Sep 2026 20:15:56 GMT",
+    "title": "RT by @JosephJacks_: We've been working like crazy, day and night at @planepowers. We're shipping a lot, but we've fallen behind on sharing the updates with you. Keep building your Plane Agents in the meantime. Some big updates are dropping soon.",
+    "text": "We've been working like crazy, day and night at @planepowers. We're shipping a lot, but we've fallen behind on sharing the updates with you. Keep building your Plane Agents in the meantime. Some big updates are dropping soon.",
+    "url": "http://shitter.thepixora.com/vamsi_kurama/status/2105391215256772668#m",
+    "fetched_at": "2026-10-01T03:30:51.435992+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "JosephJacks_",
+    "name": "Joseph Jacks",
+    "posted_at": "Wed, 30 Sep 2026 19:44:33 GMT",
+    "title": "RT by @JosephJacks_: just checked and @Cap has active paying customers from 131 different countries 🤯",
+    "text": "just checked and @Cap has active paying customers from 131 different countries 🤯",
+    "url": "http://shitter.thepixora.com/richiemcilroy/status/2105383317910823150#m",
+    "fetched_at": "2026-10-01T03:30:51.435992+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "rob_svrn",
+    "name": "Rob Greer",
+    "posted_at": "Wed, 30 Sep 2026 19:18:52 GMT",
+    "title": "RT by @rob_svrn: Fantastic keynote address from @const_reborn highlighting the incredible progress Bittensor has made over the last year and where it stands in the context of the broader AI landscape.",
+    "text": "Fantastic keynote address from @const_reborn highlighting the incredible progress Bittensor has made over the last year and where it stands in the context of the broader AI landscape. sun runner (@0xSunRun) Bittensor State of the Union feat. @const_reborn. A must watch/listen. No one is bullish enough on what is being built here. Video — http://shitter.thepixora.com/0xSunRun/status/2104648112963047425#m",
+    "url": "http://shitter.thepixora.com/stillcorecap/status/2105376853254906260#m",
+    "fetched_at": "2026-10-01T03:30:48.848439+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "galaxyhq",
+    "name": "Galaxy Digital",
+    "posted_at": "Wed, 30 Sep 2026 18:51:25 GMT",
+    "title": "Galaxy is glad to have taken part in the inaugural Digital Assets Leadership Forum this week, hosted by Daman Virtual in partnership with the Dubai Department of Economy and Tourism. Managing Director, Bouchra Darwazah, who also serves as CEO of Galaxy Digital MENA, joined a panel alongside voices from government, regulation, banking and financial services to discuss where Dubai's digital asset ecosystem is heading next. We're looking forward to more of these conversations as the UAE’s digital asset market continues to scale.",
+    "text": "Galaxy is glad to have taken part in the inaugural Digital Assets Leadership Forum this week, hosted by Daman Virtual in partnership with the Dubai Department of Economy and Tourism. Managing Director, Bouchra Darwazah, who also serves as CEO of Galaxy Digital MENA, joined a panel alongside voices from government, regulation, banking and financial services to discuss where Dubai's digital asset ecosystem is heading next. We're looking forward to more of these conversations as the UAE’s digital asset market continues to scale.",
+    "url": "http://shitter.thepixora.com/galaxyhq/status/2105369944560972017#m",
+    "fetched_at": "2026-10-01T03:31:02.039120+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "webuildscore",
+    "name": "Score",
+    "posted_at": "Wed, 30 Sep 2026 16:53:13 GMT",
+    "title": "Substance over style",
+    "text": "Substance over style Max (@MaxSebti) how do you get strangers to build better vision models than you, without trusting any of them? adversarial vision ai delivered to you by opus 5.5 max Video — http://shitter.thepixora.com/MaxSebti/status/2105340056827314278#m",
+    "url": "http://shitter.thepixora.com/webuildscore/status/2105340200759222397#m",
+    "fetched_at": "2026-10-01T03:31:45.276684+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "TargonCompute",
+    "name": "Targon",
+    "posted_at": "Wed, 30 Sep 2026 15:53:46 GMT",
+    "title": "NVIDIA B300s are now available on demand. Secure GPUs are selling out fast on Targon, Ready to deploy on Blackwell? Grab yours now at https://targon.com/inventory",
+    "text": "NVIDIA B300s are now available on demand. Secure GPUs are selling out fast on Targon, Ready to deploy on Blackwell? Grab yours now at targon.com/inventory",
+    "url": "http://shitter.thepixora.com/TargonCompute/status/2105325236639973561#m",
+    "fetched_at": "2026-10-01T03:31:37.036099+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "webuildscore",
+    "name": "Score",
+    "posted_at": "Wed, 30 Sep 2026 14:37:28 GMT",
+    "title": "256 vision AI research teams competing to build the best models on the planet. Different tasks, different approaches, different ways to win. Models are judged on results through transparent, independent validation running 24/7. We’re building a vision lab where today’s best is tomorrow’s target. There’s always someone hungry enough to push it further, and an incentive to do exactly that. It’s more than automated research or recursive self-improvement. It’s the human need to evolve and win, distilled into an incentive mechanism. That’s Score. That’s SN44. That’s what building on Bittensor with $TAO makes possible.",
+    "text": "256 vision AI research teams competing to build the best models on the planet. Different tasks, different approaches, different ways to win. Models are judged on results through transparent, independent validation running 24/7. We’re building a vision lab where today’s best is tomorrow’s target. There’s always someone hungry enough to push it further, and an incentive to do exactly that. It’s more than automated research or recursive self-improvement. It’s the human need to evolve and win, distilled into an incentive mechanism. That’s Score. That’s SN44. That’s what building on Bittensor with ",
+    "url": "http://shitter.thepixora.com/webuildscore/status/2105306037943144483#m",
+    "fetched_at": "2026-10-01T03:31:45.276684+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "galaxyhq",
+    "name": "Galaxy Digital",
+    "posted_at": "Wed, 30 Sep 2026 13:29:10 GMT",
+    "title": "RT by @galaxyhq: NVIDIA Vera Rubin NVL72 is available on CoreWeave. @Cognition is running @devindevelopers in production on it, at up to 4.8x the total token throughput of GB200 NVL72. V100 in 2017. Vera Rubin today. Same platform, every generation. https://crwv.co/utcq5",
+    "text": "NVIDIA Vera Rubin NVL72 is available on CoreWeave. @Cognition is running @devindevelopers in production on it, at up to 4.8x the total token throughput of GB200 NVL72. V100 in 2017. Vera Rubin today. Same platform, every generation. crwv.co/utcq5",
+    "url": "http://shitter.thepixora.com/CoreWeave/status/2105288849719194040#m",
+    "fetched_at": "2026-10-01T03:31:02.039120+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "tplr_ai",
+    "name": "Templar",
+    "posted_at": "Wed, 23 Sep 2026 16:10:16 GMT",
+    "title": "Video",
+    "text": "Video",
+    "url": "http://shitter.thepixora.com/tplr_ai/status/2102792674118164542#m",
+    "fetched_at": "2026-10-01T03:31:32.413448+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "tplr_ai",
+    "name": "Templar",
+    "posted_at": "Wed, 23 Sep 2026 16:10:16 GMT",
+    "title": "R to @tplr_ai: Read the blog: https://www.tplr.ai/publications/blog/skipping-stages-with-fixed-projections",
+    "text": "Read the blog: tplr.ai/publications/blog/sk… Link Fault tolerance in low-bandwidth model parallelism: exploring pipeline stage-skipping with boundary... We explore how the residual nature of the transformer architecture can be leveraged to mitigate hardware faults, and demonstrate that the compression-based implementation of low-bandwidth model... tplr.ai",
+    "url": "http://shitter.thepixora.com/tplr_ai/status/2102792676676432160#m",
+    "fetched_at": "2026-10-01T03:31:32.413448+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "tplr_ai",
+    "name": "Templar",
+    "posted_at": "Wed, 16 Sep 2026 14:57:46 GMT",
+    "title": "R to @tplr_ai: When using pipeline compression with fixed projections shared across layers, robustness improves further as seen in the figure below. This suggests that shared projectors align representations across stage boundaries, making bypasses less disruptive. 4/n",
+    "text": "When using pipeline compression with fixed projections shared across layers, robustness improves further as seen in the figure below. This suggests that shared projectors align representations across stage boundaries, making bypasses less disruptive. 4/n",
+    "url": "http://shitter.thepixora.com/tplr_ai/status/2100237714918367690#m",
+    "fetched_at": "2026-10-01T03:31:32.413448+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "tplr_ai",
+    "name": "Templar",
+    "posted_at": "Wed, 16 Sep 2026 14:57:44 GMT",
+    "title": "We’ve been researching fault tolerance in Crucible, Templar’s pre-training platform. The goal: keep training through node failures and make better use of unreliable workers and spot instances, without idling an entire model replica when one stage goes down. 1/n",
+    "text": "We’ve been researching fault tolerance in Crucible, Templar’s pre-training platform. The goal: keep training through node failures and make better use of unreliable workers and spot instances, without idling an entire model replica when one stage goes down. 1/n Video",
+    "url": "http://shitter.thepixora.com/tplr_ai/status/2100237708186550642#m",
+    "fetched_at": "2026-10-01T03:31:32.413448+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "webuildscore",
+    "name": "Score",
+    "posted_at": "Tue, 29 Sep 2026 22:49:49 GMT",
+    "title": "Score Studio, explained by our little friend Claude Opus 5.5 Max",
+    "text": "Score Studio, explained by our little friend Claude Opus 5.5 Max Max (@MaxSebti) asked opus 5.5 to describe scorestudio.ai zero shot and it did this Video — http://shitter.thepixora.com/MaxSebti/status/2105066556552007876#m",
+    "url": "http://shitter.thepixora.com/webuildscore/status/2105067553613586558#m",
+    "fetched_at": "2026-10-01T03:31:45.276684+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "webuildscore",
+    "name": "Score",
+    "posted_at": "Tue, 29 Sep 2026 19:57:38 GMT",
+    "title": "R to @webuildscore: Gun labeled. Rocket launcher, minigun and the rest of the weapon wheel next.",
+    "text": "Gun labeled. Rocket launcher, minigun and the rest of the weapon wheel next.",
+    "url": "http://shitter.thepixora.com/webuildscore/status/2105024223269868015#m",
+    "fetched_at": "2026-10-01T03:31:45.276684+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "webuildscore",
+    "name": "Score",
+    "posted_at": "Tue, 29 Sep 2026 19:52:51 GMT",
+    "title": "Preparing our Security Risk Indicator model for the GTA 6 release on November 19. We're already teaching it what a robbery looks like. Draw a box, Score Studio suggests the class, confirm, next frame. And yes, we know it's a bandana. Try it at https://scorestudio.ai",
+    "text": "Preparing our Security Risk Indicator model for the GTA 6 release on November 19. We're already teaching it what a robbery looks like. Draw a box, Score Studio suggests the class, confirm, next frame. And yes, we know it's a bandana. Try it at scorestudio.ai",
+    "url": "http://shitter.thepixora.com/webuildscore/status/2105023016014844353#m",
+    "fetched_at": "2026-10-01T03:31:45.276684+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "TargonCompute",
+    "name": "Targon",
+    "posted_at": "Tue, 29 Sep 2026 18:49:40 GMT",
+    "title": "RT by @TargonCompute: The Manifold team is enjoying Montreal at Exploit Summit, where we're announcing new features and roadmaps. As part of our new release rollout, we've launched Bare Metal and Sandboxes on Targon: a full physical machine when you need the whole box, and disposable Linux environments when you don't. Thanks for building with us.",
+    "text": "The Manifold team is enjoying Montreal at Exploit Summit, where we're announcing new features and roadmaps. As part of our new release rollout, we've launched Bare Metal and Sandboxes on Targon: a full physical machine when you need the whole box, and disposable Linux environments when you don't. Thanks for building with us.",
+    "url": "http://shitter.thepixora.com/manifoldlabs/status/2105007116033409172#m",
+    "fetched_at": "2026-10-01T03:31:37.036099+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "TargonCompute",
+    "name": "Targon",
+    "posted_at": "Tue, 29 Sep 2026 18:39:43 GMT",
+    "title": "R to @TargonCompute: Try Bare Metal & Sandboxes now on https://Targon.com",
+    "text": "Try Bare Metal &amp; Sandboxes now on Targon.com Link Targon Scale with Secure GPU &amp; CPU Rentals on a Lightning-Fast Cloud for Training and Deployment targon.com",
+    "url": "http://shitter.thepixora.com/TargonCompute/status/2105004611392160070#m",
+    "fetched_at": "2026-10-01T03:31:37.036099+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "TargonCompute",
+    "name": "Targon",
+    "posted_at": "Tue, 29 Sep 2026 18:39:42 GMT",
+    "title": "We're excited to share that Bare Metal and Sandboxes are now live on http://Targon.com Bare Metal → An entire physical machine dedicated to your organization → No hypervisor, no container runtime, no noisy neighbors → Full control of kernel, drivers and firmware-level GPU settings → Every operator is KYC-verified, keeping workloads secure without TVM Sandboxes → Short-lived, isolated Linux environments for development, testing, previews and agents → Provisioning to running within seconds → Browser terminal, graphical Linux desktop or SSH → Fork independent copies for parallel experiments and agent tasks → Publish a template from any setup worth repeating → Pause when idle to stop active compute billing, resume anytime The Targon team has been focused on expanding features and enhancing the Targon experience, and will continue rolling out new releases.",
+    "text": "We're excited to share that Bare Metal and Sandboxes are now live on Targon.com Bare Metal → An entire physical machine dedicated to your organization → No hypervisor, no container runtime, no noisy neighbors → Full control of kernel, drivers and firmware-level GPU settings → Every operator is KYC-verified, keeping workloads secure without TVM Sandboxes → Short-lived, isolated Linux environments for development, testing, previews and agents → Provisioning to running within seconds → Browser terminal, graphical Linux desktop or SSH → Fork independent copies for parallel experiments and agent ta",
+    "url": "http://shitter.thepixora.com/TargonCompute/status/2105004608531939718#m",
+    "fetched_at": "2026-10-01T03:31:37.036099+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "galaxyhq",
+    "name": "Galaxy Digital",
+    "posted_at": "Tue, 29 Sep 2026 16:52:01 GMT",
+    "title": "RT by @galaxyhq: BTC tests $88K on $2.4B in ETF inflows as the market defies macro headwinds. @RockawaysX @Ryanconnor joins to discuss esoteric onchain RWAs, where crypto and AI actually intersect, and the shifting crypto investment landscape. We also break down @vitalikbuterin updated vision for Ethereum and why AI agents might trigger a bank run. Galaxy Grid is live now👇",
+    "text": "BTC tests $88K on $2.4B in ETF inflows as the market defies macro headwinds. @RockawaysX @Ryanconnor joins to discuss esoteric onchain RWAs, where crypto and AI actually intersect, and the shifting crypto investment landscape. We also break down @vitalikbuterin updated vision for Ethereum and why AI agents might trigger a bank run. Galaxy Grid is live now👇 Video",
+    "url": "http://shitter.thepixora.com/glxyresearch/status/2104977509993287724#m",
+    "fetched_at": "2026-10-01T03:31:02.039120+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "tplr_ai",
+    "name": "Templar",
+    "posted_at": "Tue, 29 Sep 2026 14:14:21 GMT",
+    "title": "The heads of the biggest AI labs want to agree among themselves on when everyone should slow down. @TheEconomist's piece on that push ends with Covenant-72B, the model we finished training in March on GPUs contributed over the internet, as a reason such agreements may be hard to enforce. What the piece doesn't say is that once training no longer requires one giant, tightly connected cluster, the power to build new models no longer has to sit with a few companies. Globally distributed training and open models are essential tools for keeping that power from concentrating in the frontier labs. They let many more participants, from nations to companies, own a share of the future of AI and take part in building it. https://www.economist.com/international/2026/09/15/agreeing-to-make-ai-safer-may-be-impossible",
+    "text": "The heads of the biggest AI labs want to agree among themselves on when everyone should slow down. @TheEconomist's piece on that push ends with Covenant-72B, the model we finished training in March on GPUs contributed over the internet, as a reason such agreements may be hard to enforce. What the piece doesn't say is that once training no longer requires one giant, tightly connected cluster, the power to build new models no longer has to sit with a few companies. Globally distributed training and open models are essential tools for keeping that power from concentrating in the frontier labs. Th",
+    "url": "http://shitter.thepixora.com/tplr_ai/status/2104937831097352377#m",
+    "fetched_at": "2026-10-01T03:31:32.413448+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "galaxyhq",
+    "name": "Galaxy Digital",
+    "posted_at": "Tue, 29 Sep 2026 12:32:48 GMT",
+    "title": "RT by @galaxyhq: All 113 Galaxy Research reports so far in 2026",
+    "text": "All 113 Galaxy Research reports so far in 2026 Video",
+    "url": "http://shitter.thepixora.com/glxyresearch/status/2104912275316654313#m",
+    "fetched_at": "2026-10-01T03:31:02.039120+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "rob_svrn",
+    "name": "Rob Greer",
+    "posted_at": "Tue, 29 Sep 2026 12:00:15 GMT",
+    "title": "RT by @rob_svrn: Very excited crowd at Exploit. For those that missed, here is a break down of what I announced on stage.",
+    "text": "Very excited crowd at Exploit. For those that missed, here is a break down of what I announced on stage.",
+    "url": "http://shitter.thepixora.com/const_reborn/status/2104904084054777917#m",
+    "fetched_at": "2026-10-01T03:30:48.848439+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "TargonCompute",
+    "name": "Targon",
+    "posted_at": "Tue, 01 Sep 2026 21:59:24 GMT",
+    "title": "Happy to help! Proud to be trusted with running critical workloads such as validators. Very excited to see the talented team at DeSci Labs join the Bittensor ecosystem, their research and expertise are sure to add long-lasting value to the network. 🔬",
+    "text": "Happy to help! Proud to be trusted with running critical workloads such as validators. Very excited to see the talented team at DeSci Labs join the Bittensor ecosystem, their research and expertise are sure to add long-lasting value to the network. 🔬 Claims - Subnet 111 (@DeSciClaims) Our validator for SN111 is running on hardware provided by @TargonCompute. We're super grateful for the fast, reliable setup and the team's amazing support. Thank you, guys! — http://shitter.thepixora.com/DeSciClaims/status/2094364807596036575#m",
+    "url": "http://shitter.thepixora.com/TargonCompute/status/2094908006039236625#m",
+    "fetched_at": "2026-10-01T03:31:37.036099+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "JosephJacks_",
+    "name": "Joseph Jacks",
+    "posted_at": "Thu, 01 Oct 2026 00:20:05 GMT",
+    "title": "Folks .. this is why you don’t take LEAD investment from VCs who unapologetically invest in your competitors and don’t give a flying fuck for doing so.",
+    "text": "Folks .. this is why you don’t take LEAD investment from VCs who unapologetically invest in your competitors and don’t give a flying fuck for doing so. Vinod Khosla (@vkhosla) You are a struggling second tier competitor that is more unethical and lying just because you have no decency or sense of proper behavior and shows your desperation. Straight out lying about if Chris being fired I thought would be below even you. Community note: Khosla is an investor in both Cognition and Factory. khoslaventures.com/category/enter… — http://shitter.thepixora.com/vkhosla/status/2105382865173459034#m",
+    "url": "http://shitter.thepixora.com/JosephJacks_/status/2105452656626118723#m",
+    "fetched_at": "2026-10-01T03:30:51.435992+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "rob_svrn",
+    "name": "Rob Greer",
+    "posted_at": "Mon, 28 Sep 2026 22:00:34 GMT",
+    "title": "RT by @rob_svrn: Training and inference will run on the edge, by miners, myopically seeking energy wells like they do with Bitcoin mining. @jon_durbin presenting the future and how humanity gets there.",
+    "text": "Training and inference will run on the edge, by miners, myopically seeking energy wells like they do with Bitcoin mining. @jon_durbin presenting the future and how humanity gets there.",
+    "url": "http://shitter.thepixora.com/const_reborn/status/2104692770149736953#m",
+    "fetched_at": "2026-10-01T03:30:48.848439+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "rob_svrn",
+    "name": "Rob Greer",
+    "posted_at": "Mon, 28 Sep 2026 19:03:07 GMT",
+    "title": "RT by @rob_svrn: Bittensor State of the Union feat. @const_reborn. A must watch/listen. No one is bullish enough on what is being built here.",
+    "text": "Bittensor State of the Union feat. @const_reborn. A must watch/listen. No one is bullish enough on what is being built here. Video",
+    "url": "http://shitter.thepixora.com/0xSunRun/status/2104648112963047425#m",
+    "fetched_at": "2026-10-01T03:30:48.848439+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "galaxyhq",
+    "name": "Galaxy Digital",
+    "posted_at": "Mon, 28 Sep 2026 11:16:59 GMT",
+    "title": "RT by @galaxyhq: EVERY BITCOIN BY THE PRICE IT LAST MOVED a short video of bitcoin history by its UTXO realized price distribution (URPD)",
+    "text": "EVERY BITCOIN BY THE PRICE IT LAST MOVED a short video of bitcoin history by its UTXO realized price distribution (URPD) Video",
+    "url": "http://shitter.thepixora.com/intangiblecoins/status/2104530805733388754#m",
+    "fetched_at": "2026-10-01T03:31:02.039120+00:00",
+    "via_instance": "https://nitter.cz"
+  }
+]

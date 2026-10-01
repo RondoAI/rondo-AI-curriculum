@@ -1,0 +1,218 @@
+# Intelligence Digest, 2026-10-01
+
+_Single-file briefing for the daily research agent. Sources listed in trust order: human-curated notes first, then objective (github), then editorial (RSS), then volume (X via Nitter)._
+
+
+## ⊕ HUMAN-CURATED NOTES, last 7 days
+
+_no human notes in the window_
+
+## ⊕ MACRO BACKDROP via SEMIANALYSIS, 12 most recent posts
+
+_SemiAnalysis is the most-cited semiconductor and AI infrastructure publication in the industry. They do NOT cover Bittensor. The Oracle uses this corpus for any claim about hyperscaler compute, GPU economics, datacenter power, foundry capacity, memory pricing, lab unit economics. DO NOT cite SemiAnalysis for any Bittensor-specific claim. Full archive (289 posts, May 2020 onwards) lives at `intelligence/_external_sources/semianalysis/` with an `INDEX.md` table of contents. Paywalled posts show only subtitle + free preview; free posts have the full body extracted._
+
+### 2026-09-28 · How GLM5.3 Sparse Attention Affects HBM Memory Usage
+_GLM-5.3, KV Cache Offloading, HiSparse, AgentX TileRT, InferenceX DeepSeek Sparse Attention, IndexShare, Single-rollout Asynchronous Optimization, Cybersecurity_
+
+- **Authors:** ["Kimbo Chen", "Alec Ibarra", "Wenyao Gao", "Pratt Bhatt", "Bryan Shan", "Dylan Patel"]
+- **Access:** paid-preview
+- **URL:** https://newsletter.semianalysis.com/p/sparse-savings-persistent-demand-inside-glm53
+- **Corpus file:** `intelligence/_external_sources/semianalysis/2026-09-28-sparse-savings-persistent-demand-inside-glm53.md`
+
+> # How Sparse Attention Affects DRAM/NAND Memory  How does sparse attention affect the TAM of memory, including HBM and NAND? Sparse attention selects top-k most relevant tokens to attend to, reducing the memory consumption and bandwidth requirements during the core Scaled Dot-Production Attention (SDPA) operation. However, the efficiency improvement doesn’t directly translate to overall memory savings in practice. Concretely, the top-k selection operation typically requires the full context to b
+
+### 2026-09-26 · Intel Panther Lake Teardown
+_Taking a look inside Intel’s latest consumer chip and 18A process node_
+
+- **Authors:** ["Adith Shankar", "Daniel Sanchez", "Allison Elliott", "Sarah Lawrence", "Afzal Ahmad", "Andrew Wagner", "STEEL Team", "
+- **Access:** paid-preview
+- **URL:** https://newsletter.semianalysis.com/p/intel-panther-lake-teardown
+- **Corpus file:** `intelligence/_external_sources/semianalysis/2026-09-26-intel-panther-lake-teardown.md`
+
+> Panther Lake debuts the first commercial implementation of backside power delivery (BSPDN), introduces Intel’s first iteration of gate-all-around (GAA) transistors, and showcases their advanced packaging capabilities with its Foveros-S assembly. With Panther Lake, Intel’s manufacturing arc has shifted from nebulous roadmaps to shipped silicon, a significant milestone on their long road back to competitive semiconductor manufacturing. To evaluate the extent of Intel’s comeback, we tore down Panth
+
+### 2026-09-25 · The Chinese AI Infrastructure Boom: Introducing the SemiAnalysis China Datacenter Model
+_1,000+ facilities across 60+ operators mapped, built retail-first and flipped by AI, largest hyperscaler leases 1/5 national capacity, 100MW in 12 months, Eastern Data Western Compute_
+
+- **Authors:** ["Everlyn", "Dylan Patel", "Patrick Schaabi"]
+- **Access:** paid-preview
+- **URL:** https://newsletter.semianalysis.com/p/the-chinese-ai-infrastructure-boom
+- **Corpus file:** `intelligence/_external_sources/semianalysis/2026-09-25-the-chinese-ai-infrastructure-boom.md`
+
+> China sits at the frontier of the global model race. GLM 5.3 and Kimi K3 are the latest in a run of striking open-weights releases. ByteDance's Doubao serves 345M monthly users as China's ChatGPT, and Seedance is the State-Of-The-Art video generation model.  Every one of those models runs on a datacenter, and China has been building them at a pace that has gone largely unmeasured outside the country. The biggest tenant files no 10-K. Several of the largest landlords have never listed. Most of th
+
+### 2026-09-23 · ClusterMAX 3.0: The Industry Standard GPU Cloud Rating System Returns
+_In gory detail: reliability, performance, support, pricing—and, of course, security—in our most thorough analysis of GPU cloud providers globally._
+
+- **Authors:** ["Jordan Nanos", "Sam Harshe", "Samuel Kruse", "Pratt Bhatt", "Billy Cao", "Jack Carson", "Dylan Patel"]
+- **Access:** paid-preview
+- **URL:** https://newsletter.semianalysis.com/p/clustermax-30-the-industry-standard
+- **Corpus file:** `intelligence/_external_sources/semianalysis/2026-09-23-clustermax-30-the-industry-standard.md`
+
+> This post has bonus content for paid subscribers. Upgrade to get full access.  Subscribe  In 8 months since our last major release of ClusterMAX, slavering investors have just about run out of pockets to stuff checks into. GPU supply has gone to zero. Meanwhile, we have been hard at work putting clusters through the ringer.  Weeks ago, we teased this report with some R-rated anecdotes from our experiences probing the security practices of neoclouds, eliciting a PSA from a neocloud customer that
+
+### 2026-09-21 · Computation and Data Movement for Inference
+_Mapping MoE models onto inference hardware: structure, flow, and efficient serving_
+
+- **Authors:** ["Tanj Bennett"]
+- **Access:** paid-preview
+- **URL:** https://newsletter.semianalysis.com/p/computation-and-data-movement-for
+- **Corpus file:** `intelligence/_external_sources/semianalysis/2026-09-21-computation-and-data-movement-for.md`
+
+> Mixture of Experts, now widely used in frontier models, has changed both the structure of serving and the economics of useful inference. It did more than increase parameter count. It changed which tensors are active for each token, what must remain close together, which transfers need strong local bandwidth, which can tolerate a weaker network link, and how memory movement, storage, and scheduling contribute to useful throughput.  The best place to begin is the service as a whole. Inference runs
+
+### 2026-09-18 · Engrams Embedding Entendre: Codesign for Efficient DRAM/SSD Offloading
+_New Model Architecture Implications for TAM of DRAM/NVMe, DeepSeek V4.1 Flash, AgentX, InferenceX, NVMe experiments_
+
+- **Authors:** ["Bryan Shan", "Cam Quilici", "Alec Ibarra", "Kimbo Chen", "Myron Xie", "Dylan Patel"]
+- **Access:** paid-preview
+- **URL:** https://newsletter.semianalysis.com/p/engrams-embedding-entendre-codesign
+- **Corpus file:** `intelligence/_external_sources/semianalysis/2026-09-18-engrams-embedding-entendre-codesign.md`
+
+> Engram extends standard token embeddings with learned multi-token lookups. Recurring local patterns retrieve vectors directly, reducing the need to reconstruct them through attention and feed-forward layers.  With Engram model architecture optimization, it allows for lower HBM capacity to be needed for models at the same quality. [This does not mean there won’t be an insane demand for HBM but it just means that model architecture will continue to innovate around constraints.](https://semianalysi
+
+### 2026-09-15 · Everyone Says Datacenter Moratoriums Are Killing the US Buildout. We disagree
+_300+ moratoriums mapped, 20GW sits inside a restricted local boundary, 1,525MW actually slips, 2.3GW nationwide including New York_
+
+- **Authors:** ["Maya Barkin", "Reyk Knuhtsen", "Jeremie Eliahou Ontiveros", "Dylan Patel"]
+- **Access:** paid-preview
+- **URL:** https://newsletter.semianalysis.com/p/everyone-says-datacenter-moratoriums
+- **Corpus file:** `intelligence/_external_sources/semianalysis/2026-09-15-everyone-says-datacenter-moratoriums.md`
+
+> The debate on US datacenters has never been so politically charged. Four states have acted in under two months. New York has stopped issuing environmental permits for datacenters, Texas has paused the next step in its massive ERCOT interconnection queue, Pennsylvania has pulled datacenters out of fast-track permitting and made state permits conditional on new guardrails, and Oregon has frozen datacenter deals on state-owned land.  Beyond the state level, more than 300 towns, cities and counties
+
+### 2026-09-14 · Vera Rubin NVL72 Agentic Inference: 67x better Performance per Dollar
+_Jensen Sandbagging Performance Again, 2x more Annual Profit Per GigaWatt, The More you Buy, The More you Earn, AgentX, InferenceX, Extreme Co-Design_
+
+- **Authors:** ["Bryan Shan", "Alec Ibarra", "Cam Quilici", "Wenyao Gao", "Dylan Patel"]
+- **Access:** paid-preview
+- **URL:** https://newsletter.semianalysis.com/p/vera-rubin-nvl72-agentic-inference
+- **Corpus file:** `intelligence/_external_sources/semianalysis/2026-09-14-vera-rubin-nvl72-agentic-inference.md`
+
+> [Rubin is the first platform co-designed across six products for the agentic era: Rubin GPU, Vera CPU, NVLink 6 Switch, ConnectX-9, BlueField-4, and Spectrum-6.](https://newsletter.semianalysis.com/p/vera-rubin-extreme-co-design-an-evolution) Today we are publishing the first verified agentic inference results for Rubin, measured on our agentic inference benchmark, AgentX. Even on early pre-release software, the results already show why extreme co-design was necessary.  At GTC 2026, Jensen prese
+
+### 2026-09-14 · A Brain Too Big to Carry — On-Device vs Datacenter Inference
+_Robot Models, Silicon & DRAM Efficiency, Jetson Thor vs. B300 TCO, Deployments, The Network Wall_
+
+- **Authors:** ["Ivan Chiam", "Gianluca", "Zane Fong", "Bryan Shan", "Dylan Patel", "Reyk Knuhtsen"]
+- **Access:** paid-preview
+- **URL:** https://newsletter.semianalysis.com/p/a-brain-too-big-to-carry-on-device
+- **Corpus file:** `intelligence/_external_sources/semianalysis/2026-09-14-a-brain-too-big-to-carry-on-device.md`
+
+> # Where should the brain of the robot go?  So far, AI has mostly lived behind a screen. Chatbots answered questions. Then agents started driving software and finishing multi-step tasks on their own. The next step is AI that acts in the physical world, and the biggest piece of that is robots. It’s early. Nobody has settled the hardware, the models, or the economics.  ## The Embodiment Problem  With LLMs, the hardware bends to the model. Pour in as much data and compute as possible at training, th
+
+### 2026-09-13 · Long Live the Short King: Why 4-hi HBM Wins
+_Same Bandwidth, Fewer Dies: How 4-hi HBM Cuts Inference Costs and Makes Scarce DRAM Go Further_
+
+- **Authors:** ["Myron Xie", "Bryan Shan", "Harrison Barclay", "Minjae Kang", "Dylan Patel"]
+- **Access:** paid-preview
+- **URL:** https://newsletter.semianalysis.com/p/long-live-the-short-king-why-4-hi
+- **Corpus file:** `intelligence/_external_sources/semianalysis/2026-09-13-long-live-the-short-king-why-4-hi.md`
+
+> High Bandwidth Memory has been a key technology enabling the AI revolution. Despite HBM’s high costs relative to other forms of memory, chip designers have packaged more and more HBM into AI accelerators. Customers push to design in newer generation HBM whilst also increasing capacity per XPU by adding more cubes, and with denser and higher stacks. This has led to HBM consuming an increasing share of total DRAM wafer capacity, resulting in the extreme DRAM shortage we see ourselves in today.  We
+
+### 2026-09-11 · Nvidia’s Backstop Universe – Heads I Win, Tails Who Loses?
+_The $11T AI Buildout, Nvidia’s Backstop Economics, and the Limits of Nvidia’s Balance Sheet_
+
+- **Authors:** ["Daniel Nishball", "Oliver Kennon", "Terence Ong"]
+- **Access:** paid-preview
+- **URL:** https://newsletter.semianalysis.com/p/nvidias-backstop-universe-heads-i
+- **Corpus file:** `intelligence/_external_sources/semianalysis/2026-09-11-nvidias-backstop-universe-heads-i.md`
+
+> Follow the money behind the AI buildout with our [AI Compute, Capital and Markets Model](https://semianalysis.com/capital-and-markets/) - understand who is funding the expansion, how deals are structured, and where the risks sit. Contact our team [here](https://semianalysis.com/capital-and-markets/) to find out more.  We’re also hiring for SemiAnalysis’s Compute, Capital & Markets team. We have four openings across New York and Singapore:  - Senior Credit Markets Specialist - New York: 5-7 years
+
+### 2026-09-10 · What is So Hard About Behind-The-Meter Power For Datacenters? Part 1
+_Dumb Science Experiments vs. Money Printing Machines_
+
+- **Authors:** ["Ellie Holbrook", "Robert Boswall", "Jeremie Eliahou Ontiveros", "Nicolas Bontigui", "Dylan Patel"]
+- **Access:** paid-preview
+- **URL:** https://newsletter.semianalysis.com/p/what-is-so-hard-about-behind-the
+- **Corpus file:** `intelligence/_external_sources/semianalysis/2026-09-10-what-is-so-hard-about-behind-the.md`
+
+> [![](https://substackcdn.com/image/fetch/$s_!xp5B!,w_1456,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F0fe650d6-cdda-4d26-a83d-1e793cf406c0_1672x941.png)](https://substackcdn.com/image/fetch/$s_!xp5B!,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F0fe650d6-cdda-4d26-a83d-1e793cf406c0_1672x941.png)  Last year we were the first to call out [Onsite Gas Generation
+
+
+## ⊕ GITHUB COMMITS + RELEASES, last 24h
+
+_no commits or releases in the lookback window_
+
+## ⊕ ECOSYSTEM BLOGS via RSS
+
+_no new posts in the lookback window_
+
+## ⊕ X via NITTER, voices we track
+
+- @markjeffrey (Mark Jeffrey, Wed, 30 Sep 2026): Bittensor Subnet 64, Chutes, has an infernece platform that at one point was serving billions of tokens a day on OpenRouter. The problem? It wasn't profitable. In order for the subnet to survive long-term in the fierce competition that is Bittensor, this had to be figured out. The network incentivized Chutes to serve inference more efficiently. So backend dev @jon_durbin set out to solve it. In the process, he (and the Chutes team) may have wound up discovering an entirely new way to train models that could revolutionize decentralized training and truly unlock open-source models for the world.  
+  http://shitter.thepixora.com/0xSunRun/status/2105443672548381102#m
+- @JosephJacks_ (Joseph Jacks, Wed, 30 Sep 2026): Introducing the LiquidRouter. We experimented with the @liquidai's d1 classifier model, and came up with a router that saves up to 80% of your LLM costs. It rates every of your prompt's difficulty and sends it to the right model: low-cost models for easy work, top models for hard work. Liquid AI (@liquidai) Announcing d1, our first decision model. It's the first model to outperform Jev on @huggingface's Decision Index. &gt; wins on multilingual evals &gt; more robust against prompt injection &gt; handles longer inputs more effectively &gt; built for fast, structured decision-making in software  
+  http://shitter.thepixora.com/aimlapi/status/2105439034298302688#m
+- @markjeffrey (Mark Jeffrey, Wed, 30 Sep 2026): Subnets using Subnets. Powered by Bittensor. GM is our 'openrouter'. Beam is our 'Big Bandwidth' provider. Move massive files fast and securely with granular enterprise-class controls. Good Morning (@say_gm_) Beam Studio is live and we're proud to be a launch partner. Every prompt in Beam AI, from building workflows to investigating failed runs, is routed through SayGm. @b1m_ai said "we could have picked any provider but SayGM is the best". Congrats on the launch. — http://shitter.thepixora.com/say_gm_/status/2105436391513673819#m  
+  http://shitter.thepixora.com/markjeffrey/status/2105438309673738667#m
+- @markjeffrey (Mark Jeffrey, Wed, 30 Sep 2026): Boom &gt; Doom Beff (e/acc) (@beffjezos) Never doom. Always accelerate. e/acc — http://shitter.thepixora.com/beffjezos/status/2105399255779488202#m  
+  http://shitter.thepixora.com/markjeffrey/status/2105429376905216481#m
+- @markjeffrey (Mark Jeffrey, Wed, 30 Sep 2026): Looking forward to the Strange New Worlds episode where the crew gets stuck in a Road Runner cartoon. Watcher.Guru (@WatcherGuru) JUST IN: 🇺🇸 Judge officially approves Paramount's acquisition of Warner Bros for $110,000,000,000 — http://shitter.thepixora.com/WatcherGuru/status/2105385372444442786#m  
+  http://shitter.thepixora.com/markjeffrey/status/2105423685545009400#m
+- @markjeffrey (Mark Jeffrey, Wed, 30 Sep 2026): Did you miss any of the great presentations at @ExploitSummit ? Or do you have any talks you’d like to watch again? Great news. Our LIVESTREAM website has them all. stream.vidaio.io/vod.html Video On Demand (VOD) allows you to watch all the action. At the top of the page, look for the “Watch again” tab. Filter by Day 1 or 2, and which stage the talk was given. Optionally, use the search bar on the right to search by speaker, subnet, or talk title. Every talk will have subtitles in English, French, Spanish, Chinese, German, and Italian, prepared after the event with our most accurate models, pl  
+  http://shitter.thepixora.com/vidaio_/status/2105411694688399582#m
+- @JosephJacks_ (Joseph Jacks, Wed, 30 Sep 2026): Fun fact: We actually built our AI emoji picker @dubdotco with Jev at first, but since we had to feed the entire emoji catalog into Jev, it consumed a lot of input tokens. Refactored to a simple vector index on @upstash vector, and costs became nearly negligible 🤯 Just shipped this to prod – h/t @pedrooladeira 👏 Video Max Leiter (@maxleiter) You don't need Jev for good emoji search maxleiter.com/blog/embedding… — http://shitter.thepixora.com/maxleiter/status/2103918959271793017#m  
+  http://shitter.thepixora.com/steventey/status/2105403801721299189#m
+- @rob_svrn (Rob Greer, Wed, 30 Sep 2026): Today, the Kusanagi team visited MIT’s @medialab to present Bittensor. We met with the lab’s leadership and researchers for initial discussions about a potential partnership between @MIT and the wider Bittensor ecosystem through @opentensor. Let’s make TAO win.  
+  http://shitter.thepixora.com/kusanagi_vntrs/status/2105398290107798012#m
+- @JosephJacks_ (Joseph Jacks, Wed, 30 Sep 2026): We've been working like crazy, day and night at @planepowers. We're shipping a lot, but we've fallen behind on sharing the updates with you. Keep building your Plane Agents in the meantime. Some big updates are dropping soon.  
+  http://shitter.thepixora.com/vamsi_kurama/status/2105391215256772668#m
+- @JosephJacks_ (Joseph Jacks, Wed, 30 Sep 2026): just checked and @Cap has active paying customers from 131 different countries 🤯  
+  http://shitter.thepixora.com/richiemcilroy/status/2105383317910823150#m
+- @rob_svrn (Rob Greer, Wed, 30 Sep 2026): Fantastic keynote address from @const_reborn highlighting the incredible progress Bittensor has made over the last year and where it stands in the context of the broader AI landscape. sun runner (@0xSunRun) Bittensor State of the Union feat. @const_reborn. A must watch/listen. No one is bullish enough on what is being built here. Video — http://shitter.thepixora.com/0xSunRun/status/2104648112963047425#m  
+  http://shitter.thepixora.com/stillcorecap/status/2105376853254906260#m
+- @galaxyhq (Galaxy Digital, Wed, 30 Sep 2026): Galaxy is glad to have taken part in the inaugural Digital Assets Leadership Forum this week, hosted by Daman Virtual in partnership with the Dubai Department of Economy and Tourism. Managing Director, Bouchra Darwazah, who also serves as CEO of Galaxy Digital MENA, joined a panel alongside voices from government, regulation, banking and financial services to discuss where Dubai's digital asset ecosystem is heading next. We're looking forward to more of these conversations as the UAE’s digital asset market continues to scale.  
+  http://shitter.thepixora.com/galaxyhq/status/2105369944560972017#m
+- @webuildscore (Score, Wed, 30 Sep 2026): Substance over style Max (@MaxSebti) how do you get strangers to build better vision models than you, without trusting any of them? adversarial vision ai delivered to you by opus 5.5 max Video — http://shitter.thepixora.com/MaxSebti/status/2105340056827314278#m  
+  http://shitter.thepixora.com/webuildscore/status/2105340200759222397#m
+- @TargonCompute (Targon, Wed, 30 Sep 2026): NVIDIA B300s are now available on demand. Secure GPUs are selling out fast on Targon, Ready to deploy on Blackwell? Grab yours now at targon.com/inventory  
+  http://shitter.thepixora.com/TargonCompute/status/2105325236639973561#m
+- @webuildscore (Score, Wed, 30 Sep 2026): 256 vision AI research teams competing to build the best models on the planet. Different tasks, different approaches, different ways to win. Models are judged on results through transparent, independent validation running 24/7. We’re building a vision lab where today’s best is tomorrow’s target. There’s always someone hungry enough to push it further, and an incentive to do exactly that. It’s more than automated research or recursive self-improvement. It’s the human need to evolve and win, distilled into an incentive mechanism. That’s Score. That’s SN44. That’s what building on Bittensor with   
+  http://shitter.thepixora.com/webuildscore/status/2105306037943144483#m
+- @galaxyhq (Galaxy Digital, Wed, 30 Sep 2026): NVIDIA Vera Rubin NVL72 is available on CoreWeave. @Cognition is running @devindevelopers in production on it, at up to 4.8x the total token throughput of GB200 NVL72. V100 in 2017. Vera Rubin today. Same platform, every generation. crwv.co/utcq5  
+  http://shitter.thepixora.com/CoreWeave/status/2105288849719194040#m
+- @tplr_ai (Templar, Wed, 23 Sep 2026): Video  
+  http://shitter.thepixora.com/tplr_ai/status/2102792674118164542#m
+- @tplr_ai (Templar, Wed, 23 Sep 2026): Read the blog: tplr.ai/publications/blog/sk… Link Fault tolerance in low-bandwidth model parallelism: exploring pipeline stage-skipping with boundary... We explore how the residual nature of the transformer architecture can be leveraged to mitigate hardware faults, and demonstrate that the compression-based implementation of low-bandwidth model... tplr.ai  
+  http://shitter.thepixora.com/tplr_ai/status/2102792676676432160#m
+- @tplr_ai (Templar, Wed, 16 Sep 2026): When using pipeline compression with fixed projections shared across layers, robustness improves further as seen in the figure below. This suggests that shared projectors align representations across stage boundaries, making bypasses less disruptive. 4/n  
+  http://shitter.thepixora.com/tplr_ai/status/2100237714918367690#m
+- @tplr_ai (Templar, Wed, 16 Sep 2026): We’ve been researching fault tolerance in Crucible, Templar’s pre-training platform. The goal: keep training through node failures and make better use of unreliable workers and spot instances, without idling an entire model replica when one stage goes down. 1/n Video  
+  http://shitter.thepixora.com/tplr_ai/status/2100237708186550642#m
+- @webuildscore (Score, Tue, 29 Sep 2026): Score Studio, explained by our little friend Claude Opus 5.5 Max Max (@MaxSebti) asked opus 5.5 to describe scorestudio.ai zero shot and it did this Video — http://shitter.thepixora.com/MaxSebti/status/2105066556552007876#m  
+  http://shitter.thepixora.com/webuildscore/status/2105067553613586558#m
+- @webuildscore (Score, Tue, 29 Sep 2026): Gun labeled. Rocket launcher, minigun and the rest of the weapon wheel next.  
+  http://shitter.thepixora.com/webuildscore/status/2105024223269868015#m
+- @webuildscore (Score, Tue, 29 Sep 2026): Preparing our Security Risk Indicator model for the GTA 6 release on November 19. We're already teaching it what a robbery looks like. Draw a box, Score Studio suggests the class, confirm, next frame. And yes, we know it's a bandana. Try it at scorestudio.ai  
+  http://shitter.thepixora.com/webuildscore/status/2105023016014844353#m
+- @TargonCompute (Targon, Tue, 29 Sep 2026): The Manifold team is enjoying Montreal at Exploit Summit, where we're announcing new features and roadmaps. As part of our new release rollout, we've launched Bare Metal and Sandboxes on Targon: a full physical machine when you need the whole box, and disposable Linux environments when you don't. Thanks for building with us.  
+  http://shitter.thepixora.com/manifoldlabs/status/2105007116033409172#m
+- @TargonCompute (Targon, Tue, 29 Sep 2026): Try Bare Metal &amp; Sandboxes now on Targon.com Link Targon Scale with Secure GPU &amp; CPU Rentals on a Lightning-Fast Cloud for Training and Deployment targon.com  
+  http://shitter.thepixora.com/TargonCompute/status/2105004611392160070#m
+- @TargonCompute (Targon, Tue, 29 Sep 2026): We're excited to share that Bare Metal and Sandboxes are now live on Targon.com Bare Metal → An entire physical machine dedicated to your organization → No hypervisor, no container runtime, no noisy neighbors → Full control of kernel, drivers and firmware-level GPU settings → Every operator is KYC-verified, keeping workloads secure without TVM Sandboxes → Short-lived, isolated Linux environments for development, testing, previews and agents → Provisioning to running within seconds → Browser terminal, graphical Linux desktop or SSH → Fork independent copies for parallel experiments and agent ta  
+  http://shitter.thepixora.com/TargonCompute/status/2105004608531939718#m
+- @galaxyhq (Galaxy Digital, Tue, 29 Sep 2026): BTC tests $88K on $2.4B in ETF inflows as the market defies macro headwinds. @RockawaysX @Ryanconnor joins to discuss esoteric onchain RWAs, where crypto and AI actually intersect, and the shifting crypto investment landscape. We also break down @vitalikbuterin updated vision for Ethereum and why AI agents might trigger a bank run. Galaxy Grid is live now👇 Video  
+  http://shitter.thepixora.com/glxyresearch/status/2104977509993287724#m
+- @tplr_ai (Templar, Tue, 29 Sep 2026): The heads of the biggest AI labs want to agree among themselves on when everyone should slow down. @TheEconomist's piece on that push ends with Covenant-72B, the model we finished training in March on GPUs contributed over the internet, as a reason such agreements may be hard to enforce. What the piece doesn't say is that once training no longer requires one giant, tightly connected cluster, the power to build new models no longer has to sit with a few companies. Globally distributed training and open models are essential tools for keeping that power from concentrating in the frontier labs. Th  
+  http://shitter.thepixora.com/tplr_ai/status/2104937831097352377#m
+- @galaxyhq (Galaxy Digital, Tue, 29 Sep 2026): All 113 Galaxy Research reports so far in 2026 Video  
+  http://shitter.thepixora.com/glxyresearch/status/2104912275316654313#m
+- @rob_svrn (Rob Greer, Tue, 29 Sep 2026): Very excited crowd at Exploit. For those that missed, here is a break down of what I announced on stage.  
+  http://shitter.thepixora.com/const_reborn/status/2104904084054777917#m
+- @TargonCompute (Targon, Tue, 01 Sep 2026): Happy to help! Proud to be trusted with running critical workloads such as validators. Very excited to see the talented team at DeSci Labs join the Bittensor ecosystem, their research and expertise are sure to add long-lasting value to the network. 🔬 Claims - Subnet 111 (@DeSciClaims) Our validator for SN111 is running on hardware provided by @TargonCompute. We're super grateful for the fast, reliable setup and the team's amazing support. Thank you, guys! — http://shitter.thepixora.com/DeSciClaims/status/2094364807596036575#m  
+  http://shitter.thepixora.com/TargonCompute/status/2094908006039236625#m
+- @JosephJacks_ (Joseph Jacks, Thu, 01 Oct 2026): Folks .. this is why you don’t take LEAD investment from VCs who unapologetically invest in your competitors and don’t give a flying fuck for doing so. Vinod Khosla (@vkhosla) You are a struggling second tier competitor that is more unethical and lying just because you have no decency or sense of proper behavior and shows your desperation. Straight out lying about if Chris being fired I thought would be below even you. Community note: Khosla is an investor in both Cognition and Factory. khoslaventures.com/category/enter… — http://shitter.thepixora.com/vkhosla/status/2105382865173459034#m  
+  http://shitter.thepixora.com/JosephJacks_/status/2105452656626118723#m
+- @rob_svrn (Rob Greer, Mon, 28 Sep 2026): Training and inference will run on the edge, by miners, myopically seeking energy wells like they do with Bitcoin mining. @jon_durbin presenting the future and how humanity gets there.  
+  http://shitter.thepixora.com/const_reborn/status/2104692770149736953#m
+- @rob_svrn (Rob Greer, Mon, 28 Sep 2026): Bittensor State of the Union feat. @const_reborn. A must watch/listen. No one is bullish enough on what is being built here. Video  
+  http://shitter.thepixora.com/0xSunRun/status/2104648112963047425#m
+- @galaxyhq (Galaxy Digital, Mon, 28 Sep 2026): EVERY BITCOIN BY THE PRICE IT LAST MOVED a short video of bitcoin history by its UTXO realized price distribution (URPD) Video  
+  http://shitter.thepixora.com/intangiblecoins/status/2104530805733388754#m
+
+
+---
+_Generated at 2026-10-01T03:32:53.343409+00:00 by scripts/intel/aggregate.py. Treat this digest as input context, not as ground truth. Verify before quoting._
