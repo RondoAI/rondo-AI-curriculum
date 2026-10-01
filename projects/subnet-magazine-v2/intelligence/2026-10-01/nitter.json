@@ -60,6 +60,16 @@
     "via_instance": "https://nitter.cz"
   },
   {
+    "handle": "opentensor",
+    "name": "Opentensor Foundation",
+    "posted_at": "Wed, 30 Sep 2026 21:34:08 GMT",
+    "title": "Bitcoin used incentives to build the world’s largest specialized compute network. Bittensor is applying that same playbook to unite spare compute across the planet and build the world’s largest decentralized AI training network.",
+    "text": "Bitcoin used incentives to build the world’s largest specialized compute network. Bittensor is applying that same playbook to unite spare compute across the planet and build the world’s largest decentralized AI training network. Macrocosmos (@MacrocosmosAI) Just announced earlier today at @ExploitSummit in Montreal: the iota SDK and Liquid Compute. Liquid Compute is our disaggregated compute platform. It turns the long tail of global compute into capacity you can actually train on. The iota SDK powers any training workload across it, as if it were one cluster. We go to market in the coming wee",
+    "url": "http://shitter.thepixora.com/opentensor/status/2105410895220220032#m",
+    "fetched_at": "2026-10-01T10:38:03.091748+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
     "handle": "JosephJacks_",
     "name": "Joseph Jacks",
     "posted_at": "Wed, 30 Sep 2026 21:05:57 GMT",
@@ -120,6 +130,26 @@
     "via_instance": "https://nitter.cz"
   },
   {
+    "handle": "jtledore",
+    "name": "Jean-Thomas Ledoré",
+    "posted_at": "Wed, 30 Sep 2026 18:15:02 GMT",
+    "title": "RT by @jtledore: Demand for AI compute is growing far faster than the infrastructure being built to serve it. Sam Altman's stated goal for OpenAI is 250 GW by 2033, roughly a quarter of US generating capacity. If the trend holds, Epoch AI puts a single frontier training run at 4 to 16 GW.",
+    "text": "Demand for AI compute is growing far faster than the infrastructure being built to serve it. Sam Altman's stated goal for OpenAI is 250 GW by 2033, roughly a quarter of US generating capacity. If the trend holds, Epoch AI puts a single frontier training run at 4 to 16 GW.",
+    "url": "http://shitter.thepixora.com/MacrocosmosAI/status/2105360787145667021#m",
+    "fetched_at": "2026-10-01T10:39:24.595264+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "opentensor",
+    "name": "Opentensor Foundation",
+    "posted_at": "Wed, 30 Sep 2026 17:45:04 GMT",
+    "title": "“We need to make the Linux of AI.” @jon_durbin of @chutes_ai presented an 8B model trained across distributed gaming GPUs for roughly $6,500 in GPU rental. It runs entirely on a phone’s CPU at nearly 60 tokens per second. His full @ExploitSummit keynote explains how open-source development and decentralized training could give people control over AI from its creation to its everyday use.",
+    "text": "“We need to make the Linux of AI.” @jon_durbin of @chutes_ai presented an 8B model trained across distributed gaming GPUs for roughly $6,500 in GPU rental. It runs entirely on a phone’s CPU at nearly 60 tokens per second. His full @ExploitSummit keynote explains how open-source development and decentralized training could give people control over AI from its creation to its everyday use. Video",
+    "url": "http://shitter.thepixora.com/opentensor/status/2105353248836362289#m",
+    "fetched_at": "2026-10-01T10:38:03.091748+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
     "handle": "webuildscore",
     "name": "Score",
     "posted_at": "Wed, 30 Sep 2026 16:53:13 GMT",
@@ -127,6 +157,16 @@
     "text": "Substance over style Max (@MaxSebti) how do you get strangers to build better vision models than you, without trusting any of them? adversarial vision ai delivered to you by opus 5.5 max Video — http://shitter.thepixora.com/MaxSebti/status/2105340056827314278#m",
     "url": "http://shitter.thepixora.com/webuildscore/status/2105340200759222397#m",
     "fetched_at": "2026-10-01T03:31:45.276684+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "webuildscore",
+    "name": "Score",
+    "posted_at": "Wed, 30 Sep 2026 16:53:13 GMT",
+    "title": "Substance over style",
+    "text": "Substance over style Max (@MaxSebti) how do you get strangers to build better vision models than you, without trusting any of them? adversarial vision ai delivered to you by opus 5.5 max Video — https://nitter.kareem.one/MaxSebti/status/2105340056827314278#m",
+    "url": "https://nitter.kareem.one/webuildscore/status/2105340200759222397#m",
+    "fetched_at": "2026-10-01T10:39:15.795415+00:00",
     "via_instance": "https://nitter.cz"
   },
   {
@@ -140,6 +180,16 @@
     "via_instance": "https://nitter.cz"
   },
   {
+    "handle": "opentensor",
+    "name": "Opentensor Foundation",
+    "posted_at": "Wed, 30 Sep 2026 15:41:42 GMT",
+    "title": "This Thursday on Novelty Search :: Subnet 80 :: @openroboto OpenRoboto is building an open competition for robot intelligence on Bittensor, where miners improve shared base models and each champion becomes the next starting point. They are now expanding into real robot validation and Shift, their decentralized network for collecting real world robotics data, connecting model improvement with physical data and commercial demand. Thursday :: 5PM EDT / 9PM UTC Hosted by @const_reborn",
+    "text": "This Thursday on Novelty Search :: Subnet 80 :: @openroboto OpenRoboto is building an open competition for robot intelligence on Bittensor, where miners improve shared base models and each champion becomes the next starting point. They are now expanding into real robot validation and Shift, their decentralized network for collecting real world robotics data, connecting model improvement with physical data and commercial demand. Thursday :: 5PM EDT / 9PM UTC Hosted by @const_reborn",
+    "url": "http://shitter.thepixora.com/opentensor/status/2105322199787700284#m",
+    "fetched_at": "2026-10-01T10:38:03.091748+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
     "handle": "webuildscore",
     "name": "Score",
     "posted_at": "Wed, 30 Sep 2026 14:37:28 GMT",
@@ -150,6 +200,26 @@
     "via_instance": "https://nitter.cz"
   },
   {
+    "handle": "webuildscore",
+    "name": "Score",
+    "posted_at": "Wed, 30 Sep 2026 14:37:28 GMT",
+    "title": "256 vision AI research teams competing to build the best models on the planet. Different tasks, different approaches, different ways to win. Models are judged on results through transparent, independent validation running 24/7. We’re building a vision lab where today’s best is tomorrow’s target. There’s always someone hungry enough to push it further, and an incentive to do exactly that. It’s more than automated research or recursive self-improvement. It’s the human need to evolve and win, distilled into an incentive mechanism. That’s Score. That’s SN44. That’s what building on Bittensor with $TAO makes possible.",
+    "text": "256 vision AI research teams competing to build the best models on the planet. Different tasks, different approaches, different ways to win. Models are judged on results through transparent, independent validation running 24/7. We’re building a vision lab where today’s best is tomorrow’s target. There’s always someone hungry enough to push it further, and an incentive to do exactly that. It’s more than automated research or recursive self-improvement. It’s the human need to evolve and win, distilled into an incentive mechanism. That’s Score. That’s SN44. That’s what building on Bittensor with ",
+    "url": "https://nitter.kareem.one/webuildscore/status/2105306037943144483#m",
+    "fetched_at": "2026-10-01T10:39:15.795415+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "PanteraCapital",
+    "name": "Pantera Capital",
+    "posted_at": "Wed, 30 Sep 2026 14:26:53 GMT",
+    "title": "RT by @PanteraCapital: Issuing tokens onchain is now straightforward. Building liquid, compliant markets is the next step. Our CEO @doctorfission argues once fund positions can be sold on demand and used as collateral, they become fundamentally more useful. Read his full take in the Pantera report.",
+    "text": "Issuing tokens onchain is now straightforward. Building liquid, compliant markets is the next step. Our CEO @doctorfission argues once fund positions can be sold on demand and used as collateral, they become fundamentally more useful. Read his full take in the Pantera report. Pantera Capital (@PanteraCapital) Pantera's latest State of Tokenization report is out. We analyzed the $332bn tokenization market across 671 assets. Institutions entered in force this quarter. J.P. Morgan, HSBC and Fidelity launched onchain products. BlackRock's BUIDL moved $441mn onchain in June, runs a $1bn daily redem",
+    "url": "http://shitter.thepixora.com/FissionXYZ/status/2105303373503418762#m",
+    "fetched_at": "2026-10-01T10:38:40.544637+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
     "handle": "galaxyhq",
     "name": "Galaxy Digital",
     "posted_at": "Wed, 30 Sep 2026 13:29:10 GMT",
@@ -157,6 +227,66 @@
     "text": "NVIDIA Vera Rubin NVL72 is available on CoreWeave. @Cognition is running @devindevelopers in production on it, at up to 4.8x the total token throughput of GB200 NVL72. V100 in 2017. Vera Rubin today. Same platform, every generation. crwv.co/utcq5",
     "url": "http://shitter.thepixora.com/CoreWeave/status/2105288849719194040#m",
     "fetched_at": "2026-10-01T03:31:02.039120+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "const_reborn",
+    "name": "Jacob Steeves",
+    "posted_at": "Wed, 30 Sep 2026 12:58:19 GMT",
+    "title": "R to @const_reborn: Thiel, who has cared for this problem more than any thinker believes the answer is the state (USA) or the state outside the state (Praxis). But only one thing, ever, ever in human history, has ever evaded the tendrils of power, and it’s not an address. It’s a network.",
+    "text": "Thiel, who has cared for this problem more than any thinker believes the answer is the state (USA) or the state outside the state (Praxis). But only one thing, ever, ever in human history, has ever evaded the tendrils of power, and it’s not an address. It’s a network.",
+    "url": "https://nitter.kareem.one/const_reborn/status/2105281085483479098#m",
+    "fetched_at": "2026-10-01T10:37:55.126557+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "const_reborn",
+    "name": "Jacob Steeves",
+    "posted_at": "Wed, 30 Sep 2026 12:54:19 GMT",
+    "title": "R to @const_reborn: The anti christ is this. Untethered power. The detachment between the machine and the natural world that birthed it.",
+    "text": "The anti christ is this. Untethered power. The detachment between the machine and the natural world that birthed it.",
+    "url": "https://nitter.kareem.one/const_reborn/status/2105280079320469684#m",
+    "fetched_at": "2026-10-01T10:37:55.126557+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "const_reborn",
+    "name": "Jacob Steeves",
+    "posted_at": "Wed, 30 Sep 2026 12:51:45 GMT",
+    "title": "R to @const_reborn: Make no mistake, we are witnessing the end of a ten thousand year civilization balance of power. There will be consequences to that.",
+    "text": "Make no mistake, we are witnessing the end of a ten thousand year civilization balance of power. There will be consequences to that.",
+    "url": "https://nitter.kareem.one/const_reborn/status/2105279430247452774#m",
+    "fetched_at": "2026-10-01T10:37:55.126557+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "const_reborn",
+    "name": "Jacob Steeves",
+    "posted_at": "Wed, 30 Sep 2026 12:49:45 GMT",
+    "title": "R to @const_reborn: But now the monopoly on violence has captured capital and capital just eroded the value of labour. And it was labour which kept the state in check.",
+    "text": "But now the monopoly on violence has captured capital and capital just eroded the value of labour. And it was labour which kept the state in check.",
+    "url": "https://nitter.kareem.one/const_reborn/status/2105278930013864035#m",
+    "fetched_at": "2026-10-01T10:37:55.126557+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "const_reborn",
+    "name": "Jacob Steeves",
+    "posted_at": "Wed, 30 Sep 2026 12:48:28 GMT",
+    "title": "R to @const_reborn: At the end of the day all the major labs will bend to the monopoly on violence (state). They don’t have a choice if they want access to the chips and the privilege to sip from the tit of fiat money.",
+    "text": "At the end of the day all the major labs will bend to the monopoly on violence (state). They don’t have a choice if they want access to the chips and the privilege to sip from the tit of fiat money.",
+    "url": "https://nitter.kareem.one/const_reborn/status/2105278607115321702#m",
+    "fetched_at": "2026-10-01T10:37:55.126557+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "jtledore",
+    "name": "Jean-Thomas Ledoré",
+    "posted_at": "Wed, 30 Sep 2026 10:28:19 GMT",
+    "title": "RT by @jtledore: harness the exploit, fight the cabal",
+    "text": "harness the exploit, fight the cabal",
+    "url": "http://shitter.thepixora.com/const_reborn/status/2105243337439715381#m",
+    "fetched_at": "2026-10-01T10:39:24.595264+00:00",
     "via_instance": "https://nitter.cz"
   },
   {
@@ -212,6 +342,36 @@
   {
     "handle": "webuildscore",
     "name": "Score",
+    "posted_at": "Tue, 29 Sep 2026 22:49:49 GMT",
+    "title": "Score Studio, explained by our little friend Claude Opus 5.5 Max",
+    "text": "Score Studio, explained by our little friend Claude Opus 5.5 Max Max (@MaxSebti) asked opus 5.5 to describe scorestudio.ai zero shot and it did this Video — https://nitter.kareem.one/MaxSebti/status/2105066556552007876#m",
+    "url": "https://nitter.kareem.one/webuildscore/status/2105067553613586558#m",
+    "fetched_at": "2026-10-01T10:39:15.795415+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "PanteraCapital",
+    "name": "Pantera Capital",
+    "posted_at": "Tue, 29 Sep 2026 22:09:44 GMT",
+    "title": "RT by @PanteraCapital: 📈 Tokenization is moving from simply putting assets onchain to building real, programmable capital markets. @PanteraCapital’s latest State of Tokenization report highlights several areas where @Ondo Finance is helping push that evolution forward: 📍Distribution: $USDY had the largest reported holder base among tokenized rates products, with nearly 18,000 addresses as of June 30. 📍Tokenized equities: @Ondo is highlighted across the report’s analysis of the rapidly growing onchain equity market which Ondo Finance continues to lead. 📍Perps: @OndoPerps launched in July with 24/7 exposure to stocks, ETFs and commodities, reaching $9B in cumulative volume and $100M in open interest within weeks of launch. 📍Onchain portfolios: Pantera highlights the launch of Ondo Intelligent Portfolios and our work with @BlackRock as an example of tokenization evolving from individual securities to entire investment strategies onchain. 📍TradFi connectivity: Oasis Pro’s connection to @The_DTCC Fund/SERV brings @Ondo into infrastructure that processes more than 85% of U.S. mutual fund transaction activity. 🌱 The bigger takeaway: issuance is only the beginning. 🏗️ The next phase of tokenization is about distribution, liquidity, composability, and connecting onchain assets to the infrastructure and use cases that make them truly useful. 🙌🏼 Proud to see @Ondo featured throughout the report as we continue building toward that future. 👏🏼 Great work by the @PanteraCapital team putting this together. 🚀",
+    "text": "📈 Tokenization is moving from simply putting assets onchain to building real, programmable capital markets. @PanteraCapital’s latest State of Tokenization report highlights several areas where @Ondo Finance is helping push that evolution forward: 📍Distribution: $USDY had the largest reported holder base among tokenized rates products, with nearly 18,000 addresses as of June 30. 📍Tokenized equities: @Ondo is highlighted across the report’s analysis of the rapidly growing onchain equity market which Ondo Finance continues to lead. 📍Perps: @OndoPerps launched in July with 24/7 exposure to stocks,",
+    "url": "http://shitter.thepixora.com/KatieAWheeler/status/2105057463666168136#m",
+    "fetched_at": "2026-10-01T10:38:40.544637+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "PanteraCapital",
+    "name": "Pantera Capital",
+    "posted_at": "Tue, 29 Sep 2026 20:07:48 GMT",
+    "title": "RT by @PanteraCapital: New from @PanteraCapital's State of Tokenization: RWA distribution has broadened dramatically onchain. The leading chain’s share of tokenized value fell from 88% in 2023 to 45% today, as the market expanded across 24 chains.",
+    "text": "New from @PanteraCapital's State of Tokenization: RWA distribution has broadened dramatically onchain. The leading chain’s share of tokenized value fell from 88% in 2023 to 45% today, as the market expanded across 24 chains. Pantera Capital (@PanteraCapital) Pantera's latest State of Tokenization report is out. We analyzed the $332bn tokenization market across 671 assets. Institutions entered in force this quarter. J.P. Morgan, HSBC and Fidelity launched onchain products. BlackRock's BUIDL moved $441mn onchain in June, runs a $1bn daily redemption facility, and is now accepted as collateral. O",
+    "url": "http://shitter.thepixora.com/AlliumLabs/status/2105026778221703235#m",
+    "fetched_at": "2026-10-01T10:38:40.544637+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "webuildscore",
+    "name": "Score",
     "posted_at": "Tue, 29 Sep 2026 19:57:38 GMT",
     "title": "R to @webuildscore: Gun labeled. Rocket launcher, minigun and the rest of the weapon wheel next.",
     "text": "Gun labeled. Rocket launcher, minigun and the rest of the weapon wheel next.",
@@ -222,11 +382,31 @@
   {
     "handle": "webuildscore",
     "name": "Score",
+    "posted_at": "Tue, 29 Sep 2026 19:57:38 GMT",
+    "title": "R to @webuildscore: Gun labeled. Rocket launcher, minigun and the rest of the weapon wheel next.",
+    "text": "Gun labeled. Rocket launcher, minigun and the rest of the weapon wheel next.",
+    "url": "https://nitter.kareem.one/webuildscore/status/2105024223269868015#m",
+    "fetched_at": "2026-10-01T10:39:15.795415+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "webuildscore",
+    "name": "Score",
     "posted_at": "Tue, 29 Sep 2026 19:52:51 GMT",
     "title": "Preparing our Security Risk Indicator model for the GTA 6 release on November 19. We're already teaching it what a robbery looks like. Draw a box, Score Studio suggests the class, confirm, next frame. And yes, we know it's a bandana. Try it at https://scorestudio.ai",
     "text": "Preparing our Security Risk Indicator model for the GTA 6 release on November 19. We're already teaching it what a robbery looks like. Draw a box, Score Studio suggests the class, confirm, next frame. And yes, we know it's a bandana. Try it at scorestudio.ai",
     "url": "http://shitter.thepixora.com/webuildscore/status/2105023016014844353#m",
     "fetched_at": "2026-10-01T03:31:45.276684+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "webuildscore",
+    "name": "Score",
+    "posted_at": "Tue, 29 Sep 2026 19:52:51 GMT",
+    "title": "Preparing our Security Risk Indicator model for the GTA 6 release on November 19. We're already teaching it what a robbery looks like. Draw a box, Score Studio suggests the class, confirm, next frame. And yes, we know it's a bandana. Try it at https://scorestudio.ai",
+    "text": "Preparing our Security Risk Indicator model for the GTA 6 release on November 19. We're already teaching it what a robbery looks like. Draw a box, Score Studio suggests the class, confirm, next frame. And yes, we know it's a bandana. Try it at scorestudio.ai",
+    "url": "https://nitter.kareem.one/webuildscore/status/2105023016014844353#m",
+    "fetched_at": "2026-10-01T10:39:15.795415+00:00",
     "via_instance": "https://nitter.cz"
   },
   {
@@ -260,6 +440,16 @@
     "via_instance": "https://nitter.cz"
   },
   {
+    "handle": "PanteraCapital",
+    "name": "Pantera Capital",
+    "posted_at": "Tue, 29 Sep 2026 18:00:46 GMT",
+    "title": "RT by @PanteraCapital: Tokenization is now a $332B market across 671 assets. Wall Street showed up in force this quarter: JPM, HSBC, Fidelity. Issuance is solved. Liquidity is the game now.",
+    "text": "Tokenization is now a $332B market across 671 assets. Wall Street showed up in force this quarter: JPM, HSBC, Fidelity. Issuance is solved. Liquidity is the game now. Pantera Capital (@PanteraCapital) Pantera's latest State of Tokenization report is out. We analyzed the $332bn tokenization market across 671 assets. Institutions entered in force this quarter. J.P. Morgan, HSBC and Fidelity launched onchain products. BlackRock's BUIDL moved $441mn onchain in June, runs a $1bn daily redemption facility, and is now accepted as collateral. On the consumer side, Robinhood Chain hit $888mn in weekly ",
+    "url": "http://shitter.thepixora.com/veradittakit/status/2104994809308180676#m",
+    "fetched_at": "2026-10-01T10:38:40.544637+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
     "handle": "galaxyhq",
     "name": "Galaxy Digital",
     "posted_at": "Tue, 29 Sep 2026 16:52:01 GMT",
@@ -267,6 +457,56 @@
     "text": "BTC tests $88K on $2.4B in ETF inflows as the market defies macro headwinds. @RockawaysX @Ryanconnor joins to discuss esoteric onchain RWAs, where crypto and AI actually intersect, and the shifting crypto investment landscape. We also break down @vitalikbuterin updated vision for Ethereum and why AI agents might trigger a bank run. Galaxy Grid is live now👇 Video",
     "url": "http://shitter.thepixora.com/glxyresearch/status/2104977509993287724#m",
     "fetched_at": "2026-10-01T03:31:02.039120+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "opentensor",
+    "name": "Opentensor Foundation",
+    "posted_at": "Tue, 29 Sep 2026 16:18:19 GMT",
+    "title": "Bittensor is building toward a full-stack intelligence network that no single company or country can control. In his @ExploitSummit keynote, @const_reborn lays out the next steps towards that end state.",
+    "text": "Bittensor is building toward a full-stack intelligence network that no single company or country can control. In his @ExploitSummit keynote, @const_reborn lays out the next steps towards that end state. Video",
+    "url": "http://shitter.thepixora.com/opentensor/status/2104969028364329181#m",
+    "fetched_at": "2026-10-01T10:38:03.091748+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "jtledore",
+    "name": "Jean-Thomas Ledoré",
+    "posted_at": "Tue, 29 Sep 2026 16:16:43 GMT",
+    "title": "RT by @jtledore: was a pleasure to share the stage with Kelly and JT",
+    "text": "was a pleasure to share the stage with Kelly and JT Crucible Labs (@CrucibleLabs) A great kickoff to day 2. Fun talking to @MaxSebti and @jtledore on how to extract value out of your subnet for Enterprises. — http://shitter.thepixora.com/CrucibleLabs/status/2104959199897698524#m",
+    "url": "http://shitter.thepixora.com/MaxSebti/status/2104968626331893807#m",
+    "fetched_at": "2026-10-01T10:39:24.595264+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "jtledore",
+    "name": "Jean-Thomas Ledoré",
+    "posted_at": "Tue, 29 Sep 2026 15:39:16 GMT",
+    "title": "RT by @jtledore: A great kickoff to day 2. Fun talking to @MaxSebti and @jtledore on how to extract value out of your subnet for Enterprises.",
+    "text": "A great kickoff to day 2. Fun talking to @MaxSebti and @jtledore on how to extract value out of your subnet for Enterprises. Exploit Summit (@ExploitSummit) What does it take for a business to trust decentralized AI? On the OTF stage: @MaxSebti of Score and @jtledore of PwC France, with Kelly Woodward of @CrucibleLabs, for ‘What It Takes to Be Enterprise-Ready.’ A practical question for Bittensor’s next wave of adoption. — http://shitter.thepixora.com/ExploitSummit/status/2104945910736163076#m",
+    "url": "http://shitter.thepixora.com/CrucibleLabs/status/2104959199897698524#m",
+    "fetched_at": "2026-10-01T10:39:24.595264+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "PanteraCapital",
+    "name": "Pantera Capital",
+    "posted_at": "Tue, 29 Sep 2026 14:50:25 GMT",
+    "title": "RT by @PanteraCapital: Our latest report on the State of Tokenization is out today! Last time, we asked how much of today's tokenized market is stuck in the \"newspaper-on-a-website\" phase. This time, we asked what comes after tokenization? How do tokenized assets become tradable markets with broad investor participation? Our Q2 research covers 671 tokenized assets ($330B+) with amazing work by @sui414 @0xallyzach. We updated our Tokenization Progress Index (TPI) across issuance & redemption, transferability, and composability. This edition adds new dimensions: onchain trading and ownership data. These help depict the current state of liquidity, trading volumes, and overall participation in tokenized assets. We also cover key Q3 developments, including @RobinhoodApp Chain's launch and the Clarity Act. Takeaway #1: Open assets are winning the battle for liquidity. Among tokenized assets of $10M+ value, the open / freely transferable ones made up 41% in value, but processed 99.8% of spot trading. Takeaway #2: Equity demand is arriving mostly through derivatives, mainly perpetuals. June equity perp volume hit $67.8B, ~16x the $4.2B of tokenized-equity spot volume. Takeaway #3: Liquidity means something different for each product. Yield funds need dependable redemption. Tokenized stocks need deep liquidity. Collateral needs reliable valuation & liquidation. Despite the CLARITY Act's delay, the momentum behind tokenization can't be stopped. The Great Onchain Migration marches forward, from putting assets onchain to building new markets around them. Here's the full report link: https://panteracapital.com/state-of-tokenization-september-2026-pdf/",
+    "text": "Our latest report on the State of Tokenization is out today! Last time, we asked how much of today's tokenized market is stuck in the \"newspaper-on-a-website\" phase. This time, we asked what comes after tokenization? How do tokenized assets become tradable markets with broad investor participation? Our Q2 research covers 671 tokenized assets ($330B+) with amazing work by @sui414 @0xallyzach. We updated our Tokenization Progress Index (TPI) across issuance & redemption, transferability, and composability. This edition adds new dimensions: onchain trading and ownership data. These help depict th",
+    "url": "http://shitter.thepixora.com/FranklinBi/status/2104946909500833856#m",
+    "fetched_at": "2026-10-01T10:38:40.544637+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "opentensor",
+    "name": "Opentensor Foundation",
+    "posted_at": "Tue, 29 Sep 2026 14:34:19 GMT",
+    "title": "RT by @opentensor: Exploit Summit: Live from Montreal Day 2 https://x.com/i/broadcasts/1NGaroOYpQXJj",
+    "text": "Exploit Summit: Live from Montreal Day 2 shitter.thepixora.com/i/broadcasts/1NGaroOYp… Link Exploit Summit Exploit Summit: Live from Montreal Day 2 http://shitter.thepixora.com/i/broadcasts/1NGaroOYpQXJj",
+    "url": "http://shitter.thepixora.com/ExploitSummit/status/2104942854753947674#m",
+    "fetched_at": "2026-10-01T10:38:03.091748+00:00",
     "via_instance": "https://nitter.cz"
   },
   {
@@ -300,6 +540,16 @@
     "via_instance": "https://nitter.cz"
   },
   {
+    "handle": "resilabsai",
+    "name": "RESI",
+    "posted_at": "Tue, 07 Apr 2026 17:33:18 GMT",
+    "title": "RT by @resilabsai: The power of holding Bittensor $TAO subnet alpha Here is an example to illustrate the flywheel of $TAO Let's say you 1,000 alpha of @resilabsai which cost around 7 $TAO 7 $TAO at a price of $310 = $2,170 Current alpha price of Resi, subnet 46: .0066 $TAO Let's make some calculated assumptions. > price of resi alpha stays the same for 3 years > price of $TAO remains the same at $310 > APY for holding Resi alpha is 40% for the first 2 years, then 30% in year 3 What is my total value in 3 years? Year 1 (40% APY) 1,060.6 × 1.4 = 1,484.8 alpha In $TAO: 1,484.8 × 0.0066 ≈ 9.80 $TAO In USD: 9.80 × $310 ≈ $3,038 Year 2 (40% APY again) 1,484.8 × 1.4 = 2,078.8 alpha In $TAO: ≈ 13.72 $TAO In USD: ≈ $4,253 Year 3 (30% APY) 2,078.8 × 1.3 = 2,702.4 alpha In $TAO: ≈ 17.83 $TAO In USD: ≈ $5,527 Now what if the price of Resi alpha went up 2x in year 1, 25% in year 2 and 25% in year 3? Additionally, what if the price of $TAO goes up by 4x? Year 1 Alpha: 1,484.8 $TAO value: 1,484.8 × 0.0132 ≈ 19.6 $TAO USD value: 19.6 × $1,240 ≈ $24,304 Year 2 Alpha: 2,078.8 $TAO value: ≈ 34.3 $TAO USD value: ≈ $42,532 Year 3 Alpha: 2,702.4 $TAO value: ≈ 55.7 $TAO USD value: ≈ $69,068 This is the Bittensor flywheel in effect.",
+    "text": "The power of holding Bittensor $TAO subnet alpha Here is an example to illustrate the flywheel of $TAO Let's say you 1,000 alpha of @resilabsai which cost around 7 $TAO 7 $TAO at a price of $310 = $2,170 Current alpha price of Resi, subnet 46: .0066 $TAO Let's make some calculated assumptions. &gt; price of resi alpha stays the same for 3 years &gt; price of $TAO remains the same at $310 &gt; APY for holding Resi alpha is 40% for the first 2 years, then 30% in year 3 What is my total value in 3 years? Year 1 (40% APY) 1,060.6 × 1.4 = 1,484.8 alpha In $TAO: 1,484.8 × 0.0066 ≈ 9.80 $TAO In USD: ",
+    "url": "http://shitter.thepixora.com/Pop_Collapse/status/2041570023823528017#m",
+    "fetched_at": "2026-10-01T10:40:03.791795+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
     "handle": "TargonCompute",
     "name": "Targon",
     "posted_at": "Tue, 01 Sep 2026 21:59:24 GMT",
@@ -310,6 +560,126 @@
     "via_instance": "https://nitter.cz"
   },
   {
+    "handle": "affine_io",
+    "name": "Affine",
+    "posted_at": "Tue, 01 Sep 2026 14:55:14 GMT",
+    "title": "R to @affine_io: Everything you need to compete is public: https://affine.io/llms.txt",
+    "text": "Everything you need to compete is public: affine.io/llms.txt",
+    "url": "https://nitter.kareem.one/affine_io/status/2094801258016370976#m",
+    "fetched_at": "2026-10-01T10:40:09.677189+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "affine_io",
+    "name": "Affine",
+    "posted_at": "Tue, 01 Sep 2026 14:54:37 GMT",
+    "title": "Video",
+    "text": "Video",
+    "url": "https://nitter.kareem.one/affine_io/status/2094801103959540005#m",
+    "fetched_at": "2026-10-01T10:40:09.677189+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "dippy_ai",
+    "name": "Dippy AI",
+    "posted_at": "Thu, 30 Jul 2026 14:34:47 GMT",
+    "title": "RT by @dippy_ai: Excited to have helped @PrunaAI collect 1M+ votes for image preference data in a very short time :~)",
+    "text": "Excited to have helped @PrunaAI collect 1M+ votes for image preference data in a very short time :~) Pruna AI (@PrunaAI) P-Image-Ideogram dominate the speed-quality and price-quality Pareto frontiers for image generation. It is the result of a unique collaboration with @ideogram_ai. - Four modes (Very low, low, medium, high) for 1K-2K image generation. - Optimal quality-efficiency with 0.4s-7.5s latency, and $0.003-$0.03 price. - Structured JSON control & exact color control. Available via our inference partners @Replicate @inference_sh @scenario_gg @wavespeed_ai @wiroai @magnific @prodialabs ",
+    "url": "http://shitter.thepixora.com/datapointai/status/2082837314603032606#m",
+    "fetched_at": "2026-10-01T10:40:21.043575+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "dippy_ai",
+    "name": "Dippy AI",
+    "posted_at": "Thu, 27 Aug 2026 21:34:23 GMT",
+    "title": "we have significantly upgraded both the basic and super models 🤩🤩 we have also made optimizations to improve response speeds by upto 5x can't wait for you all to experience and enjoy the new dippy 📯📯😸 rolling out to everyone today",
+    "text": "we have significantly upgraded both the basic and super models 🤩🤩 we have also made optimizations to improve response speeds by upto 5x can't wait for you all to experience and enjoy the new dippy 📯📯😸 rolling out to everyone today",
+    "url": "http://shitter.thepixora.com/dippy_ai/status/2093089771824226802#m",
+    "fetched_at": "2026-10-01T10:40:21.043575+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "dippy_ai",
+    "name": "Dippy AI",
+    "posted_at": "Thu, 04 Jun 2026 15:53:04 GMT",
+    "title": "RT by @dippy_ai: Today, we’re opening up Datapoint AI for anyone to use. It is by far the fastest way to understand what your customers want. Type a question. Real people answer. You get a report back in ~10 minutes, not three weeks, and at a fraction of the cost.",
+    "text": "Today, we’re opening up Datapoint AI for anyone to use. It is by far the fastest way to understand what your customers want. Type a question. Real people answer. You get a report back in ~10 minutes, not three weeks, and at a fraction of the cost. Video",
+    "url": "http://shitter.thepixora.com/datapointai/status/2062563294880075837#m",
+    "fetched_at": "2026-10-01T10:40:21.043575+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "markjeffrey",
+    "name": "Mark Jeffrey",
+    "posted_at": "Thu, 01 Oct 2026 07:04:44 GMT",
+    "title": "RT by @markjeffrey: One more regulation bro, please, just one more. Just one more regulation and we'll fix tech in Europe. Please bro. Just one more. One more regulation and we'll fix our GDP growth problems. Bro pls just one–",
+    "text": "One more regulation bro, please, just one more. Just one more regulation and we'll fix tech in Europe. Please bro. Just one more. One more regulation and we'll fix our GDP growth problems. Bro pls just one– Watcher.Guru (@WatcherGuru) JUST IN: 🇪🇺 European Union regulators say they need more powers to police crypto. — https://nitter.kareem.one/WatcherGuru/status/2105522366092636546#m",
+    "url": "https://nitter.kareem.one/beffjezos/status/2105554489675825286#m",
+    "fetched_at": "2026-10-01T10:38:13.382186+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "markjeffrey",
+    "name": "Mark Jeffrey",
+    "posted_at": "Thu, 01 Oct 2026 06:02:46 GMT",
+    "title": "Upgrades. USDC on Ethereum <> $TAO on Bittensor",
+    "text": "Upgrades. USDC on Ethereum &lt;&gt; $TAO on Bittensor TAO.com (@taodotcom) $10k Crosschain swaps Now live on TAO.com Managing your portfolio just got a lot better. — https://nitter.kareem.one/taodotcom/status/2105293680928313785#m",
+    "url": "https://nitter.kareem.one/markjeffrey/status/2105538896826392653#m",
+    "fetched_at": "2026-10-01T10:38:13.382186+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "JosephJacks_",
+    "name": "Joseph Jacks",
+    "posted_at": "Thu, 01 Oct 2026 05:57:25 GMT",
+    "title": "It’s an Elon, Jensen, Dario, Sam, Sundar, Satya, Zuck, … race.",
+    "text": "It’s an Elon, Jensen, Dario, Sam, Sundar, Satya, Zuck, … race.",
+    "url": "http://shitter.thepixora.com/JosephJacks_/status/2105537549708238970#m",
+    "fetched_at": "2026-10-01T10:38:18.739566+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "markjeffrey",
+    "name": "Mark Jeffrey",
+    "posted_at": "Thu, 01 Oct 2026 05:43:29 GMT",
+    "title": "Presenting Carbon ... a physics AI subnet:",
+    "text": "Presenting Carbon ... a physics AI subnet: Carbon (@carbonphysicsai) For those who missed it, here's the pitch. Thank you Montreal 🙏🏼 @bitstarterAI @ExploitSummit @bittensor @opentensor Video — https://nitter.kareem.one/carbonphysicsai/status/2105205318804296097#m",
+    "url": "https://nitter.kareem.one/markjeffrey/status/2105534042032779696#m",
+    "fetched_at": "2026-10-01T10:38:13.382186+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "markjeffrey",
+    "name": "Mark Jeffrey",
+    "posted_at": "Thu, 01 Oct 2026 05:12:04 GMT",
+    "title": "True.",
+    "text": "True. Matteo Pellegrini (@matteopelleg) whoever figures out how to combine bitcoin and AI is gonna make a fortune — https://nitter.kareem.one/matteopelleg/status/2104962120458854818#m",
+    "url": "https://nitter.kareem.one/markjeffrey/status/2105526138026201325#m",
+    "fetched_at": "2026-10-01T10:38:13.382186+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "markjeffrey",
+    "name": "Mark Jeffrey",
+    "posted_at": "Thu, 01 Oct 2026 04:54:26 GMT",
+    "title": "RT by @markjeffrey: Have been binge-watching all of the @ExploitSummit talks over at https://stream.vidaio.io/vod.html (shoutout: @vidaio_) The @const_reborn deep dive with @KeithSingery discussing Gamma Tokens was well worth the listen. My takeaway is that this will completely remove the friction of subnet collaboration and supercharge the Reed's Law dynamics of the network. Bittensor is truly becoming a decentralized frontier lab. Really amazing to see. vid: https://stream.vidaio.io/vod.html?talk=agenda-3f3697f3beb5ba88af702a1a7800f334",
+    "text": "Have been binge-watching all of the @ExploitSummit talks over at stream.vidaio.io/vod.html (shoutout: @vidaio_) The @const_reborn deep dive with @KeithSingery discussing Gamma Tokens was well worth the listen. My takeaway is that this will completely remove the friction of subnet collaboration and supercharge the Reed's Law dynamics of the network. Bittensor is truly becoming a decentralized frontier lab. Really amazing to see. vid: stream.vidaio.io/vod.html?ta…",
+    "url": "https://nitter.kareem.one/0xSunRun/status/2105521700955672935#m",
+    "fetched_at": "2026-10-01T10:38:13.382186+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "JosephJacks_",
+    "name": "Joseph Jacks",
+    "posted_at": "Thu, 01 Oct 2026 04:01:00 GMT",
+    "title": "RT by @JosephJacks_: Reuters: The Republican chair of the congressional committee focused on China is calling on the Trump administration ​to scrutinize US ally South Korea’s warming ties with China, which he said pose “significant risks” to the United States. https://www.reuters.com/world/china/republican-committee-chair-calls-scrutiny-seouls-china-ties-2026-09-30/",
+    "text": "Reuters: The Republican chair of the congressional committee focused on China is calling on the Trump administration ​to scrutinize US ally South Korea’s warming ties with China, which he said pose “significant risks” to the United States. reuters.com/world/china/repu… Link Republican committee chair calls for scrutiny of Seoul&apos;s China ties The Republican chair of the congressional committee focused on China is calling on the Trump administration ​to scrutinize US ally South Korea&apos;s warming ties with China, which he said pose &quot;signifi... reuters.com",
+    "url": "http://shitter.thepixora.com/JChengWSJ/status/2105508251697623233#m",
+    "fetched_at": "2026-10-01T10:38:18.739566+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
     "handle": "JosephJacks_",
     "name": "Joseph Jacks",
     "posted_at": "Thu, 01 Oct 2026 00:20:05 GMT",
@@ -317,6 +687,36 @@
     "text": "Folks .. this is why you don’t take LEAD investment from VCs who unapologetically invest in your competitors and don’t give a flying fuck for doing so. Vinod Khosla (@vkhosla) You are a struggling second tier competitor that is more unethical and lying just because you have no decency or sense of proper behavior and shows your desperation. Straight out lying about if Chris being fired I thought would be below even you. Community note: Khosla is an investor in both Cognition and Factory. khoslaventures.com/category/enter… — http://shitter.thepixora.com/vkhosla/status/2105382865173459034#m",
     "url": "http://shitter.thepixora.com/JosephJacks_/status/2105452656626118723#m",
     "fetched_at": "2026-10-01T03:30:51.435992+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "dippy_ai",
+    "name": "Dippy AI",
+    "posted_at": "Sun, 09 Aug 2026 23:27:27 GMT",
+    "title": "We are experiencing an issue with our database provider @supabase , so the app & website may be down for a few more hours. We’ll send a notification when we are able to recover and the app is back to normal! Apologies for the inconvenience 😿😿",
+    "text": "We are experiencing an issue with our database provider @supabase , so the app &amp; website may be down for a few more hours. We’ll send a notification when we are able to recover and the app is back to normal! Apologies for the inconvenience 😿😿",
+    "url": "http://shitter.thepixora.com/dippy_ai/status/2086595242422149540#m",
+    "fetched_at": "2026-10-01T10:40:21.043575+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "resilabsai",
+    "name": "RESI",
+    "posted_at": "Sat, 18 Apr 2026 04:42:22 GMT",
+    "title": "RT by @resilabsai: Traditional centralized real estate data platforms are fundamentally flawed and often serve to extract wealth from users. @resilabsai (Subnet 46) is breaking this monopoly through decentralized AI technology that delivers up to 99% valuation accuracy. Skip the corporate intermediaries—this AI-powered home valuation tool provides the most reliable housing market forecasts for 2026",
+    "text": "Traditional centralized real estate data platforms are fundamentally flawed and often serve to extract wealth from users. @resilabsai (Subnet 46) is breaking this monopoly through decentralized AI technology that delivers up to 99% valuation accuracy. Skip the corporate intermediaries—this AI-powered home valuation tool provides the most reliable housing market forecasts for 2026 Video SEBY (gpu/acc) (@sebyrubino) The @resilabsai Portal is LIVE! Any agent or real estate professional can now easily access our SOTA remote appraisals. We built RESI as a compounding network that will naturally acc",
+    "url": "http://shitter.thepixora.com/3rdeye_rav3n/status/2045362275045753234#m",
+    "fetched_at": "2026-10-01T10:40:03.791795+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "resilabsai",
+    "name": "RESI",
+    "posted_at": "Sat, 08 Aug 2026 01:27:26 GMT",
+    "title": "Pinned: Attention Res Labs we have some really exciting news and updates to our project join our discord to stay up to date: https://discord.gg/TBj8q9vb2Q #bittensor #TAO bittensor:native #reslabs #reilabsai #crypto #subnet #subnet46 #reslabs_ai #reslabsai #opentensor #reptides",
+    "text": "Attention Res Labs we have some really exciting news and updates to our project join our discord to stay up to date: discord.gg/TBj8q9vb2Q #bittensor #TAO bittensor:native #reslabs #reilabsai #crypto #subnet #subnet46 #reslabs_ai #reslabsai #opentensor #reptides",
+    "url": "http://shitter.thepixora.com/resilabsai/status/2085900662139744548#m",
+    "fetched_at": "2026-10-01T10:40:03.791795+00:00",
     "via_instance": "https://nitter.cz"
   },
   {
@@ -347,6 +747,66 @@
     "text": "EVERY BITCOIN BY THE PRICE IT LAST MOVED a short video of bitcoin history by its UTXO realized price distribution (URPD) Video",
     "url": "http://shitter.thepixora.com/intangiblecoins/status/2104530805733388754#m",
     "fetched_at": "2026-10-01T03:31:02.039120+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "resilabsai",
+    "name": "RESI",
+    "posted_at": "Mon, 20 Apr 2026 19:34:17 GMT",
+    "title": "RT by @resilabsai: I am pleased to announce that Stillcore Capital @stillcorecap has invested in RESI @resilabsai (Bittensor Subnet 46).",
+    "text": "I am pleased to announce that Stillcore Capital @stillcorecap has invested in RESI @resilabsai (Bittensor Subnet 46).",
+    "url": "http://shitter.thepixora.com/markjeffrey/status/2046311512621670731#m",
+    "fetched_at": "2026-10-01T10:40:03.791795+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "dippy_ai",
+    "name": "Dippy AI",
+    "posted_at": "Mon, 10 Aug 2026 15:35:59 GMT",
+    "title": "We are FINALLY back online! We deeply apologize for this issue extending nearly 24 hours 🥲 As a token of thanks for your patience, we are REMOVING CHAT LIMITS for the remainder of this month 😻😻 P.S: don't worry, we'll also reinstate your streaks :~)",
+    "text": "We are FINALLY back online! We deeply apologize for this issue extending nearly 24 hours 🥲 As a token of thanks for your patience, we are REMOVING CHAT LIMITS for the remainder of this month 😻😻 P.S: don't worry, we'll also reinstate your streaks :~)",
+    "url": "http://shitter.thepixora.com/dippy_ai/status/2086838981627420847#m",
+    "fetched_at": "2026-10-01T10:40:21.043575+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "affine_io",
+    "name": "Affine",
+    "posted_at": "Mon, 07 Sep 2026 15:31:09 GMT",
+    "title": "A model doesn’t need to be the largest to matter. On Affine, models compete on how well their reasoning supports the next action across code, tool use and math. A winner could put that reasoning to work in products, either directly or alongside a larger model.",
+    "text": "A model doesn’t need to be the largest to matter. On Affine, models compete on how well their reasoning supports the next action across code, tool use and math. A winner could put that reasoning to work in products, either directly or alongside a larger model. Video",
+    "url": "https://nitter.kareem.one/affine_io/status/2096984627059810338#m",
+    "fetched_at": "2026-10-01T10:40:09.677189+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "resilabsai",
+    "name": "RESI",
+    "posted_at": "Mon, 06 Apr 2026 13:56:00 GMT",
+    "title": "RT by @resilabsai: Chainlink gave DeFi price feeds. @resilabsai is doing the same for real estate. From static appraisals to dynamic, onchain pricing. It's already honing in on Zillow's pricing accuracy, and only a matter of weeks before it surpasses it!",
+    "text": "Chainlink gave DeFi price feeds. @resilabsai is doing the same for real estate. From static appraisals to dynamic, onchain pricing. It's already honing in on Zillow's pricing accuracy, and only a matter of weeks before it surpasses it!",
+    "url": "http://shitter.thepixora.com/gordonfrayne/status/2041152947925512465#m",
+    "fetched_at": "2026-10-01T10:40:03.791795+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "affine_io",
+    "name": "Affine",
+    "posted_at": "Fri, 28 Aug 2026 18:11:13 GMT",
+    "title": "United against the divided. Intelligence knows neither borders nor color. Uphold the torch with us to bring light where it is needed most. Open reasoning for humanity. Join the thousand-year intelligence federation. https://affine.io",
+    "text": "United against the divided. Intelligence knows neither borders nor color. Uphold the torch with us to bring light where it is needed most. Open reasoning for humanity. Join the thousand-year intelligence federation. affine.io Link Affine — Bittensor subnet 120 King-of-the-hill subnet for open-weight language models, scored by teacher-anchored distillation duels. Live validator dashboard. affine.io scouτ (@scoutesy) The same way neutron stars form gold through merging, affine orchestrates reasoning through open collaboration. Unus pro omnibus, omnes pro uno. Tao of a million symmetries. Video —",
+    "url": "https://nitter.kareem.one/affine_io/status/2093401028763013596#m",
+    "fetched_at": "2026-10-01T10:40:09.677189+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "affine_io",
+    "name": "Affine",
+    "posted_at": "Fri, 04 Sep 2026 18:08:51 GMT",
+    "title": "Affine submissions are now private, so miners can compete without exposing their weights to competitors. Crowned models still go public. Losing checkpoints will be published later, so anyone can independently recompute every duel verdict.",
+    "text": "Affine submissions are now private, so miners can compete without exposing their weights to competitors. Crowned models still go public. Losing checkpoints will be published later, so anyone can independently recompute every duel verdict. Video",
+    "url": "https://nitter.kareem.one/affine_io/status/2095937147320844533#m",
+    "fetched_at": "2026-10-01T10:40:09.677189+00:00",
     "via_instance": "https://nitter.cz"
   }
 ]
