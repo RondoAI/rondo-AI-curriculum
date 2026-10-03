@@ -134,7 +134,26 @@ _Dumb Science Experiments vs. Money Printing Machines_
 
 ## ⊕ GITHUB COMMITS + RELEASES, last 24h
 
-_no commits or releases in the lookback window_
+- **Subtensor (chain)** (COMMIT `f87cada`, 2026-10-03 22:13) Merge pull request #3208 from RaoFoundation/release-473  
+  https://github.com/RaoFoundation/subtensor/commit/f87cada631f81d11683e715a9f059f693992e64a
+- **Subtensor (chain)** (COMMIT `fe45599`, 2026-10-03 21:20) fix clone fee fixture stability  
+  https://github.com/RaoFoundation/subtensor/commit/fe4559927bf56c3365fe3e15442e3f255f47da5d
+- **Subtensor (chain)** (COMMIT `11b663b`, 2026-10-03 20:58) fix clone EVM fixture fees  
+  https://github.com/RaoFoundation/subtensor/commit/11b663b0f79a6371e898fefbd2c8b0eef1ac2762
+- **Subtensor (chain)** (COMMIT `e385739`, 2026-10-03 20:19) fix docs preview audit gate  
+  https://github.com/RaoFoundation/subtensor/commit/e385739fb8d47d56b182d123ec2ee5795ca273d3
+- **Subtensor (chain)** (COMMIT `6675c84`, 2026-10-03 19:49) fix generated storage binding  
+  https://github.com/RaoFoundation/subtensor/commit/6675c84efc9dfc1dbdc9f594c48c9e416140d753
+- **Subtensor (chain)** (COMMIT `f5c3aaf`, 2026-10-03 00:32) fix cargo fmt and test fixtures  
+  https://github.com/RaoFoundation/subtensor/commit/f5c3aaff4bd4215a211f4e8f69194893f73435a1
+- **Subtensor (chain)** (COMMIT `fbe2195`, 2026-10-03 00:17) test: update registration fixture funding  
+  https://github.com/RaoFoundation/subtensor/commit/fbe21953b5ccca01951cee7474f10361de1becda
+- **Subtensor (chain)** (COMMIT `5d34bf9`, 2026-10-02 23:56) Merge pull request #3203 from RaoFoundation/automate-mainnet-release  
+  https://github.com/RaoFoundation/subtensor/commit/5d34bf949ad4eb9d1a18620692bbe7c0e82d348b
+- **Subtensor (chain)** (COMMIT `4e4329e`, 2026-10-02 23:55) Merge pull request #3209 from RaoFoundation/feat/cleanup-staking-hotkeys  
+  https://github.com/RaoFoundation/subtensor/commit/4e4329e49130a140f4ff3f95767ea35330f031e2
+- **Subtensor (chain)** (COMMIT `4774259`, 2026-10-02 22:46) Align registration accounting  
+  https://github.com/RaoFoundation/subtensor/commit/47742598185b9adc900fe5fcae4da96902f19b6c
 
 ## ⊕ ECOSYSTEM BLOGS via RSS
 
@@ -150,12 +169,16 @@ _no new posts in the lookback window_
   https://nitter.kareem.one/kusanagi_vntrs/status/2105398290107798012#m
 - @TargonCompute (Targon, Wed, 30 Sep 2026): NEWS: @TargonCompute says NVIDIA B300 GPUs are now available on demand on Targon. This adds an on-demand Blackwell deployment option. Targon (@TargonCompute) NVIDIA B300s are now available on demand. Secure GPUs are selling out fast on Targon, Ready to deploy on Blackwell? Grab yours now at targon.com/inventory — http://shitter.thepixora.com/TargonCompute/status/2105325236639973561#m  
   http://shitter.thepixora.com/taodotcom/status/2105392902587249005#m
+- @TargonCompute (Targon, Wed, 30 Sep 2026): NEWS: @TargonCompute says NVIDIA B300 GPUs are now available on demand on Targon. This adds an on-demand Blackwell deployment option. Targon (@TargonCompute) NVIDIA B300s are now available on demand. Secure GPUs are selling out fast on Targon, Ready to deploy on Blackwell? Grab yours now at targon.com/inventory — http://nitter.meowing.monster/TargonCompute/status/2105325236639973561#m  
+  http://nitter.meowing.monster/taodotcom/status/2105392902587249005#m
 - @a16zcrypto (a16z Crypto, Wed, 30 Sep 2026): New markets have changed what people can trade and how. In the last decade, blockchains have started lowering the cost of building markets, making it easier to experiment with net new ones.  
   http://nitter.meowing.monster/a16zcrypto/status/2105372522967708073#m
 - @galaxyhq (Galaxy Digital, Wed, 30 Sep 2026): Galaxy is glad to have taken part in the inaugural Digital Assets Leadership Forum this week, hosted by Daman Virtual in partnership with the Dubai Department of Economy and Tourism. Managing Director, Bouchra Darwazah, who also serves as CEO of Galaxy Digital MENA, joined a panel alongside voices from government, regulation, banking and financial services to discuss where Dubai's digital asset ecosystem is heading next. We're looking forward to more of these conversations as the UAE’s digital asset market continues to scale.  
   https://nitter.kareem.one/galaxyhq/status/2105369944560972017#m
 - @galaxyhq (Galaxy Digital, Wed, 30 Sep 2026): Galaxy is glad to have taken part in the inaugural Digital Assets Leadership Forum this week, hosted by Daman Virtual in partnership with the Dubai Department of Economy and Tourism. Managing Director, Bouchra Darwazah, who also serves as CEO of Galaxy Digital MENA, joined a panel alongside voices from government, regulation, banking and financial services to discuss where Dubai's digital asset ecosystem is heading next. We're looking forward to more of these conversations as the UAE’s digital asset market continues to scale.  
   http://nitter.meowing.monster/galaxyhq/status/2105369944560972017#m
+- @dylan522p (Dylan Patel, Wed, 30 Sep 2026): A lot of people tell me they use agents to build xyz Thing is, some people have an accent or say it quickly And so I hear we use Asians to build xyz Which is like... Well ya that's been the global economy for the last few decades.  
+  http://nitter.meowing.monster/dylan522p/status/2105367125611237551#m
 - @jtledore (Jean-Thomas Ledoré, Wed, 30 Sep 2026): Demand for AI compute is growing far faster than the infrastructure being built to serve it. Sam Altman's stated goal for OpenAI is 250 GW by 2033, roughly a quarter of US generating capacity. If the trend holds, Epoch AI puts a single frontier training run at 4 to 16 GW.  
   http://shitter.thepixora.com/MacrocosmosAI/status/2105360787145667021#m
 - @jtledore (Jean-Thomas Ledoré, Wed, 30 Sep 2026): Demand for AI compute is growing far faster than the infrastructure being built to serve it. Sam Altman's stated goal for OpenAI is 250 GW by 2033, roughly a quarter of US generating capacity. If the trend holds, Epoch AI puts a single frontier training run at 4 to 16 GW.  
@@ -172,10 +195,14 @@ _no new posts in the lookback window_
   https://nitter.kareem.one/SciTechera/status/2105337896110821386#m
 - @taomedia_ (TAO Media, Wed, 30 Sep 2026): tao.media/figure-decommissio… Link Figure Decommissions F.02 Fleet by Melting Robots in Finland With Arnold Schwarzenegger As F.03 scales, Figure retired its F.02 humanoids by melting them in a Finnish electric-arc furnace, with Arnold Schwarzenegger involved, and is machining the metal into limited commemorative... tao.media  
   https://nitter.kareem.one/taomedia_/status/2105334552319172678#m
+- @dylan522p (Dylan Patel, Wed, 30 Sep 2026): Can't invest in Anthropic at 2 trillion because it could be a 0 and I'm fucked, or it could be 20 trillion, but at 20 trillion we are all fucked.  
+  http://nitter.meowing.monster/dylan522p/status/2105334504726692035#m
 - @rob_svrn (Rob Greer, Wed, 30 Sep 2026): Through our distributed compute market, we have just onboarded 10x B300 nodes We are making them available on demand to help give smaller teams access to the latest hardware without having to sign a multi-year contract You can rent as little as 1x node! Link to rent is below  
   https://nitter.kareem.one/jameswoodmanv/status/2105332561841099001#m
 - @TargonCompute (Targon, Wed, 30 Sep 2026): NVIDIA B300s are now available on demand. Secure GPUs are selling out fast on Targon, Ready to deploy on Blackwell? Grab yours now at targon.com/inventory  
   http://shitter.thepixora.com/TargonCompute/status/2105325236639973561#m
+- @TargonCompute (Targon, Wed, 30 Sep 2026): NVIDIA B300s are now available on demand. Secure GPUs are selling out fast on Targon, Ready to deploy on Blackwell? Grab yours now at targon.com/inventory  
+  http://nitter.meowing.monster/TargonCompute/status/2105325236639973561#m
 - @taomedia_ (TAO Media, Wed, 30 Sep 2026): JUST IN: @Figure_robot melts down humanoids @Schwarzenegger - "F.02 has been decommissioned" Video Figure (@Figure_robot) F.02 Decommission Video — http://shitter.thepixora.com/Figure_robot/status/2105316680251650555#m  
   http://shitter.thepixora.com/taomedia_/status/2105325043173707903#m
 - @opentensor (Opentensor Foundation, Wed, 30 Sep 2026): This Thursday on Novelty Search :: Subnet 80 :: @openroboto OpenRoboto is building an open competition for robot intelligence on Bittensor, where miners improve shared base models and each champion becomes the next starting point. They are now expanding into real robot validation and Shift, their decentralized network for collecting real world robotics data, connecting model improvement with physical data and commercial demand. Thursday :: 5PM EDT / 9PM UTC Hosted by @const_reborn  
@@ -198,6 +225,8 @@ _no new posts in the lookback window_
   http://nitter.meowing.monster/CoreWeave/status/2105288849719194040#m
 - @BarrySilbert (Barry Silbert, Wed, 30 Sep 2026): Excited to welcome Kimberly Pittman to Fortitude as our CLO. Kim is an experienced legal and strategic leader who we believe will be an important addition to our executive leadership team as we aim to continue to scale @FortitudeCrypto and prepare for our proposed business combination with HeartSciences Inc. (Nasdaq:HSCS). Welcome to the team Kim! Fortitude (@FortitudeCrypto) Fortitude is pleased to welcome Kimberly Pittman as Chief Legal Officer. Pittman joins Fortitude’s executive leadership team as the Company prepares for its previously announced proposed business combination with @HeartSc  
   http://shitter.thepixora.com/JaimeLeverton/status/2105282728811717025#m
+- @dylan522p (Dylan Patel, Wed, 30 Sep 2026): AI is making papers cheaper to produce. ICLR submissions: 4,938 (2023), 7,262 (2024), 11,603 (2025), 19,525 (2026). Reported 2027 IDs exceed 62K, above roughly 56K paper submissions in all previous years COMBINED. Can reviewers keep up? (1/6)🧵  
+  http://nitter.meowing.monster/SemiAnalysis_/status/2105130561530421342#m
 - @polychain (Polychain Capital, Wed, 24 Jun 2026): EXCLUSIVE: a16z CSX-backed Cambrian raises $6 million seed to build blockchain data oracle network theblock.co/post/406028/a16z… Link a16z CSX-backed Cambrian raises $6 million seed to build blockchain data oracle network Cambrian’s new funding will expand its API and verifiable oracle network for institutions and AI agents, with Base and Solana already in production. theblock.co  
   https://nitter.kareem.one/TheBlockCo/status/2069827932843909349#m
 - @polychain (Polychain Capital, Wed, 24 Jun 2026): EXCLUSIVE: a16z CSX-backed Cambrian raises $6 million seed to build blockchain data oracle network theblock.co/post/406028/a16z… Link a16z CSX-backed Cambrian raises $6 million seed to build blockchain data oracle network Cambrian’s new funding will expand its API and verifiable oracle network for institutions and AI agents, with Base and Solana already in production. theblock.co  
@@ -206,14 +235,20 @@ _no new posts in the lookback window_
   http://nitter.meowing.monster/TheBlockCo/status/2069827932843909349#m
 - @novogratz (Mike Novogratz, Wed, 23 Sep 2026): Thanks for making the trip to Lubbock, Mike — and for spending time with our Red Raider football team ahead of the game. Great to have you at @TexasTech, and even better to cap off the visit with a big win at the new @galaxyhq Stadium. This partnership is just getting started. #WreckEm! Mike Novogratz (@novogratz) Last Friday, I visited our flagship campus Helios in West Texas. Three years ago, this was still a bitcoin mining facility. Today Helios is a fully operational AI-ready campus with 133MW of critical IT capacity, and we’re just getting started! @galaxyhq is taking a big swing out here  
   http://shitter.thepixora.com/CreightonForTX/status/2102869773776269419#m
+- @novogratz (Mike Novogratz, Wed, 23 Sep 2026): Thanks for making the trip to Lubbock, Mike — and for spending time with our Red Raider football team ahead of the game. Great to have you at @TexasTech, and even better to cap off the visit with a big win at the new @galaxyhq Stadium. This partnership is just getting started. #WreckEm! Mike Novogratz (@novogratz) Last Friday, I visited our flagship campus Helios in West Texas. Three years ago, this was still a bitcoin mining facility. Today Helios is a fully operational AI-ready campus with 133MW of critical IT capacity, and we’re just getting started! @galaxyhq is taking a big swing out here  
+  http://nitter.meowing.monster/CreightonForTX/status/2102869773776269419#m
 - @manakoai (Manako, Wed, 23 Sep 2026): USA ⏭️ Max (@MaxSebti) just flashed the first few @manakoai boxes that will be deployed in the US — http://shitter.thepixora.com/MaxSebti/status/2102842552827412624#m  
   http://shitter.thepixora.com/manakoai/status/2102843727048024497#m
+- @manakoai (Manako, Wed, 23 Sep 2026): USA ⏭️ Max (@MaxSebti) just flashed the first few @manakoai boxes that will be deployed in the US — https://nitter.kareem.one/MaxSebti/status/2102842552827412624#m  
+  https://nitter.kareem.one/manakoai/status/2102843727048024497#m
 - @tplr_ai (Templar, Wed, 23 Sep 2026): Video  
   http://shitter.thepixora.com/tplr_ai/status/2102792674118164542#m
 - @tplr_ai (Templar, Wed, 23 Sep 2026): Read the blog: tplr.ai/publications/blog/sk… Link Fault tolerance in low-bandwidth model parallelism: exploring pipeline stage-skipping with boundary... We explore how the residual nature of the transformer architecture can be leveraged to mitigate hardware faults, and demonstrate that the compression-based implementation of low-bandwidth model... tplr.ai  
   http://shitter.thepixora.com/tplr_ai/status/2102792676676432160#m
 - @novogratz (Mike Novogratz, Wed, 23 Sep 2026): Last Friday, I visited our flagship campus Helios in West Texas. Three years ago, this was still a bitcoin mining facility. Today Helios is a fully operational AI-ready campus with 133MW of critical IT capacity, and we’re just getting started! @galaxyhq is taking a big swing out here, and so is America. The move to build an AI future for this country is real, and none of it happens without the physical infrastructure. It starts with power, land, and hard-working people willing to put in the work to build a new future. Our partnership with @TechAthletics with Galaxy Stadium is part of investing  
   http://shitter.thepixora.com/novogratz/status/2102773522292428868#m
+- @novogratz (Mike Novogratz, Wed, 23 Sep 2026): Last Friday, I visited our flagship campus Helios in West Texas. Three years ago, this was still a bitcoin mining facility. Today Helios is a fully operational AI-ready campus with 133MW of critical IT capacity, and we’re just getting started! @galaxyhq is taking a big swing out here, and so is America. The move to build an AI future for this country is real, and none of it happens without the physical infrastructure. It starts with power, land, and hard-working people willing to put in the work to build a new future. Our partnership with @TechAthletics with Galaxy Stadium is part of investing  
+  http://nitter.meowing.monster/novogratz/status/2102773522292428868#m
 - @covenant_ai (Covenant AI, Wed, 19 Aug 2026): RT @tplr_ai: ByteDance and Tencent each received 10,000 Nvidia H200 chips, the first big delivery after China eased import limits. Watch w…  
   http://nitter.meowing.monster/covenant_ai/status/2090092134036648101#m
 - @covenant_ai (Covenant AI, Wed, 19 Aug 2026): ByteDance and Tencent each received 10,000 Nvidia H200 chips, the first big delivery after China eased import limits. Watch what this does to the map. New compute lands in new regions. Supply chains stretch across borders. One export policy shift decides who can train what. None of that touches how a run schedules across nodes. Templar treats heterogeneous, cross-geography compute as the normal case. Runs that adapt to whichever nodes are open still finish when the supply picture moves. Financial Times (@FT) China eases limits on Nvidia H200 chips as AI race escalates ft.trib.al/B7WRmPI Link C  
@@ -226,23 +261,7 @@ _no new posts in the lookback window_
   http://nitter.meowing.monster/jaltucher/status/2100262449685364904#m
 - @jaltucher (James Altucher, Wed, 16 Sep 2026): Working on an AI-powered end to end platform for designing optical and then quantum chips at $QCLS. More details and refinements later but you can check it out at VibeGDS.io - you just enter plain English for the chip you want and it will build it out, simulate, verify, etc. Of interest mostly to optical engineers.  
   http://shitter.thepixora.com/jaltucher/status/2100262449685364904#m
-- @tplr_ai (Templar, Wed, 16 Sep 2026): When using pipeline compression with fixed projections shared across layers, robustness improves further as seen in the figure below. This suggests that shared projectors align representations across stage boundaries, making bypasses less disruptive. 4/n  
-  http://shitter.thepixora.com/tplr_ai/status/2100237714918367690#m
-- @tplr_ai (Templar, Wed, 16 Sep 2026): We’ve been researching fault tolerance in Crucible, Templar’s pre-training platform. The goal: keep training through node failures and make better use of unreliable workers and spot instances, without idling an entire model replica when one stage goes down. 1/n Video  
-  http://shitter.thepixora.com/tplr_ai/status/2100237708186550642#m
-- @covenant_ai (Covenant AI, Wed, 16 Sep 2026): We’ve been researching fault tolerance in Crucible, Templar’s pre-training platform. The goal: keep training through node failures and make better use of unreliable workers and spot instances, without idling an entire model replica when one stage goes down. 1/n Video  
-  http://nitter.meowing.monster/tplr_ai/status/2100237708186550642#m
-- @covenant_ai (Covenant AI, Wed, 16 Sep 2026): We’ve been researching fault tolerance in Crucible, Templar’s pre-training platform. The goal: keep training through node failures and make better use of unreliable workers and spot instances, without idling an entire model replica when one stage goes down. 1/n Video  
-  https://nitter.kareem.one/tplr_ai/status/2100237708186550642#m
-- @novogratz (Mike Novogratz, Wed, 16 Sep 2026): Our economy doesn’t work without immigration. We need at least 1.5-2mm new immigrants a year to create taxpayers and consumers to help us grow our way out of 40th in debt and to pay for an aging population. This isn’t political. It’s just math. We of course can decide what immigrants we take. From where, what educational level, wealth etc. that’s political. But the fact that we need them isn’t. Lisa Boothe (@LisaMarieBoothe) At this point, I am fine with shutting down all immigration, legal or not. It's a mess. — http://shitter.thepixora.com/LisaMarieBoothe/status/2099891080258875467#m  
-  http://shitter.thepixora.com/novogratz/status/2100193741633929406#m
-- @foundrydigital (Foundry Digital, Wed, 11 Jan 2012): Expression Engine 2.0 review by the guys at Scriptiny bit.ly/w3Pg3R  
-  http://shitter.thepixora.com/foundrydigital/status/157243024848596993#m
-- @lium_io (Lium, Wed, 09 Sep 2026): lium.io Month in review: $964k billed to 1187 renters (36% MoM growth). 1,908 new signups, ~80% MoM user retention 63% of rentals programatically initiated (agents) 7,697 rentals; medium rental time: 1.15 hours.  
-  http://shitter.thepixora.com/lium_io/status/2097824624117473549#m
-- @shibshib89 (Ala Shaabana, Wed, 09 Sep 2026): Did you hear? Crucible Wallet is officially live on iOS today. An easy to use Bittensor wallet with Ledger security, Unified Swap and subnet level performance. Now available on iOS in the US, Android and Chrome. Download at CrucibleLabs.com #Bittensor #TAO #CrucibleWallet  
-  http://shitter.thepixora.com/CrucibleLabs/status/2097815766473323006#m
 
 
 ---
-_Generated at 2026-10-03T18:58:16.264750+00:00 by scripts/intel/aggregate.py. Treat this digest as input context, not as ground truth. Verify before quoting._
+_Generated at 2026-10-03T22:37:42.325184+00:00 by scripts/intel/aggregate.py. Treat this digest as input context, not as ground truth. Verify before quoting._

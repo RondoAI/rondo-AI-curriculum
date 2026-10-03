@@ -1,1 +1,112 @@
-[]
+[
+  {
+    "repo": "opentensor/subtensor",
+    "name": "Subtensor (chain)",
+    "kind": "commit",
+    "sha": "f87cada",
+    "message": "Merge pull request #3208 from RaoFoundation/release-473",
+    "author": "UnArbosFive",
+    "posted_at": "2026-10-03T22:13:30Z",
+    "url": "https://github.com/RaoFoundation/subtensor/commit/f87cada631f81d11683e715a9f059f693992e64a",
+    "fetched_at": "2026-10-03T22:37:37.068803+00:00"
+  },
+  {
+    "repo": "opentensor/subtensor",
+    "name": "Subtensor (chain)",
+    "kind": "commit",
+    "sha": "fe45599",
+    "message": "fix clone fee fixture stability",
+    "author": "UnArbosFive",
+    "posted_at": "2026-10-03T21:20:56Z",
+    "url": "https://github.com/RaoFoundation/subtensor/commit/fe4559927bf56c3365fe3e15442e3f255f47da5d",
+    "fetched_at": "2026-10-03T22:37:37.068803+00:00"
+  },
+  {
+    "repo": "opentensor/subtensor",
+    "name": "Subtensor (chain)",
+    "kind": "commit",
+    "sha": "11b663b",
+    "message": "fix clone EVM fixture fees",
+    "author": "UnArbosFive",
+    "posted_at": "2026-10-03T20:58:18Z",
+    "url": "https://github.com/RaoFoundation/subtensor/commit/11b663b0f79a6371e898fefbd2c8b0eef1ac2762",
+    "fetched_at": "2026-10-03T22:37:37.068803+00:00"
+  },
+  {
+    "repo": "opentensor/subtensor",
+    "name": "Subtensor (chain)",
+    "kind": "commit",
+    "sha": "e385739",
+    "message": "fix docs preview audit gate",
+    "author": "UnArbosFive",
+    "posted_at": "2026-10-03T20:19:12Z",
+    "url": "https://github.com/RaoFoundation/subtensor/commit/e385739fb8d47d56b182d123ec2ee5795ca273d3",
+    "fetched_at": "2026-10-03T22:37:37.068803+00:00"
+  },
+  {
+    "repo": "opentensor/subtensor",
+    "name": "Subtensor (chain)",
+    "kind": "commit",
+    "sha": "6675c84",
+    "message": "fix generated storage binding",
+    "author": "UnArbosFive",
+    "posted_at": "2026-10-03T19:49:58Z",
+    "url": "https://github.com/RaoFoundation/subtensor/commit/6675c84efc9dfc1dbdc9f594c48c9e416140d753",
+    "fetched_at": "2026-10-03T22:37:37.068803+00:00"
+  },
+  {
+    "repo": "opentensor/subtensor",
+    "name": "Subtensor (chain)",
+    "kind": "commit",
+    "sha": "f5c3aaf",
+    "message": "fix cargo fmt and test fixtures",
+    "author": "UnArbosFive",
+    "posted_at": "2026-10-03T00:32:58Z",
+    "url": "https://github.com/RaoFoundation/subtensor/commit/f5c3aaff4bd4215a211f4e8f69194893f73435a1",
+    "fetched_at": "2026-10-03T22:37:37.068803+00:00"
+  },
+  {
+    "repo": "opentensor/subtensor",
+    "name": "Subtensor (chain)",
+    "kind": "commit",
+    "sha": "fbe2195",
+    "message": "test: update registration fixture funding",
+    "author": "UnArbosFive",
+    "posted_at": "2026-10-03T00:17:46Z",
+    "url": "https://github.com/RaoFoundation/subtensor/commit/fbe21953b5ccca01951cee7474f10361de1becda",
+    "fetched_at": "2026-10-03T22:37:37.068803+00:00"
+  },
+  {
+    "repo": "opentensor/subtensor",
+    "name": "Subtensor (chain)",
+    "kind": "commit",
+    "sha": "5d34bf9",
+    "message": "Merge pull request #3203 from RaoFoundation/automate-mainnet-release",
+    "author": "UnArbosFive",
+    "posted_at": "2026-10-02T23:56:18Z",
+    "url": "https://github.com/RaoFoundation/subtensor/commit/5d34bf949ad4eb9d1a18620692bbe7c0e82d348b",
+    "fetched_at": "2026-10-03T22:37:37.068803+00:00"
+  },
+  {
+    "repo": "opentensor/subtensor",
+    "name": "Subtensor (chain)",
+    "kind": "commit",
+    "sha": "4e4329e",
+    "message": "Merge pull request #3209 from RaoFoundation/feat/cleanup-staking-hotkeys",
+    "author": "UnArbosFive",
+    "posted_at": "2026-10-02T23:55:40Z",
+    "url": "https://github.com/RaoFoundation/subtensor/commit/4e4329e49130a140f4ff3f95767ea35330f031e2",
+    "fetched_at": "2026-10-03T22:37:37.068803+00:00"
+  },
+  {
+    "repo": "opentensor/subtensor",
+    "name": "Subtensor (chain)",
+    "kind": "commit",
+    "sha": "4774259",
+    "message": "Align registration accounting",
+    "author": "UnArbosFive",
+    "posted_at": "2026-10-02T22:46:23Z",
+    "url": "https://github.com/RaoFoundation/subtensor/commit/47742598185b9adc900fe5fcae4da96902f19b6c",
+    "fetched_at": "2026-10-03T22:37:37.068803+00:00"
+  }
+]
