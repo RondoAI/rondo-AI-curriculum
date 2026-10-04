@@ -220,6 +220,16 @@
     "via_instance": "https://nitter.cz"
   },
   {
+    "handle": "manakoai",
+    "name": "Manako",
+    "posted_at": "Wed, 23 Sep 2026 19:33:08 GMT",
+    "title": "USA ⏭️",
+    "text": "USA ⏭️ Max (@MaxSebti) just flashed the first few @manakoai boxes that will be deployed in the US — https://nitter.kareem.one/MaxSebti/status/2102842552827412624#m",
+    "url": "https://nitter.kareem.one/manakoai/status/2102843727048024497#m",
+    "fetched_at": "2026-10-04T22:40:38.858623+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
     "handle": "tplr_ai",
     "name": "Templar",
     "posted_at": "Wed, 23 Sep 2026 16:10:16 GMT",
@@ -407,6 +417,16 @@
     "text": "📈 Tokenization is moving from simply putting assets onchain to building real, programmable capital markets. @PanteraCapital’s latest State of Tokenization report highlights several areas where @Ondo Finance is helping push that evolution forward: 📍Distribution: $USDY had the largest reported holder base among tokenized rates products, with nearly 18,000 addresses as of June 30. 📍Tokenized equities: @Ondo is highlighted across the report’s analysis of the rapidly growing onchain equity market which Ondo Finance continues to lead. 📍Perps: @OndoPerps launched in July with 24/7 exposure to stocks,",
     "url": "http://shitter.thepixora.com/KatieAWheeler/status/2105057463666168136#m",
     "fetched_at": "2026-10-04T03:43:50.102931+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "SemiAnalysis_",
+    "name": "SemiAnalysis",
+    "posted_at": "Tue, 29 Sep 2026 22:00:07 GMT",
+    "title": "ALERT 🚨🚨OpenAI's latest GPT6.1 Sol Ultrafast is NOT running on Cerebras but is instead running at a low batch size on NVIDIA GPUs. What does this say about Cerebras? Will Cerebras be serving GPT6.1 Sol Ultrafast in the future?",
+    "text": "ALERT 🚨🚨OpenAI's latest GPT6.1 Sol Ultrafast is NOT running on Cerebras but is instead running at a low batch size on NVIDIA GPUs. What does this say about Cerebras? Will Cerebras be serving GPT6.1 Sol Ultrafast in the future?",
+    "url": "http://shitter.thepixora.com/SemiAnalysis_/status/2105055045959995719#m",
+    "fetched_at": "2026-10-04T22:41:09.396452+00:00",
     "via_instance": "https://nitter.cz"
   },
   {
@@ -630,6 +650,16 @@
     "via_instance": "https://nitter.cz"
   },
   {
+    "handle": "mcjkula",
+    "name": "mcjkula",
+    "posted_at": "Tue, 14 Apr 2026 18:41:35 GMT",
+    "title": "See you in Montréal everyone. Not gonna want to miss this one🫡",
+    "text": "See you in Montréal everyone. Not gonna want to miss this one🫡 Exploit Summit (@ExploitSummit) Building on Bittensor is hard. Doing it in isolation is even harder. Exploit puts you in a room with: • The subnet founders who've already solved your problems • The investors actually writing checks • The technical talent you're trying to hire Sept 28-29, Montréal. Two days that could save you six months. Video — http://shitter.thepixora.com/ExploitSummit/status/2044100822750114215#m",
+    "url": "http://shitter.thepixora.com/mcjkula/status/2044123923088830837#m",
+    "fetched_at": "2026-10-04T22:39:07.840948+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
     "handle": "nigescore",
     "name": "Nige",
     "posted_at": "Tue, 08 Sep 2026 09:52:05 GMT",
@@ -667,6 +697,16 @@
     "text": "Subnet 44 @webuildscore is expanding. We’re incentivising training for a new vision-language model: Satori. Satori reasons AND grounds. It doesn’t just answer questions about an image. It points to the evidence. - Reason about scenes - Detect and segment objects - Read text - Count entities - Ground claims in pixels Most VLMs are split: strong reasoning OR strong grounding. Detection models localise, but can’t talk. Chatty VLMs describe fluently, but can’t prove it. Satori sits at the intersection. We’re starting with a 7B base model.",
     "url": "http://shitter.thepixora.com/tm0klc/status/2074298897305047101#m",
     "fetched_at": "2026-10-04T10:21:34.991306+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "mcjkula",
+    "name": "mcjkula",
+    "posted_at": "Tue, 01 Sep 2026 17:30:03 GMT",
+    "title": "RT by @mcjkula: TAOApp Wallet is here. The self-custody browser wallet for Bittensor. Hold TAO, stake TAO, buy subnet tokens. When there’s more to protect, bring in your Ledger, proxies and multisigs. Install the beta, on Chrome, Brave and Edge. ↓ https://chromewebstore.google.com/detail/taoapp-wallet/plipkdflloklldnmnjdlonijlihafjjc",
+    "text": "TAOApp Wallet is here. The self-custody browser wallet for Bittensor. Hold TAO, stake TAO, buy subnet tokens. When there’s more to protect, bring in your Ledger, proxies and multisigs. Install the beta, on Chrome, Brave and Edge. ↓ chromewebstore.google.com/de…",
+    "url": "http://shitter.thepixora.com/taoapp_/status/2094840222441992209#m",
+    "fetched_at": "2026-10-04T22:39:07.840948+00:00",
     "via_instance": "https://nitter.cz"
   },
   {
@@ -750,6 +790,16 @@
     "via_instance": "https://nitter.cz"
   },
   {
+    "handle": "manakoai",
+    "name": "Manako",
+    "posted_at": "Thu, 24 Sep 2026 17:25:54 GMT",
+    "title": "RT by @manakoai: next batch of stations to be deployed with @manakoai is going to allow us to leverage a lot more @webuildscore models. - 4 motorway stations. beasts with 40+ cameras each. - that’s 10x more cameras than on unmanned stations. - massive fuel forecourts, EV charging bays, car wash, restaurants, supermarkets, coffee areas. the second best news… is it’s with a new signed client 👀",
+    "text": "next batch of stations to be deployed with @manakoai is going to allow us to leverage a lot more @webuildscore models. - 4 motorway stations. beasts with 40+ cameras each. - that’s 10x more cameras than on unmanned stations. - massive fuel forecourts, EV charging bays, car wash, restaurants, supermarkets, coffee areas. the second best news… is it’s with a new signed client 👀",
+    "url": "https://nitter.kareem.one/arnod3f/status/2103174097522098609#m",
+    "fetched_at": "2026-10-04T22:40:38.858623+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
     "handle": "zeussubnet",
     "name": "Zeus Subnet",
     "posted_at": "Thu, 24 Sep 2026 16:27:01 GMT",
@@ -757,6 +807,16 @@
     "text": "🤯 4 hours of latency advantage with a model that's more accurate than both EC's IFS ENS &amp; Google's new state-of-the-art model WeatherNext 3, on 100m wind in 0-48H window Zeus | SN 18 (@zeussubnet) An hour and a half. That's how fast Zeus delivers a new weather run. That's 4× faster than IFS (6h) and nearly 5× faster than Google's new WeatherNext 3 (7h). And it's not winning on speed alone. 👇 We’ve put WeatherNext 3 head-to-head with our Zeus Pro and the industry-standard IFS ENS. On 2m temperature, Zeus has been consistently more accurate than both throughout August. — http://shitter.thepi",
     "url": "http://shitter.thepixora.com/egillwx/status/2103159277405843965#m",
     "fetched_at": "2026-10-04T03:45:20.187064+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "manakoai",
+    "name": "Manako",
+    "posted_at": "Thu, 24 Sep 2026 15:43:03 GMT",
+    "title": "Same week, different rooms, same vision Paris ✅ London ✅ Next?",
+    "text": "Same week, different rooms, same vision Paris ✅ London ✅ Next?",
+    "url": "https://nitter.kareem.one/manakoai/status/2103148213645558030#m",
+    "fetched_at": "2026-10-04T22:40:38.858623+00:00",
     "via_instance": "https://nitter.cz"
   },
   {
@@ -872,11 +932,31 @@
   {
     "handle": "jtledore",
     "name": "Jean-Thomas Ledoré",
+    "posted_at": "Thu, 01 Oct 2026 22:01:05 GMT",
+    "title": "RT by @jtledore: so it begins",
+    "text": "so it begins Score (@webuildscore) September was the first month we broke even. Two private track partners are now long-term paid clients. We’re converting clients faster than before, still in sports, and now in fuel retail and security via Manako. Details will be shared in separate posts. That was the signal we were waiting for. Buybacks (and burn this time) of sn44 have started from our owner address. First ones are in: 9 × 1,044 and 1 × 4,444. Not from Manako. Purely from the subnet. We will not talk about them. No schedules, no amounts, no marketing. A buyback today says nothing about tomo",
+    "url": "http://nitter.meowing.monster/MaxSebti/status/2105780064344490191#m",
+    "fetched_at": "2026-10-04T22:40:36.569727+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "jtledore",
+    "name": "Jean-Thomas Ledoré",
     "posted_at": "Thu, 01 Oct 2026 22:00:10 GMT",
     "title": "RT by @jtledore: September was the first month we broke even. Two private track partners are now long-term paid clients. We’re converting clients faster than before, still in sports, and now in fuel retail and security via Manako. Details will be shared in separate posts. That was the signal we were waiting for. Buybacks (and burn this time) of sn44 have started from our owner address. First ones are in: 9 × 1,044 and 1 × 4,444. Not from Manako. Purely from the subnet. We will not talk about them. No schedules, no amounts, no marketing. A buyback today says nothing about tomorrow. It could be $1,044 on day 1 and $4,444 on day 27. Or neither. They will happen. They will not be predictable. Trust the process. Trust the vision.",
     "text": "September was the first month we broke even. Two private track partners are now long-term paid clients. We’re converting clients faster than before, still in sports, and now in fuel retail and security via Manako. Details will be shared in separate posts. That was the signal we were waiting for. Buybacks (and burn this time) of sn44 have started from our owner address. First ones are in: 9 × 1,044 and 1 × 4,444. Not from Manako. Purely from the subnet. We will not talk about them. No schedules, no amounts, no marketing. A buyback today says nothing about tomorrow. It could be $1,044 on day 1 a",
     "url": "https://nitter.kareem.one/webuildscore/status/2105779835591098873#m",
     "fetched_at": "2026-10-04T03:44:29.918035+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "jtledore",
+    "name": "Jean-Thomas Ledoré",
+    "posted_at": "Thu, 01 Oct 2026 22:00:10 GMT",
+    "title": "RT by @jtledore: September was the first month we broke even. Two private track partners are now long-term paid clients. We’re converting clients faster than before, still in sports, and now in fuel retail and security via Manako. Details will be shared in separate posts. That was the signal we were waiting for. Buybacks (and burn this time) of sn44 have started from our owner address. First ones are in: 9 × 1,044 and 1 × 4,444. Not from Manako. Purely from the subnet. We will not talk about them. No schedules, no amounts, no marketing. A buyback today says nothing about tomorrow. It could be $1,044 on day 1 and $4,444 on day 27. Or neither. They will happen. They will not be predictable. Trust the process. Trust the vision.",
+    "text": "September was the first month we broke even. Two private track partners are now long-term paid clients. We’re converting clients faster than before, still in sports, and now in fuel retail and security via Manako. Details will be shared in separate posts. That was the signal we were waiting for. Buybacks (and burn this time) of sn44 have started from our owner address. First ones are in: 9 × 1,044 and 1 × 4,444. Not from Manako. Purely from the subnet. We will not talk about them. No schedules, no amounts, no marketing. A buyback today says nothing about tomorrow. It could be $1,044 on day 1 a",
+    "url": "http://nitter.meowing.monster/webuildscore/status/2105779835591098873#m",
+    "fetched_at": "2026-10-04T22:40:36.569727+00:00",
     "via_instance": "https://nitter.cz"
   },
   {
@@ -1020,6 +1100,146 @@
     "via_instance": "https://nitter.cz"
   },
   {
+    "handle": "wallstreetbets",
+    "name": "WallStreetBets (X)",
+    "posted_at": "Sun, 04 Oct 2026 22:17:25 GMT",
+    "title": "raising him right",
+    "text": "raising him right",
+    "url": "http://nitter.meowing.monster/wallstreetbets/status/2106871336639603112#m",
+    "fetched_at": "2026-10-04T22:41:24.225661+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "JosephJacks_",
+    "name": "Joseph Jacks",
+    "posted_at": "Sun, 04 Oct 2026 19:51:37 GMT",
+    "title": "RT by @JosephJacks_: This is what happens when you forget to read the privacy policy before accepting all cookies",
+    "text": "This is what happens when you forget to read the privacy policy before accepting all cookies Video",
+    "url": "http://nitter.meowing.monster/compliantvc/status/2106834644683616349#m",
+    "fetched_at": "2026-10-04T22:39:20.326522+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "webuildscore",
+    "name": "Score",
+    "posted_at": "Sun, 04 Oct 2026 19:10:41 GMT",
+    "title": "Subnets’ moats lie in open-source, trustless evals hardened by adversarial mining",
+    "text": "Subnets’ moats lie in open-source, trustless evals hardened by adversarial mining Max (@MaxSebti) we measured the same success rate on football (soccer) analysis-model work GPT-6 Astra scored 0% when measured under real conditions on our open-source eval bench — https://nitter.kareem.one/MaxSebti/status/2106820324536803492#m",
+    "url": "https://nitter.kareem.one/webuildscore/status/2106824346513838207#m",
+    "fetched_at": "2026-10-04T22:40:27.037407+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "SemiAnalysis_",
+    "name": "SemiAnalysis",
+    "posted_at": "Sun, 04 Oct 2026 19:01:03 GMT",
+    "title": "Recently, Alibaba T-Head unveiled the Zhenwu V900 during the Apsara Conference 2026. Zhenwu V900 features 216 GB of memory capacity and 1,200 GB/s of interconnect bandwidth. The V900 is slated to be \"3x\" the performance of the Zhenwu M890 and will start shipments in Q1 2027. (1/3)🧵",
+    "text": "Recently, Alibaba T-Head unveiled the Zhenwu V900 during the Apsara Conference 2026. Zhenwu V900 features 216 GB of memory capacity and 1,200 GB/s of interconnect bandwidth. The V900 is slated to be \"3x\" the performance of the Zhenwu M890 and will start shipments in Q1 2027. (1/3)🧵",
+    "url": "http://shitter.thepixora.com/SemiAnalysis_/status/2106821919622279225#m",
+    "fetched_at": "2026-10-04T22:41:09.396452+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "SemiAnalysis_",
+    "name": "SemiAnalysis",
+    "posted_at": "Sun, 04 Oct 2026 19:01:03 GMT",
+    "title": "R to @SemiAnalysis_: We previously covered the Zhenwu M890 during our WAIC 2026 takeaways, where we took a closer look at the chip's floorplan. The Zhenwu M890 chip features 4 stacks of HBM3E 12-Hi, with 2 compute dies. (2/3)",
+    "text": "We previously covered the Zhenwu M890 during our WAIC 2026 takeaways, where we took a closer look at the chip's floorplan. The Zhenwu M890 chip features 4 stacks of HBM3E 12-Hi, with 2 compute dies. (2/3)",
+    "url": "http://shitter.thepixora.com/SemiAnalysis_/status/2106821921102823570#m",
+    "fetched_at": "2026-10-04T22:41:09.396452+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "SemiAnalysis_",
+    "name": "SemiAnalysis",
+    "posted_at": "Sun, 04 Oct 2026 19:01:03 GMT",
+    "title": "R to @SemiAnalysis_: Subscribe to the Accelerator & HBM model to find out more! (3/3) https://semianalysis.com/accelerator-hbm-model/?query-0-page=2",
+    "text": "Subscribe to the Accelerator &amp; HBM model to find out more! (3/3) semianalysis.com/accelerator… Link Accelerator &amp; HBM Model SKU-level data on AI accelerator shipments, ASPs, specifications, and HBM supply across Nvidia, AMD, Google, AWS, and 60+ buyers. Forecasts to 2030, history from 2021. semianalysis.com",
+    "url": "http://shitter.thepixora.com/SemiAnalysis_/status/2106821922700869874#m",
+    "fetched_at": "2026-10-04T22:41:09.396452+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "wallstreetbets",
+    "name": "WallStreetBets (X)",
+    "posted_at": "Sun, 04 Oct 2026 17:04:23 GMT",
+    "title": "privacy szn",
+    "text": "privacy szn vitalik.eth (@VitalikButerin) 隐私是自由 隐私是秩序 隐私是进步 vitalik.eth.limo/general/202… Link Why I support privacy vitalik.eth.limo — http://nitter.meowing.monster/VitalikButerin/status/2106737425888522723#m",
+    "url": "http://nitter.meowing.monster/wallstreetbets/status/2106792561285177418#m",
+    "fetched_at": "2026-10-04T22:41:24.225661+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "webuildscore",
+    "name": "Score",
+    "posted_at": "Sun, 04 Oct 2026 17:02:46 GMT",
+    "title": "Miners on Score cleared the worksite Personal Protective Equipment target in days, not months. Baseline was 46.6%. Live score is 90.1%, target was 90%. Hard hats, vests, eyewear. Hourly evals. Open weights. The task stays up. Harder site footage is going in so the model keeps getting trained on messier, real conditions. That is the point. A missing hard hat or vest caught before someone walks into the zone. Miners are not tuning a demo. They are building the thing that keeps people safer at work, and anyone can run it.",
+    "text": "Miners on Score cleared the worksite Personal Protective Equipment target in days, not months. Baseline was 46.6%. Live score is 90.1%, target was 90%. Hard hats, vests, eyewear. Hourly evals. Open weights. The task stays up. Harder site footage is going in so the model keeps getting trained on messier, real conditions. That is the point. A missing hard hat or vest caught before someone walks into the zone. Miners are not tuning a demo. They are building the thing that keeps people safer at work, and anyone can run it.",
+    "url": "https://nitter.kareem.one/webuildscore/status/2106792152927703211#m",
+    "fetched_at": "2026-10-04T22:40:27.037407+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "jtledore",
+    "name": "Jean-Thomas Ledoré",
+    "posted_at": "Sun, 04 Oct 2026 16:40:48 GMT",
+    "title": "RT by @jtledore: Bittensor Ecosystem Highlights :: September 28–October 4, 2026",
+    "text": "Article Bittensor Ecosystem Highlights :: September 28–October 4, 2026 This week’s biggest stories across Bittensor came from Exploit, Macrocosmos, Beam, Umi, Targon, Hippius, Score, Pareton, Carbon. [ @ExploitSummit ] This week, Montreal hosted the biggest Bittensor",
+    "url": "http://nitter.meowing.monster/opentensor/status/2106786624210194524#m",
+    "fetched_at": "2026-10-04T22:40:36.569727+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "wallstreetbets",
+    "name": "WallStreetBets (X)",
+    "posted_at": "Sun, 04 Oct 2026 14:35:58 GMT",
+    "title": "JUST IN: Elon Musk says SpaceXAI will be renamed to SpaceXSI, shifting from AI to \"super intelligence.\"",
+    "text": "JUST IN: Elon Musk says SpaceXAI will be renamed to SpaceXSI, shifting from AI to \"super intelligence.\"",
+    "url": "http://nitter.meowing.monster/wallstreetbets/status/2106755209104085443#m",
+    "fetched_at": "2026-10-04T22:41:24.225661+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "JosephJacks_",
+    "name": "Joseph Jacks",
+    "posted_at": "Sun, 04 Oct 2026 13:01:29 GMT",
+    "title": "RT by @JosephJacks_: light either way ✧ ✧ ✧",
+    "text": "light either way ✧ ✧ ✧",
+    "url": "http://nitter.meowing.monster/infiniteyay/status/2106731432949477607#m",
+    "fetched_at": "2026-10-04T22:39:20.326522+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "wallstreetbets",
+    "name": "WallStreetBets (X)",
+    "posted_at": "Sun, 04 Oct 2026 13:00:55 GMT",
+    "title": "RT by @wallstreetbets: Stock Pocks Genesis has begun, bid now: https://genesis.stockpocks.com Details: 24 Hour Dutch Auction Starting Price: 250 USDG Ending Price: 20 USDG Amount:10K Buy one to start playing and earning stocks!",
+    "text": "Stock Pocks Genesis has begun, bid now: genesis.stockpocks.com Details: 24 Hour Dutch Auction Starting Price: 250 USDG Ending Price: 20 USDG Amount:10K Buy one to start playing and earning stocks! Video",
+    "url": "http://nitter.meowing.monster/Stockpocks/status/2106731289583685851#m",
+    "fetched_at": "2026-10-04T22:41:24.225661+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "JosephJacks_",
+    "name": "Joseph Jacks",
+    "posted_at": "Sun, 04 Oct 2026 12:10:17 GMT",
+    "title": "RT by @JosephJacks_: One important thing. I do not *define* morphogenesis as a problem-solving process. You can't make such claims by definition, you have to do experiments and find out if that's what it is. Turns out, it is. Here's an overview: https://thoughtforms.life/biophysical-intelligence-between-genotype-and-phenotype/",
+    "text": "One important thing. I do not *define* morphogenesis as a problem-solving process. You can't make such claims by definition, you have to do experiments and find out if that's what it is. Turns out, it is. Here's an overview: thoughtforms.life/biophysica… Link Biophysical Intelligence Between Genotype and Phenotype This is a chapter for a book of my views on the mapping between genotype and phenotype as an intelligent process. thoughtforms.life",
+    "url": "http://nitter.meowing.monster/drmichaellevin/status/2106718547246235787#m",
+    "fetched_at": "2026-10-04T22:39:20.326522+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "wallstreetbets",
+    "name": "WallStreetBets (X)",
+    "posted_at": "Sun, 04 Oct 2026 09:59:15 GMT",
+    "title": "Edel started with lending tokenised stocks. Now they’re issuing them. SPY + QQQ already live on Canton. $1M+ volume. Perps next. ~$20K/day already coming in. And they just joined the DTCC Working Group alongside Wall Street’s biggest names. $EDEL infra szn?",
+    "text": "Edel started with lending tokenised stocks. Now they’re issuing them. SPY + QQQ already live on Canton. $1M+ volume. Perps next. ~$20K/day already coming in. And they just joined the DTCC Working Group alongside Wall Street’s biggest names. $EDEL infra szn? Edel Finance (@edeldotfinance) Wall Street doesn’t rebuild its markets for a new ledger. It moves when the economics improve. More business from the same assets. Less capital tied up between systems. That’s the opportunity behind Edel: building markets on Canton where institutions can put their portfolios to work without selling what they h",
+    "url": "http://nitter.meowing.monster/wallstreetbets/status/2106685570709926300#m",
+    "fetched_at": "2026-10-04T22:41:24.225661+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
     "handle": "markjeffrey",
     "name": "Mark Jeffrey",
     "posted_at": "Sun, 04 Oct 2026 08:05:11 GMT",
@@ -1072,6 +1292,16 @@
   {
     "handle": "SemiAnalysis_",
     "name": "SemiAnalysis",
+    "posted_at": "Sun, 04 Oct 2026 03:10:47 GMT",
+    "title": "R to @SemiAnalysis_: \"6.1 Astra\"",
+    "text": "\"6.1 Astra\"",
+    "url": "http://shitter.thepixora.com/SemiAnalysis_/status/2106582776975958095#m",
+    "fetched_at": "2026-10-04T22:41:09.396452+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "SemiAnalysis_",
+    "name": "SemiAnalysis",
     "posted_at": "Sun, 04 Oct 2026 03:00:25 GMT",
     "title": "R to @SemiAnalysis_: I want to pull out my Muse at a conference and challenge someone else’s agent, like kids used to do with Digimon. Meta, please let us do this. (4/4)",
     "text": "I want to pull out my Muse at a conference and challenge someone else’s agent, like kids used to do with Digimon. Meta, please let us do this. (4/4)",
@@ -1107,6 +1337,16 @@
     "text": "Meta unveiled Muse Charm at Connect. Tamagotchi for 2026. Our Snapdragon Summit note sees personal AI devices as a new growth market. We expect Snapdragon inside Muse Charm, though Meta has not disclosed the chip. (1/4)🧵",
     "url": "https://nitter.kareem.one/SemiAnalysis_/status/2106580164565983614#m",
     "fetched_at": "2026-10-04T16:17:53.216548+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "JosephJacks_",
+    "name": "Joseph Jacks",
+    "posted_at": "Sun, 04 Oct 2026 01:50:13 GMT",
+    "title": "RT by @JosephJacks_: Any creature with microtubules is likely to be conscious. Not just humans.",
+    "text": "Any creature with microtubules is likely to be conscious. Not just humans. Anil Seth (@anilkseth) \"I can tell you this, though: Every single person who thinks that machines cannot be conscious, is making an argument that humans are special. Everything they say just boils down to blah blah blah, \"nooo, we're special.\" From there it's just rationalization.\" This is very far from the truth. There are many (IMO compelling) arguments against (silicon, digital) machine consciousness that in no way depend on human exceptionalism, or even on carbon chauvinism. To get a good sense of the current debate",
+    "url": "http://nitter.meowing.monster/StuartHameroff/status/2106562502830297321#m",
+    "fetched_at": "2026-10-04T22:39:20.326522+00:00",
     "via_instance": "https://nitter.cz"
   },
   {
@@ -1210,6 +1450,16 @@
     "via_instance": "https://nitter.cz"
   },
   {
+    "handle": "mcjkula",
+    "name": "mcjkula",
+    "posted_at": "Sat, 19 Sep 2026 21:34:40 GMT",
+    "title": "Bittensor took me a while to understand. I want to make that first step easier for the next person. We’ll be kicking things off with Bittensor 101 at Exploit. Looking forward to meeting some of you for the first time and catching up with familiar faces. 👋",
+    "text": "Bittensor took me a while to understand. I want to make that first step easier for the next person. We’ll be kicking things off with Bittensor 101 at Exploit. Looking forward to meeting some of you for the first time and catching up with familiar faces. 👋 Exploit Summit (@ExploitSummit) Maciej Kula ( @mcjkula ) couldn't find a clear way to learn #Bittensor from scratch, so he built the resource he wished existed. @learnbittensor is now part of @latentholdings, where Maciej leads education and makes Bittensor easier to understand. He'll be leading our Bittensor 101 session to kick off Day 1: lu",
+    "url": "http://shitter.thepixora.com/mcjkula/status/2101424763344437495#m",
+    "fetched_at": "2026-10-04T22:39:07.840948+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
     "handle": "nigescore",
     "name": "Nige",
     "posted_at": "Sat, 19 Sep 2026 20:10:18 GMT",
@@ -1227,6 +1477,16 @@
     "text": "We’re completing our first 20 reference deployments, led by our CEO and engineering team, and the headline finding is that Manako is genuinely plug and play. No specialist integration required: a unit can be shipped to site and connected by anyone on the ground. That’s what makes our next phase possible. Our integration partners will roll out at scale on a simple, repeatable install, with less time on site and lower cost per deployment.",
     "url": "http://nitter.meowing.monster/manakoai/status/2101403529558577403#m",
     "fetched_at": "2026-10-04T16:17:22.185201+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "mcjkula",
+    "name": "mcjkula",
+    "posted_at": "Sat, 19 Sep 2026 17:00:09 GMT",
+    "title": "RT by @mcjkula: Maciej Kula ( @mcjkula ) couldn't find a clear way to learn #Bittensor from scratch, so he built the resource he wished existed. @learnbittensor is now part of @latentholdings, where Maciej leads education and makes Bittensor easier to understand. He'll be leading our Bittensor 101 session to kick off Day 1: https://luma.com/nqy2n5zi",
+    "text": "Maciej Kula ( @mcjkula ) couldn't find a clear way to learn #Bittensor from scratch, so he built the resource he wished existed. @learnbittensor is now part of @latentholdings, where Maciej leads education and makes Bittensor easier to understand. He'll be leading our Bittensor 101 session to kick off Day 1: luma.com/nqy2n5zi Video",
+    "url": "http://shitter.thepixora.com/ExploitSummit/status/2101355676325007652#m",
+    "fetched_at": "2026-10-04T22:39:07.840948+00:00",
     "via_instance": "https://nitter.cz"
   },
   {
@@ -1257,6 +1517,16 @@
     "text": "Oktoberfest is a stress test for any detector, and we put our Beverage Container Detector right in the middle of it. Hundreds of steins, overlapping, half covered by hands and moving fast. No base model gets every scene perfect zero shot, and that's exactly what score studio is built for. We opened the annotation tab, drew a box on one stein, and auto labelling suggested the rest in the same frame. A few clicks and the whole table was labelled. Less time drawing boxes, more time making the model even sharper. Video",
     "url": "http://nitter.meowing.monster/webuildscore/status/2106415526125699335#m",
     "fetched_at": "2026-10-04T16:17:15.611508+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "webuildscore",
+    "name": "Score",
+    "posted_at": "Sat, 03 Oct 2026 16:06:11 GMT",
+    "title": "Oktoberfest is a stress test for any detector, and we put our Beverage Container Detector right in the middle of it. Hundreds of steins, overlapping, half covered by hands and moving fast. No base model gets every scene perfect zero shot, and that's exactly what score studio is built for. We opened the annotation tab, drew a box on one stein, and auto labelling suggested the rest in the same frame. A few clicks and the whole table was labelled. Less time drawing boxes, more time making the model even sharper.",
+    "text": "Oktoberfest is a stress test for any detector, and we put our Beverage Container Detector right in the middle of it. Hundreds of steins, overlapping, half covered by hands and moving fast. No base model gets every scene perfect zero shot, and that's exactly what score studio is built for. We opened the annotation tab, drew a box on one stein, and auto labelling suggested the rest in the same frame. A few clicks and the whole table was labelled. Less time drawing boxes, more time making the model even sharper. Video",
+    "url": "https://nitter.kareem.one/webuildscore/status/2106415526125699335#m",
+    "fetched_at": "2026-10-04T22:40:27.037407+00:00",
     "via_instance": "https://nitter.cz"
   },
   {
@@ -1310,6 +1580,16 @@
     "via_instance": "https://nitter.cz"
   },
   {
+    "handle": "webuildscore",
+    "name": "Score",
+    "posted_at": "Sat, 03 Oct 2026 05:46:14 GMT",
+    "title": "Busy days ahead as Rich said",
+    "text": "Busy days ahead as Rich said rich.τ (@richdotca) Jensen Huang: “ Physical AI, as a large category, is the technology industry's first opportunity to address a $50 trillion industry that has largely been void of technology until now. So we need to invent all of the technology necessary to do that.” Busy days ahead for $TAO $SN44 — https://nitter.kareem.one/richdotca/status/2106254541796626818#m",
+    "url": "https://nitter.kareem.one/webuildscore/status/2106259509366931667#m",
+    "fetched_at": "2026-10-04T22:40:27.037407+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
     "handle": "markjeffrey",
     "name": "Mark Jeffrey",
     "posted_at": "Sat, 03 Oct 2026 01:55:54 GMT",
@@ -1357,6 +1637,26 @@
     "text": "Proud to announce the next stage of our work in @IOTA_SN9, the iota SDK and liquid compute, live at @ExploitSummit today! We’ve distilled 2 years of R&D into a powerful set of communication primitives so that that anyone can train models using globally distributed, heterogeneous and unreliable compute with just a few lines changed from pure PyTorch. We believe this fundamentally disrupts the economics of AI training.",
     "url": "https://nitter.kareem.one/macrocrux/status/2104641052565012805#m",
     "fetched_at": "2026-10-04T03:44:29.918035+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "jtledore",
+    "name": "Jean-Thomas Ledoré",
+    "posted_at": "Mon, 28 Sep 2026 18:35:03 GMT",
+    "title": "RT by @jtledore: Proud to announce the next stage of our work in @IOTA_SN9, the iota SDK and liquid compute, live at @ExploitSummit today! We’ve distilled 2 years of R&D into a powerful set of communication primitives so that that anyone can train models using globally distributed, heterogeneous and unreliable compute with just a few lines changed from pure PyTorch. We believe this fundamentally disrupts the economics of AI training.",
+    "text": "Proud to announce the next stage of our work in @IOTA_SN9, the iota SDK and liquid compute, live at @ExploitSummit today! We’ve distilled 2 years of R&D into a powerful set of communication primitives so that that anyone can train models using globally distributed, heterogeneous and unreliable compute with just a few lines changed from pure PyTorch. We believe this fundamentally disrupts the economics of AI training.",
+    "url": "http://nitter.meowing.monster/macrocrux/status/2104641052565012805#m",
+    "fetched_at": "2026-10-04T22:40:36.569727+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "mcjkula",
+    "name": "mcjkula",
+    "posted_at": "Mon, 21 Sep 2026 13:36:27 GMT",
+    "title": "RT by @mcjkula: New to #Bittensor? Start here. In exactly one week, Exploit opens with Bittensor 101, led by @TAOTemplar + @mcjkula of @learnbittensor - a high-level map of how the network works, where subnets fit + how to navigate the ecosystem. Get the foundations in place before two days of big conversations. 📅 Monday 28 September · 9–9:45am Register here → https://luma.com/nqy2n5zi (free to Exploit guests)",
+    "text": "New to #Bittensor? Start here. In exactly one week, Exploit opens with Bittensor 101, led by @TAOTemplar + @mcjkula of @learnbittensor - a high-level map of how the network works, where subnets fit + how to navigate the ecosystem. Get the foundations in place before two days of big conversations. 📅 Monday 28 September · 9–9:45am Register here → luma.com/nqy2n5zi (free to Exploit guests)",
+    "url": "http://shitter.thepixora.com/ExploitSummit/status/2102029192284283120#m",
+    "fetched_at": "2026-10-04T22:39:07.840948+00:00",
     "via_instance": "https://nitter.cz"
   },
   {
@@ -1427,6 +1727,16 @@
     "text": "Join us this Thursday to discuss all things RedTeam Openτensor Foundaτion (@opentensor) Novelty Search :: Subnet 61 :: @_redteam_ RedTeam turns Bittensor miners into a 24/7 network of ethical hackers. We’ll discuss how SN61 uses that competition to stay ahead of evolving bot attacks, its five new enterprise pilots, and what comes next with RedTeam’s upcoming Immune System. Live on Thursday :: 9PM UTC :: on X + YouTube Hosted by @const_reborn — http://nitter.meowing.monster/opentensor/status/2097022237337682320#m",
     "url": "http://nitter.meowing.monster/_redteam_/status/2097023368629191078#m",
     "fetched_at": "2026-10-04T16:17:29.653668+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "robmyers",
+    "name": "Robert Myers",
+    "posted_at": "Fri, 26 Mar 2021 03:30:22 GMT",
+    "title": "Try @rheaplex instead.",
+    "text": "Try @rheaplex instead.",
+    "url": "http://shitter.thepixora.com/robmyers/status/1375288994989101059#m",
+    "fetched_at": "2026-10-04T22:40:19.609496+00:00",
     "via_instance": "https://nitter.cz"
   },
   {
@@ -1600,6 +1910,16 @@
     "via_instance": "https://nitter.cz"
   },
   {
+    "handle": "webuildscore",
+    "name": "Score",
+    "posted_at": "Fri, 02 Oct 2026 19:00:01 GMT",
+    "title": "We asked Opus 5.5 to explain Score Studio using motion design. We see this as an early experiment in how far these models can go beyond writing text and code. It's not a finished piece, and some details are still rough. We'd rather share it now and learn from your reactions than refine it in private. A model explaining how models get built. We'll call that a good start. What should we try next?",
+    "text": "We asked Opus 5.5 to explain Score Studio using motion design. We see this as an early experiment in how far these models can go beyond writing text and code. It's not a finished piece, and some details are still rough. We'd rather share it now and learn from your reactions than refine it in private. A model explaining how models get built. We'll call that a good start. What should we try next? Video",
+    "url": "https://nitter.kareem.one/webuildscore/status/2106096886474039472#m",
+    "fetched_at": "2026-10-04T22:40:27.037407+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
     "handle": "const_reborn",
     "name": "Jacob Steeves",
     "posted_at": "Fri, 02 Oct 2026 18:53:10 GMT",
@@ -1650,6 +1970,16 @@
     "via_instance": "https://nitter.cz"
   },
   {
+    "handle": "manakoai",
+    "name": "Manako",
+    "posted_at": "Fri, 02 Oct 2026 17:01:00 GMT",
+    "title": "RT by @manakoai: wednesday night in london, @FelixCapital event. fireside chat with alex holt, field cto at @ElevenLabs. one alpha stuck with me. for early stage AI companies: hitting production is super hard. the most valuable thing you can find is not a client. it is a design partner. a company who gives you access to valuable data, so you can push your tech and crack hard problems. this is exactly what FDEs are great at: building that connection, understanding how the product best fits, so you can then crack those problems at scale for a whole industry. after the talk I walked alex through @manakoai. that is exactly our story with avia, our first fuel client and a great design partner. a few months in, we are deploying our own hardware across their stations. he was surprised, as deploying hardware at large companies is no easy feat. super proud of the team. we are on a very promising track.",
+    "text": "wednesday night in london, @FelixCapital event. fireside chat with alex holt, field cto at @ElevenLabs. one alpha stuck with me. for early stage AI companies: hitting production is super hard. the most valuable thing you can find is not a client. it is a design partner. a company who gives you access to valuable data, so you can push your tech and crack hard problems. this is exactly what FDEs are great at: building that connection, understanding how the product best fits, so you can then crack those problems at scale for a whole industry. after the talk I walked alex through @manakoai. that i",
+    "url": "https://nitter.kareem.one/arnod3f/status/2106066935062347885#m",
+    "fetched_at": "2026-10-04T22:40:38.858623+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
     "handle": "rob_svrn",
     "name": "Rob Greer",
     "posted_at": "Fri, 02 Oct 2026 16:43:09 GMT",
@@ -1690,6 +2020,16 @@
     "via_instance": "https://nitter.cz"
   },
   {
+    "handle": "manakoai",
+    "name": "Manako",
+    "posted_at": "Fri, 02 Oct 2026 15:53:38 GMT",
+    "title": "Manako Labs is heading to #NACSShow2026 in #LasVegas, and we’d love to meet the people running the forecourts and stores that keep the world moving. If you’re a fuel retailer, c-store operator or forecourt network with cameras on every site that record everything and act on nothing, let’s talk. No new cameras. We turn the ones you already have into Vision Agents that see what’s happening on site and act on it in real time: queue and pump alerts, safety and loss events, people counting and dwell, plus business intelligence dashboards for everyone from store manager to CEO. Runs at the edge, affordable and reliable at scale. Already live with fuel retailers across Europe, now scaling in the US from our New York HQ. Real World. Real Action. Going to the show? Send us a message and let’s find time to meet ☕",
+    "text": "Manako Labs is heading to #NACSShow2026 in #LasVegas, and we’d love to meet the people running the forecourts and stores that keep the world moving. If you’re a fuel retailer, c-store operator or forecourt network with cameras on every site that record everything and act on nothing, let’s talk. No new cameras. We turn the ones you already have into Vision Agents that see what’s happening on site and act on it in real time: queue and pump alerts, safety and loss events, people counting and dwell, plus business intelligence dashboards for everyone from store manager to CEO. Runs at the edge, aff",
+    "url": "https://nitter.kareem.one/manakoai/status/2106049981987627391#m",
+    "fetched_at": "2026-10-04T22:40:38.858623+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
     "handle": "1inch",
     "name": "1inch",
     "posted_at": "Fri, 02 Oct 2026 15:13:02 GMT",
@@ -1697,6 +2037,16 @@
     "text": "Sandwich attacks. How do you protect your swaps? Poll 19% — Private RPC and hope 16% — A private mempool 40% — Tight slippage only 26% — No idea if I&apos;ve been hit 58 votes • Final results",
     "url": "http://shitter.thepixora.com/1inch/status/2106039762322927942#m",
     "fetched_at": "2026-10-04T03:44:36.617466+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "JosephJacks_",
+    "name": "Joseph Jacks",
+    "posted_at": "Fri, 02 Oct 2026 14:14:05 GMT",
+    "title": "RT by @JosephJacks_: No, AI didn’t just solve the Navier-Stokes equations. So what did it do?",
+    "text": "No, AI didn’t just solve the Navier-Stokes equations. So what did it do? Video",
+    "url": "http://nitter.meowing.monster/elsleightholm/status/2106024929590235530#m",
+    "fetched_at": "2026-10-04T22:39:20.326522+00:00",
     "via_instance": "https://nitter.cz"
   },
   {
