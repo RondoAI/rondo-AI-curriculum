@@ -10,6 +10,26 @@
     "via_instance": "https://nitter.cz"
   },
   {
+    "handle": "TargonCompute",
+    "name": "Targon",
+    "posted_at": "Wed, 30 Sep 2026 20:22:38 GMT",
+    "title": "RT by @TargonCompute: NEWS: @TargonCompute says NVIDIA B300 GPUs are now available on demand on Targon. This adds an on-demand Blackwell deployment option.",
+    "text": "NEWS: @TargonCompute says NVIDIA B300 GPUs are now available on demand on Targon. This adds an on-demand Blackwell deployment option. Targon (@TargonCompute) NVIDIA B300s are now available on demand. Secure GPUs are selling out fast on Targon, Ready to deploy on Blackwell? Grab yours now at targon.com/inventory — https://nitter.kareem.one/TargonCompute/status/2105325236639973561#m",
+    "url": "https://nitter.kareem.one/taodotcom/status/2105392902587249005#m",
+    "fetched_at": "2026-10-04T10:21:23.500971+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "a16zcrypto",
+    "name": "a16z Crypto",
+    "posted_at": "Wed, 30 Sep 2026 19:01:40 GMT",
+    "title": "New markets have changed what people can trade and how. In the last decade, blockchains have started lowering the cost of building markets, making it easier to experiment with net new ones.",
+    "text": "New markets have changed what people can trade and how. In the last decade, blockchains have started lowering the cost of building markets, making it easier to experiment with net new ones.",
+    "url": "http://shitter.thepixora.com/a16zcrypto/status/2105372522967708073#m",
+    "fetched_at": "2026-10-04T10:20:55.797837+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
     "handle": "galaxyhq",
     "name": "Galaxy Digital",
     "posted_at": "Wed, 30 Sep 2026 18:51:25 GMT",
@@ -50,6 +70,16 @@
     "via_instance": "https://nitter.cz"
   },
   {
+    "handle": "TargonCompute",
+    "name": "Targon",
+    "posted_at": "Wed, 30 Sep 2026 15:53:46 GMT",
+    "title": "NVIDIA B300s are now available on demand. Secure GPUs are selling out fast on Targon, Ready to deploy on Blackwell? Grab yours now at https://targon.com/inventory",
+    "text": "NVIDIA B300s are now available on demand. Secure GPUs are selling out fast on Targon, Ready to deploy on Blackwell? Grab yours now at targon.com/inventory",
+    "url": "https://nitter.kareem.one/TargonCompute/status/2105325236639973561#m",
+    "fetched_at": "2026-10-04T10:21:23.500971+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
     "handle": "opentensor",
     "name": "Opentensor Foundation",
     "posted_at": "Wed, 30 Sep 2026 15:41:42 GMT",
@@ -57,6 +87,16 @@
     "text": "This Thursday on Novelty Search :: Subnet 80 :: @openroboto OpenRoboto is building an open competition for robot intelligence on Bittensor, where miners improve shared base models and each champion becomes the next starting point. They are now expanding into real robot validation and Shift, their decentralized network for collecting real world robotics data, connecting model improvement with physical data and commercial demand. Thursday :: 5PM EDT / 9PM UTC Hosted by @const_reborn",
     "url": "http://nitter.meowing.monster/opentensor/status/2105322199787700284#m",
     "fetched_at": "2026-10-04T03:43:15.370514+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "jaltucher",
+    "name": "James Altucher",
+    "posted_at": "Wed, 30 Sep 2026 15:09:26 GMT",
+    "title": "MY TOP 10. I love TV. I worked at HBO (in the 90s). I've been an advisor for shows (\"Billions\"), I've pitched shows to every studio. Here's my top 10. I've watched each of these at least 4 times. BUT...what should #10 be?? 1) Breaking Bad  2) Mad Men 3) Lost  4) Carnevale  5) Battlestar Galactica  6) Better Call Saul  7) Arrested Devekooment  8) Sopranos  9) Curb Your Enthusiasm",
+    "text": "MY TOP 10. I love TV. I worked at HBO (in the 90s). I've been an advisor for shows (\"Billions\"), I've pitched shows to every studio. Here's my top 10. I've watched each of these at least 4 times. BUT...what should #10 be?? 1) Breaking Bad 2) Mad Men 3) Lost 4) Carnevale 5) Battlestar Galactica 6) Better Call Saul 7) Arrested Devekooment 8) Sopranos 9) Curb Your Enthusiasm",
+    "url": "https://nitter.kareem.one/jaltucher/status/2105314083108974777#m",
+    "fetched_at": "2026-10-04T10:20:38.838553+00:00",
     "via_instance": "https://nitter.cz"
   },
   {
@@ -130,6 +170,26 @@
     "via_instance": "https://nitter.cz"
   },
   {
+    "handle": "tplr_ai",
+    "name": "Templar",
+    "posted_at": "Wed, 23 Sep 2026 16:10:16 GMT",
+    "title": "Video",
+    "text": "Video",
+    "url": "http://shitter.thepixora.com/tplr_ai/status/2102792674118164542#m",
+    "fetched_at": "2026-10-04T10:21:14.750241+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "tplr_ai",
+    "name": "Templar",
+    "posted_at": "Wed, 23 Sep 2026 16:10:16 GMT",
+    "title": "R to @tplr_ai: Read the blog: https://www.tplr.ai/publications/blog/skipping-stages-with-fixed-projections",
+    "text": "Read the blog: tplr.ai/publications/blog/sk… Link Fault tolerance in low-bandwidth model parallelism: exploring pipeline stage-skipping with boundary... We explore how the residual nature of the transformer architecture can be leveraged to mitigate hardware faults, and demonstrate that the compression-based implementation of low-bandwidth model... tplr.ai",
+    "url": "http://shitter.thepixora.com/tplr_ai/status/2102792676676432160#m",
+    "fetched_at": "2026-10-04T10:21:14.750241+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
     "handle": "novogratz",
     "name": "Mike Novogratz",
     "posted_at": "Wed, 23 Sep 2026 14:54:10 GMT",
@@ -150,6 +210,26 @@
     "via_instance": "https://nitter.cz"
   },
   {
+    "handle": "tm0klc",
+    "name": "Tim",
+    "posted_at": "Wed, 17 Jun 2026 17:28:19 GMT",
+    "title": "RT by @tm0klc: Introducing Manako, the fastest way to turn any camera into an vision ai agent. Go on http://manako.ai. Join our waitlist.",
+    "text": "Introducing Manako, the fastest way to turn any camera into an vision ai agent. Go on manako.ai. Join our waitlist. Video",
+    "url": "http://shitter.thepixora.com/manakoai/status/2067298306200396197#m",
+    "fetched_at": "2026-10-04T10:21:34.991306+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "jaltucher",
+    "name": "James Altucher",
+    "posted_at": "Wed, 16 Sep 2026 16:36:03 GMT",
+    "title": "Working on an AI-powered end to end platform for designing optical and then quantum chips at $QCLS. More details and refinements later but you can check it out at https://VibeGDS.io - you just enter plain English for the chip you want and it will build it out, simulate, verify, etc. Of interest mostly to optical engineers.",
+    "text": "Working on an AI-powered end to end platform for designing optical and then quantum chips at $QCLS. More details and refinements later but you can check it out at VibeGDS.io - you just enter plain English for the chip you want and it will build it out, simulate, verify, etc. Of interest mostly to optical engineers.",
+    "url": "https://nitter.kareem.one/jaltucher/status/2100262449685364904#m",
+    "fetched_at": "2026-10-04T10:20:38.838553+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
     "handle": "tplr_ai",
     "name": "Templar",
     "posted_at": "Wed, 16 Sep 2026 14:57:46 GMT",
@@ -167,6 +247,26 @@
     "text": "When using pipeline compression with fixed projections shared across layers, robustness improves further as seen in the figure below. This suggests that shared projectors align representations across stage boundaries, making bypasses less disruptive. 4/n",
     "url": "https://nitter.kareem.one/tplr_ai/status/2100237714918367690#m",
     "fetched_at": "2026-10-04T03:44:08.001438+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "tplr_ai",
+    "name": "Templar",
+    "posted_at": "Wed, 16 Sep 2026 14:57:46 GMT",
+    "title": "R to @tplr_ai: When using pipeline compression with fixed projections shared across layers, robustness improves further as seen in the figure below. This suggests that shared projectors align representations across stage boundaries, making bypasses less disruptive. 4/n",
+    "text": "When using pipeline compression with fixed projections shared across layers, robustness improves further as seen in the figure below. This suggests that shared projectors align representations across stage boundaries, making bypasses less disruptive. 4/n",
+    "url": "http://shitter.thepixora.com/tplr_ai/status/2100237714918367690#m",
+    "fetched_at": "2026-10-04T10:21:14.750241+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "tplr_ai",
+    "name": "Templar",
+    "posted_at": "Wed, 16 Sep 2026 14:57:44 GMT",
+    "title": "We’ve been researching fault tolerance in Crucible, Templar’s pre-training platform. The goal: keep training through node failures and make better use of unreliable workers and spot instances, without idling an entire model replica when one stage goes down. 1/n",
+    "text": "We’ve been researching fault tolerance in Crucible, Templar’s pre-training platform. The goal: keep training through node failures and make better use of unreliable workers and spot instances, without idling an entire model replica when one stage goes down. 1/n Video",
+    "url": "http://shitter.thepixora.com/tplr_ai/status/2100237708186550642#m",
+    "fetched_at": "2026-10-04T10:21:14.750241+00:00",
     "via_instance": "https://nitter.cz"
   },
   {
@@ -220,6 +320,16 @@
     "via_instance": "https://nitter.cz"
   },
   {
+    "handle": "YumaGroup",
+    "name": "Yuma Holdings",
+    "posted_at": "Tue, 29 Sep 2026 20:19:11 GMT",
+    "title": "In 1 hour, Yuma COO @GSchvey leads a conference-closing conversation on where Bittensor goes next, live-streamed by @ExploitSummit here (5:20pm ET). bittensor:native",
+    "text": "In 1 hour, Yuma COO @GSchvey leads a conference-closing conversation on where Bittensor goes next, live-streamed by @ExploitSummit here (5:20pm ET). bittensor:native Exploit Summit (@ExploitSummit) Exploit Summit: Live from Montreal Day 2 shitter.thepixora.com/i/broadcasts/1NGaroOYp… Link Exploit Summit Exploit Summit: Live from Montreal Day 2 http://shitter.thepixora.com/i/broadcasts/1NGaroOYpQXJj — http://shitter.thepixora.com/ExploitSummit/status/2104942854753947674#m",
+    "url": "http://shitter.thepixora.com/YumaGroup/status/2105029645233995862#m",
+    "fetched_at": "2026-10-04T10:20:29.753004+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
     "handle": "PanteraCapital",
     "name": "Pantera Capital",
     "posted_at": "Tue, 29 Sep 2026 20:07:48 GMT",
@@ -227,6 +337,46 @@
     "text": "New from @PanteraCapital's State of Tokenization: RWA distribution has broadened dramatically onchain. The leading chain’s share of tokenized value fell from 88% in 2023 to 45% today, as the market expanded across 24 chains. Pantera Capital (@PanteraCapital) Pantera's latest State of Tokenization report is out. We analyzed the $332bn tokenization market across 671 assets. Institutions entered in force this quarter. J.P. Morgan, HSBC and Fidelity launched onchain products. BlackRock's BUIDL moved $441mn onchain in June, runs a $1bn daily redemption facility, and is now accepted as collateral. O",
     "url": "http://shitter.thepixora.com/AlliumLabs/status/2105026778221703235#m",
     "fetched_at": "2026-10-04T03:43:50.102931+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "YumaGroup",
+    "name": "Yuma Holdings",
+    "posted_at": "Tue, 29 Sep 2026 19:50:41 GMT",
+    "title": "RT by @YumaGroup: Beam studio is live: To learn more go to https://docs.b1m.ai",
+    "text": "Beam studio is live: To learn more go to docs.b1m.ai",
+    "url": "http://shitter.thepixora.com/b1m_ai/status/2105022473762713763#m",
+    "fetched_at": "2026-10-04T10:20:29.753004+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "YumaGroup",
+    "name": "Yuma Holdings",
+    "posted_at": "Tue, 29 Sep 2026 19:06:00 GMT",
+    "title": "RT by @YumaGroup: \"It's certainly a conversation that starts before anything is signed.\" @LindsMikeStone of @YumaGroup on helping founders before a deal, even if they later launch elsewhere. With @macrozack @bitstarterAI, Kelly Woodward @CrucibleLabs and @capradavis of Unsupervised Capital.",
+    "text": "\"It's certainly a conversation that starts before anything is signed.\" @LindsMikeStone of @YumaGroup on helping founders before a deal, even if they later launch elsewhere. With @macrozack @bitstarterAI, Kelly Woodward @CrucibleLabs and @capradavis of Unsupervised Capital. Video",
+    "url": "http://shitter.thepixora.com/ExploitSummit/status/2105011226325741950#m",
+    "fetched_at": "2026-10-04T10:20:29.753004+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "TargonCompute",
+    "name": "Targon",
+    "posted_at": "Tue, 29 Sep 2026 18:49:40 GMT",
+    "title": "RT by @TargonCompute: The Manifold team is enjoying Montreal at Exploit Summit, where we're announcing new features and roadmaps. As part of our new release rollout, we've launched Bare Metal and Sandboxes on Targon: a full physical machine when you need the whole box, and disposable Linux environments when you don't. Thanks for building with us.",
+    "text": "The Manifold team is enjoying Montreal at Exploit Summit, where we're announcing new features and roadmaps. As part of our new release rollout, we've launched Bare Metal and Sandboxes on Targon: a full physical machine when you need the whole box, and disposable Linux environments when you don't. Thanks for building with us.",
+    "url": "https://nitter.kareem.one/manifoldlabs/status/2105007116033409172#m",
+    "fetched_at": "2026-10-04T10:21:23.500971+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "TargonCompute",
+    "name": "Targon",
+    "posted_at": "Tue, 29 Sep 2026 18:39:43 GMT",
+    "title": "R to @TargonCompute: Try Bare Metal & Sandboxes now on https://Targon.com",
+    "text": "Try Bare Metal &amp; Sandboxes now on Targon.com Link Targon Scale with Secure GPU &amp; CPU Rentals on a Lightning-Fast Cloud for Training and Deployment targon.com",
+    "url": "https://nitter.kareem.one/TargonCompute/status/2105004611392160070#m",
+    "fetched_at": "2026-10-04T10:21:23.500971+00:00",
     "via_instance": "https://nitter.cz"
   },
   {
@@ -240,6 +390,16 @@
     "via_instance": "https://nitter.cz"
   },
   {
+    "handle": "TargonCompute",
+    "name": "Targon",
+    "posted_at": "Tue, 29 Sep 2026 18:39:42 GMT",
+    "title": "We're excited to share that Bare Metal and Sandboxes are now live on http://Targon.com Bare Metal → An entire physical machine dedicated to your organization → No hypervisor, no container runtime, no noisy neighbors → Full control of kernel, drivers and firmware-level GPU settings → Every operator is KYC-verified, keeping workloads secure without TVM Sandboxes → Short-lived, isolated Linux environments for development, testing, previews and agents → Provisioning to running within seconds → Browser terminal, graphical Linux desktop or SSH → Fork independent copies for parallel experiments and agent tasks → Publish a template from any setup worth repeating → Pause when idle to stop active compute billing, resume anytime The Targon team has been focused on expanding features and enhancing the Targon experience, and will continue rolling out new releases.",
+    "text": "We're excited to share that Bare Metal and Sandboxes are now live on Targon.com Bare Metal → An entire physical machine dedicated to your organization → No hypervisor, no container runtime, no noisy neighbors → Full control of kernel, drivers and firmware-level GPU settings → Every operator is KYC-verified, keeping workloads secure without TVM Sandboxes → Short-lived, isolated Linux environments for development, testing, previews and agents → Provisioning to running within seconds → Browser terminal, graphical Linux desktop or SSH → Fork independent copies for parallel experiments and agent ta",
+    "url": "https://nitter.kareem.one/TargonCompute/status/2105004608531939718#m",
+    "fetched_at": "2026-10-04T10:21:23.500971+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
     "handle": "PanteraCapital",
     "name": "Pantera Capital",
     "posted_at": "Tue, 29 Sep 2026 18:00:46 GMT",
@@ -247,6 +407,26 @@
     "text": "Tokenization is now a $332B market across 671 assets. Wall Street showed up in force this quarter: JPM, HSBC, Fidelity. Issuance is solved. Liquidity is the game now. Pantera Capital (@PanteraCapital) Pantera's latest State of Tokenization report is out. We analyzed the $332bn tokenization market across 671 assets. Institutions entered in force this quarter. J.P. Morgan, HSBC and Fidelity launched onchain products. BlackRock's BUIDL moved $441mn onchain in June, runs a $1bn daily redemption facility, and is now accepted as collateral. On the consumer side, Robinhood Chain hit $888mn in weekly ",
     "url": "http://shitter.thepixora.com/veradittakit/status/2104994809308180676#m",
     "fetched_at": "2026-10-04T03:43:50.102931+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "YumaGroup",
+    "name": "Yuma Holdings",
+    "posted_at": "Tue, 29 Sep 2026 17:47:14 GMT",
+    "title": "RT by @YumaGroup: Introducing Pulse and Gate. Pulse: your agent asks, your phone buzzes, you approve with your face in YID. Only then does it act. http://www.yanez.ai/pulse Gate: funds sit behind a contract that only unlocks for a signature from your biometrics, verified on-chain. http://gate.yanez.ai Pulse is free through October. $TAO",
+    "text": "Introducing Pulse and Gate. Pulse: your agent asks, your phone buzzes, you approve with your face in YID. Only then does it act. yanez.ai/pulse Gate: funds sit behind a contract that only unlocks for a signature from your biometrics, verified on-chain. gate.yanez.ai Pulse is free through October. $TAO",
+    "url": "http://shitter.thepixora.com/yanez__ai/status/2104991405592752495#m",
+    "fetched_at": "2026-10-04T10:20:29.753004+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "YumaGroup",
+    "name": "Yuma Holdings",
+    "posted_at": "Tue, 29 Sep 2026 17:35:00 GMT",
+    "title": "RT by @YumaGroup: An agent asks to spend $100. Its allowance is $25. @josercaldera demonstrates a blocked request with Yanez Gate, then raises the limit and authorises it with Pulse. Watch the spending controls in action at Exploit Summit.",
+    "text": "An agent asks to spend $100. Its allowance is $25. @josercaldera demonstrates a blocked request with Yanez Gate, then raises the limit and authorises it with Pulse. Watch the spending controls in action at Exploit Summit. Video",
+    "url": "http://shitter.thepixora.com/ExploitSummit/status/2104988325639798889#m",
+    "fetched_at": "2026-10-04T10:20:29.753004+00:00",
     "via_instance": "https://nitter.cz"
   },
   {
@@ -260,6 +440,16 @@
     "via_instance": "https://nitter.cz"
   },
   {
+    "handle": "a16zcrypto",
+    "name": "a16z Crypto",
+    "posted_at": "Tue, 29 Sep 2026 16:07:27 GMT",
+    "title": "RT by @a16zcrypto: https://zk.money is back. A self-custodial wallet that lets you send and receive crypto privately. Your money, private by default. Reserve your unique tag to get started. https://launch.zk.money",
+    "text": "zk.money is back. A self-custodial wallet that lets you send and receive crypto privately. Your money, private by default. Reserve your unique tag to get started. launch.zk.money Link zk.money Join zk.money to send or receive crypto privately. Open source, self-custodial, built on Ethereum. zk.money",
+    "url": "http://shitter.thepixora.com/zk_money/status/2104966293199945975#m",
+    "fetched_at": "2026-10-04T10:20:55.797837+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
     "handle": "tplr_ai",
     "name": "Templar",
     "posted_at": "Tue, 29 Sep 2026 14:14:21 GMT",
@@ -270,6 +460,26 @@
     "via_instance": "https://nitter.cz"
   },
   {
+    "handle": "tplr_ai",
+    "name": "Templar",
+    "posted_at": "Tue, 29 Sep 2026 14:14:21 GMT",
+    "title": "The heads of the biggest AI labs want to agree among themselves on when everyone should slow down. @TheEconomist's piece on that push ends with Covenant-72B, the model we finished training in March on GPUs contributed over the internet, as a reason such agreements may be hard to enforce. What the piece doesn't say is that once training no longer requires one giant, tightly connected cluster, the power to build new models no longer has to sit with a few companies. Globally distributed training and open models are essential tools for keeping that power from concentrating in the frontier labs. They let many more participants, from nations to companies, own a share of the future of AI and take part in building it. https://www.economist.com/international/2026/09/15/agreeing-to-make-ai-safer-may-be-impossible",
+    "text": "The heads of the biggest AI labs want to agree among themselves on when everyone should slow down. @TheEconomist's piece on that push ends with Covenant-72B, the model we finished training in March on GPUs contributed over the internet, as a reason such agreements may be hard to enforce. What the piece doesn't say is that once training no longer requires one giant, tightly connected cluster, the power to build new models no longer has to sit with a few companies. Globally distributed training and open models are essential tools for keeping that power from concentrating in the frontier labs. Th",
+    "url": "http://shitter.thepixora.com/tplr_ai/status/2104937831097352377#m",
+    "fetched_at": "2026-10-04T10:21:14.750241+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "a16zcrypto",
+    "name": "a16z Crypto",
+    "posted_at": "Tue, 29 Sep 2026 13:26:50 GMT",
+    "title": "RT by @a16zcrypto: Blockchains create net new markets",
+    "text": "Article Blockchains create net new markets For most of financial history, the supply of new markets — not demand — was the bottleneck. Blockchains remove that bottleneck. I believe this will unlock an explosion of net new markets. Markets are",
+    "url": "http://shitter.thepixora.com/robbiepetersen_/status/2104925872553709720#m",
+    "fetched_at": "2026-10-04T10:20:55.797837+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
     "handle": "const_reborn",
     "name": "Jacob Steeves",
     "posted_at": "Tue, 29 Sep 2026 10:22:55 GMT",
@@ -277,6 +487,16 @@
     "text": "RSI Training goes LIVE at 5 PM PT today! We’re giving each agent access to a production Slurm cluster, 1,000 GPU-hours, and 6 days to improve Nemotron 3.5 model performance. Watch it all happen live -&gt; rsiarena.org Video",
     "url": "http://nitter.meowing.monster/zhangchen_xu/status/2104879589726322875#m",
     "fetched_at": "2026-10-04T03:43:06.815152+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "jaltucher",
+    "name": "James Altucher",
+    "posted_at": "Tue, 22 Sep 2026 13:32:41 GMT",
+    "title": "RT by @jaltucher: Welcome to Bittensor. Here's why you should stay and diamond-hand $TAO.",
+    "text": "Welcome to Bittensor. Here's why you should stay and diamond-hand $TAO.",
+    "url": "https://nitter.kareem.one/taodaily_io/status/2102390629422567556#m",
+    "fetched_at": "2026-10-04T10:20:38.838553+00:00",
     "via_instance": "https://nitter.cz"
   },
   {
@@ -320,6 +540,16 @@
     "via_instance": "https://nitter.cz"
   },
   {
+    "handle": "tm0klc",
+    "name": "Tim",
+    "posted_at": "Tue, 07 Jul 2026 01:06:10 GMT",
+    "title": "Subnet 44 @webuildscore is expanding. We’re incentivising training for a new vision-language model: Satori. Satori reasons AND grounds. It doesn’t just answer questions about an image. It points to the evidence. - Reason about scenes - Detect and segment objects - Read text - Count entities - Ground claims in pixels Most VLMs are split: strong reasoning OR strong grounding. Detection models localise, but can’t talk. Chatty VLMs describe fluently, but can’t prove it. Satori sits at the intersection. We’re starting with a 7B base model.",
+    "text": "Subnet 44 @webuildscore is expanding. We’re incentivising training for a new vision-language model: Satori. Satori reasons AND grounds. It doesn’t just answer questions about an image. It points to the evidence. - Reason about scenes - Detect and segment objects - Read text - Count entities - Ground claims in pixels Most VLMs are split: strong reasoning OR strong grounding. Detection models localise, but can’t talk. Chatty VLMs describe fluently, but can’t prove it. Satori sits at the intersection. We’re starting with a 7B base model.",
+    "url": "http://shitter.thepixora.com/tm0klc/status/2074298897305047101#m",
+    "fetched_at": "2026-10-04T10:21:34.991306+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
     "handle": "dippy_ai",
     "name": "Dippy AI",
     "posted_at": "Thu, 30 Jul 2026 14:34:47 GMT",
@@ -332,11 +562,31 @@
   {
     "handle": "dippy_ai",
     "name": "Dippy AI",
+    "posted_at": "Thu, 30 Jul 2026 14:34:47 GMT",
+    "title": "RT by @dippy_ai: Excited to have helped @PrunaAI collect 1M+ votes for image preference data in a very short time :~)",
+    "text": "Excited to have helped @PrunaAI collect 1M+ votes for image preference data in a very short time :~) Pruna AI (@PrunaAI) P-Image-Ideogram dominate the speed-quality and price-quality Pareto frontiers for image generation. It is the result of a unique collaboration with @ideogram_ai. - Four modes (Very low, low, medium, high) for 1K-2K image generation. - Optimal quality-efficiency with 0.4s-7.5s latency, and $0.003-$0.03 price. - Structured JSON control & exact color control. Available via our inference partners @Replicate @inference_sh @scenario_gg @wavespeed_ai @wiroai @magnific @prodialabs ",
+    "url": "http://nitter.meowing.monster/datapointai/status/2082837314603032606#m",
+    "fetched_at": "2026-10-04T10:22:29.865630+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "dippy_ai",
+    "name": "Dippy AI",
     "posted_at": "Thu, 27 Aug 2026 21:34:23 GMT",
     "title": "we have significantly upgraded both the basic and super models 🤩🤩 we have also made optimizations to improve response speeds by upto 5x can't wait for you all to experience and enjoy the new dippy 📯📯😸 rolling out to everyone today",
     "text": "we have significantly upgraded both the basic and super models 🤩🤩 we have also made optimizations to improve response speeds by upto 5x can't wait for you all to experience and enjoy the new dippy 📯📯😸 rolling out to everyone today",
     "url": "https://nitter.kareem.one/dippy_ai/status/2093089771824226802#m",
     "fetched_at": "2026-10-04T03:45:12.922985+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "dippy_ai",
+    "name": "Dippy AI",
+    "posted_at": "Thu, 27 Aug 2026 21:34:23 GMT",
+    "title": "we have significantly upgraded both the basic and super models 🤩🤩 we have also made optimizations to improve response speeds by upto 5x can't wait for you all to experience and enjoy the new dippy 📯📯😸 rolling out to everyone today",
+    "text": "we have significantly upgraded both the basic and super models 🤩🤩 we have also made optimizations to improve response speeds by upto 5x can't wait for you all to experience and enjoy the new dippy 📯📯😸 rolling out to everyone today",
+    "url": "http://nitter.meowing.monster/dippy_ai/status/2093089771824226802#m",
+    "fetched_at": "2026-10-04T10:22:29.865630+00:00",
     "via_instance": "https://nitter.cz"
   },
   {
@@ -400,6 +650,16 @@
     "via_instance": "https://nitter.cz"
   },
   {
+    "handle": "dippy_ai",
+    "name": "Dippy AI",
+    "posted_at": "Thu, 04 Jun 2026 15:53:04 GMT",
+    "title": "RT by @dippy_ai: Today, we’re opening up Datapoint AI for anyone to use. It is by far the fastest way to understand what your customers want. Type a question. Real people answer. You get a report back in ~10 minutes, not three weeks, and at a fraction of the cost.",
+    "text": "Today, we’re opening up Datapoint AI for anyone to use. It is by far the fastest way to understand what your customers want. Type a question. Real people answer. You get a report back in ~10 minutes, not three weeks, and at a fraction of the cost. Video",
+    "url": "http://nitter.meowing.monster/datapointai/status/2062563294880075837#m",
+    "fetched_at": "2026-10-04T10:22:29.865630+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
     "handle": "nigescore",
     "name": "Nige",
     "posted_at": "Thu, 03 Sep 2026 16:10:37 GMT",
@@ -430,6 +690,16 @@
     "via_instance": "https://nitter.cz"
   },
   {
+    "handle": "KyleSamani",
+    "name": "Kyle Samani",
+    "posted_at": "Thu, 01 Oct 2026 20:31:35 GMT",
+    "title": "RT by @KyleSamani: 8.5M $SOL held. 949K SOL added this last quarter alone. More in our press release below.",
+    "text": "8.5M $SOL held. 949K SOL added this last quarter alone. More in our press release below.",
+    "url": "http://nitter.meowing.monster/FWDind/status/2105757540999180380#m",
+    "fetched_at": "2026-10-04T10:20:53.616668+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
     "handle": "galaxyhq",
     "name": "Galaxy Digital",
     "posted_at": "Thu, 01 Oct 2026 19:20:22 GMT",
@@ -437,6 +707,26 @@
     "text": "Galaxy’s Head of Lending Max Bareiss (@Game_Set_Max) sat down with John Gillen and Greg Feibus (Global Head of Capital Markets, Sky Frontier Foundation) to talk through the Galaxy x Sky partnership and what it means for institutional DeFi. They get into why we're using sUSDS for treasury management, how yield-bearing assets could end up as institutional-grade collateral, and Sky's pitch for sUSDS as an \"onchain Treasury bill\" for crypto markets. Milk Road Crypto (@milkroaddaily) .@galaxyhq putting $100M into @SkyMoney's sUSDS matters for one reason: They’re not treating DeFi like a speculative",
     "url": "http://nitter.meowing.monster/galaxyhq/status/2105739618603995353#m",
     "fetched_at": "2026-10-04T03:43:39.338071+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "jaltucher",
+    "name": "James Altucher",
+    "posted_at": "Thu, 01 Oct 2026 16:42:48 GMT",
+    "title": "RT by @jaltucher: JAS: @jaltucher x @BillOReilly on Brokering a Trump-Biden Hostage Discussion, Media Bias, and Confronting America . 00:00 Hostage Deal Setup 00:57 Health Check and New Book 02:40 Behind the Scenes Gaza Talks 04:48 Iran Strategy and Midterms 07:04 Why Media Skews Negative 09:56 Opinion TV and Press Power 12:49 Blackballed Authors and CNN 14:47 NYC Politics and Populism 17:31 Sponsor Break PrizePicks 18:53 Totalitarian History Lessons 22:02 Mamdani Economics Breakdown 24:10 Soros and Soft on Crime DAs 25:49 Life After Fox No Spin News 28:44 Legacy Drive and Farewell",
+    "text": "JAS: @jaltucher x @BillOReilly on Brokering a Trump-Biden Hostage Discussion, Media Bias, and Confronting America . 00:00 Hostage Deal Setup 00:57 Health Check and New Book 02:40 Behind the Scenes Gaza Talks 04:48 Iran Strategy and Midterms 07:04 Why Media Skews Negative 09:56 Opinion TV and Press Power 12:49 Blackballed Authors and CNN 14:47 NYC Politics and Populism 17:31 Sponsor Break PrizePicks 18:53 Totalitarian History Lessons 22:02 Mamdani Economics Breakdown 24:10 Soros and Soft on Crime DAs 25:49 Life After Fox No Spin News 28:44 Legacy Drive and Farewell Video",
+    "url": "https://nitter.kareem.one/jay_yow07/status/2105699964726792421#m",
+    "fetched_at": "2026-10-04T10:20:38.838553+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "a16zcrypto",
+    "name": "a16z Crypto",
+    "posted_at": "Thu, 01 Oct 2026 16:00:29 GMT",
+    "title": "A year ago, trading RWA perps was a rounding error. Last month it was a $117B market. RWA perp volume is up 44x in twelve months, most of it now happens onchain.",
+    "text": "A year ago, trading RWA perps was a rounding error. Last month it was a $117B market. RWA perp volume is up 44x in twelve months, most of it now happens onchain.",
+    "url": "http://shitter.thepixora.com/a16zcrypto/status/2105689314529075384#m",
+    "fetched_at": "2026-10-04T10:20:55.797837+00:00",
     "via_instance": "https://nitter.cz"
   },
   {
@@ -460,6 +750,16 @@
     "via_instance": "https://nitter.cz"
   },
   {
+    "handle": "dippy_ai",
+    "name": "Dippy AI",
+    "posted_at": "Sun, 09 Aug 2026 23:27:27 GMT",
+    "title": "We are experiencing an issue with our database provider @supabase , so the app & website may be down for a few more hours. We’ll send a notification when we are able to recover and the app is back to normal! Apologies for the inconvenience 😿😿",
+    "text": "We are experiencing an issue with our database provider @supabase , so the app &amp; website may be down for a few more hours. We’ll send a notification when we are able to recover and the app is back to normal! Apologies for the inconvenience 😿😿",
+    "url": "http://nitter.meowing.monster/dippy_ai/status/2086595242422149540#m",
+    "fetched_at": "2026-10-04T10:22:29.865630+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
     "handle": "lium_io",
     "name": "Lium",
     "posted_at": "Sun, 06 Sep 2026 15:47:26 GMT",
@@ -480,6 +780,26 @@
     "via_instance": "https://nitter.cz"
   },
   {
+    "handle": "markjeffrey",
+    "name": "Mark Jeffrey",
+    "posted_at": "Sun, 04 Oct 2026 08:05:11 GMT",
+    "title": "Saturday night fun project: Used the upgraded @suno to make a new version of 'Castles Made of Sound'. This is a rock tune I human-wrote years ago, now re-performed by AI. Used @grok @imagine to make the music video. Enjoy:",
+    "text": "Saturday night fun project: Used the upgraded @suno to make a new version of 'Castles Made of Sound'. This is a rock tune I human-wrote years ago, now re-performed by AI. Used @grok @imagine to make the music video. Enjoy: Video",
+    "url": "http://nitter.meowing.monster/markjeffrey/status/2106656867800010763#m",
+    "fetched_at": "2026-10-04T10:20:31.535089+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "markjeffrey",
+    "name": "Mark Jeffrey",
+    "posted_at": "Sun, 04 Oct 2026 04:54:29 GMT",
+    "title": "Fruit Pebbles forests.",
+    "text": "Fruit Pebbles forests. Shaun Terhune (@Shaun_Terhune) The viral posts you’ve been seeing about the foliage in New Hampshire right now aren’t misleading you! It’s absolutely amazing out there! Picture and video are from the White Mountains region TODAY. You haven’t missed it. Come on up, see the foliage, please support local businesses while you’re here! Video — http://nitter.meowing.monster/Shaun_Terhune/status/2106135096839323812#m",
+    "url": "http://nitter.meowing.monster/markjeffrey/status/2106608873633362017#m",
+    "fetched_at": "2026-10-04T10:20:31.535089+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
     "handle": "wallstreetbets",
     "name": "WallStreetBets (X)",
     "posted_at": "Sun, 04 Oct 2026 01:23:07 GMT",
@@ -487,6 +807,46 @@
     "text": "still waiting btw",
     "url": "http://shitter.thepixora.com/wallstreetbets/status/2106555683067826400#m",
     "fetched_at": "2026-10-04T03:45:14.423218+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "markjeffrey",
+    "name": "Mark Jeffrey",
+    "posted_at": "Sun, 04 Oct 2026 01:08:49 GMT",
+    "title": "Just filled in my ballot. Had to vote for the one that literally *burned down half of LA* -- because she was a slightly better choice than a full-blown communist. 🤮 I was doing damage control. This is not a real choice. This is not a real election.",
+    "text": "Just filled in my ballot. Had to vote for the one that literally *burned down half of LA* -- because she was a slightly better choice than a full-blown communist. 🤮 I was doing damage control. This is not a real choice. This is not a real election. Karen Bass (@KarenBassLA) The members of SEIU 721 showed up in force today to win this election in November! I will always fight for working people and stand with labor. The support you’ve shown me means so much, and I’ll continue to show up for you with that same commitment in action. Let’s do this! 💜 — http://nitter.meowing.monster/KarenBassLA/sta",
+    "url": "http://nitter.meowing.monster/markjeffrey/status/2106552082778272203#m",
+    "fetched_at": "2026-10-04T10:20:31.535089+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "markjeffrey",
+    "name": "Mark Jeffrey",
+    "posted_at": "Sun, 04 Oct 2026 00:59:41 GMT",
+    "title": "Building for agent first is the way. Whatever your Thing is, the UI doesn't matter, the complexity doesn't matter. What matters is that agents can find you and use you. Your, like, 'Agent SEO'.",
+    "text": "Building for agent first is the way. Whatever your Thing is, the UI doesn't matter, the complexity doesn't matter. What matters is that agents can find you and use you. Your, like, 'Agent SEO'.",
+    "url": "http://nitter.meowing.monster/markjeffrey/status/2106549785482465531#m",
+    "fetched_at": "2026-10-04T10:20:31.535089+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "VantaTrading",
+    "name": "Vanta",
+    "posted_at": "Sun, 04 Oct 2026 00:00:07 GMT",
+    "title": "One evaluation, and it opens the whole path to a $1,000,000 Pro account. Classic, you prove it once. Earn, you're paid weekly. Grow, those rewards double. Pro, up to $1,000,000 in capital. Same split the whole way. One thing to buy. https://app.vantatrading.io",
+    "text": "One evaluation, and it opens the whole path to a $1,000,000 Pro account. Classic, you prove it once. Earn, you're paid weekly. Grow, those rewards double. Pro, up to $1,000,000 in capital. Same split the whole way. One thing to buy. app.vantatrading.io",
+    "url": "http://shitter.thepixora.com/VantaTrading/status/2106534797820694663#m",
+    "fetched_at": "2026-10-04T10:21:27.143578+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "jaltucher",
+    "name": "James Altucher",
+    "posted_at": "Sat, 26 Sep 2026 11:59:57 GMT",
+    "title": "RT by @jaltucher: bittensor:native will change your life. 🫶",
+    "text": "bittensor:native will change your life. 🫶",
+    "url": "https://nitter.kareem.one/taodaily_io/status/2103816843806879925#m",
+    "fetched_at": "2026-10-04T10:20:38.838553+00:00",
     "via_instance": "https://nitter.cz"
   },
   {
@@ -550,6 +910,26 @@
     "via_instance": "https://nitter.cz"
   },
   {
+    "handle": "markjeffrey",
+    "name": "Mark Jeffrey",
+    "posted_at": "Sat, 03 Oct 2026 01:55:54 GMT",
+    "title": "RT by @markjeffrey: Hash Rate - Ep. 187: Niome Subnet 55 🧙 Guest: Aldo de Pape of @NiomeAI 00:00 Introduction 03:14 Overview of Niome and its mission 05:11 Genomic data breaches and cyber security 08:19 Scaling genomic data for research 14:00 China's access to genomic data 17:22 Niome's current products and market focus 36:24 Business models and revenue streams 47:08 Market size and growth potential 51:33 Exploit conference discussion",
+    "text": "Hash Rate - Ep. 187: Niome Subnet 55 🧙 Guest: Aldo de Pape of @NiomeAI 00:00 Introduction 03:14 Overview of Niome and its mission 05:11 Genomic data breaches and cyber security 08:19 Scaling genomic data for research 14:00 China's access to genomic data 17:22 Niome's current products and market focus 36:24 Business models and revenue streams 47:08 Market size and growth potential 51:33 Exploit conference discussion Video",
+    "url": "http://nitter.meowing.monster/markjeffrey/status/2106201545784377706#m",
+    "fetched_at": "2026-10-04T10:20:31.535089+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "a16zcrypto",
+    "name": "a16z Crypto",
+    "posted_at": "Mon, 28 Sep 2026 20:56:28 GMT",
+    "title": "An early wave of RWA perps was commodities. The new wave could be stocks. A year ago, equity perp open interest was near zero. It passed commodities in June. Today it leads at $2.2B.",
+    "text": "An early wave of RWA perps was commodities. The new wave could be stocks. A year ago, equity perp open interest was near zero. It passed commodities in June. Today it leads at $2.2B.",
+    "url": "http://shitter.thepixora.com/a16zcrypto/status/2104676639166861421#m",
+    "fetched_at": "2026-10-04T10:20:55.797837+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
     "handle": "jtledore",
     "name": "Jean-Thomas Ledoré",
     "posted_at": "Mon, 28 Sep 2026 18:35:03 GMT",
@@ -580,6 +960,16 @@
     "via_instance": "https://nitter.cz"
   },
   {
+    "handle": "tm0klc",
+    "name": "Tim",
+    "posted_at": "Mon, 15 Jun 2026 20:42:24 GMT",
+    "title": "Cameras shouldn’t just record the world. They should make it queryable. That’s the shift we’re building at Manako. Vision Agents that turn live video into real-time operational intelligence, running close to the edge where decisions actually happen.",
+    "text": "Cameras shouldn’t just record the world. They should make it queryable. That’s the shift we’re building at Manako. Vision Agents that turn live video into real-time operational intelligence, running close to the edge where decisions actually happen. Manako (@manakoai) Article Teaching the physical world to talk For decades, we&apos;ve been building digital systems that can process, search and reason about information. Yet much of the world&apos;s most valuable information still exists outside those systems. Factories — http://shitter.thepixora.com/manakoai/status/2066467103163511203#m",
+    "url": "http://shitter.thepixora.com/tm0klc/status/2066622375358308467#m",
+    "fetched_at": "2026-10-04T10:21:34.991306+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
     "handle": "dippy_ai",
     "name": "Dippy AI",
     "posted_at": "Mon, 10 Aug 2026 15:35:59 GMT",
@@ -587,6 +977,16 @@
     "text": "We are FINALLY back online! We deeply apologize for this issue extending nearly 24 hours 🥲 As a token of thanks for your patience, we are REMOVING CHAT LIMITS for the remainder of this month 😻😻 P.S: don't worry, we'll also reinstate your streaks :~)",
     "url": "https://nitter.kareem.one/dippy_ai/status/2086838981627420847#m",
     "fetched_at": "2026-10-04T03:45:12.922985+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "dippy_ai",
+    "name": "Dippy AI",
+    "posted_at": "Mon, 10 Aug 2026 15:35:59 GMT",
+    "title": "We are FINALLY back online! We deeply apologize for this issue extending nearly 24 hours 🥲 As a token of thanks for your patience, we are REMOVING CHAT LIMITS for the remainder of this month 😻😻 P.S: don't worry, we'll also reinstate your streaks :~)",
+    "text": "We are FINALLY back online! We deeply apologize for this issue extending nearly 24 hours 🥲 As a token of thanks for your patience, we are REMOVING CHAT LIMITS for the remainder of this month 😻😻 P.S: don't worry, we'll also reinstate your streaks :~)",
+    "url": "http://nitter.meowing.monster/dippy_ai/status/2086838981627420847#m",
+    "fetched_at": "2026-10-04T10:22:29.865630+00:00",
     "via_instance": "https://nitter.cz"
   },
   {
@@ -612,11 +1012,31 @@
   {
     "handle": "tm0klc",
     "name": "Tim",
+    "posted_at": "Fri, 21 Aug 2026 09:52:47 GMT",
+    "title": "RT by @tm0klc: I have now made 5 Omarchy plugins that I use every day! Check them out here: https://omarchyplugins.com/?author=crmne&sort=stars#catalog",
+    "text": "I have now made 5 Omarchy plugins that I use every day! Check them out here: omarchyplugins.com/?author=c…",
+    "url": "http://shitter.thepixora.com/paolino/status/2090738880106377257#m",
+    "fetched_at": "2026-10-04T10:21:34.991306+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "tm0klc",
+    "name": "Tim",
     "posted_at": "Fri, 21 Aug 2026 01:23:54 GMT",
     "title": "Computer vision, decentralised",
     "text": "Computer vision, decentralised Score (@webuildscore) Computer vision engineers are still duct-taping tools together just to get a model into production. We just finished another round of user interviews and that frustration came up again and again. So we re-designed Studio to work around our new Pipelines + Workflow Canvas features. Visually design any vision pipeline from start to finish, connect models, logic, and outputs on one canvas, preview the exact result, then deploy. You see the output before you ship it. Everything in a single interface. The full loop, shaped by the people who actua",
     "url": "http://nitter.meowing.monster/tm0klc/status/2090610814449570047#m",
     "fetched_at": "2026-10-04T03:44:24.260085+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "tm0klc",
+    "name": "Tim",
+    "posted_at": "Fri, 21 Aug 2026 01:23:54 GMT",
+    "title": "Computer vision, decentralised",
+    "text": "Computer vision, decentralised Score (@webuildscore) Computer vision engineers are still duct-taping tools together just to get a model into production. We just finished another round of user interviews and that frustration came up again and again. So we re-designed Studio to work around our new Pipelines + Workflow Canvas features. Visually design any vision pipeline from start to finish, connect models, logic, and outputs on one canvas, preview the exact result, then deploy. You see the output before you ship it. Everything in a single interface. The full loop, shaped by the people who actua",
+    "url": "http://shitter.thepixora.com/tm0klc/status/2090610814449570047#m",
+    "fetched_at": "2026-10-04T10:21:34.991306+00:00",
     "via_instance": "https://nitter.cz"
   },
   {
@@ -640,6 +1060,36 @@
     "via_instance": "https://nitter.cz"
   },
   {
+    "handle": "KyleSamani",
+    "name": "Kyle Samani",
+    "posted_at": "Fri, 02 Oct 2026 20:56:36 GMT",
+    "title": "Forward!",
+    "text": "Forward! The Block (@TheBlockCo) THE BLOCK: Forward Industries increased its Solana treasury by nearly 949,000 SOL during the last quarter, bringing total holdings to 8.5 million SOL, or roughly 1.4% of the circulating supply. The company said the solana:So11111111111111111111111111111111111111112 added during the quarter came at an average cost of $83. — http://nitter.meowing.monster/TheBlockCo/status/2105947930544701442#m",
+    "url": "http://nitter.meowing.monster/KyleSamani/status/2106126224187679141#m",
+    "fetched_at": "2026-10-04T10:20:53.616668+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "VantaTrading",
+    "name": "Vanta",
+    "posted_at": "Fri, 02 Oct 2026 20:35:04 GMT",
+    "title": "A Vanta Pro account runs up to $1,000,000 in capital at 40x across the portfolio. 35x forex, 10x indices, 8x commodities, 6x crypto, 6x equities. Enough room to actually run the strategy you already have. https://www.vantatrading.io/pro",
+    "text": "A Vanta Pro account runs up to $1,000,000 in capital at 40x across the portfolio. 35x forex, 10x indices, 8x commodities, 6x crypto, 6x equities. Enough room to actually run the strategy you already have. vantatrading.io/pro",
+    "url": "http://shitter.thepixora.com/VantaTrading/status/2106120803817570541#m",
+    "fetched_at": "2026-10-04T10:21:27.143578+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "KyleSamani",
+    "name": "Kyle Samani",
+    "posted_at": "Fri, 02 Oct 2026 20:18:42 GMT",
+    "title": "The @Backpack team ships https://grok.com/share/bGVnYWN5_15a0b991-376d-4335-911b-e2070b29318f",
+    "text": "The @Backpack team ships grok.com/share/bGVnYWN5_15a0…",
+    "url": "http://nitter.meowing.monster/KyleSamani/status/2106116686529335306#m",
+    "fetched_at": "2026-10-04T10:20:53.616668+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
     "handle": "const_reborn",
     "name": "Jacob Steeves",
     "posted_at": "Fri, 02 Oct 2026 18:53:10 GMT",
@@ -647,6 +1097,16 @@
     "text": "\"Supercomputers via abstracted markets\" - Yuma Rao This idea captivated me and ultimately started my journey into #bittensor. Now we've built one on @IOTA_SN9 Video",
     "url": "http://nitter.meowing.monster/macrocrux/status/2106095160702509150#m",
     "fetched_at": "2026-10-04T03:43:06.815152+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "VantaTrading",
+    "name": "Vanta",
+    "posted_at": "Fri, 02 Oct 2026 18:10:42 GMT",
+    "title": "something big is coming 👀",
+    "text": "something big is coming 👀 Arrash (@0xarrash) we're going to make it so you don't need to coin flip your way to passing an eval. This is all broken. I don't believe a single prop firm with these static drawdowns can copy trade. We want your time and energy focused on risk adjusted returns and scaling to a potential $1M in account size. That's big time capital. We'll be releasing the infra to help build leveraging AI but it'll be up to you to lock in. The only question will be are you willing to put the time and energy to build and trade? — http://shitter.thepixora.com/0xarrash/status/2106070718",
+    "url": "http://shitter.thepixora.com/VantaTrading/status/2106084474647642271#m",
+    "fetched_at": "2026-10-04T10:21:27.143578+00:00",
     "via_instance": "https://nitter.cz"
   },
   {
@@ -690,6 +1150,16 @@
     "via_instance": "https://nitter.cz"
   },
   {
+    "handle": "VantaTrading",
+    "name": "Vanta",
+    "posted_at": "Fri, 02 Oct 2026 13:35:40 GMT",
+    "title": "RT by @VantaTrading: fun first test of @VantaTrading so far. no rules to disqualify account due to hold times, news events, etc are a MAJOR upside to Vanta when compared to other prop firms.",
+    "text": "fun first test of @VantaTrading so far. no rules to disqualify account due to hold times, news events, etc are a MAJOR upside to Vanta when compared to other prop firms.",
+    "url": "http://shitter.thepixora.com/skol_abides/status/2106015258963796209#m",
+    "fetched_at": "2026-10-04T10:21:27.143578+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
     "handle": "opentensor",
     "name": "Opentensor Foundation",
     "posted_at": "Fri, 02 Oct 2026 13:20:14 GMT",
@@ -720,6 +1190,26 @@
     "via_instance": "https://nitter.cz"
   },
   {
+    "handle": "VantaTrading",
+    "name": "Vanta",
+    "posted_at": "Fri, 02 Oct 2026 12:41:45 GMT",
+    "title": "RT by @VantaTrading: Up by 2% on my 100k 1 step @VantaTrading account like I said I will be documenting my trades here on x till funded stage 10% target 5% static daily Dd and 10% total Dd . I believe in consistency let’s see how it goes",
+    "text": "Up by 2% on my 100k 1 step @VantaTrading account like I said I will be documenting my trades here on x till funded stage 10% target 5% static daily Dd and 10% total Dd . I believe in consistency let’s see how it goes",
+    "url": "http://shitter.thepixora.com/meeksese/status/2106001690675560639#m",
+    "fetched_at": "2026-10-04T10:21:27.143578+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "KyleSamani",
+    "name": "Kyle Samani",
+    "posted_at": "Fri, 02 Oct 2026 12:33:38 GMT",
+    "title": "RT by @KyleSamani: A token launch is the starting line. “You don’t get rich as a founder unless you do something amazing.” Our goal is to build Backpack into a pillar of the world’s economy. We have to earn that outcome the same way the best Silicon Valley companies do: by building something that matters. @armaniferrante on the commitment and alignment behind Backpack.",
+    "text": "A token launch is the starting line. “You don’t get rich as a founder unless you do something amazing.” Our goal is to build Backpack into a pillar of the world’s economy. We have to earn that outcome the same way the best Silicon Valley companies do: by building something that matters. @armaniferrante on the commitment and alignment behind Backpack. Video",
+    "url": "http://nitter.meowing.monster/Backpack/status/2105999649039630509#m",
+    "fetched_at": "2026-10-04T10:20:53.616668+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
     "handle": "1inch",
     "name": "1inch",
     "posted_at": "Fri, 02 Oct 2026 12:00:19 GMT",
@@ -747,6 +1237,16 @@
     "text": "\"How does Aqua handle impermanent loss when I withdraw?\" There is no withdrawal, so the honest answer is more interesting than that. Holly Atkinson, CPTO at 1inch, on where impermanent loss actually sits when your tokens never left your wallet. Video",
     "url": "http://shitter.thepixora.com/1inch/status/2105972266097893605#m",
     "fetched_at": "2026-10-04T03:44:36.617466+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "KyleSamani",
+    "name": "Kyle Samani",
+    "posted_at": "Fri, 02 Oct 2026 00:00:38 GMT",
+    "title": "Running so many agents right now that my laptop is plugged in and the battery is decreasing top of the line M5 Max, maxed out wild",
+    "text": "Running so many agents right now that my laptop is plugged in and the battery is decreasing top of the line M5 Max, maxed out wild",
+    "url": "http://nitter.meowing.monster/KyleSamani/status/2105810151248937150#m",
+    "fetched_at": "2026-10-04T10:20:53.616668+00:00",
     "via_instance": "https://nitter.cz"
   }
 ]
