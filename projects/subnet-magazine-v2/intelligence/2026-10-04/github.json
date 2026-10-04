@@ -1,0 +1,57 @@
+[
+  {
+    "repo": "opentensor/subtensor",
+    "name": "Subtensor (chain)",
+    "kind": "commit",
+    "sha": "f87cada",
+    "message": "Merge pull request #3208 from RaoFoundation/release-473",
+    "author": "UnArbosFive",
+    "posted_at": "2026-10-03T22:13:30Z",
+    "url": "https://github.com/RaoFoundation/subtensor/commit/f87cada631f81d11683e715a9f059f693992e64a",
+    "fetched_at": "2026-10-04T03:45:20.684997+00:00"
+  },
+  {
+    "repo": "opentensor/subtensor",
+    "name": "Subtensor (chain)",
+    "kind": "commit",
+    "sha": "fe45599",
+    "message": "fix clone fee fixture stability",
+    "author": "UnArbosFive",
+    "posted_at": "2026-10-03T21:20:56Z",
+    "url": "https://github.com/RaoFoundation/subtensor/commit/fe4559927bf56c3365fe3e15442e3f255f47da5d",
+    "fetched_at": "2026-10-04T03:45:20.684997+00:00"
+  },
+  {
+    "repo": "opentensor/subtensor",
+    "name": "Subtensor (chain)",
+    "kind": "commit",
+    "sha": "11b663b",
+    "message": "fix clone EVM fixture fees",
+    "author": "UnArbosFive",
+    "posted_at": "2026-10-03T20:58:18Z",
+    "url": "https://github.com/RaoFoundation/subtensor/commit/11b663b0f79a6371e898fefbd2c8b0eef1ac2762",
+    "fetched_at": "2026-10-04T03:45:20.684997+00:00"
+  },
+  {
+    "repo": "opentensor/subtensor",
+    "name": "Subtensor (chain)",
+    "kind": "commit",
+    "sha": "e385739",
+    "message": "fix docs preview audit gate",
+    "author": "UnArbosFive",
+    "posted_at": "2026-10-03T20:19:12Z",
+    "url": "https://github.com/RaoFoundation/subtensor/commit/e385739fb8d47d56b182d123ec2ee5795ca273d3",
+    "fetched_at": "2026-10-04T03:45:20.684997+00:00"
+  },
+  {
+    "repo": "opentensor/subtensor",
+    "name": "Subtensor (chain)",
+    "kind": "commit",
+    "sha": "6675c84",
+    "message": "fix generated storage binding",
+    "author": "UnArbosFive",
+    "posted_at": "2026-10-03T19:49:58Z",
+    "url": "https://github.com/RaoFoundation/subtensor/commit/6675c84efc9dfc1dbdc9f594c48c9e416140d753",
+    "fetched_at": "2026-10-04T03:45:20.684997+00:00"
+  }
+]
