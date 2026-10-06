@@ -2,6 +2,72 @@
   {
     "repo": "opentensor/subtensor",
     "name": "Subtensor (chain)",
+    "kind": "commit",
+    "sha": "0221412",
+    "message": "Merge pull request #3206 from RaoFoundation/feat/null-consensus-v2",
+    "author": "UnArbosFive",
+    "posted_at": "2026-10-06T12:18:58Z",
+    "url": "https://github.com/RaoFoundation/subtensor/commit/02214123eb6d1aae01812fe515f0e0535c9b9da0",
+    "fetched_at": "2026-10-06T14:40:45.367046+00:00"
+  },
+  {
+    "repo": "opentensor/subtensor",
+    "name": "Subtensor (chain)",
+    "kind": "commit",
+    "sha": "54b8714",
+    "message": "revert: roll back epoch payout optimizations",
+    "author": "UnarbosFour",
+    "posted_at": "2026-10-05T22:02:22Z",
+    "url": "https://github.com/RaoFoundation/subtensor/commit/54b87141d1d8fd73ea4a66e3586657a6ecf21cf5",
+    "fetched_at": "2026-10-06T14:40:45.367046+00:00"
+  },
+  {
+    "repo": "opentensor/subtensor",
+    "name": "Subtensor (chain)",
+    "kind": "commit",
+    "sha": "1822efe",
+    "message": "perf: reuse shared-pool inputs and avoid dividend record churn",
+    "author": "UnarbosFour",
+    "posted_at": "2026-10-05T21:43:33Z",
+    "url": "https://github.com/RaoFoundation/subtensor/commit/1822efea17dfcd91b5ac0124ed0db44da0a3ea60",
+    "fetched_at": "2026-10-06T14:40:45.367046+00:00"
+  },
+  {
+    "repo": "opentensor/subtensor",
+    "name": "Subtensor (chain)",
+    "kind": "commit",
+    "sha": "3dff0cf",
+    "message": "Optimizations: reduce epoch payout lookups and cache external parent balances",
+    "author": "UnarbosFour",
+    "posted_at": "2026-10-05T20:45:17Z",
+    "url": "https://github.com/RaoFoundation/subtensor/commit/3dff0cf2484470d7fcedf3bed3a9cd94059d7aac",
+    "fetched_at": "2026-10-06T14:40:45.367046+00:00"
+  },
+  {
+    "repo": "opentensor/subtensor",
+    "name": "Subtensor (chain)",
+    "kind": "commit",
+    "sha": "6966e41",
+    "message": "feat(cli): add resumable Null pruning and return-to-Yuma workflow",
+    "author": "UnarbosFour",
+    "posted_at": "2026-10-05T19:23:46Z",
+    "url": "https://github.com/RaoFoundation/subtensor/commit/6966e41d29bee2b2a518a7e21647deedbdd84e5f",
+    "fetched_at": "2026-10-06T14:40:45.367046+00:00"
+  },
+  {
+    "repo": "opentensor/subtensor",
+    "name": "Subtensor (chain)",
+    "kind": "commit",
+    "sha": "786d31b",
+    "message": "fix: cap childkey delegation fan-in at 100 parents",
+    "author": "UnarbosFour",
+    "posted_at": "2026-10-05T17:36:12Z",
+    "url": "https://github.com/RaoFoundation/subtensor/commit/786d31bd12ec8b205e4c8ff37d01379f5905c888",
+    "fetched_at": "2026-10-06T14:40:45.367046+00:00"
+  },
+  {
+    "repo": "opentensor/subtensor",
+    "name": "Subtensor (chain)",
     "kind": "release",
     "sha": "v473",
     "message": "Runtime 473",
@@ -9,5 +75,16 @@
     "posted_at": "2026-10-05T13:52:31Z",
     "url": "https://github.com/RaoFoundation/subtensor/releases/tag/v473",
     "fetched_at": "2026-10-06T04:17:01.940968+00:00"
+  },
+  {
+    "repo": "opentensor/subtensor",
+    "name": "Subtensor (chain)",
+    "kind": "commit",
+    "sha": "24e6b4d",
+    "message": "Merge latest main and bump Null runtime spec to 474",
+    "author": "Arbos",
+    "posted_at": "2026-10-05T13:38:51Z",
+    "url": "https://github.com/RaoFoundation/subtensor/commit/24e6b4daf911de4f300f3254f153db8ed274788d",
+    "fetched_at": "2026-10-06T14:40:45.367046+00:00"
   }
 ]
