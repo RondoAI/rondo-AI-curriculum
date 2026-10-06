@@ -1,11 +1,12 @@
 # SemiAnalysis Archive Index
 
-_338 posts captured. Generated 2026-10-05T11:06:21.382372+00:00._
+_339 posts captured. Generated 2026-10-06T04:17:08.534252+00:00._
 
 Editorial policy: SemiAnalysis is the macro reference. The Oracle cites it for any claim about hyperscaler compute, GPU economics, datacenter power, foundry capacity, memory pricing, lab unit economics. The Oracle does NOT cite SemiAnalysis for any Bittensor-specific claim. SemiAnalysis does not cover Bittensor; treat that absence as itself information.
 
 | Date | Title | Audience | Authors | File |
 | --- | --- | --- | --- | --- |
+| 2026-10-05 | [Anthropic Subscriptions Offer 5x+ More Value Than OpenAI](https://newsletter.semianalysis.com/p/anthropic-subscriptions-offer-5x) | only_paid | ["Andrew Megalaa", "Max Kan", "Dylan Patel"] | `2026-10-05-anthropic-subscriptions-offer-5x.md` |
 | 2026-09-28 | [How GLM5.3 Sparse Attention Affects HBM Memory Usage](https://newsletter.semianalysis.com/p/sparse-savings-persistent-demand-inside-glm53) | only_paid | ["Kimbo Chen", "Alec Ibarra", "Wenyao Gao", "Pratt Bhatt", " | `2026-09-28-sparse-savings-persistent-demand-inside-glm53.md` |
 | 2026-09-26 | [Intel Panther Lake Teardown](https://newsletter.semianalysis.com/p/intel-panther-lake-teardown) | only_paid | ["Adith Shankar", "Daniel Sanchez", "Allison Elliott", "Sara | `2026-09-26-intel-panther-lake-teardown.md` |
 | 2026-09-25 | [The Chinese AI Infrastructure Boom: Introducing the SemiAnalysis China Datacente](https://newsletter.semianalysis.com/p/the-chinese-ai-infrastructure-boom) | only_paid | ["Everlyn", "Dylan Patel", "Patrick Schaabi"] | `2026-09-25-the-chinese-ai-infrastructure-boom.md` |

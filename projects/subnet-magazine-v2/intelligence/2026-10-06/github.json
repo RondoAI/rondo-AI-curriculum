@@ -1,0 +1,13 @@
+[
+  {
+    "repo": "opentensor/subtensor",
+    "name": "Subtensor (chain)",
+    "kind": "release",
+    "sha": "v473",
+    "message": "Runtime 473",
+    "author": "github-actions[bot]",
+    "posted_at": "2026-10-05T13:52:31Z",
+    "url": "https://github.com/RaoFoundation/subtensor/releases/tag/v473",
+    "fetched_at": "2026-10-06T04:17:01.940968+00:00"
+  }
+]
