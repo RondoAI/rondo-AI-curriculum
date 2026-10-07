@@ -3,12 +3,78 @@
     "repo": "opentensor/subtensor",
     "name": "Subtensor (chain)",
     "kind": "commit",
+    "sha": "d1718c9",
+    "message": "Merge pull request #3214 from RaoFoundation/basket-min-trade-sudo",
+    "author": "UnArbosSix",
+    "posted_at": "2026-10-07T16:08:15Z",
+    "url": "https://github.com/RaoFoundation/subtensor/commit/d1718c99c34cf96abbf2bf09c0e9e48b945c76f5",
+    "fetched_at": "2026-10-07T18:17:22.943628+00:00"
+  },
+  {
+    "repo": "opentensor/subtensor",
+    "name": "Subtensor (chain)",
+    "kind": "commit",
+    "sha": "ba274b9",
+    "message": "bump spec",
+    "author": "UnArbosSix",
+    "posted_at": "2026-10-07T15:52:56Z",
+    "url": "https://github.com/RaoFoundation/subtensor/commit/ba274b9fbe17b7248b991366192bdb081a1c02bc",
+    "fetched_at": "2026-10-07T18:17:22.943628+00:00"
+  },
+  {
+    "repo": "opentensor/subtensor",
+    "name": "Subtensor (chain)",
+    "kind": "commit",
+    "sha": "bf8fbed",
+    "message": "Merge branch 'main' into basket-min-trade-sudo",
+    "author": "UnArbosSix",
+    "posted_at": "2026-10-07T15:52:35Z",
+    "url": "https://github.com/RaoFoundation/subtensor/commit/bf8fbed6b21cfde40e829e39426a1cfc5d2badef",
+    "fetched_at": "2026-10-07T18:17:22.943628+00:00"
+  },
+  {
+    "repo": "opentensor/subtensor",
+    "name": "Subtensor (chain)",
+    "kind": "commit",
+    "sha": "e8e410f",
+    "message": "fix ci",
+    "author": "UnArbosSix",
+    "posted_at": "2026-10-07T15:38:32Z",
+    "url": "https://github.com/RaoFoundation/subtensor/commit/e8e410f2fc78edc2258a1a075863fcc5f6286a76",
+    "fetched_at": "2026-10-07T18:17:22.943628+00:00"
+  },
+  {
+    "repo": "opentensor/subtensor",
+    "name": "Subtensor (chain)",
+    "kind": "commit",
     "sha": "faaa14b",
     "message": "Merge pull request #3213 from RaoFoundation/fix-opencl-c-char-arm64",
     "author": "UnArbosFive",
     "posted_at": "2026-10-06T18:58:09Z",
     "url": "https://github.com/RaoFoundation/subtensor/commit/faaa14bbcf11098e0ef8139f16115d5d07b4ac92",
     "fetched_at": "2026-10-07T03:43:39.747957+00:00"
+  },
+  {
+    "repo": "opentensor/subtensor",
+    "name": "Subtensor (chain)",
+    "kind": "commit",
+    "sha": "d1c4cbf",
+    "message": "fix CI",
+    "author": "UnArbosSix",
+    "posted_at": "2026-10-06T16:42:14Z",
+    "url": "https://github.com/RaoFoundation/subtensor/commit/d1c4cbf3491076bfc672c09a0dd9456ea4de1626",
+    "fetched_at": "2026-10-07T18:17:22.943628+00:00"
+  },
+  {
+    "repo": "opentensor/subtensor",
+    "name": "Subtensor (chain)",
+    "kind": "commit",
+    "sha": "f220f86",
+    "message": "make basket minimum trade amount sudo-adjustable",
+    "author": "UnArbosSix",
+    "posted_at": "2026-10-06T16:26:53Z",
+    "url": "https://github.com/RaoFoundation/subtensor/commit/f220f869d274bee2a26fdd836c06bac7548984d3",
+    "fetched_at": "2026-10-07T18:17:22.943628+00:00"
   },
   {
     "repo": "opentensor/subtensor",
