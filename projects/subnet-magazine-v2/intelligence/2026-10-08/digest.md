@@ -11,6 +11,16 @@ _no human notes in the window_
 
 _SemiAnalysis is the most-cited semiconductor and AI infrastructure publication in the industry. They do NOT cover Bittensor. The Oracle uses this corpus for any claim about hyperscaler compute, GPU economics, datacenter power, foundry capacity, memory pricing, lab unit economics. DO NOT cite SemiAnalysis for any Bittensor-specific claim. Full archive (289 posts, May 2020 onwards) lives at `intelligence/_external_sources/semianalysis/` with an `INDEX.md` table of contents. Paywalled posts show only subtitle + free preview; free posts have the full body extracted._
 
+### 2026-10-08 · Beijing Will Not Pace the Frontier: China’s Speed-First AI Safety Regime
+__
+
+- **Authors:** ["Mark Chen", "Doug", "Dylan Patel"]
+- **Access:** paid-preview
+- **URL:** https://newsletter.semianalysis.com/p/beijing-will-not-pace-the-frontier
+- **Corpus file:** `intelligence/_external_sources/semianalysis/2026-10-08-beijing-will-not-pace-the-frontier.md`
+
+> AI safety is on fire. On 12 September 2026, Dario Amodei published an essay arguing that frontier labs must deliberately slow the pace at which they improve model capabilities. China was central to his geopolitical argument: export controls and tighter security could preserve America’s lead, creating room to slow down and leverage for a future agreement with Beijing. Within a day, Sam Altman and Elon Musk supported Dario’s call. However, President Trump scoffed. On 14 September 2026, he wrote th
+
 ### 2026-10-05 · Anthropic Subscriptions Offer 5x+ More Value Than OpenAI
 _Limit testing every AI subscription plan from Anthropic, OpenAI, Meta, SpaceXAI, MiniMax, Moonshot, Z.ai, Cursor, and Cognition_
 
@@ -121,19 +131,19 @@ _Same Bandwidth, Fewer Dies: How 4-hi HBM Cuts Inference Costs and Makes Scarce 
 
 > High Bandwidth Memory has been a key technology enabling the AI revolution. Despite HBM’s high costs relative to other forms of memory, chip designers have packaged more and more HBM into AI accelerators. Customers push to design in newer generation HBM whilst also increasing capacity per XPU by adding more cubes, and with denser and higher stacks. This has led to HBM consuming an increasing share of total DRAM wafer capacity, resulting in the extreme DRAM shortage we see ourselves in today.  We
 
-### 2026-09-11 · Nvidia’s Backstop Universe – Heads I Win, Tails Who Loses?
-_The $11T AI Buildout, Nvidia’s Backstop Economics, and the Limits of Nvidia’s Balance Sheet_
-
-- **Authors:** ["Daniel Nishball", "Oliver Kennon", "Terence Ong"]
-- **Access:** paid-preview
-- **URL:** https://newsletter.semianalysis.com/p/nvidias-backstop-universe-heads-i
-- **Corpus file:** `intelligence/_external_sources/semianalysis/2026-09-11-nvidias-backstop-universe-heads-i.md`
-
-> Follow the money behind the AI buildout with our [AI Compute, Capital and Markets Model](https://semianalysis.com/capital-and-markets/) - understand who is funding the expansion, how deals are structured, and where the risks sit. Contact our team [here](https://semianalysis.com/capital-and-markets/) to find out more.  We’re also hiring for SemiAnalysis’s Compute, Capital & Markets team. We have four openings across New York and Singapore:  - Senior Credit Markets Specialist - New York: 5-7 years
-
 
 ## ⊕ GITHUB COMMITS + RELEASES, last 24h
 
+- **Subtensor (chain)** (COMMIT `d4d5288`, 2026-10-08 20:57) Merge pull request #3218 from RaoFoundation/fix-log-format  
+  https://github.com/RaoFoundation/subtensor/commit/d4d5288f284c9db5c12d44523b64f975ee5c7f87
+- **Subtensor (chain)** (COMMIT `58b02d7`, 2026-10-08 18:46) Merge pull request #3219 from RaoFoundation/fix/testnet-root-claim-weight  
+  https://github.com/RaoFoundation/subtensor/commit/58b02d7f5b48e4db84c44b607680b87149d409cc
+- **Subtensor (chain)** (COMMIT `9848477`, 2026-10-08 18:18) Fix oversized testnet root claim weight reservation  
+  https://github.com/RaoFoundation/subtensor/commit/98484778997a729ab2af9fec08e8a780d947ca3c
+- **Subtensor (chain)** (COMMIT `8ba2b12`, 2026-10-08 15:43) vendor safe version instead of downgrade  
+  https://github.com/RaoFoundation/subtensor/commit/8ba2b12fd2cf7bfab3cc199a72c55444fd6774b1
+- **Subtensor (chain)** (COMMIT `e9e39f3`, 2026-10-08 15:02) fix logs  
+  https://github.com/RaoFoundation/subtensor/commit/e9e39f3b9e88e153269f728aa2b17159c97eb104
 - **Subtensor (chain)** (COMMIT `d6dd557`, 2026-10-08 04:38) Allow subnet owners to configure PoW difficulty (#3217)  
   https://github.com/RaoFoundation/subtensor/commit/d6dd557a7e425701c8237d7e0e0cae84c25b682b
 - **Subtensor (chain)** (RELEASE `v475`, 2026-10-07 20:40) Runtime 475  
@@ -157,6 +167,8 @@ _no new posts in the lookback window_
   http://shitter.thepixora.com/opentensor/status/2105410895220220032#m
 - @TargonCompute (Targon, Wed, 30 Sep 2026): NEWS: @TargonCompute says NVIDIA B300 GPUs are now available on demand on Targon. This adds an on-demand Blackwell deployment option. Targon (@TargonCompute) NVIDIA B300s are now available on demand. Secure GPUs are selling out fast on Targon, Ready to deploy on Blackwell? Grab yours now at targon.com/inventory — http://nitter.pp.ua/TargonCompute/status/2105325236639973561#m  
   http://nitter.pp.ua/taodotcom/status/2105392902587249005#m
+- @polychain (Polychain Capital, Wed, 30 Sep 2026): THE BLOCK: DogeOS launched a public testnet for its zero-knowledge rollup, bringing EVM smart contracts to Dogecoin, with dogecoin:native used for gas fees. "I've spent half a decade encouraging people to take a chance on Dogecoin and to build in its ecosystem," said Timothy Stebbing, director of the Dogecoin Foundation. "My hopes are that DogeOS becomes the springboard for a wave of new utility engineering."  
+  http://shitter.thepixora.com/TheBlockCo/status/2105359920795394451#m
 - @TargonCompute (Targon, Wed, 30 Sep 2026): NVIDIA B300s are now available on demand. Secure GPUs are selling out fast on Targon, Ready to deploy on Blackwell? Grab yours now at targon.com/inventory  
   http://nitter.pp.ua/TargonCompute/status/2105325236639973561#m
 - @jaltucher (James Altucher, Wed, 30 Sep 2026): MY TOP 10. I love TV. I worked at HBO (in the 90s). I've been an advisor for shows ("Billions"), I've pitched shows to every studio. Here's my top 10. I've watched each of these at least 4 times. BUT...what should #10 be?? 1) Breaking Bad 2) Mad Men 3) Lost 4) Carnevale 5) Battlestar Galactica 6) Better Call Saul 7) Arrested Devekooment 8) Sopranos 9) Curb Your Enthusiasm  
@@ -165,6 +177,8 @@ _no new posts in the lookback window_
   http://nitter.pp.ua/Ondo/status/2105305938945057014#m
 - @PanteraCapital (Pantera Capital, Wed, 30 Sep 2026): Issuing tokens onchain is now straightforward. Building liquid, compliant markets is the next step. Our CEO @doctorfission argues once fund positions can be sold on demand and used as collateral, they become fundamentally more useful. Read his full take in the Pantera report. Pantera Capital (@PanteraCapital) Pantera's latest State of Tokenization report is out. We analyzed the $332bn tokenization market across 671 assets. Institutions entered in force this quarter. J.P. Morgan, HSBC and Fidelity launched onchain products. BlackRock's BUIDL moved $441mn onchain in June, runs a $1bn daily redem  
   http://nitter.pp.ua/FissionXYZ/status/2105303373503418762#m
+- @polychain (Polychain Capital, Wed, 24 Jun 2026): EXCLUSIVE: a16z CSX-backed Cambrian raises $6 million seed to build blockchain data oracle network theblock.co/post/406028/a16z… Link a16z CSX-backed Cambrian raises $6 million seed to build blockchain data oracle network Cambrian’s new funding will expand its API and verifiable oracle network for institutions and AI agents, with Base and Solana already in production. theblock.co  
+  http://shitter.thepixora.com/TheBlockCo/status/2069827932843909349#m
 - @novogratz (Mike Novogratz, Wed, 23 Sep 2026): Thanks for making the trip to Lubbock, Mike — and for spending time with our Red Raider football team ahead of the game. Great to have you at @TexasTech, and even better to cap off the visit with a big win at the new @galaxyhq Stadium. This partnership is just getting started. #WreckEm! Mike Novogratz (@novogratz) Last Friday, I visited our flagship campus Helios in West Texas. Three years ago, this was still a bitcoin mining facility. Today Helios is a fully operational AI-ready campus with 133MW of critical IT capacity, and we’re just getting started! @galaxyhq is taking a big swing out here  
   http://nitter.pp.ua/CreightonForTX/status/2102869773776269419#m
 - @novogratz (Mike Novogratz, Wed, 23 Sep 2026): Thanks for making the trip to Lubbock, Mike — and for spending time with our Red Raider football team ahead of the game. Great to have you at @TexasTech, and even better to cap off the visit with a big win at the new @galaxyhq Stadium. This partnership is just getting started. #WreckEm! Mike Novogratz (@novogratz) Last Friday, I visited our flagship campus Helios in West Texas. Three years ago, this was still a bitcoin mining facility. Today Helios is a fully operational AI-ready campus with 133MW of critical IT capacity, and we’re just getting started! @galaxyhq is taking a big swing out here  
@@ -191,6 +205,8 @@ _no new posts in the lookback window_
   https://nitter.kareem.one/shibshib89/status/2100300168633761947#m
 - @shibshib89 (Ala Shaabana, Wed, 16 Sep 2026): LFG! Crucible Labs (@CrucibleLabs) Crucible Wallet Extension v2.1.1 is LIVE. This isn’t just an update. We rebuilt the entire wallet experience from the ground up. A completely new UI. More control over your TAO. More Bittensor tools built directly into your wallet. What’s new in v2.1.1: ✔️Completely updated UI + light/dark mode ✔️Claim rewards directly in the wallet ✔️Unified balance across TAO + alpha ✔️Universal Swap ✔️Transfer TAO + alpha ✔️Subnet discovery + detailed subnet views ✔️Multi-address support for seed phrases ✔️12 and 24 word seed phrase support ✔️Updated Smart Account + Reward  
   http://shitter.thepixora.com/shibshib89/status/2100300168633761947#m
+- @shibshib89 (Ala Shaabana, Wed, 16 Sep 2026): LFG! Crucible Labs (@CrucibleLabs) Crucible Wallet Extension v2.1.1 is LIVE. This isn’t just an update. We rebuilt the entire wallet experience from the ground up. A completely new UI. More control over your TAO. More Bittensor tools built directly into your wallet. What’s new in v2.1.1: ✔️Completely updated UI + light/dark mode ✔️Claim rewards directly in the wallet ✔️Unified balance across TAO + alpha ✔️Universal Swap ✔️Transfer TAO + alpha ✔️Subnet discovery + detailed subnet views ✔️Multi-address support for seed phrases ✔️12 and 24 word seed phrase support ✔️Updated Smart Account + Reward  
+  http://nitter.meowing.monster/shibshib89/status/2100300168633761947#m
 - @jaltucher (James Altucher, Wed, 16 Sep 2026): Working on an AI-powered end to end platform for designing optical and then quantum chips at $QCLS. More details and refinements later but you can check it out at VibeGDS.io - you just enter plain English for the chip you want and it will build it out, simulate, verify, etc. Of interest mostly to optical engineers.  
   http://nitter.pp.ua/jaltucher/status/2100262449685364904#m
 - @tplr_ai (Templar, Wed, 16 Sep 2026): When using pipeline compression with fixed projections shared across layers, robustness improves further as seen in the figure below. This suggests that shared projectors align representations across stage boundaries, making bypasses less disruptive. 4/n  
@@ -211,20 +227,30 @@ _no new posts in the lookback window_
   http://nitter.pp.ua/lium_io/status/2097824624117473549#m
 - @lium_io (Lium, Wed, 09 Sep 2026): lium.io Month in review: $964k billed to 1187 renters (36% MoM growth). 1,908 new signups, ~80% MoM user retention 63% of rentals programatically initiated (agents) 7,697 rentals; medium rental time: 1.15 hours.  
   http://shitter.thepixora.com/lium_io/status/2097824624117473549#m
+- @lium_io (Lium, Wed, 09 Sep 2026): lium.io Month in review: $964k billed to 1187 renters (36% MoM growth). 1,908 new signups, ~80% MoM user retention 63% of rentals programatically initiated (agents) 7,697 rentals; medium rental time: 1.15 hours.  
+  https://nitter.kareem.one/lium_io/status/2097824624117473549#m
 - @shibshib89 (Ala Shaabana, Wed, 09 Sep 2026): Did you hear? Crucible Wallet is officially live on iOS today. An easy to use Bittensor wallet with Ledger security, Unified Swap and subnet level performance. Now available on iOS in the US, Android and Chrome. Download at CrucibleLabs.com #Bittensor #TAO #CrucibleWallet  
   https://nitter.kareem.one/CrucibleLabs/status/2097815766473323006#m
 - @shibshib89 (Ala Shaabana, Wed, 09 Sep 2026): Did you hear? Crucible Wallet is officially live on iOS today. An easy to use Bittensor wallet with Ledger security, Unified Swap and subnet level performance. Now available on iOS in the US, Android and Chrome. Download at CrucibleLabs.com #Bittensor #TAO #CrucibleWallet  
   http://shitter.thepixora.com/CrucibleLabs/status/2097815766473323006#m
+- @shibshib89 (Ala Shaabana, Wed, 09 Sep 2026): Did you hear? Crucible Wallet is officially live on iOS today. An easy to use Bittensor wallet with Ledger security, Unified Swap and subnet level performance. Now available on iOS in the US, Android and Chrome. Download at CrucibleLabs.com #Bittensor #TAO #CrucibleWallet  
+  http://nitter.meowing.monster/CrucibleLabs/status/2097815766473323006#m
 - @shibshib89 (Ala Shaabana, Wed, 09 Sep 2026): We are officially on iOS! Onwards 🚀 Crucible Labs (@CrucibleLabs) A long time coming and officially here. Crucible Wallet is now available on iOS in the US. An easy, intuitive Bittensor wallet for your everyday TAO needs, with Unified Swap, portfolio tracking and Ledger support wherever you go. Already available on Google Play and Chrome Store. Download at CrucibleLabs.com #CrucibleWallet #TAO #Bittensor — https://nitter.kareem.one/CrucibleLabs/status/2097699938209857625#m  
   https://nitter.kareem.one/shibshib89/status/2097724813028516224#m
 - @shibshib89 (Ala Shaabana, Wed, 09 Sep 2026): We are officially on iOS! Onwards 🚀 Crucible Labs (@CrucibleLabs) A long time coming and officially here. Crucible Wallet is now available on iOS in the US. An easy, intuitive Bittensor wallet for your everyday TAO needs, with Unified Swap, portfolio tracking and Ledger support wherever you go. Already available on Google Play and Chrome Store. Download at CrucibleLabs.com #CrucibleWallet #TAO #Bittensor — http://shitter.thepixora.com/CrucibleLabs/status/2097699938209857625#m  
   http://shitter.thepixora.com/shibshib89/status/2097724813028516224#m
+- @shibshib89 (Ala Shaabana, Wed, 09 Sep 2026): We are officially on iOS! Onwards 🚀 Crucible Labs (@CrucibleLabs) A long time coming and officially here. Crucible Wallet is now available on iOS in the US. An easy, intuitive Bittensor wallet for your everyday TAO needs, with Unified Swap, portfolio tracking and Ledger support wherever you go. Already available on Google Play and Chrome Store. Download at CrucibleLabs.com #CrucibleWallet #TAO #Bittensor — http://nitter.meowing.monster/CrucibleLabs/status/2097699938209857625#m  
+  http://nitter.meowing.monster/shibshib89/status/2097724813028516224#m
 - @wallstreetbets (WallStreetBets (X), Wed, 07 Oct 2026): the black swan might be closer than we thought Justin Drake (@drakefjustin) Today I call upon the blockchain industry to calmly begin planning for "bunker mode". My personal recommendation is to set in motion a controlled mass migration of assets to fresh addresses, i.e. addresses whose pubkeys remain hidden behind a hash. Holders, starting with large and sophisticated ones, should consider moving the bulk of their funds to addresses that have never signed a transaction. And when they do sign one, they should also move remaining funds to a new address (possibly generated from the same seed phr  
   http://nitter.meowing.monster/wallstreetbets/status/2107973890857128279#m
 - @wallstreetbets (WallStreetBets (X), Wed, 07 Oct 2026): privacy feels way more relevant with where everything is going $ZEC feels like BTC 10 years ago quantum bitcoin makes sense to me too... hearing some things around $NEAR and $QTC in Singapore 👀 WallStreetBets (@wallstreetbets) Article Crypto &amp; AI Privacy Is Inevitable Onchain privacy is being repriced. YTD, we’ve seen the narrative dominate industry discussions, with $ZEC (+159%), $VVV (+1,693%), $NEAR (+237%), and $ARX (+122%) becoming standout performers in — http://nitter.meowing.monster/wallstreetbets/status/2107184527663640722#m  
   http://nitter.meowing.monster/wallstreetbets/status/2107964955307979240#m
 - @const_reborn (Jacob Steeves, Wed, 07 Oct 2026): Reliquary is building post-training on demand. The network behind our own models is opening up to Bittensor subnet teams. First up: Batch generation. Training data built around your model and tasks. Early access: app.reliqua.ai/early-access  
   http://shitter.thepixora.com/reliquary_ai/status/2107962990045823464#m
+- @taomedia_ (TAO Media, Wed, 07 Oct 2026): ✏️ Story by @bart_hillerich Read about @actualinc on our website: tao.media/actual-computer-re… Link Actual Computer Releases toks Tokenizer With Claimed 13x to 151x Speedup Over Hugging Face The Bittensor Subnet 95 team says toks delivers exact Hugging Face token IDs while staying free for organizations below one quadrillion tokens a year. tao.media  
+  http://nitter.pp.ua/taomedia_/status/2107956959928299813#m
+- @taomedia_ (TAO Media, Wed, 07 Oct 2026): Article Actual Computer Releases toks Tokenizer With Claimed 13x to 151x Speedup Over Hugging Face The Bittensor Subnet 95 team says toks delivers exact Hugging Face token IDs while staying free for organizations below one quadrillion tokens a year. @actualinc, the team behind Bittensor  
+  http://nitter.pp.ua/taomedia_/status/2107956816865116195#m
 - @SemiAnalysis_ (SemiAnalysis, Wed, 07 Oct 2026): Watch Now: redirect.invidious.io/2NviLP2SwZI?si=DHQX… Link Ep. 036 - $200 Buys $12,000 of Opus Tokens, We Bought Every Plan (Tokenomics) Pay Anthropic $200 a month and you can pull $12,000 of Opus 5.5 tok... youtube.com  
   http://shitter.thepixora.com/SemiAnalysis_/status/2107950799783411948#m
 - @dylan522p (Dylan Patel, Wed, 07 Oct 2026): A $200 AI subscription can be worth $12,000 in tokens. Which plan delivers it is not close. "They're selling to willing buyers at the fair market price. This is capitalism." "You can pay $200 for a Claude plan and get $12,000 of Opus 5.5 tokens at API pricing. So that's obviously a good deal." "You have to say the $200 plan, when running a particular workload on a particular model, gives you some dollar amount. But then you also have 5.5, which is a beast. $6K or $5,000 worth of value." "And when you do that comparison, it's not even a question of who's providing more value. ChatGPT versus Ant  
@@ -235,25 +261,9 @@ _no new posts in the lookback window_
   http://nitter.pp.ua/MIT/status/2107945104321208752#m
 - @JosephJacks_ (Joseph Jacks, Wed, 07 Oct 2026): Good illustration of what people mean by saying, "the closed frontier is 3-6 months ahead of open-weight" Older example of when these two labs became agentic (Anthropic Dec 2025, DeepSeek May 2026) Seems like closed keeps opening new capabilities that open then saturates.  
   http://nitter.pp.ua/PeterJ_Walker/status/2107940066211582298#m
-- @rob_svrn (Rob Greer, Wed, 07 Oct 2026): What’s interesting about @theminos_ai (SN107) is that they’re taking proven incentive mechanisms from across Bittensor and applying them to a completely different problem: genomic AI. They’re borrowing the idea of one-click mining from IOTA (SN9), removing the need for expensive hardware and making it possible for anyone with a laptop and an AI subscription to contribute. Instead of mining with GPUs, miners run AI agents that research genomics literature, generate evaluation questions and produce verifiable scientific data. It’s a great example of what makes Bittensor powerful: incentive mecha  
-  http://nitter.pp.ua/SubnetSummerT/status/2107935049161347553#m
-- @SemiAnalysis_ (SemiAnalysis, Wed, 07 Oct 2026): 1/ Three weeks from day 0, DeepSeek-V4.1-Flash on vLLM runs 1.9× faster at low concurrency and delivers 5.3× the throughput at 150 TPS per user on @SemiAnalysis_ AgentX. Here is how, with interactive figures you can step through 🧵 vllm.ai/blog/2026-10-07-deep… Link DeepSeek-V4.1-Flash on vLLM: 5x Agentic Throughput Since Day 0 Within three weeks of release, vLLM made DeepSeek-V4.1-Flash 1.9x faster at low concurrency and lifted its throughput 5x on SemiAnalysis AgentX, with SWA bounde vllm.ai  
-  http://shitter.thepixora.com/vllm_project/status/2107934535749140841#m
-- @VantaTrading (Vanta, Wed, 07 Oct 2026): Which prop firm actually pays? Here's our answer: $857,337 paid to traders so far. 303 rewards to 116 traders, and every one is on a public ledger anyone can open. Watch it move: app.vantatrading.io/rewards  
-  http://nitter.pp.ua/VantaTrading/status/2107931543721349197#m
-- @VantaTrading (Vanta, Wed, 07 Oct 2026): Which prop firm actually pays? Here's our answer: $857,337 paid to traders so far. 303 rewards to 116 traders, and every one is on a public ledger anyone can open. Watch it move: app.vantatrading.io/rewards  
-  https://nitter.kareem.one/VantaTrading/status/2107931543721349197#m
-- @SemiAnalysis_ (SemiAnalysis, Wed, 07 Oct 2026): From our testing, it seems like a lot of the National Compute Public Research GPUs are located at Crusoe's Denver data center. (2/2)  
-  http://shitter.thepixora.com/SemiAnalysis_/status/2107910453774971249#m
-- @webuildscore (Score, Wed, 07 Oct 2026): They said Studio was too complex, a bit boring, and too much like the competition. So we’ve torn it apart to build the smartest Vision AI companion powered by Bittensor: Nokta. It will make old Vision AI tools look like what they are…old. Video TAO.com (@taodotcom) NEWS: @webuildscore is rebuilding Score Studio on Subnet 44 around early-user feedback, with a relaunch planned across main platforms. The team reports 143 individual free users and a 3% conversion rate, excluding B2B partners. — http://nitter.meowing.monster/taodotcom/status/2107850313877144029#m  
-  http://nitter.meowing.monster/webuildscore/status/2107907430420037816#m
-- @a16zcrypto (a16z Crypto, Wed, 07 Oct 2026): Wall Street runs on Excel... But what if you had an Excel sheet that anyone could access and everyone agreed on? Video  
-  http://nitter.meowing.monster/a16zcrypto/status/2107903725826388057#m
-- @a16zcrypto (a16z Crypto, Wed, 07 Oct 2026): Wall Street runs on Excel... But what if you had an Excel sheet that anyone could access and everyone agreed on? Video  
-  http://nitter.pp.ua/a16zcrypto/status/2107903725826388057#m
-- @novogratz (Mike Novogratz, Wed, 07 Oct 2026): Proud son Army Football (@ArmyWP_Football) Alongside the @NFFNetwork, we are set to honor the late Bob Novogratz, a 2026 College Football Hall of Fame inductee, this Saturday with a National Football Foundation &amp; College Football Hall of Fame On-Campus salute! MORE → goarmywestpoint.com/news/202… #GoArmy — http://nitter.pp.ua/ArmyWP_Football/status/2107857478507778411#m  
-  http://nitter.pp.ua/novogratz/status/2107898542325195167#m
+- @taomedia_ (TAO Media, Wed, 07 Oct 2026): Article Hark Launches Hark Pro as AI Personal Operating System for Web and Mobile 🤖 Hark Pro combines a memory layer, computer-use agent, proactive suggestions, and encrypted storage in a free app for web, iOS, and Android. Hark, the personal AI startup founded by  
+  http://nitter.pp.ua/taomedia_/status/2107937708522058150#m
 
 
 ---
-_Generated at 2026-10-08T15:09:18.457534+00:00 by scripts/intel/aggregate.py. Treat this digest as input context, not as ground truth. Verify before quoting._
+_Generated at 2026-10-08T20:59:54.329629+00:00 by scripts/intel/aggregate.py. Treat this digest as input context, not as ground truth. Verify before quoting._

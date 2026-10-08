@@ -1,11 +1,12 @@
 # SemiAnalysis Archive Index
 
-_339 posts captured. Generated 2026-10-08T15:09:18.257226+00:00._
+_340 posts captured. Generated 2026-10-08T20:59:54.157654+00:00._
 
 Editorial policy: SemiAnalysis is the macro reference. The Oracle cites it for any claim about hyperscaler compute, GPU economics, datacenter power, foundry capacity, memory pricing, lab unit economics. The Oracle does NOT cite SemiAnalysis for any Bittensor-specific claim. SemiAnalysis does not cover Bittensor; treat that absence as itself information.
 
 | Date | Title | Audience | Authors | File |
 | --- | --- | --- | --- | --- |
+| 2026-10-08 | [Beijing Will Not Pace the Frontier: China’s Speed-First AI Safety Regime](https://newsletter.semianalysis.com/p/beijing-will-not-pace-the-frontier) | only_paid | ["Mark Chen", "Doug", "Dylan Patel"] | `2026-10-08-beijing-will-not-pace-the-frontier.md` |
 | 2026-10-05 | [Anthropic Subscriptions Offer 5x+ More Value Than OpenAI](https://newsletter.semianalysis.com/p/anthropic-subscriptions-offer-5x) | only_paid | ["Andrew Megalaa", "Max Kan", "Dylan Patel"] | `2026-10-05-anthropic-subscriptions-offer-5x.md` |
 | 2026-09-28 | [How GLM5.3 Sparse Attention Affects HBM Memory Usage](https://newsletter.semianalysis.com/p/sparse-savings-persistent-demand-inside-glm53) | only_paid | ["Kimbo Chen", "Alec Ibarra", "Wenyao Gao", "Pratt Bhatt", " | `2026-09-28-sparse-savings-persistent-demand-inside-glm53.md` |
 | 2026-09-26 | [Intel Panther Lake Teardown](https://newsletter.semianalysis.com/p/intel-panther-lake-teardown) | only_paid | ["Adith Shankar", "Daniel Sanchez", "Allison Elliott", "Sara | `2026-09-26-intel-panther-lake-teardown.md` |
