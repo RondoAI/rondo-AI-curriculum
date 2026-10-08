@@ -2,6 +2,17 @@
   {
     "repo": "opentensor/subtensor",
     "name": "Subtensor (chain)",
+    "kind": "commit",
+    "sha": "d6dd557",
+    "message": "Allow subnet owners to configure PoW difficulty (#3217)",
+    "author": "Arbos",
+    "posted_at": "2026-10-08T04:38:14Z",
+    "url": "https://github.com/RaoFoundation/subtensor/commit/d6dd557a7e425701c8237d7e0e0cae84c25b682b",
+    "fetched_at": "2026-10-08T04:49:32.714463+00:00"
+  },
+  {
+    "repo": "opentensor/subtensor",
+    "name": "Subtensor (chain)",
     "kind": "release",
     "sha": "v475",
     "message": "Runtime 475",
