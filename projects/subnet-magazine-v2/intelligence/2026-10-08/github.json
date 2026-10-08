@@ -1,0 +1,57 @@
+[
+  {
+    "repo": "opentensor/subtensor",
+    "name": "Subtensor (chain)",
+    "kind": "release",
+    "sha": "v475",
+    "message": "Runtime 475",
+    "author": "github-actions[bot]",
+    "posted_at": "2026-10-07T20:40:07Z",
+    "url": "https://github.com/RaoFoundation/subtensor/releases/tag/v475",
+    "fetched_at": "2026-10-08T00:00:18.721478+00:00"
+  },
+  {
+    "repo": "opentensor/subtensor",
+    "name": "Subtensor (chain)",
+    "kind": "commit",
+    "sha": "d1718c9",
+    "message": "Merge pull request #3214 from RaoFoundation/basket-min-trade-sudo",
+    "author": "UnArbosSix",
+    "posted_at": "2026-10-07T16:08:15Z",
+    "url": "https://github.com/RaoFoundation/subtensor/commit/d1718c99c34cf96abbf2bf09c0e9e48b945c76f5",
+    "fetched_at": "2026-10-08T00:00:18.294274+00:00"
+  },
+  {
+    "repo": "opentensor/subtensor",
+    "name": "Subtensor (chain)",
+    "kind": "commit",
+    "sha": "ba274b9",
+    "message": "bump spec",
+    "author": "UnArbosSix",
+    "posted_at": "2026-10-07T15:52:56Z",
+    "url": "https://github.com/RaoFoundation/subtensor/commit/ba274b9fbe17b7248b991366192bdb081a1c02bc",
+    "fetched_at": "2026-10-08T00:00:18.294274+00:00"
+  },
+  {
+    "repo": "opentensor/subtensor",
+    "name": "Subtensor (chain)",
+    "kind": "commit",
+    "sha": "bf8fbed",
+    "message": "Merge branch 'main' into basket-min-trade-sudo",
+    "author": "UnArbosSix",
+    "posted_at": "2026-10-07T15:52:35Z",
+    "url": "https://github.com/RaoFoundation/subtensor/commit/bf8fbed6b21cfde40e829e39426a1cfc5d2badef",
+    "fetched_at": "2026-10-08T00:00:18.294274+00:00"
+  },
+  {
+    "repo": "opentensor/subtensor",
+    "name": "Subtensor (chain)",
+    "kind": "commit",
+    "sha": "e8e410f",
+    "message": "fix ci",
+    "author": "UnArbosSix",
+    "posted_at": "2026-10-07T15:38:32Z",
+    "url": "https://github.com/RaoFoundation/subtensor/commit/e8e410f2fc78edc2258a1a075863fcc5f6286a76",
+    "fetched_at": "2026-10-08T00:00:18.294274+00:00"
+  }
+]
