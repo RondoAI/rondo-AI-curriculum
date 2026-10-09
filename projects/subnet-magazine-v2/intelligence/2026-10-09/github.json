@@ -1,0 +1,90 @@
+[
+  {
+    "repo": "opentensor/subtensor",
+    "name": "Subtensor (chain)",
+    "kind": "commit",
+    "sha": "5c6e83e",
+    "message": "Merge pull request #3221 from RaoFoundation/release/bump-spec-477-sdk-11.3.1",
+    "author": "Inti",
+    "posted_at": "2026-10-08T21:13:47Z",
+    "url": "https://github.com/RaoFoundation/subtensor/commit/5c6e83e2f4936f257234f246957f75684c35227c",
+    "fetched_at": "2026-10-09T04:03:09.451509+00:00"
+  },
+  {
+    "repo": "opentensor/subtensor",
+    "name": "Subtensor (chain)",
+    "kind": "commit",
+    "sha": "d4d5288",
+    "message": "Merge pull request #3218 from RaoFoundation/fix-log-format",
+    "author": "UnArbosSix",
+    "posted_at": "2026-10-08T20:57:26Z",
+    "url": "https://github.com/RaoFoundation/subtensor/commit/d4d5288f284c9db5c12d44523b64f975ee5c7f87",
+    "fetched_at": "2026-10-09T04:03:09.451509+00:00"
+  },
+  {
+    "repo": "opentensor/subtensor",
+    "name": "Subtensor (chain)",
+    "kind": "commit",
+    "sha": "fa1e174",
+    "message": "Merge main and regenerate docs source links after root claim fix",
+    "author": "UnarbosFour",
+    "posted_at": "2026-10-08T20:54:44Z",
+    "url": "https://github.com/RaoFoundation/subtensor/commit/fa1e174e8f2c33b83afc7c777d9b74a90113e02c",
+    "fetched_at": "2026-10-09T04:03:09.451509+00:00"
+  },
+  {
+    "repo": "opentensor/subtensor",
+    "name": "Subtensor (chain)",
+    "kind": "commit",
+    "sha": "c94e737",
+    "message": "Bump runtime spec to 477 and Python release versions",
+    "author": "UnarbosFour",
+    "posted_at": "2026-10-08T20:47:33Z",
+    "url": "https://github.com/RaoFoundation/subtensor/commit/c94e737f0da25bcbf134fafd6c705a4db5129bfa",
+    "fetched_at": "2026-10-09T04:03:09.451509+00:00"
+  },
+  {
+    "repo": "opentensor/subtensor",
+    "name": "Subtensor (chain)",
+    "kind": "commit",
+    "sha": "58b02d7",
+    "message": "Merge pull request #3219 from RaoFoundation/fix/testnet-root-claim-weight",
+    "author": "Inti",
+    "posted_at": "2026-10-08T18:46:41Z",
+    "url": "https://github.com/RaoFoundation/subtensor/commit/58b02d7f5b48e4db84c44b607680b87149d409cc",
+    "fetched_at": "2026-10-09T04:03:09.451509+00:00"
+  },
+  {
+    "repo": "opentensor/subtensor",
+    "name": "Subtensor (chain)",
+    "kind": "commit",
+    "sha": "9848477",
+    "message": "Fix oversized testnet root claim weight reservation",
+    "author": "UnarbosFour",
+    "posted_at": "2026-10-08T18:18:15Z",
+    "url": "https://github.com/RaoFoundation/subtensor/commit/98484778997a729ab2af9fec08e8a780d947ca3c",
+    "fetched_at": "2026-10-09T04:03:09.451509+00:00"
+  },
+  {
+    "repo": "opentensor/subtensor",
+    "name": "Subtensor (chain)",
+    "kind": "commit",
+    "sha": "8ba2b12",
+    "message": "vendor safe version instead of downgrade",
+    "author": "UnArbosSix",
+    "posted_at": "2026-10-08T15:43:31Z",
+    "url": "https://github.com/RaoFoundation/subtensor/commit/8ba2b12fd2cf7bfab3cc199a72c55444fd6774b1",
+    "fetched_at": "2026-10-09T04:03:09.451509+00:00"
+  },
+  {
+    "repo": "opentensor/subtensor",
+    "name": "Subtensor (chain)",
+    "kind": "commit",
+    "sha": "e9e39f3",
+    "message": "fix logs",
+    "author": "UnArbosSix",
+    "posted_at": "2026-10-08T15:02:43Z",
+    "url": "https://github.com/RaoFoundation/subtensor/commit/e9e39f3b9e88e153269f728aa2b17159c97eb104",
+    "fetched_at": "2026-10-09T04:03:09.451509+00:00"
+  }
+]
