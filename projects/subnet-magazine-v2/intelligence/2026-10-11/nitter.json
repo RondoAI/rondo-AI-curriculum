@@ -1,5 +1,35 @@
 [
   {
+    "handle": "polychain",
+    "name": "Polychain Capital",
+    "posted_at": "Wed, 30 Sep 2026 18:11:35 GMT",
+    "title": "RT by @polychain: THE BLOCK: DogeOS launched a public testnet for its zero-knowledge rollup, bringing EVM smart contracts to Dogecoin, with dogecoin:native used for gas fees. \"I've spent half a decade encouraging people to take a chance on Dogecoin and to build in its ecosystem,\" said Timothy Stebbing, director of the Dogecoin Foundation. \"My hopes are that DogeOS becomes the springboard for a wave of new utility engineering.\"",
+    "text": "THE BLOCK: DogeOS launched a public testnet for its zero-knowledge rollup, bringing EVM smart contracts to Dogecoin, with dogecoin:native used for gas fees. \"I've spent half a decade encouraging people to take a chance on Dogecoin and to build in its ecosystem,\" said Timothy Stebbing, director of the Dogecoin Foundation. \"My hopes are that DogeOS becomes the springboard for a wave of new utility engineering.\"",
+    "url": "http://shitter.thepixora.com/TheBlockCo/status/2105359920795394451#m",
+    "fetched_at": "2026-10-11T10:29:42.658281+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "PanteraCapital",
+    "name": "Pantera Capital",
+    "posted_at": "Wed, 30 Sep 2026 14:37:05 GMT",
+    "title": "RT by @PanteraCapital: The next evolution of tokenization is here. Pantera’s latest State of Tokenization report highlights Ondo Intelligent Portfolios as the next step beyond individual tokenized stocks. “An entire portfolio becomes a single transferable token.” What this delivers: → DeFi composability → Multiple assets in one holding → Scheduled rebalancing via smart contracts With its first three portfolios powered by BlackRock, Ondo Intelligent Portfolios brings institutional investment strategies onchain. The next chapter of tokenization will expand what investors can access, how they build portfolios, and how they put those assets to work.",
+    "text": "The next evolution of tokenization is here. Pantera’s latest State of Tokenization report highlights Ondo Intelligent Portfolios as the next step beyond individual tokenized stocks. “An entire portfolio becomes a single transferable token.” What this delivers: → DeFi composability → Multiple assets in one holding → Scheduled rebalancing via smart contracts With its first three portfolios powered by BlackRock, Ondo Intelligent Portfolios brings institutional investment strategies onchain. The next chapter of tokenization will expand what investors can access, how they build portfolios, and how ",
+    "url": "http://shitter.thepixora.com/Ondo/status/2105305938945057014#m",
+    "fetched_at": "2026-10-11T10:30:12.151333+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "polychain",
+    "name": "Polychain Capital",
+    "posted_at": "Wed, 24 Jun 2026 17:00:09 GMT",
+    "title": "RT by @polychain: EXCLUSIVE: a16z CSX-backed Cambrian raises $6 million seed to build blockchain data oracle network https://www.theblock.co/post/406028/a16z-csx-backed-cambrian-seed-round-blockchain-data-oracle-network?utm_source=twitter&utm_medium=social",
+    "text": "EXCLUSIVE: a16z CSX-backed Cambrian raises $6 million seed to build blockchain data oracle network theblock.co/post/406028/a16z… Link a16z CSX-backed Cambrian raises $6 million seed to build blockchain data oracle network Cambrian’s new funding will expand its API and verifiable oracle network for institutions and AI agents, with Base and Solana already in production. theblock.co",
+    "url": "http://shitter.thepixora.com/TheBlockCo/status/2069827932843909349#m",
+    "fetched_at": "2026-10-11T10:29:42.658281+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
     "handle": "novogratz",
     "name": "Mike Novogratz",
     "posted_at": "Wed, 23 Sep 2026 21:16:38 GMT",
@@ -17,6 +47,16 @@
     "text": "Expression Engine 2.0 review by the guys at Scriptiny bit.ly/w3Pg3R",
     "url": "http://nitter.pp.ua/foundrydigital/status/157243024848596993#m",
     "fetched_at": "2026-10-11T03:19:37.536539+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "dylan522p",
+    "name": "Dylan Patel",
+    "posted_at": "Wed, 07 Oct 2026 21:46:48 GMT",
+    "title": "RT by @dylan522p: A $200 AI subscription can be worth $12,000 in tokens. Which plan delivers it is not close. \"They're selling to willing buyers at the fair market price. This is capitalism.\" \"You can pay $200 for a Claude plan and get $12,000 of Opus 5.5 tokens at API pricing. So that's obviously a good deal.\" \"You have to say the $200 plan, when running a particular workload on a particular model, gives you some dollar amount. But then you also have 5.5, which is a beast. $6K or $5,000 worth of value.\" \"And when you do that comparison, it's not even a question of who's providing more value. ChatGPT versus Anthropic subscriptions.\" @maxkan and Andrew Megalaa join @JordanNanos this week",
+    "text": "A $200 AI subscription can be worth $12,000 in tokens. Which plan delivers it is not close. \"They're selling to willing buyers at the fair market price. This is capitalism.\" \"You can pay $200 for a Claude plan and get $12,000 of Opus 5.5 tokens at API pricing. So that's obviously a good deal.\" \"You have to say the $200 plan, when running a particular workload on a particular model, gives you some dollar amount. But then you also have 5.5, which is a beast. $6K or $5,000 worth of value.\" \"And when you do that comparison, it's not even a question of who's providing more value. ChatGPT versus Ant",
+    "url": "http://nitter.pp.ua/SemiAnalysis_/status/2107950798638354671#m",
+    "fetched_at": "2026-10-11T10:32:04.652653+00:00",
     "via_instance": "https://nitter.cz"
   },
   {
@@ -40,6 +80,36 @@
     "via_instance": "https://nitter.cz"
   },
   {
+    "handle": "lium_io",
+    "name": "Lium",
+    "posted_at": "Wed, 07 Oct 2026 18:11:00 GMT",
+    "title": "R to @lium_io: dashboard here: https://grafana.lium.io/d/gpu-demand-analytics-v1/gpu-demand-analytics?orgId=2&from=now-2d&to=now&timezone=utc&var-gpu_type=$__all",
+    "text": "dashboard here: grafana.lium.io/d/gpu-demand…",
+    "url": "http://nitter.pp.ua/lium_io/status/2107896491008209332#m",
+    "fetched_at": "2026-10-11T10:32:36.673791+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "lium_io",
+    "name": "Lium",
+    "posted_at": "Wed, 07 Oct 2026 18:08:43 GMT",
+    "title": "Utilization is at an all time high, we are fully rented out of most GPU types on our platform. This is a call for anyone with spare GPUs to rent them out through lium! The process is super simple and you get paid 95%+ of rental fees + payments even while unrented! The full setup is less than 10 minutes. start here: https://provider.lium.io/",
+    "text": "Utilization is at an all time high, we are fully rented out of most GPU types on our platform. This is a call for anyone with spare GPUs to rent them out through lium! The process is super simple and you get paid 95%+ of rental fees + payments even while unrented! The full setup is less than 10 minutes. start here: provider.lium.io/",
+    "url": "http://nitter.pp.ua/lium_io/status/2107895913930768749#m",
+    "fetched_at": "2026-10-11T10:32:36.673791+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "BarrySilbert",
+    "name": "Barry Silbert",
+    "posted_at": "Wed, 07 Oct 2026 16:33:09 GMT",
+    "title": "Mike built @FoundryServices into an industry leader, assembled a world-class team, and helped cement US leadership in Bitcoin mining. His impact on the industry is remarkable Grateful for everything @colyermike contributed over his 7 years and his support through the transition",
+    "text": "Mike built @FoundryServices into an industry leader, assembled a world-class team, and helped cement US leadership in Bitcoin mining. His impact on the industry is remarkable Grateful for everything @colyermike contributed over his 7 years and his support through the transition Foundry (@FoundryServices) Today we announced that @colyermike is stepping down as CEO of Foundry after 7 years. Mike built Foundry from 1 employee into the operator of the world's largest Bitcoin mining pool. He will remain with Foundry for six months as a strategic advisor to support the transition. — http://shitter.t",
+    "url": "http://shitter.thepixora.com/BarrySilbert/status/2107871862823039077#m",
+    "fetched_at": "2026-10-11T10:29:16.355267+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
     "handle": "const_reborn",
     "name": "Jacob Steeves",
     "posted_at": "Wed, 07 Oct 2026 15:27:03 GMT",
@@ -47,6 +117,36 @@
     "text": "Proud to be a day-1 provider on @Architect_Fi. Inference need real markets and we're bringing capacity to help build them. Congrats @BrettHarrison and team. Architect (@Architect_Fi) Today we’re launching Liquid Inference, an OpenAI/Anthropic-compatible router where inference providers compete on price for every prompt. Buyers route across 700+ open- and closed-weight models at the lowest available marginal cost, providers onboard instantly to start serving models. Video — http://nitter.pp.ua/Architect_Fi/status/2107850513806958972#m",
     "url": "http://nitter.pp.ua/engyai/status/2107855228410401195#m",
     "fetched_at": "2026-10-11T03:18:30.446771+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "BarrySilbert",
+    "name": "Barry Silbert",
+    "posted_at": "Wed, 07 Oct 2026 14:19:05 GMT",
+    "title": "RT by @BarrySilbert: Yuma Large Cap Fund up 64.6% since launch, vs 48% for $TAO This fund has done particularly well in the last few months with the increasing concentration of emissions to the highest price (generally largest) subnets",
+    "text": "Yuma Large Cap Fund up 64.6% since launch, vs 48% for $TAO This fund has done particularly well in the last few months with the increasing concentration of emissions to the highest price (generally largest) subnets Yuma (@YumaGroup) The Yuma Large Cap Fund gained 29.0% in September on a USD basis, as its larger subnet holdings outperformed the broader subnet market. It was Yuma's strongest fund in Q3, up 64.6% vs. 48.0% for bittensor:native. The fund's composition is analogous to how the Mag 7 represent a concentrated allocation to dominant technology companies in public markets. Learn more ab",
+    "url": "http://shitter.thepixora.com/GSchvey/status/2107838125187993700#m",
+    "fetched_at": "2026-10-11T10:29:16.355267+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "BarrySilbert",
+    "name": "Barry Silbert",
+    "posted_at": "Wed, 07 Oct 2026 13:30:49 GMT",
+    "title": "RT by @BarrySilbert: The Yuma Large Cap Fund gained 29.0% in September on a USD basis, as its larger subnet holdings outperformed the broader subnet market. It was Yuma's strongest fund in Q3, up 64.6% vs. 48.0% for bittensor:native. The fund's composition is analogous to how the Mag 7 represent a concentrated allocation to dominant technology companies in public markets. Learn more about Yuma Asset Management funds at https://go.yumaai.com/utdUl Disclosure in thread.",
+    "text": "The Yuma Large Cap Fund gained 29.0% in September on a USD basis, as its larger subnet holdings outperformed the broader subnet market. It was Yuma's strongest fund in Q3, up 64.6% vs. 48.0% for bittensor:native. The fund's composition is analogous to how the Mag 7 represent a concentrated allocation to dominant technology companies in public markets. Learn more about Yuma Asset Management funds at go.yumaai.com/utdUl Disclosure in thread.",
+    "url": "http://shitter.thepixora.com/YumaGroup/status/2107825978659488218#m",
+    "fetched_at": "2026-10-11T10:29:16.355267+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "PanteraCapital",
+    "name": "Pantera Capital",
+    "posted_at": "Wed, 07 Oct 2026 11:30:14 GMT",
+    "title": "RT by @PanteraCapital: Compliance can stay at issuance while tokenized assets become easier to trade, move across networks, and use in DeFi. That is where tokenized products improved in Q2, per @PanteraCapital, through changes in distribution, transferability, settlement, and composability.",
+    "text": "Compliance can stay at issuance while tokenized assets become easier to trade, move across networks, and use in DeFi. That is where tokenized products improved in Q2, per @PanteraCapital, through changes in distribution, transferability, settlement, and composability.",
+    "url": "http://shitter.thepixora.com/centrifuge/status/2107795631662391628#m",
+    "fetched_at": "2026-10-11T10:30:12.151333+00:00",
     "via_instance": "https://nitter.cz"
   },
   {
@@ -60,6 +160,36 @@
     "via_instance": "https://nitter.cz"
   },
   {
+    "handle": "polychain",
+    "name": "Polychain Capital",
+    "posted_at": "Tue, 15 Sep 2026 14:20:05 GMT",
+    "title": "RT by @polychain: It's time for a new foundation. Not a new start. Legacy Mode is live on Passport, keep every account you already have, on code anyone can inspect. Switch to open source hardware and software while keeping your existing accounts for supported assets. Here’s how. 🧵",
+    "text": "It's time for a new foundation. Not a new start. Legacy Mode is live on Passport, keep every account you already have, on code anyone can inspect. Switch to open source hardware and software while keeping your existing accounts for supported assets. Here’s how. 🧵 Video",
+    "url": "http://shitter.thepixora.com/FoundationHQ/status/2099865846101180499#m",
+    "fetched_at": "2026-10-11T10:29:42.658281+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "resilabsai",
+    "name": "RESI",
+    "posted_at": "Tue, 07 Apr 2026 17:33:18 GMT",
+    "title": "RT by @resilabsai: The power of holding Bittensor $TAO subnet alpha Here is an example to illustrate the flywheel of $TAO Let's say you 1,000 alpha of @resilabsai which cost around 7 $TAO 7 $TAO at a price of $310 = $2,170 Current alpha price of Resi, subnet 46: .0066 $TAO Let's make some calculated assumptions. > price of resi alpha stays the same for 3 years > price of $TAO remains the same at $310 > APY for holding Resi alpha is 40% for the first 2 years, then 30% in year 3 What is my total value in 3 years? Year 1 (40% APY) 1,060.6 × 1.4 = 1,484.8 alpha In $TAO: 1,484.8 × 0.0066 ≈ 9.80 $TAO In USD: 9.80 × $310 ≈ $3,038 Year 2 (40% APY again) 1,484.8 × 1.4 = 2,078.8 alpha In $TAO: ≈ 13.72 $TAO In USD: ≈ $4,253 Year 3 (30% APY) 2,078.8 × 1.3 = 2,702.4 alpha In $TAO: ≈ 17.83 $TAO In USD: ≈ $5,527 Now what if the price of Resi alpha went up 2x in year 1, 25% in year 2 and 25% in year 3? Additionally, what if the price of $TAO goes up by 4x? Year 1 Alpha: 1,484.8 $TAO value: 1,484.8 × 0.0132 ≈ 19.6 $TAO USD value: 19.6 × $1,240 ≈ $24,304 Year 2 Alpha: 2,078.8 $TAO value: ≈ 34.3 $TAO USD value: ≈ $42,532 Year 3 Alpha: 2,702.4 $TAO value: ≈ 55.7 $TAO USD value: ≈ $69,068 This is the Bittensor flywheel in effect.",
+    "text": "The power of holding Bittensor $TAO subnet alpha Here is an example to illustrate the flywheel of $TAO Let's say you 1,000 alpha of @resilabsai which cost around 7 $TAO 7 $TAO at a price of $310 = $2,170 Current alpha price of Resi, subnet 46: .0066 $TAO Let's make some calculated assumptions. &gt; price of resi alpha stays the same for 3 years &gt; price of $TAO remains the same at $310 &gt; APY for holding Resi alpha is 40% for the first 2 years, then 30% in year 3 What is my total value in 3 years? Year 1 (40% APY) 1,060.6 × 1.4 = 1,484.8 alpha In $TAO: 1,484.8 × 0.0066 ≈ 9.80 $TAO In USD: ",
+    "url": "http://shitter.thepixora.com/Pop_Collapse/status/2041570023823528017#m",
+    "fetched_at": "2026-10-11T10:32:09.753506+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "dylan522p",
+    "name": "Dylan Patel",
+    "posted_at": "Tue, 06 Oct 2026 22:44:44 GMT",
+    "title": "Mistral 4 is pretty good at lawyer bench and cyber security bench, but give it's European heritage, one can only assume it's also good at regulation bench",
+    "text": "Mistral 4 is pretty good at lawyer bench and cyber security bench, but give it's European heritage, one can only assume it's also good at regulation bench Mistral AI (@MistralAI) Meet Mistral Large 4, aka Le Chonk. • 1T parameters, natively multimodal. 49B active. It is the best open weights model from US or Europe on aggregated benchmarks. • State-of-the-art on critical workloads, including cyber defense, manufacturing and finance and it surpasses closed frontier models on visual grounding. • Forged in Europe end-to-end and is deployable from Europe via our own Mistral Cloud infrastructure. •",
+    "url": "http://nitter.pp.ua/dylan522p/status/2107602988911260012#m",
+    "fetched_at": "2026-10-11T10:32:04.652653+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
     "handle": "novogratz",
     "name": "Mike Novogratz",
     "posted_at": "Tue, 06 Oct 2026 19:55:08 GMT",
@@ -70,6 +200,86 @@
     "via_instance": "https://nitter.cz"
   },
   {
+    "handle": "PanteraCapital",
+    "name": "Pantera Capital",
+    "posted_at": "Tue, 06 Oct 2026 19:54:15 GMT",
+    "title": "RT by @PanteraCapital: Chinese vendors made up nearly all humanoid shipments in the first half of 2026.  @BrookeDiPalma from @YahooFinance had OpenMind founder and CEO Jan Liphardt on to discuss this topic in a live segment earlier this week. @JanLiphardt says there’s “no question” China dominates the supply chain for advanced physical AI, and breaks down how the US can catch up in the global robotics race in the next 2 years. Read the post here: https://finance.yahoo.com/video/does-us-chance-beating-china-205850352.html",
+    "text": "Chinese vendors made up nearly all humanoid shipments in the first half of 2026. @BrookeDiPalma from @YahooFinance had OpenMind founder and CEO Jan Liphardt on to discuss this topic in a live segment earlier this week. @JanLiphardt says there’s “no question” China dominates the supply chain for advanced physical AI, and breaks down how the US can catch up in the global robotics race in the next 2 years. Read the post here: finance.yahoo.com/video/does… Video",
+    "url": "http://shitter.thepixora.com/openmind_agi/status/2107560085539164379#m",
+    "fetched_at": "2026-10-11T10:30:12.151333+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "BarrySilbert",
+    "name": "Barry Silbert",
+    "posted_at": "Tue, 06 Oct 2026 18:35:13 GMT",
+    "title": "RT by @BarrySilbert: Yuma CRO @EvanMalanga chats with @JesusMartinez on Bittensor's past and future, why @DCGco originally got involved with the ecosystem, and the distinct parallels among bittensor:native, zcash:native, and bitcoin:native",
+    "text": "Yuma CRO @EvanMalanga chats with @JesusMartinez on Bittensor's past and future, why @DCGco originally got involved with the ecosystem, and the distinct parallels among bittensor:native, zcash:native, and bitcoin:native Jesus Martinez (@JesusMartinez) I sat down w/ @YumaGroup, a DCG subsidiary to chat the institutional side of $TAO &amp; why they decided to enter the ecosystem: Video — http://shitter.thepixora.com/JesusMartinez/status/2107138753714098469#m",
+    "url": "http://shitter.thepixora.com/YumaGroup/status/2107540195562193136#m",
+    "fetched_at": "2026-10-11T10:29:16.355267+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "dylan522p",
+    "name": "Dylan Patel",
+    "posted_at": "Tue, 06 Oct 2026 17:47:29 GMT",
+    "title": "\"And antisemitism will be dead in about 6 months once Sydney Sweeney converts so don't worry bout it\" - @Chaimeisenberg Incredible things are happening in SemiAnalysis Slack",
+    "text": "\"And antisemitism will be dead in about 6 months once Sydney Sweeney converts so don't worry bout it\" - @Chaimeisenberg Incredible things are happening in SemiAnalysis Slack",
+    "url": "http://nitter.pp.ua/dylan522p/status/2107528182836646177#m",
+    "fetched_at": "2026-10-11T10:32:04.652653+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "manakoai",
+    "name": "Manako",
+    "posted_at": "Tue, 06 Oct 2026 13:30:44 GMT",
+    "title": "124 unmanned forecourts. 5 minutes to deploy each. Manako Labs is rolling out across @Avia_France Thevenin & Ducrot unmanned stations in France. “It’s about turning what we see into meaningful action,” says Guillaume Boussaroque of Avia Thevenin & Ducrot. 👉 https://manako.ai/blog/bringing-physical-ai-to-fuel-retail-with-avia-thevenin-ducrot",
+    "text": "124 unmanned forecourts. 5 minutes to deploy each. Manako Labs is rolling out across @Avia_France Thevenin & Ducrot unmanned stations in France. “It’s about turning what we see into meaningful action,” says Guillaume Boussaroque of Avia Thevenin & Ducrot. 👉 manako.ai/blog/bringing-phys…",
+    "url": "http://shitter.thepixora.com/manakoai/status/2107463568962544029#m",
+    "fetched_at": "2026-10-11T10:31:15.902791+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "BarrySilbert",
+    "name": "Barry Silbert",
+    "posted_at": "Tue, 06 Oct 2026 13:13:14 GMT",
+    "title": "RT by @BarrySilbert: What BitTorrent did for files, we want to do for AI inference. Antseed lets anyone buy and sell access to AI models, on their own terms. The Antseed Foundation has raised $2.4M in a token round led by Spark Capital to help make that happen.",
+    "text": "What BitTorrent did for files, we want to do for AI inference. Antseed lets anyone buy and sell access to AI models, on their own terms. The Antseed Foundation has raised $2.4M in a token round led by Spark Capital to help make that happen. Video",
+    "url": "http://shitter.thepixora.com/AmosMeiri/status/2107459165207593046#m",
+    "fetched_at": "2026-10-11T10:29:16.355267+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "dippy_ai",
+    "name": "Dippy AI",
+    "posted_at": "Thu, 30 Jul 2026 14:34:47 GMT",
+    "title": "RT by @dippy_ai: Excited to have helped @PrunaAI collect 1M+ votes for image preference data in a very short time :~)",
+    "text": "Excited to have helped @PrunaAI collect 1M+ votes for image preference data in a very short time :~) Pruna AI (@PrunaAI) P-Image-Ideogram dominate the speed-quality and price-quality Pareto frontiers for image generation. It is the result of a unique collaboration with @ideogram_ai. - Four modes (Very low, low, medium, high) for 1K-2K image generation. - Optimal quality-efficiency with 0.4s-7.5s latency, and $0.003-$0.03 price. - Structured JSON control & exact color control. Available via our inference partners @Replicate @inference_sh @scenario_gg @wavespeed_ai @wiroai @magnific @prodialabs ",
+    "url": "http://shitter.thepixora.com/datapointai/status/2082837314603032606#m",
+    "fetched_at": "2026-10-11T10:32:30.057783+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "dippy_ai",
+    "name": "Dippy AI",
+    "posted_at": "Thu, 27 Aug 2026 21:34:23 GMT",
+    "title": "we have significantly upgraded both the basic and super models 🤩🤩 we have also made optimizations to improve response speeds by upto 5x can't wait for you all to experience and enjoy the new dippy 📯📯😸 rolling out to everyone today",
+    "text": "we have significantly upgraded both the basic and super models 🤩🤩 we have also made optimizations to improve response speeds by upto 5x can't wait for you all to experience and enjoy the new dippy 📯📯😸 rolling out to everyone today",
+    "url": "http://shitter.thepixora.com/dippy_ai/status/2093089771824226802#m",
+    "fetched_at": "2026-10-11T10:32:30.057783+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "polychain",
+    "name": "Polychain Capital",
+    "posted_at": "Thu, 25 Jun 2026 16:11:55 GMT",
+    "title": "RT by @polychain: The Missing AI Layer Is Not Security. It's Authority.",
+    "text": "Article The Missing AI Layer Is Not Security. It&apos;s Authority. AI agents are now computer users. They browse websites. They read files. They write code. They call APIs. They log in to accounts. They handle credentials, use tools, and take actions across software",
+    "url": "http://shitter.thepixora.com/zherbert/status/2070178183333171395#m",
+    "fetched_at": "2026-10-11T10:29:42.658281+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
     "handle": "Olaf",
     "name": "Olaf Carlson-Wee",
     "posted_at": "Thu, 19 Aug 2010 19:44:32 GMT",
@@ -77,6 +287,36 @@
     "text": "lekker biertje drinken bij Dims!",
     "url": "http://shitter.thepixora.com/olaf/status/21602951308#m",
     "fetched_at": "2026-10-11T03:19:08.680644+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "polychain",
+    "name": "Polychain Capital",
+    "posted_at": "Thu, 13 Aug 2026 13:02:38 GMT",
+    "title": "RT by @polychain: LBTC proved demand for yield-bearing Bitcoin. Today, we double down on that thesis. LBTC is moving to institutional yield. @Bitwise will manage a covered-call options strategy with a 4.5-year legacy track record, to generate LBTC's yield, targeting 2.5% net APY paid in Bitcoin.",
+    "text": "LBTC proved demand for yield-bearing Bitcoin. Today, we double down on that thesis. LBTC is moving to institutional yield. @Bitwise will manage a covered-call options strategy with a 4.5-year legacy track record, to generate LBTC's yield, targeting 2.5% net APY paid in Bitcoin.",
+    "url": "http://shitter.thepixora.com/Lombard_Finance/status/2087887552300933626#m",
+    "fetched_at": "2026-10-11T10:29:42.658281+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "PanteraCapital",
+    "name": "Pantera Capital",
+    "posted_at": "Thu, 08 Oct 2026 17:46:49 GMT",
+    "title": "RT by @PanteraCapital: Today, we're announcing $37.5M in new funding, led by @BainCapCrypto, bringing our total capital raised to over $180M. This investment will help us expand Bitcoin-denominated life insurance to families across Asia, Europe, and the Middle East.",
+    "text": "Today, we're announcing $37.5M in new funding, led by @BainCapCrypto, bringing our total capital raised to over $180M. This investment will help us expand Bitcoin-denominated life insurance to families across Asia, Europe, and the Middle East. Video",
+    "url": "http://shitter.thepixora.com/meanwhile/status/2108252790451826702#m",
+    "fetched_at": "2026-10-11T10:30:12.151333+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "manakoai",
+    "name": "Manako",
+    "posted_at": "Thu, 08 Oct 2026 17:01:41 GMT",
+    "title": "RT by @manakoai: We partnered with @Founders_Forum for today’s event, usually hosted in Berlin, but this time bringing its community to Paris. Paris is increasingly becoming a place where ambitious founders, investors and AI leaders are coming together to build what’s next. Shoutout to Manako, one of our f/ai companies building vision AI for the physical world. Their expert models are reportedly 400x more efficient than generalist ones for narrow tasks like vehicle detection, already deployed across hundreds of thousands of retail and commercial sites in the US. A reminder that the next frontier of AI will be the one’s closest to the real world.",
+    "text": "We partnered with @Founders_Forum for today’s event, usually hosted in Berlin, but this time bringing its community to Paris. Paris is increasingly becoming a place where ambitious founders, investors and AI leaders are coming together to build what’s next. Shoutout to Manako, one of our f/ai companies building vision AI for the physical world. Their expert models are reportedly 400x more efficient than generalist ones for narrow tasks like vehicle detection, already deployed across hundreds of thousands of retail and commercial sites in the US. A reminder that the next frontier of AI will be ",
+    "url": "http://shitter.thepixora.com/joinstationf/status/2108241431269654578#m",
+    "fetched_at": "2026-10-11T10:31:15.902791+00:00",
     "via_instance": "https://nitter.cz"
   },
   {
@@ -100,6 +340,16 @@
     "via_instance": "https://nitter.cz"
   },
   {
+    "handle": "manakoai",
+    "name": "Manako",
+    "posted_at": "Thu, 08 Oct 2026 08:15:30 GMT",
+    "title": "It may look like a small step, but it’s a giant leap for Manako.",
+    "text": "It may look like a small step, but it’s a giant leap for Manako. Max (@MaxSebti) this short clip is a big moment for us. we generated it with our world-model baseline, marking a first tangible step in our journey from computer vision toward spatial intelligence. recognizing an aisle is familiar territory. generating what that place could look like as a camera moves through it opens a different set of possibilities. we supplied one AI-generated store image and a camera path and our baseline, produced 49 frames at 512×512, alongside an estimate of the visible 3D surfaces. artifacts are obvious. ",
+    "url": "http://shitter.thepixora.com/manakoai/status/2108109013908951315#m",
+    "fetched_at": "2026-10-11T10:31:15.902791+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
     "handle": "a16zcrypto",
     "name": "a16z Crypto",
     "posted_at": "Thu, 08 Oct 2026 00:39:32 GMT",
@@ -110,6 +360,16 @@
     "via_instance": "https://nitter.cz"
   },
   {
+    "handle": "dippy_ai",
+    "name": "Dippy AI",
+    "posted_at": "Thu, 04 Jun 2026 15:53:04 GMT",
+    "title": "RT by @dippy_ai: Today, we’re opening up Datapoint AI for anyone to use. It is by far the fastest way to understand what your customers want. Type a question. Real people answer. You get a report back in ~10 minutes, not three weeks, and at a fraction of the cost.",
+    "text": "Today, we’re opening up Datapoint AI for anyone to use. It is by far the fastest way to understand what your customers want. Type a question. Real people answer. You get a report back in ~10 minutes, not three weeks, and at a fraction of the cost. Video",
+    "url": "http://shitter.thepixora.com/datapointai/status/2062563294880075837#m",
+    "fetched_at": "2026-10-11T10:32:30.057783+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
     "handle": "novogratz",
     "name": "Mike Novogratz",
     "posted_at": "Sun, 27 Sep 2026 16:43:24 GMT",
@@ -117,6 +377,46 @@
     "text": "Congrats @Scaramucci on this launch! You are one of the hardest working buys in the biz!! Anthony Scaramucci (@Scaramucci) All The Wrong Moves is #1 in the United States National Government category on Amazon. Get the hardcover copy: amzn.to/3VSdRhj Get the audiobook (read by me): amzn.to/4ydOXqV — http://nitter.pp.ua/Scaramucci/status/2104001152316809589#m",
     "url": "http://nitter.pp.ua/novogratz/status/2104250567115641310#m",
     "fetched_at": "2026-10-11T03:19:12.279911+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "markjeffrey",
+    "name": "Mark Jeffrey",
+    "posted_at": "Sun, 11 Oct 2026 09:29:44 GMT",
+    "title": "Does your blockchain produce products? $TAO products produce $50M in annual revenue now. ... And they're on track for $100M by end of 2026.",
+    "text": "Does your blockchain produce products? $TAO products produce $50M in annual revenue now. ... And they're on track for $100M by end of 2026. The TAO Daily (@taodaily_io) Bittensor Subnets Shipping the Most Code in the Last 30 Days UR (SN25) | @urnetwork — 21,511 Carbon (SN116) | @carbonphysicsai — 17,290 Leadpoet (SN71) | @LeadpoetAI — 14,448 Ditto (SN118) | @heydittoai — 10,233 Affine (SN120) | @affine_io — 8,296 Beam (SN105) | @b1m_ai — 7,470 Umi (SN78) | @umi_sn78 — 7,203 Reliquary (SN81) | @reliquary_ai — 3,234 Lium (SN51) | @lium_io — 2,432 Cortex (SN100) | @cortex_100 — 2,039 [Average cod",
+    "url": "http://nitter.pp.ua/markjeffrey/status/2109214860399739097#m",
+    "fetched_at": "2026-10-11T10:29:32.611949+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "markjeffrey",
+    "name": "Mark Jeffrey",
+    "posted_at": "Sun, 11 Oct 2026 07:12:31 GMT",
+    "title": "Grok scanning X for the most current expert opinions on the Scary Math Stuff from OpenAI and implications for crypto ...",
+    "text": "Grok scanning X for the most current expert opinions on the Scary Math Stuff from OpenAI and implications for crypto ...",
+    "url": "http://nitter.pp.ua/markjeffrey/status/2109180327893909883#m",
+    "fetched_at": "2026-10-11T10:29:32.611949+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "dylan522p",
+    "name": "Dylan Patel",
+    "posted_at": "Sun, 11 Oct 2026 06:55:55 GMT",
+    "title": "The two worst things for society Both called DCs Diet Coke Datacenters",
+    "text": "The two worst things for society Both called DCs Diet Coke Datacenters",
+    "url": "http://nitter.pp.ua/dylan522p/status/2109176151986057331#m",
+    "fetched_at": "2026-10-11T10:32:04.652653+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "markjeffrey",
+    "name": "Mark Jeffrey",
+    "posted_at": "Sun, 11 Oct 2026 06:33:58 GMT",
+    "title": "Well-said!",
+    "text": "Well-said! Carbon (@carbonphysicsai) Seriously, how good is Bittensor. — http://nitter.pp.ua/carbonphysicsai/status/2108539716312420445#m",
+    "url": "http://nitter.pp.ua/markjeffrey/status/2109170626074452204#m",
+    "fetched_at": "2026-10-11T10:29:32.611949+00:00",
     "via_instance": "https://nitter.cz"
   },
   {
@@ -147,6 +447,26 @@
     "text": "RT @timmerarjan Life is good! yfrog.com/kkli4iaj zeker !! Wel tof dat je het deelt met je vrienden :)",
     "url": "http://shitter.thepixora.com/olaf/status/90083936700600321#m",
     "fetched_at": "2026-10-11T03:19:08.680644+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "dippy_ai",
+    "name": "Dippy AI",
+    "posted_at": "Sun, 09 Aug 2026 23:27:27 GMT",
+    "title": "We are experiencing an issue with our database provider @supabase , so the app & website may be down for a few more hours. We’ll send a notification when we are able to recover and the app is back to normal! Apologies for the inconvenience 😿😿",
+    "text": "We are experiencing an issue with our database provider @supabase , so the app &amp; website may be down for a few more hours. We’ll send a notification when we are able to recover and the app is back to normal! Apologies for the inconvenience 😿😿",
+    "url": "http://shitter.thepixora.com/dippy_ai/status/2086595242422149540#m",
+    "fetched_at": "2026-10-11T10:32:30.057783+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "resilabsai",
+    "name": "RESI",
+    "posted_at": "Sat, 18 Apr 2026 04:42:22 GMT",
+    "title": "RT by @resilabsai: Traditional centralized real estate data platforms are fundamentally flawed and often serve to extract wealth from users. @resilabsai (Subnet 46) is breaking this monopoly through decentralized AI technology that delivers up to 99% valuation accuracy. Skip the corporate intermediaries—this AI-powered home valuation tool provides the most reliable housing market forecasts for 2026",
+    "text": "Traditional centralized real estate data platforms are fundamentally flawed and often serve to extract wealth from users. @resilabsai (Subnet 46) is breaking this monopoly through decentralized AI technology that delivers up to 99% valuation accuracy. Skip the corporate intermediaries—this AI-powered home valuation tool provides the most reliable housing market forecasts for 2026 Video SEBY (gpu/acc) (@sebyrubino) The @resilabsai Portal is LIVE! Any agent or real estate professional can now easily access our SOTA remote appraisals. We built RESI as a compounding network that will naturally acc",
+    "url": "http://shitter.thepixora.com/3rdeye_rav3n/status/2045362275045753234#m",
+    "fetched_at": "2026-10-11T10:32:09.753506+00:00",
     "via_instance": "https://nitter.cz"
   },
   {
@@ -220,6 +540,16 @@
     "via_instance": "https://nitter.cz"
   },
   {
+    "handle": "markjeffrey",
+    "name": "Mark Jeffrey",
+    "posted_at": "Sat, 10 Oct 2026 15:47:23 GMT",
+    "title": "RT by @markjeffrey: @Pareton_ai 仍然在Bittensor受到严重忽视",
+    "text": "@Pareton_ai 仍然在Bittensor受到严重忽视 Openτensor Foundaτion (@opentensor) .@Pareton_ai miners achieved up to 54% faster AI inference on @engyai’s setup, using the same GPUs. On the latest Novelty Search, Pareton explains how Bittensor’s Subnet 10 improves the software that runs AI models, with each winning optimization becoming the next baseline to beat. The team also got a miner-developed optimization merged into @vllm_project, one of the leading open-source engines for AI inference. Hosted by @const_reborn Full episode in the first comment Video — http://nitter.pp.ua/opentensor/status/2108941592031",
+    "url": "http://nitter.pp.ua/Yizhiyangfund/status/2108947512132550939#m",
+    "fetched_at": "2026-10-11T10:29:32.611949+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
     "handle": "jtledore",
     "name": "Jean-Thomas Ledoré",
     "posted_at": "Sat, 10 Oct 2026 15:23:52 GMT",
@@ -257,6 +587,106 @@
     "text": "Bitcoin was proof-of-concept for Bittensor. $TAO",
     "url": "http://shitter.thepixora.com/DocumentingTao/status/2108885675550363876#m",
     "fetched_at": "2026-10-11T03:20:26.327016+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "lium_io",
+    "name": "Lium",
+    "posted_at": "Sat, 10 Oct 2026 05:57:39 GMT",
+    "title": "R to @lium_io: Image",
+    "text": "",
+    "url": "http://nitter.pp.ua/lium_io/status/2108799098904002731#m",
+    "fetched_at": "2026-10-11T10:32:36.673791+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "lium_io",
+    "name": "Lium",
+    "posted_at": "Sat, 10 Oct 2026 05:57:39 GMT",
+    "title": "R to @lium_io: Image",
+    "text": "",
+    "url": "http://nitter.pp.ua/lium_io/status/2108799101248643277#m",
+    "fetched_at": "2026-10-11T10:32:36.673791+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "lium_io",
+    "name": "Lium",
+    "posted_at": "Sat, 10 Oct 2026 05:57:38 GMT",
+    "title": "new month in review just dropped. +45% spend +16% active users +106% rentals +11% median rental time +20% charged +32% first time renters +15% providers -32% rental failures",
+    "text": "new month in review just dropped. +45% spend +16% active users +106% rentals +11% median rental time +20% charged +32% first time renters +15% providers -32% rental failures",
+    "url": "http://nitter.pp.ua/lium_io/status/2108799096182223058#m",
+    "fetched_at": "2026-10-11T10:32:36.673791+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "resilabsai",
+    "name": "RESI",
+    "posted_at": "Sat, 08 Aug 2026 01:27:26 GMT",
+    "title": "Pinned: Attention Res Labs we have some really exciting news and updates to our project join our discord to stay up to date: https://discord.gg/TBj8q9vb2Q #bittensor #TAO bittensor:native #reslabs #reilabsai #crypto #subnet #subnet46 #reslabs_ai #reslabsai #opentensor #reptides",
+    "text": "Attention Res Labs we have some really exciting news and updates to our project join our discord to stay up to date: discord.gg/TBj8q9vb2Q #bittensor #TAO bittensor:native #reslabs #reilabsai #crypto #subnet #subnet46 #reslabs_ai #reslabsai #opentensor #reptides",
+    "url": "http://shitter.thepixora.com/resilabsai/status/2085900662139744548#m",
+    "fetched_at": "2026-10-11T10:32:09.753506+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "resilabsai",
+    "name": "RESI",
+    "posted_at": "Mon, 20 Apr 2026 19:34:17 GMT",
+    "title": "RT by @resilabsai: I am pleased to announce that Stillcore Capital @stillcorecap has invested in RESI @resilabsai (Bittensor Subnet 46).",
+    "text": "I am pleased to announce that Stillcore Capital @stillcorecap has invested in RESI @resilabsai (Bittensor Subnet 46).",
+    "url": "http://shitter.thepixora.com/markjeffrey/status/2046311512621670731#m",
+    "fetched_at": "2026-10-11T10:32:09.753506+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "dippy_ai",
+    "name": "Dippy AI",
+    "posted_at": "Mon, 10 Aug 2026 15:35:59 GMT",
+    "title": "We are FINALLY back online! We deeply apologize for this issue extending nearly 24 hours 🥲 As a token of thanks for your patience, we are REMOVING CHAT LIMITS for the remainder of this month 😻😻 P.S: don't worry, we'll also reinstate your streaks :~)",
+    "text": "We are FINALLY back online! We deeply apologize for this issue extending nearly 24 hours 🥲 As a token of thanks for your patience, we are REMOVING CHAT LIMITS for the remainder of this month 😻😻 P.S: don't worry, we'll also reinstate your streaks :~)",
+    "url": "http://shitter.thepixora.com/dippy_ai/status/2086838981627420847#m",
+    "fetched_at": "2026-10-11T10:32:30.057783+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "resilabsai",
+    "name": "RESI",
+    "posted_at": "Mon, 06 Apr 2026 13:56:00 GMT",
+    "title": "RT by @resilabsai: Chainlink gave DeFi price feeds. @resilabsai is doing the same for real estate. From static appraisals to dynamic, onchain pricing. It's already honing in on Zillow's pricing accuracy, and only a matter of weeks before it surpasses it!",
+    "text": "Chainlink gave DeFi price feeds. @resilabsai is doing the same for real estate. From static appraisals to dynamic, onchain pricing. It's already honing in on Zillow's pricing accuracy, and only a matter of weeks before it surpasses it!",
+    "url": "http://shitter.thepixora.com/gordonfrayne/status/2041152947925512465#m",
+    "fetched_at": "2026-10-11T10:32:09.753506+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "dylan522p",
+    "name": "Dylan Patel",
+    "posted_at": "Mon, 05 Oct 2026 23:58:07 GMT",
+    "title": "The difference in what Anthropic and OpenAI as well as many others give you in value for a subscription is insane. We tested Meta, Minimax, Kimi, Grok, and Cursor subscriptions",
+    "text": "The difference in what Anthropic and OpenAI as well as many others give you in value for a subscription is insane. We tested Meta, Minimax, Kimi, Grok, and Cursor subscriptions SemiAnalysis (@SemiAnalysis_) It doesn't make sense to say a subscription plan is worth $ X in isolation. The way to think about subscriptions is that your monthly payment grants you some numbers of “credits”. Each (model, token type) combo consumes a different amount of credits. Because credit cost ratios can differ dramatically from API price ratios, the “value” of the same plan changes depending on what model and wor",
+    "url": "http://nitter.pp.ua/dylan522p/status/2107259067693748373#m",
+    "fetched_at": "2026-10-11T10:32:04.652653+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "manakoai",
+    "name": "Manako",
+    "posted_at": "Mon, 05 Oct 2026 20:47:58 GMT",
+    "title": "RT by @manakoai: .@manakoai Rig builds custom harnesses and vision agents from natural language for our clients. to do this, it leverages SOTA open-source models from @webuildscore. the next step is for the miners to get annotated data from pseudo-real and real-world scenes and reconstruct them in 3D by training our own world model. the goal? understanding and predicting actions and their consequences in the real world, so we can operate real-world businesses autonomously. can't stop, won't stop.",
+    "text": ".@manakoai Rig builds custom harnesses and vision agents from natural language for our clients. to do this, it leverages SOTA open-source models from @webuildscore. the next step is for the miners to get annotated data from pseudo-real and real-world scenes and reconstruct them in 3D by training our own world model. the goal? understanding and predicting actions and their consequences in the real world, so we can operate real-world businesses autonomously. can't stop, won't stop. Video",
+    "url": "http://shitter.thepixora.com/MaxSebti/status/2107211216628187594#m",
+    "fetched_at": "2026-10-11T10:31:15.902791+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "PanteraCapital",
+    "name": "Pantera Capital",
+    "posted_at": "Mon, 05 Oct 2026 18:17:55 GMT",
+    "title": "RT by @PanteraCapital: Excited to announce I'm joining @PanteraCapital as a Junior Partner! I'll be backing founders building stablecoin payments, fintech x DeFi, and new markets for compute, energy, and more. Thank you to @dan_pantera, @veradittakit, @FranklinBi, @stutireal, Cosmo and the rest of the Pantera team for the trust and the opportunity. It's an honor to join a team that has backed the foundations of onchain finance for over a decade. Huge thank you to @nascent and @delitzer. Nacscent sharpened how I think about DeFi, market structure, and what it takes to build at the edge of finance. I'm grateful for the mentorship and the friendships. More on why I joined Pantera: [https://panteracapital.com/joining-pantera-jack/]",
+    "text": "Excited to announce I'm joining @PanteraCapital as a Junior Partner! I'll be backing founders building stablecoin payments, fintech x DeFi, and new markets for compute, energy, and more. Thank you to @dan_pantera, @veradittakit, @FranklinBi, @stutireal, Cosmo and the rest of the Pantera team for the trust and the opportunity. It's an honor to join a team that has backed the foundations of onchain finance for over a decade. Huge thank you to @nascent and @delitzer. Nacscent sharpened how I think about DeFi, market structure, and what it takes to build at the edge of finance. I'm grateful for th",
+    "url": "http://shitter.thepixora.com/JackSimison/status/2107173455489892726#m",
+    "fetched_at": "2026-10-11T10:30:12.151333+00:00",
     "via_instance": "https://nitter.cz"
   },
   {
@@ -387,6 +817,16 @@
     "text": "Article Jev as a Classification Swiss Army Knife: How We Use It for Decentralized LLM Training On S97 (Albedo) we are evaluating AI models that compete with each other. We want to pick the best and we have an adversarial competition for that. Recently I heard about Jev, the new not-an-LLM model",
     "url": "http://nitter.pp.ua/vaqxai/status/2108563682540016119#m",
     "fetched_at": "2026-10-11T03:18:30.446771+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "manakoai",
+    "name": "Manako",
+    "posted_at": "Fri, 09 Oct 2026 11:18:46 GMT",
+    "title": "Yesterday we pitched Manako on the Rising Stars stage at @Founders_Forum, with @joinstationf in Paris. Thank you to both for the room. AI changed work inside computers. It is moving into physical operations, and it can start with infrastructure that is already installed. Cameras already watch factories, stores, fuel stations and warehouses. Almost none of that becomes an action, because operations still depend on someone noticing, understanding and reporting what happened. Manako builds World Models for Business: AI that turns physical events into better business. Today we deploy Vision Agents. They use existing cameras to identify physical events and start the business action that follows. A spill on a forecourt becomes a cleaning job for the on-call contractor, with the clip attached, before a customer has to report it. Live now, including at Avia Thévenin & Ducrot’s unmanned fuel stations in France. Setting up a new site takes under five minutes. The ambition is the self-improving business. The physical record of every site, available to the systems that run it, so operations keep improving. People set the goals, the rules and the limits. What happens at your sites should not wait for someone to notice.",
+    "text": "Yesterday we pitched Manako on the Rising Stars stage at @Founders_Forum, with @joinstationf in Paris. Thank you to both for the room. AI changed work inside computers. It is moving into physical operations, and it can start with infrastructure that is already installed. Cameras already watch factories, stores, fuel stations and warehouses. Almost none of that becomes an action, because operations still depend on someone noticing, understanding and reporting what happened. Manako builds World Models for Business: AI that turns physical events into better business. Today we deploy Vision Agents",
+    "url": "http://shitter.thepixora.com/manakoai/status/2108517522467180778#m",
+    "fetched_at": "2026-10-11T10:31:15.902791+00:00",
     "via_instance": "https://nitter.cz"
   }
 ]
