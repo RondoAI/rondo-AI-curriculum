@@ -1,0 +1,101 @@
+[
+  {
+    "repo": "opentensor/subtensor",
+    "name": "Subtensor (chain)",
+    "kind": "commit",
+    "sha": "850f275",
+    "message": "Merge pull request #3237 from RaoFoundation/release-478",
+    "author": "UnArbosFive",
+    "posted_at": "2026-10-13T01:50:29Z",
+    "url": "https://github.com/RaoFoundation/subtensor/commit/850f2755bb05a3851f948489f0ab27b0645cebce",
+    "fetched_at": "2026-10-13T04:58:21.338305+00:00"
+  },
+  {
+    "repo": "opentensor/subtensor",
+    "name": "Subtensor (chain)",
+    "kind": "commit",
+    "sha": "4c96945",
+    "message": "Regenerate docs and ignore line-number drift in the docs check",
+    "author": "UnArbosFive",
+    "posted_at": "2026-10-13T01:13:03Z",
+    "url": "https://github.com/RaoFoundation/subtensor/commit/4c9694528b968c8b9c292d3ac197ac68a9dfcc3a",
+    "fetched_at": "2026-10-13T04:58:21.338305+00:00"
+  },
+  {
+    "repo": "opentensor/subtensor",
+    "name": "Subtensor (chain)",
+    "kind": "commit",
+    "sha": "ed24d1d",
+    "message": "Merge pull request #3233 from RaoFoundation/precompile-stake-exit-gas-bound",
+    "author": "UnArbosFive",
+    "posted_at": "2026-10-12T23:49:49Z",
+    "url": "https://github.com/RaoFoundation/subtensor/commit/ed24d1ded2fafc3b97c124f1385ad4b6e4357198",
+    "fetched_at": "2026-10-13T04:58:21.338305+00:00"
+  },
+  {
+    "repo": "opentensor/subtensor",
+    "name": "Subtensor (chain)",
+    "kind": "commit",
+    "sha": "78d3313",
+    "message": "Merge pull request #3235 from RaoFoundation/fix/staking-hotkeys-consistency",
+    "author": "UnArbosFive",
+    "posted_at": "2026-10-12T23:48:50Z",
+    "url": "https://github.com/RaoFoundation/subtensor/commit/78d331380055ab6fff6f89ae624be59e9583fde5",
+    "fetched_at": "2026-10-13T04:58:21.338305+00:00"
+  },
+  {
+    "repo": "opentensor/subtensor",
+    "name": "Subtensor (chain)",
+    "kind": "commit",
+    "sha": "900bd9e",
+    "message": "Size unstake_all walks to the caller's list in the EVM and contract paths",
+    "author": "UnArbosFive",
+    "posted_at": "2026-10-12T22:56:51Z",
+    "url": "https://github.com/RaoFoundation/subtensor/commit/900bd9e8f7969b053cc287215a712b0137843578",
+    "fetched_at": "2026-10-13T04:58:21.338305+00:00"
+  },
+  {
+    "repo": "opentensor/subtensor",
+    "name": "Subtensor (chain)",
+    "kind": "commit",
+    "sha": "3010d10",
+    "message": "Restore missing staking hotkey associations in bounded migration batches",
+    "author": "UnarbosFour",
+    "posted_at": "2026-10-12T18:57:50Z",
+    "url": "https://github.com/RaoFoundation/subtensor/commit/3010d1099a4eb5e869bd9beeb69e1c5b1bd43096",
+    "fetched_at": "2026-10-13T04:58:21.338305+00:00"
+  },
+  {
+    "repo": "opentensor/subtensor",
+    "name": "Subtensor (chain)",
+    "kind": "commit",
+    "sha": "8677391",
+    "message": "Bump spec_version to 478",
+    "author": "UnArbosFive",
+    "posted_at": "2026-10-12T14:37:15Z",
+    "url": "https://github.com/RaoFoundation/subtensor/commit/8677391fbf6143c2e727e3a6866aa8e5c960c487",
+    "fetched_at": "2026-10-13T04:58:21.338305+00:00"
+  },
+  {
+    "repo": "opentensor/subtensor",
+    "name": "Subtensor (chain)",
+    "kind": "commit",
+    "sha": "b5cbe84",
+    "message": "Add regression tests for the stake-exit gas reservation",
+    "author": "UnArbosFive",
+    "posted_at": "2026-10-12T14:31:45Z",
+    "url": "https://github.com/RaoFoundation/subtensor/commit/b5cbe84a692eea819fcf86ab1a6cc0e64f962660",
+    "fetched_at": "2026-10-13T04:58:21.338305+00:00"
+  },
+  {
+    "repo": "opentensor/subtensor",
+    "name": "Subtensor (chain)",
+    "kind": "commit",
+    "sha": "41afc66",
+    "message": "Size the stake-exit walk to the caller's list in the EVM and contract paths",
+    "author": "UnArbosFive",
+    "posted_at": "2026-10-12T14:09:00Z",
+    "url": "https://github.com/RaoFoundation/subtensor/commit/41afc661db0b4632e4b33746209cb5b4c4aaa589",
+    "fetched_at": "2026-10-13T04:58:21.338305+00:00"
+  }
+]
