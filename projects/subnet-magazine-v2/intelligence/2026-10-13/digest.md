@@ -169,12 +169,20 @@ _no new posts in the lookback window_
   https://nitter.kareem.one/tplr_ai/status/2100237717162303718#m
 - @tplr_ai (Templar, Wed, 16 Sep 2026): When using pipeline compression with fixed projections shared across layers, robustness improves further as seen in the figure below. This suggests that shared projectors align representations across stage boundaries, making bypasses less disruptive. 4/n  
   https://nitter.kareem.one/tplr_ai/status/2100237714918367690#m
+- @mcjkula (mcjkula, Wed, 07 Oct 2026): "The best person to solve your problem might be someone you’ve never met or considered hiring." Travis and I explain Bittensor, including examples from weather forecasting (@zeussubnet) and drug discovery (@metanova_labs). Here’s our "Bittensor 101" recording from @ExploitSummit Video  
+  http://nitter.meowing.monster/mcjkula/status/2107803570699722943#m
 - @PanteraCapital (Pantera Capital, Wed, 07 Oct 2026): Compliance can stay at issuance while tokenized assets become easier to trade, move across networks, and use in DeFi. That is where tokenized products improved in Q2, per @PanteraCapital, through changes in distribution, transferability, settlement, and composability.  
   http://nitter.meowing.monster/centrifuge/status/2107795631662391628#m
 - @tplr_ai (Templar, Tue, 29 Sep 2026): The heads of the biggest AI labs want to agree among themselves on when everyone should slow down. @TheEconomist's piece on that push ends with Covenant-72B, the model we finished training in March on GPUs contributed over the internet, as a reason such agreements may be hard to enforce. What the piece doesn't say is that once training no longer requires one giant, tightly connected cluster, the power to build new models no longer has to sit with a few companies. Globally distributed training and open models are essential tools for keeping that power from concentrating in the frontier labs. Th  
   https://nitter.kareem.one/tplr_ai/status/2104937831097352377#m
+- @jtledore (Jean-Thomas Ledoré, Tue, 13 Oct 2026): Missed a subnet pump and waiting for a pullback? Set a limit buy on Taoswap at your target price in just a few clicks. If the price comes back to your level, your order can execute automatically without you having to watch the chart. Video  
+  http://nitter.meowing.monster/taoswap_org/status/2109960573530063147#m
 - @PanteraCapital (Pantera Capital, Tue, 06 Oct 2026): Chinese vendors made up nearly all humanoid shipments in the first half of 2026. @BrookeDiPalma from @YahooFinance had OpenMind founder and CEO Jan Liphardt on to discuss this topic in a live segment earlier this week. @JanLiphardt says there’s “no question” China dominates the supply chain for advanced physical AI, and breaks down how the US can catch up in the global robotics race in the next 2 years. Read the post here: finance.yahoo.com/video/does… Video  
   http://nitter.meowing.monster/openmind_agi/status/2107560085539164379#m
+- @mcjkula (mcjkula, Tue, 06 Oct 2026): A plain-English introduction to Bittensor: learnbittensor.org/get-start…  
+  http://nitter.meowing.monster/mcjkula/status/2107475150841254343#m
+- @mcjkula (mcjkula, Tue, 06 Oct 2026): Bitcoin rewards one kind of work. Bittensor has a very different idea of “work” Video  
+  http://nitter.meowing.monster/mcjkula/status/2107441742199042204#m
 - @affine_io (Affine, Tue, 01 Sep 2026): Everything you need to compete is public: affine.io/llms.txt  
   http://nitter.meowing.monster/affine_io/status/2094801258016370976#m
 - @affine_io (Affine, Tue, 01 Sep 2026): Video  
@@ -183,14 +191,28 @@ _no new posts in the lookback window_
   http://nitter.meowing.monster/_redteam_/status/2093081017145847826#m
 - @_redteam_ (RedTeam / Innerworks, Thu, 10 Sep 2026): I am pleased to announce that Stillcore Capital @stillcorecap has invested in Red Team @_redteam_ Bittensor $TAO Subnet 61.  
   http://nitter.meowing.monster/markjeffrey/status/2098171401152971021#m
+- @oroagents (Oro, Thu, 08 Oct 2026): And to see what we are up to next at oroagents.com/  
+  http://nitter.meowing.monster/oroagents/status/2108312282493329762#m
+- @oroagents (Oro, Thu, 08 Oct 2026): As models and harnesses get more capable, the depth of our RL environments needs to stay ahead of the curve. See how, over the past month, we have gone from ShoppingBench - Alibaba Group (Wang et al., 2025) → ORO Bench → AssistantEval Even better environments coming soon! Video  
+  http://nitter.meowing.monster/oroagents/status/2108311456345358818#m
 - @PanteraCapital (Pantera Capital, Thu, 08 Oct 2026): Today, we're announcing $37.5M in new funding, led by @BainCapCrypto, bringing our total capital raised to over $180M. This investment will help us expand Bitcoin-denominated life insurance to families across Asia, Europe, and the Middle East. Video  
   http://nitter.meowing.monster/meanwhile/status/2108252790451826702#m
+- @oroagents (Oro, Thu, 08 Oct 2026): huggingface.co/collections/o… Link AssistantEval - a oro-ai Collection AssistantEval by ORO. Published results and recorded trajectories. Website: assistanteval.com huggingface.co  
+  http://nitter.meowing.monster/oroagents/status/2108083587845394791#m
+- @oroagents (Oro, Thu, 08 Oct 2026): We're excited to open source all the tasks and the traces that we have access to from this benchmark. Link in 🧵 ORO (@oroagents) We're excited to drop AssistantEval today. Replayable environments for evaluating and improving AI assistants. — http://nitter.meowing.monster/oroagents/status/2107609637654823076#m  
+  http://nitter.meowing.monster/oroagents/status/2108083567654060352#m
 - @markjeffrey (Mark Jeffrey, Sun, 11 Oct 2026): Get your ENGY. Use my code: engy.ai/r/markjeffrey 30% cheaper than OpenRouter (or anywhere) for GLM 5.3 flash. Cheapest inference on planet earth - with no compromise on speed or quality. Engy (@engyai) GLM-5.3 is live on engy.ai at ~100 tps. $0.98 in / $3.08 out / $0.18 cache per 1M, 30% below OpenRouter and the official API ($1.40 / $4.40 / $0.26). — http://nitter.meowing.monster/engyai/status/2093681206114299916#m  
   http://nitter.meowing.monster/markjeffrey/status/2109404435072029121#m
 - @a16zcrypto (a16z Crypto, Sun, 11 Oct 2026): Informative discussion by very knowledgeable experts about the threat to modern cryptography posed by AI models. The good news is that the models can vet cryptosystems much faster than the human mathematicians we've relied on in the past, building trust and allowing more rapid deployment. a16z crypto (@a16zcrypto) AI is getting better at solving hard math problems, especially given recent drops. But what does that mean for the cryptography that protects everything from private messages to healthcare to banking and crypto wallets? Stanford cryptographer Dan Boneh, with @eddylazzarin, @SuccinctJ  
   http://nitter.meowing.monster/preskill/status/2109349797035733061#m
+- @jtledore (Jean-Thomas Ledoré, Sun, 11 Oct 2026): Introducing desktop-native limit orders on Taoswap Set your price and amount to place limit buys or sells, with the option to keep your orders out of the public order book. Shoutout to @taodotcom for building this technology, first launched on their mobile app and browser extension. Video  
+  http://nitter.meowing.monster/taoswap_org/status/2109312793857962328#m
+- @jtledore (Jean-Thomas Ledoré, Sun, 11 Oct 2026): Article Bittensor Ecosystem Highlights :: October 5–11, 2026 This week’s biggest stories across Bittensor came from Lium, Actual, Score, Reliquary, Engy, Beam and Almanac. [ @lium_io - Subnet 51 ] Lium’s GPU utilization reached an all-time high, with most GPU  
+  http://nitter.meowing.monster/opentensor/status/2109285455208337754#m
 - @KyleSamani (Kyle Samani, Sun, 11 Oct 2026): Role of a lifetime Armani Ferrante (@armaniferrante) Looking for a marketing + growth beast. Must live in USA. DMs open. — http://nitter.meowing.monster/armaniferrante/status/2109166594576556215#m  
   http://nitter.meowing.monster/KyleSamani/status/2109242980057936060#m
+- @mcjkula (mcjkula, Sat, 19 Sep 2026): Maciej Kula ( @mcjkula ) couldn't find a clear way to learn #Bittensor from scratch, so he built the resource he wished existed. @learnbittensor is now part of @latentholdings, where Maciej leads education and makes Bittensor easier to understand. He'll be leading our Bittensor 101 session to kick off Day 1: luma.com/nqy2n5zi Video  
+  http://nitter.meowing.monster/ExploitSummit/status/2101355676325007652#m
 - @a16zcrypto (a16z Crypto, Sat, 10 Oct 2026): This podcast from @a16zcrypto includes an aspect that hasn't been stressed enough. In the end, AI cryptanalysis is a great thing for cryptography as it helps us gain confidence in new assumptions, key sizes (e.g. for new PQ schemes) and more. piped.video/watch?v=k_CoOoDs… Link Can AI Actually Break Cryptography? Experts Weigh In On the FUD AI is getting better at solving hard math problems. But what does t... youtube.com  
   http://nitter.meowing.monster/LindellYehuda/status/2109044174972498268#m
 - @KyleSamani (Kyle Samani, Sat, 10 Oct 2026): I wrote my largest angel check ever into Backpack Santiago R Santos (@santiagoroel) Backpack is my highest conviction in crypto — http://nitter.meowing.monster/santiagoroel/status/2108465930397184305#m  
@@ -217,10 +239,16 @@ _no new posts in the lookback window_
   http://nitter.meowing.monster/a16zcrypto/status/2109730399186465203#m
 - @a16zcrypto (a16z Crypto, Mon, 12 Oct 2026): The best way to make cryptography stronger is to try to break it. AI can actually build confidence in cryptography, argues Stanford cryptographer Dan Boneh. Video  
   http://nitter.meowing.monster/a16zcrypto/status/2109728924297220207#m
+- @jtledore (Jean-Thomas Ledoré, Mon, 12 Oct 2026): Video Openτensor Foundaτion (@opentensor) Article Bittensor Ecosystem Highlights :: October 5–11, 2026 This week’s biggest stories across Bittensor came from Lium, Actual, Score, Reliquary, Engy, Beam and Almanac. [ @lium_io - Subnet 51 ] Lium’s GPU utilization reached an all-time high, with most GPU — http://nitter.meowing.monster/opentensor/status/2109285455208337754#m  
+  http://nitter.meowing.monster/opentensor/status/2109692385693417656#m
+- @jtledore (Jean-Thomas Ledoré, Mon, 12 Oct 2026): The intersection of crypto and AI: $NEAR → Cross-chain infrastructure for agentic commerce $TAO → Open ecosystem for AI Development $WLD → Proof of humanity, co-founded by @sama $VVV → Privacy-preserving AI inference  
+  http://nitter.meowing.monster/Grayscale/status/2109680995137929442#m
 - @KyleSamani (Kyle Samani, Mon, 12 Oct 2026): What are you favorite sources of finance and business analysis online? Please interpret this question as broadly as possible Examples can include Stratechery Semianalysis Above the crowd (bill gurley's blog) Berkshire letters Oaktree letters a16z and sequoia blogs Citrini Not Boring The Generalist Benedict evans asymco etc  
   http://nitter.meowing.monster/KyleSamani/status/2109655830840947059#m
 - @jon_durbin (Jon Durbin, Mon, 12 Oct 2026): There are ~two economies: attention and revenue. Focus on whichever you like but if you only pick one, it probably eventually breaks. Free high intelligence = maximum attention (but probably financial/resource crisis), and conversely maximally expensive commodities restricting access rugs the attention eventually and likewise probably leads to collapse. Parallax and the new "living model" type system created out of it is perhaps a way to foster both by decreasing prices (run on phone, macbook, spark, whatever) rather than increasing them further (with larger and larger models), and ideally mai  
   https://nitter.kareem.one/jon_durbin/status/2109652105216561403#m
+- @oroagents (Oro, Mon, 12 Oct 2026): github.com/ORO-AI/assistante… All in the open :) Link GitHub - ORO-AI/assistanteval: AssistantEval: a verifiable benchmark for personal AI assistants AssistantEval: a verifiable benchmark for personal AI assistants - ORO-AI/assistanteval github.com  
+  http://nitter.meowing.monster/oroagents/status/2109503153242775934#m
 - @_redteam_ (RedTeam / Innerworks, Mon, 07 Sep 2026): Join us this Thursday to discuss all things RedTeam Openτensor Foundaτion (@opentensor) Novelty Search :: Subnet 61 :: @_redteam_ RedTeam turns Bittensor miners into a 24/7 network of ethical hackers. We’ll discuss how SN61 uses that competition to stay ahead of evolving bot attacks, its five new enterprise pilots, and what comes next with RedTeam’s upcoming Immune System. Live on Thursday :: 9PM UTC :: on X + YouTube Hosted by @const_reborn — http://nitter.meowing.monster/opentensor/status/2097022237337682320#m  
   http://nitter.meowing.monster/_redteam_/status/2097023368629191078#m
 - @affine_io (Affine, Mon, 07 Sep 2026): A model doesn’t need to be the largest to matter. On Affine, models compete on how well their reasoning supports the next action across code, tool use and math. A winner could put that reasoning to work in products, either directly or alongside a larger model. Video  
@@ -231,15 +259,7 @@ _no new posts in the lookback window_
   http://nitter.meowing.monster/affine_io/status/2093401028763013596#m
 - @_redteam_ (RedTeam / Innerworks, Fri, 11 Sep 2026): The future of cybersecurity will be dictated by a defender's ability to not only ingest unique attacks, but generate the strains that don't exist yet and ship the detection ahead of them. As the rest of the industry degrades, the largest financial institutions will consolidate on the single provider that can do this at scale. That provider needs a constant supply of unique attacks to work from, and a subnet is the only structure that pays a swarm of attackers to supply them. bittensor:native #SN61 Openτensor Foundaτion (@opentensor) RedTeam is working toward integrations with three banking com  
   http://nitter.meowing.monster/_redteam_/status/2098469688137097632#m
-- @jon_durbin (Jon Durbin, Fri, 09 Oct 2026): And yes I realize it's not actually epigenetics and the analogy breaks down a bit, but it sounded fun.  
-  https://nitter.kareem.one/jon_durbin/status/2108602110657052877#m
-- @jon_durbin (Jon Durbin, Fri, 09 Oct 2026): github.com/chutesai/epigenes… Still experimenting, but seems to check out. Smaller, faster, better? Models that grow with you (or your repo, or proprietary company docs, etc.) Short term exact recall is the context window. Context window feeds training continuously, binary optimizer. This becomes stored knowledge and higher order perceptual understanding over time, not just RAG. Sparse MSA global attention already selects most important tokens to attend to in longer context, so you can reinforce those parts more. Jon Durbin (@jon_durbin) There's another magic trick (aka cool math) I believe th  
-  https://nitter.kareem.one/jon_durbin/status/2108601731030339595#m
-- @jon_durbin (Jon Durbin, Fri, 09 Oct 2026): Ledger itself ok, but fraudulent products less so of course. This is why I tell people I don't trust anything with a circuit board lol. These keystone tablets are pretty cool, handed a few out at exploit summit. Even better if you leave out some of the words and remember them. (and multi-sig of course) Ledger Support (@Ledger_Support) Ledger is investigating reports of loss of funds from users in South East Asia who purchased products from a reseller named CryptoBillis. As a precaution, and pending the results of our investigation, we have asked CryptoBilis to pause all sales and shipments of   
-  https://nitter.kareem.one/jon_durbin/status/2108573003931943209#m
-- @affine_io (Affine, Fri, 04 Sep 2026): Affine submissions are now private, so miners can compete without exposing their weights to competitors. Crowned models still go public. Losing checkpoints will be published later, so anyone can independently recompute every duel verdict. Video  
-  http://nitter.meowing.monster/affine_io/status/2095937147320844533#m
 
 
 ---
-_Generated at 2026-10-13T15:33:21.434302+00:00 by scripts/intel/aggregate.py. Treat this digest as input context, not as ground truth. Verify before quoting._
+_Generated at 2026-10-13T20:58:23.335491+00:00 by scripts/intel/aggregate.py. Treat this digest as input context, not as ground truth. Verify before quoting._
