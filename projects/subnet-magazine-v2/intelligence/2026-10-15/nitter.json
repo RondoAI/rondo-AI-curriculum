@@ -60,6 +60,16 @@
     "via_instance": "https://nitter.cz"
   },
   {
+    "handle": "opentensor",
+    "name": "Opentensor Foundation",
+    "posted_at": "Wed, 14 Oct 2026 21:09:55 GMT",
+    "title": "We said cheaper storage was on Bittensor. @Hippius_cloud beats AWS, Google Cloud, R2, Wasabi and Backblaze on price at every size tested.",
+    "text": "We said cheaper storage was on Bittensor. @Hippius_cloud beats AWS, Google Cloud, R2, Wasabi and Backblaze on price at every size tested. Hippius (@Hippius_cloud) We compared monthly storage bills across six providers. Hippius S3 came out cheapest at every size. And that’s storage alone. AWS and Google Cloud also charge you to download your own data. Hippius S3 has no egress fees and unlimited requests on every plan. — https://nitter.kareem.one/Hippius_cloud/status/2110294540833935512#m",
+    "url": "https://nitter.kareem.one/opentensor/status/2110478228888695156#m",
+    "fetched_at": "2026-10-15T16:05:29.034788+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
     "handle": "JosephJacks_",
     "name": "Joseph Jacks",
     "posted_at": "Wed, 14 Oct 2026 20:36:56 GMT",
@@ -107,6 +117,16 @@
     "text": "We are ready to build worlds. Currently fire-testing the new incentive mechanism that will get miners to build our first ever generative world model, capturing real physics, long-term consistency, and true interactivity. This is the unreal next chapter for vision AI: from understanding scenes to generating entire, livable realities. This 👇 is a sneak peek of the subnet’s console, where users will be able to create worlds from a single prompt and very soon explore them right in their browsers. This will also 100x our ability to train better vision models by providing unlimited simulated scenari",
     "url": "http://nitter.meowing.monster/webuildscore/status/2110398301023658462#m",
     "fetched_at": "2026-10-15T08:46:07.076611+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "opentensor",
+    "name": "Opentensor Foundation",
+    "posted_at": "Wed, 14 Oct 2026 15:04:24 GMT",
+    "title": "RT by @opentensor: You can sign up for @say_gm_ without an email now fully anonymous Any frontier model 100% encrypted privacy Cheapest cost on the market What am i missing ? https://s3.hippius.com/poppy/public/saygm-agent-guide.html",
+    "text": "You can sign up for @say_gm_ without an email now fully anonymous Any frontier model 100% encrypted privacy Cheapest cost on the market What am i missing ? s3.hippius.com/poppy/public/…",
+    "url": "https://nitter.kareem.one/const_reborn/status/2110386245557698831#m",
+    "fetched_at": "2026-10-15T16:05:29.034788+00:00",
     "via_instance": "https://nitter.cz"
   },
   {
@@ -260,6 +280,16 @@
     "via_instance": "https://nitter.cz"
   },
   {
+    "handle": "KyleSamani",
+    "name": "Kyle Samani",
+    "posted_at": "Tue, 13 Oct 2026 11:39:06 GMT",
+    "title": "There is an answer to this question Soon!",
+    "text": "There is an answer to this question Soon! Kaiz 🐂🀄️ (@Kaiz_294) Arthur Hayes questions where the real money in tokenization comes from, arguing that moving traditional assets onchain still leaves a major unanswered question about profitability “How much money are you actually going to make” “I transferred the stock that was sitting in DTCC, and now it's sitting on some blockchain, whatever it is, doesn't really matter” “How much money can you actually make doing that” “You're doing better bookkeeping. Thank you. But where are you actually going to make money in tokenization” “I think that has b",
+    "url": "http://nitter.meowing.monster/KyleSamani/status/2109972190519275682#m",
+    "fetched_at": "2026-10-15T16:06:06.025552+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
     "handle": "dylan522p",
     "name": "Dylan Patel",
     "posted_at": "Tue, 06 Oct 2026 22:44:44 GMT",
@@ -332,11 +362,61 @@
   {
     "handle": "affine_io",
     "name": "Affine",
+    "posted_at": "Tue, 01 Sep 2026 14:55:14 GMT",
+    "title": "R to @affine_io: Everything you need to compete is public: https://affine.io/llms.txt",
+    "text": "Everything you need to compete is public: affine.io/llms.txt",
+    "url": "https://nitter.kareem.one/affine_io/status/2094801258016370976#m",
+    "fetched_at": "2026-10-15T16:08:07.768959+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "affine_io",
+    "name": "Affine",
     "posted_at": "Tue, 01 Sep 2026 14:54:37 GMT",
     "title": "Video",
     "text": "Video",
     "url": "http://nitter.meowing.monster/affine_io/status/2094801103959540005#m",
     "fetched_at": "2026-10-15T02:44:12.649680+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "affine_io",
+    "name": "Affine",
+    "posted_at": "Tue, 01 Sep 2026 14:54:37 GMT",
+    "title": "Video",
+    "text": "Video",
+    "url": "https://nitter.kareem.one/affine_io/status/2094801103959540005#m",
+    "fetched_at": "2026-10-15T16:08:07.768959+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "opentensor",
+    "name": "Opentensor Foundation",
+    "posted_at": "Thu, 15 Oct 2026 15:33:30 GMT",
+    "title": "RT by @opentensor: JUST IN: SN80 (@openroboto), the largest robotics subnet on @bittensor, integrates peaqOS All devices now have an ID and wallet on Solana, and can be verified and paid for their performance directly on Solana using @peaq",
+    "text": "JUST IN: SN80 (@openroboto), the largest robotics subnet on @bittensor, integrates peaqOS All devices now have an ID and wallet on Solana, and can be verified and paid for their performance directly on Solana using @peaq OpenRoboto (@openroboto) We’re bringing @peaq’s machine identity infrastructure to OpenRoboto Shift. Our first 30 OR-S1 data collectors now use peaqOS Pro, each with its own decentralized identity (DID) on @solana. Video — https://nitter.kareem.one/openroboto/status/2110731220103618645#m",
+    "url": "https://nitter.kareem.one/solana/status/2110755957303107965#m",
+    "fetched_at": "2026-10-15T16:05:29.034788+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "opentensor",
+    "name": "Opentensor Foundation",
+    "posted_at": "Thu, 15 Oct 2026 14:37:54 GMT",
+    "title": "Open robotics is bringing Bittensor and @peaq together. @openroboto (Subnet 80) now uses peaqOS to link robot training footage to capture devices with verifiable identities on @solana.",
+    "text": "Open robotics is bringing Bittensor and @peaq together. @openroboto (Subnet 80) now uses peaqOS to link robot training footage to capture devices with verifiable identities on @solana. peaq (@peaq) Robot training data is becoming valuable enough to fake Every data collector from @openroboto, the largest robotics subnet on Bittensor (@opentensor), now runs peaqOS on the Pro tier 30 are live, each with its own identity anchored on @solana, and every future one will be too — https://nitter.kareem.one/peaq/status/2110733962565869854#m",
+    "url": "https://nitter.kareem.one/opentensor/status/2110741962068533595#m",
+    "fetched_at": "2026-10-15T16:05:29.034788+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "opentensor",
+    "name": "Opentensor Foundation",
+    "posted_at": "Thu, 15 Oct 2026 11:33:38 GMT",
+    "title": "This Thursday on Novelty Search :: Subnet 4 :: @TargonCompute Targon is building a decentralized GPU cloud on Bittensor, providing on-demand compute for AI training and inference. Its confidential VMs use Intel and NVIDIA hardware security to protect sensitive models and data, even from the providers operating the servers. Live on Thursday :: 9PM UTC :: via Bittensor Discord Hosted by @const_reborn",
+    "text": "This Thursday on Novelty Search :: Subnet 4 :: @TargonCompute Targon is building a decentralized GPU cloud on Bittensor, providing on-demand compute for AI training and inference. Its confidential VMs use Intel and NVIDIA hardware security to protect sensitive models and data, even from the providers operating the servers. Live on Thursday :: 9PM UTC :: via Bittensor Discord Hosted by @const_reborn Video",
+    "url": "https://nitter.kareem.one/opentensor/status/2110695591408001241#m",
+    "fetched_at": "2026-10-15T16:05:29.034788+00:00",
     "via_instance": "https://nitter.cz"
   },
   {
@@ -480,6 +560,16 @@
     "via_instance": "https://nitter.cz"
   },
   {
+    "handle": "KyleSamani",
+    "name": "Kyle Samani",
+    "posted_at": "Sun, 11 Oct 2026 11:21:28 GMT",
+    "title": "Role of a lifetime",
+    "text": "Role of a lifetime Armani Ferrante (@armaniferrante) Looking for a marketing + growth beast. Must live in USA. DMs open. — http://nitter.meowing.monster/armaniferrante/status/2109166594576556215#m",
+    "url": "http://nitter.meowing.monster/KyleSamani/status/2109242980057936060#m",
+    "fetched_at": "2026-10-15T16:06:06.025552+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
     "handle": "dylan522p",
     "name": "Dylan Patel",
     "posted_at": "Sun, 11 Oct 2026 06:55:55 GMT",
@@ -520,6 +610,26 @@
     "via_instance": "https://nitter.cz"
   },
   {
+    "handle": "KyleSamani",
+    "name": "Kyle Samani",
+    "posted_at": "Sat, 10 Oct 2026 12:56:50 GMT",
+    "title": "I wrote my largest angel check ever into Backpack",
+    "text": "I wrote my largest angel check ever into Backpack Santiago R Santos (@santiagoroel) Backpack is my highest conviction in crypto — http://nitter.meowing.monster/santiagoroel/status/2108465930397184305#m",
+    "url": "http://nitter.meowing.monster/KyleSamani/status/2108904590280151392#m",
+    "fetched_at": "2026-10-15T16:06:06.025552+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "KyleSamani",
+    "name": "Kyle Samani",
+    "posted_at": "Sat, 10 Oct 2026 01:47:19 GMT",
+    "title": "One order book One risk engine Global",
+    "text": "One order book One risk engine Global Luc | Backpack 🎒 (@Luc100k) Backpack one regulated platform everywhere. Video — http://nitter.meowing.monster/Luc100k/status/2108569791359553994#m",
+    "url": "http://nitter.meowing.monster/KyleSamani/status/2108736102828048405#m",
+    "fetched_at": "2026-10-15T16:06:06.025552+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
     "handle": "webuildscore",
     "name": "Score",
     "posted_at": "Mon, 12 Oct 2026 20:44:12 GMT",
@@ -550,6 +660,16 @@
     "via_instance": "https://nitter.cz"
   },
   {
+    "handle": "KyleSamani",
+    "name": "Kyle Samani",
+    "posted_at": "Mon, 12 Oct 2026 14:42:00 GMT",
+    "title": "What are you favorite sources of finance and business analysis online? Please interpret this question as broadly as possible Examples can include Stratechery Semianalysis Above the crowd (bill gurley's blog) Berkshire letters Oaktree letters a16z and sequoia blogs Citrini Not Boring The Generalist Benedict evans asymco etc",
+    "text": "What are you favorite sources of finance and business analysis online? Please interpret this question as broadly as possible Examples can include Stratechery Semianalysis Above the crowd (bill gurley's blog) Berkshire letters Oaktree letters a16z and sequoia blogs Citrini Not Boring The Generalist Benedict evans asymco etc",
+    "url": "http://nitter.meowing.monster/KyleSamani/status/2109655830840947059#m",
+    "fetched_at": "2026-10-15T16:06:06.025552+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
     "handle": "oroagents",
     "name": "Oro",
     "posted_at": "Mon, 12 Oct 2026 04:35:19 GMT",
@@ -567,6 +687,16 @@
     "text": "A model doesn’t need to be the largest to matter. On Affine, models compete on how well their reasoning supports the next action across code, tool use and math. A winner could put that reasoning to work in products, either directly or alongside a larger model. Video",
     "url": "http://nitter.meowing.monster/affine_io/status/2096984627059810338#m",
     "fetched_at": "2026-10-15T02:44:12.649680+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "affine_io",
+    "name": "Affine",
+    "posted_at": "Mon, 07 Sep 2026 15:31:09 GMT",
+    "title": "A model doesn’t need to be the largest to matter. On Affine, models compete on how well their reasoning supports the next action across code, tool use and math. A winner could put that reasoning to work in products, either directly or alongside a larger model.",
+    "text": "A model doesn’t need to be the largest to matter. On Affine, models compete on how well their reasoning supports the next action across code, tool use and math. A winner could put that reasoning to work in products, either directly or alongside a larger model. Video",
+    "url": "https://nitter.kareem.one/affine_io/status/2096984627059810338#m",
+    "fetched_at": "2026-10-15T16:08:07.768959+00:00",
     "via_instance": "https://nitter.cz"
   },
   {
@@ -600,6 +730,16 @@
     "via_instance": "https://nitter.cz"
   },
   {
+    "handle": "affine_io",
+    "name": "Affine",
+    "posted_at": "Fri, 28 Aug 2026 18:11:13 GMT",
+    "title": "United against the divided. Intelligence knows neither borders nor color. Uphold the torch with us to bring light where it is needed most. Open reasoning for humanity. Join the thousand-year intelligence federation. https://affine.io",
+    "text": "United against the divided. Intelligence knows neither borders nor color. Uphold the torch with us to bring light where it is needed most. Open reasoning for humanity. Join the thousand-year intelligence federation. affine.io scouτ (@scoutesy) The same way neutron stars form gold through merging, affine orchestrates reasoning through open collaboration. Unus pro omnibus, omnes pro uno. Tao of a million symmetries. Video — https://nitter.kareem.one/scoutesy/status/2093400328062296312#m",
+    "url": "https://nitter.kareem.one/affine_io/status/2093401028763013596#m",
+    "fetched_at": "2026-10-15T16:08:07.768959+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
     "handle": "mcjkula",
     "name": "mcjkula",
     "posted_at": "Fri, 09 Oct 2026 19:03:07 GMT",
@@ -617,6 +757,16 @@
     "text": "Affine submissions are now private, so miners can compete without exposing their weights to competitors. Crowned models still go public. Losing checkpoints will be published later, so anyone can independently recompute every duel verdict. Video",
     "url": "http://nitter.meowing.monster/affine_io/status/2095937147320844533#m",
     "fetched_at": "2026-10-15T02:44:12.649680+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "affine_io",
+    "name": "Affine",
+    "posted_at": "Fri, 04 Sep 2026 18:08:51 GMT",
+    "title": "Affine submissions are now private, so miners can compete without exposing their weights to competitors. Crowned models still go public. Losing checkpoints will be published later, so anyone can independently recompute every duel verdict.",
+    "text": "Affine submissions are now private, so miners can compete without exposing their weights to competitors. Crowned models still go public. Losing checkpoints will be published later, so anyone can independently recompute every duel verdict. Video",
+    "url": "https://nitter.kareem.one/affine_io/status/2095937147320844533#m",
+    "fetched_at": "2026-10-15T16:08:07.768959+00:00",
     "via_instance": "https://nitter.cz"
   }
 ]

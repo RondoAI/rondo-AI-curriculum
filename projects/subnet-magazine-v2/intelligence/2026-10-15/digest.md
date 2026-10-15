@@ -134,7 +134,10 @@ _Same Bandwidth, Fewer Dies: How 4-hi HBM Cuts Inference Costs and Makes Scarce 
 
 ## ⊕ GITHUB COMMITS + RELEASES, last 24h
 
-_no commits or releases in the lookback window_
+- **Subtensor (chain)** (COMMIT `f4786f9`, 2026-10-15 13:46) Merge pull request #3256 from RaoFoundation/release-479  
+  https://github.com/RaoFoundation/subtensor/commit/f4786f9087cac84cfab37cbdf1e01c399042653a
+- **Subtensor (chain)** (COMMIT `e66c7ee`, 2026-10-15 13:10) release-479  
+  https://github.com/RaoFoundation/subtensor/commit/e66c7eed760efaa5a3b1c249b5a3369a9bc693cf
 
 ## ⊕ ECOSYSTEM BLOGS via RSS
 
@@ -154,6 +157,8 @@ _no new posts in the lookback window_
   http://nitter.meowing.monster/tplr_ai/status/2100237714918367690#m
 - @tplr_ai (Templar, Wed, 16 Sep 2026): We’ve been researching fault tolerance in Crucible, Templar’s pre-training platform. The goal: keep training through node failures and make better use of unreliable workers and spot instances, without idling an entire model replica when one stage goes down. 1/n Video  
   http://nitter.meowing.monster/tplr_ai/status/2100237708186550642#m
+- @opentensor (Opentensor Foundation, Wed, 14 Oct 2026): We said cheaper storage was on Bittensor. @Hippius_cloud beats AWS, Google Cloud, R2, Wasabi and Backblaze on price at every size tested. Hippius (@Hippius_cloud) We compared monthly storage bills across six providers. Hippius S3 came out cheapest at every size. And that’s storage alone. AWS and Google Cloud also charge you to download your own data. Hippius S3 has no egress fees and unlimited requests on every plan. — https://nitter.kareem.one/Hippius_cloud/status/2110294540833935512#m  
+  https://nitter.kareem.one/opentensor/status/2110478228888695156#m
 - @JosephJacks_ (Joseph Jacks, Wed, 14 Oct 2026): LFM2.5-24B-A2B on an RTX 5090 vs a 16 GB RTX 5060 Ti. The clip runs in real time. 24B parameters, only 2.45B active per token. The Q4 file is 14.5 GB, so it fits the 16 GB card. Same GGUF, same llama.cpp build: Math problem: 1.98 s vs 3.99 s, both get 450 right Writing speed (median of 5 runs): 351.5 vs 162.0 tok/s GSM8K (100 problems): 97 % on both MMLU (200 questions): 80 % vs 82 % Catch: thinking is always on. Every answer thinks first, even the one about the blue sky. Video Liquid AI (@liquidai) Today we release 𝙻𝙵𝙼𝟸.𝟻-𝟸𝟺𝙱-𝙰𝟸𝙱, the largest 𝙻𝙵𝙼𝟸.𝟻 family member. It is an efficient local mod  
   http://nitter.meowing.monster/niklaslenz_ai/status/2110469931011612895#m
 - @a16zcrypto (a16z Crypto, Wed, 14 Oct 2026): Will AI see something a clever human hasn't seen? Video a16z crypto (@a16zcrypto) AI is getting better at solving hard math problems, especially given recent drops. But what does that mean for the cryptography that protects everything from private messages to healthcare to banking and crypto wallets? Stanford cryptographer Dan Boneh, with @eddylazzarin, @SuccinctJT, @liz_harkavy, and @smc90, makes sense of the warnings sounded recently. They cover: - what’s fact vs. assumption - what’s new and what risks cryptographers have long prepared for - where quantum computing doesn't (and does) fit - o  
@@ -164,6 +169,8 @@ _no new posts in the lookback window_
   http://nitter.meowing.monster/OpenMed_AI/status/2110400235721924962#m
 - @webuildscore (Score, Wed, 14 Oct 2026): We are ready to build worlds. Currently fire-testing the new incentive mechanism that will get miners to build our first ever generative world model, capturing real physics, long-term consistency, and true interactivity. This is the unreal next chapter for vision AI: from understanding scenes to generating entire, livable realities. This 👇 is a sneak peek of the subnet’s console, where users will be able to create worlds from a single prompt and very soon explore them right in their browsers. This will also 100x our ability to train better vision models by providing unlimited simulated scenari  
   http://nitter.meowing.monster/webuildscore/status/2110398301023658462#m
+- @opentensor (Opentensor Foundation, Wed, 14 Oct 2026): You can sign up for @say_gm_ without an email now fully anonymous Any frontier model 100% encrypted privacy Cheapest cost on the market What am i missing ? s3.hippius.com/poppy/public/…  
+  https://nitter.kareem.one/const_reborn/status/2110386245557698831#m
 - @PanteraCapital (Pantera Capital, Wed, 14 Oct 2026): A new milestone for Ondo: $4 billion in TVL. From tokenized Treasuries to tokenized stocks, ETFs, portfolios & private markets, Ondo is expanding access with every asset class. Behind the $4 billion TVL milestone: → $1.3B+ in tokenized stocks & ETFs → #1 platform for tokenized U.S. Treasuries → 1M+ cumulative holders across products That growth reflects innovations in how tokenized assets trade, including Ondo Stocks tapping TradFi exchange liquidity through RFQ. Leading wallets and apps put that liquidity within reach, enabling permissionless transfers across Solana, Ethereum and BNB Chain. T  
   http://nitter.meowing.monster/Ondo/status/2110378961129652608#m
 - @jaltucher (James Altucher, Wed, 14 Oct 2026): Making music with the 7 year old me. Video  
@@ -194,6 +201,8 @@ _no new posts in the lookback window_
   http://nitter.meowing.monster/Ondo/status/2110049625721758048#m
 - @a16zcrypto (a16z Crypto, Tue, 13 Oct 2026): Introducing Underdog x Stripe Shop with Underdog. It finds the best option, saving you money and time. In a local browser, it gets a one-time Link card for the exact amount, and waits for your approval The first on-device Agent Payment in Underdog: Your Private Personal AI Video  
   https://nitter.kareem.one/UnderdogAI/status/2110034577985323222#m
+- @KyleSamani (Kyle Samani, Tue, 13 Oct 2026): There is an answer to this question Soon! Kaiz 🐂🀄️ (@Kaiz_294) Arthur Hayes questions where the real money in tokenization comes from, arguing that moving traditional assets onchain still leaves a major unanswered question about profitability “How much money are you actually going to make” “I transferred the stock that was sitting in DTCC, and now it's sitting on some blockchain, whatever it is, doesn't really matter” “How much money can you actually make doing that” “You're doing better bookkeeping. Thank you. But where are you actually going to make money in tokenization” “I think that has b  
+  http://nitter.meowing.monster/KyleSamani/status/2109972190519275682#m
 - @dylan522p (Dylan Patel, Tue, 06 Oct 2026): Mistral 4 is pretty good at lawyer bench and cyber security bench, but give it's European heritage, one can only assume it's also good at regulation bench Mistral AI (@MistralAI) Meet Mistral Large 4, aka Le Chonk. • 1T parameters, natively multimodal. 49B active. It is the best open weights model from US or Europe on aggregated benchmarks. • State-of-the-art on critical workloads, including cyber defense, manufacturing and finance and it surpasses closed frontier models on visual grounding. • Forged in Europe end-to-end and is deployable from Europe via our own Mistral Cloud infrastructure. •  
   http://nitter.meowing.monster/dylan522p/status/2107602988911260012#m
 - @novogratz (Mike Novogratz, Tue, 06 Oct 2026): It is great to see the @CFTC and @ChairmanSelig moving on this. A federal path for crypto exchanges is a big step toward keeping America the crypto capital of the world. Thanks for your thoughtful work. CFTC (@CFTC) .@CFTC Seeks Public Comment on Advanced Notice of Proposed Rulemaking Relating to Regulation Crypto Asset Transactions and Regulation Crypto Asset Markets: cftc.gov/PressRoom/PressRele… Link CFTC Seeks Public Comment on Advanced Notice of Proposed Rulemaking Relating to Regulation Crypto... The Commodity Futures Trading Commission today published an Advanced Notice of Proposed Rule  
@@ -208,8 +217,18 @@ _no new posts in the lookback window_
   http://nitter.meowing.monster/mcjkula/status/2107441742199042204#m
 - @affine_io (Affine, Tue, 01 Sep 2026): Everything you need to compete is public: affine.io/llms.txt  
   http://nitter.meowing.monster/affine_io/status/2094801258016370976#m
+- @affine_io (Affine, Tue, 01 Sep 2026): Everything you need to compete is public: affine.io/llms.txt  
+  https://nitter.kareem.one/affine_io/status/2094801258016370976#m
 - @affine_io (Affine, Tue, 01 Sep 2026): Video  
   http://nitter.meowing.monster/affine_io/status/2094801103959540005#m
+- @affine_io (Affine, Tue, 01 Sep 2026): Video  
+  https://nitter.kareem.one/affine_io/status/2094801103959540005#m
+- @opentensor (Opentensor Foundation, Thu, 15 Oct 2026): JUST IN: SN80 (@openroboto), the largest robotics subnet on @bittensor, integrates peaqOS All devices now have an ID and wallet on Solana, and can be verified and paid for their performance directly on Solana using @peaq OpenRoboto (@openroboto) We’re bringing @peaq’s machine identity infrastructure to OpenRoboto Shift. Our first 30 OR-S1 data collectors now use peaqOS Pro, each with its own decentralized identity (DID) on @solana. Video — https://nitter.kareem.one/openroboto/status/2110731220103618645#m  
+  https://nitter.kareem.one/solana/status/2110755957303107965#m
+- @opentensor (Opentensor Foundation, Thu, 15 Oct 2026): Open robotics is bringing Bittensor and @peaq together. @openroboto (Subnet 80) now uses peaqOS to link robot training footage to capture devices with verifiable identities on @solana. peaq (@peaq) Robot training data is becoming valuable enough to fake Every data collector from @openroboto, the largest robotics subnet on Bittensor (@opentensor), now runs peaqOS on the Pro tier 30 are live, each with its own identity anchored on @solana, and every future one will be too — https://nitter.kareem.one/peaq/status/2110733962565869854#m  
+  https://nitter.kareem.one/opentensor/status/2110741962068533595#m
+- @opentensor (Opentensor Foundation, Thu, 15 Oct 2026): This Thursday on Novelty Search :: Subnet 4 :: @TargonCompute Targon is building a decentralized GPU cloud on Bittensor, providing on-demand compute for AI training and inference. Its confidential VMs use Intel and NVIDIA hardware security to protect sensitive models and data, even from the providers operating the servers. Live on Thursday :: 9PM UTC :: via Bittensor Discord Hosted by @const_reborn Video  
+  https://nitter.kareem.one/opentensor/status/2110695591408001241#m
 - @JosephJacks_ (Joseph Jacks, Thu, 15 Oct 2026): This was really beautiful work, @anirbanbandyo piped.video/K_Bsk812ytw?is=snQi… Link AGI will not have a grandfather or a grandson, and that’s why it will never cook nostalgic stories Storytelling is fundamental to the human civilisation when this cul... youtube.com  
   http://nitter.meowing.monster/JosephJacks_/status/2110642119761388007#m
 - @JosephJacks_ (Joseph Jacks, Thu, 15 Oct 2026): ollama run lfm2.5:24b ollama.com/library/lfm2.5:24… Link lfm2.5:24b LFM2.5-8B-A1B, an edge model built for fast, reliable tool calling on consumer hardware. ollama.com Liquid AI (@liquidai) Today we release 𝙻𝙵𝙼𝟸.𝟻-𝟸𝟺𝙱-𝙰𝟸𝙱, the largest 𝙻𝙵𝙼𝟸.𝟻 family member. It is an efficient local model for laptops and PCs to work through multi-step tasks inside popular agent harnesses. &gt; 24B total parameters, 2B active per token &gt; Context expanded to 131K tokens &gt; A 128K-token vocabulary &gt; 33T pretraining tokens &gt; It is a reasoning model &gt; Very easy to fine-tune and customize &gt; Performs c  
@@ -226,23 +245,7 @@ _no new posts in the lookback window_
   http://nitter.meowing.monster/ridges_ai/status/2108290090317619237#m
 - @PanteraCapital (Pantera Capital, Thu, 08 Oct 2026): Today, we're announcing $37.5M in new funding, led by @BainCapCrypto, bringing our total capital raised to over $180M. This investment will help us expand Bitcoin-denominated life insurance to families across Asia, Europe, and the Middle East. Video  
   http://nitter.meowing.monster/meanwhile/status/2108252790451826702#m
-- @ridges_ai (Ridges, Thu, 08 Oct 2026): Good tests catch bugs - and keep working when the code changes. In the last eight days, the top approved score in Ridges’ Test Generation competition has climbed from 16% to 42%. 946 agents submitted. 11 approved for emissions. Can your agent raise the bar? ridges.ai/explore/29  
-  http://nitter.meowing.monster/ridges_ai/status/2108216906520113166#m
-- @oroagents (Oro, Thu, 08 Oct 2026): huggingface.co/collections/o… Link AssistantEval - a oro-ai Collection AssistantEval by ORO. Published results and recorded trajectories. Website: assistanteval.com huggingface.co  
-  https://nitter.kareem.one/oroagents/status/2108083587845394791#m
-- @ridges_ai (Ridges, Thu, 01 Oct 2026): Competition 28 isn't slowing down. More miners. More agents. More progress. In the last week: 30% → 36% top score 2,401 → 3,576 agents submitted 583 → 738 miners Database Query Engineering is still open. ↓ ridges.ai/explore/28  
-  http://nitter.meowing.monster/ridges_ai/status/2105762015109333065#m
-- @jaltucher (James Altucher, Thu, 01 Oct 2026): JAS: @jaltucher x @BillOReilly on Brokering a Trump-Biden Hostage Discussion, Media Bias, and Confronting America . 00:00 Hostage Deal Setup 00:57 Health Check and New Book 02:40 Behind the Scenes Gaza Talks 04:48 Iran Strategy and Midterms 07:04 Why Media Skews Negative 09:56 Opinion TV and Press Power 12:49 Blackballed Authors and CNN 14:47 NYC Politics and Populism 17:31 Sponsor Break PrizePicks 18:53 Totalitarian History Lessons 22:02 Mamdani Economics Breakdown 24:10 Soros and Soft on Crime DAs 25:49 Life After Fox No Spin News 28:44 Legacy Drive and Farewell Video  
-  https://nitter.kareem.one/jay_yow07/status/2105699964726792421#m
-- @novogratz (Mike Novogratz, Sun, 27 Sep 2026): Congrats @Scaramucci on this launch! You are one of the hardest working buys in the biz!! Anthony Scaramucci (@Scaramucci) All The Wrong Moves is #1 in the United States National Government category on Amazon. Get the hardcover copy: amzn.to/3VSdRhj Get the audiobook (read by me): amzn.to/4ydOXqV — https://nitter.kareem.one/Scaramucci/status/2104001152316809589#m  
-  https://nitter.kareem.one/novogratz/status/2104250567115641310#m
-- @webuildscore (Score, Sun, 11 Oct 2026): Sub-subnets are made for building tech flywheels and we’re going to make the most out of this. Max (@MaxSebti) just FYI, the world model is complementary to our current vision ai stack, not a pivot or replacement — http://nitter.meowing.monster/MaxSebti/status/2109325439567347923#m  
-  http://nitter.meowing.monster/webuildscore/status/2109326077717778943#m
-- @dylan522p (Dylan Patel, Sun, 11 Oct 2026): The two worst things for society Both called DCs Diet Coke Datacenters  
-  http://nitter.meowing.monster/dylan522p/status/2109176151986057331#m
-- @novogratz (Mike Novogratz, Sun, 11 Oct 2026): Are we really gonna have a live TV firing squad in America? Can we all just say No!!! This isn’t what America stands for. It’s not what the military stands for. At what point do we all say enough!!!! I’m saying it !  
-  https://nitter.kareem.one/novogratz/status/2109077784286912605#m
 
 
 ---
-_Generated at 2026-10-15T08:47:52.728290+00:00 by scripts/intel/aggregate.py. Treat this digest as input context, not as ground truth. Verify before quoting._
+_Generated at 2026-10-15T16:08:31.148435+00:00 by scripts/intel/aggregate.py. Treat this digest as input context, not as ground truth. Verify before quoting._
