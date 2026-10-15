@@ -1,5 +1,15 @@
 [
   {
+    "handle": "jaltucher",
+    "name": "James Altucher",
+    "posted_at": "Wed, 30 Sep 2026 15:09:26 GMT",
+    "title": "MY TOP 10. I love TV. I worked at HBO (in the 90s). I've been an advisor for shows (\"Billions\"), I've pitched shows to every studio. Here's my top 10. I've watched each of these at least 4 times. BUT...what should #10 be?? 1) Breaking Bad  2) Mad Men 3) Lost  4) Carnevale  5) Battlestar Galactica  6) Better Call Saul  7) Arrested Devekooment  8) Sopranos  9) Curb Your Enthusiasm",
+    "text": "MY TOP 10. I love TV. I worked at HBO (in the 90s). I've been an advisor for shows (\"Billions\"), I've pitched shows to every studio. Here's my top 10. I've watched each of these at least 4 times. BUT...what should #10 be?? 1) Breaking Bad 2) Mad Men 3) Lost 4) Carnevale 5) Battlestar Galactica 6) Better Call Saul 7) Arrested Devekooment 8) Sopranos 9) Curb Your Enthusiasm",
+    "url": "https://nitter.kareem.one/jaltucher/status/2105314083108974777#m",
+    "fetched_at": "2026-10-15T08:44:43.966235+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
     "handle": "novogratz",
     "name": "Mike Novogratz",
     "posted_at": "Wed, 23 Sep 2026 21:16:38 GMT",
@@ -7,6 +17,56 @@
     "text": "Thanks for making the trip to Lubbock, Mike — and for spending time with our Red Raider football team ahead of the game. Great to have you at @TexasTech, and even better to cap off the visit with a big win at the new @galaxyhq Stadium. This partnership is just getting started. #WreckEm! Mike Novogratz (@novogratz) Last Friday, I visited our flagship campus Helios in West Texas. Three years ago, this was still a bitcoin mining facility. Today Helios is a fully operational AI-ready campus with 133MW of critical IT capacity, and we’re just getting started! @galaxyhq is taking a big swing out here",
     "url": "https://nitter.kareem.one/CreightonForTX/status/2102869773776269419#m",
     "fetched_at": "2026-10-15T02:42:05.835750+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "tplr_ai",
+    "name": "Templar",
+    "posted_at": "Wed, 23 Sep 2026 16:10:16 GMT",
+    "title": "Video",
+    "text": "Video",
+    "url": "http://nitter.meowing.monster/tplr_ai/status/2102792674118164542#m",
+    "fetched_at": "2026-10-15T08:45:39.461691+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "tplr_ai",
+    "name": "Templar",
+    "posted_at": "Wed, 23 Sep 2026 16:10:16 GMT",
+    "title": "R to @tplr_ai: Read the blog: https://www.tplr.ai/publications/blog/skipping-stages-with-fixed-projections",
+    "text": "Read the blog: tplr.ai/publications/blog/sk… Link Fault tolerance in low-bandwidth model parallelism: exploring pipeline stage-skipping with boundary... We explore how the residual nature of the transformer architecture can be leveraged to mitigate hardware faults, and demonstrate that the compression-based implementation of low-bandwidth model... tplr.ai",
+    "url": "http://nitter.meowing.monster/tplr_ai/status/2102792676676432160#m",
+    "fetched_at": "2026-10-15T08:45:39.461691+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "tplr_ai",
+    "name": "Templar",
+    "posted_at": "Wed, 16 Sep 2026 14:57:46 GMT",
+    "title": "R to @tplr_ai: When using pipeline compression with fixed projections shared across layers, robustness improves further as seen in the figure below. This suggests that shared projectors align representations across stage boundaries, making bypasses less disruptive. 4/n",
+    "text": "When using pipeline compression with fixed projections shared across layers, robustness improves further as seen in the figure below. This suggests that shared projectors align representations across stage boundaries, making bypasses less disruptive. 4/n",
+    "url": "http://nitter.meowing.monster/tplr_ai/status/2100237714918367690#m",
+    "fetched_at": "2026-10-15T08:45:39.461691+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "tplr_ai",
+    "name": "Templar",
+    "posted_at": "Wed, 16 Sep 2026 14:57:44 GMT",
+    "title": "We’ve been researching fault tolerance in Crucible, Templar’s pre-training platform. The goal: keep training through node failures and make better use of unreliable workers and spot instances, without idling an entire model replica when one stage goes down. 1/n",
+    "text": "We’ve been researching fault tolerance in Crucible, Templar’s pre-training platform. The goal: keep training through node failures and make better use of unreliable workers and spot instances, without idling an entire model replica when one stage goes down. 1/n Video",
+    "url": "http://nitter.meowing.monster/tplr_ai/status/2100237708186550642#m",
+    "fetched_at": "2026-10-15T08:45:39.461691+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "JosephJacks_",
+    "name": "Joseph Jacks",
+    "posted_at": "Wed, 14 Oct 2026 20:36:56 GMT",
+    "title": "RT by @JosephJacks_: LFM2.5-24B-A2B on an RTX 5090 vs a 16 GB RTX 5060 Ti. The clip runs in real time. 24B parameters, only 2.45B active per token. The Q4 file is 14.5 GB, so it fits the 16 GB card. Same GGUF, same llama.cpp build: Math problem: 1.98 s vs 3.99 s, both get 450 right Writing speed (median of 5 runs): 351.5 vs 162.0 tok/s GSM8K (100 problems): 97 % on both MMLU (200 questions): 80 % vs 82 % Catch: thinking is always on. Every answer thinks first, even the one about the blue sky.",
+    "text": "LFM2.5-24B-A2B on an RTX 5090 vs a 16 GB RTX 5060 Ti. The clip runs in real time. 24B parameters, only 2.45B active per token. The Q4 file is 14.5 GB, so it fits the 16 GB card. Same GGUF, same llama.cpp build: Math problem: 1.98 s vs 3.99 s, both get 450 right Writing speed (median of 5 runs): 351.5 vs 162.0 tok/s GSM8K (100 problems): 97 % on both MMLU (200 questions): 80 % vs 82 % Catch: thinking is always on. Every answer thinks first, even the one about the blue sky. Video Liquid AI (@liquidai) Today we release 𝙻𝙵𝙼𝟸.𝟻-𝟸𝟺𝙱-𝙰𝟸𝙱, the largest 𝙻𝙵𝙼𝟸.𝟻 family member. It is an efficient local mod",
+    "url": "http://nitter.meowing.monster/niklaslenz_ai/status/2110469931011612895#m",
+    "fetched_at": "2026-10-15T08:44:34.802323+00:00",
     "via_instance": "https://nitter.cz"
   },
   {
@@ -30,6 +90,26 @@
     "via_instance": "https://nitter.cz"
   },
   {
+    "handle": "JosephJacks_",
+    "name": "Joseph Jacks",
+    "posted_at": "Wed, 14 Oct 2026 16:00:00 GMT",
+    "title": "RT by @JosephJacks_: Liquid's new LFM2.5-24B-A2B did a full skin follow-up review in 19 seconds, for under half a cent. 4 visits, synthetic patient, 5 tool calls, 0 failed. It caught the spot that grew 1.29 mm and cited the exact measurement for every finding. 2B active. Strong release @liquidai",
+    "text": "Liquid's new LFM2.5-24B-A2B did a full skin follow-up review in 19 seconds, for under half a cent. 4 visits, synthetic patient, 5 tool calls, 0 failed. It caught the spot that grew 1.29 mm and cited the exact measurement for every finding. 2B active. Strong release @liquidai Video",
+    "url": "http://nitter.meowing.monster/OpenMed_AI/status/2110400235721924962#m",
+    "fetched_at": "2026-10-15T08:44:34.802323+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "webuildscore",
+    "name": "Score",
+    "posted_at": "Wed, 14 Oct 2026 15:52:18 GMT",
+    "title": "Pinned: We are ready to build worlds. Currently fire-testing the new incentive mechanism that will get miners to build our first ever generative world model, capturing real physics, long-term consistency, and true interactivity. This is the unreal next chapter for vision AI: from understanding scenes to generating entire, livable realities. This 👇 is a sneak peek of the subnet’s console, where users will be able to create worlds from a single prompt and very soon explore them right in their browsers. This will also 100x our ability to train better vision models by providing unlimited simulated scenarios. 44 we go.",
+    "text": "We are ready to build worlds. Currently fire-testing the new incentive mechanism that will get miners to build our first ever generative world model, capturing real physics, long-term consistency, and true interactivity. This is the unreal next chapter for vision AI: from understanding scenes to generating entire, livable realities. This 👇 is a sneak peek of the subnet’s console, where users will be able to create worlds from a single prompt and very soon explore them right in their browsers. This will also 100x our ability to train better vision models by providing unlimited simulated scenari",
+    "url": "http://nitter.meowing.monster/webuildscore/status/2110398301023658462#m",
+    "fetched_at": "2026-10-15T08:46:07.076611+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
     "handle": "PanteraCapital",
     "name": "Pantera Capital",
     "posted_at": "Wed, 14 Oct 2026 14:35:27 GMT",
@@ -37,6 +117,26 @@
     "text": "A new milestone for Ondo: $4 billion in TVL. From tokenized Treasuries to tokenized stocks, ETFs, portfolios & private markets, Ondo is expanding access with every asset class. Behind the $4 billion TVL milestone: → $1.3B+ in tokenized stocks & ETFs → #1 platform for tokenized U.S. Treasuries → 1M+ cumulative holders across products That growth reflects innovations in how tokenized assets trade, including Ondo Stocks tapping TradFi exchange liquidity through RFQ. Leading wallets and apps put that liquidity within reach, enabling permissionless transfers across Solana, Ethereum and BNB Chain. T",
     "url": "http://nitter.meowing.monster/Ondo/status/2110378961129652608#m",
     "fetched_at": "2026-10-15T02:42:23.406137+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "jaltucher",
+    "name": "James Altucher",
+    "posted_at": "Wed, 14 Oct 2026 02:47:25 GMT",
+    "title": "Making music with the 7 year old me.",
+    "text": "Making music with the 7 year old me. Video",
+    "url": "https://nitter.kareem.one/jaltucher/status/2110200777985941974#m",
+    "fetched_at": "2026-10-15T08:44:43.966235+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "foundrydigital",
+    "name": "Foundry Digital",
+    "posted_at": "Wed, 11 Jan 2012 23:30:33 GMT",
+    "title": "Expression Engine 2.0 review by the guys at Scriptiny http://bit.ly/w3Pg3R",
+    "text": "Expression Engine 2.0 review by the guys at Scriptiny bit.ly/w3Pg3R",
+    "url": "http://nitter.meowing.monster/foundrydigital/status/157243024848596993#m",
+    "fetched_at": "2026-10-15T08:45:12.564532+00:00",
     "via_instance": "https://nitter.cz"
   },
   {
@@ -87,6 +187,26 @@
     "text": "Compliance can stay at issuance while tokenized assets become easier to trade, move across networks, and use in DeFi. That is where tokenized products improved in Q2, per @PanteraCapital, through changes in distribution, transferability, settlement, and composability.",
     "url": "http://nitter.meowing.monster/centrifuge/status/2107795631662391628#m",
     "fetched_at": "2026-10-15T02:42:23.406137+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "tplr_ai",
+    "name": "Templar",
+    "posted_at": "Tue, 29 Sep 2026 14:14:21 GMT",
+    "title": "The heads of the biggest AI labs want to agree among themselves on when everyone should slow down. @TheEconomist's piece on that push ends with Covenant-72B, the model we finished training in March on GPUs contributed over the internet, as a reason such agreements may be hard to enforce. What the piece doesn't say is that once training no longer requires one giant, tightly connected cluster, the power to build new models no longer has to sit with a few companies. Globally distributed training and open models are essential tools for keeping that power from concentrating in the frontier labs. They let many more participants, from nations to companies, own a share of the future of AI and take part in building it. https://www.economist.com/international/2026/09/15/agreeing-to-make-ai-safer-may-be-impossible",
+    "text": "The heads of the biggest AI labs want to agree among themselves on when everyone should slow down. @TheEconomist's piece on that push ends with Covenant-72B, the model we finished training in March on GPUs contributed over the internet, as a reason such agreements may be hard to enforce. What the piece doesn't say is that once training no longer requires one giant, tightly connected cluster, the power to build new models no longer has to sit with a few companies. Globally distributed training and open models are essential tools for keeping that power from concentrating in the frontier labs. Th",
+    "url": "http://nitter.meowing.monster/tplr_ai/status/2104937831097352377#m",
+    "fetched_at": "2026-10-15T08:45:39.461691+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "jaltucher",
+    "name": "James Altucher",
+    "posted_at": "Tue, 22 Sep 2026 13:32:41 GMT",
+    "title": "RT by @jaltucher: Welcome to Bittensor. Here's why you should stay and diamond-hand $TAO.",
+    "text": "Welcome to Bittensor. Here's why you should stay and diamond-hand $TAO.",
+    "url": "https://nitter.kareem.one/taodaily_io/status/2102390629422567556#m",
+    "fetched_at": "2026-10-15T08:44:43.966235+00:00",
     "via_instance": "https://nitter.cz"
   },
   {
@@ -220,6 +340,66 @@
     "via_instance": "https://nitter.cz"
   },
   {
+    "handle": "JosephJacks_",
+    "name": "Joseph Jacks",
+    "posted_at": "Thu, 15 Oct 2026 08:01:09 GMT",
+    "title": "This was really beautiful work, @anirbanbandyo https://youtu.be/K_Bsk812ytw?is=snQiFBm24cBJ-c8h",
+    "text": "This was really beautiful work, @anirbanbandyo piped.video/K_Bsk812ytw?is=snQi… Link AGI will not have a grandfather or a grandson, and that’s why it will never cook nostalgic stories Storytelling is fundamental to the human civilisation when this cul... youtube.com",
+    "url": "http://nitter.meowing.monster/JosephJacks_/status/2110642119761388007#m",
+    "fetched_at": "2026-10-15T08:44:34.802323+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "JosephJacks_",
+    "name": "Joseph Jacks",
+    "posted_at": "Thu, 15 Oct 2026 06:27:57 GMT",
+    "title": "RT by @JosephJacks_: ollama run lfm2.5:24b https://ollama.com/library/lfm2.5:24b",
+    "text": "ollama run lfm2.5:24b ollama.com/library/lfm2.5:24… Link lfm2.5:24b LFM2.5-8B-A1B, an edge model built for fast, reliable tool calling on consumer hardware. ollama.com Liquid AI (@liquidai) Today we release 𝙻𝙵𝙼𝟸.𝟻-𝟸𝟺𝙱-𝙰𝟸𝙱, the largest 𝙻𝙵𝙼𝟸.𝟻 family member. It is an efficient local model for laptops and PCs to work through multi-step tasks inside popular agent harnesses. &gt; 24B total parameters, 2B active per token &gt; Context expanded to 131K tokens &gt; A 128K-token vocabulary &gt; 33T pretraining tokens &gt; It is a reasoning model &gt; Very easy to fine-tune and customize &gt; Performs c",
+    "url": "http://nitter.meowing.monster/ollama/status/2110618663934124100#m",
+    "fetched_at": "2026-10-15T08:44:34.802323+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "JosephJacks_",
+    "name": "Joseph Jacks",
+    "posted_at": "Thu, 15 Oct 2026 00:02:31 GMT",
+    "title": "RT by @JosephJacks_: What if the water is listening?",
+    "text": "What if the water is listening? Video",
+    "url": "http://nitter.meowing.monster/DivineTrickstr/status/2110521664681189409#m",
+    "fetched_at": "2026-10-15T08:44:34.802323+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "oroagents",
+    "name": "Oro",
+    "posted_at": "Thu, 08 Oct 2026 21:43:13 GMT",
+    "title": "R to @oroagents: And to see what we are up to next at https://oroagents.com/",
+    "text": "And to see what we are up to next at oroagents.com/",
+    "url": "https://nitter.kareem.one/oroagents/status/2108312282493329762#m",
+    "fetched_at": "2026-10-15T08:45:58.238328+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "oroagents",
+    "name": "Oro",
+    "posted_at": "Thu, 08 Oct 2026 21:41:39 GMT",
+    "title": "R to @oroagents: See the trajectories and datasets from these benchmarks - https://huggingface.co/oro-ai",
+    "text": "See the trajectories and datasets from these benchmarks - huggingface.co/oro-ai Link oro-ai (ORO AI) We&apos;re building the largest agent arena where AI learns to shop huggingface.co",
+    "url": "https://nitter.kareem.one/oroagents/status/2108311887469552061#m",
+    "fetched_at": "2026-10-15T08:45:58.238328+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "oroagents",
+    "name": "Oro",
+    "posted_at": "Thu, 08 Oct 2026 21:39:56 GMT",
+    "title": "As models and harnesses get more capable, the depth of our RL environments needs to stay ahead of the curve. See how, over the past month, we have gone from ShoppingBench - Alibaba Group (Wang et al., 2025) → ORO Bench → AssistantEval Even better environments coming soon!",
+    "text": "As models and harnesses get more capable, the depth of our RL environments needs to stay ahead of the curve. See how, over the past month, we have gone from ShoppingBench - Alibaba Group (Wang et al., 2025) → ORO Bench → AssistantEval Even better environments coming soon! Video",
+    "url": "https://nitter.kareem.one/oroagents/status/2108311456345358818#m",
+    "fetched_at": "2026-10-15T08:45:58.238328+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
     "handle": "ridges_ai",
     "name": "Ridges",
     "posted_at": "Thu, 08 Oct 2026 20:15:02 GMT",
@@ -250,6 +430,16 @@
     "via_instance": "https://nitter.cz"
   },
   {
+    "handle": "oroagents",
+    "name": "Oro",
+    "posted_at": "Thu, 08 Oct 2026 06:34:28 GMT",
+    "title": "R to @oroagents: huggingface.co/collections/o…",
+    "text": "huggingface.co/collections/o… Link AssistantEval - a oro-ai Collection AssistantEval by ORO. Published results and recorded trajectories. Website: assistanteval.com huggingface.co",
+    "url": "https://nitter.kareem.one/oroagents/status/2108083587845394791#m",
+    "fetched_at": "2026-10-15T08:45:58.238328+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
     "handle": "ridges_ai",
     "name": "Ridges",
     "posted_at": "Thu, 01 Oct 2026 20:49:22 GMT",
@@ -260,6 +450,16 @@
     "via_instance": "https://nitter.cz"
   },
   {
+    "handle": "jaltucher",
+    "name": "James Altucher",
+    "posted_at": "Thu, 01 Oct 2026 16:42:48 GMT",
+    "title": "RT by @jaltucher: JAS: @jaltucher x @BillOReilly on Brokering a Trump-Biden Hostage Discussion, Media Bias, and Confronting America . 00:00 Hostage Deal Setup 00:57 Health Check and New Book 02:40 Behind the Scenes Gaza Talks 04:48 Iran Strategy and Midterms 07:04 Why Media Skews Negative 09:56 Opinion TV and Press Power 12:49 Blackballed Authors and CNN 14:47 NYC Politics and Populism 17:31 Sponsor Break PrizePicks 18:53 Totalitarian History Lessons 22:02 Mamdani Economics Breakdown 24:10 Soros and Soft on Crime DAs 25:49 Life After Fox No Spin News 28:44 Legacy Drive and Farewell",
+    "text": "JAS: @jaltucher x @BillOReilly on Brokering a Trump-Biden Hostage Discussion, Media Bias, and Confronting America . 00:00 Hostage Deal Setup 00:57 Health Check and New Book 02:40 Behind the Scenes Gaza Talks 04:48 Iran Strategy and Midterms 07:04 Why Media Skews Negative 09:56 Opinion TV and Press Power 12:49 Blackballed Authors and CNN 14:47 NYC Politics and Populism 17:31 Sponsor Break PrizePicks 18:53 Totalitarian History Lessons 22:02 Mamdani Economics Breakdown 24:10 Soros and Soft on Crime DAs 25:49 Life After Fox No Spin News 28:44 Legacy Drive and Farewell Video",
+    "url": "https://nitter.kareem.one/jay_yow07/status/2105699964726792421#m",
+    "fetched_at": "2026-10-15T08:44:43.966235+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
     "handle": "novogratz",
     "name": "Mike Novogratz",
     "posted_at": "Sun, 27 Sep 2026 16:43:24 GMT",
@@ -267,6 +467,16 @@
     "text": "Congrats @Scaramucci on this launch! You are one of the hardest working buys in the biz!! Anthony Scaramucci (@Scaramucci) All The Wrong Moves is #1 in the United States National Government category on Amazon. Get the hardcover copy: amzn.to/3VSdRhj Get the audiobook (read by me): amzn.to/4ydOXqV — https://nitter.kareem.one/Scaramucci/status/2104001152316809589#m",
     "url": "https://nitter.kareem.one/novogratz/status/2104250567115641310#m",
     "fetched_at": "2026-10-15T02:42:05.835750+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "webuildscore",
+    "name": "Score",
+    "posted_at": "Sun, 11 Oct 2026 16:51:40 GMT",
+    "title": "Sub-subnets are made for building tech flywheels and we’re going to make the most out of this.",
+    "text": "Sub-subnets are made for building tech flywheels and we’re going to make the most out of this. Max (@MaxSebti) just FYI, the world model is complementary to our current vision ai stack, not a pivot or replacement — http://nitter.meowing.monster/MaxSebti/status/2109325439567347923#m",
+    "url": "http://nitter.meowing.monster/webuildscore/status/2109326077717778943#m",
+    "fetched_at": "2026-10-15T08:46:07.076611+00:00",
     "via_instance": "https://nitter.cz"
   },
   {
@@ -290,6 +500,16 @@
     "via_instance": "https://nitter.cz"
   },
   {
+    "handle": "jaltucher",
+    "name": "James Altucher",
+    "posted_at": "Sat, 26 Sep 2026 11:59:57 GMT",
+    "title": "RT by @jaltucher: bittensor:native will change your life. 🫶",
+    "text": "bittensor:native will change your life. 🫶",
+    "url": "https://nitter.kareem.one/taodaily_io/status/2103816843806879925#m",
+    "fetched_at": "2026-10-15T08:44:43.966235+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
     "handle": "mcjkula",
     "name": "mcjkula",
     "posted_at": "Sat, 19 Sep 2026 17:00:09 GMT",
@@ -297,6 +517,46 @@
     "text": "Maciej Kula ( @mcjkula ) couldn't find a clear way to learn #Bittensor from scratch, so he built the resource he wished existed. @learnbittensor is now part of @latentholdings, where Maciej leads education and makes Bittensor easier to understand. He'll be leading our Bittensor 101 session to kick off Day 1: luma.com/nqy2n5zi Video",
     "url": "http://nitter.meowing.monster/ExploitSummit/status/2101355676325007652#m",
     "fetched_at": "2026-10-15T02:41:24.981840+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "webuildscore",
+    "name": "Score",
+    "posted_at": "Mon, 12 Oct 2026 20:44:12 GMT",
+    "title": "Don't trust, verify.",
+    "text": "Don't trust, verify. Score (@webuildscore) Article SN44 Winners Report: six new champions, and how close the races really are Every competition on SN44 that existed ten days ago has a new champion today. Two more went live in the meantime. And in seven of the eight, first and second place are separated by less than 0.01. — http://nitter.meowing.monster/webuildscore/status/2109746070557176184#m",
+    "url": "http://nitter.meowing.monster/webuildscore/status/2109746981547774233#m",
+    "fetched_at": "2026-10-15T08:46:07.076611+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "webuildscore",
+    "name": "Score",
+    "posted_at": "Mon, 12 Oct 2026 20:40:35 GMT",
+    "title": "SN44 Winners Report: six new champions, and how close the races really are",
+    "text": "Article SN44 Winners Report: six new champions, and how close the races really are Every competition on SN44 that existed ten days ago has a new champion today. Two more went live in the meantime. And in seven of the eight, first and second place are separated by less than 0.01.",
+    "url": "http://nitter.meowing.monster/webuildscore/status/2109746070557176184#m",
+    "fetched_at": "2026-10-15T08:46:07.076611+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "webuildscore",
+    "name": "Score",
+    "posted_at": "Mon, 12 Oct 2026 18:36:32 GMT",
+    "title": "A farmer drove his tractor into his neighbor's burning field and cut a firebreak while the fire was coming straight at him. Not every field has a guy with a tractor next door. Our Fire and Smoke Detector is open source. Put it on a drone or a helicopter cam and it flags the smoke way before it gets to this point.",
+    "text": "A farmer drove his tractor into his neighbor's burning field and cut a firebreak while the fire was coming straight at him. Not every field has a guy with a tractor next door. Our Fire and Smoke Detector is open source. Put it on a drone or a helicopter cam and it flags the smoke way before it gets to this point. Video",
+    "url": "http://nitter.meowing.monster/webuildscore/status/2109714854713897296#m",
+    "fetched_at": "2026-10-15T08:46:07.076611+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "oroagents",
+    "name": "Oro",
+    "posted_at": "Mon, 12 Oct 2026 04:35:19 GMT",
+    "title": "R to @oroagents: https://github.com/ORO-AI/assistanteval All in the open :)",
+    "text": "github.com/ORO-AI/assistante… All in the open :) Link GitHub - ORO-AI/assistanteval: AssistantEval: a verifiable benchmark for personal AI assistants AssistantEval: a verifiable benchmark for personal AI assistants - ORO-AI/assistanteval github.com",
+    "url": "https://nitter.kareem.one/oroagents/status/2109503153242775934#m",
+    "fetched_at": "2026-10-15T08:45:58.238328+00:00",
     "via_instance": "https://nitter.cz"
   },
   {
@@ -317,6 +577,16 @@
     "text": "The difference in what Anthropic and OpenAI as well as many others give you in value for a subscription is insane. We tested Meta, Minimax, Kimi, Grok, and Cursor subscriptions SemiAnalysis (@SemiAnalysis_) It doesn't make sense to say a subscription plan is worth $ X in isolation. The way to think about subscriptions is that your monthly payment grants you some numbers of “credits”. Each (model, token type) combo consumes a different amount of credits. Because credit cost ratios can differ dramatically from API price ratios, the “value” of the same plan changes depending on what model and wor",
     "url": "http://nitter.meowing.monster/dylan522p/status/2107259067693748373#m",
     "fetched_at": "2026-10-15T02:43:57.005006+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "foundrydigital",
+    "name": "Foundry Digital",
+    "posted_at": "Mon, 02 Jan 2012 23:00:41 GMT",
+    "title": "Early predictions for design trends of 2012? http://tiny.cc/mkg4v",
+    "text": "Early predictions for design trends of 2012? tiny.cc/mkg4v",
+    "url": "http://nitter.meowing.monster/foundrydigital/status/153974018557493248#m",
+    "fetched_at": "2026-10-15T08:45:12.564532+00:00",
     "via_instance": "https://nitter.cz"
   },
   {
