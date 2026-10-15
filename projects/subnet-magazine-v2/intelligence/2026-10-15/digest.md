@@ -11,6 +11,16 @@ _no human notes in the window_
 
 _SemiAnalysis is the most-cited semiconductor and AI infrastructure publication in the industry. They do NOT cover Bittensor. The Oracle uses this corpus for any claim about hyperscaler compute, GPU economics, datacenter power, foundry capacity, memory pricing, lab unit economics. DO NOT cite SemiAnalysis for any Bittensor-specific claim. Full archive (289 posts, May 2020 onwards) lives at `intelligence/_external_sources/semianalysis/` with an `INDEX.md` table of contents. Paywalled posts show only subtitle + free preview; free posts have the full body extracted._
 
+### 2026-10-15 · ASML Is Building a Hybrid Bonding Tool!
+__
+
+- **Authors:** ["Sherry Zhang", "Gerald Wong", "Steven Lee", "Dylan Patel"]
+- **Access:** paid-preview
+- **URL:** https://newsletter.semianalysis.com/p/asml-is-building-a-hybrid-bonding
+- **Corpus file:** `intelligence/_external_sources/semianalysis/2026-10-15-asml-is-building-a-hybrid-bonding.md`
+
+> ASML has not announced anything yet, but its patent filings, a [news report](https://www.thelec.net/news/articleView.html?idxno=5864) and its own roadmap all suggest so. We believe it will start with a die-to-wafer (D2W) hybrid bonding (HB) tool. This is harder to build than wafer-to-wafer but is where ASML could gain an edge. We see the move as a natural extension of ASML’s vertical integration, and one that should strengthen its customer ties.  In this article we unpack the tool’s design end t
+
 ### 2026-10-08 · Beijing Will Not Pace the Frontier: China’s Speed-First AI Safety Regime
 __
 
@@ -121,23 +131,29 @@ _Robot Models, Silicon & DRAM Efficiency, Jetson Thor vs. B300 TCO, Deployments,
 
 > # Where should the brain of the robot go?  So far, AI has mostly lived behind a screen. Chatbots answered questions. Then agents started driving software and finishing multi-step tasks on their own. The next step is AI that acts in the physical world, and the biggest piece of that is robots. It’s early. Nobody has settled the hardware, the models, or the economics.  ## The Embodiment Problem  With LLMs, the hardware bends to the model. Pour in as much data and compute as possible at training, th
 
-### 2026-09-13 · Long Live the Short King: Why 4-hi HBM Wins
-_Same Bandwidth, Fewer Dies: How 4-hi HBM Cuts Inference Costs and Makes Scarce DRAM Go Further_
-
-- **Authors:** ["Myron Xie", "Bryan Shan", "Harrison Barclay", "Minjae Kang", "Dylan Patel"]
-- **Access:** paid-preview
-- **URL:** https://newsletter.semianalysis.com/p/long-live-the-short-king-why-4-hi
-- **Corpus file:** `intelligence/_external_sources/semianalysis/2026-09-13-long-live-the-short-king-why-4-hi.md`
-
-> High Bandwidth Memory has been a key technology enabling the AI revolution. Despite HBM’s high costs relative to other forms of memory, chip designers have packaged more and more HBM into AI accelerators. Customers push to design in newer generation HBM whilst also increasing capacity per XPU by adding more cubes, and with denser and higher stacks. This has led to HBM consuming an increasing share of total DRAM wafer capacity, resulting in the extreme DRAM shortage we see ourselves in today.  We
-
 
 ## ⊕ GITHUB COMMITS + RELEASES, last 24h
 
+- **Subtensor (chain)** (COMMIT `7ba9601`, 2026-10-15 20:53) etao: per-subnet emission weights (spec 480)  
+  https://github.com/RaoFoundation/subtensor/commit/7ba9601d81d2cb5d61317cb120667f6a6bcb9a6f
+- **Subtensor (chain)** (COMMIT `2661cbb`, 2026-10-15 20:30) Merge origin/main (release-479) into cursor/etao-5107  
+  https://github.com/RaoFoundation/subtensor/commit/2661cbbe20ed5069157f495b43bd9031919e2118
 - **Subtensor (chain)** (COMMIT `f4786f9`, 2026-10-15 13:46) Merge pull request #3256 from RaoFoundation/release-479  
   https://github.com/RaoFoundation/subtensor/commit/f4786f9087cac84cfab37cbdf1e01c399042653a
 - **Subtensor (chain)** (COMMIT `e66c7ee`, 2026-10-15 13:10) release-479  
   https://github.com/RaoFoundation/subtensor/commit/e66c7eed760efaa5a3b1c249b5a3369a9bc693cf
+- **Subtensor (chain)** (COMMIT `e3bcbbe`, 2026-10-15 06:46) website: Etao release page, hero image and index entry  
+  https://github.com/RaoFoundation/subtensor/commit/e3bcbbec9f4c5c8296a6f8a96ab782a989decd11
+- **Subtensor (chain)** (COMMIT `8faeb38`, 2026-10-15 06:46) docs: Etao release note and baseline-anchored wording  
+  https://github.com/RaoFoundation/subtensor/commit/8faeb385853f5ae1abe4f700522d48cd4c3fbe6a
+- **Subtensor (chain)** (COMMIT `729394d`, 2026-10-15 06:45) sdk/cli: baseline-anchored rules and an agent-friendly btcli subnets emission  
+  https://github.com/RaoFoundation/subtensor/commit/729394d403c0e3d77de20ab488f3a9fcf785646b
+- **Subtensor (chain)** (COMMIT `b170c33`, 2026-10-15 06:45) pallet: anchor the set-time TAO weight solve to a fresh baseline  
+  https://github.com/RaoFoundation/subtensor/commit/b170c33f7ba00b2f570ef81a4a7b978608aecc52
+- **Subtensor (chain)** (COMMIT `6bc30b3`, 2026-10-15 04:25) runtime: bump spec_version to 480; mainnet is on 479  
+  https://github.com/RaoFoundation/subtensor/commit/6bc30b3a8c00fd9d5e521be8f88831a45860ba7a
+- **Subtensor (chain)** (COMMIT `503204b`, 2026-10-15 04:07) docs: describe the effective TAO weight and the per-subnet rate limit  
+  https://github.com/RaoFoundation/subtensor/commit/503204b6ffdd76b83d6e827647ace42a8e9985c9
 
 ## ⊕ ECOSYSTEM BLOGS via RSS
 
@@ -145,8 +161,12 @@ _no new posts in the lookback window_
 
 ## ⊕ X via NITTER, voices we track
 
+- @polychain (Polychain Capital, Wed, 30 Sep 2026): THE BLOCK: DogeOS launched a public testnet for its zero-knowledge rollup, bringing EVM smart contracts to Dogecoin, with dogecoin:native used for gas fees. "I've spent half a decade encouraging people to take a chance on Dogecoin and to build in its ecosystem," said Timothy Stebbing, director of the Dogecoin Foundation. "My hopes are that DogeOS becomes the springboard for a wave of new utility engineering."  
+  http://nitter.meowing.monster/TheBlockCo/status/2105359920795394451#m
 - @jaltucher (James Altucher, Wed, 30 Sep 2026): MY TOP 10. I love TV. I worked at HBO (in the 90s). I've been an advisor for shows ("Billions"), I've pitched shows to every studio. Here's my top 10. I've watched each of these at least 4 times. BUT...what should #10 be?? 1) Breaking Bad 2) Mad Men 3) Lost 4) Carnevale 5) Battlestar Galactica 6) Better Call Saul 7) Arrested Devekooment 8) Sopranos 9) Curb Your Enthusiasm  
   https://nitter.kareem.one/jaltucher/status/2105314083108974777#m
+- @polychain (Polychain Capital, Wed, 24 Jun 2026): EXCLUSIVE: a16z CSX-backed Cambrian raises $6 million seed to build blockchain data oracle network theblock.co/post/406028/a16z… Link a16z CSX-backed Cambrian raises $6 million seed to build blockchain data oracle network Cambrian’s new funding will expand its API and verifiable oracle network for institutions and AI agents, with Base and Solana already in production. theblock.co  
+  http://nitter.meowing.monster/TheBlockCo/status/2069827932843909349#m
 - @novogratz (Mike Novogratz, Wed, 23 Sep 2026): Thanks for making the trip to Lubbock, Mike — and for spending time with our Red Raider football team ahead of the game. Great to have you at @TexasTech, and even better to cap off the visit with a big win at the new @galaxyhq Stadium. This partnership is just getting started. #WreckEm! Mike Novogratz (@novogratz) Last Friday, I visited our flagship campus Helios in West Texas. Three years ago, this was still a bitcoin mining facility. Today Helios is a fully operational AI-ready campus with 133MW of critical IT capacity, and we’re just getting started! @galaxyhq is taking a big swing out here  
   https://nitter.kareem.one/CreightonForTX/status/2102869773776269419#m
 - @tplr_ai (Templar, Wed, 23 Sep 2026): Video  
@@ -163,6 +183,8 @@ _no new posts in the lookback window_
   http://nitter.meowing.monster/niklaslenz_ai/status/2110469931011612895#m
 - @a16zcrypto (a16z Crypto, Wed, 14 Oct 2026): Will AI see something a clever human hasn't seen? Video a16z crypto (@a16zcrypto) AI is getting better at solving hard math problems, especially given recent drops. But what does that mean for the cryptography that protects everything from private messages to healthcare to banking and crypto wallets? Stanford cryptographer Dan Boneh, with @eddylazzarin, @SuccinctJT, @liz_harkavy, and @smc90, makes sense of the warnings sounded recently. They cover: - what’s fact vs. assumption - what’s new and what risks cryptographers have long prepared for - where quantum computing doesn't (and does) fit - o  
   https://nitter.kareem.one/a16zcrypto/status/2110427510399959347#m
+- @nigescore (Nige, Wed, 14 Oct 2026): And it’s the first highway station. Arno (@arnod3f) ladies and gentlemen. @manakoai is officially working with @Shell. deploying physical ai to better their fuel retail operations. lfgooooooo🔥👊🚀 — http://nitter.meowing.monster/arnod3f/status/2110397339126915400#m  
+  http://nitter.meowing.monster/manakoai/status/2110408262357057824#m
 - @ridges_ai (Ridges, Wed, 14 Oct 2026): 48:48:4: the current emissions split across Ridges’ competitions. How much should progress in each Niche be worth, and what allocation encourages miners to tackle it? @KibibyteMe works through how incentives can direct effort toward the problems that need it with @VenturaLabs. Video  
   http://nitter.meowing.monster/ridges_ai/status/2110401263963869285#m
 - @JosephJacks_ (Joseph Jacks, Wed, 14 Oct 2026): Liquid's new LFM2.5-24B-A2B did a full skin follow-up review in 19 seconds, for under half a cent. 4 visits, synthetic patient, 5 tool calls, 0 failed. It caught the spot that grew 1.29 mm and cited the exact measurement for every finding. 2B active. Strong release @liquidai Video  
@@ -177,6 +199,8 @@ _no new posts in the lookback window_
   https://nitter.kareem.one/jaltucher/status/2110200777985941974#m
 - @foundrydigital (Foundry Digital, Wed, 11 Jan 2012): Expression Engine 2.0 review by the guys at Scriptiny bit.ly/w3Pg3R  
   http://nitter.meowing.monster/foundrydigital/status/157243024848596993#m
+- @nigescore (Nige, Wed, 09 Sep 2026): .@nigescore going to paris last time he went to nrf in dallas he got us our biggest client ever (not announced yet) i can’t go. got something bigger on the 15th, 16th and 17th (to be announced) Manako (@manakoai) Heading to @nrfeurope NRF Retail’s Big Show Europe in Paris next week (15–17 Sept) 🇫🇷 If you are attending and want to hear what Manako Labs have built for retail, please DM and let’s meet up. No new hardware, no engineers, no code just your existing cameras doing more. #NRFRetailsBigShowEurope — http://nitter.meowing.monster/manakoai/status/2097622722310242420#m  
+  http://nitter.meowing.monster/MaxSebti/status/2097630699129827589#m
 - @dylan522p (Dylan Patel, Wed, 07 Oct 2026): A $200 AI subscription can be worth $12,000 in tokens. Which plan delivers it is not close. "They're selling to willing buyers at the fair market price. This is capitalism." "You can pay $200 for a Claude plan and get $12,000 of Opus 5.5 tokens at API pricing. So that's obviously a good deal." "You have to say the $200 plan, when running a particular workload on a particular model, gives you some dollar amount. But then you also have 5.5, which is a beast. $6K or $5,000 worth of value." "And when you do that comparison, it's not even a question of who's providing more value. ChatGPT versus Ant  
   http://nitter.meowing.monster/SemiAnalysis_/status/2107950798638354671#m
 - @ridges_ai (Ridges, Wed, 07 Oct 2026): You shouldn’t have to solve every kind of problem to contribute to Ridges. Each Niche isolates a specialist skill, and challenges miners to optimize against it. Use what you’re good at. Keep improving. What can you bring to #SN62? @KibibyteMe on @VenturaLabs @exploitsummit Video  
@@ -191,6 +215,10 @@ _no new posts in the lookback window_
   http://nitter.meowing.monster/tplr_ai/status/2104937831097352377#m
 - @jaltucher (James Altucher, Tue, 22 Sep 2026): Welcome to Bittensor. Here's why you should stay and diamond-hand $TAO.  
   https://nitter.kareem.one/taodaily_io/status/2102390629422567556#m
+- @polychain (Polychain Capital, Tue, 15 Sep 2026): It's time for a new foundation. Not a new start. Legacy Mode is live on Passport, keep every account you already have, on code anyone can inspect. Switch to open source hardware and software while keeping your existing accounts for supported assets. Here’s how. 🧵 Video  
+  http://nitter.meowing.monster/FoundationHQ/status/2099865846101180499#m
+- @nigescore (Nige, Tue, 15 Sep 2026): The physical world still can’t talk to software. A billion cameras watch factories, stations, warehouses, and stores every second. Almost none of that footage becomes action. That’s what we build at Manako. Today we join F/ai at @joinstationf The program that put OpenAI, Anthropic, Google, Meta, Microsoft and top-tier VCs behind a handful of AI-native teams. Honoured. Focused. Shipping.  
+  http://nitter.meowing.monster/manakoai/status/2099861562882203822#m
 - @a16zcrypto (a16z Crypto, Tue, 13 Oct 2026): a16z crypto's Eddy Lazzarin and Stanford's Dan Boneh on how AI's math leap could turn a decade of trust-building in cryptography into one month: Eddy: "We specifically rely in some sense on time... We put these schemes out and we wait. And we wait because what we believe is happening is that experts, like cryptographers and mathematicians, are testing and trying to break these things." "Because of the pace of progress on AI's mathematical abilities, there is a conspicuous absence of time... A whole new well of cognitive ability to scrutinize has appeared." Dan: "In the past, when someone would  
   https://nitter.kareem.one/a16z/status/2110113713487515991#m
 - @a16zcrypto (a16z Crypto, Tue, 13 Oct 2026): AI can’t find an algorithm that doesn’t exist. The worry is we’re wrong about what exists. @liz_harkavy and @SuccinctJT on AI vs. cryptography: "We generally believe there is no efficient algorithm for these problems. ... And so if there's not one, it doesn't matter how smart the AI is; it cannot find the non-existent algorithm." Video a16z crypto (@a16zcrypto) AI is getting better at solving hard math problems, especially given recent drops. But what does that mean for the cryptography that protects everything from private messages to healthcare to banking and crypto wallets? Stanford cryptog  
@@ -203,6 +231,8 @@ _no new posts in the lookback window_
   https://nitter.kareem.one/UnderdogAI/status/2110034577985323222#m
 - @KyleSamani (Kyle Samani, Tue, 13 Oct 2026): There is an answer to this question Soon! Kaiz 🐂🀄️ (@Kaiz_294) Arthur Hayes questions where the real money in tokenization comes from, arguing that moving traditional assets onchain still leaves a major unanswered question about profitability “How much money are you actually going to make” “I transferred the stock that was sitting in DTCC, and now it's sitting on some blockchain, whatever it is, doesn't really matter” “How much money can you actually make doing that” “You're doing better bookkeeping. Thank you. But where are you actually going to make money in tokenization” “I think that has b  
   http://nitter.meowing.monster/KyleSamani/status/2109972190519275682#m
+- @nigescore (Nige, Tue, 08 Sep 2026): Astra Ultra did not cook sports-grade vision AI. Gave it a 30s football clip from our subnet private track. Frame-level events, JSON, annotated video. Ground truth and the published scoring rules only after it committed. 22 predictions. 17 real events. 15 inside the action windows. 7 extras. 2 misses. Precision 68.18%. Recall 88.24%. F1 76.92%. Our Bittensor eval, SN44: 0%. Matches after timing decay: 16.538 False positives: −20.300 GT weight: 25.600 score = max(0, (16.538 − 20.300) / 25.600) = 0 Three extra take-ons and two extra tackles were 14.6 penalty points. It also misread the late inte  
+  http://nitter.meowing.monster/webuildscore/status/2097261685358596399#m
 - @dylan522p (Dylan Patel, Tue, 06 Oct 2026): Mistral 4 is pretty good at lawyer bench and cyber security bench, but give it's European heritage, one can only assume it's also good at regulation bench Mistral AI (@MistralAI) Meet Mistral Large 4, aka Le Chonk. • 1T parameters, natively multimodal. 49B active. It is the best open weights model from US or Europe on aggregated benchmarks. • State-of-the-art on critical workloads, including cyber defense, manufacturing and finance and it surpasses closed frontier models on visual grounding. • Forged in Europe end-to-end and is deployable from Europe via our own Mistral Cloud infrastructure. •  
   http://nitter.meowing.monster/dylan522p/status/2107602988911260012#m
 - @novogratz (Mike Novogratz, Tue, 06 Oct 2026): It is great to see the @CFTC and @ChairmanSelig moving on this. A federal path for crypto exchanges is a big step toward keeping America the crypto capital of the world. Thanks for your thoughtful work. CFTC (@CFTC) .@CFTC Seeks Public Comment on Advanced Notice of Proposed Rulemaking Relating to Regulation Crypto Asset Transactions and Regulation Crypto Asset Markets: cftc.gov/PressRoom/PressRele… Link CFTC Seeks Public Comment on Advanced Notice of Proposed Rulemaking Relating to Regulation Crypto... The Commodity Futures Trading Commission today published an Advanced Notice of Proposed Rule  
@@ -223,29 +253,15 @@ _no new posts in the lookback window_
   http://nitter.meowing.monster/affine_io/status/2094801103959540005#m
 - @affine_io (Affine, Tue, 01 Sep 2026): Video  
   https://nitter.kareem.one/affine_io/status/2094801103959540005#m
-- @opentensor (Opentensor Foundation, Thu, 15 Oct 2026): JUST IN: SN80 (@openroboto), the largest robotics subnet on @bittensor, integrates peaqOS All devices now have an ID and wallet on Solana, and can be verified and paid for their performance directly on Solana using @peaq OpenRoboto (@openroboto) We’re bringing @peaq’s machine identity infrastructure to OpenRoboto Shift. Our first 30 OR-S1 data collectors now use peaqOS Pro, each with its own decentralized identity (DID) on @solana. Video — https://nitter.kareem.one/openroboto/status/2110731220103618645#m  
-  https://nitter.kareem.one/solana/status/2110755957303107965#m
-- @opentensor (Opentensor Foundation, Thu, 15 Oct 2026): Open robotics is bringing Bittensor and @peaq together. @openroboto (Subnet 80) now uses peaqOS to link robot training footage to capture devices with verifiable identities on @solana. peaq (@peaq) Robot training data is becoming valuable enough to fake Every data collector from @openroboto, the largest robotics subnet on Bittensor (@opentensor), now runs peaqOS on the Pro tier 30 are live, each with its own identity anchored on @solana, and every future one will be too — https://nitter.kareem.one/peaq/status/2110733962565869854#m  
-  https://nitter.kareem.one/opentensor/status/2110741962068533595#m
-- @opentensor (Opentensor Foundation, Thu, 15 Oct 2026): This Thursday on Novelty Search :: Subnet 4 :: @TargonCompute Targon is building a decentralized GPU cloud on Bittensor, providing on-demand compute for AI training and inference. Its confidential VMs use Intel and NVIDIA hardware security to protect sensitive models and data, even from the providers operating the servers. Live on Thursday :: 9PM UTC :: via Bittensor Discord Hosted by @const_reborn Video  
-  https://nitter.kareem.one/opentensor/status/2110695591408001241#m
-- @JosephJacks_ (Joseph Jacks, Thu, 15 Oct 2026): This was really beautiful work, @anirbanbandyo piped.video/K_Bsk812ytw?is=snQi… Link AGI will not have a grandfather or a grandson, and that’s why it will never cook nostalgic stories Storytelling is fundamental to the human civilisation when this cul... youtube.com  
-  http://nitter.meowing.monster/JosephJacks_/status/2110642119761388007#m
-- @JosephJacks_ (Joseph Jacks, Thu, 15 Oct 2026): ollama run lfm2.5:24b ollama.com/library/lfm2.5:24… Link lfm2.5:24b LFM2.5-8B-A1B, an edge model built for fast, reliable tool calling on consumer hardware. ollama.com Liquid AI (@liquidai) Today we release 𝙻𝙵𝙼𝟸.𝟻-𝟸𝟺𝙱-𝙰𝟸𝙱, the largest 𝙻𝙵𝙼𝟸.𝟻 family member. It is an efficient local model for laptops and PCs to work through multi-step tasks inside popular agent harnesses. &gt; 24B total parameters, 2B active per token &gt; Context expanded to 131K tokens &gt; A 128K-token vocabulary &gt; 33T pretraining tokens &gt; It is a reasoning model &gt; Very easy to fine-tune and customize &gt; Performs c  
-  http://nitter.meowing.monster/ollama/status/2110618663934124100#m
-- @JosephJacks_ (Joseph Jacks, Thu, 15 Oct 2026): What if the water is listening? Video  
-  http://nitter.meowing.monster/DivineTrickstr/status/2110521664681189409#m
-- @oroagents (Oro, Thu, 08 Oct 2026): And to see what we are up to next at oroagents.com/  
-  https://nitter.kareem.one/oroagents/status/2108312282493329762#m
-- @oroagents (Oro, Thu, 08 Oct 2026): See the trajectories and datasets from these benchmarks - huggingface.co/oro-ai Link oro-ai (ORO AI) We&apos;re building the largest agent arena where AI learns to shop huggingface.co  
-  https://nitter.kareem.one/oroagents/status/2108311887469552061#m
-- @oroagents (Oro, Thu, 08 Oct 2026): As models and harnesses get more capable, the depth of our RL environments needs to stay ahead of the curve. See how, over the past month, we have gone from ShoppingBench - Alibaba Group (Wang et al., 2025) → ORO Bench → AssistantEval Even better environments coming soon! Video  
-  https://nitter.kareem.one/oroagents/status/2108311456345358818#m
-- @ridges_ai (Ridges, Thu, 08 Oct 2026): $0.29. That’s the current inference budget for a Ridges problem. Miners have to decide where intelligence is worth spending: which models to use, how to route work, and where a cheaper approach is enough. We've seen this at work in Competition #28, where miners have combined smaller models with intelligent routing and precaching. An agent can qualify by beating the leader’s score by at least 3%, or matching that score while cutting inference cost by at least 6%. The search isn’t just for a stronger coding agent. It’s for a better way to use intelligence.  
-  http://nitter.meowing.monster/ridges_ai/status/2108290090317619237#m
-- @PanteraCapital (Pantera Capital, Thu, 08 Oct 2026): Today, we're announcing $37.5M in new funding, led by @BainCapCrypto, bringing our total capital raised to over $180M. This investment will help us expand Bitcoin-denominated life insurance to families across Asia, Europe, and the Middle East. Video  
-  http://nitter.meowing.monster/meanwhile/status/2108252790451826702#m
+- @dippy_ai (Dippy AI, Thu, 30 Jul 2026): Excited to have helped @PrunaAI collect 1M+ votes for image preference data in a very short time :~) Pruna AI (@PrunaAI) P-Image-Ideogram dominate the speed-quality and price-quality Pareto frontiers for image generation. It is the result of a unique collaboration with @ideogram_ai. - Four modes (Very low, low, medium, high) for 1K-2K image generation. - Optimal quality-efficiency with 0.4s-7.5s latency, and $0.003-$0.03 price. - Structured JSON control & exact color control. Available via our inference partners @Replicate @inference_sh @scenario_gg @wavespeed_ai @wiroai @magnific @prodialabs   
+  https://nitter.kareem.one/datapointai/status/2082837314603032606#m
+- @dippy_ai (Dippy AI, Thu, 27 Aug 2026): we have significantly upgraded both the basic and super models 🤩🤩 we have also made optimizations to improve response speeds by upto 5x can't wait for you all to experience and enjoy the new dippy 📯📯😸 rolling out to everyone today  
+  https://nitter.kareem.one/dippy_ai/status/2093089771824226802#m
+- @polychain (Polychain Capital, Thu, 25 Jun 2026): Article The Missing AI Layer Is Not Security. It&apos;s Authority. AI agents are now computer users. They browse websites. They read files. They write code. They call APIs. They log in to accounts. They handle credentials, use tools, and take actions across software  
+  http://nitter.meowing.monster/zherbert/status/2070178183333171395#m
+- @SemiAnalysis_ (SemiAnalysis, Thu, 15 Oct 2026): Learn more about STEEL and talk to our team: semianalysis.com/steel-lab Link SemiAnalysis STEEL: Teardown Engineering and Evaluation Lab SemiAnalysis STEEL is an 18,000 square foot semiconductor teardown lab in Hillsboro, Oregon: boards, packages, dies, and interconnects taken apart, imaged, and measured by a team with more than 90... semianalysis.com  
+  https://nitter.kareem.one/SemiAnalysis_/status/2110844303727603717#m
 
 
 ---
-_Generated at 2026-10-15T16:08:31.148435+00:00 by scripts/intel/aggregate.py. Treat this digest as input context, not as ground truth. Verify before quoting._
+_Generated at 2026-10-15T22:52:14.712617+00:00 by scripts/intel/aggregate.py. Treat this digest as input context, not as ground truth. Verify before quoting._

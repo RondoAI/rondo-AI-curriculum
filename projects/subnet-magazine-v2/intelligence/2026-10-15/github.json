@@ -3,6 +3,28 @@
     "repo": "opentensor/subtensor",
     "name": "Subtensor (chain)",
     "kind": "commit",
+    "sha": "7ba9601",
+    "message": "etao: per-subnet emission weights (spec 480)",
+    "author": "Arbos",
+    "posted_at": "2026-10-15T20:53:36Z",
+    "url": "https://github.com/RaoFoundation/subtensor/commit/7ba9601d81d2cb5d61317cb120667f6a6bcb9a6f",
+    "fetched_at": "2026-10-15T22:52:07.664116+00:00"
+  },
+  {
+    "repo": "opentensor/subtensor",
+    "name": "Subtensor (chain)",
+    "kind": "commit",
+    "sha": "2661cbb",
+    "message": "Merge origin/main (release-479) into cursor/etao-5107",
+    "author": "Cursor Agent",
+    "posted_at": "2026-10-15T20:30:00Z",
+    "url": "https://github.com/RaoFoundation/subtensor/commit/2661cbbe20ed5069157f495b43bd9031919e2118",
+    "fetched_at": "2026-10-15T22:52:07.664116+00:00"
+  },
+  {
+    "repo": "opentensor/subtensor",
+    "name": "Subtensor (chain)",
+    "kind": "commit",
     "sha": "f4786f9",
     "message": "Merge pull request #3256 from RaoFoundation/release-479",
     "author": "UnArbosFive",
@@ -20,5 +42,71 @@
     "posted_at": "2026-10-15T13:10:48Z",
     "url": "https://github.com/RaoFoundation/subtensor/commit/e66c7eed760efaa5a3b1c249b5a3369a9bc693cf",
     "fetched_at": "2026-10-15T16:08:23.688197+00:00"
+  },
+  {
+    "repo": "opentensor/subtensor",
+    "name": "Subtensor (chain)",
+    "kind": "commit",
+    "sha": "e3bcbbe",
+    "message": "website: Etao release page, hero image and index entry",
+    "author": "Cursor Agent",
+    "posted_at": "2026-10-15T06:46:02Z",
+    "url": "https://github.com/RaoFoundation/subtensor/commit/e3bcbbec9f4c5c8296a6f8a96ab782a989decd11",
+    "fetched_at": "2026-10-15T22:52:07.664116+00:00"
+  },
+  {
+    "repo": "opentensor/subtensor",
+    "name": "Subtensor (chain)",
+    "kind": "commit",
+    "sha": "8faeb38",
+    "message": "docs: Etao release note and baseline-anchored wording",
+    "author": "Cursor Agent",
+    "posted_at": "2026-10-15T06:46:02Z",
+    "url": "https://github.com/RaoFoundation/subtensor/commit/8faeb385853f5ae1abe4f700522d48cd4c3fbe6a",
+    "fetched_at": "2026-10-15T22:52:07.664116+00:00"
+  },
+  {
+    "repo": "opentensor/subtensor",
+    "name": "Subtensor (chain)",
+    "kind": "commit",
+    "sha": "729394d",
+    "message": "sdk/cli: baseline-anchored rules and an agent-friendly btcli subnets emission",
+    "author": "Cursor Agent",
+    "posted_at": "2026-10-15T06:45:50Z",
+    "url": "https://github.com/RaoFoundation/subtensor/commit/729394d403c0e3d77de20ab488f3a9fcf785646b",
+    "fetched_at": "2026-10-15T22:52:07.664116+00:00"
+  },
+  {
+    "repo": "opentensor/subtensor",
+    "name": "Subtensor (chain)",
+    "kind": "commit",
+    "sha": "b170c33",
+    "message": "pallet: anchor the set-time TAO weight solve to a fresh baseline",
+    "author": "Cursor Agent",
+    "posted_at": "2026-10-15T06:45:37Z",
+    "url": "https://github.com/RaoFoundation/subtensor/commit/b170c33f7ba00b2f570ef81a4a7b978608aecc52",
+    "fetched_at": "2026-10-15T22:52:07.664116+00:00"
+  },
+  {
+    "repo": "opentensor/subtensor",
+    "name": "Subtensor (chain)",
+    "kind": "commit",
+    "sha": "6bc30b3",
+    "message": "runtime: bump spec_version to 480; mainnet is on 479",
+    "author": "Cursor Agent",
+    "posted_at": "2026-10-15T04:25:20Z",
+    "url": "https://github.com/RaoFoundation/subtensor/commit/6bc30b3a8c00fd9d5e521be8f88831a45860ba7a",
+    "fetched_at": "2026-10-15T22:52:07.664116+00:00"
+  },
+  {
+    "repo": "opentensor/subtensor",
+    "name": "Subtensor (chain)",
+    "kind": "commit",
+    "sha": "503204b",
+    "message": "docs: describe the effective TAO weight and the per-subnet rate limit",
+    "author": "Cursor Agent",
+    "posted_at": "2026-10-15T04:07:04Z",
+    "url": "https://github.com/RaoFoundation/subtensor/commit/503204b6ffdd76b83d6e827647ace42a8e9985c9",
+    "fetched_at": "2026-10-15T22:52:07.664116+00:00"
   }
 ]
