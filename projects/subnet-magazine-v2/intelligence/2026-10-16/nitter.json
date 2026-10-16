@@ -1,5 +1,25 @@
 [
   {
+    "handle": "polychain",
+    "name": "Polychain Capital",
+    "posted_at": "Wed, 30 Sep 2026 18:11:35 GMT",
+    "title": "RT by @polychain: THE BLOCK: DogeOS launched a public testnet for its zero-knowledge rollup, bringing EVM smart contracts to Dogecoin, with dogecoin:native used for gas fees. \"I've spent half a decade encouraging people to take a chance on Dogecoin and to build in its ecosystem,\" said Timothy Stebbing, director of the Dogecoin Foundation. \"My hopes are that DogeOS becomes the springboard for a wave of new utility engineering.\"",
+    "text": "THE BLOCK: DogeOS launched a public testnet for its zero-knowledge rollup, bringing EVM smart contracts to Dogecoin, with dogecoin:native used for gas fees. \"I've spent half a decade encouraging people to take a chance on Dogecoin and to build in its ecosystem,\" said Timothy Stebbing, director of the Dogecoin Foundation. \"My hopes are that DogeOS becomes the springboard for a wave of new utility engineering.\"",
+    "url": "https://nitter.kareem.one/TheBlockCo/status/2105359920795394451#m",
+    "fetched_at": "2026-10-16T15:53:36.796123+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "polychain",
+    "name": "Polychain Capital",
+    "posted_at": "Wed, 24 Jun 2026 17:00:09 GMT",
+    "title": "RT by @polychain: EXCLUSIVE: a16z CSX-backed Cambrian raises $6 million seed to build blockchain data oracle network https://www.theblock.co/post/406028/a16z-csx-backed-cambrian-seed-round-blockchain-data-oracle-network?utm_source=twitter&utm_medium=social",
+    "text": "EXCLUSIVE: a16z CSX-backed Cambrian raises $6 million seed to build blockchain data oracle network theblock.co/post/406028/a16z… Link a16z CSX-backed Cambrian raises $6 million seed to build blockchain data oracle network Cambrian’s new funding will expand its API and verifiable oracle network for institutions and AI agents, with Base and Solana already in production. theblock.co",
+    "url": "https://nitter.kareem.one/TheBlockCo/status/2069827932843909349#m",
+    "fetched_at": "2026-10-16T15:53:36.796123+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
     "handle": "tplr_ai",
     "name": "Templar",
     "posted_at": "Wed, 23 Sep 2026 16:10:16 GMT",
@@ -80,6 +100,26 @@
     "via_instance": "https://nitter.cz"
   },
   {
+    "handle": "a16zcrypto",
+    "name": "a16z Crypto",
+    "posted_at": "Wed, 14 Oct 2026 17:48:22 GMT",
+    "title": "Will AI see something a clever human hasn't seen?",
+    "text": "Will AI see something a clever human hasn't seen? Video a16z crypto (@a16zcrypto) AI is getting better at solving hard math problems, especially given recent drops. But what does that mean for the cryptography that protects everything from private messages to healthcare to banking and crypto wallets? Stanford cryptographer Dan Boneh, with @eddylazzarin, @SuccinctJT, @liz_harkavy, and @smc90, makes sense of the warnings sounded recently. They cover: - what’s fact vs. assumption - what’s new and what risks cryptographers have long prepared for - where quantum computing doesn't (and does) fit - o",
+    "url": "https://nitter.kareem.one/a16zcrypto/status/2110427510399959347#m",
+    "fetched_at": "2026-10-16T15:53:57.647023+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "jon_durbin",
+    "name": "Jon Durbin",
+    "posted_at": "Wed, 14 Oct 2026 17:08:25 GMT",
+    "title": "Florian's building super cool stuff, go check it out!",
+    "text": "Florian's building super cool stuff, go check it out! Florian S (@airesearch12) Introducing DecisionModels @decisionmodels_ I've spent the last four weeks benchmarking decision models (I run JevBench). Today I'm launching the place to actually use the best ones: decisionmodels.io ➡️Top open models ➡️Up to 4x faster on our own REAX engine ➡️From $0.019 per 1M input tokens. Expect more reveals soon, and read 👇 Video — https://nitter.kareem.one/airesearch12/status/2110410684873814482#m",
+    "url": "https://nitter.kareem.one/jon_durbin/status/2110417455503839552#m",
+    "fetched_at": "2026-10-16T15:54:17.520303+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
     "handle": "webuildscore",
     "name": "Score",
     "posted_at": "Wed, 14 Oct 2026 15:52:18 GMT",
@@ -130,6 +170,16 @@
     "via_instance": "https://nitter.cz"
   },
   {
+    "handle": "polychain",
+    "name": "Polychain Capital",
+    "posted_at": "Tue, 15 Sep 2026 14:20:05 GMT",
+    "title": "RT by @polychain: It's time for a new foundation. Not a new start. Legacy Mode is live on Passport, keep every account you already have, on code anyone can inspect. Switch to open source hardware and software while keeping your existing accounts for supported assets. Here’s how. 🧵",
+    "text": "It's time for a new foundation. Not a new start. Legacy Mode is live on Passport, keep every account you already have, on code anyone can inspect. Switch to open source hardware and software while keeping your existing accounts for supported assets. Here’s how. 🧵 Video",
+    "url": "https://nitter.kareem.one/FoundationHQ/status/2099865846101180499#m",
+    "fetched_at": "2026-10-16T15:53:36.796123+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
     "handle": "a16zcrypto",
     "name": "a16z Crypto",
     "posted_at": "Tue, 13 Oct 2026 21:01:27 GMT",
@@ -137,6 +187,16 @@
     "text": "a16z crypto's Eddy Lazzarin and Stanford's Dan Boneh on how AI's math leap could turn a decade of trust-building in cryptography into one month: Eddy: \"We specifically rely in some sense on time... We put these schemes out and we wait. And we wait because what we believe is happening is that experts, like cryptographers and mathematicians, are testing and trying to break these things.\" \"Because of the pace of progress on AI's mathematical abilities, there is a conspicuous absence of time... A whole new well of cognitive ability to scrutinize has appeared.\" Dan: \"In the past, when someone would",
     "url": "http://nitter.meowing.monster/a16z/status/2110113713487515991#m",
     "fetched_at": "2026-10-16T02:38:18.570886+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "a16zcrypto",
+    "name": "a16z Crypto",
+    "posted_at": "Tue, 13 Oct 2026 21:01:27 GMT",
+    "title": "RT by @a16zcrypto: a16z crypto's Eddy Lazzarin and Stanford's Dan Boneh on how AI's math leap could turn a decade of trust-building in cryptography into one month: Eddy: \"We specifically rely in some sense on time... We put these schemes out and we wait. And we wait because what we believe is happening is that experts, like cryptographers and mathematicians, are testing and trying to break these things.\" \"Because of the pace of progress on AI's mathematical abilities, there is a conspicuous absence of time... A whole new well of cognitive ability to scrutinize has appeared.\" Dan: \"In the past, when someone would make an assumption and build a system based on it, we'd have to wait like 10 years before that system could be deployed.\" \"Now we can just let a model run for a month, try to break it, and if the model can't break it, boy, do we have a lot of confidence that the assumption is valid.\" Eddy: \"The labs can say, 'We took our tip-top, totally unrestricted, most cyber-capable model, and we told it to go absolutely insane, and we spent $20 million, $50 million trying to break this scheme.'\" \"We actually have the prospect to have more confidence in our security than ever before.\" @eddylazzarin @danboneh",
+    "text": "a16z crypto's Eddy Lazzarin and Stanford's Dan Boneh on how AI's math leap could turn a decade of trust-building in cryptography into one month: Eddy: \"We specifically rely in some sense on time... We put these schemes out and we wait. And we wait because what we believe is happening is that experts, like cryptographers and mathematicians, are testing and trying to break these things.\" \"Because of the pace of progress on AI's mathematical abilities, there is a conspicuous absence of time... A whole new well of cognitive ability to scrutinize has appeared.\" Dan: \"In the past, when someone would",
+    "url": "https://nitter.kareem.one/a16z/status/2110113713487515991#m",
+    "fetched_at": "2026-10-16T15:53:57.647023+00:00",
     "via_instance": "https://nitter.cz"
   },
   {
@@ -152,6 +212,16 @@
   {
     "handle": "a16zcrypto",
     "name": "a16z Crypto",
+    "posted_at": "Tue, 13 Oct 2026 20:59:19 GMT",
+    "title": "AI can’t find an algorithm that doesn’t exist. The worry is we’re wrong about what exists. @liz_harkavy and @SuccinctJT on AI vs. cryptography: \"We generally believe there is no efficient algorithm for these problems. ... And so if there's not one, it doesn't matter how smart the AI is; it cannot find the non-existent algorithm.\"",
+    "text": "AI can’t find an algorithm that doesn’t exist. The worry is we’re wrong about what exists. @liz_harkavy and @SuccinctJT on AI vs. cryptography: \"We generally believe there is no efficient algorithm for these problems. ... And so if there's not one, it doesn't matter how smart the AI is; it cannot find the non-existent algorithm.\" Video a16z crypto (@a16zcrypto) AI is getting better at solving hard math problems, especially given recent drops. But what does that mean for the cryptography that protects everything from private messages to healthcare to banking and crypto wallets? Stanford cryptog",
+    "url": "https://nitter.kareem.one/a16zcrypto/status/2110113173026332873#m",
+    "fetched_at": "2026-10-16T15:53:57.647023+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "a16zcrypto",
+    "name": "a16z Crypto",
     "posted_at": "Tue, 13 Oct 2026 17:53:23 GMT",
     "title": "RT by @a16zcrypto: How Far Crypto Has Come in Washington",
     "text": "Article How Far Crypto Has Come in Washington I’ve been reading the postmortems on Clarity, and some of the criticism is fair. Clarity is the industry’s biggest legislative priority. We worked hard on it. And it hasn’t passed the Senate. That’s a",
@@ -162,11 +232,31 @@
   {
     "handle": "a16zcrypto",
     "name": "a16z Crypto",
+    "posted_at": "Tue, 13 Oct 2026 17:53:23 GMT",
+    "title": "RT by @a16zcrypto: How Far Crypto Has Come in Washington",
+    "text": "Article How Far Crypto Has Come in Washington I’ve been reading the postmortems on Clarity, and some of the criticism is fair. Clarity is the industry’s biggest legislative priority. We worked hard on it. And it hasn’t passed the Senate. That’s a",
+    "url": "https://nitter.kareem.one/Collin_McCune/status/2110066382289408283#m",
+    "fetched_at": "2026-10-16T15:53:57.647023+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "a16zcrypto",
+    "name": "a16z Crypto",
     "posted_at": "Tue, 13 Oct 2026 15:47:00 GMT",
     "title": "RT by @a16zcrypto: Introducing Underdog x Stripe Shop with Underdog. It finds the best option, saving you money and time. In a local browser, it gets a one-time Link card for the exact amount, and waits for your approval The first on-device Agent Payment in Underdog: Your Private Personal AI",
     "text": "Introducing Underdog x Stripe Shop with Underdog. It finds the best option, saving you money and time. In a local browser, it gets a one-time Link card for the exact amount, and waits for your approval The first on-device Agent Payment in Underdog: Your Private Personal AI Video",
     "url": "http://nitter.meowing.monster/UnderdogAI/status/2110034577985323222#m",
     "fetched_at": "2026-10-16T02:38:18.570886+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "a16zcrypto",
+    "name": "a16z Crypto",
+    "posted_at": "Tue, 13 Oct 2026 15:47:00 GMT",
+    "title": "RT by @a16zcrypto: Introducing Underdog x Stripe Shop with Underdog. It finds the best option, saving you money and time. In a local browser, it gets a one-time Link card for the exact amount, and waits for your approval The first on-device Agent Payment in Underdog: Your Private Personal AI",
+    "text": "Introducing Underdog x Stripe Shop with Underdog. It finds the best option, saving you money and time. In a local browser, it gets a one-time Link card for the exact amount, and waits for your approval The first on-device Agent Payment in Underdog: Your Private Personal AI Video",
+    "url": "https://nitter.kareem.one/UnderdogAI/status/2110034577985323222#m",
+    "fetched_at": "2026-10-16T15:53:57.647023+00:00",
     "via_instance": "https://nitter.cz"
   },
   {
@@ -237,6 +327,16 @@
     "text": "we have significantly upgraded both the basic and super models 🤩🤩 we have also made optimizations to improve response speeds by upto 5x can't wait for you all to experience and enjoy the new dippy 📯📯😸 rolling out to everyone today",
     "url": "http://nitter.meowing.monster/dippy_ai/status/2093089771824226802#m",
     "fetched_at": "2026-10-16T02:40:01.762054+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "polychain",
+    "name": "Polychain Capital",
+    "posted_at": "Thu, 25 Jun 2026 16:11:55 GMT",
+    "title": "RT by @polychain: The Missing AI Layer Is Not Security. It's Authority.",
+    "text": "Article The Missing AI Layer Is Not Security. It&apos;s Authority. AI agents are now computer users. They browse websites. They read files. They write code. They call APIs. They log in to accounts. They handle credentials, use tools, and take actions across software",
+    "url": "https://nitter.kareem.one/zherbert/status/2070178183333171395#m",
+    "fetched_at": "2026-10-16T15:53:36.796123+00:00",
     "via_instance": "https://nitter.cz"
   },
   {
@@ -390,6 +490,16 @@
     "via_instance": "https://nitter.cz"
   },
   {
+    "handle": "polychain",
+    "name": "Polychain Capital",
+    "posted_at": "Thu, 13 Aug 2026 13:02:38 GMT",
+    "title": "RT by @polychain: LBTC proved demand for yield-bearing Bitcoin. Today, we double down on that thesis. LBTC is moving to institutional yield. @Bitwise will manage a covered-call options strategy with a 4.5-year legacy track record, to generate LBTC's yield, targeting 2.5% net APY paid in Bitcoin.",
+    "text": "LBTC proved demand for yield-bearing Bitcoin. Today, we double down on that thesis. LBTC is moving to institutional yield. @Bitwise will manage a covered-call options strategy with a 4.5-year legacy track record, to generate LBTC's yield, targeting 2.5% net APY paid in Bitcoin.",
+    "url": "https://nitter.kareem.one/Lombard_Finance/status/2087887552300933626#m",
+    "fetched_at": "2026-10-16T15:53:36.796123+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
     "handle": "galaxyhq",
     "name": "Galaxy Digital",
     "posted_at": "Thu, 08 Oct 2026 21:49:41 GMT",
@@ -417,6 +527,16 @@
     "text": "We are experiencing an issue with our database provider @supabase , so the app &amp; website may be down for a few more hours. We’ll send a notification when we are able to recover and the app is back to normal! Apologies for the inconvenience 😿😿",
     "url": "http://nitter.meowing.monster/dippy_ai/status/2086595242422149540#m",
     "fetched_at": "2026-10-16T02:40:01.762054+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "jon_durbin",
+    "name": "Jon Durbin",
+    "posted_at": "Sat, 10 Oct 2026 12:11:58 GMT",
+    "title": "Amazing work!",
+    "text": "Amazing work! lium.io (@lium_io) new month in review just dropped. +45% spend +16% active users +106% rentals +11% median rental time +20% charged +32% first time renters +15% providers -32% rental failures — https://nitter.kareem.one/lium_io/status/2108799096182223058#m",
+    "url": "https://nitter.kareem.one/jon_durbin/status/2108893300178755657#m",
+    "fetched_at": "2026-10-16T15:54:17.520303+00:00",
     "via_instance": "https://nitter.cz"
   },
   {
@@ -457,6 +577,16 @@
     "text": "“We’re all using Claude. We haven’t all been to space yet.” Galaxy Fintech Fund’s Joe Armao compares the potential Anthropic IPO with SpaceX and discusses how conviction and skepticism shape the way capital markets react. Tomorrow, Oct. 13, Joe will present his investor pitch at the Sohn Investment Conference in San Francisco. Video",
     "url": "https://nitter.kareem.one/galaxyhq/status/2109665505745248553#m",
     "fetched_at": "2026-10-16T08:40:38.853750+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "jon_durbin",
+    "name": "Jon Durbin",
+    "posted_at": "Mon, 12 Oct 2026 14:27:11 GMT",
+    "title": "There are ~two economies: attention and revenue. Focus on whichever you like but if you only pick one, it probably eventually breaks. Free high intelligence = maximum attention (but probably financial/resource crisis), and conversely maximally expensive commodities restricting access rugs the attention eventually and likewise probably leads to collapse. Parallax and the new \"living model\" type system created out of it is perhaps a way to foster both by decreasing prices (run on phone, macbook, spark, whatever) rather than increasing them further (with larger and larger models), and ideally maintaining the intelligence (and boosting creativity/customization via this epigenesis project to prevent too much concentration into any single company/model). Ideally, everyone just brings their own resources to fund the training (sparks + apple + amd) then they own the output forever and can shape it any which way with baking in their own memory/knowledge/rules into the otherwise sparse weights after training.",
+    "text": "There are ~two economies: attention and revenue. Focus on whichever you like but if you only pick one, it probably eventually breaks. Free high intelligence = maximum attention (but probably financial/resource crisis), and conversely maximally expensive commodities restricting access rugs the attention eventually and likewise probably leads to collapse. Parallax and the new \"living model\" type system created out of it is perhaps a way to foster both by decreasing prices (run on phone, macbook, spark, whatever) rather than increasing them further (with larger and larger models), and ideally mai",
+    "url": "https://nitter.kareem.one/jon_durbin/status/2109652105216561403#m",
+    "fetched_at": "2026-10-16T15:54:17.520303+00:00",
     "via_instance": "https://nitter.cz"
   },
   {
@@ -587,6 +717,26 @@
     "text": "Building your model with skills just got easier Isabella Liu (@isabella618033) Such a sweet voice: What's next? Stay tuned🍬 Video — http://nitter.meowing.monster/isabella618033/status/2108592781379715494#m",
     "url": "http://nitter.meowing.monster/shibshib89/status/2108606894982234342#m",
     "fetched_at": "2026-10-16T08:39:48.657598+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "jon_durbin",
+    "name": "Jon Durbin",
+    "posted_at": "Fri, 09 Oct 2026 16:54:53 GMT",
+    "title": "R to @jon_durbin: And yes I realize it's not actually epigenetics and the analogy breaks down a bit, but it sounded fun.",
+    "text": "And yes I realize it's not actually epigenetics and the analogy breaks down a bit, but it sounded fun.",
+    "url": "https://nitter.kareem.one/jon_durbin/status/2108602110657052877#m",
+    "fetched_at": "2026-10-16T15:54:17.520303+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "jon_durbin",
+    "name": "Jon Durbin",
+    "posted_at": "Fri, 09 Oct 2026 16:53:23 GMT",
+    "title": "https://github.com/chutesai/epigenesis Still experimenting, but seems to check out. Smaller, faster, better? Models that grow with you (or your repo, or proprietary company docs, etc.) Short term exact recall is the context window. Context window feeds training continuously, binary optimizer. This becomes stored knowledge and higher order perceptual understanding over time, not just RAG. Sparse MSA global attention already selects most important tokens to attend to in longer context, so you can reinforce those parts more.",
+    "text": "github.com/chutesai/epigenes… Still experimenting, but seems to check out. Smaller, faster, better? Models that grow with you (or your repo, or proprietary company docs, etc.) Short term exact recall is the context window. Context window feeds training continuously, binary optimizer. This becomes stored knowledge and higher order perceptual understanding over time, not just RAG. Sparse MSA global attention already selects most important tokens to attend to in longer context, so you can reinforce those parts more. Jon Durbin (@jon_durbin) There's another magic trick (aka cool math) I believe th",
+    "url": "https://nitter.kareem.one/jon_durbin/status/2108601731030339595#m",
+    "fetched_at": "2026-10-16T15:54:17.520303+00:00",
     "via_instance": "https://nitter.cz"
   },
   {
