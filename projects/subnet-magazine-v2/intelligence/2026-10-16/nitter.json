@@ -1,0 +1,252 @@
+[
+  {
+    "handle": "a16zcrypto",
+    "name": "a16z Crypto",
+    "posted_at": "Wed, 14 Oct 2026 17:48:22 GMT",
+    "title": "Will AI see something a clever human hasn't seen?",
+    "text": "Will AI see something a clever human hasn't seen? Video a16z crypto (@a16zcrypto) AI is getting better at solving hard math problems, especially given recent drops. But what does that mean for the cryptography that protects everything from private messages to healthcare to banking and crypto wallets? Stanford cryptographer Dan Boneh, with @eddylazzarin, @SuccinctJT, @liz_harkavy, and @smc90, makes sense of the warnings sounded recently. They cover: - what’s fact vs. assumption - what’s new and what risks cryptographers have long prepared for - where quantum computing doesn't (and does) fit - o",
+    "url": "http://nitter.meowing.monster/a16zcrypto/status/2110427510399959347#m",
+    "fetched_at": "2026-10-16T02:38:18.570886+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "webuildscore",
+    "name": "Score",
+    "posted_at": "Wed, 14 Oct 2026 15:52:18 GMT",
+    "title": "Pinned: We are ready to build worlds. Currently fire-testing the new incentive mechanism that will get miners to build our first ever generative world model, capturing real physics, long-term consistency, and true interactivity. This is the unreal next chapter for vision AI: from understanding scenes to generating entire, livable realities. This 👇 is a sneak peek of the subnet’s console, where users will be able to create worlds from a single prompt and very soon explore them right in their browsers. This will also 100x our ability to train better vision models by providing unlimited simulated scenarios. 44 we go.",
+    "text": "We are ready to build worlds. Currently fire-testing the new incentive mechanism that will get miners to build our first ever generative world model, capturing real physics, long-term consistency, and true interactivity. This is the unreal next chapter for vision AI: from understanding scenes to generating entire, livable realities. This 👇 is a sneak peek of the subnet’s console, where users will be able to create worlds from a single prompt and very soon explore them right in their browsers. This will also 100x our ability to train better vision models by providing unlimited simulated scenari",
+    "url": "http://nitter.meowing.monster/webuildscore/status/2110398301023658462#m",
+    "fetched_at": "2026-10-16T02:39:01.977138+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "a16zcrypto",
+    "name": "a16z Crypto",
+    "posted_at": "Tue, 13 Oct 2026 21:01:27 GMT",
+    "title": "RT by @a16zcrypto: a16z crypto's Eddy Lazzarin and Stanford's Dan Boneh on how AI's math leap could turn a decade of trust-building in cryptography into one month: Eddy: \"We specifically rely in some sense on time... We put these schemes out and we wait. And we wait because what we believe is happening is that experts, like cryptographers and mathematicians, are testing and trying to break these things.\" \"Because of the pace of progress on AI's mathematical abilities, there is a conspicuous absence of time... A whole new well of cognitive ability to scrutinize has appeared.\" Dan: \"In the past, when someone would make an assumption and build a system based on it, we'd have to wait like 10 years before that system could be deployed.\" \"Now we can just let a model run for a month, try to break it, and if the model can't break it, boy, do we have a lot of confidence that the assumption is valid.\" Eddy: \"The labs can say, 'We took our tip-top, totally unrestricted, most cyber-capable model, and we told it to go absolutely insane, and we spent $20 million, $50 million trying to break this scheme.'\" \"We actually have the prospect to have more confidence in our security than ever before.\" @eddylazzarin @danboneh",
+    "text": "a16z crypto's Eddy Lazzarin and Stanford's Dan Boneh on how AI's math leap could turn a decade of trust-building in cryptography into one month: Eddy: \"We specifically rely in some sense on time... We put these schemes out and we wait. And we wait because what we believe is happening is that experts, like cryptographers and mathematicians, are testing and trying to break these things.\" \"Because of the pace of progress on AI's mathematical abilities, there is a conspicuous absence of time... A whole new well of cognitive ability to scrutinize has appeared.\" Dan: \"In the past, when someone would",
+    "url": "http://nitter.meowing.monster/a16z/status/2110113713487515991#m",
+    "fetched_at": "2026-10-16T02:38:18.570886+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "a16zcrypto",
+    "name": "a16z Crypto",
+    "posted_at": "Tue, 13 Oct 2026 20:59:19 GMT",
+    "title": "AI can’t find an algorithm that doesn’t exist. The worry is we’re wrong about what exists. @liz_harkavy and @SuccinctJT on AI vs. cryptography: \"We generally believe there is no efficient algorithm for these problems. ... And so if there's not one, it doesn't matter how smart the AI is; it cannot find the non-existent algorithm.\"",
+    "text": "AI can’t find an algorithm that doesn’t exist. The worry is we’re wrong about what exists. @liz_harkavy and @SuccinctJT on AI vs. cryptography: \"We generally believe there is no efficient algorithm for these problems. ... And so if there's not one, it doesn't matter how smart the AI is; it cannot find the non-existent algorithm.\" Video a16z crypto (@a16zcrypto) AI is getting better at solving hard math problems, especially given recent drops. But what does that mean for the cryptography that protects everything from private messages to healthcare to banking and crypto wallets? Stanford cryptog",
+    "url": "http://nitter.meowing.monster/a16zcrypto/status/2110113173026332873#m",
+    "fetched_at": "2026-10-16T02:38:18.570886+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "a16zcrypto",
+    "name": "a16z Crypto",
+    "posted_at": "Tue, 13 Oct 2026 17:53:23 GMT",
+    "title": "RT by @a16zcrypto: How Far Crypto Has Come in Washington",
+    "text": "Article How Far Crypto Has Come in Washington I’ve been reading the postmortems on Clarity, and some of the criticism is fair. Clarity is the industry’s biggest legislative priority. We worked hard on it. And it hasn’t passed the Senate. That’s a",
+    "url": "http://nitter.meowing.monster/Collin_McCune/status/2110066382289408283#m",
+    "fetched_at": "2026-10-16T02:38:18.570886+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "a16zcrypto",
+    "name": "a16z Crypto",
+    "posted_at": "Tue, 13 Oct 2026 15:47:00 GMT",
+    "title": "RT by @a16zcrypto: Introducing Underdog x Stripe Shop with Underdog. It finds the best option, saving you money and time. In a local browser, it gets a one-time Link card for the exact amount, and waits for your approval The first on-device Agent Payment in Underdog: Your Private Personal AI",
+    "text": "Introducing Underdog x Stripe Shop with Underdog. It finds the best option, saving you money and time. In a local browser, it gets a one-time Link card for the exact amount, and waits for your approval The first on-device Agent Payment in Underdog: Your Private Personal AI Video",
+    "url": "http://nitter.meowing.monster/UnderdogAI/status/2110034577985323222#m",
+    "fetched_at": "2026-10-16T02:38:18.570886+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "affine_io",
+    "name": "Affine",
+    "posted_at": "Tue, 01 Sep 2026 14:55:14 GMT",
+    "title": "R to @affine_io: Everything you need to compete is public: https://affine.io/llms.txt",
+    "text": "Everything you need to compete is public: affine.io/llms.txt",
+    "url": "https://nitter.kareem.one/affine_io/status/2094801258016370976#m",
+    "fetched_at": "2026-10-16T02:39:51.393504+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "affine_io",
+    "name": "Affine",
+    "posted_at": "Tue, 01 Sep 2026 14:54:37 GMT",
+    "title": "Video",
+    "text": "Video",
+    "url": "https://nitter.kareem.one/affine_io/status/2094801103959540005#m",
+    "fetched_at": "2026-10-16T02:39:51.393504+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "dippy_ai",
+    "name": "Dippy AI",
+    "posted_at": "Thu, 30 Jul 2026 14:34:47 GMT",
+    "title": "RT by @dippy_ai: Excited to have helped @PrunaAI collect 1M+ votes for image preference data in a very short time :~)",
+    "text": "Excited to have helped @PrunaAI collect 1M+ votes for image preference data in a very short time :~) Pruna AI (@PrunaAI) P-Image-Ideogram dominate the speed-quality and price-quality Pareto frontiers for image generation. It is the result of a unique collaboration with @ideogram_ai. - Four modes (Very low, low, medium, high) for 1K-2K image generation. - Optimal quality-efficiency with 0.4s-7.5s latency, and $0.003-$0.03 price. - Structured JSON control & exact color control. Available via our inference partners @Replicate @inference_sh @scenario_gg @wavespeed_ai @wiroai @magnific @prodialabs ",
+    "url": "http://nitter.meowing.monster/datapointai/status/2082837314603032606#m",
+    "fetched_at": "2026-10-16T02:40:01.762054+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "dippy_ai",
+    "name": "Dippy AI",
+    "posted_at": "Thu, 27 Aug 2026 21:34:23 GMT",
+    "title": "we have significantly upgraded both the basic and super models 🤩🤩 we have also made optimizations to improve response speeds by upto 5x can't wait for you all to experience and enjoy the new dippy 📯📯😸 rolling out to everyone today",
+    "text": "we have significantly upgraded both the basic and super models 🤩🤩 we have also made optimizations to improve response speeds by upto 5x can't wait for you all to experience and enjoy the new dippy 📯📯😸 rolling out to everyone today",
+    "url": "http://nitter.meowing.monster/dippy_ai/status/2093089771824226802#m",
+    "fetched_at": "2026-10-16T02:40:01.762054+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "webuildscore",
+    "name": "Score",
+    "posted_at": "Thu, 15 Oct 2026 18:10:32 GMT",
+    "title": "GTA 6 newest trailer looking even cleaner with boxes on",
+    "text": "GTA 6 newest trailer looking even cleaner with boxes on Gyro Zeppeli (@Gyrolens) Been testing the new version of Score Studio and Rockstar just handed me the perfect test footage. Vice City has never been this tracked. Video — http://nitter.meowing.monster/Gyrolens/status/2110788068005617779#m",
+    "url": "http://nitter.meowing.monster/webuildscore/status/2110795474617724998#m",
+    "fetched_at": "2026-10-16T02:39:01.977138+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "webuildscore",
+    "name": "Score",
+    "posted_at": "Thu, 15 Oct 2026 11:14:06 GMT",
+    "title": "Haters will say it’s AI, our detector didn’t ask though. Building your own is about to get a lot easier. More soon.",
+    "text": "Haters will say it’s AI, our detector didn’t ask though. Building your own is about to get a lot easier. More soon. Video",
+    "url": "http://nitter.meowing.monster/webuildscore/status/2110690673917628663#m",
+    "fetched_at": "2026-10-16T02:39:01.977138+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "dippy_ai",
+    "name": "Dippy AI",
+    "posted_at": "Thu, 04 Jun 2026 15:53:04 GMT",
+    "title": "RT by @dippy_ai: Today, we’re opening up Datapoint AI for anyone to use. It is by far the fastest way to understand what your customers want. Type a question. Real people answer. You get a report back in ~10 minutes, not three weeks, and at a fraction of the cost.",
+    "text": "Today, we’re opening up Datapoint AI for anyone to use. It is by far the fastest way to understand what your customers want. Type a question. Real people answer. You get a report back in ~10 minutes, not three weeks, and at a fraction of the cost. Video",
+    "url": "http://nitter.meowing.monster/datapointai/status/2062563294880075837#m",
+    "fetched_at": "2026-10-16T02:40:01.762054+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "dippy_ai",
+    "name": "Dippy AI",
+    "posted_at": "Sun, 09 Aug 2026 23:27:27 GMT",
+    "title": "We are experiencing an issue with our database provider @supabase , so the app & website may be down for a few more hours. We’ll send a notification when we are able to recover and the app is back to normal! Apologies for the inconvenience 😿😿",
+    "text": "We are experiencing an issue with our database provider @supabase , so the app &amp; website may be down for a few more hours. We’ll send a notification when we are able to recover and the app is back to normal! Apologies for the inconvenience 😿😿",
+    "url": "http://nitter.meowing.monster/dippy_ai/status/2086595242422149540#m",
+    "fetched_at": "2026-10-16T02:40:01.762054+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "webuildscore",
+    "name": "Score",
+    "posted_at": "Mon, 12 Oct 2026 20:44:12 GMT",
+    "title": "Don't trust, verify.",
+    "text": "Don't trust, verify. Score (@webuildscore) Article SN44 Winners Report: six new champions, and how close the races really are Every competition on SN44 that existed ten days ago has a new champion today. Two more went live in the meantime. And in seven of the eight, first and second place are separated by less than 0.01. — http://nitter.meowing.monster/webuildscore/status/2109746070557176184#m",
+    "url": "http://nitter.meowing.monster/webuildscore/status/2109746981547774233#m",
+    "fetched_at": "2026-10-16T02:39:01.977138+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "webuildscore",
+    "name": "Score",
+    "posted_at": "Mon, 12 Oct 2026 20:40:35 GMT",
+    "title": "SN44 Winners Report: six new champions, and how close the races really are",
+    "text": "Article SN44 Winners Report: six new champions, and how close the races really are Every competition on SN44 that existed ten days ago has a new champion today. Two more went live in the meantime. And in seven of the eight, first and second place are separated by less than 0.01.",
+    "url": "http://nitter.meowing.monster/webuildscore/status/2109746070557176184#m",
+    "fetched_at": "2026-10-16T02:39:01.977138+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "dippy_ai",
+    "name": "Dippy AI",
+    "posted_at": "Mon, 10 Aug 2026 15:35:59 GMT",
+    "title": "We are FINALLY back online! We deeply apologize for this issue extending nearly 24 hours 🥲 As a token of thanks for your patience, we are REMOVING CHAT LIMITS for the remainder of this month 😻😻 P.S: don't worry, we'll also reinstate your streaks :~)",
+    "text": "We are FINALLY back online! We deeply apologize for this issue extending nearly 24 hours 🥲 As a token of thanks for your patience, we are REMOVING CHAT LIMITS for the remainder of this month 😻😻 P.S: don't worry, we'll also reinstate your streaks :~)",
+    "url": "http://nitter.meowing.monster/dippy_ai/status/2086838981627420847#m",
+    "fetched_at": "2026-10-16T02:40:01.762054+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "affine_io",
+    "name": "Affine",
+    "posted_at": "Mon, 07 Sep 2026 15:31:09 GMT",
+    "title": "A model doesn’t need to be the largest to matter. On Affine, models compete on how well their reasoning supports the next action across code, tool use and math. A winner could put that reasoning to work in products, either directly or alongside a larger model.",
+    "text": "A model doesn’t need to be the largest to matter. On Affine, models compete on how well their reasoning supports the next action across code, tool use and math. A winner could put that reasoning to work in products, either directly or alongside a larger model. Video",
+    "url": "https://nitter.kareem.one/affine_io/status/2096984627059810338#m",
+    "fetched_at": "2026-10-16T02:39:51.393504+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "tm0klc",
+    "name": "Tim",
+    "posted_at": "Mon, 05 Oct 2026 07:00:42 GMT",
+    "title": "R to @tm0klc: Bro just make sure my agents can use it Accessibility has taken on a new meaning",
+    "text": "Bro just make sure my agents can use it Accessibility has taken on a new meaning",
+    "url": "http://nitter.meowing.monster/tm0klc/status/2107003027576225971#m",
+    "fetched_at": "2026-10-16T02:39:09.349832+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "tm0klc",
+    "name": "Tim",
+    "posted_at": "Mon, 05 Oct 2026 06:59:24 GMT",
+    "title": "R to @tm0klc: every website now feels like a little escape room someone built for some tasks believing it was logical or easy to use",
+    "text": "every website now feels like a little escape room someone built for some tasks believing it was logical or easy to use",
+    "url": "http://nitter.meowing.monster/tm0klc/status/2107002700340879465#m",
+    "fetched_at": "2026-10-16T02:39:09.349832+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "tm0klc",
+    "name": "Tim",
+    "posted_at": "Mon, 05 Oct 2026 06:53:05 GMT",
+    "title": "the bar used to be \"is the UI intuitive.\" now it's \"why am I looking at a UI\"",
+    "text": "the bar used to be \"is the UI intuitive.\" now it's \"why am I looking at a UI\"",
+    "url": "http://nitter.meowing.monster/tm0klc/status/2107001110502547573#m",
+    "fetched_at": "2026-10-16T02:39:09.349832+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "affine_io",
+    "name": "Affine",
+    "posted_at": "Fri, 28 Aug 2026 18:11:13 GMT",
+    "title": "United against the divided. Intelligence knows neither borders nor color. Uphold the torch with us to bring light where it is needed most. Open reasoning for humanity. Join the thousand-year intelligence federation. https://affine.io",
+    "text": "United against the divided. Intelligence knows neither borders nor color. Uphold the torch with us to bring light where it is needed most. Open reasoning for humanity. Join the thousand-year intelligence federation. affine.io scouτ (@scoutesy) The same way neutron stars form gold through merging, affine orchestrates reasoning through open collaboration. Unus pro omnibus, omnes pro uno. Tao of a million symmetries. Video — https://nitter.kareem.one/scoutesy/status/2093400328062296312#m",
+    "url": "https://nitter.kareem.one/affine_io/status/2093401028763013596#m",
+    "fetched_at": "2026-10-16T02:39:51.393504+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "tm0klc",
+    "name": "Tim",
+    "posted_at": "Fri, 21 Aug 2026 09:52:47 GMT",
+    "title": "RT by @tm0klc: I have now made 5 Omarchy plugins that I use every day! Check them out here: https://omarchyplugins.com/?author=crmne&sort=stars#catalog",
+    "text": "I have now made 5 Omarchy plugins that I use every day! Check them out here: omarchyplugins.com/?author=c…",
+    "url": "http://nitter.meowing.monster/paolino/status/2090738880106377257#m",
+    "fetched_at": "2026-10-16T02:39:09.349832+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "tm0klc",
+    "name": "Tim",
+    "posted_at": "Fri, 21 Aug 2026 01:23:54 GMT",
+    "title": "Computer vision, decentralised",
+    "text": "Computer vision, decentralised Score (@webuildscore) Computer vision engineers are still duct-taping tools together just to get a model into production. We just finished another round of user interviews and that frustration came up again and again. So we re-designed Studio to work around our new Pipelines + Workflow Canvas features. Visually design any vision pipeline from start to finish, connect models, logic, and outputs on one canvas, preview the exact result, then deploy. You see the output before you ship it. Everything in a single interface. The full loop, shaped by the people who actua",
+    "url": "http://nitter.meowing.monster/tm0klc/status/2090610814449570047#m",
+    "fetched_at": "2026-10-16T02:39:09.349832+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "affine_io",
+    "name": "Affine",
+    "posted_at": "Fri, 04 Sep 2026 18:08:51 GMT",
+    "title": "Affine submissions are now private, so miners can compete without exposing their weights to competitors. Crowned models still go public. Losing checkpoints will be published later, so anyone can independently recompute every duel verdict.",
+    "text": "Affine submissions are now private, so miners can compete without exposing their weights to competitors. Crowned models still go public. Losing checkpoints will be published later, so anyone can independently recompute every duel verdict. Video",
+    "url": "https://nitter.kareem.one/affine_io/status/2095937147320844533#m",
+    "fetched_at": "2026-10-16T02:39:51.393504+00:00",
+    "via_instance": "https://nitter.cz"
+  }
+]
