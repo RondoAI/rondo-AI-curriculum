@@ -470,6 +470,16 @@
     "via_instance": "https://nitter.cz"
   },
   {
+    "handle": "a16zcrypto",
+    "name": "a16z Crypto",
+    "posted_at": "Thu, 15 Oct 2026 15:54:55 GMT",
+    "title": "RT by @a16zcrypto: The wallet wars are here. Very Good Security chief strategy officer Terry Angelos joins a16z's Alex Rampell, his TrialPay co-founder from back in 2006 (TrialPay was later acquired by Visa), to discuss how agents are learning to spend money. \"Agents have all of a sudden become significantly more helpful and useful because they effectively have arms and legs, which are payment credentials.\" VGS holds the payment credentials behind about 1/3 of all e-commerce, and now it's helping AI agents pay merchants. If you've bought anything online, there's a good chance VGS has already helped keep your card safe. In the last three months, Terry says agents went from \"spectators to actors.\" Once an agent has your payment credentials, it can book the piano teacher it previously could only find and recommend. Now Stripe's Link, Shopify's Shop Pay, and PayPal are racing to connect to agents. It's all headed toward open standards from the card networks: agentic tokens that let an agent pay with your actual card. VGS went from zero agentic tokens to a few million a week in three months. 0:55 From TrialPay to Visa to VGS 2:05 How VGS vaults 1/3 of e-commerce 6:05 Why big merchants use 3-5 processors 9:55 Why AI agents need a payment vault 12:15 Agents go from \"spectators to actors\" 13:40 The wallet wars, old and new 19:55 Walled gardens vs open standards 23:55 How agents can pay with your real card 26:40 Your saved card goes multiplayer 29:40 How do you trust an agent's purchase? 32:35 Who pays when your agent gets it wrong 35:40 Why Amazon blocks agents 39:50 What's overhyped and underhyped 43:35 When merchants get agents too 45:40 Why agents could break card rewards 47:00 VGS's eras: vault, updates, network @terryangelos @arampell",
+    "text": "The wallet wars are here. Very Good Security chief strategy officer Terry Angelos joins a16z's Alex Rampell, his TrialPay co-founder from back in 2006 (TrialPay was later acquired by Visa), to discuss how agents are learning to spend money. \"Agents have all of a sudden become significantly more helpful and useful because they effectively have arms and legs, which are payment credentials.\" VGS holds the payment credentials behind about 1/3 of all e-commerce, and now it's helping AI agents pay merchants. If you've bought anything online, there's a good chance VGS has already helped keep your car",
+    "url": "https://nitter.kareem.one/a16z/status/2110761347277611377#m",
+    "fetched_at": "2026-10-16T22:23:23.025059+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
     "handle": "rob_svrn",
     "name": "Rob Greer",
     "posted_at": "Thu, 15 Oct 2026 15:49:21 GMT",
@@ -837,6 +847,46 @@
     "text": "Computer vision, decentralised Score (@webuildscore) Computer vision engineers are still duct-taping tools together just to get a model into production. We just finished another round of user interviews and that frustration came up again and again. So we re-designed Studio to work around our new Pipelines + Workflow Canvas features. Visually design any vision pipeline from start to finish, connect models, logic, and outputs on one canvas, preview the exact result, then deploy. You see the output before you ship it. Everything in a single interface. The full loop, shaped by the people who actua",
     "url": "https://nitter.kareem.one/tm0klc/status/2090610814449570047#m",
     "fetched_at": "2026-10-16T19:11:51.887778+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "a16zcrypto",
+    "name": "a16z Crypto",
+    "posted_at": "Fri, 16 Oct 2026 17:31:12 GMT",
+    "title": "R to @a16zcrypto: Read the full piece 👇 https://a16zcrypto.com/posts/article/fast-post-quantum-signature-aggregation-with-lattice-snarks",
+    "text": "Read the full piece 👇 a16zcrypto.com/posts/article… Link Fast post-quantum signature aggregation with lattice SNARKs - a16z crypto No known post-quantum signature scheme aggregates like BLS signatures. Post-quantum signatures are also 10-100 times larger than today’s elliptic-curve signatures — limiting throughput and raising... a16zcrypto.com",
+    "url": "https://nitter.kareem.one/a16zcrypto/status/2111147965444419909#m",
+    "fetched_at": "2026-10-16T22:23:23.025059+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "a16zcrypto",
+    "name": "a16z Crypto",
+    "posted_at": "Fri, 16 Oct 2026 17:12:55 GMT",
+    "title": "Post-quantum signatures are 10 to 100x bigger than today's. Aerie shrinks them back down.",
+    "text": "Post-quantum signatures are 10 to 100x bigger than today's. Aerie shrinks them back down.",
+    "url": "https://nitter.kareem.one/a16zcrypto/status/2111143364775252291#m",
+    "fetched_at": "2026-10-16T22:23:23.025059+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "a16zcrypto",
+    "name": "a16z Crypto",
+    "posted_at": "Fri, 16 Oct 2026 16:56:24 GMT",
+    "title": "RT by @a16zcrypto: This is a Big Deal, for blockchains and for post-quantum cryptography writ large. We hope Aerie will change some minds in the space about the post-quantum landscape. Phenomenal work by @zk_albi @QuangVDao @_taghi and @SuccinctJT!",
+    "text": "This is a Big Deal, for blockchains and for post-quantum cryptography writ large. We hope Aerie will change some minds in the space about the post-quantum landscape. Phenomenal work by @zk_albi @QuangVDao @_taghi and @SuccinctJT! Justin Thaler (@SuccinctJT) 1/ Today we’re releasing Aerie: fast post-quantum signature aggregation, using lattice-based SNARKs for lattice-based Falcon signatures. On a laptop (CPU only), it aggregates roughly a full Ethereum slot’s worth of signatures (32,768) in 0.65 seconds. — https://nitter.kareem.one/SuccinctJT/status/2111136119593082925#m",
+    "url": "https://nitter.kareem.one/moodlezoup/status/2111139206957609054#m",
+    "fetched_at": "2026-10-16T22:23:23.025059+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "a16zcrypto",
+    "name": "a16z Crypto",
+    "posted_at": "Fri, 16 Oct 2026 16:44:08 GMT",
+    "title": "RT by @a16zcrypto: 1/ Today we’re releasing Aerie: fast post-quantum signature aggregation, using lattice-based SNARKs for lattice-based Falcon signatures. On a laptop (CPU only), it aggregates roughly a full Ethereum slot’s worth of signatures (32,768) in 0.65 seconds.",
+    "text": "1/ Today we’re releasing Aerie: fast post-quantum signature aggregation, using lattice-based SNARKs for lattice-based Falcon signatures. On a laptop (CPU only), it aggregates roughly a full Ethereum slot’s worth of signatures (32,768) in 0.65 seconds.",
+    "url": "https://nitter.kareem.one/SuccinctJT/status/2111136119593082925#m",
+    "fetched_at": "2026-10-16T22:23:23.025059+00:00",
     "via_instance": "https://nitter.cz"
   },
   {

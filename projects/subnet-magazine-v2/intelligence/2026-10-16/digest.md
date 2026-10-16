@@ -134,6 +134,16 @@ _Robot Models, Silicon & DRAM Efficiency, Jetson Thor vs. B300 TCO, Deployments,
 
 ## ⊕ GITHUB COMMITS + RELEASES, last 24h
 
+- **Subtensor (chain)** (COMMIT `6a97269`, 2026-10-16 21:46) Merge pull request #3264 from RaoFoundation/cursor/etao-root-off-top-5107  
+  https://github.com/RaoFoundation/subtensor/commit/6a972693ae9580541225bd37696ac2fee26b8ae9
+- **Subtensor (chain)** (COMMIT `75a4a73`, 2026-10-16 21:18) etao: compare the validator floor in u64 parts so chain and SDK agree  
+  https://github.com/RaoFoundation/subtensor/commit/75a4a73bac2693c9c4e8693db5bcd8ecb8f7e4c9
+- **Subtensor (chain)** (COMMIT `85baf6a`, 2026-10-16 20:29) docs/website: etao release notes describe root off the top (spec 481)  
+  https://github.com/RaoFoundation/subtensor/commit/85baf6abc653f772184af9d7e3697c2171597051
+- **Subtensor (chain)** (COMMIT `2471f6d`, 2026-10-16 20:29) sdk/btcli: root baseline share and validator floor replace effective_tao_weight  
+  https://github.com/RaoFoundation/subtensor/commit/2471f6d7ec7e991b6add48d02b48a3070bbc3314
+- **Subtensor (chain)** (COMMIT `bb845ca`, 2026-10-16 20:29) etao: pay root its live baseline share off the top every block (spec 481)  
+  https://github.com/RaoFoundation/subtensor/commit/bb845ca1b975065be587630f5d529440ba132703
 - **Subtensor (chain)** (COMMIT `7ba9601`, 2026-10-15 20:53) etao: per-subnet emission weights (spec 480)  
   https://github.com/RaoFoundation/subtensor/commit/7ba9601d81d2cb5d61317cb120667f6a6bcb9a6f
 - **Subtensor (chain)** (COMMIT `2661cbb`, 2026-10-15 20:30) Merge origin/main (release-479) into cursor/etao-5107  
@@ -243,13 +253,13 @@ _no new posts in the lookback window_
   http://nitter.meowing.monster/webuildscore/status/2110795474617724998#m
 - @jtledore (Jean-Thomas Ledoré, Thu, 15 Oct 2026): Bittensor recently released Null Consensus, a major protocol update expanding subnet capacity from 256 to 2,500 participants. It introduces a new way to determine miner rewards, giving subnet owners an alternative to Yuma Consensus. Video  
   https://nitter.kareem.one/opentensor/status/2110775067722539092#m
+- @a16zcrypto (a16z Crypto, Thu, 15 Oct 2026): The wallet wars are here. Very Good Security chief strategy officer Terry Angelos joins a16z's Alex Rampell, his TrialPay co-founder from back in 2006 (TrialPay was later acquired by Visa), to discuss how agents are learning to spend money. "Agents have all of a sudden become significantly more helpful and useful because they effectively have arms and legs, which are payment credentials." VGS holds the payment credentials behind about 1/3 of all e-commerce, and now it's helping AI agents pay merchants. If you've bought anything online, there's a good chance VGS has already helped keep your car  
+  https://nitter.kareem.one/a16z/status/2110761347277611377#m
 - @rob_svrn (Rob Greer, Thu, 15 Oct 2026): We've developed a new inference engine, called 'e'. It's the closest thing to alien technology which we have, and pushes 10,500 tok/s aggregate on a single DGX Station with the new @NVIDIAAI Nemotron 3.5 Super VL model, released a few minutes ago. Actual Computer (@actualinc) Actual Computer turns your NVIDIA DGX Station into a department-scale AI factory. Read the full case study: actual.inc/company/blog/case… Link Actual Computer › Case Study : GB300 and Nemotron 3.5 Super VL Department-scale AI from one NVIDIA DGX Station: Nemotron 3.5 Super VL at 8,000+ tokens per second, shared by your wh  
   https://nitter.kareem.one/somewheresy/status/2110759944370692216#m
 - @rob_svrn (Rob Greer, Thu, 15 Oct 2026): Actual Computer turns your NVIDIA DGX Station into a department-scale AI factory. Read the full case study: actual.inc/company/blog/case… Link Actual Computer › Case Study : GB300 and Nemotron 3.5 Super VL Department-scale AI from one NVIDIA DGX Station: Nemotron 3.5 Super VL at 8,000+ tokens per second, shared by your whole team through api.actual.inc. actual.inc  
   https://nitter.kareem.one/actualinc/status/2110759623435117020#m
-- @BarrySilbert (Barry Silbert, Thu, 15 Oct 2026): Big milestone: Fortitude crossed 5 GSol/s of Zcash hashrate The team is focused on its vision to build the largest $ZEC mining platform $HSCS Fortitude (@FortitudeCrypto) Fortitude has surpassed 5.0 GSol/s of Equihash hashrate, representing a meaningful share of Zcash network mining capacity. As Fortitude continues to scale, the Company remains focused on its vision to build the largest vertically-integrated Zcash mining platform. $ZEC $HSCS See important additional information here: fortitudemining.com/disclaim… Video — http://nitter.meowing.monster/FortitudeCrypto/status/2110703573340463477#  
-  http://nitter.meowing.monster/BarrySilbert/status/2110743550539231354#m
 
 
 ---
-_Generated at 2026-10-16T19:13:07.733091+00:00 by scripts/intel/aggregate.py. Treat this digest as input context, not as ground truth. Verify before quoting._
+_Generated at 2026-10-16T22:25:20.489100+00:00 by scripts/intel/aggregate.py. Treat this digest as input context, not as ground truth. Verify before quoting._
