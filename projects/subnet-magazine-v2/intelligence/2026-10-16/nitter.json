@@ -80,6 +80,16 @@
     "via_instance": "https://nitter.cz"
   },
   {
+    "handle": "jtledore",
+    "name": "Jean-Thomas Ledoré",
+    "posted_at": "Wed, 14 Oct 2026 21:09:55 GMT",
+    "title": "RT by @jtledore: We said cheaper storage was on Bittensor. @Hippius_cloud beats AWS, Google Cloud, R2, Wasabi and Backblaze on price at every size tested.",
+    "text": "We said cheaper storage was on Bittensor. @Hippius_cloud beats AWS, Google Cloud, R2, Wasabi and Backblaze on price at every size tested. Hippius (@Hippius_cloud) We compared monthly storage bills across six providers. Hippius S3 came out cheapest at every size. And that’s storage alone. AWS and Google Cloud also charge you to download your own data. Hippius S3 has no egress fees and unlimited requests on every plan. — https://nitter.kareem.one/Hippius_cloud/status/2110294540833935512#m",
+    "url": "https://nitter.kareem.one/opentensor/status/2110478228888695156#m",
+    "fetched_at": "2026-10-16T19:12:02.138421+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
     "handle": "galaxyhq",
     "name": "Galaxy Digital",
     "posted_at": "Wed, 14 Oct 2026 18:00:03 GMT",
@@ -270,6 +280,16 @@
     "via_instance": "https://nitter.cz"
   },
   {
+    "handle": "jtledore",
+    "name": "Jean-Thomas Ledoré",
+    "posted_at": "Tue, 13 Oct 2026 10:52:56 GMT",
+    "title": "RT by @jtledore: Missed a subnet pump and waiting for a pullback? Set a limit buy on Taoswap at your target price in just a few clicks. If the price comes back to your level, your order can execute automatically without you having to watch the chart.",
+    "text": "Missed a subnet pump and waiting for a pullback? Set a limit buy on Taoswap at your target price in just a few clicks. If the price comes back to your level, your order can execute automatically without you having to watch the chart. Video",
+    "url": "https://nitter.kareem.one/taoswap_org/status/2109960573530063147#m",
+    "fetched_at": "2026-10-16T19:12:02.138421+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
     "handle": "TargonCompute",
     "name": "Targon",
     "posted_at": "Tue, 06 Oct 2026 22:33:41 GMT",
@@ -330,6 +350,16 @@
     "via_instance": "https://nitter.cz"
   },
   {
+    "handle": "_redteam_",
+    "name": "RedTeam / Innerworks",
+    "posted_at": "Thu, 27 Aug 2026 20:59:36 GMT",
+    "title": "The Immune System for the Internet. Releasing next month.",
+    "text": "The Immune System for the Internet. Releasing next month. Oscar Hayek (@oscar_hayek) Defence in this era must be AI driven, the absolute baseline is adapting defences faster than attacks are being produced. Anything slower than this leaves you in a constant state of degradation. What we’ve built on @_redteam_ is an immune system for this problem. The attacks we ingest are evolved inside the system into complete novel vectors that cannot be produced anywhere else. Every one of these gets patched before an external attacker has the means/ability to create it, let alone release it. bittensor:nati",
+    "url": "https://nitter.kareem.one/_redteam_/status/2093081017145847826#m",
+    "fetched_at": "2026-10-16T19:12:10.667565+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
     "handle": "polychain",
     "name": "Polychain Capital",
     "posted_at": "Thu, 25 Jun 2026 16:11:55 GMT",
@@ -347,6 +377,16 @@
     "text": "Choose your fighter. 21M supply. Fair launch. Open network. bittensor:native $ZEC $BTC",
     "url": "http://nitter.meowing.monster/YumaGroup/status/2103148514670989783#m",
     "fetched_at": "2026-10-16T08:40:07.862869+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "Olaf",
+    "name": "Olaf Carlson-Wee",
+    "posted_at": "Thu, 19 Aug 2010 19:44:32 GMT",
+    "title": "lekker biertje drinken bij Dims!",
+    "text": "lekker biertje drinken bij Dims!",
+    "url": "http://nitter.meowing.monster/olaf/status/21602951308#m",
+    "fetched_at": "2026-10-16T19:10:53.727939+00:00",
     "via_instance": "https://nitter.cz"
   },
   {
@@ -420,6 +460,16 @@
     "via_instance": "https://nitter.cz"
   },
   {
+    "handle": "jtledore",
+    "name": "Jean-Thomas Ledoré",
+    "posted_at": "Thu, 15 Oct 2026 16:49:27 GMT",
+    "title": "RT by @jtledore: Bittensor recently released Null Consensus, a major protocol update expanding subnet capacity from 256 to 2,500 participants. It introduces a new way to determine miner rewards, giving subnet owners an alternative to Yuma Consensus.",
+    "text": "Bittensor recently released Null Consensus, a major protocol update expanding subnet capacity from 256 to 2,500 participants. It introduces a new way to determine miner rewards, giving subnet owners an alternative to Yuma Consensus. Video",
+    "url": "https://nitter.kareem.one/opentensor/status/2110775067722539092#m",
+    "fetched_at": "2026-10-16T19:12:02.138421+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
     "handle": "rob_svrn",
     "name": "Rob Greer",
     "posted_at": "Thu, 15 Oct 2026 15:49:21 GMT",
@@ -447,6 +497,16 @@
     "text": "Big milestone: Fortitude crossed 5 GSol/s of Zcash hashrate The team is focused on its vision to build the largest $ZEC mining platform $HSCS Fortitude (@FortitudeCrypto) Fortitude has surpassed 5.0 GSol/s of Equihash hashrate, representing a meaningful share of Zcash network mining capacity. As Fortitude continues to scale, the Company remains focused on its vision to build the largest vertically-integrated Zcash mining platform. $ZEC $HSCS See important additional information here: fortitudemining.com/disclaim… Video — http://nitter.meowing.monster/FortitudeCrypto/status/2110703573340463477#",
     "url": "http://nitter.meowing.monster/BarrySilbert/status/2110743550539231354#m",
     "fetched_at": "2026-10-16T08:40:07.862869+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "jtledore",
+    "name": "Jean-Thomas Ledoré",
+    "posted_at": "Thu, 15 Oct 2026 14:37:54 GMT",
+    "title": "RT by @jtledore: Open robotics is bringing Bittensor and @peaq together. @openroboto (Subnet 80) now uses peaqOS to link robot training footage to capture devices with verifiable identities on @solana.",
+    "text": "Open robotics is bringing Bittensor and @peaq together. @openroboto (Subnet 80) now uses peaqOS to link robot training footage to capture devices with verifiable identities on @solana. peaq (@peaq) Robot training data is becoming valuable enough to fake Every data collector from @openroboto, the largest robotics subnet on Bittensor (@opentensor), now runs peaqOS on the Pro tier 30 are live, each with its own identity anchored on @solana, and every future one will be too — https://nitter.kareem.one/peaq/status/2110733962565869854#m",
+    "url": "https://nitter.kareem.one/opentensor/status/2110741962068533595#m",
+    "fetched_at": "2026-10-16T19:12:02.138421+00:00",
     "via_instance": "https://nitter.cz"
   },
   {
@@ -500,6 +560,16 @@
     "via_instance": "https://nitter.cz"
   },
   {
+    "handle": "_redteam_",
+    "name": "RedTeam / Innerworks",
+    "posted_at": "Thu, 10 Sep 2026 22:06:58 GMT",
+    "title": "RT by @_redteam_: I am pleased to announce that Stillcore Capital @stillcorecap has invested in Red Team @_redteam_ Bittensor $TAO Subnet 61.",
+    "text": "I am pleased to announce that Stillcore Capital @stillcorecap has invested in Red Team @_redteam_ Bittensor $TAO Subnet 61.",
+    "url": "https://nitter.kareem.one/markjeffrey/status/2098171401152971021#m",
+    "fetched_at": "2026-10-16T19:12:10.667565+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
     "handle": "galaxyhq",
     "name": "Galaxy Digital",
     "posted_at": "Thu, 08 Oct 2026 21:49:41 GMT",
@@ -517,6 +587,16 @@
     "text": "Today, we’re opening up Datapoint AI for anyone to use. It is by far the fastest way to understand what your customers want. Type a question. Real people answer. You get a report back in ~10 minutes, not three weeks, and at a fraction of the cost. Video",
     "url": "http://nitter.meowing.monster/datapointai/status/2062563294880075837#m",
     "fetched_at": "2026-10-16T02:40:01.762054+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "Olaf",
+    "name": "Olaf Carlson-Wee",
+    "posted_at": "Sun, 10 Jul 2011 15:44:18 GMT",
+    "title": "RT @timmerarjan Life is good! http://yfrog.com/kkli4iaj zeker !! Wel tof dat je het deelt met je vrienden :)",
+    "text": "RT @timmerarjan Life is good! yfrog.com/kkli4iaj zeker !! Wel tof dat je het deelt met je vrienden :)",
+    "url": "http://nitter.meowing.monster/olaf/status/90083936700600321#m",
+    "fetched_at": "2026-10-16T19:10:53.727939+00:00",
     "via_instance": "https://nitter.cz"
   },
   {
@@ -540,6 +620,16 @@
     "via_instance": "https://nitter.cz"
   },
   {
+    "handle": "jtledore",
+    "name": "Jean-Thomas Ledoré",
+    "posted_at": "Sat, 09 Jun 2018 22:29:50 GMT",
+    "title": "RT by @jtledore: SpaceX option package for new Tesla Roadster will include ~10 small rocket thrusters arranged seamlessly around car. These rocket engines dramatically improve acceleration, top speed, braking & cornering. Maybe they will even allow a Tesla to fly …",
+    "text": "SpaceX option package for new Tesla Roadster will include ~10 small rocket thrusters arranged seamlessly around car. These rocket engines dramatically improve acceleration, top speed, braking &amp; cornering. Maybe they will even allow a Tesla to fly …",
+    "url": "https://nitter.kareem.one/elonmusk/status/1005577738332172289#m",
+    "fetched_at": "2026-10-16T19:12:02.138421+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
     "handle": "shibshib89",
     "name": "Ala Shaabana",
     "posted_at": "Mon, 28 Sep 2026 21:28:06 GMT",
@@ -547,6 +637,16 @@
     "text": "Bittensor and Baguettes is ready for her interviews @ExploitSummit. See what subnets we’re chatting about soon!",
     "url": "http://nitter.meowing.monster/CrucibleLabs/status/2104684600291180752#m",
     "fetched_at": "2026-10-16T08:39:48.657598+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "_redteam_",
+    "name": "RedTeam / Innerworks",
+    "posted_at": "Mon, 28 Sep 2026 18:43:14 GMT",
+    "title": "\"We're not afraid of hyper-intelligent bot swarms on the internet. We use them to optimise our technology.\" When we launched RedTeam almost two years ago we could clearly see where the internet was heading. We've since seen clients with over 90% of their traffic made up of not just automation but highly intelligent bot swarms, capable of bypassing any traditional detection mechanism. The only way to combat a threat like this is to welcome it and learn from it. By constantly ingesting and evolving attack vectors from a hive mind of miners, a Bittensor powered defence has now become the only reliable source of protection on the internet.",
+    "text": "\"We're not afraid of hyper-intelligent bot swarms on the internet. We use them to optimise our technology.\" When we launched RedTeam almost two years ago we could clearly see where the internet was heading. We've since seen clients with over 90% of their traffic made up of not just automation but highly intelligent bot swarms, capable of bypassing any traditional detection mechanism. The only way to combat a threat like this is to welcome it and learn from it. By constantly ingesting and evolving attack vectors from a hive mind of miners, a Bittensor powered defence has now become the only rel",
+    "url": "https://nitter.kareem.one/_redteam_/status/2104643110911533312#m",
+    "fetched_at": "2026-10-16T19:12:10.667565+00:00",
     "via_instance": "https://nitter.cz"
   },
   {
@@ -600,6 +700,16 @@
     "via_instance": "https://nitter.cz"
   },
   {
+    "handle": "_redteam_",
+    "name": "RedTeam / Innerworks",
+    "posted_at": "Mon, 07 Sep 2026 18:05:06 GMT",
+    "title": "Join us this Thursday to discuss all things RedTeam",
+    "text": "Join us this Thursday to discuss all things RedTeam Openτensor Foundaτion (@opentensor) Novelty Search :: Subnet 61 :: @_redteam_ RedTeam turns Bittensor miners into a 24/7 network of ethical hackers. We’ll discuss how SN61 uses that competition to stay ahead of evolving bot attacks, its five new enterprise pilots, and what comes next with RedTeam’s upcoming Immune System. Live on Thursday :: 9PM UTC :: on X + YouTube Hosted by @const_reborn — https://nitter.kareem.one/opentensor/status/2097022237337682320#m",
+    "url": "https://nitter.kareem.one/_redteam_/status/2097023368629191078#m",
+    "fetched_at": "2026-10-16T19:12:10.667565+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
     "handle": "affine_io",
     "name": "Affine",
     "posted_at": "Mon, 07 Sep 2026 15:31:09 GMT",
@@ -632,6 +742,16 @@
   {
     "handle": "tm0klc",
     "name": "Tim",
+    "posted_at": "Mon, 05 Oct 2026 07:00:42 GMT",
+    "title": "R to @tm0klc: Bro just make sure my agents can use it Accessibility has taken on a new meaning",
+    "text": "Bro just make sure my agents can use it Accessibility has taken on a new meaning",
+    "url": "https://nitter.kareem.one/tm0klc/status/2107003027576225971#m",
+    "fetched_at": "2026-10-16T19:11:51.887778+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "tm0klc",
+    "name": "Tim",
     "posted_at": "Mon, 05 Oct 2026 06:59:24 GMT",
     "title": "R to @tm0klc: every website now feels like a little escape room someone built for some tasks believing it was logical or easy to use",
     "text": "every website now feels like a little escape room someone built for some tasks believing it was logical or easy to use",
@@ -642,11 +762,31 @@
   {
     "handle": "tm0klc",
     "name": "Tim",
+    "posted_at": "Mon, 05 Oct 2026 06:59:24 GMT",
+    "title": "R to @tm0klc: every website now feels like a little escape room someone built for some tasks believing it was logical or easy to use",
+    "text": "every website now feels like a little escape room someone built for some tasks believing it was logical or easy to use",
+    "url": "https://nitter.kareem.one/tm0klc/status/2107002700340879465#m",
+    "fetched_at": "2026-10-16T19:11:51.887778+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "tm0klc",
+    "name": "Tim",
     "posted_at": "Mon, 05 Oct 2026 06:53:05 GMT",
     "title": "the bar used to be \"is the UI intuitive.\" now it's \"why am I looking at a UI\"",
     "text": "the bar used to be \"is the UI intuitive.\" now it's \"why am I looking at a UI\"",
     "url": "http://nitter.meowing.monster/tm0klc/status/2107001110502547573#m",
     "fetched_at": "2026-10-16T02:39:09.349832+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "tm0klc",
+    "name": "Tim",
+    "posted_at": "Mon, 05 Oct 2026 06:53:05 GMT",
+    "title": "the bar used to be \"is the UI intuitive.\" now it's \"why am I looking at a UI\"",
+    "text": "the bar used to be \"is the UI intuitive.\" now it's \"why am I looking at a UI\"",
+    "url": "https://nitter.kareem.one/tm0klc/status/2107001110502547573#m",
+    "fetched_at": "2026-10-16T19:11:51.887778+00:00",
     "via_instance": "https://nitter.cz"
   },
   {
@@ -672,11 +812,31 @@
   {
     "handle": "tm0klc",
     "name": "Tim",
+    "posted_at": "Fri, 21 Aug 2026 09:52:47 GMT",
+    "title": "RT by @tm0klc: I have now made 5 Omarchy plugins that I use every day! Check them out here: https://omarchyplugins.com/?author=crmne&sort=stars#catalog",
+    "text": "I have now made 5 Omarchy plugins that I use every day! Check them out here: omarchyplugins.com/?author=c…",
+    "url": "https://nitter.kareem.one/paolino/status/2090738880106377257#m",
+    "fetched_at": "2026-10-16T19:11:51.887778+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "tm0klc",
+    "name": "Tim",
     "posted_at": "Fri, 21 Aug 2026 01:23:54 GMT",
     "title": "Computer vision, decentralised",
     "text": "Computer vision, decentralised Score (@webuildscore) Computer vision engineers are still duct-taping tools together just to get a model into production. We just finished another round of user interviews and that frustration came up again and again. So we re-designed Studio to work around our new Pipelines + Workflow Canvas features. Visually design any vision pipeline from start to finish, connect models, logic, and outputs on one canvas, preview the exact result, then deploy. You see the output before you ship it. Everything in a single interface. The full loop, shaped by the people who actua",
     "url": "http://nitter.meowing.monster/tm0klc/status/2090610814449570047#m",
     "fetched_at": "2026-10-16T02:39:09.349832+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "tm0klc",
+    "name": "Tim",
+    "posted_at": "Fri, 21 Aug 2026 01:23:54 GMT",
+    "title": "Computer vision, decentralised",
+    "text": "Computer vision, decentralised Score (@webuildscore) Computer vision engineers are still duct-taping tools together just to get a model into production. We just finished another round of user interviews and that frustration came up again and again. So we re-designed Studio to work around our new Pipelines + Workflow Canvas features. Visually design any vision pipeline from start to finish, connect models, logic, and outputs on one canvas, preview the exact result, then deploy. You see the output before you ship it. Everything in a single interface. The full loop, shaped by the people who actua",
+    "url": "https://nitter.kareem.one/tm0klc/status/2090610814449570047#m",
+    "fetched_at": "2026-10-16T19:11:51.887778+00:00",
     "via_instance": "https://nitter.cz"
   },
   {
@@ -697,6 +857,16 @@
     "text": "Lost an account to a daily loss limit you didn't see coming? On Vanta it's one number: 5% below your start-of-day equity, reset every UTC day. Published in full before you pay. vantatrading.io/rules",
     "url": "https://nitter.kareem.one/VantaTrading/status/2110913787947843977#m",
     "fetched_at": "2026-10-16T08:41:43.696855+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "_redteam_",
+    "name": "RedTeam / Innerworks",
+    "posted_at": "Fri, 11 Sep 2026 17:52:15 GMT",
+    "title": "The future of cybersecurity will be dictated by a defender's ability to not only ingest unique attacks, but generate the strains that don't exist yet and ship the detection ahead of them. As the rest of the industry degrades, the largest financial institutions will consolidate on the single provider that can do this at scale. That provider needs a constant supply of unique attacks to work from, and a subnet is the only structure that pays a swarm of attackers to supply them. bittensor:native #SN61",
+    "text": "The future of cybersecurity will be dictated by a defender's ability to not only ingest unique attacks, but generate the strains that don't exist yet and ship the detection ahead of them. As the rest of the industry degrades, the largest financial institutions will consolidate on the single provider that can do this at scale. That provider needs a constant supply of unique attacks to work from, and a subnet is the only structure that pays a swarm of attackers to supply them. bittensor:native #SN61 Openτensor Foundaτion (@opentensor) RedTeam is working toward integrations with three banking com",
+    "url": "https://nitter.kareem.one/_redteam_/status/2098469688137097632#m",
+    "fetched_at": "2026-10-16T19:12:10.667565+00:00",
     "via_instance": "https://nitter.cz"
   },
   {
