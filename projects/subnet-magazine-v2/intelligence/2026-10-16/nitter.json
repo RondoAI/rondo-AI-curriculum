@@ -1,5 +1,75 @@
 [
   {
+    "handle": "tplr_ai",
+    "name": "Templar",
+    "posted_at": "Wed, 23 Sep 2026 16:10:16 GMT",
+    "title": "Video",
+    "text": "Video",
+    "url": "http://nitter.meowing.monster/tplr_ai/status/2102792674118164542#m",
+    "fetched_at": "2026-10-16T08:41:25.566210+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "tplr_ai",
+    "name": "Templar",
+    "posted_at": "Wed, 23 Sep 2026 16:10:16 GMT",
+    "title": "R to @tplr_ai: Read the blog: https://www.tplr.ai/publications/blog/skipping-stages-with-fixed-projections",
+    "text": "Read the blog: tplr.ai/publications/blog/sk… Link Fault tolerance in low-bandwidth model parallelism: exploring pipeline stage-skipping with boundary... We explore how the residual nature of the transformer architecture can be leveraged to mitigate hardware faults, and demonstrate that the compression-based implementation of low-bandwidth model... tplr.ai",
+    "url": "http://nitter.meowing.monster/tplr_ai/status/2102792676676432160#m",
+    "fetched_at": "2026-10-16T08:41:25.566210+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "shibshib89",
+    "name": "Ala Shaabana",
+    "posted_at": "Wed, 16 Sep 2026 19:05:56 GMT",
+    "title": "LFG!",
+    "text": "LFG! Crucible Labs (@CrucibleLabs) Crucible Wallet Extension v2.1.1 is LIVE. This isn’t just an update. We rebuilt the entire wallet experience from the ground up. A completely new UI. More control over your TAO. More Bittensor tools built directly into your wallet. What’s new in v2.1.1: ✔️Completely updated UI + light/dark mode ✔️Claim rewards directly in the wallet ✔️Unified balance across TAO + alpha ✔️Universal Swap ✔️Transfer TAO + alpha ✔️Subnet discovery + detailed subnet views ✔️Multi-address support for seed phrases ✔️12 and 24 word seed phrase support ✔️Updated Smart Account + Reward",
+    "url": "http://nitter.meowing.monster/shibshib89/status/2100300168633761947#m",
+    "fetched_at": "2026-10-16T08:39:48.657598+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "tplr_ai",
+    "name": "Templar",
+    "posted_at": "Wed, 16 Sep 2026 14:57:46 GMT",
+    "title": "R to @tplr_ai: When using pipeline compression with fixed projections shared across layers, robustness improves further as seen in the figure below. This suggests that shared projectors align representations across stage boundaries, making bypasses less disruptive. 4/n",
+    "text": "When using pipeline compression with fixed projections shared across layers, robustness improves further as seen in the figure below. This suggests that shared projectors align representations across stage boundaries, making bypasses less disruptive. 4/n",
+    "url": "http://nitter.meowing.monster/tplr_ai/status/2100237714918367690#m",
+    "fetched_at": "2026-10-16T08:41:25.566210+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "tplr_ai",
+    "name": "Templar",
+    "posted_at": "Wed, 16 Sep 2026 14:57:44 GMT",
+    "title": "We’ve been researching fault tolerance in Crucible, Templar’s pre-training platform. The goal: keep training through node failures and make better use of unreliable workers and spot instances, without idling an entire model replica when one stage goes down. 1/n",
+    "text": "We’ve been researching fault tolerance in Crucible, Templar’s pre-training platform. The goal: keep training through node failures and make better use of unreliable workers and spot instances, without idling an entire model replica when one stage goes down. 1/n Video",
+    "url": "http://nitter.meowing.monster/tplr_ai/status/2100237708186550642#m",
+    "fetched_at": "2026-10-16T08:41:25.566210+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "VantaTrading",
+    "name": "Vanta",
+    "posted_at": "Wed, 14 Oct 2026 23:00:37 GMT",
+    "title": "We just raised leverage on every Classic account. Up to 40x across your portfolio: 30x on forex, 10x on crypto, 8x on indices, 6x on commodities and 4x on equities. More room to run the strategy you already have. https://vantatrading.io/rules",
+    "text": "We just raised leverage on every Classic account. Up to 40x across your portfolio: 30x on forex, 10x on crypto, 8x on indices, 6x on commodities and 4x on equities. More room to run the strategy you already have. vantatrading.io/rules",
+    "url": "https://nitter.kareem.one/VantaTrading/status/2110506086675689732#m",
+    "fetched_at": "2026-10-16T08:41:43.696855+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "galaxyhq",
+    "name": "Galaxy Digital",
+    "posted_at": "Wed, 14 Oct 2026 18:00:03 GMT",
+    "title": "RT by @galaxyhq: BTC posts its first red weekly close since September as the market hits a new wall of worry. In our 1-year anniversary episode, we unpack the AI cryptography threat, Papertrade's zero-slippage 1000x perps, and new Galaxy research on Polymarket behavior and tokenized stocks. Galaxy Grid is live now👇",
+    "text": "BTC posts its first red weekly close since September as the market hits a new wall of worry. In our 1-year anniversary episode, we unpack the AI cryptography threat, Papertrade's zero-slippage 1000x perps, and new Galaxy research on Polymarket behavior and tokenized stocks. Galaxy Grid is live now👇 Video",
+    "url": "https://nitter.kareem.one/glxyresearch/status/2110430448409051355#m",
+    "fetched_at": "2026-10-16T08:40:38.853750+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
     "handle": "a16zcrypto",
     "name": "a16z Crypto",
     "posted_at": "Wed, 14 Oct 2026 17:48:22 GMT",
@@ -17,6 +87,46 @@
     "text": "We are ready to build worlds. Currently fire-testing the new incentive mechanism that will get miners to build our first ever generative world model, capturing real physics, long-term consistency, and true interactivity. This is the unreal next chapter for vision AI: from understanding scenes to generating entire, livable realities. This 👇 is a sneak peek of the subnet’s console, where users will be able to create worlds from a single prompt and very soon explore them right in their browsers. This will also 100x our ability to train better vision models by providing unlimited simulated scenari",
     "url": "http://nitter.meowing.monster/webuildscore/status/2110398301023658462#m",
     "fetched_at": "2026-10-16T02:39:01.977138+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "rob_svrn",
+    "name": "Rob Greer",
+    "posted_at": "Wed, 14 Oct 2026 05:45:42 GMT",
+    "title": "RT by @rob_svrn: This could be one of the most consequential updates for Bittensor, if implemented. Lack of subnet volatility is likely one of the main factor discouraging capital from entering the ecosystem. If we start seeing subnets doing a 2/3x based on fast improving fundamentals, I bet a lot more capital will get bridged over from other chains. I know the OTF and @const_reborn are studying the proposal and I hope they reach the right conclusions. bittensor:native",
+    "text": "This could be one of the most consequential updates for Bittensor, if implemented. Lack of subnet volatility is likely one of the main factor discouraging capital from entering the ecosystem. If we start seeing subnets doing a 2/3x based on fast improving fundamentals, I bet a lot more capital will get bridged over from other chains. I know the OTF and @const_reborn are studying the proposal and I hope they reach the right conclusions. bittensor:native Yuma (@YumaGroup) 1/ ASMR Research Preview Bittensor subnets in aggregate (the YCX index) have substantially lower volatility than the S&P 500.",
+    "url": "https://nitter.kareem.one/tylerdurdeth/status/2110245644493295985#m",
+    "fetched_at": "2026-10-16T08:40:19.943834+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "rob_svrn",
+    "name": "Rob Greer",
+    "posted_at": "Wed, 14 Oct 2026 03:26:14 GMT",
+    "title": "RT by @rob_svrn: TAO has a circulating supply of ~11.6M today, at a price of $280. BTC had a circulating supply of 11.6M in Sept 2013, with a price of ~$130. Might not feel like it, but we're ahead of schedule lads.",
+    "text": "TAO has a circulating supply of ~11.6M today, at a price of $280. BTC had a circulating supply of 11.6M in Sept 2013, with a price of ~$130. Might not feel like it, but we're ahead of schedule lads.",
+    "url": "https://nitter.kareem.one/the_mattyk/status/2110210545991266559#m",
+    "fetched_at": "2026-10-16T08:40:19.943834+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "shibshib89",
+    "name": "Ala Shaabana",
+    "posted_at": "Wed, 09 Sep 2026 22:33:48 GMT",
+    "title": "RT by @shibshib89: Did you hear? Crucible Wallet is officially live on iOS today. An easy to use Bittensor wallet with Ledger security, Unified Swap and subnet level performance. Now available on iOS in the US, Android and Chrome. Download at http://CrucibleLabs.com #Bittensor #TAO #CrucibleWallet",
+    "text": "Did you hear? Crucible Wallet is officially live on iOS today. An easy to use Bittensor wallet with Ledger security, Unified Swap and subnet level performance. Now available on iOS in the US, Android and Chrome. Download at CrucibleLabs.com #Bittensor #TAO #CrucibleWallet",
+    "url": "http://nitter.meowing.monster/CrucibleLabs/status/2097815766473323006#m",
+    "fetched_at": "2026-10-16T08:39:48.657598+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "tplr_ai",
+    "name": "Templar",
+    "posted_at": "Tue, 29 Sep 2026 14:14:21 GMT",
+    "title": "The heads of the biggest AI labs want to agree among themselves on when everyone should slow down. @TheEconomist's piece on that push ends with Covenant-72B, the model we finished training in March on GPUs contributed over the internet, as a reason such agreements may be hard to enforce. What the piece doesn't say is that once training no longer requires one giant, tightly connected cluster, the power to build new models no longer has to sit with a few companies. Globally distributed training and open models are essential tools for keeping that power from concentrating in the frontier labs. They let many more participants, from nations to companies, own a share of the future of AI and take part in building it. https://www.economist.com/international/2026/09/15/agreeing-to-make-ai-safer-may-be-impossible",
+    "text": "The heads of the biggest AI labs want to agree among themselves on when everyone should slow down. @TheEconomist's piece on that push ends with Covenant-72B, the model we finished training in March on GPUs contributed over the internet, as a reason such agreements may be hard to enforce. What the piece doesn't say is that once training no longer requires one giant, tightly connected cluster, the power to build new models no longer has to sit with a few companies. Globally distributed training and open models are essential tools for keeping that power from concentrating in the frontier labs. Th",
+    "url": "http://nitter.meowing.monster/tplr_ai/status/2104937831097352377#m",
+    "fetched_at": "2026-10-16T08:41:25.566210+00:00",
     "via_instance": "https://nitter.cz"
   },
   {
@@ -60,6 +170,36 @@
     "via_instance": "https://nitter.cz"
   },
   {
+    "handle": "rob_svrn",
+    "name": "Rob Greer",
+    "posted_at": "Tue, 13 Oct 2026 11:28:14 GMT",
+    "title": "RT by @rob_svrn: Engy numbers going up and to the right. $TAO",
+    "text": "Engy numbers going up and to the right. $TAO SubConnect (@WeAreSubConnect) ATH after ATH after ATH (after ATH?). @algodtrading recently shared that Engy, $TAO SN53, is growing at roughly 100% month over month. Looking at the latest numbers, that growth doesn't seem to be slowing down. Engy is now processing around 32 BILLION tokens per day. To put that into perspective, at the current pace, Engy would process in just 14 days what it processed over the previous 30. And if this trajectory continues, October's growth could end up well above 100%. What's exciting is that Engy is still a relatively",
+    "url": "https://nitter.kareem.one/RvCrypto/status/2109969456067727603#m",
+    "fetched_at": "2026-10-16T08:40:19.943834+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "TargonCompute",
+    "name": "Targon",
+    "posted_at": "Tue, 06 Oct 2026 22:33:41 GMT",
+    "title": "RT by @TargonCompute: Had an awesome time last week representing @TargonCompute in Montreal for @ExploitSummit! I always leave any conference with Bittensor folks feeling even more bullish, the energy that this community has is contagious. Great seeing old friends and making some new ones, future is bright!",
+    "text": "Had an awesome time last week representing @TargonCompute in Montreal for @ExploitSummit! I always leave any conference with Bittensor folks feeling even more bullish, the energy that this community has is contagious. Great seeing old friends and making some new ones, future is bright!",
+    "url": "http://nitter.meowing.monster/the_mattyk/status/2107600206527369682#m",
+    "fetched_at": "2026-10-16T08:41:31.587470+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "TargonCompute",
+    "name": "Targon",
+    "posted_at": "Tue, 06 Oct 2026 15:39:26 GMT",
+    "title": "Last week in Montreal, we sat down with a few of our fellow builders working to push the boundaries of permissionless intelligence on Bittensor. Innovation is happening rapidly, and we're proud to be shipping alongside such a talented group of passionate leaders. Thank you to everyone who joined us, we look forward to continue accelerating the growth and capabilities of decentralized AI.",
+    "text": "Last week in Montreal, we sat down with a few of our fellow builders working to push the boundaries of permissionless intelligence on Bittensor. Innovation is happening rapidly, and we're proud to be shipping alongside such a talented group of passionate leaders. Thank you to everyone who joined us, we look forward to continue accelerating the growth and capabilities of decentralized AI.",
+    "url": "http://nitter.meowing.monster/TargonCompute/status/2107495956795019424#m",
+    "fetched_at": "2026-10-16T08:41:31.587470+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
     "handle": "affine_io",
     "name": "Affine",
     "posted_at": "Tue, 01 Sep 2026 14:55:14 GMT",
@@ -100,6 +240,76 @@
     "via_instance": "https://nitter.cz"
   },
   {
+    "handle": "BarrySilbert",
+    "name": "Barry Silbert",
+    "posted_at": "Thu, 24 Sep 2026 15:44:15 GMT",
+    "title": "RT by @BarrySilbert: Choose your fighter. 21M supply. Fair launch. Open network. bittensor:native $ZEC $BTC",
+    "text": "Choose your fighter. 21M supply. Fair launch. Open network. bittensor:native $ZEC $BTC",
+    "url": "http://nitter.meowing.monster/YumaGroup/status/2103148514670989783#m",
+    "fetched_at": "2026-10-16T08:40:07.862869+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "VantaTrading",
+    "name": "Vanta",
+    "posted_at": "Thu, 15 Oct 2026 23:41:20 GMT",
+    "title": "RT by @VantaTrading: I spent a long time trying to find a CFD prop firm I could actually trust. After buying a few accounts, I realized the same problem kept showing up: the fear that your payout would eventually get denied for some technicality or arbitrary reason. At this point, even the big names feel risky. Too many of them operate with the same underlying incentive, to make it as hard as possible for traders to get paid. The rules are often vague, the rejection reasons are endless, and the trust just isn’t there. Once you move to Hyperliquid-based setups like @VantaTrading, the dynamic completely changes. Your job becomes simple: trade, get paid, and repeat. There’s no longer a long list of creative ways your payout can be rejected. The process is straightforward, transparent, and built around actual performance instead of constant friction.",
+    "text": "I spent a long time trying to find a CFD prop firm I could actually trust. After buying a few accounts, I realized the same problem kept showing up: the fear that your payout would eventually get denied for some technicality or arbitrary reason. At this point, even the big names feel risky. Too many of them operate with the same underlying incentive, to make it as hard as possible for traders to get paid. The rules are often vague, the rejection reasons are endless, and the trust just isn’t there. Once you move to Hyperliquid-based setups like @VantaTrading, the dynamic completely changes. You",
+    "url": "https://nitter.kareem.one/dudwithoutaname/status/2110878722580738548#m",
+    "fetched_at": "2026-10-16T08:41:43.696855+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "TargonCompute",
+    "name": "Targon",
+    "posted_at": "Thu, 15 Oct 2026 22:37:06 GMT",
+    "title": "With eTAO on the horizon, it's finally time. Talking Targon 001 with @const_reborn drops tomorrow.",
+    "text": "With eTAO on the horizon, it's finally time. Talking Targon 001 with @const_reborn drops tomorrow. Video",
+    "url": "http://nitter.meowing.monster/TargonCompute/status/2110862558047654272#m",
+    "fetched_at": "2026-10-16T08:41:31.587470+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "TargonCompute",
+    "name": "Targon",
+    "posted_at": "Thu, 15 Oct 2026 22:14:05 GMT",
+    "title": "RT by @TargonCompute: Tomorrow @TargonCompute",
+    "text": "Tomorrow @TargonCompute Video",
+    "url": "http://nitter.meowing.monster/Tangtalksbits/status/2110856764006486521#m",
+    "fetched_at": "2026-10-16T08:41:31.587470+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "TargonCompute",
+    "name": "Targon",
+    "posted_at": "Thu, 15 Oct 2026 18:58:23 GMT",
+    "title": "Tune in later today for some big news on the future of Bittensor and subnet capital allocation. We have some surprises dropping soon so stay tuned 👀",
+    "text": "Tune in later today for some big news on the future of Bittensor and subnet capital allocation. We have some surprises dropping soon so stay tuned 👀 Openτensor Foundaτion (@opentensor) This Thursday on Novelty Search :: Subnet 4 :: @TargonCompute Targon is building a decentralized GPU cloud on Bittensor, providing on-demand compute for AI training and inference. Its confidential VMs use Intel and NVIDIA hardware security to protect sensitive models and data, even from the providers operating the servers. Live on Thursday :: 9PM UTC :: via Bittensor Discord Hosted by @const_reborn Video — http:",
+    "url": "http://nitter.meowing.monster/TargonCompute/status/2110807516154150988#m",
+    "fetched_at": "2026-10-16T08:41:31.587470+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "galaxyhq",
+    "name": "Galaxy Digital",
+    "posted_at": "Thu, 15 Oct 2026 18:12:00 GMT",
+    "title": "RT by @galaxyhq: Prediction markets were just the beginning. Conditional markets, the next generation of event-driven finance, are starting to take shape. Deep dive by @ZackPokorny_ covering where the sector stands, who's building in it, and what's next. https://www.galaxy.com/insights/research/conditional-markets-decision-markets-impact-markets-mainnet-umia-metadao-proof-branchmap-branchpoint-prediction-markets-futarchy",
+    "text": "Prediction markets were just the beginning. Conditional markets, the next generation of event-driven finance, are starting to take shape. Deep dive by @ZackPokorny_ covering where the sector stands, who's building in it, and what's next. galaxy.com/insights/research… Link Conditional Markets Are Beginning to Blossom Decision markets are scaling, impact markets are heading to mainnet, and new infrastructure is pushing event-driven finance beyond prediction markets. galaxy.com",
+    "url": "https://nitter.kareem.one/glxyresearch/status/2110795844119351612#m",
+    "fetched_at": "2026-10-16T08:40:38.853750+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "shibshib89",
+    "name": "Ala Shaabana",
+    "posted_at": "Thu, 15 Oct 2026 18:10:57 GMT",
+    "title": "RT by @shibshib89: Research a subnet. Open your wallet. Click away. Wallet disappears. Repeat. 🙃 We fixed that. Crucible Wallet now supports Chrome's Side Panel, so you can keep your wallet open while researching subnets, checking charts, staking, or swapping. Less back and forth. More time actually doing what you came to do.",
+    "text": "Research a subnet. Open your wallet. Click away. Wallet disappears. Repeat. 🙃 We fixed that. Crucible Wallet now supports Chrome's Side Panel, so you can keep your wallet open while researching subnets, checking charts, staking, or swapping. Less back and forth. More time actually doing what you came to do.",
+    "url": "http://nitter.meowing.monster/CrucibleLabs/status/2110795579249111046#m",
+    "fetched_at": "2026-10-16T08:39:48.657598+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
     "handle": "webuildscore",
     "name": "Score",
     "posted_at": "Thu, 15 Oct 2026 18:10:32 GMT",
@@ -110,6 +320,66 @@
     "via_instance": "https://nitter.cz"
   },
   {
+    "handle": "rob_svrn",
+    "name": "Rob Greer",
+    "posted_at": "Thu, 15 Oct 2026 15:49:21 GMT",
+    "title": "RT by @rob_svrn: We've developed a new inference engine, called 'e'. It's the closest thing to alien technology which we have, and pushes 10,500 tok/s aggregate on a single DGX Station with the new @NVIDIAAI Nemotron 3.5 Super VL model, released a few minutes ago.",
+    "text": "We've developed a new inference engine, called 'e'. It's the closest thing to alien technology which we have, and pushes 10,500 tok/s aggregate on a single DGX Station with the new @NVIDIAAI Nemotron 3.5 Super VL model, released a few minutes ago. Actual Computer (@actualinc) Actual Computer turns your NVIDIA DGX Station into a department-scale AI factory. Read the full case study: actual.inc/company/blog/case… Link Actual Computer › Case Study : GB300 and Nemotron 3.5 Super VL Department-scale AI from one NVIDIA DGX Station: Nemotron 3.5 Super VL at 8,000+ tokens per second, shared by your wh",
+    "url": "https://nitter.kareem.one/somewheresy/status/2110759944370692216#m",
+    "fetched_at": "2026-10-16T08:40:19.943834+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "rob_svrn",
+    "name": "Rob Greer",
+    "posted_at": "Thu, 15 Oct 2026 15:48:04 GMT",
+    "title": "RT by @rob_svrn: Actual Computer turns your NVIDIA DGX Station into a department-scale AI factory. Read the full case study: https://actual.inc/company/blog/case-study-dgx-station-and-nemotron-3-5-super-vl",
+    "text": "Actual Computer turns your NVIDIA DGX Station into a department-scale AI factory. Read the full case study: actual.inc/company/blog/case… Link Actual Computer › Case Study : GB300 and Nemotron 3.5 Super VL Department-scale AI from one NVIDIA DGX Station: Nemotron 3.5 Super VL at 8,000+ tokens per second, shared by your whole team through api.actual.inc. actual.inc",
+    "url": "https://nitter.kareem.one/actualinc/status/2110759623435117020#m",
+    "fetched_at": "2026-10-16T08:40:19.943834+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "BarrySilbert",
+    "name": "Barry Silbert",
+    "posted_at": "Thu, 15 Oct 2026 14:44:12 GMT",
+    "title": "Big milestone: Fortitude crossed 5 GSol/s of Zcash hashrate The team is focused on its vision to build the largest $ZEC mining platform $HSCS",
+    "text": "Big milestone: Fortitude crossed 5 GSol/s of Zcash hashrate The team is focused on its vision to build the largest $ZEC mining platform $HSCS Fortitude (@FortitudeCrypto) Fortitude has surpassed 5.0 GSol/s of Equihash hashrate, representing a meaningful share of Zcash network mining capacity. As Fortitude continues to scale, the Company remains focused on its vision to build the largest vertically-integrated Zcash mining platform. $ZEC $HSCS See important additional information here: fortitudemining.com/disclaim… Video — http://nitter.meowing.monster/FortitudeCrypto/status/2110703573340463477#",
+    "url": "http://nitter.meowing.monster/BarrySilbert/status/2110743550539231354#m",
+    "fetched_at": "2026-10-16T08:40:07.862869+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "VantaTrading",
+    "name": "Vanta",
+    "posted_at": "Thu, 15 Oct 2026 13:45:38 GMT",
+    "title": "Instant Funded just got bigger. Now in $25K, $50K and $100K. No evaluation, no profit target, just rewards paid weekly. 40% off every size with code INSTANT40 until the 50 slots are filled. Don't miss it: https://www.vantatrading.io/instant-funded",
+    "text": "Instant Funded just got bigger. Now in $25K, $50K and $100K. No evaluation, no profit target, just rewards paid weekly. 40% off every size with code INSTANT40 until the 50 slots are filled. Don't miss it: vantatrading.io/instant-fund…",
+    "url": "https://nitter.kareem.one/VantaTrading/status/2110728810778050919#m",
+    "fetched_at": "2026-10-16T08:41:43.696855+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "BarrySilbert",
+    "name": "Barry Silbert",
+    "posted_at": "Thu, 15 Oct 2026 13:08:18 GMT",
+    "title": "RT by @BarrySilbert: We're excited to announce a partnership with @joinrepublic to expand access to Grayscale investment products for eligible investors. Grayscale products to be available on the Republic platform are: • Grayscale DeFi Fund: exposure to a basket of leading DeFi protocols $UNI, $AAVE, $ONDO, $ENA, $CRV, $LDO • Grayscale Decentralized AI Fund: exposure to protocols operating at the intersection of blockchain and AI $NEAR, $TAO, $RENDER, $FIL • Grayscale Data Network Trust: exposure to $DATA, the native token of the DATA Network. Visit the landing page on Republic to learn more: https://republic.com/grayscale-funds",
+    "text": "We're excited to announce a partnership with @joinrepublic to expand access to Grayscale investment products for eligible investors. Grayscale products to be available on the Republic platform are: • Grayscale DeFi Fund: exposure to a basket of leading DeFi protocols $UNI, $AAVE, $ONDO, $ENA, $CRV, $LDO • Grayscale Decentralized AI Fund: exposure to protocols operating at the intersection of blockchain and AI $NEAR, $TAO, $RENDER, $FIL • Grayscale Data Network Trust: exposure to $DATA, the native token of the DATA Network. Visit the landing page on Republic to learn more: republic.com/grayscal",
+    "url": "http://nitter.meowing.monster/Grayscale/status/2110719416954687980#m",
+    "fetched_at": "2026-10-16T08:40:07.862869+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "BarrySilbert",
+    "name": "Barry Silbert",
+    "posted_at": "Thu, 15 Oct 2026 11:44:26 GMT",
+    "title": "RT by @BarrySilbert: The digital rand in action⚡️ Awesome to see @LunoGlobal enabling users to spend @ZARUniversal at nearly 1 million South African merchants or everyday purchases like petrol and groceries. A big step in bringing institutional-grade digital assets to everyday consumer payments. Learn more below 👇",
+    "text": "The digital rand in action⚡️ Awesome to see @LunoGlobal enabling users to spend @ZARUniversal at nearly 1 million South African merchants or everyday purchases like petrol and groceries. A big step in bringing institutional-grade digital assets to everyday consumer payments. Learn more below 👇 Luno (@LunoGlobal) Your daily routine just got a major upgrade. Whether you are filling up your tank at @Engen_SA, grabbing daily groceries at @WOOLWORTHS_SA or treating yourself to @KrispyKreme_ZA at Engen Forecourt, you can pay seamlessly with your Luno app. Pay with @LunoGlobal Pay and enjoy 15% back ",
+    "url": "http://nitter.meowing.monster/BlockTowerTech/status/2110698308687827452#m",
+    "fetched_at": "2026-10-16T08:40:07.862869+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
     "handle": "webuildscore",
     "name": "Score",
     "posted_at": "Thu, 15 Oct 2026 11:14:06 GMT",
@@ -117,6 +387,16 @@
     "text": "Haters will say it’s AI, our detector didn’t ask though. Building your own is about to get a lot easier. More soon. Video",
     "url": "http://nitter.meowing.monster/webuildscore/status/2110690673917628663#m",
     "fetched_at": "2026-10-16T02:39:01.977138+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "galaxyhq",
+    "name": "Galaxy Digital",
+    "posted_at": "Thu, 08 Oct 2026 21:49:41 GMT",
+    "title": "RT by @galaxyhq: Bitcoin closed Q3 up 43%, rallying past $80K for its strongest quarter since late 2024. The panel breaks down the structural shift lifting major cryptocurrencies, including $6.5B in quarterly Bitcoin ETF inflows and renewed corporate treasury buying. Find out what's powering the Bitcoin price rally and what it could mean for crypto investors heading into Q4.",
+    "text": "Bitcoin closed Q3 up 43%, rallying past $80K for its strongest quarter since late 2024. The panel breaks down the structural shift lifting major cryptocurrencies, including $6.5B in quarterly Bitcoin ETF inflows and renewed corporate treasury buying. Find out what's powering the Bitcoin price rally and what it could mean for crypto investors heading into Q4. Video",
+    "url": "https://nitter.kareem.one/glxyresearch/status/2108313910570852431#m",
+    "fetched_at": "2026-10-16T08:40:38.853750+00:00",
     "via_instance": "https://nitter.cz"
   },
   {
@@ -140,6 +420,16 @@
     "via_instance": "https://nitter.cz"
   },
   {
+    "handle": "shibshib89",
+    "name": "Ala Shaabana",
+    "posted_at": "Mon, 28 Sep 2026 21:28:06 GMT",
+    "title": "RT by @shibshib89: Bittensor and Baguettes is ready for her interviews @ExploitSummit. See what subnets we’re chatting about soon!",
+    "text": "Bittensor and Baguettes is ready for her interviews @ExploitSummit. See what subnets we’re chatting about soon!",
+    "url": "http://nitter.meowing.monster/CrucibleLabs/status/2104684600291180752#m",
+    "fetched_at": "2026-10-16T08:39:48.657598+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
     "handle": "webuildscore",
     "name": "Score",
     "posted_at": "Mon, 12 Oct 2026 20:44:12 GMT",
@@ -160,6 +450,16 @@
     "via_instance": "https://nitter.cz"
   },
   {
+    "handle": "galaxyhq",
+    "name": "Galaxy Digital",
+    "posted_at": "Mon, 12 Oct 2026 15:20:26 GMT",
+    "title": "“We’re all using Claude. We haven’t all been to space yet.” Galaxy Fintech Fund’s Joe Armao compares the potential Anthropic IPO with SpaceX and discusses how conviction and skepticism shape the way capital markets react. Tomorrow, Oct. 13, Joe will present his investor pitch at the Sohn Investment Conference in San Francisco.",
+    "text": "“We’re all using Claude. We haven’t all been to space yet.” Galaxy Fintech Fund’s Joe Armao compares the potential Anthropic IPO with SpaceX and discusses how conviction and skepticism shape the way capital markets react. Tomorrow, Oct. 13, Joe will present his investor pitch at the Sohn Investment Conference in San Francisco. Video",
+    "url": "https://nitter.kareem.one/galaxyhq/status/2109665505745248553#m",
+    "fetched_at": "2026-10-16T08:40:38.853750+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
     "handle": "dippy_ai",
     "name": "Dippy AI",
     "posted_at": "Mon, 10 Aug 2026 15:35:59 GMT",
@@ -177,6 +477,16 @@
     "text": "A model doesn’t need to be the largest to matter. On Affine, models compete on how well their reasoning supports the next action across code, tool use and math. A winner could put that reasoning to work in products, either directly or alongside a larger model. Video",
     "url": "https://nitter.kareem.one/affine_io/status/2096984627059810338#m",
     "fetched_at": "2026-10-16T02:39:51.393504+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "BarrySilbert",
+    "name": "Barry Silbert",
+    "posted_at": "Mon, 05 Oct 2026 15:50:36 GMT",
+    "title": "RT by @BarrySilbert: The Zcash ETF ($ZCSH) was featured on @CNBC as interest in financial privacy grows. Zcash is up more than 170% this year compared to Bitcoin.",
+    "text": "The Zcash ETF ($ZCSH) was featured on @CNBC as interest in financial privacy grows. Zcash is up more than 170% this year compared to Bitcoin.",
+    "url": "http://nitter.meowing.monster/ZcashETF/status/2107136380166127955#m",
+    "fetched_at": "2026-10-16T08:40:07.862869+00:00",
     "via_instance": "https://nitter.cz"
   },
   {
@@ -237,6 +547,46 @@
     "text": "Computer vision, decentralised Score (@webuildscore) Computer vision engineers are still duct-taping tools together just to get a model into production. We just finished another round of user interviews and that frustration came up again and again. So we re-designed Studio to work around our new Pipelines + Workflow Canvas features. Visually design any vision pipeline from start to finish, connect models, logic, and outputs on one canvas, preview the exact result, then deploy. You see the output before you ship it. Everything in a single interface. The full loop, shaped by the people who actua",
     "url": "http://nitter.meowing.monster/tm0klc/status/2090610814449570047#m",
     "fetched_at": "2026-10-16T02:39:09.349832+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "VantaTrading",
+    "name": "Vanta",
+    "posted_at": "Fri, 16 Oct 2026 02:36:11 GMT",
+    "title": "You heard it here, straight from the CMO of @MyFundedPerps. Thanks for the shout! 🤝 @0xDevin_",
+    "text": "You heard it here, straight from the CMO of @MyFundedPerps. Thanks for the shout! 🤝 @0xDevin_ Devin (@0xDevin_) Vanta is legit the only actual onchain firm, the rest of them are tradfi firms with onchain payouts. — https://nitter.kareem.one/0xDevin_/status/2110471543226601705#m",
+    "url": "https://nitter.kareem.one/VantaTrading/status/2110922727712518373#m",
+    "fetched_at": "2026-10-16T08:41:43.696855+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "VantaTrading",
+    "name": "Vanta",
+    "posted_at": "Fri, 16 Oct 2026 02:00:40 GMT",
+    "title": "Lost an account to a daily loss limit you didn't see coming? On Vanta it's one number: 5% below your start-of-day equity, reset every UTC day. Published in full before you pay. https://vantatrading.io/rules",
+    "text": "Lost an account to a daily loss limit you didn't see coming? On Vanta it's one number: 5% below your start-of-day equity, reset every UTC day. Published in full before you pay. vantatrading.io/rules",
+    "url": "https://nitter.kareem.one/VantaTrading/status/2110913787947843977#m",
+    "fetched_at": "2026-10-16T08:41:43.696855+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "galaxyhq",
+    "name": "Galaxy Digital",
+    "posted_at": "Fri, 09 Oct 2026 17:42:18 GMT",
+    "title": "In this week's @glxyresearch brief: The CFTC is seeking industry input on a new crypto market framework, including how self-custody fits in. Meanwhile, OpenAI’s math drop has the industry debating AI’s threat to cryptography, and Solana is closing in on 200ms slots.",
+    "text": "In this week's @glxyresearch brief: The CFTC is seeking industry input on a new crypto market framework, including how self-custody fits in. Meanwhile, OpenAI’s math drop has the industry debating AI’s threat to cryptography, and Solana is closing in on 200ms slots. Galaxy Research (@glxyresearch) Article Mathpocalypse Now?; 10/10, One Year Later; CFTC Forges Ahead In this week&apos;s edition, Jianing Wu breaks down the debate over the risk AI poses to cryptography; Lucas Tcheyan looks back on the 10/10/25 liquidation event a year later; and Thad Pinakiewicz explains — https://nitter.kareem.on",
+    "url": "https://nitter.kareem.one/galaxyhq/status/2108614041270673904#m",
+    "fetched_at": "2026-10-16T08:40:38.853750+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "shibshib89",
+    "name": "Ala Shaabana",
+    "posted_at": "Fri, 09 Oct 2026 17:13:54 GMT",
+    "title": "Building your model with skills just got easier",
+    "text": "Building your model with skills just got easier Isabella Liu (@isabella618033) Such a sweet voice: What's next? Stay tuned🍬 Video — http://nitter.meowing.monster/isabella618033/status/2108592781379715494#m",
+    "url": "http://nitter.meowing.monster/shibshib89/status/2108606894982234342#m",
+    "fetched_at": "2026-10-16T08:39:48.657598+00:00",
     "via_instance": "https://nitter.cz"
   },
   {
