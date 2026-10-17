@@ -153,6 +153,12 @@ _no new posts in the lookback window_
 
 - @novogratz (Mike Novogratz, Wed, 23 Sep 2026): Thanks for making the trip to Lubbock, Mike — and for spending time with our Red Raider football team ahead of the game. Great to have you at @TexasTech, and even better to cap off the visit with a big win at the new @galaxyhq Stadium. This partnership is just getting started. #WreckEm! Mike Novogratz (@novogratz) Last Friday, I visited our flagship campus Helios in West Texas. Three years ago, this was still a bitcoin mining facility. Today Helios is a fully operational AI-ready campus with 133MW of critical IT capacity, and we’re just getting started! @galaxyhq is taking a big swing out here  
   https://nitter.kareem.one/CreightonForTX/status/2102869773776269419#m
+- @shibshib89 (Ala Shaabana, Wed, 16 Sep 2026): LFG! Crucible Labs (@CrucibleLabs) Crucible Wallet Extension v2.1.1 is LIVE. This isn’t just an update. We rebuilt the entire wallet experience from the ground up. A completely new UI. More control over your TAO. More Bittensor tools built directly into your wallet. What’s new in v2.1.1: ✔️Completely updated UI + light/dark mode ✔️Claim rewards directly in the wallet ✔️Unified balance across TAO + alpha ✔️Universal Swap ✔️Transfer TAO + alpha ✔️Subnet discovery + detailed subnet views ✔️Multi-address support for seed phrases ✔️12 and 24 word seed phrase support ✔️Updated Smart Account + Reward  
+  https://nitter.kareem.one/shibshib89/status/2100300168633761947#m
+- @foundrydigital (Foundry Digital, Wed, 11 Jan 2012): Expression Engine 2.0 review by the guys at Scriptiny bit.ly/w3Pg3R  
+  https://nitter.kareem.one/foundrydigital/status/157243024848596993#m
+- @shibshib89 (Ala Shaabana, Wed, 09 Sep 2026): Did you hear? Crucible Wallet is officially live on iOS today. An easy to use Bittensor wallet with Ledger security, Unified Swap and subnet level performance. Now available on iOS in the US, Android and Chrome. Download at CrucibleLabs.com #Bittensor #TAO #CrucibleWallet  
+  https://nitter.kareem.one/CrucibleLabs/status/2097815766473323006#m
 - @novogratz (Mike Novogratz, Wed, 07 Oct 2026): Proud son Army Football (@ArmyWP_Football) Alongside the @NFFNetwork, we are set to honor the late Bob Novogratz, a 2026 College Football Hall of Fame inductee, this Saturday with a National Football Foundation &amp; College Football Hall of Fame On-Campus salute! MORE → goarmywestpoint.com/news/202… #GoArmy — https://nitter.kareem.one/ArmyWP_Football/status/2107857478507778411#m  
   https://nitter.kareem.one/novogratz/status/2107898542325195167#m
 - @mcjkula (mcjkula, Wed, 07 Oct 2026): "The best person to solve your problem might be someone you’ve never met or considered hiring." Travis and I explain Bittensor, including examples from weather forecasting (@zeussubnet) and drug discovery (@metanova_labs). Here’s our "Bittensor 101" recording from @ExploitSummit Video  
@@ -171,12 +177,22 @@ _no new posts in the lookback window_
   https://nitter.kareem.one/YumaGroup/status/2103148514670989783#m
 - @taomedia_ (TAO Media, Thu, 15 Oct 2026): JUST IN: What's next in Q4 for @TargonCompute Video  
   https://nitter.kareem.one/taomedia_/status/2110856390726111460#m
+- @shibshib89 (Ala Shaabana, Thu, 15 Oct 2026): Research a subnet. Open your wallet. Click away. Wallet disappears. Repeat. 🙃 We fixed that. Crucible Wallet now supports Chrome's Side Panel, so you can keep your wallet open while researching subnets, checking charts, staking, or swapping. Less back and forth. More time actually doing what you came to do.  
+  https://nitter.kareem.one/CrucibleLabs/status/2110795579249111046#m
 - @BarrySilbert (Barry Silbert, Thu, 15 Oct 2026): Big milestone: Fortitude crossed 5 GSol/s of Zcash hashrate The team is focused on its vision to build the largest $ZEC mining platform $HSCS Fortitude (@FortitudeCrypto) Fortitude has surpassed 5.0 GSol/s of Equihash hashrate, representing a meaningful share of Zcash network mining capacity. As Fortitude continues to scale, the Company remains focused on its vision to build the largest vertically-integrated Zcash mining platform. $ZEC $HSCS See important additional information here: fortitudemining.com/disclaim… Video — https://nitter.kareem.one/FortitudeCrypto/status/2110703573340463477#m  
   https://nitter.kareem.one/BarrySilbert/status/2110743550539231354#m
 - @BarrySilbert (Barry Silbert, Thu, 15 Oct 2026): We're excited to announce a partnership with @joinrepublic to expand access to Grayscale investment products for eligible investors. Grayscale products to be available on the Republic platform are: • Grayscale DeFi Fund: exposure to a basket of leading DeFi protocols $UNI, $AAVE, $ONDO, $ENA, $CRV, $LDO • Grayscale Decentralized AI Fund: exposure to protocols operating at the intersection of blockchain and AI $NEAR, $TAO, $RENDER, $FIL • Grayscale Data Network Trust: exposure to $DATA, the native token of the DATA Network. Visit the landing page on Republic to learn more: republic.com/grayscal  
   https://nitter.kareem.one/Grayscale/status/2110719416954687980#m
 - @BarrySilbert (Barry Silbert, Thu, 15 Oct 2026): The digital rand in action⚡️ Awesome to see @LunoGlobal enabling users to spend @ZARUniversal at nearly 1 million South African merchants or everyday purchases like petrol and groceries. A big step in bringing institutional-grade digital assets to everyday consumer payments. Learn more below 👇 Luno (@LunoGlobal) Your daily routine just got a major upgrade. Whether you are filling up your tank at @Engen_SA, grabbing daily groceries at @WOOLWORTHS_SA or treating yourself to @KrispyKreme_ZA at Engen Forecourt, you can pay seamlessly with your Luno app. Pay with @LunoGlobal Pay and enjoy 15% back   
   https://nitter.kareem.one/BlockTowerTech/status/2110698308687827452#m
+- @oroagents (Oro, Thu, 08 Oct 2026): And to see what we are up to next at oroagents.com/  
+  https://nitter.kareem.one/oroagents/status/2108312282493329762#m
+- @oroagents (Oro, Thu, 08 Oct 2026): See the trajectories and datasets from these benchmarks - huggingface.co/oro-ai Link oro-ai (ORO AI) We&apos;re building the largest agent arena where AI learns to shop huggingface.co  
+  https://nitter.kareem.one/oroagents/status/2108311887469552061#m
+- @oroagents (Oro, Thu, 08 Oct 2026): As models and harnesses get more capable, the depth of our RL environments needs to stay ahead of the curve. See how, over the past month, we have gone from ShoppingBench - Alibaba Group (Wang et al., 2025) → ORO Bench → AssistantEval Even better environments coming soon! Video  
+  https://nitter.kareem.one/oroagents/status/2108311456345358818#m
+- @oroagents (Oro, Thu, 08 Oct 2026): huggingface.co/collections/o… Link AssistantEval - a oro-ai Collection AssistantEval by ORO. Published results and recorded trajectories. Website: assistanteval.com huggingface.co  
+  https://nitter.kareem.one/oroagents/status/2108083587845394791#m
 - @novogratz (Mike Novogratz, Sun, 27 Sep 2026): Congrats @Scaramucci on this launch! You are one of the hardest working buys in the biz!! Anthony Scaramucci (@Scaramucci) All The Wrong Moves is #1 in the United States National Government category on Amazon. Get the hardcover copy: amzn.to/3VSdRhj Get the audiobook (read by me): amzn.to/4ydOXqV — https://nitter.kareem.one/Scaramucci/status/2104001152316809589#m  
   https://nitter.kareem.one/novogratz/status/2104250567115641310#m
 - @novogratz (Mike Novogratz, Sun, 11 Oct 2026): Are we really gonna have a live TV firing squad in America? Can we all just say No!!! This isn’t what America stands for. It’s not what the military stands for. At what point do we all say enough!!!! I’m saying it !  
@@ -187,8 +203,12 @@ _no new posts in the lookback window_
   https://nitter.kareem.one/3rdeye_rav3n/status/2045362275045753234#m
 - @resilabsai (RESI, Sat, 08 Aug 2026): Attention Res Labs we have some really exciting news and updates to our project join our discord to stay up to date: discord.gg/TBj8q9vb2Q #bittensor #TAO bittensor:native #reslabs #reilabsai #crypto #subnet #subnet46 #reslabs_ai #reslabsai #opentensor #reptides  
   https://nitter.kareem.one/resilabsai/status/2085900662139744548#m
+- @shibshib89 (Ala Shaabana, Mon, 28 Sep 2026): Bittensor and Baguettes is ready for her interviews @ExploitSummit. See what subnets we’re chatting about soon!  
+  https://nitter.kareem.one/CrucibleLabs/status/2104684600291180752#m
 - @resilabsai (RESI, Mon, 20 Apr 2026): I am pleased to announce that Stillcore Capital @stillcorecap has invested in RESI @resilabsai (Bittensor Subnet 46).  
   https://nitter.kareem.one/markjeffrey/status/2046311512621670731#m
+- @oroagents (Oro, Mon, 12 Oct 2026): github.com/ORO-AI/assistante… All in the open :) Link GitHub - ORO-AI/assistanteval: AssistantEval: a verifiable benchmark for personal AI assistants AssistantEval: a verifiable benchmark for personal AI assistants - ORO-AI/assistanteval github.com  
+  https://nitter.kareem.one/oroagents/status/2109503153242775934#m
 - @resilabsai (RESI, Mon, 06 Apr 2026): Chainlink gave DeFi price feeds. @resilabsai is doing the same for real estate. From static appraisals to dynamic, onchain pricing. It's already honing in on Zillow's pricing accuracy, and only a matter of weeks before it surpasses it!  
   https://nitter.kareem.one/gordonfrayne/status/2041152947925512465#m
 - @BarrySilbert (Barry Silbert, Mon, 05 Oct 2026): The Zcash ETF ($ZCSH) was featured on @CNBC as interest in financial privacy grows. Zcash is up more than 170% this year compared to Bitcoin.  
@@ -199,6 +219,10 @@ _no new posts in the lookback window_
   https://nitter.kareem.one/tm0klc/status/2107002700340879465#m
 - @tm0klc (Tim, Mon, 05 Oct 2026): the bar used to be "is the UI intuitive." now it's "why am I looking at a UI"  
   https://nitter.kareem.one/tm0klc/status/2107001110502547573#m
+- @foundrydigital (Foundry Digital, Mon, 02 Jan 2012): Early predictions for design trends of 2012? tiny.cc/mkg4v  
+  https://nitter.kareem.one/foundrydigital/status/153974018557493248#m
+- @robmyers (Robert Myers, Fri, 26 Mar 2021): Try @rheaplex instead.  
+  https://nitter.kareem.one/robmyers/status/1375288994989101059#m
 - @tm0klc (Tim, Fri, 21 Aug 2026): I have now made 5 Omarchy plugins that I use every day! Check them out here: omarchyplugins.com/?author=c…  
   https://nitter.kareem.one/paolino/status/2090738880106377257#m
 - @tm0klc (Tim, Fri, 21 Aug 2026): Computer vision, decentralised Score (@webuildscore) Computer vision engineers are still duct-taping tools together just to get a model into production. We just finished another round of user interviews and that frustration came up again and again. So we re-designed Studio to work around our new Pipelines + Workflow Canvas features. Visually design any vision pipeline from start to finish, connect models, logic, and outputs on one canvas, preview the exact result, then deploy. You see the output before you ship it. Everything in a single interface. The full loop, shaped by the people who actua  
@@ -227,13 +251,7 @@ _no new posts in the lookback window_
   https://nitter.kareem.one/justmisile/status/2111091030418420073#m
 - @1inch (1inch, Fri, 16 Oct 2026): A little DC fit check before Groundwork 🏛️🤍✨ Excited for a day of conversations about crypto, DeFi, and the future of finance! Thank you @1inch @BlockchainAssn for putting this all together ‼️ Video  
   https://nitter.kareem.one/Tiffinance/status/2111080674933289256#m
-- @1inch (1inch, Fri, 16 Oct 2026):   
-  https://nitter.kareem.one/1inch/status/2111071263829684728#m
-- @taomedia_ (TAO Media, Fri, 16 Oct 2026): Tesla just broke the internet, revealing a flying supercar with a mach .5 top speed target. Everything you missed from the Roadster event: tao.media/tesla-unveils-flyi… Link Tesla Unveils Flying Roadster, Demonstrates 0–60 MPH in 0.81 Seconds Developed with SpaceX, the redesigned electric supercar uses compressed-air thrusters and a suction system to perform aerial maneuvers and drive upside down. tao.media  
-  https://nitter.kareem.one/taomedia_/status/2110921357810954584#m
-- @mcjkula (mcjkula, Fri, 09 Oct 2026): If you’re trying to decide which metal seed plate to get, @lopp has tested 75+ of them with heat, acid and a hydraulic press. Worth checking before you commit to one: jlopp.github.io/metal-bitcoi… Link Metal Bitcoin Seed Storage Reviews Stress tests and reviews of seed storage devices. jlopp.github.io Jon Durbin (@jon_durbin) Ledger itself ok, but fraudulent products less so of course. This is why I tell people I don't trust anything with a circuit board lol. These keystone tablets are pretty cool, handed a few out at exploit summit. Even better if you leave out some of the words and remember   
-  https://nitter.kareem.one/mcjkula/status/2108634378746405259#m
 
 
 ---
-_Generated at 2026-10-17T08:13:40.238234+00:00 by scripts/intel/aggregate.py. Treat this digest as input context, not as ground truth. Verify before quoting._
+_Generated at 2026-10-17T14:49:12.530882+00:00 by scripts/intel/aggregate.py. Treat this digest as input context, not as ground truth. Verify before quoting._
