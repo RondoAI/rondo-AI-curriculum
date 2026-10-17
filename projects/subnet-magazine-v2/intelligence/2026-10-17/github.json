@@ -1,0 +1,57 @@
+[
+  {
+    "repo": "opentensor/subtensor",
+    "name": "Subtensor (chain)",
+    "kind": "commit",
+    "sha": "6a97269",
+    "message": "Merge pull request #3264 from RaoFoundation/cursor/etao-root-off-top-5107",
+    "author": "Arbos",
+    "posted_at": "2026-10-16T21:46:42Z",
+    "url": "https://github.com/RaoFoundation/subtensor/commit/6a972693ae9580541225bd37696ac2fee26b8ae9",
+    "fetched_at": "2026-10-17T02:32:24.490280+00:00"
+  },
+  {
+    "repo": "opentensor/subtensor",
+    "name": "Subtensor (chain)",
+    "kind": "commit",
+    "sha": "75a4a73",
+    "message": "etao: compare the validator floor in u64 parts so chain and SDK agree",
+    "author": "Cursor Agent",
+    "posted_at": "2026-10-16T21:18:46Z",
+    "url": "https://github.com/RaoFoundation/subtensor/commit/75a4a73bac2693c9c4e8693db5bcd8ecb8f7e4c9",
+    "fetched_at": "2026-10-17T02:32:24.490280+00:00"
+  },
+  {
+    "repo": "opentensor/subtensor",
+    "name": "Subtensor (chain)",
+    "kind": "commit",
+    "sha": "85baf6a",
+    "message": "docs/website: etao release notes describe root off the top (spec 481)",
+    "author": "Cursor Agent",
+    "posted_at": "2026-10-16T20:29:18Z",
+    "url": "https://github.com/RaoFoundation/subtensor/commit/85baf6abc653f772184af9d7e3697c2171597051",
+    "fetched_at": "2026-10-17T02:32:24.490280+00:00"
+  },
+  {
+    "repo": "opentensor/subtensor",
+    "name": "Subtensor (chain)",
+    "kind": "commit",
+    "sha": "2471f6d",
+    "message": "sdk/btcli: root baseline share and validator floor replace effective_tao_weight",
+    "author": "Cursor Agent",
+    "posted_at": "2026-10-16T20:29:18Z",
+    "url": "https://github.com/RaoFoundation/subtensor/commit/2471f6d7ec7e991b6add48d02b48a3070bbc3314",
+    "fetched_at": "2026-10-17T02:32:24.490280+00:00"
+  },
+  {
+    "repo": "opentensor/subtensor",
+    "name": "Subtensor (chain)",
+    "kind": "commit",
+    "sha": "bb845ca",
+    "message": "etao: pay root its live baseline share off the top every block (spec 481)",
+    "author": "Cursor Agent",
+    "posted_at": "2026-10-16T20:29:18Z",
+    "url": "https://github.com/RaoFoundation/subtensor/commit/bb845ca1b975065be587630f5d529440ba132703",
+    "fetched_at": "2026-10-17T02:32:24.490280+00:00"
+  }
+]
