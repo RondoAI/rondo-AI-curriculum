@@ -155,6 +155,16 @@ _no new posts in the lookback window_
   https://nitter.kareem.one/CreightonForTX/status/2102869773776269419#m
 - @shibshib89 (Ala Shaabana, Wed, 16 Sep 2026): LFG! Crucible Labs (@CrucibleLabs) Crucible Wallet Extension v2.1.1 is LIVE. This isn’t just an update. We rebuilt the entire wallet experience from the ground up. A completely new UI. More control over your TAO. More Bittensor tools built directly into your wallet. What’s new in v2.1.1: ✔️Completely updated UI + light/dark mode ✔️Claim rewards directly in the wallet ✔️Unified balance across TAO + alpha ✔️Universal Swap ✔️Transfer TAO + alpha ✔️Subnet discovery + detailed subnet views ✔️Multi-address support for seed phrases ✔️12 and 24 word seed phrase support ✔️Updated Smart Account + Reward  
   https://nitter.kareem.one/shibshib89/status/2100300168633761947#m
+- @opentensor (Opentensor Foundation, Wed, 14 Oct 2026): Introducing DecisionModels @decisionmodels_ I've spent the last four weeks benchmarking decision models (I run JevBench). Today I'm launching the place to actually use the best ones: decisionmodels.io ➡️Top open models ➡️Up to 4x faster on our own REAX engine ➡️From $0.019 per 1M input tokens. Expect more reveals soon, and read 👇 Video  
+  https://nitter.kareem.one/airesearch12/status/2110410684873814482#m
+- @zeussubnet (Zeus Subnet, Wed, 14 Oct 2026): Zeus' full @ExploitSummit talk @RoryZeus breaks down the how and why of Zeus, shares what’s ahead, and pitches Zeus Pro and Zeus Edge 👇 Video  
+  https://nitter.kareem.one/zeussubnet/status/2110380222285549666#m
+- @PanteraCapital (Pantera Capital, Wed, 14 Oct 2026): A new milestone for Ondo: $4 billion in TVL. From tokenized Treasuries to tokenized stocks, ETFs, portfolios & private markets, Ondo is expanding access with every asset class. Behind the $4 billion TVL milestone: → $1.3B+ in tokenized stocks & ETFs → #1 platform for tokenized U.S. Treasuries → 1M+ cumulative holders across products That growth reflects innovations in how tokenized assets trade, including Ondo Stocks tapping TradFi exchange liquidity through RFQ. Leading wallets and apps put that liquidity within reach, enabling permissionless transfers across Solana, Ethereum and BNB Chain. T  
+  https://nitter.kareem.one/Ondo/status/2110378961129652608#m
+- @rob_svrn (Rob Greer, Wed, 14 Oct 2026): This could be one of the most consequential updates for Bittensor, if implemented. Lack of subnet volatility is likely one of the main factor discouraging capital from entering the ecosystem. If we start seeing subnets doing a 2/3x based on fast improving fundamentals, I bet a lot more capital will get bridged over from other chains. I know the OTF and @const_reborn are studying the proposal and I hope they reach the right conclusions. bittensor:native Yuma (@YumaGroup) 1/ ASMR Research Preview Bittensor subnets in aggregate (the YCX index) have substantially lower volatility than the S&P 500.  
+  https://nitter.kareem.one/tylerdurdeth/status/2110245644493295985#m
+- @rob_svrn (Rob Greer, Wed, 14 Oct 2026): TAO has a circulating supply of ~11.6M today, at a price of $280. BTC had a circulating supply of 11.6M in Sept 2013, with a price of ~$130. Might not feel like it, but we're ahead of schedule lads.  
+  https://nitter.kareem.one/the_mattyk/status/2110210545991266559#m
 - @foundrydigital (Foundry Digital, Wed, 11 Jan 2012): Expression Engine 2.0 review by the guys at Scriptiny bit.ly/w3Pg3R  
   https://nitter.kareem.one/foundrydigital/status/157243024848596993#m
 - @shibshib89 (Ala Shaabana, Wed, 09 Sep 2026): Did you hear? Crucible Wallet is officially live on iOS today. An easy to use Bittensor wallet with Ledger security, Unified Swap and subnet level performance. Now available on iOS in the US, Android and Chrome. Download at CrucibleLabs.com #Bittensor #TAO #CrucibleWallet  
@@ -163,6 +173,10 @@ _no new posts in the lookback window_
   https://nitter.kareem.one/novogratz/status/2107898542325195167#m
 - @mcjkula (mcjkula, Wed, 07 Oct 2026): "The best person to solve your problem might be someone you’ve never met or considered hiring." Travis and I explain Bittensor, including examples from weather forecasting (@zeussubnet) and drug discovery (@metanova_labs). Here’s our "Bittensor 101" recording from @ExploitSummit Video  
   https://nitter.kareem.one/mcjkula/status/2107803570699722943#m
+- @zeussubnet (Zeus Subnet, Wed, 07 Oct 2026): Google WeatherNext3 vs ZEUS? We're better. Took a while but we benchmarked and we're better. simple statement big impact. On to the next. $TAO zeussubnet.com/benchmarks  
+  https://nitter.kareem.one/wouterhar/status/2107784734571204848#m
+- @PanteraCapital (Pantera Capital, Tue, 13 Oct 2026): New milestone: $3 billion in tokenized U.S. Treasuries. Ondo ranks #1 among tokenized U.S. Treasury platforms on RWA․xyz, with $3 billion across USDY, OUSG and tokenized Treasury ETFs. Leading that growth is USDY, with over $2.3 billion in TVL, larger than BlackRock’s BUIDL. With USDY, holders can: → Earn yield directly in their wallets → Trade permissionlessly onchain → Use USDY as collateral across DeFi apps This milestone reflects how quickly tokenization is growing and how early we still are in bringing the world’s financial markets onchain. Billions today. Trillions tomorrow.  
+  https://nitter.kareem.one/Ondo/status/2110049625721758048#m
 - @affine_io (Affine, Tue, 11 Aug 2026): A little sneak peak at what our in house harness @LOGOS_agent can one-shot with our /goal function😎. We're positioning this to be the "Hermes" of Bittensor. Huge shoutout to the team at @affine_io, particularly @TOBIAS10086, @scoutesy and @SeanRui89975885 for their hard work to rapidly improve it, as just last month it was practically unusable, and now it can output some pretty beautiful and usable stuff! Also shoutout to our loyal community members who were willing to put LOGOS to the shit-test, as our agent recursively improves the more usage it gets, so it couldn't have improved this fast w  
   https://nitter.kareem.one/jeremyletsgooo/status/2087180856108761272#m
 - @resilabsai (RESI, Tue, 07 Apr 2026): The power of holding Bittensor $TAO subnet alpha Here is an example to illustrate the flywheel of $TAO Let's say you 1,000 alpha of @resilabsai which cost around 7 $TAO 7 $TAO at a price of $310 = $2,170 Current alpha price of Resi, subnet 46: .0066 $TAO Let's make some calculated assumptions. &gt; price of resi alpha stays the same for 3 years &gt; price of $TAO remains the same at $310 &gt; APY for holding Resi alpha is 40% for the first 2 years, then 30% in year 3 What is my total value in 3 years? Year 1 (40% APY) 1,060.6 × 1.4 = 1,484.8 alpha In $TAO: 1,484.8 × 0.0066 ≈ 9.80 $TAO In USD:   
@@ -175,83 +189,69 @@ _no new posts in the lookback window_
   https://nitter.kareem.one/mcjkula/status/2107441742199042204#m
 - @BarrySilbert (Barry Silbert, Thu, 24 Sep 2026): Choose your fighter. 21M supply. Fair launch. Open network. bittensor:native $ZEC $BTC  
   https://nitter.kareem.one/YumaGroup/status/2103148514670989783#m
+- @Olaf (Olaf Carlson-Wee, Thu, 19 Aug 2010): lekker biertje drinken bij Dims!  
+  https://nitter.kareem.one/olaf/status/21602951308#m
+- @TargonCompute (Targon, Thu, 15 Oct 2026): With eTAO on the horizon, it's finally time. Talking Targon 001 with @const_reborn drops tomorrow. Video  
+  https://nitter.kareem.one/TargonCompute/status/2110862558047654272#m
+- @TargonCompute (Targon, Thu, 15 Oct 2026): Tomorrow @TargonCompute Video  
+  https://nitter.kareem.one/Tangtalksbits/status/2110856764006486521#m
 - @taomedia_ (TAO Media, Thu, 15 Oct 2026): JUST IN: What's next in Q4 for @TargonCompute Video  
   https://nitter.kareem.one/taomedia_/status/2110856390726111460#m
+- @opentensor (Opentensor Foundation, Thu, 15 Oct 2026): Novelty Search :: Bittensor Subnet 4, Targon nitterk.kareem.one/i/broadcasts/1aKbdErpe… Link Openτensor Foundaτion Novelty Search :: Bittensor Subnet 4, Targon https://nitter.kareem.one/i/broadcasts/1aKbdErpeeqJX  
+  https://nitter.kareem.one/opentensor/status/2110838819142734165#m
 - @shibshib89 (Ala Shaabana, Thu, 15 Oct 2026): Research a subnet. Open your wallet. Click away. Wallet disappears. Repeat. 🙃 We fixed that. Crucible Wallet now supports Chrome's Side Panel, so you can keep your wallet open while researching subnets, checking charts, staking, or swapping. Less back and forth. More time actually doing what you came to do.  
   https://nitter.kareem.one/CrucibleLabs/status/2110795579249111046#m
+- @opentensor (Opentensor Foundation, Thu, 15 Oct 2026): &gt; Documentation: bittensor.com/docs/guides/nu… &gt; Release: github.com/RaoFoundation/sub…  
+  https://nitter.kareem.one/opentensor/status/2110775216515539360#m
+- @rob_svrn (Rob Greer, Thu, 15 Oct 2026): We've developed a new inference engine, called 'e'. It's the closest thing to alien technology which we have, and pushes 10,500 tok/s aggregate on a single DGX Station with the new @NVIDIAAI Nemotron 3.5 Super VL model, released a few minutes ago. Actual Computer (@actualinc) Actual Computer turns your NVIDIA DGX Station into a department-scale AI factory. Read the full case study: actual.inc/company/blog/case… Link Actual Computer › Case Study : GB300 and Nemotron 3.5 Super VL Department-scale AI from one NVIDIA DGX Station: Nemotron 3.5 Super VL at 8,000+ tokens per second, shared by your wh  
+  https://nitter.kareem.one/somewheresy/status/2110759944370692216#m
+- @rob_svrn (Rob Greer, Thu, 15 Oct 2026): Actual Computer turns your NVIDIA DGX Station into a department-scale AI factory. Read the full case study: actual.inc/company/blog/case… Link Actual Computer › Case Study : GB300 and Nemotron 3.5 Super VL Department-scale AI from one NVIDIA DGX Station: Nemotron 3.5 Super VL at 8,000+ tokens per second, shared by your whole team through api.actual.inc. actual.inc  
+  https://nitter.kareem.one/actualinc/status/2110759623435117020#m
 - @BarrySilbert (Barry Silbert, Thu, 15 Oct 2026): Big milestone: Fortitude crossed 5 GSol/s of Zcash hashrate The team is focused on its vision to build the largest $ZEC mining platform $HSCS Fortitude (@FortitudeCrypto) Fortitude has surpassed 5.0 GSol/s of Equihash hashrate, representing a meaningful share of Zcash network mining capacity. As Fortitude continues to scale, the Company remains focused on its vision to build the largest vertically-integrated Zcash mining platform. $ZEC $HSCS See important additional information here: fortitudemining.com/disclaim… Video — https://nitter.kareem.one/FortitudeCrypto/status/2110703573340463477#m  
   https://nitter.kareem.one/BarrySilbert/status/2110743550539231354#m
 - @BarrySilbert (Barry Silbert, Thu, 15 Oct 2026): We're excited to announce a partnership with @joinrepublic to expand access to Grayscale investment products for eligible investors. Grayscale products to be available on the Republic platform are: • Grayscale DeFi Fund: exposure to a basket of leading DeFi protocols $UNI, $AAVE, $ONDO, $ENA, $CRV, $LDO • Grayscale Decentralized AI Fund: exposure to protocols operating at the intersection of blockchain and AI $NEAR, $TAO, $RENDER, $FIL • Grayscale Data Network Trust: exposure to $DATA, the native token of the DATA Network. Visit the landing page on Republic to learn more: republic.com/grayscal  
   https://nitter.kareem.one/Grayscale/status/2110719416954687980#m
 - @BarrySilbert (Barry Silbert, Thu, 15 Oct 2026): The digital rand in action⚡️ Awesome to see @LunoGlobal enabling users to spend @ZARUniversal at nearly 1 million South African merchants or everyday purchases like petrol and groceries. A big step in bringing institutional-grade digital assets to everyday consumer payments. Learn more below 👇 Luno (@LunoGlobal) Your daily routine just got a major upgrade. Whether you are filling up your tank at @Engen_SA, grabbing daily groceries at @WOOLWORTHS_SA or treating yourself to @KrispyKreme_ZA at Engen Forecourt, you can pay seamlessly with your Luno app. Pay with @LunoGlobal Pay and enjoy 15% back   
   https://nitter.kareem.one/BlockTowerTech/status/2110698308687827452#m
+- @PanteraCapital (Pantera Capital, Thu, 15 Oct 2026): Fission has raised $10M in Series A funding, led by @PanteraCapital. We’re building the liquidity infrastructure for the next generation of tokenized financial products. Eligible investors can now access capital without waiting for a fund's scheduled redemption window. More in Fortune: fortune.com/2026/10/15/pante…  
+  https://nitter.kareem.one/FissionXYZ/status/2110697116335215041#m
 - @oroagents (Oro, Thu, 08 Oct 2026): And to see what we are up to next at oroagents.com/  
   https://nitter.kareem.one/oroagents/status/2108312282493329762#m
 - @oroagents (Oro, Thu, 08 Oct 2026): See the trajectories and datasets from these benchmarks - huggingface.co/oro-ai Link oro-ai (ORO AI) We&apos;re building the largest agent arena where AI learns to shop huggingface.co  
   https://nitter.kareem.one/oroagents/status/2108311887469552061#m
 - @oroagents (Oro, Thu, 08 Oct 2026): As models and harnesses get more capable, the depth of our RL environments needs to stay ahead of the curve. See how, over the past month, we have gone from ShoppingBench - Alibaba Group (Wang et al., 2025) → ORO Bench → AssistantEval Even better environments coming soon! Video  
   https://nitter.kareem.one/oroagents/status/2108311456345358818#m
+- @PanteraCapital (Pantera Capital, Thu, 08 Oct 2026): Today, we're announcing $37.5M in new funding, led by @BainCapCrypto, bringing our total capital raised to over $180M. This investment will help us expand Bitcoin-denominated life insurance to families across Asia, Europe, and the Middle East. Video  
+  https://nitter.kareem.one/meanwhile/status/2108252790451826702#m
+- @zeussubnet (Zeus Subnet, Thu, 08 Oct 2026): For a 00Z model run, Zeus disseminates in around 1.5 hours. That’s a 4.5 hour time advantage for energy traders to position before others trading with industry-standard models. This is our strongest differentiator.  
+  https://nitter.kareem.one/zeussubnet/status/2108184384985805221#m
 - @oroagents (Oro, Thu, 08 Oct 2026): huggingface.co/collections/o… Link AssistantEval - a oro-ai Collection AssistantEval by ORO. Published results and recorded trajectories. Website: assistanteval.com huggingface.co  
   https://nitter.kareem.one/oroagents/status/2108083587845394791#m
 - @novogratz (Mike Novogratz, Sun, 27 Sep 2026): Congrats @Scaramucci on this launch! You are one of the hardest working buys in the biz!! Anthony Scaramucci (@Scaramucci) All The Wrong Moves is #1 in the United States National Government category on Amazon. Get the hardcover copy: amzn.to/3VSdRhj Get the audiobook (read by me): amzn.to/4ydOXqV — https://nitter.kareem.one/Scaramucci/status/2104001152316809589#m  
   https://nitter.kareem.one/novogratz/status/2104250567115641310#m
 - @novogratz (Mike Novogratz, Sun, 11 Oct 2026): Are we really gonna have a live TV firing squad in America? Can we all just say No!!! This isn’t what America stands for. It’s not what the military stands for. At what point do we all say enough!!!! I’m saying it !  
   https://nitter.kareem.one/novogratz/status/2109077784286912605#m
+- @Olaf (Olaf Carlson-Wee, Sun, 10 Jul 2011): RT @timmerarjan Life is good! yfrog.com/kkli4iaj zeker !! Wel tof dat je het deelt met je vrienden :)  
+  https://nitter.kareem.one/olaf/status/90083936700600321#m
 - @mcjkula (mcjkula, Sat, 19 Sep 2026): Maciej Kula ( @mcjkula ) couldn't find a clear way to learn #Bittensor from scratch, so he built the resource he wished existed. @learnbittensor is now part of @latentholdings, where Maciej leads education and makes Bittensor easier to understand. He'll be leading our Bittensor 101 session to kick off Day 1: luma.com/nqy2n5zi Video  
   https://nitter.kareem.one/ExploitSummit/status/2101355676325007652#m
 - @resilabsai (RESI, Sat, 18 Apr 2026): Traditional centralized real estate data platforms are fundamentally flawed and often serve to extract wealth from users. @resilabsai (Subnet 46) is breaking this monopoly through decentralized AI technology that delivers up to 99% valuation accuracy. Skip the corporate intermediaries—this AI-powered home valuation tool provides the most reliable housing market forecasts for 2026 Video SEBY (gpu/acc) (@sebyrubino) The @resilabsai Portal is LIVE! Any agent or real estate professional can now easily access our SOTA remote appraisals. We built RESI as a compounding network that will naturally acc  
   https://nitter.kareem.one/3rdeye_rav3n/status/2045362275045753234#m
+- @TargonCompute (Targon, Sat, 17 Oct 2026): The dawn of eTAO is upon us. Talking Targon Ep. 01 with @const_reborn Targon (@TargonCompute) Talking Targon, Ep. 01 is now live. Bittensor co-founder Jacob Steeves aka @const_reborn joins us to break down eTAO, the upgrade that lets subnet owners decide how their emissions are split. We get into subnet economics, the guardrails against exploits, and what it unlocks for compute on Targon. Video — https://nitter.kareem.one/TargonCompute/status/2111266999464530147#m  
+  https://nitter.kareem.one/the_mattyk/status/2111449310529265718#m
+- @TargonCompute (Targon, Sat, 17 Oct 2026): Full episode is live on Youtube here: inv.kareem.one/watch?v=s7hymAhb… Link The Future of Bittensor with Jacob Steeves | Talking Targon Ep. 01 Deploy confidential GPUs on Targon.comBittensor co-founder Jacob ... youtube.com  
+  https://nitter.kareem.one/TargonCompute/status/2111268779464233319#m
+- @TargonCompute (Targon, Sat, 17 Oct 2026): Talking Targon, Ep. 01 is now live. Bittensor co-founder Jacob Steeves aka @const_reborn joins us to break down eTAO, the upgrade that lets subnet owners decide how their emissions are split. We get into subnet economics, the guardrails against exploits, and what it unlocks for compute on Targon. Video  
+  https://nitter.kareem.one/TargonCompute/status/2111266999464530147#m
 - @resilabsai (RESI, Sat, 08 Aug 2026): Attention Res Labs we have some really exciting news and updates to our project join our discord to stay up to date: discord.gg/TBj8q9vb2Q #bittensor #TAO bittensor:native #reslabs #reilabsai #crypto #subnet #subnet46 #reslabs_ai #reslabsai #opentensor #reptides  
   https://nitter.kareem.one/resilabsai/status/2085900662139744548#m
 - @shibshib89 (Ala Shaabana, Mon, 28 Sep 2026): Bittensor and Baguettes is ready for her interviews @ExploitSummit. See what subnets we’re chatting about soon!  
   https://nitter.kareem.one/CrucibleLabs/status/2104684600291180752#m
 - @resilabsai (RESI, Mon, 20 Apr 2026): I am pleased to announce that Stillcore Capital @stillcorecap has invested in RESI @resilabsai (Bittensor Subnet 46).  
   https://nitter.kareem.one/markjeffrey/status/2046311512621670731#m
-- @oroagents (Oro, Mon, 12 Oct 2026): github.com/ORO-AI/assistante… All in the open :) Link GitHub - ORO-AI/assistanteval: AssistantEval: a verifiable benchmark for personal AI assistants AssistantEval: a verifiable benchmark for personal AI assistants - ORO-AI/assistanteval github.com  
-  https://nitter.kareem.one/oroagents/status/2109503153242775934#m
-- @resilabsai (RESI, Mon, 06 Apr 2026): Chainlink gave DeFi price feeds. @resilabsai is doing the same for real estate. From static appraisals to dynamic, onchain pricing. It's already honing in on Zillow's pricing accuracy, and only a matter of weeks before it surpasses it!  
-  https://nitter.kareem.one/gordonfrayne/status/2041152947925512465#m
-- @BarrySilbert (Barry Silbert, Mon, 05 Oct 2026): The Zcash ETF ($ZCSH) was featured on @CNBC as interest in financial privacy grows. Zcash is up more than 170% this year compared to Bitcoin.  
-  https://nitter.kareem.one/ZcashETF/status/2107136380166127955#m
-- @tm0klc (Tim, Mon, 05 Oct 2026): Bro just make sure my agents can use it Accessibility has taken on a new meaning  
-  https://nitter.kareem.one/tm0klc/status/2107003027576225971#m
-- @tm0klc (Tim, Mon, 05 Oct 2026): every website now feels like a little escape room someone built for some tasks believing it was logical or easy to use  
-  https://nitter.kareem.one/tm0klc/status/2107002700340879465#m
-- @tm0klc (Tim, Mon, 05 Oct 2026): the bar used to be "is the UI intuitive." now it's "why am I looking at a UI"  
-  https://nitter.kareem.one/tm0klc/status/2107001110502547573#m
-- @foundrydigital (Foundry Digital, Mon, 02 Jan 2012): Early predictions for design trends of 2012? tiny.cc/mkg4v  
-  https://nitter.kareem.one/foundrydigital/status/153974018557493248#m
-- @robmyers (Robert Myers, Fri, 26 Mar 2021): Try @rheaplex instead.  
-  https://nitter.kareem.one/robmyers/status/1375288994989101059#m
-- @tm0klc (Tim, Fri, 21 Aug 2026): I have now made 5 Omarchy plugins that I use every day! Check them out here: omarchyplugins.com/?author=c…  
-  https://nitter.kareem.one/paolino/status/2090738880106377257#m
-- @tm0klc (Tim, Fri, 21 Aug 2026): Computer vision, decentralised Score (@webuildscore) Computer vision engineers are still duct-taping tools together just to get a model into production. We just finished another round of user interviews and that frustration came up again and again. So we re-designed Studio to work around our new Pipelines + Workflow Canvas features. Visually design any vision pipeline from start to finish, connect models, logic, and outputs on one canvas, preview the exact result, then deploy. You see the output before you ship it. Everything in a single interface. The full loop, shaped by the people who actua  
-  https://nitter.kareem.one/tm0klc/status/2090610814449570047#m
-- @1inch (1inch, Fri, 16 Oct 2026): "I don't think in 5 years we're using the word crypto. I just don't think crypto is a thing in 5 years. It's just financial services.'' Professor Gregory Johnson, NYU live at Groundwork  
-  https://nitter.kareem.one/1inch/status/2111190279382266270#m
-- @taomedia_ (TAO Media, Fri, 16 Oct 2026): .@urnetwork is now live on Bittensor mainnet as SN25. The privacy network is moving its 100k+ providers over as Bittensor miners, has set miner burn to 0%, and is routing excess emissions into a public multisig reserve that pays for new network capacity against verified delivery. Full details ↓ tao.media/ur-launches-bitten… Link UR Launches Bittensor SN25 Mainnet With Reserve to Fund Network Capacity The privacy network is transitioning more than 100,000 providers into miners while funding connectivity ahead of customer demand. tao.media  
-  https://nitter.kareem.one/taomedia_/status/2111186105089638802#m
-- @JosephJacks_ (Joseph Jacks, Fri, 16 Oct 2026): This is the craziest model ever! 👏🤗 Liquid AI (@liquidai) Today we release 𝚍𝟷-𝚞𝚕𝚝𝚛𝚊, our most powerful decision model. &gt; built for hard decision problems. &gt; d1-ultra is multimodal &gt; supports 44 languages &gt; #1 on the @ArtificialAnlys Decision Index (65) &gt; leads all eight categories of our 112-evaluation suite 1/ — https://nitter.kareem.one/liquidai/status/2110777964489285875#m  
-  https://nitter.kareem.one/mtasic85/status/2111178258175623373#m
-- @JosephJacks_ (Joseph Jacks, Fri, 16 Oct 2026): “The I in AI is a misnomer .. intelligence requires consciousness .. and AI is not remotely conscious.” — Roger Penrose I strongly agree.  
-  https://nitter.kareem.one/JosephJacks_/status/2111172549006750038#m
-- @JosephJacks_ (Joseph Jacks, Fri, 16 Oct 2026): Currently at the coolest conference in history.. tsc2026.org/ Video  
-  https://nitter.kareem.one/JosephJacks_/status/2111163204923736548#m
-- @taomedia_ (TAO Media, Fri, 16 Oct 2026): Meta is putting an 816B-parameter coding and agent model on local hardware with Muse Spark Open, an open-weight release that also supports hosted APIs. The model activates 42B parameters per token, handles a 1M-token context window, and has been optimized to run on two Apple M5 Ultra Mac Studios. tao.media/meta-opens-muse-sp… Link Meta Opens Muse Spark Weights for Coding Agents and Two-Mac Local Inference The 816B-parameter model brings multimodal agent workflows to local hardware, with downloadable weights and hosted API access. tao.media  
-  https://nitter.kareem.one/taomedia_/status/2111161001861087541#m
-- @1inch (1inch, Fri, 16 Oct 2026): From DeFi's early days to its next chapter. At @1inch's Groundwork event in Washington, DC, CertiK Co-founder and CEO @RonghuiGu joined @OrestGavryliak, Chief Legal Officer at 1inch, for the panel “DeFi Then, Now and Moving Forward,” moderated by Marko Stojanovic, President of Fordham University's Blockchain & Fintech Club. The discussion explored DeFi's evolution and the opportunities and challenges shaping its future. Thanks to 1inch for bringing these perspectives together! Video  
-  https://nitter.kareem.one/CertiK/status/2111158985524928741#m
-- @1inch (1inch, Fri, 16 Oct 2026): Particular thanks to @OrestGavryliak and the @1inch team for their leadership and collaboration. And to my BA colleagues @lindsayfraser0 @Mara_Abiera @SophiaCookDC @Advocate4Web3 @Chris_Jonas_DC @Jeremy_Epner Michael Will Taryn Sharon and Finley, whose work helped make today possible. Wonderful to reconnect with @m_mosier_ @ohaiom @RettigE @gilbert787 @Jessi_inDC @N0th1n3 and so many others who contributed to the day’s discussions. #DCFintechWeek  
-  https://nitter.kareem.one/DanSpuller/status/2111147091233808500#m
-- @taomedia_ (TAO Media, Fri, 16 Oct 2026): Mercedes-Benz is taking NVIDIA’s automated-driving technology deeper into its next generation of vehicles. The automaker will pair MB.OS with NVIDIA’s Hyperion computing and sensor architecture, Alpamayo driving software, and Halos safety system, with future Level 4 “robolimousines” in the plan. tao.media/mercedes-benz-expa… Link Mercedes-Benz Expands NVIDIA Partnership for AI Driving Software and Future Level 4 Vehicles The partners will combine Mercedes-Benz’s operating system with NVIDIA’s computing, driving software, and safety technology. tao.media  
-  https://nitter.kareem.one/taomedia_/status/2111145833806909445#m
-- @JosephJacks_ (Joseph Jacks, Fri, 16 Oct 2026): You should try @liquidai's d1 models as well. d1-3B vs Vega 4B on M4 Max: 3.4× faster. More accurate. Fewer parameters. Available here: huggingface.co/LiquidAI/d1-3… and huggingface.co/LiquidAI/d1-o… Nandakishor m (@Nandakishorm1) vega vs jev vs laya. Btw, Vega can run on a CPU, your smartphone, browser on the edge. With a speed of 75 ms in apple M5 16 GB — https://nitter.kareem.one/Nandakishorm1/status/2110740431206339037#m  
-  https://nitter.kareem.one/nathanrchn/status/2111113909562134680#m
-- @JosephJacks_ (Joseph Jacks, Fri, 16 Oct 2026): My auto mode plugin for OpenCode (like Claude Code's Auto Mode) runs on System One. Jev 1.14 kept blocking read-only commands, so I had to recalibrate again and again. d1-ultra, with no recalibration, blocked only the dangerous command. Liquid AI, you did great! Liquid AI (@liquidai) Today we release 𝚍𝟷-𝚞𝚕𝚝𝚛𝚊, our most powerful decision model. &gt; built for hard decision problems. &gt; d1-ultra is multimodal &gt; supports 44 languages &gt; #1 on the @ArtificialAnlys Decision Index (65) &gt; leads all eight categories of our 112-evaluation suite 1/ — https://nitter.kareem.one/liquidai/status/2  
-  https://nitter.kareem.one/justmisile/status/2111091030418420073#m
-- @1inch (1inch, Fri, 16 Oct 2026): A little DC fit check before Groundwork 🏛️🤍✨ Excited for a day of conversations about crypto, DeFi, and the future of finance! Thank you @1inch @BlockchainAssn for putting this all together ‼️ Video  
-  https://nitter.kareem.one/Tiffinance/status/2111080674933289256#m
+- @zeussubnet (Zeus Subnet, Mon, 12 Oct 2026): US natural gas traders are betting on a mild winter, with net-short positions exceeding 140K contracts. ❄️ But unexpected cold snaps will turn the market upside down. This winter, it's about the next 10 days of weather. Zeus temperature forecasts as population-weighted HDD/CDD output. Soon directly usable in natural gas trading setups.  
+  https://nitter.kareem.one/zeussubnet/status/2109676376160690225#m
 
 
 ---
-_Generated at 2026-10-17T14:49:12.530882+00:00 by scripts/intel/aggregate.py. Treat this digest as input context, not as ground truth. Verify before quoting._
+_Generated at 2026-10-17T18:07:48.102084+00:00 by scripts/intel/aggregate.py. Treat this digest as input context, not as ground truth. Verify before quoting._

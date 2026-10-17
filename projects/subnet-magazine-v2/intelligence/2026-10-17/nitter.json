@@ -20,6 +20,56 @@
     "via_instance": "https://nitter.cz"
   },
   {
+    "handle": "opentensor",
+    "name": "Opentensor Foundation",
+    "posted_at": "Wed, 14 Oct 2026 16:41:31 GMT",
+    "title": "RT by @opentensor: Introducing DecisionModels @decisionmodels_ I've spent the last four weeks benchmarking decision models (I run JevBench). Today I'm launching the place to actually use the best ones: http://decisionmodels.io ➡️Top open models ➡️Up to 4x faster on our own REAX engine ➡️From $0.019 per 1M input tokens. Expect more reveals soon, and read 👇",
+    "text": "Introducing DecisionModels @decisionmodels_ I've spent the last four weeks benchmarking decision models (I run JevBench). Today I'm launching the place to actually use the best ones: decisionmodels.io ➡️Top open models ➡️Up to 4x faster on our own REAX engine ➡️From $0.019 per 1M input tokens. Expect more reveals soon, and read 👇 Video",
+    "url": "https://nitter.kareem.one/airesearch12/status/2110410684873814482#m",
+    "fetched_at": "2026-10-17T18:04:49.087031+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "zeussubnet",
+    "name": "Zeus Subnet",
+    "posted_at": "Wed, 14 Oct 2026 14:40:28 GMT",
+    "title": "Zeus' full @ExploitSummit talk @RoryZeus breaks down the how and why of Zeus, shares what’s ahead, and pitches Zeus Pro and Zeus Edge 👇",
+    "text": "Zeus' full @ExploitSummit talk @RoryZeus breaks down the how and why of Zeus, shares what’s ahead, and pitches Zeus Pro and Zeus Edge 👇 Video",
+    "url": "https://nitter.kareem.one/zeussubnet/status/2110380222285549666#m",
+    "fetched_at": "2026-10-17T18:07:42.524148+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "PanteraCapital",
+    "name": "Pantera Capital",
+    "posted_at": "Wed, 14 Oct 2026 14:35:27 GMT",
+    "title": "RT by @PanteraCapital: A new milestone for Ondo: $4 billion in TVL. From tokenized Treasuries to tokenized stocks, ETFs, portfolios & private markets, Ondo is expanding access with every asset class. Behind the $4 billion TVL milestone: → $1.3B+ in tokenized stocks & ETFs → #1 platform for tokenized U.S. Treasuries → 1M+ cumulative holders across products That growth reflects innovations in how tokenized assets trade, including Ondo Stocks tapping TradFi exchange liquidity through RFQ. Leading wallets and apps put that liquidity within reach, enabling permissionless transfers across Solana, Ethereum and BNB Chain. This milestone is an early sign of the scale ahead as tokenization transforms how the world accesses financial markets. Think in trillions.",
+    "text": "A new milestone for Ondo: $4 billion in TVL. From tokenized Treasuries to tokenized stocks, ETFs, portfolios & private markets, Ondo is expanding access with every asset class. Behind the $4 billion TVL milestone: → $1.3B+ in tokenized stocks & ETFs → #1 platform for tokenized U.S. Treasuries → 1M+ cumulative holders across products That growth reflects innovations in how tokenized assets trade, including Ondo Stocks tapping TradFi exchange liquidity through RFQ. Leading wallets and apps put that liquidity within reach, enabling permissionless transfers across Solana, Ethereum and BNB Chain. T",
+    "url": "https://nitter.kareem.one/Ondo/status/2110378961129652608#m",
+    "fetched_at": "2026-10-17T18:05:41.671447+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "rob_svrn",
+    "name": "Rob Greer",
+    "posted_at": "Wed, 14 Oct 2026 05:45:42 GMT",
+    "title": "RT by @rob_svrn: This could be one of the most consequential updates for Bittensor, if implemented. Lack of subnet volatility is likely one of the main factor discouraging capital from entering the ecosystem. If we start seeing subnets doing a 2/3x based on fast improving fundamentals, I bet a lot more capital will get bridged over from other chains. I know the OTF and @const_reborn are studying the proposal and I hope they reach the right conclusions. bittensor:native",
+    "text": "This could be one of the most consequential updates for Bittensor, if implemented. Lack of subnet volatility is likely one of the main factor discouraging capital from entering the ecosystem. If we start seeing subnets doing a 2/3x based on fast improving fundamentals, I bet a lot more capital will get bridged over from other chains. I know the OTF and @const_reborn are studying the proposal and I hope they reach the right conclusions. bittensor:native Yuma (@YumaGroup) 1/ ASMR Research Preview Bittensor subnets in aggregate (the YCX index) have substantially lower volatility than the S&P 500.",
+    "url": "https://nitter.kareem.one/tylerdurdeth/status/2110245644493295985#m",
+    "fetched_at": "2026-10-17T18:05:05.466972+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "rob_svrn",
+    "name": "Rob Greer",
+    "posted_at": "Wed, 14 Oct 2026 03:26:14 GMT",
+    "title": "RT by @rob_svrn: TAO has a circulating supply of ~11.6M today, at a price of $280. BTC had a circulating supply of 11.6M in Sept 2013, with a price of ~$130. Might not feel like it, but we're ahead of schedule lads.",
+    "text": "TAO has a circulating supply of ~11.6M today, at a price of $280. BTC had a circulating supply of 11.6M in Sept 2013, with a price of ~$130. Might not feel like it, but we're ahead of schedule lads.",
+    "url": "https://nitter.kareem.one/the_mattyk/status/2110210545991266559#m",
+    "fetched_at": "2026-10-17T18:05:05.466972+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
     "handle": "foundrydigital",
     "name": "Foundry Digital",
     "posted_at": "Wed, 11 Jan 2012 23:30:33 GMT",
@@ -57,6 +107,26 @@
     "text": "\"The best person to solve your problem might be someone you’ve never met or considered hiring.\" Travis and I explain Bittensor, including examples from weather forecasting (@zeussubnet) and drug discovery (@metanova_labs). Here’s our \"Bittensor 101\" recording from @ExploitSummit Video",
     "url": "https://nitter.kareem.one/mcjkula/status/2107803570699722943#m",
     "fetched_at": "2026-10-17T08:10:57.630381+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "zeussubnet",
+    "name": "Zeus Subnet",
+    "posted_at": "Wed, 07 Oct 2026 10:46:56 GMT",
+    "title": "RT by @zeussubnet: Google WeatherNext3 vs ZEUS? We're better. Took a while but we benchmarked and we're better. simple statement big impact. On to the next. $TAO https://zeussubnet.com/benchmarks",
+    "text": "Google WeatherNext3 vs ZEUS? We're better. Took a while but we benchmarked and we're better. simple statement big impact. On to the next. $TAO zeussubnet.com/benchmarks",
+    "url": "https://nitter.kareem.one/wouterhar/status/2107784734571204848#m",
+    "fetched_at": "2026-10-17T18:07:42.524148+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "PanteraCapital",
+    "name": "Pantera Capital",
+    "posted_at": "Tue, 13 Oct 2026 16:46:48 GMT",
+    "title": "RT by @PanteraCapital: New milestone: $3 billion in tokenized U.S. Treasuries. Ondo ranks #1 among tokenized U.S. Treasury platforms on RWA․xyz, with $3 billion across USDY, OUSG and tokenized Treasury ETFs. Leading that growth is USDY, with over $2.3 billion in TVL, larger than BlackRock’s BUIDL. With USDY, holders can: → Earn yield directly in their wallets → Trade permissionlessly onchain → Use USDY as collateral across DeFi apps This milestone reflects how quickly tokenization is growing and how early we still are in bringing the world’s financial markets onchain. Billions today. Trillions tomorrow.",
+    "text": "New milestone: $3 billion in tokenized U.S. Treasuries. Ondo ranks #1 among tokenized U.S. Treasury platforms on RWA․xyz, with $3 billion across USDY, OUSG and tokenized Treasury ETFs. Leading that growth is USDY, with over $2.3 billion in TVL, larger than BlackRock’s BUIDL. With USDY, holders can: → Earn yield directly in their wallets → Trade permissionlessly onchain → Use USDY as collateral across DeFi apps This milestone reflects how quickly tokenization is growing and how early we still are in bringing the world’s financial markets onchain. Billions today. Trillions tomorrow.",
+    "url": "https://nitter.kareem.one/Ondo/status/2110049625721758048#m",
+    "fetched_at": "2026-10-17T18:05:41.671447+00:00",
     "via_instance": "https://nitter.cz"
   },
   {
@@ -120,6 +190,36 @@
     "via_instance": "https://nitter.cz"
   },
   {
+    "handle": "Olaf",
+    "name": "Olaf Carlson-Wee",
+    "posted_at": "Thu, 19 Aug 2010 19:44:32 GMT",
+    "title": "lekker biertje drinken bij Dims!",
+    "text": "lekker biertje drinken bij Dims!",
+    "url": "https://nitter.kareem.one/olaf/status/21602951308#m",
+    "fetched_at": "2026-10-17T18:05:20.131238+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "TargonCompute",
+    "name": "Targon",
+    "posted_at": "Thu, 15 Oct 2026 22:37:06 GMT",
+    "title": "With eTAO on the horizon, it's finally time. Talking Targon 001 with @const_reborn drops tomorrow.",
+    "text": "With eTAO on the horizon, it's finally time. Talking Targon 001 with @const_reborn drops tomorrow. Video",
+    "url": "https://nitter.kareem.one/TargonCompute/status/2110862558047654272#m",
+    "fetched_at": "2026-10-17T18:06:12.664013+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "TargonCompute",
+    "name": "Targon",
+    "posted_at": "Thu, 15 Oct 2026 22:14:05 GMT",
+    "title": "RT by @TargonCompute: Tomorrow @TargonCompute",
+    "text": "Tomorrow @TargonCompute Video",
+    "url": "https://nitter.kareem.one/Tangtalksbits/status/2110856764006486521#m",
+    "fetched_at": "2026-10-17T18:06:12.664013+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
     "handle": "taomedia_",
     "name": "TAO Media",
     "posted_at": "Thu, 15 Oct 2026 22:12:36 GMT",
@@ -130,6 +230,16 @@
     "via_instance": "https://nitter.cz"
   },
   {
+    "handle": "opentensor",
+    "name": "Opentensor Foundation",
+    "posted_at": "Thu, 15 Oct 2026 21:02:46 GMT",
+    "title": "Novelty Search :: Bittensor Subnet 4, Targon https://x.com/i/broadcasts/1aKbdErpeeqJX",
+    "text": "Novelty Search :: Bittensor Subnet 4, Targon nitterk.kareem.one/i/broadcasts/1aKbdErpe… Link Openτensor Foundaτion Novelty Search :: Bittensor Subnet 4, Targon https://nitter.kareem.one/i/broadcasts/1aKbdErpeeqJX",
+    "url": "https://nitter.kareem.one/opentensor/status/2110838819142734165#m",
+    "fetched_at": "2026-10-17T18:04:49.087031+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
     "handle": "shibshib89",
     "name": "Ala Shaabana",
     "posted_at": "Thu, 15 Oct 2026 18:10:57 GMT",
@@ -137,6 +247,36 @@
     "text": "Research a subnet. Open your wallet. Click away. Wallet disappears. Repeat. 🙃 We fixed that. Crucible Wallet now supports Chrome's Side Panel, so you can keep your wallet open while researching subnets, checking charts, staking, or swapping. Less back and forth. More time actually doing what you came to do.",
     "url": "https://nitter.kareem.one/CrucibleLabs/status/2110795579249111046#m",
     "fetched_at": "2026-10-17T14:46:21.259240+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "opentensor",
+    "name": "Opentensor Foundation",
+    "posted_at": "Thu, 15 Oct 2026 16:50:02 GMT",
+    "title": "R to @opentensor: > Documentation: https://www.bittensor.com/docs/guides/null-consensus > Release: https://github.com/RaoFoundation/subtensor/releases/tag/v475",
+    "text": "&gt; Documentation: bittensor.com/docs/guides/nu… &gt; Release: github.com/RaoFoundation/sub…",
+    "url": "https://nitter.kareem.one/opentensor/status/2110775216515539360#m",
+    "fetched_at": "2026-10-17T18:04:49.087031+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "rob_svrn",
+    "name": "Rob Greer",
+    "posted_at": "Thu, 15 Oct 2026 15:49:21 GMT",
+    "title": "RT by @rob_svrn: We've developed a new inference engine, called 'e'. It's the closest thing to alien technology which we have, and pushes 10,500 tok/s aggregate on a single DGX Station with the new @NVIDIAAI Nemotron 3.5 Super VL model, released a few minutes ago.",
+    "text": "We've developed a new inference engine, called 'e'. It's the closest thing to alien technology which we have, and pushes 10,500 tok/s aggregate on a single DGX Station with the new @NVIDIAAI Nemotron 3.5 Super VL model, released a few minutes ago. Actual Computer (@actualinc) Actual Computer turns your NVIDIA DGX Station into a department-scale AI factory. Read the full case study: actual.inc/company/blog/case… Link Actual Computer › Case Study : GB300 and Nemotron 3.5 Super VL Department-scale AI from one NVIDIA DGX Station: Nemotron 3.5 Super VL at 8,000+ tokens per second, shared by your wh",
+    "url": "https://nitter.kareem.one/somewheresy/status/2110759944370692216#m",
+    "fetched_at": "2026-10-17T18:05:05.466972+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "rob_svrn",
+    "name": "Rob Greer",
+    "posted_at": "Thu, 15 Oct 2026 15:48:04 GMT",
+    "title": "RT by @rob_svrn: Actual Computer turns your NVIDIA DGX Station into a department-scale AI factory. Read the full case study: https://actual.inc/company/blog/case-study-dgx-station-and-nemotron-3-5-super-vl",
+    "text": "Actual Computer turns your NVIDIA DGX Station into a department-scale AI factory. Read the full case study: actual.inc/company/blog/case… Link Actual Computer › Case Study : GB300 and Nemotron 3.5 Super VL Department-scale AI from one NVIDIA DGX Station: Nemotron 3.5 Super VL at 8,000+ tokens per second, shared by your whole team through api.actual.inc. actual.inc",
+    "url": "https://nitter.kareem.one/actualinc/status/2110759623435117020#m",
+    "fetched_at": "2026-10-17T18:05:05.466972+00:00",
     "via_instance": "https://nitter.cz"
   },
   {
@@ -170,6 +310,16 @@
     "via_instance": "https://nitter.cz"
   },
   {
+    "handle": "PanteraCapital",
+    "name": "Pantera Capital",
+    "posted_at": "Thu, 15 Oct 2026 11:39:42 GMT",
+    "title": "RT by @PanteraCapital: Fission has raised $10M in Series A funding, led by @PanteraCapital. We’re building the liquidity infrastructure for the next generation of tokenized financial products. Eligible investors can now access capital without waiting for a fund's scheduled redemption window. More in Fortune: https://fortune.com/2026/10/15/pantera-capital-backed-startup-fission-10-million-investors-tokenized-funds-liquidity",
+    "text": "Fission has raised $10M in Series A funding, led by @PanteraCapital. We’re building the liquidity infrastructure for the next generation of tokenized financial products. Eligible investors can now access capital without waiting for a fund's scheduled redemption window. More in Fortune: fortune.com/2026/10/15/pante…",
+    "url": "https://nitter.kareem.one/FissionXYZ/status/2110697116335215041#m",
+    "fetched_at": "2026-10-17T18:05:41.671447+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
     "handle": "oroagents",
     "name": "Oro",
     "posted_at": "Thu, 08 Oct 2026 21:43:13 GMT",
@@ -197,6 +347,26 @@
     "text": "As models and harnesses get more capable, the depth of our RL environments needs to stay ahead of the curve. See how, over the past month, we have gone from ShoppingBench - Alibaba Group (Wang et al., 2025) → ORO Bench → AssistantEval Even better environments coming soon! Video",
     "url": "https://nitter.kareem.one/oroagents/status/2108311456345358818#m",
     "fetched_at": "2026-10-17T14:47:54.729752+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "PanteraCapital",
+    "name": "Pantera Capital",
+    "posted_at": "Thu, 08 Oct 2026 17:46:49 GMT",
+    "title": "RT by @PanteraCapital: Today, we're announcing $37.5M in new funding, led by @BainCapCrypto, bringing our total capital raised to over $180M. This investment will help us expand Bitcoin-denominated life insurance to families across Asia, Europe, and the Middle East.",
+    "text": "Today, we're announcing $37.5M in new funding, led by @BainCapCrypto, bringing our total capital raised to over $180M. This investment will help us expand Bitcoin-denominated life insurance to families across Asia, Europe, and the Middle East. Video",
+    "url": "https://nitter.kareem.one/meanwhile/status/2108252790451826702#m",
+    "fetched_at": "2026-10-17T18:05:41.671447+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "zeussubnet",
+    "name": "Zeus Subnet",
+    "posted_at": "Thu, 08 Oct 2026 13:15:00 GMT",
+    "title": "For a 00Z model run, Zeus disseminates in around 1.5 hours. That’s a 4.5 hour time advantage for energy traders to position before others trading with industry-standard models. This is our strongest differentiator.",
+    "text": "For a 00Z model run, Zeus disseminates in around 1.5 hours. That’s a 4.5 hour time advantage for energy traders to position before others trading with industry-standard models. This is our strongest differentiator.",
+    "url": "https://nitter.kareem.one/zeussubnet/status/2108184384985805221#m",
+    "fetched_at": "2026-10-17T18:07:42.524148+00:00",
     "via_instance": "https://nitter.cz"
   },
   {
@@ -230,6 +400,16 @@
     "via_instance": "https://nitter.cz"
   },
   {
+    "handle": "Olaf",
+    "name": "Olaf Carlson-Wee",
+    "posted_at": "Sun, 10 Jul 2011 15:44:18 GMT",
+    "title": "RT @timmerarjan Life is good! http://yfrog.com/kkli4iaj zeker !! Wel tof dat je het deelt met je vrienden :)",
+    "text": "RT @timmerarjan Life is good! yfrog.com/kkli4iaj zeker !! Wel tof dat je het deelt met je vrienden :)",
+    "url": "https://nitter.kareem.one/olaf/status/90083936700600321#m",
+    "fetched_at": "2026-10-17T18:05:20.131238+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
     "handle": "mcjkula",
     "name": "mcjkula",
     "posted_at": "Sat, 19 Sep 2026 17:00:09 GMT",
@@ -247,6 +427,36 @@
     "text": "Traditional centralized real estate data platforms are fundamentally flawed and often serve to extract wealth from users. @resilabsai (Subnet 46) is breaking this monopoly through decentralized AI technology that delivers up to 99% valuation accuracy. Skip the corporate intermediaries—this AI-powered home valuation tool provides the most reliable housing market forecasts for 2026 Video SEBY (gpu/acc) (@sebyrubino) The @resilabsai Portal is LIVE! Any agent or real estate professional can now easily access our SOTA remote appraisals. We built RESI as a compounding network that will naturally acc",
     "url": "https://nitter.kareem.one/3rdeye_rav3n/status/2045362275045753234#m",
     "fetched_at": "2026-10-17T02:32:03.337897+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "TargonCompute",
+    "name": "Targon",
+    "posted_at": "Sat, 17 Oct 2026 13:28:39 GMT",
+    "title": "RT by @TargonCompute: The dawn of eTAO is upon us. Talking Targon Ep. 01 with @const_reborn",
+    "text": "The dawn of eTAO is upon us. Talking Targon Ep. 01 with @const_reborn Targon (@TargonCompute) Talking Targon, Ep. 01 is now live. Bittensor co-founder Jacob Steeves aka @const_reborn joins us to break down eTAO, the upgrade that lets subnet owners decide how their emissions are split. We get into subnet economics, the guardrails against exploits, and what it unlocks for compute on Targon. Video — https://nitter.kareem.one/TargonCompute/status/2111266999464530147#m",
+    "url": "https://nitter.kareem.one/the_mattyk/status/2111449310529265718#m",
+    "fetched_at": "2026-10-17T18:06:12.664013+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "TargonCompute",
+    "name": "Targon",
+    "posted_at": "Sat, 17 Oct 2026 01:31:17 GMT",
+    "title": "R to @const_reborn: Full episode is live on Youtube here: https://www.youtube.com/watch?v=s7hymAhb0Oc",
+    "text": "Full episode is live on Youtube here: inv.kareem.one/watch?v=s7hymAhb… Link The Future of Bittensor with Jacob Steeves | Talking Targon Ep. 01 Deploy confidential GPUs on Targon.comBittensor co-founder Jacob ... youtube.com",
+    "url": "https://nitter.kareem.one/TargonCompute/status/2111268779464233319#m",
+    "fetched_at": "2026-10-17T18:06:12.664013+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "TargonCompute",
+    "name": "Targon",
+    "posted_at": "Sat, 17 Oct 2026 01:24:12 GMT",
+    "title": "Talking Targon, Ep. 01 is now live. Bittensor co-founder Jacob Steeves aka @const_reborn joins us to break down eTAO, the upgrade that lets subnet owners decide how their emissions are split. We get into subnet economics, the guardrails against exploits, and what it unlocks for compute on Targon.",
+    "text": "Talking Targon, Ep. 01 is now live. Bittensor co-founder Jacob Steeves aka @const_reborn joins us to break down eTAO, the upgrade that lets subnet owners decide how their emissions are split. We get into subnet economics, the guardrails against exploits, and what it unlocks for compute on Targon. Video",
+    "url": "https://nitter.kareem.one/TargonCompute/status/2111266999464530147#m",
+    "fetched_at": "2026-10-17T18:06:12.664013+00:00",
     "via_instance": "https://nitter.cz"
   },
   {
@@ -277,6 +487,16 @@
     "text": "I am pleased to announce that Stillcore Capital @stillcorecap has invested in RESI @resilabsai (Bittensor Subnet 46).",
     "url": "https://nitter.kareem.one/markjeffrey/status/2046311512621670731#m",
     "fetched_at": "2026-10-17T02:32:03.337897+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "zeussubnet",
+    "name": "Zeus Subnet",
+    "posted_at": "Mon, 12 Oct 2026 16:03:38 GMT",
+    "title": "US natural gas traders are betting on a mild winter, with net-short positions exceeding 140K contracts. ❄️ But unexpected cold snaps will turn the market upside down. This winter, it's about the next 10 days of weather. Zeus temperature forecasts as population-weighted HDD/CDD output. Soon directly usable in natural gas trading setups.",
+    "text": "US natural gas traders are betting on a mild winter, with net-short positions exceeding 140K contracts. ❄️ But unexpected cold snaps will turn the market upside down. This winter, it's about the next 10 days of weather. Zeus temperature forecasts as population-weighted HDD/CDD output. Soon directly usable in natural gas trading setups.",
+    "url": "https://nitter.kareem.one/zeussubnet/status/2109676376160690225#m",
+    "fetched_at": "2026-10-17T18:07:42.524148+00:00",
     "via_instance": "https://nitter.cz"
   },
   {
@@ -377,6 +597,26 @@
     "text": "Computer vision, decentralised Score (@webuildscore) Computer vision engineers are still duct-taping tools together just to get a model into production. We just finished another round of user interviews and that frustration came up again and again. So we re-designed Studio to work around our new Pipelines + Workflow Canvas features. Visually design any vision pipeline from start to finish, connect models, logic, and outputs on one canvas, preview the exact result, then deploy. You see the output before you ship it. Everything in a single interface. The full loop, shaped by the people who actua",
     "url": "https://nitter.kareem.one/tm0klc/status/2090610814449570047#m",
     "fetched_at": "2026-10-17T08:12:17.645348+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "zeussubnet",
+    "name": "Zeus Subnet",
+    "posted_at": "Fri, 18 Sep 2026 15:57:01 GMT",
+    "title": "RT by @zeussubnet: NEW! Full-on benchmarking environment to see how Zeus performs, where and when. Zeus vs ECMWF’s IFS & AIFS singles and ensembles, across regions, lead times and variables. 🔗 https://zeussubnet.com/benchmarks",
+    "text": "NEW! Full-on benchmarking environment to see how Zeus performs, where and when. Zeus vs ECMWF’s IFS &amp; AIFS singles and ensembles, across regions, lead times and variables. 🔗 zeussubnet.com/benchmarks",
+    "url": "https://nitter.kareem.one/zeussubnet/status/2100977402302054430#m",
+    "fetched_at": "2026-10-17T18:07:42.524148+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "rob_svrn",
+    "name": "Rob Greer",
+    "posted_at": "Fri, 16 Oct 2026 22:03:19 GMT",
+    "title": "",
+    "text": "Actual Computer (@actualinc) Actual Computer turns your NVIDIA DGX Station into a department-scale AI factory. Read the full case study: actual.inc/company/blog/case… Link Actual Computer › Case Study : GB300 and Nemotron 3.5 Super VL Department-scale AI from one NVIDIA DGX Station: Nemotron 3.5 Super VL at 8,000+ tokens per second, shared by your whole team through api.actual.inc. actual.inc — https://nitter.kareem.one/actualinc/status/2110759623435117020#m",
+    "url": "https://nitter.kareem.one/NVIDIAAI/status/2111216445925498993#m",
+    "fetched_at": "2026-10-17T18:05:05.466972+00:00",
     "via_instance": "https://nitter.cz"
   },
   {
@@ -510,6 +750,26 @@
     "via_instance": "https://nitter.cz"
   },
   {
+    "handle": "opentensor",
+    "name": "Opentensor Foundation",
+    "posted_at": "Fri, 16 Oct 2026 12:26:04 GMT",
+    "title": "R to @opentensor: youtu.be/JfFWZF1GSn4",
+    "text": "inv.kareem.one/JfFWZF1GSn4 Link Bittensor’s eTao &amp; Gamma + SN4 Targon Revenue, Buybacks &amp; Roadmap Bittensor’s protocol is evolving—and Targon is opening up about its... youtube.com",
+    "url": "https://nitter.kareem.one/opentensor/status/2111071176617554080#m",
+    "fetched_at": "2026-10-17T18:04:49.087031+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "opentensor",
+    "name": "Opentensor Foundation",
+    "posted_at": "Fri, 16 Oct 2026 12:26:02 GMT",
+    "title": "Targon's new GPU capacity is being booked by enterprise customers within a day, often under year-long contracts. On the latest Novelty Search, @TargonCompute explains how Subnet 4 is building a confidential AI cloud that protects models and data even on third-party hardware. The team also unveiled a public revenue dashboard, with bare-metal servers, virtual machines and AI-agent sandboxes already available, and more cloud services on the roadmap. Hosted by @const_reborn Full episode in the first comment",
+    "text": "Targon's new GPU capacity is being booked by enterprise customers within a day, often under year-long contracts. On the latest Novelty Search, @TargonCompute explains how Subnet 4 is building a confidential AI cloud that protects models and data even on third-party hardware. The team also unveiled a public revenue dashboard, with bare-metal servers, virtual machines and AI-agent sandboxes already available, and more cloud services on the roadmap. Hosted by @const_reborn Full episode in the first comment Video",
+    "url": "https://nitter.kareem.one/opentensor/status/2111071164705706315#m",
+    "fetched_at": "2026-10-17T18:04:49.087031+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
     "handle": "taomedia_",
     "name": "TAO Media",
     "posted_at": "Fri, 16 Oct 2026 02:30:45 GMT",
@@ -517,6 +777,16 @@
     "text": "Tesla just broke the internet, revealing a flying supercar with a mach .5 top speed target. Everything you missed from the Roadster event: tao.media/tesla-unveils-flyi… Link Tesla Unveils Flying Roadster, Demonstrates 0–60 MPH in 0.81 Seconds Developed with SpaceX, the redesigned electric supercar uses compressed-air thrusters and a suction system to perform aerial maneuvers and drive upside down. tao.media",
     "url": "https://nitter.kareem.one/taomedia_/status/2110921357810954584#m",
     "fetched_at": "2026-10-17T08:13:31.907327+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "PanteraCapital",
+    "name": "Pantera Capital",
+    "posted_at": "Fri, 16 Oct 2026 01:32:13 GMT",
+    "title": "RT by @PanteraCapital: A bluff only works when no one at the poker table knows you’re bluffing. Sliding two $1 billion chips onto the table makes no sense when Treasury has to sell $2 trillion (with a T) bonds every year. We could all see the bet was off by three orders of magnitude. Own the asset no one at the table can print. #BuyBitcoin",
+    "text": "A bluff only works when no one at the poker table knows you’re bluffing. Sliding two $1 billion chips onto the table makes no sense when Treasury has to sell $2 trillion (with a T) bonds every year. We could all see the bet was off by three orders of magnitude. Own the asset no one at the table can print. #BuyBitcoin",
+    "url": "https://nitter.kareem.one/dan_pantera/status/2110906626870018296#m",
+    "fetched_at": "2026-10-17T18:05:41.671447+00:00",
     "via_instance": "https://nitter.cz"
   },
   {
