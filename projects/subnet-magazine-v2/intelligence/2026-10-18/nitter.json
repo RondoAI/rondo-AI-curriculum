@@ -1,0 +1,412 @@
+[
+  {
+    "handle": "tplr_ai",
+    "name": "Templar",
+    "posted_at": "Wed, 23 Sep 2026 16:10:16 GMT",
+    "title": "Video",
+    "text": "Video",
+    "url": "http://nitter.meowing.monster/tplr_ai/status/2102792674118164542#m",
+    "fetched_at": "2026-10-18T02:31:21.660495+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "tplr_ai",
+    "name": "Templar",
+    "posted_at": "Wed, 23 Sep 2026 16:10:16 GMT",
+    "title": "R to @tplr_ai: Read the blog: https://www.tplr.ai/publications/blog/skipping-stages-with-fixed-projections",
+    "text": "Read the blog: tplr.ai/publications/blog/sk… Link Fault tolerance in low-bandwidth model parallelism: exploring pipeline stage-skipping with boundary... We explore how the residual nature of the transformer architecture can be leveraged to mitigate hardware faults, and demonstrate that the compression-based implementation of low-bandwidth model... tplr.ai",
+    "url": "http://nitter.meowing.monster/tplr_ai/status/2102792676676432160#m",
+    "fetched_at": "2026-10-18T02:31:21.660495+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "tplr_ai",
+    "name": "Templar",
+    "posted_at": "Wed, 16 Sep 2026 14:57:46 GMT",
+    "title": "R to @tplr_ai: When using pipeline compression with fixed projections shared across layers, robustness improves further as seen in the figure below. This suggests that shared projectors align representations across stage boundaries, making bypasses less disruptive. 4/n",
+    "text": "When using pipeline compression with fixed projections shared across layers, robustness improves further as seen in the figure below. This suggests that shared projectors align representations across stage boundaries, making bypasses less disruptive. 4/n",
+    "url": "http://nitter.meowing.monster/tplr_ai/status/2100237714918367690#m",
+    "fetched_at": "2026-10-18T02:31:21.660495+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "tplr_ai",
+    "name": "Templar",
+    "posted_at": "Wed, 16 Sep 2026 14:57:44 GMT",
+    "title": "We’ve been researching fault tolerance in Crucible, Templar’s pre-training platform. The goal: keep training through node failures and make better use of unreliable workers and spot instances, without idling an entire model replica when one stage goes down. 1/n",
+    "text": "We’ve been researching fault tolerance in Crucible, Templar’s pre-training platform. The goal: keep training through node failures and make better use of unreliable workers and spot instances, without idling an entire model replica when one stage goes down. 1/n Video",
+    "url": "http://nitter.meowing.monster/tplr_ai/status/2100237708186550642#m",
+    "fetched_at": "2026-10-18T02:31:21.660495+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "galaxyhq",
+    "name": "Galaxy Digital",
+    "posted_at": "Wed, 14 Oct 2026 18:00:03 GMT",
+    "title": "RT by @galaxyhq: BTC posts its first red weekly close since September as the market hits a new wall of worry. In our 1-year anniversary episode, we unpack the AI cryptography threat, Papertrade's zero-slippage 1000x perps, and new Galaxy research on Polymarket behavior and tokenized stocks. Galaxy Grid is live now👇",
+    "text": "BTC posts its first red weekly close since September as the market hits a new wall of worry. In our 1-year anniversary episode, we unpack the AI cryptography threat, Papertrade's zero-slippage 1000x perps, and new Galaxy research on Polymarket behavior and tokenized stocks. Galaxy Grid is live now👇 Video",
+    "url": "https://nitter.kareem.one/glxyresearch/status/2110430448409051355#m",
+    "fetched_at": "2026-10-18T02:30:29.483035+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "ridges_ai",
+    "name": "Ridges",
+    "posted_at": "Wed, 14 Oct 2026 16:04:05 GMT",
+    "title": "48:48:4: the current emissions split across Ridges’ competitions. How much should progress in each Niche be worth, and what allocation encourages miners to tackle it? @KibibyteMe works through how incentives can direct effort toward the problems that need it with @VenturaLabs.",
+    "text": "48:48:4: the current emissions split across Ridges’ competitions. How much should progress in each Niche be worth, and what allocation encourages miners to tackle it? @KibibyteMe works through how incentives can direct effort toward the problems that need it with @VenturaLabs. Video",
+    "url": "https://nitter.kareem.one/ridges_ai/status/2110401263963869285#m",
+    "fetched_at": "2026-10-18T02:31:15.885163+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "webuildscore",
+    "name": "Score",
+    "posted_at": "Wed, 14 Oct 2026 15:52:18 GMT",
+    "title": "Pinned: We are ready to build worlds. Currently fire-testing the new incentive mechanism that will get miners to build our first ever generative world model, capturing real physics, long-term consistency, and true interactivity. This is the unreal next chapter for vision AI: from understanding scenes to generating entire, livable realities. This 👇 is a sneak peek of the subnet’s console, where users will be able to create worlds from a single prompt and very soon explore them right in their browsers. This will also 100x our ability to train better vision models by providing unlimited simulated scenarios. 44 we go.",
+    "text": "We are ready to build worlds. Currently fire-testing the new incentive mechanism that will get miners to build our first ever generative world model, capturing real physics, long-term consistency, and true interactivity. This is the unreal next chapter for vision AI: from understanding scenes to generating entire, livable realities. This 👇 is a sneak peek of the subnet’s console, where users will be able to create worlds from a single prompt and very soon explore them right in their browsers. This will also 100x our ability to train better vision models by providing unlimited simulated scenari",
+    "url": "https://nitter.kareem.one/webuildscore/status/2110398301023658462#m",
+    "fetched_at": "2026-10-18T02:31:46.186828+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "jaltucher",
+    "name": "James Altucher",
+    "posted_at": "Wed, 14 Oct 2026 02:47:25 GMT",
+    "title": "Making music with the 7 year old me.",
+    "text": "Making music with the 7 year old me. Video",
+    "url": "https://nitter.kareem.one/jaltucher/status/2110200777985941974#m",
+    "fetched_at": "2026-10-18T02:30:20.575623+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "tplr_ai",
+    "name": "Templar",
+    "posted_at": "Tue, 29 Sep 2026 14:14:21 GMT",
+    "title": "The heads of the biggest AI labs want to agree among themselves on when everyone should slow down. @TheEconomist's piece on that push ends with Covenant-72B, the model we finished training in March on GPUs contributed over the internet, as a reason such agreements may be hard to enforce. What the piece doesn't say is that once training no longer requires one giant, tightly connected cluster, the power to build new models no longer has to sit with a few companies. Globally distributed training and open models are essential tools for keeping that power from concentrating in the frontier labs. They let many more participants, from nations to companies, own a share of the future of AI and take part in building it. https://www.economist.com/international/2026/09/15/agreeing-to-make-ai-safer-may-be-impossible",
+    "text": "The heads of the biggest AI labs want to agree among themselves on when everyone should slow down. @TheEconomist's piece on that push ends with Covenant-72B, the model we finished training in March on GPUs contributed over the internet, as a reason such agreements may be hard to enforce. What the piece doesn't say is that once training no longer requires one giant, tightly connected cluster, the power to build new models no longer has to sit with a few companies. Globally distributed training and open models are essential tools for keeping that power from concentrating in the frontier labs. Th",
+    "url": "http://nitter.meowing.monster/tplr_ai/status/2104937831097352377#m",
+    "fetched_at": "2026-10-18T02:31:21.660495+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "KyleSamani",
+    "name": "Kyle Samani",
+    "posted_at": "Tue, 13 Oct 2026 11:39:06 GMT",
+    "title": "There is an answer to this question Soon!",
+    "text": "There is an answer to this question Soon! Kaiz 🐂🀄️ (@Kaiz_294) Arthur Hayes questions where the real money in tokenization comes from, arguing that moving traditional assets onchain still leaves a major unanswered question about profitability “How much money are you actually going to make” “I transferred the stock that was sitting in DTCC, and now it's sitting on some blockchain, whatever it is, doesn't really matter” “How much money can you actually make doing that” “You're doing better bookkeeping. Thank you. But where are you actually going to make money in tokenization” “I think that has b",
+    "url": "https://nitter.kareem.one/KyleSamani/status/2109972190519275682#m",
+    "fetched_at": "2026-10-18T02:30:45.017387+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "galaxyhq",
+    "name": "Galaxy Digital",
+    "posted_at": "Thu, 15 Oct 2026 18:12:00 GMT",
+    "title": "RT by @galaxyhq: Prediction markets were just the beginning. Conditional markets, the next generation of event-driven finance, are starting to take shape. Deep dive by @ZackPokorny_ covering where the sector stands, who's building in it, and what's next. https://www.galaxy.com/insights/research/conditional-markets-decision-markets-impact-markets-mainnet-umia-metadao-proof-branchmap-branchpoint-prediction-markets-futarchy",
+    "text": "Prediction markets were just the beginning. Conditional markets, the next generation of event-driven finance, are starting to take shape. Deep dive by @ZackPokorny_ covering where the sector stands, who's building in it, and what's next. galaxy.com/insights/research… Link Conditional Markets Are Beginning to Blossom Decision markets are scaling, impact markets are heading to mainnet, and new infrastructure is pushing event-driven finance beyond prediction markets. galaxy.com",
+    "url": "https://nitter.kareem.one/glxyresearch/status/2110795844119351612#m",
+    "fetched_at": "2026-10-18T02:30:29.483035+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "webuildscore",
+    "name": "Score",
+    "posted_at": "Thu, 15 Oct 2026 18:10:32 GMT",
+    "title": "GTA 6 newest trailer looking even cleaner with boxes on",
+    "text": "GTA 6 newest trailer looking even cleaner with boxes on Gyro Zeppeli (@Gyrolens) Been testing the new version of Score Studio and Rockstar just handed me the perfect test footage. Vice City has never been this tracked. Video — https://nitter.kareem.one/Gyrolens/status/2110788068005617779#m",
+    "url": "https://nitter.kareem.one/webuildscore/status/2110795474617724998#m",
+    "fetched_at": "2026-10-18T02:31:46.186828+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "KyleSamani",
+    "name": "Kyle Samani",
+    "posted_at": "Thu, 15 Oct 2026 18:00:14 GMT",
+    "title": "RT by @KyleSamani: [Speaker Announcement] \"Solana is becoming the settlement layer for Internet capital markets.\" @KyleSamani, co-founder of Multicoin Capital and chairman of @FWDind, joins us at Breakpoint in London, 15-17 November.",
+    "text": "[Speaker Announcement] \"Solana is becoming the settlement layer for Internet capital markets.\" @KyleSamani, co-founder of Multicoin Capital and chairman of @FWDind, joins us at Breakpoint in London, 15-17 November. Video",
+    "url": "https://nitter.kareem.one/SolanaEvents/status/2110792882408013987#m",
+    "fetched_at": "2026-10-18T02:30:45.017387+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "const_reborn",
+    "name": "Jacob Steeves",
+    "posted_at": "Thu, 15 Oct 2026 16:53:54 GMT",
+    "title": "Null consensus scales Bittensor subnets 10x and allows POW registration (no Tao needed for an agent to mine). First step adding more freedom and scale to our incentive systems.",
+    "text": "Null consensus scales Bittensor subnets 10x and allows POW registration (no Tao needed for an agent to mine). First step adding more freedom and scale to our incentive systems. Openτensor Foundaτion (@opentensor) Bittensor recently released Null Consensus, a major protocol update expanding subnet capacity from 256 to 2,500 participants. It introduces a new way to determine miner rewards, giving subnet owners an alternative to Yuma Consensus. Video — http://nitter.meowing.monster/opentensor/status/2110775067722539092#m",
+    "url": "http://nitter.meowing.monster/const_reborn/status/2110776187782135966#m",
+    "fetched_at": "2026-10-18T02:29:50.073597+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "ridges_ai",
+    "name": "Ridges",
+    "posted_at": "Thu, 15 Oct 2026 16:08:45 GMT",
+    "title": "R to @ridges_ai: Upload price changed while you were submitting? You can top up to complete the upload. Any unused Alpha carries over to your next submission. Details: https://docs.ridges.ai/guides/upload-pricing",
+    "text": "Upload price changed while you were submitting? You can top up to complete the upload. Any unused Alpha carries over to your next submission. Details: docs.ridges.ai/guides/upload…",
+    "url": "https://nitter.kareem.one/ridges_ai/status/2110764827023233460#m",
+    "fetched_at": "2026-10-18T02:31:15.885163+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "ridges_ai",
+    "name": "Ridges",
+    "posted_at": "Thu, 15 Oct 2026 16:08:41 GMT",
+    "title": "The upload price: what changed? Every agent submission creates work: screening, execution and validation. Ridges now has a dynamic upload-pricing model for each competition. Under the default settings: • The minimum price is $5. • Each purchased upload raises the price by approximately 15%. • Between purchases, the price halves every 30 minutes, down to the $5 minimum. Planning your next submission? Check the live upload price. A quieter period could mean a lower entry cost.",
+    "text": "The upload price: what changed? Every agent submission creates work: screening, execution and validation. Ridges now has a dynamic upload-pricing model for each competition. Under the default settings: • The minimum price is $5. • Each purchased upload raises the price by approximately 15%. • Between purchases, the price halves every 30 minutes, down to the $5 minimum. Planning your next submission? Check the live upload price. A quieter period could mean a lower entry cost.",
+    "url": "https://nitter.kareem.one/ridges_ai/status/2110764812162785282#m",
+    "fetched_at": "2026-10-18T02:31:15.885163+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "jaltucher",
+    "name": "James Altucher",
+    "posted_at": "Thu, 15 Oct 2026 15:45:47 GMT",
+    "title": "RT by @jaltucher: On Friday @ 11 AM PT, @DisrupTVShow interviews @jaltucher, Founder of \"The James Altucher Show\" podcast and Ganesh Iyer, CEO of https://ASPR.AI. Watch here: https://bit.ly/3VCFET6 @ValaAfshar @rwang0 #DisrupTV",
+    "text": "On Friday @ 11 AM PT, @DisrupTVShow interviews @jaltucher, Founder of \"The James Altucher Show\" podcast and Ganesh Iyer, CEO of ASPR.AI. Watch here: bit.ly/3VCFET6 @ValaAfshar @rwang0 #DisrupTV Link ASPR AI Sales Assistant to Accelerate Revenue ASPR AI is an AI-powered sales enablement platform that automates CRM updates, documents, and meetings, empowering teams with intelligent coaching, sales automation, and real-time insights to boost... aspr.ai",
+    "url": "https://nitter.kareem.one/BarbaraCos25450/status/2110759047473586444#m",
+    "fetched_at": "2026-10-18T02:30:20.575623+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "webuildscore",
+    "name": "Score",
+    "posted_at": "Thu, 15 Oct 2026 11:14:06 GMT",
+    "title": "Haters will say it’s AI, our detector didn’t ask though. Building your own is about to get a lot easier. More soon.",
+    "text": "Haters will say it’s AI, our detector didn’t ask though. Building your own is about to get a lot easier. More soon. Video",
+    "url": "https://nitter.kareem.one/webuildscore/status/2110690673917628663#m",
+    "fetched_at": "2026-10-18T02:31:46.186828+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "ridges_ai",
+    "name": "Ridges",
+    "posted_at": "Thu, 08 Oct 2026 20:15:02 GMT",
+    "title": "$0.29. That’s the current inference budget for a Ridges problem. Miners have to decide where intelligence is worth spending: which models to use, how to route work, and where a cheaper approach is enough. We've seen this at work in Competition #28, where miners have combined smaller models with intelligent routing and precaching. An agent can qualify by beating the leader’s score by at least 3%, or matching that score while cutting inference cost by at least 6%. The search isn’t just for a stronger coding agent. It’s for a better way to use intelligence.",
+    "text": "$0.29. That’s the current inference budget for a Ridges problem. Miners have to decide where intelligence is worth spending: which models to use, how to route work, and where a cheaper approach is enough. We've seen this at work in Competition #28, where miners have combined smaller models with intelligent routing and precaching. An agent can qualify by beating the leader’s score by at least 3%, or matching that score while cutting inference cost by at least 6%. The search isn’t just for a stronger coding agent. It’s for a better way to use intelligence.",
+    "url": "https://nitter.kareem.one/ridges_ai/status/2108290090317619237#m",
+    "fetched_at": "2026-10-18T02:31:15.885163+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "jaltucher",
+    "name": "James Altucher",
+    "posted_at": "Sat, 17 Oct 2026 21:47:33 GMT",
+    "title": "AI is not going to destroy humanity any time soon:",
+    "text": "AI is not going to destroy humanity any time soon:",
+    "url": "https://nitter.kareem.one/jaltucher/status/2111574866205778385#m",
+    "fetched_at": "2026-10-18T02:30:20.575623+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "const_reborn",
+    "name": "Jacob Steeves",
+    "posted_at": "Sat, 17 Oct 2026 12:28:43 GMT",
+    "title": "RT by @const_reborn: Thanks everyone, what a week!! I think we may have just proven decentralized training competitions for use case specific decision models is a thing that works...",
+    "text": "Thanks everyone, what a week!! I think we may have just proven decentralized training competitions for use case specific decision models is a thing that works... REAX (@reaxlabs) Quick moment to step back, because this was a big week • 3 days ago REAX went live. Today 217 miner slots serve decision models and 65 independent miner wallets are earning... almost all traffic routed to the network is now answered by your GPUs, with zero failed verification checks. • The first model-training competition has its first two champions =&gt; demand forecasting (UID 71, 91.1 vs the 38.2 baseline) and =&gt",
+    "url": "http://nitter.meowing.monster/airesearch12/status/2111434228298604929#m",
+    "fetched_at": "2026-10-18T02:29:50.073597+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "webuildscore",
+    "name": "Score",
+    "posted_at": "Mon, 12 Oct 2026 20:44:12 GMT",
+    "title": "Don't trust, verify.",
+    "text": "Don't trust, verify. Score (@webuildscore) Article SN44 Winners Report: six new champions, and how close the races really are Every competition on SN44 that existed ten days ago has a new champion today. Two more went live in the meantime. And in seven of the eight, first and second place are separated by less than 0.01. — https://nitter.kareem.one/webuildscore/status/2109746070557176184#m",
+    "url": "https://nitter.kareem.one/webuildscore/status/2109746981547774233#m",
+    "fetched_at": "2026-10-18T02:31:46.186828+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "jaltucher",
+    "name": "James Altucher",
+    "posted_at": "Mon, 12 Oct 2026 15:23:00 GMT",
+    "title": "RT by @jaltucher: On Friday @ 11 AM PT, @DisrupTVShow interviews @jaltucher, Founder of \"The James Altucher Show\" podcast, and Ganesh Iyer, CEO of https://zurl.co/AAT7N. . Watch here: https://zurl.co/EXLrV @ValaAfshar @rwang0 #DisrupTV",
+    "text": "On Friday @ 11 AM PT, @DisrupTVShow interviews @jaltucher, Founder of \"The James Altucher Show\" podcast, and Ganesh Iyer, CEO of zurl.co/AAT7N. . Watch here: zurl.co/EXLrV @ValaAfshar @rwang0 #DisrupTV",
+    "url": "https://nitter.kareem.one/constellationr/status/2109666151936717297#m",
+    "fetched_at": "2026-10-18T02:30:20.575623+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "galaxyhq",
+    "name": "Galaxy Digital",
+    "posted_at": "Mon, 12 Oct 2026 15:20:26 GMT",
+    "title": "“We’re all using Claude. We haven’t all been to space yet.” Galaxy Fintech Fund’s Joe Armao compares the potential Anthropic IPO with SpaceX and discusses how conviction and skepticism shape the way capital markets react. Tomorrow, Oct. 13, Joe will present his investor pitch at the Sohn Investment Conference in San Francisco.",
+    "text": "“We’re all using Claude. We haven’t all been to space yet.” Galaxy Fintech Fund’s Joe Armao compares the potential Anthropic IPO with SpaceX and discusses how conviction and skepticism shape the way capital markets react. Tomorrow, Oct. 13, Joe will present his investor pitch at the Sohn Investment Conference in San Francisco. Video",
+    "url": "https://nitter.kareem.one/galaxyhq/status/2109665505745248553#m",
+    "fetched_at": "2026-10-18T02:30:29.483035+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "KyleSamani",
+    "name": "Kyle Samani",
+    "posted_at": "Mon, 12 Oct 2026 14:42:00 GMT",
+    "title": "What are you favorite sources of finance and business analysis online? Please interpret this question as broadly as possible Examples can include Stratechery Semianalysis Above the crowd (bill gurley's blog) Berkshire letters Oaktree letters a16z and sequoia blogs Citrini Not Boring The Generalist Benedict evans asymco etc",
+    "text": "What are you favorite sources of finance and business analysis online? Please interpret this question as broadly as possible Examples can include Stratechery Semianalysis Above the crowd (bill gurley's blog) Berkshire letters Oaktree letters a16z and sequoia blogs Citrini Not Boring The Generalist Benedict evans asymco etc",
+    "url": "https://nitter.kareem.one/KyleSamani/status/2109655830840947059#m",
+    "fetched_at": "2026-10-18T02:30:45.017387+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "tm0klc",
+    "name": "Tim",
+    "posted_at": "Mon, 05 Oct 2026 07:00:42 GMT",
+    "title": "R to @tm0klc: Bro just make sure my agents can use it Accessibility has taken on a new meaning",
+    "text": "Bro just make sure my agents can use it Accessibility has taken on a new meaning",
+    "url": "https://nitter.kareem.one/tm0klc/status/2107003027576225971#m",
+    "fetched_at": "2026-10-18T02:31:55.286652+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "tm0klc",
+    "name": "Tim",
+    "posted_at": "Mon, 05 Oct 2026 06:59:24 GMT",
+    "title": "R to @tm0klc: every website now feels like a little escape room someone built for some tasks believing it was logical or easy to use",
+    "text": "every website now feels like a little escape room someone built for some tasks believing it was logical or easy to use",
+    "url": "https://nitter.kareem.one/tm0klc/status/2107002700340879465#m",
+    "fetched_at": "2026-10-18T02:31:55.286652+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "tm0klc",
+    "name": "Tim",
+    "posted_at": "Mon, 05 Oct 2026 06:53:05 GMT",
+    "title": "the bar used to be \"is the UI intuitive.\" now it's \"why am I looking at a UI\"",
+    "text": "the bar used to be \"is the UI intuitive.\" now it's \"why am I looking at a UI\"",
+    "url": "https://nitter.kareem.one/tm0klc/status/2107001110502547573#m",
+    "fetched_at": "2026-10-18T02:31:55.286652+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "robmyers",
+    "name": "Robert Myers",
+    "posted_at": "Fri, 26 Mar 2021 03:30:22 GMT",
+    "title": "Try @rheaplex instead.",
+    "text": "Try @rheaplex instead.",
+    "url": "https://nitter.kareem.one/robmyers/status/1375288994989101059#m",
+    "fetched_at": "2026-10-18T02:31:35.582029+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "tm0klc",
+    "name": "Tim",
+    "posted_at": "Fri, 21 Aug 2026 09:52:47 GMT",
+    "title": "RT by @tm0klc: I have now made 5 Omarchy plugins that I use every day! Check them out here: https://omarchyplugins.com/?author=crmne&sort=stars#catalog",
+    "text": "I have now made 5 Omarchy plugins that I use every day! Check them out here: omarchyplugins.com/?author=c…",
+    "url": "https://nitter.kareem.one/paolino/status/2090738880106377257#m",
+    "fetched_at": "2026-10-18T02:31:55.286652+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "tm0klc",
+    "name": "Tim",
+    "posted_at": "Fri, 21 Aug 2026 01:23:54 GMT",
+    "title": "Computer vision, decentralised",
+    "text": "Computer vision, decentralised Score (@webuildscore) Computer vision engineers are still duct-taping tools together just to get a model into production. We just finished another round of user interviews and that frustration came up again and again. So we re-designed Studio to work around our new Pipelines + Workflow Canvas features. Visually design any vision pipeline from start to finish, connect models, logic, and outputs on one canvas, preview the exact result, then deploy. You see the output before you ship it. Everything in a single interface. The full loop, shaped by the people who actua",
+    "url": "https://nitter.kareem.one/tm0klc/status/2090610814449570047#m",
+    "fetched_at": "2026-10-18T02:31:55.286652+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "KyleSamani",
+    "name": "Kyle Samani",
+    "posted_at": "Fri, 16 Oct 2026 22:07:36 GMT",
+    "title": "👀",
+    "text": "👀 Phoenix (@PhoenixTrade) Anthropic pre-IPO perpetuals are now live on Phoenix. Go long or short ANTHROPIC at up to 6x leverage. phoenix.trade/try/anthropic — https://nitter.kareem.one/PhoenixTrade/status/2110804016389308842#m",
+    "url": "https://nitter.kareem.one/KyleSamani/status/2111217521663607065#m",
+    "fetched_at": "2026-10-18T02:30:45.017387+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "galaxyhq",
+    "name": "Galaxy Digital",
+    "posted_at": "Fri, 16 Oct 2026 20:38:58 GMT",
+    "title": "RT by @galaxyhq: Macro investor Jordi Visser joins Galaxy Brains to break down the AI bubble myth, Bitcoin’s \"silent IPO,\" and how onchain agents will compress banking margins. New Galaxy Brains out now",
+    "text": "Macro investor Jordi Visser joins Galaxy Brains to break down the AI bubble myth, Bitcoin’s \"silent IPO,\" and how onchain agents will compress banking margins. New Galaxy Brains out now Video",
+    "url": "https://nitter.kareem.one/glxyresearch/status/2111195215759573381#m",
+    "fetched_at": "2026-10-18T02:30:29.483035+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "galaxyhq",
+    "name": "Galaxy Digital",
+    "posted_at": "Fri, 16 Oct 2026 18:58:08 GMT",
+    "title": "RT by @galaxyhq: Roughly $91M was stolen from Ledger wallets bought through a reseller, Papertrade launched with PAPER minted from trader losses, and the OCC released its debanking report. Read the full breakdown 👇",
+    "text": "Roughly $91M was stolen from Ledger wallets bought through a reseller, Papertrade launched with PAPER minted from trader losses, and the OCC released its debanking report. Read the full breakdown 👇 Article Ledgers Looted for $91m; Papertrade Pays You to Lose; Truth &amp; Reconciliation for the Debanked This week, Alex Thorn analyzes the $91m exploit of Ledger hardware wallets by third-party resellers, Thad Pinakiewicz breaks down the OCC’s report on debanking under the previous administration, and",
+    "url": "https://nitter.kareem.one/glxyresearch/status/2111169843550736799#m",
+    "fetched_at": "2026-10-18T02:30:29.483035+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "webuildscore",
+    "name": "Score",
+    "posted_at": "Fri, 16 Oct 2026 18:20:19 GMT",
+    "title": "We got flying cars before GTA 6. Model said \"vehicle\", but was wrong. Tesla Roadster it is. one sentence later it was tracking it through the whole showcase. A first look at the new Studio. More soon.",
+    "text": "We got flying cars before GTA 6. Model said \"vehicle\", but was wrong. Tesla Roadster it is. one sentence later it was tracking it through the whole showcase. A first look at the new Studio. More soon. Video",
+    "url": "https://nitter.kareem.one/webuildscore/status/2111160322719387682#m",
+    "fetched_at": "2026-10-18T02:31:46.186828+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "ridges_ai",
+    "name": "Ridges",
+    "posted_at": "Fri, 16 Oct 2026 18:00:24 GMT",
+    "title": "Software engineering is where Ridges started. What would it take to bring other agent skills into competition? Ridges’ competition framework allows the task environment and verification method to change with the problem. That creates room to explore other skills. @KibibyteMe discusses that broader ambition with @VenturaLabs",
+    "text": "Software engineering is where Ridges started. What would it take to bring other agent skills into competition? Ridges’ competition framework allows the task environment and verification method to change with the problem. That creates room to explore other skills. @KibibyteMe discusses that broader ambition with @VenturaLabs Video",
+    "url": "https://nitter.kareem.one/ridges_ai/status/2111155314380988670#m",
+    "fetched_at": "2026-10-18T02:31:15.885163+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "jaltucher",
+    "name": "James Altucher",
+    "posted_at": "Fri, 16 Oct 2026 16:59:38 GMT",
+    "title": "If there's any quantum computing engineers I'd appreciate anyone checking this and seeing if its useful or even accurate. A Text to Quantum Circuit AI I've been training. https://t2quant.com/",
+    "text": "If there's any quantum computing engineers I'd appreciate anyone checking this and seeing if its useful or even accurate. A Text to Quantum Circuit AI I've been training. t2quant.com/",
+    "url": "https://nitter.kareem.one/jaltucher/status/2111140020388061431#m",
+    "fetched_at": "2026-10-18T02:30:20.575623+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "const_reborn",
+    "name": "Jacob Steeves",
+    "posted_at": "Fri, 16 Oct 2026 15:33:10 GMT",
+    "title": "Pretty awesome actually. From idea to economy in a few hours. Send your agents to mine this with us.",
+    "text": "Pretty awesome actually. From idea to economy in a few hours. Send your agents to mine this with us. Apex・SN1 (@Apex_SN1) Now live on #bittensor SN1, incentivized. Prompted by @const_reborn, built by agents. Prompt → production in 6 hours, zero human dev time. Next one: &lt;1h. We’re industrializing incentive mechanism design. — http://nitter.meowing.monster/Apex_SN1/status/2111112046981140726#m",
+    "url": "http://nitter.meowing.monster/const_reborn/status/2111118261894988232#m",
+    "fetched_at": "2026-10-18T02:29:50.073597+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "const_reborn",
+    "name": "Jacob Steeves",
+    "posted_at": "Fri, 16 Oct 2026 15:08:44 GMT",
+    "title": "RT by @const_reborn: Something new is being cast.",
+    "text": "Something new is being cast. Video",
+    "url": "http://nitter.meowing.monster/ingot_wthrboss/status/2111112112785256623#m",
+    "fetched_at": "2026-10-18T02:29:50.073597+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "const_reborn",
+    "name": "Jacob Steeves",
+    "posted_at": "Fri, 16 Oct 2026 13:32:35 GMT",
+    "title": "RT by @const_reborn: yet we still are one of the only platforms in the world with access to b300s on-demand; not gated by any sales call, kyc form, or waitlist. and at the same prices that the big clouds currently charge for 3 month+ long commitments, we only charge you for the time you use it.",
+    "text": "yet we still are one of the only platforms in the world with access to b300s on-demand; not gated by any sales call, kyc form, or waitlist. and at the same prices that the big clouds currently charge for 3 month+ long commitments, we only charge you for the time you use it. lium.io (@lium_io) help. our service is too good and agents keep renting everything. we need more supply GPU owners who want 80% higher payout than reserved contracts, please reach out or add your nodes in 5 min: provider.lium.io/ — http://nitter.meowing.monster/lium_io/status/2111081966112055609#m",
+    "url": "http://nitter.meowing.monster/lium_io/status/2111087914301939747#m",
+    "fetched_at": "2026-10-18T02:29:50.073597+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "KyleSamani",
+    "name": "Kyle Samani",
+    "posted_at": "Fri, 16 Oct 2026 10:43:17 GMT",
+    "title": "GTA3 was a major part of my childhood After doing 100 taxi missions, you unlocked the ability to make the taxi jump Now you can do it with a @Tesla Roadster too. Unbelievable",
+    "text": "GTA3 was a major part of my childhood After doing 100 taxi missions, you unlocked the ability to make the taxi jump Now you can do it with a @Tesla Roadster too. Unbelievable",
+    "url": "https://nitter.kareem.one/KyleSamani/status/2111045308243181650#m",
+    "fetched_at": "2026-10-18T02:30:45.017387+00:00",
+    "via_instance": "https://nitter.cz"
+  }
+]
