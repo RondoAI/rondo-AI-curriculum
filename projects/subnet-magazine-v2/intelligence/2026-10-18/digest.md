@@ -148,6 +148,8 @@ _no new posts in the lookback window_
   http://nitter.meowing.monster/tplr_ai/status/2102792674118164542#m
 - @tplr_ai (Templar, Wed, 23 Sep 2026): Read the blog: tplr.ai/publications/blog/sk… Link Fault tolerance in low-bandwidth model parallelism: exploring pipeline stage-skipping with boundary... We explore how the residual nature of the transformer architecture can be leveraged to mitigate hardware faults, and demonstrate that the compression-based implementation of low-bandwidth model... tplr.ai  
   http://nitter.meowing.monster/tplr_ai/status/2102792676676432160#m
+- @shibshib89 (Ala Shaabana, Wed, 16 Sep 2026): LFG! Crucible Labs (@CrucibleLabs) Crucible Wallet Extension v2.1.1 is LIVE. This isn’t just an update. We rebuilt the entire wallet experience from the ground up. A completely new UI. More control over your TAO. More Bittensor tools built directly into your wallet. What’s new in v2.1.1: ✔️Completely updated UI + light/dark mode ✔️Claim rewards directly in the wallet ✔️Unified balance across TAO + alpha ✔️Universal Swap ✔️Transfer TAO + alpha ✔️Subnet discovery + detailed subnet views ✔️Multi-address support for seed phrases ✔️12 and 24 word seed phrase support ✔️Updated Smart Account + Reward  
+  https://nitter.kareem.one/shibshib89/status/2100300168633761947#m
 - @tplr_ai (Templar, Wed, 16 Sep 2026): When using pipeline compression with fixed projections shared across layers, robustness improves further as seen in the figure below. This suggests that shared projectors align representations across stage boundaries, making bypasses less disruptive. 4/n  
   http://nitter.meowing.monster/tplr_ai/status/2100237714918367690#m
 - @tplr_ai (Templar, Wed, 16 Sep 2026): We’ve been researching fault tolerance in Crucible, Templar’s pre-training platform. The goal: keep training through node failures and make better use of unreliable workers and spot instances, without idling an entire model replica when one stage goes down. 1/n Video  
@@ -160,6 +162,8 @@ _no new posts in the lookback window_
   https://nitter.kareem.one/ridges_ai/status/2110401263963869285#m
 - @webuildscore (Score, Wed, 14 Oct 2026): We are ready to build worlds. Currently fire-testing the new incentive mechanism that will get miners to build our first ever generative world model, capturing real physics, long-term consistency, and true interactivity. This is the unreal next chapter for vision AI: from understanding scenes to generating entire, livable realities. This 👇 is a sneak peek of the subnet’s console, where users will be able to create worlds from a single prompt and very soon explore them right in their browsers. This will also 100x our ability to train better vision models by providing unlimited simulated scenari  
   https://nitter.kareem.one/webuildscore/status/2110398301023658462#m
+- @PanteraCapital (Pantera Capital, Wed, 14 Oct 2026): A new milestone for Ondo: $4 billion in TVL. From tokenized Treasuries to tokenized stocks, ETFs, portfolios & private markets, Ondo is expanding access with every asset class. Behind the $4 billion TVL milestone: → $1.3B+ in tokenized stocks & ETFs → #1 platform for tokenized U.S. Treasuries → 1M+ cumulative holders across products That growth reflects innovations in how tokenized assets trade, including Ondo Stocks tapping TradFi exchange liquidity through RFQ. Leading wallets and apps put that liquidity within reach, enabling permissionless transfers across Solana, Ethereum and BNB Chain. T  
+  https://nitter.kareem.one/Ondo/status/2110378961129652608#m
 - @manakoai (Manako, Wed, 14 Oct 2026): 2 days of deployment ahead for @manakoai. today on some avia stations. tomorrow on a brand new fuel retail client. LFG 👊  
   http://nitter.meowing.monster/arnod3f/status/2110266332885172326#m
 - @rob_svrn (Rob Greer, Wed, 14 Oct 2026): TAO has a circulating supply of ~11.6M today, at a price of $280. BTC had a circulating supply of 11.6M in Sept 2013, with a price of ~$130. Might not feel like it, but we're ahead of schedule lads.  
@@ -176,6 +180,8 @@ _no new posts in the lookback window_
   http://nitter.meowing.monster/tplr_ai/status/2104937831097352377#m
 - @manakoai (Manako, Tue, 13 Oct 2026): Most AI still automates tasks. The next shift is AI that can run business operations. The progression looks a lot like autonomous driving. Just as cars moved from driver assistance to partial, conditional, and higher autonomy, business operations will move through the same stages: 0. Manual operations → people observe, decide and act. 1. Assisted operations → AI detects events. People act. (This is where Vision Agents sit today.) 2. Partial automation → AI executes tasks. People supervise. 3. Conditional autonomy → AI runs workflows. People handle exceptions. 4. High autonomy → AI runs a defin  
   http://nitter.meowing.monster/manakoai/status/2110085853301309523#m
+- @PanteraCapital (Pantera Capital, Tue, 13 Oct 2026): New milestone: $3 billion in tokenized U.S. Treasuries. Ondo ranks #1 among tokenized U.S. Treasury platforms on RWA․xyz, with $3 billion across USDY, OUSG and tokenized Treasury ETFs. Leading that growth is USDY, with over $2.3 billion in TVL, larger than BlackRock’s BUIDL. With USDY, holders can: → Earn yield directly in their wallets → Trade permissionlessly onchain → Use USDY as collateral across DeFi apps This milestone reflects how quickly tokenization is growing and how early we still are in bringing the world’s financial markets onchain. Billions today. Trillions tomorrow.  
+  https://nitter.kareem.one/Ondo/status/2110049625721758048#m
 - @KyleSamani (Kyle Samani, Tue, 13 Oct 2026): There is an answer to this question Soon! Kaiz 🐂🀄️ (@Kaiz_294) Arthur Hayes questions where the real money in tokenization comes from, arguing that moving traditional assets onchain still leaves a major unanswered question about profitability “How much money are you actually going to make” “I transferred the stock that was sitting in DTCC, and now it's sitting on some blockchain, whatever it is, doesn't really matter” “How much money can you actually make doing that” “You're doing better bookkeeping. Thank you. But where are you actually going to make money in tokenization” “I think that has b  
   https://nitter.kareem.one/KyleSamani/status/2109972190519275682#m
 - @resilabsai (RESI, Tue, 07 Apr 2026): The power of holding Bittensor $TAO subnet alpha Here is an example to illustrate the flywheel of $TAO Let's say you 1,000 alpha of @resilabsai which cost around 7 $TAO 7 $TAO at a price of $310 = $2,170 Current alpha price of Resi, subnet 46: .0066 $TAO Let's make some calculated assumptions. &gt; price of resi alpha stays the same for 3 years &gt; price of $TAO remains the same at $310 &gt; APY for holding Resi alpha is 40% for the first 2 years, then 30% in year 3 What is my total value in 3 years? Year 1 (40% APY) 1,060.6 × 1.4 = 1,484.8 alpha In $TAO: 1,484.8 × 0.0066 ≈ 9.80 $TAO In USD:   
@@ -196,6 +202,8 @@ _no new posts in the lookback window_
   https://nitter.kareem.one/YumaGroup/status/2103148514670989783#m
 - @galaxyhq (Galaxy Digital, Thu, 15 Oct 2026): Prediction markets were just the beginning. Conditional markets, the next generation of event-driven finance, are starting to take shape. Deep dive by @ZackPokorny_ covering where the sector stands, who's building in it, and what's next. galaxy.com/insights/research… Link Conditional Markets Are Beginning to Blossom Decision markets are scaling, impact markets are heading to mainnet, and new infrastructure is pushing event-driven finance beyond prediction markets. galaxy.com  
   https://nitter.kareem.one/glxyresearch/status/2110795844119351612#m
+- @shibshib89 (Ala Shaabana, Thu, 15 Oct 2026): Research a subnet. Open your wallet. Click away. Wallet disappears. Repeat. 🙃 We fixed that. Crucible Wallet now supports Chrome's Side Panel, so you can keep your wallet open while researching subnets, checking charts, staking, or swapping. Less back and forth. More time actually doing what you came to do.  
+  https://nitter.kareem.one/CrucibleLabs/status/2110795579249111046#m
 - @webuildscore (Score, Thu, 15 Oct 2026): GTA 6 newest trailer looking even cleaner with boxes on Gyro Zeppeli (@Gyrolens) Been testing the new version of Score Studio and Rockstar just handed me the perfect test footage. Vice City has never been this tracked. Video — https://nitter.kareem.one/Gyrolens/status/2110788068005617779#m  
   https://nitter.kareem.one/webuildscore/status/2110795474617724998#m
 - @KyleSamani (Kyle Samani, Thu, 15 Oct 2026): [Speaker Announcement] "Solana is becoming the settlement layer for Internet capital markets." @KyleSamani, co-founder of Multicoin Capital and chairman of @FWDind, joins us at Breakpoint in London, 15-17 November. Video  
@@ -220,6 +228,8 @@ _no new posts in the lookback window_
   https://nitter.kareem.one/BarrySilbert/status/2110743550539231354#m
 - @BarrySilbert (Barry Silbert, Thu, 15 Oct 2026): The digital rand in action⚡️ Awesome to see @LunoGlobal enabling users to spend @ZARUniversal at nearly 1 million South African merchants or everyday purchases like petrol and groceries. A big step in bringing institutional-grade digital assets to everyday consumer payments. Learn more below 👇 Luno (@LunoGlobal) Your daily routine just got a major upgrade. Whether you are filling up your tank at @Engen_SA, grabbing daily groceries at @WOOLWORTHS_SA or treating yourself to @KrispyKreme_ZA at Engen Forecourt, you can pay seamlessly with your Luno app. Pay with @LunoGlobal Pay and enjoy 15% back   
   https://nitter.kareem.one/BlockTowerTech/status/2110698308687827452#m
+- @PanteraCapital (Pantera Capital, Thu, 15 Oct 2026): Fission has raised $10M in Series A funding, led by @PanteraCapital. We’re building the liquidity infrastructure for the next generation of tokenized financial products. Eligible investors can now access capital without waiting for a fund's scheduled redemption window. More in Fortune: fortune.com/2026/10/15/pante…  
+  https://nitter.kareem.one/FissionXYZ/status/2110697116335215041#m
 - @webuildscore (Score, Thu, 15 Oct 2026): Haters will say it’s AI, our detector didn’t ask though. Building your own is about to get a lot easier. More soon. Video  
   https://nitter.kareem.one/webuildscore/status/2110690673917628663#m
 - @lium_io (Lium, Thu, 15 Oct 2026): more stats here: grafana.lium.io/d/marketplac… grafana.lium.io/d/gpu-demand…  
@@ -232,17 +242,7 @@ _no new posts in the lookback window_
   https://nitter.kareem.one/ridges_ai/status/2108290090317619237#m
 - @novogratz (Mike Novogratz, Sun, 27 Sep 2026): Congrats @Scaramucci on this launch! You are one of the hardest working buys in the biz!! Anthony Scaramucci (@Scaramucci) All The Wrong Moves is #1 in the United States National Government category on Amazon. Get the hardcover copy: amzn.to/3VSdRhj Get the audiobook (read by me): amzn.to/4ydOXqV — http://nitter.meowing.monster/Scaramucci/status/2104001152316809589#m  
   http://nitter.meowing.monster/novogratz/status/2104250567115641310#m
-- @wallstreetbets (WallStreetBets (X), Sun, 18 Oct 2026): the duality of man  
-  http://nitter.meowing.monster/wallstreetbets/status/2111842237508415641#m
-- @wallstreetbets (WallStreetBets (X), Sun, 18 Oct 2026): manifesting green candles  
-  http://nitter.meowing.monster/wallstreetbets/status/2111796940388319327#m
-- @wallstreetbets (WallStreetBets (X), Sun, 18 Oct 2026): who let bro cook 😭  
-  http://nitter.meowing.monster/wallstreetbets/status/2111751642852827373#m
-- @wallstreetbets (WallStreetBets (X), Sun, 18 Oct 2026): send it  
-  http://nitter.meowing.monster/wallstreetbets/status/2111706342436340111#m
-- @wallstreetbets (WallStreetBets (X), Sun, 18 Oct 2026): always buy the dip  
-  http://nitter.meowing.monster/wallstreetbets/status/2111661048168128806#m
 
 
 ---
-_Generated at 2026-10-18T18:27:44.423490+00:00 by scripts/intel/aggregate.py. Treat this digest as input context, not as ground truth. Verify before quoting._
+_Generated at 2026-10-18T22:11:34.738061+00:00 by scripts/intel/aggregate.py. Treat this digest as input context, not as ground truth. Verify before quoting._
