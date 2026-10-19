@@ -1,0 +1,242 @@
+[
+  {
+    "handle": "resilabsai",
+    "name": "RESI",
+    "posted_at": "Tue, 07 Apr 2026 17:33:18 GMT",
+    "title": "RT by @resilabsai: The power of holding Bittensor $TAO subnet alpha Here is an example to illustrate the flywheel of $TAO Let's say you 1,000 alpha of @resilabsai which cost around 7 $TAO 7 $TAO at a price of $310 = $2,170 Current alpha price of Resi, subnet 46: .0066 $TAO Let's make some calculated assumptions. > price of resi alpha stays the same for 3 years > price of $TAO remains the same at $310 > APY for holding Resi alpha is 40% for the first 2 years, then 30% in year 3 What is my total value in 3 years? Year 1 (40% APY) 1,060.6 × 1.4 = 1,484.8 alpha In $TAO: 1,484.8 × 0.0066 ≈ 9.80 $TAO In USD: 9.80 × $310 ≈ $3,038 Year 2 (40% APY again) 1,484.8 × 1.4 = 2,078.8 alpha In $TAO: ≈ 13.72 $TAO In USD: ≈ $4,253 Year 3 (30% APY) 2,078.8 × 1.3 = 2,702.4 alpha In $TAO: ≈ 17.83 $TAO In USD: ≈ $5,527 Now what if the price of Resi alpha went up 2x in year 1, 25% in year 2 and 25% in year 3? Additionally, what if the price of $TAO goes up by 4x? Year 1 Alpha: 1,484.8 $TAO value: 1,484.8 × 0.0132 ≈ 19.6 $TAO USD value: 19.6 × $1,240 ≈ $24,304 Year 2 Alpha: 2,078.8 $TAO value: ≈ 34.3 $TAO USD value: ≈ $42,532 Year 3 Alpha: 2,702.4 $TAO value: ≈ 55.7 $TAO USD value: ≈ $69,068 This is the Bittensor flywheel in effect.",
+    "text": "The power of holding Bittensor $TAO subnet alpha Here is an example to illustrate the flywheel of $TAO Let's say you 1,000 alpha of @resilabsai which cost around 7 $TAO 7 $TAO at a price of $310 = $2,170 Current alpha price of Resi, subnet 46: .0066 $TAO Let's make some calculated assumptions. &gt; price of resi alpha stays the same for 3 years &gt; price of $TAO remains the same at $310 &gt; APY for holding Resi alpha is 40% for the first 2 years, then 30% in year 3 What is my total value in 3 years? Year 1 (40% APY) 1,060.6 × 1.4 = 1,484.8 alpha In $TAO: 1,484.8 × 0.0066 ≈ 9.80 $TAO In USD: ",
+    "url": "https://nitter.kareem.one/Pop_Collapse/status/2041570023823528017#m",
+    "fetched_at": "2026-10-19T02:45:54.353939+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "const_reborn",
+    "name": "Jacob Steeves",
+    "posted_at": "Thu, 15 Oct 2026 16:53:54 GMT",
+    "title": "Null consensus scales Bittensor subnets 10x and allows POW registration (no Tao needed for an agent to mine). First step adding more freedom and scale to our incentive systems.",
+    "text": "Null consensus scales Bittensor subnets 10x and allows POW registration (no Tao needed for an agent to mine). First step adding more freedom and scale to our incentive systems. Openτensor Foundaτion (@opentensor) Bittensor recently released Null Consensus, a major protocol update expanding subnet capacity from 256 to 2,500 participants. It introduces a new way to determine miner rewards, giving subnet owners an alternative to Yuma Consensus. Video — https://nitter.kareem.one/opentensor/status/2110775067722539092#m",
+    "url": "https://nitter.kareem.one/const_reborn/status/2110776187782135966#m",
+    "fetched_at": "2026-10-19T02:43:33.241243+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "lium_io",
+    "name": "Lium",
+    "posted_at": "Thu, 15 Oct 2026 00:25:03 GMT",
+    "title": "R to @lium_io: more stats here: https://grafana.lium.io/d/marketplace-prices-v1/marketplace-prices?orgId=2&from=now-7d&to=now&timezone=utc&var-gpu_type=$__all&refresh=5m https://grafana.lium.io/d/gpu-demand-analytics-v1/gpu-demand-analytics?orgId=2&from=now-2d&to=now&timezone=utc&var-gpu_type=$__all&viewPanel=panel-12",
+    "text": "more stats here: grafana.lium.io/d/marketplac… grafana.lium.io/d/gpu-demand…",
+    "url": "https://nitter.kareem.one/lium_io/status/2110527338228441209#m",
+    "fetched_at": "2026-10-19T02:46:19.612914+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "lium_io",
+    "name": "Lium",
+    "posted_at": "Thu, 15 Oct 2026 00:25:03 GMT",
+    "title": "Lium is hands down the best place to put your GPUs. You get paid for idle compute, 95% of rental revenue, and additional bonuses. The average time from a gpu added to our network to rented is <1 hour. and at any given moment 9/10 GPUs on our platform are rented.",
+    "text": "Lium is hands down the best place to put your GPUs. You get paid for idle compute, 95% of rental revenue, and additional bonuses. The average time from a gpu added to our network to rented is &lt;1 hour. and at any given moment 9/10 GPUs on our platform are rented.",
+    "url": "https://nitter.kareem.one/lium_io/status/2110527335648866327#m",
+    "fetched_at": "2026-10-19T02:46:19.612914+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "JosephJacks_",
+    "name": "Joseph Jacks",
+    "posted_at": "Sun, 18 Oct 2026 22:54:47 GMT",
+    "title": "RT by @JosephJacks_: officechai.com/consciousness…",
+    "text": "officechai.com/consciousness… Link Stuart Hameroff Says That ORCH-OR Is Possibly The Only Consciousness Theory Consistent With New... A new neuroscience paper on how the brain represents conscious and unconscious content is making the rounds, and it’s drawn a notable reaction... officechai.com",
+    "url": "https://nitter.kareem.one/StuartHameroff/status/2111954171251544521#m",
+    "fetched_at": "2026-10-19T02:43:59.478072+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "JosephJacks_",
+    "name": "Joseph Jacks",
+    "posted_at": "Sun, 18 Oct 2026 16:57:53 GMT",
+    "title": "RT by @JosephJacks_: This is 100% going big places. Dig into it, don't want to spoil it.",
+    "text": "This is 100% going big places. Dig into it, don't want to spoil it. JJ (@JosephJacks_) Today, we are thrilled to unveil Quantum Life Technologies (QLT). While we are not sharing specifics and are a for-profit focused lab, our mission is to fundamentally change the way in which AI software and hardware are delivered to increase the computational capability and computational efficiency (simultaneously) by many orders of magnitude by learning from nature and biology. Learn more here. We are hiring ! I’m incredible honored to be joined by my co-founders @StuartHameroff and Jack Tuszynski as well a",
+    "url": "https://nitter.kareem.one/JoshuaJBouw/status/2111864356455502260#m",
+    "fetched_at": "2026-10-19T02:43:59.478072+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "JosephJacks_",
+    "name": "Joseph Jacks",
+    "posted_at": "Sun, 18 Oct 2026 12:05:13 GMT",
+    "title": "RT by @JosephJacks_: Won’t even need AI data centers in the future. It copies human biology concepts",
+    "text": "Won’t even need AI data centers in the future. It copies human biology concepts JJ (@JosephJacks_) QLT.inc Link Quantum Life Technologies — Microtubule Computing Reweaving the structures of computation found in all living beings. qlt.inc — https://nitter.kareem.one/JosephJacks_/status/2111565500832710845#m",
+    "url": "https://nitter.kareem.one/LaKrishaSmALL/status/2111790705308025301#m",
+    "fetched_at": "2026-10-19T02:43:59.478072+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "resilabsai",
+    "name": "RESI",
+    "posted_at": "Sat, 18 Apr 2026 04:42:22 GMT",
+    "title": "RT by @resilabsai: Traditional centralized real estate data platforms are fundamentally flawed and often serve to extract wealth from users. @resilabsai (Subnet 46) is breaking this monopoly through decentralized AI technology that delivers up to 99% valuation accuracy. Skip the corporate intermediaries—this AI-powered home valuation tool provides the most reliable housing market forecasts for 2026",
+    "text": "Traditional centralized real estate data platforms are fundamentally flawed and often serve to extract wealth from users. @resilabsai (Subnet 46) is breaking this monopoly through decentralized AI technology that delivers up to 99% valuation accuracy. Skip the corporate intermediaries—this AI-powered home valuation tool provides the most reliable housing market forecasts for 2026 Video SEBY (gpu/acc) (@sebyrubino) The @resilabsai Portal is LIVE! Any agent or real estate professional can now easily access our SOTA remote appraisals. We built RESI as a compounding network that will naturally acc",
+    "url": "https://nitter.kareem.one/3rdeye_rav3n/status/2045362275045753234#m",
+    "fetched_at": "2026-10-19T02:45:54.353939+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "taomedia_",
+    "name": "TAO Media",
+    "posted_at": "Sat, 17 Oct 2026 22:01:11 GMT",
+    "title": "COOKING: @perplexity_ai can now reverse-engineer apps. The new REA skill lets its AI agent inspect software without source code and build a working version. Try it with up to 10,000 free credits through Oct. 31 ↓ https://www.tao.media/perplexity-computer-adds-rea-to-inspect-and-rebuild-apps-without-source-code/",
+    "text": "COOKING: @perplexity_ai can now reverse-engineer apps. The new REA skill lets its AI agent inspect software without source code and build a working version. Try it with up to 10,000 free credits through Oct. 31 ↓ tao.media/perplexity-compute… Link Perplexity Computer Adds REA to Inspect and Rebuild Apps Without Source Code The new skill brings an open-source reverse-engineering toolkit into Computer, with a temporary credit allowance for users to try it. tao.media",
+    "url": "https://nitter.kareem.one/taomedia_/status/2111578296098107774#m",
+    "fetched_at": "2026-10-19T02:46:14.360118+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "JosephJacks_",
+    "name": "Joseph Jacks",
+    "posted_at": "Sat, 17 Oct 2026 17:49:31 GMT",
+    "title": "RT by @JosephJacks_: Today, we are thrilled to unveil Quantum Life Technologies (QLT). While we are not sharing specifics and are a for-profit focused lab, our mission is to fundamentally change the way in which AI software and hardware are delivered to increase the computational capability and computational efficiency (simultaneously) by many orders of magnitude by learning from nature and biology. Learn more here. We are hiring ! I’m incredible honored to be joined by my co-founders @StuartHameroff and Jack Tuszynski as well as our founding scientists @DanielLanino and @natashacg14. 🙇🏻‍♂️ https://qlt.inc/",
+    "text": "Today, we are thrilled to unveil Quantum Life Technologies (QLT). While we are not sharing specifics and are a for-profit focused lab, our mission is to fundamentally change the way in which AI software and hardware are delivered to increase the computational capability and computational efficiency (simultaneously) by many orders of magnitude by learning from nature and biology. Learn more here. We are hiring ! I’m incredible honored to be joined by my co-founders @StuartHameroff and Jack Tuszynski as well as our founding scientists @DanielLanino and @natashacg14. 🙇🏻‍♂️ qlt.inc/ Link Protected",
+    "url": "https://nitter.kareem.one/JosephJacks_/status/2111514962497782194#m",
+    "fetched_at": "2026-10-19T02:43:59.478072+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "const_reborn",
+    "name": "Jacob Steeves",
+    "posted_at": "Sat, 17 Oct 2026 12:28:43 GMT",
+    "title": "RT by @const_reborn: Thanks everyone, what a week!! I think we may have just proven decentralized training competitions for use case specific decision models is a thing that works...",
+    "text": "Thanks everyone, what a week!! I think we may have just proven decentralized training competitions for use case specific decision models is a thing that works... REAX (@reaxlabs) Quick moment to step back, because this was a big week • 3 days ago REAX went live. Today 217 miner slots serve decision models and 65 independent miner wallets are earning... almost all traffic routed to the network is now answered by your GPUs, with zero failed verification checks. • The first model-training competition has its first two champions =&gt; demand forecasting (UID 71, 91.1 vs the 38.2 baseline) and =&gt",
+    "url": "https://nitter.kareem.one/airesearch12/status/2111434228298604929#m",
+    "fetched_at": "2026-10-19T02:43:33.241243+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "taomedia_",
+    "name": "TAO Media",
+    "posted_at": "Sat, 17 Oct 2026 03:56:51 GMT",
+    "title": "RT by @taomedia_: I feel very confident that this will be $100M by the end of 2026. (not financial advice -- just my opinion -- but yeah).",
+    "text": "I feel very confident that this will be $100M by the end of 2026. (not financial advice -- just my opinion -- but yeah).",
+    "url": "https://nitter.kareem.one/markjeffrey/status/2111305414000488612#m",
+    "fetched_at": "2026-10-19T02:46:14.360118+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "resilabsai",
+    "name": "RESI",
+    "posted_at": "Sat, 08 Aug 2026 01:27:26 GMT",
+    "title": "Pinned: Attention Res Labs we have some really exciting news and updates to our project join our discord to stay up to date: https://discord.gg/TBj8q9vb2Q #bittensor #TAO bittensor:native #reslabs #reilabsai #crypto #subnet #subnet46 #reslabs_ai #reslabsai #opentensor #reptides",
+    "text": "Attention Res Labs we have some really exciting news and updates to our project join our discord to stay up to date: discord.gg/TBj8q9vb2Q #bittensor #TAO bittensor:native #reslabs #reilabsai #crypto #subnet #subnet46 #reslabs_ai #reslabsai #opentensor #reptides",
+    "url": "https://nitter.kareem.one/resilabsai/status/2085900662139744548#m",
+    "fetched_at": "2026-10-19T02:45:54.353939+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "resilabsai",
+    "name": "RESI",
+    "posted_at": "Mon, 20 Apr 2026 19:34:17 GMT",
+    "title": "RT by @resilabsai: I am pleased to announce that Stillcore Capital @stillcorecap has invested in RESI @resilabsai (Bittensor Subnet 46).",
+    "text": "I am pleased to announce that Stillcore Capital @stillcorecap has invested in RESI @resilabsai (Bittensor Subnet 46).",
+    "url": "https://nitter.kareem.one/markjeffrey/status/2046311512621670731#m",
+    "fetched_at": "2026-10-19T02:45:54.353939+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "JosephJacks_",
+    "name": "Joseph Jacks",
+    "posted_at": "Mon, 19 Oct 2026 01:27:30 GMT",
+    "title": "Tim is right … our expectations of technology should be MUCH higher",
+    "text": "Tim is right … our expectations of technology should be MUCH higher Tim Sweeney (@TimSweeneyEpic) Agreed, the end product is the thing that matters. The velocity of development of it is the force to be reckoned with here. It really is becoming a race between cars and rockets, and there’s risk that convincing devs to abstain from the new way leaves them behind. — https://nitter.kareem.one/TimSweeneyEpic/status/2111803016269746632#m",
+    "url": "https://nitter.kareem.one/JosephJacks_/status/2111992605139759158#m",
+    "fetched_at": "2026-10-19T02:43:59.478072+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "resilabsai",
+    "name": "RESI",
+    "posted_at": "Mon, 06 Apr 2026 13:56:00 GMT",
+    "title": "RT by @resilabsai: Chainlink gave DeFi price feeds. @resilabsai is doing the same for real estate. From static appraisals to dynamic, onchain pricing. It's already honing in on Zillow's pricing accuracy, and only a matter of weeks before it surpasses it!",
+    "text": "Chainlink gave DeFi price feeds. @resilabsai is doing the same for real estate. From static appraisals to dynamic, onchain pricing. It's already honing in on Zillow's pricing accuracy, and only a matter of weeks before it surpasses it!",
+    "url": "https://nitter.kareem.one/gordonfrayne/status/2041152947925512465#m",
+    "fetched_at": "2026-10-19T02:45:54.353939+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "taomedia_",
+    "name": "TAO Media",
+    "posted_at": "Fri, 16 Oct 2026 20:02:46 GMT",
+    "title": ".@urnetwork is now live on Bittensor mainnet as SN25. The privacy network is moving its 100k+ providers over as Bittensor miners, has set miner burn to 0%, and is routing excess emissions into a public multisig reserve that pays for new network capacity against verified delivery. Full details ↓ https://www.tao.media/ur-launches-bittensor-sn25-mainnet-with-reserve-to-fund-network-capacity/",
+    "text": ".@urnetwork is now live on Bittensor mainnet as SN25. The privacy network is moving its 100k+ providers over as Bittensor miners, has set miner burn to 0%, and is routing excess emissions into a public multisig reserve that pays for new network capacity against verified delivery. Full details ↓ tao.media/ur-launches-bitten… Link UR Launches Bittensor SN25 Mainnet With Reserve to Fund Network Capacity The privacy network is transitioning more than 100,000 providers into miners while funding connectivity ahead of customer demand. tao.media",
+    "url": "https://nitter.kareem.one/taomedia_/status/2111186105089638802#m",
+    "fetched_at": "2026-10-19T02:46:14.360118+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "taomedia_",
+    "name": "TAO Media",
+    "posted_at": "Fri, 16 Oct 2026 18:23:00 GMT",
+    "title": "Meta is putting an 816B-parameter coding and agent model on local hardware with Muse Spark Open, an open-weight release that also supports hosted APIs. The model activates 42B parameters per token, handles a 1M-token context window, and has been optimized to run on two Apple M5 Ultra Mac Studios. https://www.tao.media/meta-opens-muse-spark-weights-for-coding-agents-and-two-mac-local-inference/",
+    "text": "Meta is putting an 816B-parameter coding and agent model on local hardware with Muse Spark Open, an open-weight release that also supports hosted APIs. The model activates 42B parameters per token, handles a 1M-token context window, and has been optimized to run on two Apple M5 Ultra Mac Studios. tao.media/meta-opens-muse-sp… Link Meta Opens Muse Spark Weights for Coding Agents and Two-Mac Local Inference The 816B-parameter model brings multimodal agent workflows to local hardware, with downloadable weights and hosted API access. tao.media",
+    "url": "https://nitter.kareem.one/taomedia_/status/2111161001861087541#m",
+    "fetched_at": "2026-10-19T02:46:14.360118+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "const_reborn",
+    "name": "Jacob Steeves",
+    "posted_at": "Fri, 16 Oct 2026 15:33:10 GMT",
+    "title": "Pretty awesome actually. From idea to economy in a few hours. Send your agents to mine this with us.",
+    "text": "Pretty awesome actually. From idea to economy in a few hours. Send your agents to mine this with us. Apex・SN1 (@Apex_SN1) Now live on #bittensor SN1, incentivized. Prompted by @const_reborn, built by agents. Prompt → production in 6 hours, zero human dev time. Next one: &lt;1h. We’re industrializing incentive mechanism design. — https://nitter.kareem.one/Apex_SN1/status/2111112046981140726#m",
+    "url": "https://nitter.kareem.one/const_reborn/status/2111118261894988232#m",
+    "fetched_at": "2026-10-19T02:43:33.241243+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "const_reborn",
+    "name": "Jacob Steeves",
+    "posted_at": "Fri, 16 Oct 2026 15:08:44 GMT",
+    "title": "RT by @const_reborn: Something new is being cast.",
+    "text": "Something new is being cast. Video",
+    "url": "https://nitter.kareem.one/ingot_wthrboss/status/2111112112785256623#m",
+    "fetched_at": "2026-10-19T02:43:33.241243+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "lium_io",
+    "name": "Lium",
+    "posted_at": "Fri, 16 Oct 2026 13:47:17 GMT",
+    "title": "R to @lium_io: oops this node got rented out within seconds of me posting this",
+    "text": "oops this node got rented out within seconds of me posting this",
+    "url": "https://nitter.kareem.one/lium_io/status/2111091612243698172#m",
+    "fetched_at": "2026-10-19T02:46:19.612914+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "const_reborn",
+    "name": "Jacob Steeves",
+    "posted_at": "Fri, 16 Oct 2026 13:32:35 GMT",
+    "title": "RT by @const_reborn: yet we still are one of the only platforms in the world with access to b300s on-demand; not gated by any sales call, kyc form, or waitlist. and at the same prices that the big clouds currently charge for 3 month+ long commitments, we only charge you for the time you use it.",
+    "text": "yet we still are one of the only platforms in the world with access to b300s on-demand; not gated by any sales call, kyc form, or waitlist. and at the same prices that the big clouds currently charge for 3 month+ long commitments, we only charge you for the time you use it. lium.io (@lium_io) help. our service is too good and agents keep renting everything. we need more supply GPU owners who want 80% higher payout than reserved contracts, please reach out or add your nodes in 5 min: provider.lium.io/ — https://nitter.kareem.one/lium_io/status/2111081966112055609#m",
+    "url": "https://nitter.kareem.one/lium_io/status/2111087914301939747#m",
+    "fetched_at": "2026-10-19T02:43:33.241243+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "lium_io",
+    "name": "Lium",
+    "posted_at": "Fri, 16 Oct 2026 13:08:57 GMT",
+    "title": "help. our service is too good and agents keep renting everything. we need more supply GPU owners who want 80% higher payout than reserved contracts, please reach out or add your nodes in 5 min: https://provider.lium.io/",
+    "text": "help. our service is too good and agents keep renting everything. we need more supply GPU owners who want 80% higher payout than reserved contracts, please reach out or add your nodes in 5 min: provider.lium.io/",
+    "url": "https://nitter.kareem.one/lium_io/status/2111081966112055609#m",
+    "fetched_at": "2026-10-19T02:46:19.612914+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "taomedia_",
+    "name": "TAO Media",
+    "posted_at": "Fri, 16 Oct 2026 02:30:45 GMT",
+    "title": "RT by @taomedia_: Tesla just broke the internet, revealing a flying supercar with a mach .5 top speed target. Everything you missed from the Roadster event: https://www.tao.media/tesla-unveils-flying-roadster-demonstrates-0-60-mph-in-0-81-seconds/",
+    "text": "Tesla just broke the internet, revealing a flying supercar with a mach .5 top speed target. Everything you missed from the Roadster event: tao.media/tesla-unveils-flyi… Link Tesla Unveils Flying Roadster, Demonstrates 0–60 MPH in 0.81 Seconds Developed with SpaceX, the redesigned electric supercar uses compressed-air thrusters and a suction system to perform aerial maneuvers and drive upside down. tao.media",
+    "url": "https://nitter.kareem.one/taomedia_/status/2110921357810954584#m",
+    "fetched_at": "2026-10-19T02:46:14.360118+00:00",
+    "via_instance": "https://nitter.cz"
+  }
+]
