@@ -11,6 +11,16 @@ _no human notes in the window_
 
 _SemiAnalysis is the most-cited semiconductor and AI infrastructure publication in the industry. They do NOT cover Bittensor. The Oracle uses this corpus for any claim about hyperscaler compute, GPU economics, datacenter power, foundry capacity, memory pricing, lab unit economics. DO NOT cite SemiAnalysis for any Bittensor-specific claim. Full archive (289 posts, May 2020 onwards) lives at `intelligence/_external_sources/semianalysis/` with an `INDEX.md` table of contents. Paywalled posts show only subtitle + free preview; free posts have the full body extracted._
 
+### 2026-10-19 · Datacenters 2027: The Year of Acceleration, +50GW in a Single Year
+_60GW Under Construction, SemiAnalysis Leading Indicators, 1.3T of Lease Contracts Signed YTD, The Shortage Could Move to Chips_
+
+- **Authors:** ["Jeremie Eliahou Ontiveros", "Reyk Knuhtsen", "Dylan Patel"]
+- **Access:** paid-preview
+- **URL:** https://newsletter.semianalysis.com/p/datacenters-2027-the-year-of-acceleration
+- **Corpus file:** `intelligence/_external_sources/semianalysis/2026-10-19-datacenters-2027-the-year-of-acceleration.md`
+
+> Not a week goes without another piece of datacenter FUD. [We’ve already debunked in depth why moratoriums aren’t as impactful as one may think](https://newsletter.semianalysis.com/p/stop-saying-half-of-2026-us-datacenter). Despite that, many still misunderstand the pace of the global AI datacenter buildout. Just the other week, Brad Gerstner from Altimeter showed our data on the All-In Podcast and stated that “SemiAnalysis’ forecast of +43GW in 2027 is too aggressive” and that he thought only ab
+
 ### 2026-10-15 · ASML Is Building a Hybrid Bonding Tool!
 __
 
@@ -121,16 +131,6 @@ _Jensen Sandbagging Performance Again, 2x more Annual Profit Per GigaWatt, The M
 
 > [Rubin is the first platform co-designed across six products for the agentic era: Rubin GPU, Vera CPU, NVLink 6 Switch, ConnectX-9, BlueField-4, and Spectrum-6.](https://newsletter.semianalysis.com/p/vera-rubin-extreme-co-design-an-evolution) Today we are publishing the first verified agentic inference results for Rubin, measured on our agentic inference benchmark, AgentX. Even on early pre-release software, the results already show why extreme co-design was necessary.  At GTC 2026, Jensen prese
 
-### 2026-09-14 · A Brain Too Big to Carry — On-Device vs Datacenter Inference
-_Robot Models, Silicon & DRAM Efficiency, Jetson Thor vs. B300 TCO, Deployments, The Network Wall_
-
-- **Authors:** ["Ivan Chiam", "Gianluca", "Zane Fong", "Bryan Shan", "Dylan Patel", "Reyk Knuhtsen"]
-- **Access:** paid-preview
-- **URL:** https://newsletter.semianalysis.com/p/a-brain-too-big-to-carry-on-device
-- **Corpus file:** `intelligence/_external_sources/semianalysis/2026-09-14-a-brain-too-big-to-carry-on-device.md`
-
-> # Where should the brain of the robot go?  So far, AI has mostly lived behind a screen. Chatbots answered questions. Then agents started driving software and finishing multi-step tasks on their own. The next step is AI that acts in the physical world, and the biggest piece of that is robots. It’s early. Nobody has settled the hardware, the models, or the economics.  ## The Embodiment Problem  With LLMs, the hardware bends to the model. Pour in as much data and compute as possible at training, th
-
 
 ## ⊕ GITHUB COMMITS + RELEASES, last 24h
 
@@ -193,4 +193,4 @@ _no new posts in the lookback window_
 
 
 ---
-_Generated at 2026-10-19T02:46:28.117500+00:00 by scripts/intel/aggregate.py. Treat this digest as input context, not as ground truth. Verify before quoting._
+_Generated at 2026-10-19T09:31:25.106306+00:00 by scripts/intel/aggregate.py. Treat this digest as input context, not as ground truth. Verify before quoting._

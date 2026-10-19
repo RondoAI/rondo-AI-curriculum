@@ -1,11 +1,12 @@
 # SemiAnalysis Archive Index
 
-_341 posts captured. Generated 2026-10-19T02:46:27.937400+00:00._
+_342 posts captured. Generated 2026-10-19T09:31:24.948663+00:00._
 
 Editorial policy: SemiAnalysis is the macro reference. The Oracle cites it for any claim about hyperscaler compute, GPU economics, datacenter power, foundry capacity, memory pricing, lab unit economics. The Oracle does NOT cite SemiAnalysis for any Bittensor-specific claim. SemiAnalysis does not cover Bittensor; treat that absence as itself information.
 
 | Date | Title | Audience | Authors | File |
 | --- | --- | --- | --- | --- |
+| 2026-10-19 | [Datacenters 2027: The Year of Acceleration, +50GW in a Single Year](https://newsletter.semianalysis.com/p/datacenters-2027-the-year-of-acceleration) | only_paid | ["Jeremie Eliahou Ontiveros", "Reyk Knuhtsen", "Dylan Patel" | `2026-10-19-datacenters-2027-the-year-of-acceleration.md` |
 | 2026-10-15 | [ASML Is Building a Hybrid Bonding Tool!](https://newsletter.semianalysis.com/p/asml-is-building-a-hybrid-bonding) | only_paid | ["Sherry Zhang", "Gerald Wong", "Steven Lee", "Dylan Patel"] | `2026-10-15-asml-is-building-a-hybrid-bonding.md` |
 | 2026-10-08 | [Beijing Will Not Pace the Frontier: China’s Speed-First AI Safety Regime](https://newsletter.semianalysis.com/p/beijing-will-not-pace-the-frontier) | only_paid | ["Mark Chen", "Doug", "Dylan Patel"] | `2026-10-08-beijing-will-not-pace-the-frontier.md` |
 | 2026-10-05 | [Anthropic Subscriptions Offer 5x+ More Value Than OpenAI](https://newsletter.semianalysis.com/p/anthropic-subscriptions-offer-5x) | only_paid | ["Andrew Megalaa", "Max Kan", "Dylan Patel"] | `2026-10-05-anthropic-subscriptions-offer-5x.md` |
