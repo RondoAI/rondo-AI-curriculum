@@ -1,1 +1,13 @@
-[]
+[
+  {
+    "repo": "opentensor/subtensor",
+    "name": "Subtensor (chain)",
+    "kind": "release",
+    "sha": "v481",
+    "message": "Runtime 481",
+    "author": "github-actions[bot]",
+    "posted_at": "2026-10-19T17:09:53Z",
+    "url": "https://github.com/RaoFoundation/subtensor/releases/tag/v481",
+    "fetched_at": "2026-10-19T18:09:14.558452+00:00"
+  }
+]

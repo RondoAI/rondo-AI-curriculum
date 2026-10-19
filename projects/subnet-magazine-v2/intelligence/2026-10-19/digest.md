@@ -134,7 +134,8 @@ _Jensen Sandbagging Performance Again, 2x more Annual Profit Per GigaWatt, The M
 
 ## ⊕ GITHUB COMMITS + RELEASES, last 24h
 
-_no commits or releases in the lookback window_
+- **Subtensor (chain)** (RELEASE `v481`, 2026-10-19 17:09) Runtime 481  
+  https://github.com/RaoFoundation/subtensor/releases/tag/v481
 
 ## ⊕ ECOSYSTEM BLOGS via RSS
 
@@ -193,4 +194,4 @@ _no new posts in the lookback window_
 
 
 ---
-_Generated at 2026-10-19T09:31:25.106306+00:00 by scripts/intel/aggregate.py. Treat this digest as input context, not as ground truth. Verify before quoting._
+_Generated at 2026-10-19T18:09:19.773903+00:00 by scripts/intel/aggregate.py. Treat this digest as input context, not as ground truth. Verify before quoting._
