@@ -1,5 +1,25 @@
 [
   {
+    "handle": "opentensor",
+    "name": "Opentensor Foundation",
+    "posted_at": "Wed, 14 Oct 2026 16:41:31 GMT",
+    "title": "RT by @opentensor: Introducing DecisionModels @decisionmodels_ I've spent the last four weeks benchmarking decision models (I run JevBench). Today I'm launching the place to actually use the best ones: http://decisionmodels.io ➡️Top open models ➡️Up to 4x faster on our own REAX engine ➡️From $0.019 per 1M input tokens. Expect more reveals soon, and read 👇",
+    "text": "Introducing DecisionModels @decisionmodels_ I've spent the last four weeks benchmarking decision models (I run JevBench). Today I'm launching the place to actually use the best ones: decisionmodels.io ➡️Top open models ➡️Up to 4x faster on our own REAX engine ➡️From $0.019 per 1M input tokens. Expect more reveals soon, and read 👇 Video",
+    "url": "http://nitter.meowing.monster/airesearch12/status/2110410684873814482#m",
+    "fetched_at": "2026-10-20T09:02:40.334189+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "webuildscore",
+    "name": "Score",
+    "posted_at": "Wed, 14 Oct 2026 15:52:18 GMT",
+    "title": "Pinned: We are ready to build worlds. Currently fire-testing the new incentive mechanism that will get miners to build our first ever generative world model, capturing real physics, long-term consistency, and true interactivity. This is the unreal next chapter for vision AI: from understanding scenes to generating entire, livable realities. This 👇 is a sneak peek of the subnet’s console, where users will be able to create worlds from a single prompt and very soon explore them right in their browsers. This will also 100x our ability to train better vision models by providing unlimited simulated scenarios. 44 we go.",
+    "text": "We are ready to build worlds. Currently fire-testing the new incentive mechanism that will get miners to build our first ever generative world model, capturing real physics, long-term consistency, and true interactivity. This is the unreal next chapter for vision AI: from understanding scenes to generating entire, livable realities. This 👇 is a sneak peek of the subnet’s console, where users will be able to create worlds from a single prompt and very soon explore them right in their browsers. This will also 100x our ability to train better vision models by providing unlimited simulated scenari",
+    "url": "http://nitter.meowing.monster/webuildscore/status/2110398301023658462#m",
+    "fetched_at": "2026-10-20T09:04:15.586010+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
     "handle": "YumaGroup",
     "name": "Yuma Holdings",
     "posted_at": "Wed, 14 Oct 2026 15:48:29 GMT",
@@ -30,6 +50,36 @@
     "via_instance": "https://nitter.cz"
   },
   {
+    "handle": "SemiAnalysis_",
+    "name": "SemiAnalysis",
+    "posted_at": "Tue, 20 Oct 2026 03:06:24 GMT",
+    "title": "R to @SemiAnalysis_: Great work by the NVIDIA team on their 1mil context length GLM5.3 submission! (3/3)",
+    "text": "Great work by the NVIDIA team on their 1mil context length GLM5.3 submission! (3/3)",
+    "url": "http://nitter.meowing.monster/SemiAnalysis_/status/2112379881992470844#m",
+    "fetched_at": "2026-10-20T09:05:07.157814+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "SemiAnalysis_",
+    "name": "SemiAnalysis",
+    "posted_at": "Tue, 20 Oct 2026 03:06:23 GMT",
+    "title": "ALERT🚨: Vera Rubin NVL72 is up to 7.3x better in perf per dollar than GB300 NVL72 for 1 million context length agentic inference workloads! THE MORE U BUY, THE MORE U EARN 👇️(1/3)🧵",
+    "text": "ALERT🚨: Vera Rubin NVL72 is up to 7.3x better in perf per dollar than GB300 NVL72 for 1 million context length agentic inference workloads! THE MORE U BUY, THE MORE U EARN 👇️(1/3)🧵",
+    "url": "http://nitter.meowing.monster/SemiAnalysis_/status/2112379877621919877#m",
+    "fetched_at": "2026-10-20T09:05:07.157814+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "SemiAnalysis_",
+    "name": "SemiAnalysis",
+    "posted_at": "Tue, 20 Oct 2026 03:06:23 GMT",
+    "title": "R to @SemiAnalysis_: AgentX captures the four elements of an agentic workload: 🟠 Multi-turn: A session includes many user/assistant interactions (tens or hundreds) compared to a handful in a chatbot scenario. 🟠 1 million context long context: System prompts, tool definitions, and the large number of turns make context accumulate quickly. 🟠 High prefix reuse: Since the conversation progresses linearly, output from turn n-1 is concatenated to turn n. 🟠 Sub-agent bursts: A session launches multiple short-lived sub-agents with fresh context, which create bursty KVCache patterns. AgentX continues to serve as the industry-standard inference benchmark that captures all 4 of these characteristics. (2/3)",
+    "text": "AgentX captures the four elements of an agentic workload: 🟠 Multi-turn: A session includes many user/assistant interactions (tens or hundreds) compared to a handful in a chatbot scenario. 🟠 1 million context long context: System prompts, tool definitions, and the large number of turns make context accumulate quickly. 🟠 High prefix reuse: Since the conversation progresses linearly, output from turn n-1 is concatenated to turn n. 🟠 Sub-agent bursts: A session launches multiple short-lived sub-agents with fresh context, which create bursty KVCache patterns. AgentX continues to serve as the indust",
+    "url": "http://nitter.meowing.monster/SemiAnalysis_/status/2112379879119364156#m",
+    "fetched_at": "2026-10-20T09:05:07.157814+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
     "handle": "const_reborn",
     "name": "Jacob Steeves",
     "posted_at": "Tue, 20 Oct 2026 01:08:07 GMT",
@@ -40,6 +90,16 @@
     "via_instance": "https://nitter.cz"
   },
   {
+    "handle": "SemiAnalysis_",
+    "name": "SemiAnalysis",
+    "posted_at": "Tue, 20 Oct 2026 00:56:52 GMT",
+    "title": "ALERT🚨: SGLANG JUST MERGED MEGAKERNEL SUPPORT, GETTING CLOSE TO 1000 tok/s/user on the GB300 NVL72 AgentX Harness & increasing interactivity by 1.5x on MI355X too! Great work by the SGLang, RadixArk, NVIDIA, and AMD teams! Best of all, this already works out of the box on SGLang Docker images! Excited to rapidly get this on the official AgentX! https://x.com/lmsysorg/status/2112342810376712527",
+    "text": "ALERT🚨: SGLANG JUST MERGED MEGAKERNEL SUPPORT, GETTING CLOSE TO 1000 tok/s/user on the GB300 NVL72 AgentX Harness & increasing interactivity by 1.5x on MI355X too! Great work by the SGLang, RadixArk, NVIDIA, and AMD teams! Best of all, this already works out of the box on SGLang Docker images! Excited to rapidly get this on the official AgentX! nitter.meowing.monster/lmsysorg/status/211234… LMSYS Org (@lmsysorg) Introducing SGLang Low-Latency Mode, built with @NVIDIAAI and @AMD. On DeepSeek-V4.1-Flash with DSpark, it delivers up to 1.38× P90 per-user token speed on NVIDIA GB300 (671 to 928 tok",
+    "url": "http://nitter.meowing.monster/SemiAnalysis_/status/2112347284713148746#m",
+    "fetched_at": "2026-10-20T09:05:07.157814+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
     "handle": "YumaGroup",
     "name": "Yuma Holdings",
     "posted_at": "Thu, 15 Oct 2026 20:05:42 GMT",
@@ -47,6 +107,16 @@
     "text": "Sentios badges are now LIVE! Show Sentios coverage anywhere. Githug, explorers, wallets, dashboards, websites The badge is now a hot link that opens to our active projects page on the Sentios website: sentios.io/active-projects Let the world know Sentios agents are continuously auditing your codebase on significant feature releases. Want your project listed? Contact us to put Sentios on your codebase. @bitsecai $TAO",
     "url": "https://nitter.kareem.one/bitsecai/status/2110824455492530275#m",
     "fetched_at": "2026-10-20T02:55:24.906204+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "webuildscore",
+    "name": "Score",
+    "posted_at": "Thu, 15 Oct 2026 18:10:32 GMT",
+    "title": "GTA 6 newest trailer looking even cleaner with boxes on",
+    "text": "GTA 6 newest trailer looking even cleaner with boxes on Gyro Zeppeli (@Gyrolens) Been testing the new version of Score Studio and Rockstar just handed me the perfect test footage. Vice City has never been this tracked. Video — http://nitter.meowing.monster/Gyrolens/status/2110788068005617779#m",
+    "url": "http://nitter.meowing.monster/webuildscore/status/2110795474617724998#m",
+    "fetched_at": "2026-10-20T09:04:15.586010+00:00",
     "via_instance": "https://nitter.cz"
   },
   {
@@ -90,6 +160,16 @@
     "via_instance": "https://nitter.cz"
   },
   {
+    "handle": "webuildscore",
+    "name": "Score",
+    "posted_at": "Thu, 15 Oct 2026 11:14:06 GMT",
+    "title": "Haters will say it’s AI, our detector didn’t ask though. Building your own is about to get a lot easier. More soon.",
+    "text": "Haters will say it’s AI, our detector didn’t ask though. Building your own is about to get a lot easier. More soon. Video",
+    "url": "http://nitter.meowing.monster/webuildscore/status/2110690673917628663#m",
+    "fetched_at": "2026-10-20T09:04:15.586010+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
     "handle": "zeussubnet",
     "name": "Zeus Subnet",
     "posted_at": "Thu, 08 Oct 2026 13:15:00 GMT",
@@ -97,6 +177,16 @@
     "text": "For a 00Z model run, Zeus disseminates in around 1.5 hours. That’s a 4.5 hour time advantage for energy traders to position before others trading with industry-standard models. This is our strongest differentiator.",
     "url": "http://nitter.meowing.monster/zeussubnet/status/2108184384985805221#m",
     "fetched_at": "2026-10-20T02:57:40.778233+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "BarrySilbert",
+    "name": "Barry Silbert",
+    "posted_at": "Sun, 18 Oct 2026 20:29:15 GMT",
+    "title": "RT by @BarrySilbert: “Zcash has been the most proactive in terms of quantum preparedness.” -@nic_carter",
+    "text": "“Zcash has been the most proactive in terms of quantum preparedness.” -@nic_carter Video",
+    "url": "http://nitter.meowing.monster/_TomHoward/status/2111917546022854862#m",
+    "fetched_at": "2026-10-20T09:02:54.686516+00:00",
     "via_instance": "https://nitter.cz"
   },
   {
@@ -117,6 +207,16 @@
     "text": "Really interesting convo below from this weeks all in on why a16z stays away from the neoclouds, and it made something click for me about Bittensor. @bhorowitz point is that scaling compute on debt is a dangerous arbitrage business, and he lived it in 99 when bandwidth was $1,500/megabit and the only way to get it was a 3 year contract. By 2001 it was $50 - If you were holding that on borrowed money you were dead. His case for $CRWV being different is that AI compute is in a massive shortage, so GPU and data center prices keep rising. Maybe he's right. But the neocloud model is still a levered",
     "url": "https://nitter.kareem.one/0xSunRun/status/2111550951329054825#m",
     "fetched_at": "2026-10-20T02:55:30.665585+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "BarrySilbert",
+    "name": "Barry Silbert",
+    "posted_at": "Sat, 17 Oct 2026 16:23:43 GMT",
+    "title": "RT by @BarrySilbert: Zcash $ZEC is valued as money, like Bitcoin, because of its core properties: scarce, private, decentralized, and AI-hardened.",
+    "text": "Zcash $ZEC is valued as money, like Bitcoin, because of its core properties: scarce, private, decentralized, and AI-hardened. Video",
+    "url": "http://nitter.meowing.monster/ZcashETF/status/2111493367863644270#m",
+    "fetched_at": "2026-10-20T09:02:54.686516+00:00",
     "via_instance": "https://nitter.cz"
   },
   {
@@ -150,6 +250,16 @@
     "via_instance": "https://nitter.cz"
   },
   {
+    "handle": "SemiAnalysis_",
+    "name": "SemiAnalysis",
+    "posted_at": "Mon, 19 Oct 2026 23:00:12 GMT",
+    "title": "SemiAnalysis is an active supporter of open source in the ML community! As such, we are excited to sponsor the open-source SGLang Summit! SGLang is one of the engines that power production inference across many frontier labs globally! At the summit, we’ll share more about our collaboration with SGLang, including our latest AgentX benchmarks. https://x.com/sgl_project/status/2111239321848332399",
+    "text": "SemiAnalysis is an active supporter of open source in the ML community! As such, we are excited to sponsor the open-source SGLang Summit! SGLang is one of the engines that power production inference across many frontier labs globally! At the summit, we’ll share more about our collaboration with SGLang, including our latest AgentX benchmarks. nitter.meowing.monster/sgl_project/status/211… SGLang (@sgl_project) Proud to welcome our newest sponsors to SGLang Summit. In just one week since our public announcement, our sponsor lineup has grown from 11 to 36. Thank you to every sponsor helping bring",
+    "url": "http://nitter.meowing.monster/SemiAnalysis_/status/2112317921552687534#m",
+    "fetched_at": "2026-10-20T09:05:07.157814+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
     "handle": "const_reborn",
     "name": "Jacob Steeves",
     "posted_at": "Mon, 19 Oct 2026 18:43:18 GMT",
@@ -170,6 +280,16 @@
     "via_instance": "https://nitter.cz"
   },
   {
+    "handle": "webuildscore",
+    "name": "Score",
+    "posted_at": "Mon, 19 Oct 2026 17:05:00 GMT",
+    "title": "We set the target at 90%. Miners came back with 98%. Fallen person detection on SN44 went from a 43.6% baseline to 98% on crowded street footage, scored in public every hour. Open weights. So we're raising the bar. Harder footage goes in next, and the difficulty keeps climbing from here.",
+    "text": "We set the target at 90%. Miners came back with 98%. Fallen person detection on SN44 went from a 43.6% baseline to 98% on crowded street footage, scored in public every hour. Open weights. So we're raising the bar. Harder footage goes in next, and the difficulty keeps climbing from here.",
+    "url": "http://nitter.meowing.monster/webuildscore/status/2112228533271658945#m",
+    "fetched_at": "2026-10-20T09:04:15.586010+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
     "handle": "const_reborn",
     "name": "Jacob Steeves",
     "posted_at": "Mon, 19 Oct 2026 15:21:02 GMT",
@@ -187,6 +307,46 @@
     "text": "Is Zeus Pro getting better over time? Yes! From June to September, Zeus Pro showed statistically significant improvements in relative forecasting skill against four operational baselines. Competitive pressure on Bittensor: a mechanism for real innovation. 🔗 zeussubnet.com/zeus-pro-anal…",
     "url": "http://nitter.meowing.monster/zeussubnet/status/2112191017919094953#m",
     "fetched_at": "2026-10-20T02:57:40.778233+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "BarrySilbert",
+    "name": "Barry Silbert",
+    "posted_at": "Mon, 19 Oct 2026 12:21:26 GMT",
+    "title": "RT by @BarrySilbert: HeartSciences (Nasdaq: $HSCS) has filed its definitive proxy statement with the SEC in connection with the proposed business combination with Fortitude. See important additional information here: https://ir.heartsciences.com/sec-filings and https://fortitudemining.com/disclaimers/. $ZEC",
+    "text": "HeartSciences (Nasdaq: $HSCS) has filed its definitive proxy statement with the SEC in connection with the proposed business combination with Fortitude. See important additional information here: ir.heartsciences.com/sec-fil… and fortitudemining.com/disclaim…. $ZEC",
+    "url": "http://nitter.meowing.monster/FortitudeCrypto/status/2112157172897591371#m",
+    "fetched_at": "2026-10-20T09:02:54.686516+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "BarrySilbert",
+    "name": "Barry Silbert",
+    "posted_at": "Mon, 19 Oct 2026 10:12:30 GMT",
+    "title": "RT by @BarrySilbert: Zcash Developer Zakura Proposes Fix to Stop Quantum Computers Linking Shielded Swaps https://decrypt.co/381257/zcash-developer-zakura-proposes-fix-to-stop-quantum-computers-linking-shielded-swaps?utm_source=twitter&utm_medium=social&utm_campaign=auto",
+    "text": "Zcash Developer Zakura Proposes Fix to Stop Quantum Computers Linking Shielded Swaps decrypt.co/381257/zcash-deve… Link Zcash Developer Zakura Proposes Fix to Stop Quantum Computers Linking Shielded Swaps - Decrypt Zakura says a single published Zcash address could let a future quantum attacker link every payment a wallet has ever received. decrypt.co",
+    "url": "http://nitter.meowing.monster/DecryptMedia/status/2112124723660312585#m",
+    "fetched_at": "2026-10-20T09:02:54.686516+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "BarrySilbert",
+    "name": "Barry Silbert",
+    "posted_at": "Mon, 19 Oct 2026 10:09:52 GMT",
+    "title": "RT by @BarrySilbert: INSIGHT: @Zcash developers propose giving every $ZEC swap through NEAR Intents its own private key, closing a gap that a future quantum computer could exploit to piece together a user’s payment history before the January quantum-resistance deadline.",
+    "text": "INSIGHT: @Zcash developers propose giving every $ZEC swap through NEAR Intents its own private key, closing a gap that a future quantum computer could exploit to piece together a user’s payment history before the January quantum-resistance deadline.",
+    "url": "http://nitter.meowing.monster/CoinDesk/status/2112124064492114333#m",
+    "fetched_at": "2026-10-20T09:02:54.686516+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "opentensor",
+    "name": "Opentensor Foundation",
+    "posted_at": "Mon, 19 Oct 2026 08:55:45 GMT",
+    "title": "Video",
+    "text": "Video Openτensor Foundaτion (@opentensor) Article Bittensor Ecosystem Highlights :: October 12–18, 2026 This week’s biggest stories across Bittensor came from Reax, Score, Actual, OpenRoboto, Engy, UR, SayGM and TPN. [ @reaxlabs - Subnet 92 ] JevBench creator @airesearch12 launched REAX, a new — http://nitter.meowing.monster/opentensor/status/2111820577790984381#m",
+    "url": "http://nitter.meowing.monster/opentensor/status/2112105412421992892#m",
+    "fetched_at": "2026-10-20T09:02:40.334189+00:00",
     "via_instance": "https://nitter.cz"
   },
   {
@@ -240,6 +400,16 @@
     "via_instance": "https://nitter.cz"
   },
   {
+    "handle": "webuildscore",
+    "name": "Score",
+    "posted_at": "Fri, 16 Oct 2026 18:20:19 GMT",
+    "title": "We got flying cars before GTA 6. Model said \"vehicle\", but was wrong. Tesla Roadster it is. one sentence later it was tracking it through the whole showcase. A first look at the new Studio. More soon.",
+    "text": "We got flying cars before GTA 6. Model said \"vehicle\", but was wrong. Tesla Roadster it is. one sentence later it was tracking it through the whole showcase. A first look at the new Studio. More soon. Video",
+    "url": "http://nitter.meowing.monster/webuildscore/status/2111160322719387682#m",
+    "fetched_at": "2026-10-20T09:04:15.586010+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
     "handle": "YumaGroup",
     "name": "Yuma Holdings",
     "posted_at": "Fri, 16 Oct 2026 16:57:43 GMT",
@@ -257,6 +427,26 @@
     "text": "“$200,000 bug found with $1000 in AI costs. That’s a huge difference!” this first discovery is what has become @bitsecai continuous audit system - interview with @TheStreet at @ExploitSummit reqd the full interview covered by thestreet, yahoo finance, MSN and AOL",
     "url": "https://nitter.kareem.one/bitsecai/status/2111122243422204304#m",
     "fetched_at": "2026-10-20T02:55:24.906204+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "opentensor",
+    "name": "Opentensor Foundation",
+    "posted_at": "Fri, 16 Oct 2026 12:26:04 GMT",
+    "title": "R to @opentensor: youtu.be/JfFWZF1GSn4",
+    "text": "piped.video/JfFWZF1GSn4 Link Bittensor’s eTao &amp; Gamma + SN4 Targon Revenue, Buybacks &amp; Roadmap Bittensor’s protocol is evolving—and Targon is opening up about its... youtube.com",
+    "url": "http://nitter.meowing.monster/opentensor/status/2111071176617554080#m",
+    "fetched_at": "2026-10-20T09:02:40.334189+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "opentensor",
+    "name": "Opentensor Foundation",
+    "posted_at": "Fri, 16 Oct 2026 12:26:02 GMT",
+    "title": "Targon's new GPU capacity is being booked by enterprise customers within a day, often under year-long contracts. On the latest Novelty Search, @TargonCompute explains how Subnet 4 is building a confidential AI cloud that protects models and data even on third-party hardware. The team also unveiled a public revenue dashboard, with bare-metal servers, virtual machines and AI-agent sandboxes already available, and more cloud services on the roadmap. Hosted by @const_reborn Full episode in the first comment",
+    "text": "Targon's new GPU capacity is being booked by enterprise customers within a day, often under year-long contracts. On the latest Novelty Search, @TargonCompute explains how Subnet 4 is building a confidential AI cloud that protects models and data even on third-party hardware. The team also unveiled a public revenue dashboard, with bare-metal servers, virtual machines and AI-agent sandboxes already available, and more cloud services on the roadmap. Hosted by @const_reborn Full episode in the first comment Video",
+    "url": "http://nitter.meowing.monster/opentensor/status/2111071164705706315#m",
+    "fetched_at": "2026-10-20T09:02:40.334189+00:00",
     "via_instance": "https://nitter.cz"
   }
 ]
