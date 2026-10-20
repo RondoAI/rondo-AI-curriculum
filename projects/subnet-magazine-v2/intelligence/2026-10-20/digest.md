@@ -149,16 +149,38 @@ _no new posts in the lookback window_
   http://nitter.meowing.monster/webuildscore/status/2110398301023658462#m
 - @YumaGroup (Yuma Holdings, Wed, 14 Oct 2026): ladies and gentlemen. @manakoai is officially working with @Shell. deploying physical ai to better their fuel retail operations. lfgooooooo🔥👊🚀  
   https://nitter.kareem.one/arnod3f/status/2110397339126915400#m
+- @YumaGroup (Yuma Holdings, Wed, 14 Oct 2026): ladies and gentlemen. @manakoai is officially working with @Shell. deploying physical ai to better their fuel retail operations. lfgooooooo🔥👊🚀  
+  http://nitter.meowing.monster/arnod3f/status/2110397339126915400#m
 - @zeussubnet (Zeus Subnet, Wed, 14 Oct 2026): Zeus' full @ExploitSummit talk @RoryZeus breaks down the how and why of Zeus, shares what’s ahead, and pitches Zeus Pro and Zeus Edge 👇 Video  
   http://nitter.meowing.monster/zeussubnet/status/2110380222285549666#m
 - @rob_svrn (Rob Greer, Wed, 14 Oct 2026): TAO has a circulating supply of ~11.6M today, at a price of $280. BTC had a circulating supply of 11.6M in Sept 2013, with a price of ~$130. Might not feel like it, but we're ahead of schedule lads.  
   https://nitter.kareem.one/the_mattyk/status/2110210545991266559#m
+- @dylan522p (Dylan Patel, Wed, 07 Oct 2026): A $200 AI subscription can be worth $12,000 in tokens. Which plan delivers it is not close. "They're selling to willing buyers at the fair market price. This is capitalism." "You can pay $200 for a Claude plan and get $12,000 of Opus 5.5 tokens at API pricing. So that's obviously a good deal." "You have to say the $200 plan, when running a particular workload on a particular model, gives you some dollar amount. But then you also have 5.5, which is a beast. $6K or $5,000 worth of value." "And when you do that comparison, it's not even a question of who's providing more value. ChatGPT versus Ant  
+  http://nitter.meowing.monster/SemiAnalysis_/status/2107950798638354671#m
+- @dylan522p (Dylan Patel, Tue, 20 Oct 2026): FlashAttention was a mega kernel @marksaroufim @tri_dao @__tensorcore__ @vinodg  
+  http://nitter.meowing.monster/dylan522p/status/2112660770458927578#m
+- @galaxyhq (Galaxy Digital, Tue, 20 Oct 2026): Legend Trade co-founder @apemoney joins us to discuss social trading activity and onchain perps they are seeing. + We break down why price action continues to dislocate from fundamentals, why retail traders are sitting in cash, and what’s next for crypto market structure. Live now ⬇️ Video  
+  http://nitter.meowing.monster/glxyresearch/status/2112595500536864885#m
+- @jtledore (Jean-Thomas Ledoré, Tue, 20 Oct 2026): Introducing eTAO: a new system giving subnets control over their alpha emission split. Subnet owners can now decide how much goes to miners, validators, and themselves, based on the specific needs of their subnet. Video  
+  https://nitter.kareem.one/opentensor/status/2112579296137290075#m
 - @taomedia_ (TAO Media, Tue, 20 Oct 2026): ICYMI: @bot can now be summoned with the iPhone’s Action Button Assign Bot to the button through an iOS Shortcut, then start talking without opening the app tao.media/grok-bot-adds-ipho… Link Grok Bot Adds iPhone Action Button Access for Voice Conversations The shortcut gives iPhone users a hardware-button route to speaking with their AI agents. tao.media  
   http://nitter.meowing.monster/taomedia_/status/2112571326456381632#m
+- @galaxyhq (Galaxy Digital, Tue, 20 Oct 2026): Read the full Galaxy Perspectives piece for more on what changes, what it means in practice, and what comes next: galaxy.com/insights/perspect… Link Solana Alpenglow Alpenglow, expected on Solana mainnet in mid-October, changes how validators agree on blocks. Galaxy has run Alpenglow on the community test cluster since June 2026, through five re-geneses and the... galaxy.com  
+  http://nitter.meowing.monster/galaxyhq/status/2112549920074777067#m
 - @wallstreetbets (WallStreetBets (X), Tue, 20 Oct 2026): the AI can now call the guy your consultant was going to call Sagar Kadakia (@S_Kadakia) We just raised $25M from Insight Partners to replace Gartner, McKinsey, and GLG. RIP the Quadrant, the 80-page consulting deck, and the $2000 expert network call. Our revenue run-rate is up 10x+ this year. 100+ investment firms and enterprises use Qualitate to inform decisions with firsthand evidence. Here's how: qualitate.io/book-a-demo Video — http://nitter.meowing.monster/S_Kadakia/status/2112544300751896702#m  
   http://nitter.meowing.monster/wallstreetbets/status/2112547892221378783#m
+- @galaxyhq (Galaxy Digital, Tue, 20 Oct 2026): What isn't: nothing changes in how stake earns rewards. Validators now pay a flat, lower fee to vote.  
+  http://nitter.meowing.monster/galaxyhq/status/2112547861607129186#m
+- @galaxyhq (Galaxy Digital, Tue, 20 Oct 2026): What's changing: Alpenglow replaces Solana's consensus protocol. It goes live on mainnet on Wednesday, October 21.  
+  http://nitter.meowing.monster/galaxyhq/status/2112547857052184608#m
+- @galaxyhq (Galaxy Digital, Tue, 20 Oct 2026): Alpenglow is the biggest change to Solana's core protocol since launch. Finality is designed to drop from seconds to roughly 150 milliseconds, putting @Solana in range of traditional payment rails. Galaxy has been testing it since the early days. Here's what we learned. 🧵  
+  http://nitter.meowing.monster/galaxyhq/status/2112547854300410149#m
+- @BarrySilbert (Barry Silbert, Tue, 20 Oct 2026): Introducing Zcash Monthly: a new series from CoinDesk Research, in collaboration with GenZcash. Every month we’ll cover what just happened across governance, development, privacy usage and markets, with expert input from @GenZcash and the wider @Zcash developer community.  
+  http://nitter.meowing.monster/CoinDesk/status/2112537072149930469#m
 - @wallstreetbets (WallStreetBets (X), Tue, 20 Oct 2026): locked in  
   http://nitter.meowing.monster/wallstreetbets/status/2112521715578536356#m
+- @jtledore (Jean-Thomas Ledoré, Tue, 20 Oct 2026): eTAO went live yesterday, and the new subnet emission splits are already visible on Taoswap. The Subnets table now shows how emissions are distributed between owners, validators, and miners, including the portion burned. Open any subnet page for a full visual breakdown. Video  
+  https://nitter.kareem.one/taoswap_org/status/2112515640200429752#m
 - @wallstreetbets (WallStreetBets (X), Tue, 20 Oct 2026): when btc is up 2%  
   http://nitter.meowing.monster/wallstreetbets/status/2112476416684298658#m
 - @wallstreetbets (WallStreetBets (X), Tue, 20 Oct 2026): i was rich for 5 minutes"  
@@ -175,12 +197,22 @@ _no new posts in the lookback window_
   http://nitter.meowing.monster/const_reborn/status/2112350113863516471#m
 - @SemiAnalysis_ (SemiAnalysis, Tue, 20 Oct 2026): ALERT🚨: SGLANG JUST MERGED MEGAKERNEL SUPPORT, GETTING CLOSE TO 1000 tok/s/user on the GB300 NVL72 AgentX Harness & increasing interactivity by 1.5x on MI355X too! Great work by the SGLang, RadixArk, NVIDIA, and AMD teams! Best of all, this already works out of the box on SGLang Docker images! Excited to rapidly get this on the official AgentX! nitter.meowing.monster/lmsysorg/status/211234… LMSYS Org (@lmsysorg) Introducing SGLang Low-Latency Mode, built with @NVIDIAAI and @AMD. On DeepSeek-V4.1-Flash with DSpark, it delivers up to 1.38× P90 per-user token speed on NVIDIA GB300 (671 to 928 tok  
   http://nitter.meowing.monster/SemiAnalysis_/status/2112347284713148746#m
+- @resilabsai (RESI, Tue, 07 Apr 2026): The power of holding Bittensor $TAO subnet alpha Here is an example to illustrate the flywheel of $TAO Let's say you 1,000 alpha of @resilabsai which cost around 7 $TAO 7 $TAO at a price of $310 = $2,170 Current alpha price of Resi, subnet 46: .0066 $TAO Let's make some calculated assumptions. &gt; price of resi alpha stays the same for 3 years &gt; price of $TAO remains the same at $310 &gt; APY for holding Resi alpha is 40% for the first 2 years, then 30% in year 3 What is my total value in 3 years? Year 1 (40% APY) 1,060.6 × 1.4 = 1,484.8 alpha In $TAO: 1,484.8 × 0.0066 ≈ 9.80 $TAO In USD:   
+  http://nitter.meowing.monster/Pop_Collapse/status/2041570023823528017#m
+- @dylan522p (Dylan Patel, Tue, 06 Oct 2026): Mistral 4 is pretty good at lawyer bench and cyber security bench, but give it's European heritage, one can only assume it's also good at regulation bench Mistral AI (@MistralAI) Meet Mistral Large 4, aka Le Chonk. • 1T parameters, natively multimodal. 49B active. It is the best open weights model from US or Europe on aggregated benchmarks. • State-of-the-art on critical workloads, including cyber defense, manufacturing and finance and it surpasses closed frontier models on visual grounding. • Forged in Europe end-to-end and is deployable from Europe via our own Mistral Cloud infrastructure. •  
+  http://nitter.meowing.monster/dylan522p/status/2107602988911260012#m
 - @TargonCompute (Targon, Thu, 15 Oct 2026): With eTAO on the horizon, it's finally time. Talking Targon 001 with @const_reborn drops tomorrow. Video  
   https://nitter.kareem.one/TargonCompute/status/2110862558047654272#m
+- @TargonCompute (Targon, Thu, 15 Oct 2026): With eTAO on the horizon, it's finally time. Talking Targon 001 with @const_reborn drops tomorrow. Video  
+  http://nitter.meowing.monster/TargonCompute/status/2110862558047654272#m
 - @TargonCompute (Targon, Thu, 15 Oct 2026): Tomorrow @TargonCompute Video  
   https://nitter.kareem.one/Tangtalksbits/status/2110856764006486521#m
+- @TargonCompute (Targon, Thu, 15 Oct 2026): Tomorrow @TargonCompute Video  
+  http://nitter.meowing.monster/Tangtalksbits/status/2110856764006486521#m
 - @YumaGroup (Yuma Holdings, Thu, 15 Oct 2026): Sentios badges are now LIVE! Show Sentios coverage anywhere. Githug, explorers, wallets, dashboards, websites The badge is now a hot link that opens to our active projects page on the Sentios website: sentios.io/active-projects Let the world know Sentios agents are continuously auditing your codebase on significant feature releases. Want your project listed? Contact us to put Sentios on your codebase. @bitsecai $TAO  
   https://nitter.kareem.one/bitsecai/status/2110824455492530275#m
+- @YumaGroup (Yuma Holdings, Thu, 15 Oct 2026): Sentios badges are now LIVE! Show Sentios coverage anywhere. Githug, explorers, wallets, dashboards, websites The badge is now a hot link that opens to our active projects page on the Sentios website: sentios.io/active-projects Let the world know Sentios agents are continuously auditing your codebase on significant feature releases. Want your project listed? Contact us to put Sentios on your codebase. @bitsecai $TAO  
+  http://nitter.meowing.monster/bitsecai/status/2110824455492530275#m
 - @webuildscore (Score, Thu, 15 Oct 2026): GTA 6 newest trailer looking even cleaner with boxes on Gyro Zeppeli (@Gyrolens) Been testing the new version of Score Studio and Rockstar just handed me the perfect test footage. Vice City has never been this tracked. Video — http://nitter.meowing.monster/Gyrolens/status/2110788068005617779#m  
   http://nitter.meowing.monster/webuildscore/status/2110795474617724998#m
 - @jtledore (Jean-Thomas Ledoré, Thu, 15 Oct 2026): Bittensor recently released Null Consensus, a major protocol update expanding subnet capacity from 256 to 2,500 participants. It introduces a new way to determine miner rewards, giving subnet owners an alternative to Yuma Consensus. Video  
@@ -193,57 +225,25 @@ _no new posts in the lookback window_
   http://nitter.meowing.monster/opentensor/status/2110741962068533595#m
 - @webuildscore (Score, Thu, 15 Oct 2026): Haters will say it’s AI, our detector didn’t ask though. Building your own is about to get a lot easier. More soon. Video  
   http://nitter.meowing.monster/webuildscore/status/2110690673917628663#m
+- @oroagents (Oro, Thu, 08 Oct 2026): And to see what we are up to next at oroagents.com/  
+  http://nitter.meowing.monster/oroagents/status/2108312282493329762#m
+- @oroagents (Oro, Thu, 08 Oct 2026): As models and harnesses get more capable, the depth of our RL environments needs to stay ahead of the curve. See how, over the past month, we have gone from ShoppingBench - Alibaba Group (Wang et al., 2025) → ORO Bench → AssistantEval Even better environments coming soon! Video  
+  http://nitter.meowing.monster/oroagents/status/2108311456345358818#m
 - @zeussubnet (Zeus Subnet, Thu, 08 Oct 2026): For a 00Z model run, Zeus disseminates in around 1.5 hours. That’s a 4.5 hour time advantage for energy traders to position before others trading with industry-standard models. This is our strongest differentiator.  
   http://nitter.meowing.monster/zeussubnet/status/2108184384985805221#m
+- @oroagents (Oro, Thu, 08 Oct 2026): huggingface.co/collections/o… Link AssistantEval - a oro-ai Collection AssistantEval by ORO. Published results and recorded trajectories. Website: assistanteval.com huggingface.co  
+  http://nitter.meowing.monster/oroagents/status/2108083587845394791#m
+- @oroagents (Oro, Thu, 08 Oct 2026): We're excited to open source all the tasks and the traces that we have access to from this benchmark. Link in 🧵 ORO (@oroagents) We're excited to drop AssistantEval today. Replayable environments for evaluating and improving AI assistants. — http://nitter.meowing.monster/oroagents/status/2107609637654823076#m  
+  http://nitter.meowing.monster/oroagents/status/2108083567654060352#m
 - @BarrySilbert (Barry Silbert, Sun, 18 Oct 2026): “Zcash has been the most proactive in terms of quantum preparedness.” -@nic_carter Video  
   http://nitter.meowing.monster/_TomHoward/status/2111917546022854862#m
 - @jtledore (Jean-Thomas Ledoré, Sun, 18 Oct 2026): Article Bittensor Ecosystem Highlights :: October 12–18, 2026 This week’s biggest stories across Bittensor came from Reax, Score, Actual, OpenRoboto, Engy, UR, SayGM and TPN. [ @reaxlabs - Subnet 92 ] JevBench creator @airesearch12 launched REAX, a new  
   http://nitter.meowing.monster/opentensor/status/2111820577790984381#m
-- @rob_svrn (Rob Greer, Sat, 17 Oct 2026): Really interesting convo below from this weeks all in on why a16z stays away from the neoclouds, and it made something click for me about Bittensor. @bhorowitz point is that scaling compute on debt is a dangerous arbitrage business, and he lived it in 99 when bandwidth was $1,500/megabit and the only way to get it was a 3 year contract. By 2001 it was $50 - If you were holding that on borrowed money you were dead. His case for $CRWV being different is that AI compute is in a massive shortage, so GPU and data center prices keep rising. Maybe he's right. But the neocloud model is still a levered  
-  https://nitter.kareem.one/0xSunRun/status/2111550951329054825#m
-- @BarrySilbert (Barry Silbert, Sat, 17 Oct 2026): Zcash $ZEC is valued as money, like Bitcoin, because of its core properties: scarce, private, decentralized, and AI-hardened. Video  
-  http://nitter.meowing.monster/ZcashETF/status/2111493367863644270#m
-- @jtledore (Jean-Thomas Ledoré, Sat, 17 Oct 2026): From the first stars to Bitcoin to an open network for intelligence, in under four minutes. bittensor.page Best with sound on. Link Bittensor · Independent experiences Enter Emergence, a film about where intelligence and money come from, or Gravity, the network as a living galaxy. bittensor.page  
-  http://nitter.meowing.monster/Rapido_ai/status/2111493331645800777#m
-- @TargonCompute (Targon, Sat, 17 Oct 2026): The dawn of eTAO is upon us. Talking Targon Ep. 01 with @const_reborn Targon (@TargonCompute) Talking Targon, Ep. 01 is now live. Bittensor co-founder Jacob Steeves aka @const_reborn joins us to break down eTAO, the upgrade that lets subnet owners decide how their emissions are split. We get into subnet economics, the guardrails against exploits, and what it unlocks for compute on Targon. Video — https://nitter.kareem.one/TargonCompute/status/2111266999464530147#m  
-  https://nitter.kareem.one/the_mattyk/status/2111449310529265718#m
-- @const_reborn (Jacob Steeves, Sat, 17 Oct 2026): Thanks everyone, what a week!! I think we may have just proven decentralized training competitions for use case specific decision models is a thing that works... REAX (@reaxlabs) Quick moment to step back, because this was a big week • 3 days ago REAX went live. Today 217 miner slots serve decision models and 65 independent miner wallets are earning... almost all traffic routed to the network is now answered by your GPUs, with zero failed verification checks. • The first model-training competition has its first two champions =&gt; demand forecasting (UID 71, 91.1 vs the 38.2 baseline) and =&gt  
-  http://nitter.meowing.monster/airesearch12/status/2111434228298604929#m
-- @TargonCompute (Targon, Sat, 17 Oct 2026): Full episode is live on Youtube here: inv.kareem.one/watch?v=s7hymAhb… Link The Future of Bittensor with Jacob Steeves | Talking Targon Ep. 01 Deploy confidential GPUs on Targon.comBittensor co-founder Jacob ... youtube.com  
-  https://nitter.kareem.one/TargonCompute/status/2111268779464233319#m
-- @TargonCompute (Targon, Sat, 17 Oct 2026): Talking Targon, Ep. 01 is now live. Bittensor co-founder Jacob Steeves aka @const_reborn joins us to break down eTAO, the upgrade that lets subnet owners decide how their emissions are split. We get into subnet economics, the guardrails against exploits, and what it unlocks for compute on Targon. Video  
-  https://nitter.kareem.one/TargonCompute/status/2111266999464530147#m
-- @jtledore (Jean-Thomas Ledoré, Sat, 09 Jun 2018): SpaceX option package for new Tesla Roadster will include ~10 small rocket thrusters arranged seamlessly around car. These rocket engines dramatically improve acceleration, top speed, braking &amp; cornering. Maybe they will even allow a Tesla to fly …  
-  http://nitter.meowing.monster/elonmusk/status/1005577738332172289#m
-- @SemiAnalysis_ (SemiAnalysis, Mon, 19 Oct 2026): SemiAnalysis is an active supporter of open source in the ML community! As such, we are excited to sponsor the open-source SGLang Summit! SGLang is one of the engines that power production inference across many frontier labs globally! At the summit, we’ll share more about our collaboration with SGLang, including our latest AgentX benchmarks. nitter.meowing.monster/sgl_project/status/211… SGLang (@sgl_project) Proud to welcome our newest sponsors to SGLang Summit. In just one week since our public announcement, our sponsor lineup has grown from 11 to 36. Thank you to every sponsor helping bring  
-  http://nitter.meowing.monster/SemiAnalysis_/status/2112317921552687534#m
-- @const_reborn (Jacob Steeves, Mon, 19 Oct 2026): the grand masters of decentralized training. IOTA ・ SN9 (@IOTA_SN9) In decentralized training, every merge stops the whole swarm from training while it waits on the slowest member. With our latest update, merging is ~5x faster and training is almost 20% cheaper. The biggest unlock was to convert the network graph into a tree during merging. 🧵 1/(n) Video — http://nitter.meowing.monster/IOTA_SN9/status/2112250138689425553#m  
-  http://nitter.meowing.monster/const_reborn/status/2112253271335211290#m
-- @const_reborn (Jacob Steeves, Mon, 19 Oct 2026): Live: Timestral now on Ephemeris. Released yesterday, available today: @MistralAI’s 209M SOTA time series foundation model is live on our inference platform. Connect your agent via our MCP, supporting Claude Code, Codex, Hermes and more - get SOTA-level forecasting: ephemeris.cascade.industries Video  
-  http://nitter.meowing.monster/cascade_sn91/status/2112235627450450261#m
-- @taomedia_ (TAO Media, Mon, 19 Oct 2026): ✏️ Story by @bart_hillerich Read about @mentatminds on our site: tao.media/mentat-launches-ro… Link Mentat Launches Robotics Index With Three Bittensor Subnet Holdings The automated basket gives TAO holders sector exposure without managing individual subnet allocations. tao.media  
-  http://nitter.meowing.monster/taomedia_/status/2112234853953331474#m
-- @taomedia_ (TAO Media, Mon, 19 Oct 2026): Article Mentat Launches Robotics Index With Three Subnet Holdings 🤖 The automated basket gives TAO holders sector exposure without managing individual subnet allocations. Mentat has launched a robotics sector index for Bittensor, giving TAO holders an  
-  http://nitter.meowing.monster/taomedia_/status/2112234643638350065#m
-- @webuildscore (Score, Mon, 19 Oct 2026): We set the target at 90%. Miners came back with 98%. Fallen person detection on SN44 went from a 43.6% baseline to 98% on crowded street footage, scored in public every hour. Open weights. So we're raising the bar. Harder footage goes in next, and the difficulty keeps climbing from here.  
-  http://nitter.meowing.monster/webuildscore/status/2112228533271658945#m
-- @const_reborn (Jacob Steeves, Mon, 19 Oct 2026): Ingot (SN97) has been live for 4 days. Our current king is already a better quantization of Qwen3.8-27B than Qwen's own FP8 release: 34% closer to the original model. Same size, more of the original intact. And this is FP8 only. Lower bits are next. 👀 theingot.ai  
-  http://nitter.meowing.monster/ingot_wthrboss/status/2112202369647968615#m
-- @zeussubnet (Zeus Subnet, Mon, 19 Oct 2026): Is Zeus Pro getting better over time? Yes! From June to September, Zeus Pro showed statistically significant improvements in relative forecasting skill against four operational baselines. Competitive pressure on Bittensor: a mechanism for real innovation. 🔗 zeussubnet.com/zeus-pro-anal…  
-  http://nitter.meowing.monster/zeussubnet/status/2112191017919094953#m
-- @taomedia_ (TAO Media, Mon, 19 Oct 2026): Anthropic plans to put 5% of its shares into a public benefit fund, with room for the commitment to grow as the company’s valuation rises. What’s cooking 👇 tao.media/anthropic-creates-… Link Anthropic Creates Public Benefit Fund With Proposed 5% Equity Stake The company plans to expand the fund’s stake as its valuation rises, with worker disruption among its potential areas of support. tao.media  
-  http://nitter.meowing.monster/taomedia_/status/2112183960046653685#m
-- @BarrySilbert (Barry Silbert, Mon, 19 Oct 2026): HeartSciences (Nasdaq: $HSCS) has filed its definitive proxy statement with the SEC in connection with the proposed business combination with Fortitude. See important additional information here: ir.heartsciences.com/sec-fil… and fortitudemining.com/disclaim…. $ZEC  
-  http://nitter.meowing.monster/FortitudeCrypto/status/2112157172897591371#m
-- @taomedia_ (TAO Media, Mon, 19 Oct 2026): JUST IN: @Hippius_cloud introduces confidential compute to protect workloads from host access across virtual machines, databases, Kubernetes clusters, and CI jobs. Full details ↓ tao.media/hippius-launches-a… Link Hippius Launches AMD SEV-SNP Confidential Compute on Bittensor Subnet 75 The service protects workloads from host access across virtual machines, databases, Kubernetes clusters, and CI jobs. tao.media  
-  http://nitter.meowing.monster/taomedia_/status/2112153936979501309#m
-- @BarrySilbert (Barry Silbert, Mon, 19 Oct 2026): Zcash Developer Zakura Proposes Fix to Stop Quantum Computers Linking Shielded Swaps decrypt.co/381257/zcash-deve… Link Zcash Developer Zakura Proposes Fix to Stop Quantum Computers Linking Shielded Swaps - Decrypt Zakura says a single published Zcash address could let a future quantum attacker link every payment a wallet has ever received. decrypt.co  
-  http://nitter.meowing.monster/DecryptMedia/status/2112124723660312585#m
-- @BarrySilbert (Barry Silbert, Mon, 19 Oct 2026): INSIGHT: @Zcash developers propose giving every $ZEC swap through NEAR Intents its own private key, closing a gap that a future quantum computer could exploit to piece together a user’s payment history before the January quantum-resistance deadline.  
-  http://nitter.meowing.monster/CoinDesk/status/2112124064492114333#m
-- @opentensor (Opentensor Foundation, Mon, 19 Oct 2026): Video Openτensor Foundaτion (@opentensor) Article Bittensor Ecosystem Highlights :: October 12–18, 2026 This week’s biggest stories across Bittensor came from Reax, Score, Actual, OpenRoboto, Engy, UR, SayGM and TPN. [ @reaxlabs - Subnet 92 ] JevBench creator @airesearch12 launched REAX, a new — http://nitter.meowing.monster/opentensor/status/2111820577790984381#m  
-  http://nitter.meowing.monster/opentensor/status/2112105412421992892#m
+- @jtledore (Jean-Thomas Ledoré, Sun, 18 Oct 2026): Article Bittensor Ecosystem Highlights :: October 12–18, 2026 This week’s biggest stories across Bittensor came from Reax, Score, Actual, OpenRoboto, Engy, UR, SayGM and TPN. [ @reaxlabs - Subnet 92 ] JevBench creator @airesearch12 launched REAX, a new  
+  https://nitter.kareem.one/opentensor/status/2111820577790984381#m
+- @dylan522p (Dylan Patel, Sun, 11 Oct 2026): The two worst things for society Both called DCs Diet Coke Datacenters  
+  http://nitter.meowing.monster/dylan522p/status/2109176151986057331#m
 
 
 ---
-_Generated at 2026-10-20T16:11:41.084700+00:00 by scripts/intel/aggregate.py. Treat this digest as input context, not as ground truth. Verify before quoting._
+_Generated at 2026-10-20T22:54:30.231801+00:00 by scripts/intel/aggregate.py. Treat this digest as input context, not as ground truth. Verify before quoting._
