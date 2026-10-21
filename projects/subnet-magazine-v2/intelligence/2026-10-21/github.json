@@ -1,1 +1,112 @@
-[]
+[
+  {
+    "repo": "opentensor/subtensor",
+    "name": "Subtensor (chain)",
+    "kind": "commit",
+    "sha": "8cf229f",
+    "message": "Merge pull request #3271 from RaoFoundation/cursor/release-482-7a0d",
+    "author": "UnArbosFive",
+    "posted_at": "2026-10-21T15:16:36Z",
+    "url": "https://github.com/RaoFoundation/subtensor/commit/8cf229f8ef969389d054a4c161b53ffd164a041f",
+    "fetched_at": "2026-10-21T16:27:07.166338+00:00"
+  },
+  {
+    "repo": "opentensor/subtensor",
+    "name": "Subtensor (chain)",
+    "kind": "commit",
+    "sha": "bed6266",
+    "message": "Merge pull request #3231 from Keplerteron/fix/null-epoch-scheduler-livelock",
+    "author": "UnArbosFive",
+    "posted_at": "2026-10-21T14:21:57Z",
+    "url": "https://github.com/RaoFoundation/subtensor/commit/bed62660001c853c78ccd7c72ada154c10352518",
+    "fetched_at": "2026-10-21T16:27:07.166338+00:00"
+  },
+  {
+    "repo": "opentensor/subtensor",
+    "name": "Subtensor (chain)",
+    "kind": "commit",
+    "sha": "d9a6bc6",
+    "message": "test(e2e): expect V2 coldkey swap policy commitment",
+    "author": "UnarbosFour",
+    "posted_at": "2026-10-21T03:26:20Z",
+    "url": "https://github.com/RaoFoundation/subtensor/commit/d9a6bc6e43aa9306a8fb8eb19c8fef4f2e27433b",
+    "fetched_at": "2026-10-21T16:27:07.166338+00:00"
+  },
+  {
+    "repo": "opentensor/subtensor",
+    "name": "Subtensor (chain)",
+    "kind": "commit",
+    "sha": "c6724e3",
+    "message": "Merge pull request #3272 from RaoFoundation/fix/coldkey-swap-policy-dust-race",
+    "author": "UnArbosFour",
+    "posted_at": "2026-10-21T03:13:13Z",
+    "url": "https://github.com/RaoFoundation/subtensor/commit/c6724e3eaf42f03590e86b984055f928ad5ab3be",
+    "fetched_at": "2026-10-21T16:27:07.166338+00:00"
+  },
+  {
+    "repo": "opentensor/subtensor",
+    "name": "Subtensor (chain)",
+    "kind": "commit",
+    "sha": "6f332d6",
+    "message": "fix(coldkey-swap): preserve policy on blank destinations after reservation expiry",
+    "author": "UnarbosFour",
+    "posted_at": "2026-10-21T03:02:39Z",
+    "url": "https://github.com/RaoFoundation/subtensor/commit/6f332d6474bde8d60bbb12e04880211288b242c7",
+    "fetched_at": "2026-10-21T16:27:07.166338+00:00"
+  },
+  {
+    "repo": "opentensor/subtensor",
+    "name": "Subtensor (chain)",
+    "kind": "commit",
+    "sha": "2945272",
+    "message": "fix(coldkey-swap): prevent stale snapshots from bypassing destination policy protections",
+    "author": "UnarbosFour",
+    "posted_at": "2026-10-21T02:09:16Z",
+    "url": "https://github.com/RaoFoundation/subtensor/commit/2945272efa4e25bb268500894e0e878dd81a5a99",
+    "fetched_at": "2026-10-21T16:27:07.166338+00:00"
+  },
+  {
+    "repo": "opentensor/subtensor",
+    "name": "Subtensor (chain)",
+    "kind": "commit",
+    "sha": "dda40fb",
+    "message": "fix(coldkey-swap): prevent destination dusting from deleting auto-stake policy",
+    "author": "UnarbosFour",
+    "posted_at": "2026-10-21T01:33:04Z",
+    "url": "https://github.com/RaoFoundation/subtensor/commit/dda40fb2913d640db0d96cacaec9baade747ffa3",
+    "fetched_at": "2026-10-21T16:27:07.166338+00:00"
+  },
+  {
+    "repo": "opentensor/subtensor",
+    "name": "Subtensor (chain)",
+    "kind": "commit",
+    "sha": "2d7f76c",
+    "message": "Keep btcli proxy remove --all scoped to the proxied account",
+    "author": "UnArbosFive",
+    "posted_at": "2026-10-20T23:15:02Z",
+    "url": "https://github.com/RaoFoundation/subtensor/commit/2d7f76cdf349da1dffc094d42f0d52d4fbd8be68",
+    "fetched_at": "2026-10-21T16:27:07.166338+00:00"
+  },
+  {
+    "repo": "opentensor/subtensor",
+    "name": "Subtensor (chain)",
+    "kind": "commit",
+    "sha": "d65a9df",
+    "message": "Sync generated call docs for announce_coldkey_swap_v2",
+    "author": "UnArbosFive",
+    "posted_at": "2026-10-20T22:46:53Z",
+    "url": "https://github.com/RaoFoundation/subtensor/commit/d65a9df9d7d2a279518658c1a29201d54c0efaf4",
+    "fetched_at": "2026-10-21T16:27:07.166338+00:00"
+  },
+  {
+    "repo": "opentensor/subtensor",
+    "name": "Subtensor (chain)",
+    "kind": "commit",
+    "sha": "31ed046",
+    "message": "fix: patch rustls/quinn-proto; drop new cargo-audit workflow ignores",
+    "author": "Cursor Agent",
+    "posted_at": "2026-10-20T22:15:17Z",
+    "url": "https://github.com/RaoFoundation/subtensor/commit/31ed04679d5f890a4fc329fd41eba59e53127c45",
+    "fetched_at": "2026-10-21T16:27:07.166338+00:00"
+  }
+]
