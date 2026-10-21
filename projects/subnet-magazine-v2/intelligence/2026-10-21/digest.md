@@ -121,15 +121,15 @@ _300+ moratoriums mapped, 20GW sits inside a restricted local boundary, 1,525MW 
 
 > The debate on US datacenters has never been so politically charged. Four states have acted in under two months. New York has stopped issuing environmental permits for datacenters, Texas has paused the next step in its massive ERCOT interconnection queue, Pennsylvania has pulled datacenters out of fast-track permitting and made state permits conditional on new guardrails, and Oregon has frozen datacenter deals on state-owned land.  Beyond the state level, more than 300 towns, cities and counties
 
-### 2026-09-14 · A Brain Too Big to Carry — On-Device vs Datacenter Inference
-_Robot Models, Silicon & DRAM Efficiency, Jetson Thor vs. B300 TCO, Deployments, The Network Wall_
+### 2026-09-14 · Vera Rubin NVL72 Agentic Inference: 67x better Performance per Dollar
+_Jensen Sandbagging Performance Again, 2x more Annual Profit Per GigaWatt, The More you Buy, The More you Earn, AgentX, InferenceX, Extreme Co-Design_
 
-- **Authors:** ["Ivan Chiam", "Gianluca", "Zane Fong", "Bryan Shan", "Dylan Patel", "Reyk Knuhtsen"]
+- **Authors:** ["Bryan Shan", "Alec Ibarra", "Cam Quilici", "Wenyao Gao", "Dylan Patel"]
 - **Access:** paid-preview
-- **URL:** https://newsletter.semianalysis.com/p/a-brain-too-big-to-carry-on-device
-- **Corpus file:** `intelligence/_external_sources/semianalysis/2026-09-14-a-brain-too-big-to-carry-on-device.md`
+- **URL:** https://newsletter.semianalysis.com/p/vera-rubin-nvl72-agentic-inference
+- **Corpus file:** `intelligence/_external_sources/semianalysis/2026-09-14-vera-rubin-nvl72-agentic-inference.md`
 
-> # Where should the brain of the robot go?  So far, AI has mostly lived behind a screen. Chatbots answered questions. Then agents started driving software and finishing multi-step tasks on their own. The next step is AI that acts in the physical world, and the biggest piece of that is robots. It’s early. Nobody has settled the hardware, the models, or the economics.  ## The Embodiment Problem  With LLMs, the hardware bends to the model. Pour in as much data and compute as possible at training, th
+> [Rubin is the first platform co-designed across six products for the agentic era: Rubin GPU, Vera CPU, NVLink 6 Switch, ConnectX-9, BlueField-4, and Spectrum-6.](https://newsletter.semianalysis.com/p/vera-rubin-extreme-co-design-an-evolution) Today we are publishing the first verified agentic inference results for Rubin, measured on our agentic inference benchmark, AgentX. Even on early pre-release software, the results already show why extreme co-design was necessary.  At GTC 2026, Jensen prese
 
 
 ## ⊕ GITHUB COMMITS + RELEASES, last 24h
@@ -142,6 +142,12 @@ _no new posts in the lookback window_
 
 ## ⊕ X via NITTER, voices we track
 
+- @a16zcrypto (a16z Crypto, Wed, 21 Oct 2026): A few reflections on the lattice vs. hash-only debate that our recent Aerie post sparked: 1. Cryptographic ossification for blockchains was never safe. Until the day we know with certainty that P ≠ NP, that finding short vectors in lattices is intractable, that Keccak effectively behaves like a random oracle in deployed SNARKs, and that every single bug has been eliminated from our codebases, blockchains cannot ossify. That is simply not how safe systems are built. Issues will arise, and the system will have to respond. It’s a double standard to reject lattices because blockchains are hard to   
+  http://nitter.meowing.monster/SuccinctJT/status/2112706944548880442#m
+- @manakoai (Manako, Wed, 14 Oct 2026): And it’s the first highway station. Arno (@arnod3f) ladies and gentlemen. @manakoai is officially working with @Shell. deploying physical ai to better their fuel retail operations. lfgooooooo🔥👊🚀 — http://nitter.meowing.monster/arnod3f/status/2110397339126915400#m  
+  http://nitter.meowing.monster/manakoai/status/2110408262357057824#m
+- @manakoai (Manako, Wed, 14 Oct 2026): 2 days of deployment ahead for @manakoai. today on some avia stations. tomorrow on a brand new fuel retail client. LFG 👊  
+  http://nitter.meowing.monster/arnod3f/status/2110266332885172326#m
 - @markjeffrey (Mark Jeffrey, Tue, 20 Oct 2026): I guess the question is this: Is this dereliction of duty? Does California have an *obligation* to ensure only citizens vote? And if so, if it just kinda doesn't because Reasons, what penalty must it pay? Who should go to jail? Election workers? State officials? F.A. United States Attorney Bill Essayli (@USAttyEssayli) Massive concession: Los Angeles election officials just told a federal court they have no independent way to verify citizenship beyond what voters attest. (They simply take their word for it.) Under federal law, only citizens may vote in federal elections. Yet California has not  
   https://nitter.kareem.one/markjeffrey/status/2112671225323593900#m
 - @markjeffrey (Mark Jeffrey, Tue, 20 Oct 2026): we’ll be enabling Null Consensus (2500 miners) and delivering a permissionless version of @VantaTrading with USDC rails via @taodotcom. Time to drive up miner adoption exponentially and with it alpha demand.  
@@ -166,28 +172,60 @@ _no new posts in the lookback window_
   https://nitter.kareem.one/LeadpoetAI/status/2112574574718050575#m
 - @BarrySilbert (Barry Silbert, Tue, 20 Oct 2026): Introducing Zcash Monthly: a new series from CoinDesk Research, in collaboration with GenZcash. Every month we’ll cover what just happened across governance, development, privacy usage and markets, with expert input from @GenZcash and the wider @Zcash developer community.  
   https://nitter.kareem.one/CoinDesk/status/2112537072149930469#m
+- @BarrySilbert (Barry Silbert, Tue, 20 Oct 2026): Introducing Zcash Monthly: a new series from CoinDesk Research, in collaboration with GenZcash. Every month we’ll cover what just happened across governance, development, privacy usage and markets, with expert input from @GenZcash and the wider @Zcash developer community.  
+  http://nitter.meowing.monster/CoinDesk/status/2112537072149930469#m
+- @a16zcrypto (a16z Crypto, Tue, 20 Oct 2026): The countdown begins: Zero mainnet and lzATLAS go live on November 30. Video  
+  http://nitter.meowing.monster/LayerZero_Core/status/2112529547614937453#m
+- @a16zcrypto (a16z Crypto, Tue, 20 Oct 2026): This is a must listen a16z crypto (@a16zcrypto) AI is getting better at solving hard math problems, especially given recent drops. But what does that mean for the cryptography that protects everything from private messages to healthcare to banking and crypto wallets? Stanford cryptographer Dan Boneh, with @eddylazzarin, @SuccinctJT, @liz_harkavy, and @smc90, makes sense of the warnings sounded recently. They cover: - what’s fact vs. assumption - what’s new and what risks cryptographers have long prepared for - where quantum computing doesn't (and does) fit - opportunities for builders Highligh  
+  http://nitter.meowing.monster/ahall_research/status/2112333037279318336#m
+- @manakoai (Manako, Tue, 13 Oct 2026): Most AI still automates tasks. The next shift is AI that can run business operations. The progression looks a lot like autonomous driving. Just as cars moved from driver assistance to partial, conditional, and higher autonomy, business operations will move through the same stages: 0. Manual operations → people observe, decide and act. 1. Assisted operations → AI detects events. People act. (This is where Vision Agents sit today.) 2. Partial automation → AI executes tasks. People supervise. 3. Conditional autonomy → AI runs workflows. People handle exceptions. 4. High autonomy → AI runs a defin  
+  http://nitter.meowing.monster/manakoai/status/2110085853301309523#m
 - @KyleSamani (Kyle Samani, Tue, 13 Oct 2026): There is an answer to this question Soon! Kaiz 🐂🀄️ (@Kaiz_294) Arthur Hayes questions where the real money in tokenization comes from, arguing that moving traditional assets onchain still leaves a major unanswered question about profitability “How much money are you actually going to make” “I transferred the stock that was sitting in DTCC, and now it's sitting on some blockchain, whatever it is, doesn't really matter” “How much money can you actually make doing that” “You're doing better bookkeeping. Thank you. But where are you actually going to make money in tokenization” “I think that has b  
   http://nitter.meowing.monster/KyleSamani/status/2109972190519275682#m
+- @dippy_ai (Dippy AI, Thu, 30 Jul 2026): Excited to have helped @PrunaAI collect 1M+ votes for image preference data in a very short time :~) Pruna AI (@PrunaAI) P-Image-Ideogram dominate the speed-quality and price-quality Pareto frontiers for image generation. It is the result of a unique collaboration with @ideogram_ai. - Four modes (Very low, low, medium, high) for 1K-2K image generation. - Optimal quality-efficiency with 0.4s-7.5s latency, and $0.003-$0.03 price. - Structured JSON control & exact color control. Available via our inference partners @Replicate @inference_sh @scenario_gg @wavespeed_ai @wiroai @magnific @prodialabs   
+  http://nitter.meowing.monster/datapointai/status/2082837314603032606#m
+- @dippy_ai (Dippy AI, Thu, 27 Aug 2026): we have significantly upgraded both the basic and super models 🤩🤩 we have also made optimizations to improve response speeds by upto 5x can't wait for you all to experience and enjoy the new dippy 📯📯😸 rolling out to everyone today  
+  http://nitter.meowing.monster/dippy_ai/status/2093089771824226802#m
 - @KyleSamani (Kyle Samani, Thu, 15 Oct 2026): [Speaker Announcement] "Solana is becoming the settlement layer for Internet capital markets." @KyleSamani, co-founder of Multicoin Capital and chairman of @FWDind, joins us at Breakpoint in London, 15-17 November. Video  
   http://nitter.meowing.monster/SolanaEvents/status/2110792882408013987#m
+- @manakoai (Manako, Thu, 15 Oct 2026): Hello World(s)  
+  http://nitter.meowing.monster/manakoai/status/2110766878981239106#m
 - @lium_io (Lium, Thu, 15 Oct 2026): Lium is hands down the best place to put your GPUs. You get paid for idle compute, 95% of rental revenue, and additional bonuses. The average time from a gpu added to our network to rented is &lt;1 hour. and at any given moment 9/10 GPUs on our platform are rented.  
   http://nitter.meowing.monster/lium_io/status/2110527335648866327#m
 - @lium_io (Lium, Thu, 15 Oct 2026): more stats here: grafana.lium.io/d/marketplac… grafana.lium.io/d/gpu-demand…  
   http://nitter.meowing.monster/lium_io/status/2110527338228441209#m
 - @_redteam_ (RedTeam / Innerworks, Thu, 10 Sep 2026): I am pleased to announce that Stillcore Capital @stillcorecap has invested in Red Team @_redteam_ Bittensor $TAO Subnet 61.  
   http://nitter.meowing.monster/markjeffrey/status/2098171401152971021#m
+- @dippy_ai (Dippy AI, Thu, 04 Jun 2026): Today, we’re opening up Datapoint AI for anyone to use. It is by far the fastest way to understand what your customers want. Type a question. Real people answer. You get a report back in ~10 minutes, not three weeks, and at a fraction of the cost. Video  
+  http://nitter.meowing.monster/datapointai/status/2062563294880075837#m
 - @BarrySilbert (Barry Silbert, Sun, 18 Oct 2026): “Zcash has been the most proactive in terms of quantum preparedness.” -@nic_carter Video  
   https://nitter.kareem.one/_TomHoward/status/2111917546022854862#m
+- @BarrySilbert (Barry Silbert, Sun, 18 Oct 2026): “Zcash has been the most proactive in terms of quantum preparedness.” -@nic_carter Video  
+  http://nitter.meowing.monster/_TomHoward/status/2111917546022854862#m
+- @dippy_ai (Dippy AI, Sun, 09 Aug 2026): We are experiencing an issue with our database provider @supabase , so the app &amp; website may be down for a few more hours. We’ll send a notification when we are able to recover and the app is back to normal! Apologies for the inconvenience 😿😿  
+  http://nitter.meowing.monster/dippy_ai/status/2086595242422149540#m
 - @_redteam_ (RedTeam / Innerworks, Mon, 28 Sep 2026): "We're not afraid of hyper-intelligent bot swarms on the internet. We use them to optimise our technology." When we launched RedTeam almost two years ago we could clearly see where the internet was heading. We've since seen clients with over 90% of their traffic made up of not just automation but highly intelligent bot swarms, capable of bypassing any traditional detection mechanism. The only way to combat a threat like this is to welcome it and learn from it. By constantly ingesting and evolving attack vectors from a hive mind of miners, a Bittensor powered defence has now become the only rel  
   http://nitter.meowing.monster/_redteam_/status/2104643110911533312#m
+- @a16zcrypto (a16z Crypto, Mon, 19 Oct 2026): Great panel with @brian__foster and @MuyaoShen at @money2020. It’s about bringing finance onto the internet. A lot of finance still runs on Excel spreadsheets, and it’s no longer about tradfi or DeFi, it’s about making finance move at the speed of the internet. On the crypto side we have to update the words we use to meet traditional finance where they are. DeFi and decentralization doesn’t mean a ton yet but reducing counter party risk does. It was great to be onstage at Money2020 to help that translation process.  
+  http://nitter.meowing.monster/guywuolletjr/status/2112263675365216496#m
+- @a16zcrypto (a16z Crypto, Mon, 19 Oct 2026): Every day, 10 to 15 people make their first $20K on @whop. Today, Lightspark powers a new way for them to cash out instantly to their bank accounts. Video  
+  http://nitter.meowing.monster/lightspark/status/2112259603023171928#m
 - @BarrySilbert (Barry Silbert, Mon, 19 Oct 2026): HeartSciences (Nasdaq: $HSCS) has filed its definitive proxy statement with the SEC in connection with the proposed business combination with Fortitude. See important additional information here: ir.heartsciences.com/sec-fil… and fortitudemining.com/disclaim…. $ZEC  
   https://nitter.kareem.one/FortitudeCrypto/status/2112157172897591371#m
+- @BarrySilbert (Barry Silbert, Mon, 19 Oct 2026): HeartSciences (Nasdaq: $HSCS) has filed its definitive proxy statement with the SEC in connection with the proposed business combination with Fortitude. See important additional information here: ir.heartsciences.com/sec-fil… and fortitudemining.com/disclaim…. $ZEC  
+  http://nitter.meowing.monster/FortitudeCrypto/status/2112157172897591371#m
 - @BarrySilbert (Barry Silbert, Mon, 19 Oct 2026): Zcash Developer Zakura Proposes Fix to Stop Quantum Computers Linking Shielded Swaps decrypt.co/381257/zcash-deve… Link Zcash Developer Zakura Proposes Fix to Stop Quantum Computers Linking Shielded Swaps - Decrypt Zakura says a single published Zcash address could let a future quantum attacker link every payment a wallet has ever received. decrypt.co  
   https://nitter.kareem.one/DecryptMedia/status/2112124723660312585#m
+- @BarrySilbert (Barry Silbert, Mon, 19 Oct 2026): Zcash Developer Zakura Proposes Fix to Stop Quantum Computers Linking Shielded Swaps decrypt.co/381257/zcash-deve… Link Zcash Developer Zakura Proposes Fix to Stop Quantum Computers Linking Shielded Swaps - Decrypt Zakura says a single published Zcash address could let a future quantum attacker link every payment a wallet has ever received. decrypt.co  
+  http://nitter.meowing.monster/DecryptMedia/status/2112124723660312585#m
 - @BarrySilbert (Barry Silbert, Mon, 19 Oct 2026): INSIGHT: @Zcash developers propose giving every $ZEC swap through NEAR Intents its own private key, closing a gap that a future quantum computer could exploit to piece together a user’s payment history before the January quantum-resistance deadline.  
   https://nitter.kareem.one/CoinDesk/status/2112124064492114333#m
+- @BarrySilbert (Barry Silbert, Mon, 19 Oct 2026): INSIGHT: @Zcash developers propose giving every $ZEC swap through NEAR Intents its own private key, closing a gap that a future quantum computer could exploit to piece together a user’s payment history before the January quantum-resistance deadline.  
+  http://nitter.meowing.monster/CoinDesk/status/2112124064492114333#m
 - @KyleSamani (Kyle Samani, Mon, 12 Oct 2026): What are you favorite sources of finance and business analysis online? Please interpret this question as broadly as possible Examples can include Stratechery Semianalysis Above the crowd (bill gurley's blog) Berkshire letters Oaktree letters a16z and sequoia blogs Citrini Not Boring The Generalist Benedict evans asymco etc  
   http://nitter.meowing.monster/KyleSamani/status/2109655830840947059#m
+- @dippy_ai (Dippy AI, Mon, 10 Aug 2026): We are FINALLY back online! We deeply apologize for this issue extending nearly 24 hours 🥲 As a token of thanks for your patience, we are REMOVING CHAT LIMITS for the remainder of this month 😻😻 P.S: don't worry, we'll also reinstate your streaks :~)  
+  http://nitter.meowing.monster/dippy_ai/status/2086838981627420847#m
 - @_redteam_ (RedTeam / Innerworks, Mon, 07 Sep 2026): Join us this Thursday to discuss all things RedTeam Openτensor Foundaτion (@opentensor) Novelty Search :: Subnet 61 :: @_redteam_ RedTeam turns Bittensor miners into a 24/7 network of ethical hackers. We’ll discuss how SN61 uses that competition to stay ahead of evolving bot attacks, its five new enterprise pilots, and what comes next with RedTeam’s upcoming Immune System. Live on Thursday :: 9PM UTC :: on X + YouTube Hosted by @const_reborn — http://nitter.meowing.monster/opentensor/status/2097022237337682320#m  
   http://nitter.meowing.monster/_redteam_/status/2097023368629191078#m
 - @KyleSamani (Kyle Samani, Fri, 16 Oct 2026): 👀 Phoenix (@PhoenixTrade) Anthropic pre-IPO perpetuals are now live on Phoenix. Go long or short ANTHROPIC at up to 6x leverage. phoenix.trade/try/anthropic — http://nitter.meowing.monster/PhoenixTrade/status/2110804016389308842#m  
@@ -200,9 +238,11 @@ _no new posts in the lookback window_
   http://nitter.meowing.monster/lium_io/status/2111081966112055609#m
 - @KyleSamani (Kyle Samani, Fri, 16 Oct 2026): GTA3 was a major part of my childhood After doing 100 taxi missions, you unlocked the ability to make the taxi jump Now you can do it with a @Tesla Roadster too. Unbelievable  
   http://nitter.meowing.monster/KyleSamani/status/2111045308243181650#m
+- @manakoai (Manako, Fri, 16 Oct 2026): Snap back to reality, ope, there goes gravity Max (@MaxSebti) this is our "Will Smith eating spaghetti moment" one street image → move backward → turn left → 40 seconds of generated video. this is the official baseline. it will only go up from there. Video — http://nitter.meowing.monster/MaxSebti/status/2111019389671678126#m  
+  http://nitter.meowing.monster/manakoai/status/2111027499106730137#m
 - @_redteam_ (RedTeam / Innerworks, Fri, 11 Sep 2026): The future of cybersecurity will be dictated by a defender's ability to not only ingest unique attacks, but generate the strains that don't exist yet and ship the detection ahead of them. As the rest of the industry degrades, the largest financial institutions will consolidate on the single provider that can do this at scale. That provider needs a constant supply of unique attacks to work from, and a subnet is the only structure that pays a swarm of attackers to supply them. bittensor:native #SN61 Openτensor Foundaτion (@opentensor) RedTeam is working toward integrations with three banking com  
   http://nitter.meowing.monster/_redteam_/status/2098469688137097632#m
 
 
 ---
-_Generated at 2026-10-21T02:52:09.353133+00:00 by scripts/intel/aggregate.py. Treat this digest as input context, not as ground truth. Verify before quoting._
+_Generated at 2026-10-21T09:04:21.070685+00:00 by scripts/intel/aggregate.py. Treat this digest as input context, not as ground truth. Verify before quoting._

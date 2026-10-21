@@ -1,5 +1,35 @@
 [
   {
+    "handle": "a16zcrypto",
+    "name": "a16z Crypto",
+    "posted_at": "Wed, 21 Oct 2026 00:46:02 GMT",
+    "title": "RT by @a16zcrypto: A few reflections on the lattice vs. hash-only debate that our recent Aerie post sparked: 1. Cryptographic ossification for blockchains was never safe. Until the day we know with certainty that P ≠ NP, that finding short vectors in lattices is intractable, that Keccak effectively behaves like a random oracle in deployed SNARKs, and that every single bug has been eliminated from our codebases, blockchains cannot ossify. That is simply not how safe systems are built. Issues will arise, and the system will have to respond. It’s a double standard to reject lattices because blockchains are hard to upgrade if lattices break, while counting on upgrades if AI breaks your hash function or finds a critical zkVM bug. The best counterargument is that hash-only designs are more agile: if your hash function breaks, just swap out the hash. But we must aspire to a higher level of agility than this. Indeed, as I cover next, if SNARK recursion itself turns out to degrade security, the proposed hash-only blockchain designs would need to be rethought from the ground up. 2. The real security debate is not lattices vs. hashes — it is lattices vs. building everything on SNARK recursion. That’s because “hash-only” is not really hash-only: it rests on hashes plus the soundness of deep SNARK recursion. Ethereum’s roadmap relies on exactly that: hash-based aggregation needs recursion to keep up with a slot’s worth of signatures, and EIP-8288 would send other signature schemes and users’ own proofs through the same recursive pipeline. In contrast, Aerie proves a slot’s worth of signatures on one laptop without any recursion. All deployed post-quantum SNARKs rely on the Random Oracle Methodology (via Fiat–Shamir) to establish their security. This is an idealization we know fails in the real world: we have explicit counterexamples where “SNARKs” coming out of this methodology are totally insecure when instantiated with any concrete hash function. We generally ignore these counterexamples in part because they only arise when proving contrived, self-referential statements about the very hash function used by the SNARK verifier. But proving statements about the verifier’s own hash function is the exact thing you do in SNARK recursion. That’s why the security of recursive SNARKs can’t be established even in the random oracle model. On top of that, the standard security proofs for recursion (in other models) suffer an “extractor runtime” blowup that is exponential in the recursion depth, suggesting that security may degrade as more recursion is applied. Yet Ethereum’s own EIP-8288 enables unlimited-depth recursion, even as it lists soundness of recursive SNARKs as a trust assumption. Proofs in more idealized models avoid the blowup, but they mainly tell us that an attack on SNARK recursion would have to exploit the concrete hash function, which is exactly what the Fiat–Shamir attacks above do. To be clear, we don’t know of any outright attacks on SNARK recursion, and I very much hope it is secure. But some of us who have studied the question have a lingering sense that an attack may be possible in some settings. And if AI is going to supercharge cryptanalysis, there is no reason to expect it to spare Fiat–Shamir for SNARKs, let alone SNARK recursion, both of which have had far less scrutiny than lattices. So, I do not concede that a “recursion everywhere” hash-only approach is clearly more conservative than one built on standard lattice assumptions. 3. “Just wrap everything in a hash-based SNARK” (like EIP-8288) faces challenges. Aggregating signatures and proofs off-chain into a single block-level proof is a powerful design independent of the hash-only vs. lattice debate, and I am not telling people to avoid it. But claiming, as Vitalik Buterin did this week, that users can run whatever cryptography they want locally and wrap it in a client-side leanVM proof glosses over major hurdles. For example, leanVM today is a minimal VM designed almost entirely to prove hash-based signatures and recursion, not general-purpose computation. And binary-field SNARKs like leanVM remain slow at proving the integer multiplications that lattice cryptography does en masse. I am optimistic that many of these zkVM challenges can be met (including via my own work, binary-field Twist and Shout, which are now implemented in Magnetar). But regardless, if lattices can make aggregation simpler and faster, then they should be leveraged. We need to be agile no matter what. 4. For chains whose reason for existence is privacy, I truly struggle to understand the pushback. Public-key encryption (and fast single-server PIR) cannot be built from hashes alone, at least not in any black-box way. If lattices break, it is going to be very, very hard for these chains to provide acceptable levels of privacy and functionality. For a project whose entire reason for existence is privacy, a loss of confidentiality is an existential failure. Next to that, a second signature upgrade (after the first one, from elliptic curves alone to, hopefully, a hybrid lattice scheme) is easy. Summary: We don’t know for sure what is secure and what isn’t. We are all weighing unquantifiable risks against each other, and we do not need to agree on a total order on them. But hash-only solutions face many open engineering challenges, and they are not more “conservative” in the way some have argued. Some of those challenges are entirely prosaic and have nothing to do with bugs or cryptography, like hardware support for custom schemes whose hash function is still undecided. I hope we can overcome those challenges within the appropriate timelines, but they must be acknowledged and portrayed realistically. Overall, cryptographic agility and defense in depth (e.g., hybrid signatures) are the answer, which is why we are building both lattice-Jolt and hash-Jolt. In practice, the positions are less polarized than social media discourse suggests: for example, StarkWare is working to make Falcon verification cheap (https://falcon.provably.fast/), which is great to see. Here is the (apparently) controversial take I am sticking to: Conditioned on agility, whenever lattices make systems simpler or more functional, we should embrace them rather than default to “hash-only” designs. Lattices are what the rest of the world will depend on, with decades of study and hardening behind them, and at the system level, less functional often means less secure. Where hash-only designs are just as simple and functional, by all means use them.",
+    "text": "A few reflections on the lattice vs. hash-only debate that our recent Aerie post sparked: 1. Cryptographic ossification for blockchains was never safe. Until the day we know with certainty that P ≠ NP, that finding short vectors in lattices is intractable, that Keccak effectively behaves like a random oracle in deployed SNARKs, and that every single bug has been eliminated from our codebases, blockchains cannot ossify. That is simply not how safe systems are built. Issues will arise, and the system will have to respond. It’s a double standard to reject lattices because blockchains are hard to ",
+    "url": "http://nitter.meowing.monster/SuccinctJT/status/2112706944548880442#m",
+    "fetched_at": "2026-10-21T09:02:36.087315+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "manakoai",
+    "name": "Manako",
+    "posted_at": "Wed, 14 Oct 2026 16:31:53 GMT",
+    "title": "And it’s the first highway station.",
+    "text": "And it’s the first highway station. Arno (@arnod3f) ladies and gentlemen. @manakoai is officially working with @Shell. deploying physical ai to better their fuel retail operations. lfgooooooo🔥👊🚀 — http://nitter.meowing.monster/arnod3f/status/2110397339126915400#m",
+    "url": "http://nitter.meowing.monster/manakoai/status/2110408262357057824#m",
+    "fetched_at": "2026-10-21T09:03:22.061865+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "manakoai",
+    "name": "Manako",
+    "posted_at": "Wed, 14 Oct 2026 07:07:55 GMT",
+    "title": "RT by @manakoai: 2 days of deployment ahead for @manakoai. today on some avia stations. tomorrow on a brand new fuel retail client. LFG 👊",
+    "text": "2 days of deployment ahead for @manakoai. today on some avia stations. tomorrow on a brand new fuel retail client. LFG 👊",
+    "url": "http://nitter.meowing.monster/arnod3f/status/2110266332885172326#m",
+    "fetched_at": "2026-10-21T09:03:22.061865+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
     "handle": "markjeffrey",
     "name": "Mark Jeffrey",
     "posted_at": "Tue, 20 Oct 2026 22:24:06 GMT",
@@ -120,6 +150,46 @@
     "via_instance": "https://nitter.cz"
   },
   {
+    "handle": "BarrySilbert",
+    "name": "Barry Silbert",
+    "posted_at": "Tue, 20 Oct 2026 13:31:01 GMT",
+    "title": "RT by @BarrySilbert: Introducing Zcash Monthly: a new series from CoinDesk Research, in collaboration with GenZcash. Every month we’ll cover what just happened across governance, development, privacy usage and markets, with expert input from @GenZcash and the wider @Zcash developer community.",
+    "text": "Introducing Zcash Monthly: a new series from CoinDesk Research, in collaboration with GenZcash. Every month we’ll cover what just happened across governance, development, privacy usage and markets, with expert input from @GenZcash and the wider @Zcash developer community.",
+    "url": "http://nitter.meowing.monster/CoinDesk/status/2112537072149930469#m",
+    "fetched_at": "2026-10-21T09:02:02.854580+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "a16zcrypto",
+    "name": "a16z Crypto",
+    "posted_at": "Tue, 20 Oct 2026 13:01:07 GMT",
+    "title": "RT by @a16zcrypto: The countdown begins: Zero mainnet and lzATLAS go live on November 30.",
+    "text": "The countdown begins: Zero mainnet and lzATLAS go live on November 30. Video",
+    "url": "http://nitter.meowing.monster/LayerZero_Core/status/2112529547614937453#m",
+    "fetched_at": "2026-10-21T09:02:36.087315+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "a16zcrypto",
+    "name": "a16z Crypto",
+    "posted_at": "Tue, 20 Oct 2026 00:00:15 GMT",
+    "title": "RT by @a16zcrypto: This is a must listen",
+    "text": "This is a must listen a16z crypto (@a16zcrypto) AI is getting better at solving hard math problems, especially given recent drops. But what does that mean for the cryptography that protects everything from private messages to healthcare to banking and crypto wallets? Stanford cryptographer Dan Boneh, with @eddylazzarin, @SuccinctJT, @liz_harkavy, and @smc90, makes sense of the warnings sounded recently. They cover: - what’s fact vs. assumption - what’s new and what risks cryptographers have long prepared for - where quantum computing doesn't (and does) fit - opportunities for builders Highligh",
+    "url": "http://nitter.meowing.monster/ahall_research/status/2112333037279318336#m",
+    "fetched_at": "2026-10-21T09:02:36.087315+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "manakoai",
+    "name": "Manako",
+    "posted_at": "Tue, 13 Oct 2026 19:10:45 GMT",
+    "title": "Pinned: Most AI still automates tasks. The next shift is AI that can run business operations. The progression looks a lot like autonomous driving. Just as cars moved from driver assistance to partial, conditional, and higher autonomy, business operations will move through the same stages: 0. Manual operations → people observe, decide and act. 1. Assisted operations → AI detects events. People act. (This is where Vision Agents sit today.) 2. Partial automation → AI executes tasks. People supervise. 3. Conditional autonomy → AI runs workflows. People handle exceptions. 4. High autonomy → AI runs a defined operation, including its exceptions. 5. Autonomous operations — AI coordinates and improves end-to-end operations. The long-term direction is clear: increasing operational autonomy. People set the goals, the policies and the accountability. AI runs more of the operations. Humans govern. At Manako Labs, we’re building World Models for Business so this progression can actually happen in the physical world, starting with the cameras companies already have. Vision Agents are the entry point. Levels 2–5 are the ambition.",
+    "text": "Most AI still automates tasks. The next shift is AI that can run business operations. The progression looks a lot like autonomous driving. Just as cars moved from driver assistance to partial, conditional, and higher autonomy, business operations will move through the same stages: 0. Manual operations → people observe, decide and act. 1. Assisted operations → AI detects events. People act. (This is where Vision Agents sit today.) 2. Partial automation → AI executes tasks. People supervise. 3. Conditional autonomy → AI runs workflows. People handle exceptions. 4. High autonomy → AI runs a defin",
+    "url": "http://nitter.meowing.monster/manakoai/status/2110085853301309523#m",
+    "fetched_at": "2026-10-21T09:03:22.061865+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
     "handle": "KyleSamani",
     "name": "Kyle Samani",
     "posted_at": "Tue, 13 Oct 2026 11:39:06 GMT",
@@ -130,6 +200,26 @@
     "via_instance": "https://nitter.cz"
   },
   {
+    "handle": "dippy_ai",
+    "name": "Dippy AI",
+    "posted_at": "Thu, 30 Jul 2026 14:34:47 GMT",
+    "title": "RT by @dippy_ai: Excited to have helped @PrunaAI collect 1M+ votes for image preference data in a very short time :~)",
+    "text": "Excited to have helped @PrunaAI collect 1M+ votes for image preference data in a very short time :~) Pruna AI (@PrunaAI) P-Image-Ideogram dominate the speed-quality and price-quality Pareto frontiers for image generation. It is the result of a unique collaboration with @ideogram_ai. - Four modes (Very low, low, medium, high) for 1K-2K image generation. - Optimal quality-efficiency with 0.4s-7.5s latency, and $0.003-$0.03 price. - Structured JSON control & exact color control. Available via our inference partners @Replicate @inference_sh @scenario_gg @wavespeed_ai @wiroai @magnific @prodialabs ",
+    "url": "http://nitter.meowing.monster/datapointai/status/2082837314603032606#m",
+    "fetched_at": "2026-10-21T09:04:04.012583+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "dippy_ai",
+    "name": "Dippy AI",
+    "posted_at": "Thu, 27 Aug 2026 21:34:23 GMT",
+    "title": "we have significantly upgraded both the basic and super models 🤩🤩 we have also made optimizations to improve response speeds by upto 5x can't wait for you all to experience and enjoy the new dippy 📯📯😸 rolling out to everyone today",
+    "text": "we have significantly upgraded both the basic and super models 🤩🤩 we have also made optimizations to improve response speeds by upto 5x can't wait for you all to experience and enjoy the new dippy 📯📯😸 rolling out to everyone today",
+    "url": "http://nitter.meowing.monster/dippy_ai/status/2093089771824226802#m",
+    "fetched_at": "2026-10-21T09:04:04.012583+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
     "handle": "KyleSamani",
     "name": "Kyle Samani",
     "posted_at": "Thu, 15 Oct 2026 18:00:14 GMT",
@@ -137,6 +227,16 @@
     "text": "[Speaker Announcement] \"Solana is becoming the settlement layer for Internet capital markets.\" @KyleSamani, co-founder of Multicoin Capital and chairman of @FWDind, joins us at Breakpoint in London, 15-17 November. Video",
     "url": "http://nitter.meowing.monster/SolanaEvents/status/2110792882408013987#m",
     "fetched_at": "2026-10-21T02:50:10.065185+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "manakoai",
+    "name": "Manako",
+    "posted_at": "Thu, 15 Oct 2026 16:16:54 GMT",
+    "title": "Hello World(s)",
+    "text": "Hello World(s)",
+    "url": "http://nitter.meowing.monster/manakoai/status/2110766878981239106#m",
+    "fetched_at": "2026-10-21T09:03:22.061865+00:00",
     "via_instance": "https://nitter.cz"
   },
   {
@@ -170,6 +270,16 @@
     "via_instance": "https://nitter.cz"
   },
   {
+    "handle": "dippy_ai",
+    "name": "Dippy AI",
+    "posted_at": "Thu, 04 Jun 2026 15:53:04 GMT",
+    "title": "RT by @dippy_ai: Today, we’re opening up Datapoint AI for anyone to use. It is by far the fastest way to understand what your customers want. Type a question. Real people answer. You get a report back in ~10 minutes, not three weeks, and at a fraction of the cost.",
+    "text": "Today, we’re opening up Datapoint AI for anyone to use. It is by far the fastest way to understand what your customers want. Type a question. Real people answer. You get a report back in ~10 minutes, not three weeks, and at a fraction of the cost. Video",
+    "url": "http://nitter.meowing.monster/datapointai/status/2062563294880075837#m",
+    "fetched_at": "2026-10-21T09:04:04.012583+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
     "handle": "BarrySilbert",
     "name": "Barry Silbert",
     "posted_at": "Sun, 18 Oct 2026 20:29:15 GMT",
@@ -180,6 +290,26 @@
     "via_instance": "https://nitter.cz"
   },
   {
+    "handle": "BarrySilbert",
+    "name": "Barry Silbert",
+    "posted_at": "Sun, 18 Oct 2026 20:29:15 GMT",
+    "title": "RT by @BarrySilbert: “Zcash has been the most proactive in terms of quantum preparedness.” -@nic_carter",
+    "text": "“Zcash has been the most proactive in terms of quantum preparedness.” -@nic_carter Video",
+    "url": "http://nitter.meowing.monster/_TomHoward/status/2111917546022854862#m",
+    "fetched_at": "2026-10-21T09:02:02.854580+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "dippy_ai",
+    "name": "Dippy AI",
+    "posted_at": "Sun, 09 Aug 2026 23:27:27 GMT",
+    "title": "We are experiencing an issue with our database provider @supabase , so the app & website may be down for a few more hours. We’ll send a notification when we are able to recover and the app is back to normal! Apologies for the inconvenience 😿😿",
+    "text": "We are experiencing an issue with our database provider @supabase , so the app &amp; website may be down for a few more hours. We’ll send a notification when we are able to recover and the app is back to normal! Apologies for the inconvenience 😿😿",
+    "url": "http://nitter.meowing.monster/dippy_ai/status/2086595242422149540#m",
+    "fetched_at": "2026-10-21T09:04:04.012583+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
     "handle": "_redteam_",
     "name": "RedTeam / Innerworks",
     "posted_at": "Mon, 28 Sep 2026 18:43:14 GMT",
@@ -187,6 +317,26 @@
     "text": "\"We're not afraid of hyper-intelligent bot swarms on the internet. We use them to optimise our technology.\" When we launched RedTeam almost two years ago we could clearly see where the internet was heading. We've since seen clients with over 90% of their traffic made up of not just automation but highly intelligent bot swarms, capable of bypassing any traditional detection mechanism. The only way to combat a threat like this is to welcome it and learn from it. By constantly ingesting and evolving attack vectors from a hive mind of miners, a Bittensor powered defence has now become the only rel",
     "url": "http://nitter.meowing.monster/_redteam_/status/2104643110911533312#m",
     "fetched_at": "2026-10-21T02:51:04.933173+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "a16zcrypto",
+    "name": "a16z Crypto",
+    "posted_at": "Mon, 19 Oct 2026 19:24:38 GMT",
+    "title": "RT by @a16zcrypto: Great panel with @brian__foster and @MuyaoShen at @money2020. It’s about bringing finance onto the internet. A lot of finance still runs on Excel spreadsheets, and it’s no longer about tradfi or DeFi, it’s about making finance move at the speed of the internet. On the crypto side we have to update the words we use to meet traditional finance where they are. DeFi and decentralization doesn’t mean a ton yet but reducing counter party risk does. It was great to be onstage at Money2020 to help that translation process.",
+    "text": "Great panel with @brian__foster and @MuyaoShen at @money2020. It’s about bringing finance onto the internet. A lot of finance still runs on Excel spreadsheets, and it’s no longer about tradfi or DeFi, it’s about making finance move at the speed of the internet. On the crypto side we have to update the words we use to meet traditional finance where they are. DeFi and decentralization doesn’t mean a ton yet but reducing counter party risk does. It was great to be onstage at Money2020 to help that translation process.",
+    "url": "http://nitter.meowing.monster/guywuolletjr/status/2112263675365216496#m",
+    "fetched_at": "2026-10-21T09:02:36.087315+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "a16zcrypto",
+    "name": "a16z Crypto",
+    "posted_at": "Mon, 19 Oct 2026 19:08:27 GMT",
+    "title": "RT by @a16zcrypto: Every day, 10 to 15 people make their first $20K on @whop. Today, Lightspark powers a new way for them to cash out instantly to their bank accounts.",
+    "text": "Every day, 10 to 15 people make their first $20K on @whop. Today, Lightspark powers a new way for them to cash out instantly to their bank accounts. Video",
+    "url": "http://nitter.meowing.monster/lightspark/status/2112259603023171928#m",
+    "fetched_at": "2026-10-21T09:02:36.087315+00:00",
     "via_instance": "https://nitter.cz"
   },
   {
@@ -202,11 +352,31 @@
   {
     "handle": "BarrySilbert",
     "name": "Barry Silbert",
+    "posted_at": "Mon, 19 Oct 2026 12:21:26 GMT",
+    "title": "RT by @BarrySilbert: HeartSciences (Nasdaq: $HSCS) has filed its definitive proxy statement with the SEC in connection with the proposed business combination with Fortitude. See important additional information here: https://ir.heartsciences.com/sec-filings and https://fortitudemining.com/disclaimers/. $ZEC",
+    "text": "HeartSciences (Nasdaq: $HSCS) has filed its definitive proxy statement with the SEC in connection with the proposed business combination with Fortitude. See important additional information here: ir.heartsciences.com/sec-fil… and fortitudemining.com/disclaim…. $ZEC",
+    "url": "http://nitter.meowing.monster/FortitudeCrypto/status/2112157172897591371#m",
+    "fetched_at": "2026-10-21T09:02:02.854580+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "BarrySilbert",
+    "name": "Barry Silbert",
     "posted_at": "Mon, 19 Oct 2026 10:12:30 GMT",
     "title": "RT by @BarrySilbert: Zcash Developer Zakura Proposes Fix to Stop Quantum Computers Linking Shielded Swaps https://decrypt.co/381257/zcash-developer-zakura-proposes-fix-to-stop-quantum-computers-linking-shielded-swaps?utm_source=twitter&utm_medium=social&utm_campaign=auto",
     "text": "Zcash Developer Zakura Proposes Fix to Stop Quantum Computers Linking Shielded Swaps decrypt.co/381257/zcash-deve… Link Zcash Developer Zakura Proposes Fix to Stop Quantum Computers Linking Shielded Swaps - Decrypt Zakura says a single published Zcash address could let a future quantum attacker link every payment a wallet has ever received. decrypt.co",
     "url": "https://nitter.kareem.one/DecryptMedia/status/2112124723660312585#m",
     "fetched_at": "2026-10-21T02:49:40.752006+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "BarrySilbert",
+    "name": "Barry Silbert",
+    "posted_at": "Mon, 19 Oct 2026 10:12:30 GMT",
+    "title": "RT by @BarrySilbert: Zcash Developer Zakura Proposes Fix to Stop Quantum Computers Linking Shielded Swaps https://decrypt.co/381257/zcash-developer-zakura-proposes-fix-to-stop-quantum-computers-linking-shielded-swaps?utm_source=twitter&utm_medium=social&utm_campaign=auto",
+    "text": "Zcash Developer Zakura Proposes Fix to Stop Quantum Computers Linking Shielded Swaps decrypt.co/381257/zcash-deve… Link Zcash Developer Zakura Proposes Fix to Stop Quantum Computers Linking Shielded Swaps - Decrypt Zakura says a single published Zcash address could let a future quantum attacker link every payment a wallet has ever received. decrypt.co",
+    "url": "http://nitter.meowing.monster/DecryptMedia/status/2112124723660312585#m",
+    "fetched_at": "2026-10-21T09:02:02.854580+00:00",
     "via_instance": "https://nitter.cz"
   },
   {
@@ -220,6 +390,16 @@
     "via_instance": "https://nitter.cz"
   },
   {
+    "handle": "BarrySilbert",
+    "name": "Barry Silbert",
+    "posted_at": "Mon, 19 Oct 2026 10:09:52 GMT",
+    "title": "RT by @BarrySilbert: INSIGHT: @Zcash developers propose giving every $ZEC swap through NEAR Intents its own private key, closing a gap that a future quantum computer could exploit to piece together a user’s payment history before the January quantum-resistance deadline.",
+    "text": "INSIGHT: @Zcash developers propose giving every $ZEC swap through NEAR Intents its own private key, closing a gap that a future quantum computer could exploit to piece together a user’s payment history before the January quantum-resistance deadline.",
+    "url": "http://nitter.meowing.monster/CoinDesk/status/2112124064492114333#m",
+    "fetched_at": "2026-10-21T09:02:02.854580+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
     "handle": "KyleSamani",
     "name": "Kyle Samani",
     "posted_at": "Mon, 12 Oct 2026 14:42:00 GMT",
@@ -227,6 +407,16 @@
     "text": "What are you favorite sources of finance and business analysis online? Please interpret this question as broadly as possible Examples can include Stratechery Semianalysis Above the crowd (bill gurley's blog) Berkshire letters Oaktree letters a16z and sequoia blogs Citrini Not Boring The Generalist Benedict evans asymco etc",
     "url": "http://nitter.meowing.monster/KyleSamani/status/2109655830840947059#m",
     "fetched_at": "2026-10-21T02:50:10.065185+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "dippy_ai",
+    "name": "Dippy AI",
+    "posted_at": "Mon, 10 Aug 2026 15:35:59 GMT",
+    "title": "We are FINALLY back online! We deeply apologize for this issue extending nearly 24 hours 🥲 As a token of thanks for your patience, we are REMOVING CHAT LIMITS for the remainder of this month 😻😻 P.S: don't worry, we'll also reinstate your streaks :~)",
+    "text": "We are FINALLY back online! We deeply apologize for this issue extending nearly 24 hours 🥲 As a token of thanks for your patience, we are REMOVING CHAT LIMITS for the remainder of this month 😻😻 P.S: don't worry, we'll also reinstate your streaks :~)",
+    "url": "http://nitter.meowing.monster/dippy_ai/status/2086838981627420847#m",
+    "fetched_at": "2026-10-21T09:04:04.012583+00:00",
     "via_instance": "https://nitter.cz"
   },
   {
@@ -287,6 +477,16 @@
     "text": "GTA3 was a major part of my childhood After doing 100 taxi missions, you unlocked the ability to make the taxi jump Now you can do it with a @Tesla Roadster too. Unbelievable",
     "url": "http://nitter.meowing.monster/KyleSamani/status/2111045308243181650#m",
     "fetched_at": "2026-10-21T02:50:10.065185+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "manakoai",
+    "name": "Manako",
+    "posted_at": "Fri, 16 Oct 2026 09:32:31 GMT",
+    "title": "Snap back to reality, ope, there goes gravity",
+    "text": "Snap back to reality, ope, there goes gravity Max (@MaxSebti) this is our \"Will Smith eating spaghetti moment\" one street image → move backward → turn left → 40 seconds of generated video. this is the official baseline. it will only go up from there. Video — http://nitter.meowing.monster/MaxSebti/status/2111019389671678126#m",
+    "url": "http://nitter.meowing.monster/manakoai/status/2111027499106730137#m",
+    "fetched_at": "2026-10-21T09:03:22.061865+00:00",
     "via_instance": "https://nitter.cz"
   },
   {
