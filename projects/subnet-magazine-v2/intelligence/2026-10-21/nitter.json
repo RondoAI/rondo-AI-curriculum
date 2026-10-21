@@ -1,5 +1,65 @@
 [
   {
+    "handle": "SemiAnalysis_",
+    "name": "SemiAnalysis",
+    "posted_at": "Wed, 21 Oct 2026 17:53:34 GMT",
+    "title": "Huawei Ascend 950PR Deep dive & µbenchmarks, DSv4.1 Flash Analysis, DeepSeek support for Ascend, AICPU, Tilelang Ascend https://newsletter.semianalysis.com/p/huawei-deepseek",
+    "text": "Huawei Ascend 950PR Deep dive &amp; µbenchmarks, DSv4.1 Flash Analysis, DeepSeek support for Ascend, AICPU, Tilelang Ascend newsletter.semianalysis.com/… Link The Huawei-DeepSeek Symbiosis Huawei Ascend 950PR Deep dive &amp; µbenchmarks, DSv4.1 Flash Analysis, DeepSeek support for Ascend newsletter.semianalysis.com",
+    "url": "https://nitter.kareem.one/SemiAnalysis_/status/2112965533754675280#m",
+    "fetched_at": "2026-10-21T22:59:09.324378+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "shibshib89",
+    "name": "Ala Shaabana",
+    "posted_at": "Wed, 21 Oct 2026 17:21:15 GMT",
+    "title": "RT by @shibshib89: Something's always brewing at Crucible Labs. #Bittensor $TAO #Taowallet #validator Learn more at https://Cruciblelabs.com",
+    "text": "Something's always brewing at Crucible Labs. #Bittensor $TAO #Taowallet #validator Learn more at Cruciblelabs.com Video",
+    "url": "http://nitter.meowing.monster/CrucibleLabs/status/2112957401305682393#m",
+    "fetched_at": "2026-10-21T22:57:12.353036+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "SemiAnalysis_",
+    "name": "SemiAnalysis",
+    "posted_at": "Wed, 21 Oct 2026 16:55:19 GMT",
+    "title": "R to @SemiAnalysis_: Assuming 60% utilization, GB300 generates $50/GPU/hr profit at 125 TPS with Openrouter's prices, while DeepSeek makes $39/GPU/hr off-peak. As per Jenson, COMPUTE IS REVENUE. (5/5)",
+    "text": "Assuming 60% utilization, GB300 generates $50/GPU/hr profit at 125 TPS with Openrouter's prices, while DeepSeek makes $39/GPU/hr off-peak. As per Jenson, COMPUTE IS REVENUE. (5/5)",
+    "url": "https://nitter.kareem.one/SemiAnalysis_/status/2112950872627970158#m",
+    "fetched_at": "2026-10-21T22:59:09.324378+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "SemiAnalysis_",
+    "name": "SemiAnalysis",
+    "posted_at": "Wed, 21 Oct 2026 16:55:18 GMT",
+    "title": "R to @SemiAnalysis_: And vLLM on InferenceX performs extremely well. Explore our results, DSv4.1 serving results, configs, logs, and profit estimator on https://InferenceX.com (4/5)",
+    "text": "And vLLM on InferenceX performs extremely well. Explore our results, DSv4.1 serving results, configs, logs, and profit estimator on InferenceX.com (4/5)",
+    "url": "https://nitter.kareem.one/SemiAnalysis_/status/2112950870824345775#m",
+    "fetched_at": "2026-10-21T22:59:09.324378+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "SemiAnalysis_",
+    "name": "SemiAnalysis",
+    "posted_at": "Wed, 21 Oct 2026 16:55:18 GMT",
+    "title": "R to @SemiAnalysis_: vLLM has shown that they match DeepInfer’s published results on the same benchmark. (3/5)",
+    "text": "vLLM has shown that they match DeepInfer’s published results on the same benchmark. (3/5) vLLM (@vllm_project) 🚨🚨🚨 vLLM is all you need to reproduce DeepSeek’s performance. With Wide-EP and EPLB, vLLM can match DeepInfer’s decode performance within 6% and generate $39/gpu/hr in revenue at DeepSeek’s off-peak pricing, at 200 P90 TPS on the AgentX workload. Specifically: • Under DeepSeek’s decode configuration (DeepSeek-V4.1-Flash, 131K context, nextn=3), vLLM on GB200 achieves throughput within 6% of DeepInfer’s published results across batch sizes 8–256. • On AgentX, vLLM pushes the Pareto fro",
+    "url": "https://nitter.kareem.one/SemiAnalysis_/status/2112950869733908505#m",
+    "fetched_at": "2026-10-21T22:59:09.324378+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "SemiAnalysis_",
+    "name": "SemiAnalysis",
+    "posted_at": "Wed, 21 Oct 2026 16:55:18 GMT",
+    "title": "R to @SemiAnalysis_: The current DeepInfer release only supports offline, single-turn inference, making comparisons InferenceX impossible. deepseek-recipe provides API infrastructure but the key load bearing components are still missing (2/5) https://github.com/deepseek-ai/deepseek-recipe",
+    "text": "The current DeepInfer release only supports offline, single-turn inference, making comparisons InferenceX impossible. deepseek-recipe provides API infrastructure but the key load bearing components are still missing (2/5) github.com/deepseek-ai/deeps… Link GitHub - deepseek-ai/deepseek-recipe Contribute to deepseek-ai/deepseek-recipe development by creating an account on GitHub. github.com",
+    "url": "https://nitter.kareem.one/SemiAnalysis_/status/2112950868693672264#m",
+    "fetched_at": "2026-10-21T22:59:09.324378+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
     "handle": "a16zcrypto",
     "name": "a16z Crypto",
     "posted_at": "Wed, 21 Oct 2026 00:46:02 GMT",
@@ -17,6 +77,16 @@
     "text": "And it’s the first highway station. Arno (@arnod3f) ladies and gentlemen. @manakoai is officially working with @Shell. deploying physical ai to better their fuel retail operations. lfgooooooo🔥👊🚀 — http://nitter.meowing.monster/arnod3f/status/2110397339126915400#m",
     "url": "http://nitter.meowing.monster/manakoai/status/2110408262357057824#m",
     "fetched_at": "2026-10-21T09:03:22.061865+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "zeussubnet",
+    "name": "Zeus Subnet",
+    "posted_at": "Wed, 14 Oct 2026 14:40:28 GMT",
+    "title": "Zeus' full @ExploitSummit talk @RoryZeus breaks down the how and why of Zeus, shares what’s ahead, and pitches Zeus Pro and Zeus Edge 👇",
+    "text": "Zeus' full @ExploitSummit talk @RoryZeus breaks down the how and why of Zeus, shares what’s ahead, and pitches Zeus Pro and Zeus Edge 👇 Video",
+    "url": "http://nitter.meowing.monster/zeussubnet/status/2110380222285549666#m",
+    "fetched_at": "2026-10-21T22:59:31.552850+00:00",
     "via_instance": "https://nitter.cz"
   },
   {
@@ -97,6 +167,16 @@
     "text": "Hippius is now more than earth's cheapest storage -- confidential VM's are now available (fully integrated with Hippius storage for backups and such). powered by Bittensor. Sign up: console.hippius.com/login?re…",
     "url": "https://nitter.kareem.one/markjeffrey/status/2112654887792337212#m",
     "fetched_at": "2026-10-21T02:49:46.181978+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "shibshib89",
+    "name": "Ala Shaabana",
+    "posted_at": "Tue, 20 Oct 2026 19:38:25 GMT",
+    "title": "RT by @shibshib89: eTAO is live, and we're already seeing some interesting shifts across #Bittensor. Some subnets are reducing their owner take to 0%, while others are moving to the 33% maximum. Different approaches, different priorities. It's early, but worth watching how these decisions play out. What would you want to see from a subnet before supporting its emissions strategy? Want to know more about eTAO? Learn more at: https://cruciblelabs.com/learn/etao Here's what we're seeing so far:",
+    "text": "eTAO is live, and we're already seeing some interesting shifts across #Bittensor. Some subnets are reducing their owner take to 0%, while others are moving to the 33% maximum. Different approaches, different priorities. It's early, but worth watching how these decisions play out. What would you want to see from a subnet before supporting its emissions strategy? Want to know more about eTAO? Learn more at: cruciblelabs.com/learn/etao Here's what we're seeing so far: taostats τ (@taostats) eTao is now live on chain. Alpha emission: 18:41:41 is the default, but subnet owners can now change the va",
+    "url": "http://nitter.meowing.monster/CrucibleLabs/status/2112629530548646155#m",
+    "fetched_at": "2026-10-21T22:57:12.353036+00:00",
     "via_instance": "https://nitter.cz"
   },
   {
@@ -200,6 +280,16 @@
     "via_instance": "https://nitter.cz"
   },
   {
+    "handle": "zeussubnet",
+    "name": "Zeus Subnet",
+    "posted_at": "Tue, 20 Oct 2026 12:23:00 GMT",
+    "title": "How long until Zeus miners launch their own satellites? 🛰️",
+    "text": "How long until Zeus miners launch their own satellites? 🛰️ CNN (@CNN) The Trump administration’s cuts to weather satellites will set the country back nearly a decade, experts say. The loss of data used to observe, forecast and research extreme weather could prevent the US from making major advances in weather prediction in the coming years. cnn.it/4k6eD4o Link Trump admin cuts to satellites will set back US weather forecasting by a decade | CNN The Trump administration reduced the number of planned US weather satellites and removed key tools. Experts say it will set our weather forecasts back ",
+    "url": "http://nitter.meowing.monster/zeussubnet/status/2112519955950530719#m",
+    "fetched_at": "2026-10-21T22:59:31.552850+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
     "handle": "a16zcrypto",
     "name": "a16z Crypto",
     "posted_at": "Tue, 20 Oct 2026 00:00:15 GMT",
@@ -267,6 +357,16 @@
     "text": "we have significantly upgraded both the basic and super models 🤩🤩 we have also made optimizations to improve response speeds by upto 5x can't wait for you all to experience and enjoy the new dippy 📯📯😸 rolling out to everyone today",
     "url": "http://nitter.meowing.monster/dippy_ai/status/2093089771824226802#m",
     "fetched_at": "2026-10-21T09:04:04.012583+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "shibshib89",
+    "name": "Ala Shaabana",
+    "posted_at": "Thu, 15 Oct 2026 18:10:57 GMT",
+    "title": "RT by @shibshib89: Research a subnet. Open your wallet. Click away. Wallet disappears. Repeat. 🙃 We fixed that. Crucible Wallet now supports Chrome's Side Panel, so you can keep your wallet open while researching subnets, checking charts, staking, or swapping. Less back and forth. More time actually doing what you came to do.",
+    "text": "Research a subnet. Open your wallet. Click away. Wallet disappears. Repeat. 🙃 We fixed that. Crucible Wallet now supports Chrome's Side Panel, so you can keep your wallet open while researching subnets, checking charts, staking, or swapping. Less back and forth. More time actually doing what you came to do.",
+    "url": "http://nitter.meowing.monster/CrucibleLabs/status/2110795579249111046#m",
+    "fetched_at": "2026-10-21T22:57:12.353036+00:00",
     "via_instance": "https://nitter.cz"
   },
   {
@@ -360,6 +460,16 @@
     "via_instance": "https://nitter.cz"
   },
   {
+    "handle": "PanteraCapital",
+    "name": "Pantera Capital",
+    "posted_at": "Sun, 18 Oct 2026 21:16:32 GMT",
+    "title": "Tonight at @money2020: @dan_pantera keynotes the Main Stage at 5pm. See you there.",
+    "text": "Tonight at @money2020: @dan_pantera keynotes the Main Stage at 5pm. See you there.",
+    "url": "http://nitter.meowing.monster/PanteraCapital/status/2111929448320954736#m",
+    "fetched_at": "2026-10-21T22:57:56.964979+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
     "handle": "BarrySilbert",
     "name": "Barry Silbert",
     "posted_at": "Sun, 18 Oct 2026 20:29:15 GMT",
@@ -410,6 +520,16 @@
     "via_instance": "https://nitter.cz"
   },
   {
+    "handle": "shibshib89",
+    "name": "Ala Shaabana",
+    "posted_at": "Sat, 17 Oct 2026 17:12:59 GMT",
+    "title": "RT by @shibshib89: A little TAO, a splash of global expansion, and a whole lot of Bittensor. Crucible Wallet iOS is now mixing in 30 countries.",
+    "text": "A little TAO, a splash of global expansion, and a whole lot of Bittensor. Crucible Wallet iOS is now mixing in 30 countries. Video",
+    "url": "http://nitter.meowing.monster/CrucibleLabs/status/2111505769468420389#m",
+    "fetched_at": "2026-10-21T22:57:12.353036+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
     "handle": "_redteam_",
     "name": "RedTeam / Innerworks",
     "posted_at": "Mon, 28 Sep 2026 18:43:14 GMT",
@@ -440,6 +560,16 @@
     "via_instance": "https://nitter.cz"
   },
   {
+    "handle": "shibshib89",
+    "name": "Ala Shaabana",
+    "posted_at": "Mon, 19 Oct 2026 19:21:19 GMT",
+    "title": "RT by @shibshib89: Curious about #Bittensor? We've got you covered. Introducing Crucible Learn, your new go-to for all things Bittensor.",
+    "text": "Curious about #Bittensor? We've got you covered. Introducing Crucible Learn, your new go-to for all things Bittensor. Video",
+    "url": "http://nitter.meowing.monster/CrucibleLabs/status/2112262840128311762#m",
+    "fetched_at": "2026-10-21T22:57:12.353036+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
     "handle": "a16zcrypto",
     "name": "a16z Crypto",
     "posted_at": "Mon, 19 Oct 2026 19:08:27 GMT",
@@ -447,6 +577,46 @@
     "text": "Every day, 10 to 15 people make their first $20K on @whop. Today, Lightspark powers a new way for them to cash out instantly to their bank accounts. Video",
     "url": "http://nitter.meowing.monster/lightspark/status/2112259603023171928#m",
     "fetched_at": "2026-10-21T09:02:36.087315+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "PanteraCapital",
+    "name": "Pantera Capital",
+    "posted_at": "Mon, 19 Oct 2026 17:09:13 GMT",
+    "title": "RT by @PanteraCapital: Introducing OpenAI Private Market Note (OPAIPon). Tokenized exposure to OpenAI is now trading 24/7 on Ondo Perps' permissionless spot order book. Trade now → https://app.ondoperps.xyz/trade/spot/OPAIPon-USDC",
+    "text": "Introducing OpenAI Private Market Note (OPAIPon). Tokenized exposure to OpenAI is now trading 24/7 on Ondo Perps' permissionless spot order book. Trade now → app.ondoperps.xyz/trade/spot…",
+    "url": "http://nitter.meowing.monster/OndoPerps/status/2112229594262864278#m",
+    "fetched_at": "2026-10-21T22:57:56.964979+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "PanteraCapital",
+    "name": "Pantera Capital",
+    "posted_at": "Mon, 19 Oct 2026 15:25:48 GMT",
+    "title": "R to @PanteraCapital: YouTube: https://youtu.be/FSXjrbM_QT8 Spotify: https://open.spotify.com/episode/4LArppABNU57TljrNrnyRK?si=711f8da4822443b3 Apple Podcasts: https://podcasts.apple.com/us/podcast/why-tokenization-doesnt-guarantee-liquidity-with-fission/id1843681425?i=1000797096765",
+    "text": "YouTube: piped.video/FSXjrbM_QT8 Spotify: open.spotify.com/episode/4LA… Apple Podcasts: podcasts.apple.com/us/podcas… Link Why Tokenization Doesn&apos;t Guarantee Liquidity with Fission Franklin Bi sits down with Jon Shaffer, CEO of Fission, and Steve B... youtube.com",
+    "url": "http://nitter.meowing.monster/PanteraCapital/status/2112203570443399602#m",
+    "fetched_at": "2026-10-21T22:57:56.964979+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "PanteraCapital",
+    "name": "Pantera Capital",
+    "posted_at": "Mon, 19 Oct 2026 15:25:47 GMT",
+    "title": "Tokenization does not create liquidity. Somebody has to underwrite the risk. Jon Shaffer and @steveonchain (Fission, @FissionXYZ) join Stateful, hosted by Franklin Bi, as we announce our investment leading their Series A: - $18 trillion in private markets, still running on paper and subscription agreements - Fission prices duration risk, not NAV. Asset managers retain control over their own valuations. - The market is capped at 6% to 7% yields because that is all you get with baked-in liquidity - The goal: double-digit returns with daily liquidity - Hot take: CLARITY failing in Congress may be the best thing that could have happened to tokenization 01:00 Origin Stories and Why Tokenization Doesn't Create Liquidity 05:50 The Series A and the $500 Billion Semi-Liquid Market 13:00 Why Private Markets Instead of Public Equities 19:15 Pricing Duration Risk Instead of Repricing NAV 24:55 Why Private Markets Need Their Own Venue 38:15 AI Pricing, Portfolio Construction, and Agentic Rebalancing 45:25 Hot Take: Why the CLARITY Act Failing Helps Tokenization",
+    "text": "Tokenization does not create liquidity. Somebody has to underwrite the risk. Jon Shaffer and @steveonchain (Fission, @FissionXYZ) join Stateful, hosted by Franklin Bi, as we announce our investment leading their Series A: - $18 trillion in private markets, still running on paper and subscription agreements - Fission prices duration risk, not NAV. Asset managers retain control over their own valuations. - The market is capped at 6% to 7% yields because that is all you get with baked-in liquidity - The goal: double-digit returns with daily liquidity - Hot take: CLARITY failing in Congress may be",
+    "url": "http://nitter.meowing.monster/PanteraCapital/status/2112203565515104714#m",
+    "fetched_at": "2026-10-21T22:57:56.964979+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "zeussubnet",
+    "name": "Zeus Subnet",
+    "posted_at": "Mon, 19 Oct 2026 14:35:55 GMT",
+    "title": "Is Zeus Pro getting better over time? Yes! From June to September, Zeus Pro showed statistically significant improvements in relative forecasting skill against four operational baselines. Competitive pressure on Bittensor: a mechanism for real innovation. 🔗 http://zeussubnet.com/zeus-pro-analysis",
+    "text": "Is Zeus Pro getting better over time? Yes! From June to September, Zeus Pro showed statistically significant improvements in relative forecasting skill against four operational baselines. Competitive pressure on Bittensor: a mechanism for real innovation. 🔗 zeussubnet.com/zeus-pro-anal…",
+    "url": "http://nitter.meowing.monster/zeussubnet/status/2112191017919094953#m",
+    "fetched_at": "2026-10-21T22:59:31.552850+00:00",
     "via_instance": "https://nitter.cz"
   },
   {
@@ -510,6 +680,26 @@
     "via_instance": "https://nitter.cz"
   },
   {
+    "handle": "PanteraCapital",
+    "name": "Pantera Capital",
+    "posted_at": "Mon, 19 Oct 2026 01:37:32 GMT",
+    "title": "RT by @PanteraCapital: In 2024, an employee at engineering firm Arup transferred $25.6 million after joining a video call where every other participant was a deepfake. Since then, AI has advanced significantly and is making impersonation increasingly convincing, causing challenges for financial institutions in particular. As autonomous agents begin handling more financial activity on behalf of people, establishing an added layer of trust and security behind a transaction or sensitive conversation is becoming an urgent need. Introducing @world_id for banking and finance, a suite of technologies that helps institutions establish trust through privacy-preserving cryptographic Proofs. World ID for Zoom lets meeting participants confirm they are the same Orb-verified human connected to their account, while World ID for agents allows AI agents to carry Proofs delegated by people. Bain Capital, OpenExchange, Outtake, Pantera Capital, and VanEck Funds are initial design partners, bringing World ID into some of finance's most consequential interactions. https://fortune.com/2026/10/18/zoom-adds-proof-of-human-feature-to-stop-deep-fakes-toowith-tech/",
+    "text": "In 2024, an employee at engineering firm Arup transferred $25.6 million after joining a video call where every other participant was a deepfake. Since then, AI has advanced significantly and is making impersonation increasingly convincing, causing challenges for financial institutions in particular. As autonomous agents begin handling more financial activity on behalf of people, establishing an added layer of trust and security behind a transaction or sensitive conversation is becoming an urgent need. Introducing @world_id for banking and finance, a suite of technologies that helps institution",
+    "url": "http://nitter.meowing.monster/worldnetwork/status/2111995130400178238#m",
+    "fetched_at": "2026-10-21T22:57:56.964979+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "zeussubnet",
+    "name": "Zeus Subnet",
+    "posted_at": "Mon, 12 Oct 2026 16:03:38 GMT",
+    "title": "US natural gas traders are betting on a mild winter, with net-short positions exceeding 140K contracts. ❄️ But unexpected cold snaps will turn the market upside down. This winter, it's about the next 10 days of weather. Zeus temperature forecasts as population-weighted HDD/CDD output. Soon directly usable in natural gas trading setups.",
+    "text": "US natural gas traders are betting on a mild winter, with net-short positions exceeding 140K contracts. ❄️ But unexpected cold snaps will turn the market upside down. This winter, it's about the next 10 days of weather. Zeus temperature forecasts as population-weighted HDD/CDD output. Soon directly usable in natural gas trading setups.",
+    "url": "http://nitter.meowing.monster/zeussubnet/status/2109676376160690225#m",
+    "fetched_at": "2026-10-21T22:59:31.552850+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
     "handle": "KyleSamani",
     "name": "Kyle Samani",
     "posted_at": "Mon, 12 Oct 2026 14:42:00 GMT",
@@ -547,6 +737,16 @@
     "text": "Join us this Thursday to discuss all things RedTeam Openτensor Foundaτion (@opentensor) Novelty Search :: Subnet 61 :: @_redteam_ RedTeam turns Bittensor miners into a 24/7 network of ethical hackers. We’ll discuss how SN61 uses that competition to stay ahead of evolving bot attacks, its five new enterprise pilots, and what comes next with RedTeam’s upcoming Immune System. Live on Thursday :: 9PM UTC :: on X + YouTube Hosted by @const_reborn — https://nitter.kareem.one/opentensor/status/2097022237337682320#m",
     "url": "https://nitter.kareem.one/_redteam_/status/2097023368629191078#m",
     "fetched_at": "2026-10-21T16:26:13.689897+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "zeussubnet",
+    "name": "Zeus Subnet",
+    "posted_at": "Fri, 18 Sep 2026 15:57:01 GMT",
+    "title": "RT by @zeussubnet: NEW! Full-on benchmarking environment to see how Zeus performs, where and when. Zeus vs ECMWF’s IFS & AIFS singles and ensembles, across regions, lead times and variables. 🔗 https://zeussubnet.com/benchmarks",
+    "text": "NEW! Full-on benchmarking environment to see how Zeus performs, where and when. Zeus vs ECMWF’s IFS &amp; AIFS singles and ensembles, across regions, lead times and variables. 🔗 zeussubnet.com/benchmarks",
+    "url": "http://nitter.meowing.monster/zeussubnet/status/2100977402302054430#m",
+    "fetched_at": "2026-10-21T22:59:31.552850+00:00",
     "via_instance": "https://nitter.cz"
   },
   {

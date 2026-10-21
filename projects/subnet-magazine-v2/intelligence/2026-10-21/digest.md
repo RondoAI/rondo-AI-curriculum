@@ -11,6 +11,16 @@ _no human notes in the window_
 
 _SemiAnalysis is the most-cited semiconductor and AI infrastructure publication in the industry. They do NOT cover Bittensor. The Oracle uses this corpus for any claim about hyperscaler compute, GPU economics, datacenter power, foundry capacity, memory pricing, lab unit economics. DO NOT cite SemiAnalysis for any Bittensor-specific claim. Full archive (289 posts, May 2020 onwards) lives at `intelligence/_external_sources/semianalysis/` with an `INDEX.md` table of contents. Paywalled posts show only subtitle + free preview; free posts have the full body extracted._
 
+### 2026-10-21 · The Huawei-DeepSeek Symbiosis
+_Huawei Ascend 950PR Deep dive & µbenchmarks, DSv4.1 Flash Analysis, DeepSeek support for Ascend, AICPU, Tilelang Ascend_
+
+- **Authors:** ["Bryan Shan", "Dylan Patel"]
+- **Access:** paid-preview
+- **URL:** https://newsletter.semianalysis.com/p/huawei-deepseek
+- **Corpus file:** `intelligence/_external_sources/semianalysis/2026-10-21-huawei-deepseek.md`
+
+> Right before China’s national day holidays, DeepSeek released Ascend support for [TileLang](https://github.com/tile-ai/tilelang), [DeepGEMM](https://github.com/deepseek-ai/DeepGEMM-Ascend), [DeepEP](https://github.com/deepseek-ai/DeepEP-Ascend), [TileKernels](https://github.com/deepseek-ai/TileKernels), [FlashMLA](https://github.com/deepseek-ai/FlashMLA), and [DeepSelect](https://github.com/deepseek-ai/DeepSelect).  Neither can do this alone. Although they have Pangu, Huawei has no frontier lab
+
 ### 2026-10-19 · Datacenters 2027: The Year of Acceleration, +50GW in a Single Year
 _60GW Under Construction, SemiAnalysis Leading Indicators, 1.3T of Lease Contracts Signed YTD, The Shortage Could Move to Chips_
 
@@ -121,19 +131,15 @@ _300+ moratoriums mapped, 20GW sits inside a restricted local boundary, 1,525MW 
 
 > The debate on US datacenters has never been so politically charged. Four states have acted in under two months. New York has stopped issuing environmental permits for datacenters, Texas has paused the next step in its massive ERCOT interconnection queue, Pennsylvania has pulled datacenters out of fast-track permitting and made state permits conditional on new guardrails, and Oregon has frozen datacenter deals on state-owned land.  Beyond the state level, more than 300 towns, cities and counties
 
-### 2026-09-14 · A Brain Too Big to Carry — On-Device vs Datacenter Inference
-_Robot Models, Silicon & DRAM Efficiency, Jetson Thor vs. B300 TCO, Deployments, The Network Wall_
-
-- **Authors:** ["Ivan Chiam", "Gianluca", "Zane Fong", "Bryan Shan", "Dylan Patel", "Reyk Knuhtsen"]
-- **Access:** paid-preview
-- **URL:** https://newsletter.semianalysis.com/p/a-brain-too-big-to-carry-on-device
-- **Corpus file:** `intelligence/_external_sources/semianalysis/2026-09-14-a-brain-too-big-to-carry-on-device.md`
-
-> # Where should the brain of the robot go?  So far, AI has mostly lived behind a screen. Chatbots answered questions. Then agents started driving software and finishing multi-step tasks on their own. The next step is AI that acts in the physical world, and the biggest piece of that is robots. It’s early. Nobody has settled the hardware, the models, or the economics.  ## The Embodiment Problem  With LLMs, the hardware bends to the model. Pour in as much data and compute as possible at training, th
-
 
 ## ⊕ GITHUB COMMITS + RELEASES, last 24h
 
+- **Subtensor (chain)** (COMMIT `25b3866`, 2026-10-21 21:33) Merge pull request #3274 from RaoFoundation/node-24  
+  https://github.com/RaoFoundation/subtensor/commit/25b3866e13abe5c0492624d6365b9c4e5f69ed27
+- **Subtensor (chain)** (RELEASE `v482`, 2026-10-21 19:59) Runtime 482  
+  https://github.com/RaoFoundation/subtensor/releases/tag/v482
+- **Subtensor (chain)** (COMMIT `68efb27`, 2026-10-21 18:34) Move website and deploy jobs to Node 24  
+  https://github.com/RaoFoundation/subtensor/commit/68efb270f9d12e478a92e6477db3e83ee0b91dd9
 - **Subtensor (chain)** (COMMIT `8cf229f`, 2026-10-21 15:16) Merge pull request #3271 from RaoFoundation/cursor/release-482-7a0d  
   https://github.com/RaoFoundation/subtensor/commit/8cf229f8ef969389d054a4c161b53ffd164a041f
 - **Subtensor (chain)** (COMMIT `bed6266`, 2026-10-21 14:21) Merge pull request #3231 from Keplerteron/fix/null-epoch-scheduler-livelock  
@@ -161,10 +167,24 @@ _no new posts in the lookback window_
 
 ## ⊕ X via NITTER, voices we track
 
+- @SemiAnalysis_ (SemiAnalysis, Wed, 21 Oct 2026): Huawei Ascend 950PR Deep dive &amp; µbenchmarks, DSv4.1 Flash Analysis, DeepSeek support for Ascend, AICPU, Tilelang Ascend newsletter.semianalysis.com/… Link The Huawei-DeepSeek Symbiosis Huawei Ascend 950PR Deep dive &amp; µbenchmarks, DSv4.1 Flash Analysis, DeepSeek support for Ascend newsletter.semianalysis.com  
+  https://nitter.kareem.one/SemiAnalysis_/status/2112965533754675280#m
+- @shibshib89 (Ala Shaabana, Wed, 21 Oct 2026): Something's always brewing at Crucible Labs. #Bittensor $TAO #Taowallet #validator Learn more at Cruciblelabs.com Video  
+  http://nitter.meowing.monster/CrucibleLabs/status/2112957401305682393#m
+- @SemiAnalysis_ (SemiAnalysis, Wed, 21 Oct 2026): Assuming 60% utilization, GB300 generates $50/GPU/hr profit at 125 TPS with Openrouter's prices, while DeepSeek makes $39/GPU/hr off-peak. As per Jenson, COMPUTE IS REVENUE. (5/5)  
+  https://nitter.kareem.one/SemiAnalysis_/status/2112950872627970158#m
+- @SemiAnalysis_ (SemiAnalysis, Wed, 21 Oct 2026): And vLLM on InferenceX performs extremely well. Explore our results, DSv4.1 serving results, configs, logs, and profit estimator on InferenceX.com (4/5)  
+  https://nitter.kareem.one/SemiAnalysis_/status/2112950870824345775#m
+- @SemiAnalysis_ (SemiAnalysis, Wed, 21 Oct 2026): vLLM has shown that they match DeepInfer’s published results on the same benchmark. (3/5) vLLM (@vllm_project) 🚨🚨🚨 vLLM is all you need to reproduce DeepSeek’s performance. With Wide-EP and EPLB, vLLM can match DeepInfer’s decode performance within 6% and generate $39/gpu/hr in revenue at DeepSeek’s off-peak pricing, at 200 P90 TPS on the AgentX workload. Specifically: • Under DeepSeek’s decode configuration (DeepSeek-V4.1-Flash, 131K context, nextn=3), vLLM on GB200 achieves throughput within 6% of DeepInfer’s published results across batch sizes 8–256. • On AgentX, vLLM pushes the Pareto fro  
+  https://nitter.kareem.one/SemiAnalysis_/status/2112950869733908505#m
+- @SemiAnalysis_ (SemiAnalysis, Wed, 21 Oct 2026): The current DeepInfer release only supports offline, single-turn inference, making comparisons InferenceX impossible. deepseek-recipe provides API infrastructure but the key load bearing components are still missing (2/5) github.com/deepseek-ai/deeps… Link GitHub - deepseek-ai/deepseek-recipe Contribute to deepseek-ai/deepseek-recipe development by creating an account on GitHub. github.com  
+  https://nitter.kareem.one/SemiAnalysis_/status/2112950868693672264#m
 - @a16zcrypto (a16z Crypto, Wed, 21 Oct 2026): A few reflections on the lattice vs. hash-only debate that our recent Aerie post sparked: 1. Cryptographic ossification for blockchains was never safe. Until the day we know with certainty that P ≠ NP, that finding short vectors in lattices is intractable, that Keccak effectively behaves like a random oracle in deployed SNARKs, and that every single bug has been eliminated from our codebases, blockchains cannot ossify. That is simply not how safe systems are built. Issues will arise, and the system will have to respond. It’s a double standard to reject lattices because blockchains are hard to   
   http://nitter.meowing.monster/SuccinctJT/status/2112706944548880442#m
 - @manakoai (Manako, Wed, 14 Oct 2026): And it’s the first highway station. Arno (@arnod3f) ladies and gentlemen. @manakoai is officially working with @Shell. deploying physical ai to better their fuel retail operations. lfgooooooo🔥👊🚀 — http://nitter.meowing.monster/arnod3f/status/2110397339126915400#m  
   http://nitter.meowing.monster/manakoai/status/2110408262357057824#m
+- @zeussubnet (Zeus Subnet, Wed, 14 Oct 2026): Zeus' full @ExploitSummit talk @RoryZeus breaks down the how and why of Zeus, shares what’s ahead, and pitches Zeus Pro and Zeus Edge 👇 Video  
+  http://nitter.meowing.monster/zeussubnet/status/2110380222285549666#m
 - @manakoai (Manako, Wed, 14 Oct 2026): 2 days of deployment ahead for @manakoai. today on some avia stations. tomorrow on a brand new fuel retail client. LFG 👊  
   http://nitter.meowing.monster/arnod3f/status/2110266332885172326#m
 - @rob_svrn (Rob Greer, Wed, 14 Oct 2026): TAO has a circulating supply of ~11.6M today, at a price of $280. BTC had a circulating supply of 11.6M in Sept 2013, with a price of ~$130. Might not feel like it, but we're ahead of schedule lads.  
@@ -181,6 +201,8 @@ _no new posts in the lookback window_
   https://nitter.kareem.one/airesearch12/status/2112661917814698442#m
 - @markjeffrey (Mark Jeffrey, Tue, 20 Oct 2026): Hippius is now more than earth's cheapest storage -- confidential VM's are now available (fully integrated with Hippius storage for backups and such). powered by Bittensor. Sign up: console.hippius.com/login?re…  
   https://nitter.kareem.one/markjeffrey/status/2112654887792337212#m
+- @shibshib89 (Ala Shaabana, Tue, 20 Oct 2026): eTAO is live, and we're already seeing some interesting shifts across #Bittensor. Some subnets are reducing their owner take to 0%, while others are moving to the 33% maximum. Different approaches, different priorities. It's early, but worth watching how these decisions play out. What would you want to see from a subnet before supporting its emissions strategy? Want to know more about eTAO? Learn more at: cruciblelabs.com/learn/etao Here's what we're seeing so far: taostats τ (@taostats) eTao is now live on chain. Alpha emission: 18:41:41 is the default, but subnet owners can now change the va  
+  http://nitter.meowing.monster/CrucibleLabs/status/2112629530548646155#m
 - @_redteam_ (RedTeam / Innerworks, Tue, 20 Oct 2026): Our new website is live at theredteam.io. It now tracks buybacks, conviction-locked alpha and monthly miner submissions live from the subnet, with the buyback wallet linked so anyone can verify it. You can also step through simulations of each detection line, follow a single bypass through the immune loop until the countermeasure ships, and find all of our research, mining guides and miner and validator docs in one place. Our new dashboard follows later this week. bittensor:native  
   http://nitter.meowing.monster/_redteam_/status/2112583927026393148#m
 - @_redteam_ (RedTeam / Innerworks, Tue, 20 Oct 2026): Our new website is live at theredteam.io. It now tracks buybacks, conviction-locked alpha and monthly miner submissions live from the subnet, with the buyback wallet linked so anyone can verify it. You can also step through simulations of each detection line, follow a single bypass through the immune loop until the countermeasure ships, and find all of our research, mining guides and miner and validator docs in one place. Our new dashboard follows later this week. bittensor:native  
@@ -201,6 +223,8 @@ _no new posts in the lookback window_
   http://nitter.meowing.monster/CoinDesk/status/2112537072149930469#m
 - @a16zcrypto (a16z Crypto, Tue, 20 Oct 2026): The countdown begins: Zero mainnet and lzATLAS go live on November 30. Video  
   http://nitter.meowing.monster/LayerZero_Core/status/2112529547614937453#m
+- @zeussubnet (Zeus Subnet, Tue, 20 Oct 2026): How long until Zeus miners launch their own satellites? 🛰️ CNN (@CNN) The Trump administration’s cuts to weather satellites will set the country back nearly a decade, experts say. The loss of data used to observe, forecast and research extreme weather could prevent the US from making major advances in weather prediction in the coming years. cnn.it/4k6eD4o Link Trump admin cuts to satellites will set back US weather forecasting by a decade | CNN The Trump administration reduced the number of planned US weather satellites and removed key tools. Experts say it will set our weather forecasts back   
+  http://nitter.meowing.monster/zeussubnet/status/2112519955950530719#m
 - @a16zcrypto (a16z Crypto, Tue, 20 Oct 2026): This is a must listen a16z crypto (@a16zcrypto) AI is getting better at solving hard math problems, especially given recent drops. But what does that mean for the cryptography that protects everything from private messages to healthcare to banking and crypto wallets? Stanford cryptographer Dan Boneh, with @eddylazzarin, @SuccinctJT, @liz_harkavy, and @smc90, makes sense of the warnings sounded recently. They cover: - what’s fact vs. assumption - what’s new and what risks cryptographers have long prepared for - where quantum computing doesn't (and does) fit - opportunities for builders Highligh  
   http://nitter.meowing.monster/ahall_research/status/2112333037279318336#m
 - @nigescore (Nige, Tue, 15 Sep 2026): The physical world still can’t talk to software. A billion cameras watch factories, stations, warehouses, and stores every second. Almost none of that footage becomes action. That’s what we build at Manako. Today we join F/ai at @joinstationf The program that put OpenAI, Anthropic, Google, Meta, Microsoft and top-tier VCs behind a handful of AI-native teams. Honoured. Focused. Shipping.  
@@ -215,6 +239,8 @@ _no new posts in the lookback window_
   http://nitter.meowing.monster/datapointai/status/2082837314603032606#m
 - @dippy_ai (Dippy AI, Thu, 27 Aug 2026): we have significantly upgraded both the basic and super models 🤩🤩 we have also made optimizations to improve response speeds by upto 5x can't wait for you all to experience and enjoy the new dippy 📯📯😸 rolling out to everyone today  
   http://nitter.meowing.monster/dippy_ai/status/2093089771824226802#m
+- @shibshib89 (Ala Shaabana, Thu, 15 Oct 2026): Research a subnet. Open your wallet. Click away. Wallet disappears. Repeat. 🙃 We fixed that. Crucible Wallet now supports Chrome's Side Panel, so you can keep your wallet open while researching subnets, checking charts, staking, or swapping. Less back and forth. More time actually doing what you came to do.  
+  http://nitter.meowing.monster/CrucibleLabs/status/2110795579249111046#m
 - @KyleSamani (Kyle Samani, Thu, 15 Oct 2026): [Speaker Announcement] "Solana is becoming the settlement layer for Internet capital markets." @KyleSamani, co-founder of Multicoin Capital and chairman of @FWDind, joins us at Breakpoint in London, 15-17 November. Video  
   http://nitter.meowing.monster/SolanaEvents/status/2110792882408013987#m
 - @manakoai (Manako, Thu, 15 Oct 2026): Hello World(s)  
@@ -233,35 +259,15 @@ _no new posts in the lookback window_
   https://nitter.kareem.one/markjeffrey/status/2098171401152971021#m
 - @dippy_ai (Dippy AI, Thu, 04 Jun 2026): Today, we’re opening up Datapoint AI for anyone to use. It is by far the fastest way to understand what your customers want. Type a question. Real people answer. You get a report back in ~10 minutes, not three weeks, and at a fraction of the cost. Video  
   http://nitter.meowing.monster/datapointai/status/2062563294880075837#m
+- @PanteraCapital (Pantera Capital, Sun, 18 Oct 2026): Tonight at @money2020: @dan_pantera keynotes the Main Stage at 5pm. See you there.  
+  http://nitter.meowing.monster/PanteraCapital/status/2111929448320954736#m
 - @BarrySilbert (Barry Silbert, Sun, 18 Oct 2026): “Zcash has been the most proactive in terms of quantum preparedness.” -@nic_carter Video  
   https://nitter.kareem.one/_TomHoward/status/2111917546022854862#m
 - @BarrySilbert (Barry Silbert, Sun, 18 Oct 2026): “Zcash has been the most proactive in terms of quantum preparedness.” -@nic_carter Video  
   http://nitter.meowing.monster/_TomHoward/status/2111917546022854862#m
 - @dippy_ai (Dippy AI, Sun, 09 Aug 2026): We are experiencing an issue with our database provider @supabase , so the app &amp; website may be down for a few more hours. We’ll send a notification when we are able to recover and the app is back to normal! Apologies for the inconvenience 😿😿  
   http://nitter.meowing.monster/dippy_ai/status/2086595242422149540#m
-- @nigescore (Nige, Sat, 19 Sep 2026): We’re completing our first 20 reference deployments, led by our CEO and engineering team, and the headline finding is that Manako is genuinely plug and play. No specialist integration required: a unit can be shipped to site and connected by anyone on the ground. That’s what makes our next phase possible. Our integration partners will roll out at scale on a simple, repeatable install, with less time on site and lower cost per deployment.  
-  http://nitter.meowing.monster/manakoai/status/2101403529558577403#m
-- @rob_svrn (Rob Greer, Sat, 17 Oct 2026): Really interesting convo below from this weeks all in on why a16z stays away from the neoclouds, and it made something click for me about Bittensor. @bhorowitz point is that scaling compute on debt is a dangerous arbitrage business, and he lived it in 99 when bandwidth was $1,500/megabit and the only way to get it was a 3 year contract. By 2001 it was $50 - If you were holding that on borrowed money you were dead. His case for $CRWV being different is that AI compute is in a massive shortage, so GPU and data center prices keep rising. Maybe he's right. But the neocloud model is still a levered  
-  http://nitter.meowing.monster/0xSunRun/status/2111550951329054825#m
-- @_redteam_ (RedTeam / Innerworks, Mon, 28 Sep 2026): "We're not afraid of hyper-intelligent bot swarms on the internet. We use them to optimise our technology." When we launched RedTeam almost two years ago we could clearly see where the internet was heading. We've since seen clients with over 90% of their traffic made up of not just automation but highly intelligent bot swarms, capable of bypassing any traditional detection mechanism. The only way to combat a threat like this is to welcome it and learn from it. By constantly ingesting and evolving attack vectors from a hive mind of miners, a Bittensor powered defence has now become the only rel  
-  http://nitter.meowing.monster/_redteam_/status/2104643110911533312#m
-- @_redteam_ (RedTeam / Innerworks, Mon, 28 Sep 2026): "We're not afraid of hyper-intelligent bot swarms on the internet. We use them to optimise our technology." When we launched RedTeam almost two years ago we could clearly see where the internet was heading. We've since seen clients with over 90% of their traffic made up of not just automation but highly intelligent bot swarms, capable of bypassing any traditional detection mechanism. The only way to combat a threat like this is to welcome it and learn from it. By constantly ingesting and evolving attack vectors from a hive mind of miners, a Bittensor powered defence has now become the only rel  
-  https://nitter.kareem.one/_redteam_/status/2104643110911533312#m
-- @a16zcrypto (a16z Crypto, Mon, 19 Oct 2026): Great panel with @brian__foster and @MuyaoShen at @money2020. It’s about bringing finance onto the internet. A lot of finance still runs on Excel spreadsheets, and it’s no longer about tradfi or DeFi, it’s about making finance move at the speed of the internet. On the crypto side we have to update the words we use to meet traditional finance where they are. DeFi and decentralization doesn’t mean a ton yet but reducing counter party risk does. It was great to be onstage at Money2020 to help that translation process.  
-  http://nitter.meowing.monster/guywuolletjr/status/2112263675365216496#m
-- @a16zcrypto (a16z Crypto, Mon, 19 Oct 2026): Every day, 10 to 15 people make their first $20K on @whop. Today, Lightspark powers a new way for them to cash out instantly to their bank accounts. Video  
-  http://nitter.meowing.monster/lightspark/status/2112259603023171928#m
-- @BarrySilbert (Barry Silbert, Mon, 19 Oct 2026): HeartSciences (Nasdaq: $HSCS) has filed its definitive proxy statement with the SEC in connection with the proposed business combination with Fortitude. See important additional information here: ir.heartsciences.com/sec-fil… and fortitudemining.com/disclaim…. $ZEC  
-  https://nitter.kareem.one/FortitudeCrypto/status/2112157172897591371#m
-- @BarrySilbert (Barry Silbert, Mon, 19 Oct 2026): HeartSciences (Nasdaq: $HSCS) has filed its definitive proxy statement with the SEC in connection with the proposed business combination with Fortitude. See important additional information here: ir.heartsciences.com/sec-fil… and fortitudemining.com/disclaim…. $ZEC  
-  http://nitter.meowing.monster/FortitudeCrypto/status/2112157172897591371#m
-- @BarrySilbert (Barry Silbert, Mon, 19 Oct 2026): Zcash Developer Zakura Proposes Fix to Stop Quantum Computers Linking Shielded Swaps decrypt.co/381257/zcash-deve… Link Zcash Developer Zakura Proposes Fix to Stop Quantum Computers Linking Shielded Swaps - Decrypt Zakura says a single published Zcash address could let a future quantum attacker link every payment a wallet has ever received. decrypt.co  
-  https://nitter.kareem.one/DecryptMedia/status/2112124723660312585#m
-- @BarrySilbert (Barry Silbert, Mon, 19 Oct 2026): Zcash Developer Zakura Proposes Fix to Stop Quantum Computers Linking Shielded Swaps decrypt.co/381257/zcash-deve… Link Zcash Developer Zakura Proposes Fix to Stop Quantum Computers Linking Shielded Swaps - Decrypt Zakura says a single published Zcash address could let a future quantum attacker link every payment a wallet has ever received. decrypt.co  
-  http://nitter.meowing.monster/DecryptMedia/status/2112124723660312585#m
-- @BarrySilbert (Barry Silbert, Mon, 19 Oct 2026): INSIGHT: @Zcash developers propose giving every $ZEC swap through NEAR Intents its own private key, closing a gap that a future quantum computer could exploit to piece together a user’s payment history before the January quantum-resistance deadline.  
-  https://nitter.kareem.one/CoinDesk/status/2112124064492114333#m
 
 
 ---
-_Generated at 2026-10-21T16:27:11.670298+00:00 by scripts/intel/aggregate.py. Treat this digest as input context, not as ground truth. Verify before quoting._
+_Generated at 2026-10-21T22:59:37.728214+00:00 by scripts/intel/aggregate.py. Treat this digest as input context, not as ground truth. Verify before quoting._
