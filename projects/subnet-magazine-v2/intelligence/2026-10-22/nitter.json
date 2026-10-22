@@ -1,0 +1,172 @@
+[
+  {
+    "handle": "PanteraCapital",
+    "name": "Pantera Capital",
+    "posted_at": "Wed, 21 Oct 2026 22:53:24 GMT",
+    "title": "RT by @PanteraCapital: Just wrapped Money20/20. My biggest takeaway as a VC: the two forces reshaping fintech right now are AI agents and stablecoins. @SirDigitalDan from @CoinflowLabs and I dug into both in our fireside. Some takeaways: * Where will value accrue? AI is collapsing the cost of cognition, and stablecoins the cost of settlement. This changes value accrual, when those inputs aren’t scarce. I’m expecting value to migrate to regulated trust, proprietary data, distribution, underlying physical assets, networks. * What does stablecoins as programmable money unlock? Funds and spending rules can execute together, letting a product enforce agent budgets or trigger conditional payouts with less coordination across banks, processors and operational teams. * Where is agent demand emerging? Dan pointed to compute, inference and data APIs, which agents need to complete tasks. I’m looking for infra on fraud, KYA, chargebacks, and merchant side ops to help proliferate agentic commerce usage. * Who carries agent liability? A purchase can comply with the spending rules and still be a mistake. Before delegating larger budgets, businesses will want audit trails, a way to dispute purchases and an agreement on who absorbs losses. * Where’s the distribution advantage? Local integrations and merchant relationships give providers access to existing payment volume. Stablecoins can improve settlement without changing how customers pay. (Coinflow connects cards, ACH and PIX this way.) * How do existing PSPs participate? A provider can earn a processing fee when a developer funds an agent by card, even if subsequent payments settle in stablecoins. (Coinflow powers card funding for Tempo’s MPP Credits.) Thanks for the week @money2020! Curious what others took away too!",
+    "text": "Just wrapped Money20/20. My biggest takeaway as a VC: the two forces reshaping fintech right now are AI agents and stablecoins. @SirDigitalDan from @CoinflowLabs and I dug into both in our fireside. Some takeaways: * Where will value accrue? AI is collapsing the cost of cognition, and stablecoins the cost of settlement. This changes value accrual, when those inputs aren’t scarce. I’m expecting value to migrate to regulated trust, proprietary data, distribution, underlying physical assets, networks. * What does stablecoins as programmable money unlock? Funds and spending rules can execute toget",
+    "url": "http://nitter.meowing.monster/stutireal/status/2113040986909655520#m",
+    "fetched_at": "2026-10-22T02:49:04.266796+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "zeussubnet",
+    "name": "Zeus Subnet",
+    "posted_at": "Wed, 14 Oct 2026 14:40:28 GMT",
+    "title": "Zeus' full @ExploitSummit talk @RoryZeus breaks down the how and why of Zeus, shares what’s ahead, and pitches Zeus Pro and Zeus Edge 👇",
+    "text": "Zeus' full @ExploitSummit talk @RoryZeus breaks down the how and why of Zeus, shares what’s ahead, and pitches Zeus Pro and Zeus Edge 👇 Video",
+    "url": "http://nitter.meowing.monster/zeussubnet/status/2110380222285549666#m",
+    "fetched_at": "2026-10-22T02:50:52.808033+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "foundrydigital",
+    "name": "Foundry Digital",
+    "posted_at": "Wed, 11 Jan 2012 23:30:33 GMT",
+    "title": "Expression Engine 2.0 review by the guys at Scriptiny http://bit.ly/w3Pg3R",
+    "text": "Expression Engine 2.0 review by the guys at Scriptiny bit.ly/w3Pg3R",
+    "url": "http://nitter.jaydenha.uk/foundrydigital/status/157243024848596993#m",
+    "fetched_at": "2026-10-22T02:49:11.995481+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "rob_svrn",
+    "name": "Rob Greer",
+    "posted_at": "Tue, 20 Oct 2026 16:37:06 GMT",
+    "title": "RT by @rob_svrn: Exactly How Bittensor TAO Will Hit $1,000,000",
+    "text": "Exactly How Bittensor TAO Will Hit $1,000,000 Video",
+    "url": "http://nitter.jaydenha.uk/TAOTemplar/status/2112583900107096395#m",
+    "fetched_at": "2026-10-22T02:48:26.558898+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "zeussubnet",
+    "name": "Zeus Subnet",
+    "posted_at": "Tue, 20 Oct 2026 12:23:00 GMT",
+    "title": "How long until Zeus miners launch their own satellites? 🛰️",
+    "text": "How long until Zeus miners launch their own satellites? 🛰️ CNN (@CNN) The Trump administration’s cuts to weather satellites will set the country back nearly a decade, experts say. The loss of data used to observe, forecast and research extreme weather could prevent the US from making major advances in weather prediction in the coming years. cnn.it/4k6eD4o Link Trump admin cuts to satellites will set back US weather forecasting by a decade | CNN The Trump administration reduced the number of planned US weather satellites and removed key tools. Experts say it will set our weather forecasts back ",
+    "url": "http://nitter.meowing.monster/zeussubnet/status/2112519955950530719#m",
+    "fetched_at": "2026-10-22T02:50:52.808033+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "rob_svrn",
+    "name": "Rob Greer",
+    "posted_at": "Thu, 15 Oct 2026 15:49:21 GMT",
+    "title": "RT by @rob_svrn: We've developed a new inference engine, called 'e'. It's the closest thing to alien technology which we have, and pushes 10,500 tok/s aggregate on a single DGX Station with the new @NVIDIAAI Nemotron 3.5 Super VL model, released a few minutes ago.",
+    "text": "We've developed a new inference engine, called 'e'. It's the closest thing to alien technology which we have, and pushes 10,500 tok/s aggregate on a single DGX Station with the new @NVIDIAAI Nemotron 3.5 Super VL model, released a few minutes ago. Actual Computer (@actualinc) Actual Computer turns your NVIDIA DGX Station into a department-scale AI factory. Read the full case study: actual.inc/company/blog/case… Link Actual Computer › Case Study : GB300 and Nemotron 3.5 Super VL Department-scale AI from one NVIDIA DGX Station: Nemotron 3.5 Super VL at 8,000+ tokens per second, shared by your wh",
+    "url": "http://nitter.jaydenha.uk/somewheresy/status/2110759944370692216#m",
+    "fetched_at": "2026-10-22T02:48:26.558898+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "rob_svrn",
+    "name": "Rob Greer",
+    "posted_at": "Thu, 15 Oct 2026 15:48:04 GMT",
+    "title": "RT by @rob_svrn: Actual Computer turns your NVIDIA DGX Station into a department-scale AI factory. Read the full case study: https://actual.inc/company/blog/case-study-dgx-station-and-nemotron-3-5-super-vl",
+    "text": "Actual Computer turns your NVIDIA DGX Station into a department-scale AI factory. Read the full case study: actual.inc/company/blog/case… Link Actual Computer › Case Study : GB300 and Nemotron 3.5 Super VL Department-scale AI from one NVIDIA DGX Station: Nemotron 3.5 Super VL at 8,000+ tokens per second, shared by your whole team through api.actual.inc. actual.inc",
+    "url": "http://nitter.jaydenha.uk/actualinc/status/2110759623435117020#m",
+    "fetched_at": "2026-10-22T02:48:26.558898+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "rob_svrn",
+    "name": "Rob Greer",
+    "posted_at": "Sat, 17 Oct 2026 20:12:32 GMT",
+    "title": "RT by @rob_svrn: Really interesting convo below from this weeks all in on why a16z stays away from the neoclouds, and it made something click for me about Bittensor. @bhorowitz point is that scaling compute on debt is a dangerous arbitrage business, and he lived it in 99 when bandwidth was $1,500/megabit and the only way to get it was a 3 year contract. By 2001 it was $50 - If you were holding that on borrowed money you were dead. His case for $CRWV being different is that AI compute is in a massive shortage, so GPU and data center prices keep rising. Maybe he's right. But the neocloud model is still a levered bet that GPU scarcity outlasts the debt, because they borrow against the GPUs and the lenders get paid on a schedule whether or not the market cooperates. A compute subnet on Bittensor is basically a decentralized neocloud that doesn't need any of that. There's no GPU purchase to finance (miners show up with their own hardware) and no 3 year capacity contract to get stuck holding if prices move. The token + the network do the job the debt does for CoreWeave. Emissions bootstrap the supply side, and as demand and revenue grow the subnet puts that value back into its token, which raises what miners earn and pulls more compute onto the network. The token is the lever that scales how much compute you can harvest and coordinate. So if GPU pricing ever pulls a Loudcloud, the subnet doesn't blow up, its incentives just buy more compute than they used to. With no debt there's nothing to default on, and nobody can call a loan or force a fire sale. The risk you take on instead is token volatility, which you manage with a treasury (keep cash on hand and use it to support your token through drawdowns). A bad market can starve a subnet for a while, but one with real demand underneath it can ride that out. The tradeoff is a slower, more gradual build. A neocloud can borrow its way to a giant cluster fast, while a subnet's capacity grows with the size of the network and the token. What you get in exchange is a far more durable business, mostly because of where the supply comes from. You're tapping a bunch of long tails of compute that a neocloud can't really get at: >people who own their own hardware and want to monetize it when they're not using it >slack capacity in data centers (nobody runs at 100%), which can get sold into the subnet's spot market instead of sitting idle >sunk cost hardware, i.e. paid off GPUs that can't get a contract for anything else >operators in places with cheap power that no lender would ever underwrite a data center for Once a card is paid off the main ongoing cost is power, which even on an H100 is something like 5-10 cents an hour depending on where you are. So a lot of this supply is pretty price insensitive. They make more when the token is higher, but a 50% drawdown in miner rewards eats into their margin and plenty of them keep mining anyway. That gives you a structural supply floor that doesn't really care what the token (and therefore the miner reward) is doing day to day. Then as network value and the token go up, you progressively unlock compute that's more price sensitive (financed GPUs that still have to pay themselves off, US data centers with pricier power, etc). Each one joins once mining becomes economic for it, and you get a flywheel: token up → more of the world's compute profitable to plug in → more capacity to sell → more revenue → more value back into the token → repeat. Every GPU that joins also makes the network cheaper and more reliable to buy from, so you get a real network effect on top of removing the debt risk. And in the limit it can reach more compute than any single hyperscaler could ever build or finance, because the supply side is permissionless and global. You start by tapping into the world's edge compute, and over time the rest of the world's compute comes online as it makes economic sense for whoever owns it.",
+    "text": "Really interesting convo below from this weeks all in on why a16z stays away from the neoclouds, and it made something click for me about Bittensor. @bhorowitz point is that scaling compute on debt is a dangerous arbitrage business, and he lived it in 99 when bandwidth was $1,500/megabit and the only way to get it was a 3 year contract. By 2001 it was $50 - If you were holding that on borrowed money you were dead. His case for $CRWV being different is that AI compute is in a massive shortage, so GPU and data center prices keep rising. Maybe he's right. But the neocloud model is still a levered",
+    "url": "http://nitter.jaydenha.uk/0xSunRun/status/2111550951329054825#m",
+    "fetched_at": "2026-10-22T02:48:26.558898+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "PanteraCapital",
+    "name": "Pantera Capital",
+    "posted_at": "Mon, 19 Oct 2026 17:09:13 GMT",
+    "title": "RT by @PanteraCapital: Introducing OpenAI Private Market Note (OPAIPon). Tokenized exposure to OpenAI is now trading 24/7 on Ondo Perps' permissionless spot order book. Trade now → https://app.ondoperps.xyz/trade/spot/OPAIPon-USDC",
+    "text": "Introducing OpenAI Private Market Note (OPAIPon). Tokenized exposure to OpenAI is now trading 24/7 on Ondo Perps' permissionless spot order book. Trade now → app.ondoperps.xyz/trade/spot…",
+    "url": "http://nitter.meowing.monster/OndoPerps/status/2112229594262864278#m",
+    "fetched_at": "2026-10-22T02:49:04.266796+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "PanteraCapital",
+    "name": "Pantera Capital",
+    "posted_at": "Mon, 19 Oct 2026 15:25:48 GMT",
+    "title": "R to @PanteraCapital: YouTube: https://youtu.be/FSXjrbM_QT8 Spotify: https://open.spotify.com/episode/4LArppABNU57TljrNrnyRK?si=711f8da4822443b3 Apple Podcasts: https://podcasts.apple.com/us/podcast/why-tokenization-doesnt-guarantee-liquidity-with-fission/id1843681425?i=1000797096765",
+    "text": "YouTube: piped.video/FSXjrbM_QT8 Spotify: open.spotify.com/episode/4LA… Apple Podcasts: podcasts.apple.com/us/podcas… Link Why Tokenization Doesn&apos;t Guarantee Liquidity with Fission Franklin Bi sits down with Jon Shaffer, CEO of Fission, and Steve B... youtube.com",
+    "url": "http://nitter.meowing.monster/PanteraCapital/status/2112203570443399602#m",
+    "fetched_at": "2026-10-22T02:49:04.266796+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "PanteraCapital",
+    "name": "Pantera Capital",
+    "posted_at": "Mon, 19 Oct 2026 15:25:47 GMT",
+    "title": "Tokenization does not create liquidity. Somebody has to underwrite the risk. Jon Shaffer and @steveonchain (Fission, @FissionXYZ) join Stateful, hosted by Franklin Bi, as we announce our investment leading their Series A: - $18 trillion in private markets, still running on paper and subscription agreements - Fission prices duration risk, not NAV. Asset managers retain control over their own valuations. - The market is capped at 6% to 7% yields because that is all you get with baked-in liquidity - The goal: double-digit returns with daily liquidity - Hot take: CLARITY failing in Congress may be the best thing that could have happened to tokenization 01:00 Origin Stories and Why Tokenization Doesn't Create Liquidity 05:50 The Series A and the $500 Billion Semi-Liquid Market 13:00 Why Private Markets Instead of Public Equities 19:15 Pricing Duration Risk Instead of Repricing NAV 24:55 Why Private Markets Need Their Own Venue 38:15 AI Pricing, Portfolio Construction, and Agentic Rebalancing 45:25 Hot Take: Why the CLARITY Act Failing Helps Tokenization",
+    "text": "Tokenization does not create liquidity. Somebody has to underwrite the risk. Jon Shaffer and @steveonchain (Fission, @FissionXYZ) join Stateful, hosted by Franklin Bi, as we announce our investment leading their Series A: - $18 trillion in private markets, still running on paper and subscription agreements - Fission prices duration risk, not NAV. Asset managers retain control over their own valuations. - The market is capped at 6% to 7% yields because that is all you get with baked-in liquidity - The goal: double-digit returns with daily liquidity - Hot take: CLARITY failing in Congress may be",
+    "url": "http://nitter.meowing.monster/PanteraCapital/status/2112203565515104714#m",
+    "fetched_at": "2026-10-22T02:49:04.266796+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "zeussubnet",
+    "name": "Zeus Subnet",
+    "posted_at": "Mon, 19 Oct 2026 14:35:55 GMT",
+    "title": "Is Zeus Pro getting better over time? Yes! From June to September, Zeus Pro showed statistically significant improvements in relative forecasting skill against four operational baselines. Competitive pressure on Bittensor: a mechanism for real innovation. 🔗 http://zeussubnet.com/zeus-pro-analysis",
+    "text": "Is Zeus Pro getting better over time? Yes! From June to September, Zeus Pro showed statistically significant improvements in relative forecasting skill against four operational baselines. Competitive pressure on Bittensor: a mechanism for real innovation. 🔗 zeussubnet.com/zeus-pro-anal…",
+    "url": "http://nitter.meowing.monster/zeussubnet/status/2112191017919094953#m",
+    "fetched_at": "2026-10-22T02:50:52.808033+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "PanteraCapital",
+    "name": "Pantera Capital",
+    "posted_at": "Mon, 19 Oct 2026 01:37:32 GMT",
+    "title": "RT by @PanteraCapital: In 2024, an employee at engineering firm Arup transferred $25.6 million after joining a video call where every other participant was a deepfake. Since then, AI has advanced significantly and is making impersonation increasingly convincing, causing challenges for financial institutions in particular. As autonomous agents begin handling more financial activity on behalf of people, establishing an added layer of trust and security behind a transaction or sensitive conversation is becoming an urgent need. Introducing @world_id for banking and finance, a suite of technologies that helps institutions establish trust through privacy-preserving cryptographic Proofs. World ID for Zoom lets meeting participants confirm they are the same Orb-verified human connected to their account, while World ID for agents allows AI agents to carry Proofs delegated by people. Bain Capital, OpenExchange, Outtake, Pantera Capital, and VanEck Funds are initial design partners, bringing World ID into some of finance's most consequential interactions. https://fortune.com/2026/10/18/zoom-adds-proof-of-human-feature-to-stop-deep-fakes-toowith-tech/",
+    "text": "In 2024, an employee at engineering firm Arup transferred $25.6 million after joining a video call where every other participant was a deepfake. Since then, AI has advanced significantly and is making impersonation increasingly convincing, causing challenges for financial institutions in particular. As autonomous agents begin handling more financial activity on behalf of people, establishing an added layer of trust and security behind a transaction or sensitive conversation is becoming an urgent need. Introducing @world_id for banking and finance, a suite of technologies that helps institution",
+    "url": "http://nitter.meowing.monster/worldnetwork/status/2111995130400178238#m",
+    "fetched_at": "2026-10-22T02:49:04.266796+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "zeussubnet",
+    "name": "Zeus Subnet",
+    "posted_at": "Mon, 12 Oct 2026 16:03:38 GMT",
+    "title": "US natural gas traders are betting on a mild winter, with net-short positions exceeding 140K contracts. ❄️ But unexpected cold snaps will turn the market upside down. This winter, it's about the next 10 days of weather. Zeus temperature forecasts as population-weighted HDD/CDD output. Soon directly usable in natural gas trading setups.",
+    "text": "US natural gas traders are betting on a mild winter, with net-short positions exceeding 140K contracts. ❄️ But unexpected cold snaps will turn the market upside down. This winter, it's about the next 10 days of weather. Zeus temperature forecasts as population-weighted HDD/CDD output. Soon directly usable in natural gas trading setups.",
+    "url": "http://nitter.meowing.monster/zeussubnet/status/2109676376160690225#m",
+    "fetched_at": "2026-10-22T02:50:52.808033+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "foundrydigital",
+    "name": "Foundry Digital",
+    "posted_at": "Mon, 02 Jan 2012 23:00:41 GMT",
+    "title": "Early predictions for design trends of 2012? http://tiny.cc/mkg4v",
+    "text": "Early predictions for design trends of 2012? tiny.cc/mkg4v",
+    "url": "http://nitter.jaydenha.uk/foundrydigital/status/153974018557493248#m",
+    "fetched_at": "2026-10-22T02:49:11.995481+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "zeussubnet",
+    "name": "Zeus Subnet",
+    "posted_at": "Fri, 18 Sep 2026 15:57:01 GMT",
+    "title": "RT by @zeussubnet: NEW! Full-on benchmarking environment to see how Zeus performs, where and when. Zeus vs ECMWF’s IFS & AIFS singles and ensembles, across regions, lead times and variables. 🔗 https://zeussubnet.com/benchmarks",
+    "text": "NEW! Full-on benchmarking environment to see how Zeus performs, where and when. Zeus vs ECMWF’s IFS &amp; AIFS singles and ensembles, across regions, lead times and variables. 🔗 zeussubnet.com/benchmarks",
+    "url": "http://nitter.meowing.monster/zeussubnet/status/2100977402302054430#m",
+    "fetched_at": "2026-10-22T02:50:52.808033+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "rob_svrn",
+    "name": "Rob Greer",
+    "posted_at": "Fri, 16 Oct 2026 22:03:19 GMT",
+    "title": "",
+    "text": "Actual Computer (@actualinc) Actual Computer turns your NVIDIA DGX Station into a department-scale AI factory. Read the full case study: actual.inc/company/blog/case… Link Actual Computer › Case Study : GB300 and Nemotron 3.5 Super VL Department-scale AI from one NVIDIA DGX Station: Nemotron 3.5 Super VL at 8,000+ tokens per second, shared by your whole team through api.actual.inc. actual.inc — http://nitter.jaydenha.uk/actualinc/status/2110759623435117020#m",
+    "url": "http://nitter.jaydenha.uk/NVIDIAAI/status/2111216445925498993#m",
+    "fetched_at": "2026-10-22T02:48:26.558898+00:00",
+    "via_instance": "https://nitter.cz"
+  }
+]
