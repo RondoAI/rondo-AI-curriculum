@@ -10,6 +10,16 @@
     "via_instance": "https://nitter.cz"
   },
   {
+    "handle": "jtledore",
+    "name": "Jean-Thomas Ledoré",
+    "posted_at": "Wed, 21 Oct 2026 23:07:30 GMT",
+    "title": "RT by @jtledore: Use @taoswap_org. We don't use PHP and we are very careful with security patches.",
+    "text": "Use @taoswap_org. We don't use PHP and we are very careful with security patches. CZ 🔶 BNB (@cz_binance) Call me paranoid, but be extra careful visiting ANY web site in the next few days, as some web admins are not always up-to-date with security patches. Two vulnerabilities (CVE-2026-109618 and CVE-2026-109619) reported for PHP, the web programming language, affecting servers running popular apps like WordPress and Magento, with patches released October 21, 2026 after details leaked early. Exploitation was confirmed in the wild soon after disclosure, prompting quick WAF protections and patchi",
+    "url": "https://nitter.kareem.one/Rapido_ai/status/2113044536184176806#m",
+    "fetched_at": "2026-10-22T22:55:36.858083+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
     "handle": "wallstreetbets",
     "name": "WallStreetBets (X)",
     "posted_at": "Wed, 21 Oct 2026 23:01:37 GMT",
@@ -160,6 +170,16 @@
     "via_instance": "https://nitter.cz"
   },
   {
+    "handle": "jtledore",
+    "name": "Jean-Thomas Ledoré",
+    "posted_at": "Wed, 21 Oct 2026 16:19:56 GMT",
+    "title": "RT by @jtledore: The web before the AI boom? In early 2023, WordPress powered 43.1% of sites. PHP powered 77.7% of sites with an identifiable backend language. \"Boring\" tech built the internet.",
+    "text": "The web before the AI boom? In early 2023, WordPress powered 43.1% of sites. PHP powered 77.7% of sites with an identifiable backend language. \"Boring\" tech built the internet. NSA Cyber (@NSACyber) Effective Immediately, all organizations using PHP for their systems are advised to be prepared for an update addressing two critical vulnerabilities. PHP is widely used for web applications. These vulnerabilities often provide a direct path to the server's file system or database. If an immediate update is not feasible, it is recommend that organizations take the system offline until it can be ful",
+    "url": "https://nitter.kareem.one/Rapido_ai/status/2112941968997409032#m",
+    "fetched_at": "2026-10-22T22:55:36.858083+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
     "handle": "webuildscore",
     "name": "Score",
     "posted_at": "Wed, 21 Oct 2026 14:21:59 GMT",
@@ -260,6 +280,16 @@
     "via_instance": "https://nitter.cz"
   },
   {
+    "handle": "foundrydigital",
+    "name": "Foundry Digital",
+    "posted_at": "Wed, 11 Jan 2012 23:30:33 GMT",
+    "title": "Expression Engine 2.0 review by the guys at Scriptiny http://bit.ly/w3Pg3R",
+    "text": "Expression Engine 2.0 review by the guys at Scriptiny bit.ly/w3Pg3R",
+    "url": "http://nitter.meowing.monster/foundrydigital/status/157243024848596993#m",
+    "fetched_at": "2026-10-22T22:54:59.281232+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
     "handle": "nigescore",
     "name": "Nige",
     "posted_at": "Wed, 09 Sep 2026 10:18:25 GMT",
@@ -330,6 +360,16 @@
     "via_instance": "https://nitter.cz"
   },
   {
+    "handle": "jtledore",
+    "name": "Jean-Thomas Ledoré",
+    "posted_at": "Tue, 20 Oct 2026 16:38:32 GMT",
+    "title": "RT by @jtledore: Owners reducing Validators emissions don't understand they simply reduce stakers yield I think. Don't forget who push your alpha token price, is it your revenues or your stakers ?",
+    "text": "Owners reducing Validators emissions don't understand they simply reduce stakers yield I think. Don't forget who push your alpha token price, is it your revenues or your stakers ?",
+    "url": "https://nitter.kareem.one/Rapido_ai/status/2112584259932127644#m",
+    "fetched_at": "2026-10-22T22:55:36.858083+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
     "handle": "_redteam_",
     "name": "RedTeam / Innerworks",
     "posted_at": "Tue, 20 Oct 2026 16:37:12 GMT",
@@ -390,6 +430,16 @@
     "via_instance": "https://nitter.cz"
   },
   {
+    "handle": "jtledore",
+    "name": "Jean-Thomas Ledoré",
+    "posted_at": "Tue, 20 Oct 2026 16:18:48 GMT",
+    "title": "RT by @jtledore: Introducing eTAO: a new system giving subnets control over their alpha emission split. Subnet owners can now decide how much goes to miners, validators, and themselves, based on the specific needs of their subnet.",
+    "text": "Introducing eTAO: a new system giving subnets control over their alpha emission split. Subnet owners can now decide how much goes to miners, validators, and themselves, based on the specific needs of their subnet. Video",
+    "url": "https://nitter.kareem.one/opentensor/status/2112579296137290075#m",
+    "fetched_at": "2026-10-22T22:55:36.858083+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
     "handle": "const_reborn",
     "name": "Jacob Steeves",
     "posted_at": "Tue, 20 Oct 2026 16:00:03 GMT",
@@ -427,6 +477,16 @@
     "text": "eTAO went live yesterday, and the new subnet emission splits are already visible on Taoswap. The Subnets table now shows how emissions are distributed between owners, validators, and miners, including the portion burned. Open any subnet page for a full visual breakdown. Video",
     "url": "http://nitter.meowing.monster/taoswap_org/status/2112515640200429752#m",
     "fetched_at": "2026-10-22T09:05:38.203785+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "jtledore",
+    "name": "Jean-Thomas Ledoré",
+    "posted_at": "Tue, 20 Oct 2026 12:05:51 GMT",
+    "title": "RT by @jtledore: eTAO went live yesterday, and the new subnet emission splits are already visible on Taoswap. The Subnets table now shows how emissions are distributed between owners, validators, and miners, including the portion burned. Open any subnet page for a full visual breakdown.",
+    "text": "eTAO went live yesterday, and the new subnet emission splits are already visible on Taoswap. The Subnets table now shows how emissions are distributed between owners, validators, and miners, including the portion burned. Open any subnet page for a full visual breakdown. Video",
+    "url": "https://nitter.kareem.one/taoswap_org/status/2112515640200429752#m",
+    "fetched_at": "2026-10-22T22:55:36.858083+00:00",
     "via_instance": "https://nitter.cz"
   },
   {
@@ -477,6 +537,16 @@
     "text": "Astra Ultra did not cook sports-grade vision AI. Gave it a 30s football clip from our subnet private track. Frame-level events, JSON, annotated video. Ground truth and the published scoring rules only after it committed. 22 predictions. 17 real events. 15 inside the action windows. 7 extras. 2 misses. Precision 68.18%. Recall 88.24%. F1 76.92%. Our Bittensor eval, SN44: 0%. Matches after timing decay: 16.538 False positives: −20.300 GT weight: 25.600 score = max(0, (16.538 − 20.300) / 25.600) = 0 Three extra take-ons and two extra tackles were 14.6 penalty points. It also misread the late inte",
     "url": "http://nitter.meowing.monster/webuildscore/status/2097261685358596399#m",
     "fetched_at": "2026-10-22T16:26:29.683845+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "resilabsai",
+    "name": "RESI",
+    "posted_at": "Tue, 07 Apr 2026 17:33:18 GMT",
+    "title": "RT by @resilabsai: The power of holding Bittensor $TAO subnet alpha Here is an example to illustrate the flywheel of $TAO Let's say you 1,000 alpha of @resilabsai which cost around 7 $TAO 7 $TAO at a price of $310 = $2,170 Current alpha price of Resi, subnet 46: .0066 $TAO Let's make some calculated assumptions. > price of resi alpha stays the same for 3 years > price of $TAO remains the same at $310 > APY for holding Resi alpha is 40% for the first 2 years, then 30% in year 3 What is my total value in 3 years? Year 1 (40% APY) 1,060.6 × 1.4 = 1,484.8 alpha In $TAO: 1,484.8 × 0.0066 ≈ 9.80 $TAO In USD: 9.80 × $310 ≈ $3,038 Year 2 (40% APY again) 1,484.8 × 1.4 = 2,078.8 alpha In $TAO: ≈ 13.72 $TAO In USD: ≈ $4,253 Year 3 (30% APY) 2,078.8 × 1.3 = 2,702.4 alpha In $TAO: ≈ 17.83 $TAO In USD: ≈ $5,527 Now what if the price of Resi alpha went up 2x in year 1, 25% in year 2 and 25% in year 3? Additionally, what if the price of $TAO goes up by 4x? Year 1 Alpha: 1,484.8 $TAO value: 1,484.8 × 0.0132 ≈ 19.6 $TAO USD value: 19.6 × $1,240 ≈ $24,304 Year 2 Alpha: 2,078.8 $TAO value: ≈ 34.3 $TAO USD value: ≈ $42,532 Year 3 Alpha: 2,702.4 $TAO value: ≈ 55.7 $TAO USD value: ≈ $69,068 This is the Bittensor flywheel in effect.",
+    "text": "The power of holding Bittensor $TAO subnet alpha Here is an example to illustrate the flywheel of $TAO Let's say you 1,000 alpha of @resilabsai which cost around 7 $TAO 7 $TAO at a price of $310 = $2,170 Current alpha price of Resi, subnet 46: .0066 $TAO Let's make some calculated assumptions. &gt; price of resi alpha stays the same for 3 years &gt; price of $TAO remains the same at $310 &gt; APY for holding Resi alpha is 40% for the first 2 years, then 30% in year 3 What is my total value in 3 years? Year 1 (40% APY) 1,060.6 × 1.4 = 1,484.8 alpha In $TAO: 1,484.8 × 0.0066 ≈ 9.80 $TAO In USD: ",
+    "url": "http://nitter.meowing.monster/Pop_Collapse/status/2041570023823528017#m",
+    "fetched_at": "2026-10-22T22:56:09.808300+00:00",
     "via_instance": "https://nitter.cz"
   },
   {
@@ -780,6 +850,16 @@
     "via_instance": "https://nitter.cz"
   },
   {
+    "handle": "resilabsai",
+    "name": "RESI",
+    "posted_at": "Sat, 18 Apr 2026 04:42:22 GMT",
+    "title": "RT by @resilabsai: Traditional centralized real estate data platforms are fundamentally flawed and often serve to extract wealth from users. @resilabsai (Subnet 46) is breaking this monopoly through decentralized AI technology that delivers up to 99% valuation accuracy. Skip the corporate intermediaries—this AI-powered home valuation tool provides the most reliable housing market forecasts for 2026",
+    "text": "Traditional centralized real estate data platforms are fundamentally flawed and often serve to extract wealth from users. @resilabsai (Subnet 46) is breaking this monopoly through decentralized AI technology that delivers up to 99% valuation accuracy. Skip the corporate intermediaries—this AI-powered home valuation tool provides the most reliable housing market forecasts for 2026 Video SEBY (gpu/acc) (@sebyrubino) The @resilabsai Portal is LIVE! Any agent or real estate professional can now easily access our SOTA remote appraisals. We built RESI as a compounding network that will naturally acc",
+    "url": "http://nitter.meowing.monster/3rdeye_rav3n/status/2045362275045753234#m",
+    "fetched_at": "2026-10-22T22:56:09.808300+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
     "handle": "rob_svrn",
     "name": "Rob Greer",
     "posted_at": "Sat, 17 Oct 2026 20:12:32 GMT",
@@ -800,6 +880,16 @@
     "via_instance": "https://nitter.cz"
   },
   {
+    "handle": "resilabsai",
+    "name": "RESI",
+    "posted_at": "Sat, 08 Aug 2026 01:27:26 GMT",
+    "title": "Pinned: Attention Res Labs we have some really exciting news and updates to our project join our discord to stay up to date: https://discord.gg/TBj8q9vb2Q #bittensor #TAO bittensor:native #reslabs #reilabsai #crypto #subnet #subnet46 #reslabs_ai #reslabsai #opentensor #reptides",
+    "text": "Attention Res Labs we have some really exciting news and updates to our project join our discord to stay up to date: discord.gg/TBj8q9vb2Q #bittensor #TAO bittensor:native #reslabs #reilabsai #crypto #subnet #subnet46 #reslabs_ai #reslabsai #opentensor #reptides",
+    "url": "http://nitter.meowing.monster/resilabsai/status/2085900662139744548#m",
+    "fetched_at": "2026-10-22T22:56:09.808300+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
     "handle": "_redteam_",
     "name": "RedTeam / Innerworks",
     "posted_at": "Mon, 28 Sep 2026 18:43:14 GMT",
@@ -807,6 +897,16 @@
     "text": "\"We're not afraid of hyper-intelligent bot swarms on the internet. We use them to optimise our technology.\" When we launched RedTeam almost two years ago we could clearly see where the internet was heading. We've since seen clients with over 90% of their traffic made up of not just automation but highly intelligent bot swarms, capable of bypassing any traditional detection mechanism. The only way to combat a threat like this is to welcome it and learn from it. By constantly ingesting and evolving attack vectors from a hive mind of miners, a Bittensor powered defence has now become the only rel",
     "url": "https://nitter.kareem.one/_redteam_/status/2104643110911533312#m",
     "fetched_at": "2026-10-22T09:05:42.815951+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "resilabsai",
+    "name": "RESI",
+    "posted_at": "Mon, 20 Apr 2026 19:34:17 GMT",
+    "title": "RT by @resilabsai: I am pleased to announce that Stillcore Capital @stillcorecap has invested in RESI @resilabsai (Bittensor Subnet 46).",
+    "text": "I am pleased to announce that Stillcore Capital @stillcorecap has invested in RESI @resilabsai (Bittensor Subnet 46).",
+    "url": "http://nitter.meowing.monster/markjeffrey/status/2046311512621670731#m",
+    "fetched_at": "2026-10-22T22:56:09.808300+00:00",
     "via_instance": "https://nitter.cz"
   },
   {
@@ -910,6 +1010,16 @@
     "via_instance": "https://nitter.cz"
   },
   {
+    "handle": "resilabsai",
+    "name": "RESI",
+    "posted_at": "Mon, 06 Apr 2026 13:56:00 GMT",
+    "title": "RT by @resilabsai: Chainlink gave DeFi price feeds. @resilabsai is doing the same for real estate. From static appraisals to dynamic, onchain pricing. It's already honing in on Zillow's pricing accuracy, and only a matter of weeks before it surpasses it!",
+    "text": "Chainlink gave DeFi price feeds. @resilabsai is doing the same for real estate. From static appraisals to dynamic, onchain pricing. It's already honing in on Zillow's pricing accuracy, and only a matter of weeks before it surpasses it!",
+    "url": "http://nitter.meowing.monster/gordonfrayne/status/2041152947925512465#m",
+    "fetched_at": "2026-10-22T22:56:09.808300+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
     "handle": "foundrydigital",
     "name": "Foundry Digital",
     "posted_at": "Mon, 02 Jan 2012 23:00:41 GMT",
@@ -917,6 +1027,16 @@
     "text": "Early predictions for design trends of 2012? tiny.cc/mkg4v",
     "url": "http://nitter.jaydenha.uk/foundrydigital/status/153974018557493248#m",
     "fetched_at": "2026-10-22T02:49:11.995481+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "foundrydigital",
+    "name": "Foundry Digital",
+    "posted_at": "Mon, 02 Jan 2012 23:00:41 GMT",
+    "title": "Early predictions for design trends of 2012? http://tiny.cc/mkg4v",
+    "text": "Early predictions for design trends of 2012? tiny.cc/mkg4v",
+    "url": "http://nitter.meowing.monster/foundrydigital/status/153974018557493248#m",
+    "fetched_at": "2026-10-22T22:54:59.281232+00:00",
     "via_instance": "https://nitter.cz"
   },
   {
