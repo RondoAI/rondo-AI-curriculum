@@ -10,6 +10,16 @@
     "via_instance": "https://nitter.cz"
   },
   {
+    "handle": "polychain",
+    "name": "Polychain Capital",
+    "posted_at": "Wed, 30 Sep 2026 18:11:35 GMT",
+    "title": "RT by @polychain: THE BLOCK: DogeOS launched a public testnet for its zero-knowledge rollup, bringing EVM smart contracts to Dogecoin, with dogecoin:native used for gas fees. \"I've spent half a decade encouraging people to take a chance on Dogecoin and to build in its ecosystem,\" said Timothy Stebbing, director of the Dogecoin Foundation. \"My hopes are that DogeOS becomes the springboard for a wave of new utility engineering.\"",
+    "text": "THE BLOCK: DogeOS launched a public testnet for its zero-knowledge rollup, bringing EVM smart contracts to Dogecoin, with dogecoin:native used for gas fees. \"I've spent half a decade encouraging people to take a chance on Dogecoin and to build in its ecosystem,\" said Timothy Stebbing, director of the Dogecoin Foundation. \"My hopes are that DogeOS becomes the springboard for a wave of new utility engineering.\"",
+    "url": "http://nitter.meowing.monster/TheBlockCo/status/2105359920795394451#m",
+    "fetched_at": "2026-10-23T16:14:36.802744+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
     "handle": "BarrySilbert",
     "name": "Barry Silbert",
     "posted_at": "Wed, 21 Oct 2026 19:40:05 GMT",
@@ -70,6 +80,16 @@
     "via_instance": "https://nitter.cz"
   },
   {
+    "handle": "polychain",
+    "name": "Polychain Capital",
+    "posted_at": "Wed, 14 Oct 2026 17:00:07 GMT",
+    "title": "RT by @polychain: This fully autonomous demo shows a Bagel Labs foundation model controlling a robot to make coffee. We previously released WorldDiT, our lightweight architecture for robot foundation models. At the time of release, it was on the Pareto frontier for model size and performance. We have since been refining this architecture to handle longer horizon, more useful tasks fully autonomously. Making coffee means getting a whole sequence of actions right. Each step depends on the result of the last, so small mistakes can build up as the task continues. Getting this to work with a small model is especially challenging. This demo is an example of what the model can do today. If you are deploying robots or have existing hardware you want to make autonomous, we would like to partner with you. https://bagel.com/partner",
+    "text": "This fully autonomous demo shows a Bagel Labs foundation model controlling a robot to make coffee. We previously released WorldDiT, our lightweight architecture for robot foundation models. At the time of release, it was on the Pareto frontier for model size and performance. We have since been refining this architecture to handle longer horizon, more useful tasks fully autonomously. Making coffee means getting a whole sequence of actions right. Each step depends on the result of the last, so small mistakes can build up as the task continues. Getting this to work with a small model is especiall",
+    "url": "http://nitter.meowing.monster/bidhan/status/2110415364475466160#m",
+    "fetched_at": "2026-10-23T16:14:36.802744+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
     "handle": "YumaGroup",
     "name": "Yuma Holdings",
     "posted_at": "Wed, 14 Oct 2026 15:48:29 GMT",
@@ -120,6 +140,16 @@
     "via_instance": "https://nitter.cz"
   },
   {
+    "handle": "tm0klc",
+    "name": "Tim",
+    "posted_at": "Tue, 20 Oct 2026 10:58:19 GMT",
+    "title": "input < output < outcomes",
+    "text": "input &lt; output &lt; outcomes",
+    "url": "http://nitter.meowing.monster/tm0klc/status/2112498641273491663#m",
+    "fetched_at": "2026-10-23T16:15:37.004642+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
     "handle": "polychain",
     "name": "Polychain Capital",
     "posted_at": "Tue, 15 Sep 2026 14:20:05 GMT",
@@ -127,6 +157,16 @@
     "text": "It's time for a new foundation. Not a new start. Legacy Mode is live on Passport, keep every account you already have, on code anyone can inspect. Switch to open source hardware and software while keeping your existing accounts for supported assets. Here’s how. 🧵 Video",
     "url": "https://nitter.kareem.one/FoundationHQ/status/2099865846101180499#m",
     "fetched_at": "2026-10-23T08:59:27.367314+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "polychain",
+    "name": "Polychain Capital",
+    "posted_at": "Tue, 15 Sep 2026 14:20:05 GMT",
+    "title": "RT by @polychain: It's time for a new foundation. Not a new start. Legacy Mode is live on Passport, keep every account you already have, on code anyone can inspect. Switch to open source hardware and software while keeping your existing accounts for supported assets. Here’s how. 🧵",
+    "text": "It's time for a new foundation. Not a new start. Legacy Mode is live on Passport, keep every account you already have, on code anyone can inspect. Switch to open source hardware and software while keeping your existing accounts for supported assets. Here’s how. 🧵 Video",
+    "url": "http://nitter.meowing.monster/FoundationHQ/status/2099865846101180499#m",
+    "fetched_at": "2026-10-23T16:14:36.802744+00:00",
     "via_instance": "https://nitter.cz"
   },
   {
@@ -197,6 +237,16 @@
     "text": "Automatic promotion and balance-based daily drawdown is now live on Vanta 📈 Pass a Classic evaluation, keep performing, and your account moves up on its own. Completely free. Up to 10x, so $100K can become $1M. vantatrading.io/pro",
     "url": "https://nitter.kareem.one/VantaTrading/status/2113321861723439395#m",
     "fetched_at": "2026-10-23T02:53:02.659365+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "1inch",
+    "name": "1inch",
+    "posted_at": "Thu, 22 Oct 2026 16:37:27 GMT",
+    "title": "Moving into stables, you usually want the cleanest execution you can get. 1inch intent-based swaps route across liquidity in real time, with MEV protection built in.",
+    "text": "Moving into stables, you usually want the cleanest execution you can get. 1inch intent-based swaps route across liquidity in real time, with MEV protection built in. Video",
+    "url": "http://nitter.meowing.monster/1inch/status/2113308766489973194#m",
+    "fetched_at": "2026-10-23T16:15:48.589464+00:00",
     "via_instance": "https://nitter.cz"
   },
   {
@@ -292,11 +342,31 @@
   {
     "handle": "polychain",
     "name": "Polychain Capital",
+    "posted_at": "Thu, 15 Oct 2026 16:00:00 GMT",
+    "title": "RT by @polychain: Multiliquid closes seed round led by @polychaincap, with participation from @strobefund, @CMT_Digital, @metalayervc, @genventurecap and @circle_ventures, bringing total funding to $8M. Instant liquidity for tokenized assets, atomic settlement, 24/7. Read more: https://www.multiliquid.xyz/news/seed-round-with-polychain",
+    "text": "Multiliquid closes seed round led by @polychaincap, with participation from @strobefund, @CMT_Digital, @metalayervc, @genventurecap and @circle_ventures, bringing total funding to $8M. Instant liquidity for tokenized assets, atomic settlement, 24/7. Read more: multiliquid.xyz/news/seed-ro…",
+    "url": "http://nitter.meowing.monster/multiliquid_xyz/status/2110762624791290189#m",
+    "fetched_at": "2026-10-23T16:14:36.802744+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "polychain",
+    "name": "Polychain Capital",
     "posted_at": "Thu, 13 Aug 2026 13:02:38 GMT",
     "title": "RT by @polychain: LBTC proved demand for yield-bearing Bitcoin. Today, we double down on that thesis. LBTC is moving to institutional yield. @Bitwise will manage a covered-call options strategy with a 4.5-year legacy track record, to generate LBTC's yield, targeting 2.5% net APY paid in Bitcoin.",
     "text": "LBTC proved demand for yield-bearing Bitcoin. Today, we double down on that thesis. LBTC is moving to institutional yield. @Bitwise will manage a covered-call options strategy with a 4.5-year legacy track record, to generate LBTC's yield, targeting 2.5% net APY paid in Bitcoin.",
     "url": "https://nitter.kareem.one/Lombard_Finance/status/2087887552300933626#m",
     "fetched_at": "2026-10-23T08:59:27.367314+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "polychain",
+    "name": "Polychain Capital",
+    "posted_at": "Thu, 13 Aug 2026 13:02:38 GMT",
+    "title": "RT by @polychain: LBTC proved demand for yield-bearing Bitcoin. Today, we double down on that thesis. LBTC is moving to institutional yield. @Bitwise will manage a covered-call options strategy with a 4.5-year legacy track record, to generate LBTC's yield, targeting 2.5% net APY paid in Bitcoin.",
+    "text": "LBTC proved demand for yield-bearing Bitcoin. Today, we double down on that thesis. LBTC is moving to institutional yield. @Bitwise will manage a covered-call options strategy with a 4.5-year legacy track record, to generate LBTC's yield, targeting 2.5% net APY paid in Bitcoin.",
+    "url": "http://nitter.meowing.monster/Lombard_Finance/status/2087887552300933626#m",
+    "fetched_at": "2026-10-23T16:14:36.802744+00:00",
     "via_instance": "https://nitter.cz"
   },
   {
@@ -380,6 +450,16 @@
     "via_instance": "https://nitter.cz"
   },
   {
+    "handle": "tm0klc",
+    "name": "Tim",
+    "posted_at": "Mon, 19 Oct 2026 13:18:05 GMT",
+    "title": "RT by @tm0klc: “just use a foundation model” they said. so we benchmarked 10 of them against Manako on a real forecourt damage clip. same full 1280x720 frames, same class prompts (person, car, fuel dispenser, fuel nozzle), no crops, no zoom. the hard class is the nozzle/hose. small, thin, occluded, and the thing that actually gets damaged. - Grounding DINO labelled a bin as a fuel nozzle. - Florence-2 labelled the canopy pole as one. - OWL-ViT, YOLOE and YOLO-World got the dispenser at best, never the nozzle. - RF-DETR doesn’t have the class. - Gemma 4 E2B described the scene, boxed the pump, and returned no incident time. the only open model that localised the nozzle was full SAM3. 3.45 GB, 0.2-1 FPS on a Jetson Orin Nano. Manako (3 specialists - 29.5 MB), 3-6 FPS on the same Jetson, tracked the nozzle at 5 FPS and fired a live equipment_damage event on the hose drop at 10.3s. 117x smaller than the only model that could keep up. open-vocab models are great at the classes the internet photographs a lot. operations live in the long tail: nozzles, hoses, cabinets, the small parts that break. that’s where specialised detectors win, and it’s why we built Manako the way we did.",
+    "text": "“just use a foundation model” they said. so we benchmarked 10 of them against Manako on a real forecourt damage clip. same full 1280x720 frames, same class prompts (person, car, fuel dispenser, fuel nozzle), no crops, no zoom. the hard class is the nozzle/hose. small, thin, occluded, and the thing that actually gets damaged. - Grounding DINO labelled a bin as a fuel nozzle. - Florence-2 labelled the canopy pole as one. - OWL-ViT, YOLOE and YOLO-World got the dispenser at best, never the nozzle. - RF-DETR doesn’t have the class. - Gemma 4 E2B described the scene, boxed the pump, and returned no",
+    "url": "http://nitter.meowing.monster/MaxSebti/status/2112171427986043290#m",
+    "fetched_at": "2026-10-23T16:15:37.004642+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
     "handle": "oroagents",
     "name": "Oro",
     "posted_at": "Mon, 12 Oct 2026 04:35:19 GMT",
@@ -407,6 +487,126 @@
     "text": "Join us this Thursday to discuss all things RedTeam Openτensor Foundaτion (@opentensor) Novelty Search :: Subnet 61 :: @_redteam_ RedTeam turns Bittensor miners into a 24/7 network of ethical hackers. We’ll discuss how SN61 uses that competition to stay ahead of evolving bot attacks, its five new enterprise pilots, and what comes next with RedTeam’s upcoming Immune System. Live on Thursday :: 9PM UTC :: on X + YouTube Hosted by @const_reborn — https://nitter.kareem.one/opentensor/status/2097022237337682320#m",
     "url": "https://nitter.kareem.one/_redteam_/status/2097023368629191078#m",
     "fetched_at": "2026-10-23T02:53:24.405210+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "tm0klc",
+    "name": "Tim",
+    "posted_at": "Mon, 05 Oct 2026 07:00:42 GMT",
+    "title": "R to @tm0klc: Bro just make sure my agents can use it Accessibility has taken on a new meaning",
+    "text": "Bro just make sure my agents can use it Accessibility has taken on a new meaning",
+    "url": "http://nitter.meowing.monster/tm0klc/status/2107003027576225971#m",
+    "fetched_at": "2026-10-23T16:15:37.004642+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "tm0klc",
+    "name": "Tim",
+    "posted_at": "Mon, 05 Oct 2026 06:59:24 GMT",
+    "title": "R to @tm0klc: every website now feels like a little escape room someone built for some tasks believing it was logical or easy to use",
+    "text": "every website now feels like a little escape room someone built for some tasks believing it was logical or easy to use",
+    "url": "http://nitter.meowing.monster/tm0klc/status/2107002700340879465#m",
+    "fetched_at": "2026-10-23T16:15:37.004642+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "tm0klc",
+    "name": "Tim",
+    "posted_at": "Mon, 05 Oct 2026 06:53:05 GMT",
+    "title": "the bar used to be \"is the UI intuitive.\" now it's \"why am I looking at a UI\"",
+    "text": "the bar used to be \"is the UI intuitive.\" now it's \"why am I looking at a UI\"",
+    "url": "http://nitter.meowing.monster/tm0klc/status/2107001110502547573#m",
+    "fetched_at": "2026-10-23T16:15:37.004642+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "1inch",
+    "name": "1inch",
+    "posted_at": "Fri, 23 Oct 2026 14:26:16 GMT",
+    "title": "What do you use most?",
+    "text": "What do you use most? Poll 54% — Swap 20% — Perps 26% — Limit Orders 35 votes • 22 hours",
+    "url": "http://nitter.meowing.monster/1inch/status/2113638137528246484#m",
+    "fetched_at": "2026-10-23T16:15:48.589464+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "1inch",
+    "name": "1inch",
+    "posted_at": "Fri, 23 Oct 2026 13:35:16 GMT",
+    "title": "\"Price discovery doesn't happen on AMMs. They have to catch up.\" Katia Banina (@katiabanina), CEO of @bebop_dex, rates AMMs highly and says they created DeFi. Her point is about what they cannot do.",
+    "text": "\"Price discovery doesn't happen on AMMs. They have to catch up.\" Katia Banina (@katiabanina), CEO of @bebop_dex, rates AMMs highly and says they created DeFi. Her point is about what they cannot do. Video",
+    "url": "http://nitter.meowing.monster/1inch/status/2113625303163851128#m",
+    "fetched_at": "2026-10-23T16:15:48.589464+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "1inch",
+    "name": "1inch",
+    "posted_at": "Fri, 23 Oct 2026 12:24:57 GMT",
+    "title": "Tokenization is the biggest upgrade that financial infrastructure has seen in generations.",
+    "text": "Tokenization is the biggest upgrade that financial infrastructure has seen in generations.",
+    "url": "http://nitter.meowing.monster/1inch/status/2113607610385707398#m",
+    "fetched_at": "2026-10-23T16:15:48.589464+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "SemiAnalysis_",
+    "name": "SemiAnalysis",
+    "posted_at": "Fri, 23 Oct 2026 12:01:23 GMT",
+    "title": "ASML is building a hybrid bonding tool. It has not been announced. It is in the patent filings. @JordanNanos, Howie and Sherry Zhang walk through the track design, the particle problem and why HBM waits until 2029 or beyond.",
+    "text": "ASML is building a hybrid bonding tool. It has not been announced. It is in the patent filings. @JordanNanos, Howie and Sherry Zhang walk through the track design, the particle problem and why HBM waits until 2029 or beyond. Video",
+    "url": "http://nitter.meowing.monster/SemiAnalysis_/status/2113601678469468327#m",
+    "fetched_at": "2026-10-23T16:16:16.171687+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "SemiAnalysis_",
+    "name": "SemiAnalysis",
+    "posted_at": "Fri, 23 Oct 2026 12:01:23 GMT",
+    "title": "R to @SemiAnalysis_: Watch the New SemiAnalysis Weekly Episode: https://youtu.be/4WCasOsS5-4?si=6fXYnunq5Lc3lJNq",
+    "text": "Watch the New SemiAnalysis Weekly Episode: piped.video/4WCasOsS5-4?si=6fXY… Link Ep. 040 - ASML Is Building a Hybrid Bonding Tool, and We Have the Patents (AI Supply Chain) Every hybrid bonder on the market today brings the die to the wafer... youtube.com",
+    "url": "http://nitter.meowing.monster/SemiAnalysis_/status/2113601679597658466#m",
+    "fetched_at": "2026-10-23T16:16:16.171687+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "1inch",
+    "name": "1inch",
+    "posted_at": "Fri, 23 Oct 2026 11:34:32 GMT",
+    "title": "RT by @1inch: 🤝 We're looking for a user testing partner for https://1inch.com. Specifically, teams who know DeFi: wallets, swaps, cross-chain flows, and the users who actually use them. Who have you worked with and rate? Drop names, or tag them below. ⬇️ @1inch",
+    "text": "🤝 We're looking for a user testing partner for 1inch.com. Specifically, teams who know DeFi: wallets, swaps, cross-chain flows, and the users who actually use them. Who have you worked with and rate? Drop names, or tag them below. ⬇️ @1inch Link 1inch | Swap Crypto Tokens at the Best Rates in DeFi Swap crypto &amp; tokens at the best rates across 18+ chains. The 1inch swap aggregator is your gateway to secure and efficient DeFi. 1inch.com",
+    "url": "http://nitter.meowing.monster/holdoesdev/status/2113594920267350386#m",
+    "fetched_at": "2026-10-23T16:15:48.589464+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "SemiAnalysis_",
+    "name": "SemiAnalysis",
+    "posted_at": "Fri, 23 Oct 2026 04:06:56 GMT",
+    "title": "R to @SemiAnalysis_: YouTube:https://www.youtube.com/watch?v=I3tNGNjYcDw",
+    "text": "YouTube:piped.video/watch?v=I3tNGNjY… Link Ep. 039 - [EMERGENCY] Brad Gerstner Cut Our 2027 Forecast in Half. We... Brad Gerstner put our 43 gigawatt forecast for 2027 on All-In, then... youtube.com",
+    "url": "http://nitter.meowing.monster/SemiAnalysis_/status/2113482280685756418#m",
+    "fetched_at": "2026-10-23T16:16:16.171687+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "SemiAnalysis_",
+    "name": "SemiAnalysis",
+    "posted_at": "Fri, 23 Oct 2026 04:06:17 GMT",
+    "title": "R to @SemiAnalysis_: Spotify: https://open.spotify.com/episode/4RKfTQw6MJZFLvdIVySinW?si=A3F7Tok1QcqLBCOxi6-kzw",
+    "text": "Spotify: open.spotify.com/episode/4RK… Link Ep. 039 - [EMERGENCY] Our Numbers Are &quot;Insane.&quot; Here&apos;s the Proof. (Datacenters) | Jeremie Ontiver... SemiAnalysis Weekly · Episode open.spotify.com",
+    "url": "http://nitter.meowing.monster/SemiAnalysis_/status/2113482113836077355#m",
+    "fetched_at": "2026-10-23T16:16:16.171687+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "SemiAnalysis_",
+    "name": "SemiAnalysis",
+    "posted_at": "Fri, 23 Oct 2026 04:05:27 GMT",
+    "title": "Every data center leaves a trail before it’s built. We track all of it. “We published a deep dive in our industrials model on a company called Sterling. They do early-stage construction: the groundbreaking, the site work. That’s the first thing that happens when one of these projects starts getting built. We were able to predict their orders were going to surge, which is exactly what happened.” “There’s essentially this waterfall of things we can track. Electrical and cooling equipment comes after. Energy has very long lead times; everyone knows gas turbines are multiple years out. We look at all of that to ensure our timelines are accurate.” “Pre-leasing is even earlier. Hyperscalers, neoclouds and AI labs signing lease contracts with data center operators. It helps us understand ahead of time what’s going to get built under these binding contracts that cannot be canceled.”",
+    "text": "Every data center leaves a trail before it’s built. We track all of it. “We published a deep dive in our industrials model on a company called Sterling. They do early-stage construction: the groundbreaking, the site work. That’s the first thing that happens when one of these projects starts getting built. We were able to predict their orders were going to surge, which is exactly what happened.” “There’s essentially this waterfall of things we can track. Electrical and cooling equipment comes after. Energy has very long lead times; everyone knows gas turbines are multiple years out. We look at ",
+    "url": "http://nitter.meowing.monster/SemiAnalysis_/status/2113481905387565374#m",
+    "fetched_at": "2026-10-23T16:16:16.171687+00:00",
     "via_instance": "https://nitter.cz"
   },
   {

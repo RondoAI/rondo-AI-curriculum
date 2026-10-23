@@ -134,7 +134,10 @@ _300+ moratoriums mapped, 20GW sits inside a restricted local boundary, 1,525MW 
 
 ## ⊕ GITHUB COMMITS + RELEASES, last 24h
 
-_no commits or releases in the lookback window_
+- **Subtensor (chain)** (COMMIT `db3fdeb`, 2026-10-23 11:10) Merge pull request #3280 from RaoFoundation/release-483  
+  https://github.com/RaoFoundation/subtensor/commit/db3fdeb98bc82c38b238bfac9f6a3303a3361ee4
+- **Subtensor (chain)** (COMMIT `75c4cb4`, 2026-10-23 10:58) release-483  
+  https://github.com/RaoFoundation/subtensor/commit/75c4cb4e28854505fb1e36d21b42db666e6ad03b
 
 ## ⊕ ECOSYSTEM BLOGS via RSS
 
@@ -144,6 +147,8 @@ _no new posts in the lookback window_
 
 - @polychain (Polychain Capital, Wed, 30 Sep 2026): THE BLOCK: DogeOS launched a public testnet for its zero-knowledge rollup, bringing EVM smart contracts to Dogecoin, with dogecoin:native used for gas fees. "I've spent half a decade encouraging people to take a chance on Dogecoin and to build in its ecosystem," said Timothy Stebbing, director of the Dogecoin Foundation. "My hopes are that DogeOS becomes the springboard for a wave of new utility engineering."  
   https://nitter.kareem.one/TheBlockCo/status/2105359920795394451#m
+- @polychain (Polychain Capital, Wed, 30 Sep 2026): THE BLOCK: DogeOS launched a public testnet for its zero-knowledge rollup, bringing EVM smart contracts to Dogecoin, with dogecoin:native used for gas fees. "I've spent half a decade encouraging people to take a chance on Dogecoin and to build in its ecosystem," said Timothy Stebbing, director of the Dogecoin Foundation. "My hopes are that DogeOS becomes the springboard for a wave of new utility engineering."  
+  http://nitter.meowing.monster/TheBlockCo/status/2105359920795394451#m
 - @BarrySilbert (Barry Silbert, Wed, 21 Oct 2026): Here are the top performing ETFs over the last 5 years: 1. $ZCSH Grayscale Zcash Trust +37.07% 🟢 2. $SMH VanEck Semiconductor ETF +33.21% 🟢 3. $EPU iShares MSCI Peru and Global Exposure ETF +29.56% 🟢 4. $SOXQ Invesco PHLX Semiconductor ETF +28.32% 🟢 5. $GREK Global X MSCI Greece ETF +27.62% 🟢 6. $FTXL First Trust Nasdaq Semiconductor ETF +27.50% 🟢 7. $SOXX iShares Semiconductor ETF +27.41% 🟢 8. $UGA United States Gasoline Fund +26.60% 🟢 9. $DXJ WisdomTree Japan Hedged Equity Fund +26.50% 🟢 10. $BOAT SonicShares Global Shipping ETF +26.22% 🟢 ETFDb (@ETFDb) Here are the top performing ETFs over   
   http://nitter.meowing.monster/TheETFTracker/status/2112992338549387452#m
 - @galaxyhq (Galaxy Digital, Wed, 21 Oct 2026): Financial services are going from analog to digital, and fast. Galaxy Ventures' Mike Giampapa (@mgiampapa1) & Karta CEO Freddy Juez (@Freddyjuez) unpack the shifts rebuilding finance across infrastructure, markets and intelligence, and why now is a compelling moment for venture. 📅 Thurs, Oct. 29, 11:00–11:30 AM ET Register here: hubs.li/Q04BKMRX0?utm_source…  
@@ -156,6 +161,8 @@ _no new posts in the lookback window_
   https://nitter.kareem.one/ironseth_s/status/2112775882519822782#m
 - @polychain (Polychain Capital, Wed, 14 Oct 2026): This fully autonomous demo shows a Bagel Labs foundation model controlling a robot to make coffee. We previously released WorldDiT, our lightweight architecture for robot foundation models. At the time of release, it was on the Pareto frontier for model size and performance. We have since been refining this architecture to handle longer horizon, more useful tasks fully autonomously. Making coffee means getting a whole sequence of actions right. Each step depends on the result of the last, so small mistakes can build up as the task continues. Getting this to work with a small model is especiall  
   https://nitter.kareem.one/bidhan/status/2110415364475466160#m
+- @polychain (Polychain Capital, Wed, 14 Oct 2026): This fully autonomous demo shows a Bagel Labs foundation model controlling a robot to make coffee. We previously released WorldDiT, our lightweight architecture for robot foundation models. At the time of release, it was on the Pareto frontier for model size and performance. We have since been refining this architecture to handle longer horizon, more useful tasks fully autonomously. Making coffee means getting a whole sequence of actions right. Each step depends on the result of the last, so small mistakes can build up as the task continues. Getting this to work with a small model is especiall  
+  http://nitter.meowing.monster/bidhan/status/2110415364475466160#m
 - @YumaGroup (Yuma Holdings, Wed, 14 Oct 2026): ladies and gentlemen. @manakoai is officially working with @Shell. deploying physical ai to better their fuel retail operations. lfgooooooo🔥👊🚀  
   http://nitter.meowing.monster/arnod3f/status/2110397339126915400#m
 - @galaxyhq (Galaxy Digital, Tue, 20 Oct 2026): Legend Trade co-founder @apemoney joins us to discuss social trading activity and onchain perps they are seeing. + We break down why price action continues to dislocate from fundamentals, why retail traders are sitting in cash, and what’s next for crypto market structure. Live now ⬇️ Video  
@@ -166,8 +173,12 @@ _no new posts in the lookback window_
   https://nitter.kareem.one/galaxyhq/status/2112549920074777067#m
 - @galaxyhq (Galaxy Digital, Tue, 20 Oct 2026): Read the full Galaxy Perspectives piece for more on what changes, what it means in practice, and what comes next: galaxy.com/insights/perspect… Link Solana Alpenglow Alpenglow, expected on Solana mainnet in mid-October, changes how validators agree on blocks. Galaxy has run Alpenglow on the community test cluster since June 2026, through five re-geneses and the... galaxy.com  
   https://nitter.kareem.one/galaxyhq/status/2112549865565876671#m
+- @tm0klc (Tim, Tue, 20 Oct 2026): input &lt; output &lt; outcomes  
+  http://nitter.meowing.monster/tm0klc/status/2112498641273491663#m
 - @polychain (Polychain Capital, Tue, 15 Sep 2026): It's time for a new foundation. Not a new start. Legacy Mode is live on Passport, keep every account you already have, on code anyone can inspect. Switch to open source hardware and software while keeping your existing accounts for supported assets. Here’s how. 🧵 Video  
   https://nitter.kareem.one/FoundationHQ/status/2099865846101180499#m
+- @polychain (Polychain Capital, Tue, 15 Sep 2026): It's time for a new foundation. Not a new start. Legacy Mode is live on Passport, keep every account you already have, on code anyone can inspect. Switch to open source hardware and software while keeping your existing accounts for supported assets. Here’s how. 🧵 Video  
+  http://nitter.meowing.monster/FoundationHQ/status/2099865846101180499#m
 - @dippy_ai (Dippy AI, Thu, 30 Jul 2026): Excited to have helped @PrunaAI collect 1M+ votes for image preference data in a very short time :~) Pruna AI (@PrunaAI) P-Image-Ideogram dominate the speed-quality and price-quality Pareto frontiers for image generation. It is the result of a unique collaboration with @ideogram_ai. - Four modes (Very low, low, medium, high) for 1K-2K image generation. - Optimal quality-efficiency with 0.4s-7.5s latency, and $0.003-$0.03 price. - Structured JSON control & exact color control. Available via our inference partners @Replicate @inference_sh @scenario_gg @wavespeed_ai @wiroai @magnific @prodialabs   
   http://nitter.meowing.monster/datapointai/status/2082837314603032606#m
 - @dippy_ai (Dippy AI, Thu, 27 Aug 2026): we have significantly upgraded both the basic and super models 🤩🤩 we have also made optimizations to improve response speeds by upto 5x can't wait for you all to experience and enjoy the new dippy 📯📯😸 rolling out to everyone today  
@@ -182,6 +193,8 @@ _no new posts in the lookback window_
   https://nitter.kareem.one/kennethschrupp/status/2113345652952568214#m
 - @VantaTrading (Vanta, Thu, 22 Oct 2026): Automatic promotion and balance-based daily drawdown is now live on Vanta 📈 Pass a Classic evaluation, keep performing, and your account moves up on its own. Completely free. Up to 10x, so $100K can become $1M. vantatrading.io/pro  
   https://nitter.kareem.one/VantaTrading/status/2113321861723439395#m
+- @1inch (1inch, Thu, 22 Oct 2026): Moving into stables, you usually want the cleanest execution you can get. 1inch intent-based swaps route across liquidity in real time, with MEV protection built in. Video  
+  http://nitter.meowing.monster/1inch/status/2113308766489973194#m
 - @BarrySilbert (Barry Silbert, Thu, 22 Oct 2026): The opportunity in digital assets is expanding, and our Q3 performance shows it. Q3 was our strongest quarter of the year with net flows up ~$1.2B from Q2, and we ranked #1 in AUM among HYPE, Sui and Chainlink ETPs.¹ At our town hall, we recognized the team behind that progress. This quarter's results show what our teams can accomplish through shared ambition and focus.  
   http://nitter.meowing.monster/PeterMintzberg/status/2113295643598782563#m
 - @VantaTrading (Vanta, Thu, 22 Oct 2026): the intern needs you to vote for Vanta 🙏 my boss said i might be able to do a giveaway if we win 0xAlok⚡ | Prop Trading arc (@0xAlok_) Prop Firm Qualifier #3 ⚔️ @ProprXYZ vs @VantaTrading 🗳️ Cast your vote and support your favorite! May the best firm win! 🏆 Poll 52% — Propr 48% — Vanta 0% — 0% — 0% — 0% — 0% — 0% — 158 votes • 6 hours — https://nitter.kareem.one/0xAlok_/status/2113201551426932878#m  
@@ -200,8 +213,12 @@ _no new posts in the lookback window_
   https://nitter.kareem.one/olaf/status/21602951308#m
 - @polychain (Polychain Capital, Thu, 15 Oct 2026): Multiliquid closes seed round led by @polychaincap, with participation from @strobefund, @CMT_Digital, @metalayervc, @genventurecap and @circle_ventures, bringing total funding to $8M. Instant liquidity for tokenized assets, atomic settlement, 24/7. Read more: multiliquid.xyz/news/seed-ro…  
   https://nitter.kareem.one/multiliquid_xyz/status/2110762624791290189#m
+- @polychain (Polychain Capital, Thu, 15 Oct 2026): Multiliquid closes seed round led by @polychaincap, with participation from @strobefund, @CMT_Digital, @metalayervc, @genventurecap and @circle_ventures, bringing total funding to $8M. Instant liquidity for tokenized assets, atomic settlement, 24/7. Read more: multiliquid.xyz/news/seed-ro…  
+  http://nitter.meowing.monster/multiliquid_xyz/status/2110762624791290189#m
 - @polychain (Polychain Capital, Thu, 13 Aug 2026): LBTC proved demand for yield-bearing Bitcoin. Today, we double down on that thesis. LBTC is moving to institutional yield. @Bitwise will manage a covered-call options strategy with a 4.5-year legacy track record, to generate LBTC's yield, targeting 2.5% net APY paid in Bitcoin.  
   https://nitter.kareem.one/Lombard_Finance/status/2087887552300933626#m
+- @polychain (Polychain Capital, Thu, 13 Aug 2026): LBTC proved demand for yield-bearing Bitcoin. Today, we double down on that thesis. LBTC is moving to institutional yield. @Bitwise will manage a covered-call options strategy with a 4.5-year legacy track record, to generate LBTC's yield, targeting 2.5% net APY paid in Bitcoin.  
+  http://nitter.meowing.monster/Lombard_Finance/status/2087887552300933626#m
 - @_redteam_ (RedTeam / Innerworks, Thu, 10 Sep 2026): I am pleased to announce that Stillcore Capital @stillcorecap has invested in Red Team @_redteam_ Bittensor $TAO Subnet 61.  
   https://nitter.kareem.one/markjeffrey/status/2098171401152971021#m
 - @oroagents (Oro, Thu, 08 Oct 2026): And to see what we are up to next at oroagents.com/  
@@ -218,25 +235,17 @@ _no new posts in the lookback window_
   http://nitter.meowing.monster/dippy_ai/status/2086595242422149540#m
 - @_redteam_ (RedTeam / Innerworks, Mon, 28 Sep 2026): "We're not afraid of hyper-intelligent bot swarms on the internet. We use them to optimise our technology." When we launched RedTeam almost two years ago we could clearly see where the internet was heading. We've since seen clients with over 90% of their traffic made up of not just automation but highly intelligent bot swarms, capable of bypassing any traditional detection mechanism. The only way to combat a threat like this is to welcome it and learn from it. By constantly ingesting and evolving attack vectors from a hive mind of miners, a Bittensor powered defence has now become the only rel  
   https://nitter.kareem.one/_redteam_/status/2104643110911533312#m
+- @tm0klc (Tim, Mon, 19 Oct 2026): “just use a foundation model” they said. so we benchmarked 10 of them against Manako on a real forecourt damage clip. same full 1280x720 frames, same class prompts (person, car, fuel dispenser, fuel nozzle), no crops, no zoom. the hard class is the nozzle/hose. small, thin, occluded, and the thing that actually gets damaged. - Grounding DINO labelled a bin as a fuel nozzle. - Florence-2 labelled the canopy pole as one. - OWL-ViT, YOLOE and YOLO-World got the dispenser at best, never the nozzle. - RF-DETR doesn’t have the class. - Gemma 4 E2B described the scene, boxed the pump, and returned no  
+  http://nitter.meowing.monster/MaxSebti/status/2112171427986043290#m
 - @oroagents (Oro, Mon, 12 Oct 2026): github.com/ORO-AI/assistante… All in the open :) Link GitHub - ORO-AI/assistanteval: AssistantEval: a verifiable benchmark for personal AI assistants AssistantEval: a verifiable benchmark for personal AI assistants - ORO-AI/assistanteval github.com  
   https://nitter.kareem.one/oroagents/status/2109503153242775934#m
 - @dippy_ai (Dippy AI, Mon, 10 Aug 2026): We are FINALLY back online! We deeply apologize for this issue extending nearly 24 hours 🥲 As a token of thanks for your patience, we are REMOVING CHAT LIMITS for the remainder of this month 😻😻 P.S: don't worry, we'll also reinstate your streaks :~)  
   http://nitter.meowing.monster/dippy_ai/status/2086838981627420847#m
 - @_redteam_ (RedTeam / Innerworks, Mon, 07 Sep 2026): Join us this Thursday to discuss all things RedTeam Openτensor Foundaτion (@opentensor) Novelty Search :: Subnet 61 :: @_redteam_ RedTeam turns Bittensor miners into a 24/7 network of ethical hackers. We’ll discuss how SN61 uses that competition to stay ahead of evolving bot attacks, its five new enterprise pilots, and what comes next with RedTeam’s upcoming Immune System. Live on Thursday :: 9PM UTC :: on X + YouTube Hosted by @const_reborn — https://nitter.kareem.one/opentensor/status/2097022237337682320#m  
   https://nitter.kareem.one/_redteam_/status/2097023368629191078#m
-- @markjeffrey (Mark Jeffrey, Fri, 23 Oct 2026): Canine Noonien Singh? If they don't name this dog Khan, I'm deleting this app. Polymarket (@Polymarket) JUST IN: Palmer Luckey's genetically modified military dog startup, Warhound, comes out of stealth, aiming to create enhanced canines for the U.S. military. — https://nitter.kareem.one/Polymarket/status/2113445599001600016#m  
-  https://nitter.kareem.one/markjeffrey/status/2113447666445324588#m
-- @markjeffrey (Mark Jeffrey, Fri, 23 Oct 2026): Oh. And access to all your AI -- including all your agents and prompts. pwned. Turns out your AI Friend Mathis ... is really MY AI friend Mathis.  
-  https://nitter.kareem.one/markjeffrey/status/2113442728080220477#m
-- @markjeffrey (Mark Jeffrey, Fri, 23 Oct 2026): Well done, Altcoin Daily :) Altcoin Daily (@AltcoinDaily) "Do NOT Buy Bitcoin!" (Chamath Palihapitiya’s Final Warning) bitcoin:native $TAO $SOL $BNB $ONDO Video — https://nitter.kareem.one/AltcoinDaily/status/2113434795590189483#m  
-  https://nitter.kareem.one/markjeffrey/status/2113439874477089216#m
-- @markjeffrey (Mark Jeffrey, Fri, 23 Oct 2026): 9:04 crypto is safer than the internet Yes it is. Any sort of quantum or AI attack is going to hit EVERYTHING else before it gets to crypto. Using a credit card online. Your email. Access to your bank. Your health records. Your stock account. Literally ALL of it goes down first. Crypto, under continuous attack for 15+ years, is the most hardened thing there is. It will die LAST. threadguy (@notthreadguy) Why you shouldn't panic about AI hacks: my full interview with cybersecurity expert @tayvano_ 0:37 how bad is the PHP bug? 2:33 PHP is 70% of the internet 6:59 a private key that was just "4"   
-  https://nitter.kareem.one/markjeffrey/status/2113434159209451813#m
-- @YumaGroup (Yuma Holdings, Fri, 16 Oct 2026): “$200,000 bug found with $1000 in AI costs. That’s a huge difference!” this first discovery is what has become @bitsecai continuous audit system - interview with @TheStreet at @ExploitSummit reqd the full interview covered by thestreet, yahoo finance, MSN and AOL  
-  http://nitter.meowing.monster/bitsecai/status/2111122243422204304#m
-- @_redteam_ (RedTeam / Innerworks, Fri, 11 Sep 2026): The future of cybersecurity will be dictated by a defender's ability to not only ingest unique attacks, but generate the strains that don't exist yet and ship the detection ahead of them. As the rest of the industry degrades, the largest financial institutions will consolidate on the single provider that can do this at scale. That provider needs a constant supply of unique attacks to work from, and a subnet is the only structure that pays a swarm of attackers to supply them. bittensor:native #SN61 Openτensor Foundaτion (@opentensor) RedTeam is working toward integrations with three banking com  
-  https://nitter.kareem.one/_redteam_/status/2098469688137097632#m
+- @tm0klc (Tim, Mon, 05 Oct 2026): Bro just make sure my agents can use it Accessibility has taken on a new meaning  
+  http://nitter.meowing.monster/tm0klc/status/2107003027576225971#m
 
 
 ---
-_Generated at 2026-10-23T09:01:43.159929+00:00 by scripts/intel/aggregate.py. Treat this digest as input context, not as ground truth. Verify before quoting._
+_Generated at 2026-10-23T16:16:49.944853+00:00 by scripts/intel/aggregate.py. Treat this digest as input context, not as ground truth. Verify before quoting._
