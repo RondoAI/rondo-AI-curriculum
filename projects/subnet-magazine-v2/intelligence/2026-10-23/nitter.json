@@ -1,5 +1,35 @@
 [
   {
+    "handle": "polychain",
+    "name": "Polychain Capital",
+    "posted_at": "Wed, 30 Sep 2026 18:11:35 GMT",
+    "title": "RT by @polychain: THE BLOCK: DogeOS launched a public testnet for its zero-knowledge rollup, bringing EVM smart contracts to Dogecoin, with dogecoin:native used for gas fees. \"I've spent half a decade encouraging people to take a chance on Dogecoin and to build in its ecosystem,\" said Timothy Stebbing, director of the Dogecoin Foundation. \"My hopes are that DogeOS becomes the springboard for a wave of new utility engineering.\"",
+    "text": "THE BLOCK: DogeOS launched a public testnet for its zero-knowledge rollup, bringing EVM smart contracts to Dogecoin, with dogecoin:native used for gas fees. \"I've spent half a decade encouraging people to take a chance on Dogecoin and to build in its ecosystem,\" said Timothy Stebbing, director of the Dogecoin Foundation. \"My hopes are that DogeOS becomes the springboard for a wave of new utility engineering.\"",
+    "url": "https://nitter.kareem.one/TheBlockCo/status/2105359920795394451#m",
+    "fetched_at": "2026-10-23T08:59:27.367314+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "BarrySilbert",
+    "name": "Barry Silbert",
+    "posted_at": "Wed, 21 Oct 2026 19:40:05 GMT",
+    "title": "RT by @BarrySilbert: Here are the top performing ETFs over the last 5 years: 1. $ZCSH Grayscale Zcash Trust +37.07% 🟢 2. $SMH VanEck Semiconductor ETF +33.21% 🟢 3. $EPU iShares MSCI Peru and Global Exposure ETF +29.56% 🟢 4. $SOXQ Invesco PHLX Semiconductor ETF +28.32% 🟢 5. $GREK Global X MSCI Greece ETF +27.62% 🟢 6. $FTXL First Trust Nasdaq Semiconductor ETF +27.50% 🟢 7. $SOXX iShares Semiconductor ETF +27.41% 🟢 8. $UGA United States Gasoline Fund +26.60% 🟢 9. $DXJ WisdomTree Japan Hedged Equity Fund +26.50% 🟢 10. $BOAT SonicShares Global Shipping ETF +26.22% 🟢",
+    "text": "Here are the top performing ETFs over the last 5 years: 1. $ZCSH Grayscale Zcash Trust +37.07% 🟢 2. $SMH VanEck Semiconductor ETF +33.21% 🟢 3. $EPU iShares MSCI Peru and Global Exposure ETF +29.56% 🟢 4. $SOXQ Invesco PHLX Semiconductor ETF +28.32% 🟢 5. $GREK Global X MSCI Greece ETF +27.62% 🟢 6. $FTXL First Trust Nasdaq Semiconductor ETF +27.50% 🟢 7. $SOXX iShares Semiconductor ETF +27.41% 🟢 8. $UGA United States Gasoline Fund +26.60% 🟢 9. $DXJ WisdomTree Japan Hedged Equity Fund +26.50% 🟢 10. $BOAT SonicShares Global Shipping ETF +26.22% 🟢 ETFDb (@ETFDb) Here are the top performing ETFs over ",
+    "url": "http://nitter.meowing.monster/TheETFTracker/status/2112992338549387452#m",
+    "fetched_at": "2026-10-23T08:59:10.596985+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "galaxyhq",
+    "name": "Galaxy Digital",
+    "posted_at": "Wed, 21 Oct 2026 18:00:47 GMT",
+    "title": "Financial services are going from analog to digital, and fast. Galaxy Ventures' Mike Giampapa (@mgiampapa1) & Karta CEO Freddy Juez (@Freddyjuez) unpack the shifts rebuilding finance across infrastructure, markets and intelligence, and why now is a compelling moment for venture. 📅 Thurs, Oct. 29, 11:00–11:30 AM ET Register here: https://hubs.li/Q04BKMRX0?utm_source=twitter&utm_medium=social&utm_campaign=dhtwitter&utm_content=app.dashsocial.com%2Fgalaxy%2Flibrary%2Fmedia%2F735937075",
+    "text": "Financial services are going from analog to digital, and fast. Galaxy Ventures' Mike Giampapa (@mgiampapa1) & Karta CEO Freddy Juez (@Freddyjuez) unpack the shifts rebuilding finance across infrastructure, markets and intelligence, and why now is a compelling moment for venture. 📅 Thurs, Oct. 29, 11:00–11:30 AM ET Register here: hubs.li/Q04BKMRX0?utm_source…",
+    "url": "https://nitter.kareem.one/galaxyhq/status/2112967350039536010#m",
+    "fetched_at": "2026-10-23T08:59:34.398314+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
     "handle": "YumaGroup",
     "name": "Yuma Holdings",
     "posted_at": "Wed, 21 Oct 2026 16:41:43 GMT",
@@ -30,6 +60,16 @@
     "via_instance": "https://nitter.cz"
   },
   {
+    "handle": "polychain",
+    "name": "Polychain Capital",
+    "posted_at": "Wed, 14 Oct 2026 17:00:07 GMT",
+    "title": "RT by @polychain: This fully autonomous demo shows a Bagel Labs foundation model controlling a robot to make coffee. We previously released WorldDiT, our lightweight architecture for robot foundation models. At the time of release, it was on the Pareto frontier for model size and performance. We have since been refining this architecture to handle longer horizon, more useful tasks fully autonomously. Making coffee means getting a whole sequence of actions right. Each step depends on the result of the last, so small mistakes can build up as the task continues. Getting this to work with a small model is especially challenging. This demo is an example of what the model can do today. If you are deploying robots or have existing hardware you want to make autonomous, we would like to partner with you. https://bagel.com/partner",
+    "text": "This fully autonomous demo shows a Bagel Labs foundation model controlling a robot to make coffee. We previously released WorldDiT, our lightweight architecture for robot foundation models. At the time of release, it was on the Pareto frontier for model size and performance. We have since been refining this architecture to handle longer horizon, more useful tasks fully autonomously. Making coffee means getting a whole sequence of actions right. Each step depends on the result of the last, so small mistakes can build up as the task continues. Getting this to work with a small model is especiall",
+    "url": "https://nitter.kareem.one/bidhan/status/2110415364475466160#m",
+    "fetched_at": "2026-10-23T08:59:27.367314+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
     "handle": "YumaGroup",
     "name": "Yuma Holdings",
     "posted_at": "Wed, 14 Oct 2026 15:48:29 GMT",
@@ -40,6 +80,16 @@
     "via_instance": "https://nitter.cz"
   },
   {
+    "handle": "galaxyhq",
+    "name": "Galaxy Digital",
+    "posted_at": "Tue, 20 Oct 2026 17:23:12 GMT",
+    "title": "RT by @galaxyhq: Legend Trade co-founder @apemoney joins us to discuss social trading activity and onchain perps they are seeing. + We break down why price action continues to dislocate from fundamentals, why retail traders are sitting in cash, and what’s next for crypto market structure. Live now ⬇️",
+    "text": "Legend Trade co-founder @apemoney joins us to discuss social trading activity and onchain perps they are seeing. + We break down why price action continues to dislocate from fundamentals, why retail traders are sitting in cash, and what’s next for crypto market structure. Live now ⬇️ Video",
+    "url": "https://nitter.kareem.one/glxyresearch/status/2112595500536864885#m",
+    "fetched_at": "2026-10-23T08:59:34.398314+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
     "handle": "_redteam_",
     "name": "RedTeam / Innerworks",
     "posted_at": "Tue, 20 Oct 2026 16:37:12 GMT",
@@ -47,6 +97,36 @@
     "text": "Our new website is live at theredteam.io. It now tracks buybacks, conviction-locked alpha and monthly miner submissions live from the subnet, with the buyback wallet linked so anyone can verify it. You can also step through simulations of each detection line, follow a single bypass through the immune loop until the countermeasure ships, and find all of our research, mining guides and miner and validator docs in one place. Our new dashboard follows later this week. bittensor:native",
     "url": "https://nitter.kareem.one/_redteam_/status/2112583927026393148#m",
     "fetched_at": "2026-10-23T02:53:24.405210+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "galaxyhq",
+    "name": "Galaxy Digital",
+    "posted_at": "Tue, 20 Oct 2026 14:22:04 GMT",
+    "title": "R to @galaxyhq: Read the full Galaxy Perspectives piece for more on what changes, what it means in practice, and what comes next: https://www.galaxy.com/insights/perspectives/alpenglow-what-we-learned-running-solanas-biggest-consensus-change",
+    "text": "Read the full Galaxy Perspectives piece for more on what changes, what it means in practice, and what comes next: galaxy.com/insights/perspect… Link Solana Alpenglow Alpenglow, expected on Solana mainnet in mid-October, changes how validators agree on blocks. Galaxy has run Alpenglow on the community test cluster since June 2026, through five re-geneses and the... galaxy.com",
+    "url": "https://nitter.kareem.one/galaxyhq/status/2112549920074777067#m",
+    "fetched_at": "2026-10-23T08:59:34.398314+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "galaxyhq",
+    "name": "Galaxy Digital",
+    "posted_at": "Tue, 20 Oct 2026 14:21:51 GMT",
+    "title": "R to @galaxyhq: Read the full Galaxy Perspectives piece for more on what changes, what it means in practice, and what comes next: https://www.galaxy.com/insights/perspectives/alpenglow-what-we-learned-running-solanas-biggest-consensus-change",
+    "text": "Read the full Galaxy Perspectives piece for more on what changes, what it means in practice, and what comes next: galaxy.com/insights/perspect… Link Solana Alpenglow Alpenglow, expected on Solana mainnet in mid-October, changes how validators agree on blocks. Galaxy has run Alpenglow on the community test cluster since June 2026, through five re-geneses and the... galaxy.com",
+    "url": "https://nitter.kareem.one/galaxyhq/status/2112549865565876671#m",
+    "fetched_at": "2026-10-23T08:59:34.398314+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "polychain",
+    "name": "Polychain Capital",
+    "posted_at": "Tue, 15 Sep 2026 14:20:05 GMT",
+    "title": "RT by @polychain: It's time for a new foundation. Not a new start. Legacy Mode is live on Passport, keep every account you already have, on code anyone can inspect. Switch to open source hardware and software while keeping your existing accounts for supported assets. Here’s how. 🧵",
+    "text": "It's time for a new foundation. Not a new start. Legacy Mode is live on Passport, keep every account you already have, on code anyone can inspect. Switch to open source hardware and software while keeping your existing accounts for supported assets. Here’s how. 🧵 Video",
+    "url": "https://nitter.kareem.one/FoundationHQ/status/2099865846101180499#m",
+    "fetched_at": "2026-10-23T08:59:27.367314+00:00",
     "via_instance": "https://nitter.cz"
   },
   {
@@ -90,6 +170,16 @@
     "via_instance": "https://nitter.cz"
   },
   {
+    "handle": "BarrySilbert",
+    "name": "Barry Silbert",
+    "posted_at": "Thu, 22 Oct 2026 19:23:03 GMT",
+    "title": "RT by @BarrySilbert: Grayscale Zcash ETF $ZCSH perps are now live with zero fees and up to 20x leverage.",
+    "text": "Grayscale Zcash ETF $ZCSH perps are now live with zero fees and up to 20x leverage.",
+    "url": "http://nitter.meowing.monster/variational_io/status/2113350438615736423#m",
+    "fetched_at": "2026-10-23T08:59:10.596985+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
     "handle": "markjeffrey",
     "name": "Mark Jeffrey",
     "posted_at": "Thu, 22 Oct 2026 19:04:02 GMT",
@@ -107,6 +197,16 @@
     "text": "Automatic promotion and balance-based daily drawdown is now live on Vanta 📈 Pass a Classic evaluation, keep performing, and your account moves up on its own. Completely free. Up to 10x, so $100K can become $1M. vantatrading.io/pro",
     "url": "https://nitter.kareem.one/VantaTrading/status/2113321861723439395#m",
     "fetched_at": "2026-10-23T02:53:02.659365+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "BarrySilbert",
+    "name": "Barry Silbert",
+    "posted_at": "Thu, 22 Oct 2026 15:45:19 GMT",
+    "title": "RT by @BarrySilbert: The opportunity in digital assets is expanding, and our Q3 performance shows it. Q3 was our strongest quarter of the year with net flows up ~$1.2B from Q2, and we ranked #1 in AUM among HYPE, Sui and Chainlink ETPs.¹ At our town hall, we recognized the team behind that progress. This quarter's results show what our teams can accomplish through shared ambition and focus.",
+    "text": "The opportunity in digital assets is expanding, and our Q3 performance shows it. Q3 was our strongest quarter of the year with net flows up ~$1.2B from Q2, and we ranked #1 in AUM among HYPE, Sui and Chainlink ETPs.¹ At our town hall, we recognized the team behind that progress. This quarter's results show what our teams can accomplish through shared ambition and focus.",
+    "url": "http://nitter.meowing.monster/PeterMintzberg/status/2113295643598782563#m",
+    "fetched_at": "2026-10-23T08:59:10.596985+00:00",
     "via_instance": "https://nitter.cz"
   },
   {
@@ -130,6 +230,36 @@
     "via_instance": "https://nitter.cz"
   },
   {
+    "handle": "galaxyhq",
+    "name": "Galaxy Digital",
+    "posted_at": "Thu, 22 Oct 2026 14:38:19 GMT",
+    "title": "Galaxy Asset Management’s Joe Armao (Sr. Portfolio Manager, Galaxy Fintech Fund) joins Brooke Kilgallen (Head of Capital Formation) to unpack themes shaping markets: ➡️ Momentum unwind ➡️ Potential Anthropic IPO ➡️ How AI is accelerating crypto & tokenization ➡️ Market structure shifts reshaping financial services Watch the full conversation: https://www.galaxy.com/insights/videos/markets-galaxys-joe-armao-on-why-depth-matters-as-ai-reshapes-markets?utm_source=twitter&utm_medium=social&utm_campaign=dhtwitter&utm_content=app.dashsocial.com%2Fgalaxy%2Flibrary%2Fmedia%2F736477542",
+    "text": "Galaxy Asset Management’s Joe Armao (Sr. Portfolio Manager, Galaxy Fintech Fund) joins Brooke Kilgallen (Head of Capital Formation) to unpack themes shaping markets: ➡️ Momentum unwind ➡️ Potential Anthropic IPO ➡️ How AI is accelerating crypto & tokenization ➡️ Market structure shifts reshaping financial services Watch the full conversation: galaxy.com/insights/videos/m…",
+    "url": "https://nitter.kareem.one/galaxyhq/status/2113278781771202907#m",
+    "fetched_at": "2026-10-23T08:59:34.398314+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "BarrySilbert",
+    "name": "Barry Silbert",
+    "posted_at": "Thu, 22 Oct 2026 10:02:46 GMT",
+    "title": "RT by @BarrySilbert: Stablecoins solved the middle. The ends are still the problem. A cross-border payment isn’t finished until someone holds local currency in a local bank. Our CEO of @GTXNGlobal, Dan Kleinbaum will take a stage at Cross Border Payments Conference in Johannesburg to discuss why that’s a liquidity problem, not a chain problem. Johannesburg, 28 October. Come meet our team: http://tci-sa.co.za/cross-border-payments-conference-2026",
+    "text": "Stablecoins solved the middle. The ends are still the problem. A cross-border payment isn’t finished until someone holds local currency in a local bank. Our CEO of @GTXNGlobal, Dan Kleinbaum will take a stage at Cross Border Payments Conference in Johannesburg to discuss why that’s a liquidity problem, not a chain problem. Johannesburg, 28 October. Come meet our team: tci-sa.co.za/cross-border-pa…",
+    "url": "http://nitter.meowing.monster/GTXNGlobal/status/2113209439708684739#m",
+    "fetched_at": "2026-10-23T08:59:10.596985+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "BarrySilbert",
+    "name": "Barry Silbert",
+    "posted_at": "Thu, 22 Oct 2026 09:58:00 GMT",
+    "title": "RT by @BarrySilbert: NEW: @Grayscale expands in-kind crypto transfers across 10 investment products, letting eligible investors contribute $BTC, $ETH, $SOL, $XRP, $ZEC and five others directly for fund shares without selling to cash first, with minimums starting at $80,300.",
+    "text": "NEW: @Grayscale expands in-kind crypto transfers across 10 investment products, letting eligible investors contribute $BTC, $ETH, $SOL, $XRP, $ZEC and five others directly for fund shares without selling to cash first, with minimums starting at $80,300.",
+    "url": "http://nitter.meowing.monster/CoinDesk/status/2113208239823425843#m",
+    "fetched_at": "2026-10-23T08:59:10.596985+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
     "handle": "VantaTrading",
     "name": "Vanta",
     "posted_at": "Thu, 22 Oct 2026 02:00:16 GMT",
@@ -137,6 +267,36 @@
     "text": "Tesla and Meta report after the bell tonight. Holding through it? Go ahead. Overnight and weekend holds are allowed on every Vanta account. Trade your way - that's the Vanta difference.",
     "url": "https://nitter.kareem.one/VantaTrading/status/2113088012628447259#m",
     "fetched_at": "2026-10-23T02:53:02.659365+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "Olaf",
+    "name": "Olaf Carlson-Wee",
+    "posted_at": "Thu, 19 Aug 2010 19:44:32 GMT",
+    "title": "lekker biertje drinken bij Dims!",
+    "text": "lekker biertje drinken bij Dims!",
+    "url": "https://nitter.kareem.one/olaf/status/21602951308#m",
+    "fetched_at": "2026-10-23T08:59:31.556476+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "polychain",
+    "name": "Polychain Capital",
+    "posted_at": "Thu, 15 Oct 2026 16:00:00 GMT",
+    "title": "RT by @polychain: Multiliquid closes seed round led by @polychaincap, with participation from @strobefund, @CMT_Digital, @metalayervc, @genventurecap and @circle_ventures, bringing total funding to $8M. Instant liquidity for tokenized assets, atomic settlement, 24/7. Read more: https://www.multiliquid.xyz/news/seed-round-with-polychain",
+    "text": "Multiliquid closes seed round led by @polychaincap, with participation from @strobefund, @CMT_Digital, @metalayervc, @genventurecap and @circle_ventures, bringing total funding to $8M. Instant liquidity for tokenized assets, atomic settlement, 24/7. Read more: multiliquid.xyz/news/seed-ro…",
+    "url": "https://nitter.kareem.one/multiliquid_xyz/status/2110762624791290189#m",
+    "fetched_at": "2026-10-23T08:59:27.367314+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "polychain",
+    "name": "Polychain Capital",
+    "posted_at": "Thu, 13 Aug 2026 13:02:38 GMT",
+    "title": "RT by @polychain: LBTC proved demand for yield-bearing Bitcoin. Today, we double down on that thesis. LBTC is moving to institutional yield. @Bitwise will manage a covered-call options strategy with a 4.5-year legacy track record, to generate LBTC's yield, targeting 2.5% net APY paid in Bitcoin.",
+    "text": "LBTC proved demand for yield-bearing Bitcoin. Today, we double down on that thesis. LBTC is moving to institutional yield. @Bitwise will manage a covered-call options strategy with a 4.5-year legacy track record, to generate LBTC's yield, targeting 2.5% net APY paid in Bitcoin.",
+    "url": "https://nitter.kareem.one/Lombard_Finance/status/2087887552300933626#m",
+    "fetched_at": "2026-10-23T08:59:27.367314+00:00",
     "via_instance": "https://nitter.cz"
   },
   {
@@ -187,6 +347,16 @@
     "text": "Today, we’re opening up Datapoint AI for anyone to use. It is by far the fastest way to understand what your customers want. Type a question. Real people answer. You get a report back in ~10 minutes, not three weeks, and at a fraction of the cost. Video",
     "url": "http://nitter.meowing.monster/datapointai/status/2062563294880075837#m",
     "fetched_at": "2026-10-23T02:54:11.256566+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "Olaf",
+    "name": "Olaf Carlson-Wee",
+    "posted_at": "Sun, 10 Jul 2011 15:44:18 GMT",
+    "title": "RT @timmerarjan Life is good! http://yfrog.com/kkli4iaj zeker !! Wel tof dat je het deelt met je vrienden :)",
+    "text": "RT @timmerarjan Life is good! yfrog.com/kkli4iaj zeker !! Wel tof dat je het deelt met je vrienden :)",
+    "url": "https://nitter.kareem.one/olaf/status/90083936700600321#m",
+    "fetched_at": "2026-10-23T08:59:31.556476+00:00",
     "via_instance": "https://nitter.cz"
   },
   {

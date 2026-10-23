@@ -142,16 +142,32 @@ _no new posts in the lookback window_
 
 ## ⊕ X via NITTER, voices we track
 
+- @polychain (Polychain Capital, Wed, 30 Sep 2026): THE BLOCK: DogeOS launched a public testnet for its zero-knowledge rollup, bringing EVM smart contracts to Dogecoin, with dogecoin:native used for gas fees. "I've spent half a decade encouraging people to take a chance on Dogecoin and to build in its ecosystem," said Timothy Stebbing, director of the Dogecoin Foundation. "My hopes are that DogeOS becomes the springboard for a wave of new utility engineering."  
+  https://nitter.kareem.one/TheBlockCo/status/2105359920795394451#m
+- @BarrySilbert (Barry Silbert, Wed, 21 Oct 2026): Here are the top performing ETFs over the last 5 years: 1. $ZCSH Grayscale Zcash Trust +37.07% 🟢 2. $SMH VanEck Semiconductor ETF +33.21% 🟢 3. $EPU iShares MSCI Peru and Global Exposure ETF +29.56% 🟢 4. $SOXQ Invesco PHLX Semiconductor ETF +28.32% 🟢 5. $GREK Global X MSCI Greece ETF +27.62% 🟢 6. $FTXL First Trust Nasdaq Semiconductor ETF +27.50% 🟢 7. $SOXX iShares Semiconductor ETF +27.41% 🟢 8. $UGA United States Gasoline Fund +26.60% 🟢 9. $DXJ WisdomTree Japan Hedged Equity Fund +26.50% 🟢 10. $BOAT SonicShares Global Shipping ETF +26.22% 🟢 ETFDb (@ETFDb) Here are the top performing ETFs over   
+  http://nitter.meowing.monster/TheETFTracker/status/2112992338549387452#m
+- @galaxyhq (Galaxy Digital, Wed, 21 Oct 2026): Financial services are going from analog to digital, and fast. Galaxy Ventures' Mike Giampapa (@mgiampapa1) & Karta CEO Freddy Juez (@Freddyjuez) unpack the shifts rebuilding finance across infrastructure, markets and intelligence, and why now is a compelling moment for venture. 📅 Thurs, Oct. 29, 11:00–11:30 AM ET Register here: hubs.li/Q04BKMRX0?utm_source…  
+  https://nitter.kareem.one/galaxyhq/status/2112967350039536010#m
 - @YumaGroup (Yuma Holdings, Wed, 21 Oct 2026): The full letter can be read here: sec.gov/comments/S7-2026-27/…  
   http://nitter.meowing.monster/YumaGroup/status/2112947451611243004#m
 - @YumaGroup (Yuma Holdings, Wed, 21 Oct 2026): The SEC’s proposed Regulation Crypto Assets is meaningful progress toward a clearer framework for digital assets, and we support it. Work remains on how token issuers can transact in secondary markets. Yuma submitted a comment letter today proposing a framework based on disclosure and discretion, with objective standards designed to give issuers and market participants greater clarity.  
   http://nitter.meowing.monster/YumaGroup/status/2112904766355378267#m
 - @oroagents (Oro, Wed, 21 Oct 2026): Some things never change  
   https://nitter.kareem.one/ironseth_s/status/2112775882519822782#m
+- @polychain (Polychain Capital, Wed, 14 Oct 2026): This fully autonomous demo shows a Bagel Labs foundation model controlling a robot to make coffee. We previously released WorldDiT, our lightweight architecture for robot foundation models. At the time of release, it was on the Pareto frontier for model size and performance. We have since been refining this architecture to handle longer horizon, more useful tasks fully autonomously. Making coffee means getting a whole sequence of actions right. Each step depends on the result of the last, so small mistakes can build up as the task continues. Getting this to work with a small model is especiall  
+  https://nitter.kareem.one/bidhan/status/2110415364475466160#m
 - @YumaGroup (Yuma Holdings, Wed, 14 Oct 2026): ladies and gentlemen. @manakoai is officially working with @Shell. deploying physical ai to better their fuel retail operations. lfgooooooo🔥👊🚀  
   http://nitter.meowing.monster/arnod3f/status/2110397339126915400#m
+- @galaxyhq (Galaxy Digital, Tue, 20 Oct 2026): Legend Trade co-founder @apemoney joins us to discuss social trading activity and onchain perps they are seeing. + We break down why price action continues to dislocate from fundamentals, why retail traders are sitting in cash, and what’s next for crypto market structure. Live now ⬇️ Video  
+  https://nitter.kareem.one/glxyresearch/status/2112595500536864885#m
 - @_redteam_ (RedTeam / Innerworks, Tue, 20 Oct 2026): Our new website is live at theredteam.io. It now tracks buybacks, conviction-locked alpha and monthly miner submissions live from the subnet, with the buyback wallet linked so anyone can verify it. You can also step through simulations of each detection line, follow a single bypass through the immune loop until the countermeasure ships, and find all of our research, mining guides and miner and validator docs in one place. Our new dashboard follows later this week. bittensor:native  
   https://nitter.kareem.one/_redteam_/status/2112583927026393148#m
+- @galaxyhq (Galaxy Digital, Tue, 20 Oct 2026): Read the full Galaxy Perspectives piece for more on what changes, what it means in practice, and what comes next: galaxy.com/insights/perspect… Link Solana Alpenglow Alpenglow, expected on Solana mainnet in mid-October, changes how validators agree on blocks. Galaxy has run Alpenglow on the community test cluster since June 2026, through five re-geneses and the... galaxy.com  
+  https://nitter.kareem.one/galaxyhq/status/2112549920074777067#m
+- @galaxyhq (Galaxy Digital, Tue, 20 Oct 2026): Read the full Galaxy Perspectives piece for more on what changes, what it means in practice, and what comes next: galaxy.com/insights/perspect… Link Solana Alpenglow Alpenglow, expected on Solana mainnet in mid-October, changes how validators agree on blocks. Galaxy has run Alpenglow on the community test cluster since June 2026, through five re-geneses and the... galaxy.com  
+  https://nitter.kareem.one/galaxyhq/status/2112549865565876671#m
+- @polychain (Polychain Capital, Tue, 15 Sep 2026): It's time for a new foundation. Not a new start. Legacy Mode is live on Passport, keep every account you already have, on code anyone can inspect. Switch to open source hardware and software while keeping your existing accounts for supported assets. Here’s how. 🧵 Video  
+  https://nitter.kareem.one/FoundationHQ/status/2099865846101180499#m
 - @dippy_ai (Dippy AI, Thu, 30 Jul 2026): Excited to have helped @PrunaAI collect 1M+ votes for image preference data in a very short time :~) Pruna AI (@PrunaAI) P-Image-Ideogram dominate the speed-quality and price-quality Pareto frontiers for image generation. It is the result of a unique collaboration with @ideogram_ai. - Four modes (Very low, low, medium, high) for 1K-2K image generation. - Optimal quality-efficiency with 0.4s-7.5s latency, and $0.003-$0.03 price. - Structured JSON control & exact color control. Available via our inference partners @Replicate @inference_sh @scenario_gg @wavespeed_ai @wiroai @magnific @prodialabs   
   http://nitter.meowing.monster/datapointai/status/2082837314603032606#m
 - @dippy_ai (Dippy AI, Thu, 27 Aug 2026): we have significantly upgraded both the basic and super models 🤩🤩 we have also made optimizations to improve response speeds by upto 5x can't wait for you all to experience and enjoy the new dippy 📯📯😸 rolling out to everyone today  
@@ -160,16 +176,32 @@ _no new posts in the lookback window_
   https://nitter.kareem.one/VantaTrading/status/2113369877255946331#m
 - @VantaTrading (Vanta, Thu, 22 Oct 2026): Vanta Trading now has the lowest eval fees (20% off right now) with static EOD drawdown and balance-based intraday dd with more pairs, deeper liquidity, and scaling up to $1M. If that's not enough checkout our instant funded. Hard to beat. Vanta Trading (@VantaTrading) Automatic promotion and balance-based daily drawdown is now live on Vanta 📈 Pass a Classic evaluation, keep performing, and your account moves up on its own. Completely free. Up to 10x, so $100K can become $1M. vantatrading.io/pro — https://nitter.kareem.one/VantaTrading/status/2113321861723439395#m  
   https://nitter.kareem.one/0xarrash/status/2113369761119973463#m
+- @BarrySilbert (Barry Silbert, Thu, 22 Oct 2026): Grayscale Zcash ETF $ZCSH perps are now live with zero fees and up to 20x leverage.  
+  http://nitter.meowing.monster/variational_io/status/2113350438615736423#m
 - @markjeffrey (Mark Jeffrey, Thu, 22 Oct 2026): Federal officials are arresting the body brokers who bring American addicts to LA for Medicaid-funded “treatment” and dump them on the streets to die. LA gets about as many homeless off the street each year as there are homeless from LA. Stop the inflow and the crisis is over. National Fraud Enforcement Division (@DOJFraudDiv) 🚨 @AAGMcDonald announces Los Angeles Health Care Fraud Takedown results in charges against 15 defendants, including 6 medical professionals, $1.8 BILLION loss ⬇️ Video — https://nitter.kareem.one/DOJFraudDiv/status/2113309706869768462#m  
   https://nitter.kareem.one/kennethschrupp/status/2113345652952568214#m
 - @VantaTrading (Vanta, Thu, 22 Oct 2026): Automatic promotion and balance-based daily drawdown is now live on Vanta 📈 Pass a Classic evaluation, keep performing, and your account moves up on its own. Completely free. Up to 10x, so $100K can become $1M. vantatrading.io/pro  
   https://nitter.kareem.one/VantaTrading/status/2113321861723439395#m
+- @BarrySilbert (Barry Silbert, Thu, 22 Oct 2026): The opportunity in digital assets is expanding, and our Q3 performance shows it. Q3 was our strongest quarter of the year with net flows up ~$1.2B from Q2, and we ranked #1 in AUM among HYPE, Sui and Chainlink ETPs.¹ At our town hall, we recognized the team behind that progress. This quarter's results show what our teams can accomplish through shared ambition and focus.  
+  http://nitter.meowing.monster/PeterMintzberg/status/2113295643598782563#m
 - @VantaTrading (Vanta, Thu, 22 Oct 2026): the intern needs you to vote for Vanta 🙏 my boss said i might be able to do a giveaway if we win 0xAlok⚡ | Prop Trading arc (@0xAlok_) Prop Firm Qualifier #3 ⚔️ @ProprXYZ vs @VantaTrading 🗳️ Cast your vote and support your favorite! May the best firm win! 🏆 Poll 52% — Propr 48% — Vanta 0% — 0% — 0% — 0% — 0% — 0% — 158 votes • 6 hours — https://nitter.kareem.one/0xAlok_/status/2113201551426932878#m  
   https://nitter.kareem.one/VantaTrading/status/2113284074718847145#m
 - @YumaGroup (Yuma Holdings, Thu, 22 Oct 2026): The model itself isn't always the product. Commercial tools can integrate specialized machine intelligence produced on Bittensor and put it to work. HaloGuard EU is a new product from @astrowareai that taps the Trishool subnet (SN23) to help align model outputs with EU compliance requirements. Try it out in the playground or via API. $TAO Trishool | SN23 (@trishoolai) Months of work. Now live. We've launched HaloGuard EU, our first product. Built to block the AI output the EU AI Act bans or treats as high-risk. $30 / billion tokens. Priced, live, free trial open. And it’s only the first. — htt  
   http://nitter.meowing.monster/YumaGroup/status/2113282968340902298#m
+- @galaxyhq (Galaxy Digital, Thu, 22 Oct 2026): Galaxy Asset Management’s Joe Armao (Sr. Portfolio Manager, Galaxy Fintech Fund) joins Brooke Kilgallen (Head of Capital Formation) to unpack themes shaping markets: ➡️ Momentum unwind ➡️ Potential Anthropic IPO ➡️ How AI is accelerating crypto & tokenization ➡️ Market structure shifts reshaping financial services Watch the full conversation: galaxy.com/insights/videos/m…  
+  https://nitter.kareem.one/galaxyhq/status/2113278781771202907#m
+- @BarrySilbert (Barry Silbert, Thu, 22 Oct 2026): Stablecoins solved the middle. The ends are still the problem. A cross-border payment isn’t finished until someone holds local currency in a local bank. Our CEO of @GTXNGlobal, Dan Kleinbaum will take a stage at Cross Border Payments Conference in Johannesburg to discuss why that’s a liquidity problem, not a chain problem. Johannesburg, 28 October. Come meet our team: tci-sa.co.za/cross-border-pa…  
+  http://nitter.meowing.monster/GTXNGlobal/status/2113209439708684739#m
+- @BarrySilbert (Barry Silbert, Thu, 22 Oct 2026): NEW: @Grayscale expands in-kind crypto transfers across 10 investment products, letting eligible investors contribute $BTC, $ETH, $SOL, $XRP, $ZEC and five others directly for fund shares without selling to cash first, with minimums starting at $80,300.  
+  http://nitter.meowing.monster/CoinDesk/status/2113208239823425843#m
 - @VantaTrading (Vanta, Thu, 22 Oct 2026): Tesla and Meta report after the bell tonight. Holding through it? Go ahead. Overnight and weekend holds are allowed on every Vanta account. Trade your way - that's the Vanta difference.  
   https://nitter.kareem.one/VantaTrading/status/2113088012628447259#m
+- @Olaf (Olaf Carlson-Wee, Thu, 19 Aug 2010): lekker biertje drinken bij Dims!  
+  https://nitter.kareem.one/olaf/status/21602951308#m
+- @polychain (Polychain Capital, Thu, 15 Oct 2026): Multiliquid closes seed round led by @polychaincap, with participation from @strobefund, @CMT_Digital, @metalayervc, @genventurecap and @circle_ventures, bringing total funding to $8M. Instant liquidity for tokenized assets, atomic settlement, 24/7. Read more: multiliquid.xyz/news/seed-ro…  
+  https://nitter.kareem.one/multiliquid_xyz/status/2110762624791290189#m
+- @polychain (Polychain Capital, Thu, 13 Aug 2026): LBTC proved demand for yield-bearing Bitcoin. Today, we double down on that thesis. LBTC is moving to institutional yield. @Bitwise will manage a covered-call options strategy with a 4.5-year legacy track record, to generate LBTC's yield, targeting 2.5% net APY paid in Bitcoin.  
+  https://nitter.kareem.one/Lombard_Finance/status/2087887552300933626#m
 - @_redteam_ (RedTeam / Innerworks, Thu, 10 Sep 2026): I am pleased to announce that Stillcore Capital @stillcorecap has invested in Red Team @_redteam_ Bittensor $TAO Subnet 61.  
   https://nitter.kareem.one/markjeffrey/status/2098171401152971021#m
 - @oroagents (Oro, Thu, 08 Oct 2026): And to see what we are up to next at oroagents.com/  
@@ -180,6 +212,8 @@ _no new posts in the lookback window_
   https://nitter.kareem.one/oroagents/status/2108311456345358818#m
 - @dippy_ai (Dippy AI, Thu, 04 Jun 2026): Today, we’re opening up Datapoint AI for anyone to use. It is by far the fastest way to understand what your customers want. Type a question. Real people answer. You get a report back in ~10 minutes, not three weeks, and at a fraction of the cost. Video  
   http://nitter.meowing.monster/datapointai/status/2062563294880075837#m
+- @Olaf (Olaf Carlson-Wee, Sun, 10 Jul 2011): RT @timmerarjan Life is good! yfrog.com/kkli4iaj zeker !! Wel tof dat je het deelt met je vrienden :)  
+  https://nitter.kareem.one/olaf/status/90083936700600321#m
 - @dippy_ai (Dippy AI, Sun, 09 Aug 2026): We are experiencing an issue with our database provider @supabase , so the app &amp; website may be down for a few more hours. We’ll send a notification when we are able to recover and the app is back to normal! Apologies for the inconvenience 😿😿  
   http://nitter.meowing.monster/dippy_ai/status/2086595242422149540#m
 - @_redteam_ (RedTeam / Innerworks, Mon, 28 Sep 2026): "We're not afraid of hyper-intelligent bot swarms on the internet. We use them to optimise our technology." When we launched RedTeam almost two years ago we could clearly see where the internet was heading. We've since seen clients with over 90% of their traffic made up of not just automation but highly intelligent bot swarms, capable of bypassing any traditional detection mechanism. The only way to combat a threat like this is to welcome it and learn from it. By constantly ingesting and evolving attack vectors from a hive mind of miners, a Bittensor powered defence has now become the only rel  
@@ -205,4 +239,4 @@ _no new posts in the lookback window_
 
 
 ---
-_Generated at 2026-10-23T02:54:27.565926+00:00 by scripts/intel/aggregate.py. Treat this digest as input context, not as ground truth. Verify before quoting._
+_Generated at 2026-10-23T09:01:43.159929+00:00 by scripts/intel/aggregate.py. Treat this digest as input context, not as ground truth. Verify before quoting._
