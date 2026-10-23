@@ -2,6 +2,94 @@
   {
     "repo": "opentensor/subtensor",
     "name": "Subtensor (chain)",
+    "kind": "release",
+    "sha": "v484",
+    "message": "Runtime 484",
+    "author": "github-actions[bot]",
+    "posted_at": "2026-10-23T19:35:19Z",
+    "url": "https://github.com/RaoFoundation/subtensor/releases/tag/v484",
+    "fetched_at": "2026-10-23T22:50:38.063051+00:00"
+  },
+  {
+    "repo": "opentensor/subtensor",
+    "name": "Subtensor (chain)",
+    "kind": "commit",
+    "sha": "5749dbf",
+    "message": "Merge pull request #3279 from RaoFoundation/release-484",
+    "author": "UnArbosFive",
+    "posted_at": "2026-10-23T18:31:20Z",
+    "url": "https://github.com/RaoFoundation/subtensor/commit/5749dbfbe4a78ccd3938d46ffae45e059488feb7",
+    "fetched_at": "2026-10-23T22:50:37.820914+00:00"
+  },
+  {
+    "repo": "opentensor/subtensor",
+    "name": "Subtensor (chain)",
+    "kind": "commit",
+    "sha": "c303a7b",
+    "message": "Merge pull request #3281 from RaoFoundation/fix/optimize-balancer-db-writes",
+    "author": "UnArbosFour",
+    "posted_at": "2026-10-23T17:54:44Z",
+    "url": "https://github.com/RaoFoundation/subtensor/commit/c303a7bf12597b9b4b6283b119ce0c9205a3db24",
+    "fetched_at": "2026-10-23T22:50:37.820914+00:00"
+  },
+  {
+    "repo": "opentensor/subtensor",
+    "name": "Subtensor (chain)",
+    "kind": "commit",
+    "sha": "a79785c",
+    "message": "perf: skip unchanged balancer storage writes",
+    "author": "UnarbosFour",
+    "posted_at": "2026-10-23T17:21:44Z",
+    "url": "https://github.com/RaoFoundation/subtensor/commit/a79785c25c1bbeea0992fcc00c03bd9200882328",
+    "fetched_at": "2026-10-23T22:50:37.820914+00:00"
+  },
+  {
+    "repo": "opentensor/subtensor",
+    "name": "Subtensor (chain)",
+    "kind": "commit",
+    "sha": "a7b2984",
+    "message": "fix: satisfy clippy in lifecycle migration test",
+    "author": "UnarbosFour",
+    "posted_at": "2026-10-23T16:31:09Z",
+    "url": "https://github.com/RaoFoundation/subtensor/commit/a7b2984b3a21fcab1948649699911980f3b7d689",
+    "fetched_at": "2026-10-23T22:50:37.820914+00:00"
+  },
+  {
+    "repo": "opentensor/subtensor",
+    "name": "Subtensor (chain)",
+    "kind": "commit",
+    "sha": "496361a",
+    "message": "test: validate subnet lifecycle migration in try-runtime",
+    "author": "UnarbosFour",
+    "posted_at": "2026-10-23T16:24:42Z",
+    "url": "https://github.com/RaoFoundation/subtensor/commit/496361abe0afc24bf4624d0a7ef2ee5a55270b16",
+    "fetched_at": "2026-10-23T22:50:37.820914+00:00"
+  },
+  {
+    "repo": "opentensor/subtensor",
+    "name": "Subtensor (chain)",
+    "kind": "commit",
+    "sha": "faf8366",
+    "message": "Merge origin/main into release-484",
+    "author": "UnarbosFour",
+    "posted_at": "2026-10-23T15:03:02Z",
+    "url": "https://github.com/RaoFoundation/subtensor/commit/faf836655d7d09789f1bef435ec753c6fe513ad4",
+    "fetched_at": "2026-10-23T22:50:37.820914+00:00"
+  },
+  {
+    "repo": "opentensor/subtensor",
+    "name": "Subtensor (chain)",
+    "kind": "commit",
+    "sha": "61631bd",
+    "message": "fix: sync single-hotkey root claim fee envelope",
+    "author": "UnarbosFour",
+    "posted_at": "2026-10-23T14:55:28Z",
+    "url": "https://github.com/RaoFoundation/subtensor/commit/61631bd20d6dfb7fde65cbffc2e63f54dcdf0222",
+    "fetched_at": "2026-10-23T22:50:37.820914+00:00"
+  },
+  {
+    "repo": "opentensor/subtensor",
+    "name": "Subtensor (chain)",
     "kind": "commit",
     "sha": "db3fdeb",
     "message": "Merge pull request #3280 from RaoFoundation/release-483",
@@ -20,5 +108,16 @@
     "posted_at": "2026-10-23T10:58:58Z",
     "url": "https://github.com/RaoFoundation/subtensor/commit/75c4cb4e28854505fb1e36d21b42db666e6ad03b",
     "fetched_at": "2026-10-23T16:16:42.151619+00:00"
+  },
+  {
+    "repo": "opentensor/subtensor",
+    "name": "Subtensor (chain)",
+    "kind": "commit",
+    "sha": "c3d1880",
+    "message": "Merge pull request #3101 from RaoFoundation/feat/subnet-state",
+    "author": "UnArbosFour",
+    "posted_at": "2026-10-22T20:32:08Z",
+    "url": "https://github.com/RaoFoundation/subtensor/commit/c3d1880f3b83f974610d220542e7de4d81dfa5f7",
+    "fetched_at": "2026-10-23T22:50:37.820914+00:00"
   }
 ]

@@ -1,11 +1,12 @@
 # SemiAnalysis Archive Index
 
-_343 posts captured. Generated 2026-10-23T16:16:49.780066+00:00._
+_344 posts captured. Generated 2026-10-23T22:50:43.147022+00:00._
 
 Editorial policy: SemiAnalysis is the macro reference. The Oracle cites it for any claim about hyperscaler compute, GPU economics, datacenter power, foundry capacity, memory pricing, lab unit economics. The Oracle does NOT cite SemiAnalysis for any Bittensor-specific claim. SemiAnalysis does not cover Bittensor; treat that absence as itself information.
 
 | Date | Title | Audience | Authors | File |
 | --- | --- | --- | --- | --- |
+| 2026-10-23 | [Amazon’s Trainium Takes a Strike at the Training King](https://newsletter.semianalysis.com/p/amazons-trainium-takes-a-strike-at) | only_paid | ["Kimbo Chen", "Dylan Patel"] | `2026-10-23-amazons-trainium-takes-a-strike-at.md` |
 | 2026-10-21 | [The Huawei-DeepSeek Symbiosis](https://newsletter.semianalysis.com/p/huawei-deepseek) | only_paid | ["Bryan Shan", "Dylan Patel"] | `2026-10-21-huawei-deepseek.md` |
 | 2026-10-19 | [Datacenters 2027: The Year of Acceleration, +50GW in a Single Year](https://newsletter.semianalysis.com/p/datacenters-2027-the-year-of-acceleration) | only_paid | ["Jeremie Eliahou Ontiveros", "Reyk Knuhtsen", "Dylan Patel" | `2026-10-19-datacenters-2027-the-year-of-acceleration.md` |
 | 2026-10-15 | [ASML Is Building a Hybrid Bonding Tool!](https://newsletter.semianalysis.com/p/asml-is-building-a-hybrid-bonding) | only_paid | ["Sherry Zhang", "Gerald Wong", "Steven Lee", "Dylan Patel"] | `2026-10-15-asml-is-building-a-hybrid-bonding.md` |

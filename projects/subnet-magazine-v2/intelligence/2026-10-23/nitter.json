@@ -20,6 +20,26 @@
     "via_instance": "https://nitter.cz"
   },
   {
+    "handle": "jtledore",
+    "name": "Jean-Thomas Ledoré",
+    "posted_at": "Wed, 21 Oct 2026 23:07:30 GMT",
+    "title": "RT by @jtledore: Use @taoswap_org. We don't use PHP and we are very careful with security patches.",
+    "text": "Use @taoswap_org. We don't use PHP and we are very careful with security patches. CZ 🔶 BNB (@cz_binance) Call me paranoid, but be extra careful visiting ANY web site in the next few days, as some web admins are not always up-to-date with security patches. Two vulnerabilities (CVE-2026-109618 and CVE-2026-109619) reported for PHP, the web programming language, affecting servers running popular apps like WordPress and Magento, with patches released October 21, 2026 after details leaked early. Exploitation was confirmed in the wild soon after disclosure, prompting quick WAF protections and patchi",
+    "url": "http://nitter.meowing.monster/Rapido_ai/status/2113044536184176806#m",
+    "fetched_at": "2026-10-23T22:49:42.883877+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "PanteraCapital",
+    "name": "Pantera Capital",
+    "posted_at": "Wed, 21 Oct 2026 22:53:24 GMT",
+    "title": "RT by @PanteraCapital: Just wrapped Money20/20. My biggest takeaway as a VC: the two forces reshaping fintech right now are AI agents and stablecoins. @SirDigitalDan from @CoinflowLabs and I dug into both in our fireside. Some takeaways: * Where will value accrue? AI is collapsing the cost of cognition, and stablecoins the cost of settlement. This changes value accrual, when those inputs aren’t scarce. I’m expecting value to migrate to regulated trust, proprietary data, distribution, underlying physical assets, networks. * What does stablecoins as programmable money unlock? Funds and spending rules can execute together, letting a product enforce agent budgets or trigger conditional payouts with less coordination across banks, processors and operational teams. * Where is agent demand emerging? Dan pointed to compute, inference and data APIs, which agents need to complete tasks. I’m looking for infra on fraud, KYA, chargebacks, and merchant side ops to help proliferate agentic commerce usage. * Who carries agent liability? A purchase can comply with the spending rules and still be a mistake. Before delegating larger budgets, businesses will want audit trails, a way to dispute purchases and an agreement on who absorbs losses. * Where’s the distribution advantage? Local integrations and merchant relationships give providers access to existing payment volume. Stablecoins can improve settlement without changing how customers pay. (Coinflow connects cards, ACH and PIX this way.) * How do existing PSPs participate? A provider can earn a processing fee when a developer funds an agent by card, even if subsequent payments settle in stablecoins. (Coinflow powers card funding for Tempo’s MPP Credits.) Thanks for the week @money2020! Curious what others took away too!",
+    "text": "Just wrapped Money20/20. My biggest takeaway as a VC: the two forces reshaping fintech right now are AI agents and stablecoins. @SirDigitalDan from @CoinflowLabs and I dug into both in our fireside. Some takeaways: * Where will value accrue? AI is collapsing the cost of cognition, and stablecoins the cost of settlement. This changes value accrual, when those inputs aren’t scarce. I’m expecting value to migrate to regulated trust, proprietary data, distribution, underlying physical assets, networks. * What does stablecoins as programmable money unlock? Funds and spending rules can execute toget",
+    "url": "https://nitter.kareem.one/stutireal/status/2113040986909655520#m",
+    "fetched_at": "2026-10-23T22:49:00.898034+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
     "handle": "BarrySilbert",
     "name": "Barry Silbert",
     "posted_at": "Wed, 21 Oct 2026 19:40:05 GMT",
@@ -40,6 +60,16 @@
     "via_instance": "https://nitter.cz"
   },
   {
+    "handle": "opentensor",
+    "name": "Opentensor Foundation",
+    "posted_at": "Wed, 21 Oct 2026 16:59:05 GMT",
+    "title": "This Thursday on Novelty Search :: eTAO eTAO replaces Bittensor’s fixed emission split with one that subnet owners can adjust to fit their network’s needs. Join us for a discussion on this latest protocol update and its broader implications for Bittensor. Live on Thursday :: 9PM UTC :: via Bittensor Discord Hosted by @const_reborn",
+    "text": "This Thursday on Novelty Search :: eTAO eTAO replaces Bittensor’s fixed emission split with one that subnet owners can adjust to fit their network’s needs. Join us for a discussion on this latest protocol update and its broader implications for Bittensor. Live on Thursday :: 9PM UTC :: via Bittensor Discord Hosted by @const_reborn",
+    "url": "https://nitter.kareem.one/opentensor/status/2112951822285508818#m",
+    "fetched_at": "2026-10-23T22:48:25.566984+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
     "handle": "YumaGroup",
     "name": "Yuma Holdings",
     "posted_at": "Wed, 21 Oct 2026 16:41:43 GMT",
@@ -47,6 +77,16 @@
     "text": "The full letter can be read here: sec.gov/comments/S7-2026-27/…",
     "url": "http://nitter.meowing.monster/YumaGroup/status/2112947451611243004#m",
     "fetched_at": "2026-10-23T02:52:04.136599+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "jtledore",
+    "name": "Jean-Thomas Ledoré",
+    "posted_at": "Wed, 21 Oct 2026 16:19:56 GMT",
+    "title": "RT by @jtledore: The web before the AI boom? In early 2023, WordPress powered 43.1% of sites. PHP powered 77.7% of sites with an identifiable backend language. \"Boring\" tech built the internet.",
+    "text": "The web before the AI boom? In early 2023, WordPress powered 43.1% of sites. PHP powered 77.7% of sites with an identifiable backend language. \"Boring\" tech built the internet. NSA Cyber (@NSACyber) Effective Immediately, all organizations using PHP for their systems are advised to be prepared for an update addressing two critical vulnerabilities. PHP is widely used for web applications. These vulnerabilities often provide a direct path to the server's file system or database. If an immediate update is not feasible, it is recommend that organizations take the system offline until it can be ful",
+    "url": "http://nitter.meowing.monster/Rapido_ai/status/2112941968997409032#m",
+    "fetched_at": "2026-10-23T22:49:42.883877+00:00",
     "via_instance": "https://nitter.cz"
   },
   {
@@ -100,6 +140,26 @@
     "via_instance": "https://nitter.cz"
   },
   {
+    "handle": "dylan522p",
+    "name": "Dylan Patel",
+    "posted_at": "Wed, 07 Oct 2026 21:46:48 GMT",
+    "title": "RT by @dylan522p: A $200 AI subscription can be worth $12,000 in tokens. Which plan delivers it is not close. \"They're selling to willing buyers at the fair market price. This is capitalism.\" \"You can pay $200 for a Claude plan and get $12,000 of Opus 5.5 tokens at API pricing. So that's obviously a good deal.\" \"You have to say the $200 plan, when running a particular workload on a particular model, gives you some dollar amount. But then you also have 5.5, which is a beast. $6K or $5,000 worth of value.\" \"And when you do that comparison, it's not even a question of who's providing more value. ChatGPT versus Anthropic subscriptions.\" @maxkan and Andrew Megalaa join @JordanNanos this week",
+    "text": "A $200 AI subscription can be worth $12,000 in tokens. Which plan delivers it is not close. \"They're selling to willing buyers at the fair market price. This is capitalism.\" \"You can pay $200 for a Claude plan and get $12,000 of Opus 5.5 tokens at API pricing. So that's obviously a good deal.\" \"You have to say the $200 plan, when running a particular workload on a particular model, gives you some dollar amount. But then you also have 5.5, which is a beast. $6K or $5,000 worth of value.\" \"And when you do that comparison, it's not even a question of who's providing more value. ChatGPT versus Ant",
+    "url": "http://nitter.meowing.monster/SemiAnalysis_/status/2107950798638354671#m",
+    "fetched_at": "2026-10-23T22:50:12.813190+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "dylan522p",
+    "name": "Dylan Patel",
+    "posted_at": "Tue, 20 Oct 2026 21:42:33 GMT",
+    "title": "FlashAttention was a mega kernel @marksaroufim @tri_dao @__tensorcore__ @vinodg",
+    "text": "FlashAttention was a mega kernel @marksaroufim @tri_dao @__tensorcore__ @vinodg",
+    "url": "http://nitter.meowing.monster/dylan522p/status/2112660770458927578#m",
+    "fetched_at": "2026-10-23T22:50:12.813190+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
     "handle": "galaxyhq",
     "name": "Galaxy Digital",
     "posted_at": "Tue, 20 Oct 2026 17:23:12 GMT",
@@ -110,6 +170,16 @@
     "via_instance": "https://nitter.cz"
   },
   {
+    "handle": "jtledore",
+    "name": "Jean-Thomas Ledoré",
+    "posted_at": "Tue, 20 Oct 2026 16:38:32 GMT",
+    "title": "RT by @jtledore: Owners reducing Validators emissions don't understand they simply reduce stakers yield I think. Don't forget who push your alpha token price, is it your revenues or your stakers ?",
+    "text": "Owners reducing Validators emissions don't understand they simply reduce stakers yield I think. Don't forget who push your alpha token price, is it your revenues or your stakers ?",
+    "url": "http://nitter.meowing.monster/Rapido_ai/status/2112584259932127644#m",
+    "fetched_at": "2026-10-23T22:49:42.883877+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
     "handle": "_redteam_",
     "name": "RedTeam / Innerworks",
     "posted_at": "Tue, 20 Oct 2026 16:37:12 GMT",
@@ -117,6 +187,26 @@
     "text": "Our new website is live at theredteam.io. It now tracks buybacks, conviction-locked alpha and monthly miner submissions live from the subnet, with the buyback wallet linked so anyone can verify it. You can also step through simulations of each detection line, follow a single bypass through the immune loop until the countermeasure ships, and find all of our research, mining guides and miner and validator docs in one place. Our new dashboard follows later this week. bittensor:native",
     "url": "https://nitter.kareem.one/_redteam_/status/2112583927026393148#m",
     "fetched_at": "2026-10-23T02:53:24.405210+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "rob_svrn",
+    "name": "Rob Greer",
+    "posted_at": "Tue, 20 Oct 2026 16:37:06 GMT",
+    "title": "RT by @rob_svrn: Exactly How Bittensor TAO Will Hit $1,000,000",
+    "text": "Exactly How Bittensor TAO Will Hit $1,000,000 Video",
+    "url": "https://nitter.kareem.one/TAOTemplar/status/2112583900107096395#m",
+    "fetched_at": "2026-10-23T22:48:37.400409+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "jtledore",
+    "name": "Jean-Thomas Ledoré",
+    "posted_at": "Tue, 20 Oct 2026 16:18:48 GMT",
+    "title": "RT by @jtledore: Introducing eTAO: a new system giving subnets control over their alpha emission split. Subnet owners can now decide how much goes to miners, validators, and themselves, based on the specific needs of their subnet.",
+    "text": "Introducing eTAO: a new system giving subnets control over their alpha emission split. Subnet owners can now decide how much goes to miners, validators, and themselves, based on the specific needs of their subnet. Video",
+    "url": "http://nitter.meowing.monster/opentensor/status/2112579296137290075#m",
+    "fetched_at": "2026-10-23T22:49:42.883877+00:00",
     "via_instance": "https://nitter.cz"
   },
   {
@@ -170,6 +260,16 @@
     "via_instance": "https://nitter.cz"
   },
   {
+    "handle": "dylan522p",
+    "name": "Dylan Patel",
+    "posted_at": "Tue, 06 Oct 2026 22:44:44 GMT",
+    "title": "Mistral 4 is pretty good at lawyer bench and cyber security bench, but give it's European heritage, one can only assume it's also good at regulation bench",
+    "text": "Mistral 4 is pretty good at lawyer bench and cyber security bench, but give it's European heritage, one can only assume it's also good at regulation bench Mistral AI (@MistralAI) Meet Mistral Large 4, aka Le Chonk. • 1T parameters, natively multimodal. 49B active. It is the best open weights model from US or Europe on aggregated benchmarks. • State-of-the-art on critical workloads, including cyber defense, manufacturing and finance and it surpasses closed frontier models on visual grounding. • Forged in Europe end-to-end and is deployable from Europe via our own Mistral Cloud infrastructure. •",
+    "url": "http://nitter.meowing.monster/dylan522p/status/2107602988911260012#m",
+    "fetched_at": "2026-10-23T22:50:12.813190+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
     "handle": "dippy_ai",
     "name": "Dippy AI",
     "posted_at": "Thu, 30 Jul 2026 14:34:47 GMT",
@@ -187,6 +287,16 @@
     "text": "we have significantly upgraded both the basic and super models 🤩🤩 we have also made optimizations to improve response speeds by upto 5x can't wait for you all to experience and enjoy the new dippy 📯📯😸 rolling out to everyone today",
     "url": "http://nitter.meowing.monster/dippy_ai/status/2093089771824226802#m",
     "fetched_at": "2026-10-23T02:54:11.256566+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "opentensor",
+    "name": "Opentensor Foundation",
+    "posted_at": "Thu, 22 Oct 2026 21:02:32 GMT",
+    "title": "Bittensor eTao https://x.com/i/broadcasts/1OxwbnrOyqVJB",
+    "text": "Bittensor eTao nitterk.kareem.one/i/broadcasts/1OxwbnrOy… Link Openτensor Foundaτion Bittensor eTao https://nitter.kareem.one/i/broadcasts/1OxwbnrOyqVJB",
+    "url": "https://nitter.kareem.one/opentensor/status/2113375474508566733#m",
+    "fetched_at": "2026-10-23T22:48:25.566984+00:00",
     "via_instance": "https://nitter.cz"
   },
   {
@@ -250,6 +360,16 @@
     "via_instance": "https://nitter.cz"
   },
   {
+    "handle": "lium_io",
+    "name": "Lium",
+    "posted_at": "Thu, 22 Oct 2026 16:12:41 GMT",
+    "title": "R to @lium_io: these are per node numbers, not per GPU numbers",
+    "text": "these are per node numbers, not per GPU numbers",
+    "url": "http://nitter.meowing.monster/lium_io/status/2113302530021298361#m",
+    "fetched_at": "2026-10-23T22:50:35.165022+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
     "handle": "BarrySilbert",
     "name": "Barry Silbert",
     "posted_at": "Thu, 22 Oct 2026 15:45:19 GMT",
@@ -257,6 +377,16 @@
     "text": "The opportunity in digital assets is expanding, and our Q3 performance shows it. Q3 was our strongest quarter of the year with net flows up ~$1.2B from Q2, and we ranked #1 in AUM among HYPE, Sui and Chainlink ETPs.¹ At our town hall, we recognized the team behind that progress. This quarter's results show what our teams can accomplish through shared ambition and focus.",
     "url": "http://nitter.meowing.monster/PeterMintzberg/status/2113295643598782563#m",
     "fetched_at": "2026-10-23T08:59:10.596985+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "lium_io",
+    "name": "Lium",
+    "posted_at": "Thu, 22 Oct 2026 15:28:42 GMT",
+    "title": "have GPUs? here's what they could be earning on lium: b300 node: $50k/month b200: $35k/month h200: $25k/month h100: $12k/month RTX pro: $9k/month A100: $7k/month 5090: $4k/month 4090: $3k/month 3090: $1200/month and all other nvidia models supported too. start here: https://provider.lium.io/#start",
+    "text": "have GPUs? here's what they could be earning on lium: b300 node: $50k/month b200: $35k/month h200: $25k/month h100: $12k/month RTX pro: $9k/month A100: $7k/month 5090: $4k/month 4090: $3k/month 3090: $1200/month and all other nvidia models supported too. start here: provider.lium.io/#start Link Your GPUs earn even when nobody is renting them | lium.io Provider Portal List NVIDIA GPUs on Lium. You keep most of every rental, paid daily, and Lium pays you for idle GPUs too. Measured rental earnings and the idle rate per GPU class, a calculator and a three-step start. provider.lium.io",
+    "url": "http://nitter.meowing.monster/lium_io/status/2113291464390180993#m",
+    "fetched_at": "2026-10-23T22:50:35.165022+00:00",
     "via_instance": "https://nitter.cz"
   },
   {
@@ -290,6 +420,16 @@
     "via_instance": "https://nitter.cz"
   },
   {
+    "handle": "lium_io",
+    "name": "Lium",
+    "posted_at": "Thu, 22 Oct 2026 14:25:45 GMT",
+    "title": "Lium now hosts over $30m worth of hardware. including 225 B300s. 91% of our supply is rented. lium is the only platform in the world making these GPUs both accessible and affordable.",
+    "text": "Lium now hosts over $30m worth of hardware. including 225 B300s. 91% of our supply is rented. lium is the only platform in the world making these GPUs both accessible and affordable.",
+    "url": "http://nitter.meowing.monster/lium_io/status/2113275619916304612#m",
+    "fetched_at": "2026-10-23T22:50:35.165022+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
     "handle": "BarrySilbert",
     "name": "Barry Silbert",
     "posted_at": "Thu, 22 Oct 2026 10:02:46 GMT",
@@ -307,6 +447,16 @@
     "text": "NEW: @Grayscale expands in-kind crypto transfers across 10 investment products, letting eligible investors contribute $BTC, $ETH, $SOL, $XRP, $ZEC and five others directly for fund shares without selling to cash first, with minimums starting at $80,300.",
     "url": "http://nitter.meowing.monster/CoinDesk/status/2113208239823425843#m",
     "fetched_at": "2026-10-23T08:59:10.596985+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "opentensor",
+    "name": "Opentensor Foundation",
+    "posted_at": "Thu, 22 Oct 2026 08:35:57 GMT",
+    "title": "Decentralized training on Bittensor is getting hard to ignore.",
+    "text": "Decentralized training on Bittensor is getting hard to ignore. IOTA ・ SN9 (@IOTA_SN9) The swarm just got faster. We've eliminated one of decentralized training's biggest bottlenecks, speeding up merging by 5x. We're redefining the shape of AI training. Introducing the latest evolution of IOTA. Video — https://nitter.kareem.one/IOTA_SN9/status/2112952838489837824#m",
+    "url": "https://nitter.kareem.one/opentensor/status/2113187591344263313#m",
+    "fetched_at": "2026-10-23T22:48:25.566984+00:00",
     "via_instance": "https://nitter.cz"
   },
   {
@@ -347,6 +497,16 @@
     "text": "Multiliquid closes seed round led by @polychaincap, with participation from @strobefund, @CMT_Digital, @metalayervc, @genventurecap and @circle_ventures, bringing total funding to $8M. Instant liquidity for tokenized assets, atomic settlement, 24/7. Read more: multiliquid.xyz/news/seed-ro…",
     "url": "http://nitter.meowing.monster/multiliquid_xyz/status/2110762624791290189#m",
     "fetched_at": "2026-10-23T16:14:36.802744+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "rob_svrn",
+    "name": "Rob Greer",
+    "posted_at": "Thu, 15 Oct 2026 15:49:21 GMT",
+    "title": "RT by @rob_svrn: We've developed a new inference engine, called 'e'. It's the closest thing to alien technology which we have, and pushes 10,500 tok/s aggregate on a single DGX Station with the new @NVIDIAAI Nemotron 3.5 Super VL model, released a few minutes ago.",
+    "text": "We've developed a new inference engine, called 'e'. It's the closest thing to alien technology which we have, and pushes 10,500 tok/s aggregate on a single DGX Station with the new @NVIDIAAI Nemotron 3.5 Super VL model, released a few minutes ago. Actual Computer (@actualinc) Actual Computer turns your NVIDIA DGX Station into a department-scale AI factory. Read the full case study: actual.inc/company/blog/case… — https://nitter.kareem.one/actualinc/status/2110759623435117020#m",
+    "url": "https://nitter.kareem.one/somewheresy/status/2110759944370692216#m",
+    "fetched_at": "2026-10-23T22:48:37.400409+00:00",
     "via_instance": "https://nitter.cz"
   },
   {
@@ -420,6 +580,16 @@
     "via_instance": "https://nitter.cz"
   },
   {
+    "handle": "dylan522p",
+    "name": "Dylan Patel",
+    "posted_at": "Sun, 11 Oct 2026 06:55:55 GMT",
+    "title": "The two worst things for society Both called DCs Diet Coke Datacenters",
+    "text": "The two worst things for society Both called DCs Diet Coke Datacenters",
+    "url": "http://nitter.meowing.monster/dylan522p/status/2109176151986057331#m",
+    "fetched_at": "2026-10-23T22:50:12.813190+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
     "handle": "Olaf",
     "name": "Olaf Carlson-Wee",
     "posted_at": "Sun, 10 Jul 2011 15:44:18 GMT",
@@ -440,6 +610,16 @@
     "via_instance": "https://nitter.cz"
   },
   {
+    "handle": "rob_svrn",
+    "name": "Rob Greer",
+    "posted_at": "Sat, 17 Oct 2026 20:12:32 GMT",
+    "title": "RT by @rob_svrn: Really interesting convo below from this weeks all in on why a16z stays away from the neoclouds, and it made something click for me about Bittensor. @bhorowitz point is that scaling compute on debt is a dangerous arbitrage business, and he lived it in 99 when bandwidth was $1,500/megabit and the only way to get it was a 3 year contract. By 2001 it was $50 - If you were holding that on borrowed money you were dead. His case for $CRWV being different is that AI compute is in a massive shortage, so GPU and data center prices keep rising. Maybe he's right. But the neocloud model is still a levered bet that GPU scarcity outlasts the debt, because they borrow against the GPUs and the lenders get paid on a schedule whether or not the market cooperates. A compute subnet on Bittensor is basically a decentralized neocloud that doesn't need any of that. There's no GPU purchase to finance (miners show up with their own hardware) and no 3 year capacity contract to get stuck holding if prices move. The token + the network do the job the debt does for CoreWeave. Emissions bootstrap the supply side, and as demand and revenue grow the subnet puts that value back into its token, which raises what miners earn and pulls more compute onto the network. The token is the lever that scales how much compute you can harvest and coordinate. So if GPU pricing ever pulls a Loudcloud, the subnet doesn't blow up, its incentives just buy more compute than they used to. With no debt there's nothing to default on, and nobody can call a loan or force a fire sale. The risk you take on instead is token volatility, which you manage with a treasury (keep cash on hand and use it to support your token through drawdowns). A bad market can starve a subnet for a while, but one with real demand underneath it can ride that out. The tradeoff is a slower, more gradual build. A neocloud can borrow its way to a giant cluster fast, while a subnet's capacity grows with the size of the network and the token. What you get in exchange is a far more durable business, mostly because of where the supply comes from. You're tapping a bunch of long tails of compute that a neocloud can't really get at: >people who own their own hardware and want to monetize it when they're not using it >slack capacity in data centers (nobody runs at 100%), which can get sold into the subnet's spot market instead of sitting idle >sunk cost hardware, i.e. paid off GPUs that can't get a contract for anything else >operators in places with cheap power that no lender would ever underwrite a data center for Once a card is paid off the main ongoing cost is power, which even on an H100 is something like 5-10 cents an hour depending on where you are. So a lot of this supply is pretty price insensitive. They make more when the token is higher, but a 50% drawdown in miner rewards eats into their margin and plenty of them keep mining anyway. That gives you a structural supply floor that doesn't really care what the token (and therefore the miner reward) is doing day to day. Then as network value and the token go up, you progressively unlock compute that's more price sensitive (financed GPUs that still have to pay themselves off, US data centers with pricier power, etc). Each one joins once mining becomes economic for it, and you get a flywheel: token up → more of the world's compute profitable to plug in → more capacity to sell → more revenue → more value back into the token → repeat. Every GPU that joins also makes the network cheaper and more reliable to buy from, so you get a real network effect on top of removing the debt risk. And in the limit it can reach more compute than any single hyperscaler could ever build or finance, because the supply side is permissionless and global. You start by tapping into the world's edge compute, and over time the rest of the world's compute comes online as it makes economic sense for whoever owns it.",
+    "text": "Really interesting convo below from this weeks all in on why a16z stays away from the neoclouds, and it made something click for me about Bittensor. @bhorowitz point is that scaling compute on debt is a dangerous arbitrage business, and he lived it in 99 when bandwidth was $1,500/megabit and the only way to get it was a 3 year contract. By 2001 it was $50 - If you were holding that on borrowed money you were dead. His case for $CRWV being different is that AI compute is in a massive shortage, so GPU and data center prices keep rising. Maybe he's right. But the neocloud model is still a levered",
+    "url": "https://nitter.kareem.one/0xSunRun/status/2111550951329054825#m",
+    "fetched_at": "2026-10-23T22:48:37.400409+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
     "handle": "_redteam_",
     "name": "RedTeam / Innerworks",
     "posted_at": "Mon, 28 Sep 2026 18:43:14 GMT",
@@ -447,6 +627,16 @@
     "text": "\"We're not afraid of hyper-intelligent bot swarms on the internet. We use them to optimise our technology.\" When we launched RedTeam almost two years ago we could clearly see where the internet was heading. We've since seen clients with over 90% of their traffic made up of not just automation but highly intelligent bot swarms, capable of bypassing any traditional detection mechanism. The only way to combat a threat like this is to welcome it and learn from it. By constantly ingesting and evolving attack vectors from a hive mind of miners, a Bittensor powered defence has now become the only rel",
     "url": "https://nitter.kareem.one/_redteam_/status/2104643110911533312#m",
     "fetched_at": "2026-10-23T02:53:24.405210+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "PanteraCapital",
+    "name": "Pantera Capital",
+    "posted_at": "Mon, 19 Oct 2026 17:09:13 GMT",
+    "title": "RT by @PanteraCapital: Introducing OpenAI Private Market Note (OPAIPon). Tokenized exposure to OpenAI is now trading 24/7 on Ondo Perps' permissionless spot order book. Trade now → https://app.ondoperps.xyz/trade/spot/OPAIPon-USDC",
+    "text": "Introducing OpenAI Private Market Note (OPAIPon). Tokenized exposure to OpenAI is now trading 24/7 on Ondo Perps' permissionless spot order book. Trade now → app.ondoperps.xyz/trade/spot…",
+    "url": "https://nitter.kareem.one/OndoPerps/status/2112229594262864278#m",
+    "fetched_at": "2026-10-23T22:49:00.898034+00:00",
     "via_instance": "https://nitter.cz"
   },
   {
@@ -520,6 +710,126 @@
     "via_instance": "https://nitter.cz"
   },
   {
+    "handle": "markjeffrey",
+    "name": "Mark Jeffrey",
+    "posted_at": "Fri, 23 Oct 2026 22:27:43 GMT",
+    "title": "Party like it's 1999",
+    "text": "Party like it's 1999 Floro S. (@sflorimm) Revenue: $16.3B Net loss: $80.7B IPO valuation: $2T Video — http://nitter.meowing.monster/sflorimm/status/2113629752506397083#m",
+    "url": "http://nitter.meowing.monster/markjeffrey/status/2113759299172540472#m",
+    "fetched_at": "2026-10-23T22:48:34.423754+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "markjeffrey",
+    "name": "Mark Jeffrey",
+    "posted_at": "Fri, 23 Oct 2026 22:04:41 GMT",
+    "title": "NOBODY WOULD EVER TELL HIM WHO A GOOD BOY ACTUALLY WAS ... SO NOW, HE'S GOING TO FIND OUT. WITH HIS TEETH. presenting THE WRATH OF KHANINE. HIS IS SUPERIOR.",
+    "text": "NOBODY WOULD EVER TELL HIM WHO A GOOD BOY ACTUALLY WAS ... SO NOW, HE'S GOING TO FIND OUT. WITH HIS TEETH. presenting THE WRATH OF KHANINE. HIS IS SUPERIOR. Polymarket (@Polymarket) JUST IN: Palmer Luckey's genetically modified military dog startup, Warhound, comes out of stealth, aiming to create enhanced canines for the U.S. military. — http://nitter.meowing.monster/Polymarket/status/2113445599001600016#m",
+    "url": "http://nitter.meowing.monster/markjeffrey/status/2113753502531154170#m",
+    "fetched_at": "2026-10-23T22:48:34.423754+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "PanteraCapital",
+    "name": "Pantera Capital",
+    "posted_at": "Fri, 23 Oct 2026 20:43:18 GMT",
+    "title": "RT by @PanteraCapital: Future of agentic finance ft. my bionic arm & food poisoning Always a blast to share insights at @PanteraCapital Global LP summit! 7 years and counting! Thanks @dan_pantera @veradittakit @joeykrug @FranklinBi @stutireal for believing in @Alchemy since the beginning! For full talk, reply below and will dm you",
+    "text": "Future of agentic finance ft. my bionic arm & food poisoning Always a blast to share insights at @PanteraCapital Global LP summit! 7 years and counting! Thanks @dan_pantera @veradittakit @joeykrug @FranklinBi @stutireal for believing in @Alchemy since the beginning! For full talk, reply below and will dm you",
+    "url": "https://nitter.kareem.one/nikil/status/2113733020968702063#m",
+    "fetched_at": "2026-10-23T22:49:00.898034+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "markjeffrey",
+    "name": "Mark Jeffrey",
+    "posted_at": "Fri, 23 Oct 2026 19:25:11 GMT",
+    "title": "RT by @markjeffrey: As frontier labs subsidies going down, majority of companies will be forced to pivot to open weight models that will be 70-80% cheaper for 95% of the performance Inference is like energy, study Jevon paradox. Use @engyai",
+    "text": "As frontier labs subsidies going down, majority of companies will be forced to pivot to open weight models that will be 70-80% cheaper for 95% of the performance Inference is like energy, study Jevon paradox. Use @engyai Kimi.ai (@Kimi_Moonshot) On Terminal-Bench 4.0, which evaluates coding agents on realistic, resource-constrained terminal tasks using strict task-specific tests, K3.1 Pro scores 65.7%, ahead of GPT-6 Astra (58.2%) and narrowly behind Claude Opus 5.5 (66.4%). — http://nitter.meowing.monster/Kimi_Moonshot/status/2113680705855373791#m",
+    "url": "http://nitter.meowing.monster/AlgodTrading/status/2113713362777620786#m",
+    "fetched_at": "2026-10-23T22:48:34.423754+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "markjeffrey",
+    "name": "Mark Jeffrey",
+    "posted_at": "Fri, 23 Oct 2026 19:16:18 GMT",
+    "title": "Another day, another frontier-class open weights model. Centralized and closed stunned again.",
+    "text": "Another day, another frontier-class open weights model. Centralized and closed stunned again. Kimi.ai (@Kimi_Moonshot) On Terminal-Bench 4.0, which evaluates coding agents on realistic, resource-constrained terminal tasks using strict task-specific tests, K3.1 Pro scores 65.7%, ahead of GPT-6 Astra (58.2%) and narrowly behind Claude Opus 5.5 (66.4%). — http://nitter.meowing.monster/Kimi_Moonshot/status/2113680705855373791#m",
+    "url": "http://nitter.meowing.monster/markjeffrey/status/2113711126580248947#m",
+    "fetched_at": "2026-10-23T22:48:34.423754+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "markjeffrey",
+    "name": "Mark Jeffrey",
+    "posted_at": "Fri, 23 Oct 2026 18:00:42 GMT",
+    "title": "RT by @markjeffrey: Holy shit.",
+    "text": "Holy shit. Kimi.ai (@Kimi_Moonshot) Introducing Kimi K3.1 Pro: our most capable 3T-class open-weight model. 🔹 1M-token context, 2.8T total / 104B active params (MoE), Multimodal. 🔹 Full-project coding: games in Unreal, Unity & Godot. 🔹 Excels at parametric 3D modeling in Blender & CAD. 🔹 More reliable at finance work: Accurate modeling with hallucination down by 65%. 🔹 Matching the strongest proprietary models across coding, agentic and knowledge benchmarks. Kimi K3.1 Pro and K3.1 Pro Highspeed (2–3× faster) are now live on Kimi.ai, Kimi Work, Kimi Code, and the Kimi API. Open weights by Nov 4",
+    "url": "http://nitter.meowing.monster/hosseeb/status/2113692101003350312#m",
+    "fetched_at": "2026-10-23T22:48:34.423754+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "rob_svrn",
+    "name": "Rob Greer",
+    "posted_at": "Fri, 23 Oct 2026 16:50:21 GMT",
+    "title": "RT by @rob_svrn: its been a good week being a citizen of the Bittensor network state. here's everything that happened this week • @lium_io now hosts $30M in GPUs (91% utilization), including 225 B300s. At a $21M run rate • @affine_io dropped a video model thats ~10x cheaper than the base model with virtually no drop in output quality after 3 days of model optimization • @engyai hits a new ATH, with 370B tokens processed this week • @say_gm_ had its highest traffic week, crossing $1M in total volume since July • @cacheon_ai adds Meta's Muse Spark Open Kernel challenge to their mining competition • Ingot released Ingot-I quantized Qwen 27B into FP8 better than Alibaba's own quantization in just 1 week • @trishoolai released HaloGuard EU, an API product that enables companies to be in compliance with the EU's AI act. It's 200x cheaper than Jev • @yugosai announces their subnet pivot to an intelligent model router • @metanova_labs subnet-derived compounds underwent wet lab testing and compared favorably with reference compounds including approved drugs • More subnets entering the buyback game this week with @VantaTrading @ $102K, @Bitcast_network @ $93K, @almnc_ai @ $45K, and @_redteam_ @ $30K. • eTAO upgrade was implemented into the chain, giving subnet owners control over how they set their emissions. Huge quality of life improvment",
+    "text": "its been a good week being a citizen of the Bittensor network state. here's everything that happened this week • @lium_io now hosts $30M in GPUs (91% utilization), including 225 B300s. At a $21M run rate • @affine_io dropped a video model thats ~10x cheaper than the base model with virtually no drop in output quality after 3 days of model optimization • @engyai hits a new ATH, with 370B tokens processed this week • @say_gm_ had its highest traffic week, crossing $1M in total volume since July • @cacheon_ai adds Meta's Muse Spark Open Kernel challenge to their mining competition • Ingot release",
+    "url": "https://nitter.kareem.one/Old_Samster/status/2113674397349232647#m",
+    "fetched_at": "2026-10-23T22:48:37.400409+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "lium_io",
+    "name": "Lium",
+    "posted_at": "Fri, 23 Oct 2026 16:36:17 GMT",
+    "title": "RT by @lium_io: dstack 0.22.5 is out! This release adds @lium_io as a new GPU cloud backend, supporting on-demand and spot GPUs ranging from RTX to B300. We've also improved the UI for browsing GPU and CPU offers. Release notes: https://github.com/dstackai/dstack/releases/tag/0.22.5",
+    "text": "dstack 0.22.5 is out! This release adds @lium_io as a new GPU cloud backend, supporting on-demand and spot GPUs ranging from RTX to B300. We've also improved the UI for browsing GPU and CPU offers. Release notes: github.com/dstackai/dstack/r…",
+    "url": "http://nitter.meowing.monster/dstackai/status/2113670860326461768#m",
+    "fetched_at": "2026-10-23T22:50:35.165022+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "opentensor",
+    "name": "Opentensor Foundation",
+    "posted_at": "Fri, 23 Oct 2026 16:18:00 GMT",
+    "title": "R to @opentensor: youtu.be/EKXiHqbUgWI",
+    "text": "inv.kareem.one/EKXiHqbUgWI Link Bittensor Latest Upgrades Explained: eTao, Gamma, Lending &amp; Null Consensus Novelty Search E093 | eTao, Gamma and Bittensor’s Evolving Token Ec... youtube.com",
+    "url": "https://nitter.kareem.one/opentensor/status/2113666255895028090#m",
+    "fetched_at": "2026-10-23T22:48:25.566984+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "opentensor",
+    "name": "Opentensor Foundation",
+    "posted_at": "Fri, 23 Oct 2026 16:17:57 GMT",
+    "title": "eTAO gives subnet owners more freedom to fund the compute and research their projects need. On the latest Novelty Search, @const_reborn explains how flexible emissions fit into his vision for building complete AI products on Bittensor. He also outlines plans for subnets to buy each other’s services and for builders to borrow against alpha without selling it. Full episode in the first comment",
+    "text": "eTAO gives subnet owners more freedom to fund the compute and research their projects need. On the latest Novelty Search, @const_reborn explains how flexible emissions fit into his vision for building complete AI products on Bittensor. He also outlines plans for subnets to buy each other’s services and for builders to borrow against alpha without selling it. Full episode in the first comment Video",
+    "url": "https://nitter.kareem.one/opentensor/status/2113666243983274272#m",
+    "fetched_at": "2026-10-23T22:48:25.566984+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "PanteraCapital",
+    "name": "Pantera Capital",
+    "posted_at": "Fri, 23 Oct 2026 15:10:33 GMT",
+    "title": "R to @PanteraCapital: Full analysis: https://panteracapital.com/megawatts-to-margins/",
+    "text": "Full analysis: panteracapital.com/megawatts… Link From Megawatts to Margins panteracapital.com",
+    "url": "https://nitter.kareem.one/PanteraCapital/status/2113649282805060018#m",
+    "fetched_at": "2026-10-23T22:49:00.898034+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "PanteraCapital",
+    "name": "Pantera Capital",
+    "posted_at": "Fri, 23 Oct 2026 15:10:32 GMT",
+    "title": "In an AI compute short squeeze, everyone in the stack looks smart. That doesn’t tell you who earns durable long-term returns. You can be right on demand and still own the wrong businesses. Today we estimate that every incremental GW of data center capacity currently generates $40-50bn of revenue across the stack. Data centers are under-earning (~$2.2mn/MW) relative to the value they unlock at the token factory layer (~$40mn+/MW). Frontier models face real pricing pressure from open-source and the hyperscalers. A 40% token-price cut can push standalone inference near breakeven — while hyperscalers still make money on the hardware. The picture will look very different in 6–12 months. Energy capacity, tokens per watt, model-layer competition, and financing are all in motion. We built a dynamic tool to track how it plays out. This map will look different in 6-12 months. Four forces to watch: - Energy, the most acute bottleneck today - More tokens per watt from better hardware and software - Rising competition at the model layer - Financing all this capex So we open-sourced our model. Input your assumptions and watch how value shifts across the stack.",
+    "text": "In an AI compute short squeeze, everyone in the stack looks smart. That doesn’t tell you who earns durable long-term returns. You can be right on demand and still own the wrong businesses. Today we estimate that every incremental GW of data center capacity currently generates $40-50bn of revenue across the stack. Data centers are under-earning (~$2.2mn/MW) relative to the value they unlock at the token factory layer (~$40mn+/MW). Frontier models face real pricing pressure from open-source and the hyperscalers. A 40% token-price cut can push standalone inference near breakeven — while hyperscal",
+    "url": "https://nitter.kareem.one/PanteraCapital/status/2113649279701008815#m",
+    "fetched_at": "2026-10-23T22:49:00.898034+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
     "handle": "1inch",
     "name": "1inch",
     "posted_at": "Fri, 23 Oct 2026 14:26:16 GMT",
@@ -537,6 +847,16 @@
     "text": "\"Price discovery doesn't happen on AMMs. They have to catch up.\" Katia Banina (@katiabanina), CEO of @bebop_dex, rates AMMs highly and says they created DeFi. Her point is about what they cannot do. Video",
     "url": "http://nitter.meowing.monster/1inch/status/2113625303163851128#m",
     "fetched_at": "2026-10-23T16:15:48.589464+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "jtledore",
+    "name": "Jean-Thomas Ledoré",
+    "posted_at": "Fri, 23 Oct 2026 12:30:30 GMT",
+    "title": "RT by @jtledore: It learns from you now.",
+    "text": "It learns from you now. Video",
+    "url": "http://nitter.meowing.monster/webuildscore/status/2113609005780410601#m",
+    "fetched_at": "2026-10-23T22:49:42.883877+00:00",
     "via_instance": "https://nitter.cz"
   },
   {
@@ -650,6 +970,16 @@
     "via_instance": "https://nitter.cz"
   },
   {
+    "handle": "rob_svrn",
+    "name": "Rob Greer",
+    "posted_at": "Fri, 16 Oct 2026 22:03:19 GMT",
+    "title": "",
+    "text": "Actual Computer (@actualinc) Actual Computer turns your NVIDIA DGX Station into a department-scale AI factory. Read the full case study: actual.inc/company/blog/case… — https://nitter.kareem.one/actualinc/status/2110759623435117020#m",
+    "url": "https://nitter.kareem.one/NVIDIAAI/status/2111216445925498993#m",
+    "fetched_at": "2026-10-23T22:48:37.400409+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
     "handle": "YumaGroup",
     "name": "Yuma Holdings",
     "posted_at": "Fri, 16 Oct 2026 15:49:00 GMT",
@@ -657,6 +987,26 @@
     "text": "“$200,000 bug found with $1000 in AI costs. That’s a huge difference!” this first discovery is what has become @bitsecai continuous audit system - interview with @TheStreet at @ExploitSummit reqd the full interview covered by thestreet, yahoo finance, MSN and AOL",
     "url": "http://nitter.meowing.monster/bitsecai/status/2111122243422204304#m",
     "fetched_at": "2026-10-23T02:52:04.136599+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "lium_io",
+    "name": "Lium",
+    "posted_at": "Fri, 16 Oct 2026 13:32:35 GMT",
+    "title": "yet we still are one of the only platforms in the world with access to b300s on-demand; not gated by any sales call, kyc form, or waitlist. and at the same prices that the big clouds currently charge for 3 month+ long commitments, we only charge you for the time you use it.",
+    "text": "yet we still are one of the only platforms in the world with access to b300s on-demand; not gated by any sales call, kyc form, or waitlist. and at the same prices that the big clouds currently charge for 3 month+ long commitments, we only charge you for the time you use it. lium.io (@lium_io) help. our service is too good and agents keep renting everything. we need more supply GPU owners who want 80% higher payout than reserved contracts, please reach out or add your nodes in 5 min: provider.lium.io/ — http://nitter.meowing.monster/lium_io/status/2111081966112055609#m",
+    "url": "http://nitter.meowing.monster/lium_io/status/2111087914301939747#m",
+    "fetched_at": "2026-10-23T22:50:35.165022+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "dylan522p",
+    "name": "Dylan Patel",
+    "posted_at": "Fri, 16 Oct 2026 05:42:01 GMT",
+    "title": "I'm doing a new startup with @asciimike It's Chinese leg extension surgery Except for you break your skull and expand your brain",
+    "text": "I'm doing a new startup with @asciimike It's Chinese leg extension surgery Except for you break your skull and expand your brain",
+    "url": "http://nitter.meowing.monster/dylan522p/status/2110969492482494786#m",
+    "fetched_at": "2026-10-23T22:50:12.813190+00:00",
     "via_instance": "https://nitter.cz"
   },
   {
