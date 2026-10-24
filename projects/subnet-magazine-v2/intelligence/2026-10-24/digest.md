@@ -165,16 +165,40 @@ _no new posts in the lookback window_
   https://nitter.kareem.one/CrucibleLabs/status/2112957401305682393#m
 - @jon_durbin (Jon Durbin, Wed, 14 Oct 2026): Florian's building super cool stuff, go check it out! Florian S (@airesearch12) Introducing DecisionModels @decisionmodels_ I've spent the last four weeks benchmarking decision models (I run JevBench). Today I'm launching the place to actually use the best ones: decisionmodels.io ➡️Top open models ➡️Up to 4x faster on our own REAX engine ➡️From $0.019 per 1M input tokens. Expect more reveals soon, and read 👇 Video — http://nitter.meowing.monster/airesearch12/status/2110410684873814482#m  
   http://nitter.meowing.monster/jon_durbin/status/2110417455503839552#m
+- @manakoai (Manako, Wed, 14 Oct 2026): And it’s the first highway station. Arno (@arnod3f) ladies and gentlemen. @manakoai is officially working with @Shell. deploying physical ai to better their fuel retail operations. lfgooooooo🔥👊🚀 — http://nitter.meowing.monster/arnod3f/status/2110397339126915400#m  
+  http://nitter.meowing.monster/manakoai/status/2110408262357057824#m
+- @manakoai (Manako, Wed, 14 Oct 2026): 2 days of deployment ahead for @manakoai. today on some avia stations. tomorrow on a brand new fuel retail client. LFG 👊  
+  http://nitter.meowing.monster/arnod3f/status/2110266332885172326#m
+- @foundrydigital (Foundry Digital, Wed, 11 Jan 2012): Expression Engine 2.0 review by the guys at Scriptiny bit.ly/w3Pg3R  
+  http://nitter.meowing.monster/foundrydigital/status/157243024848596993#m
 - @mcjkula (mcjkula, Wed, 07 Oct 2026): "The best person to solve your problem might be someone you’ve never met or considered hiring." Travis and I explain Bittensor, including examples from weather forecasting (@zeussubnet) and drug discovery (@metanova_labs). Here’s our "Bittensor 101" recording from @ExploitSummit Video  
   http://nitter.meowing.monster/mcjkula/status/2107803570699722943#m
 - @shibshib89 (Ala Shaabana, Tue, 20 Oct 2026): eTAO is live, and we're already seeing some interesting shifts across #Bittensor. Some subnets are reducing their owner take to 0%, while others are moving to the 33% maximum. Different approaches, different priorities. It's early, but worth watching how these decisions play out. What would you want to see from a subnet before supporting its emissions strategy? Want to know more about eTAO? Learn more at: cruciblelabs.com/learn/etao Here's what we're seeing so far: taostats τ (@taostats) eTao is now live on chain. Alpha emission: 18:41:41 is the default, but subnet owners can now change the va  
   https://nitter.kareem.one/CrucibleLabs/status/2112629530548646155#m
 - @shibshib89 (Ala Shaabana, Tue, 20 Oct 2026): Our community spans the world, and our website should too. CrucibleLabs.com is now available in multiple languages, making it easier to explore, learn, and connect with Bittensor wherever you are. Check it out → cruciblelabs.com Video  
   https://nitter.kareem.one/CrucibleLabs/status/2112581349945311707#m
+- @manakoai (Manako, Tue, 13 Oct 2026): Most AI still automates tasks. The next shift is AI that can run business operations. The progression looks a lot like autonomous driving. Just as cars moved from driver assistance to partial, conditional, and higher autonomy, business operations will move through the same stages: 0. Manual operations → people observe, decide and act. 1. Assisted operations → AI detects events. People act. (This is where Vision Agents sit today.) 2. Partial automation → AI executes tasks. People supervise. 3. Conditional autonomy → AI runs workflows. People handle exceptions. 4. High autonomy → AI runs a defin  
+  http://nitter.meowing.monster/manakoai/status/2110085853301309523#m
 - @mcjkula (mcjkula, Tue, 06 Oct 2026): A plain-English introduction to Bittensor: learnbittensor.org/get-start…  
   http://nitter.meowing.monster/mcjkula/status/2107475150841254343#m
 - @mcjkula (mcjkula, Tue, 06 Oct 2026): Bitcoin rewards one kind of work. Bittensor has a very different idea of “work” Video  
   http://nitter.meowing.monster/mcjkula/status/2107441742199042204#m
+- @dippy_ai (Dippy AI, Thu, 30 Jul 2026): Excited to have helped @PrunaAI collect 1M+ votes for image preference data in a very short time :~) Pruna AI (@PrunaAI) P-Image-Ideogram dominate the speed-quality and price-quality Pareto frontiers for image generation. It is the result of a unique collaboration with @ideogram_ai. - Four modes (Very low, low, medium, high) for 1K-2K image generation. - Optimal quality-efficiency with 0.4s-7.5s latency, and $0.003-$0.03 price. - Structured JSON control & exact color control. Available via our inference partners @Replicate @inference_sh @scenario_gg @wavespeed_ai @wiroai @magnific @prodialabs   
+  http://nitter.meowing.monster/datapointai/status/2082837314603032606#m
+- @dippy_ai (Dippy AI, Thu, 27 Aug 2026): we have significantly upgraded both the basic and super models 🤩🤩 we have also made optimizations to improve response speeds by upto 5x can't wait for you all to experience and enjoy the new dippy 📯📯😸 rolling out to everyone today  
+  http://nitter.meowing.monster/dippy_ai/status/2093089771824226802#m
+- @manakoai (Manako, Thu, 15 Oct 2026): Hello World(s)  
+  http://nitter.meowing.monster/manakoai/status/2110766878981239106#m
+- @dippy_ai (Dippy AI, Thu, 04 Jun 2026): Today, we’re opening up Datapoint AI for anyone to use. It is by far the fastest way to understand what your customers want. Type a question. Real people answer. You get a report back in ~10 minutes, not three weeks, and at a fraction of the cost. Video  
+  http://nitter.meowing.monster/datapointai/status/2062563294880075837#m
+- @dippy_ai (Dippy AI, Sun, 09 Aug 2026): We are experiencing an issue with our database provider @supabase , so the app &amp; website may be down for a few more hours. We’ll send a notification when we are able to recover and the app is back to normal! Apologies for the inconvenience 😿😿  
+  http://nitter.meowing.monster/dippy_ai/status/2086595242422149540#m
+- @SemiAnalysis_ (SemiAnalysis, Sat, 24 Oct 2026): YouTube: inv.kareem.one/4WCasOsS5-4?si=uujY… Link Ep. 040 - ASML Is Building a Hybrid Bonding Tool, and We Have the Patents (AI Supply Chain) Every hybrid bonder on the market today brings the die to the wafer... youtube.com  
+  https://nitter.kareem.one/SemiAnalysis_/status/2113812094038462846#m
+- @SemiAnalysis_ (SemiAnalysis, Sat, 24 Oct 2026): Spotify: open.spotify.com/episode/22Q…  
+  https://nitter.kareem.one/SemiAnalysis_/status/2113812093145145821#m
+- @SemiAnalysis_ (SemiAnalysis, Sat, 24 Oct 2026): ASML is bringing lithography-grade precision to hybrid bonding. “BESI, ASMPT and others come from a pick-and-place background. They’re very good at overlaying each die onto the base wafer and placing it down. The bond itself forms later, during the anneal.” “ASML is coming at it from the front end. Its tools already do sub-nanometer overlay for lithography, easily an order of magnitude more precise. And as hybrid bond pitches get finer, how many signals you can fit per square millimeter between two dies matters more and more.” “Overlay isn’t ASML’s problem. The challenge is building a system t  
+  https://nitter.kareem.one/SemiAnalysis_/status/2113812091857518664#m
 - @mcjkula (mcjkula, Sat, 19 Sep 2026): Maciej Kula ( @mcjkula ) couldn't find a clear way to learn #Bittensor from scratch, so he built the resource he wished existed. @learnbittensor is now part of @latentholdings, where Maciej leads education and makes Bittensor easier to understand. He'll be leading our Bittensor 101 session to kick off Day 1: luma.com/nqy2n5zi Video  
   http://nitter.meowing.monster/ExploitSummit/status/2101355676325007652#m
 - @jon_durbin (Jon Durbin, Sat, 10 Oct 2026): Amazing work! lium.io (@lium_io) new month in review just dropped. +45% spend +16% active users +106% rentals +11% median rental time +20% charged +32% first time renters +15% providers -32% rental failures — http://nitter.meowing.monster/lium_io/status/2108799096182223058#m  
@@ -187,11 +211,21 @@ _no new posts in the lookback window_
   https://nitter.kareem.one/CrucibleLabs/status/2112262840128311762#m
 - @jon_durbin (Jon Durbin, Mon, 12 Oct 2026): There are ~two economies: attention and revenue. Focus on whichever you like but if you only pick one, it probably eventually breaks. Free high intelligence = maximum attention (but probably financial/resource crisis), and conversely maximally expensive commodities restricting access rugs the attention eventually and likewise probably leads to collapse. Parallax and the new "living model" type system created out of it is perhaps a way to foster both by decreasing prices (run on phone, macbook, spark, whatever) rather than increasing them further (with larger and larger models), and ideally mai  
   http://nitter.meowing.monster/jon_durbin/status/2109652105216561403#m
+- @dippy_ai (Dippy AI, Mon, 10 Aug 2026): We are FINALLY back online! We deeply apologize for this issue extending nearly 24 hours 🥲 As a token of thanks for your patience, we are REMOVING CHAT LIMITS for the remainder of this month 😻😻 P.S: don't worry, we'll also reinstate your streaks :~)  
+  http://nitter.meowing.monster/dippy_ai/status/2086838981627420847#m
+- @foundrydigital (Foundry Digital, Mon, 02 Jan 2012): Early predictions for design trends of 2012? tiny.cc/mkg4v  
+  http://nitter.meowing.monster/foundrydigital/status/153974018557493248#m
+- @SemiAnalysis_ (SemiAnalysis, Fri, 23 Oct 2026): Amazon’s Trainium Takes a Strike at the Training King Trainium Best for Inference? But now good for Training too, Native Trainium PyTorch, High Quality CI, TorchTitan, GPU Impossible Profiler newsletter.semianalysis.com/… Link Amazon’s Trainium Takes a Strike at the Training King Trainium Best for Inference? But now good for Training too, Native Trainium PyTorch, High Quality CI, TorchTitan, GPU Impossible Profiler newsletter.semianalysis.com  
+  https://nitter.kareem.one/SemiAnalysis_/status/2113713432943857844#m
+- @SemiAnalysis_ (SemiAnalysis, Fri, 23 Oct 2026): To learn more about EBO and the developments we saw at ECOC, please check our networking model (6/6) semianalysis.com/ai-networki… Link AI Networking Model Device-level data on AI cluster networking: switch, transceiver, and cable units, spend, pricing, and vendor share across every major hyperscaler, 2023 to 2026. semianalysis.com  
+  https://nitter.kareem.one/SemiAnalysis_/status/2113707609337323675#m
 - @shibshib89 (Ala Shaabana, Fri, 23 Oct 2026): Crucible Wallet on iOS & Android now has FULL feature parity with Chrome. That means Smart Account, Rewards Allocator, Token Discovery, Token Details & Address Book. All in your pocket. And we're going further. Argentina, Japan & Brazil are now live on iOS! Same power. Every screen. Anywhere you go. Download at Cruciblelabs.com Video  
   https://nitter.kareem.one/CrucibleLabs/status/2113697676479058128#m
+- @manakoai (Manako, Fri, 16 Oct 2026): Snap back to reality, ope, there goes gravity Max (@MaxSebti) this is our "Will Smith eating spaghetti moment" one street image → move backward → turn left → 40 seconds of generated video. this is the official baseline. it will only go up from there. Video — http://nitter.meowing.monster/MaxSebti/status/2111019389671678126#m  
+  http://nitter.meowing.monster/manakoai/status/2111027499106730137#m
 - @mcjkula (mcjkula, Fri, 09 Oct 2026): If you’re trying to decide which metal seed plate to get, @lopp has tested 75+ of them with heat, acid and a hydraulic press. Worth checking before you commit to one: jlopp.github.io/metal-bitcoi… Link Metal Bitcoin Seed Storage Reviews Stress tests and reviews of seed storage devices. jlopp.github.io Jon Durbin (@jon_durbin) Ledger itself ok, but fraudulent products less so of course. This is why I tell people I don't trust anything with a circuit board lol. These keystone tablets are pretty cool, handed a few out at exploit summit. Even better if you leave out some of the words and remember   
   http://nitter.meowing.monster/mcjkula/status/2108634378746405259#m
 
 
 ---
-_Generated at 2026-10-24T02:51:17.357114+00:00 by scripts/intel/aggregate.py. Treat this digest as input context, not as ground truth. Verify before quoting._
+_Generated at 2026-10-24T08:35:06.675898+00:00 by scripts/intel/aggregate.py. Treat this digest as input context, not as ground truth. Verify before quoting._
