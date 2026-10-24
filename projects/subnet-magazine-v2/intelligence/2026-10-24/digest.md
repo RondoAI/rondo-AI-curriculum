@@ -161,12 +161,26 @@ _no new posts in the lookback window_
 
 ## ⊕ X via NITTER, voices we track
 
+- @const_reborn (Jacob Steeves, Wed, 21 Oct 2026): We think all models will be trained in markets.  
+  http://nitter.meowing.monster/const_reborn/status/2113014902206157076#m
+- @const_reborn (Jacob Steeves, Wed, 21 Oct 2026): Another model-network kicking off: Ingot (97) Their latest release Ingot-I quantized Qwen 27B into FP8 better than Alibaba's own quantization in 1 week. Next target is 2-bit and then the larger GLM models.  
+  http://nitter.meowing.monster/const_reborn/status/2113014591219225052#m
+- @const_reborn (Jacob Steeves, Wed, 21 Oct 2026): Promising mining result from @reaxlabs (92). They built this mining network yesterday and are beating Perplexity today. Congrats goes out to the ML miner talent on Bittensor, and the team. REAX (@reaxlabs) Meet REAX 1, our open decision model built on Perplexity Decider v1.2. Our own measurement: +2.4 points over its base, ahead in all 6 test draws and all 10 areas. Open competition starts today 13:00 UTC: =&gt; Beat it, earn the rewards see reax.co/competitions — http://nitter.meowing.monster/reaxlabs/status/2112862072824623491#m  
+  http://nitter.meowing.monster/const_reborn/status/2112992631194354128#m
 - @shibshib89 (Ala Shaabana, Wed, 21 Oct 2026): Something's always brewing at Crucible Labs. #Bittensor $TAO #Taowallet #validator Learn more at Cruciblelabs.com Video  
   https://nitter.kareem.one/CrucibleLabs/status/2112957401305682393#m
+- @YumaGroup (Yuma Holdings, Wed, 21 Oct 2026): The full letter can be read here: sec.gov/comments/S7-2026-27/…  
+  http://nitter.meowing.monster/YumaGroup/status/2112947451611243004#m
+- @YumaGroup (Yuma Holdings, Wed, 21 Oct 2026): The SEC’s proposed Regulation Crypto Assets is meaningful progress toward a clearer framework for digital assets, and we support it. Work remains on how token issuers can transact in secondary markets. Yuma submitted a comment letter today proposing a framework based on disclosure and discretion, with objective standards designed to give issuers and market participants greater clarity.  
+  http://nitter.meowing.monster/YumaGroup/status/2112904766355378267#m
+- @oroagents (Oro, Wed, 21 Oct 2026): Some things never change  
+  http://nitter.meowing.monster/ironseth_s/status/2112775882519822782#m
 - @jon_durbin (Jon Durbin, Wed, 14 Oct 2026): Florian's building super cool stuff, go check it out! Florian S (@airesearch12) Introducing DecisionModels @decisionmodels_ I've spent the last four weeks benchmarking decision models (I run JevBench). Today I'm launching the place to actually use the best ones: decisionmodels.io ➡️Top open models ➡️Up to 4x faster on our own REAX engine ➡️From $0.019 per 1M input tokens. Expect more reveals soon, and read 👇 Video — http://nitter.meowing.monster/airesearch12/status/2110410684873814482#m  
   http://nitter.meowing.monster/jon_durbin/status/2110417455503839552#m
 - @manakoai (Manako, Wed, 14 Oct 2026): And it’s the first highway station. Arno (@arnod3f) ladies and gentlemen. @manakoai is officially working with @Shell. deploying physical ai to better their fuel retail operations. lfgooooooo🔥👊🚀 — http://nitter.meowing.monster/arnod3f/status/2110397339126915400#m  
   http://nitter.meowing.monster/manakoai/status/2110408262357057824#m
+- @YumaGroup (Yuma Holdings, Wed, 14 Oct 2026): ladies and gentlemen. @manakoai is officially working with @Shell. deploying physical ai to better their fuel retail operations. lfgooooooo🔥👊🚀  
+  http://nitter.meowing.monster/arnod3f/status/2110397339126915400#m
 - @manakoai (Manako, Wed, 14 Oct 2026): 2 days of deployment ahead for @manakoai. today on some avia stations. tomorrow on a brand new fuel retail client. LFG 👊  
   http://nitter.meowing.monster/arnod3f/status/2110266332885172326#m
 - @foundrydigital (Foundry Digital, Wed, 11 Jan 2012): Expression Engine 2.0 review by the guys at Scriptiny bit.ly/w3Pg3R  
@@ -175,8 +189,12 @@ _no new posts in the lookback window_
   http://nitter.meowing.monster/mcjkula/status/2107803570699722943#m
 - @shibshib89 (Ala Shaabana, Tue, 20 Oct 2026): eTAO is live, and we're already seeing some interesting shifts across #Bittensor. Some subnets are reducing their owner take to 0%, while others are moving to the 33% maximum. Different approaches, different priorities. It's early, but worth watching how these decisions play out. What would you want to see from a subnet before supporting its emissions strategy? Want to know more about eTAO? Learn more at: cruciblelabs.com/learn/etao Here's what we're seeing so far: taostats τ (@taostats) eTao is now live on chain. Alpha emission: 18:41:41 is the default, but subnet owners can now change the va  
   https://nitter.kareem.one/CrucibleLabs/status/2112629530548646155#m
+- @rob_svrn (Rob Greer, Tue, 20 Oct 2026): Exactly How Bittensor TAO Will Hit $1,000,000 Video  
+  http://nitter.meowing.monster/TAOTemplar/status/2112583900107096395#m
 - @shibshib89 (Ala Shaabana, Tue, 20 Oct 2026): Our community spans the world, and our website should too. CrucibleLabs.com is now available in multiple languages, making it easier to explore, learn, and connect with Bittensor wherever you are. Check it out → cruciblelabs.com Video  
   https://nitter.kareem.one/CrucibleLabs/status/2112581349945311707#m
+- @const_reborn (Jacob Steeves, Tue, 20 Oct 2026): We just killed cold outreach. Introducing Leadpoet: the AI sales agent that finds buyers who need you now, writes personalized outreach, and follows up on LinkedIn and email. Used by Dropbox, OnePatch (YC26), Muttdata. Comment “Poet” for 100 free lead credits to find qualified buyers. Video  
+  http://nitter.meowing.monster/LeadpoetAI/status/2112574574718050575#m
 - @manakoai (Manako, Tue, 13 Oct 2026): Most AI still automates tasks. The next shift is AI that can run business operations. The progression looks a lot like autonomous driving. Just as cars moved from driver assistance to partial, conditional, and higher autonomy, business operations will move through the same stages: 0. Manual operations → people observe, decide and act. 1. Assisted operations → AI detects events. People act. (This is where Vision Agents sit today.) 2. Partial automation → AI executes tasks. People supervise. 3. Conditional autonomy → AI runs workflows. People handle exceptions. 4. High autonomy → AI runs a defin  
   http://nitter.meowing.monster/manakoai/status/2110085853301309523#m
 - @mcjkula (mcjkula, Tue, 06 Oct 2026): A plain-English introduction to Bittensor: learnbittensor.org/get-start…  
@@ -187,12 +205,28 @@ _no new posts in the lookback window_
   http://nitter.meowing.monster/datapointai/status/2082837314603032606#m
 - @dippy_ai (Dippy AI, Thu, 27 Aug 2026): we have significantly upgraded both the basic and super models 🤩🤩 we have also made optimizations to improve response speeds by upto 5x can't wait for you all to experience and enjoy the new dippy 📯📯😸 rolling out to everyone today  
   http://nitter.meowing.monster/dippy_ai/status/2093089771824226802#m
+- @lium_io (Lium, Thu, 22 Oct 2026): have GPUs? here's what they could be earning on lium: b300 node: $50k/month b200: $35k/month h200: $25k/month h100: $12k/month RTX pro: $9k/month A100: $7k/month 5090: $4k/month 4090: $3k/month 3090: $1200/month and all other nvidia models supported too. start here: provider.lium.io/#start Link Your GPUs earn even when nobody is renting them | lium.io Provider Portal List NVIDIA GPUs on Lium. You keep most of every rental, paid daily, and Lium pays you for idle GPUs too. Measured rental earnings and the idle rate per GPU class, a calculator and a three-step start. provider.lium.io  
+  http://nitter.meowing.monster/lium_io/status/2113291464390180993#m
+- @YumaGroup (Yuma Holdings, Thu, 22 Oct 2026): The model itself isn't always the product. Commercial tools can integrate specialized machine intelligence produced on Bittensor and put it to work. HaloGuard EU is a new product from @astrowareai that taps the Trishool subnet (SN23) to help align model outputs with EU compliance requirements. Try it out in the playground or via API. $TAO Trishool | SN23 (@trishoolai) Months of work. Now live. We've launched HaloGuard EU, our first product. Built to block the AI output the EU AI Act bans or treats as high-risk. $30 / billion tokens. Priced, live, free trial open. And it’s only the first. — htt  
+  http://nitter.meowing.monster/YumaGroup/status/2113282968340902298#m
 - @manakoai (Manako, Thu, 15 Oct 2026): Hello World(s)  
   http://nitter.meowing.monster/manakoai/status/2110766878981239106#m
+- @oroagents (Oro, Thu, 08 Oct 2026): As models and harnesses get more capable, the depth of our RL environments needs to stay ahead of the curve. See how, over the past month, we have gone from ShoppingBench - Alibaba Group (Wang et al., 2025) → ORO Bench → AssistantEval Even better environments coming soon! Video  
+  http://nitter.meowing.monster/oroagents/status/2108311456345358818#m
+- @oroagents (Oro, Thu, 08 Oct 2026): huggingface.co/collections/o… Link AssistantEval - a oro-ai Collection AssistantEval by ORO. Published results and recorded trajectories. Website: assistanteval.com huggingface.co  
+  http://nitter.meowing.monster/oroagents/status/2108083587845394791#m
+- @oroagents (Oro, Thu, 08 Oct 2026): We're excited to open source all the tasks and the traces that we have access to from this benchmark. Link in 🧵 ORO (@oroagents) We're excited to drop AssistantEval today. Replayable environments for evaluating and improving AI assistants. — http://nitter.meowing.monster/oroagents/status/2107609637654823076#m  
+  http://nitter.meowing.monster/oroagents/status/2108083567654060352#m
 - @dippy_ai (Dippy AI, Thu, 04 Jun 2026): Today, we’re opening up Datapoint AI for anyone to use. It is by far the fastest way to understand what your customers want. Type a question. Real people answer. You get a report back in ~10 minutes, not three weeks, and at a fraction of the cost. Video  
   http://nitter.meowing.monster/datapointai/status/2062563294880075837#m
 - @dippy_ai (Dippy AI, Sun, 09 Aug 2026): We are experiencing an issue with our database provider @supabase , so the app &amp; website may be down for a few more hours. We’ll send a notification when we are able to recover and the app is back to normal! Apologies for the inconvenience 😿😿  
   http://nitter.meowing.monster/dippy_ai/status/2086595242422149540#m
+- @lium_io (Lium, Sat, 24 Oct 2026): we've enabled GPU profiling (ncu) on our nodes so that y'all can have a better chance to win this :) lium.io/?ncu=1&amp;sort=upload Link Rent H100, B200 and RTX 4090 GPUs On Demand | lium.io Agent-first compute on Lium: rent H100, B200, RTX 4090 and more GPU pods at marketplace prices. Deploy in seconds via browser or CLI. Billed per second. lium.io Daniel Gross (@danielgross) We're launching a $100,000 challenge to see who can make Muse Spark run fastest: openkernelchallenge.dev/ Link Muse Spark Open Kernel Challenge Make Meta’s Muse Spark Open run faster. Start by optimizing its GPU kernels,  
+  http://nitter.meowing.monster/lium_io/status/2113982218196721876#m
+- @lium_io (Lium, Sat, 24 Oct 2026): lium 8xH100 rental fully configured within 12 seconds. We know your time is valuable, so we don't require a sales call, request for quota form, or 30 minute provisioning like competitors do. If you need compute, the fastest and cheapest way to get it is on lium. We have more availability, better software, and faster service than your current GPU provider. Video  
+  http://nitter.meowing.monster/lium_io/status/2113975636045726196#m
+- @lium_io (Lium, Sat, 24 Oct 2026): The best side hustle of 2026 just dropped. Bring any GPU to lium and earn a USDT reward. Refer 1 b300 node? We'll pay you $18,877 for that. 1 h200 node? $10,180 payout. details: provider.lium.io/referrals/p… Link Refer a Provider | lium.io Provider Portal Rent out your GPUs on Lium. Connect machines, manage nodes, and track your earnings. provider.lium.io lium.io (@lium_io) have GPUs? here's what they could be earning on lium: b300 node: $50k/month b200: $35k/month h200: $25k/month h100: $12k/month RTX pro: $9k/month A100: $7k/month 5090: $4k/month 4090: $3k/month 3090: $1200/month and all oth  
+  http://nitter.meowing.monster/lium_io/status/2113965503861362809#m
 - @SemiAnalysis_ (SemiAnalysis, Sat, 24 Oct 2026): YouTube: inv.kareem.one/4WCasOsS5-4?si=uujY… Link Ep. 040 - ASML Is Building a Hybrid Bonding Tool, and We Have the Patents (AI Supply Chain) Every hybrid bonder on the market today brings the die to the wafer... youtube.com  
   https://nitter.kareem.one/SemiAnalysis_/status/2113812094038462846#m
 - @SemiAnalysis_ (SemiAnalysis, Sat, 24 Oct 2026): Spotify: open.spotify.com/episode/22Q…  
@@ -201,6 +235,8 @@ _no new posts in the lookback window_
   https://nitter.kareem.one/SemiAnalysis_/status/2113812091857518664#m
 - @mcjkula (mcjkula, Sat, 19 Sep 2026): Maciej Kula ( @mcjkula ) couldn't find a clear way to learn #Bittensor from scratch, so he built the resource he wished existed. @learnbittensor is now part of @latentholdings, where Maciej leads education and makes Bittensor easier to understand. He'll be leading our Bittensor 101 session to kick off Day 1: luma.com/nqy2n5zi Video  
   http://nitter.meowing.monster/ExploitSummit/status/2101355676325007652#m
+- @rob_svrn (Rob Greer, Sat, 17 Oct 2026): Really interesting convo below from this weeks all in on why a16z stays away from the neoclouds, and it made something click for me about Bittensor. @bhorowitz point is that scaling compute on debt is a dangerous arbitrage business, and he lived it in 99 when bandwidth was $1,500/megabit and the only way to get it was a 3 year contract. By 2001 it was $50 - If you were holding that on borrowed money you were dead. His case for $CRWV being different is that AI compute is in a massive shortage, so GPU and data center prices keep rising. Maybe he's right. But the neocloud model is still a levered  
+  http://nitter.meowing.monster/0xSunRun/status/2111550951329054825#m
 - @jon_durbin (Jon Durbin, Sat, 10 Oct 2026): Amazing work! lium.io (@lium_io) new month in review just dropped. +45% spend +16% active users +106% rentals +11% median rental time +20% charged +32% first time renters +15% providers -32% rental failures — http://nitter.meowing.monster/lium_io/status/2108799096182223058#m  
   http://nitter.meowing.monster/jon_durbin/status/2108893300178755657#m
 - @jon_durbin (Jon Durbin, Mon, 19 Oct 2026): 1880, what a marvel. Sometimes I forget to appreciate what our predecessors gave us.  
@@ -209,23 +245,23 @@ _no new posts in the lookback window_
   http://nitter.meowing.monster/jon_durbin/status/2112279610582794593#m
 - @shibshib89 (Ala Shaabana, Mon, 19 Oct 2026): Curious about #Bittensor? We've got you covered. Introducing Crucible Learn, your new go-to for all things Bittensor. Video  
   https://nitter.kareem.one/CrucibleLabs/status/2112262840128311762#m
+- @const_reborn (Jacob Steeves, Mon, 19 Oct 2026): New Quantization Service TPN Bench now offers a full Model Quantization Toolkit, which includes methods like I-matrix and Quantization-Aware Distillation. Here's how it works: Users can upload any Hugging Face model and select the quantizations they want; TPN Bench will generate those quantizations, upload them to a bucket, and then send back the links to those quants. It can also upload them to Hugging Face if given access to it. Choose between regular quantization, I-matrix, or more advanced techniques like quantization-aware distillation, which require heavy infrastructure that we run for y  
+  http://nitter.meowing.monster/TPN_Labs/status/2112095154849153490#m
 - @jon_durbin (Jon Durbin, Mon, 12 Oct 2026): There are ~two economies: attention and revenue. Focus on whichever you like but if you only pick one, it probably eventually breaks. Free high intelligence = maximum attention (but probably financial/resource crisis), and conversely maximally expensive commodities restricting access rugs the attention eventually and likewise probably leads to collapse. Parallax and the new "living model" type system created out of it is perhaps a way to foster both by decreasing prices (run on phone, macbook, spark, whatever) rather than increasing them further (with larger and larger models), and ideally mai  
   http://nitter.meowing.monster/jon_durbin/status/2109652105216561403#m
+- @oroagents (Oro, Mon, 12 Oct 2026): github.com/ORO-AI/assistante… All in the open :) Link GitHub - ORO-AI/assistanteval: AssistantEval: a verifiable benchmark for personal AI assistants AssistantEval: a verifiable benchmark for personal AI assistants - ORO-AI/assistanteval github.com  
+  http://nitter.meowing.monster/oroagents/status/2109503153242775934#m
 - @dippy_ai (Dippy AI, Mon, 10 Aug 2026): We are FINALLY back online! We deeply apologize for this issue extending nearly 24 hours 🥲 As a token of thanks for your patience, we are REMOVING CHAT LIMITS for the remainder of this month 😻😻 P.S: don't worry, we'll also reinstate your streaks :~)  
   http://nitter.meowing.monster/dippy_ai/status/2086838981627420847#m
 - @foundrydigital (Foundry Digital, Mon, 02 Jan 2012): Early predictions for design trends of 2012? tiny.cc/mkg4v  
   http://nitter.meowing.monster/foundrydigital/status/153974018557493248#m
 - @SemiAnalysis_ (SemiAnalysis, Fri, 23 Oct 2026): Amazon’s Trainium Takes a Strike at the Training King Trainium Best for Inference? But now good for Training too, Native Trainium PyTorch, High Quality CI, TorchTitan, GPU Impossible Profiler newsletter.semianalysis.com/… Link Amazon’s Trainium Takes a Strike at the Training King Trainium Best for Inference? But now good for Training too, Native Trainium PyTorch, High Quality CI, TorchTitan, GPU Impossible Profiler newsletter.semianalysis.com  
   https://nitter.kareem.one/SemiAnalysis_/status/2113713432943857844#m
+- @rob_svrn (Rob Greer, Fri, 23 Oct 2026): As frontier labs subsidies going down, majority of companies will be forced to pivot to open weight models that will be 70-80% cheaper for 95% of the performance Inference is like energy, study Jevon paradox. Use @engyai Kimi.ai (@Kimi_Moonshot) On Terminal-Bench 4.0, which evaluates coding agents on realistic, resource-constrained terminal tasks using strict task-specific tests, K3.1 Pro scores 65.7%, ahead of GPT-6 Astra (58.2%) and narrowly behind Claude Opus 5.5 (66.4%). — http://nitter.meowing.monster/Kimi_Moonshot/status/2113680705855373791#m  
+  http://nitter.meowing.monster/AlgodTrading/status/2113713362777620786#m
 - @SemiAnalysis_ (SemiAnalysis, Fri, 23 Oct 2026): To learn more about EBO and the developments we saw at ECOC, please check our networking model (6/6) semianalysis.com/ai-networki… Link AI Networking Model Device-level data on AI cluster networking: switch, transceiver, and cable units, spend, pricing, and vendor share across every major hyperscaler, 2023 to 2026. semianalysis.com  
   https://nitter.kareem.one/SemiAnalysis_/status/2113707609337323675#m
-- @shibshib89 (Ala Shaabana, Fri, 23 Oct 2026): Crucible Wallet on iOS & Android now has FULL feature parity with Chrome. That means Smart Account, Rewards Allocator, Token Discovery, Token Details & Address Book. All in your pocket. And we're going further. Argentina, Japan & Brazil are now live on iOS! Same power. Every screen. Anywhere you go. Download at Cruciblelabs.com Video  
-  https://nitter.kareem.one/CrucibleLabs/status/2113697676479058128#m
-- @manakoai (Manako, Fri, 16 Oct 2026): Snap back to reality, ope, there goes gravity Max (@MaxSebti) this is our "Will Smith eating spaghetti moment" one street image → move backward → turn left → 40 seconds of generated video. this is the official baseline. it will only go up from there. Video — http://nitter.meowing.monster/MaxSebti/status/2111019389671678126#m  
-  http://nitter.meowing.monster/manakoai/status/2111027499106730137#m
-- @mcjkula (mcjkula, Fri, 09 Oct 2026): If you’re trying to decide which metal seed plate to get, @lopp has tested 75+ of them with heat, acid and a hydraulic press. Worth checking before you commit to one: jlopp.github.io/metal-bitcoi… Link Metal Bitcoin Seed Storage Reviews Stress tests and reviews of seed storage devices. jlopp.github.io Jon Durbin (@jon_durbin) Ledger itself ok, but fraudulent products less so of course. This is why I tell people I don't trust anything with a circuit board lol. These keystone tablets are pretty cool, handed a few out at exploit summit. Even better if you leave out some of the words and remember   
-  http://nitter.meowing.monster/mcjkula/status/2108634378746405259#m
 
 
 ---
-_Generated at 2026-10-24T08:35:06.675898+00:00 by scripts/intel/aggregate.py. Treat this digest as input context, not as ground truth. Verify before quoting._
+_Generated at 2026-10-24T15:14:30.726059+00:00 by scripts/intel/aggregate.py. Treat this digest as input context, not as ground truth. Verify before quoting._
