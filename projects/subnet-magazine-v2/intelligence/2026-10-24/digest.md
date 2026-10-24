@@ -161,12 +161,20 @@ _no new posts in the lookback window_
 
 ## ⊕ X via NITTER, voices we track
 
+- @taomedia_ (TAO Media, Wed, 21 Oct 2026): ICYMI: @mentatminds is giving $TAO holders an automated way to gain exposure to robotics-focused subnets Est. APY of the index is ~50% Intelligence ττ (@taomedia_) Article Mentat Launches Robotics Index With Three Subnet Holdings 🤖 The automated basket gives TAO holders sector exposure without managing individual subnet allocations. Mentat has launched a robotics sector index for Bittensor, giving TAO holders an — http://nitter.meowing.monster/taomedia_/status/2112234643638350065#m  
+  http://nitter.meowing.monster/taomedia_/status/2113027581398368653#m
 - @const_reborn (Jacob Steeves, Wed, 21 Oct 2026): We think all models will be trained in markets.  
   http://nitter.meowing.monster/const_reborn/status/2113014902206157076#m
 - @const_reborn (Jacob Steeves, Wed, 21 Oct 2026): Another model-network kicking off: Ingot (97) Their latest release Ingot-I quantized Qwen 27B into FP8 better than Alibaba's own quantization in 1 week. Next target is 2-bit and then the larger GLM models.  
   http://nitter.meowing.monster/const_reborn/status/2113014591219225052#m
+- @taomedia_ (TAO Media, Wed, 21 Oct 2026): "Across 20+ common tasks, Auto delivered results similar to Opus 5.5 and Astra at about 90% lower average cost." - @NotionHQ Intelligence ττ (@taomedia_) COOKING: @NotionHQ's AI agents can now work on tasks for up to 24 hours, with computer and browser access built in. The upgrade also adds Auto model routing, which matches leading models across 20+ use cases at about 90% lower average cost. Users can connect Plus, Pro, or Go ChatGPT subscriptions to their personal Notion Agent, while a new credit system separates everyday AI work from manually selected models. tao.media/notion-extends-ai-… Li  
+  http://nitter.meowing.monster/taomedia_/status/2112997372838183351#m
 - @const_reborn (Jacob Steeves, Wed, 21 Oct 2026): Promising mining result from @reaxlabs (92). They built this mining network yesterday and are beating Perplexity today. Congrats goes out to the ML miner talent on Bittensor, and the team. REAX (@reaxlabs) Meet REAX 1, our open decision model built on Perplexity Decider v1.2. Our own measurement: +2.4 points over its base, ahead in all 6 test draws and all 10 areas. Open competition starts today 13:00 UTC: =&gt; Beat it, earn the rewards see reax.co/competitions — http://nitter.meowing.monster/reaxlabs/status/2112862072824623491#m  
   http://nitter.meowing.monster/const_reborn/status/2112992631194354128#m
+- @taomedia_ (TAO Media, Wed, 21 Oct 2026): Mistral has released Voxtral 3 with a LiveKit-based SDK that links real-time transcription, reasoning, tool calls, and expressive speech for phone and web conversations. The stack supports transcription in 50 languages, sub-500-millisecond real-time latency in more than 35 languages, and conversational turns in under one second. tao.media/mistral-releases-v… Link Mistral Releases Voxtral 3 With Multilingual Speech Models and LiveKit Voice Agent SDK The new stack connects transcription, reasoning, and expressive speech for phone and web agents, with API and private deployment options. tao.media  
+  http://nitter.meowing.monster/taomedia_/status/2112982305132400808#m
+- @taomedia_ (TAO Media, Wed, 21 Oct 2026): COOKING: @agilityrobotics is turning Pittsburgh into a software, AI, and service hub for its Digit humanoid robots as its customer base expands. The planned 50,000-square-foot facility will add 35,000 square feet to Agility’s existing footprint and bring skill development, deployment, fleet monitoring, and repairs under one roof. tao.media/agility-robotics-p… Link Agility Robotics Plans 50,000-Square-Foot Pittsburgh Hub for Digit AI and Service The expansion will bring robot skill development and fleet support together as Agility adds customers. tao.media  
+  http://nitter.meowing.monster/taomedia_/status/2112963376406245557#m
 - @shibshib89 (Ala Shaabana, Wed, 21 Oct 2026): Something's always brewing at Crucible Labs. #Bittensor $TAO #Taowallet #validator Learn more at Cruciblelabs.com Video  
   https://nitter.kareem.one/CrucibleLabs/status/2112957401305682393#m
 - @YumaGroup (Yuma Holdings, Wed, 21 Oct 2026): The full letter can be read here: sec.gov/comments/S7-2026-27/…  
@@ -195,6 +203,8 @@ _no new posts in the lookback window_
   http://nitter.meowing.monster/_redteam_/status/2112583927026393148#m
 - @rob_svrn (Rob Greer, Tue, 20 Oct 2026): Exactly How Bittensor TAO Will Hit $1,000,000 Video  
   http://nitter.meowing.monster/TAOTemplar/status/2112583900107096395#m
+- @rob_svrn (Rob Greer, Tue, 20 Oct 2026): Exactly How Bittensor TAO Will Hit $1,000,000 Video  
+  https://nitter.kareem.one/TAOTemplar/status/2112583900107096395#m
 - @shibshib89 (Ala Shaabana, Tue, 20 Oct 2026): Our community spans the world, and our website should too. CrucibleLabs.com is now available in multiple languages, making it easier to explore, learn, and connect with Bittensor wherever you are. Check it out → cruciblelabs.com Video  
   https://nitter.kareem.one/CrucibleLabs/status/2112581349945311707#m
 - @const_reborn (Jacob Steeves, Tue, 20 Oct 2026): We just killed cold outreach. Introducing Leadpoet: the AI sales agent that finds buyers who need you now, writes personalized outreach, and follows up on LinkedIn and email. Used by Dropbox, OnePatch (YC26), Muttdata. Comment “Poet” for 100 free lead credits to find qualified buyers. Video  
@@ -233,6 +243,8 @@ _no new posts in the lookback window_
   http://nitter.meowing.monster/datapointai/status/2062563294880075837#m
 - @dippy_ai (Dippy AI, Sun, 09 Aug 2026): We are experiencing an issue with our database provider @supabase , so the app &amp; website may be down for a few more hours. We’ll send a notification when we are able to recover and the app is back to normal! Apologies for the inconvenience 😿😿  
   http://nitter.meowing.monster/dippy_ai/status/2086595242422149540#m
+- @JosephJacks_ (Joseph Jacks, Sat, 24 Oct 2026): “It is the glory of God to conceal a thing: but the honour of kings is to search out a matter.” Proverbs 25:2 In Hebrew it reads … kevod Elohim haster davar, ukhevod melakhim chaqor davar. The verse sets God’s hiding next to people’s searching. The verb chaqar (חָקַר) means to search out, examine or investigate thoroughly. God hides things on purpose, and searching them out is an honorable human task.  
+  http://nitter.meowing.monster/JosephJacks_/status/2114075014416797884#m
 - @JosephJacks_ (Joseph Jacks, Sat, 24 Oct 2026): 🤯 THIS IS ABSOLUTELY INCREDIBLE! ⚡ 15s(768*1024) Flux.3 Klein Base generation with amazing quality on an M5 iPad Pro! 🚀 All you need to do is add this 4-step Distill LoRA and set the shift to 3! 👇 Go try it out on Draw Things! Details below!  
   http://nitter.meowing.monster/drawthingsapp/status/2114002439854866619#m
 - @JosephJacks_ (Joseph Jacks, Sat, 24 Oct 2026): back and forth ✧  
@@ -249,19 +261,7 @@ _no new posts in the lookback window_
   https://nitter.kareem.one/SemiAnalysis_/status/2113812093145145821#m
 - @SemiAnalysis_ (SemiAnalysis, Sat, 24 Oct 2026): ASML is bringing lithography-grade precision to hybrid bonding. “BESI, ASMPT and others come from a pick-and-place background. They’re very good at overlaying each die onto the base wafer and placing it down. The bond itself forms later, during the anneal.” “ASML is coming at it from the front end. Its tools already do sub-nanometer overlay for lithography, easily an order of magnitude more precise. And as hybrid bond pitches get finer, how many signals you can fit per square millimeter between two dies matters more and more.” “Overlay isn’t ASML’s problem. The challenge is building a system t  
   https://nitter.kareem.one/SemiAnalysis_/status/2113812091857518664#m
-- @mcjkula (mcjkula, Sat, 19 Sep 2026): Maciej Kula ( @mcjkula ) couldn't find a clear way to learn #Bittensor from scratch, so he built the resource he wished existed. @learnbittensor is now part of @latentholdings, where Maciej leads education and makes Bittensor easier to understand. He'll be leading our Bittensor 101 session to kick off Day 1: luma.com/nqy2n5zi Video  
-  http://nitter.meowing.monster/ExploitSummit/status/2101355676325007652#m
-- @jaltucher (James Altucher, Sat, 17 Oct 2026): AI is not going to destroy humanity any time soon:  
-  http://nitter.meowing.monster/jaltucher/status/2111574866205778385#m
-- @rob_svrn (Rob Greer, Sat, 17 Oct 2026): Really interesting convo below from this weeks all in on why a16z stays away from the neoclouds, and it made something click for me about Bittensor. @bhorowitz point is that scaling compute on debt is a dangerous arbitrage business, and he lived it in 99 when bandwidth was $1,500/megabit and the only way to get it was a 3 year contract. By 2001 it was $50 - If you were holding that on borrowed money you were dead. His case for $CRWV being different is that AI compute is in a massive shortage, so GPU and data center prices keep rising. Maybe he's right. But the neocloud model is still a levered  
-  http://nitter.meowing.monster/0xSunRun/status/2111550951329054825#m
-- @jon_durbin (Jon Durbin, Sat, 10 Oct 2026): Amazing work! lium.io (@lium_io) new month in review just dropped. +45% spend +16% active users +106% rentals +11% median rental time +20% charged +32% first time renters +15% providers -32% rental failures — http://nitter.meowing.monster/lium_io/status/2108799096182223058#m  
-  http://nitter.meowing.monster/jon_durbin/status/2108893300178755657#m
-- @_redteam_ (RedTeam / Innerworks, Mon, 28 Sep 2026): "We're not afraid of hyper-intelligent bot swarms on the internet. We use them to optimise our technology." When we launched RedTeam almost two years ago we could clearly see where the internet was heading. We've since seen clients with over 90% of their traffic made up of not just automation but highly intelligent bot swarms, capable of bypassing any traditional detection mechanism. The only way to combat a threat like this is to welcome it and learn from it. By constantly ingesting and evolving attack vectors from a hive mind of miners, a Bittensor powered defence has now become the only rel  
-  http://nitter.meowing.monster/_redteam_/status/2104643110911533312#m
-- @jaltucher (James Altucher, Mon, 19 Oct 2026): AI vs. humans? A better question: how can AI help people do more? On this episode of @DisrupTVShow, @jaltucher explores decentralized AI, infrastructure, and model costs. Ganesh Iyer of ASPR.AI shares how AI can help sellers focus on judgment, relationships, and outcomes. Watch it here: bit.ly/4jrcss8 #AIWars  
-  http://nitter.meowing.monster/holgermu/status/2112315109599035688#m
 
 
 ---
-_Generated at 2026-10-24T18:33:59.797572+00:00 by scripts/intel/aggregate.py. Treat this digest as input context, not as ground truth. Verify before quoting._
+_Generated at 2026-10-24T22:13:59.346695+00:00 by scripts/intel/aggregate.py. Treat this digest as input context, not as ground truth. Verify before quoting._
