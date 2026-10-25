@@ -154,8 +154,12 @@ _no new posts in the lookback window_
   http://nitter.meowing.monster/const_reborn/status/2112992631194354128#m
 - @TargonCompute (Targon, Wed, 21 Oct 2026): Full episode of Talking Targon, Ep. 01 here: Targon (@TargonCompute) Talking Targon, Ep. 01 is now live. Bittensor co-founder Jacob Steeves aka @const_reborn joins us to break down eTAO, the upgrade that lets subnet owners decide how their emissions are split. We get into subnet economics, the guardrails against exploits, and what it unlocks for compute on Targon. Video — https://nitter.kareem.one/TargonCompute/status/2111266999464530147#m  
   https://nitter.kareem.one/TargonCompute/status/2112992365552009387#m
+- @TargonCompute (Targon, Wed, 21 Oct 2026): Full episode of Talking Targon, Ep. 01 here: Targon (@TargonCompute) Talking Targon, Ep. 01 is now live. Bittensor co-founder Jacob Steeves aka @const_reborn joins us to break down eTAO, the upgrade that lets subnet owners decide how their emissions are split. We get into subnet economics, the guardrails against exploits, and what it unlocks for compute on Targon. Video — http://nitter.meowing.monster/TargonCompute/status/2111266999464530147#m  
+  http://nitter.meowing.monster/TargonCompute/status/2112992365552009387#m
 - @TargonCompute (Targon, Wed, 21 Oct 2026): Bittensor is adapting, and passing more control to the network participants. eTAO is yet another step toward true decentralization. “Inside of a competitive network, where you're being governed by the market.” @const_reborn on Talking Targon Video  
   https://nitter.kareem.one/TargonCompute/status/2112992363760980123#m
+- @TargonCompute (Targon, Wed, 21 Oct 2026): Bittensor is adapting, and passing more control to the network participants. eTAO is yet another step toward true decentralization. “Inside of a competitive network, where you're being governed by the market.” @const_reborn on Talking Targon Video  
+  http://nitter.meowing.monster/TargonCompute/status/2112992363760980123#m
 - @oroagents (Oro, Wed, 21 Oct 2026): Some things never change  
   http://nitter.meowing.monster/ironseth_s/status/2112775882519822782#m
 - @oroagents (Oro, Wed, 21 Oct 2026): Some things never change  
@@ -192,6 +196,8 @@ _no new posts in the lookback window_
   http://nitter.meowing.monster/tplr_ai/status/2093022381660942660#m
 - @TargonCompute (Targon, Thu, 22 Oct 2026): With exploits on the rise, plan for the host getting breached. Targon Virtual Machines run on Intel TDX. Memory is encrypted with keys the host never sees, so even a compromised server can’t see your data, your weights or your code. Permissionless (@narrativereach) Every few hours, it seems like there’s a new software exploit. This week, a critical PHP flaw forced government websites across Europe offline, and the NSA told anyone who couldn’t patch to take their systems down, and one attacker used AI agents to break into the websites of 100+ companies for about $50 a hack. Exploits that used t  
   https://nitter.kareem.one/TargonCompute/status/2113352059001122822#m
+- @TargonCompute (Targon, Thu, 22 Oct 2026): With exploits on the rise, plan for the host getting breached. Targon Virtual Machines run on Intel TDX. Memory is encrypted with keys the host never sees, so even a compromised server can’t see your data, your weights or your code. Permissionless (@narrativereach) Every few hours, it seems like there’s a new software exploit. This week, a critical PHP flaw forced government websites across Europe offline, and the NSA told anyone who couldn’t patch to take their systems down, and one attacker used AI agents to break into the websites of 100+ companies for about $50 a hack. Exploits that used t  
+  http://nitter.meowing.monster/TargonCompute/status/2113352059001122822#m
 - @KyleSamani (Kyle Samani, Thu, 22 Oct 2026): What would Solana’s consensus look like in a post-quantum world? Meet Quantumglow: a proposed adaptation of Alpenglow that aims to protect consensus while preserving fast finality. @jacobvcreech and @qkniep explain how it works. Full video below👇 Video  
   http://nitter.meowing.monster/solana_devs/status/2113308459860988100#m
 - @BarrySilbert (Barry Silbert, Thu, 22 Oct 2026): The opportunity in digital assets is expanding, and our Q3 performance shows it. Q3 was our strongest quarter of the year with net flows up ~$1.2B from Q2, and we ranked #1 in AUM among HYPE, Sui and Chainlink ETPs.¹ At our town hall, we recognized the team behind that progress. This quarter's results show what our teams can accomplish through shared ambition and focus.  
@@ -220,8 +226,14 @@ _no new posts in the lookback window_
   http://nitter.meowing.monster/oroagents/status/2108083567654060352#m
 - @covenant_ai (Covenant AI, Thu, 03 Sep 2026): Crucible, Templar's pre-training platform, has completed its first production end-to-end training runs. The latest trained an 8B model on 50.53B tokens across 48 distributed A100s, at an estimated $0.1202 per million tokens of GPU rental. The run reached 48.3% effective MFU. At AWS p4de Capacity Blocks pricing, a 48-A100 cluster operating at the literature-derived 65% compute ceiling comes to an estimated $0.1686 per million tokens. Crucible's measured $0.1202 was about 29% lower after its low-bandwidth overhead. The comparison excludes R2 storage and operations. The full writeup shows the met  
   http://nitter.meowing.monster/tplr_ai/status/2095580357626110111#m
+- @JosephJacks_ (Joseph Jacks, Sun, 25 Oct 2026): Embrace unification and oneness. Prof. Feynman (@ProfFeynman) If our small minds, for some convenience, divide this universe, into parts — physics, biology, geology, astronomy, psychology, and so on — remember that nature does not know it! — http://nitter.meowing.monster/ProfFeynman/status/2114293702742991199#m  
+  http://nitter.meowing.monster/JosephJacks_/status/2114343315713802625#m
+- @JosephJacks_ (Joseph Jacks, Sun, 25 Oct 2026): Eric speaks the truth. Eric Betzig (@Eric_Betzig) Siloization of universities into separate departments has been a millstone around the neck of human progress. Creativity flourishes best at the interface between disciplines. — http://nitter.meowing.monster/Eric_Betzig/status/2114317947774931305#m  
+  http://nitter.meowing.monster/JosephJacks_/status/2114326182787269032#m
 - @wallstreetbets (WallStreetBets (X), Sun, 25 Oct 2026): should've sold  
   https://nitter.kareem.one/wallstreetbets/status/2114235508889121164#m
+- @JosephJacks_ (Joseph Jacks, Sun, 25 Oct 2026): Scan of a page from Erwin Schrödinger's notebook, ca 1910. (Source: Zentralbibliothek für Physik, Vienna)  
+  http://nitter.meowing.monster/skdh/status/2114211635166371917#m
 - @wallstreetbets (WallStreetBets (X), Sun, 25 Oct 2026): how mfs with $100 invested watch the market  
   https://nitter.kareem.one/wallstreetbets/status/2114190222783398099#m
 - @Olaf (Olaf Carlson-Wee, Sun, 10 Jul 2011): RT @timmerarjan Life is good! yfrog.com/kkli4iaj zeker !! Wel tof dat je het deelt met je vrienden :)  
@@ -230,19 +242,7 @@ _no new posts in the lookback window_
   http://nitter.meowing.monster/JosephJacks_/status/2114129598745301384#m
 - @wallstreetbets (WallStreetBets (X), Sat, 24 Oct 2026): me after turning $40 into $43  
   https://nitter.kareem.one/wallstreetbets/status/2114128731878957346#m
-- @VantaTrading (Vanta, Sat, 24 Oct 2026): 20% off Classic evaluations with code OCT20. Ends Oct 31, then it's back to regular price. vantatrading.io/pricing  
-  http://nitter.meowing.monster/VantaTrading/status/2114092156944310744#m
-- @JosephJacks_ (Joseph Jacks, Sat, 24 Oct 2026): “It is the glory of God to conceal a thing: but the honour of kings is to search out a matter.” Proverbs 25:2 In Hebrew it reads … kevod Elohim haster davar, ukhevod melakhim chaqor davar. The verse sets God’s hiding next to people’s searching. The verb chaqar (חָקַר) means to search out, examine or investigate thoroughly. God hides things on purpose, and searching them out is an honorable human task.  
-  http://nitter.meowing.monster/JosephJacks_/status/2114075014416797884#m
-- @wallstreetbets (WallStreetBets (X), Sat, 24 Oct 2026): the level of focus you need to turn $20 into $50 in this market  
-  https://nitter.kareem.one/wallstreetbets/status/2114061863478858079#m
-- @wallstreetbets (WallStreetBets (X), Sat, 24 Oct 2026): we call it uptober and then liquidate the shit out of them Kalshi Crypto (@Kalshi_Crypto) BREAKING: 45% chance Bitcoin bitcoin:native drops to $70,000 before $100,000 — https://nitter.kareem.one/Kalshi_Crypto/status/2114022944846614778#m  
-  https://nitter.kareem.one/wallstreetbets/status/2114031664884335009#m
-- @JosephJacks_ (Joseph Jacks, Sat, 24 Oct 2026): The average person cannot fathom the former glory of San Francisco  
-  http://nitter.meowing.monster/luusssso/status/2114003087920943121#m
-- @BarrySilbert (Barry Silbert, Sat, 24 Oct 2026): Zcash ETF inflows are starting to get interesting. Grayscale's $ZCSH just recorded another $20.5 MILLION in inflows. That's FOUR consecutive positive trading sessions. October 20: $1.6M October 21: $15.2M October 22: $14.2M October 23: $20.5M $51.5 MILLION in four days. And the latest session was the biggest of the four. Remember, this comes after weeks of significant outflows. Too early to call a complete reversal. But demand for ZEC exposure through traditional markets is showing signs of recovery. $ZEC  
-  http://nitter.meowing.monster/PorterNovaX/status/2113920559297744969#m
 
 
 ---
-_Generated at 2026-10-25T15:25:39.447219+00:00 by scripts/intel/aggregate.py. Treat this digest as input context, not as ground truth. Verify before quoting._
+_Generated at 2026-10-25T18:42:48.975110+00:00 by scripts/intel/aggregate.py. Treat this digest as input context, not as ground truth. Verify before quoting._
