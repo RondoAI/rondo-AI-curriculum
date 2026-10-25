@@ -160,6 +160,10 @@ _no new posts in the lookback window_
   https://nitter.kareem.one/TargonCompute/status/2112992363760980123#m
 - @TargonCompute (Targon, Wed, 21 Oct 2026): Bittensor is adapting, and passing more control to the network participants. eTAO is yet another step toward true decentralization. “Inside of a competitive network, where you're being governed by the market.” @const_reborn on Talking Targon Video  
   http://nitter.meowing.monster/TargonCompute/status/2112992363760980123#m
+- @webuildscore (Score, Wed, 21 Oct 2026): He woke up like this Max (@MaxSebti) computer vision companies are dying from long use-case → model → deploy feedback loops. they run out of runway before they can even find the right use case. meanwhile CV is being commoditised in real time on sn44. every niche will be covered. if you run a computer vision company, the miners are coming for you or are here to help depending on how you want to approach this. — https://nitter.kareem.one/MaxSebti/status/2112911463882912107#m  
+  https://nitter.kareem.one/webuildscore/status/2112912283353428061#m
+- @webuildscore (Score, Wed, 21 Oct 2026): Orange juice production line, tracked end to end 🍊 On a food production line, every unit that passes the camera matters. What goes in, what jams or falls off, and what comes out at the end usually gets checked by eye, or not at all. Our vision models can handle it. Track every orange from the sorting line to the juicer, and any gap can be flagged before it turns into waste. Pulp fiction, now with bounding boxes. Video  
+  https://nitter.kareem.one/webuildscore/status/2112877709403599061#m
 - @oroagents (Oro, Wed, 21 Oct 2026): Some things never change  
   http://nitter.meowing.monster/ironseth_s/status/2112775882519822782#m
 - @oroagents (Oro, Wed, 21 Oct 2026): Some things never change  
@@ -180,8 +184,12 @@ _no new posts in the lookback window_
   http://nitter.meowing.monster/tplr_ai/status/2104937831097352377#m
 - @covenant_ai (Covenant AI, Tue, 25 Aug 2026): Templar's work reduces to one question. How much of the machine-learning lifecycle can run across ordinary networks instead of a single datacentre? Pre-training answered first, with Covenant-72B as the proof at scale. Post-training followed through our communication-efficiency research. Serving open models on distributed hardware is the piece we are working on now, and it is the one that puts the whole arc in front of users. The internet is the datacentre.  
   http://nitter.meowing.monster/tplr_ai/status/2092267948765237743#m
+- @webuildscore (Score, Tue, 20 Oct 2026): anime detection, unlocked. Gyro (@Gyrolens) Couldn’t name myself Gyro and not do this one. Same tool I’ve been running on CCTV and game trailers, this time on Steel Ball Run. Horses at full gallop, riders, and a stadium of people, picked up through most of the race. Video — https://nitter.kareem.one/Gyrolens/status/2112593130382073890#m  
+  https://nitter.kareem.one/webuildscore/status/2112607626244571515#m
 - @const_reborn (Jacob Steeves, Tue, 20 Oct 2026): We just killed cold outreach. Introducing Leadpoet: the AI sales agent that finds buyers who need you now, writes personalized outreach, and follows up on LinkedIn and email. Used by Dropbox, OnePatch (YC26), Muttdata. Comment “Poet” for 100 free lead credits to find qualified buyers. Video  
   http://nitter.meowing.monster/LeadpoetAI/status/2112574574718050575#m
+- @tm0klc (Tim, Tue, 20 Oct 2026): input &lt; output &lt; outcomes  
+  http://nitter.meowing.monster/tm0klc/status/2112498641273491663#m
 - @JosephJacks_ (Joseph Jacks, Tue, 17 Mar 2026): We don't have a compute problem… We have an architecture problem. Paramecium Caudatum are single-celled organisms roughly the width of a human hair. They have no brain, no neurons, no synapses, and no central nervous system of any kind. But what they do have is ~100,000 microtubules… With that substrate alone, they can: → Swim in controlled helical trajectories → Modulate speed continuously → Execute graded avoidance reactions (reverse, pivot, resume) → Escape predators with emergency burst reversals → Fire localized volleys of 8,000 trichocyst harpoons → Navigate toward food via chemotaxis →   
   http://nitter.meowing.monster/JosephJacks_/status/2033907095154921561#m
 - @nigescore (Nige, Tue, 15 Sep 2026): The physical world still can’t talk to software. A billion cameras watch factories, stations, warehouses, and stores every second. Almost none of that footage becomes action. That’s what we build at Manako. Today we join F/ai at @joinstationf The program that put OpenAI, Anthropic, Google, Meta, Microsoft and top-tier VCs behind a handful of AI-native teams. Honoured. Focused. Shipping.  
@@ -198,6 +206,8 @@ _no new posts in the lookback window_
   https://nitter.kareem.one/TargonCompute/status/2113352059001122822#m
 - @TargonCompute (Targon, Thu, 22 Oct 2026): With exploits on the rise, plan for the host getting breached. Targon Virtual Machines run on Intel TDX. Memory is encrypted with keys the host never sees, so even a compromised server can’t see your data, your weights or your code. Permissionless (@narrativereach) Every few hours, it seems like there’s a new software exploit. This week, a critical PHP flaw forced government websites across Europe offline, and the NSA told anyone who couldn’t patch to take their systems down, and one attacker used AI agents to break into the websites of 100+ companies for about $50 a hack. Exploits that used t  
   http://nitter.meowing.monster/TargonCompute/status/2113352059001122822#m
+- @webuildscore (Score, Thu, 22 Oct 2026): We’ve been busy Gyro (@Gyrolens) One of the things I’ve been testing at @webuildscore. Can’t say much yet, but you can see the difference. On top, the boxes jump around and miss half of what happens between frames. Below, they just stay locked on. It’s a small thing until you’ve watched the choppy version for a few weeks. More soon. Video — https://nitter.kareem.one/Gyrolens/status/2113313180340674661#m  
+  https://nitter.kareem.one/webuildscore/status/2113315472678486257#m
 - @KyleSamani (Kyle Samani, Thu, 22 Oct 2026): What would Solana’s consensus look like in a post-quantum world? Meet Quantumglow: a proposed adaptation of Alpenglow that aims to protect consensus while preserving fast finality. @jacobvcreech and @qkniep explain how it works. Full video below👇 Video  
   http://nitter.meowing.monster/solana_devs/status/2113308459860988100#m
 - @BarrySilbert (Barry Silbert, Thu, 22 Oct 2026): The opportunity in digital assets is expanding, and our Q3 performance shows it. Q3 was our strongest quarter of the year with net flows up ~$1.2B from Q2, and we ranked #1 in AUM among HYPE, Sui and Chainlink ETPs.¹ At our town hall, we recognized the team behind that progress. This quarter's results show what our teams can accomplish through shared ambition and focus.  
@@ -226,23 +236,13 @@ _no new posts in the lookback window_
   http://nitter.meowing.monster/oroagents/status/2108083567654060352#m
 - @covenant_ai (Covenant AI, Thu, 03 Sep 2026): Crucible, Templar's pre-training platform, has completed its first production end-to-end training runs. The latest trained an 8B model on 50.53B tokens across 48 distributed A100s, at an estimated $0.1202 per million tokens of GPU rental. The run reached 48.3% effective MFU. At AWS p4de Capacity Blocks pricing, a 48-A100 cluster operating at the literature-derived 65% compute ceiling comes to an estimated $0.1686 per million tokens. Crucible's measured $0.1202 was about 29% lower after its low-bandwidth overhead. The comparison excludes R2 storage and operations. The full writeup shows the met  
   http://nitter.meowing.monster/tplr_ai/status/2095580357626110111#m
+- @BarrySilbert (Barry Silbert, Sun, 25 Oct 2026): $ZEC turns green amid the broader market downtrend, with Grayscale's Zcash ETF drawing $41.1 million last week, its biggest week of inflows since mid-September.  
+  http://nitter.meowing.monster/coingecko/status/2114381878677451087#m
 - @JosephJacks_ (Joseph Jacks, Sun, 25 Oct 2026): Embrace unification and oneness. Prof. Feynman (@ProfFeynman) If our small minds, for some convenience, divide this universe, into parts — physics, biology, geology, astronomy, psychology, and so on — remember that nature does not know it! — http://nitter.meowing.monster/ProfFeynman/status/2114293702742991199#m  
   http://nitter.meowing.monster/JosephJacks_/status/2114343315713802625#m
-- @JosephJacks_ (Joseph Jacks, Sun, 25 Oct 2026): Eric speaks the truth. Eric Betzig (@Eric_Betzig) Siloization of universities into separate departments has been a millstone around the neck of human progress. Creativity flourishes best at the interface between disciplines. — http://nitter.meowing.monster/Eric_Betzig/status/2114317947774931305#m  
-  http://nitter.meowing.monster/JosephJacks_/status/2114326182787269032#m
-- @wallstreetbets (WallStreetBets (X), Sun, 25 Oct 2026): should've sold  
-  https://nitter.kareem.one/wallstreetbets/status/2114235508889121164#m
-- @JosephJacks_ (Joseph Jacks, Sun, 25 Oct 2026): Scan of a page from Erwin Schrödinger's notebook, ca 1910. (Source: Zentralbibliothek für Physik, Vienna)  
-  http://nitter.meowing.monster/skdh/status/2114211635166371917#m
-- @wallstreetbets (WallStreetBets (X), Sun, 25 Oct 2026): how mfs with $100 invested watch the market  
-  https://nitter.kareem.one/wallstreetbets/status/2114190222783398099#m
-- @Olaf (Olaf Carlson-Wee, Sun, 10 Jul 2011): RT @timmerarjan Life is good! yfrog.com/kkli4iaj zeker !! Wel tof dat je het deelt met je vrienden :)  
-  http://nitter.meowing.monster/olaf/status/90083936700600321#m
-- @JosephJacks_ (Joseph Jacks, Sat, 24 Oct 2026): Anthropic CISO says air-gapped infra is key. I have suggestions. TYFYATTM. 👇🏼 @calcom @planepowers @liquidai @cap @dubdotco @hoppscotch_io @manifoldlabs @compai @W4Games @rustdesk @documenso @Tracel_AI Jason D. Clinton 🔸 (@JasonDClinton) The vulnerability tsunami is coming in just a few months and there won’t be enough time to patch critical infrastructure. Network isolation described below (air-gaps and data diodes!) needed now! — http://nitter.meowing.monster/JasonDClinton/status/2090543566682718542#m  
-  http://nitter.meowing.monster/JosephJacks_/status/2114129598745301384#m
-- @wallstreetbets (WallStreetBets (X), Sat, 24 Oct 2026): me after turning $40 into $43  
-  https://nitter.kareem.one/wallstreetbets/status/2114128731878957346#m
+- @BarrySilbert (Barry Silbert, Sun, 25 Oct 2026): Zcash ETFs buck the trend with $41.1M inflows while Bitcoin funds bleed $500M. $ZEC $BTC #Crypto Is this a rotation? 📉📈 thecurrencyanalytics.com/alt… Link Zcash ETF Draws $41.1 Million as Bitcoin Funds Bleed $500 Million Grayscale&apos;s Zcash ETF recorded $41.1 million in weekly inflows, its strongest since mid-September, while Bitcoin ETFs lost over $500 million in two days and Ethereum ETFs shed $220.7 million. thecurrencyanalytics.com  
+  http://nitter.meowing.monster/TheCurrencyA/status/2114329461650784676#m
 
 
 ---
-_Generated at 2026-10-25T18:42:48.975110+00:00 by scripts/intel/aggregate.py. Treat this digest as input context, not as ground truth. Verify before quoting._
+_Generated at 2026-10-25T22:16:12.651009+00:00 by scripts/intel/aggregate.py. Treat this digest as input context, not as ground truth. Verify before quoting._
