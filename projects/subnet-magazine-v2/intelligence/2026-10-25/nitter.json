@@ -80,6 +80,16 @@
     "via_instance": "https://nitter.cz"
   },
   {
+    "handle": "oroagents",
+    "name": "Oro",
+    "posted_at": "Wed, 21 Oct 2026 05:19:58 GMT",
+    "title": "RT by @oroagents: Some things never change",
+    "text": "Some things never change",
+    "url": "https://nitter.kareem.one/ironseth_s/status/2112775882519822782#m",
+    "fetched_at": "2026-10-25T15:23:59.138855+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
     "handle": "covenant_ai",
     "name": "Covenant AI",
     "posted_at": "Wed, 19 Aug 2026 15:02:51 GMT",
@@ -312,11 +322,41 @@
   {
     "handle": "oroagents",
     "name": "Oro",
+    "posted_at": "Thu, 08 Oct 2026 21:43:13 GMT",
+    "title": "R to @oroagents: And to see what we are up to next at https://oroagents.com/",
+    "text": "And to see what we are up to next at oroagents.com/",
+    "url": "https://nitter.kareem.one/oroagents/status/2108312282493329762#m",
+    "fetched_at": "2026-10-25T15:23:59.138855+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "oroagents",
+    "name": "Oro",
+    "posted_at": "Thu, 08 Oct 2026 21:41:39 GMT",
+    "title": "R to @oroagents: See the trajectories and datasets from these benchmarks - https://huggingface.co/oro-ai",
+    "text": "See the trajectories and datasets from these benchmarks - huggingface.co/oro-ai Link oro-ai (ORO AI) We&apos;re building the largest agent arena where AI learns to shop huggingface.co",
+    "url": "https://nitter.kareem.one/oroagents/status/2108311887469552061#m",
+    "fetched_at": "2026-10-25T15:23:59.138855+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "oroagents",
+    "name": "Oro",
     "posted_at": "Thu, 08 Oct 2026 21:39:56 GMT",
     "title": "As models and harnesses get more capable, the depth of our RL environments needs to stay ahead of the curve. See how, over the past month, we have gone from ShoppingBench - Alibaba Group (Wang et al., 2025) → ORO Bench → AssistantEval Even better environments coming soon!",
     "text": "As models and harnesses get more capable, the depth of our RL environments needs to stay ahead of the curve. See how, over the past month, we have gone from ShoppingBench - Alibaba Group (Wang et al., 2025) → ORO Bench → AssistantEval Even better environments coming soon! Video",
     "url": "http://nitter.meowing.monster/oroagents/status/2108311456345358818#m",
     "fetched_at": "2026-10-25T02:41:31.723971+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "oroagents",
+    "name": "Oro",
+    "posted_at": "Thu, 08 Oct 2026 21:39:56 GMT",
+    "title": "As models and harnesses get more capable, the depth of our RL environments needs to stay ahead of the curve. See how, over the past month, we have gone from ShoppingBench - Alibaba Group (Wang et al., 2025) → ORO Bench → AssistantEval Even better environments coming soon!",
+    "text": "As models and harnesses get more capable, the depth of our RL environments needs to stay ahead of the curve. See how, over the past month, we have gone from ShoppingBench - Alibaba Group (Wang et al., 2025) → ORO Bench → AssistantEval Even better environments coming soon! Video",
+    "url": "https://nitter.kareem.one/oroagents/status/2108311456345358818#m",
+    "fetched_at": "2026-10-25T15:23:59.138855+00:00",
     "via_instance": "https://nitter.cz"
   },
   {
@@ -527,6 +567,16 @@
     "text": "github.com/ORO-AI/assistante… All in the open :) Link GitHub - ORO-AI/assistanteval: AssistantEval: a verifiable benchmark for personal AI assistants AssistantEval: a verifiable benchmark for personal AI assistants - ORO-AI/assistanteval github.com",
     "url": "http://nitter.meowing.monster/oroagents/status/2109503153242775934#m",
     "fetched_at": "2026-10-25T02:41:31.723971+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "oroagents",
+    "name": "Oro",
+    "posted_at": "Mon, 12 Oct 2026 04:35:19 GMT",
+    "title": "R to @oroagents: https://github.com/ORO-AI/assistanteval All in the open :)",
+    "text": "github.com/ORO-AI/assistante… All in the open :) Link GitHub - ORO-AI/assistanteval: AssistantEval: a verifiable benchmark for personal AI assistants AssistantEval: a verifiable benchmark for personal AI assistants - ORO-AI/assistanteval github.com",
+    "url": "https://nitter.kareem.one/oroagents/status/2109503153242775934#m",
+    "fetched_at": "2026-10-25T15:23:59.138855+00:00",
     "via_instance": "https://nitter.cz"
   },
   {

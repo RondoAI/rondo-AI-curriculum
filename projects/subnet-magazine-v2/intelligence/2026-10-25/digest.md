@@ -158,6 +158,8 @@ _no new posts in the lookback window_
   https://nitter.kareem.one/TargonCompute/status/2112992363760980123#m
 - @oroagents (Oro, Wed, 21 Oct 2026): Some things never change  
   http://nitter.meowing.monster/ironseth_s/status/2112775882519822782#m
+- @oroagents (Oro, Wed, 21 Oct 2026): Some things never change  
+  https://nitter.kareem.one/ironseth_s/status/2112775882519822782#m
 - @covenant_ai (Covenant AI, Wed, 19 Aug 2026): RT @tplr_ai: ByteDance and Tencent each received 10,000 Nvidia H200 chips, the first big delivery after China eased import limits. Watch w…  
   http://nitter.meowing.monster/covenant_ai/status/2090092134036648101#m
 - @tplr_ai (Templar, Wed, 16 Sep 2026): When using pipeline compression with fixed projections shared across layers, robustness improves further as seen in the figure below. This suggests that shared projectors align representations across stage boundaries, making bypasses less disruptive. 4/n  
@@ -204,8 +206,14 @@ _no new posts in the lookback window_
   http://nitter.meowing.monster/olaf/status/21602951308#m
 - @KyleSamani (Kyle Samani, Thu, 15 Oct 2026): [Speaker Announcement] "Solana is becoming the settlement layer for Internet capital markets." @KyleSamani, co-founder of Multicoin Capital and chairman of @FWDind, joins us at Breakpoint in London, 15-17 November. Video  
   http://nitter.meowing.monster/SolanaEvents/status/2110792882408013987#m
+- @oroagents (Oro, Thu, 08 Oct 2026): And to see what we are up to next at oroagents.com/  
+  https://nitter.kareem.one/oroagents/status/2108312282493329762#m
+- @oroagents (Oro, Thu, 08 Oct 2026): See the trajectories and datasets from these benchmarks - huggingface.co/oro-ai Link oro-ai (ORO AI) We&apos;re building the largest agent arena where AI learns to shop huggingface.co  
+  https://nitter.kareem.one/oroagents/status/2108311887469552061#m
 - @oroagents (Oro, Thu, 08 Oct 2026): As models and harnesses get more capable, the depth of our RL environments needs to stay ahead of the curve. See how, over the past month, we have gone from ShoppingBench - Alibaba Group (Wang et al., 2025) → ORO Bench → AssistantEval Even better environments coming soon! Video  
   http://nitter.meowing.monster/oroagents/status/2108311456345358818#m
+- @oroagents (Oro, Thu, 08 Oct 2026): As models and harnesses get more capable, the depth of our RL environments needs to stay ahead of the curve. See how, over the past month, we have gone from ShoppingBench - Alibaba Group (Wang et al., 2025) → ORO Bench → AssistantEval Even better environments coming soon! Video  
+  https://nitter.kareem.one/oroagents/status/2108311456345358818#m
 - @oroagents (Oro, Thu, 08 Oct 2026): huggingface.co/collections/o… Link AssistantEval - a oro-ai Collection AssistantEval by ORO. Published results and recorded trajectories. Website: assistanteval.com huggingface.co  
   http://nitter.meowing.monster/oroagents/status/2108083587845394791#m
 - @oroagents (Oro, Thu, 08 Oct 2026): We're excited to open source all the tasks and the traces that we have access to from this benchmark. Link in 🧵 ORO (@oroagents) We're excited to drop AssistantEval today. Replayable environments for evaluating and improving AI assistants. — http://nitter.meowing.monster/oroagents/status/2107609637654823076#m  
@@ -234,15 +242,7 @@ _no new posts in the lookback window_
   http://nitter.meowing.monster/luusssso/status/2114003087920943121#m
 - @BarrySilbert (Barry Silbert, Sat, 24 Oct 2026): Zcash ETF inflows are starting to get interesting. Grayscale's $ZCSH just recorded another $20.5 MILLION in inflows. That's FOUR consecutive positive trading sessions. October 20: $1.6M October 21: $15.2M October 22: $14.2M October 23: $20.5M $51.5 MILLION in four days. And the latest session was the biggest of the four. Remember, this comes after weeks of significant outflows. Too early to call a complete reversal. But demand for ZEC exposure through traditional markets is showing signs of recovery. $ZEC  
   http://nitter.meowing.monster/PorterNovaX/status/2113920559297744969#m
-- @VantaTrading (Vanta, Sat, 24 Oct 2026): Got a bot? Plug it in. Vanta has full API trading, so you can run your own strategy on your Vanta account. The docs are open: app.vantatrading.io/docs  
-  http://nitter.meowing.monster/VantaTrading/status/2113812807192076582#m
-- @nigescore (Nige, Sat, 19 Sep 2026): We’re completing our first 20 reference deployments, led by our CEO and engineering team, and the headline finding is that Manako is genuinely plug and play. No specialist integration required: a unit can be shipped to site and connected by anyone on the ground. That’s what makes our next phase possible. Our integration partners will roll out at scale on a simple, repeatable install, with less time on site and lower cost per deployment.  
-  http://nitter.meowing.monster/manakoai/status/2101403529558577403#m
-- @mcjkula (mcjkula, Sat, 19 Sep 2026): Maciej Kula ( @mcjkula ) couldn't find a clear way to learn #Bittensor from scratch, so he built the resource he wished existed. @learnbittensor is now part of @latentholdings, where Maciej leads education and makes Bittensor easier to understand. He'll be leading our Bittensor 101 session to kick off Day 1: luma.com/nqy2n5zi Video  
-  https://nitter.kareem.one/ExploitSummit/status/2101355676325007652#m
-- @TargonCompute (Targon, Sat, 17 Oct 2026): The dawn of eTAO is upon us. Talking Targon Ep. 01 with @const_reborn Targon (@TargonCompute) Talking Targon, Ep. 01 is now live. Bittensor co-founder Jacob Steeves aka @const_reborn joins us to break down eTAO, the upgrade that lets subnet owners decide how their emissions are split. We get into subnet economics, the guardrails against exploits, and what it unlocks for compute on Targon. Video — https://nitter.kareem.one/TargonCompute/status/2111266999464530147#m  
-  https://nitter.kareem.one/the_mattyk/status/2111449310529265718#m
 
 
 ---
-_Generated at 2026-10-25T08:55:13.685594+00:00 by scripts/intel/aggregate.py. Treat this digest as input context, not as ground truth. Verify before quoting._
+_Generated at 2026-10-25T15:25:39.447219+00:00 by scripts/intel/aggregate.py. Treat this digest as input context, not as ground truth. Verify before quoting._
