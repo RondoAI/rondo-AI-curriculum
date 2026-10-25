@@ -142,41 +142,107 @@ _no new posts in the lookback window_
 
 ## ⊕ X via NITTER, voices we track
 
+- @tplr_ai (Templar, Wed, 23 Sep 2026): Video  
+  http://nitter.meowing.monster/tplr_ai/status/2102792674118164542#m
+- @tplr_ai (Templar, Wed, 23 Sep 2026): Read the blog: tplr.ai/publications/blog/sk… Link Fault tolerance in low-bandwidth model parallelism: exploring pipeline stage-skipping with boundary... We explore how the residual nature of the transformer architecture can be leveraged to mitigate hardware faults, and demonstrate that the compression-based implementation of low-bandwidth model... tplr.ai  
+  http://nitter.meowing.monster/tplr_ai/status/2102792676676432160#m
 - @const_reborn (Jacob Steeves, Wed, 21 Oct 2026): We think all models will be trained in markets.  
   http://nitter.meowing.monster/const_reborn/status/2113014902206157076#m
 - @const_reborn (Jacob Steeves, Wed, 21 Oct 2026): Another model-network kicking off: Ingot (97) Their latest release Ingot-I quantized Qwen 27B into FP8 better than Alibaba's own quantization in 1 week. Next target is 2-bit and then the larger GLM models.  
   http://nitter.meowing.monster/const_reborn/status/2113014591219225052#m
 - @const_reborn (Jacob Steeves, Wed, 21 Oct 2026): Promising mining result from @reaxlabs (92). They built this mining network yesterday and are beating Perplexity today. Congrats goes out to the ML miner talent on Bittensor, and the team. REAX (@reaxlabs) Meet REAX 1, our open decision model built on Perplexity Decider v1.2. Our own measurement: +2.4 points over its base, ahead in all 6 test draws and all 10 areas. Open competition starts today 13:00 UTC: =&gt; Beat it, earn the rewards see reax.co/competitions — http://nitter.meowing.monster/reaxlabs/status/2112862072824623491#m  
   http://nitter.meowing.monster/const_reborn/status/2112992631194354128#m
+- @TargonCompute (Targon, Wed, 21 Oct 2026): Full episode of Talking Targon, Ep. 01 here: Targon (@TargonCompute) Talking Targon, Ep. 01 is now live. Bittensor co-founder Jacob Steeves aka @const_reborn joins us to break down eTAO, the upgrade that lets subnet owners decide how their emissions are split. We get into subnet economics, the guardrails against exploits, and what it unlocks for compute on Targon. Video — https://nitter.kareem.one/TargonCompute/status/2111266999464530147#m  
+  https://nitter.kareem.one/TargonCompute/status/2112992365552009387#m
+- @TargonCompute (Targon, Wed, 21 Oct 2026): Bittensor is adapting, and passing more control to the network participants. eTAO is yet another step toward true decentralization. “Inside of a competitive network, where you're being governed by the market.” @const_reborn on Talking Targon Video  
+  https://nitter.kareem.one/TargonCompute/status/2112992363760980123#m
 - @oroagents (Oro, Wed, 21 Oct 2026): Some things never change  
   http://nitter.meowing.monster/ironseth_s/status/2112775882519822782#m
+- @covenant_ai (Covenant AI, Wed, 19 Aug 2026): RT @tplr_ai: ByteDance and Tencent each received 10,000 Nvidia H200 chips, the first big delivery after China eased import limits. Watch w…  
+  http://nitter.meowing.monster/covenant_ai/status/2090092134036648101#m
+- @tplr_ai (Templar, Wed, 16 Sep 2026): When using pipeline compression with fixed projections shared across layers, robustness improves further as seen in the figure below. This suggests that shared projectors align representations across stage boundaries, making bypasses less disruptive. 4/n  
+  http://nitter.meowing.monster/tplr_ai/status/2100237714918367690#m
+- @tplr_ai (Templar, Wed, 16 Sep 2026): We’ve been researching fault tolerance in Crucible, Templar’s pre-training platform. The goal: keep training through node failures and make better use of unreliable workers and spot instances, without idling an entire model replica when one stage goes down. 1/n Video  
+  http://nitter.meowing.monster/tplr_ai/status/2100237708186550642#m
+- @nigescore (Nige, Wed, 14 Oct 2026): And it’s the first highway station. Arno (@arnod3f) ladies and gentlemen. @manakoai is officially working with @Shell. deploying physical ai to better their fuel retail operations. lfgooooooo🔥👊🚀 — http://nitter.meowing.monster/arnod3f/status/2110397339126915400#m  
+  http://nitter.meowing.monster/manakoai/status/2110408262357057824#m
+- @nigescore (Nige, Wed, 09 Sep 2026): .@nigescore going to paris last time he went to nrf in dallas he got us our biggest client ever (not announced yet) i can’t go. got something bigger on the 15th, 16th and 17th (to be announced) Manako (@manakoai) Heading to @nrfeurope NRF Retail’s Big Show Europe in Paris next week (15–17 Sept) 🇫🇷 If you are attending and want to hear what Manako Labs have built for retail, please DM and let’s meet up. No new hardware, no engineers, no code just your existing cameras doing more. #NRFRetailsBigShowEurope — http://nitter.meowing.monster/manakoai/status/2097622722310242420#m  
+  http://nitter.meowing.monster/MaxSebti/status/2097630699129827589#m
+- @mcjkula (mcjkula, Wed, 07 Oct 2026): "The best person to solve your problem might be someone you’ve never met or considered hiring." Travis and I explain Bittensor, including examples from weather forecasting (@zeussubnet) and drug discovery (@metanova_labs). Here’s our "Bittensor 101" recording from @ExploitSummit Video  
+  https://nitter.kareem.one/mcjkula/status/2107803570699722943#m
+- @tplr_ai (Templar, Tue, 29 Sep 2026): The heads of the biggest AI labs want to agree among themselves on when everyone should slow down. @TheEconomist's piece on that push ends with Covenant-72B, the model we finished training in March on GPUs contributed over the internet, as a reason such agreements may be hard to enforce. What the piece doesn't say is that once training no longer requires one giant, tightly connected cluster, the power to build new models no longer has to sit with a few companies. Globally distributed training and open models are essential tools for keeping that power from concentrating in the frontier labs. Th  
+  http://nitter.meowing.monster/tplr_ai/status/2104937831097352377#m
+- @covenant_ai (Covenant AI, Tue, 25 Aug 2026): Templar's work reduces to one question. How much of the machine-learning lifecycle can run across ordinary networks instead of a single datacentre? Pre-training answered first, with Covenant-72B as the proof at scale. Post-training followed through our communication-efficiency research. Serving open models on distributed hardware is the piece we are working on now, and it is the one that puts the whole arc in front of users. The internet is the datacentre.  
+  http://nitter.meowing.monster/tplr_ai/status/2092267948765237743#m
 - @const_reborn (Jacob Steeves, Tue, 20 Oct 2026): We just killed cold outreach. Introducing Leadpoet: the AI sales agent that finds buyers who need you now, writes personalized outreach, and follows up on LinkedIn and email. Used by Dropbox, OnePatch (YC26), Muttdata. Comment “Poet” for 100 free lead credits to find qualified buyers. Video  
   http://nitter.meowing.monster/LeadpoetAI/status/2112574574718050575#m
+- @JosephJacks_ (Joseph Jacks, Tue, 17 Mar 2026): We don't have a compute problem… We have an architecture problem. Paramecium Caudatum are single-celled organisms roughly the width of a human hair. They have no brain, no neurons, no synapses, and no central nervous system of any kind. But what they do have is ~100,000 microtubules… With that substrate alone, they can: → Swim in controlled helical trajectories → Modulate speed continuously → Execute graded avoidance reactions (reverse, pivot, resume) → Escape predators with emergency burst reversals → Fire localized volleys of 8,000 trichocyst harpoons → Navigate toward food via chemotaxis →   
+  http://nitter.meowing.monster/JosephJacks_/status/2033907095154921561#m
+- @nigescore (Nige, Tue, 15 Sep 2026): The physical world still can’t talk to software. A billion cameras watch factories, stations, warehouses, and stores every second. Almost none of that footage becomes action. That’s what we build at Manako. Today we join F/ai at @joinstationf The program that put OpenAI, Anthropic, Google, Meta, Microsoft and top-tier VCs behind a handful of AI-native teams. Honoured. Focused. Shipping.  
+  http://nitter.meowing.monster/manakoai/status/2099861562882203822#m
+- @nigescore (Nige, Tue, 08 Sep 2026): Astra Ultra did not cook sports-grade vision AI. Gave it a 30s football clip from our subnet private track. Frame-level events, JSON, annotated video. Ground truth and the published scoring rules only after it committed. 22 predictions. 17 real events. 15 inside the action windows. 7 extras. 2 misses. Precision 68.18%. Recall 88.24%. F1 76.92%. Our Bittensor eval, SN44: 0%. Matches after timing decay: 16.538 False positives: −20.300 GT weight: 25.600 score = max(0, (16.538 − 20.300) / 25.600) = 0 Three extra take-ons and two extra tackles were 14.6 penalty points. It also misread the late inte  
+  http://nitter.meowing.monster/webuildscore/status/2097261685358596399#m
+- @mcjkula (mcjkula, Tue, 06 Oct 2026): A plain-English introduction to Bittensor: learnbittensor.org/get-start…  
+  https://nitter.kareem.one/mcjkula/status/2107475150841254343#m
+- @mcjkula (mcjkula, Tue, 06 Oct 2026): Bitcoin rewards one kind of work. Bittensor has a very different idea of “work” Video  
+  https://nitter.kareem.one/mcjkula/status/2107441742199042204#m
+- @covenant_ai (Covenant AI, Thu, 27 Aug 2026): A system designed around identical accelerators depends on a narrow hardware supply. Templar starts from a wider map. Accelerator generations vary, and network conditions change with location. The coordination layer has to treat both as design inputs.  
+  http://nitter.meowing.monster/tplr_ai/status/2093022381660942660#m
+- @TargonCompute (Targon, Thu, 22 Oct 2026): With exploits on the rise, plan for the host getting breached. Targon Virtual Machines run on Intel TDX. Memory is encrypted with keys the host never sees, so even a compromised server can’t see your data, your weights or your code. Permissionless (@narrativereach) Every few hours, it seems like there’s a new software exploit. This week, a critical PHP flaw forced government websites across Europe offline, and the NSA told anyone who couldn’t patch to take their systems down, and one attacker used AI agents to break into the websites of 100+ companies for about $50 a hack. Exploits that used t  
+  https://nitter.kareem.one/TargonCompute/status/2113352059001122822#m
+- @KyleSamani (Kyle Samani, Thu, 22 Oct 2026): What would Solana’s consensus look like in a post-quantum world? Meet Quantumglow: a proposed adaptation of Alpenglow that aims to protect consensus while preserving fast finality. @jacobvcreech and @qkniep explain how it works. Full video below👇 Video  
+  http://nitter.meowing.monster/solana_devs/status/2113308459860988100#m
+- @BarrySilbert (Barry Silbert, Thu, 22 Oct 2026): The opportunity in digital assets is expanding, and our Q3 performance shows it. Q3 was our strongest quarter of the year with net flows up ~$1.2B from Q2, and we ranked #1 in AUM among HYPE, Sui and Chainlink ETPs.¹ At our town hall, we recognized the team behind that progress. This quarter's results show what our teams can accomplish through shared ambition and focus.  
+  http://nitter.meowing.monster/PeterMintzberg/status/2113295643598782563#m
+- @BarrySilbert (Barry Silbert, Thu, 22 Oct 2026): Stablecoins solved the middle. The ends are still the problem. A cross-border payment isn’t finished until someone holds local currency in a local bank. Our CEO of @GTXNGlobal, Dan Kleinbaum will take a stage at Cross Border Payments Conference in Johannesburg to discuss why that’s a liquidity problem, not a chain problem. Johannesburg, 28 October. Come meet our team: tci-sa.co.za/cross-border-pa…  
+  http://nitter.meowing.monster/GTXNGlobal/status/2113209439708684739#m
+- @BarrySilbert (Barry Silbert, Thu, 22 Oct 2026): NEW: @Grayscale expands in-kind crypto transfers across 10 investment products, letting eligible investors contribute $BTC, $ETH, $SOL, $XRP, $ZEC and five others directly for fund shares without selling to cash first, with minimums starting at $80,300.  
+  http://nitter.meowing.monster/CoinDesk/status/2113208239823425843#m
+- @KyleSamani (Kyle Samani, Thu, 22 Oct 2026): Pick your cofounders carefully and everything else is so much more fun!  
+  http://nitter.meowing.monster/eastdakota/status/2113118138485391660#m
 - @Olaf (Olaf Carlson-Wee, Thu, 19 Aug 2010): lekker biertje drinken bij Dims!  
   http://nitter.meowing.monster/olaf/status/21602951308#m
+- @KyleSamani (Kyle Samani, Thu, 15 Oct 2026): [Speaker Announcement] "Solana is becoming the settlement layer for Internet capital markets." @KyleSamani, co-founder of Multicoin Capital and chairman of @FWDind, joins us at Breakpoint in London, 15-17 November. Video  
+  http://nitter.meowing.monster/SolanaEvents/status/2110792882408013987#m
 - @oroagents (Oro, Thu, 08 Oct 2026): As models and harnesses get more capable, the depth of our RL environments needs to stay ahead of the curve. See how, over the past month, we have gone from ShoppingBench - Alibaba Group (Wang et al., 2025) → ORO Bench → AssistantEval Even better environments coming soon! Video  
   http://nitter.meowing.monster/oroagents/status/2108311456345358818#m
 - @oroagents (Oro, Thu, 08 Oct 2026): huggingface.co/collections/o… Link AssistantEval - a oro-ai Collection AssistantEval by ORO. Published results and recorded trajectories. Website: assistanteval.com huggingface.co  
   http://nitter.meowing.monster/oroagents/status/2108083587845394791#m
 - @oroagents (Oro, Thu, 08 Oct 2026): We're excited to open source all the tasks and the traces that we have access to from this benchmark. Link in 🧵 ORO (@oroagents) We're excited to drop AssistantEval today. Replayable environments for evaluating and improving AI assistants. — http://nitter.meowing.monster/oroagents/status/2107609637654823076#m  
   http://nitter.meowing.monster/oroagents/status/2108083567654060352#m
+- @covenant_ai (Covenant AI, Thu, 03 Sep 2026): Crucible, Templar's pre-training platform, has completed its first production end-to-end training runs. The latest trained an 8B model on 50.53B tokens across 48 distributed A100s, at an estimated $0.1202 per million tokens of GPU rental. The run reached 48.3% effective MFU. At AWS p4de Capacity Blocks pricing, a 48-A100 cluster operating at the literature-derived 65% compute ceiling comes to an estimated $0.1686 per million tokens. Crucible's measured $0.1202 was about 29% lower after its low-bandwidth overhead. The comparison excludes R2 storage and operations. The full writeup shows the met  
+  http://nitter.meowing.monster/tplr_ai/status/2095580357626110111#m
+- @wallstreetbets (WallStreetBets (X), Sun, 25 Oct 2026): should've sold  
+  https://nitter.kareem.one/wallstreetbets/status/2114235508889121164#m
+- @wallstreetbets (WallStreetBets (X), Sun, 25 Oct 2026): how mfs with $100 invested watch the market  
+  https://nitter.kareem.one/wallstreetbets/status/2114190222783398099#m
 - @Olaf (Olaf Carlson-Wee, Sun, 10 Jul 2011): RT @timmerarjan Life is good! yfrog.com/kkli4iaj zeker !! Wel tof dat je het deelt met je vrienden :)  
   http://nitter.meowing.monster/olaf/status/90083936700600321#m
+- @JosephJacks_ (Joseph Jacks, Sat, 24 Oct 2026): Anthropic CISO says air-gapped infra is key. I have suggestions. TYFYATTM. 👇🏼 @calcom @planepowers @liquidai @cap @dubdotco @hoppscotch_io @manifoldlabs @compai @W4Games @rustdesk @documenso @Tracel_AI Jason D. Clinton 🔸 (@JasonDClinton) The vulnerability tsunami is coming in just a few months and there won’t be enough time to patch critical infrastructure. Network isolation described below (air-gaps and data diodes!) needed now! — http://nitter.meowing.monster/JasonDClinton/status/2090543566682718542#m  
+  http://nitter.meowing.monster/JosephJacks_/status/2114129598745301384#m
+- @wallstreetbets (WallStreetBets (X), Sat, 24 Oct 2026): me after turning $40 into $43  
+  https://nitter.kareem.one/wallstreetbets/status/2114128731878957346#m
 - @VantaTrading (Vanta, Sat, 24 Oct 2026): 20% off Classic evaluations with code OCT20. Ends Oct 31, then it's back to regular price. vantatrading.io/pricing  
   http://nitter.meowing.monster/VantaTrading/status/2114092156944310744#m
+- @JosephJacks_ (Joseph Jacks, Sat, 24 Oct 2026): “It is the glory of God to conceal a thing: but the honour of kings is to search out a matter.” Proverbs 25:2 In Hebrew it reads … kevod Elohim haster davar, ukhevod melakhim chaqor davar. The verse sets God’s hiding next to people’s searching. The verb chaqar (חָקַר) means to search out, examine or investigate thoroughly. God hides things on purpose, and searching them out is an honorable human task.  
+  http://nitter.meowing.monster/JosephJacks_/status/2114075014416797884#m
+- @wallstreetbets (WallStreetBets (X), Sat, 24 Oct 2026): the level of focus you need to turn $20 into $50 in this market  
+  https://nitter.kareem.one/wallstreetbets/status/2114061863478858079#m
+- @wallstreetbets (WallStreetBets (X), Sat, 24 Oct 2026): we call it uptober and then liquidate the shit out of them Kalshi Crypto (@Kalshi_Crypto) BREAKING: 45% chance Bitcoin bitcoin:native drops to $70,000 before $100,000 — https://nitter.kareem.one/Kalshi_Crypto/status/2114022944846614778#m  
+  https://nitter.kareem.one/wallstreetbets/status/2114031664884335009#m
+- @JosephJacks_ (Joseph Jacks, Sat, 24 Oct 2026): The average person cannot fathom the former glory of San Francisco  
+  http://nitter.meowing.monster/luusssso/status/2114003087920943121#m
+- @BarrySilbert (Barry Silbert, Sat, 24 Oct 2026): Zcash ETF inflows are starting to get interesting. Grayscale's $ZCSH just recorded another $20.5 MILLION in inflows. That's FOUR consecutive positive trading sessions. October 20: $1.6M October 21: $15.2M October 22: $14.2M October 23: $20.5M $51.5 MILLION in four days. And the latest session was the biggest of the four. Remember, this comes after weeks of significant outflows. Too early to call a complete reversal. But demand for ZEC exposure through traditional markets is showing signs of recovery. $ZEC  
+  http://nitter.meowing.monster/PorterNovaX/status/2113920559297744969#m
 - @VantaTrading (Vanta, Sat, 24 Oct 2026): Got a bot? Plug it in. Vanta has full API trading, so you can run your own strategy on your Vanta account. The docs are open: app.vantatrading.io/docs  
   http://nitter.meowing.monster/VantaTrading/status/2113812807192076582#m
-- @const_reborn (Jacob Steeves, Mon, 19 Oct 2026): New Quantization Service TPN Bench now offers a full Model Quantization Toolkit, which includes methods like I-matrix and Quantization-Aware Distillation. Here's how it works: Users can upload any Hugging Face model and select the quantizations they want; TPN Bench will generate those quantizations, upload them to a bucket, and then send back the links to those quants. It can also upload them to Hugging Face if given access to it. Choose between regular quantization, I-matrix, or more advanced techniques like quantization-aware distillation, which require heavy infrastructure that we run for y  
-  http://nitter.meowing.monster/TPN_Labs/status/2112095154849153490#m
-- @oroagents (Oro, Mon, 12 Oct 2026): github.com/ORO-AI/assistante… All in the open :) Link GitHub - ORO-AI/assistanteval: AssistantEval: a verifiable benchmark for personal AI assistants AssistantEval: a verifiable benchmark for personal AI assistants - ORO-AI/assistanteval github.com  
-  http://nitter.meowing.monster/oroagents/status/2109503153242775934#m
-- @VantaTrading (Vanta, Fri, 23 Oct 2026): “Fair and transparent rules.” Four words from a Vanta trader on Trustpilot, and the four we care about most. vantatrading.io/rules  
-  http://nitter.meowing.monster/VantaTrading/status/2113729759872217546#m
-- @VantaTrading (Vanta, Fri, 23 Oct 2026): We reduced our owner take to 0%, now we're locking up our remaining owner emissions, 340,000 alpha ($2.7M) on SN8. That brings our total to ~$7.7M of alpha locked perpetually.  
-  http://nitter.meowing.monster/0xarrash/status/2113704174697501097#m
-- @VantaTrading (Vanta, Fri, 23 Oct 2026): $100,000 for just $439. Vanta is the cheapest way to a $100K account in the entire industry. Use code OCT20 at checkout for 20% off 🤑 vantatrading.io/  
-  http://nitter.meowing.monster/VantaTrading/status/2113670977758585060#m
+- @nigescore (Nige, Sat, 19 Sep 2026): We’re completing our first 20 reference deployments, led by our CEO and engineering team, and the headline finding is that Manako is genuinely plug and play. No specialist integration required: a unit can be shipped to site and connected by anyone on the ground. That’s what makes our next phase possible. Our integration partners will roll out at scale on a simple, repeatable install, with less time on site and lower cost per deployment.  
+  http://nitter.meowing.monster/manakoai/status/2101403529558577403#m
+- @mcjkula (mcjkula, Sat, 19 Sep 2026): Maciej Kula ( @mcjkula ) couldn't find a clear way to learn #Bittensor from scratch, so he built the resource he wished existed. @learnbittensor is now part of @latentholdings, where Maciej leads education and makes Bittensor easier to understand. He'll be leading our Bittensor 101 session to kick off Day 1: luma.com/nqy2n5zi Video  
+  https://nitter.kareem.one/ExploitSummit/status/2101355676325007652#m
+- @TargonCompute (Targon, Sat, 17 Oct 2026): The dawn of eTAO is upon us. Talking Targon Ep. 01 with @const_reborn Targon (@TargonCompute) Talking Targon, Ep. 01 is now live. Bittensor co-founder Jacob Steeves aka @const_reborn joins us to break down eTAO, the upgrade that lets subnet owners decide how their emissions are split. We get into subnet economics, the guardrails against exploits, and what it unlocks for compute on Targon. Video — https://nitter.kareem.one/TargonCompute/status/2111266999464530147#m  
+  https://nitter.kareem.one/the_mattyk/status/2111449310529265718#m
 
 
 ---
-_Generated at 2026-10-25T02:43:00.253059+00:00 by scripts/intel/aggregate.py. Treat this digest as input context, not as ground truth. Verify before quoting._
+_Generated at 2026-10-25T08:55:13.685594+00:00 by scripts/intel/aggregate.py. Treat this digest as input context, not as ground truth. Verify before quoting._
