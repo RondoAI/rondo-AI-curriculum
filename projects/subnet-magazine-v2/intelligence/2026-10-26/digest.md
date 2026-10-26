@@ -134,7 +134,10 @@ _New Model Architecture Implications for TAM of DRAM/NVMe, DeepSeek V4.1 Flash, 
 
 ## ⊕ GITHUB COMMITS + RELEASES, last 24h
 
-_no commits or releases in the lookback window_
+- **Subtensor (chain)** (COMMIT `9a19c0f`, 2026-10-26 14:24) Merge pull request #3282 from RaoFoundation/reproducible-runtime-releases  
+  https://github.com/RaoFoundation/subtensor/commit/9a19c0f3af33a2985eb3ce1b12a1454ca816f292
+- **Subtensor (chain)** (COMMIT `cd55161`, 2026-10-26 13:08) Simplify deployed runtime publishing  
+  https://github.com/RaoFoundation/subtensor/commit/cd55161cb8405a04244706eff832f4c8164dd640
 
 ## ⊕ ECOSYSTEM BLOGS via RSS
 
@@ -142,34 +145,62 @@ _no new posts in the lookback window_
 
 ## ⊕ X via NITTER, voices we track
 
+- @polychain (Polychain Capital, Wed, 30 Sep 2026): THE BLOCK: DogeOS launched a public testnet for its zero-knowledge rollup, bringing EVM smart contracts to Dogecoin, with dogecoin:native used for gas fees. "I've spent half a decade encouraging people to take a chance on Dogecoin and to build in its ecosystem," said Timothy Stebbing, director of the Dogecoin Foundation. "My hopes are that DogeOS becomes the springboard for a wave of new utility engineering."  
+  http://nitter.meowing.monster/TheBlockCo/status/2105359920795394451#m
 - @novogratz (Mike Novogratz, Wed, 23 Sep 2026): Thanks for making the trip to Lubbock, Mike — and for spending time with our Red Raider football team ahead of the game. Great to have you at @TexasTech, and even better to cap off the visit with a big win at the new @galaxyhq Stadium. This partnership is just getting started. #WreckEm! Mike Novogratz (@novogratz) Last Friday, I visited our flagship campus Helios in West Texas. Three years ago, this was still a bitcoin mining facility. Today Helios is a fully operational AI-ready campus with 133MW of critical IT capacity, and we’re just getting started! @galaxyhq is taking a big swing out here  
   http://nitter.meowing.monster/CreightonForTX/status/2102869773776269419#m
+- @tplr_ai (Templar, Wed, 23 Sep 2026): Video  
+  http://nitter.meowing.monster/tplr_ai/status/2102792674118164542#m
+- @tplr_ai (Templar, Wed, 23 Sep 2026): Read the blog: tplr.ai/publications/blog/sk… Link Fault tolerance in low-bandwidth model parallelism: exploring pipeline stage-skipping with boundary... We explore how the residual nature of the transformer architecture can be leveraged to mitigate hardware faults, and demonstrate that the compression-based implementation of low-bandwidth model... tplr.ai  
+  http://nitter.meowing.monster/tplr_ai/status/2102792676676432160#m
 - @PanteraCapital (Pantera Capital, Wed, 21 Oct 2026): Just wrapped Money20/20. My biggest takeaway as a VC: the two forces reshaping fintech right now are AI agents and stablecoins. @SirDigitalDan from @CoinflowLabs and I dug into both in our fireside. Some takeaways: * Where will value accrue? AI is collapsing the cost of cognition, and stablecoins the cost of settlement. This changes value accrual, when those inputs aren’t scarce. I’m expecting value to migrate to regulated trust, proprietary data, distribution, underlying physical assets, networks. * What does stablecoins as programmable money unlock? Funds and spending rules can execute toget  
   http://nitter.meowing.monster/stutireal/status/2113040986909655520#m
+- @const_reborn (Jacob Steeves, Wed, 21 Oct 2026): We think all models will be trained in markets.  
+  http://nitter.meowing.monster/const_reborn/status/2113014902206157076#m
+- @const_reborn (Jacob Steeves, Wed, 21 Oct 2026): Another model-network kicking off: Ingot (97) Their latest release Ingot-I quantized Qwen 27B into FP8 better than Alibaba's own quantization in 1 week. Next target is 2-bit and then the larger GLM models.  
+  http://nitter.meowing.monster/const_reborn/status/2113014591219225052#m
+- @const_reborn (Jacob Steeves, Wed, 21 Oct 2026): Promising mining result from @reaxlabs (92). They built this mining network yesterday and are beating Perplexity today. Congrats goes out to the ML miner talent on Bittensor, and the team. REAX (@reaxlabs) Meet REAX 1, our open decision model built on Perplexity Decider v1.2. Our own measurement: +2.4 points over its base, ahead in all 6 test draws and all 10 areas. Open competition starts today 13:00 UTC: =&gt; Beat it, earn the rewards see reax.co/competitions — http://nitter.meowing.monster/reaxlabs/status/2112862072824623491#m  
+  http://nitter.meowing.monster/const_reborn/status/2112992631194354128#m
 - @YumaGroup (Yuma Holdings, Wed, 21 Oct 2026): The full letter can be read here: sec.gov/comments/S7-2026-27/…  
   http://nitter.meowing.monster/YumaGroup/status/2112947451611243004#m
 - @YumaGroup (Yuma Holdings, Wed, 21 Oct 2026): The SEC’s proposed Regulation Crypto Assets is meaningful progress toward a clearer framework for digital assets, and we support it. Work remains on how token issuers can transact in secondary markets. Yuma submitted a comment letter today proposing a framework based on disclosure and discretion, with objective standards designed to give issuers and market participants greater clarity.  
   http://nitter.meowing.monster/YumaGroup/status/2112904766355378267#m
 - @covenant_ai (Covenant AI, Wed, 19 Aug 2026): RT @tplr_ai: ByteDance and Tencent each received 10,000 Nvidia H200 chips, the first big delivery after China eased import limits. Watch w…  
   http://nitter.meowing.monster/covenant_ai/status/2090092134036648101#m
+- @tplr_ai (Templar, Wed, 16 Sep 2026): When using pipeline compression with fixed projections shared across layers, robustness improves further as seen in the figure below. This suggests that shared projectors align representations across stage boundaries, making bypasses less disruptive. 4/n  
+  http://nitter.meowing.monster/tplr_ai/status/2100237714918367690#m
 - @covenant_ai (Covenant AI, Wed, 16 Sep 2026): We’ve been researching fault tolerance in Crucible, Templar’s pre-training platform. The goal: keep training through node failures and make better use of unreliable workers and spot instances, without idling an entire model replica when one stage goes down. 1/n Video  
   http://nitter.meowing.monster/tplr_ai/status/2100237708186550642#m
+- @polychain (Polychain Capital, Wed, 14 Oct 2026): This fully autonomous demo shows a Bagel Labs foundation model controlling a robot to make coffee. We previously released WorldDiT, our lightweight architecture for robot foundation models. At the time of release, it was on the Pareto frontier for model size and performance. We have since been refining this architecture to handle longer horizon, more useful tasks fully autonomously. Making coffee means getting a whole sequence of actions right. Each step depends on the result of the last, so small mistakes can build up as the task continues. Getting this to work with a small model is especiall  
+  http://nitter.meowing.monster/bidhan/status/2110415364475466160#m
 - @nigescore (Nige, Wed, 14 Oct 2026): And it’s the first highway station. Arno (@arnod3f) ladies and gentlemen. @manakoai is officially working with @Shell. deploying physical ai to better their fuel retail operations. lfgooooooo🔥👊🚀 — http://nitter.meowing.monster/arnod3f/status/2110397339126915400#m  
   http://nitter.meowing.monster/manakoai/status/2110408262357057824#m
 - @YumaGroup (Yuma Holdings, Wed, 14 Oct 2026): ladies and gentlemen. @manakoai is officially working with @Shell. deploying physical ai to better their fuel retail operations. lfgooooooo🔥👊🚀  
   http://nitter.meowing.monster/arnod3f/status/2110397339126915400#m
 - @nigescore (Nige, Wed, 09 Sep 2026): .@nigescore going to paris last time he went to nrf in dallas he got us our biggest client ever (not announced yet) i can’t go. got something bigger on the 15th, 16th and 17th (to be announced) Manako (@manakoai) Heading to @nrfeurope NRF Retail’s Big Show Europe in Paris next week (15–17 Sept) 🇫🇷 If you are attending and want to hear what Manako Labs have built for retail, please DM and let’s meet up. No new hardware, no engineers, no code just your existing cameras doing more. #NRFRetailsBigShowEurope — http://nitter.meowing.monster/manakoai/status/2097622722310242420#m  
   http://nitter.meowing.monster/MaxSebti/status/2097630699129827589#m
+- @dylan522p (Dylan Patel, Wed, 07 Oct 2026): A $200 AI subscription can be worth $12,000 in tokens. Which plan delivers it is not close. "They're selling to willing buyers at the fair market price. This is capitalism." "You can pay $200 for a Claude plan and get $12,000 of Opus 5.5 tokens at API pricing. So that's obviously a good deal." "You have to say the $200 plan, when running a particular workload on a particular model, gives you some dollar amount. But then you also have 5.5, which is a beast. $6K or $5,000 worth of value." "And when you do that comparison, it's not even a question of who's providing more value. ChatGPT versus Ant  
+  http://nitter.meowing.monster/SemiAnalysis_/status/2107950798638354671#m
 - @novogratz (Mike Novogratz, Wed, 07 Oct 2026): Proud son Army Football (@ArmyWP_Football) Alongside the @NFFNetwork, we are set to honor the late Bob Novogratz, a 2026 College Football Hall of Fame inductee, this Saturday with a National Football Foundation &amp; College Football Hall of Fame On-Campus salute! MORE → goarmywestpoint.com/news/202… #GoArmy — http://nitter.meowing.monster/ArmyWP_Football/status/2107857478507778411#m  
   http://nitter.meowing.monster/novogratz/status/2107898542325195167#m
 - @mcjkula (mcjkula, Wed, 07 Oct 2026): "The best person to solve your problem might be someone you’ve never met or considered hiring." Travis and I explain Bittensor, including examples from weather forecasting (@zeussubnet) and drug discovery (@metanova_labs). Here’s our "Bittensor 101" recording from @ExploitSummit Video  
   http://nitter.meowing.monster/mcjkula/status/2107803570699722943#m
+- @tplr_ai (Templar, Tue, 29 Sep 2026): The heads of the biggest AI labs want to agree among themselves on when everyone should slow down. @TheEconomist's piece on that push ends with Covenant-72B, the model we finished training in March on GPUs contributed over the internet, as a reason such agreements may be hard to enforce. What the piece doesn't say is that once training no longer requires one giant, tightly connected cluster, the power to build new models no longer has to sit with a few companies. Globally distributed training and open models are essential tools for keeping that power from concentrating in the frontier labs. Th  
+  http://nitter.meowing.monster/tplr_ai/status/2104937831097352377#m
 - @covenant_ai (Covenant AI, Tue, 25 Aug 2026): Templar's work reduces to one question. How much of the machine-learning lifecycle can run across ordinary networks instead of a single datacentre? Pre-training answered first, with Covenant-72B as the proof at scale. Post-training followed through our communication-efficiency research. Serving open models on distributed hardware is the piece we are working on now, and it is the one that puts the whole arc in front of users. The internet is the datacentre.  
   http://nitter.meowing.monster/tplr_ai/status/2092267948765237743#m
+- @dylan522p (Dylan Patel, Tue, 20 Oct 2026): FlashAttention was a mega kernel @marksaroufim @tri_dao @__tensorcore__ @vinodg  
+  http://nitter.meowing.monster/dylan522p/status/2112660770458927578#m
+- @const_reborn (Jacob Steeves, Tue, 20 Oct 2026): We just killed cold outreach. Introducing Leadpoet: the AI sales agent that finds buyers who need you now, writes personalized outreach, and follows up on LinkedIn and email. Used by Dropbox, OnePatch (YC26), Muttdata. Comment “Poet” for 100 free lead credits to find qualified buyers. Video  
+  http://nitter.meowing.monster/LeadpoetAI/status/2112574574718050575#m
+- @polychain (Polychain Capital, Tue, 15 Sep 2026): It's time for a new foundation. Not a new start. Legacy Mode is live on Passport, keep every account you already have, on code anyone can inspect. Switch to open source hardware and software while keeping your existing accounts for supported assets. Here’s how. 🧵 Video  
+  http://nitter.meowing.monster/FoundationHQ/status/2099865846101180499#m
 - @nigescore (Nige, Tue, 15 Sep 2026): The physical world still can’t talk to software. A billion cameras watch factories, stations, warehouses, and stores every second. Almost none of that footage becomes action. That’s what we build at Manako. Today we join F/ai at @joinstationf The program that put OpenAI, Anthropic, Google, Meta, Microsoft and top-tier VCs behind a handful of AI-native teams. Honoured. Focused. Shipping.  
   http://nitter.meowing.monster/manakoai/status/2099861562882203822#m
 - @nigescore (Nige, Tue, 08 Sep 2026): Astra Ultra did not cook sports-grade vision AI. Gave it a 30s football clip from our subnet private track. Frame-level events, JSON, annotated video. Ground truth and the published scoring rules only after it committed. 22 predictions. 17 real events. 15 inside the action windows. 7 extras. 2 misses. Precision 68.18%. Recall 88.24%. F1 76.92%. Our Bittensor eval, SN44: 0%. Matches after timing decay: 16.538 False positives: −20.300 GT weight: 25.600 score = max(0, (16.538 − 20.300) / 25.600) = 0 Three extra take-ons and two extra tackles were 14.6 penalty points. It also misread the late inte  
   http://nitter.meowing.monster/webuildscore/status/2097261685358596399#m
+- @dylan522p (Dylan Patel, Tue, 06 Oct 2026): Mistral 4 is pretty good at lawyer bench and cyber security bench, but give it's European heritage, one can only assume it's also good at regulation bench Mistral AI (@MistralAI) Meet Mistral Large 4, aka Le Chonk. • 1T parameters, natively multimodal. 49B active. It is the best open weights model from US or Europe on aggregated benchmarks. • State-of-the-art on critical workloads, including cyber defense, manufacturing and finance and it surpasses closed frontier models on visual grounding. • Forged in Europe end-to-end and is deployable from Europe via our own Mistral Cloud infrastructure. •  
+  http://nitter.meowing.monster/dylan522p/status/2107602988911260012#m
 - @novogratz (Mike Novogratz, Tue, 06 Oct 2026): It is great to see the @CFTC and @ChairmanSelig moving on this. A federal path for crypto exchanges is a big step toward keeping America the crypto capital of the world. Thanks for your thoughtful work. CFTC (@CFTC) .@CFTC Seeks Public Comment on Advanced Notice of Proposed Rulemaking Relating to Regulation Crypto Asset Transactions and Regulation Crypto Asset Markets: cftc.gov/PressRoom/PressRele… Link CFTC Seeks Public Comment on Advanced Notice of Proposed Rulemaking Relating to Regulation Crypto... The Commodity Futures Trading Commission today published an Advanced Notice of Proposed Rule  
   http://nitter.meowing.monster/novogratz/status/2107560308692979883#m
 - @mcjkula (mcjkula, Tue, 06 Oct 2026): A plain-English introduction to Bittensor: learnbittensor.org/get-start…  
@@ -182,6 +213,10 @@ _no new posts in the lookback window_
   http://nitter.meowing.monster/1inch/status/2113308766489973194#m
 - @YumaGroup (Yuma Holdings, Thu, 22 Oct 2026): The model itself isn't always the product. Commercial tools can integrate specialized machine intelligence produced on Bittensor and put it to work. HaloGuard EU is a new product from @astrowareai that taps the Trishool subnet (SN23) to help align model outputs with EU compliance requirements. Try it out in the playground or via API. $TAO Trishool | SN23 (@trishoolai) Months of work. Now live. We've launched HaloGuard EU, our first product. Built to block the AI output the EU AI Act bans or treats as high-risk. $30 / billion tokens. Priced, live, free trial open. And it’s only the first. — htt  
   http://nitter.meowing.monster/YumaGroup/status/2113282968340902298#m
+- @polychain (Polychain Capital, Thu, 15 Oct 2026): Multiliquid closes seed round led by @polychaincap, with participation from @strobefund, @CMT_Digital, @metalayervc, @genventurecap and @circle_ventures, bringing total funding to $8M. Instant liquidity for tokenized assets, atomic settlement, 24/7. Read more: multiliquid.xyz/news/seed-ro…  
+  http://nitter.meowing.monster/multiliquid_xyz/status/2110762624791290189#m
+- @polychain (Polychain Capital, Thu, 13 Aug 2026): LBTC proved demand for yield-bearing Bitcoin. Today, we double down on that thesis. LBTC is moving to institutional yield. @Bitwise will manage a covered-call options strategy with a 4.5-year legacy track record, to generate LBTC's yield, targeting 2.5% net APY paid in Bitcoin.  
+  http://nitter.meowing.monster/Lombard_Finance/status/2087887552300933626#m
 - @covenant_ai (Covenant AI, Thu, 03 Sep 2026): Crucible, Templar's pre-training platform, has completed its first production end-to-end training runs. The latest trained an 8B model on 50.53B tokens across 48 distributed A100s, at an estimated $0.1202 per million tokens of GPU rental. The run reached 48.3% effective MFU. At AWS p4de Capacity Blocks pricing, a 48-A100 cluster operating at the literature-derived 65% compute ceiling comes to an estimated $0.1686 per million tokens. Crucible's measured $0.1202 was about 29% lower after its low-bandwidth overhead. The comparison excludes R2 storage and operations. The full writeup shows the met  
   http://nitter.meowing.monster/tplr_ai/status/2095580357626110111#m
 - @novogratz (Mike Novogratz, Sun, 27 Sep 2026): Congrats @Scaramucci on this launch! You are one of the hardest working buys in the biz!! Anthony Scaramucci (@Scaramucci) All The Wrong Moves is #1 in the United States National Government category on Amazon. Get the hardcover copy: amzn.to/3VSdRhj Get the audiobook (read by me): amzn.to/4ydOXqV — http://nitter.meowing.monster/Scaramucci/status/2104001152316809589#m  
@@ -198,6 +233,8 @@ _no new posts in the lookback window_
   http://nitter.meowing.monster/wallstreetbets/status/2114470729341153644#m
 - @wallstreetbets (WallStreetBets (X), Sun, 25 Oct 2026): envision it  
   http://nitter.meowing.monster/wallstreetbets/status/2114427768301826294#m
+- @dylan522p (Dylan Patel, Sun, 11 Oct 2026): The two worst things for society Both called DCs Diet Coke Datacenters  
+  http://nitter.meowing.monster/dylan522p/status/2109176151986057331#m
 - @novogratz (Mike Novogratz, Sun, 11 Oct 2026): Are we really gonna have a live TV firing squad in America? Can we all just say No!!! This isn’t what America stands for. It’s not what the military stands for. At what point do we all say enough!!!! I’m saying it !  
   http://nitter.meowing.monster/novogratz/status/2109077784286912605#m
 - @SemiAnalysis_ (SemiAnalysis, Sat, 24 Oct 2026): Because an air permit only gates the power plant, site work and any generation already permitted keep moving during the hold, so a three-month pause on issuance only becomes a delivery delay for a campus that has to start building its plant before the review ends. (4/5)  
@@ -208,41 +245,7 @@ _no new posts in the lookback window_
   http://nitter.meowing.monster/SemiAnalysis_/status/2114130063742455934#m
 - @SemiAnalysis_ (SemiAnalysis, Sat, 24 Oct 2026): We looked at each Texas site planning on-site power that falls under Governor Abbott’s Sept 21 directive, which tells TCEQ to stop issuing any permit tied to a datacenter until ERCOT finishes its review, and found six campuses, 8.7GW in all, needing air permits during the pause. (1/5)🧵  
   http://nitter.meowing.monster/SemiAnalysis_/status/2114130061028643066#m
-- @nigescore (Nige, Sat, 19 Sep 2026): We’re completing our first 20 reference deployments, led by our CEO and engineering team, and the headline finding is that Manako is genuinely plug and play. No specialist integration required: a unit can be shipped to site and connected by anyone on the ground. That’s what makes our next phase possible. Our integration partners will roll out at scale on a simple, repeatable install, with less time on site and lower cost per deployment.  
-  http://nitter.meowing.monster/manakoai/status/2101403529558577403#m
-- @mcjkula (mcjkula, Sat, 19 Sep 2026): Maciej Kula ( @mcjkula ) couldn't find a clear way to learn #Bittensor from scratch, so he built the resource he wished existed. @learnbittensor is now part of @latentholdings, where Maciej leads education and makes Bittensor easier to understand. He'll be leading our Bittensor 101 session to kick off Day 1: luma.com/nqy2n5zi Video  
-  http://nitter.meowing.monster/ExploitSummit/status/2101355676325007652#m
-- @wallstreetbets (WallStreetBets (X), Mon, 26 Oct 2026): how to survive a bear market  
-  http://nitter.meowing.monster/wallstreetbets/status/2114650743705649539#m
-- @wallstreetbets (WallStreetBets (X), Mon, 26 Oct 2026): dress for the occasion  
-  http://nitter.meowing.monster/wallstreetbets/status/2114560147754479736#m
-- @markjeffrey (Mark Jeffrey, Mon, 26 Oct 2026): First time a 4-1 shot has ever won in the history of betting? Joe Weisenthal (@TheStalwart) Is this shaping up to be one of the biggest prediction market whiffs of all time? — https://nitter.kareem.one/TheStalwart/status/2114504392900841668#m  
-  https://nitter.kareem.one/HarryDCrane/status/2114527714728431802#m
-- @markjeffrey (Mark Jeffrey, Mon, 26 Oct 2026): Surpriiiiiiise zerohedge (@zerohedge) BRAZIL SUPREME COURT JUSTICE EXTENDS VOTING BY TWO HOURS Brazil’s version of mail in ballots — https://nitter.kareem.one/zerohedge/status/2114449750615359974#m  
-  https://nitter.kareem.one/zerohedge/status/2114524557180908000#m
-- @wallstreetbets (WallStreetBets (X), Mon, 26 Oct 2026): the grind never stops  
-  http://nitter.meowing.monster/wallstreetbets/status/2114514848088268999#m
-- @PanteraCapital (Pantera Capital, Mon, 19 Oct 2026): Introducing OpenAI Private Market Note (OPAIPon). Tokenized exposure to OpenAI is now trading 24/7 on Ondo Perps' permissionless spot order book. Trade now → app.ondoperps.xyz/trade/spot…  
-  http://nitter.meowing.monster/OndoPerps/status/2112229594262864278#m
-- @robmyers (Robert Myers, Fri, 26 Mar 2021): Try @rheaplex instead.  
-  http://nitter.meowing.monster/robmyers/status/1375288994989101059#m
-- @PanteraCapital (Pantera Capital, Fri, 23 Oct 2026): Future of agentic finance ft. my bionic arm & food poisoning Always a blast to share insights at @PanteraCapital Global LP summit! 7 years and counting! Thanks @dan_pantera @veradittakit @joeykrug @FranklinBi @stutireal for believing in @Alchemy since the beginning! For full talk, reply below and will dm you  
-  http://nitter.meowing.monster/nikil/status/2113733020968702063#m
-- @PanteraCapital (Pantera Capital, Fri, 23 Oct 2026): Full analysis: panteracapital.com/megawatts… Link From Megawatts to Margins panteracapital.com  
-  http://nitter.meowing.monster/PanteraCapital/status/2113649282805060018#m
-- @PanteraCapital (Pantera Capital, Fri, 23 Oct 2026): In an AI compute short squeeze, everyone in the stack looks smart. That doesn’t tell you who earns durable long-term returns. You can be right on demand and still own the wrong businesses. Today we estimate that every incremental GW of data center capacity currently generates $40-50bn of revenue across the stack. Data centers are under-earning (~$2.2mn/MW) relative to the value they unlock at the token factory layer (~$40mn+/MW). Frontier models face real pricing pressure from open-source and the hyperscalers. A 40% token-price cut can push standalone inference near breakeven — while hyperscal  
-  http://nitter.meowing.monster/PanteraCapital/status/2113649279701008815#m
-- @1inch (1inch, Fri, 23 Oct 2026): What do you use most? Poll 59% — Swap 20% — Perps 20% — Limit Orders 79 votes • Final results  
-  http://nitter.meowing.monster/1inch/status/2113638137528246484#m
-- @1inch (1inch, Fri, 23 Oct 2026): "Price discovery doesn't happen on AMMs. They have to catch up." Katia Banina (@katiabanina), CEO of @bebop_dex, rates AMMs highly and says they created DeFi. Her point is about what they cannot do. Video  
-  http://nitter.meowing.monster/1inch/status/2113625303163851128#m
-- @1inch (1inch, Fri, 23 Oct 2026): Tokenization is the biggest upgrade that financial infrastructure has seen in generations.  
-  http://nitter.meowing.monster/1inch/status/2113607610385707398#m
-- @1inch (1inch, Fri, 23 Oct 2026): 🤝 We're looking for a user testing partner for 1inch.com. Specifically, teams who know DeFi: wallets, swaps, cross-chain flows, and the users who actually use them. Who have you worked with and rate? Drop names, or tag them below. ⬇️ @1inch Link 1inch | Swap Crypto Tokens at the Best Rates in DeFi Swap crypto &amp; tokens at the best rates across 18+ chains. The 1inch swap aggregator is your gateway to secure and efficient DeFi. 1inch.com  
-  http://nitter.meowing.monster/holdoesdev/status/2113594920267350386#m
-- @YumaGroup (Yuma Holdings, Fri, 16 Oct 2026): “$200,000 bug found with $1000 in AI costs. That’s a huge difference!” this first discovery is what has become @bitsecai continuous audit system - interview with @TheStreet at @ExploitSummit reqd the full interview covered by thestreet, yahoo finance, MSN and AOL  
-  http://nitter.meowing.monster/bitsecai/status/2111122243422204304#m
 
 
 ---
-_Generated at 2026-10-26T09:36:37.419435+00:00 by scripts/intel/aggregate.py. Treat this digest as input context, not as ground truth. Verify before quoting._
+_Generated at 2026-10-26T18:06:33.382405+00:00 by scripts/intel/aggregate.py. Treat this digest as input context, not as ground truth. Verify before quoting._

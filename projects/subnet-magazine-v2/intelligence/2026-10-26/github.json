@@ -1,1 +1,24 @@
-[]
+[
+  {
+    "repo": "opentensor/subtensor",
+    "name": "Subtensor (chain)",
+    "kind": "commit",
+    "sha": "9a19c0f",
+    "message": "Merge pull request #3282 from RaoFoundation/reproducible-runtime-releases",
+    "author": "UnArbosFive",
+    "posted_at": "2026-10-26T14:24:49Z",
+    "url": "https://github.com/RaoFoundation/subtensor/commit/9a19c0f3af33a2985eb3ce1b12a1454ca816f292",
+    "fetched_at": "2026-10-26T18:06:25.912255+00:00"
+  },
+  {
+    "repo": "opentensor/subtensor",
+    "name": "Subtensor (chain)",
+    "kind": "commit",
+    "sha": "cd55161",
+    "message": "Simplify deployed runtime publishing",
+    "author": "UnArbosFive",
+    "posted_at": "2026-10-26T13:08:43Z",
+    "url": "https://github.com/RaoFoundation/subtensor/commit/cd55161cb8405a04244706eff832f4c8164dd640",
+    "fetched_at": "2026-10-26T18:06:25.912255+00:00"
+  }
+]
