@@ -178,14 +178,26 @@ _no new posts in the lookback window_
   http://nitter.meowing.monster/mcjkula/status/2107441742199042204#m
 - @covenant_ai (Covenant AI, Thu, 27 Aug 2026): A system designed around identical accelerators depends on a narrow hardware supply. Templar starts from a wider map. Accelerator generations vary, and network conditions change with location. The coordination layer has to treat both as design inputs.  
   http://nitter.meowing.monster/tplr_ai/status/2093022381660942660#m
+- @1inch (1inch, Thu, 22 Oct 2026): Moving into stables, you usually want the cleanest execution you can get. 1inch intent-based swaps route across liquidity in real time, with MEV protection built in. Video  
+  http://nitter.meowing.monster/1inch/status/2113308766489973194#m
 - @YumaGroup (Yuma Holdings, Thu, 22 Oct 2026): The model itself isn't always the product. Commercial tools can integrate specialized machine intelligence produced on Bittensor and put it to work. HaloGuard EU is a new product from @astrowareai that taps the Trishool subnet (SN23) to help align model outputs with EU compliance requirements. Try it out in the playground or via API. $TAO Trishool | SN23 (@trishoolai) Months of work. Now live. We've launched HaloGuard EU, our first product. Built to block the AI output the EU AI Act bans or treats as high-risk. $30 / billion tokens. Priced, live, free trial open. And it’s only the first. — htt  
   http://nitter.meowing.monster/YumaGroup/status/2113282968340902298#m
 - @covenant_ai (Covenant AI, Thu, 03 Sep 2026): Crucible, Templar's pre-training platform, has completed its first production end-to-end training runs. The latest trained an 8B model on 50.53B tokens across 48 distributed A100s, at an estimated $0.1202 per million tokens of GPU rental. The run reached 48.3% effective MFU. At AWS p4de Capacity Blocks pricing, a 48-A100 cluster operating at the literature-derived 65% compute ceiling comes to an estimated $0.1686 per million tokens. Crucible's measured $0.1202 was about 29% lower after its low-bandwidth overhead. The comparison excludes R2 storage and operations. The full writeup shows the met  
   http://nitter.meowing.monster/tplr_ai/status/2095580357626110111#m
 - @novogratz (Mike Novogratz, Sun, 27 Sep 2026): Congrats @Scaramucci on this launch! You are one of the hardest working buys in the biz!! Anthony Scaramucci (@Scaramucci) All The Wrong Moves is #1 in the United States National Government category on Amazon. Get the hardcover copy: amzn.to/3VSdRhj Get the audiobook (read by me): amzn.to/4ydOXqV — http://nitter.meowing.monster/Scaramucci/status/2104001152316809589#m  
   http://nitter.meowing.monster/novogratz/status/2104250567115641310#m
+- @markjeffrey (Mark Jeffrey, Sun, 25 Oct 2026): Belief that AI is conscious is a superstition.  
+  https://nitter.kareem.one/markjeffrey/status/2114503441397801238#m
 - @SemiAnalysis_ (SemiAnalysis, Sun, 25 Oct 2026): PROFIT ALERT🚨: AMD @vllm_project can generate up to $3/hr/chip in pure profit serving the open-source Kimi K3 model, even after accounting for the rapid increase in chip rental prices post-Claude Code. Kimi K3 2.8T is a great model for AMD, as it has over 2.8 trillion parameters that can take advantage of AMD's 288GB per chip. B200 CANNOT fit Kimi K3 in a single server, so it has to use tensor parallelism or pipeline parallelism for communication across 400Gbit/s InfiniBand/Ethernet, which is 18x slower than the BW within an NVLink domain.  
   http://nitter.meowing.monster/SemiAnalysis_/status/2114496296455184834#m
+- @markjeffrey (Mark Jeffrey, Sun, 25 Oct 2026): $TAO is one of the ONLY ways to play the commoditization of AI. It's also one of the ways for normies to play ATOMS -- that is, hardware. PHYSICAL AI. Robots. And this: (powered by Bittensor) Carbon (@carbonphysicsai) The world needs better hardware. Batteries that charge faster. Motors that waste less energy. Cooling that keeps AI chips running. Progress in each depends on engineers working out how to make a physical product perform better. Carbon exists to help them explore more designs, make faster decisions, backed by evidence they can rely on. — https://nitter.kareem.one/carbonphysicsai/s  
+  https://nitter.kareem.one/markjeffrey/status/2114473016583393342#m
+- @markjeffrey (Mark Jeffrey, Sun, 25 Oct 2026): $TAO to the moon lium.io (@lium_io) lium: the only place globally where you can rent h200 and b300 clusters on-demand and instantly. We continue to revolutionize the GPU industry by shipping novel features optimized for agent productivity and efficiency. — https://nitter.kareem.one/lium_io/status/2114420810857263254#m  
+  https://nitter.kareem.one/markjeffrey/status/2114472123607695650#m
+- @wallstreetbets (WallStreetBets (X), Sun, 25 Oct 2026): damn... the future is really here  
+  http://nitter.meowing.monster/wallstreetbets/status/2114470729341153644#m
+- @wallstreetbets (WallStreetBets (X), Sun, 25 Oct 2026): envision it  
+  http://nitter.meowing.monster/wallstreetbets/status/2114427768301826294#m
 - @novogratz (Mike Novogratz, Sun, 11 Oct 2026): Are we really gonna have a live TV firing squad in America? Can we all just say No!!! This isn’t what America stands for. It’s not what the military stands for. At what point do we all say enough!!!! I’m saying it !  
   http://nitter.meowing.monster/novogratz/status/2109077784286912605#m
 - @SemiAnalysis_ (SemiAnalysis, Sat, 24 Oct 2026): Because an air permit only gates the power plant, site work and any generation already permitted keep moving during the hold, so a three-month pause on issuance only becomes a delivery delay for a campus that has to start building its plant before the review ends. (4/5)  
@@ -200,6 +212,16 @@ _no new posts in the lookback window_
   http://nitter.meowing.monster/manakoai/status/2101403529558577403#m
 - @mcjkula (mcjkula, Sat, 19 Sep 2026): Maciej Kula ( @mcjkula ) couldn't find a clear way to learn #Bittensor from scratch, so he built the resource he wished existed. @learnbittensor is now part of @latentholdings, where Maciej leads education and makes Bittensor easier to understand. He'll be leading our Bittensor 101 session to kick off Day 1: luma.com/nqy2n5zi Video  
   http://nitter.meowing.monster/ExploitSummit/status/2101355676325007652#m
+- @wallstreetbets (WallStreetBets (X), Mon, 26 Oct 2026): how to survive a bear market  
+  http://nitter.meowing.monster/wallstreetbets/status/2114650743705649539#m
+- @wallstreetbets (WallStreetBets (X), Mon, 26 Oct 2026): dress for the occasion  
+  http://nitter.meowing.monster/wallstreetbets/status/2114560147754479736#m
+- @markjeffrey (Mark Jeffrey, Mon, 26 Oct 2026): First time a 4-1 shot has ever won in the history of betting? Joe Weisenthal (@TheStalwart) Is this shaping up to be one of the biggest prediction market whiffs of all time? — https://nitter.kareem.one/TheStalwart/status/2114504392900841668#m  
+  https://nitter.kareem.one/HarryDCrane/status/2114527714728431802#m
+- @markjeffrey (Mark Jeffrey, Mon, 26 Oct 2026): Surpriiiiiiise zerohedge (@zerohedge) BRAZIL SUPREME COURT JUSTICE EXTENDS VOTING BY TWO HOURS Brazil’s version of mail in ballots — https://nitter.kareem.one/zerohedge/status/2114449750615359974#m  
+  https://nitter.kareem.one/zerohedge/status/2114524557180908000#m
+- @wallstreetbets (WallStreetBets (X), Mon, 26 Oct 2026): the grind never stops  
+  http://nitter.meowing.monster/wallstreetbets/status/2114514848088268999#m
 - @PanteraCapital (Pantera Capital, Mon, 19 Oct 2026): Introducing OpenAI Private Market Note (OPAIPon). Tokenized exposure to OpenAI is now trading 24/7 on Ondo Perps' permissionless spot order book. Trade now → app.ondoperps.xyz/trade/spot…  
   http://nitter.meowing.monster/OndoPerps/status/2112229594262864278#m
 - @robmyers (Robert Myers, Fri, 26 Mar 2021): Try @rheaplex instead.  
@@ -210,11 +232,17 @@ _no new posts in the lookback window_
   http://nitter.meowing.monster/PanteraCapital/status/2113649282805060018#m
 - @PanteraCapital (Pantera Capital, Fri, 23 Oct 2026): In an AI compute short squeeze, everyone in the stack looks smart. That doesn’t tell you who earns durable long-term returns. You can be right on demand and still own the wrong businesses. Today we estimate that every incremental GW of data center capacity currently generates $40-50bn of revenue across the stack. Data centers are under-earning (~$2.2mn/MW) relative to the value they unlock at the token factory layer (~$40mn+/MW). Frontier models face real pricing pressure from open-source and the hyperscalers. A 40% token-price cut can push standalone inference near breakeven — while hyperscal  
   http://nitter.meowing.monster/PanteraCapital/status/2113649279701008815#m
+- @1inch (1inch, Fri, 23 Oct 2026): What do you use most? Poll 59% — Swap 20% — Perps 20% — Limit Orders 79 votes • Final results  
+  http://nitter.meowing.monster/1inch/status/2113638137528246484#m
+- @1inch (1inch, Fri, 23 Oct 2026): "Price discovery doesn't happen on AMMs. They have to catch up." Katia Banina (@katiabanina), CEO of @bebop_dex, rates AMMs highly and says they created DeFi. Her point is about what they cannot do. Video  
+  http://nitter.meowing.monster/1inch/status/2113625303163851128#m
+- @1inch (1inch, Fri, 23 Oct 2026): Tokenization is the biggest upgrade that financial infrastructure has seen in generations.  
+  http://nitter.meowing.monster/1inch/status/2113607610385707398#m
+- @1inch (1inch, Fri, 23 Oct 2026): 🤝 We're looking for a user testing partner for 1inch.com. Specifically, teams who know DeFi: wallets, swaps, cross-chain flows, and the users who actually use them. Who have you worked with and rate? Drop names, or tag them below. ⬇️ @1inch Link 1inch | Swap Crypto Tokens at the Best Rates in DeFi Swap crypto &amp; tokens at the best rates across 18+ chains. The 1inch swap aggregator is your gateway to secure and efficient DeFi. 1inch.com  
+  http://nitter.meowing.monster/holdoesdev/status/2113594920267350386#m
 - @YumaGroup (Yuma Holdings, Fri, 16 Oct 2026): “$200,000 bug found with $1000 in AI costs. That’s a huge difference!” this first discovery is what has become @bitsecai continuous audit system - interview with @TheStreet at @ExploitSummit reqd the full interview covered by thestreet, yahoo finance, MSN and AOL  
   http://nitter.meowing.monster/bitsecai/status/2111122243422204304#m
-- @mcjkula (mcjkula, Fri, 09 Oct 2026): If you’re trying to decide which metal seed plate to get, @lopp has tested 75+ of them with heat, acid and a hydraulic press. Worth checking before you commit to one: jlopp.github.io/metal-bitcoi… Link Metal Bitcoin Seed Storage Reviews Stress tests and reviews of seed storage devices. jlopp.github.io Jon Durbin (@jon_durbin) Ledger itself ok, but fraudulent products less so of course. This is why I tell people I don't trust anything with a circuit board lol. These keystone tablets are pretty cool, handed a few out at exploit summit. Even better if you leave out some of the words and remember   
-  http://nitter.meowing.monster/mcjkula/status/2108634378746405259#m
 
 
 ---
-_Generated at 2026-10-26T02:41:11.406265+00:00 by scripts/intel/aggregate.py. Treat this digest as input context, not as ground truth. Verify before quoting._
+_Generated at 2026-10-26T09:36:37.419435+00:00 by scripts/intel/aggregate.py. Treat this digest as input context, not as ground truth. Verify before quoting._
