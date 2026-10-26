@@ -134,6 +134,12 @@ _New Model Architecture Implications for TAM of DRAM/NVMe, DeepSeek V4.1 Flash, 
 
 ## ⊕ GITHUB COMMITS + RELEASES, last 24h
 
+- **Subtensor (chain)** (RELEASE `v486`, 2026-10-26 18:46) Runtime 486  
+  https://github.com/RaoFoundation/subtensor/releases/tag/v486
+- **Subtensor (chain)** (COMMIT `72323e1`, 2026-10-26 18:33) Merge pull request #3289 from RaoFoundation/release-486  
+  https://github.com/RaoFoundation/subtensor/commit/72323e13249c9e25c7e792a2b3c08502c84651d5
+- **Subtensor (chain)** (COMMIT `d665b0e`, 2026-10-26 18:11) release-486  
+  https://github.com/RaoFoundation/subtensor/commit/d665b0eb4c95809f985ddf0c5a100253b496a74e
 - **Subtensor (chain)** (COMMIT `9a19c0f`, 2026-10-26 14:24) Merge pull request #3282 from RaoFoundation/reproducible-runtime-releases  
   https://github.com/RaoFoundation/subtensor/commit/9a19c0f3af33a2985eb3ce1b12a1454ca816f292
 - **Subtensor (chain)** (COMMIT `cd55161`, 2026-10-26 13:08) Simplify deployed runtime publishing  
@@ -233,6 +239,10 @@ _no new posts in the lookback window_
   http://nitter.meowing.monster/wallstreetbets/status/2114470729341153644#m
 - @wallstreetbets (WallStreetBets (X), Sun, 25 Oct 2026): envision it  
   http://nitter.meowing.monster/wallstreetbets/status/2114427768301826294#m
+- @BarrySilbert (Barry Silbert, Sun, 25 Oct 2026): $ZEC turns green amid the broader market downtrend, with Grayscale's Zcash ETF drawing $41.1 million last week, its biggest week of inflows since mid-September.  
+  http://nitter.meowing.monster/coingecko/status/2114381878677451087#m
+- @BarrySilbert (Barry Silbert, Sun, 25 Oct 2026): Zcash ETFs buck the trend with $41.1M inflows while Bitcoin funds bleed $500M. $ZEC $BTC #Crypto Is this a rotation? 📉📈 thecurrencyanalytics.com/alt… Link Zcash ETF Draws $41.1 Million as Bitcoin Funds Bleed $500 Million Grayscale&apos;s Zcash ETF recorded $41.1 million in weekly inflows, its strongest since mid-September, while Bitcoin ETFs lost over $500 million in two days and Ethereum ETFs shed $220.7 million. thecurrencyanalytics.com  
+  http://nitter.meowing.monster/TheCurrencyA/status/2114329461650784676#m
 - @dylan522p (Dylan Patel, Sun, 11 Oct 2026): The two worst things for society Both called DCs Diet Coke Datacenters  
   http://nitter.meowing.monster/dylan522p/status/2109176151986057331#m
 - @novogratz (Mike Novogratz, Sun, 11 Oct 2026): Are we really gonna have a live TV firing squad in America? Can we all just say No!!! This isn’t what America stands for. It’s not what the military stands for. At what point do we all say enough!!!! I’m saying it !  
@@ -241,11 +251,7 @@ _no new posts in the lookback window_
   http://nitter.meowing.monster/SemiAnalysis_/status/2114130064656806092#m
 - @SemiAnalysis_ (SemiAnalysis, Sat, 24 Oct 2026): Our base case is that TCEQ resumes in December once ERCOT delivers its Dec 10 report, so the phases needing permits soon slip about a quarter and the rest of our forecast holds. Which campuses, phases and MW are exposed is in the Datacenter Industry Model. sales@semianalysis.com (5/5)  
   http://nitter.meowing.monster/SemiAnalysis_/status/2114130065571115324#m
-- @SemiAnalysis_ (SemiAnalysis, Sat, 24 Oct 2026): That 8.7GW is campus size rather than what gets delayed, since three of the six already have a first tranche of generation permitted and are only waiting on the expansion permit, while one has filed and is waiting and the other two haven’t filed anything yet. (3/5)  
-  http://nitter.meowing.monster/SemiAnalysis_/status/2114130063742455934#m
-- @SemiAnalysis_ (SemiAnalysis, Sat, 24 Oct 2026): We looked at each Texas site planning on-site power that falls under Governor Abbott’s Sept 21 directive, which tells TCEQ to stop issuing any permit tied to a datacenter until ERCOT finishes its review, and found six campuses, 8.7GW in all, needing air permits during the pause. (1/5)🧵  
-  http://nitter.meowing.monster/SemiAnalysis_/status/2114130061028643066#m
 
 
 ---
-_Generated at 2026-10-26T18:06:33.382405+00:00 by scripts/intel/aggregate.py. Treat this digest as input context, not as ground truth. Verify before quoting._
+_Generated at 2026-10-26T23:33:28.091022+00:00 by scripts/intel/aggregate.py. Treat this digest as input context, not as ground truth. Verify before quoting._
