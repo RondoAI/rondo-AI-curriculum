@@ -1,0 +1,57 @@
+[
+  {
+    "repo": "opentensor/subtensor",
+    "name": "Subtensor (chain)",
+    "kind": "release",
+    "sha": "v486",
+    "message": "Runtime 486",
+    "author": "github-actions[bot]",
+    "posted_at": "2026-10-26T18:46:26Z",
+    "url": "https://github.com/RaoFoundation/subtensor/releases/tag/v486",
+    "fetched_at": "2026-10-27T03:17:04.945053+00:00"
+  },
+  {
+    "repo": "opentensor/subtensor",
+    "name": "Subtensor (chain)",
+    "kind": "commit",
+    "sha": "72323e1",
+    "message": "Merge pull request #3289 from RaoFoundation/release-486",
+    "author": "UnArbosFive",
+    "posted_at": "2026-10-26T18:33:31Z",
+    "url": "https://github.com/RaoFoundation/subtensor/commit/72323e13249c9e25c7e792a2b3c08502c84651d5",
+    "fetched_at": "2026-10-27T03:17:04.345515+00:00"
+  },
+  {
+    "repo": "opentensor/subtensor",
+    "name": "Subtensor (chain)",
+    "kind": "commit",
+    "sha": "d665b0e",
+    "message": "release-486",
+    "author": "UnArbosFive",
+    "posted_at": "2026-10-26T18:11:38Z",
+    "url": "https://github.com/RaoFoundation/subtensor/commit/d665b0eb4c95809f985ddf0c5a100253b496a74e",
+    "fetched_at": "2026-10-27T03:17:04.345515+00:00"
+  },
+  {
+    "repo": "opentensor/subtensor",
+    "name": "Subtensor (chain)",
+    "kind": "commit",
+    "sha": "9a19c0f",
+    "message": "Merge pull request #3282 from RaoFoundation/reproducible-runtime-releases",
+    "author": "UnArbosFive",
+    "posted_at": "2026-10-26T14:24:49Z",
+    "url": "https://github.com/RaoFoundation/subtensor/commit/9a19c0f3af33a2985eb3ce1b12a1454ca816f292",
+    "fetched_at": "2026-10-27T03:17:04.345515+00:00"
+  },
+  {
+    "repo": "opentensor/subtensor",
+    "name": "Subtensor (chain)",
+    "kind": "commit",
+    "sha": "cd55161",
+    "message": "Simplify deployed runtime publishing",
+    "author": "UnArbosFive",
+    "posted_at": "2026-10-26T13:08:43Z",
+    "url": "https://github.com/RaoFoundation/subtensor/commit/cd55161cb8405a04244706eff832f4c8164dd640",
+    "fetched_at": "2026-10-27T03:17:04.345515+00:00"
+  }
+]

@@ -1,0 +1,322 @@
+[
+  {
+    "handle": "PanteraCapital",
+    "name": "Pantera Capital",
+    "posted_at": "Wed, 21 Oct 2026 22:53:24 GMT",
+    "title": "RT by @PanteraCapital: Just wrapped Money20/20. My biggest takeaway as a VC: the two forces reshaping fintech right now are AI agents and stablecoins. @SirDigitalDan from @CoinflowLabs and I dug into both in our fireside. Some takeaways: * Where will value accrue? AI is collapsing the cost of cognition, and stablecoins the cost of settlement. This changes value accrual, when those inputs aren’t scarce. I’m expecting value to migrate to regulated trust, proprietary data, distribution, underlying physical assets, networks. * What does stablecoins as programmable money unlock? Funds and spending rules can execute together, letting a product enforce agent budgets or trigger conditional payouts with less coordination across banks, processors and operational teams. * Where is agent demand emerging? Dan pointed to compute, inference and data APIs, which agents need to complete tasks. I’m looking for infra on fraud, KYA, chargebacks, and merchant side ops to help proliferate agentic commerce usage. * Who carries agent liability? A purchase can comply with the spending rules and still be a mistake. Before delegating larger budgets, businesses will want audit trails, a way to dispute purchases and an agreement on who absorbs losses. * Where’s the distribution advantage? Local integrations and merchant relationships give providers access to existing payment volume. Stablecoins can improve settlement without changing how customers pay. (Coinflow connects cards, ACH and PIX this way.) * How do existing PSPs participate? A provider can earn a processing fee when a developer funds an agent by card, even if subsequent payments settle in stablecoins. (Coinflow powers card funding for Tempo’s MPP Credits.) Thanks for the week @money2020! Curious what others took away too!",
+    "text": "Just wrapped Money20/20. My biggest takeaway as a VC: the two forces reshaping fintech right now are AI agents and stablecoins. @SirDigitalDan from @CoinflowLabs and I dug into both in our fireside. Some takeaways: * Where will value accrue? AI is collapsing the cost of cognition, and stablecoins the cost of settlement. This changes value accrual, when those inputs aren’t scarce. I’m expecting value to migrate to regulated trust, proprietary data, distribution, underlying physical assets, networks. * What does stablecoins as programmable money unlock? Funds and spending rules can execute toget",
+    "url": "https://nitter.kareem.one/stutireal/status/2113040986909655520#m",
+    "fetched_at": "2026-10-27T03:14:18.633907+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "shibshib89",
+    "name": "Ala Shaabana",
+    "posted_at": "Wed, 21 Oct 2026 17:21:15 GMT",
+    "title": "RT by @shibshib89: Something's always brewing at Crucible Labs. #Bittensor $TAO #Taowallet #validator Learn more at https://Cruciblelabs.com",
+    "text": "Something's always brewing at Crucible Labs. #Bittensor $TAO #Taowallet #validator Learn more at Cruciblelabs.com Video",
+    "url": "https://nitter.kareem.one/CrucibleLabs/status/2112957401305682393#m",
+    "fetched_at": "2026-10-27T03:13:26.398840+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "YumaGroup",
+    "name": "Yuma Holdings",
+    "posted_at": "Wed, 21 Oct 2026 16:41:43 GMT",
+    "title": "R to @YumaGroup: The full letter can be read here: https://www.sec.gov/comments/S7-2026-27/s7202627-1102019-3881646.pdf",
+    "text": "The full letter can be read here: sec.gov/comments/S7-2026-27/…",
+    "url": "http://nitter.meowing.monster/YumaGroup/status/2112947451611243004#m",
+    "fetched_at": "2026-10-27T03:13:41.463288+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "webuildscore",
+    "name": "Score",
+    "posted_at": "Wed, 21 Oct 2026 14:21:59 GMT",
+    "title": "He woke up like this",
+    "text": "He woke up like this Max (@MaxSebti) computer vision companies are dying from long use-case → model → deploy feedback loops. they run out of runway before they can even find the right use case. meanwhile CV is being commoditised in real time on sn44. every niche will be covered. if you run a computer vision company, the miners are coming for you or are here to help depending on how you want to approach this. — http://nitter.meowing.monster/MaxSebti/status/2112911463882912107#m",
+    "url": "http://nitter.meowing.monster/webuildscore/status/2112912283353428061#m",
+    "fetched_at": "2026-10-27T03:15:16.183168+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "YumaGroup",
+    "name": "Yuma Holdings",
+    "posted_at": "Wed, 21 Oct 2026 13:52:06 GMT",
+    "title": "The SEC’s proposed Regulation Crypto Assets is meaningful progress toward a clearer framework for digital assets, and we support it. Work remains on how token issuers can transact in secondary markets. Yuma submitted a comment letter today proposing a framework based on disclosure and discretion, with objective standards designed to give issuers and market participants greater clarity.",
+    "text": "The SEC’s proposed Regulation Crypto Assets is meaningful progress toward a clearer framework for digital assets, and we support it. Work remains on how token issuers can transact in secondary markets. Yuma submitted a comment letter today proposing a framework based on disclosure and discretion, with objective standards designed to give issuers and market participants greater clarity.",
+    "url": "http://nitter.meowing.monster/YumaGroup/status/2112904766355378267#m",
+    "fetched_at": "2026-10-27T03:13:41.463288+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "webuildscore",
+    "name": "Score",
+    "posted_at": "Wed, 21 Oct 2026 12:04:35 GMT",
+    "title": "Orange juice production line, tracked end to end 🍊 On a food production line, every unit that passes the camera matters. What goes in, what jams or falls off, and what comes out at the end usually gets checked by eye, or not at all. Our vision models can handle it. Track every orange from the sorting line to the juicer, and any gap can be flagged before it turns into waste. Pulp fiction, now with bounding boxes.",
+    "text": "Orange juice production line, tracked end to end 🍊 On a food production line, every unit that passes the camera matters. What goes in, what jams or falls off, and what comes out at the end usually gets checked by eye, or not at all. Our vision models can handle it. Track every orange from the sorting line to the juicer, and any gap can be flagged before it turns into waste. Pulp fiction, now with bounding boxes. Video",
+    "url": "http://nitter.meowing.monster/webuildscore/status/2112877709403599061#m",
+    "fetched_at": "2026-10-27T03:15:16.183168+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "wallstreetbets",
+    "name": "WallStreetBets (X)",
+    "posted_at": "Tue, 27 Oct 2026 02:30:00 GMT",
+    "title": "surfing into the bull run",
+    "text": "surfing into the bull run",
+    "url": "https://nitter.kareem.one/wallstreetbets/status/2114907437216018794#m",
+    "fetched_at": "2026-10-27T03:16:56.396870+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "wallstreetbets",
+    "name": "WallStreetBets (X)",
+    "posted_at": "Tue, 27 Oct 2026 00:28:14 GMT",
+    "title": "imagine being able to copy the trades of someone who actually knows what they're doing we might finally be profitable on Pear 😭",
+    "text": "imagine being able to copy the trades of someone who actually knows what they're doing we might finally be profitable on Pear 😭 Video Pear Protocol 🍐 (@pear_protocol) Introducing copy trading on Pear. Pick a leader onchain and copy their trades at no extra fees to you, or earn from people following your trades. First 20 funded signups receive $50 in additional copy trading capital to their account. app.pear.garden/copytrade — https://nitter.kareem.one/pear_protocol/status/2114741394707546491#m",
+    "url": "https://nitter.kareem.one/wallstreetbets/status/2114876792339308801#m",
+    "fetched_at": "2026-10-27T03:16:56.396870+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "shibshib89",
+    "name": "Ala Shaabana",
+    "posted_at": "Tue, 20 Oct 2026 19:38:25 GMT",
+    "title": "RT by @shibshib89: eTAO is live, and we're already seeing some interesting shifts across #Bittensor. Some subnets are reducing their owner take to 0%, while others are moving to the 33% maximum. Different approaches, different priorities. It's early, but worth watching how these decisions play out. What would you want to see from a subnet before supporting its emissions strategy? Want to know more about eTAO? Learn more at: https://cruciblelabs.com/learn/etao Here's what we're seeing so far:",
+    "text": "eTAO is live, and we're already seeing some interesting shifts across #Bittensor. Some subnets are reducing their owner take to 0%, while others are moving to the 33% maximum. Different approaches, different priorities. It's early, but worth watching how these decisions play out. What would you want to see from a subnet before supporting its emissions strategy? Want to know more about eTAO? Learn more at: cruciblelabs.com/learn/etao Here's what we're seeing so far: taostats τ (@taostats) eTao is now live on chain. Alpha emission: 18:41:41 is the default, but subnet owners can now change the va",
+    "url": "https://nitter.kareem.one/CrucibleLabs/status/2112629530548646155#m",
+    "fetched_at": "2026-10-27T03:13:26.398840+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "shibshib89",
+    "name": "Ala Shaabana",
+    "posted_at": "Tue, 20 Oct 2026 16:26:58 GMT",
+    "title": "RT by @shibshib89: Our community spans the world, and our website should too. https://CrucibleLabs.com is now available in multiple languages, making it easier to explore, learn, and connect with Bittensor wherever you are. Check it out → https://cruciblelabs.com",
+    "text": "Our community spans the world, and our website should too. CrucibleLabs.com is now available in multiple languages, making it easier to explore, learn, and connect with Bittensor wherever you are. Check it out → cruciblelabs.com Video",
+    "url": "https://nitter.kareem.one/CrucibleLabs/status/2112581349945311707#m",
+    "fetched_at": "2026-10-27T03:13:26.398840+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "webuildscore",
+    "name": "Score",
+    "posted_at": "Thu, 22 Oct 2026 17:04:06 GMT",
+    "title": "We’ve been busy",
+    "text": "We’ve been busy Gyro (@Gyrolens) One of the things I’ve been testing at @webuildscore. Can’t say much yet, but you can see the difference. On top, the boxes jump around and miss half of what happens between frames. Below, they just stay locked on. It’s a small thing until you’ve watched the choppy version for a few weeks. More soon. Video — http://nitter.meowing.monster/Gyrolens/status/2113313180340674661#m",
+    "url": "http://nitter.meowing.monster/webuildscore/status/2113315472678486257#m",
+    "fetched_at": "2026-10-27T03:15:16.183168+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "YumaGroup",
+    "name": "Yuma Holdings",
+    "posted_at": "Thu, 22 Oct 2026 14:54:57 GMT",
+    "title": "The model itself isn't always the product. Commercial tools can integrate specialized machine intelligence produced on Bittensor and put it to work. HaloGuard EU is a new product from @astrowareai that taps the Trishool subnet (SN23) to help align model outputs with EU compliance requirements. Try it out in the playground or via API. $TAO",
+    "text": "The model itself isn't always the product. Commercial tools can integrate specialized machine intelligence produced on Bittensor and put it to work. HaloGuard EU is a new product from @astrowareai that taps the Trishool subnet (SN23) to help align model outputs with EU compliance requirements. Try it out in the playground or via API. $TAO Trishool | SN23 (@trishoolai) Months of work. Now live. We've launched HaloGuard EU, our first product. Built to block the AI output the EU AI Act bans or treats as high-risk. $30 / billion tokens. Priced, live, free trial open. And it’s only the first. — htt",
+    "url": "http://nitter.meowing.monster/YumaGroup/status/2113282968340902298#m",
+    "fetched_at": "2026-10-27T03:13:41.463288+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "galaxyhq",
+    "name": "Galaxy Digital",
+    "posted_at": "Thu, 22 Oct 2026 14:38:19 GMT",
+    "title": "Galaxy Asset Management’s Joe Armao (Sr. Portfolio Manager, Galaxy Fintech Fund) joins Brooke Kilgallen (Head of Capital Formation) to unpack themes shaping markets: ➡️ Momentum unwind ➡️ Potential Anthropic IPO ➡️ How AI is accelerating crypto & tokenization ➡️ Market structure shifts reshaping financial services Watch the full conversation: https://www.galaxy.com/insights/videos/markets-galaxys-joe-armao-on-why-depth-matters-as-ai-reshapes-markets?utm_source=twitter&utm_medium=social&utm_campaign=dhtwitter&utm_content=app.dashsocial.com%2Fgalaxy%2Flibrary%2Fmedia%2F736477542",
+    "text": "Galaxy Asset Management’s Joe Armao (Sr. Portfolio Manager, Galaxy Fintech Fund) joins Brooke Kilgallen (Head of Capital Formation) to unpack themes shaping markets: ➡️ Momentum unwind ➡️ Potential Anthropic IPO ➡️ How AI is accelerating crypto & tokenization ➡️ Market structure shifts reshaping financial services Watch the full conversation: galaxy.com/insights/videos/m…",
+    "url": "http://nitter.meowing.monster/galaxyhq/status/2113278781771202907#m",
+    "fetched_at": "2026-10-27T03:13:59.477201+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "Olaf",
+    "name": "Olaf Carlson-Wee",
+    "posted_at": "Thu, 19 Aug 2010 19:44:32 GMT",
+    "title": "lekker biertje drinken bij Dims!",
+    "text": "lekker biertje drinken bij Dims!",
+    "url": "http://nitter.meowing.monster/olaf/status/21602951308#m",
+    "fetched_at": "2026-10-27T03:13:56.595521+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "Olaf",
+    "name": "Olaf Carlson-Wee",
+    "posted_at": "Sun, 10 Jul 2011 15:44:18 GMT",
+    "title": "RT @timmerarjan Life is good! http://yfrog.com/kkli4iaj zeker !! Wel tof dat je het deelt met je vrienden :)",
+    "text": "RT @timmerarjan Life is good! yfrog.com/kkli4iaj zeker !! Wel tof dat je het deelt met je vrienden :)",
+    "url": "http://nitter.meowing.monster/olaf/status/90083936700600321#m",
+    "fetched_at": "2026-10-27T03:13:56.595521+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "wallstreetbets",
+    "name": "WallStreetBets (X)",
+    "posted_at": "Mon, 26 Oct 2026 22:17:00 GMT",
+    "title": "Larry Fink was talking about compute futures becoming a new asset class just a few months ago now we're trading GPU rental prices with 10x leverage onchain 😭",
+    "text": "Larry Fink was talking about compute futures becoming a new asset class just a few months ago now we're trading GPU rental prices with 10x leverage onchain 😭 Video Injective 🥷 (@injective) The next major financial market for AI is the price of compute. Today, Injective is officially releasing the Super Intelligence Compute Index ($SICI), bringing a new financial primitive to the onchain AI economy. For the first time on Injective, traders can access a diversified index of @nvidia GPU rental prices through perpetuals with up to 10x leverage. We also plan to introduce a brand new financial primi",
+    "url": "https://nitter.kareem.one/wallstreetbets/status/2114843766406127773#m",
+    "fetched_at": "2026-10-27T03:16:56.396870+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "wallstreetbets",
+    "name": "WallStreetBets (X)",
+    "posted_at": "Mon, 26 Oct 2026 20:14:09 GMT",
+    "title": "CZ in the USA spitting bars💯",
+    "text": "CZ in the USA spitting bars💯 Andy (@andyyy) THE CZ INTERVIEW. @cz_binance @therollupco 00:00 Intro 00:10 CZ Feeling Good After Ringing NASDAQ Bell 00:46 BNB Chain Dominating Tokenized Assets 02:17 World Needs Access to Onchain Liquidity 03:26 Exporting U.S. Capital Markets 05:13 CZ's Take on Tokenization Pushback 06:28 Future Of Onchain Finance in USA Video — https://nitter.kareem.one/andyyy/status/2114810072690044993#m",
+    "url": "https://nitter.kareem.one/wallstreetbets/status/2114812849839362513#m",
+    "fetched_at": "2026-10-27T03:16:56.396870+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "wallstreetbets",
+    "name": "WallStreetBets (X)",
+    "posted_at": "Mon, 26 Oct 2026 18:48:46 GMT",
+    "title": "surely this is the bottom",
+    "text": "surely this is the bottom",
+    "url": "https://nitter.kareem.one/wallstreetbets/status/2114791364957487380#m",
+    "fetched_at": "2026-10-27T03:16:56.396870+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "webuildscore",
+    "name": "Score",
+    "posted_at": "Mon, 26 Oct 2026 18:06:00 GMT",
+    "title": "Last week on SN44 2 tasks more than doubled their baseline, fallen person detection and beverage detection. cricket delivery stayed the most contested all week and went from 62 miners to 80 We’ll keep raising the bar",
+    "text": "Last week on SN44 2 tasks more than doubled their baseline, fallen person detection and beverage detection. cricket delivery stayed the most contested all week and went from 62 miners to 80 We’ll keep raising the bar",
+    "url": "http://nitter.meowing.monster/webuildscore/status/2114780599219011871#m",
+    "fetched_at": "2026-10-27T03:15:16.183168+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "YumaGroup",
+    "name": "Yuma Holdings",
+    "posted_at": "Mon, 26 Oct 2026 17:14:32 GMT",
+    "title": "RT by @YumaGroup: AI needs data to move. It also needs applications that can act when it arrives. Now Live: Beam’s Bittensor EVM integration puts data transfer and Room delivery receipts onchain, where smart contracts and agentic workflows can read them. Opening up a world of possibility for cross-chain bandwidth. Here’s why that matters. 🧵",
+    "text": "AI needs data to move. It also needs applications that can act when it arrives. Now Live: Beam’s Bittensor EVM integration puts data transfer and Room delivery receipts onchain, where smart contracts and agentic workflows can read them. Opening up a world of possibility for cross-chain bandwidth. Here’s why that matters. 🧵",
+    "url": "http://nitter.meowing.monster/b1m_ai/status/2114767649293189523#m",
+    "fetched_at": "2026-10-27T03:13:41.463288+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "galaxyhq",
+    "name": "Galaxy Digital",
+    "posted_at": "Mon, 26 Oct 2026 14:10:22 GMT",
+    "title": "R to @galaxyhq: Watch live on YouTube or at https://galaxy.visitlink.me/UfZhkH",
+    "text": "Watch live on YouTube or at galaxy.visitlink.me/UfZhkH Link Investor Relations | Galaxy Digital Inc. Galaxy Digital Inc. Investor relations (IR) website contains information about our business for stockholders, potential investors, and financial analysts. investor.galaxy.com",
+    "url": "http://nitter.meowing.monster/galaxyhq/status/2114721299771818079#m",
+    "fetched_at": "2026-10-27T03:13:59.477201+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "galaxyhq",
+    "name": "Galaxy Digital",
+    "posted_at": "Mon, 26 Oct 2026 14:10:21 GMT",
+    "title": "Galaxy (Nasdaq: $GLXY) will report third quarter 2026 financial results before market open on Tuesday, October 27. @novogratz and members of management will host a live webcast at 8:30 AM ET.",
+    "text": "Galaxy (Nasdaq: $GLXY) will report third quarter 2026 financial results before market open on Tuesday, October 27. @novogratz and members of management will host a live webcast at 8:30 AM ET.",
+    "url": "http://nitter.meowing.monster/galaxyhq/status/2114721298454921516#m",
+    "fetched_at": "2026-10-27T03:13:59.477201+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "YumaGroup",
+    "name": "Yuma Holdings",
+    "posted_at": "Mon, 26 Oct 2026 12:52:11 GMT",
+    "title": "We see a growing trend of subnet intelligence as an enabling layer inside products, rather than buyers consuming the raw intelligence commodity directly. Yanez's new Gate and Pulse tools are an example: proof-of-humanhood intelligence from Bittensor, productized by the subnet operator into a polished toolkit for sensitive agentic financial transactions. $TAO",
+    "text": "We see a growing trend of subnet intelligence as an enabling layer inside products, rather than buyers consuming the raw intelligence commodity directly. Yanez's new Gate and Pulse tools are an example: proof-of-humanhood intelligence from Bittensor, productized by the subnet operator into a polished toolkit for sensitive agentic financial transactions. $TAO Yanez.ai (@yanez__ai) Building an agent that can spend money? Check what it has access to. Earlier this month, a poisoned npm package used in AI agent tooling went after .env files, wallets and AI tool configs. If your agent holds your pay",
+    "url": "http://nitter.meowing.monster/YumaGroup/status/2114701624862007562#m",
+    "fetched_at": "2026-10-27T03:13:41.463288+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "shibshib89",
+    "name": "Ala Shaabana",
+    "posted_at": "Mon, 19 Oct 2026 19:21:19 GMT",
+    "title": "RT by @shibshib89: Curious about #Bittensor? We've got you covered. Introducing Crucible Learn, your new go-to for all things Bittensor.",
+    "text": "Curious about #Bittensor? We've got you covered. Introducing Crucible Learn, your new go-to for all things Bittensor. Video",
+    "url": "https://nitter.kareem.one/CrucibleLabs/status/2112262840128311762#m",
+    "fetched_at": "2026-10-27T03:13:26.398840+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "PanteraCapital",
+    "name": "Pantera Capital",
+    "posted_at": "Mon, 19 Oct 2026 17:09:13 GMT",
+    "title": "RT by @PanteraCapital: Introducing OpenAI Private Market Note (OPAIPon). Tokenized exposure to OpenAI is now trading 24/7 on Ondo Perps' permissionless spot order book. Trade now → https://app.ondoperps.xyz/trade/spot/OPAIPon-USDC",
+    "text": "Introducing OpenAI Private Market Note (OPAIPon). Tokenized exposure to OpenAI is now trading 24/7 on Ondo Perps' permissionless spot order book. Trade now → app.ondoperps.xyz/trade/spot…",
+    "url": "https://nitter.kareem.one/OndoPerps/status/2112229594262864278#m",
+    "fetched_at": "2026-10-27T03:14:18.633907+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "PanteraCapital",
+    "name": "Pantera Capital",
+    "posted_at": "Fri, 23 Oct 2026 20:43:18 GMT",
+    "title": "RT by @PanteraCapital: Future of agentic finance ft. my bionic arm & food poisoning Always a blast to share insights at @PanteraCapital Global LP summit! 7 years and counting! Thanks @dan_pantera @veradittakit @joeykrug @FranklinBi @stutireal for believing in @Alchemy since the beginning! For full talk, reply below and will dm you",
+    "text": "Future of agentic finance ft. my bionic arm & food poisoning Always a blast to share insights at @PanteraCapital Global LP summit! 7 years and counting! Thanks @dan_pantera @veradittakit @joeykrug @FranklinBi @stutireal for believing in @Alchemy since the beginning! For full talk, reply below and will dm you",
+    "url": "https://nitter.kareem.one/nikil/status/2113733020968702063#m",
+    "fetched_at": "2026-10-27T03:14:18.633907+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "galaxyhq",
+    "name": "Galaxy Digital",
+    "posted_at": "Fri, 23 Oct 2026 20:13:32 GMT",
+    "title": "RT by @galaxyhq: PHP Vulnerability; Objections to OKX-ICE’s Stock Tokenization; Solana Alpenglow Ships",
+    "text": "In this week's edition: PHP patched two remote code execution bugs, at least 16 issuers opted out of OKX-ICE’s stock tokenization plans, and Solana activated Alpenglow on mainnet. Read the full breakdown 👇 Article PHP Vulnerability; Objections to OKX-ICE’s Stock Tokenization; Solana Alpenglow Ships This week, Alex Thorn explains why some blue-chip companies opted out of the NYSE’s stock tokenization initiative, Thad Pinakiewicz breaks down this week’s top cyber scare, and Lucas Tcheyan revisits",
+    "url": "http://nitter.meowing.monster/glxyresearch/status/2113725529849274486#m",
+    "fetched_at": "2026-10-27T03:13:59.477201+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "galaxyhq",
+    "name": "Galaxy Digital",
+    "posted_at": "Fri, 23 Oct 2026 18:38:38 GMT",
+    "title": "RT by @galaxyhq: Alex Thorn on Bitcoin market cycles, crypto adoption by traditional capital markets, the push and pull between decentralization and centralization, and the latest in tokenized securities, cybersecurity, and stablecoins.",
+    "text": "Alex Thorn on Bitcoin market cycles, crypto adoption by traditional capital markets, the push and pull between decentralization and centralization, and the latest in tokenized securities, cybersecurity, and stablecoins. Video",
+    "url": "http://nitter.meowing.monster/glxyresearch/status/2113701650322080199#m",
+    "fetched_at": "2026-10-27T03:13:59.477201+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "shibshib89",
+    "name": "Ala Shaabana",
+    "posted_at": "Fri, 23 Oct 2026 18:22:51 GMT",
+    "title": "RT by @shibshib89: Crucible Wallet on iOS & Android now has FULL feature parity with Chrome. That means Smart Account, Rewards Allocator, Token Discovery, Token Details & Address Book. All in your pocket. And we're going further. Argentina, Japan & Brazil are now live on iOS! Same power. Every screen. Anywhere you go. Download at http://Cruciblelabs.com",
+    "text": "Crucible Wallet on iOS & Android now has FULL feature parity with Chrome. That means Smart Account, Rewards Allocator, Token Discovery, Token Details & Address Book. All in your pocket. And we're going further. Argentina, Japan & Brazil are now live on iOS! Same power. Every screen. Anywhere you go. Download at Cruciblelabs.com Video",
+    "url": "https://nitter.kareem.one/CrucibleLabs/status/2113697676479058128#m",
+    "fetched_at": "2026-10-27T03:13:26.398840+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "PanteraCapital",
+    "name": "Pantera Capital",
+    "posted_at": "Fri, 23 Oct 2026 15:10:33 GMT",
+    "title": "R to @PanteraCapital: Full analysis: https://panteracapital.com/megawatts-to-margins/",
+    "text": "Full analysis: panteracapital.com/megawatts… Link From Megawatts to Margins panteracapital.com",
+    "url": "https://nitter.kareem.one/PanteraCapital/status/2113649282805060018#m",
+    "fetched_at": "2026-10-27T03:14:18.633907+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "PanteraCapital",
+    "name": "Pantera Capital",
+    "posted_at": "Fri, 23 Oct 2026 15:10:32 GMT",
+    "title": "In an AI compute short squeeze, everyone in the stack looks smart. That doesn’t tell you who earns durable long-term returns. You can be right on demand and still own the wrong businesses. Today we estimate that every incremental GW of data center capacity currently generates $40-50bn of revenue across the stack. Data centers are under-earning (~$2.2mn/MW) relative to the value they unlock at the token factory layer (~$40mn+/MW). Frontier models face real pricing pressure from open-source and the hyperscalers. A 40% token-price cut can push standalone inference near breakeven — while hyperscalers still make money on the hardware. The picture will look very different in 6–12 months. Energy capacity, tokens per watt, model-layer competition, and financing are all in motion. We built a dynamic tool to track how it plays out. This map will look different in 6-12 months. Four forces to watch: - Energy, the most acute bottleneck today - More tokens per watt from better hardware and software - Rising competition at the model layer - Financing all this capex So we open-sourced our model. Input your assumptions and watch how value shifts across the stack.",
+    "text": "In an AI compute short squeeze, everyone in the stack looks smart. That doesn’t tell you who earns durable long-term returns. You can be right on demand and still own the wrong businesses. Today we estimate that every incremental GW of data center capacity currently generates $40-50bn of revenue across the stack. Data centers are under-earning (~$2.2mn/MW) relative to the value they unlock at the token factory layer (~$40mn+/MW). Frontier models face real pricing pressure from open-source and the hyperscalers. A 40% token-price cut can push standalone inference near breakeven — while hyperscal",
+    "url": "https://nitter.kareem.one/PanteraCapital/status/2113649279701008815#m",
+    "fetched_at": "2026-10-27T03:14:18.633907+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "webuildscore",
+    "name": "Score",
+    "posted_at": "Fri, 23 Oct 2026 12:30:30 GMT",
+    "title": "It learns from you now.",
+    "text": "It learns from you now. Video",
+    "url": "http://nitter.meowing.monster/webuildscore/status/2113609005780410601#m",
+    "fetched_at": "2026-10-27T03:15:16.183168+00:00",
+    "via_instance": "https://nitter.cz"
+  }
+]
