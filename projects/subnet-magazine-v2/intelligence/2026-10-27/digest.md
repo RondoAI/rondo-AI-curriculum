@@ -151,6 +151,8 @@ _no new posts in the lookback window_
 
 ## ⊕ X via NITTER, voices we track
 
+- @polychain (Polychain Capital, Wed, 30 Sep 2026): THE BLOCK: DogeOS launched a public testnet for its zero-knowledge rollup, bringing EVM smart contracts to Dogecoin, with dogecoin:native used for gas fees. "I've spent half a decade encouraging people to take a chance on Dogecoin and to build in its ecosystem," said Timothy Stebbing, director of the Dogecoin Foundation. "My hopes are that DogeOS becomes the springboard for a wave of new utility engineering."  
+  http://nitter.meowing.monster/TheBlockCo/status/2105359920795394451#m
 - @PanteraCapital (Pantera Capital, Wed, 21 Oct 2026): Just wrapped Money20/20. My biggest takeaway as a VC: the two forces reshaping fintech right now are AI agents and stablecoins. @SirDigitalDan from @CoinflowLabs and I dug into both in our fireside. Some takeaways: * Where will value accrue? AI is collapsing the cost of cognition, and stablecoins the cost of settlement. This changes value accrual, when those inputs aren’t scarce. I’m expecting value to migrate to regulated trust, proprietary data, distribution, underlying physical assets, networks. * What does stablecoins as programmable money unlock? Funds and spending rules can execute toget  
   https://nitter.kareem.one/stutireal/status/2113040986909655520#m
 - @shibshib89 (Ala Shaabana, Wed, 21 Oct 2026): Something's always brewing at Crucible Labs. #Bittensor $TAO #Taowallet #validator Learn more at Cruciblelabs.com Video  
@@ -163,14 +165,24 @@ _no new posts in the lookback window_
   http://nitter.meowing.monster/YumaGroup/status/2112904766355378267#m
 - @webuildscore (Score, Wed, 21 Oct 2026): Orange juice production line, tracked end to end 🍊 On a food production line, every unit that passes the camera matters. What goes in, what jams or falls off, and what comes out at the end usually gets checked by eye, or not at all. Our vision models can handle it. Track every orange from the sorting line to the juicer, and any gap can be flagged before it turns into waste. Pulp fiction, now with bounding boxes. Video  
   http://nitter.meowing.monster/webuildscore/status/2112877709403599061#m
+- @polychain (Polychain Capital, Wed, 14 Oct 2026): This fully autonomous demo shows a Bagel Labs foundation model controlling a robot to make coffee. We previously released WorldDiT, our lightweight architecture for robot foundation models. At the time of release, it was on the Pareto frontier for model size and performance. We have since been refining this architecture to handle longer horizon, more useful tasks fully autonomously. Making coffee means getting a whole sequence of actions right. Each step depends on the result of the last, so small mistakes can build up as the task continues. Getting this to work with a small model is especiall  
+  http://nitter.meowing.monster/bidhan/status/2110415364475466160#m
+- @dylan522p (Dylan Patel, Wed, 07 Oct 2026): A $200 AI subscription can be worth $12,000 in tokens. Which plan delivers it is not close. "They're selling to willing buyers at the fair market price. This is capitalism." "You can pay $200 for a Claude plan and get $12,000 of Opus 5.5 tokens at API pricing. So that's obviously a good deal." "You have to say the $200 plan, when running a particular workload on a particular model, gives you some dollar amount. But then you also have 5.5, which is a beast. $6K or $5,000 worth of value." "And when you do that comparison, it's not even a question of who's providing more value. ChatGPT versus Ant  
+  https://nitter.kareem.one/SemiAnalysis_/status/2107950798638354671#m
 - @wallstreetbets (WallStreetBets (X), Tue, 27 Oct 2026): surfing into the bull run  
   https://nitter.kareem.one/wallstreetbets/status/2114907437216018794#m
 - @wallstreetbets (WallStreetBets (X), Tue, 27 Oct 2026): imagine being able to copy the trades of someone who actually knows what they're doing we might finally be profitable on Pear 😭 Video Pear Protocol 🍐 (@pear_protocol) Introducing copy trading on Pear. Pick a leader onchain and copy their trades at no extra fees to you, or earn from people following your trades. First 20 funded signups receive $50 in additional copy trading capital to their account. app.pear.garden/copytrade — https://nitter.kareem.one/pear_protocol/status/2114741394707546491#m  
   https://nitter.kareem.one/wallstreetbets/status/2114876792339308801#m
+- @dylan522p (Dylan Patel, Tue, 20 Oct 2026): FlashAttention was a mega kernel @marksaroufim @tri_dao @__tensorcore__ @vinodg  
+  https://nitter.kareem.one/dylan522p/status/2112660770458927578#m
 - @shibshib89 (Ala Shaabana, Tue, 20 Oct 2026): eTAO is live, and we're already seeing some interesting shifts across #Bittensor. Some subnets are reducing their owner take to 0%, while others are moving to the 33% maximum. Different approaches, different priorities. It's early, but worth watching how these decisions play out. What would you want to see from a subnet before supporting its emissions strategy? Want to know more about eTAO? Learn more at: cruciblelabs.com/learn/etao Here's what we're seeing so far: taostats τ (@taostats) eTao is now live on chain. Alpha emission: 18:41:41 is the default, but subnet owners can now change the va  
   https://nitter.kareem.one/CrucibleLabs/status/2112629530548646155#m
 - @shibshib89 (Ala Shaabana, Tue, 20 Oct 2026): Our community spans the world, and our website should too. CrucibleLabs.com is now available in multiple languages, making it easier to explore, learn, and connect with Bittensor wherever you are. Check it out → cruciblelabs.com Video  
   https://nitter.kareem.one/CrucibleLabs/status/2112581349945311707#m
+- @polychain (Polychain Capital, Tue, 15 Sep 2026): It's time for a new foundation. Not a new start. Legacy Mode is live on Passport, keep every account you already have, on code anyone can inspect. Switch to open source hardware and software while keeping your existing accounts for supported assets. Here’s how. 🧵 Video  
+  http://nitter.meowing.monster/FoundationHQ/status/2099865846101180499#m
+- @dylan522p (Dylan Patel, Tue, 06 Oct 2026): Mistral 4 is pretty good at lawyer bench and cyber security bench, but give it's European heritage, one can only assume it's also good at regulation bench Mistral AI (@MistralAI) Meet Mistral Large 4, aka Le Chonk. • 1T parameters, natively multimodal. 49B active. It is the best open weights model from US or Europe on aggregated benchmarks. • State-of-the-art on critical workloads, including cyber defense, manufacturing and finance and it surpasses closed frontier models on visual grounding. • Forged in Europe end-to-end and is deployable from Europe via our own Mistral Cloud infrastructure. •  
+  https://nitter.kareem.one/dylan522p/status/2107602988911260012#m
 - @webuildscore (Score, Thu, 22 Oct 2026): We’ve been busy Gyro (@Gyrolens) One of the things I’ve been testing at @webuildscore. Can’t say much yet, but you can see the difference. On top, the boxes jump around and miss half of what happens between frames. Below, they just stay locked on. It’s a small thing until you’ve watched the choppy version for a few weeks. More soon. Video — http://nitter.meowing.monster/Gyrolens/status/2113313180340674661#m  
   http://nitter.meowing.monster/webuildscore/status/2113315472678486257#m
 - @YumaGroup (Yuma Holdings, Thu, 22 Oct 2026): The model itself isn't always the product. Commercial tools can integrate specialized machine intelligence produced on Bittensor and put it to work. HaloGuard EU is a new product from @astrowareai that taps the Trishool subnet (SN23) to help align model outputs with EU compliance requirements. Try it out in the playground or via API. $TAO Trishool | SN23 (@trishoolai) Months of work. Now live. We've launched HaloGuard EU, our first product. Built to block the AI output the EU AI Act bans or treats as high-risk. $30 / billion tokens. Priced, live, free trial open. And it’s only the first. — htt  
@@ -179,8 +191,18 @@ _no new posts in the lookback window_
   http://nitter.meowing.monster/galaxyhq/status/2113278781771202907#m
 - @Olaf (Olaf Carlson-Wee, Thu, 19 Aug 2010): lekker biertje drinken bij Dims!  
   http://nitter.meowing.monster/olaf/status/21602951308#m
+- @Olaf (Olaf Carlson-Wee, Thu, 19 Aug 2010): lekker biertje drinken bij Dims!  
+  https://nitter.kareem.one/olaf/status/21602951308#m
+- @polychain (Polychain Capital, Thu, 15 Oct 2026): Multiliquid closes seed round led by @polychaincap, with participation from @strobefund, @CMT_Digital, @metalayervc, @genventurecap and @circle_ventures, bringing total funding to $8M. Instant liquidity for tokenized assets, atomic settlement, 24/7. Read more: multiliquid.xyz/news/seed-ro…  
+  http://nitter.meowing.monster/multiliquid_xyz/status/2110762624791290189#m
+- @polychain (Polychain Capital, Thu, 13 Aug 2026): LBTC proved demand for yield-bearing Bitcoin. Today, we double down on that thesis. LBTC is moving to institutional yield. @Bitwise will manage a covered-call options strategy with a 4.5-year legacy track record, to generate LBTC's yield, targeting 2.5% net APY paid in Bitcoin.  
+  http://nitter.meowing.monster/Lombard_Finance/status/2087887552300933626#m
+- @dylan522p (Dylan Patel, Sun, 11 Oct 2026): The two worst things for society Both called DCs Diet Coke Datacenters  
+  https://nitter.kareem.one/dylan522p/status/2109176151986057331#m
 - @Olaf (Olaf Carlson-Wee, Sun, 10 Jul 2011): RT @timmerarjan Life is good! yfrog.com/kkli4iaj zeker !! Wel tof dat je het deelt met je vrienden :)  
   http://nitter.meowing.monster/olaf/status/90083936700600321#m
+- @Olaf (Olaf Carlson-Wee, Sun, 10 Jul 2011): RT @timmerarjan Life is good! yfrog.com/kkli4iaj zeker !! Wel tof dat je het deelt met je vrienden :)  
+  https://nitter.kareem.one/olaf/status/90083936700600321#m
 - @wallstreetbets (WallStreetBets (X), Mon, 26 Oct 2026): Larry Fink was talking about compute futures becoming a new asset class just a few months ago now we're trading GPU rental prices with 10x leverage onchain 😭 Video Injective 🥷 (@injective) The next major financial market for AI is the price of compute. Today, Injective is officially releasing the Super Intelligence Compute Index ($SICI), bringing a new financial primitive to the onchain AI economy. For the first time on Injective, traders can access a diversified index of @nvidia GPU rental prices through perpetuals with up to 10x leverage. We also plan to introduce a brand new financial primi  
   https://nitter.kareem.one/wallstreetbets/status/2114843766406127773#m
 - @wallstreetbets (WallStreetBets (X), Mon, 26 Oct 2026): CZ in the USA spitting bars💯 Andy (@andyyy) THE CZ INTERVIEW. @cz_binance @therollupco 00:00 Intro 00:10 CZ Feeling Good After Ringing NASDAQ Bell 00:46 BNB Chain Dominating Tokenized Assets 02:17 World Needs Access to Onchain Liquidity 03:26 Exporting U.S. Capital Markets 05:13 CZ's Take on Tokenization Pushback 06:28 Future Of Onchain Finance in USA Video — https://nitter.kareem.one/andyyy/status/2114810072690044993#m  
@@ -215,7 +237,9 @@ _no new posts in the lookback window_
   https://nitter.kareem.one/PanteraCapital/status/2113649279701008815#m
 - @webuildscore (Score, Fri, 23 Oct 2026): It learns from you now. Video  
   http://nitter.meowing.monster/webuildscore/status/2113609005780410601#m
+- @dylan522p (Dylan Patel, Fri, 16 Oct 2026): I'm doing a new startup with @asciimike It's Chinese leg extension surgery Except for you break your skull and expand your brain  
+  https://nitter.kareem.one/dylan522p/status/2110969492482494786#m
 
 
 ---
-_Generated at 2026-10-27T03:17:10.971763+00:00 by scripts/intel/aggregate.py. Treat this digest as input context, not as ground truth. Verify before quoting._
+_Generated at 2026-10-27T09:33:32.265080+00:00 by scripts/intel/aggregate.py. Treat this digest as input context, not as ground truth. Verify before quoting._
