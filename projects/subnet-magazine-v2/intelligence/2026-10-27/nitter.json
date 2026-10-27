@@ -90,6 +90,96 @@
     "via_instance": "https://nitter.cz"
   },
   {
+    "handle": "JosephJacks_",
+    "name": "Joseph Jacks",
+    "posted_at": "Tue, 27 Oct 2026 22:19:03 GMT",
+    "title": "RT by @JosephJacks_: If the benchmarks hold true this ~2B parameter model is as smart as GPT-OSS 20. For multiple people that might not mean much but that 20B model handles instructions really well can produce great python code when instructed properly. Congrats @liquidai",
+    "text": "If the benchmarks hold true this ~2B parameter model is as smart as GPT-OSS 20. For multiple people that might not mean much but that 20B model handles instructions really well can produce great python code when instructed properly. Congrats @liquidai Liquid AI (@liquidai) Introducing 𝙻𝙵𝙼𝟹: our new generation of Liquid Foundation Models. With a new tri-hybrid architecture and new multimodal encoders, the LFM3 family is the ideal model suite for specialized intelligence. &gt; 6 model instances, across text, audio, vision, and omni modalities, generative and decision models. &gt; 𝙻𝙵𝙼𝟹-𝟷.𝟽𝙱: text",
+    "url": "https://nitter.kareem.one/Un0bs3rvd/status/2115206670414463108#m",
+    "fetched_at": "2026-10-27T23:25:25.892211+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "SemiAnalysis_",
+    "name": "SemiAnalysis",
+    "posted_at": "Tue, 27 Oct 2026 21:35:50 GMT",
+    "title": "PoV of Jensen after reading TPUs are coming to Oracle Cloud",
+    "text": "PoV of Jensen after reading TPUs are coming to Oracle Cloud Oracle Cloud (@OracleCloud) We’re deepening our collaboration with @googlecloud to give customers more options for building and running AI at scale. Google TPUs are coming to Oracle Cloud Infrastructure (OCI), marking the first time Google TPUs will be available on a cloud platform outside Google. Customers will have more flexibility to match AI infrastructure to demanding training and inference workloads, optimizing their environments for performance, throughput, and economics. Learn more: social.ora.cl/6012BHcVbe #AIWorld Video — ht",
+    "url": "http://nitter.meowing.monster/SemiAnalysis_/status/2115195793648812162#m",
+    "fetched_at": "2026-10-27T23:27:16.055596+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "JosephJacks_",
+    "name": "Joseph Jacks",
+    "posted_at": "Tue, 27 Oct 2026 20:39:59 GMT",
+    "title": "RT by @JosephJacks_: Plane just ranked #2 out of 568 companies on @getpostman’s API Agent Score leaderboard, scoring 95/100 (A+)! 🚀 We’ve always believed software should be built for both humans and AI agents. Great to see that vision reflected in our API readiness. Proud of the team! https://www.postman.com/ai/ai-ready-apis/leaderboard/",
+    "text": "Plane just ranked #2 out of 568 companies on @getpostman’s API Agent Score leaderboard, scoring 95/100 (A+)! 🚀 We’ve always believed software should be built for both humans and AI agents. Great to see that vision reflected in our API readiness. Proud of the team! postman.com/ai/ai-ready-apis…",
+    "url": "https://nitter.kareem.one/vamsi_kurama/status/2115181737664028750#m",
+    "fetched_at": "2026-10-27T23:25:25.892211+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "SemiAnalysis_",
+    "name": "SemiAnalysis",
+    "posted_at": "Tue, 27 Oct 2026 20:24:07 GMT",
+    "title": "R to @SemiAnalysis_: Spotify:https://open.spotify.com/episode/3w5SW6S9xzZKEiQSgdpTbb?si=YrM13P4wTQOYuD4FDqvoeg&nd=1&dlsi=0b220774402c48cd",
+    "text": "Spotify:open.spotify.com/episode/3w5…",
+    "url": "http://nitter.meowing.monster/SemiAnalysis_/status/2115177745588068505#m",
+    "fetched_at": "2026-10-27T23:27:16.055596+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "SemiAnalysis_",
+    "name": "SemiAnalysis",
+    "posted_at": "Tue, 27 Oct 2026 20:15:24 GMT",
+    "title": "R to @SemiAnalysis_: Watch Now: https://youtu.be/BKvPmNSmatM?si=RZIsy59bywcz6gS4",
+    "text": "Watch Now: piped.video/BKvPmNSmatM?si=RZIs… Link Ep. 041 - EMERGENCY: Inside the Anthropic’s S-1 (Tokenomics/ Markets) Anthropic filed its S-1: revenue per dollar of compute is up 5.2x s... youtube.com",
+    "url": "http://nitter.meowing.monster/SemiAnalysis_/status/2115175551694405814#m",
+    "fetched_at": "2026-10-27T23:27:16.055596+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "SemiAnalysis_",
+    "name": "SemiAnalysis",
+    "posted_at": "Tue, 27 Oct 2026 20:15:23 GMT",
+    "title": "Anthropic’s S-1 shows inference revenue per megawatt nearly quadrupling in a year. “Inference revenue per megawatt went from sixteen million last year to sixty plus currently, across the entire fleet. AI model businesses scale extremely well.” “Revenue grew 1,368% year over year for the three months ended June 30, compared to compute and infrastructure expenses that grew 300% during the same period.” “How much of that is Anthropic being geniuses versus market-wide efficiency? We’re seeing GB be 50x better than Hopper.” “They have TPU, Trainium, NVIDIA GPU and AMD GPU all online. New hardware is always more performant, but you need the software to use it. Who’s got the best software? Probably the company with the top engineers and the best model.”",
+    "text": "Anthropic’s S-1 shows inference revenue per megawatt nearly quadrupling in a year. “Inference revenue per megawatt went from sixteen million last year to sixty plus currently, across the entire fleet. AI model businesses scale extremely well.” “Revenue grew 1,368% year over year for the three months ended June 30, compared to compute and infrastructure expenses that grew 300% during the same period.” “How much of that is Anthropic being geniuses versus market-wide efficiency? We’re seeing GB be 50x better than Hopper.” “They have TPU, Trainium, NVIDIA GPU and AMD GPU all online. New hardware i",
+    "url": "http://nitter.meowing.monster/SemiAnalysis_/status/2115175550465507710#m",
+    "fetched_at": "2026-10-27T23:27:16.055596+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "JosephJacks_",
+    "name": "Joseph Jacks",
+    "posted_at": "Tue, 27 Oct 2026 17:57:55 GMT",
+    "title": "RT by @JosephJacks_: holy shit, liquid ai just dropped 2b models that handle text, vision, audio and decision-making locally with just 1gb of memory 🤯 the vision model matches google’s gemma 4 12b on select benchmarks despite being a fraction of the size. small models are getting scary good btw.",
+    "text": "holy shit, liquid ai just dropped 2b models that handle text, vision, audio and decision-making locally with just 1gb of memory 🤯 the vision model matches google’s gemma 4 12b on select benchmarks despite being a fraction of the size. small models are getting scary good btw. Liquid AI (@liquidai) Introducing 𝙻𝙵𝙼𝟹: our new generation of Liquid Foundation Models. With a new tri-hybrid architecture and new multimodal encoders, the LFM3 family is the ideal model suite for specialized intelligence. &gt; 6 model instances, across text, audio, vision, and omni modalities, generative and decision mode",
+    "url": "https://nitter.kareem.one/cgtwts/status/2115140955053654435#m",
+    "fetched_at": "2026-10-27T23:25:25.892211+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "JosephJacks_",
+    "name": "Joseph Jacks",
+    "posted_at": "Tue, 27 Oct 2026 17:40:11 GMT",
+    "title": "RT by @JosephJacks_: We release LFM3 today, starting with a family of 2B-class models",
+    "text": "We release LFM3 today, starting with a family of 2B-class models Video",
+    "url": "https://nitter.kareem.one/mlech26l/status/2115136489197814065#m",
+    "fetched_at": "2026-10-27T23:25:25.892211+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "JosephJacks_",
+    "name": "Joseph Jacks",
+    "posted_at": "Tue, 27 Oct 2026 17:14:14 GMT",
+    "title": "RT by @JosephJacks_: LFM3: new generation with six edge models I'm super happy with LFM3-1.7B, it's an absolute (agentic) monster",
+    "text": "LFM3: new generation with six edge models I'm super happy with LFM3-1.7B, it's an absolute (agentic) monster Liquid AI (@liquidai) Introducing 𝙻𝙵𝙼𝟹: our new generation of Liquid Foundation Models. With a new tri-hybrid architecture and new multimodal encoders, the LFM3 family is the ideal model suite for specialized intelligence. &gt; 6 model instances, across text, audio, vision, and omni modalities, generative and decision models. &gt; 𝙻𝙵𝙼𝟹-𝟷.𝟽𝙱: text, 256k context window. &gt; 𝙻𝙵𝙼𝟹-𝚅𝙻-𝟸𝙱: vision-language model with video-input support for spatial understanding &gt; 𝙻𝙵𝙼𝟹-𝙰𝚞𝚍𝚒𝚘-𝟸𝙱: tool calls",
+    "url": "https://nitter.kareem.one/maximelabonne/status/2115129961283740092#m",
+    "fetched_at": "2026-10-27T23:25:25.892211+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
     "handle": "wallstreetbets",
     "name": "WallStreetBets (X)",
     "posted_at": "Tue, 27 Oct 2026 02:30:00 GMT",
@@ -170,6 +260,26 @@
     "via_instance": "https://nitter.cz"
   },
   {
+    "handle": "dippy_ai",
+    "name": "Dippy AI",
+    "posted_at": "Thu, 30 Jul 2026 14:34:47 GMT",
+    "title": "RT by @dippy_ai: Excited to have helped @PrunaAI collect 1M+ votes for image preference data in a very short time :~)",
+    "text": "Excited to have helped @PrunaAI collect 1M+ votes for image preference data in a very short time :~) Pruna AI (@PrunaAI) P-Image-Ideogram dominate the speed-quality and price-quality Pareto frontiers for image generation. It is the result of a unique collaboration with @ideogram_ai. - Four modes (Very low, low, medium, high) for 1K-2K image generation. - Optimal quality-efficiency with 0.4s-7.5s latency, and $0.003-$0.03 price. - Structured JSON control & exact color control. Available via our inference partners @Replicate @inference_sh @scenario_gg @wavespeed_ai @wiroai @magnific @prodialabs ",
+    "url": "http://nitter.meowing.monster/datapointai/status/2082837314603032606#m",
+    "fetched_at": "2026-10-27T23:27:51.893580+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "dippy_ai",
+    "name": "Dippy AI",
+    "posted_at": "Thu, 27 Aug 2026 21:34:23 GMT",
+    "title": "we have significantly upgraded both the basic and super models 🤩🤩 we have also made optimizations to improve response speeds by upto 5x can't wait for you all to experience and enjoy the new dippy 📯📯😸 rolling out to everyone today",
+    "text": "we have significantly upgraded both the basic and super models 🤩🤩 we have also made optimizations to improve response speeds by upto 5x can't wait for you all to experience and enjoy the new dippy 📯📯😸 rolling out to everyone today",
+    "url": "http://nitter.meowing.monster/dippy_ai/status/2093089771824226802#m",
+    "fetched_at": "2026-10-27T23:27:51.893580+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
     "handle": "webuildscore",
     "name": "Score",
     "posted_at": "Thu, 22 Oct 2026 17:04:06 GMT",
@@ -240,6 +350,16 @@
     "via_instance": "https://nitter.cz"
   },
   {
+    "handle": "dippy_ai",
+    "name": "Dippy AI",
+    "posted_at": "Thu, 04 Jun 2026 15:53:04 GMT",
+    "title": "RT by @dippy_ai: Today, we’re opening up Datapoint AI for anyone to use. It is by far the fastest way to understand what your customers want. Type a question. Real people answer. You get a report back in ~10 minutes, not three weeks, and at a fraction of the cost.",
+    "text": "Today, we’re opening up Datapoint AI for anyone to use. It is by far the fastest way to understand what your customers want. Type a question. Real people answer. You get a report back in ~10 minutes, not three weeks, and at a fraction of the cost. Video",
+    "url": "http://nitter.meowing.monster/datapointai/status/2062563294880075837#m",
+    "fetched_at": "2026-10-27T23:27:51.893580+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
     "handle": "dylan522p",
     "name": "Dylan Patel",
     "posted_at": "Sun, 11 Oct 2026 06:55:55 GMT",
@@ -270,6 +390,16 @@
     "via_instance": "https://nitter.cz"
   },
   {
+    "handle": "dippy_ai",
+    "name": "Dippy AI",
+    "posted_at": "Sun, 09 Aug 2026 23:27:27 GMT",
+    "title": "We are experiencing an issue with our database provider @supabase , so the app & website may be down for a few more hours. We’ll send a notification when we are able to recover and the app is back to normal! Apologies for the inconvenience 😿😿",
+    "text": "We are experiencing an issue with our database provider @supabase , so the app &amp; website may be down for a few more hours. We’ll send a notification when we are able to recover and the app is back to normal! Apologies for the inconvenience 😿😿",
+    "url": "http://nitter.meowing.monster/dippy_ai/status/2086595242422149540#m",
+    "fetched_at": "2026-10-27T23:27:51.893580+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
     "handle": "resilabsai",
     "name": "RESI",
     "posted_at": "Sat, 18 Apr 2026 04:42:22 GMT",
@@ -287,6 +417,16 @@
     "text": "Attention Res Labs we have some really exciting news and updates to our project join our discord to stay up to date: discord.gg/TBj8q9vb2Q #bittensor #TAO bittensor:native #reslabs #reilabsai #crypto #subnet #subnet46 #reslabs_ai #reslabsai #opentensor #reptides",
     "url": "http://nitter.meowing.monster/resilabsai/status/2085900662139744548#m",
     "fetched_at": "2026-10-27T17:13:25.036944+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "SemiAnalysis_",
+    "name": "SemiAnalysis",
+    "posted_at": "Mon, 26 Oct 2026 22:52:33 GMT",
+    "title": "RT by @SemiAnalysis_: The @SemiAnalysis_ team gives two examples why we're still so early with AI adoption outside of the tech bubble: 1. $1,500/month token budgets at Fortune 500 tech companies: SemiAnalysis Tokenomics co-lead @SaasquatchC explains that a lot of engineers don't even hit that budget at these big, older companies, and that traditional back-office work is lagging behind, as well. 2. The \"AI-pilled\" person at a wedding using Microsoft Copilot: SemiAnalysis President @fabknowledge went to a wedding this weekend in Fort Worth, Texas. He met someone who claimed to be AI-pilled, so of course he wanted to talk to Doug about AI. He told Doug the technology is crazy, and he couldn't believe the rest of the world wasn't talking about it. When Doug asked what he used, he said Microsoft Copilot.",
+    "text": "The @SemiAnalysis_ team gives two examples why we're still so early with AI adoption outside of the tech bubble: 1. $1,500/month token budgets at Fortune 500 tech companies: SemiAnalysis Tokenomics co-lead @SaasquatchC explains that a lot of engineers don't even hit that budget at these big, older companies, and that traditional back-office work is lagging behind, as well. 2. The \"AI-pilled\" person at a wedding using Microsoft Copilot: SemiAnalysis President @fabknowledge went to a wedding this weekend in Fort Worth, Texas. He met someone who claimed to be AI-pilled, so of course he wanted to ",
+    "url": "http://nitter.meowing.monster/tbpn/status/2114852712923926889#m",
+    "fetched_at": "2026-10-27T23:27:16.055596+00:00",
     "via_instance": "https://nitter.cz"
   },
   {
@@ -400,6 +540,16 @@
     "via_instance": "https://nitter.cz"
   },
   {
+    "handle": "dippy_ai",
+    "name": "Dippy AI",
+    "posted_at": "Mon, 10 Aug 2026 15:35:59 GMT",
+    "title": "We are FINALLY back online! We deeply apologize for this issue extending nearly 24 hours 🥲 As a token of thanks for your patience, we are REMOVING CHAT LIMITS for the remainder of this month 😻😻 P.S: don't worry, we'll also reinstate your streaks :~)",
+    "text": "We are FINALLY back online! We deeply apologize for this issue extending nearly 24 hours 🥲 As a token of thanks for your patience, we are REMOVING CHAT LIMITS for the remainder of this month 😻😻 P.S: don't worry, we'll also reinstate your streaks :~)",
+    "url": "http://nitter.meowing.monster/dippy_ai/status/2086838981627420847#m",
+    "fetched_at": "2026-10-27T23:27:51.893580+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
     "handle": "resilabsai",
     "name": "RESI",
     "posted_at": "Mon, 06 Apr 2026 13:56:00 GMT",
@@ -407,6 +557,16 @@
     "text": "Chainlink gave DeFi price feeds. @resilabsai is doing the same for real estate. From static appraisals to dynamic, onchain pricing. It's already honing in on Zillow's pricing accuracy, and only a matter of weeks before it surpasses it!",
     "url": "http://nitter.meowing.monster/gordonfrayne/status/2041152947925512465#m",
     "fetched_at": "2026-10-27T17:13:25.036944+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "robmyers",
+    "name": "Robert Myers",
+    "posted_at": "Fri, 26 Mar 2021 03:30:22 GMT",
+    "title": "Try @rheaplex instead.",
+    "text": "Try @rheaplex instead.",
+    "url": "http://nitter.meowing.monster/robmyers/status/1375288994989101059#m",
+    "fetched_at": "2026-10-27T23:26:31.910611+00:00",
     "via_instance": "https://nitter.cz"
   },
   {
