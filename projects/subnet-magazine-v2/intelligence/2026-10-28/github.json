@@ -1,0 +1,24 @@
+[
+  {
+    "repo": "opentensor/subtensor",
+    "name": "Subtensor (chain)",
+    "kind": "commit",
+    "sha": "8d7f421",
+    "message": "Merge pull request #3291 from RaoFoundation/release-487",
+    "author": "UnArbosFour",
+    "posted_at": "2026-10-27T19:40:41Z",
+    "url": "https://github.com/RaoFoundation/subtensor/commit/8d7f4212f7390695f5bd656e06e16537712d7b7c",
+    "fetched_at": "2026-10-28T03:31:21.285072+00:00"
+  },
+  {
+    "repo": "opentensor/subtensor",
+    "name": "Subtensor (chain)",
+    "kind": "commit",
+    "sha": "57a8410",
+    "message": "bump spec",
+    "author": "UnArbosSix",
+    "posted_at": "2026-10-27T17:05:49Z",
+    "url": "https://github.com/RaoFoundation/subtensor/commit/57a841029ad0b7675227136019cd23c28ae9a644",
+    "fetched_at": "2026-10-28T03:31:21.285072+00:00"
+  }
+]
