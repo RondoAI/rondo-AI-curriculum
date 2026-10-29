@@ -10,6 +10,16 @@
     "via_instance": "https://nitter.cz"
   },
   {
+    "handle": "JosephJacks_",
+    "name": "Joseph Jacks",
+    "posted_at": "Wed, 28 Oct 2026 23:20:56 GMT",
+    "title": "RT by @JosephJacks_: Detecting cancer early from a blood test is hard. We adapted Omnii-1 to data it had never seen in training. It meaningfully improved cancer detection, especially in the hardest cases. Very proud of the team behind this!",
+    "text": "Detecting cancer early from a blood test is hard. We adapted Omnii-1 to data it had never seen in training. It meaningfully improved cancer detection, especially in the hardest cases. Very proud of the team behind this! Radical Numerics (@RadicalNumerics) 1/ With Omnii Diagnostics, we asked whether a multimodal genome language model could help find cancers whose signals in blood are too faint for current classifiers. We adapted Omnii-1 to a biomarker never seen in pretraining. In a test cohort, Omnii's features improved early-stage cancer detection Video — http://nitter.jaydenha.uk/RadicalNume",
+    "url": "http://nitter.jaydenha.uk/athmsx/status/2115584631244464140#m",
+    "fetched_at": "2026-10-29T10:38:38.384213+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
     "handle": "markjeffrey",
     "name": "Mark Jeffrey",
     "posted_at": "Wed, 28 Oct 2026 21:57:54 GMT",
@@ -27,6 +37,26 @@
     "text": "SN8 Monthly Alpha Burn: July - $32k August - $50k September - $88k October - $225k (so far) November $400k+? 🤔 vantanetwork.io/tokenomics",
     "url": "http://nitter.jaydenha.uk/0xarrash/status/2115559306599010413#m",
     "fetched_at": "2026-10-29T03:50:27.468957+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "JosephJacks_",
+    "name": "Joseph Jacks",
+    "posted_at": "Wed, 28 Oct 2026 21:35:52 GMT",
+    "title": "RT by @JosephJacks_: Cap v0.6.2. Multi-language support. 89% faster shareable links. Turbo Export → Up to 2.8x faster exports. Focus Mode → Record one window, even when other windows cover it. 110 performance improvements and 98 bug fixes from 35 different contributors.",
+    "text": "Cap v0.6.2. Multi-language support. 89% faster shareable links. Turbo Export → Up to 2.8x faster exports. Focus Mode → Record one window, even when other windows cover it. 110 performance improvements and 98 bug fixes from 35 different contributors. Video",
+    "url": "http://nitter.jaydenha.uk/cap/status/2115558192021119381#m",
+    "fetched_at": "2026-10-29T10:38:38.384213+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "JosephJacks_",
+    "name": "Joseph Jacks",
+    "posted_at": "Wed, 28 Oct 2026 20:50:02 GMT",
+    "title": "AI people need to learn quantum mechanics.",
+    "text": "AI people need to learn quantum mechanics.",
+    "url": "http://nitter.jaydenha.uk/JosephJacks_/status/2115546657555386576#m",
+    "fetched_at": "2026-10-29T10:38:38.384213+00:00",
     "via_instance": "https://nitter.cz"
   },
   {
@@ -300,6 +330,36 @@
     "via_instance": "https://nitter.cz"
   },
   {
+    "handle": "markjeffrey",
+    "name": "Mark Jeffrey",
+    "posted_at": "Thu, 29 Oct 2026 07:55:54 GMT",
+    "title": "Jevs, or 'decision models' are the 'math co-processors' of AI. You offload a certain class of processing to them -- probably 20% - 30% of prompts. Reax subnet provides decision models & inference. powered by Bittensor TAO",
+    "text": "Jevs, or 'decision models' are the 'math co-processors' of AI. You offload a certain class of processing to them -- probably 20% - 30% of prompts. Reax subnet provides decision models &amp; inference. powered by Bittensor TAO REAX (@reaxlabs) REAX 1.2 is out as open weights under Apache-2.0, a fine-tune of REAX 1. huggingface.co/decisionmodel… REAX 1.1 is up too: huggingface.co/decisionmodel… — http://nitter.jaydenha.uk/reaxlabs/status/2114001983371940284#m",
+    "url": "http://nitter.jaydenha.uk/markjeffrey/status/2115714226245546222#m",
+    "fetched_at": "2026-10-29T10:38:31.389024+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "markjeffrey",
+    "name": "Mark Jeffrey",
+    "posted_at": "Thu, 29 Oct 2026 07:26:05 GMT",
+    "title": "Beam with yet ANOTHER integration. powered by Bittensor $TAO",
+    "text": "Beam with yet ANOTHER integration. powered by Bittensor $TAO Beam - Subnet 105 (@b1m_ai) Now Live: Beam💫 x @huggingface🤗. Nearly 3 million public models. 1 million datasets. Hugging Face has become a major hub for open AI, with its dataset count growing from 711,000 to 1 million in the first seven months of 2026. That scale creates a practical challenge: getting massive datasets to the compute that needs them. Beam will enable teams to move large datasets into and out of Hugging Face through its distributed network, connecting the data behind AI to the infrastructure that puts it to work. — ht",
+    "url": "http://nitter.jaydenha.uk/markjeffrey/status/2115706722681762243#m",
+    "fetched_at": "2026-10-29T10:38:31.389024+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "JosephJacks_",
+    "name": "Joseph Jacks",
+    "posted_at": "Thu, 29 Oct 2026 00:30:14 GMT",
+    "title": "RT by @JosephJacks_: Should’ve used Comp AI https://trycomp.ai",
+    "text": "Should’ve used Comp AI trycomp.ai Link Comp AI: AI Compliance Software Automate SOC 2, ISO 27001, HIPAA, and GDPR. 580+ integrations, 1,000+ companies, audit-ready in days, with audit and pentest included. trycomp.ai",
+    "url": "http://nitter.jaydenha.uk/lewiscarhart/status/2115602073375113354#m",
+    "fetched_at": "2026-10-29T10:38:38.384213+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
     "handle": "zeussubnet",
     "name": "Zeus Subnet",
     "posted_at": "Thu, 22 Oct 2026 14:01:35 GMT",
@@ -337,6 +397,16 @@
     "text": "Article Bittensor Ecosystem Highlights :: October 19–25, 2026 Affine just launched Bittensor’s first public AI video studio. This week’s biggest stories across Bittensor came from Affine, IOTA, Trishool, Lium, Hippius, SayGM, Leadpoet, Vidaio and Yugos. [",
     "url": "http://nitter.meowing.monster/opentensor/status/2114396664798597387#m",
     "fetched_at": "2026-10-29T03:50:17.590455+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "JosephJacks_",
+    "name": "Joseph Jacks",
+    "posted_at": "Sat, 10 Oct 2026 19:49:00 GMT",
+    "title": "RT by @JosephJacks_: The Soviet Union collapsed at 50%...France is at 57% and striking for more, mindblowing",
+    "text": "The Soviet Union collapsed at 50%...France is at 57% and striking for more, mindblowing",
+    "url": "http://nitter.jaydenha.uk/randgroup/status/2109008314029777378#m",
+    "fetched_at": "2026-10-29T10:38:38.384213+00:00",
     "via_instance": "https://nitter.cz"
   },
   {
