@@ -148,8 +148,16 @@ _no new posts in the lookback window_
   http://nitter.meowing.monster/TheBlockCo/status/2105359920795394451#m
 - @lium_io (Lium, Wed, 28 Oct 2026): b300s available for $4/hour on lium! We are giving away b300s for the price of h200s. We now have 550 b300s on lium, with 443 of them rented. Constantly improving accessibility to frontier compute.  
   http://nitter.meowing.monster/lium_io/status/2115445163363316133#m
+- @tplr_ai (Templar, Wed, 23 Sep 2026): Video  
+  http://nitter.meowing.monster/tplr_ai/status/2102792674118164542#m
+- @tplr_ai (Templar, Wed, 23 Sep 2026): Read the blog: tplr.ai/publications/blog/sk… Link Fault tolerance in low-bandwidth model parallelism: exploring pipeline stage-skipping with boundary... We explore how the residual nature of the transformer architecture can be leveraged to mitigate hardware faults, and demonstrate that the compression-based implementation of low-bandwidth model... tplr.ai  
+  http://nitter.meowing.monster/tplr_ai/status/2102792676676432160#m
 - @TargonCompute (Targon, Wed, 21 Oct 2026): Bittensor is adapting, and passing more control to the network participants. eTAO is yet another step toward true decentralization. “Inside of a competitive network, where you're being governed by the market.” @const_reborn on Talking Targon Video  
   http://nitter.meowing.monster/TargonCompute/status/2112992363760980123#m
+- @tplr_ai (Templar, Wed, 16 Sep 2026): When using pipeline compression with fixed projections shared across layers, robustness improves further as seen in the figure below. This suggests that shared projectors align representations across stage boundaries, making bypasses less disruptive. 4/n  
+  http://nitter.meowing.monster/tplr_ai/status/2100237714918367690#m
+- @tplr_ai (Templar, Wed, 16 Sep 2026): We’ve been researching fault tolerance in Crucible, Templar’s pre-training platform. The goal: keep training through node failures and make better use of unreliable workers and spot instances, without idling an entire model replica when one stage goes down. 1/n Video  
+  http://nitter.meowing.monster/tplr_ai/status/2100237708186550642#m
 - @polychain (Polychain Capital, Wed, 14 Oct 2026): This fully autonomous demo shows a Bagel Labs foundation model controlling a robot to make coffee. We previously released WorldDiT, our lightweight architecture for robot foundation models. At the time of release, it was on the Pareto frontier for model size and performance. We have since been refining this architecture to handle longer horizon, more useful tasks fully autonomously. Making coffee means getting a whole sequence of actions right. Each step depends on the result of the last, so small mistakes can build up as the task continues. Getting this to work with a small model is especiall  
   https://nitter.kareem.one/bidhan/status/2110415364475466160#m
 - @polychain (Polychain Capital, Wed, 14 Oct 2026): This fully autonomous demo shows a Bagel Labs foundation model controlling a robot to make coffee. We previously released WorldDiT, our lightweight architecture for robot foundation models. At the time of release, it was on the Pareto frontier for model size and performance. We have since been refining this architecture to handle longer horizon, more useful tasks fully autonomously. Making coffee means getting a whole sequence of actions right. Each step depends on the result of the last, so small mistakes can build up as the task continues. Getting this to work with a small model is especiall  
@@ -160,6 +168,8 @@ _no new posts in the lookback window_
   http://nitter.meowing.monster/MaxSebti/status/2097630699129827589#m
 - @mcjkula (mcjkula, Wed, 07 Oct 2026): "The best person to solve your problem might be someone you’ve never met or considered hiring." Travis and I explain Bittensor, including examples from weather forecasting (@zeussubnet) and drug discovery (@metanova_labs). Here’s our "Bittensor 101" recording from @ExploitSummit Video  
   https://nitter.kareem.one/mcjkula/status/2107803570699722943#m
+- @tplr_ai (Templar, Tue, 29 Sep 2026): The heads of the biggest AI labs want to agree among themselves on when everyone should slow down. @TheEconomist's piece on that push ends with Covenant-72B, the model we finished training in March on GPUs contributed over the internet, as a reason such agreements may be hard to enforce. What the piece doesn't say is that once training no longer requires one giant, tightly connected cluster, the power to build new models no longer has to sit with a few companies. Globally distributed training and open models are essential tools for keeping that power from concentrating in the frontier labs. Th  
+  http://nitter.meowing.monster/tplr_ai/status/2104937831097352377#m
 - @ridges_ai (Ridges, Tue, 27 Oct 2026): Miners will set the baseline for our next competition. A new benchmark phase lets qualifying agents compete for the top score. The winner becomes the initial leader. No emissions during the phase; normal rewards follow. docs.ridges.ai/incentive-mec…  
   http://nitter.meowing.monster/ridges_ai/status/2115210793969176732#m
 - @TargonCompute (Targon, Tue, 27 Oct 2026): Read Governed by the Market on Substack: manifoldlabs.substack.com/p/…  
@@ -192,6 +202,12 @@ _no new posts in the lookback window_
   http://nitter.meowing.monster/SemiAnalysis_/status/2115886444816298264#m
 - @SemiAnalysis_ (SemiAnalysis, Thu, 29 Oct 2026): ALERT🚨: GB300 NVL72 @sgl_project can get close to 1000 tok/s/user on DeepSeek Flash v4.1 by aggressively fusing kernels together!! TileRT started this trend in the ecosystem of megakernel engines on OSS frontier models! Glad to see SGLang widely adopting it! Great work by the SGLang, @radixark, and NVIDIA teams on pushing performance!  
   http://nitter.meowing.monster/SemiAnalysis_/status/2115821309137465536#m
+- @1inch (1inch, Thu, 29 Oct 2026): 1inch 上有很多实用的功能 这期做了一个限价单建议教程，带你了解如何在 1inch 上设置限价单，提前设定目标价格，不用一直盯着行情等机会。 ☑️ 去中心的方案 ☑️ 设置后钱包余额依然可以转移，无需被锁定 ☑️ 支持 dApp 和 api @1inch @1inchChinese Video  
+  http://nitter.meowing.monster/JoeGeorge2049/status/2115814421536874802#m
+- @1inch (1inch, Thu, 29 Oct 2026): Ondo Intelligent Portfolios are now live on @solana Powered by 1inch 🤝 Ondo Finance (@Ondo) Ondo Intelligent Portfolios are now live on Solana, including three portfolios powered by BlackRock. Seven curated portfolios spanning income, growth, and thematic exposure, each delivered as a single onchain transferable token: → BRAINon: AI Leaders → YLD5on: 5% Targeted Income → YLD8on: 8% Targeted Income → MAG7Xon: Magnificent 7 & Crypto → BLKHIon: Ondo High Income Powered by BlackRock → BLKGRWon: Ondo High Growth Powered by BlackRock → BLKDIGon: Ondo Diversified Growth Powered by BlackRock Each port  
+  http://nitter.meowing.monster/1inch/status/2115803587481604283#m
+- @1inch (1inch, Thu, 29 Oct 2026): Aqua Season 1 completed. ✅ New markets. New rewards. Aqua season 2 coming soon.. Video  
+  http://nitter.meowing.monster/1inch/status/2115784338562548027#m
 - @SemiAnalysis_ (SemiAnalysis, Thu, 29 Oct 2026):   
   http://nitter.meowing.monster/SemiAnalysis_/status/2115619227381928400#m
 - @TargonCompute (Targon, Thu, 22 Oct 2026): With exploits on the rise, plan for the host getting breached. Targon Virtual Machines run on Intel TDX. Memory is encrypted with keys the host never sees, so even a compromised server can’t see your data, your weights or your code. Permissionless (@narrativereach) Every few hours, it seems like there’s a new software exploit. This week, a critical PHP flaw forced government websites across Europe offline, and the NSA told anyone who couldn’t patch to take their systems down, and one attacker used AI agents to break into the websites of 100+ companies for about $50 a hack. Exploits that used t  
@@ -226,23 +242,7 @@ _no new posts in the lookback window_
   http://nitter.meowing.monster/resilabsai/status/2085900662139744548#m
 - @jon_durbin (Jon Durbin, Mon, 26 Oct 2026): Here's a very crude simplified chutes roadmap/plan, for near term: - move the most unprofitable things off of the subnet, including today's announcement of some (not all) additional inference options (not paid via emissions) - this allows us to scale the things we want and need to avoid capacity issues/better direct incentive - this includes models we use to build data pipelines and relationships to other teams/networks/etc - add options that are completely revenue positive (hourly pricing/rentals/simple docker based jobs/etc), TEE, private, secure, priced above cost, more extensive version of  
   http://nitter.meowing.monster/jon_durbin/status/2114841269188846045#m
-- @jon_durbin (Jon Durbin, Mon, 26 Oct 2026): True? No clue. The point of parallax is to put the network into as many hands as possible in a verifiable trustless way, and for the output (the models) to not require yet another source for the wealthiest companies on earth to monopolize (that is, a model that can run even on a phone and not require "now's" completely unaffordable mega GPU). The current AI marketplace is fueled by a massive debt market with very few beneficiaries at the world's expense. If you like K shaped economies here it is in plain sight; trickle up resources, consolidating into a few, spreading the gap at ever-increasin  
-  http://nitter.meowing.monster/jon_durbin/status/2114799318393655314#m
-- @resilabsai (RESI, Mon, 20 Apr 2026): I am pleased to announce that Stillcore Capital @stillcorecap has invested in RESI @resilabsai (Bittensor Subnet 46).  
-  http://nitter.meowing.monster/markjeffrey/status/2046311512621670731#m
-- @jon_durbin (Jon Durbin, Mon, 19 Oct 2026): 1880, what a marvel. Sometimes I forget to appreciate what our predecessors gave us.  
-  http://nitter.meowing.monster/jon_durbin/status/2112280217964204150#m
-- @jon_durbin (Jon Durbin, Mon, 19 Oct 2026): My kids didn't fully grasp how juice comes from fruit, so we did a thing! Perhaps a bit whimsical but the colors differentiate the parts well. Had to burn off whatever oils and grease and who-knows-what from all the parts, cut out some cracks, re-file the threads, sand and wire brush for many hours, then food safe wax and oil all the contact parts with industrial enamel for the outer parts. Fun!  
-  http://nitter.meowing.monster/jon_durbin/status/2112279610582794593#m
-- @resilabsai (RESI, Mon, 06 Apr 2026): Chainlink gave DeFi price feeds. @resilabsai is doing the same for real estate. From static appraisals to dynamic, onchain pricing. It's already honing in on Zillow's pricing accuracy, and only a matter of weeks before it surpasses it!  
-  http://nitter.meowing.monster/gordonfrayne/status/2041152947925512465#m
-- @wallstreetbets (WallStreetBets (X), Fri, 30 Oct 2026): another peaceful night  
-  http://nitter.meowing.monster/wallstreetbets/status/2116107850342604820#m
-- @wallstreetbets (WallStreetBets (X), Fri, 30 Oct 2026): every single time Video  
-  http://nitter.meowing.monster/wallstreetbets/status/2116077655393218890#m
-- @wallstreetbets (WallStreetBets (X), Fri, 30 Oct 2026): unbothered.  
-  http://nitter.meowing.monster/wallstreetbets/status/2116047455058022903#m
 
 
 ---
-_Generated at 2026-10-30T17:37:04.030204+00:00 by scripts/intel/aggregate.py. Treat this digest as input context, not as ground truth. Verify before quoting._
+_Generated at 2026-10-30T23:29:07.439653+00:00 by scripts/intel/aggregate.py. Treat this digest as input context, not as ground truth. Verify before quoting._

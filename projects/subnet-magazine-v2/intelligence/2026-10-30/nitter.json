@@ -30,6 +30,26 @@
     "via_instance": "https://nitter.cz"
   },
   {
+    "handle": "tplr_ai",
+    "name": "Templar",
+    "posted_at": "Wed, 23 Sep 2026 16:10:16 GMT",
+    "title": "Video",
+    "text": "Video",
+    "url": "http://nitter.meowing.monster/tplr_ai/status/2102792674118164542#m",
+    "fetched_at": "2026-10-30T23:26:52.615025+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "tplr_ai",
+    "name": "Templar",
+    "posted_at": "Wed, 23 Sep 2026 16:10:16 GMT",
+    "title": "R to @tplr_ai: Read the blog: https://www.tplr.ai/publications/blog/skipping-stages-with-fixed-projections",
+    "text": "Read the blog: tplr.ai/publications/blog/sk… Link Fault tolerance in low-bandwidth model parallelism: exploring pipeline stage-skipping with boundary... We explore how the residual nature of the transformer architecture can be leveraged to mitigate hardware faults, and demonstrate that the compression-based implementation of low-bandwidth model... tplr.ai",
+    "url": "http://nitter.meowing.monster/tplr_ai/status/2102792676676432160#m",
+    "fetched_at": "2026-10-30T23:26:52.615025+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
     "handle": "TargonCompute",
     "name": "Targon",
     "posted_at": "Wed, 21 Oct 2026 19:40:11 GMT",
@@ -37,6 +57,26 @@
     "text": "Bittensor is adapting, and passing more control to the network participants. eTAO is yet another step toward true decentralization. “Inside of a competitive network, where you're being governed by the market.” @const_reborn on Talking Targon Video",
     "url": "http://nitter.meowing.monster/TargonCompute/status/2112992363760980123#m",
     "fetched_at": "2026-10-30T10:41:39.446122+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "tplr_ai",
+    "name": "Templar",
+    "posted_at": "Wed, 16 Sep 2026 14:57:46 GMT",
+    "title": "R to @tplr_ai: When using pipeline compression with fixed projections shared across layers, robustness improves further as seen in the figure below. This suggests that shared projectors align representations across stage boundaries, making bypasses less disruptive. 4/n",
+    "text": "When using pipeline compression with fixed projections shared across layers, robustness improves further as seen in the figure below. This suggests that shared projectors align representations across stage boundaries, making bypasses less disruptive. 4/n",
+    "url": "http://nitter.meowing.monster/tplr_ai/status/2100237714918367690#m",
+    "fetched_at": "2026-10-30T23:26:52.615025+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "tplr_ai",
+    "name": "Templar",
+    "posted_at": "Wed, 16 Sep 2026 14:57:44 GMT",
+    "title": "We’ve been researching fault tolerance in Crucible, Templar’s pre-training platform. The goal: keep training through node failures and make better use of unreliable workers and spot instances, without idling an entire model replica when one stage goes down. 1/n",
+    "text": "We’ve been researching fault tolerance in Crucible, Templar’s pre-training platform. The goal: keep training through node failures and make better use of unreliable workers and spot instances, without idling an entire model replica when one stage goes down. 1/n Video",
+    "url": "http://nitter.meowing.monster/tplr_ai/status/2100237708186550642#m",
+    "fetched_at": "2026-10-30T23:26:52.615025+00:00",
     "via_instance": "https://nitter.cz"
   },
   {
@@ -87,6 +127,16 @@
     "text": "\"The best person to solve your problem might be someone you’ve never met or considered hiring.\" Travis and I explain Bittensor, including examples from weather forecasting (@zeussubnet) and drug discovery (@metanova_labs). Here’s our \"Bittensor 101\" recording from @ExploitSummit Video",
     "url": "https://nitter.kareem.one/mcjkula/status/2107803570699722943#m",
     "fetched_at": "2026-10-30T17:34:30.678776+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "tplr_ai",
+    "name": "Templar",
+    "posted_at": "Tue, 29 Sep 2026 14:14:21 GMT",
+    "title": "The heads of the biggest AI labs want to agree among themselves on when everyone should slow down. @TheEconomist's piece on that push ends with Covenant-72B, the model we finished training in March on GPUs contributed over the internet, as a reason such agreements may be hard to enforce. What the piece doesn't say is that once training no longer requires one giant, tightly connected cluster, the power to build new models no longer has to sit with a few companies. Globally distributed training and open models are essential tools for keeping that power from concentrating in the frontier labs. They let many more participants, from nations to companies, own a share of the future of AI and take part in building it. https://www.economist.com/international/2026/09/15/agreeing-to-make-ai-safer-may-be-impossible",
+    "text": "The heads of the biggest AI labs want to agree among themselves on when everyone should slow down. @TheEconomist's piece on that push ends with Covenant-72B, the model we finished training in March on GPUs contributed over the internet, as a reason such agreements may be hard to enforce. What the piece doesn't say is that once training no longer requires one giant, tightly connected cluster, the power to build new models no longer has to sit with a few companies. Globally distributed training and open models are essential tools for keeping that power from concentrating in the frontier labs. Th",
+    "url": "http://nitter.meowing.monster/tplr_ai/status/2104937831097352377#m",
+    "fetched_at": "2026-10-30T23:26:52.615025+00:00",
     "via_instance": "https://nitter.cz"
   },
   {
@@ -247,6 +297,36 @@
     "text": "ALERT🚨: GB300 NVL72 @sgl_project can get close to 1000 tok/s/user on DeepSeek Flash v4.1 by aggressively fusing kernels together!! TileRT started this trend in the ecosystem of megakernel engines on OSS frontier models! Glad to see SGLang widely adopting it! Great work by the SGLang, @radixark, and NVIDIA teams on pushing performance!",
     "url": "http://nitter.meowing.monster/SemiAnalysis_/status/2115821309137465536#m",
     "fetched_at": "2026-10-30T10:42:34.027745+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "1inch",
+    "name": "1inch",
+    "posted_at": "Thu, 29 Oct 2026 14:34:02 GMT",
+    "title": "RT by @1inch: 1inch 上有很多实用的功能 这期做了一个限价单建议教程，带你了解如何在 1inch 上设置限价单，提前设定目标价格，不用一直盯着行情等机会。 ☑️ 去中心的方案 ☑️ 设置后钱包余额依然可以转移，无需被锁定 ☑️ 支持 dApp 和 api @1inch @1inchChinese",
+    "text": "1inch 上有很多实用的功能 这期做了一个限价单建议教程，带你了解如何在 1inch 上设置限价单，提前设定目标价格，不用一直盯着行情等机会。 ☑️ 去中心的方案 ☑️ 设置后钱包余额依然可以转移，无需被锁定 ☑️ 支持 dApp 和 api @1inch @1inchChinese Video",
+    "url": "http://nitter.meowing.monster/JoeGeorge2049/status/2115814421536874802#m",
+    "fetched_at": "2026-10-30T23:27:42.459394+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "1inch",
+    "name": "1inch",
+    "posted_at": "Thu, 29 Oct 2026 13:50:59 GMT",
+    "title": "Pinned: Ondo Intelligent Portfolios are now live on @solana Powered by 1inch 🤝",
+    "text": "Ondo Intelligent Portfolios are now live on @solana Powered by 1inch 🤝 Ondo Finance (@Ondo) Ondo Intelligent Portfolios are now live on Solana, including three portfolios powered by BlackRock. Seven curated portfolios spanning income, growth, and thematic exposure, each delivered as a single onchain transferable token: → BRAINon: AI Leaders → YLD5on: 5% Targeted Income → YLD8on: 8% Targeted Income → MAG7Xon: Magnificent 7 & Crypto → BLKHIon: Ondo High Income Powered by BlackRock → BLKGRWon: Ondo High Growth Powered by BlackRock → BLKDIGon: Ondo Diversified Growth Powered by BlackRock Each port",
+    "url": "http://nitter.meowing.monster/1inch/status/2115803587481604283#m",
+    "fetched_at": "2026-10-30T23:27:42.459394+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "1inch",
+    "name": "1inch",
+    "posted_at": "Thu, 29 Oct 2026 12:34:30 GMT",
+    "title": "Aqua Season 1 completed. ✅ New markets. New rewards. Aqua season 2 coming soon..",
+    "text": "Aqua Season 1 completed. ✅ New markets. New rewards. Aqua season 2 coming soon.. Video",
+    "url": "http://nitter.meowing.monster/1inch/status/2115784338562548027#m",
+    "fetched_at": "2026-10-30T23:27:42.459394+00:00",
     "via_instance": "https://nitter.cz"
   },
   {
@@ -470,6 +550,66 @@
     "via_instance": "https://nitter.cz"
   },
   {
+    "handle": "SemiAnalysis_",
+    "name": "SemiAnalysis",
+    "posted_at": "Fri, 30 Oct 2026 23:00:28 GMT",
+    "title": "R to @SemiAnalysis_: While most attention goes to tool makers such as SMEE, we looked at their supply chain. We believe components are the key for China to develop lithography further. (4/5)",
+    "text": "While most attention goes to tool makers such as SMEE, we looked at their supply chain. We believe components are the key for China to develop lithography further. (4/5)",
+    "url": "http://nitter.meowing.monster/SemiAnalysis_/status/2116304255883596129#m",
+    "fetched_at": "2026-10-30T23:28:13.690980+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "SemiAnalysis_",
+    "name": "SemiAnalysis",
+    "posted_at": "Fri, 30 Oct 2026 23:00:28 GMT",
+    "title": "R to @SemiAnalysis_: We discussed in our WFE Model which components matter most and how far each is from production grade. Subscribe to learn more! (5/5) https://semianalysis.com/wafer-fab-model/",
+    "text": "We discussed in our WFE Model which components matter most and how far each is from production grade. Subscribe to learn more! (5/5) semianalysis.com/wafer-fab-m… Link Wafer Fab Equipment Model The SemiAnalysis Wafer Fab Equipment Model: bottoms-up forecasts of semiconductor capital equipment demand from wafer capacity and process-node requirements, with lithography, deposition, etch, wafer... semianalysis.com",
+    "url": "http://nitter.meowing.monster/SemiAnalysis_/status/2116304257129259450#m",
+    "fetched_at": "2026-10-30T23:28:13.690980+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "SemiAnalysis_",
+    "name": "SemiAnalysis",
+    "posted_at": "Fri, 30 Oct 2026 23:00:27 GMT",
+    "title": "Canon just cut its 2026 i-line stepper plan for the second time this year. We believe share loss in China is one important driver. (1/5)🧵",
+    "text": "Canon just cut its 2026 i-line stepper plan for the second time this year. We believe share loss in China is one important driver. (1/5)🧵",
+    "url": "http://nitter.meowing.monster/SemiAnalysis_/status/2116304252565856470#m",
+    "fetched_at": "2026-10-30T23:28:13.690980+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "SemiAnalysis_",
+    "name": "SemiAnalysis",
+    "posted_at": "Fri, 30 Oct 2026 18:00:21 GMT",
+    "title": "How would Meta deploy its networking clusters? How would that be different at Oracle, Nebius or Crusoe? Clara Ee on the SemiAnalysis AI Networking Model: a bottoms-up build of every buyer's clusters that gives the BOM of each one and the networking equipment TAM.",
+    "text": "How would Meta deploy its networking clusters? How would that be different at Oracle, Nebius or Crusoe? Clara Ee on the SemiAnalysis AI Networking Model: a bottoms-up build of every buyer's clusters that gives the BOM of each one and the networking equipment TAM. Video",
+    "url": "http://nitter.meowing.monster/SemiAnalysis_/status/2116228729282125827#m",
+    "fetched_at": "2026-10-30T23:28:13.690980+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "SemiAnalysis_",
+    "name": "SemiAnalysis",
+    "posted_at": "Fri, 30 Oct 2026 18:00:21 GMT",
+    "title": "R to @SemiAnalysis_: Learn more about the AI Networking Model and talk to our team: https://semianalysis.com/ai-networking-model",
+    "text": "Learn more about the AI Networking Model and talk to our team: semianalysis.com/ai-networki… Link AI Networking Model Device-level data on AI cluster networking: switch, transceiver, and cable units, spend, pricing, and vendor share across every major hyperscaler, 2023 to 2026. semianalysis.com",
+    "url": "http://nitter.meowing.monster/SemiAnalysis_/status/2116228730389438920#m",
+    "fetched_at": "2026-10-30T23:28:13.690980+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "1inch",
+    "name": "1inch",
+    "posted_at": "Fri, 30 Oct 2026 10:42:02 GMT",
+    "title": "Crypto doesn’t have competitors. When things get tough, we only have partners. That’s why we will win.",
+    "text": "Crypto doesn’t have competitors. When things get tough, we only have partners. That’s why we will win.",
+    "url": "http://nitter.meowing.monster/1inch/status/2116118425856516153#m",
+    "fetched_at": "2026-10-30T23:27:42.459394+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
     "handle": "wallstreetbets",
     "name": "WallStreetBets (X)",
     "posted_at": "Fri, 30 Oct 2026 10:00:01 GMT",
@@ -497,6 +637,16 @@
     "text": "unbothered.",
     "url": "http://nitter.meowing.monster/wallstreetbets/status/2116047455058022903#m",
     "fetched_at": "2026-10-30T10:43:12.832978+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "1inch",
+    "name": "1inch",
+    "posted_at": "Fri, 30 Oct 2026 04:25:02 GMT",
+    "title": "We're aware of the Binance exploit and are reaching out to the Binance team to offer our support. Our risk management team, working with ZeroShadow, SEAL 911, TRM Labs and others, blocked the exploit-linked addresses from the 1inch dApp, 1inch Wallet and 1inch API within the first hour and is adding new ones as they are identified. The same list goes to resolvers and integrators. Some 1INCH was among the stolen assets. 1INCH is a standard ERC-20 with no freeze or blocklist function, so the stolen tokens can't be frozen by anyone. We will cooperate fully with Binance and law enforcement on tracing and recovery.",
+    "text": "We're aware of the Binance exploit and are reaching out to the Binance team to offer our support. Our risk management team, working with ZeroShadow, SEAL 911, TRM Labs and others, blocked the exploit-linked addresses from the 1inch dApp, 1inch Wallet and 1inch API within the first hour and is adding new ones as they are identified. The same list goes to resolvers and integrators. Some 1INCH was among the stolen assets. 1INCH is a standard ERC-20 with no freeze or blocklist function, so the stolen tokens can't be frozen by anyone. We will cooperate fully with Binance and law enforcement on trac",
+    "url": "http://nitter.meowing.monster/1inch/status/2116023549211406829#m",
+    "fetched_at": "2026-10-30T23:27:42.459394+00:00",
     "via_instance": "https://nitter.cz"
   },
   {
