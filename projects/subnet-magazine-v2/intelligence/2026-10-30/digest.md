@@ -158,6 +158,8 @@ _no new posts in the lookback window_
   http://nitter.meowing.monster/manakoai/status/2110408262357057824#m
 - @nigescore (Nige, Wed, 09 Sep 2026): .@nigescore going to paris last time he went to nrf in dallas he got us our biggest client ever (not announced yet) i can’t go. got something bigger on the 15th, 16th and 17th (to be announced) Manako (@manakoai) Heading to @nrfeurope NRF Retail’s Big Show Europe in Paris next week (15–17 Sept) 🇫🇷 If you are attending and want to hear what Manako Labs have built for retail, please DM and let’s meet up. No new hardware, no engineers, no code just your existing cameras doing more. #NRFRetailsBigShowEurope — http://nitter.meowing.monster/manakoai/status/2097622722310242420#m  
   http://nitter.meowing.monster/MaxSebti/status/2097630699129827589#m
+- @mcjkula (mcjkula, Wed, 07 Oct 2026): "The best person to solve your problem might be someone you’ve never met or considered hiring." Travis and I explain Bittensor, including examples from weather forecasting (@zeussubnet) and drug discovery (@metanova_labs). Here’s our "Bittensor 101" recording from @ExploitSummit Video  
+  https://nitter.kareem.one/mcjkula/status/2107803570699722943#m
 - @ridges_ai (Ridges, Tue, 27 Oct 2026): Miners will set the baseline for our next competition. A new benchmark phase lets qualifying agents compete for the top score. The winner becomes the initial leader. No emissions during the phase; normal rewards follow. docs.ridges.ai/incentive-mec…  
   http://nitter.meowing.monster/ridges_ai/status/2115210793969176732#m
 - @TargonCompute (Targon, Tue, 27 Oct 2026): Read Governed by the Market on Substack: manifoldlabs.substack.com/p/…  
@@ -182,6 +184,10 @@ _no new posts in the lookback window_
   http://nitter.meowing.monster/webuildscore/status/2097261685358596399#m
 - @resilabsai (RESI, Tue, 07 Apr 2026): The power of holding Bittensor $TAO subnet alpha Here is an example to illustrate the flywheel of $TAO Let's say you 1,000 alpha of @resilabsai which cost around 7 $TAO 7 $TAO at a price of $310 = $2,170 Current alpha price of Resi, subnet 46: .0066 $TAO Let's make some calculated assumptions. &gt; price of resi alpha stays the same for 3 years &gt; price of $TAO remains the same at $310 &gt; APY for holding Resi alpha is 40% for the first 2 years, then 30% in year 3 What is my total value in 3 years? Year 1 (40% APY) 1,060.6 × 1.4 = 1,484.8 alpha In $TAO: 1,484.8 × 0.0066 ≈ 9.80 $TAO In USD:   
   http://nitter.meowing.monster/Pop_Collapse/status/2041570023823528017#m
+- @mcjkula (mcjkula, Tue, 06 Oct 2026): A plain-English introduction to Bittensor: learnbittensor.org/get-start…  
+  https://nitter.kareem.one/mcjkula/status/2107475150841254343#m
+- @mcjkula (mcjkula, Tue, 06 Oct 2026): Bitcoin rewards one kind of work. Bittensor has a very different idea of “work” Video  
+  https://nitter.kareem.one/mcjkula/status/2107441742199042204#m
 - @SemiAnalysis_ (SemiAnalysis, Thu, 29 Oct 2026): ClassOne Solstice Max at SEMICON West ClassOne showcased its Solstice Max at SEMICON West. The 200/300mm single-wafer platform integrates electroplating, wet etch, strip and cleaning, and scales from 4 to 16 chambers. It targets advanced packaging metallization. Source: SEMICON West booth  
   http://nitter.meowing.monster/SemiAnalysis_/status/2115886444816298264#m
 - @SemiAnalysis_ (SemiAnalysis, Thu, 29 Oct 2026): ALERT🚨: GB300 NVL72 @sgl_project can get close to 1000 tok/s/user on DeepSeek Flash v4.1 by aggressively fusing kernels together!! TileRT started this trend in the ecosystem of megakernel engines on OSS frontier models! Glad to see SGLang widely adopting it! Great work by the SGLang, @radixark, and NVIDIA teams on pushing performance!  
@@ -190,6 +196,8 @@ _no new posts in the lookback window_
   http://nitter.meowing.monster/SemiAnalysis_/status/2115619227381928400#m
 - @TargonCompute (Targon, Thu, 22 Oct 2026): With exploits on the rise, plan for the host getting breached. Targon Virtual Machines run on Intel TDX. Memory is encrypted with keys the host never sees, so even a compromised server can’t see your data, your weights or your code. Permissionless (@narrativereach) Every few hours, it seems like there’s a new software exploit. This week, a critical PHP flaw forced government websites across Europe offline, and the NSA told anyone who couldn’t patch to take their systems down, and one attacker used AI agents to break into the websites of 100+ companies for about $50 a hack. Exploits that used t  
   http://nitter.meowing.monster/TargonCompute/status/2113352059001122822#m
+- @Olaf (Olaf Carlson-Wee, Thu, 19 Aug 2010): lekker biertje drinken bij Dims!  
+  http://nitter.meowing.monster/olaf/status/21602951308#m
 - @ridges_ai (Ridges, Thu, 15 Oct 2026): Upload price changed while you were submitting? You can top up to complete the upload. Any unused Alpha carries over to your next submission. Details: docs.ridges.ai/guides/upload…  
   http://nitter.meowing.monster/ridges_ai/status/2110764827023233460#m
 - @ridges_ai (Ridges, Thu, 15 Oct 2026): The upload price: what changed? Every agent submission creates work: screening, execution and validation. Ridges now has a dynamic upload-pricing model for each competition. Under the default settings: • The minimum price is $5. • Each purchased upload raises the price by approximately 15%. • Between purchases, the price halves every 30 minutes, down to the $5 minimum. Planning your next submission? Check the live upload price. A quieter period could mean a lower entry cost.  
@@ -200,6 +208,8 @@ _no new posts in the lookback window_
   http://nitter.meowing.monster/multiliquid_xyz/status/2110762624791290189#m
 - @lium_io (Lium, Sun, 25 Oct 2026): lium: the only place globally where you can rent h200 and b300 clusters on-demand and instantly. We continue to revolutionize the GPU industry by shipping novel features optimized for agent productivity and efficiency.  
   http://nitter.meowing.monster/lium_io/status/2114420810857263254#m
+- @Olaf (Olaf Carlson-Wee, Sun, 10 Jul 2011): RT @timmerarjan Life is good! yfrog.com/kkli4iaj zeker !! Wel tof dat je het deelt met je vrienden :)  
+  http://nitter.meowing.monster/olaf/status/90083936700600321#m
 - @lium_io (Lium, Sat, 24 Oct 2026): we've enabled GPU profiling (ncu) on our nodes so that y'all can have a better chance to win this :) lium.io/?ncu=1&amp;sort=upload Link Rent H100, B200 and RTX 4090 GPUs On Demand | lium.io Agent-first compute on Lium: rent H100, B200, RTX 4090 and more GPU pods at marketplace prices. Deploy in seconds via browser or CLI. Billed per second. lium.io Daniel Gross (@danielgross) We're launching a $100,000 challenge to see who can make Muse Spark run fastest: openkernelchallenge.dev/ Link Muse Spark Open Kernel Challenge Make Meta’s Muse Spark Open run faster. Start by optimizing its GPU kernels,  
   http://nitter.meowing.monster/lium_io/status/2113982218196721876#m
 - @lium_io (Lium, Sat, 24 Oct 2026): lium 8xH100 rental fully configured within 12 seconds. We know your time is valuable, so we don't require a sales call, request for quota form, or 30 minute provisioning like competitors do. If you need compute, the fastest and cheapest way to get it is on lium. We have more availability, better software, and faster service than your current GPU provider. Video  
@@ -208,6 +218,8 @@ _no new posts in the lookback window_
   http://nitter.meowing.monster/lium_io/status/2113965503861362809#m
 - @nigescore (Nige, Sat, 19 Sep 2026): We’re completing our first 20 reference deployments, led by our CEO and engineering team, and the headline finding is that Manako is genuinely plug and play. No specialist integration required: a unit can be shipped to site and connected by anyone on the ground. That’s what makes our next phase possible. Our integration partners will roll out at scale on a simple, repeatable install, with less time on site and lower cost per deployment.  
   http://nitter.meowing.monster/manakoai/status/2101403529558577403#m
+- @mcjkula (mcjkula, Sat, 19 Sep 2026): Maciej Kula ( @mcjkula ) couldn't find a clear way to learn #Bittensor from scratch, so he built the resource he wished existed. @learnbittensor is now part of @latentholdings, where Maciej leads education and makes Bittensor easier to understand. He'll be leading our Bittensor 101 session to kick off Day 1: luma.com/nqy2n5zi Video  
+  https://nitter.kareem.one/ExploitSummit/status/2101355676325007652#m
 - @resilabsai (RESI, Sat, 18 Apr 2026): Traditional centralized real estate data platforms are fundamentally flawed and often serve to extract wealth from users. @resilabsai (Subnet 46) is breaking this monopoly through decentralized AI technology that delivers up to 99% valuation accuracy. Skip the corporate intermediaries—this AI-powered home valuation tool provides the most reliable housing market forecasts for 2026 Video SEBY (gpu/acc) (@sebyrubino) The @resilabsai Portal is LIVE! Any agent or real estate professional can now easily access our SOTA remote appraisals. We built RESI as a compounding network that will naturally acc  
   http://nitter.meowing.monster/3rdeye_rav3n/status/2045362275045753234#m
 - @resilabsai (RESI, Sat, 08 Aug 2026): Attention Res Labs we have some really exciting news and updates to our project join our discord to stay up to date: discord.gg/TBj8q9vb2Q #bittensor #TAO bittensor:native #reslabs #reilabsai #crypto #subnet #subnet46 #reslabs_ai #reslabsai #opentensor #reptides  
@@ -230,19 +242,7 @@ _no new posts in the lookback window_
   http://nitter.meowing.monster/wallstreetbets/status/2116077655393218890#m
 - @wallstreetbets (WallStreetBets (X), Fri, 30 Oct 2026): unbothered.  
   http://nitter.meowing.monster/wallstreetbets/status/2116047455058022903#m
-- @wallstreetbets (WallStreetBets (X), Fri, 30 Oct 2026): buy the dip.  
-  http://nitter.meowing.monster/wallstreetbets/status/2116017247869182323#m
-- @SemiAnalysis_ (SemiAnalysis, Fri, 30 Oct 2026): NVIDIA has revised Vera Rubin NVL72’s NVLink bandwidth from 3.6 TB/s to 3.0 TB/s per Rubin GPU package, a ~17% reduction. Vera Rubin utilizes bidirectional SerDes, with a theoretical full-rate bandwidth of 448 Gbps per physical connection. However, crosstalk, insertion loss, and return loss create significant signal integrity challenges at these speeds. (1/2)🧵  
-  http://nitter.meowing.monster/SemiAnalysis_/status/2116003079950602611#m
-- @SemiAnalysis_ (SemiAnalysis, Fri, 30 Oct 2026): To address these limitations, NVIDIA has reduced the signaling rate, lowering the Nyquist frequency and easing channel requirements. SemiAnalysis previously disclosed these architectural changes and bandwidth limitations in our Accelerator Model (semianalysis.com/accelerator… ) Looking ahead, Rubin Ultra is expected to return to unidirectional SerDes, improving signal integrity at the expense of additional physical connectivity. This transition increases cable and connector requirements, representing a positive development for Amphenol (APH). (2/2)  
-  http://nitter.meowing.monster/SemiAnalysis_/status/2116003081594732952#m
-- @wallstreetbets (WallStreetBets (X), Fri, 30 Oct 2026): actually gotta give Binance credit here potentially the biggest hack in crypto history, around $3B in funds already frozen, and they've committed to covering all losses still a lot to figure out and we'll see how it all plays out, but imo they've handled the situation pretty well so far credit where it's due Watcher.Guru (@WatcherGuru) JUST IN: Binance says $3,000,000,000 worth of stolen crypto has now been frozen following major hack. — http://nitter.meowing.monster/WatcherGuru/status/2115970958918111742#m  
-  http://nitter.meowing.monster/wallstreetbets/status/2115986845003587914#m
-- @wallstreetbets (WallStreetBets (X), Fri, 30 Oct 2026): JUST IN: Binance confirms it will cover all losses.  
-  http://nitter.meowing.monster/wallstreetbets/status/2115983723631882485#m
-- @wallstreetbets (WallStreetBets (X), Fri, 30 Oct 2026): JUST IN: Binance confirms around $3 billion in assets have now been frozen following the suspected hack. They're working to trace and freeze additional funds.  
-  http://nitter.meowing.monster/wallstreetbets/status/2115972027228012686#m
 
 
 ---
-_Generated at 2026-10-30T10:43:27.688414+00:00 by scripts/intel/aggregate.py. Treat this digest as input context, not as ground truth. Verify before quoting._
+_Generated at 2026-10-30T17:37:04.030204+00:00 by scripts/intel/aggregate.py. Treat this digest as input context, not as ground truth. Verify before quoting._
