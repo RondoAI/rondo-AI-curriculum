@@ -50,6 +50,16 @@
     "via_instance": "https://nitter.cz"
   },
   {
+    "handle": "const_reborn",
+    "name": "Jacob Steeves",
+    "posted_at": "Wed, 28 Oct 2026 14:00:12 GMT",
+    "title": "RT by @const_reborn: Now Live: Beam💫 x @huggingface🤗. Nearly 3 million public models. 1 million datasets. Hugging Face has become a major hub for open AI, with its dataset count growing from 711,000 to 1 million in the first seven months of 2026. That scale creates a practical challenge: getting massive datasets to the compute that needs them. Beam will enable teams to move large datasets into and out of Hugging Face through its distributed network, connecting the data behind AI to the infrastructure that puts it to work.",
+    "text": "Now Live: Beam💫 x @huggingface🤗. Nearly 3 million public models. 1 million datasets. Hugging Face has become a major hub for open AI, with its dataset count growing from 711,000 to 1 million in the first seven months of 2026. That scale creates a practical challenge: getting massive datasets to the compute that needs them. Beam will enable teams to move large datasets into and out of Hugging Face through its distributed network, connecting the data behind AI to the infrastructure that puts it to work.",
+    "url": "http://nitter.meowing.monster/b1m_ai/status/2115443520551166359#m",
+    "fetched_at": "2026-10-31T22:57:25.170544+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
     "handle": "tplr_ai",
     "name": "Templar",
     "posted_at": "Wed, 23 Sep 2026 16:10:16 GMT",
@@ -210,6 +220,16 @@
     "via_instance": "https://nitter.cz"
   },
   {
+    "handle": "Olaf",
+    "name": "Olaf Carlson-Wee",
+    "posted_at": "Thu, 19 Aug 2010 19:44:32 GMT",
+    "title": "lekker biertje drinken bij Dims!",
+    "text": "lekker biertje drinken bij Dims!",
+    "url": "http://nitter.meowing.monster/olaf/status/21602951308#m",
+    "fetched_at": "2026-10-31T22:57:56.106823+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
     "handle": "_redteam_",
     "name": "RedTeam / Innerworks",
     "posted_at": "Thu, 10 Sep 2026 22:06:58 GMT",
@@ -227,6 +247,86 @@
     "text": "lium: the only place globally where you can rent h200 and b300 clusters on-demand and instantly. We continue to revolutionize the GPU industry by shipping novel features optimized for agent productivity and efficiency.",
     "url": "http://nitter.meowing.monster/lium_io/status/2114420810857263254#m",
     "fetched_at": "2026-10-31T16:41:31.977800+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "Olaf",
+    "name": "Olaf Carlson-Wee",
+    "posted_at": "Sun, 10 Jul 2011 15:44:18 GMT",
+    "title": "RT @timmerarjan Life is good! http://yfrog.com/kkli4iaj zeker !! Wel tof dat je het deelt met je vrienden :)",
+    "text": "RT @timmerarjan Life is good! yfrog.com/kkli4iaj zeker !! Wel tof dat je het deelt met je vrienden :)",
+    "url": "http://nitter.meowing.monster/olaf/status/90083936700600321#m",
+    "fetched_at": "2026-10-31T22:57:56.106823+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "wallstreetbets",
+    "name": "WallStreetBets (X)",
+    "posted_at": "Sat, 31 Oct 2026 21:54:27 GMT",
+    "title": "BREAKING: 🇺🇸🇰🇵 FBI says North Korea is responsible for the $6.3 BILLION Binance crypto hack - RTRS.",
+    "text": "BREAKING: 🇺🇸🇰🇵 FBI says North Korea is responsible for the $6.3 BILLION Binance crypto hack - RTRS.",
+    "url": "http://nitter.meowing.monster/wallstreetbets/status/2116650030576611356#m",
+    "fetched_at": "2026-10-31T22:59:59.255587+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "wallstreetbets",
+    "name": "WallStreetBets (X)",
+    "posted_at": "Sat, 31 Oct 2026 21:41:40 GMT",
+    "title": "Image",
+    "text": "Watcher.Guru (@WatcherGuru) BREAKING: 🇺🇸🇰🇵 FBI confirms North Korea is responsible for the $6,300,000,000 Binance crypto hack. — http://nitter.meowing.monster/WatcherGuru/status/2116644116872519909#m",
+    "url": "http://nitter.meowing.monster/wallstreetbets/status/2116646814296547415#m",
+    "fetched_at": "2026-10-31T22:59:59.255587+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "wallstreetbets",
+    "name": "WallStreetBets (X)",
+    "posted_at": "Sat, 31 Oct 2026 21:03:08 GMT",
+    "title": "gotta fix it myself",
+    "text": "gotta fix it myself",
+    "url": "http://nitter.meowing.monster/wallstreetbets/status/2116637116742373547#m",
+    "fetched_at": "2026-10-31T22:59:59.255587+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "SemiAnalysis_",
+    "name": "SemiAnalysis",
+    "posted_at": "Sat, 31 Oct 2026 19:03:04 GMT",
+    "title": "ALERT🚨🚨🚨: AMD's @AnushElangovan and his team have achieved up to 2x better performance per dollar than even B200 on Kimi K3 Agentic Inference! This is due to various software optimization efforts, including tuning AITER kernels and MonoKernel decode. Along with MI355X having 2304GB of HBM per server, this allows it to avoid crossing slow 8x400Gbit/s scale-out networking between servers, which B200 needs to do due to having less than 1.5TB of HBM. Great work to Anush, Peng Sun, Ramine, Emad, and the vLLM team for this amazing work!",
+    "text": "ALERT🚨🚨🚨: AMD's @AnushElangovan and his team have achieved up to 2x better performance per dollar than even B200 on Kimi K3 Agentic Inference! This is due to various software optimization efforts, including tuning AITER kernels and MonoKernel decode. Along with MI355X having 2304GB of HBM per server, this allows it to avoid crossing slow 8x400Gbit/s scale-out networking between servers, which B200 needs to do due to having less than 1.5TB of HBM. Great work to Anush, Peng Sun, Ramine, Emad, and the vLLM team for this amazing work!",
+    "url": "http://nitter.meowing.monster/SemiAnalysis_/status/2116606900271788210#m",
+    "fetched_at": "2026-10-31T22:59:42.181825+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "wallstreetbets",
+    "name": "WallStreetBets (X)",
+    "posted_at": "Sat, 31 Oct 2026 18:35:36 GMT",
+    "title": "love what Tether and WLFI are doing with stablecoins @chamath breaks down the business model on All-In Podcast",
+    "text": "love what Tether and WLFI are doing with stablecoins @chamath breaks down the business model on All-In Podcast Video",
+    "url": "http://nitter.meowing.monster/wallstreetbets/status/2116599989069598851#m",
+    "fetched_at": "2026-10-31T22:59:59.255587+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "const_reborn",
+    "name": "Jacob Steeves",
+    "posted_at": "Sat, 31 Oct 2026 17:00:47 GMT",
+    "title": "the real* up and to the right charts",
+    "text": "the real* up and to the right charts romAI (@RomAI__) 100 steps of fully decentralized RL on Reliquary. Rollouts from untrusted miners on 12+ GPU models. That usually breaks RL: we fix the sampling noise publicly, so the trainer knows exactly what the model would have sampled. Every eval sample verified on-subnet. bittensor:native — http://nitter.meowing.monster/RomAI__/status/2116421379776241695#m",
+    "url": "http://nitter.meowing.monster/const_reborn/status/2116576126722077003#m",
+    "fetched_at": "2026-10-31T22:57:25.170544+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "wallstreetbets",
+    "name": "WallStreetBets (X)",
+    "posted_at": "Sat, 31 Oct 2026 16:30:00 GMT",
+    "title": "rate my halloween costume",
+    "text": "rate my halloween costume",
+    "url": "http://nitter.meowing.monster/wallstreetbets/status/2116568381730234620#m",
+    "fetched_at": "2026-10-31T22:59:59.255587+00:00",
     "via_instance": "https://nitter.cz"
   },
   {
@@ -277,6 +377,16 @@
     "text": "top revenue projects in crypto: 1. Lazarus - $14.1B 2. Pump - $1.396B 3. OpenSea - $920.56M 4. Phantom - $599.4M 5. Axiom Pro - $473.66M lazarus outperformed every other project in crypto",
     "url": "http://nitter.meowing.monster/wallstreetbets/status/2116356989550760142#m",
     "fetched_at": "2026-10-31T10:08:20.729259+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "SemiAnalysis_",
+    "name": "SemiAnalysis",
+    "posted_at": "Sat, 31 Oct 2026 02:28:24 GMT",
+    "title": "Gif",
+    "text": "Anthropic (@AnthropicAI) We’ve trained Claude to flag potential misuse in conversations, a technique we call self-assessment. Right after it responds, Claude gives a preliminary safety assessment of the conversation. Since we began using self-assessment in June, it has surfaced misuse that our other safeguards weren’t designed to catch. Because Claude has already read the conversation, self-assessment is very efficient. And unlike classifiers, which target a discrete set of harms, it draws on Claude’s own judgment, so it gets more accurate as our models improve. Read more on our new Safeguards",
+    "url": "http://nitter.meowing.monster/SemiAnalysis_/status/2116356583634469122#m",
+    "fetched_at": "2026-10-31T22:59:42.181825+00:00",
     "via_instance": "https://nitter.cz"
   },
   {
@@ -340,6 +450,36 @@
     "via_instance": "https://nitter.cz"
   },
   {
+    "handle": "SemiAnalysis_",
+    "name": "SemiAnalysis",
+    "posted_at": "Fri, 30 Oct 2026 23:00:28 GMT",
+    "title": "R to @SemiAnalysis_: While most attention goes to tool makers such as SMEE, we looked at their supply chain. We believe components are the key for China to develop lithography further. (4/5)",
+    "text": "While most attention goes to tool makers such as SMEE, we looked at their supply chain. We believe components are the key for China to develop lithography further. (4/5)",
+    "url": "http://nitter.meowing.monster/SemiAnalysis_/status/2116304255883596129#m",
+    "fetched_at": "2026-10-31T22:59:42.181825+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "SemiAnalysis_",
+    "name": "SemiAnalysis",
+    "posted_at": "Fri, 30 Oct 2026 23:00:28 GMT",
+    "title": "R to @SemiAnalysis_: We discussed in our WFE Model which components matter most and how far each is from production grade. Subscribe to learn more! (5/5) https://semianalysis.com/wafer-fab-model/",
+    "text": "We discussed in our WFE Model which components matter most and how far each is from production grade. Subscribe to learn more! (5/5) semianalysis.com/wafer-fab-m… Link Wafer Fab Equipment Model The SemiAnalysis Wafer Fab Equipment Model: bottoms-up forecasts of semiconductor capital equipment demand from wafer capacity and process-node requirements, with lithography, deposition, etch, wafer... semianalysis.com",
+    "url": "http://nitter.meowing.monster/SemiAnalysis_/status/2116304257129259450#m",
+    "fetched_at": "2026-10-31T22:59:42.181825+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "SemiAnalysis_",
+    "name": "SemiAnalysis",
+    "posted_at": "Fri, 30 Oct 2026 23:00:27 GMT",
+    "title": "Canon just cut its 2026 i-line stepper plan for the second time this year. We believe share loss in China is one important driver. (1/5)🧵",
+    "text": "Canon just cut its 2026 i-line stepper plan for the second time this year. We believe share loss in China is one important driver. (1/5)🧵",
+    "url": "http://nitter.meowing.monster/SemiAnalysis_/status/2116304252565856470#m",
+    "fetched_at": "2026-10-31T22:59:42.181825+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
     "handle": "VantaTrading",
     "name": "Vanta",
     "posted_at": "Fri, 30 Oct 2026 20:30:36 GMT",
@@ -387,6 +527,36 @@
     "text": "A credibly neutral network state with its own economy and currency being essential to the proliferation of truly open intelligence is a profound concept. After much study I’ve concluded the same and think that it’s an inevitability. I would **highly** recommend listening to this weeks novelty search where @const_reborn went more in depth on this. He also highlighted what’s coming down the pike next week with updates to Bittensor’s wallet infrastructure in light of the recent AI advancements in mathematics. Bittensor wallets will be able to hide the signing key behind a hash and swap in a new o",
     "url": "http://nitter.meowing.monster/0xSunRun/status/2116205210590744633#m",
     "fetched_at": "2026-10-31T10:06:04.490776+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "const_reborn",
+    "name": "Jacob Steeves",
+    "posted_at": "Fri, 30 Oct 2026 16:12:48 GMT",
+    "title": "R to @const_reborn: There will be Fiat AI and then there will be Bitcoin AI.",
+    "text": "There will be Fiat AI and then there will be Bitcoin AI.",
+    "url": "http://nitter.meowing.monster/const_reborn/status/2116201664160125026#m",
+    "fetched_at": "2026-10-31T22:57:25.170544+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "const_reborn",
+    "name": "Jacob Steeves",
+    "posted_at": "Fri, 30 Oct 2026 16:11:38 GMT",
+    "title": "The Cohere - Canada thing is strategically intelligent. It also shows how the AI game is largely a geopolitical one. And therefore why, the only truly neutral AI companies, and their underlying minds, will exist in crypto space.",
+    "text": "The Cohere - Canada thing is strategically intelligent. It also shows how the AI game is largely a geopolitical one. And therefore why, the only truly neutral AI companies, and their underlying minds, will exist in crypto space. Cohere (@cohere) We’re expanding our commitment to Canada 🇨🇦 Cohere is advancing plans to invest more than C$4 billion in R&amp;D and AI infrastructure and create over 1,500 jobs through 2031. — http://nitter.meowing.monster/cohere/status/2116186531366949192#m",
+    "url": "http://nitter.meowing.monster/const_reborn/status/2116201368835039637#m",
+    "fetched_at": "2026-10-31T22:57:25.170544+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "const_reborn",
+    "name": "Jacob Steeves",
+    "posted_at": "Fri, 30 Oct 2026 15:11:21 GMT",
+    "title": "R to @const_reborn: And then there are the build outs from more ingrained teams like @Hippius_cloud (becoming a fully fledged cloudflare competitor, CDN, compute, storage, networking) -- its just a really exciting time in Bittensor.",
+    "text": "And then there are the build outs from more ingrained teams like @Hippius_cloud (becoming a fully fledged cloudflare competitor, CDN, compute, storage, networking) -- its just a really exciting time in Bittensor.",
+    "url": "http://nitter.meowing.monster/const_reborn/status/2116186200423690746#m",
+    "fetched_at": "2026-10-31T22:57:25.170544+00:00",
     "via_instance": "https://nitter.cz"
   },
   {

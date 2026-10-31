@@ -152,6 +152,8 @@ _no new posts in the lookback window_
   http://nitter.meowing.monster/webuildscore/status/2115451273898061952#m
 - @lium_io (Lium, Wed, 28 Oct 2026): b300s available for $4/hour on lium! We are giving away b300s for the price of h200s. We now have 550 b300s on lium, with 443 of them rented. Constantly improving accessibility to frontier compute.  
   http://nitter.meowing.monster/lium_io/status/2115445163363316133#m
+- @const_reborn (Jacob Steeves, Wed, 28 Oct 2026): Now Live: Beam💫 x @huggingface🤗. Nearly 3 million public models. 1 million datasets. Hugging Face has become a major hub for open AI, with its dataset count growing from 711,000 to 1 million in the first seven months of 2026. That scale creates a practical challenge: getting massive datasets to the compute that needs them. Beam will enable teams to move large datasets into and out of Hugging Face through its distributed network, connecting the data behind AI to the infrastructure that puts it to work.  
+  http://nitter.meowing.monster/b1m_ai/status/2115443520551166359#m
 - @tplr_ai (Templar, Wed, 23 Sep 2026): Read the blog: tplr.ai/publications/blog/sk… Link Fault tolerance in low-bandwidth model parallelism: exploring pipeline stage-skipping with boundary... We explore how the residual nature of the transformer architecture can be leveraged to mitigate hardware faults, and demonstrate that the compression-based implementation of low-bandwidth model... tplr.ai  
   https://nitter.kareem.one/tplr_ai/status/2102792676676432160#m
 - @tplr_ai (Templar, Wed, 23 Sep 2026): Video  
@@ -184,10 +186,28 @@ _no new posts in the lookback window_
   http://nitter.meowing.monster/1inch/status/2115784338562548027#m
 - @opentensor (Opentensor Foundation, Thu, 29 Oct 2026): This Thursday on Novelty Search :: Bittensor Updates @const_reborn will be joined by @markjeffrey for an open discussion on Bittensor’s latest developments, upcoming protocol updates, and the broader vision for the network. Live on Thursday :: 9PM UTC :: via Bittensor Discord Video  
   https://nitter.kareem.one/opentensor/status/2115730619468845300#m
+- @Olaf (Olaf Carlson-Wee, Thu, 19 Aug 2010): lekker biertje drinken bij Dims!  
+  http://nitter.meowing.monster/olaf/status/21602951308#m
 - @_redteam_ (RedTeam / Innerworks, Thu, 10 Sep 2026): I am pleased to announce that Stillcore Capital @stillcorecap has invested in Red Team @_redteam_ Bittensor $TAO Subnet 61.  
   http://nitter.meowing.monster/markjeffrey/status/2098171401152971021#m
 - @lium_io (Lium, Sun, 25 Oct 2026): lium: the only place globally where you can rent h200 and b300 clusters on-demand and instantly. We continue to revolutionize the GPU industry by shipping novel features optimized for agent productivity and efficiency.  
   http://nitter.meowing.monster/lium_io/status/2114420810857263254#m
+- @Olaf (Olaf Carlson-Wee, Sun, 10 Jul 2011): RT @timmerarjan Life is good! yfrog.com/kkli4iaj zeker !! Wel tof dat je het deelt met je vrienden :)  
+  http://nitter.meowing.monster/olaf/status/90083936700600321#m
+- @wallstreetbets (WallStreetBets (X), Sat, 31 Oct 2026): BREAKING: 🇺🇸🇰🇵 FBI says North Korea is responsible for the $6.3 BILLION Binance crypto hack - RTRS.  
+  http://nitter.meowing.monster/wallstreetbets/status/2116650030576611356#m
+- @wallstreetbets (WallStreetBets (X), Sat, 31 Oct 2026): Watcher.Guru (@WatcherGuru) BREAKING: 🇺🇸🇰🇵 FBI confirms North Korea is responsible for the $6,300,000,000 Binance crypto hack. — http://nitter.meowing.monster/WatcherGuru/status/2116644116872519909#m  
+  http://nitter.meowing.monster/wallstreetbets/status/2116646814296547415#m
+- @wallstreetbets (WallStreetBets (X), Sat, 31 Oct 2026): gotta fix it myself  
+  http://nitter.meowing.monster/wallstreetbets/status/2116637116742373547#m
+- @SemiAnalysis_ (SemiAnalysis, Sat, 31 Oct 2026): ALERT🚨🚨🚨: AMD's @AnushElangovan and his team have achieved up to 2x better performance per dollar than even B200 on Kimi K3 Agentic Inference! This is due to various software optimization efforts, including tuning AITER kernels and MonoKernel decode. Along with MI355X having 2304GB of HBM per server, this allows it to avoid crossing slow 8x400Gbit/s scale-out networking between servers, which B200 needs to do due to having less than 1.5TB of HBM. Great work to Anush, Peng Sun, Ramine, Emad, and the vLLM team for this amazing work!  
+  http://nitter.meowing.monster/SemiAnalysis_/status/2116606900271788210#m
+- @wallstreetbets (WallStreetBets (X), Sat, 31 Oct 2026): love what Tether and WLFI are doing with stablecoins @chamath breaks down the business model on All-In Podcast Video  
+  http://nitter.meowing.monster/wallstreetbets/status/2116599989069598851#m
+- @const_reborn (Jacob Steeves, Sat, 31 Oct 2026): the real* up and to the right charts romAI (@RomAI__) 100 steps of fully decentralized RL on Reliquary. Rollouts from untrusted miners on 12+ GPU models. That usually breaks RL: we fix the sampling noise publicly, so the trainer knows exactly what the model would have sampled. Every eval sample verified on-subnet. bittensor:native — http://nitter.meowing.monster/RomAI__/status/2116421379776241695#m  
+  http://nitter.meowing.monster/const_reborn/status/2116576126722077003#m
+- @wallstreetbets (WallStreetBets (X), Sat, 31 Oct 2026): rate my halloween costume  
+  http://nitter.meowing.monster/wallstreetbets/status/2116568381730234620#m
 - @wallstreetbets (WallStreetBets (X), Sat, 31 Oct 2026): we're not leaving  
   http://nitter.meowing.monster/wallstreetbets/status/2116447583233048675#m
 - @wallstreetbets (WallStreetBets (X), Sat, 31 Oct 2026): surely this is the bottom  
@@ -198,6 +218,8 @@ _no new posts in the lookback window_
   http://nitter.meowing.monster/wallstreetbets/status/2116356989919838257#m
 - @wallstreetbets (WallStreetBets (X), Sat, 31 Oct 2026): top revenue projects in crypto: 1. Lazarus - $14.1B 2. Pump - $1.396B 3. OpenSea - $920.56M 4. Phantom - $599.4M 5. Axiom Pro - $473.66M lazarus outperformed every other project in crypto  
   http://nitter.meowing.monster/wallstreetbets/status/2116356989550760142#m
+- @SemiAnalysis_ (SemiAnalysis, Sat, 31 Oct 2026): Anthropic (@AnthropicAI) We’ve trained Claude to flag potential misuse in conversations, a technique we call self-assessment. Right after it responds, Claude gives a preliminary safety assessment of the conversation. Since we began using self-assessment in June, it has surfaced misuse that our other safeguards weren’t designed to catch. Because Claude has already read the conversation, self-assessment is very efficient. And unlike classifiers, which target a discrete set of harms, it draws on Claude’s own judgment, so it gets more accurate as our models improve. Read more on our new Safeguards  
+  http://nitter.meowing.monster/SemiAnalysis_/status/2116356583634469122#m
 - @lium_io (Lium, Sat, 24 Oct 2026): we've enabled GPU profiling (ncu) on our nodes so that y'all can have a better chance to win this :) lium.io/?ncu=1&amp;sort=upload Link Rent GPUs On Demand: H100, H200, B200, RTX 4090 and More | lium.io Agent-first compute on Lium: rent H100, B200, RTX 4090 and more GPU pods at marketplace prices. Deploy in seconds via browser or CLI. Billed per second. lium.io Daniel Gross (@danielgross) We're launching a $100,000 challenge to see who can make Muse Spark run fastest: openkernelchallenge.dev/ Link Muse Spark Open Kernel Challenge Make Meta’s Muse Spark Open run faster. Start by optimizing its  
   http://nitter.meowing.monster/lium_io/status/2113982218196721876#m
 - @lium_io (Lium, Sat, 24 Oct 2026): lium 8xH100 rental fully configured within 12 seconds. We know your time is valuable, so we don't require a sales call, request for quota form, or 30 minute provisioning like competitors do. If you need compute, the fastest and cheapest way to get it is on lium. We have more availability, better software, and faster service than your current GPU provider. Video  
@@ -210,29 +232,17 @@ _no new posts in the lookback window_
   https://nitter.kareem.one/opentensor/status/2114706866790121564#m
 - @_redteam_ (RedTeam / Innerworks, Mon, 07 Sep 2026): Join us this Thursday to discuss all things RedTeam Openτensor Foundaτion (@opentensor) Novelty Search :: Subnet 61 :: @_redteam_ RedTeam turns Bittensor miners into a 24/7 network of ethical hackers. We’ll discuss how SN61 uses that competition to stay ahead of evolving bot attacks, its five new enterprise pilots, and what comes next with RedTeam’s upcoming Immune System. Live on Thursday :: 9PM UTC :: on X + YouTube Hosted by @const_reborn — http://nitter.meowing.monster/opentensor/status/2097022237337682320#m  
   http://nitter.meowing.monster/_redteam_/status/2097023368629191078#m
+- @SemiAnalysis_ (SemiAnalysis, Fri, 30 Oct 2026): While most attention goes to tool makers such as SMEE, we looked at their supply chain. We believe components are the key for China to develop lithography further. (4/5)  
+  http://nitter.meowing.monster/SemiAnalysis_/status/2116304255883596129#m
+- @SemiAnalysis_ (SemiAnalysis, Fri, 30 Oct 2026): We discussed in our WFE Model which components matter most and how far each is from production grade. Subscribe to learn more! (5/5) semianalysis.com/wafer-fab-m… Link Wafer Fab Equipment Model The SemiAnalysis Wafer Fab Equipment Model: bottoms-up forecasts of semiconductor capital equipment demand from wafer capacity and process-node requirements, with lithography, deposition, etch, wafer... semianalysis.com  
+  http://nitter.meowing.monster/SemiAnalysis_/status/2116304257129259450#m
+- @SemiAnalysis_ (SemiAnalysis, Fri, 30 Oct 2026): Canon just cut its 2026 i-line stepper plan for the second time this year. We believe share loss in China is one important driver. (1/5)🧵  
+  http://nitter.meowing.monster/SemiAnalysis_/status/2116304252565856470#m
 - @VantaTrading (Vanta, Fri, 30 Oct 2026): “I got promoted to a pro account today so I had multiple questions, I just went to their discord to create a ticket and they replied so fast all my questions were answered on point, Great customer support fr, and also I have received 11 payouts (still counting) from this firm in case you are wondering if they are trustworthy. Thank you Vanta” - From Oladeinde on Trustpilot This is why we built Vanta - to help traders succeed, grow, and get paid. We call it the Vanta Difference.  
   http://nitter.meowing.monster/VantaTrading/status/2116266540370960823#m
 - @rob_svrn (Rob Greer, Fri, 30 Oct 2026): I would buy something more productive like bittensor:native and all these tech stocks on sale Bitcoin is sideways or +/- 30% next three years  
   http://nitter.meowing.monster/Jason/status/2116265695143199088#m
-- @webuildscore (Score, Fri, 30 Oct 2026): October on SN44, in a few lines. -More public tracking tasks running on the subnet -3 new public elements out -A big chunk of example data from the cricket private track is now public -A lot of quiet work on security and scale -We can spin up new tasks faster now, with plenty more coming And following IBC, one of the largest real-time graphics software companies is now testing a Studio endpoint, running on the football model built earlier this year under our previous incentive mechanism. Meanwhile, we’re collecting feedback from Studio users for what comes next. From here the pace only picks u  
-  http://nitter.meowing.monster/webuildscore/status/2116236191293190396#m
-- @VantaTrading (Vanta, Fri, 30 Oct 2026): The winner of our $100k account giveaway to celebrate $1m in Vanta payouts is @trenchkidXBT 🎉 Please check your DMs for your code. If you didn't win - we still have 40% off all challenges using code 'SPOOKY40' until Nov 6 🎃 vantatrading.io/ Link Prop Firm Evaluation, 100% Reward Split | Vanta Trading One-step prop firm evaluation on a simulated account. Hit the 10% target, keep 100% of weekly rewards by default, then a published path to $1M Pro accounts. vantatrading.io Vanta Trading (@VantaTrading) A milestone moment: We've paid out $1,000,000 to traders 🎉 To celebrate, we're giving away a $1  
-  http://nitter.meowing.monster/VantaTrading/status/2116225929319972918#m
-- @rob_svrn (Rob Greer, Fri, 30 Oct 2026): A credibly neutral network state with its own economy and currency being essential to the proliferation of truly open intelligence is a profound concept. After much study I’ve concluded the same and think that it’s an inevitability. I would **highly** recommend listening to this weeks novelty search where @const_reborn went more in depth on this. He also highlighted what’s coming down the pike next week with updates to Bittensor’s wallet infrastructure in light of the recent AI advancements in mathematics. Bittensor wallets will be able to hide the signing key behind a hash and swap in a new o  
-  http://nitter.meowing.monster/0xSunRun/status/2116205210590744633#m
-- @VantaTrading (Vanta, Fri, 30 Oct 2026): everyone's talking about it, so... through the power vested in me as Vanta's intern, i would like to formally announce we are ending our relationship with propfirmmatch we didn't collaborate with them but i just wanted to be included 😎  
-  http://nitter.meowing.monster/VantaTrading/status/2116180548393574535#m
-- @VantaTrading (Vanta, Fri, 30 Oct 2026): winner dropping this afternoon 👀 Vanta Trading (@VantaTrading) A milestone moment: We've paid out $1,000,000 to traders 🎉 To celebrate, we're giving away a $100,000 classic challenge. To enter: • Retweet this post • Follow @VantaTrading • Plus, a bonus entry for every friend you tag in the comments Next stop: $10m and beyond 🚀 — http://nitter.meowing.monster/VantaTrading/status/2115443073924640997#m  
-  http://nitter.meowing.monster/VantaTrading/status/2116179666147082704#m
-- @1inch (1inch, Fri, 30 Oct 2026): Crypto doesn’t have competitors. When things get tough, we only have partners. That’s why we will win.  
-  http://nitter.meowing.monster/1inch/status/2116118425856516153#m
-- @1inch (1inch, Fri, 30 Oct 2026): We're aware of the Binance exploit and are reaching out to the Binance team to offer our support. Our risk management team, working with ZeroShadow, SEAL 911, TRM Labs and others, blocked the exploit-linked addresses from the 1inch dApp, 1inch Wallet and 1inch API within the first hour and is adding new ones as they are identified. The same list goes to resolvers and integrators. Some 1INCH was among the stolen assets. 1INCH is a standard ERC-20 with no freeze or blocklist function, so the stolen tokens can't be frozen by anyone. We will cooperate fully with Binance and law enforcement on trac  
-  http://nitter.meowing.monster/1inch/status/2116023549211406829#m
-- @VantaTrading (Vanta, Fri, 30 Oct 2026): Your buying power, Classic vs Pro: Forex 30x / 40x Crypto 10x / 12x Indices 8x / 10x Commodities 6x / 8x Equities 4x / 6x Portfolio 40x / 50x vantatrading.io/rules  
-  http://nitter.meowing.monster/VantaTrading/status/2115987191122067907#m
-- @_redteam_ (RedTeam / Innerworks, Fri, 11 Sep 2026): The future of cybersecurity will be dictated by a defender's ability to not only ingest unique attacks, but generate the strains that don't exist yet and ship the detection ahead of them. As the rest of the industry degrades, the largest financial institutions will consolidate on the single provider that can do this at scale. That provider needs a constant supply of unique attacks to work from, and a subnet is the only structure that pays a swarm of attackers to supply them. bittensor:native #SN61 Openτensor Foundaτion (@opentensor) RedTeam is working toward integrations with three banking com  
-  http://nitter.meowing.monster/_redteam_/status/2098469688137097632#m
 
 
 ---
-_Generated at 2026-10-31T16:41:37.967387+00:00 by scripts/intel/aggregate.py. Treat this digest as input context, not as ground truth. Verify before quoting._
+_Generated at 2026-10-31T23:00:13.987271+00:00 by scripts/intel/aggregate.py. Treat this digest as input context, not as ground truth. Verify before quoting._
