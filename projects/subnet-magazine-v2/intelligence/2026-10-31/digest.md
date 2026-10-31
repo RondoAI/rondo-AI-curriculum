@@ -142,6 +142,10 @@ _no new posts in the lookback window_
 
 ## ⊕ X via NITTER, voices we track
 
+- @opentensor (Opentensor Foundation, Wed, 28 Oct 2026): Introducing the first ever Injective Hacker House! We are hosting it with leading partners including @awscloud, @animocabrands, Japanese securities firm @smbcnikko_jp, @opentensor, and Gulf Labs, part of Thailand’s $27B GULF Group. 20 teams. 10 days. 1 mission with $INJ 🧵 Video  
+  https://nitter.kareem.one/injective/status/2115488559125721359#m
+- @opentensor (Opentensor Foundation, Wed, 28 Oct 2026): The cutting edge of AI compute, at ridiculously competitive prices on Bittensor. lium.io (@lium_io) b300s available for $4/hour on lium! We are giving away b300s for the price of h200s. We now have 550 b300s on lium, with 443 of them rented. Constantly improving accessibility to frontier compute. — https://nitter.kareem.one/lium_io/status/2115445163363316133#m  
+  https://nitter.kareem.one/opentensor/status/2115465485030707227#m
 - @tplr_ai (Templar, Wed, 23 Sep 2026): Read the blog: tplr.ai/publications/blog/sk… Link Fault tolerance in low-bandwidth model parallelism: exploring pipeline stage-skipping with boundary... We explore how the residual nature of the transformer architecture can be leveraged to mitigate hardware faults, and demonstrate that the compression-based implementation of low-bandwidth model... tplr.ai  
   https://nitter.kareem.one/tplr_ai/status/2102792676676432160#m
 - @tplr_ai (Templar, Wed, 23 Sep 2026): Video  
@@ -152,7 +156,43 @@ _no new posts in the lookback window_
   https://nitter.kareem.one/tplr_ai/status/2100237714918367690#m
 - @tplr_ai (Templar, Tue, 29 Sep 2026): The heads of the biggest AI labs want to agree among themselves on when everyone should slow down. @TheEconomist's piece on that push ends with Covenant-72B, the model we finished training in March on GPUs contributed over the internet, as a reason such agreements may be hard to enforce. What the piece doesn't say is that once training no longer requires one giant, tightly connected cluster, the power to build new models no longer has to sit with a few companies. Globally distributed training and open models are essential tools for keeping that power from concentrating in the frontier labs. Th  
   https://nitter.kareem.one/tplr_ai/status/2104937831097352377#m
+- @rob_svrn (Rob Greer, Tue, 27 Oct 2026): Bittensor $TAO is starting to see millions of dollars a month in buybacks from real revenue and you’re still bidding ponzi tokens with no value accrual? Targon (@TargonCompute) We have just repurchased and burned 1,772 TAO (~$445K) of SN4 alpha using organic revenues generated via Targon.com We have also burned an additional 6,678 TAO (~$1.7M) worth of SN4 alpha, which also represents revenue generated via Targon — http://nitter.meowing.monster/TargonCompute/status/2115124390052409817#m  
+  http://nitter.meowing.monster/lcnxyz/status/2115191703829389340#m
+- @opentensor (Opentensor Foundation, Thu, 29 Oct 2026): Bittensor :: Novelty Search nitterk.kareem.one/i/broadcasts/1aKbdEjyL… Link Openτensor Foundaτion Bittensor :: Novelty Search https://nitter.kareem.one/i/broadcasts/1aKbdEjyLaqJX  
+  https://nitter.kareem.one/opentensor/status/2115912730633015561#m
+- @rob_svrn (Rob Greer, Thu, 29 Oct 2026): Our piece in the Crypto Insights Group 4Q26 Outlook: bittensor:native Is (Much) Bigger Than It Looks (pp 23-24) @Jason @markjeffrey @rob_svrn Crypto Insights Group (@CIG_Crypto) CIG’s 4Q26 Active Strategy Outlook Magazine is live! This quarter, leading fund managers and allocators shared perspectives on vault diligence, tokenized alpha, and where market neutral returns go from here. 👉 Access the full report here: cryptoinsightsgroup.com/insi… Link Announcing The 4Q26 Active Strategy Outlook Magazine cryptoinsightsgroup.com — http://nitter.meowing.monster/CIG_Crypto/status/2115783347528188149#m  
+  http://nitter.meowing.monster/stillcorecap/status/2115858564556230731#m
+- @rob_svrn (Rob Greer, Thu, 29 Oct 2026): the overall revenue on bittensor:native is skyrocketing, many shit subnets being purged while top ones have large MoM growth Its currently in its best ever state as the competition forces innovation at rapid pace  
+  http://nitter.meowing.monster/AlgodTrading/status/2115831958387245170#m
+- @opentensor (Opentensor Foundation, Thu, 29 Oct 2026): This Thursday on Novelty Search :: Bittensor Updates @const_reborn will be joined by @markjeffrey for an open discussion on Bittensor’s latest developments, upcoming protocol updates, and the broader vision for the network. Live on Thursday :: 9PM UTC :: via Bittensor Discord Video  
+  https://nitter.kareem.one/opentensor/status/2115730619468845300#m
+- @wallstreetbets (WallStreetBets (X), Sat, 31 Oct 2026): we're not leaving  
+  http://nitter.meowing.monster/wallstreetbets/status/2116447583233048675#m
+- @wallstreetbets (WallStreetBets (X), Sat, 31 Oct 2026): surely this is the bottom  
+  http://nitter.meowing.monster/wallstreetbets/status/2116417385536381016#m
+- @wallstreetbets (WallStreetBets (X), Sat, 31 Oct 2026): can we have one good week  
+  http://nitter.meowing.monster/wallstreetbets/status/2116387188975759785#m
+- @wallstreetbets (WallStreetBets (X), Sat, 31 Oct 2026): lazarus airdrop when?  
+  http://nitter.meowing.monster/wallstreetbets/status/2116356989919838257#m
+- @wallstreetbets (WallStreetBets (X), Sat, 31 Oct 2026): top revenue projects in crypto: 1. Lazarus - $14.1B 2. Pump - $1.396B 3. OpenSea - $920.56M 4. Phantom - $599.4M 5. Axiom Pro - $473.66M lazarus outperformed every other project in crypto  
+  http://nitter.meowing.monster/wallstreetbets/status/2116356989550760142#m
+- @opentensor (Opentensor Foundation, Mon, 26 Oct 2026): Video Openτensor Foundaτion (@opentensor) Article Bittensor Ecosystem Highlights :: October 19–25, 2026 Affine just launched Bittensor’s first public AI video studio. This week’s biggest stories across Bittensor came from Affine, IOTA, Trishool, Lium, Hippius, SayGM, Leadpoet, Vidaio and Yugos. [ — https://nitter.kareem.one/opentensor/status/2114396664798597387#m  
+  https://nitter.kareem.one/opentensor/status/2114706866790121564#m
+- @VantaTrading (Vanta, Fri, 30 Oct 2026): “I got promoted to a pro account today so I had multiple questions, I just went to their discord to create a ticket and they replied so fast all my questions were answered on point, Great customer support fr, and also I have received 11 payouts (still counting) from this firm in case you are wondering if they are trustworthy. Thank you Vanta” - From Oladeinde on Trustpilot This is why we built Vanta - to help traders succeed, grow, and get paid. We call it the Vanta Difference.  
+  http://nitter.meowing.monster/VantaTrading/status/2116266540370960823#m
+- @rob_svrn (Rob Greer, Fri, 30 Oct 2026): I would buy something more productive like bittensor:native and all these tech stocks on sale Bitcoin is sideways or +/- 30% next three years  
+  http://nitter.meowing.monster/Jason/status/2116265695143199088#m
+- @VantaTrading (Vanta, Fri, 30 Oct 2026): The winner of our $100k account giveaway to celebrate $1m in Vanta payouts is @trenchkidXBT 🎉 Please check your DMs for your code. If you didn't win - we still have 40% off all challenges using code 'SPOOKY40' until Nov 6 🎃 vantatrading.io/ Link Prop Firm Evaluation, 100% Reward Split | Vanta Trading One-step prop firm evaluation on a simulated account. Hit the 10% target, keep 100% of weekly rewards by default, then a published path to $1M Pro accounts. vantatrading.io Vanta Trading (@VantaTrading) A milestone moment: We've paid out $1,000,000 to traders 🎉 To celebrate, we're giving away a $1  
+  http://nitter.meowing.monster/VantaTrading/status/2116225929319972918#m
+- @rob_svrn (Rob Greer, Fri, 30 Oct 2026): A credibly neutral network state with its own economy and currency being essential to the proliferation of truly open intelligence is a profound concept. After much study I’ve concluded the same and think that it’s an inevitability. I would **highly** recommend listening to this weeks novelty search where @const_reborn went more in depth on this. He also highlighted what’s coming down the pike next week with updates to Bittensor’s wallet infrastructure in light of the recent AI advancements in mathematics. Bittensor wallets will be able to hide the signing key behind a hash and swap in a new o  
+  http://nitter.meowing.monster/0xSunRun/status/2116205210590744633#m
+- @VantaTrading (Vanta, Fri, 30 Oct 2026): everyone's talking about it, so... through the power vested in me as Vanta's intern, i would like to formally announce we are ending our relationship with propfirmmatch we didn't collaborate with them but i just wanted to be included 😎  
+  http://nitter.meowing.monster/VantaTrading/status/2116180548393574535#m
+- @VantaTrading (Vanta, Fri, 30 Oct 2026): winner dropping this afternoon 👀 Vanta Trading (@VantaTrading) A milestone moment: We've paid out $1,000,000 to traders 🎉 To celebrate, we're giving away a $100,000 classic challenge. To enter: • Retweet this post • Follow @VantaTrading • Plus, a bonus entry for every friend you tag in the comments Next stop: $10m and beyond 🚀 — http://nitter.meowing.monster/VantaTrading/status/2115443073924640997#m  
+  http://nitter.meowing.monster/VantaTrading/status/2116179666147082704#m
+- @VantaTrading (Vanta, Fri, 30 Oct 2026): Your buying power, Classic vs Pro: Forex 30x / 40x Crypto 10x / 12x Indices 8x / 10x Commodities 6x / 8x Equities 4x / 6x Portfolio 40x / 50x vantatrading.io/rules  
+  http://nitter.meowing.monster/VantaTrading/status/2115987191122067907#m
 
 
 ---
-_Generated at 2026-10-31T03:39:48.033541+00:00 by scripts/intel/aggregate.py. Treat this digest as input context, not as ground truth. Verify before quoting._
+_Generated at 2026-10-31T10:08:31.400416+00:00 by scripts/intel/aggregate.py. Treat this digest as input context, not as ground truth. Verify before quoting._
