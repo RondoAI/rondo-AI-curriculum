@@ -1,0 +1,52 @@
+[
+  {
+    "handle": "tplr_ai",
+    "name": "Templar",
+    "posted_at": "Wed, 23 Sep 2026 16:10:16 GMT",
+    "title": "R to @tplr_ai: Read the blog: https://www.tplr.ai/publications/blog/skipping-stages-with-fixed-projections",
+    "text": "Read the blog: tplr.ai/publications/blog/sk… Link Fault tolerance in low-bandwidth model parallelism: exploring pipeline stage-skipping with boundary... We explore how the residual nature of the transformer architecture can be leveraged to mitigate hardware faults, and demonstrate that the compression-based implementation of low-bandwidth model... tplr.ai",
+    "url": "https://nitter.kareem.one/tplr_ai/status/2102792676676432160#m",
+    "fetched_at": "2026-10-31T03:38:10.831226+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "tplr_ai",
+    "name": "Templar",
+    "posted_at": "Wed, 23 Sep 2026 16:10:16 GMT",
+    "title": "Video",
+    "text": "Video",
+    "url": "https://nitter.kareem.one/tplr_ai/status/2102792674118164542#m",
+    "fetched_at": "2026-10-31T03:38:10.831226+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "tplr_ai",
+    "name": "Templar",
+    "posted_at": "Wed, 16 Sep 2026 14:57:46 GMT",
+    "title": "R to @tplr_ai: These results point toward training on a broader pool of compute, including unreliable workers and spot instances, while keeping healthy stages productive. Blog: https://www.tplr.ai/publications/blog/skipping-stages-with-fixed-projections n/n",
+    "text": "These results point toward training on a broader pool of compute, including unreliable workers and spot instances, while keeping healthy stages productive. Blog: tplr.ai/publications/blog/sk… n/n Link Fault tolerance in low-bandwidth model parallelism: exploring pipeline stage-skipping with boundary... We explore how the residual nature of the transformer architecture can be leveraged to mitigate hardware faults, and demonstrate that the compression-based implementation of low-bandwidth model... tplr.ai",
+    "url": "https://nitter.kareem.one/tplr_ai/status/2100237717162303718#m",
+    "fetched_at": "2026-10-31T03:38:10.831226+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "tplr_ai",
+    "name": "Templar",
+    "posted_at": "Wed, 16 Sep 2026 14:57:46 GMT",
+    "title": "R to @tplr_ai: When using pipeline compression with fixed projections shared across layers, robustness improves further as seen in the figure below. This suggests that shared projectors align representations across stage boundaries, making bypasses less disruptive. 4/n",
+    "text": "When using pipeline compression with fixed projections shared across layers, robustness improves further as seen in the figure below. This suggests that shared projectors align representations across stage boundaries, making bypasses less disruptive. 4/n",
+    "url": "https://nitter.kareem.one/tplr_ai/status/2100237714918367690#m",
+    "fetched_at": "2026-10-31T03:38:10.831226+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "tplr_ai",
+    "name": "Templar",
+    "posted_at": "Tue, 29 Sep 2026 14:14:21 GMT",
+    "title": "The heads of the biggest AI labs want to agree among themselves on when everyone should slow down. @TheEconomist's piece on that push ends with Covenant-72B, the model we finished training in March on GPUs contributed over the internet, as a reason such agreements may be hard to enforce. What the piece doesn't say is that once training no longer requires one giant, tightly connected cluster, the power to build new models no longer has to sit with a few companies. Globally distributed training and open models are essential tools for keeping that power from concentrating in the frontier labs. They let many more participants, from nations to companies, own a share of the future of AI and take part in building it. https://www.economist.com/international/2026/09/15/agreeing-to-make-ai-safer-may-be-impossible",
+    "text": "The heads of the biggest AI labs want to agree among themselves on when everyone should slow down. @TheEconomist's piece on that push ends with Covenant-72B, the model we finished training in March on GPUs contributed over the internet, as a reason such agreements may be hard to enforce. What the piece doesn't say is that once training no longer requires one giant, tightly connected cluster, the power to build new models no longer has to sit with a few companies. Globally distributed training and open models are essential tools for keeping that power from concentrating in the frontier labs. Th",
+    "url": "https://nitter.kareem.one/tplr_ai/status/2104937831097352377#m",
+    "fetched_at": "2026-10-31T03:38:10.831226+00:00",
+    "via_instance": "https://nitter.cz"
+  }
+]
