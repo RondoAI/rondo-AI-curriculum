@@ -1,0 +1,352 @@
+[
+  {
+    "handle": "opentensor",
+    "name": "Opentensor Foundation",
+    "posted_at": "Wed, 28 Oct 2026 16:59:11 GMT",
+    "title": "RT by @opentensor: Introducing the first ever Injective Hacker House! We are hosting it with leading partners including @awscloud, @animocabrands, Japanese securities firm @smbcnikko_jp, @opentensor, and Gulf Labs, part of Thailand’s $27B GULF Group. 20 teams. 10 days. 1 mission with $INJ 🧵",
+    "text": "Introducing the first ever Injective Hacker House! We are hosting it with leading partners including @awscloud, @animocabrands, Japanese securities firm @smbcnikko_jp, @opentensor, and Gulf Labs, part of Thailand’s $27B GULF Group. 20 teams. 10 days. 1 mission with $INJ 🧵 Video",
+    "url": "http://nitter.meowing.monster/injective/status/2115488559125721359#m",
+    "fetched_at": "2026-11-01T03:42:48.982873+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "opentensor",
+    "name": "Opentensor Foundation",
+    "posted_at": "Wed, 28 Oct 2026 15:27:29 GMT",
+    "title": "The cutting edge of AI compute, at ridiculously competitive prices on Bittensor.",
+    "text": "The cutting edge of AI compute, at ridiculously competitive prices on Bittensor. lium.io (@lium_io) b300s available for $4/hour on lium! We are giving away b300s for the price of h200s. We now have 550 b300s on lium, with 443 of them rented. Constantly improving accessibility to frontier compute. — http://nitter.meowing.monster/lium_io/status/2115445163363316133#m",
+    "url": "http://nitter.meowing.monster/opentensor/status/2115465485030707227#m",
+    "fetched_at": "2026-11-01T03:42:48.982873+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "lium_io",
+    "name": "Lium",
+    "posted_at": "Wed, 28 Oct 2026 14:06:44 GMT",
+    "title": "b300s available for $4/hour on lium! We are giving away b300s for the price of h200s. We now have 550 b300s on lium, with 443 of them rented. Constantly improving accessibility to frontier compute.",
+    "text": "b300s available for $4/hour on lium! We are giving away b300s for the price of h200s. We now have 550 b300s on lium, with 443 of them rented. Constantly improving accessibility to frontier compute.",
+    "url": "http://nitter.meowing.monster/lium_io/status/2115445163363316133#m",
+    "fetched_at": "2026-11-01T03:45:37.781732+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "dylan522p",
+    "name": "Dylan Patel",
+    "posted_at": "Wed, 28 Oct 2026 00:57:13 GMT",
+    "title": "Re OpenAI TPU announcements, SemiAnalysis clients had this already. https://semianalysis.com/datacenter-industry-model/",
+    "text": "Re OpenAI TPU announcements, SemiAnalysis clients had this already. semianalysis.com/datacenter-…",
+    "url": "https://nitter.kareem.one/dylan522p/status/2115246475391471817#m",
+    "fetched_at": "2026-11-01T03:45:13.040685+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "tplr_ai",
+    "name": "Templar",
+    "posted_at": "Wed, 23 Sep 2026 16:10:16 GMT",
+    "title": "Video",
+    "text": "Video",
+    "url": "http://nitter.meowing.monster/tplr_ai/status/2102792674118164542#m",
+    "fetched_at": "2026-11-01T03:44:05.204209+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "tplr_ai",
+    "name": "Templar",
+    "posted_at": "Wed, 23 Sep 2026 16:10:16 GMT",
+    "title": "R to @tplr_ai: Read the blog: https://www.tplr.ai/publications/blog/skipping-stages-with-fixed-projections",
+    "text": "Read the blog: tplr.ai/publications/blog/sk… Link Fault tolerance in low-bandwidth model parallelism: exploring pipeline stage-skipping with boundary... We explore how the residual nature of the transformer architecture can be leveraged to mitigate hardware faults, and demonstrate that the compression-based implementation of low-bandwidth model... tplr.ai",
+    "url": "http://nitter.meowing.monster/tplr_ai/status/2102792676676432160#m",
+    "fetched_at": "2026-11-01T03:44:05.204209+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "YumaGroup",
+    "name": "Yuma Holdings",
+    "posted_at": "Wed, 21 Oct 2026 16:41:43 GMT",
+    "title": "R to @YumaGroup: The full letter can be read here: https://www.sec.gov/comments/S7-2026-27/s7202627-1102019-3881646.pdf",
+    "text": "The full letter can be read here: sec.gov/comments/S7-2026-27/…",
+    "url": "https://nitter.kareem.one/YumaGroup/status/2112947451611243004#m",
+    "fetched_at": "2026-11-01T03:43:07.739313+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "tplr_ai",
+    "name": "Templar",
+    "posted_at": "Wed, 16 Sep 2026 14:57:46 GMT",
+    "title": "R to @tplr_ai: When using pipeline compression with fixed projections shared across layers, robustness improves further as seen in the figure below. This suggests that shared projectors align representations across stage boundaries, making bypasses less disruptive. 4/n",
+    "text": "When using pipeline compression with fixed projections shared across layers, robustness improves further as seen in the figure below. This suggests that shared projectors align representations across stage boundaries, making bypasses less disruptive. 4/n",
+    "url": "http://nitter.meowing.monster/tplr_ai/status/2100237714918367690#m",
+    "fetched_at": "2026-11-01T03:44:05.204209+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "tplr_ai",
+    "name": "Templar",
+    "posted_at": "Wed, 16 Sep 2026 14:57:44 GMT",
+    "title": "We’ve been researching fault tolerance in Crucible, Templar’s pre-training platform. The goal: keep training through node failures and make better use of unreliable workers and spot instances, without idling an entire model replica when one stage goes down. 1/n",
+    "text": "We’ve been researching fault tolerance in Crucible, Templar’s pre-training platform. The goal: keep training through node failures and make better use of unreliable workers and spot instances, without idling an entire model replica when one stage goes down. 1/n Video",
+    "url": "http://nitter.meowing.monster/tplr_ai/status/2100237708186550642#m",
+    "fetched_at": "2026-11-01T03:44:05.204209+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "mcjkula",
+    "name": "mcjkula",
+    "posted_at": "Wed, 07 Oct 2026 12:01:47 GMT",
+    "title": "\"The best person to solve your problem might be someone you’ve never met or considered hiring.\" Travis and I explain Bittensor, including examples from weather forecasting (@zeussubnet) and drug discovery (@metanova_labs). Here’s our \"Bittensor 101\" recording from @ExploitSummit",
+    "text": "\"The best person to solve your problem might be someone you’ve never met or considered hiring.\" Travis and I explain Bittensor, including examples from weather forecasting (@zeussubnet) and drug discovery (@metanova_labs). Here’s our \"Bittensor 101\" recording from @ExploitSummit Video",
+    "url": "http://nitter.meowing.monster/mcjkula/status/2107803570699722943#m",
+    "fetched_at": "2026-11-01T03:42:53.426382+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "tplr_ai",
+    "name": "Templar",
+    "posted_at": "Tue, 29 Sep 2026 14:14:21 GMT",
+    "title": "The heads of the biggest AI labs want to agree among themselves on when everyone should slow down. @TheEconomist's piece on that push ends with Covenant-72B, the model we finished training in March on GPUs contributed over the internet, as a reason such agreements may be hard to enforce. What the piece doesn't say is that once training no longer requires one giant, tightly connected cluster, the power to build new models no longer has to sit with a few companies. Globally distributed training and open models are essential tools for keeping that power from concentrating in the frontier labs. They let many more participants, from nations to companies, own a share of the future of AI and take part in building it. https://www.economist.com/international/2026/09/15/agreeing-to-make-ai-safer-may-be-impossible",
+    "text": "The heads of the biggest AI labs want to agree among themselves on when everyone should slow down. @TheEconomist's piece on that push ends with Covenant-72B, the model we finished training in March on GPUs contributed over the internet, as a reason such agreements may be hard to enforce. What the piece doesn't say is that once training no longer requires one giant, tightly connected cluster, the power to build new models no longer has to sit with a few companies. Globally distributed training and open models are essential tools for keeping that power from concentrating in the frontier labs. Th",
+    "url": "http://nitter.meowing.monster/tplr_ai/status/2104937831097352377#m",
+    "fetched_at": "2026-11-01T03:44:05.204209+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "dylan522p",
+    "name": "Dylan Patel",
+    "posted_at": "Tue, 20 Oct 2026 21:42:33 GMT",
+    "title": "FlashAttention was a mega kernel @marksaroufim @tri_dao @__tensorcore__ @vinodg",
+    "text": "FlashAttention was a mega kernel @marksaroufim @tri_dao @__tensorcore__ @vinodg",
+    "url": "https://nitter.kareem.one/dylan522p/status/2112660770458927578#m",
+    "fetched_at": "2026-11-01T03:45:13.040685+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "tm0klc",
+    "name": "Tim",
+    "posted_at": "Tue, 20 Oct 2026 10:58:19 GMT",
+    "title": "input < output < outcomes",
+    "text": "input &lt; output &lt; outcomes",
+    "url": "http://nitter.meowing.monster/tm0klc/status/2112498641273491663#m",
+    "fetched_at": "2026-11-01T03:44:32.209279+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "mcjkula",
+    "name": "mcjkula",
+    "posted_at": "Tue, 06 Oct 2026 14:16:45 GMT",
+    "title": "R to @mcjkula: A plain-English introduction to Bittensor: https://learnbittensor.org/get-started",
+    "text": "A plain-English introduction to Bittensor: learnbittensor.org/get-start…",
+    "url": "http://nitter.meowing.monster/mcjkula/status/2107475150841254343#m",
+    "fetched_at": "2026-11-01T03:42:53.426382+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "mcjkula",
+    "name": "mcjkula",
+    "posted_at": "Tue, 06 Oct 2026 12:04:00 GMT",
+    "title": "Bitcoin rewards one kind of work. Bittensor has a very different idea of “work”",
+    "text": "Bitcoin rewards one kind of work. Bittensor has a very different idea of “work” Video",
+    "url": "http://nitter.meowing.monster/mcjkula/status/2107441742199042204#m",
+    "fetched_at": "2026-11-01T03:42:53.426382+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "opentensor",
+    "name": "Opentensor Foundation",
+    "posted_at": "Thu, 29 Oct 2026 21:04:41 GMT",
+    "title": "Bittensor :: Novelty Search https://x.com/i/broadcasts/1aKbdEjyLaqJX",
+    "text": "Bittensor :: Novelty Search nitter.mizuki.st/i/broadcasts/1aKbdEjyL… Link Openτensor Foundaτion Bittensor :: Novelty Search http://nitter.meowing.monster/i/broadcasts/1aKbdEjyLaqJX",
+    "url": "http://nitter.meowing.monster/opentensor/status/2115912730633015561#m",
+    "fetched_at": "2026-11-01T03:42:48.982873+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "YumaGroup",
+    "name": "Yuma Holdings",
+    "posted_at": "Thu, 29 Oct 2026 15:01:05 GMT",
+    "title": "RT by @YumaGroup: Now Live: Beam + @Zapier. 9,000+ apps. Over 2 million businesses are automating with Zapier. Picture those everyday workflows with Beam’s data movement built in. An app event triggers a transfer. Your data moves where it’s needed. The workflow keeps going.",
+    "text": "Now Live: Beam + @Zapier. 9,000+ apps. Over 2 million businesses are automating with Zapier. Picture those everyday workflows with Beam’s data movement built in. An app event triggers a transfer. Your data moves where it’s needed. The workflow keeps going.",
+    "url": "https://nitter.kareem.one/b1m_ai/status/2115821226228945239#m",
+    "fetched_at": "2026-11-01T03:43:07.739313+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "opentensor",
+    "name": "Opentensor Foundation",
+    "posted_at": "Thu, 29 Oct 2026 09:01:02 GMT",
+    "title": "This Thursday on Novelty Search :: Bittensor Updates @const_reborn will be joined by @markjeffrey for an open discussion on Bittensor’s latest developments, upcoming protocol updates, and the broader vision for the network. Live on Thursday :: 9PM UTC :: via Bittensor Discord",
+    "text": "This Thursday on Novelty Search :: Bittensor Updates @const_reborn will be joined by @markjeffrey for an open discussion on Bittensor’s latest developments, upcoming protocol updates, and the broader vision for the network. Live on Thursday :: 9PM UTC :: via Bittensor Discord Video",
+    "url": "http://nitter.meowing.monster/opentensor/status/2115730619468845300#m",
+    "fetched_at": "2026-11-01T03:42:48.982873+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "YumaGroup",
+    "name": "Yuma Holdings",
+    "posted_at": "Thu, 22 Oct 2026 14:54:57 GMT",
+    "title": "The model itself isn't always the product. Commercial tools can integrate specialized machine intelligence produced on Bittensor and put it to work. HaloGuard EU is a new product from @astrowareai that taps the Trishool subnet (SN23) to help align model outputs with EU compliance requirements. Try it out in the playground or via API. $TAO",
+    "text": "The model itself isn't always the product. Commercial tools can integrate specialized machine intelligence produced on Bittensor and put it to work. HaloGuard EU is a new product from @astrowareai that taps the Trishool subnet (SN23) to help align model outputs with EU compliance requirements. Try it out in the playground or via API. $TAO Trishool | SN23 (@trishoolai) Months of work. Now live. We've launched HaloGuard EU, our first product. Built to block the AI output the EU AI Act bans or treats as high-risk. $30 / billion tokens. Priced, live, free trial open. And it’s only the first. — htt",
+    "url": "https://nitter.kareem.one/YumaGroup/status/2113282968340902298#m",
+    "fetched_at": "2026-11-01T03:43:07.739313+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "lium_io",
+    "name": "Lium",
+    "posted_at": "Sun, 25 Oct 2026 18:16:20 GMT",
+    "title": "lium: the only place globally where you can rent h200 and b300 clusters on-demand and instantly. We continue to revolutionize the GPU industry by shipping novel features optimized for agent productivity and efficiency.",
+    "text": "lium: the only place globally where you can rent h200 and b300 clusters on-demand and instantly. We continue to revolutionize the GPU industry by shipping novel features optimized for agent productivity and efficiency.",
+    "url": "http://nitter.meowing.monster/lium_io/status/2114420810857263254#m",
+    "fetched_at": "2026-11-01T03:45:37.781732+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "dylan522p",
+    "name": "Dylan Patel",
+    "posted_at": "Sun, 11 Oct 2026 06:55:55 GMT",
+    "title": "The two worst things for society Both called DCs Diet Coke Datacenters",
+    "text": "The two worst things for society Both called DCs Diet Coke Datacenters",
+    "url": "https://nitter.kareem.one/dylan522p/status/2109176151986057331#m",
+    "fetched_at": "2026-11-01T03:45:13.040685+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "dylan522p",
+    "name": "Dylan Patel",
+    "posted_at": "Sat, 31 Oct 2026 01:55:09 GMT",
+    "title": "You gotta give props to George Bush He went and fucked up the Middle East He's not even in the Epteans files It's just for love of the game",
+    "text": "You gotta give props to George Bush He went and fucked up the Middle East He's not even in the Epteans files It's just for love of the game",
+    "url": "https://nitter.kareem.one/dylan522p/status/2116348216300192245#m",
+    "fetched_at": "2026-11-01T03:45:13.040685+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "lium_io",
+    "name": "Lium",
+    "posted_at": "Sat, 24 Oct 2026 13:13:31 GMT",
+    "title": "we've enabled GPU profiling (ncu) on our nodes so that y'all can have a better chance to win this :) https://lium.io/?ncu=1&sort=upload&sort=upload",
+    "text": "we've enabled GPU profiling (ncu) on our nodes so that y'all can have a better chance to win this :) lium.io/?ncu=1&amp;sort=upload Link Rent GPUs On Demand: H100, H200, B200, RTX 4090 and More | lium.io Agent-first compute on Lium: rent H100, B200, RTX 4090 and more GPU pods at marketplace prices. Deploy in seconds via browser or CLI. Billed per second. lium.io Daniel Gross (@danielgross) We're launching a $100,000 challenge to see who can make Muse Spark run fastest: openkernelchallenge.dev/ Link Muse Spark Open Kernel Challenge Make Meta’s Muse Spark Open run faster. Start by optimizing its",
+    "url": "http://nitter.meowing.monster/lium_io/status/2113982218196721876#m",
+    "fetched_at": "2026-11-01T03:45:37.781732+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "lium_io",
+    "name": "Lium",
+    "posted_at": "Sat, 24 Oct 2026 12:47:22 GMT",
+    "title": "lium 8xH100 rental fully configured within 12 seconds. We know your time is valuable, so we don't require a sales call, request for quota form, or 30 minute provisioning like competitors do. If you need compute, the fastest and cheapest way to get it is on lium. We have more availability, better software, and faster service than your current GPU provider.",
+    "text": "lium 8xH100 rental fully configured within 12 seconds. We know your time is valuable, so we don't require a sales call, request for quota form, or 30 minute provisioning like competitors do. If you need compute, the fastest and cheapest way to get it is on lium. We have more availability, better software, and faster service than your current GPU provider. Video",
+    "url": "http://nitter.meowing.monster/lium_io/status/2113975636045726196#m",
+    "fetched_at": "2026-11-01T03:45:37.781732+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "lium_io",
+    "name": "Lium",
+    "posted_at": "Sat, 24 Oct 2026 12:07:06 GMT",
+    "title": "The best side hustle of 2026 just dropped. Bring any GPU to lium and earn a USDT reward. Refer 1 b300 node? We'll pay you $18,877 for that. 1 h200 node? $10,180 payout. details: https://provider.lium.io/referrals/providers",
+    "text": "The best side hustle of 2026 just dropped. Bring any GPU to lium and earn a USDT reward. Refer 1 b300 node? We'll pay you $18,877 for that. 1 h200 node? $10,180 payout. details: provider.lium.io/referrals/p… Link Refer a Provider | lium.io Provider Portal Rent out your GPUs on Lium. Connect machines, manage nodes, and track your earnings. provider.lium.io lium.io (@lium_io) have GPUs? here's what they could be earning on lium: b300 node: $50k/month b200: $35k/month h200: $25k/month h100: $12k/month RTX pro: $9k/month A100: $7k/month 5090: $4k/month 4090: $3k/month 3090: $1200/month and all oth",
+    "url": "http://nitter.meowing.monster/lium_io/status/2113965503861362809#m",
+    "fetched_at": "2026-11-01T03:45:37.781732+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "mcjkula",
+    "name": "mcjkula",
+    "posted_at": "Sat, 19 Sep 2026 17:00:09 GMT",
+    "title": "RT by @mcjkula: Maciej Kula ( @mcjkula ) couldn't find a clear way to learn #Bittensor from scratch, so he built the resource he wished existed. @learnbittensor is now part of @latentholdings, where Maciej leads education and makes Bittensor easier to understand. He'll be leading our Bittensor 101 session to kick off Day 1: https://luma.com/nqy2n5zi",
+    "text": "Maciej Kula ( @mcjkula ) couldn't find a clear way to learn #Bittensor from scratch, so he built the resource he wished existed. @learnbittensor is now part of @latentholdings, where Maciej leads education and makes Bittensor easier to understand. He'll be leading our Bittensor 101 session to kick off Day 1: luma.com/nqy2n5zi Video",
+    "url": "http://nitter.meowing.monster/ExploitSummit/status/2101355676325007652#m",
+    "fetched_at": "2026-11-01T03:42:53.426382+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "tm0klc",
+    "name": "Tim",
+    "posted_at": "Mon, 26 Oct 2026 20:25:00 GMT",
+    "title": "Brilliantly insightful read. And shows even more so how important Bittensor is for the future of society as a whole. https://contraptions.venkateshrao.com/p/cognitive-mercantilism",
+    "text": "Brilliantly insightful read. And shows even more so how important Bittensor is for the future of society as a whole. contraptions.venkateshrao.co… aviel (@aviel) The best, most comprehensive take on AI I’ve read. After a year of confusion and fear about the future, I finished it feeling like a weight had physically lifted. It’s long. Make the time. @vgr is undefeated. contraptions.venkateshrao.co… Link Cognitive Mercantilism AI panic weirdly resembles the anxiety that accompanied early capitalism contraptions.venkateshrao.com — http://nitter.meowing.monster/aviel/status/2114493377207300376#m",
+    "url": "http://nitter.meowing.monster/tm0klc/status/2114815579630731672#m",
+    "fetched_at": "2026-11-01T03:44:32.209279+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "YumaGroup",
+    "name": "Yuma Holdings",
+    "posted_at": "Mon, 26 Oct 2026 17:14:32 GMT",
+    "title": "RT by @YumaGroup: AI needs data to move. It also needs applications that can act when it arrives. Now Live: Beam’s Bittensor EVM integration puts data transfer and Room delivery receipts onchain, where smart contracts and agentic workflows can read them. Opening up a world of possibility for cross-chain bandwidth. Here’s why that matters. 🧵",
+    "text": "AI needs data to move. It also needs applications that can act when it arrives. Now Live: Beam’s Bittensor EVM integration puts data transfer and Room delivery receipts onchain, where smart contracts and agentic workflows can read them. Opening up a world of possibility for cross-chain bandwidth. Here’s why that matters. 🧵",
+    "url": "https://nitter.kareem.one/b1m_ai/status/2114767649293189523#m",
+    "fetched_at": "2026-11-01T03:43:07.739313+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "YumaGroup",
+    "name": "Yuma Holdings",
+    "posted_at": "Mon, 26 Oct 2026 12:52:11 GMT",
+    "title": "We see a growing trend of subnet intelligence as an enabling layer inside products, rather than buyers consuming the raw intelligence commodity directly. Yanez's new Gate and Pulse tools are an example: proof-of-humanhood intelligence from Bittensor, productized by the subnet operator into a polished toolkit for sensitive agentic financial transactions. $TAO",
+    "text": "We see a growing trend of subnet intelligence as an enabling layer inside products, rather than buyers consuming the raw intelligence commodity directly. Yanez's new Gate and Pulse tools are an example: proof-of-humanhood intelligence from Bittensor, productized by the subnet operator into a polished toolkit for sensitive agentic financial transactions. $TAO Yanez.ai (@yanez__ai) Building an agent that can spend money? Check what it has access to. Earlier this month, a poisoned npm package used in AI agent tooling went after .env files, wallets and AI tool configs. If your agent holds your pay",
+    "url": "https://nitter.kareem.one/YumaGroup/status/2114701624862007562#m",
+    "fetched_at": "2026-11-01T03:43:07.739313+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "tm0klc",
+    "name": "Tim",
+    "posted_at": "Mon, 19 Oct 2026 13:18:05 GMT",
+    "title": "RT by @tm0klc: “just use a foundation model” they said. so we benchmarked 10 of them against Manako on a real forecourt damage clip. same full 1280x720 frames, same class prompts (person, car, fuel dispenser, fuel nozzle), no crops, no zoom. the hard class is the nozzle/hose. small, thin, occluded, and the thing that actually gets damaged. - Grounding DINO labelled a bin as a fuel nozzle. - Florence-2 labelled the canopy pole as one. - OWL-ViT, YOLOE and YOLO-World got the dispenser at best, never the nozzle. - RF-DETR doesn’t have the class. - Gemma 4 E2B described the scene, boxed the pump, and returned no incident time. the only open model that localised the nozzle was full SAM3. 3.45 GB, 0.2-1 FPS on a Jetson Orin Nano. Manako (3 specialists - 29.5 MB), 3-6 FPS on the same Jetson, tracked the nozzle at 5 FPS and fired a live equipment_damage event on the hose drop at 10.3s. 117x smaller than the only model that could keep up. open-vocab models are great at the classes the internet photographs a lot. operations live in the long tail: nozzles, hoses, cabinets, the small parts that break. that’s where specialised detectors win, and it’s why we built Manako the way we did.",
+    "text": "“just use a foundation model” they said. so we benchmarked 10 of them against Manako on a real forecourt damage clip. same full 1280x720 frames, same class prompts (person, car, fuel dispenser, fuel nozzle), no crops, no zoom. the hard class is the nozzle/hose. small, thin, occluded, and the thing that actually gets damaged. - Grounding DINO labelled a bin as a fuel nozzle. - Florence-2 labelled the canopy pole as one. - OWL-ViT, YOLOE and YOLO-World got the dispenser at best, never the nozzle. - RF-DETR doesn’t have the class. - Gemma 4 E2B described the scene, boxed the pump, and returned no",
+    "url": "http://nitter.meowing.monster/MaxSebti/status/2112171427986043290#m",
+    "fetched_at": "2026-11-01T03:44:32.209279+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "tm0klc",
+    "name": "Tim",
+    "posted_at": "Mon, 05 Oct 2026 07:00:42 GMT",
+    "title": "R to @tm0klc: Bro just make sure my agents can use it Accessibility has taken on a new meaning",
+    "text": "Bro just make sure my agents can use it Accessibility has taken on a new meaning",
+    "url": "http://nitter.meowing.monster/tm0klc/status/2107003027576225971#m",
+    "fetched_at": "2026-11-01T03:44:32.209279+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "tm0klc",
+    "name": "Tim",
+    "posted_at": "Mon, 05 Oct 2026 06:53:05 GMT",
+    "title": "the bar used to be \"is the UI intuitive.\" now it's \"why am I looking at a UI\"",
+    "text": "the bar used to be \"is the UI intuitive.\" now it's \"why am I looking at a UI\"",
+    "url": "http://nitter.meowing.monster/tm0klc/status/2107001110502547573#m",
+    "fetched_at": "2026-11-01T03:44:32.209279+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "opentensor",
+    "name": "Opentensor Foundation",
+    "posted_at": "Fri, 30 Oct 2026 15:30:17 GMT",
+    "title": "RT by @opentensor: Every company shipping AI agents asks one question: how can I stop my agent from going rogue? To answer it, HaloGuard Output Guard now sets a new state of the art (SOTA): 83.63 average F1, ahead of the previous best at 82.5. All measured on public benchmarks. And we did it with a 0.8B model, a quarter of the size of the previous best. Small enough to run efficiently. Cheap enough to make checking every response practical. This was the focus of Phase 3 on Trishool: • 7,500+ jailbreaks submitted • 125+ unique miners • 15 weeks of challenges It comes at the right time. We’re taking our product to enterprises now, and this makes our security stack stronger. We’ll share the models on Hugging Face, the arXiv paper and a full explainer soon. There’s much more to come, and we’re looking forward to an exciting week ahead. SOTA AI security, on Bittensor. Ψ",
+    "text": "Every company shipping AI agents asks one question: how can I stop my agent from going rogue? To answer it, HaloGuard Output Guard now sets a new state of the art (SOTA): 83.63 average F1, ahead of the previous best at 82.5. All measured on public benchmarks. And we did it with a 0.8B model, a quarter of the size of the previous best. Small enough to run efficiently. Cheap enough to make checking every response practical. This was the focus of Phase 3 on Trishool: • 7,500+ jailbreaks submitted • 125+ unique miners • 15 weeks of challenges It comes at the right time. We’re taking our product to",
+    "url": "http://nitter.meowing.monster/trishoolai/status/2116190966407393584#m",
+    "fetched_at": "2026-11-01T03:42:48.982873+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "dylan522p",
+    "name": "Dylan Patel",
+    "posted_at": "Fri, 16 Oct 2026 05:42:01 GMT",
+    "title": "I'm doing a new startup with @asciimike It's Chinese leg extension surgery Except for you break your skull and expand your brain",
+    "text": "I'm doing a new startup with @asciimike It's Chinese leg extension surgery Except for you break your skull and expand your brain",
+    "url": "https://nitter.kareem.one/dylan522p/status/2110969492482494786#m",
+    "fetched_at": "2026-11-01T03:45:13.040685+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "mcjkula",
+    "name": "mcjkula",
+    "posted_at": "Fri, 09 Oct 2026 19:03:07 GMT",
+    "title": "If you’re trying to decide which metal seed plate to get, @lopp has tested 75+ of them with heat, acid and a hydraulic press. Worth checking before you commit to one: https://jlopp.github.io/metal-bitcoin-storage-reviews/",
+    "text": "If you’re trying to decide which metal seed plate to get, @lopp has tested 75+ of them with heat, acid and a hydraulic press. Worth checking before you commit to one: jlopp.github.io/metal-bitcoi… Link Metal Bitcoin Seed Storage Reviews Stress tests and reviews of seed storage devices. jlopp.github.io Jon Durbin (@jon_durbin) Ledger itself ok, but fraudulent products less so of course. This is why I tell people I don't trust anything with a circuit board lol. These keystone tablets are pretty cool, handed a few out at exploit summit. Even better if you leave out some of the words and remember ",
+    "url": "http://nitter.meowing.monster/mcjkula/status/2108634378746405259#m",
+    "fetched_at": "2026-11-01T03:42:53.426382+00:00",
+    "via_instance": "https://nitter.cz"
+  }
+]
