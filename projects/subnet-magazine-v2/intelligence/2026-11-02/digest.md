@@ -134,7 +134,8 @@ _In gory detail: reliability, performance, support, pricing—and, of course, se
 
 ## ⊕ GITHUB COMMITS + RELEASES, last 24h
 
-_no commits or releases in the lookback window_
+- **Subtensor (chain)** (COMMIT `973b2a9`, 2026-11-02 18:55) Let approved fork pull requests run CI (#3298)  
+  https://github.com/RaoFoundation/subtensor/commit/973b2a9565985ca37c8c0505c2a99f2cd1e2a7f6
 
 ## ⊕ ECOSYSTEM BLOGS via RSS
 
@@ -142,8 +143,12 @@ _no new posts in the lookback window_
 
 ## ⊕ X via NITTER, voices we track
 
+- @dylan522p (Dylan Patel, Wed, 28 Oct 2026): Re OpenAI TPU announcements, SemiAnalysis clients had this already. semianalysis.com/datacenter-…  
+  https://nitter.kareem.one/dylan522p/status/2115246475391471817#m
 - @mcjkula (mcjkula, Wed, 07 Oct 2026): "The best person to solve your problem might be someone you’ve never met or considered hiring." Travis and I explain Bittensor, including examples from weather forecasting (@zeussubnet) and drug discovery (@metanova_labs). Here’s our "Bittensor 101" recording from @ExploitSummit Video  
   https://nitter.kareem.one/mcjkula/status/2107803570699722943#m
+- @dylan522p (Dylan Patel, Tue, 20 Oct 2026): FlashAttention was a mega kernel @marksaroufim @tri_dao @__tensorcore__ @vinodg  
+  https://nitter.kareem.one/dylan522p/status/2112660770458927578#m
 - @mcjkula (mcjkula, Tue, 06 Oct 2026): A plain-English introduction to Bittensor: learnbittensor.org/get-start…  
   https://nitter.kareem.one/mcjkula/status/2107475150841254343#m
 - @mcjkula (mcjkula, Tue, 06 Oct 2026): Bitcoin rewards one kind of work. Bittensor has a very different idea of “work” Video  
@@ -158,13 +163,19 @@ _no new posts in the lookback window_
   https://nitter.kareem.one/Ricadam_lol/status/2116601169682608275#m
 - @jtledore (Jean-Thomas Ledoré, Sat, 31 Oct 2026): Ce sont des ignares incompétents. Fred (@NumeriqueGeek) @Xavier75 Hello, votre avis sur la taxe de 0,055€ le gigaoctets télécharger qui vient d'être voté par une poignée de députés socialistes ? — https://nitter.kareem.one/NumeriqueGeek/status/2116191770455216254#m  
   https://nitter.kareem.one/Xavier75/status/2116558449148567641#m
+- @dylan522p (Dylan Patel, Sat, 31 Oct 2026): You gotta give props to George Bush He went and fucked up the Middle East He's not even in the Epteans files It's just for love of the game  
+  https://nitter.kareem.one/dylan522p/status/2116348216300192245#m
 - @mcjkula (mcjkula, Sat, 19 Sep 2026): Maciej Kula ( @mcjkula ) couldn't find a clear way to learn #Bittensor from scratch, so he built the resource he wished existed. @learnbittensor is now part of @latentholdings, where Maciej leads education and makes Bittensor easier to understand. He'll be leading our Bittensor 101 session to kick off Day 1: luma.com/nqy2n5zi Video  
   https://nitter.kareem.one/ExploitSummit/status/2101355676325007652#m
+- @dylan522p (Dylan Patel, Mon, 02 Nov 2026): Official apology to Google from me, they cooked with Carbon. It's spikier in terms of domains and capabilities, but it's really good in a few areas. SemiAnalysis (@SemiAnalysis_) Today we’re releasing GDPx, a benchmark for measuring agentic capabilities across the most valuable domains. GDPx is a true frontier-level benchmark: even the best model scores just 12% (1/7)🧵 — https://nitter.kareem.one/SemiAnalysis_/status/2117075900575477855#m  
+  https://nitter.kareem.one/dylan522p/status/2117092550842683671#m
 - @robmyers (Robert Myers, Fri, 26 Mar 2021): Try @rheaplex instead.  
   https://nitter.kareem.one/robmyers/status/1375288994989101059#m
+- @dylan522p (Dylan Patel, Fri, 16 Oct 2026): I'm doing a new startup with @asciimike It's Chinese leg extension surgery Except for you break your skull and expand your brain  
+  https://nitter.kareem.one/dylan522p/status/2110969492482494786#m
 - @mcjkula (mcjkula, Fri, 09 Oct 2026): If you’re trying to decide which metal seed plate to get, @lopp has tested 75+ of them with heat, acid and a hydraulic press. Worth checking before you commit to one: jlopp.github.io/metal-bitcoi… Link Metal Bitcoin Seed Storage Reviews Stress tests and reviews of seed storage devices. jlopp.github.io Jon Durbin (@jon_durbin) Ledger itself ok, but fraudulent products less so of course. This is why I tell people I don't trust anything with a circuit board lol. These keystone tablets are pretty cool, handed a few out at exploit summit. Even better if you leave out some of the words and remember   
   https://nitter.kareem.one/mcjkula/status/2108634378746405259#m
 
 
 ---
-_Generated at 2026-11-02T11:57:15.857286+00:00 by scripts/intel/aggregate.py. Treat this digest as input context, not as ground truth. Verify before quoting._
+_Generated at 2026-11-02T21:16:51.597338+00:00 by scripts/intel/aggregate.py. Treat this digest as input context, not as ground truth. Verify before quoting._
