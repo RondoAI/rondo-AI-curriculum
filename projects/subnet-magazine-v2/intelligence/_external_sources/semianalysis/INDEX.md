@@ -1,11 +1,12 @@
 # SemiAnalysis Archive Index
 
-_345 posts captured. Generated 2026-11-01T23:19:07.855126+00:00._
+_346 posts captured. Generated 2026-11-02T03:51:05.211080+00:00._
 
 Editorial policy: SemiAnalysis is the macro reference. The Oracle cites it for any claim about hyperscaler compute, GPU economics, datacenter power, foundry capacity, memory pricing, lab unit economics. The Oracle does NOT cite SemiAnalysis for any Bittensor-specific claim. SemiAnalysis does not cover Bittensor; treat that absence as itself information.
 
 | Date | Title | Audience | Authors | File |
 | --- | --- | --- | --- | --- |
+| 2026-11-02 | [GDPx: Measuring Frontier Model Capabilities Across the Most Valuable Domains](https://newsletter.semianalysis.com/p/gdpx-measuring-frontier-model-capabilities) | only_paid | ["Max Kan", "Andrew Megalaa", "Dylan Patel"] | `2026-11-02-gdpx-measuring-frontier-model-capabilities.md` |
 | 2026-11-01 | [The Datacenter Backlash Goes Bipartisan: Next Week's Midterms and the 2028 Build](https://newsletter.semianalysis.com/p/the-datacenter-backlash-goes-bipartisan) | only_paid | ["Maya Barkin", "Wayne Ma", "Reyk Knuhtsen", "Jeremie Eliaho | `2026-11-01-the-datacenter-backlash-goes-bipartisan.md` |
 | 2026-10-23 | [Amazon’s Trainium Takes a Strike at the Training King](https://newsletter.semianalysis.com/p/amazons-trainium-takes-a-strike-at) | only_paid | ["Kimbo Chen", "Dylan Patel"] | `2026-10-23-amazons-trainium-takes-a-strike-at.md` |
 | 2026-10-21 | [The Huawei-DeepSeek Symbiosis](https://newsletter.semianalysis.com/p/huawei-deepseek) | only_paid | ["Bryan Shan", "Dylan Patel"] | `2026-10-21-huawei-deepseek.md` |
