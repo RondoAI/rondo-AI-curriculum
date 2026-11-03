@@ -1,0 +1,13 @@
+[
+  {
+    "repo": "opentensor/subtensor",
+    "name": "Subtensor (chain)",
+    "kind": "commit",
+    "sha": "973b2a9",
+    "message": "Let approved fork pull requests run CI (#3298)",
+    "author": "UnArbosFive",
+    "posted_at": "2026-11-02T18:55:53Z",
+    "url": "https://github.com/RaoFoundation/subtensor/commit/973b2a9565985ca37c8c0505c2a99f2cd1e2a7f6",
+    "fetched_at": "2026-11-03T04:54:13.119502+00:00"
+  }
+]
