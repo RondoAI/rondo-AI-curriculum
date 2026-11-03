@@ -143,17 +143,37 @@ _no new posts in the lookback window_
 
 ## ⊕ X via NITTER, voices we track
 
+- @jaltucher (James Altucher, Wed, 21 Oct 2026): Authored the $KOPN and $FABC teams, this “The Data Center in a SerDes-Free World” white paper imagines how copper wires inside AI data centers can be replaced with massively parallel MicroLED optical channels. Download here: bit.ly/47rPIkA @kopin @MiTknlg @jaltucher  
+  https://nitter.kareem.one/FabricAIFABC/status/2112910691413975427#m
+- @oroagents (Oro, Wed, 21 Oct 2026): Some things never change  
+  https://nitter.kareem.one/ironseth_s/status/2112775882519822782#m
 - @novogratz (Mike Novogratz, Wed, 07 Oct 2026): Proud son Army Football (@ArmyWP_Football) Alongside the @NFFNetwork, we are set to honor the late Bob Novogratz, a 2026 College Football Hall of Fame inductee, this Saturday with a National Football Foundation &amp; College Football Hall of Fame On-Campus salute! MORE → goarmywestpoint.com/news/202… #GoArmy — https://nitter.kareem.one/ArmyWP_Football/status/2107857478507778411#m  
   https://nitter.kareem.one/novogratz/status/2107898542325195167#m
+- @jaltucher (James Altucher, Tue, 20 Oct 2026): Talking about AI at the Nasdaq . $FABC Kopin (@kopin) The countdown is on! In less than 24 hours, we’ll be live from @Nasdaq in Times Square for our virtual Ask Me Anything - "The Trillion Dollar AI Bottleneck." Join James Altucher, Cortney Harding , and Michael Murray for a virtual Ask Me Anything exploring the infrastructure challenges shaping AI’s next phase, from data movement and power demands to the technologies needed to scale more efficiently. Have a question for the panel? Email it in advance to events@kopin.com or sign in to YouTube and submit it live in the chat during the AMA. Tomo  
+  https://nitter.kareem.one/jaltucher/status/2112556634086240723#m
+- @jaltucher (James Altucher, Tue, 20 Oct 2026): $FABC's @jaltucher, @kopin's @MiTknlg, and AI expert @cortneyharding will join a live @YouTube AMA panel titled “The Trillion Dollar AI Bottleneck," streaming live from @Nasdaq MarketSite today at 11:00AM EDT. View and submit questions here: bit.ly/3WC21Z2 $KOPN  
+  https://nitter.kareem.one/FabricAIFABC/status/2112517555357466953#m
 - @novogratz (Mike Novogratz, Tue, 06 Oct 2026): It is great to see the @CFTC and @ChairmanSelig moving on this. A federal path for crypto exchanges is a big step toward keeping America the crypto capital of the world. Thanks for your thoughtful work. CFTC (@CFTC) .@CFTC Seeks Public Comment on Advanced Notice of Proposed Rulemaking Relating to Regulation Crypto Asset Transactions and Regulation Crypto Asset Markets: cftc.gov/PressRoom/PressRele… Link CFTC Seeks Public Comment on Advanced Notice of Proposed Rulemaking Relating to Regulation Crypto... The Commodity Futures Trading Commission today published an Advanced Notice of Proposed Rule  
   https://nitter.kareem.one/novogratz/status/2107560308692979883#m
 - @novogratz (Mike Novogratz, Thu, 29 Oct 2026): When @standuquesne tweets…. Proud of my friend and the guy that bought me my first BTC!!! Go @tradexyz … You’ve come a long way baby!!! Stan Druckenmiller (@standuquesne) I am excited to be an investor in trade(xyz) as they partner with ICE to bring 24/7 perpetual futures on Hyperliquid to the United States. As a market participant, I am looking forward to to using their innovative product to enhance my investment process. — https://nitter.kareem.one/standuquesne/status/2115777839622689036#m  
   https://nitter.kareem.one/novogratz/status/2115788661560119698#m
+- @oroagents (Oro, Thu, 08 Oct 2026): And to see what we are up to next at oroagents.com/  
+  https://nitter.kareem.one/oroagents/status/2108312282493329762#m
 - @novogratz (Mike Novogratz, Sun, 27 Sep 2026): Congrats @Scaramucci on this launch! You are one of the hardest working buys in the biz!! Anthony Scaramucci (@Scaramucci) All The Wrong Moves is #1 in the United States National Government category on Amazon. Get the hardcover copy: amzn.to/3VSdRhj Get the audiobook (read by me): amzn.to/4ydOXqV — https://nitter.kareem.one/Scaramucci/status/2104001152316809589#m  
   https://nitter.kareem.one/novogratz/status/2104250567115641310#m
 - @novogratz (Mike Novogratz, Sun, 11 Oct 2026): Are we really gonna have a live TV firing squad in America? Can we all just say No!!! This isn’t what America stands for. It’s not what the military stands for. At what point do we all say enough!!!! I’m saying it !  
   https://nitter.kareem.one/novogratz/status/2109077784286912605#m
+- @jaltucher (James Altucher, Mon, 26 Oct 2026): JAS: @jaltucher X @TomBilyeu on AI! . 00:00 AI Job Shock Warning 00:48 Show Intro and Reunion 02:11 Moats in the AI Era 04:50 Marketing in a Content Avalanche 08:24 AI Startups and Revenue Reality 10:05 Using AI for Product Fit 12:19 Avoiding AI Yes Man Traps 16:02 Prompting for Original Design 19:30 AI First Tools Everywhere 23:57 Coding at Superhuman Speed 24:58 Superintelligence Fear Debate 26:32 Mid Career Job Loss Reality 28:59 Retirement Without Purpose 29:44 Be The AI Power User 30:31 Practical AI Tools To Start 32:50 AI Adoption Mindset Shift 34:33 AI Infrastructure Bubble Risks 39:44   
+  https://nitter.kareem.one/jay_yow07/status/2114769165848613342#m
+- @jaltucher (James Altucher, Mon, 19 Oct 2026): AI vs. humans? A better question: how can AI help people do more? On this episode of @DisrupTVShow, @jaltucher explores decentralized AI, infrastructure, and model costs. Ganesh Iyer of ASPR.AI shares how AI can help sellers focus on judgment, relationships, and outcomes. Watch it here: bit.ly/4jrcss8 #AIWars  
+  https://nitter.kareem.one/holgermu/status/2112315109599035688#m
+- @oroagents (Oro, Mon, 12 Oct 2026): github.com/ORO-AI/assistante… All in the open :) Link GitHub - ORO-AI/assistanteval: AssistantEval: a verifiable benchmark for personal AI assistants AssistantEval: a verifiable benchmark for personal AI assistants - ORO-AI/assistanteval github.com  
+  https://nitter.kareem.one/oroagents/status/2109503153242775934#m
+- @oroagents (Oro, Mon, 02 Nov 2026): oroagents.com/docs/resources… Link Changelog Latest updates and changes to the ORO platform. oroagents.com  
+  https://nitter.kareem.one/oroagents/status/2117341742999720345#m
+- @oroagents (Oro, Mon, 02 Nov 2026): ORO changelog, Oct 18 to Nov 1: - ORO Bench now tests agents in shops with their own products, tools and situations, with pass/fail task scoring - New public practice world for local testing, graded the same way validators grade - Validators need v3.0+, and SDK clients need oro-sdk / oro-ai/sdk 7.0.0+ - Clearer episode feedback and more complete inference cost reporting check out our changelog and what we've been working on:  
+  https://nitter.kareem.one/oroagents/status/2117341741741441455#m
 
 
 ---
-_Generated at 2026-11-03T04:54:17.149118+00:00 by scripts/intel/aggregate.py. Treat this digest as input context, not as ground truth. Verify before quoting._
+_Generated at 2026-11-03T15:44:25.927735+00:00 by scripts/intel/aggregate.py. Treat this digest as input context, not as ground truth. Verify before quoting._
