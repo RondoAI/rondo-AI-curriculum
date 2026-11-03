@@ -1,5 +1,15 @@
 [
   {
+    "handle": "opentensor",
+    "name": "Opentensor Foundation",
+    "posted_at": "Wed, 28 Oct 2026 16:59:11 GMT",
+    "title": "RT by @opentensor: Introducing the first ever Injective Hacker House! We are hosting it with leading partners including @awscloud, @animocabrands, Japanese securities firm @smbcnikko_jp, @opentensor, and Gulf Labs, part of Thailand’s $27B GULF Group. 20 teams. 10 days. 1 mission with $INJ 🧵",
+    "text": "Introducing the first ever Injective Hacker House! We are hosting it with leading partners including @awscloud, @animocabrands, Japanese securities firm @smbcnikko_jp, @opentensor, and Gulf Labs, part of Thailand’s $27B GULF Group. 20 teams. 10 days. 1 mission with $INJ 🧵 Video",
+    "url": "https://nitter.kareem.one/injective/status/2115488559125721359#m",
+    "fetched_at": "2026-11-03T21:25:18.186143+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
     "handle": "jaltucher",
     "name": "James Altucher",
     "posted_at": "Wed, 21 Oct 2026 14:15:39 GMT",
@@ -60,6 +70,16 @@
     "via_instance": "https://nitter.cz"
   },
   {
+    "handle": "opentensor",
+    "name": "Opentensor Foundation",
+    "posted_at": "Thu, 29 Oct 2026 21:04:41 GMT",
+    "title": "Bittensor :: Novelty Search https://x.com/i/broadcasts/1aKbdEjyLaqJX",
+    "text": "Bittensor :: Novelty Search nitterk.kareem.one/i/broadcasts/1aKbdEjyL… Link Openτensor Foundaτion Bittensor :: Novelty Search https://nitter.kareem.one/i/broadcasts/1aKbdEjyLaqJX",
+    "url": "https://nitter.kareem.one/opentensor/status/2115912730633015561#m",
+    "fetched_at": "2026-11-03T21:25:18.186143+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
     "handle": "novogratz",
     "name": "Mike Novogratz",
     "posted_at": "Thu, 29 Oct 2026 12:51:41 GMT",
@@ -97,6 +117,16 @@
     "text": "Are we really gonna have a live TV firing squad in America? Can we all just say No!!! This isn’t what America stands for. It’s not what the military stands for. At what point do we all say enough!!!! I’m saying it !",
     "url": "https://nitter.kareem.one/novogratz/status/2109077784286912605#m",
     "fetched_at": "2026-11-03T04:52:27.368704+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "opentensor",
+    "name": "Opentensor Foundation",
+    "posted_at": "Sun, 01 Nov 2026 14:32:54 GMT",
+    "title": "Bittensor Ecosystem Highlights :: October 26–November 1, 2026",
+    "text": "Article Bittensor Ecosystem Highlights :: October 26–November 1, 2026 Trishool achieved a new SOTA in AI security. This week’s biggest stories across Bittensor came from Trishool, Score, Targon, Metanova, Lium, Hippius, SayGM and Chutes. [ @trishoolai - Subnet 23 ]",
+    "url": "https://nitter.kareem.one/opentensor/status/2116901299337756906#m",
+    "fetched_at": "2026-11-03T21:25:18.186143+00:00",
     "via_instance": "https://nitter.cz"
   },
   {
@@ -147,6 +177,26 @@
     "text": "ORO changelog, Oct 18 to Nov 1: - ORO Bench now tests agents in shops with their own products, tools and situations, with pass/fail task scoring - New public practice world for local testing, graded the same way validators grade - Validators need v3.0+, and SDK clients need oro-sdk / oro-ai/sdk 7.0.0+ - Clearer episode feedback and more complete inference cost reporting check out our changelog and what we've been working on:",
     "url": "https://nitter.kareem.one/oroagents/status/2117341741741441455#m",
     "fetched_at": "2026-11-03T15:43:02.298249+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "opentensor",
+    "name": "Opentensor Foundation",
+    "posted_at": "Mon, 02 Nov 2026 17:16:30 GMT",
+    "title": "Video",
+    "text": "Video Openτensor Foundaτion (@opentensor) Article Bittensor Ecosystem Highlights :: October 26–November 1, 2026 Trishool achieved a new SOTA in AI security. This week’s biggest stories across Bittensor came from Trishool, Score, Targon, Metanova, Lium, Hippius, SayGM and Chutes. [ @trishoolai - Subnet 23 ] — https://nitter.kareem.one/opentensor/status/2116901299337756906#m",
+    "url": "https://nitter.kareem.one/opentensor/status/2117304860005597457#m",
+    "fetched_at": "2026-11-03T21:25:18.186143+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "opentensor",
+    "name": "Opentensor Foundation",
+    "posted_at": "Fri, 30 Oct 2026 15:30:17 GMT",
+    "title": "RT by @opentensor: Every company shipping AI agents asks one question: how can I stop my agent from going rogue? To answer it, HaloGuard Output Guard now sets a new state of the art (SOTA): 83.63 average F1, ahead of the previous best at 82.5. All measured on public benchmarks. And we did it with a 0.8B model, a quarter of the size of the previous best. Small enough to run efficiently. Cheap enough to make checking every response practical. This was the focus of Phase 3 on Trishool: • 7,500+ jailbreaks submitted • 125+ unique miners • 15 weeks of challenges It comes at the right time. We’re taking our product to enterprises now, and this makes our security stack stronger. We’ll share the models on Hugging Face, the arXiv paper and a full explainer soon. There’s much more to come, and we’re looking forward to an exciting week ahead. SOTA AI security, on Bittensor. Ψ",
+    "text": "Every company shipping AI agents asks one question: how can I stop my agent from going rogue? To answer it, HaloGuard Output Guard now sets a new state of the art (SOTA): 83.63 average F1, ahead of the previous best at 82.5. All measured on public benchmarks. And we did it with a 0.8B model, a quarter of the size of the previous best. Small enough to run efficiently. Cheap enough to make checking every response practical. This was the focus of Phase 3 on Trishool: • 7,500+ jailbreaks submitted • 125+ unique miners • 15 weeks of challenges It comes at the right time. We’re taking our product to",
+    "url": "https://nitter.kareem.one/trishoolai/status/2116190966407393584#m",
+    "fetched_at": "2026-11-03T21:25:18.186143+00:00",
     "via_instance": "https://nitter.cz"
   }
 ]

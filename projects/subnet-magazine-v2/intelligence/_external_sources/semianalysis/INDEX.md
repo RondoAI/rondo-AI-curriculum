@@ -1,11 +1,12 @@
 # SemiAnalysis Archive Index
 
-_346 posts captured. Generated 2026-11-03T15:44:25.822762+00:00._
+_347 posts captured. Generated 2026-11-03T21:27:59.602603+00:00._
 
 Editorial policy: SemiAnalysis is the macro reference. The Oracle cites it for any claim about hyperscaler compute, GPU economics, datacenter power, foundry capacity, memory pricing, lab unit economics. The Oracle does NOT cite SemiAnalysis for any Bittensor-specific claim. SemiAnalysis does not cover Bittensor; treat that absence as itself information.
 
 | Date | Title | Audience | Authors | File |
 | --- | --- | --- | --- | --- |
+| 2026-11-03 | [Elon Is Doing It Again: SpaceX Will Be The World’s Biggest AI Cloud](https://newsletter.semianalysis.com/p/elon-is-doing-it-again-spacex-will) | only_paid | ["Reyk Knuhtsen", "Jeremie Eliahou Ontiveros", "Dylan Patel" | `2026-11-03-elon-is-doing-it-again-spacex-will.md` |
 | 2026-11-02 | [GDPx: Measuring Frontier Model Capabilities Across the Most Valuable Domains](https://newsletter.semianalysis.com/p/gdpx-measuring-frontier-model-capabilities) | only_paid | ["Max Kan", "Andrew Megalaa", "Dylan Patel"] | `2026-11-02-gdpx-measuring-frontier-model-capabilities.md` |
 | 2026-11-01 | [The Datacenter Backlash Goes Bipartisan: Next Week's Midterms and the 2028 Build](https://newsletter.semianalysis.com/p/the-datacenter-backlash-goes-bipartisan) | only_paid | ["Maya Barkin", "Wayne Ma", "Reyk Knuhtsen", "Jeremie Eliaho | `2026-11-01-the-datacenter-backlash-goes-bipartisan.md` |
 | 2026-10-23 | [Amazon’s Trainium Takes a Strike at the Training King](https://newsletter.semianalysis.com/p/amazons-trainium-takes-a-strike-at) | only_paid | ["Kimbo Chen", "Dylan Patel"] | `2026-10-23-amazons-trainium-takes-a-strike-at.md` |

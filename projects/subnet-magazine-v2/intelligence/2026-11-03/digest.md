@@ -11,6 +11,16 @@ _no human notes in the window_
 
 _SemiAnalysis is the most-cited semiconductor and AI infrastructure publication in the industry. They do NOT cover Bittensor. The Oracle uses this corpus for any claim about hyperscaler compute, GPU economics, datacenter power, foundry capacity, memory pricing, lab unit economics. DO NOT cite SemiAnalysis for any Bittensor-specific claim. Full archive (289 posts, May 2020 onwards) lives at `intelligence/_external_sources/semianalysis/` with an `INDEX.md` table of contents. Paywalled posts show only subtitle + free preview; free posts have the full body extracted._
 
+### 2026-11-03 · Elon Is Doing It Again: SpaceX Will Be The World’s Biggest AI Cloud
+_Making 13GW in 1.5 Years A Reality_
+
+- **Authors:** ["Reyk Knuhtsen", "Jeremie Eliahou Ontiveros", "Dylan Patel"]
+- **Access:** paid-preview
+- **URL:** https://newsletter.semianalysis.com/p/elon-is-doing-it-again-spacex-will
+- **Corpus file:** `intelligence/_external_sources/semianalysis/2026-11-03-elon-is-doing-it-again-spacex-will.md`
+
+> [We wrote at length about how SpaceX’s plans for 10GW in 2027 was feasible](https://newsletter.semianalysis.com/p/spacex-10gw-in-2027-why-its-real), paving the way for 300b+ ARR. We received a lot of pushback from folks calling it impossible. Now, just two months later, we’re already seeing 3.6GW under construction across multiple sites, both existing and new. SpaceX has even revised its estimate up to ~13GW in 2027. [This would be the largest amount of datacenter capacity](https://newsletter.se
+
 ### 2026-11-02 · GDPx: Measuring Frontier Model Capabilities Across the Most Valuable Domains
 _A comprehensive benchmark spanning RSI, hardware design, cyber, bio, finance, legal, quant trading, chip design, software engineering, materials science, and alignment_
 
@@ -121,16 +131,6 @@ _1,000+ facilities across 60+ operators mapped, built retail-first and flipped b
 
 > China sits at the frontier of the global model race. GLM 5.3 and Kimi K3 are the latest in a run of striking open-weights releases. ByteDance's Doubao serves 345M monthly users as China's ChatGPT, and Seedance is the State-Of-The-Art video generation model.  Every one of those models runs on a datacenter, and China has been building them at a pace that has gone largely unmeasured outside the country. The biggest tenant files no 10-K. Several of the largest landlords have never listed. Most of th
 
-### 2026-09-23 · ClusterMAX 3.0: The Industry Standard GPU Cloud Rating System Returns
-_In gory detail: reliability, performance, support, pricing—and, of course, security—in our most thorough analysis of GPU cloud providers globally._
-
-- **Authors:** ["Jordan Nanos", "Sam Harshe", "Samuel Kruse", "Pratt Bhatt", "Billy Cao", "Jack Carson", "Dylan Patel"]
-- **Access:** paid-preview
-- **URL:** https://newsletter.semianalysis.com/p/clustermax-30-the-industry-standard
-- **Corpus file:** `intelligence/_external_sources/semianalysis/2026-09-23-clustermax-30-the-industry-standard.md`
-
-> This post has bonus content for paid subscribers. Upgrade to get full access.  Subscribe  In 8 months since our last major release of ClusterMAX, slavering investors have just about run out of pockets to stuff checks into. GPU supply has gone to zero. Meanwhile, we have been hard at work putting clusters through the ringer.  Weeks ago, we teased this report with some R-rated anecdotes from our experiences probing the security practices of neoclouds, eliciting a PSA from a neocloud customer that
-
 
 ## ⊕ GITHUB COMMITS + RELEASES, last 24h
 
@@ -143,6 +143,8 @@ _no new posts in the lookback window_
 
 ## ⊕ X via NITTER, voices we track
 
+- @opentensor (Opentensor Foundation, Wed, 28 Oct 2026): Introducing the first ever Injective Hacker House! We are hosting it with leading partners including @awscloud, @animocabrands, Japanese securities firm @smbcnikko_jp, @opentensor, and Gulf Labs, part of Thailand’s $27B GULF Group. 20 teams. 10 days. 1 mission with $INJ 🧵 Video  
+  https://nitter.kareem.one/injective/status/2115488559125721359#m
 - @jaltucher (James Altucher, Wed, 21 Oct 2026): Authored the $KOPN and $FABC teams, this “The Data Center in a SerDes-Free World” white paper imagines how copper wires inside AI data centers can be replaced with massively parallel MicroLED optical channels. Download here: bit.ly/47rPIkA @kopin @MiTknlg @jaltucher  
   https://nitter.kareem.one/FabricAIFABC/status/2112910691413975427#m
 - @oroagents (Oro, Wed, 21 Oct 2026): Some things never change  
@@ -155,6 +157,8 @@ _no new posts in the lookback window_
   https://nitter.kareem.one/FabricAIFABC/status/2112517555357466953#m
 - @novogratz (Mike Novogratz, Tue, 06 Oct 2026): It is great to see the @CFTC and @ChairmanSelig moving on this. A federal path for crypto exchanges is a big step toward keeping America the crypto capital of the world. Thanks for your thoughtful work. CFTC (@CFTC) .@CFTC Seeks Public Comment on Advanced Notice of Proposed Rulemaking Relating to Regulation Crypto Asset Transactions and Regulation Crypto Asset Markets: cftc.gov/PressRoom/PressRele… Link CFTC Seeks Public Comment on Advanced Notice of Proposed Rulemaking Relating to Regulation Crypto... The Commodity Futures Trading Commission today published an Advanced Notice of Proposed Rule  
   https://nitter.kareem.one/novogratz/status/2107560308692979883#m
+- @opentensor (Opentensor Foundation, Thu, 29 Oct 2026): Bittensor :: Novelty Search nitterk.kareem.one/i/broadcasts/1aKbdEjyL… Link Openτensor Foundaτion Bittensor :: Novelty Search https://nitter.kareem.one/i/broadcasts/1aKbdEjyLaqJX  
+  https://nitter.kareem.one/opentensor/status/2115912730633015561#m
 - @novogratz (Mike Novogratz, Thu, 29 Oct 2026): When @standuquesne tweets…. Proud of my friend and the guy that bought me my first BTC!!! Go @tradexyz … You’ve come a long way baby!!! Stan Druckenmiller (@standuquesne) I am excited to be an investor in trade(xyz) as they partner with ICE to bring 24/7 perpetual futures on Hyperliquid to the United States. As a market participant, I am looking forward to to using their innovative product to enhance my investment process. — https://nitter.kareem.one/standuquesne/status/2115777839622689036#m  
   https://nitter.kareem.one/novogratz/status/2115788661560119698#m
 - @oroagents (Oro, Thu, 08 Oct 2026): And to see what we are up to next at oroagents.com/  
@@ -163,6 +167,8 @@ _no new posts in the lookback window_
   https://nitter.kareem.one/novogratz/status/2104250567115641310#m
 - @novogratz (Mike Novogratz, Sun, 11 Oct 2026): Are we really gonna have a live TV firing squad in America? Can we all just say No!!! This isn’t what America stands for. It’s not what the military stands for. At what point do we all say enough!!!! I’m saying it !  
   https://nitter.kareem.one/novogratz/status/2109077784286912605#m
+- @opentensor (Opentensor Foundation, Sun, 01 Nov 2026): Article Bittensor Ecosystem Highlights :: October 26–November 1, 2026 Trishool achieved a new SOTA in AI security. This week’s biggest stories across Bittensor came from Trishool, Score, Targon, Metanova, Lium, Hippius, SayGM and Chutes. [ @trishoolai - Subnet 23 ]  
+  https://nitter.kareem.one/opentensor/status/2116901299337756906#m
 - @jaltucher (James Altucher, Mon, 26 Oct 2026): JAS: @jaltucher X @TomBilyeu on AI! . 00:00 AI Job Shock Warning 00:48 Show Intro and Reunion 02:11 Moats in the AI Era 04:50 Marketing in a Content Avalanche 08:24 AI Startups and Revenue Reality 10:05 Using AI for Product Fit 12:19 Avoiding AI Yes Man Traps 16:02 Prompting for Original Design 19:30 AI First Tools Everywhere 23:57 Coding at Superhuman Speed 24:58 Superintelligence Fear Debate 26:32 Mid Career Job Loss Reality 28:59 Retirement Without Purpose 29:44 Be The AI Power User 30:31 Practical AI Tools To Start 32:50 AI Adoption Mindset Shift 34:33 AI Infrastructure Bubble Risks 39:44   
   https://nitter.kareem.one/jay_yow07/status/2114769165848613342#m
 - @jaltucher (James Altucher, Mon, 19 Oct 2026): AI vs. humans? A better question: how can AI help people do more? On this episode of @DisrupTVShow, @jaltucher explores decentralized AI, infrastructure, and model costs. Ganesh Iyer of ASPR.AI shares how AI can help sellers focus on judgment, relationships, and outcomes. Watch it here: bit.ly/4jrcss8 #AIWars  
@@ -173,7 +179,11 @@ _no new posts in the lookback window_
   https://nitter.kareem.one/oroagents/status/2117341742999720345#m
 - @oroagents (Oro, Mon, 02 Nov 2026): ORO changelog, Oct 18 to Nov 1: - ORO Bench now tests agents in shops with their own products, tools and situations, with pass/fail task scoring - New public practice world for local testing, graded the same way validators grade - Validators need v3.0+, and SDK clients need oro-sdk / oro-ai/sdk 7.0.0+ - Clearer episode feedback and more complete inference cost reporting check out our changelog and what we've been working on:  
   https://nitter.kareem.one/oroagents/status/2117341741741441455#m
+- @opentensor (Opentensor Foundation, Mon, 02 Nov 2026): Video Openτensor Foundaτion (@opentensor) Article Bittensor Ecosystem Highlights :: October 26–November 1, 2026 Trishool achieved a new SOTA in AI security. This week’s biggest stories across Bittensor came from Trishool, Score, Targon, Metanova, Lium, Hippius, SayGM and Chutes. [ @trishoolai - Subnet 23 ] — https://nitter.kareem.one/opentensor/status/2116901299337756906#m  
+  https://nitter.kareem.one/opentensor/status/2117304860005597457#m
+- @opentensor (Opentensor Foundation, Fri, 30 Oct 2026): Every company shipping AI agents asks one question: how can I stop my agent from going rogue? To answer it, HaloGuard Output Guard now sets a new state of the art (SOTA): 83.63 average F1, ahead of the previous best at 82.5. All measured on public benchmarks. And we did it with a 0.8B model, a quarter of the size of the previous best. Small enough to run efficiently. Cheap enough to make checking every response practical. This was the focus of Phase 3 on Trishool: • 7,500+ jailbreaks submitted • 125+ unique miners • 15 weeks of challenges It comes at the right time. We’re taking our product to  
+  https://nitter.kareem.one/trishoolai/status/2116190966407393584#m
 
 
 ---
-_Generated at 2026-11-03T15:44:25.927735+00:00 by scripts/intel/aggregate.py. Treat this digest as input context, not as ground truth. Verify before quoting._
+_Generated at 2026-11-03T21:27:59.751207+00:00 by scripts/intel/aggregate.py. Treat this digest as input context, not as ground truth. Verify before quoting._
