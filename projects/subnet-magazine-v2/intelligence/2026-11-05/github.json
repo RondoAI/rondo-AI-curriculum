@@ -1,0 +1,13 @@
+[
+  {
+    "repo": "opentensor/subtensor",
+    "name": "Subtensor (chain)",
+    "kind": "commit",
+    "sha": "8b2a978",
+    "message": "Release 487 — Gamma + Quantum-Resistant Wallets (#3294)",
+    "author": "UnArbosFour",
+    "posted_at": "2026-11-05T02:47:02Z",
+    "url": "https://github.com/RaoFoundation/subtensor/commit/8b2a978a98c0d94300dd7c68b190b24b974b7d02",
+    "fetched_at": "2026-11-05T04:39:51.856015+00:00"
+  }
+]
