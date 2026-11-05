@@ -134,6 +134,8 @@ _1,000+ facilities across 60+ operators mapped, built retail-first and flipped b
 
 ## ⊕ GITHUB COMMITS + RELEASES, last 24h
 
+- **Subtensor (chain)** (COMMIT `b6a81d1`, 2026-11-05 19:08) Release 488 (#3304)  
+  https://github.com/RaoFoundation/subtensor/commit/b6a81d144078eac18bd25c3af7cb31579bb670f3
 - **Subtensor (chain)** (COMMIT `8b2a978`, 2026-11-05 02:47) Release 487 — Gamma + Quantum-Resistant Wallets (#3294)  
   https://github.com/RaoFoundation/subtensor/commit/8b2a978a98c0d94300dd7c68b190b24b974b7d02
 
@@ -149,6 +151,8 @@ _no new posts in the lookback window_
   https://nitter.kareem.one/SethSchilbe/status/2112775882519822782#m
 - @manakoai (Manako, Wed, 14 Oct 2026): And it’s the first highway station. Arno (@arnod3f) ladies and gentlemen. @manakoai is officially working with @Shell. deploying physical ai to better their fuel retail operations. lfgooooooo🔥👊🚀 — http://nitter.meowing.monster/arnod3f/status/2110397339126915400#m  
   http://nitter.meowing.monster/manakoai/status/2110408262357057824#m
+- @manakoai (Manako, Wed, 14 Oct 2026): And it’s the first highway station. Arno (@arnod3f) ladies and gentlemen. @manakoai is officially working with @Shell. deploying physical ai to better their fuel retail operations. lfgooooooo🔥👊🚀 — https://nitter.kareem.one/arnod3f/status/2110397339126915400#m  
+  https://nitter.kareem.one/manakoai/status/2110408262357057824#m
 - @foundrydigital (Foundry Digital, Wed, 11 Jan 2012): Expression Engine 2.0 review by the guys at Scriptiny bit.ly/w3Pg3R  
   http://nitter.meowing.monster/foundrydigital/status/157243024848596993#m
 - @oroagents (Oro, Wed, 04 Nov 2026): We've been working hard behind the scenes and our excited to share our vision, thesis and progression. Article ORO&apos;s next chapter. We believe that by 2035, AI-run businesses will generate as much economic value as small businesses do today. We’ve built the first set of simulation environments in order to enable this future and to  
@@ -161,18 +165,54 @@ _no new posts in the lookback window_
   http://nitter.meowing.monster/jerallaire/status/2117988515569107134#m
 - @opentensor (Opentensor Foundation, Wed, 04 Nov 2026): Bittensor bittensor:native ecosystem is on fire. Revenue run rate is growing 40% month over month SubConnect (@WeAreSubConnect) $35M → $50M → $70M. Another month, another 40% MoM increase in annualized revenue across the Bittensor ecosystem. When we published the first SubConnect Bittensor Revenue Index, we estimated that revenue-generating subnets were collectively doing around $35M in annualized revenue. A month later, that number had grown to approximately $50M. Today, we're estimating $70M in annualized revenue. That's a 100% increase in just two months. Of course, annualized revenue is a   
   http://nitter.meowing.monster/BarrySilbert/status/2117961096409833877#m
+- @_redteam_ (RedTeam / Innerworks, Tue, 20 Oct 2026): Our new website is live at theredteam.io. It now tracks buybacks, conviction-locked alpha and monthly miner submissions live from the subnet, with the buyback wallet linked so anyone can verify it. You can also step through simulations of each detection line, follow a single bypass through the immune loop until the countermeasure ships, and find all of our research, mining guides and miner and validator docs in one place. Our new dashboard follows later this week. bittensor:native  
+  https://nitter.kareem.one/_redteam_/status/2112583927026393148#m
+- @zeussubnet (Zeus Subnet, Tue, 20 Oct 2026): How long until Zeus miners launch their own satellites? 🛰️ CNN (@CNN) The Trump administration’s cuts to weather satellites will set the country back nearly a decade, experts say. The loss of data used to observe, forecast and research extreme weather could prevent the US from making major advances in weather prediction in the coming years. cnn.it/4k6eD4o Link Trump admin cuts to satellites will set back US weather forecasting by a decade | CNN The Trump administration reduced the number of planned US weather satellites and removed key tools. Experts say it will set our weather forecasts back   
+  http://nitter.meowing.monster/zeussubnet/status/2112519955950530719#m
 - @opentensor (Opentensor Foundation, Tue, 03 Nov 2026): Our India Bittensor Builders House winners are here 🏆 Five days. 20 builders. Countless ideas built on @opentensor. From developer infrastructure to subnet powered apps, we saw some exciting projects come to life. Here are the teams taking home the $1,000 USDC prize pool 👇  
   http://nitter.meowing.monster/HackQuest_/status/2117683446437020062#m
+- @zeussubnet (Zeus Subnet, Tue, 03 Nov 2026): 📸 Current Zeus leaderboard snapshot! Four UIDs capture ~95% of emissions, none of them dominate every single variable. 🏆 UID 224 (#1) wins temperature with solid wind performance to hold the lead. UID 85 (#2) absolutely dominates solar, but capped by its 20% scoring weight. UID 229 (#3) is crushing wind. Set to climb fast with wind's current 60% scoring weight. 🔗 dashboard.zeussubnet.com  
+  http://nitter.meowing.monster/zeussubnet/status/2117674059752153419#m
 - @KyleSamani (Kyle Samani, Tue, 03 Nov 2026): The difference in perception between east coast and west coast has likely never been greater Kyle Samani (@KyleSamani) There are two kinds of job outputs in the world 1) Jobs where you produce tokens 2) Jobs where you expend joules — http://nitter.meowing.monster/KyleSamani/status/2065514243789664642#m  
   http://nitter.meowing.monster/KyleSamani/status/2117435833938788650#m
 - @KyleSamani (Kyle Samani, Thu, 29 Oct 2026): Kamino has been in a war room since the first rumours of the Binance hack, before anything was confirmed. We checked our major collateral assets with their issuers and our partners. So far, we see no exposure to the hack and no backing issues. We blocked the attacker’s SOL wallet from using Kamino's infrastructure within 5 minutes of identifying it. As a precaution, we have also paused on chain borrowing on the SOL/BTC market. We expect to resume shortly. Kamino (@kamino) Kamino can confirm that it is currently unaffected by the ongoing Binance situation Out of an abundance of caution, we have  
   http://nitter.meowing.monster/y2kappa/status/2115937720585327059#m
 - @KyleSamani (Kyle Samani, Thu, 29 Oct 2026): We’re excited to announce that Rip Cars has closed its $1.5M strategic round, backed by an incredible group of investors: @dba_xyz, @Colosseum, @KyleSamani, @Novora_, @Allinbitcoin_, @Sacha, and Erik C. This round brings us one step closer to building the world’s largest marketplace for collectible Hot Wheels.  
   http://nitter.meowing.monster/ripcarsio/status/2115875828705665459#m
+- @zeussubnet (Zeus Subnet, Thu, 29 Oct 2026): Since June 17th, we've hashed every single Zeus forecast to the blockchain. Now, 25K times our historical forecast archive has been downloaded on HuggingFace. Our trustless verification mechanism allows anyone to check that a published forecast matches the hash commited on-chain at the recorded block. 🔗 huggingface.co/datasets/orph…  
+  http://nitter.meowing.monster/zeussubnet/status/2115846607614714271#m
+- @zeussubnet (Zeus Subnet, Thu, 22 Oct 2026): With teams dedicating thousands of hours to model development on Zeus, stable evaluation is the most important aspect of the subnet’s design. AI brings a new generation of weather models that rival (and outperform) traditional numerical models. Ground truths, loss functions and optimization targets all shape what these models learn, each with own trade-offs. We've evaluated them all, and found the ones best suited to Zeus. More on our rationale in our latest blog. 🔗 zeussubnet.com/zeus-pro-anal…  
+  http://nitter.meowing.monster/zeussubnet/status/2113269539760665053#m
 - @manakoai (Manako, Thu, 15 Oct 2026): Hello World(s)  
   http://nitter.meowing.monster/manakoai/status/2110766878981239106#m
+- @manakoai (Manako, Thu, 15 Oct 2026): Hello World(s)  
+  https://nitter.kareem.one/manakoai/status/2110766878981239106#m
 - @PanteraCapital (Pantera Capital, Thu, 13 Aug 2026): The internet is rapidly changing.  
   http://nitter.meowing.monster/world_id/status/2087924104372351478#m
+- @_redteam_ (RedTeam / Innerworks, Thu, 10 Sep 2026): I am pleased to announce that Stillcore Capital @stillcorecap has invested in Red Team @_redteam_ Bittensor $TAO Subnet 61.  
+  https://nitter.kareem.one/markjeffrey/status/2098171401152971021#m
+- @opentensor (Opentensor Foundation, Thu, 05 Nov 2026): Bittensor :: Novelty Search nitter.mizuki.st/i/broadcasts/2zkAAOAOM… Link Openτensor Foundaτion Bittensor :: Novelty Search http://nitter.meowing.monster/i/broadcasts/2zkAAOAOMdmVoy  
+  http://nitter.meowing.monster/opentensor/status/2118457312553644034#m
+- @wallstreetbets (WallStreetBets (X), Thu, 05 Nov 2026): Humans saw this and decided to invent perpetual futures contracts Luana Lopes Lara (@luanalopeslara) Single stock perps (SSPs) are here. And they're a truly great product. You don’t need to pay rollover fees like with futures, they’re simpler to trade than options, and you can go short just as easy as you can go long. This is one of the most consequential products we’ve launched and I couldn’t be more proud of the team that worked for over a year to bring them to life. Just this morning, since the stealth launch, our users traded over $300m. Grateful to be the ones bringing these to America in  
+  https://nitter.kareem.one/wallstreetbets/status/2118450455449866680#m
+- @wallstreetbets (WallStreetBets (X), Thu, 05 Nov 2026): BREAKING: 🇺🇸 The first US Injective ETF is now live on Nasdaq under ticker $INJC Canary Capital's fund gives investors exposure to $INJ and plans to stake at least 90% of its holdings to earn rewards wall street is really staking crypto now  
+  https://nitter.kareem.one/wallstreetbets/status/2118420983895765218#m
+- @wallstreetbets (WallStreetBets (X), Thu, 05 Nov 2026): it's over Watcher.Guru (@WatcherGuru) JUST IN: Jim Cramer says the market is going to "boom." — https://nitter.kareem.one/WatcherGuru/status/2118397649024139637#m  
+  https://nitter.kareem.one/wallstreetbets/status/2118398180391846082#m
+- @wallstreetbets (WallStreetBets (X), Thu, 05 Nov 2026): me when AI remembers everything so I don't have to Vincent Nallatamby (@VNallatamby) Introducing Quest, the personal agent that studies you like a profiler. Quest is for believers-only. It requires radical transparency: full access to your life so your agent can craft your memory. If you give it a shot, you’ll unlock a personal advisor, always in your corner, helping you and encouraging you to start your quests. Quest is built different: 1. Memory from day one: 100+ wiki files created on you, all your relationships mapped. 2. Phone-Use: Quest has its own Android phone, and can control messagin  
+  https://nitter.kareem.one/wallstreetbets/status/2118389541975539737#m
+- @opentensor (Opentensor Foundation, Thu, 05 Nov 2026): Yesterday at @42born2code Paris, we announced something big 👇 Path to Subnet Owner: a 3-episode workshop series with @opentensor 01 Mining Discovery · Nov 30 02 Subnet Ownership · Dec 03 Subnet’s Mastermind · Dec/Jan Learn to mine and end up running your own subnet. 1 TAO for #1 on the leaderboard 🏆 Ep. 1 → Mon Nov 30, 2pm, 42 Paris Video  
+  http://nitter.meowing.monster/42Blockchain_/status/2118381416006201407#m
+- @zeussubnet (Zeus Subnet, Thu, 05 Nov 2026): Imagine a weather system that doesn't settle for one model's strenghts and weaknesses. One that continuously identifies the best-performing models for each variable and intelligently routes every API request to the right specialist. That's Zeus Pro. Temperature 👉 UID 224 Wind 👉 UID 229 Solar 👉 UID 85 Zeus | SN 18 (@zeussubnet) 📸 Current Zeus leaderboard snapshot! Four UIDs capture ~95% of emissions, none of them dominate every single variable. 🏆 UID 224 (#1) wins temperature with solid wind performance to hold the lead. UID 85 (#2) absolutely dominates solar, but capped by its 20% scoring weig  
+  http://nitter.meowing.monster/zeussubnet/status/2118380640223572082#m
+- @wallstreetbets (WallStreetBets (X), Thu, 05 Nov 2026): we're cooked Video Kalshi Finance (@Kalshi_Finance) BREAKING: Over $1,000,000,000,000 wiped out from the US stock market 24% chance of a recession next year — https://nitter.kareem.one/Kalshi_Finance/status/2118373794046001248#m  
+  https://nitter.kareem.one/wallstreetbets/status/2118377167474340295#m
+- @opentensor (Opentensor Foundation, Thu, 05 Nov 2026): We’ve released Teutonic-I-Reliquary, a 9B model post-trained entirely on Bittensor using untrusted GPUs, from RTX 3090s to B200s. It beats Qwen3.5-9B on SWE-bench Verified, scoring 43.6% vs 35.1%. Video  
+  http://nitter.meowing.monster/reliquary_ai/status/2118369839274438932#m
+- @opentensor (Opentensor Foundation, Thu, 05 Nov 2026): Bittensor is building a decentralized AI economy anyone can own a piece of. Beff (e/acc) (@beffjezos) The reason people reacted against centralized data centers is that they need to feel like they own a piece of the future Decentralized AI and personal superintelligence is the way forward A future where people own and control the extension to their cognition, both hardware and software, is needed — http://nitter.meowing.monster/beffjezos/status/2118106114428391480#m  
+  http://nitter.meowing.monster/opentensor/status/2118361088655814841#m
+- @opentensor (Opentensor Foundation, Thu, 05 Nov 2026): Robotics on Bittensor is making its way onto real factory floors. @openroboto just signed its first commercial pilot with a manufacturer in Hungary, bringing its data collection hardware into a real industrial environment. OpenRoboto (@openroboto) We've signed our first commercial robotics data pilot with Vulcan Shield Hungary, one of the largest advanced material manufacturing complex in Europe. Starting at a production workstation in Békéscsaba, we'll combine real-world data and simulation to work toward a robot model trained for a specific factory task. Video — http://nitter.meowing.monster  
+  http://nitter.meowing.monster/opentensor/status/2118359510272364743#m
 - @PanteraCapital (Pantera Capital, Thu, 05 Nov 2026): YouTube: piped.video/5ie50OMe5vY?si=beXg… Spotify: open.spotify.com/episode/7xU… Apple Podcasts: podcasts.apple.com/us/podcas… Link Proving You’re Human on an Internet Run by Agents with World Alex Blania, co-founder and CEO of Tools for Humanity, the company ... youtube.com  
   http://nitter.meowing.monster/PanteraCapital/status/2118347413639266745#m
 - @PanteraCapital (Pantera Capital, Thu, 05 Nov 2026): Alex Blania's prediction: within three months it will be completely impossible to spot that you are talking to a deepfake, and impossible for any software to catch it. @alexblania (CEO & Co-Founder of @tfh_technology) joined @Cosmo Jiang on Stateful to talk about proof of human on an internet run by agents: - Why @worldnetwork is working with Zoom, Reddit, and the big banks - Video models just hit 60 FPS, which makes real-time deepfakes possible - More than 50% of Cloudflare's traffic is now agents - Why advertisers may end up being the biggest accelerant of all - Whether we already have AGI,   
@@ -185,12 +225,16 @@ _no new posts in the lookback window_
   http://nitter.meowing.monster/KyleSamani/status/2116987637202628662#m
 - @manakoai (Manako, Sun, 01 Nov 2026): the best investors don't ask for updates. they get on a plane. pete and dave flew in from colorado to deploy with us across europe. thank you @oblong_inc. ready to rock and roll now.  
   http://nitter.meowing.monster/MaxSebti/status/2116851587385823630#m
+- @manakoai (Manako, Sun, 01 Nov 2026): the best investors don't ask for updates. they get on a plane. pete and dave flew in from colorado to deploy with us across europe. thank you @oblong_inc. ready to rock and roll now.  
+  https://nitter.kareem.one/MaxSebti/status/2116851587385823630#m
 - @lium_io (Lium, Sat, 24 Oct 2026): we've enabled GPU profiling (ncu) on our nodes so that y'all can have a better chance to win this :) lium.io/?ncu=1&amp;sort=upload Link Rent GPUs On Demand: H100, H200, B200, RTX 4090 and More | lium.io Agent-first compute on Lium: rent H100, B200, RTX 4090 and more GPU pods at marketplace prices. Deploy in seconds via browser or CLI. Billed per second. lium.io Daniel Gross (@danielgross) We're launching a $100,000 challenge to see who can make Muse Spark run fastest: openkernelchallenge.dev/ Link Muse Spark Open Kernel Challenge Make Meta’s Muse Spark Open run faster. Start by optimizing its  
   http://nitter.meowing.monster/lium_io/status/2113982218196721876#m
 - @lium_io (Lium, Sat, 24 Oct 2026): lium 8xH100 rental fully configured within 12 seconds. We know your time is valuable, so we don't require a sales call, request for quota form, or 30 minute provisioning like competitors do. If you need compute, the fastest and cheapest way to get it is on lium. We have more availability, better software, and faster service than your current GPU provider. Video  
   http://nitter.meowing.monster/lium_io/status/2113975636045726196#m
 - @lium_io (Lium, Sat, 24 Oct 2026): The best side hustle of 2026 just dropped. Bring any GPU to lium and earn a USDT reward. Refer 1 b300 node? We'll pay you $18,877 for that. 1 h200 node? $10,180 payout. details: provider.lium.io/referrals/p… Link Refer a Provider | lium.io Provider Portal Rent out your GPUs on Lium. Connect machines, manage nodes, and track your earnings. provider.lium.io lium.io (@lium_io) have GPUs? here's what they could be earning on lium: b300 node: $50k/month b200: $35k/month h200: $25k/month h100: $12k/month RTX pro: $9k/month A100: $7k/month 5090: $4k/month 4090: $3k/month 3090: $1200/month and all oth  
   http://nitter.meowing.monster/lium_io/status/2113965503861362809#m
+- @_redteam_ (RedTeam / Innerworks, Mon, 28 Sep 2026): "We're not afraid of hyper-intelligent bot swarms on the internet. We use them to optimise our technology." When we launched RedTeam almost two years ago we could clearly see where the internet was heading. We've since seen clients with over 90% of their traffic made up of not just automation but highly intelligent bot swarms, capable of bypassing any traditional detection mechanism. The only way to combat a threat like this is to welcome it and learn from it. By constantly ingesting and evolving attack vectors from a hive mind of miners, a Bittensor powered defence has now become the only rel  
+  https://nitter.kareem.one/_redteam_/status/2104643110911533312#m
 - @oroagents (Oro, Mon, 12 Oct 2026): github.com/ORO-AI/assistante… All in the open :) Link GitHub - ORO-AI/assistanteval: AssistantEval: a verifiable benchmark for personal AI assistants AssistantEval: a verifiable benchmark for personal AI assistants - ORO-AI/assistanteval github.com  
   https://nitter.kareem.one/oroagents/status/2109503153242775934#m
 - @oroagents (Oro, Mon, 02 Nov 2026): oroagents.com/docs/resources… Link Changelog Latest updates and changes to the ORO platform. oroagents.com  
@@ -201,23 +245,7 @@ _no new posts in the lookback window_
   https://nitter.kareem.one/ridges_ai/status/2117339702336618709#m
 - @ridges_ai (Ridges, Mon, 02 Nov 2026): 2/ Competition at the top was still fierce: butterfly v1 reached 82%. grouse v1 reached 86%. IAMHERE v5 reached 90%. Then wingsuit v3 took the lead by matching that 90% at 19.7% lower inference cost. Even at the top, there was room to make the agents more efficient.  
   https://nitter.kareem.one/ridges_ai/status/2117339690517073953#m
-- @ridges_ai (Ridges, Mon, 02 Nov 2026): 1/ cowrie v0 delivered one of the competition’s most impressive cost breakthroughs. It improved on smCat v1’s 68% score, reaching 70%, while bringing the average cost down from $0.12 to $0.01.  
-  https://nitter.kareem.one/ridges_ai/status/2117339678886273177#m
-- @ridges_ai (Ridges, Mon, 02 Nov 2026): Niche complete. Ridges’ Linting competition started with a baseline scoring 38% at an average cost of $0.21. It finished with wingsuit v3: 90% at $0.03. More than double the score. Roughly 86% lower cost. 821 submissions. Here’s the highlights:  
-  https://nitter.kareem.one/ridges_ai/status/2117339666886369486#m
-- @PanteraCapital (Pantera Capital, Mon, 02 Nov 2026): We’ve been investing in the entrepreneurs building the future since 2003. We look for founders who are resilient, and we’ve learned that founders look for investors who are too. Embracing volatility and standing alongside our founders through every market is what draws the best ones to work with us. It goes beyond capital. They’re trusting us to be their partner for the life cycle of their company. Video  
-  http://nitter.meowing.monster/PanteraCapital/status/2117315774020759968#m
-- @opentensor (Opentensor Foundation, Mon, 02 Nov 2026): Video Openτensor Foundaτion (@opentensor) Article Bittensor Ecosystem Highlights :: October 26–November 1, 2026 Trishool achieved a new SOTA in AI security. This week’s biggest stories across Bittensor came from Trishool, Score, Targon, Metanova, Lium, Hippius, SayGM and Chutes. [ @trishoolai - Subnet 23 ] — http://nitter.meowing.monster/opentensor/status/2116901299337756906#m  
-  http://nitter.meowing.monster/opentensor/status/2117304860005597457#m
-- @ridges_ai (Ridges, Mon, 02 Nov 2026): For more info and how to submit visit: docs.ridges.ai/competitions/… Link Niche: Problem Solving - Ridges Documentation docs.ridges.ai  
-  https://nitter.kareem.one/ridges_ai/status/2117208377797558311#m
-- @manakoai (Manako, Mon, 02 Nov 2026): world model day today at google’s Max (@MaxSebti) here we go again. this is going to be a G-oo-d day — http://nitter.meowing.monster/MaxSebti/status/2117137249926275253#m  
-  http://nitter.meowing.monster/MaxSebti/status/2117196272973074509#m
-- @foundrydigital (Foundry Digital, Mon, 02 Jan 2012): Early predictions for design trends of 2012? tiny.cc/mkg4v  
-  http://nitter.meowing.monster/foundrydigital/status/153974018557493248#m
-- @manakoai (Manako, Fri, 16 Oct 2026): Snap back to reality, ope, there goes gravity Max (@MaxSebti) this is our "Will Smith eating spaghetti moment" one street image → move backward → turn left → 40 seconds of generated video. this is the official baseline. it will only go up from there. Video — http://nitter.meowing.monster/MaxSebti/status/2111019389671678126#m  
-  http://nitter.meowing.monster/manakoai/status/2111027499106730137#m
 
 
 ---
-_Generated at 2026-11-05T16:01:15.514086+00:00 by scripts/intel/aggregate.py. Treat this digest as input context, not as ground truth. Verify before quoting._
+_Generated at 2026-11-05T21:51:14.474838+00:00 by scripts/intel/aggregate.py. Treat this digest as input context, not as ground truth. Verify before quoting._
