@@ -145,22 +145,44 @@ _no new posts in the lookback window_
 
 - @lium_io (Lium, Wed, 28 Oct 2026): b300s available for $4/hour on lium! We are giving away b300s for the price of h200s. We now have 550 b300s on lium, with 443 of them rented. Constantly improving accessibility to frontier compute.  
   http://nitter.meowing.monster/lium_io/status/2115445163363316133#m
+- @oroagents (Oro, Wed, 21 Oct 2026): Some things never change  
+  https://nitter.kareem.one/SethSchilbe/status/2112775882519822782#m
 - @manakoai (Manako, Wed, 14 Oct 2026): And it’s the first highway station. Arno (@arnod3f) ladies and gentlemen. @manakoai is officially working with @Shell. deploying physical ai to better their fuel retail operations. lfgooooooo🔥👊🚀 — http://nitter.meowing.monster/arnod3f/status/2110397339126915400#m  
   http://nitter.meowing.monster/manakoai/status/2110408262357057824#m
 - @foundrydigital (Foundry Digital, Wed, 11 Jan 2012): Expression Engine 2.0 review by the guys at Scriptiny bit.ly/w3Pg3R  
   http://nitter.meowing.monster/foundrydigital/status/157243024848596993#m
+- @oroagents (Oro, Wed, 04 Nov 2026): We've been working hard behind the scenes and our excited to share our vision, thesis and progression. Article ORO&apos;s next chapter. We believe that by 2035, AI-run businesses will generate as much economic value as small businesses do today. We’ve built the first set of simulation environments in order to enable this future and to  
+  https://nitter.kareem.one/oroagents/status/2118111037627199561#m
 - @opentensor (Opentensor Foundation, Wed, 04 Nov 2026): Decentralized training on Bittensor is now delivering competitive open models. @MacrocosmosAI just released IOTA Decide 4B, fine-tuned across 16 GPUs around the world and open for anyone to build on. Macrocosmos (@MacrocosmosAI) Introducing IOTA Decide 4B, our first public model. Pareto optimal. Built different. Trained across globally distributed GPUs with our SDK. Open weights, Apache-2.0. 🤗 huggingface.co/macrocosm-os/… Video — http://nitter.meowing.monster/MacrocosmosAI/status/2118028289813971098#m  
   http://nitter.meowing.monster/opentensor/status/2118041318316535946#m
 - @opentensor (Opentensor Foundation, Wed, 04 Nov 2026): Bittensor subnet @trishoolai just released a SOTA model for AI response safety. Their 0.8B HaloGuard 2.0 outscored Alibaba’s 4B and 8B Qwen3Guard-Stream models on average across six response-safety benchmarks. Trishool | SN23 (@trishoolai) A small team on Bittensor just beat the big labs. HaloGuard 2.0 is the new SOTA for open streaming guards: ahead of Qwen3Guard-Stream at every size. At 0.8B. Bittensor isn’t about following the frontier. It’s about defining it. Video — http://nitter.meowing.monster/trishoolai/status/2118011574321549682#m  
   http://nitter.meowing.monster/opentensor/status/2118024647388357108#m
+- @PanteraCapital (Pantera Capital, Wed, 04 Nov 2026): We’ve wrapped Q3 earnings. Take a walk with me and hear the highlights. Video  
+  http://nitter.meowing.monster/jerallaire/status/2117988515569107134#m
 - @opentensor (Opentensor Foundation, Wed, 04 Nov 2026): Bittensor bittensor:native ecosystem is on fire. Revenue run rate is growing 40% month over month SubConnect (@WeAreSubConnect) $35M → $50M → $70M. Another month, another 40% MoM increase in annualized revenue across the Bittensor ecosystem. When we published the first SubConnect Bittensor Revenue Index, we estimated that revenue-generating subnets were collectively doing around $35M in annualized revenue. A month later, that number had grown to approximately $50M. Today, we're estimating $70M in annualized revenue. That's a 100% increase in just two months. Of course, annualized revenue is a   
   http://nitter.meowing.monster/BarrySilbert/status/2117961096409833877#m
 - @opentensor (Opentensor Foundation, Tue, 03 Nov 2026): Our India Bittensor Builders House winners are here 🏆 Five days. 20 builders. Countless ideas built on @opentensor. From developer infrastructure to subnet powered apps, we saw some exciting projects come to life. Here are the teams taking home the $1,000 USDC prize pool 👇  
   http://nitter.meowing.monster/HackQuest_/status/2117683446437020062#m
+- @KyleSamani (Kyle Samani, Tue, 03 Nov 2026): The difference in perception between east coast and west coast has likely never been greater Kyle Samani (@KyleSamani) There are two kinds of job outputs in the world 1) Jobs where you produce tokens 2) Jobs where you expend joules — http://nitter.meowing.monster/KyleSamani/status/2065514243789664642#m  
+  http://nitter.meowing.monster/KyleSamani/status/2117435833938788650#m
+- @KyleSamani (Kyle Samani, Thu, 29 Oct 2026): Kamino has been in a war room since the first rumours of the Binance hack, before anything was confirmed. We checked our major collateral assets with their issuers and our partners. So far, we see no exposure to the hack and no backing issues. We blocked the attacker’s SOL wallet from using Kamino's infrastructure within 5 minutes of identifying it. As a precaution, we have also paused on chain borrowing on the SOL/BTC market. We expect to resume shortly. Kamino (@kamino) Kamino can confirm that it is currently unaffected by the ongoing Binance situation Out of an abundance of caution, we have  
+  http://nitter.meowing.monster/y2kappa/status/2115937720585327059#m
+- @KyleSamani (Kyle Samani, Thu, 29 Oct 2026): We’re excited to announce that Rip Cars has closed its $1.5M strategic round, backed by an incredible group of investors: @dba_xyz, @Colosseum, @KyleSamani, @Novora_, @Allinbitcoin_, @Sacha, and Erik C. This round brings us one step closer to building the world’s largest marketplace for collectible Hot Wheels.  
+  http://nitter.meowing.monster/ripcarsio/status/2115875828705665459#m
 - @manakoai (Manako, Thu, 15 Oct 2026): Hello World(s)  
   http://nitter.meowing.monster/manakoai/status/2110766878981239106#m
+- @PanteraCapital (Pantera Capital, Thu, 13 Aug 2026): The internet is rapidly changing.  
+  http://nitter.meowing.monster/world_id/status/2087924104372351478#m
+- @PanteraCapital (Pantera Capital, Thu, 05 Nov 2026): YouTube: piped.video/5ie50OMe5vY?si=beXg… Spotify: open.spotify.com/episode/7xU… Apple Podcasts: podcasts.apple.com/us/podcas… Link Proving You’re Human on an Internet Run by Agents with World Alex Blania, co-founder and CEO of Tools for Humanity, the company ... youtube.com  
+  http://nitter.meowing.monster/PanteraCapital/status/2118347413639266745#m
+- @PanteraCapital (Pantera Capital, Thu, 05 Nov 2026): Alex Blania's prediction: within three months it will be completely impossible to spot that you are talking to a deepfake, and impossible for any software to catch it. @alexblania (CEO & Co-Founder of @tfh_technology) joined @Cosmo Jiang on Stateful to talk about proof of human on an internet run by agents: - Why @worldnetwork is working with Zoom, Reddit, and the big banks - Video models just hit 60 FPS, which makes real-time deepfakes possible - More than 50% of Cloudflare's traffic is now agents - Why advertisers may end up being the biggest accelerant of all - Whether we already have AGI,   
+  http://nitter.meowing.monster/PanteraCapital/status/2118347409801490656#m
+- @KyleSamani (Kyle Samani, Thu, 05 Nov 2026): Long autonomy Short ride hailing Legacy demand aggregation is a red herring bloomberg.com/news/articles/… Link Waymo Co-CEO Says Uber App Deal Was ‘Crapshoot’ for Riders Alphabet Inc.’s Waymo Co-Chief Executive Officer Tekedra Mawakana said her company’s plan to end an exclusive robotaxi partnership with Uber Technologies Inc. was in response to customer feedback... bloomberg.com  
+  http://nitter.meowing.monster/KyleSamani/status/2118176293350969696#m
 - @lium_io (Lium, Sun, 25 Oct 2026): lium: the only place globally where you can rent h200 and b300 clusters on-demand and instantly. We continue to revolutionize the GPU industry by shipping novel features optimized for agent productivity and efficiency.  
   http://nitter.meowing.monster/lium_io/status/2114420810857263254#m
+- @KyleSamani (Kyle Samani, Sun, 01 Nov 2026): I think this is the worst bug in the history of the internet Please patch ASAP everyone tobi lutke (@tobi) What a disaster atlasum.net/blog/cve-2026-98… Link Linux&apos;s October 2026 TCP Use-After-Free: CVE-2026-98432 — Atlas CVE-2026-98432 is a CVSS 9.8 remote use-after-free in Linux&apos;s IPv4 TCP handshake, fixed upstream Oct 15. Ubuntu and RHEL haven&apos;t shipped a fixed kernel yet. atlasum.net — http://nitter.meowing.monster/tobi/status/2116638054899208685#m  
+  http://nitter.meowing.monster/KyleSamani/status/2116987637202628662#m
 - @manakoai (Manako, Sun, 01 Nov 2026): the best investors don't ask for updates. they get on a plane. pete and dave flew in from colorado to deploy with us across europe. thank you @oblong_inc. ready to rock and roll now.  
   http://nitter.meowing.monster/MaxSebti/status/2116851587385823630#m
 - @lium_io (Lium, Sat, 24 Oct 2026): we've enabled GPU profiling (ncu) on our nodes so that y'all can have a better chance to win this :) lium.io/?ncu=1&amp;sort=upload Link Rent GPUs On Demand: H100, H200, B200, RTX 4090 and More | lium.io Agent-first compute on Lium: rent H100, B200, RTX 4090 and more GPU pods at marketplace prices. Deploy in seconds via browser or CLI. Billed per second. lium.io Daniel Gross (@danielgross) We're launching a $100,000 challenge to see who can make Muse Spark run fastest: openkernelchallenge.dev/ Link Muse Spark Open Kernel Challenge Make Meta’s Muse Spark Open run faster. Start by optimizing its  
@@ -169,8 +191,26 @@ _no new posts in the lookback window_
   http://nitter.meowing.monster/lium_io/status/2113975636045726196#m
 - @lium_io (Lium, Sat, 24 Oct 2026): The best side hustle of 2026 just dropped. Bring any GPU to lium and earn a USDT reward. Refer 1 b300 node? We'll pay you $18,877 for that. 1 h200 node? $10,180 payout. details: provider.lium.io/referrals/p… Link Refer a Provider | lium.io Provider Portal Rent out your GPUs on Lium. Connect machines, manage nodes, and track your earnings. provider.lium.io lium.io (@lium_io) have GPUs? here's what they could be earning on lium: b300 node: $50k/month b200: $35k/month h200: $25k/month h100: $12k/month RTX pro: $9k/month A100: $7k/month 5090: $4k/month 4090: $3k/month 3090: $1200/month and all oth  
   http://nitter.meowing.monster/lium_io/status/2113965503861362809#m
+- @oroagents (Oro, Mon, 12 Oct 2026): github.com/ORO-AI/assistante… All in the open :) Link GitHub - ORO-AI/assistanteval: AssistantEval: a verifiable benchmark for personal AI assistants AssistantEval: a verifiable benchmark for personal AI assistants - ORO-AI/assistanteval github.com  
+  https://nitter.kareem.one/oroagents/status/2109503153242775934#m
+- @oroagents (Oro, Mon, 02 Nov 2026): oroagents.com/docs/resources… Link Changelog Latest updates and changes to the ORO platform. oroagents.com  
+  https://nitter.kareem.one/oroagents/status/2117341742999720345#m
+- @oroagents (Oro, Mon, 02 Nov 2026): ORO changelog, Oct 18 to Nov 1: - ORO Bench now tests agents in shops with their own products, tools and situations, with pass/fail task scoring - New public practice world for local testing, graded the same way validators grade - Validators need v3.0+, and SDK clients need oro-sdk / oro-ai/sdk 7.0.0+ - Clearer episode feedback and more complete inference cost reporting check out our changelog and what we've been working on:  
+  https://nitter.kareem.one/oroagents/status/2117341741741441455#m
+- @ridges_ai (Ridges, Mon, 02 Nov 2026): 3/ Some improvements travelled beyond Linting. One miner introduced precaching. Other miners picked it up, and the approach spread across competitions. So an optimization developed in one Niche became useful in every Niche. Explore the results: ridges.ai/agents/27 Link Linting Leaderboard | Ridges.AI Leaderboard for the Linting competition on Ridges.AI. Track agent scores, approvals, and submissions. ridges.ai  
+  https://nitter.kareem.one/ridges_ai/status/2117339702336618709#m
+- @ridges_ai (Ridges, Mon, 02 Nov 2026): 2/ Competition at the top was still fierce: butterfly v1 reached 82%. grouse v1 reached 86%. IAMHERE v5 reached 90%. Then wingsuit v3 took the lead by matching that 90% at 19.7% lower inference cost. Even at the top, there was room to make the agents more efficient.  
+  https://nitter.kareem.one/ridges_ai/status/2117339690517073953#m
+- @ridges_ai (Ridges, Mon, 02 Nov 2026): 1/ cowrie v0 delivered one of the competition’s most impressive cost breakthroughs. It improved on smCat v1’s 68% score, reaching 70%, while bringing the average cost down from $0.12 to $0.01.  
+  https://nitter.kareem.one/ridges_ai/status/2117339678886273177#m
+- @ridges_ai (Ridges, Mon, 02 Nov 2026): Niche complete. Ridges’ Linting competition started with a baseline scoring 38% at an average cost of $0.21. It finished with wingsuit v3: 90% at $0.03. More than double the score. Roughly 86% lower cost. 821 submissions. Here’s the highlights:  
+  https://nitter.kareem.one/ridges_ai/status/2117339666886369486#m
+- @PanteraCapital (Pantera Capital, Mon, 02 Nov 2026): We’ve been investing in the entrepreneurs building the future since 2003. We look for founders who are resilient, and we’ve learned that founders look for investors who are too. Embracing volatility and standing alongside our founders through every market is what draws the best ones to work with us. It goes beyond capital. They’re trusting us to be their partner for the life cycle of their company. Video  
+  http://nitter.meowing.monster/PanteraCapital/status/2117315774020759968#m
 - @opentensor (Opentensor Foundation, Mon, 02 Nov 2026): Video Openτensor Foundaτion (@opentensor) Article Bittensor Ecosystem Highlights :: October 26–November 1, 2026 Trishool achieved a new SOTA in AI security. This week’s biggest stories across Bittensor came from Trishool, Score, Targon, Metanova, Lium, Hippius, SayGM and Chutes. [ @trishoolai - Subnet 23 ] — http://nitter.meowing.monster/opentensor/status/2116901299337756906#m  
   http://nitter.meowing.monster/opentensor/status/2117304860005597457#m
+- @ridges_ai (Ridges, Mon, 02 Nov 2026): For more info and how to submit visit: docs.ridges.ai/competitions/… Link Niche: Problem Solving - Ridges Documentation docs.ridges.ai  
+  https://nitter.kareem.one/ridges_ai/status/2117208377797558311#m
 - @manakoai (Manako, Mon, 02 Nov 2026): world model day today at google’s Max (@MaxSebti) here we go again. this is going to be a G-oo-d day — http://nitter.meowing.monster/MaxSebti/status/2117137249926275253#m  
   http://nitter.meowing.monster/MaxSebti/status/2117196272973074509#m
 - @foundrydigital (Foundry Digital, Mon, 02 Jan 2012): Early predictions for design trends of 2012? tiny.cc/mkg4v  
@@ -180,4 +220,4 @@ _no new posts in the lookback window_
 
 
 ---
-_Generated at 2026-11-05T04:39:56.472024+00:00 by scripts/intel/aggregate.py. Treat this digest as input context, not as ground truth. Verify before quoting._
+_Generated at 2026-11-05T16:01:15.514086+00:00 by scripts/intel/aggregate.py. Treat this digest as input context, not as ground truth. Verify before quoting._
