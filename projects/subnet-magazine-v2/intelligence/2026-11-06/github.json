@@ -2,6 +2,17 @@
   {
     "repo": "opentensor/subtensor",
     "name": "Subtensor (chain)",
+    "kind": "commit",
+    "sha": "eaf45bd",
+    "message": "Build macOS core wheels on macos-15 (#3310)",
+    "author": "UnArbosFive",
+    "posted_at": "2026-11-06T15:47:58Z",
+    "url": "https://github.com/RaoFoundation/subtensor/commit/eaf45bdf1d15b842223b90226c6a667a662ff39a",
+    "fetched_at": "2026-11-06T21:14:05.317045+00:00"
+  },
+  {
+    "repo": "opentensor/subtensor",
+    "name": "Subtensor (chain)",
     "kind": "release",
     "sha": "v488",
     "message": "Runtime 488",
