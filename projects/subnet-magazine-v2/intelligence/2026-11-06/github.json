@@ -1,0 +1,24 @@
+[
+  {
+    "repo": "opentensor/subtensor",
+    "name": "Subtensor (chain)",
+    "kind": "release",
+    "sha": "v488",
+    "message": "Runtime 488",
+    "author": "github-actions[bot]",
+    "posted_at": "2026-11-05T21:07:55Z",
+    "url": "https://github.com/RaoFoundation/subtensor/releases/tag/v488",
+    "fetched_at": "2026-11-06T04:38:27.854040+00:00"
+  },
+  {
+    "repo": "opentensor/subtensor",
+    "name": "Subtensor (chain)",
+    "kind": "commit",
+    "sha": "b6a81d1",
+    "message": "Release 488 (#3304)",
+    "author": "UnArbosFour",
+    "posted_at": "2026-11-05T19:08:10Z",
+    "url": "https://github.com/RaoFoundation/subtensor/commit/b6a81d144078eac18bd25c3af7cb31579bb670f3",
+    "fetched_at": "2026-11-06T04:38:27.458030+00:00"
+  }
+]
