@@ -1,5 +1,15 @@
 [
   {
+    "handle": "polychain",
+    "name": "Polychain Capital",
+    "posted_at": "Wed, 30 Sep 2026 18:11:35 GMT",
+    "title": "RT by @polychain: THE BLOCK: DogeOS launched a public testnet for its zero-knowledge rollup, bringing EVM smart contracts to Dogecoin, with dogecoin:native used for gas fees. \"I've spent half a decade encouraging people to take a chance on Dogecoin and to build in its ecosystem,\" said Timothy Stebbing, director of the Dogecoin Foundation. \"My hopes are that DogeOS becomes the springboard for a wave of new utility engineering.\"",
+    "text": "THE BLOCK: DogeOS launched a public testnet for its zero-knowledge rollup, bringing EVM smart contracts to Dogecoin, with dogecoin:native used for gas fees. \"I've spent half a decade encouraging people to take a chance on Dogecoin and to build in its ecosystem,\" said Timothy Stebbing, director of the Dogecoin Foundation. \"My hopes are that DogeOS becomes the springboard for a wave of new utility engineering.\"",
+    "url": "http://nitter.meowing.monster/TheBlockCo/status/2105359920795394451#m",
+    "fetched_at": "2026-11-07T23:18:13.687113+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
     "handle": "lium_io",
     "name": "Lium",
     "posted_at": "Wed, 28 Oct 2026 14:06:44 GMT",
@@ -30,6 +40,16 @@
     "via_instance": "https://nitter.cz"
   },
   {
+    "handle": "polychain",
+    "name": "Polychain Capital",
+    "posted_at": "Wed, 14 Oct 2026 17:00:07 GMT",
+    "title": "RT by @polychain: This fully autonomous demo shows a Bagel Labs foundation model controlling a robot to make coffee. We previously released WorldDiT, our lightweight architecture for robot foundation models. At the time of release, it was on the Pareto frontier for model size and performance. We have since been refining this architecture to handle longer horizon, more useful tasks fully autonomously. Making coffee means getting a whole sequence of actions right. Each step depends on the result of the last, so small mistakes can build up as the task continues. Getting this to work with a small model is especially challenging. This demo is an example of what the model can do today. If you are deploying robots or have existing hardware you want to make autonomous, we would like to partner with you. https://bagel.com/partner",
+    "text": "This fully autonomous demo shows a Bagel Labs foundation model controlling a robot to make coffee. We previously released WorldDiT, our lightweight architecture for robot foundation models. At the time of release, it was on the Pareto frontier for model size and performance. We have since been refining this architecture to handle longer horizon, more useful tasks fully autonomously. Making coffee means getting a whole sequence of actions right. Each step depends on the result of the last, so small mistakes can build up as the task continues. Getting this to work with a small model is especiall",
+    "url": "http://nitter.meowing.monster/bidhan/status/2110415364475466160#m",
+    "fetched_at": "2026-11-07T23:18:13.687113+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
     "handle": "mcjkula",
     "name": "mcjkula",
     "posted_at": "Wed, 07 Oct 2026 12:01:47 GMT",
@@ -37,6 +57,16 @@
     "text": "\"The best person to solve your problem might be someone you’ve never met or considered hiring.\" Travis and I explain Bittensor, including examples from weather forecasting (@zeussubnet) and drug discovery (@metanova_labs). Here’s our \"Bittensor 101\" recording from @ExploitSummit Video",
     "url": "http://nitter.meowing.monster/mcjkula/status/2107803570699722943#m",
     "fetched_at": "2026-11-07T14:34:27.339583+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "galaxyhq",
+    "name": "Galaxy Digital",
+    "posted_at": "Wed, 04 Nov 2026 18:00:32 GMT",
+    "title": "RT by @galaxyhq: Access liquidity without selling your crypto. Now through Dec 4, eligible GalaxyOne clients who open a new Portfolio Line of Credit and draw $10,000 or more can earn up to $1,000 back on their loan. ➡️ Borrow against your combined crypto portfolio ($BTC, $ETH, $SOL, $XRP, $HYPE). ➡️ Access cash or convert to USDC. ➡️ Receive up to $1,000 bonus.",
+    "text": "Access liquidity without selling your crypto. Now through Dec 4, eligible GalaxyOne clients who open a new Portfolio Line of Credit and draw $10,000 or more can earn up to $1,000 back on their loan. ➡️ Borrow against your combined crypto portfolio ($BTC, $ETH, $SOL, $XRP, $HYPE). ➡️ Access cash or convert to USDC. ➡️ Receive up to $1,000 bonus.",
+    "url": "http://nitter.meowing.monster/galaxyoneapp/status/2118040715641114836#m",
+    "fetched_at": "2026-11-07T23:18:18.200274+00:00",
     "via_instance": "https://nitter.cz"
   },
   {
@@ -57,6 +87,16 @@
     "text": "Just a few weeks ago, three leading voices across AI, emerging technology, and infrastructure came together at @Nasdaq in New York City. James Altucher, Cortney Harding, and Michael Murray shared perspectives on the infrastructure challenges shaping AI’s next phase, from data movement and power demands to optical interconnects and the technologies needed to build infrastructure capable of keeping pace with AI. Take a look behind the scenes and revisit some of the moments from the discussion ➡️ Missed the conversation? Watch it here: tinyurl.com/kz492tzx #KopinTech #AIInfrastructure #NeuralIO #",
     "url": "https://nitter.kareem.one/kopin/status/2118023070174818683#m",
     "fetched_at": "2026-11-07T19:46:49.381159+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "galaxyhq",
+    "name": "Galaxy Digital",
+    "posted_at": "Wed, 04 Nov 2026 14:00:17 GMT",
+    "title": "RT by @galaxyhq: $HYPE and $XRP are now on GalaxyOne. Buy, trade, hold, or borrow against them on one platform built for your entire financial portfolio.",
+    "text": "$HYPE and $XRP are now on GalaxyOne. Buy, trade, hold, or borrow against them on one platform built for your entire financial portfolio.",
+    "url": "http://nitter.meowing.monster/galaxyoneapp/status/2117980256145650088#m",
+    "fetched_at": "2026-11-07T23:18:18.200274+00:00",
     "via_instance": "https://nitter.cz"
   },
   {
@@ -90,6 +130,16 @@
     "via_instance": "https://nitter.cz"
   },
   {
+    "handle": "polychain",
+    "name": "Polychain Capital",
+    "posted_at": "Tue, 27 Oct 2026 16:23:29 GMT",
+    "title": "RT by @polychain: We’ve raised an oversubscribed $30M Series A1 led by @walden_catalyst to build the Global Compute Grid. We’re turning fragmented GPU capacity into one unified platform where AI teams can access, manage, sell, and orchestrate compute. Our mission: make the world’s compute unified, productive and liquid.",
+    "text": "We’ve raised an oversubscribed $30M Series A1 led by @walden_catalyst to build the Global Compute Grid. We’re turning fragmented GPU capacity into one unified platform where AI teams can access, manage, sell, and orchestrate compute. Our mission: make the world’s compute unified, productive and liquid. Video",
+    "url": "http://nitter.meowing.monster/hyperbolic_labs/status/2115117188978033013#m",
+    "fetched_at": "2026-11-07T23:18:13.687113+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
     "handle": "jaltucher",
     "name": "James Altucher",
     "posted_at": "Tue, 20 Oct 2026 14:48:45 GMT",
@@ -107,6 +157,16 @@
     "text": "$FABC's @jaltucher, @kopin's @MiTknlg, and AI expert @cortneyharding will join a live @YouTube AMA panel titled “The Trillion Dollar AI Bottleneck,\" streaming live from @Nasdaq MarketSite today at 11:00AM EDT. View and submit questions here: bit.ly/3WC21Z2 $KOPN",
     "url": "https://nitter.kareem.one/FabricAIFABC/status/2112517555357466953#m",
     "fetched_at": "2026-11-07T19:46:49.381159+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "polychain",
+    "name": "Polychain Capital",
+    "posted_at": "Tue, 15 Sep 2026 14:20:05 GMT",
+    "title": "RT by @polychain: It's time for a new foundation. Not a new start. Legacy Mode is live on Passport, keep every account you already have, on code anyone can inspect. Switch to open source hardware and software while keeping your existing accounts for supported assets. Here’s how. 🧵",
+    "text": "It's time for a new foundation. Not a new start. Legacy Mode is live on Passport, keep every account you already have, on code anyone can inspect. Switch to open source hardware and software while keeping your existing accounts for supported assets. Here’s how. 🧵 Video",
+    "url": "http://nitter.meowing.monster/FoundationHQ/status/2099865846101180499#m",
+    "fetched_at": "2026-11-07T23:18:13.687113+00:00",
     "via_instance": "https://nitter.cz"
   },
   {
@@ -220,6 +280,16 @@
     "via_instance": "https://nitter.cz"
   },
   {
+    "handle": "polychain",
+    "name": "Polychain Capital",
+    "posted_at": "Thu, 15 Oct 2026 16:00:00 GMT",
+    "title": "RT by @polychain: Multiliquid closes seed round led by @polychaincap, with participation from @strobefund, @CMT_Digital, @metalayervc, @genventurecap and @circle_ventures, bringing total funding to $8M. Instant liquidity for tokenized assets, atomic settlement, 24/7. Read more: https://www.multiliquid.xyz/news/seed-round-with-polychain",
+    "text": "Multiliquid closes seed round led by @polychaincap, with participation from @strobefund, @CMT_Digital, @metalayervc, @genventurecap and @circle_ventures, bringing total funding to $8M. Instant liquidity for tokenized assets, atomic settlement, 24/7. Read more: multiliquid.xyz/news/seed-ro…",
+    "url": "http://nitter.meowing.monster/multiliquid_xyz/status/2110762624791290189#m",
+    "fetched_at": "2026-11-07T23:18:13.687113+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
     "handle": "rob_svrn",
     "name": "Rob Greer",
     "posted_at": "Thu, 05 Nov 2026 23:05:50 GMT",
@@ -227,6 +297,16 @@
     "text": "Actual progress comes from hard-to-build technology. Which comes from competitive, creative, free-market capitalism. Which comes from one small, precarious area and then diffuses to the rest of the world. Snuff that out, and it’s global stagnation for an extremely long time.",
     "url": "http://nitter.meowing.monster/naval/status/2118479933530063135#m",
     "fetched_at": "2026-11-07T04:01:42.817535+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "galaxyhq",
+    "name": "Galaxy Digital",
+    "posted_at": "Thu, 05 Nov 2026 19:37:48 GMT",
+    "title": "Galaxy is committed to Texas and to responsible data center development. Our campuses are designed with closed-loop cooling that recycles water and keeps consumption low, and we have consistently supported clear standards on grid reliability, water use and community impact. We take seriously our role as stewards of Texas’s natural resources and communities. In Dickens County, home to our Helios campus, Galaxy is the largest employer and taxpayer, and has invested millions to bring the first new residential housing development to the county in generations. We hire from the region and work with Texas Tech and local school districts to build the next generation of Texas talent. We will continue to build.",
+    "text": "Galaxy is committed to Texas and to responsible data center development. Our campuses are designed with closed-loop cooling that recycles water and keeps consumption low, and we have consistently supported clear standards on grid reliability, water use and community impact. We take seriously our role as stewards of Texas’s natural resources and communities. In Dickens County, home to our Helios campus, Galaxy is the largest employer and taxpayer, and has invested millions to bring the first new residential housing development to the county in generations. We hire from the region and work with ",
+    "url": "http://nitter.meowing.monster/galaxyhq/status/2118427580290470203#m",
+    "fetched_at": "2026-11-07T23:18:18.200274+00:00",
     "via_instance": "https://nitter.cz"
   },
   {
@@ -370,6 +450,16 @@
     "via_instance": "https://nitter.cz"
   },
   {
+    "handle": "rob_svrn",
+    "name": "Rob Greer",
+    "posted_at": "Sat, 07 Nov 2026 20:06:39 GMT",
+    "title": "pretty amazing bittensor:native",
+    "text": "pretty amazing bittensor:native Florian S (@airesearch12) Four weeks ago Subnet 92 didn't exist. Today REAX 1.3, built with our miners, is #1 on the Decision Index on Hugging Face. I'm incredibly proud of this community. 🙏 — http://nitter.meowing.monster/airesearch12/status/2118719546655695057#m",
+    "url": "http://nitter.meowing.monster/rob_svrn/status/2119159618530091118#m",
+    "fetched_at": "2026-11-07T23:18:06.009162+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
     "handle": "SemiAnalysis_",
     "name": "SemiAnalysis",
     "posted_at": "Sat, 07 Nov 2026 18:57:13 GMT",
@@ -377,6 +467,16 @@
     "text": "After DeepSeek V4.1 Flash, Xiaomi MiMo is moving to a causal encoder-decoder for its next-gen models. HySparse2: prompts run through only 25 of 49 layers. Decoder KV is projected from encoder states. At 1M context vs MiMo-V2: 5x less prefill compute, 4.5x smaller KV cache.",
     "url": "https://nitter.kareem.one/SemiAnalysis_/status/2119142144749293863#m",
     "fetched_at": "2026-11-07T19:48:26.707202+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "rob_svrn",
+    "name": "Rob Greer",
+    "posted_at": "Sat, 07 Nov 2026 13:04:23 GMT",
+    "title": "RT by @rob_svrn: INSIGHT: #TAO is trending after unveiling quantum-resistant wallets, giving users post-quantum signatures and the option to replace signing keys automatically.",
+    "text": "INSIGHT: #TAO is trending after unveiling quantum-resistant wallets, giving users post-quantum signatures and the option to replace signing keys automatically.",
+    "url": "http://nitter.meowing.monster/coingecko/status/2119053351597801760#m",
+    "fetched_at": "2026-11-07T23:18:06.009162+00:00",
     "via_instance": "https://nitter.cz"
   },
   {
@@ -520,6 +620,16 @@
     "via_instance": "https://nitter.cz"
   },
   {
+    "handle": "galaxyhq",
+    "name": "Galaxy Digital",
+    "posted_at": "Fri, 06 Nov 2026 20:05:17 GMT",
+    "title": "RT by @galaxyhq: Tyler Williams breaks down what the midterm results mean for crypto policy in Washington. The former Treasury counselor for digital assets joins Galaxy Brains from Gravity in New Orleans to discuss the new Congress, AI policy, and more. Live now⤵️",
+    "text": "Tyler Williams breaks down what the midterm results mean for crypto policy in Washington. The former Treasury counselor for digital assets joins Galaxy Brains from Gravity in New Orleans to discuss the new Congress, AI policy, and more. Live now⤵️ Video",
+    "url": "http://nitter.meowing.monster/glxyresearch/status/2118796887230738891#m",
+    "fetched_at": "2026-11-07T23:18:18.200274+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
     "handle": "markjeffrey",
     "name": "Mark Jeffrey",
     "posted_at": "Fri, 06 Nov 2026 20:05:14 GMT",
@@ -597,6 +707,16 @@
     "text": "Zcash NU7 is live on mainnet. ✅ Foundry Zcash Pool switched over seamlessly, and our customers saw no interruptions to their mining. 25-second blocks, a third of the reward per block, roughly the same daily issuance. Mining $ZEC? Talk to our team. 🔗 services.foundrydigital.com/… Link Foundry Zcash Pool Contact Us Foundry Zcash Pool Contact Us services.foundrydigital.com",
     "url": "http://nitter.meowing.monster/FoundryServices/status/2118729526133817620#m",
     "fetched_at": "2026-11-07T19:46:32.572143+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "galaxyhq",
+    "name": "Galaxy Digital",
+    "posted_at": "Fri, 06 Nov 2026 15:31:55 GMT",
+    "title": "RT by @galaxyhq: Midterms' Impact on Crypto & AI; Kazakhstan's New Crypto Investments; Anthropic's Proof of Inference",
+    "text": "In this week's edition: Democrats won the U.S. House and Senate, Kazakhstan allocated $100M to crypto funds, and Anthropic released FlashProve, a zero-knowledge proof of inference prototype. Read the full breakdown: Article Midterms&apos; Impact on Crypto &amp; AI; Kazakhstan&apos;s New Crypto Investments; Anthropic&apos;s Proof of Inference Welcome to Galaxy Research&apos;s Weekly Research Brief. Subscribe to get this newsletter delivered to your inbox every Friday morning. In this week&apos;s edition, Alex Thorn parses the midterm election",
+    "url": "http://nitter.meowing.monster/glxyresearch/status/2118728088875925936#m",
+    "fetched_at": "2026-11-07T23:18:18.200274+00:00",
     "via_instance": "https://nitter.cz"
   },
   {
