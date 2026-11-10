@@ -1,0 +1,452 @@
+[
+  {
+    "handle": "jaltucher",
+    "name": "James Altucher",
+    "posted_at": "Wed, 21 Oct 2026 14:15:39 GMT",
+    "title": "RT by @jaltucher: Authored the $KOPN and $FABC teams, this “The Data Center in a SerDes-Free World” white paper imagines how copper wires inside AI data centers can be replaced with massively parallel MicroLED optical channels. Download here: https://bit.ly/47rPIkA @kopin @MiTknlg @jaltucher",
+    "text": "Authored the $KOPN and $FABC teams, this “The Data Center in a SerDes-Free World” white paper imagines how copper wires inside AI data centers can be replaced with massively parallel MicroLED optical channels. Download here: bit.ly/47rPIkA @kopin @MiTknlg @jaltucher",
+    "url": "http://nitter.mizuki.st/FabricAIFABC/status/2112910691413975427#m",
+    "fetched_at": "2026-11-10T05:37:32.871186+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "covenant_ai",
+    "name": "Covenant AI",
+    "posted_at": "Wed, 16 Sep 2026 14:57:44 GMT",
+    "title": "RT by @covenant_ai: We’ve been researching fault tolerance in Crucible, Templar’s pre-training platform. The goal: keep training through node failures and make better use of unreliable workers and spot instances, without idling an entire model replica when one stage goes down. 1/n",
+    "text": "We’ve been researching fault tolerance in Crucible, Templar’s pre-training platform. The goal: keep training through node failures and make better use of unreliable workers and spot instances, without idling an entire model replica when one stage goes down. 1/n Video",
+    "url": "http://nitter.mizuki.st/tplr_ai/status/2100237708186550642#m",
+    "fetched_at": "2026-11-10T05:38:23.928593+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "oroagents",
+    "name": "Oro",
+    "posted_at": "Wed, 04 Nov 2026 22:39:58 GMT",
+    "title": "ORO's next chapter.",
+    "text": "We've been working hard behind the scenes and our excited to share our vision, thesis and progression. Article ORO&apos;s next chapter. We believe that by 2035, AI-run businesses will generate as much economic value as small businesses do today. We’ve built the first set of simulation environments in order to enable this future and to",
+    "url": "http://nitter.mizuki.st/oroagents/status/2118111037627199561#m",
+    "fetched_at": "2026-11-10T05:38:32.668808+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "jaltucher",
+    "name": "James Altucher",
+    "posted_at": "Wed, 04 Nov 2026 16:50:25 GMT",
+    "title": "RT by @jaltucher: Just a few weeks ago, three leading voices across AI, emerging technology, and infrastructure came together at @Nasdaq in New York City. James Altucher, Cortney Harding, and Michael Murray shared perspectives on the infrastructure challenges shaping AI’s next phase, from data movement and power demands to optical interconnects and the technologies needed to build infrastructure capable of keeping pace with AI. Take a look behind the scenes and revisit some of the moments from the discussion ➡️ Missed the conversation? Watch it here: https://tinyurl.com/kz492tzx #KopinTech #AIInfrastructure #NeuralIO #OpticalInterconnects #MicroLED #DataCenters #ArtificialIntelligence @FabricAIFABC @cortneyharding @M_Murray408",
+    "text": "Just a few weeks ago, three leading voices across AI, emerging technology, and infrastructure came together at @Nasdaq in New York City. James Altucher, Cortney Harding, and Michael Murray shared perspectives on the infrastructure challenges shaping AI’s next phase, from data movement and power demands to optical interconnects and the technologies needed to build infrastructure capable of keeping pace with AI. Take a look behind the scenes and revisit some of the moments from the discussion ➡️ Missed the conversation? Watch it here: tinyurl.com/kz492tzx #KopinTech #AIInfrastructure #NeuralIO #",
+    "url": "http://nitter.mizuki.st/kopin/status/2118023070174818683#m",
+    "fetched_at": "2026-11-10T05:37:32.871186+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "covenant_ai",
+    "name": "Covenant AI",
+    "posted_at": "Tue, 25 Aug 2026 15:08:46 GMT",
+    "title": "RT by @covenant_ai: Templar's work reduces to one question. How much of the machine-learning lifecycle can run across ordinary networks instead of a single datacentre? Pre-training answered first, with Covenant-72B as the proof at scale. Post-training followed through our communication-efficiency research. Serving open models on distributed hardware is the piece we are working on now, and it is the one that puts the whole arc in front of users. The internet is the datacentre.",
+    "text": "Templar's work reduces to one question. How much of the machine-learning lifecycle can run across ordinary networks instead of a single datacentre? Pre-training answered first, with Covenant-72B as the proof at scale. Post-training followed through our communication-efficiency research. Serving open models on distributed hardware is the piece we are working on now, and it is the one that puts the whole arc in front of users. The internet is the datacentre.",
+    "url": "http://nitter.mizuki.st/tplr_ai/status/2092267948765237743#m",
+    "fetched_at": "2026-11-10T05:38:23.928593+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "jaltucher",
+    "name": "James Altucher",
+    "posted_at": "Tue, 20 Oct 2026 14:48:45 GMT",
+    "title": "Talking about AI at the Nasdaq . $FABC",
+    "text": "Talking about AI at the Nasdaq . $FABC Kopin (@kopin) The countdown is on! In less than 24 hours, we’ll be live from @Nasdaq in Times Square for our virtual Ask Me Anything - \"The Trillion Dollar AI Bottleneck.\" Join James Altucher, Cortney Harding , and Michael Murray for a virtual Ask Me Anything exploring the infrastructure challenges shaping AI’s next phase, from data movement and power demands to the technologies needed to scale more efficiently. Have a question for the panel? Email it in advance to events@kopin.com or sign in to YouTube and submit it live in the chat during the AMA. Tomo",
+    "url": "http://nitter.mizuki.st/jaltucher/status/2112556634086240723#m",
+    "fetched_at": "2026-11-10T05:37:32.871186+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "jaltucher",
+    "name": "James Altucher",
+    "posted_at": "Tue, 20 Oct 2026 12:13:28 GMT",
+    "title": "RT by @jaltucher: $FABC's @jaltucher, @kopin's @MiTknlg, and AI expert @cortneyharding will join a live @YouTube AMA panel titled “The Trillion Dollar AI Bottleneck,\" streaming live from @Nasdaq MarketSite today at 11:00AM EDT. View and submit questions here: https://bit.ly/3WC21Z2 $KOPN",
+    "text": "$FABC's @jaltucher, @kopin's @MiTknlg, and AI expert @cortneyharding will join a live @YouTube AMA panel titled “The Trillion Dollar AI Bottleneck,\" streaming live from @Nasdaq MarketSite today at 11:00AM EDT. View and submit questions here: bit.ly/3WC21Z2 $KOPN",
+    "url": "http://nitter.mizuki.st/FabricAIFABC/status/2112517555357466953#m",
+    "fetched_at": "2026-11-10T05:37:32.871186+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "covenant_ai",
+    "name": "Covenant AI",
+    "posted_at": "Tue, 03 Nov 2026 19:27:35 GMT",
+    "title": "RT by @covenant_ai: PULSE (also called Delta weight sync) has become one of the most important ideas in RL infrastructure this year. Our paper, posted on February 3, explained why it loses nothing. At RL learning rates, about 99% of each step's weight updates disappear in the BF16 cast, so the inference workers never see them. Since then, @huggingface has built Delta Weight Sync for TRL and vLLM on that argument. @FireworksAI_HQ cites PULSE, and its ARCv3 compressor now makes the updates even smaller. This week @humansand reported pausing inference for only about 220 milliseconds per update on Blackwell GPUs. PULSE has now been accepted at AXIOM, a @NeurIPSConf 2026 workshop. https://arxiv.org/abs/2602.03839",
+    "text": "PULSE (also called Delta weight sync) has become one of the most important ideas in RL infrastructure this year. Our paper, posted on February 3, explained why it loses nothing. At RL learning rates, about 99% of each step's weight updates disappear in the BF16 cast, so the inference workers never see them. Since then, @huggingface has built Delta Weight Sync for TRL and vLLM on that argument. @FireworksAI_HQ cites PULSE, and its ARCv3 compressor now makes the updates even smaller. This week @humansand reported pausing inference for only about 220 milliseconds per update on Blackwell GPUs. PUL",
+    "url": "http://nitter.mizuki.st/tplr_ai/status/2117700233534800198#m",
+    "fetched_at": "2026-11-10T05:38:23.928593+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "covenant_ai",
+    "name": "Covenant AI",
+    "posted_at": "Thu, 27 Aug 2026 17:06:36 GMT",
+    "title": "RT by @covenant_ai: A system designed around identical accelerators depends on a narrow hardware supply. Templar starts from a wider map. Accelerator generations vary, and network conditions change with location. The coordination layer has to treat both as design inputs.",
+    "text": "A system designed around identical accelerators depends on a narrow hardware supply. Templar starts from a wider map. Accelerator generations vary, and network conditions change with location. The coordination layer has to treat both as design inputs.",
+    "url": "http://nitter.mizuki.st/tplr_ai/status/2093022381660942660#m",
+    "fetched_at": "2026-11-10T05:38:23.928593+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "covenant_ai",
+    "name": "Covenant AI",
+    "posted_at": "Thu, 03 Sep 2026 18:31:05 GMT",
+    "title": "RT by @covenant_ai: Crucible, Templar's pre-training platform, has completed its first production end-to-end training runs. The latest trained an 8B model on 50.53B tokens across 48 distributed A100s, at an estimated $0.1202 per million tokens of GPU rental. The run reached 48.3% effective MFU. At AWS p4de Capacity Blocks pricing, a 48-A100 cluster operating at the literature-derived 65% compute ceiling comes to an estimated $0.1686 per million tokens. Crucible's measured $0.1202 was about 29% lower after its low-bandwidth overhead. The comparison excludes R2 storage and operations. The full writeup shows the method and accounting. Blog: https://www.tplr.ai/publications/blog/introducing-crucible",
+    "text": "Crucible, Templar's pre-training platform, has completed its first production end-to-end training runs. The latest trained an 8B model on 50.53B tokens across 48 distributed A100s, at an estimated $0.1202 per million tokens of GPU rental. The run reached 48.3% effective MFU. At AWS p4de Capacity Blocks pricing, a 48-A100 cluster operating at the literature-derived 65% compute ceiling comes to an estimated $0.1686 per million tokens. Crucible's measured $0.1202 was about 29% lower after its low-bandwidth overhead. The comparison excludes R2 storage and operations. The full writeup shows the met",
+    "url": "http://nitter.mizuki.st/tplr_ai/status/2095580357626110111#m",
+    "fetched_at": "2026-11-10T05:38:23.928593+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "BarrySilbert",
+    "name": "Barry Silbert",
+    "posted_at": "Sun, 08 Nov 2026 21:43:05 GMT",
+    "title": "RT by @BarrySilbert: UConn has real momentum right now and a lot of that is Radenka Maric. She shows up for students, athletes and alumni, and she gets things built. I'm proud to call her a friend and I hope the state makes it clear it wants her to stay. #UConn #BleedBlue @UConnPresident @GovNedLamont",
+    "text": "UConn has real momentum right now and a lot of that is Radenka Maric. She shows up for students, athletes and alumni, and she gets things built. I'm proud to call her a friend and I hope the state makes it clear it wants her to stay. #UConn #BleedBlue @UConnPresident @GovNedLamont",
+    "url": "http://nitter.jaydenha.uk/marcdamelio/status/2119546273976013288#m",
+    "fetched_at": "2026-11-10T05:37:16.319668+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "jtledore",
+    "name": "Jean-Thomas Ledoré",
+    "posted_at": "Sun, 08 Nov 2026 13:57:52 GMT",
+    "title": "RT by @jtledore: What a crazy week in the Bittensor ecosystem Wtf is $TAO still doing at a $2.6B market cap",
+    "text": "What a crazy week in the Bittensor ecosystem Wtf is $TAO still doing at a $2.6B market cap Openτensor Foundaτion (@opentensor) Article Bittensor Ecosystem Highlights :: November 2–8, 2026 This week, Bittensor subnets pushed the AI frontier, outperforming leading models in coding, decision-making and security. The biggest stories came from Reax, OpenRoboto, IOTA, Reliquary, Chutes, — http://nitter.mizuki.st/opentensor/status/2119427089505903020#m",
+    "url": "http://nitter.mizuki.st/VictorVL_EN/status/2119429195764023308#m",
+    "fetched_at": "2026-11-10T05:38:44.652257+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "opentensor",
+    "name": "Opentensor Foundation",
+    "posted_at": "Sun, 08 Nov 2026 13:49:29 GMT",
+    "title": "Bittensor Ecosystem Highlights :: November 2–8, 2026",
+    "text": "Article Bittensor Ecosystem Highlights :: November 2–8, 2026 This week, Bittensor subnets pushed the AI frontier, outperforming leading models in coding, decision-making and security. The biggest stories came from Reax, OpenRoboto, IOTA, Reliquary, Chutes,",
+    "url": "http://nitter.jaydenha.uk/opentensor/status/2119427089505903020#m",
+    "fetched_at": "2026-11-10T05:37:11.192655+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "jtledore",
+    "name": "Jean-Thomas Ledoré",
+    "posted_at": "Sun, 08 Nov 2026 13:49:29 GMT",
+    "title": "RT by @jtledore: Bittensor Ecosystem Highlights :: November 2–8, 2026",
+    "text": "Article Bittensor Ecosystem Highlights :: November 2–8, 2026 This week, Bittensor subnets pushed the AI frontier, outperforming leading models in coding, decision-making and security. The biggest stories came from Reax, OpenRoboto, IOTA, Reliquary, Chutes,",
+    "url": "http://nitter.mizuki.st/opentensor/status/2119427089505903020#m",
+    "fetched_at": "2026-11-10T05:38:44.652257+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "BarrySilbert",
+    "name": "Barry Silbert",
+    "posted_at": "Sat, 07 Nov 2026 19:15:35 GMT",
+    "title": "RT by @BarrySilbert: Incredible.",
+    "text": "Incredible.",
+    "url": "http://nitter.jaydenha.uk/jeremiahrogers/status/2119146766515790181#m",
+    "fetched_at": "2026-11-10T05:37:16.319668+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "opentensor",
+    "name": "Opentensor Foundation",
+    "posted_at": "Sat, 07 Nov 2026 14:58:32 GMT",
+    "title": "Bittensor subnet @chutes_ai has partnered with Tencent Cloud. Chutes is a launch partner for @TencentHunyuan’s new flagship AI model, Hy4, now available through its API. Day-one access to leading AI models is business as usual on Bittensor.",
+    "text": "Bittensor subnet @chutes_ai has partnered with Tencent Cloud. Chutes is a launch partner for @TencentHunyuan’s new flagship AI model, Hy4, now available through its API. Day-one access to leading AI models is business as usual on Bittensor. Chutes (@chutes_ai) Tencent Hy4 is live on Chutes We’re a launch partner with @TencentHunyuan. It’s Tencent’s new flagship, and the first Hy model that can see. It reads screenshots and charts, and it can drive a terminal or a desktop app for you. 0.525$ per million tokens in, 1.5625$ out. Already on Chutes? Just Change the model name to start using it Try ",
+    "url": "http://nitter.jaydenha.uk/opentensor/status/2119082078436499963#m",
+    "fetched_at": "2026-11-10T05:37:11.192655+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "jaltucher",
+    "name": "James Altucher",
+    "posted_at": "Mon, 26 Oct 2026 17:20:34 GMT",
+    "title": "RT by @jaltucher: JAS: @jaltucher X @TomBilyeu on AI! . 00:00 AI Job Shock Warning 00:48 Show Intro and Reunion 02:11 Moats in the AI Era 04:50 Marketing in a Content Avalanche 08:24 AI Startups and Revenue Reality 10:05 Using AI for Product Fit 12:19 Avoiding AI Yes Man Traps 16:02 Prompting for Original Design 19:30 AI First Tools Everywhere 23:57 Coding at Superhuman Speed 24:58 Superintelligence Fear Debate 26:32 Mid Career Job Loss Reality 28:59 Retirement Without Purpose 29:44 Be The AI Power User 30:31 Practical AI Tools To Start 32:50 AI Adoption Mindset Shift 34:33 AI Infrastructure Bubble Risks 39:44 Which Jobs Survive AI 42:21 AI In Healthcare Reality Check 44:25 Building A Breakout Podcast 47:54 Launching Media With AI 52:07 Kyzen Meaning And Wrap Up",
+    "text": "JAS: @jaltucher X @TomBilyeu on AI! . 00:00 AI Job Shock Warning 00:48 Show Intro and Reunion 02:11 Moats in the AI Era 04:50 Marketing in a Content Avalanche 08:24 AI Startups and Revenue Reality 10:05 Using AI for Product Fit 12:19 Avoiding AI Yes Man Traps 16:02 Prompting for Original Design 19:30 AI First Tools Everywhere 23:57 Coding at Superhuman Speed 24:58 Superintelligence Fear Debate 26:32 Mid Career Job Loss Reality 28:59 Retirement Without Purpose 29:44 Be The AI Power User 30:31 Practical AI Tools To Start 32:50 AI Adoption Mindset Shift 34:33 AI Infrastructure Bubble Risks 39:44 ",
+    "url": "http://nitter.mizuki.st/jay_yow07/status/2114769165848613342#m",
+    "fetched_at": "2026-11-10T05:37:32.871186+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "BarrySilbert",
+    "name": "Barry Silbert",
+    "posted_at": "Mon, 09 Nov 2026 23:30:41 GMT",
+    "title": "RT by @BarrySilbert: Tomorrow: crypto earns its stripes.",
+    "text": "Tomorrow: crypto earns its stripes.",
+    "url": "http://nitter.jaydenha.uk/ZcashInvest/status/2119935739358237022#m",
+    "fetched_at": "2026-11-10T05:37:16.319668+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "JosephJacks_",
+    "name": "Joseph Jacks",
+    "posted_at": "Mon, 09 Nov 2026 23:03:26 GMT",
+    "title": "Measuring my concentration these days in units of Boléro. https://open.spotify.com/playlist/53mVQTJ7tkb2EAqlbjzH5q",
+    "text": "Measuring my concentration these days in units of Boléro. open.spotify.com/playlist/53… Link Bolero (Ravel) - All versions Playlist · Atsushi Narita · 72 items · 19 saves open.spotify.com",
+    "url": "http://nitter.jaydenha.uk/JosephJacks_/status/2119928881155281364#m",
+    "fetched_at": "2026-11-10T05:37:30.812453+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "PanteraCapital",
+    "name": "Pantera Capital",
+    "posted_at": "Mon, 09 Nov 2026 22:53:43 GMT",
+    "title": "RT by @PanteraCapital: BitGo was founded on the belief that digital assets would become an integral part of the global financial system. That vision is becoming reality. Today, we reported our Q3 2026 results. A few highlights: -Assets on platform grew 32% year over year on a normalized basis -Assets staked grew 41% year over year on a normalized basis -Expanded institutional trading capabilities with the acquisition of NYDIG’s trading business -Continued building out Go Network, goStocks, and our international presence The next chapter will be defined by the infrastructure that enables institutions to securely custody, trade, and settle on a global scale. That’s what we’re building at BitGo. We’re proud of our team and excited for what’s ahead. $BTGO",
+    "text": "BitGo was founded on the belief that digital assets would become an integral part of the global financial system. That vision is becoming reality. Today, we reported our Q3 2026 results. A few highlights: -Assets on platform grew 32% year over year on a normalized basis -Assets staked grew 41% year over year on a normalized basis -Expanded institutional trading capabilities with the acquisition of NYDIG’s trading business -Continued building out Go Network, goStocks, and our international presence The next chapter will be defined by the infrastructure that enables institutions to securely cust",
+    "url": "http://nitter.jaydenha.uk/mikebelshe/status/2119926438052896947#m",
+    "fetched_at": "2026-11-10T05:37:52.656397+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "JosephJacks_",
+    "name": "Joseph Jacks",
+    "posted_at": "Mon, 09 Nov 2026 22:47:00 GMT",
+    "title": "RT by @JosephJacks_: We added two new providers to ngrok​.ai: Liquid AI's small LFM3 models, and 160+ models from LLM API, 100 of them on your ngrok credits. We asked them whether a thirsty office plant is worth a 3 a.m. page. LFM3-1.7B said yes, six times out of seven. https://ngrok.com/changelog/ai-gateway-llm-api-liquid-ai",
+    "text": "We added two new providers to ngrok​.ai: Liquid AI's small LFM3 models, and 160+ models from LLM API, 100 of them on your ngrok credits. We asked them whether a thirsty office plant is worth a 3 a.m. page. LFM3-1.7B said yes, six times out of seven. ngrok.com/changelog/ai-gatew… Link Run Liquid AI&apos;s small models and 160 more from LLM API in AI Gateway | ngrok changelog Two new providers add Liquid AI&apos;s small LFM3 models and more than 160 models from LLM API, including Amazon Nova, Llama, and ElevenLabs voices, on your ngrok credits or your own keys. ngrok.com",
+    "url": "http://nitter.jaydenha.uk/ngrokHQ/status/2119924745965818359#m",
+    "fetched_at": "2026-11-10T05:37:30.812453+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "oroagents",
+    "name": "Oro",
+    "posted_at": "Mon, 09 Nov 2026 22:37:59 GMT",
+    "title": "RT by @oroagents: On our recently released benchmark that tests models running a wholesaling business, the performance is in line with GLM 5.3, Grok 4.7, and Muse Spark 1.3. Interestingly, Mused Wonder 1.0 is still the least performant. Working on Luna & Haiku evaluations for true comparison.",
+    "text": "On our recently released benchmark that tests models running a wholesaling business, the performance is in line with GLM 5.3, Grok 4.7, and Muse Spark 1.3. Interestingly, Mused Wonder 1.0 is still the least performant. Working on Luna &amp; Haiku evaluations for true comparison.",
+    "url": "http://nitter.mizuki.st/SethSchilbe/status/2119922477715595670#m",
+    "fetched_at": "2026-11-10T05:38:32.668808+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "JosephJacks_",
+    "name": "Joseph Jacks",
+    "posted_at": "Mon, 09 Nov 2026 22:02:49 GMT",
+    "title": "RT by @JosephJacks_: I got a 1.9B model to watch a restaurant camera and tell staff which tables need cleaning 🍽️ It runs on my laptop. No cloud, and it generates zero tokens. Built over a weekend with @liquidai d1-2B",
+    "text": "I got a 1.9B model to watch a restaurant camera and tell staff which tables need cleaning 🍽️ It runs on my laptop. No cloud, and it generates zero tokens. Built over a weekend with @liquidai d1-2B Video",
+    "url": "http://nitter.jaydenha.uk/romankhrupa/status/2119913625511137746#m",
+    "fetched_at": "2026-11-10T05:37:30.812453+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "PanteraCapital",
+    "name": "Pantera Capital",
+    "posted_at": "Mon, 09 Nov 2026 21:30:12 GMT",
+    "title": "RT by @PanteraCapital: Tokenization is changing who gets access. “If you have a wallet and an internet connection, you’ll be able to access Anthropic on IPO day. That’s accessibility at its core.” Ondo’s Matthieu de Vergnes explains to CoinDesk how Ondo Stocks is preparing to bring another major IPO onchain. When other platforms failed to deliver SpaceX allocations, Ondo Stocks delivered on day one. Each new listing is another step toward markets that are global, open, and onchain.",
+    "text": "Tokenization is changing who gets access. “If you have a wallet and an internet connection, you’ll be able to access Anthropic on IPO day. That’s accessibility at its core.” Ondo’s Matthieu de Vergnes explains to CoinDesk how Ondo Stocks is preparing to bring another major IPO onchain. When other platforms failed to deliver SpaceX allocations, Ondo Stocks delivered on day one. Each new listing is another step toward markets that are global, open, and onchain. Video",
+    "url": "http://nitter.jaydenha.uk/Ondo/status/2119905420760494490#m",
+    "fetched_at": "2026-11-10T05:37:52.656397+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "BarrySilbert",
+    "name": "Barry Silbert",
+    "posted_at": "Mon, 09 Nov 2026 20:26:37 GMT",
+    "title": "RT by @BarrySilbert: Over the past year, one crypto has consistently stolen the spotlight with its strong price action. That's $ZEC. Not only has it led the revitalized privacy narrative, it’s tended to forge ahead of the broad market at most key reversals this year.",
+    "text": "Over the past year, one crypto has consistently stolen the spotlight with its strong price action. That's $ZEC. Not only has it led the revitalized privacy narrative, it’s tended to forge ahead of the broad market at most key reversals this year. Daan Crypto Trades (@DaanCrypto) $ZEC Has been consolidating for the past 6 weeks. The structure itself doesn't look bad considering the market environment we've been in. But you'd want to see a convincing break and hold above that ~$1375 level first. That should kick off the next bigger move. On the downside, the bulls would want to keep holding thes",
+    "url": "http://nitter.jaydenha.uk/WeissCrypto/status/2119889418710630675#m",
+    "fetched_at": "2026-11-10T05:37:16.319668+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "jtledore",
+    "name": "Jean-Thomas Ledoré",
+    "posted_at": "Mon, 09 Nov 2026 18:25:11 GMT",
+    "title": "RT by @jtledore: the most important chart for Bittensor imo 10.9% of TAO issuance is now being offset by demand generated through economic activity across the network Goal is 100%, and we're moving in the right direction",
+    "text": "the most important chart for Bittensor imo 10.9% of TAO issuance is now being offset by demand generated through economic activity across the network Goal is 100%, and we're moving in the right direction Sami Kassab (@Old_Samster) Article Reflecting on Bittensor TAO is trading roughly where it began the year. Bittensor, however, is a very different network. At a recent offsite, we spent time taking an honest look at Bittensor&apos;s progress over the past year. We — http://nitter.mizuki.st/Old_Samster/status/2119857366178902447#m",
+    "url": "http://nitter.mizuki.st/Old_Samster/status/2119858857124266294#m",
+    "fetched_at": "2026-11-10T05:38:44.652257+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "jtledore",
+    "name": "Jean-Thomas Ledoré",
+    "posted_at": "Mon, 09 Nov 2026 17:37:25 GMT",
+    "title": "RT by @jtledore: The Bittensor chain has undergone 61 upgrades this year alone. That’s more upgrades than its fellow Substrate chains, including Polkadot and Kusama, as well as major L1 networks like Ethereum, Solana, NEAR, Sui, and Cardano. The philosophy is simple: move fast. AI is evolving rapidly, and keeping pace requires Bittensor to continue building, improving, and upgrading at speed. But that pace comes with challenges. Subnet owners often have to adjust their operations to accommodate network upgrades, while businesses considering building on Bittensor may wonder whether the frequency of these changes makes launching and maintaining a subnet too demanding. Is this the price of moving fast, or could the pace of upgrades become a barrier for subnet owners and businesses looking to build on Bittensor?",
+    "text": "The Bittensor chain has undergone 61 upgrades this year alone. That’s more upgrades than its fellow Substrate chains, including Polkadot and Kusama, as well as major L1 networks like Ethereum, Solana, NEAR, Sui, and Cardano. The philosophy is simple: move fast. AI is evolving rapidly, and keeping pace requires Bittensor to continue building, improving, and upgrading at speed. But that pace comes with challenges. Subnet owners often have to adjust their operations to accommodate network upgrades, while businesses considering building on Bittensor may wonder whether the frequency of these change",
+    "url": "http://nitter.mizuki.st/SubnetSummerTAO/status/2119846835950871007#m",
+    "fetched_at": "2026-11-10T05:38:44.652257+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "JosephJacks_",
+    "name": "Joseph Jacks",
+    "posted_at": "Mon, 09 Nov 2026 17:30:25 GMT",
+    "title": "RT by @JosephJacks_: The future of software In the limit, of course, software won't mean anything anymore. Everything digital will be instantly created at will. But in the interim period we'll wander through an increasingly odd in-between age for software. This transition periodwill be defined by three new precepts. Everflux software - instead of stepping from release to release, months apart, software now evolves continuously. Software creation has broken the sound barrier of our own keystrokes, and every model release pushes it faster. There is no reason to wait weeks or months for the next release when a single company merges over 30,000 code changes a day. Cyber capabilities are also progressing at an increasing pace. Bug and vulnerability fixes need to ship quickly and continuously. And every piece of software sits in a lattice of dependencies, each one now shipping at a blistering pace. Software will have to move accordingly fast just to keep from breaking as everything around it shifts. Translucent sources – A new territory has opened between open source and closed source. Today Claude will happily pick apart any Electron app, and any binary shipped with debug symbols has become a reverse-engineering playground for LLMs. In other words, much so-called closed-source software is now open source in all but name, and keeping code closed makes less and less sense. Even the notion of IP and copyright is breaking in software: Apps don't even need to be accessed to be reproduced. I'm writing this text on a personal text editor I prompted Claude to vibe-code from a few videos of people demoing editor features they liked. A mere description of the interface is increasingly enough for an LLM to rebuild the internals, whether or not they resemble the original. Software IP seems to be dissolving like cotton candy in a raccoon's paws. Bespoke features - Now that all software is open source, nothing prevents us from modifying everything. And personalization is just one prompt and a couple million tokens away, so there is absolutely no reason anymore to wait for someone else to add this feature you want. Everyone becomes their own product manager. Want a search box, an API bridge, a custom button? It's a couple of minutes away, mostly executed in the background of your daily life. Soon we'll want to personalize everything. A major challenge appears when bespoke features crash into our first tenet: everflux software. How do you customize software without cutting yourself off from upstream? I could fork it for good to add my search box, but I'd lose all future benefit from the software creator, be it new security updates or other updates to the rest of the software. How do you personalize software that was never meant to be personalized, without shouldering all of its future maintenance? Merge conflicts won't be the exception anymore; they'll be a constant of everflux software. Agents will rebase our personal features onto each new release overnight, and software will look less like a product and more like a living species, evolving through constant mutation. Image: M.C. Escher, Metamorphosis II, November 1939 - March 1940",
+    "text": "The future of software In the limit, of course, software won't mean anything anymore. Everything digital will be instantly created at will. But in the interim period we'll wander through an increasingly odd in-between age for software. This transition periodwill be defined by three new precepts. Everflux software - instead of stepping from release to release, months apart, software now evolves continuously. Software creation has broken the sound barrier of our own keystrokes, and every model release pushes it faster. There is no reason to wait weeks or months for the next release when a single",
+    "url": "http://nitter.jaydenha.uk/Thom_Wolf/status/2119845074594857428#m",
+    "fetched_at": "2026-11-10T05:37:30.812453+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "PanteraCapital",
+    "name": "Pantera Capital",
+    "posted_at": "Mon, 09 Nov 2026 17:08:59 GMT",
+    "title": "RT by @PanteraCapital: More vulns found using AI since january than in the 8 years before from @DonjonLedger. Finding vulnerabilities is basically free now. Patching them remains costly, having strong security guarantees remains the challenge.",
+    "text": "More vulns found using AI since january than in the 8 years before from @DonjonLedger. Finding vulnerabilities is basically free now. Patching them remains costly, having strong security guarantees remains the challenge. Pantera Capital (@PanteraCapital) Ledger's red team has found more vulnerabilities with AI since January than in the previous eight years combined. @stutireal sat down with Michael Benich, Director of Security at @krakenfx , and with Charles Guillemet (@P3b7_), CTO of @Ledger, on how AI impacts the economics of hacking: ‣ What actually broke at Binance, and why social engineer",
+    "url": "http://nitter.jaydenha.uk/P3b7_/status/2119839681265205619#m",
+    "fetched_at": "2026-11-10T05:37:52.656397+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "1inch",
+    "name": "1inch",
+    "posted_at": "Mon, 09 Nov 2026 17:00:36 GMT",
+    "title": "RT by @1inch: Opening ETHGlobal Mumbai on the main stage! 🚀🇮🇳 Presented @1inch Aqua — shared and unlocked liquidity for the next generation of DeFi. #ETHGlobal #1inch #DeFi",
+    "text": "Opening ETHGlobal Mumbai on the main stage! 🚀🇮🇳 Presented @1inch Aqua — shared and unlocked liquidity for the next generation of DeFi. #ETHGlobal #1inch #DeFi",
+    "url": "http://nitter.mizuki.st/whiledeveloper/status/2119837571325059555#m",
+    "fetched_at": "2026-11-10T05:38:50.662243+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "PanteraCapital",
+    "name": "Pantera Capital",
+    "posted_at": "Mon, 09 Nov 2026 15:33:46 GMT",
+    "title": "R to @PanteraCapital: Youtube: https://www.youtube.com/watch?v=hNwnsokI-1A Spotify: https://open.spotify.com/episode/3ntbD6LGp5tpz5CurqzUy8?si=094b636faa9e4c98 Apple Podcasts: https://podcasts.apple.com/us/podcast/why-encryption-hasnt-broken-in-the-age-of-ai/id1843681425?i=1000800739842",
+    "text": "Youtube: youtube.com/watch?v=hNwnsokI… Spotify: open.spotify.com/episode/3nt… Apple Podcasts: podcasts.apple.com/us/podcas… Link Why Encryption Hasn&apos;t Broken in the Age of AI with Kraken and Ledger Nothing was decrypted. A lot was exploited. That gap is the entire ... youtube.com",
+    "url": "http://nitter.jaydenha.uk/PanteraCapital/status/2119815721622684045#m",
+    "fetched_at": "2026-11-10T05:37:52.656397+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "PanteraCapital",
+    "name": "Pantera Capital",
+    "posted_at": "Mon, 09 Nov 2026 15:33:45 GMT",
+    "title": "Ledger's red team has found more vulnerabilities with AI since January than in the previous eight years combined. @stutireal sat down with Michael Benich, Director of Security at @krakenfx , and with Charles Guillemet (@P3b7_), CTO of @Ledger, on how AI impacts the economics of hacking: ‣ What actually broke at Binance, and why social engineering through a fake job interview beat every technical control ‣ The PHP bug was found by prompting a model to look for a nasty vulnerability and not stop until it did ‣ Why guardrails may be creating the next generation of unethical hackers ‣ Whether AI is coming for cryptography itself, and what moving Bitcoin to new signatures would take 00:00 Nothing was decrypted, but a lot was exploited 04:19 Black October, and what broke at Binance 10:43 Why the economics of attack and defense flipped 18:40 Inside early access to frontier models, and where refusals hurt defenders 29:46 OpenAI's 700 math papers and the hunt for a crack in cryptography 39:19 Post-quantum cryptography, harvest now decrypt later, and Q-day",
+    "text": "Ledger's red team has found more vulnerabilities with AI since January than in the previous eight years combined. @stutireal sat down with Michael Benich, Director of Security at @krakenfx , and with Charles Guillemet (@P3b7_), CTO of @Ledger, on how AI impacts the economics of hacking: ‣ What actually broke at Binance, and why social engineering through a fake job interview beat every technical control ‣ The PHP bug was found by prompting a model to look for a nasty vulnerability and not stop until it did ‣ Why guardrails may be creating the next generation of unethical hackers ‣ Whether AI i",
+    "url": "http://nitter.jaydenha.uk/PanteraCapital/status/2119815715637108951#m",
+    "fetched_at": "2026-11-10T05:37:52.656397+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "JosephJacks_",
+    "name": "Joseph Jacks",
+    "posted_at": "Mon, 09 Nov 2026 15:28:39 GMT",
+    "title": "RT by @JosephJacks_: @planepowers real-time engine is coming. It's been almost three years since we started building Plane, and the response has been overwhelming from day one. First our open-source Community Edition, then our first cloud plan, then the commercial self-hosted edition, and then air-gapped. Yes, it's a lot. We serve Plane in four very different environments, and we're not a single product anymore either. Many customers move to Plane because of fragmentation. They use one tool to manage projects, one for knowledge and one for support. Real-time became our top priority within a year of starting Plane. But at the pace we move, it kept slipping, and our community kept asking for it on GitHub and our forum. Surprisingly, around the same time, some of the enterprises we work with weren't ready for a product that worked in real time at all. That was a little sad, but let me explain. One customer moving away from Jira had a Save button on the work item description. Nothing was saved until someone clicked it. They didn't want to experiment with conflict-free editing, and wanted to keep their manual saves and their own version control. Pages in Plane have been collaborative for a while, and teams coming from Confluence asked us to turn that off and give them a Save button too. That taught us something. People trust what they can see saved, so real-time has to be at least as trustworthy as that button. Our first approach was a local database. In late 2024 we shipped Hyper Mode, which kept your work items in SQLite inside the browser, so switching layouts and filters felt instant. But it needed HTTPS, so self-hosted teams on local networks fell back to the API, and big projects slowed it down. A fast local copy is still a copy, too. Your teammate's change didn't reach you any sooner, and we retired it in 2025. The second was WebSockets. Open a socket, tell every tab that something changed, and let it refetch. That works in a demo. With a real team, two people move the same card at once, and laptops wake up with stale tabs. And every update must reach only the people allowed to see it. Plane confidently showing you the wrong thing is worse than making you refresh. So we started from the database. Every change in Plane is written to Postgres, and in the same transaction a trigger records it as an event. Our real-time engine reads that stream, checks who is allowed to see each change, and sends it in order to every open tab. If a tab drops off, it catches up as soon as it's back. It runs on the Postgres, RabbitMQ and Redis that Plane already ships with. Nothing in it depends on a third-party service, which matters when the customer is air-gapped. We've grown so much, and honestly, real-time was the one thing we couldn't rush. We took the time to get it right without breaking anything for the teams already on Plane. Plane is going real-time. Soon.",
+    "text": "@planepowers real-time engine is coming. It's been almost three years since we started building Plane, and the response has been overwhelming from day one. First our open-source Community Edition, then our first cloud plan, then the commercial self-hosted edition, and then air-gapped. Yes, it's a lot. We serve Plane in four very different environments, and we're not a single product anymore either. Many customers move to Plane because of fragmentation. They use one tool to manage projects, one for knowledge and one for support. Real-time became our top priority within a year of starting Plane.",
+    "url": "http://nitter.jaydenha.uk/viharkurama/status/2119814430590706005#m",
+    "fetched_at": "2026-11-10T05:37:30.812453+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "1inch",
+    "name": "1inch",
+    "posted_at": "Mon, 09 Nov 2026 15:07:22 GMT",
+    "title": "💎 hands",
+    "text": "💎 hands",
+    "url": "http://nitter.mizuki.st/1inch/status/2119809074522935697#m",
+    "fetched_at": "2026-11-10T05:38:50.662243+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "jtledore",
+    "name": "Jean-Thomas Ledoré",
+    "posted_at": "Mon, 09 Nov 2026 14:31:11 GMT",
+    "title": "RT by @jtledore: Thanks for the feature!",
+    "text": "Thanks for the feature! Openτensor Foundaτion (@opentensor) Article Bittensor Ecosystem Highlights :: November 2–8, 2026 This week, Bittensor subnets pushed the AI frontier, outperforming leading models in coding, decision-making and security. The biggest stories came from Reax, OpenRoboto, IOTA, Reliquary, Chutes, — http://nitter.mizuki.st/opentensor/status/2119427089505903020#m",
+    "url": "http://nitter.mizuki.st/openroboto/status/2119799968974438512#m",
+    "fetched_at": "2026-11-10T05:38:44.652257+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "opentensor",
+    "name": "Opentensor Foundation",
+    "posted_at": "Mon, 09 Nov 2026 14:03:14 GMT",
+    "title": "Building decentralized AI on Bittensor? Apply for the Hacker House in Bangkok this December. We're co-hosting the event with @injective. Applications close tomorrow!",
+    "text": "Building decentralized AI on Bittensor? Apply for the Hacker House in Bangkok this December. We're co-hosting the event with @injective. Applications close tomorrow! Injective 🥷 (@injective) .@opentensor and Injective are hosting a hacker house this December in Bangkok to find the brightest builders across AI and agentic infrastructure. Register before submissions close tomorrow! — http://nitter.jaydenha.uk/injective/status/2119787369926938847#m",
+    "url": "http://nitter.jaydenha.uk/opentensor/status/2119792938033045678#m",
+    "fetched_at": "2026-11-10T05:37:11.192655+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "1inch",
+    "name": "1inch",
+    "posted_at": "Mon, 09 Nov 2026 13:45:29 GMT",
+    "title": "5 teams took home prizes for building on Aqua at @ETHGlobal Mumbai 🇮🇳. Here are your winners: 🥇 Mandate - $2500 | @onecentlabs, @mssv27 Market makers get bounded, revocable strategies, not your tokens: deals as onchain code. 🥈 Moonglade - $1500 | @mgnfy_view 🥉 Stance - $1000 | @ombhojane05 Continuity 🥇 Noirwire - $1500 | @Ph1l1pH_, @def Private BTC perp maker on Solana, hedged on Hyperliquid and 1inch Aqua, backed by an ARC USDC vault. 🥈 Aquantis - $500 | @curio_invest, @s_belenkov Congratulations to all 🏆",
+    "text": "5 teams took home prizes for building on Aqua at @ETHGlobal Mumbai 🇮🇳. Here are your winners: 🥇 Mandate - $2500 | @onecentlabs, @mssv27 Market makers get bounded, revocable strategies, not your tokens: deals as onchain code. 🥈 Moonglade - $1500 | @mgnfy_view 🥉 Stance - $1000 | @ombhojane05 Continuity 🥇 Noirwire - $1500 | @Ph1l1pH_, @def Private BTC perp maker on Solana, hedged on Hyperliquid and 1inch Aqua, backed by an ARC USDC vault. 🥈 Aquantis - $500 | @curio_invest, @s_belenkov Congratulations to all 🏆",
+    "url": "http://nitter.mizuki.st/1inch/status/2119788467857035295#m",
+    "fetched_at": "2026-11-10T05:38:50.662243+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "opentensor",
+    "name": "Opentensor Foundation",
+    "posted_at": "Mon, 09 Nov 2026 10:01:39 GMT",
+    "title": "Google Drive has a decentralized competitor built on Bittensor. @Hippius_cloud’s encrypted storage app is now available on iPhone and Android.",
+    "text": "Google Drive has a decentralized competitor built on Bittensor. @Hippius_cloud’s encrypted storage app is now available on iPhone and Android. Hippius (@Hippius_cloud) The wait is over. Hippius is now on iPhone and Android. It's been a long time coming, but now it’s here for everyone. Back up your photos and files automatically, encrypted on your phone before they upload. No one can read them but you. Your whole Drive, now in your pocket. — http://nitter.jaydenha.uk/Hippius_cloud/status/2119715926123917608#m",
+    "url": "http://nitter.jaydenha.uk/opentensor/status/2119732138740207859#m",
+    "fetched_at": "2026-11-10T05:37:11.192655+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "BarrySilbert",
+    "name": "Barry Silbert",
+    "posted_at": "Fri, 06 Nov 2026 23:34:23 GMT",
+    "title": "RT by @BarrySilbert: The Next Era is coming",
+    "text": "The Next Era is coming",
+    "url": "http://nitter.jaydenha.uk/ZcashInvest/status/2118849505584157079#m",
+    "fetched_at": "2026-11-10T05:37:16.319668+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "oroagents",
+    "name": "Oro",
+    "posted_at": "Fri, 06 Nov 2026 22:18:56 GMT",
+    "title": "R to @oroagents: We'd like to thank @baseten, @meshapi_ai, @OpenAI, @AnthropicAI, @GoogleDeepMind, @vercel, @googlecloud, and @awscloud for providing the necessary inference and infrastructure for us to benchmark all models. Thank you @lukeigel for introducing us to @trykino, and GetASAP Wholesalers for making this a reality.",
+    "text": "We'd like to thank @baseten, @meshapi_ai, @OpenAI, @AnthropicAI, @GoogleDeepMind, @vercel, @googlecloud, and @awscloud for providing the necessary inference and infrastructure for us to benchmark all models. Thank you @lukeigel for introducing us to @trykino, and GetASAP Wholesalers for making this a reality.",
+    "url": "http://nitter.mizuki.st/oroagents/status/2118830517693096379#m",
+    "fetched_at": "2026-11-10T05:38:32.668808+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "oroagents",
+    "name": "Oro",
+    "posted_at": "Fri, 06 Nov 2026 22:18:55 GMT",
+    "title": "R to @oroagents: For AI to be a productive economic actor, it will have to learn the tacit knowledge that lives with the people who do these jobs, and learn it the same way we do, from the results of its decisions. SMB Bench is a high-fidelity simulation grounded in real, public data in which that learning can be observed. With it, we have taken a step in identifying the gaps in AI running a profitable autonomous business. We think this is one of the most important problems in AI right now, and we are only getting started. If it excites you too, please reach out, we would love to talk: team@oroagents.com",
+    "text": "For AI to be a productive economic actor, it will have to learn the tacit knowledge that lives with the people who do these jobs, and learn it the same way we do, from the results of its decisions. SMB Bench is a high-fidelity simulation grounded in real, public data in which that learning can be observed. With it, we have taken a step in identifying the gaps in AI running a profitable autonomous business. We think this is one of the most important problems in AI right now, and we are only getting started. If it excites you too, please reach out, we would love to talk: team@oroagents.com",
+    "url": "http://nitter.mizuki.st/oroagents/status/2118830516204118217#m",
+    "fetched_at": "2026-11-10T05:38:32.668808+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "opentensor",
+    "name": "Opentensor Foundation",
+    "posted_at": "Fri, 06 Nov 2026 22:18:53 GMT",
+    "title": "RT by @opentensor: The economic value of agents will soon come from running whole autonomous businesses, not just from finishing one-off tasks. When you run a business, the result of your own decisions arrive weeks later. You have to notice them, trace them to something you did, and act before they compound. Today, we're excited to announce SMB Bench, where we measure all the frontier models' ability to observe changes in the environment and adapt accordingly.",
+    "text": "The economic value of agents will soon come from running whole autonomous businesses, not just from finishing one-off tasks. When you run a business, the result of your own decisions arrive weeks later. You have to notice them, trace them to something you did, and act before they compound. Today, we're excited to announce SMB Bench, where we measure all the frontier models' ability to observe changes in the environment and adapt accordingly. Video",
+    "url": "http://nitter.jaydenha.uk/oroagents/status/2118830507450642687#m",
+    "fetched_at": "2026-11-10T05:37:11.192655+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "oroagents",
+    "name": "Oro",
+    "posted_at": "Fri, 06 Nov 2026 22:18:53 GMT",
+    "title": "The economic value of agents will soon come from running whole autonomous businesses, not just from finishing one-off tasks. When you run a business, the result of your own decisions arrive weeks later. You have to notice them, trace them to something you did, and act before they compound. Today, we're excited to announce SMB Bench, where we measure all the frontier models' ability to observe changes in the environment and adapt accordingly.",
+    "text": "The economic value of agents will soon come from running whole autonomous businesses, not just from finishing one-off tasks. When you run a business, the result of your own decisions arrive weeks later. You have to notice them, trace them to something you did, and act before they compound. Today, we're excited to announce SMB Bench, where we measure all the frontier models' ability to observe changes in the environment and adapt accordingly. Video",
+    "url": "http://nitter.mizuki.st/oroagents/status/2118830507450642687#m",
+    "fetched_at": "2026-11-10T05:38:32.668808+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "1inch",
+    "name": "1inch",
+    "posted_at": "Fri, 06 Nov 2026 15:13:24 GMT",
+    "title": "Who can exercise control over your protocol, and how quickly can you revoke it? Our CPTO @holdoesdev on keeping contracts simple and treating privileged access as a product decision.",
+    "text": "Who can exercise control over your protocol, and how quickly can you revoke it? Our CPTO @holdoesdev on keeping contracts simple and treating privileged access as a product decision. holly (@holdoesdev) Who can exercise control over your protocol, and how quickly can you revoke it? Here are my thoughts on keeping contracts simple, avoiding unnecessary upgradeability and treating privileged access as a product decision ⬇️ holdoesdev.substack.com/p/ce… — http://nitter.mizuki.st/holdoesdev/status/2118715307858731064#m",
+    "url": "http://nitter.mizuki.st/1inch/status/2118723430631768308#m",
+    "fetched_at": "2026-11-10T05:38:50.662243+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "1inch",
+    "name": "1inch",
+    "posted_at": "Fri, 06 Nov 2026 13:41:00 GMT",
+    "title": "RT by @1inch: There's a reason protocols like @1inch exist. Decentralisation and self-sovereignty matter, and my thoughts are with those affected in Paraguay.",
+    "text": "There's a reason protocols like @1inch exist. Decentralisation and self-sovereignty matter, and my thoughts are with those affected in Paraguay.",
+    "url": "http://nitter.mizuki.st/holdoesdev/status/2118700176403509420#m",
+    "fetched_at": "2026-11-10T05:38:50.662243+00:00",
+    "via_instance": "https://nitter.cz"
+  }
+]
