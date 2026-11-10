@@ -134,7 +134,16 @@ _1,000+ facilities across 60+ operators mapped, built retail-first and flipped b
 
 ## ⊕ GITHUB COMMITS + RELEASES, last 24h
 
-_no commits or releases in the lookback window_
+- **Subtensor (chain)** (RELEASE `v490`, 2026-11-10 20:14) Runtime 490  
+  https://github.com/RaoFoundation/subtensor/releases/tag/v490
+- **Subtensor (chain)** (COMMIT `d967d13`, 2026-11-10 19:49) bump spec to 490 (#3325)  
+  https://github.com/RaoFoundation/subtensor/commit/d967d13588834f4f5aaa8ef4c8fc1a865d581462
+- **Subtensor (chain)** (COMMIT `e31fdc3`, 2026-11-10 19:38) Merge pull request #3324 from RaoFoundation/fix/sdk-version-11.3.3  
+  https://github.com/RaoFoundation/subtensor/commit/e31fdc32ef0a23ff961b55be68043e613803fd0f
+- **Subtensor (chain)** (COMMIT `1aa3c38`, 2026-11-10 19:37) sdk: bump bittensor to 11.3.3.dev0 for release 489  
+  https://github.com/RaoFoundation/subtensor/commit/1aa3c3824469b5a42be6ce5c52dcf016eee83cb6
+- **Subtensor (chain)** (COMMIT `0b9d740`, 2026-11-10 18:44) Release 489 (#3308)  
+  https://github.com/RaoFoundation/subtensor/commit/0b9d7403b12847a1807be0d328617517114aae6d
 
 ## ⊕ ECOSYSTEM BLOGS via RSS
 
@@ -245,4 +254,4 @@ _no new posts in the lookback window_
 
 
 ---
-_Generated at 2026-11-10T16:02:00.249089+00:00 by scripts/intel/aggregate.py. Treat this digest as input context, not as ground truth. Verify before quoting._
+_Generated at 2026-11-10T21:45:00.185695+00:00 by scripts/intel/aggregate.py. Treat this digest as input context, not as ground truth. Verify before quoting._
