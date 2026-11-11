@@ -1,0 +1,57 @@
+[
+  {
+    "repo": "opentensor/subtensor",
+    "name": "Subtensor (chain)",
+    "kind": "release",
+    "sha": "v490",
+    "message": "Runtime 490",
+    "author": "github-actions[bot]",
+    "posted_at": "2026-11-10T20:14:21Z",
+    "url": "https://github.com/RaoFoundation/subtensor/releases/tag/v490",
+    "fetched_at": "2026-11-11T04:05:49.784373+00:00"
+  },
+  {
+    "repo": "opentensor/subtensor",
+    "name": "Subtensor (chain)",
+    "kind": "commit",
+    "sha": "d967d13",
+    "message": "bump spec to 490 (#3325)",
+    "author": "UnArbosFive",
+    "posted_at": "2026-11-10T19:49:55Z",
+    "url": "https://github.com/RaoFoundation/subtensor/commit/d967d13588834f4f5aaa8ef4c8fc1a865d581462",
+    "fetched_at": "2026-11-11T04:05:49.392756+00:00"
+  },
+  {
+    "repo": "opentensor/subtensor",
+    "name": "Subtensor (chain)",
+    "kind": "commit",
+    "sha": "e31fdc3",
+    "message": "Merge pull request #3324 from RaoFoundation/fix/sdk-version-11.3.3",
+    "author": "Inti",
+    "posted_at": "2026-11-10T19:38:45Z",
+    "url": "https://github.com/RaoFoundation/subtensor/commit/e31fdc32ef0a23ff961b55be68043e613803fd0f",
+    "fetched_at": "2026-11-11T04:05:49.392756+00:00"
+  },
+  {
+    "repo": "opentensor/subtensor",
+    "name": "Subtensor (chain)",
+    "kind": "commit",
+    "sha": "1aa3c38",
+    "message": "sdk: bump bittensor to 11.3.3.dev0 for release 489",
+    "author": "UnArbosFive",
+    "posted_at": "2026-11-10T19:37:48Z",
+    "url": "https://github.com/RaoFoundation/subtensor/commit/1aa3c3824469b5a42be6ce5c52dcf016eee83cb6",
+    "fetched_at": "2026-11-11T04:05:49.392756+00:00"
+  },
+  {
+    "repo": "opentensor/subtensor",
+    "name": "Subtensor (chain)",
+    "kind": "commit",
+    "sha": "0b9d740",
+    "message": "Release 489 (#3308)",
+    "author": "UnArbosSix",
+    "posted_at": "2026-11-10T18:44:02Z",
+    "url": "https://github.com/RaoFoundation/subtensor/commit/0b9d7403b12847a1807be0d328617517114aae6d",
+    "fetched_at": "2026-11-11T04:05:49.392756+00:00"
+  }
+]
