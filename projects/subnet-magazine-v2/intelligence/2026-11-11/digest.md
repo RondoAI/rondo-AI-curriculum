@@ -151,8 +151,27 @@ _no new posts in the lookback window_
 
 ## ⊕ X via NITTER, voices we track
 
-_no posts retrieved · all Nitter instances may be down_
+- @jon_durbin (Jon Durbin, Wed, 04 Nov 2026): The midterm results, regardless of your opinion on them, come with a fairly high degree of uncertainly around the future of new datacenter capacity (and/or costs) in the US. Parallax is no longer really optional IMO (though it was already inevitable). “You never change anything by fighting it; you change things by making them obsolete through superior technology.” - R. Buckminster Fuller Status updates: Almost done with dataset prep. It turns out ~10t tokens of high quality data tokenized and properly upsampled and so on is a lot of work and compute. Apple M5 and DGX spark support locked in, s  
+  https://nitter.kareem.one/jon_durbin/status/2118062574289793345#m
+- @jon_durbin (Jon Durbin, Wed, 04 Nov 2026): Introducing IOTA Decide 4B, our first public model. Pareto optimal. Built different. Trained across globally distributed GPUs with our SDK. Open weights, Apache-2.0. 🤗 huggingface.co/macrocosm-os/… Video  
+  https://nitter.kareem.one/MacrocosmosAI/status/2118028289813971098#m
+- @jon_durbin (Jon Durbin, Tue, 27 Oct 2026): I accidentally forgot to pay the power bill and they turned it off. Happy little accident, because now I get to enjoy the wood stove while re-seating a few hundred 223 rounds (I loaded these originally for a precision bolt action which I traded a few years ago for a 556 and need shorter overall length rounds). Pure zen, memories of hunting trips past, deer season in a couple weeks, good day to zero in the scope too.  
+  https://nitter.kareem.one/jon_durbin/status/2115108724960338246#m
+- @taomedia_ (TAO Media, Tue, 10 Nov 2026): NVIDIA's GR00T 2 is learning robot skills from human video and transferring them to machines that never performed the task before. After five demonstrations per task and a 30-minute fine-tune on one RTX 5090, the model reached 95% average success across 50 tasks. It can also work with a reasoning agent that sequences tasks, checks progress, and calls recovery skills. Full details ↓ tao.media/nvidia-unveils-gr0… Link NVIDIA Unveils GR00T 2 to Transfer Human Skills to Robots The Cosmos-based model combines video prediction and robot control, alongside expanded simulation tools and industrial ben  
+  https://nitter.kareem.one/taomedia_/status/2120215162540130338#m
+- @taomedia_ (TAO Media, Tue, 10 Nov 2026): OpenAI's Control Room gives researchers and safety monitors a shared way to cut off a research job's model output within 35 seconds. The system enforces stop decisions at the inference layer, follows a stopped job across models and engines, and fails closed if the control service goes down. Full details ↓ tao.media/openai-details-con… Link OpenAI Details Control Room to Halt Research Model Output Within 35 Seconds The system gives safety monitors and researchers a shared way to cut off model output across research jobs. tao.media  
+  https://nitter.kareem.one/taomedia_/status/2120200110969909301#m
+- @taomedia_ (TAO Media, Tue, 10 Nov 2026): Boston Dynamics turned Atlas into a wheeled robot to test whether reinforcement-learning controllers can transfer cleanly from simulation to real hardware. What happened next 👇 tao.media/boston-dynamics-gi… Link Boston Dynamics Gives Atlas Wheels to Test Reinforcement Learning at Motor Limits The research robot pairs scooter wheels with learned whole-body control to improve how simulated movements transfer to real hardware. tao.media  
+  https://nitter.kareem.one/taomedia_/status/2120179676090106226#m
+- @taomedia_ (TAO Media, Tue, 10 Nov 2026): Relief for @bot users is underway. Usage limits have been reset while @mattyp &amp; co. work to implement improvements that address usage complaints. tao.media/grok-bot-resets-we… Link Grok Bot Resets Weekly Limits as Team Executes Usage Fixes Official @bot confirmed a service-wide usage reset after Musk’s round-table review, while Matt Palmer keeps answering users and fingerprint tests again point to Opus 5.5. tao.media  
+  https://nitter.kareem.one/taomedia_/status/2120166338102775984#m
+- @taomedia_ (TAO Media, Tue, 10 Nov 2026): The Anthropic IPO roadshow has begun. The company is setting an expected price range of $70 to $78 per share for an offering of 825 million Class A shares. What's cooking ↓ tao.media/anthropic-opens-ip… Link Anthropic Opens IPO Roadshow With 825 Million Shares at $70–$78 The Claude developer is seeking a Nasdaq listing under ANT, with most shares in the proposed offering sold by the company. tao.media  
+  https://nitter.kareem.one/taomedia_/status/2120161546596925452#m
+- @jon_durbin (Jon Durbin, Thu, 05 Nov 2026): In case you forgot (we haven't). There is no universe in which chutes exists without bittensor. Expanding our OpCo's service and refocusing on a healthier subnet dynamic has some people confused, but it's very explicitly for strengthening the subnet. nitterk.kareem.one/jon_durbin/status/2114… roadmap/plan ICYMI Jon Durbin (@jon_durbin) Chutes is and always will be a bittensor project, chutes is bittensor, and bittensor is chutes 🫶 Reminder too that chutes team operates as a group of independent corporations with no CEO, and our funds are locked into a smart contract which pays our staking rewa  
+  https://nitter.kareem.one/jon_durbin/status/2118362603265151465#m
+- @jon_durbin (Jon Durbin, Sat, 07 Nov 2026): I just paid $8 for a 2x4, this is out of control lol  
+  https://nitter.kareem.one/jon_durbin/status/2119038070444183762#m
 
 
 ---
-_Generated at 2026-11-11T04:05:57.361283+00:00 by scripts/intel/aggregate.py. Treat this digest as input context, not as ground truth. Verify before quoting._
+_Generated at 2026-11-11T15:48:14.383845+00:00 by scripts/intel/aggregate.py. Treat this digest as input context, not as ground truth. Verify before quoting._
