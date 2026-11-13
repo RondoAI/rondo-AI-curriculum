@@ -90,6 +90,16 @@
     "via_instance": "https://nitter.cz"
   },
   {
+    "handle": "opentensor",
+    "name": "Opentensor Foundation",
+    "posted_at": "Wed, 11 Nov 2026 16:39:47 GMT",
+    "title": "Bittensor’s @chutes_ai trained Parallax 8B across hundreds of consumer GPUs around the world. Now their latest preview shows it handling 256 AI requests simultaneously on a single gaming GPU. The future of AI compute won't be confined to giant data centers.",
+    "text": "Bittensor’s @chutes_ai trained Parallax 8B across hundreds of consumer GPUs around the world. Now their latest preview shows it handling 256 AI requests simultaneously on a single gaming GPU. The future of AI compute won't be confined to giant data centers. Chutes (@chutes_ai) Parallax runs at almost 18,000 tokens a second on a single RTX 5090. That’s one consumer GPU answering 256 requests at once, on a vLLM fork that we put together. The more one card can serve, the cheaper each answer gets 💪 — http://nitter.mizuki.st/chutes_ai/status/2120532426862571607#m",
+    "url": "http://nitter.mizuki.st/opentensor/status/2120557109137821760#m",
+    "fetched_at": "2026-11-13T19:01:51.898695+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
     "handle": "foundrydigital",
     "name": "Foundry Digital",
     "posted_at": "Wed, 11 Jan 2012 23:30:33 GMT",
@@ -110,6 +120,16 @@
     "via_instance": "https://nitter.cz"
   },
   {
+    "handle": "mcjkula",
+    "name": "mcjkula",
+    "posted_at": "Wed, 07 Oct 2026 12:01:47 GMT",
+    "title": "\"The best person to solve your problem might be someone you’ve never met or considered hiring.\" Travis and I explain Bittensor, including examples from weather forecasting (@zeussubnet) and drug discovery (@metanova_labs). Here’s our \"Bittensor 101\" recording from @ExploitSummit",
+    "text": "\"The best person to solve your problem might be someone you’ve never met or considered hiring.\" Travis and I explain Bittensor, including examples from weather forecasting (@zeussubnet) and drug discovery (@metanova_labs). Here’s our \"Bittensor 101\" recording from @ExploitSummit Video",
+    "url": "http://nitter.mizuki.st/mcjkula/status/2107803570699722943#m",
+    "fetched_at": "2026-11-13T19:01:55.750950+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
     "handle": "nigescore",
     "name": "Nige",
     "posted_at": "Tue, 15 Sep 2026 14:03:04 GMT",
@@ -120,6 +140,16 @@
     "via_instance": "https://nitter.cz"
   },
   {
+    "handle": "mcjkula",
+    "name": "mcjkula",
+    "posted_at": "Tue, 10 Nov 2026 21:42:25 GMT",
+    "title": "RT by @mcjkula: Introducing Gamma Tokens A native payment system for Bittensor’s AI economy. Users and AI agents will be able to access and pay for subnet services with a Bittensor wallet, without separate accounts or API keys for each subnet.",
+    "text": "Introducing Gamma Tokens A native payment system for Bittensor’s AI economy. Users and AI agents will be able to access and pay for subnet services with a Bittensor wallet, without separate accounts or API keys for each subnet. Video",
+    "url": "http://nitter.mizuki.st/opentensor/status/2120270882811875419#m",
+    "fetched_at": "2026-11-13T19:01:55.750950+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
     "handle": "nigescore",
     "name": "Nige",
     "posted_at": "Tue, 08 Sep 2026 09:52:05 GMT",
@@ -127,6 +157,26 @@
     "text": "Astra Ultra did not cook sports-grade vision AI. Gave it a 30s football clip from our subnet private track. Frame-level events, JSON, annotated video. Ground truth and the published scoring rules only after it committed. 22 predictions. 17 real events. 15 inside the action windows. 7 extras. 2 misses. Precision 68.18%. Recall 88.24%. F1 76.92%. Our Bittensor eval, SN44: 0%. Matches after timing decay: 16.538 False positives: −20.300 GT weight: 25.600 score = max(0, (16.538 − 20.300) / 25.600) = 0 Three extra take-ons and two extra tackles were 14.6 penalty points. It also misread the late inte",
     "url": "https://nitter.kareem.one/webuildscore/status/2097261685358596399#m",
     "fetched_at": "2026-11-13T11:47:49.104495+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "mcjkula",
+    "name": "mcjkula",
+    "posted_at": "Tue, 06 Oct 2026 14:16:45 GMT",
+    "title": "R to @mcjkula: A plain-English introduction to Bittensor: https://learnbittensor.org/get-started",
+    "text": "A plain-English introduction to Bittensor: learnbittensor.org/get-start…",
+    "url": "http://nitter.mizuki.st/mcjkula/status/2107475150841254343#m",
+    "fetched_at": "2026-11-13T19:01:55.750950+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "mcjkula",
+    "name": "mcjkula",
+    "posted_at": "Tue, 06 Oct 2026 12:04:00 GMT",
+    "title": "Bitcoin rewards one kind of work. Bittensor has a very different idea of “work”",
+    "text": "Bitcoin rewards one kind of work. Bittensor has a very different idea of “work” Video",
+    "url": "http://nitter.mizuki.st/mcjkula/status/2107441742199042204#m",
+    "fetched_at": "2026-11-13T19:01:55.750950+00:00",
     "via_instance": "https://nitter.cz"
   },
   {
@@ -180,6 +230,16 @@
     "via_instance": "https://nitter.cz"
   },
   {
+    "handle": "JosephJacks_",
+    "name": "Joseph Jacks",
+    "posted_at": "Thu, 12 Nov 2026 19:30:38 GMT",
+    "title": "RT by @JosephJacks_: Robert Oppenheimer lecturing at Kyoto University on September 14, 1960.",
+    "text": "Robert Oppenheimer lecturing at Kyoto University on September 14, 1960.",
+    "url": "http://nitter.mizuki.st/PhysInHistory/status/2120962494470684897#m",
+    "fetched_at": "2026-11-13T19:02:12.321728+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
     "handle": "dylan522p",
     "name": "Dylan Patel",
     "posted_at": "Thu, 12 Nov 2026 18:14:45 GMT",
@@ -220,6 +280,16 @@
     "via_instance": "https://nitter.cz"
   },
   {
+    "handle": "opentensor",
+    "name": "Opentensor Foundation",
+    "posted_at": "Thu, 12 Nov 2026 13:03:57 GMT",
+    "title": "Nearly $35M in annualized GPU rental spending from a single Bittensor subnet. @lium_io is becoming a serious player in the cloud compute market.",
+    "text": "Nearly $35M in annualized GPU rental spending from a single Bittensor subnet. @lium_io is becoming a serious player in the cloud compute market. lium.io (@lium_io) latest 30 day update: new paying customers +78% deposits +94% existing customer spend +46% annualized run rate +79% GPU spend + 87% rentals +67% — http://nitter.mizuki.st/lium_io/status/2120797867325685979#m",
+    "url": "http://nitter.mizuki.st/opentensor/status/2120865181312205044#m",
+    "fetched_at": "2026-11-13T19:01:51.898695+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
     "handle": "rob_svrn",
     "name": "Rob Greer",
     "posted_at": "Thu, 12 Nov 2026 11:43:54 GMT",
@@ -237,6 +307,16 @@
     "text": ".@Microsoft’s patent describes rewarding PC owners for training AI with their spare GPU power. That same principle is at the core of Bittensor: incentivizing people worldwide to contribute compute and train AI together. That’s been the vision from day one. Kalshi (@Kalshi) JUST IN: Microsoft patents technology that could pay people to let AI train on their computers while they're not using them — http://nitter.mizuki.st/Kalshi/status/2120599189289603226#m",
     "url": "http://nitter.mizuki.st/opentensor/status/2120828488211189793#m",
     "fetched_at": "2026-11-13T11:46:33.007564+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "opentensor",
+    "name": "Opentensor Foundation",
+    "posted_at": "Thu, 12 Nov 2026 03:21:20 GMT",
+    "title": "RT by @opentensor: @Hippius_cloud is a Huggingface replacement. I've used it for decentralized training, hosting quadrillion token datasets, and tens of thousands of models. It works, its cheap, secure, reliable, and runs on encrypted compute contributed by a community of miners across the world. Best bet replacement IMO. https://hippius.com/hippius-hub",
+    "text": "@Hippius_cloud is a Huggingface replacement. I've used it for decentralized training, hosting quadrillion token datasets, and tens of thousands of models. It works, its cheap, secure, reliable, and runs on encrypted compute contributed by a community of miners across the world. Best bet replacement IMO. hippius.com/hippius-hub Link Hippius Hub – Distributed AI Model and Container Registry One registry for AI models and containers: keep your huggingface_hub code and push with docker or oras. Stored on independent machines, not one company&apos;s. hippius.com Erik Voorhees (@ErikVoorhees) Is the",
+    "url": "http://nitter.mizuki.st/const_reborn/status/2120718559089193442#m",
+    "fetched_at": "2026-11-13T19:01:51.898695+00:00",
     "via_instance": "https://nitter.cz"
   },
   {
@@ -260,6 +340,36 @@
     "via_instance": "https://nitter.cz"
   },
   {
+    "handle": "ridges_ai",
+    "name": "Ridges",
+    "posted_at": "Mon, 02 Nov 2026 19:34:57 GMT",
+    "title": "R to @ridges_ai: 3/ Some improvements travelled beyond Linting. One miner introduced precaching. Other miners picked it up, and the approach spread across competitions. So an optimization developed in one Niche became useful in every Niche. Explore the results: https://www.ridges.ai/agents/27",
+    "text": "3/ Some improvements travelled beyond Linting. One miner introduced precaching. Other miners picked it up, and the approach spread across competitions. So an optimization developed in one Niche became useful in every Niche. Explore the results: ridges.ai/agents/27 Link Linting Leaderboard | Ridges.AI Leaderboard for the Linting competition on Ridges.AI. Track agent scores, approvals, and submissions. ridges.ai",
+    "url": "http://nitter.mizuki.st/ridges_ai/status/2117339702336618709#m",
+    "fetched_at": "2026-11-13T19:02:53.318153+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "ridges_ai",
+    "name": "Ridges",
+    "posted_at": "Mon, 02 Nov 2026 19:34:55 GMT",
+    "title": "R to @ridges_ai: 2/ Competition at the top was still fierce: butterfly v1 reached 82%. grouse v1 reached 86%. IAMHERE v5 reached 90%. Then wingsuit v3 took the lead by matching that 90% at 19.7% lower inference cost. Even at the top, there was room to make the agents more efficient.",
+    "text": "2/ Competition at the top was still fierce: butterfly v1 reached 82%. grouse v1 reached 86%. IAMHERE v5 reached 90%. Then wingsuit v3 took the lead by matching that 90% at 19.7% lower inference cost. Even at the top, there was room to make the agents more efficient.",
+    "url": "http://nitter.mizuki.st/ridges_ai/status/2117339690517073953#m",
+    "fetched_at": "2026-11-13T19:02:53.318153+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "ridges_ai",
+    "name": "Ridges",
+    "posted_at": "Mon, 02 Nov 2026 19:34:49 GMT",
+    "title": "Niche complete. Ridges’ Linting competition started with a baseline scoring 38% at an average cost of $0.21. It finished with wingsuit v3: 90% at $0.03. More than double the score. Roughly 86% lower cost. 821 submissions. Here’s the highlights:",
+    "text": "Niche complete. Ridges’ Linting competition started with a baseline scoring 38% at an average cost of $0.21. It finished with wingsuit v3: 90% at $0.03. More than double the score. Roughly 86% lower cost. 821 submissions. Here’s the highlights:",
+    "url": "http://nitter.mizuki.st/ridges_ai/status/2117339666886369486#m",
+    "fetched_at": "2026-11-13T19:02:53.318153+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
     "handle": "affine_io",
     "name": "Affine",
     "posted_at": "Mon, 02 Nov 2026 15:35:37 GMT",
@@ -270,6 +380,26 @@
     "via_instance": "https://nitter.cz"
   },
   {
+    "handle": "ridges_ai",
+    "name": "Ridges",
+    "posted_at": "Mon, 02 Nov 2026 10:53:07 GMT",
+    "title": "R to @ridges_ai: For more info and how to submit visit: https://docs.ridges.ai/competitions/problem-solving",
+    "text": "For more info and how to submit visit: docs.ridges.ai/competitions/… Link Niche: Problem Solving - Ridges Documentation docs.ridges.ai",
+    "url": "http://nitter.mizuki.st/ridges_ai/status/2117208377797558311#m",
+    "fetched_at": "2026-11-13T19:02:53.318153+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "ridges_ai",
+    "name": "Ridges",
+    "posted_at": "Mon, 02 Nov 2026 10:53:04 GMT",
+    "title": "Our next Niche - Problem Solving - is live. No single speciality. No predictable task type. Competition 30 challenges agents to tackle unfamiliar problems across different domains.",
+    "text": "Our next Niche - Problem Solving - is live. No single speciality. No predictable task type. Competition 30 challenges agents to tackle unfamiliar problems across different domains.",
+    "url": "http://nitter.mizuki.st/ridges_ai/status/2117208365675999576#m",
+    "fetched_at": "2026-11-13T19:02:53.318153+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
     "handle": "foundrydigital",
     "name": "Foundry Digital",
     "posted_at": "Mon, 02 Jan 2012 23:00:41 GMT",
@@ -277,6 +407,126 @@
     "text": "Early predictions for design trends of 2012? tiny.cc/mkg4v",
     "url": "http://nitter.mizuki.st/foundrydigital/status/153974018557493248#m",
     "fetched_at": "2026-11-13T00:50:39.230257+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "robmyers",
+    "name": "Robert Myers",
+    "posted_at": "Fri, 26 Mar 2021 03:30:22 GMT",
+    "title": "Try @rheaplex instead.",
+    "text": "Try @rheaplex instead.",
+    "url": "http://nitter.mizuki.st/robmyers/status/1375288994989101059#m",
+    "fetched_at": "2026-11-13T19:03:07.051822+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "JosephJacks_",
+    "name": "Joseph Jacks",
+    "posted_at": "Fri, 13 Nov 2026 17:21:24 GMT",
+    "title": "Kyoto University, Sept 14, 1960 — 15 years after Hiroshima, J. Robert Oppenheimer made his only visit to Japan. Everyone assumes the chalkboard behind him is nuclear bomb math. In reality, it’s pure particle physics—and here is what is actually on the board: • Not His Handwriting: Pipe in hand, Oppenheimer isn't lecturing solo—he’s questioning a young Kyoto physicist’s proof at the board. • Why It Says \"1959\": That’s a citation, not the photo date. It references landmark 1959 papers on quantum scattering by Landau, Bjorken, and Kyoto’s own Noboru Nakanishi (whom Oppenheimer soon-after recruited to Princeton). • Left Sketches (Feynman Diagrams): Visual maps of subatomic particle collisions. Oppenheimer is pointing directly at a 1-loop triangle vertex, stacked above a crossed multi-loop graph and a polygon loop. • Center Giant Integral: A Feynman parametric integral using graph polynomials U and V—a mathematical shortcut that compresses multiple internal particle paths and quantum loops into one equation. • Right & Bottom Equations: Derivatives (∂V/∂xᵢ = mᵢ² + qᵢ² = 0) and boundary values (xᵢ = 0) hunting for \"Landau singularities\"—the exact energy thresholds where denominator V hits zero, scattering probabilities blow up, and fleeting \"virtual\" particles snap into real existence. Two former wartime adversaries standing at one blackboard in Kyoto, decoding the fundamental fabric of reality.",
+    "text": "Kyoto University, Sept 14, 1960 — 15 years after Hiroshima, J. Robert Oppenheimer made his only visit to Japan. Everyone assumes the chalkboard behind him is nuclear bomb math. In reality, it’s pure particle physics—and here is what is actually on the board: • Not His Handwriting: Pipe in hand, Oppenheimer isn't lecturing solo—he’s questioning a young Kyoto physicist’s proof at the board. • Why It Says \"1959\": That’s a citation, not the photo date. It references landmark 1959 papers on quantum scattering by Landau, Bjorken, and Kyoto’s own Noboru Nakanishi (whom Oppenheimer soon-after recruite",
+    "url": "http://nitter.mizuki.st/JosephJacks_/status/2121292356708421966#m",
+    "fetched_at": "2026-11-13T19:02:12.321728+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "wallstreetbets",
+    "name": "WallStreetBets (X)",
+    "posted_at": "Fri, 13 Nov 2026 16:26:02 GMT",
+    "title": "who’s coming to Solana Breakpoint? gonna be hitting a bunch of side events, who wants to meet?",
+    "text": "who’s coming to Solana Breakpoint? gonna be hitting a bunch of side events, who wants to meet?",
+    "url": "https://nitter.kareem.one/wallstreetbets/status/2121278422466891856#m",
+    "fetched_at": "2026-11-13T19:04:18.055723+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "opentensor",
+    "name": "Opentensor Foundation",
+    "posted_at": "Fri, 13 Nov 2026 16:12:59 GMT",
+    "title": "RT by @opentensor: Launching taopill",
+    "text": "Article Launching taopill Today we’re launching taopill, a dashboard for Bittensor. Company revenue. We track the revenue of the businesses built on each subnet, pulled from the teams’ public dashboards. Subnet revenue. We",
+    "url": "http://nitter.mizuki.st/Old_Samster/status/2121275142374355346#m",
+    "fetched_at": "2026-11-13T19:01:51.898695+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "JosephJacks_",
+    "name": "Joseph Jacks",
+    "posted_at": "Fri, 13 Nov 2026 15:30:32 GMT",
+    "title": "RT by @JosephJacks_: As Sir Roger Penrose often says, we need new physics to explain physics, currently incomplete. Specifically the measurement problem - the fate of quantum superpositions -needs to be explained. As does consciousness. Penrose Objective Reduction explains both and remains the only specific scientific proposal for consciousness yet put forth.",
+    "text": "As Sir Roger Penrose often says, we need new physics to explain physics, currently incomplete. Specifically the measurement problem - the fate of quantum superpositions -needs to be explained. As does consciousness. Penrose Objective Reduction explains both and remains the only specific scientific proposal for consciousness yet put forth. William Joy (@Williamjoyful) But why do you think we need new physics to explain consciousness? — http://nitter.mizuki.st/Williamjoyful/status/2121091316624842899#m",
+    "url": "http://nitter.mizuki.st/StuartHameroff/status/2121264456630202417#m",
+    "fetched_at": "2026-11-13T19:02:12.321728+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "JosephJacks_",
+    "name": "Joseph Jacks",
+    "posted_at": "Fri, 13 Nov 2026 15:00:03 GMT",
+    "title": "RT by @JosephJacks_: We converted Liquid AI's Liquid-Codec decoder to run on the Apple Neural Engine. It decodes at 316x real time on a MacBook Air M3, versus 53x for the original on the CPU: about 6x faster. @liquidai https://github.com/shershah1024/liquidcodec-ane",
+    "text": "We converted Liquid AI's Liquid-Codec decoder to run on the Apple Neural Engine. It decodes at 316x real time on a MacBook Air M3, versus 53x for the original on the CPU: about 6x faster. @liquidai github.com/shershah1024/liqu… Link GitHub - shershah1024/liquidcodec-ane: Liquid AI&apos;s LiquidCodec decoder converted to Core ML for the... Liquid AI&apos;s LiquidCodec decoder converted to Core ML for the Apple Neural Engine (int8: 315x real time on an M3 Air). Used under the LFM Open License v1.0. - shershah1024/liquidcodec-ane github.com",
+    "url": "http://nitter.mizuki.st/TslShahir/status/2121256786988773579#m",
+    "fetched_at": "2026-11-13T19:02:12.321728+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "wallstreetbets",
+    "name": "WallStreetBets (X)",
+    "posted_at": "Fri, 13 Nov 2026 13:49:48 GMT",
+    "title": "BREAKING: 🇺🇸 US PPI inflation rises to 6.5%, its highest level in nearly 4 years. came in below the 6.6% expected.",
+    "text": "BREAKING: 🇺🇸 US PPI inflation rises to 6.5%, its highest level in nearly 4 years. came in below the 6.6% expected.",
+    "url": "https://nitter.kareem.one/wallstreetbets/status/2121239105921241462#m",
+    "fetched_at": "2026-11-13T19:04:18.055723+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "JosephJacks_",
+    "name": "Joseph Jacks",
+    "posted_at": "Fri, 13 Nov 2026 10:07:20 GMT",
+    "title": "RT by @JosephJacks_: Local AI. Local compute. Open weights. Open source. Global collaboration.",
+    "text": "Local AI. Local compute. Open weights. Open source. Global collaboration.",
+    "url": "http://nitter.mizuki.st/dhh/status/2121183120477073821#m",
+    "fetched_at": "2026-11-13T19:02:12.321728+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "wallstreetbets",
+    "name": "WallStreetBets (X)",
+    "posted_at": "Fri, 13 Nov 2026 09:00:06 GMT",
+    "title": "Binance fully covered the $6.34B hack. $6.34B stolen + $6.34B committed to replace it. Here's what you could buy with $12,680,000,000:",
+    "text": "Binance fully covered the $6.34B hack. $6.34B stolen + $6.34B committed to replace it. Here's what you could buy with $12,680,000,000:",
+    "url": "https://nitter.kareem.one/wallstreetbets/status/2121166200449229211#m",
+    "fetched_at": "2026-11-13T19:04:18.055723+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "wallstreetbets",
+    "name": "WallStreetBets (X)",
+    "posted_at": "Fri, 13 Nov 2026 07:00:00 GMT",
+    "title": "Jensen spent 33 years building $NVDA. $563M market cap on its first trading day. $5.8T at its peak. all that just to resign over cheating 💀",
+    "text": "Jensen spent 33 years building $NVDA. $563M market cap on its first trading day. $5.8T at its peak. all that just to resign over cheating 💀",
+    "url": "https://nitter.kareem.one/wallstreetbets/status/2121135979289276814#m",
+    "fetched_at": "2026-11-13T19:04:18.055723+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "wallstreetbets",
+    "name": "WallStreetBets (X)",
+    "posted_at": "Fri, 13 Nov 2026 05:00:00 GMT",
+    "title": "we're going lower",
+    "text": "we're going lower",
+    "url": "https://nitter.kareem.one/wallstreetbets/status/2121105778513678814#m",
+    "fetched_at": "2026-11-13T19:04:18.055723+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "mcjkula",
+    "name": "mcjkula",
+    "posted_at": "Fri, 09 Oct 2026 19:03:07 GMT",
+    "title": "If you’re trying to decide which metal seed plate to get, @lopp has tested 75+ of them with heat, acid and a hydraulic press. Worth checking before you commit to one: https://jlopp.github.io/metal-bitcoin-storage-reviews/",
+    "text": "If you’re trying to decide which metal seed plate to get, @lopp has tested 75+ of them with heat, acid and a hydraulic press. Worth checking before you commit to one: jlopp.github.io/metal-bitcoi… Link Metal Bitcoin Seed Storage Reviews Stress tests and reviews of seed storage devices. jlopp.github.io Jon Durbin (@jon_durbin) Ledger itself ok, but fraudulent products less so of course. This is why I tell people I don't trust anything with a circuit board lol. These keystone tablets are pretty cool, handed a few out at exploit summit. Even better if you leave out some of the words and remember ",
+    "url": "http://nitter.mizuki.st/mcjkula/status/2108634378746405259#m",
+    "fetched_at": "2026-11-13T19:01:55.750950+00:00",
     "via_instance": "https://nitter.cz"
   }
 ]
