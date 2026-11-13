@@ -142,6 +142,8 @@ _no new posts in the lookback window_
 
 ## ⊕ X via NITTER, voices we track
 
+- @nigescore (Nige, Wed, 14 Oct 2026): And it’s the first highway station. Arno (@arnod3f) ladies and gentlemen. @manakoai is officially working with @Shell. deploying physical ai to better their fuel retail operations. lfgooooooo🔥👊🚀 — https://nitter.kareem.one/arnod3f/status/2110397339126915400#m  
+  https://nitter.kareem.one/manakoai/status/2110408262357057824#m
 - @taomedia_ (TAO Media, Wed, 11 Nov 2026): Google is opening Gemini 4 Carbon to paying developers, enterprises, and consumers, while previewing a new way to run coding agents in parallel. What's cooking 👇 tao.media/google-opens-gemin… Link Google Opens Gemini 4 Carbon to Paying Users and Previews Antigravity’s /swarm The broader rollout brings Carbon into Google’s developer and consumer products, alongside new tools for coordinating teams of coding agents. tao.media  
   http://nitter.mizuki.st/taomedia_/status/2120637946814681088#m
 - @dylan522p (Dylan Patel, Wed, 11 Nov 2026): What I love about Perplexity is that they're very fast on any feature request. Even though they did not invent the category, they are fast followers and implement any change that's needed in less than 24 hours. They even got the name from us back in February.  
@@ -156,8 +158,16 @@ _no new posts in the lookback window_
   http://nitter.mizuki.st/taomedia_/status/2120577574019711313#m
 - @taomedia_ (TAO Media, Wed, 11 Nov 2026): OpenAI is turning ChatGPT into a new business discovery channel, letting companies claim profiles and publish customer-facing AI agents alongside their listings. The full rundown 👇 tao.media/openai-opens-chatg… Link OpenAI Opens ChatGPT Business Profiles and Customer-Facing Agents in Beta Business Hub lets companies manage their presence in ChatGPT, while eligible U.S. sellers can publish agents that answer customer questions. tao.media  
   http://nitter.mizuki.st/taomedia_/status/2120572263020011752#m
+- @rob_svrn (Rob Greer, Wed, 11 Nov 2026): Proud to support Gamma payments on engy.ai A native payment system for Bittensor's AI economy. Engy now accepts Gamma. Docs → engy.ai/docs/account-and-bil… Link engy · verified inference Verified inference for SOTA open models: reliable at scale, zero data retention, OpenAI-compatible. engy.ai Openτensor Foundaτion (@opentensor) Introducing Gamma Tokens A native payment system for Bittensor’s AI economy. Users and AI agents will be able to access and pay for subnet services with a Bittensor wallet, without separate accounts or API keys for each subnet. Video — http://nitter.mizuki.st/opentenso  
+  http://nitter.mizuki.st/engyai/status/2120559727226896811#m
 - @foundrydigital (Foundry Digital, Wed, 11 Jan 2012): Expression Engine 2.0 review by the guys at Scriptiny bit.ly/w3Pg3R  
   http://nitter.mizuki.st/foundrydigital/status/157243024848596993#m
+- @nigescore (Nige, Wed, 09 Sep 2026): .@nigescore going to paris last time he went to nrf in dallas he got us our biggest client ever (not announced yet) i can’t go. got something bigger on the 15th, 16th and 17th (to be announced) Manako (@manakoai) Heading to @nrfeurope NRF Retail’s Big Show Europe in Paris next week (15–17 Sept) 🇫🇷 If you are attending and want to hear what Manako Labs have built for retail, please DM and let’s meet up. No new hardware, no engineers, no code just your existing cameras doing more. #NRFRetailsBigShowEurope — https://nitter.kareem.one/manakoai/status/2097622722310242420#m  
+  https://nitter.kareem.one/MaxSebti/status/2097630699129827589#m
+- @nigescore (Nige, Tue, 15 Sep 2026): The physical world still can’t talk to software. A billion cameras watch factories, stations, warehouses, and stores every second. Almost none of that footage becomes action. That’s what we build at Manako. Today we join F/ai at @joinstationf The program that put OpenAI, Anthropic, Google, Meta, Microsoft and top-tier VCs behind a handful of AI-native teams. Honoured. Focused. Shipping.  
+  https://nitter.kareem.one/manakoai/status/2099861562882203822#m
+- @nigescore (Nige, Tue, 08 Sep 2026): Astra Ultra did not cook sports-grade vision AI. Gave it a 30s football clip from our subnet private track. Frame-level events, JSON, annotated video. Ground truth and the published scoring rules only after it committed. 22 predictions. 17 real events. 15 inside the action windows. 7 extras. 2 misses. Precision 68.18%. Recall 88.24%. F1 76.92%. Our Bittensor eval, SN44: 0%. Matches after timing decay: 16.538 False positives: −20.300 GT weight: 25.600 score = max(0, (16.538 − 20.300) / 25.600) = 0 Three extra take-ons and two extra tackles were 14.6 penalty points. It also misread the late inte  
+  https://nitter.kareem.one/webuildscore/status/2097261685358596399#m
 - @markjeffrey (Mark Jeffrey, Thu, 12 Nov 2026): Hello I'd like to report an Avada Kedavra J.K. Rowling (@jk_rowling) All the best people declare war on Hogwarts. Have you ever considered dividing your gender identity into separate pieces and storing it in hidden objects, so you can’t be invalidated to death? — http://nitter.mizuki.st/jk_rowling/status/2120850015866544146#m  
   http://nitter.mizuki.st/markjeffrey/status/2121029036868825369#m
 - @markjeffrey (Mark Jeffrey, Thu, 12 Nov 2026): 👀 Max (@MaxSebti) just heard from top execs in SF that 95% of enterprise AI pilots fail to reach production — http://nitter.mizuki.st/MaxSebti/status/2121021389071114517#m  
@@ -174,9 +184,21 @@ _no new posts in the lookback window_
   http://nitter.mizuki.st/dylan522p/status/2120942688702996945#m
 - @taomedia_ (TAO Media, Thu, 12 Nov 2026): Jensen Huang's resignation isn't just a major blow to Nvidia, it's one to the open-source AI movement he championed. tao.media/jensen-huang-resig… Link Jensen Huang Resigns as NVIDIA CEO, Open-Source AI Suffers Major Blow The board searches for a permanent successor as an investigation continues. tao.media  
   http://nitter.mizuki.st/taomedia_/status/2120926383459430649#m
+- @rob_svrn (Rob Greer, Thu, 12 Nov 2026): Bittensor is a full stack decentralized AI frontier lab that can’t be turned off by any government by the way  
+  http://nitter.mizuki.st/0xSunRun/status/2120895143037358146#m
+- @rob_svrn (Rob Greer, Thu, 12 Nov 2026): Do not get distracted by the headlines. Open-source AI is essential to the freedom of billions of people in the future.  
+  http://nitter.mizuki.st/APompliano/status/2120845035767837165#m
+- @rob_svrn (Rob Greer, Thu, 12 Nov 2026): .@Microsoft’s patent describes rewarding PC owners for training AI with their spare GPU power. That same principle is at the core of Bittensor: incentivizing people worldwide to contribute compute and train AI together. That’s been the vision from day one. Kalshi (@Kalshi) JUST IN: Microsoft patents technology that could pay people to let AI train on their computers while they're not using them — http://nitter.mizuki.st/Kalshi/status/2120599189289603226#m  
+  http://nitter.mizuki.st/opentensor/status/2120828488211189793#m
+- @rob_svrn (Rob Greer, Thu, 12 Nov 2026): If you're in Nvidia pivot to TAO  
+  http://nitter.mizuki.st/AltcoinDaily/status/2120711732188570031#m
+- @nigescore (Nige, Sat, 19 Sep 2026): We’re completing our first 20 reference deployments, led by our CEO and engineering team, and the headline finding is that Manako is genuinely plug and play. No specialist integration required: a unit can be shipped to site and connected by anyone on the ground. That’s what makes our next phase possible. Our integration partners will roll out at scale on a simple, repeatable install, with less time on site and lower cost per deployment.  
+  https://nitter.kareem.one/manakoai/status/2101403529558577403#m
+- @affine_io (Affine, Mon, 02 Nov 2026): mining affine affine.io/llms.txt  
+  http://nitter.mizuki.st/affine_io/status/2117279468456968385#m
 - @foundrydigital (Foundry Digital, Mon, 02 Jan 2012): Early predictions for design trends of 2012? tiny.cc/mkg4v  
   http://nitter.mizuki.st/foundrydigital/status/153974018557493248#m
 
 
 ---
-_Generated at 2026-11-13T00:52:30.627055+00:00 by scripts/intel/aggregate.py. Treat this digest as input context, not as ground truth. Verify before quoting._
+_Generated at 2026-11-13T11:49:08.966396+00:00 by scripts/intel/aggregate.py. Treat this digest as input context, not as ground truth. Verify before quoting._

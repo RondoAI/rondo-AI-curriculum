@@ -1,5 +1,15 @@
 [
   {
+    "handle": "nigescore",
+    "name": "Nige",
+    "posted_at": "Wed, 14 Oct 2026 16:31:53 GMT",
+    "title": "RT by @nigescore: And it’s the first highway station.",
+    "text": "And it’s the first highway station. Arno (@arnod3f) ladies and gentlemen. @manakoai is officially working with @Shell. deploying physical ai to better their fuel retail operations. lfgooooooo🔥👊🚀 — https://nitter.kareem.one/arnod3f/status/2110397339126915400#m",
+    "url": "https://nitter.kareem.one/manakoai/status/2110408262357057824#m",
+    "fetched_at": "2026-11-13T11:47:49.104495+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
     "handle": "taomedia_",
     "name": "TAO Media",
     "posted_at": "Wed, 11 Nov 2026 22:01:00 GMT",
@@ -70,6 +80,16 @@
     "via_instance": "https://nitter.cz"
   },
   {
+    "handle": "rob_svrn",
+    "name": "Rob Greer",
+    "posted_at": "Wed, 11 Nov 2026 16:50:11 GMT",
+    "title": "RT by @rob_svrn: Proud to support Gamma payments on https://engy.ai A native payment system for Bittensor's AI economy. Engy now accepts Gamma. Docs → https://engy.ai/docs/account-and-billing/gamma-payments",
+    "text": "Proud to support Gamma payments on engy.ai A native payment system for Bittensor's AI economy. Engy now accepts Gamma. Docs → engy.ai/docs/account-and-bil… Link engy · verified inference Verified inference for SOTA open models: reliable at scale, zero data retention, OpenAI-compatible. engy.ai Openτensor Foundaτion (@opentensor) Introducing Gamma Tokens A native payment system for Bittensor’s AI economy. Users and AI agents will be able to access and pay for subnet services with a Bittensor wallet, without separate accounts or API keys for each subnet. Video — http://nitter.mizuki.st/opentenso",
+    "url": "http://nitter.mizuki.st/engyai/status/2120559727226896811#m",
+    "fetched_at": "2026-11-13T11:46:33.007564+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
     "handle": "foundrydigital",
     "name": "Foundry Digital",
     "posted_at": "Wed, 11 Jan 2012 23:30:33 GMT",
@@ -77,6 +97,36 @@
     "text": "Expression Engine 2.0 review by the guys at Scriptiny bit.ly/w3Pg3R",
     "url": "http://nitter.mizuki.st/foundrydigital/status/157243024848596993#m",
     "fetched_at": "2026-11-13T00:50:39.230257+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "nigescore",
+    "name": "Nige",
+    "posted_at": "Wed, 09 Sep 2026 10:18:25 GMT",
+    "title": "RT by @nigescore: .@nigescore going to paris last time he went to nrf in dallas he got us our biggest client ever (not announced yet) i can’t go. got something bigger on the 15th, 16th and 17th (to be announced)",
+    "text": ".@nigescore going to paris last time he went to nrf in dallas he got us our biggest client ever (not announced yet) i can’t go. got something bigger on the 15th, 16th and 17th (to be announced) Manako (@manakoai) Heading to @nrfeurope NRF Retail’s Big Show Europe in Paris next week (15–17 Sept) 🇫🇷 If you are attending and want to hear what Manako Labs have built for retail, please DM and let’s meet up. No new hardware, no engineers, no code just your existing cameras doing more. #NRFRetailsBigShowEurope — https://nitter.kareem.one/manakoai/status/2097622722310242420#m",
+    "url": "https://nitter.kareem.one/MaxSebti/status/2097630699129827589#m",
+    "fetched_at": "2026-11-13T11:47:49.104495+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "nigescore",
+    "name": "Nige",
+    "posted_at": "Tue, 15 Sep 2026 14:03:04 GMT",
+    "title": "RT by @nigescore: The physical world still can’t talk to software. A billion cameras watch factories, stations, warehouses, and stores every second. Almost none of that footage becomes action. That’s what we build at Manako. Today we join F/ai at @joinstationf The program that put OpenAI, Anthropic, Google, Meta, Microsoft and top-tier VCs behind a handful of AI-native teams. Honoured. Focused. Shipping.",
+    "text": "The physical world still can’t talk to software. A billion cameras watch factories, stations, warehouses, and stores every second. Almost none of that footage becomes action. That’s what we build at Manako. Today we join F/ai at @joinstationf The program that put OpenAI, Anthropic, Google, Meta, Microsoft and top-tier VCs behind a handful of AI-native teams. Honoured. Focused. Shipping.",
+    "url": "https://nitter.kareem.one/manakoai/status/2099861562882203822#m",
+    "fetched_at": "2026-11-13T11:47:49.104495+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "nigescore",
+    "name": "Nige",
+    "posted_at": "Tue, 08 Sep 2026 09:52:05 GMT",
+    "title": "RT by @nigescore: Astra Ultra did not cook sports-grade vision AI. Gave it a 30s football clip from our subnet private track. Frame-level events, JSON, annotated video. Ground truth and the published scoring rules only after it committed. 22 predictions. 17 real events. 15 inside the action windows. 7 extras. 2 misses. Precision 68.18%. Recall 88.24%. F1 76.92%. Our Bittensor eval, SN44: 0%. Matches after timing decay: 16.538 False positives: −20.300 GT weight: 25.600 score = max(0, (16.538 − 20.300) / 25.600) = 0 Three extra take-ons and two extra tackles were 14.6 penalty points. It also misread the late interception/clearance. Rare actions pay more when you hit them and tax you harder when you invent them. Perfect timestamps on the matches still would not have cleared that bill. This was one offline replay of the published scorer. Unchanged preds. Not live latency. Not a season. The point is simpler than the arithmetic. F1 is what you post. SN44 is what you get paid on. Real matches, messy cameras, hard negatives, and a 30-second clock are not the same sport as a nice 15s clip to aura farm on Twitter.",
+    "text": "Astra Ultra did not cook sports-grade vision AI. Gave it a 30s football clip from our subnet private track. Frame-level events, JSON, annotated video. Ground truth and the published scoring rules only after it committed. 22 predictions. 17 real events. 15 inside the action windows. 7 extras. 2 misses. Precision 68.18%. Recall 88.24%. F1 76.92%. Our Bittensor eval, SN44: 0%. Matches after timing decay: 16.538 False positives: −20.300 GT weight: 25.600 score = max(0, (16.538 − 20.300) / 25.600) = 0 Three extra take-ons and two extra tackles were 14.6 penalty points. It also misread the late inte",
+    "url": "https://nitter.kareem.one/webuildscore/status/2097261685358596399#m",
+    "fetched_at": "2026-11-13T11:47:49.104495+00:00",
     "via_instance": "https://nitter.cz"
   },
   {
@@ -157,6 +207,66 @@
     "text": "Jensen Huang's resignation isn't just a major blow to Nvidia, it's one to the open-source AI movement he championed. tao.media/jensen-huang-resig… Link Jensen Huang Resigns as NVIDIA CEO, Open-Source AI Suffers Major Blow The board searches for a permanent successor as an investigation continues. tao.media",
     "url": "http://nitter.mizuki.st/taomedia_/status/2120926383459430649#m",
     "fetched_at": "2026-11-13T00:52:16.813293+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "rob_svrn",
+    "name": "Rob Greer",
+    "posted_at": "Thu, 12 Nov 2026 15:03:01 GMT",
+    "title": "RT by @rob_svrn: Bittensor is a full stack decentralized AI frontier lab that can’t be turned off by any government by the way",
+    "text": "Bittensor is a full stack decentralized AI frontier lab that can’t be turned off by any government by the way",
+    "url": "http://nitter.mizuki.st/0xSunRun/status/2120895143037358146#m",
+    "fetched_at": "2026-11-13T11:46:33.007564+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "rob_svrn",
+    "name": "Rob Greer",
+    "posted_at": "Thu, 12 Nov 2026 11:43:54 GMT",
+    "title": "RT by @rob_svrn: Do not get distracted by the headlines. Open-source AI is essential to the freedom of billions of people in the future.",
+    "text": "Do not get distracted by the headlines. Open-source AI is essential to the freedom of billions of people in the future.",
+    "url": "http://nitter.mizuki.st/APompliano/status/2120845035767837165#m",
+    "fetched_at": "2026-11-13T11:46:33.007564+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "rob_svrn",
+    "name": "Rob Greer",
+    "posted_at": "Thu, 12 Nov 2026 10:38:09 GMT",
+    "title": "RT by @rob_svrn: .@Microsoft’s patent describes rewarding PC owners for training AI with their spare GPU power. That same principle is at the core of Bittensor: incentivizing people worldwide to contribute compute and train AI together. That’s been the vision from day one.",
+    "text": ".@Microsoft’s patent describes rewarding PC owners for training AI with their spare GPU power. That same principle is at the core of Bittensor: incentivizing people worldwide to contribute compute and train AI together. That’s been the vision from day one. Kalshi (@Kalshi) JUST IN: Microsoft patents technology that could pay people to let AI train on their computers while they're not using them — http://nitter.mizuki.st/Kalshi/status/2120599189289603226#m",
+    "url": "http://nitter.mizuki.st/opentensor/status/2120828488211189793#m",
+    "fetched_at": "2026-11-13T11:46:33.007564+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "rob_svrn",
+    "name": "Rob Greer",
+    "posted_at": "Thu, 12 Nov 2026 02:54:12 GMT",
+    "title": "RT by @rob_svrn: If you're in Nvidia pivot to TAO",
+    "text": "If you're in Nvidia pivot to TAO",
+    "url": "http://nitter.mizuki.st/AltcoinDaily/status/2120711732188570031#m",
+    "fetched_at": "2026-11-13T11:46:33.007564+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "nigescore",
+    "name": "Nige",
+    "posted_at": "Sat, 19 Sep 2026 20:10:18 GMT",
+    "title": "RT by @nigescore: We’re completing our first 20 reference deployments, led by our CEO and engineering team, and the headline finding is that Manako is genuinely plug and play. No specialist integration required: a unit can be shipped to site and connected by anyone on the ground. That’s what makes our next phase possible. Our integration partners will roll out at scale on a simple, repeatable install, with less time on site and lower cost per deployment.",
+    "text": "We’re completing our first 20 reference deployments, led by our CEO and engineering team, and the headline finding is that Manako is genuinely plug and play. No specialist integration required: a unit can be shipped to site and connected by anyone on the ground. That’s what makes our next phase possible. Our integration partners will roll out at scale on a simple, repeatable install, with less time on site and lower cost per deployment.",
+    "url": "https://nitter.kareem.one/manakoai/status/2101403529558577403#m",
+    "fetched_at": "2026-11-13T11:47:49.104495+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "affine_io",
+    "name": "Affine",
+    "posted_at": "Mon, 02 Nov 2026 15:35:37 GMT",
+    "title": "mining affine https://affine.io/llms.txt",
+    "text": "mining affine affine.io/llms.txt",
+    "url": "http://nitter.mizuki.st/affine_io/status/2117279468456968385#m",
+    "fetched_at": "2026-11-13T11:48:42.651332+00:00",
     "via_instance": "https://nitter.cz"
   },
   {
