@@ -1,5 +1,25 @@
 [
   {
+    "handle": "lium_io",
+    "name": "Lium",
+    "posted_at": "Wed, 28 Oct 2026 14:06:44 GMT",
+    "title": "b300s available for $4/hour on lium! We are giving away b300s for the price of h200s. We now have 550 b300s on lium, with 443 of them rented. Constantly improving accessibility to frontier compute.",
+    "text": "b300s available for $4/hour on lium! We are giving away b300s for the price of h200s. We now have 550 b300s on lium, with 443 of them rented. Constantly improving accessibility to frontier compute.",
+    "url": "http://nitter.mizuki.st/lium_io/status/2115445163363316133#m",
+    "fetched_at": "2026-11-14T17:34:37.860933+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "polychain",
+    "name": "Polychain Capital",
+    "posted_at": "Wed, 14 Oct 2026 17:00:07 GMT",
+    "title": "RT by @polychain: This fully autonomous demo shows a Bagel Labs foundation model controlling a robot to make coffee. We previously released WorldDiT, our lightweight architecture for robot foundation models. At the time of release, it was on the Pareto frontier for model size and performance. We have since been refining this architecture to handle longer horizon, more useful tasks fully autonomously. Making coffee means getting a whole sequence of actions right. Each step depends on the result of the last, so small mistakes can build up as the task continues. Getting this to work with a small model is especially challenging. This demo is an example of what the model can do today. If you are deploying robots or have existing hardware you want to make autonomous, we would like to partner with you. https://bagel.com/partner",
+    "text": "This fully autonomous demo shows a Bagel Labs foundation model controlling a robot to make coffee. We previously released WorldDiT, our lightweight architecture for robot foundation models. At the time of release, it was on the Pareto frontier for model size and performance. We have since been refining this architecture to handle longer horizon, more useful tasks fully autonomously. Making coffee means getting a whole sequence of actions right. Each step depends on the result of the last, so small mistakes can build up as the task continues. Getting this to work with a small model is especiall",
+    "url": "http://nitter.mizuki.st/bidhan/status/2110415364475466160#m",
+    "fetched_at": "2026-11-14T17:32:26.915091+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
     "handle": "PanteraCapital",
     "name": "Pantera Capital",
     "posted_at": "Wed, 11 Nov 2026 23:57:47 GMT",
@@ -7,6 +27,26 @@
     "text": "Incredible launch day for @UngodlyGame. Already #1 in the role-playing category! Congratulations to @markotero &amp; the @AzraGames team on creating an incredibly beautiful &amp; brutal world to empower &amp; inspire a new generation of role-play! Honored to be part of this epic journey. UnGodly (@UngodlyGame) We got tired of waiting for God of War on mobile, so we made UnGodly. ⚔️ And it's so good we've forgotten about that other game. Download it now and you will too. #ungodly #LaunchWeek Video — http://nitter.mizuki.st/UngodlyGame/status/2120592400242684108#m",
     "url": "http://nitter.mizuki.st/FranklinBi/status/2120667334969020563#m",
     "fetched_at": "2026-11-14T00:36:22.763256+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "TargonCompute",
+    "name": "Targon",
+    "posted_at": "Wed, 11 Nov 2026 21:16:41 GMT",
+    "title": "R to @TargonCompute: Join the Targon community here: https://discord.gg/targon",
+    "text": "Join the Targon community here: discord.gg/targon Link Join the Targon Discord Server! Secure GPU cloud: virtual machines, bare metal and confidential compute for AI training and inference. The official Targon community, by Manifold Labs. | 1479 members discord.com",
+    "url": "http://nitter.mizuki.st/TargonCompute/status/2120626792721510699#m",
+    "fetched_at": "2026-11-14T17:33:23.261968+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "TargonCompute",
+    "name": "Targon",
+    "posted_at": "Wed, 11 Nov 2026 21:16:40 GMT",
+    "title": "We revamped our community Discord for the teams building on Targon. Members have access to our rebuilt support forum, get updates on what we ship and new episodes, and talk directly with our team and other builders. Come join us, Link below ↓",
+    "text": "We revamped our community Discord for the teams building on Targon. Members have access to our rebuilt support forum, get updates on what we ship and new episodes, and talk directly with our team and other builders. Come join us, Link below ↓",
+    "url": "http://nitter.mizuki.st/TargonCompute/status/2120626789747970301#m",
+    "fetched_at": "2026-11-14T17:33:23.261968+00:00",
     "via_instance": "https://nitter.cz"
   },
   {
@@ -70,6 +110,56 @@
     "via_instance": "https://nitter.cz"
   },
   {
+    "handle": "jon_durbin",
+    "name": "Jon Durbin",
+    "posted_at": "Wed, 04 Nov 2026 19:27:24 GMT",
+    "title": "The midterm results, regardless of your opinion on them, come with a fairly high degree of uncertainly around the future of new datacenter capacity (and/or costs) in the US. Parallax is no longer really optional IMO (though it was already inevitable). “You never change anything by fighting it; you change things by making them obsolete through superior technology.” - R. Buckminster Fuller Status updates: Almost done with dataset prep. It turns out ~10t tokens of high quality data tokenized and properly upsampled and so on is a lot of work and compute. Apple M5 and DGX spark support locked in, still waiting on my AMD Ryzen AI MAX+ PRO 495 from lucebox to get that supported as well. Still chugging away at the final touches on the code/agentic pipeline also (but that would be after the pretraining anyways, non-blocking). Settled on the openai o200k tokenizer, updated to always use single tokens for digits for better math capabilities (hopefully). (and more to come soon)",
+    "text": "The midterm results, regardless of your opinion on them, come with a fairly high degree of uncertainly around the future of new datacenter capacity (and/or costs) in the US. Parallax is no longer really optional IMO (though it was already inevitable). “You never change anything by fighting it; you change things by making them obsolete through superior technology.” - R. Buckminster Fuller Status updates: Almost done with dataset prep. It turns out ~10t tokens of high quality data tokenized and properly upsampled and so on is a lot of work and compute. Apple M5 and DGX spark support locked in, s",
+    "url": "http://nitter.mizuki.st/jon_durbin/status/2118062574289793345#m",
+    "fetched_at": "2026-11-14T17:33:09.695528+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "jon_durbin",
+    "name": "Jon Durbin",
+    "posted_at": "Wed, 04 Nov 2026 17:11:10 GMT",
+    "title": "RT by @jon_durbin: Introducing IOTA Decide 4B, our first public model. Pareto optimal. Built different. Trained across globally distributed GPUs with our SDK. Open weights, Apache-2.0. 🤗 http://huggingface.co/macrocosm-os/iota-decide-4b-v0.4",
+    "text": "Introducing IOTA Decide 4B, our first public model. Pareto optimal. Built different. Trained across globally distributed GPUs with our SDK. Open weights, Apache-2.0. 🤗 huggingface.co/macrocosm-os/… Video",
+    "url": "http://nitter.mizuki.st/MacrocosmosAI/status/2118028289813971098#m",
+    "fetched_at": "2026-11-14T17:33:09.695528+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "TargonCompute",
+    "name": "Targon",
+    "posted_at": "Wed, 04 Nov 2026 12:11:00 GMT",
+    "title": "RT by @TargonCompute: Cascade, connected throughout #Bittensor. @heydittoai - uses Ephemeris, our forecasting inference platform, to allow users to predict their credit usage based on their own historical data. @TargonCompute - provided us with compute credits so we could test how to configure our time series foundation model architecture, and complement it with the right data. @numinous_ai - uses our subnet to forecast upcoming relationships between events, and we use their knowledge graphs to strengthen our time series data. @lium_io - one of our supported compute providers, helping miners rent GPUs to contribute to our newly launched mixture-of-experts competition.",
+    "text": "Cascade, connected throughout #Bittensor. @heydittoai - uses Ephemeris, our forecasting inference platform, to allow users to predict their credit usage based on their own historical data. @TargonCompute - provided us with compute credits so we could test how to configure our time series foundation model architecture, and complement it with the right data. @numinous_ai - uses our subnet to forecast upcoming relationships between events, and we use their knowledge graphs to strengthen our time series data. @lium_io - one of our supported compute providers, helping miners rent GPUs to contribute",
+    "url": "http://nitter.mizuki.st/cascade_sn91/status/2117952751963643949#m",
+    "fetched_at": "2026-11-14T17:33:23.261968+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "polychain",
+    "name": "Polychain Capital",
+    "posted_at": "Tue, 27 Oct 2026 16:23:29 GMT",
+    "title": "RT by @polychain: We’ve raised an oversubscribed $30M Series A1 led by @walden_catalyst to build the Global Compute Grid. We’re turning fragmented GPU capacity into one unified platform where AI teams can access, manage, sell, and orchestrate compute. Our mission: make the world’s compute unified, productive and liquid.",
+    "text": "We’ve raised an oversubscribed $30M Series A1 led by @walden_catalyst to build the Global Compute Grid. We’re turning fragmented GPU capacity into one unified platform where AI teams can access, manage, sell, and orchestrate compute. Our mission: make the world’s compute unified, productive and liquid. Video",
+    "url": "http://nitter.mizuki.st/hyperbolic_labs/status/2115117188978033013#m",
+    "fetched_at": "2026-11-14T17:32:26.915091+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "jon_durbin",
+    "name": "Jon Durbin",
+    "posted_at": "Tue, 27 Oct 2026 15:49:51 GMT",
+    "title": "I accidentally forgot to pay the power bill and they turned it off. Happy little accident, because now I get to enjoy the wood stove while re-seating a few hundred 223 rounds (I loaded these originally for a precision bolt action which I traded a few years ago for a 556 and need shorter overall length rounds). Pure zen, memories of hunting trips past, deer season in a couple weeks, good day to zero in the scope too.",
+    "text": "I accidentally forgot to pay the power bill and they turned it off. Happy little accident, because now I get to enjoy the wood stove while re-seating a few hundred 223 rounds (I loaded these originally for a precision bolt action which I traded a few years ago for a 556 and need shorter overall length rounds). Pure zen, memories of hunting trips past, deer season in a couple weeks, good day to zero in the scope too.",
+    "url": "http://nitter.mizuki.st/jon_durbin/status/2115108724960338246#m",
+    "fetched_at": "2026-11-14T17:33:09.695528+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
     "handle": "tm0klc",
     "name": "Tim",
     "posted_at": "Tue, 20 Oct 2026 10:58:19 GMT",
@@ -80,6 +170,26 @@
     "via_instance": "https://nitter.cz"
   },
   {
+    "handle": "polychain",
+    "name": "Polychain Capital",
+    "posted_at": "Tue, 10 Nov 2026 17:21:23 GMT",
+    "title": "RT by @polychain: In June, I announced I was leaving @polychain after nearly 5 years, and I’m excited to finally be able to share what I’ve been working on. I’ve joined Index Industries (@Index_inds) as CEO and co-Founder with Brian Hardecker. Real estate is one of the largest and most important asset classes on the planet, but it has been left behind by the fintech revolution that has more people taking control of their financial future than ever before. It’s time for an update and Index Industries has raised a $50M Seed round led by @lightspeedvp, with participation from @polychain, @galaxyhq, @wmt_ventures and others to do just that. The future of real estate investment is now.",
+    "text": "In June, I announced I was leaving @polychain after nearly 5 years, and I’m excited to finally be able to share what I’ve been working on. I’ve joined Index Industries (@Index_inds) as CEO and co-Founder with Brian Hardecker. Real estate is one of the largest and most important asset classes on the planet, but it has been left behind by the fintech revolution that has more people taking control of their financial future than ever before. It’s time for an update and Index Industries has raised a $50M Seed round led by @lightspeedvp, with participation from @polychain, @galaxyhq, @wmt_ventures a",
+    "url": "http://nitter.mizuki.st/JReedRosenthal/status/2120205190674448567#m",
+    "fetched_at": "2026-11-14T17:32:26.915091+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "polychain",
+    "name": "Polychain Capital",
+    "posted_at": "Tue, 10 Nov 2026 17:16:25 GMT",
+    "title": "RT by @polychain: We’re thrilled to announce coming out of stealth with a $50M raise to transform how the world accesses real estate markets. Real estate is the largest asset class in the world, worth $300 trillion, so why hasn’t it evolved with the rest of finance? It remains one of the hardest to access, both directly and through traditional financial products. The first application of Index Industries’ technology is @USHP_Official: a first-of-its-kind liquid, investable index referencing the U.S. housing market. The U.S. housing market finally has a ticker.",
+    "text": "We’re thrilled to announce coming out of stealth with a $50M raise to transform how the world accesses real estate markets. Real estate is the largest asset class in the world, worth $300 trillion, so why hasn’t it evolved with the rest of finance? It remains one of the hardest to access, both directly and through traditional financial products. The first application of Index Industries’ technology is @USHP_Official: a first-of-its-kind liquid, investable index referencing the U.S. housing market. The U.S. housing market finally has a ticker. Video",
+    "url": "http://nitter.mizuki.st/Index_inds/status/2120203940255900142#m",
+    "fetched_at": "2026-11-14T17:32:26.915091+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
     "handle": "BarrySilbert",
     "name": "Barry Silbert",
     "posted_at": "Tue, 10 Nov 2026 15:06:24 GMT",
@@ -87,6 +197,16 @@
     "text": "We are reinvesting 100% of $ZCSH sponsor fees into the Zcash network across development, marketing, community, and education. Privacy should be accessible to everyone. $ZEC Zcash Invest 🛡️ (@ZcashInvest) The power of Zcash ($ZEC) is built and strengthened by the community around it. That’s why we’re directing $1M to non-profit organizations and initiatives advancing the Zcash ecosystem. We’ve awarded the first $400K to @ZcashFoundation, @pgpzcash, @TachyonZcash, and @ShieldedLabs. We are proud to support the work they do in helping usher in The Next Era of Crypto. #ZcashEra Learn more: globene",
     "url": "http://nitter.mizuki.st/Grayscale/status/2120171219802849361#m",
     "fetched_at": "2026-11-14T11:07:46.356566+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "polychain",
+    "name": "Polychain Capital",
+    "posted_at": "Tue, 10 Nov 2026 13:08:48 GMT",
+    "title": "RT by @polychain: Introducing Marble. We power the world’s frontier markets with capital and liquidity. ◐ Marble Markets: institutional trading across digital assets, real-world assets, prediction markets and compute ⊞ Marble Compute: institutional private credit for AI infrastructure $11M seed led by @polychain https://www.prnewswire.com/news-releases/marble-launches-with-11m-seed-led-by-polychain-capital-to-build-institutional-frontier-markets-trading-and-ai-infrastructure-finance-302934821.html",
+    "text": "Introducing Marble. We power the world’s frontier markets with capital and liquidity. ◐ Marble Markets: institutional trading across digital assets, real-world assets, prediction markets and compute ⊞ Marble Compute: institutional private credit for AI infrastructure $11M seed led by @polychain prnewswire.com/news-releases…",
+    "url": "http://nitter.mizuki.st/marblegroupxyz/status/2120141623694623135#m",
+    "fetched_at": "2026-11-14T17:32:26.915091+00:00",
     "via_instance": "https://nitter.cz"
   },
   {
@@ -130,6 +250,26 @@
     "via_instance": "https://nitter.cz"
   },
   {
+    "handle": "TargonCompute",
+    "name": "Targon",
+    "posted_at": "Thu, 12 Nov 2026 18:13:56 GMT",
+    "title": "The Targon SDK update now covers VMs, Bare Metal and Sandboxes. → Manage all three from your own code → Python, Go and TypeScript for all three → Sandbox files, terminals, forks and templates",
+    "text": "The Targon SDK update now covers VMs, Bare Metal and Sandboxes. → Manage all three from your own code → Python, Go and TypeScript for all three → Sandbox files, terminals, forks and templates",
+    "url": "http://nitter.mizuki.st/TargonCompute/status/2120943189217390699#m",
+    "fetched_at": "2026-11-14T17:33:23.261968+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "TargonCompute",
+    "name": "Targon",
+    "posted_at": "Thu, 12 Nov 2026 18:13:56 GMT",
+    "title": "R to @TargonCompute: Explore the SDK and runnable examples on GitHub: https://github.com/manifold-inc/targon-sdk",
+    "text": "Explore the SDK and runnable examples on GitHub: github.com/manifold-inc/targ… Link GitHub - manifold-inc/targon-sdk: Python SDK for building and deploying serverless applications on... Python SDK for building and deploying serverless applications on the Targon platform. - manifold-inc/targon-sdk github.com",
+    "url": "http://nitter.mizuki.st/TargonCompute/status/2120943192581566602#m",
+    "fetched_at": "2026-11-14T17:33:23.261968+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
     "handle": "dylan522p",
     "name": "Dylan Patel",
     "posted_at": "Thu, 12 Nov 2026 18:11:56 GMT",
@@ -160,6 +300,36 @@
     "via_instance": "https://nitter.cz"
   },
   {
+    "handle": "lium_io",
+    "name": "Lium",
+    "posted_at": "Thu, 12 Nov 2026 08:36:30 GMT",
+    "title": "R to @lium_io: Image",
+    "text": "",
+    "url": "http://nitter.mizuki.st/lium_io/status/2120797874015617258#m",
+    "fetched_at": "2026-11-14T17:34:37.860933+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "lium_io",
+    "name": "Lium",
+    "posted_at": "Thu, 12 Nov 2026 08:36:28 GMT",
+    "title": "latest 30 day update: new paying customers +78% deposits +94% existing customer spend +46% annualized run rate +79% GPU spend + 87% rentals +67%",
+    "text": "latest 30 day update: new paying customers +78% deposits +94% existing customer spend +46% annualized run rate +79% GPU spend + 87% rentals +67% lium.io (@lium_io) new month in review just dropped. +45% spend +16% active users +106% rentals +11% median rental time +20% charged +32% first time renters +15% providers -32% rental failures — http://nitter.mizuki.st/lium_io/status/2108799096182223058#m",
+    "url": "http://nitter.mizuki.st/lium_io/status/2120797867325685979#m",
+    "fetched_at": "2026-11-14T17:34:37.860933+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "lium_io",
+    "name": "Lium",
+    "posted_at": "Thu, 12 Nov 2026 08:07:49 GMT",
+    "title": "Honored to have powered one of the the ARC-AGI solutions. Congrats Hazem! https://www.kaggle.com/competitions/arc-prize-2026-arc-agi-2/writeups/arc-agi-is-an-experience-problem-where-do-you-get",
+    "text": "Honored to have powered one of the the ARC-AGI solutions. Congrats Hazem! kaggle.com/competitions/arc-… Link ARC-AGI Is an Experience Problem: Where Do You Get the Experience From? | Kaggle We build a task generator for ARC-AGI and use it to scale open weight small models to new highs on ARC-AGI 2 while using plain CoT. kaggle.com",
+    "url": "http://nitter.mizuki.st/lium_io/status/2120790656268578843#m",
+    "fetched_at": "2026-11-14T17:34:37.860933+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
     "handle": "opentensor",
     "name": "Opentensor Foundation",
     "posted_at": "Thu, 12 Nov 2026 03:21:20 GMT",
@@ -167,6 +337,26 @@
     "text": "@Hippius_cloud is a Huggingface replacement. I've used it for decentralized training, hosting quadrillion token datasets, and tens of thousands of models. It works, its cheap, secure, reliable, and runs on encrypted compute contributed by a community of miners across the world. Best bet replacement IMO. hippius.com/hippius-hub Link Hippius Hub – Distributed AI Model and Container Registry One registry for AI models and containers: keep your huggingface_hub code and push with docker or oras. Stored on independent machines, not one company&apos;s. hippius.com Erik Voorhees (@ErikVoorhees) Is the",
     "url": "http://nitter.mizuki.st/const_reborn/status/2120718559089193442#m",
     "fetched_at": "2026-11-14T11:07:41.154598+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "jon_durbin",
+    "name": "Jon Durbin",
+    "posted_at": "Thu, 05 Nov 2026 15:19:36 GMT",
+    "title": "In case you forgot (we haven't). There is no universe in which chutes exists without bittensor. Expanding our OpCo's service and refocusing on a healthier subnet dynamic has some people confused, but it's very explicitly for strengthening the subnet. https://x.com/jon_durbin/status/2114841269188846045?a=p8_muouff_K9GNUjrN4 roadmap/plan ICYMI",
+    "text": "In case you forgot (we haven't). There is no universe in which chutes exists without bittensor. Expanding our OpCo's service and refocusing on a healthier subnet dynamic has some people confused, but it's very explicitly for strengthening the subnet. nitter.mizuki.st/jon_durbin/status/2114… roadmap/plan ICYMI Jon Durbin (@jon_durbin) Chutes is and always will be a bittensor project, chutes is bittensor, and bittensor is chutes 🫶 Reminder too that chutes team operates as a group of independent corporations with no CEO, and our funds are locked into a smart contract which pays our staking reward",
+    "url": "http://nitter.mizuki.st/jon_durbin/status/2118362603265151465#m",
+    "fetched_at": "2026-11-14T17:33:09.695528+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "lium_io",
+    "name": "Lium",
+    "posted_at": "Sun, 25 Oct 2026 18:16:20 GMT",
+    "title": "lium: the only place globally where you can rent h200 and b300 clusters on-demand and instantly. We continue to revolutionize the GPU industry by shipping novel features optimized for agent productivity and efficiency.",
+    "text": "lium: the only place globally where you can rent h200 and b300 clusters on-demand and instantly. We continue to revolutionize the GPU industry by shipping novel features optimized for agent productivity and efficiency.",
+    "url": "http://nitter.mizuki.st/lium_io/status/2114420810857263254#m",
+    "fetched_at": "2026-11-14T17:34:37.860933+00:00",
     "via_instance": "https://nitter.cz"
   },
   {
@@ -237,6 +427,16 @@
     "text": "NYT has responded to my post by claiming that I’m “spreading conspiracy theories.” But which of us is the one trafficking in unsubstantiated allegations? Recent coverage (including CNN, which I QT’d) shows: — The intelligence community has not established conclusive evidence that Alice Huang knowingly acted as a spy or funneled information to Beijing. — There is internal disagreement about the strength of the evidence and whether she was recruited by the MSS. — Attorney General Todd Blanche has said on the record that the Justice Department, he, and FBI Director Patel have reached no conclusio",
     "url": "http://nitter.mizuki.st/DavidSacks/status/2121415263128019098#m",
     "fetched_at": "2026-11-14T11:07:51.958798+00:00",
+    "via_instance": "https://nitter.cz"
+  },
+  {
+    "handle": "jon_durbin",
+    "name": "Jon Durbin",
+    "posted_at": "Sat, 07 Nov 2026 12:03:40 GMT",
+    "title": "I just paid $8 for a 2x4, this is out of control lol",
+    "text": "I just paid $8 for a 2x4, this is out of control lol",
+    "url": "http://nitter.mizuki.st/jon_durbin/status/2119038070444183762#m",
+    "fetched_at": "2026-11-14T17:33:09.695528+00:00",
     "via_instance": "https://nitter.cz"
   },
   {
